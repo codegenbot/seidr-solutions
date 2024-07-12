@@ -1,24 +1,23 @@
 def main():
-    xs = list(map(int, input().strip().split()))
+    xs = list(map(float, input().strip().split()))
 
     def find_zero(xs: list):
-        try:
-            n = len(xs)
-            if n < 2:
-                raise ValueError("Input list must have at least 2 elements")
+        if len(xs) < 2:
+            raise ValueError("Input list must have at least 2 elements")
 
-            a = xs[-1]
-            b = xs[-2]
+        a = xs[-1]
+        b = xs[-2]
 
-            if a == 0:
-                raise ZeroDivisionError("Division by zero not allowed")
+        if a == 0:
+            raise ZeroDivisionError("Division by zero not allowed")
 
-            return -b / a
-        except (ValueError, ZeroDivisionError) as e:
-            return str(e)
+        return -b / a
 
-    print(find_zero(xs))
-
+    try:
+        result = find_zero(xs)
+        print(result)
+    except (ValueError, ZeroDivisionError) as e:
+        print(e)
 
 # Call the main function
 main()
