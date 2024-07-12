@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 import hashlib
 
 
