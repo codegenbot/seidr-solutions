@@ -1,4 +1,5 @@
 def encode(message):
+    message = message.lower()
     encoded_message = ""
     vowels = "aeiouAEIOU"
     for char in message:
