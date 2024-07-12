@@ -1,24 +1,25 @@
-def calculate_quadratic_roots():
-    try:
-        coefficients = list(
-            map(float, input("Enter coefficients (space-separated): ").split())
-        )
-        a, b, c = coefficients
+import math
 
-        if a == 0:
-            print("Error: The coefficient 'a' cannot be zero.")
+if __name__ == "__main__":
+    try:
+        xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+        n = len(xs)
+
+        if any(x < 0 for x in xs):
+            raise ValueError("xs must have non-negative coefficients")
+
+        if n != 4:
+            print("Error: Please enter exactly four coefficients.")
         else:
-            discriminant = b**2 - 4 * a * c
-            if discriminant < 0:
-                print("The equation has no real roots.")
-            elif discriminant == 0:
-                root = -b / (2 * a)
-                print(f"The equation has one root: {round(root, 2)}")
+            a, b, c, d = xs
+            if (b**2 - 4 * a * c) < 0:
+                print("Quadratic equation has no real solutions.")
+            elif b == 0:
+                x = (-c) / (a)
+                print(round(x, 2))
             else:
-                root1 = (-b + math.sqrt(discriminant)) / (2 * a)
-                root2 = (-b - math.sqrt(discriminant)) / (2 * a)
-                print(
-                    f"The equation has two roots: {round(root1, 2)} and {round(root2, 2)}"
-                )
+                x1 = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
+                x2 = (-b - math.sqrt(b**2 - 4 * a * c)) / (2 * a)
+                print(f"Solutions: {round(x1, 2)} and {round(x2, 2)}")
     except ValueError as e:
         print(f"Error: {e}")
