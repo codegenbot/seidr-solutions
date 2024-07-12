@@ -1,3 +1,4 @@
+```cpp
 double vectorDistance(int n) {
     cin >> n;
     vector<float> v1(n);
