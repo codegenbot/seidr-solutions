@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
@@ -29,14 +28,14 @@ int main() {
         }
     }
     
-    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
+    std::vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
+    std::vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
     
     for (int num : subvector1) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     for (int num : subvector2) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
 
     return 0;
