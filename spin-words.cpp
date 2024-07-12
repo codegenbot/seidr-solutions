@@ -9,16 +9,21 @@ int main() {
     string input;
     getline(cin, input);
     
+    if (input.empty()) {
+        cout << "" << endl;
+        return 0;
+    }
+    
     string word, result;
     
     istringstream iss(input);
 
     while (iss >> word) {
         if (word.length() >= 5) {
-            for (size_t i = 0; i < word.length() / 2; ++i) {
+            for (int i = 0; i < word.length() / 2; ++i) {
                 char temp = word[i];
-                word[i] = word[word.length() - i - 1];
-                word[word.length() - i - 1] = temp;
+                word[i] = word[word.length() - 1 - i];
+                word[word.length() - 1 - i] = temp;
             }
         }
         result += word + " ";
