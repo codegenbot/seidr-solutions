@@ -1,4 +1,4 @@
-def calculate_average_and_median():
+def calculate_average_and_median(*args):
     while True:
         user_input = input("Enter numbers separated by space: ")
         
