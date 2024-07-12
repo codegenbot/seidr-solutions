@@ -1,6 +1,7 @@
+```Python
 def smallest_change(arr):
     n = len(arr)
-    arr_str = [str(x) for x in arr]
-    rev_arr_str = [''.join(sorted(str(x))) for x in arr]
-    diff_count = sum(1 for i in range(n) if arr_str[i] != rev_arr_str[i])
+    arr = [int(x) for x in arr]
+    rev_arr = sorted(arr)[::-1]
+    diff_count = sum(1 for i in range(n) if arr[i] != rev_arr[i])
     return diff_count
