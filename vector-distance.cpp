@@ -26,7 +26,9 @@ int main() {
         result += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    std::cout << std::fixed << std::sqrt(result) << std::endl;
+    result = result; // Calculate the squared Euclidean distance
+
+    std::cout << std::fixed << result << std::endl;
 
     return 0;
 }
