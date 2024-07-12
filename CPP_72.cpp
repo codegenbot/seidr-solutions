@@ -1,13 +1,11 @@
-```cpp
 #include <iostream>
 
 bool will_it_fly(std::vector<std::vector<int>> q, int w) {
-    // your function implementation here
-    if(w >= (q[0][1] - q[0][0]) && w >= (q[1][1] - q[1][0])) {
-        return true;
-    } else {
-        return false;
+    for (auto v : q) {
+        if ((v[0] * v[1]) > w)
+            return true;
     }
+    return false;
 }
 
 int main() {
@@ -19,4 +17,3 @@ int main() {
         std::cout << "Will fly.\n";
     }
     return 0;
-}
