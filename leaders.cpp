@@ -11,10 +11,10 @@ vector<int> findLeaders(vector<int> nums) {
     for (int i = n - 2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
             maxRight = nums[i];
-            leaders.insert(leaders.begin(), maxRight);
+            leaders.push_back(maxRight);
         }
     }
-    return leaders;
+    return vector<int>(leaders.rbegin(), leaders.rend());
 }
 
 int main() {
