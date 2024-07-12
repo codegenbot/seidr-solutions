@@ -1,7 +1,11 @@
 ```
+import math
+
 def max_fill(n, capacity_grid):
-    rows = [row for row in capacity_grid]
-    cols = len(rows[0])
-    total_water = sum(len(row) for row in rows)
-    max_capacity = min(row[:1] for row in rows).pop()
+    total_water = 0
+    max_capacity = float('inf')
+    for row in capacity_grid:
+        total_water += len(row)
+        if min(row) < max_capacity:
+            max_capacity = min(row)
     return math.ceil(total_water / (n * max_capacity))
