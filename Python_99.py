@@ -16,4 +16,4 @@ def find_closest_number():
 if __name__ == '__main__':
     while True:
         closest_integer, difference = find_closest_number()
-        print("Closest integer: {}, Difference: {}".format(closest_integer, difference))
+        print(f"Closest integer: {closest_integer}, Difference: {difference}")
