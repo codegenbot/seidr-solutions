@@ -1,4 +1,4 @@
-Please complete the following code given the task description and function signature:
+Here is the completed code:
 
 def sum_squares(lst):
     total = 0
