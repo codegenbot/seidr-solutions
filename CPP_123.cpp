@@ -14,11 +14,9 @@ vector<int> get_odd_collatz(int) {
         if (n % 2 == 0) {
             n /= 2;  
         } else {
-            result.push_back(n);
+            result.push_back(n); // Store only odd numbers
         }
-        if (n % 2 != 0) { 
-            n = (n * 3) + 1;
-        }
+        n = (n * 3) + 1;
     }
     return result;
 }
