@@ -10,7 +10,7 @@ int prod_signs(const std::vector<int>& arr) {
     int product = 1;
     int sum = 0;
 
-    for (const int& num : arr) {
+    for (int num : arr) {
         if (num > 0) {
             product *= 1;
         } else if (num < 0) {
@@ -27,6 +27,5 @@ int prod_signs(const std::vector<int>& arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
-
     return 0;
 }

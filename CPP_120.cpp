@@ -11,5 +11,11 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == vector<int>{});
-```
+int main() {
+    // Problem Description: Given an array containing integers and a value k, return the k largest elements from the array.
+    // Function Signature: vector<int> maximum(vector<int> arr, int k)
+    
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0) == vector<int>{});
+    
+    return 0;
+}
