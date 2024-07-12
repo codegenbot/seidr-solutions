@@ -1,8 +1,8 @@
 import sys
 
 def main():
-    print("Enter a list of floats separated by spaces:", flush=True)
-    xs = list(map(float, input().split()))
+    print("Enter a list of floats separated by spaces:")
+    xs = list(map(float, input().strip().split()))
 
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
