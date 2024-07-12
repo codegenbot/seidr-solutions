@@ -11,6 +11,5 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
         else:
             while len(result) > 1 and result[-1] == delimiter:
                 result.pop()
-            result.append(delimiter)
-            result.append(num)
+            result.extend([delimiter, num])
     return result
