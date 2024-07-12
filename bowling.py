@@ -12,13 +12,13 @@ def bowling_score(bowls):
             if bowls[bowl_index + 2] == "X":
                 score += 10
             else:
-                score += int(bowls[bowl_index + 2])
+                score += 10 - int(bowls[bowl_index])
             bowl_index += 2
         else:
-            if bowls[bowl_index + 1] == "/":
-                score += 10
+            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+            if frame != 10:
+                bowl_index += 2
             else:
-                score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            bowl_index += 2
+                bowl_index += 3
 
     return score
