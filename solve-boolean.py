@@ -29,7 +29,7 @@ def solve_boolean(expression):
     return result
 
 print(solve_boolean('t'))  
-print(solve_boolean('f')) 
-print(solve_boolean('f&f')) 
-print(solve_boolean('f&t')) 
-print(solve_boolean('t&f'))
+print(solve_boolean('f'))  
+print(solve_boolean('f&f'))  
+print(solve_boolean('f&t'))  
+print(solve_boolean('t&f')) 
