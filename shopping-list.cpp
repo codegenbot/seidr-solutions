@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 using namespace std;
 
@@ -23,7 +22,7 @@ int main() {
         total_price += prices[i] * (1.0 - discounts[i] / 100);
     }
     
-    cout << fixed << setprecision(2) << total_price << endl;
+    cout << total_price << endl;
     
     return 0;
 }
