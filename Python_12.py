@@ -1,3 +1,4 @@
+```
 def longest_common_substring(str1: str, str2: str) -> Optional[str]:
     if not str1 or not str2:
         return None
