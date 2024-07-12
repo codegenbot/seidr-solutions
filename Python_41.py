@@ -1,4 +1,3 @@
-```python
 import re
 
 input_string = input("Enter car race collision: ").strip().lower()
