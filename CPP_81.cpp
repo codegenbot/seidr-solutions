@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -28,7 +27,14 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0.0f, 0.7f};
-    std::vector<std::string> result = numerical_letter_grade(grades);
-    assert(same(result, {"E", "C+"}));
+    float grade1, grade2;
+    std::cout << "Enter the first grade: ";
+    std::cin >> grade1;
+    std::cout << "Enter the second grade: ";
+    std::cin >> grade2;
+    std::vector<float> grades = {grade1, grade2};
+    std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
+    if (!same(result, std::vector<std::string>({"E", "C+"}))) {
+        assert(false);
+    }
 }
