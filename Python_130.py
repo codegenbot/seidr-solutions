@@ -1,15 +1,12 @@
+```
 def tri(n):
-    if n == 0:
-        return [3]
-
-    tribonacci_sequence = [3]
-    
-    while len(tribonacci_sequence) <= n:
-        if len(tribonacci_sequence) % 2 == 1:
-            next_number = tribonacci_sequence[-1] + tribonacci_sequence[-2] + (tribonacci_sequence[-3] if len(tribonacci_sequence) >= 3 else 0)
+    if n <= 2:
+        if n == 1:
+            return [1, 3]
         else:
-            next_number = 1 + float(len(tribonacci_sequence)) / 2
-        
-        tribonacci_sequence.append(next_number)
-    
-    return tribonacci_sequence
+            return [3, 2]
+    else:
+        sequence = [3, 2]
+        for _ in range(2, n):
+            sequence.append(sequence[-1] + sequence[-2] + sequence[-3])
+        return sequence
