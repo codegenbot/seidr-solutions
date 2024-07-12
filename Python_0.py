@@ -1,6 +1,6 @@
 import sys
 
-numbers = list(map(int, input().strip().split()))
+numbers = list(map(int, sys.stdin.readline().strip().split()))
 threshold = numbers.pop()
 
 def check_numbers(numbers, threshold):
