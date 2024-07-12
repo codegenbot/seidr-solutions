@@ -1,13 +1,19 @@
-```
 from typing import List
 
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
+
+def has_close_elements():
+    numbers = input("Enter numbers (space separated): ")
+    threshold = float(input("Enter threshold: "))
+    numbers = list(map(float, numbers.split()))
+    
+    if len(numbers) < 2:
+        return False
+    
     numbers.sort()
     for i in range(len(numbers) - 1):
-        if numbers[i + 1] - numbers[i] <= threshold:
+        if abs(numbers[i + 1] - numbers[i]) <= threshold:
             return False
     return True
 
-numbers = [1.0, 1.1, 2.2]
-threshold = 0.5
-print(has_close_elements(numbers, threshold))
+
+print(has_close_elements())
