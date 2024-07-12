@@ -1,4 +1,6 @@
-```cpp
+```
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 
@@ -18,6 +20,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 
 int main() {
     std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    bool same = issame({result.begin(), result.end()});
+    bool same = issame(result);
     return 0;
 }
