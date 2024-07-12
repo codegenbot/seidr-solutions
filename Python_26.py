@@ -1,3 +1,4 @@
+```
 def remove_duplicates(numbers):
     input_numbers = []
     
@@ -7,6 +8,7 @@ def remove_duplicates(numbers):
         if str(user_num).lower() == 'q':
             break
         
-        input_numbers.append(user_num)
+        if user_num not in input_numbers:
+            input_numbers.append(user_num)
     
-    return list(dict.fromkeys(input_numbers))
+    return list(set(input_numbers))
