@@ -1,7 +1,5 @@
-#include <vector>
 #include <iostream>
-#include <ostream>
-
+#include <vector>
 using namespace std;
 
 int basement(vector<int>& v) {
@@ -15,7 +13,6 @@ int basement(vector<int>& v) {
 }
 
 int main() {
-    // test cases
     vector<int> v1({1});
     cout << basement(v1) << endl;
 
