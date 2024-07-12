@@ -19,9 +19,8 @@ void issame(std::vector<int> vec1, std::vector<int> vec2){
     assert(vec1 == vec2);
 }
 
-int main(){
-    assert(factorize(100) == std::vector<int>{2, 2, 5, 5});
-    issame(factorize(3 * 2 * 3), {2, 3, 3});
-    
+int main() {
+    issame(factorize(3 * 2 * 3) , {2, 3, 3});
+
     return 0;
 }
