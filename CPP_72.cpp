@@ -10,10 +10,23 @@ bool will_it_fly(vector<vector<int>> q, int w) {
     }
 }
 
-bool will_it_fly(vector<vector<int>> q, int w) {
-    if(w >= (q[0][1] - q[0][0]) && w >= (q[1][1] - q[1][0])) {
-        return true;
-    } else {
-        return false;
+int main() {  
+    vector<vector<int>> q;
+    int n;  
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int x, y; 
+        cin >> x >> y;
+        q.push_back({x,y});
     }
+    int w;
+    cin >> w;
+    if (!will_it_fly(q, w)) {
+        cout << "Will not fly.\n";
+    } else {
+        cout << "Will fly.\n";
+    }
+    
+    assert (will_it_fly({{1,2}, {3,4}}, 5) == true);
+    return 0;
 }
