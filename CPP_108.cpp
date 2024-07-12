@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -31,17 +32,7 @@ int count_nums(const std::vector<std::string>& nums) {
 
 }
 
-int main() {
-    std::vector<std::string> numbers; 
-
-    int n; 
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        string num; 
-        cin >> num; 
-        numbers.push_back(num);
-    }
-
+int main() { 
+    std::vector<std::string> numbers = {"-123", "456", "-789"};
     return count_nums(numbers);
 }
