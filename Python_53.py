@@ -1,6 +1,8 @@
+def multiply_two_numbers(x, y):
+    return x * y
+
 try:
-    x = int(raw_input("Enter the first integer: "))
-    y = int(raw_input("Enter the second integer: "))
+    x, y = map(int, input("Enter two integers separated by space: ").split())
     result = multiply_two_numbers(x, y)
     print("Result of multiplication:", result)
 except ValueError:
