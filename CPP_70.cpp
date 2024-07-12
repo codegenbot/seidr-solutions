@@ -2,7 +2,7 @@
 #include <vector>
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [b](int x) { return std::count(b.begin(), b.end(), x) == 1; });
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -21,7 +21,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    if (!is_same(strange_sort_list({111}), {111})) {
+    if (!is_same(strange_sort_list({111}), std::vector<int>({111}))) {
         std::cerr << "Assertion failed.\n";
         return 1;
     }
