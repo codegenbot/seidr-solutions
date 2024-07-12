@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -16,7 +14,12 @@ int main() {
         std::cout << "Enter " << n << " integers: ";
         for(int i = 0; i < n; i++){
             int x;
-            std::cin >> x;
+            while (!(std::cin >> x)) {
+                std::cout << "Invalid input. Please enter an integer: ";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cin >> x;
+            }
             lst.push_back(x);
         }
 
