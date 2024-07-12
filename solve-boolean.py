@@ -13,9 +13,9 @@ def solve_boolean(expression):
             op = char
             while len(operators) > 0 and operators[-1] == op:
                 if op == '&':
-                    result = any([op == 'T' for op in operators])
-                elif op == '|':
                     result = all([op == 'T' for op in operators])
+                elif op == '|':
+                    result = any([op == 'T' for op in operators])
                 operators.pop()
             operators.append(char)
         else:
