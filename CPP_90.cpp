@@ -4,9 +4,9 @@
 
 int next_smallest(int n) {
     std::vector<int> lst;
+    int x;
 
     for (int i = 0; i < n; i++) {
-        int x;
         std::cin >> x;
         lst.push_back(x);
     }
@@ -16,7 +16,7 @@ int next_smallest(int n) {
         bool same = true;
         for(int i = 1; i < lst.size(); i++){
             if(lst[i] != lst[i-1]) {
-                std::cout << lst[i];
+                std::cout << "The next smallest integer is: " << lst[i];
                 return x;
             }
         }
