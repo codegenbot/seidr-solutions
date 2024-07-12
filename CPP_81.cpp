@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```cpp
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -44,7 +42,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
         } else if(g > 0.0) {
             letterGrade = "D-";
         } else {
-            letterGrade = "E";
+            letterGrade = "F";
         }
         result.push_back(letterGrade);
     }
