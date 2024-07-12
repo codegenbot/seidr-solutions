@@ -3,7 +3,7 @@
 #include <string>
 
 int main() {
-    // Your code logic goes here
+    // Your code logic for solving the problem goes here
 
     return 0;
 }
