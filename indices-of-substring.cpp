@@ -11,9 +11,7 @@ int main() {
     size_t startPos = 0;
     size_t pos;
     while (startPos < text.size() && (pos = text.find(target, startPos)) != std::string::npos) {
-        if (pos != startPos) {
-            indices.push_back(pos);
-        }
+        indices.push_back(pos);
         startPos = pos + 1;
     }
     
