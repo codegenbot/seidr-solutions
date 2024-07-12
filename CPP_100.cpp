@@ -2,26 +2,25 @@
 #include <vector>
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    if(a.size()!=b.size())
+        return false;
+    for(int i=0;i<a.size();i++)
+        if(a[i]!=b[i])
+            return false;
+    return true;
 }
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = 1; // Initialize with a value that's likely to cause the problem.
+    int stones = 1; 
     while (stones <= n) {
         pile.push_back(stones);
-        if (n % 2 == 1) {
-            n++;
-            stones = n;
-        } else {
-            n++;
-            stones = n;
-        }
+        stones +=2; // increment stones by 2
     }
     return pile;
 }
 
 int main() {
-    assert(std::make_a_pile(8) == std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
+    assert(std::make_a_pile(8) == std::vector<int>{1,3,5,7,9,11,13,15});
     return 0;
 }
