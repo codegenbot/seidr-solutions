@@ -1,10 +1,10 @@
-```
-#include <algorithm>
-#include <string>
 #include <any>
+#include <string>
 
-if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    std::string x = std::any_cast<std::string>(a);
-    std::string y = std::any_cast<std::string>(b);
+using namespace std;
+
+if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    string x = any_cast<string>(a);
+    string y = any_cast<string>(b);
     return (x < y) ? a : ((y < x) ? b : a);
 }
