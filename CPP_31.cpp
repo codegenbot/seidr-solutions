@@ -1,17 +1,9 @@
-#include <iostream>
-
-bool is_prime(int n) {
-    bool is_divisible = false;
-    for (int i = 2; i * i <= n && !is_divisible; ++i) {
-        if (n % i == 0) {
-            is_divisible = true;
-        }
-    }
-    return !is_divisible;
-}
-
+```cpp
 int main() {
     int num;
     std::cin >> num;
-    std::cout << (int)(is_prime(num));
+    if (is_prime(num)) 
+        std::cout << "true"; 
+    else 
+        std::cout << "false"; 
 }
