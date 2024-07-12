@@ -1,6 +1,14 @@
-def Strongest_Extension(class_name, extensions):
-    def strength(extension):
-        return sum(1 for char in extension if char.isupper()) - sum(1 for char in extension if char.islower())
+def Strongest_Extension(extension, extensions_list):
+    extensions_list = [int(ext) for ext in extensions_list if ext.isdigit()]
 
-    strongest_extension = max(extensions, key=lambda x: (strength(x), extensions.index(x)))
-    return f"{class_name}.{strongest_extension}"
+    if not extension.isdigit() or int(extension) not in extensions_list:
+        return f"{extension}.{max(extensions_list)}"
+
+    extension = int(extension)
+    extension_index = extensions_list.index(extension)
+
+    return (
+        f"{extension}.{extensions_list[extension_index - 1]}"
+        if extension_index > 0
+        else f"{extension}.{max(extensions_list)}"
+    )
