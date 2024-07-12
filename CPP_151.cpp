@@ -1,17 +1,20 @@
 ```cpp
-int double_the_difference(std::vector<int> lst) {
-    int odd_sum = 0; 
-    for (auto x : lst) { 
-        if (x % 2 != 0) { 
-            odd_sum += x; 
-        } 
-    }
-    return std::abs(odd_sum - (std::accumulate(lst.begin(), lst.end(), 0) - odd_sum));
-}
+#include <iostream>
+#include <vector>
+#include <cassert>
 
 int main() {
-    std::vector<int> lst = {1, 2, 3}; 
-    int result = double_the_difference(lst); 
-    assert(result == 5); 
+    std::vector<double> input_vector = {1.0, 2.0, 3.0};
+    int odd_sum = double_the_difference(input_vector); 
+    assert(odd_sum == 5);
     return 0;
+}
+
+int double_the_difference(const std::vector<double>& input_vector) {
+    int odd_sum = 0;
+    for (double x : input_vector) {
+        if (std::floor(x + 0.5) != x)
+            odd_sum += static_cast<int>(x * 2);
+    }
+    return odd_sum;
 }
