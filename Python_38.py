@@ -1,7 +1,9 @@
 def decode_cyclic():
     s = input("Enter a string: ")
     while True:
-        n = input("Enter 1 for linear decoding and any other number for cyclic decoding: ")
+        n = input(
+            "Enter 1 for linear decoding and any other number for cyclic decoding: "
+        )
         if n.isdigit() and (n == "1" or int(n) > 0):
             break
         else:
@@ -19,3 +21,6 @@ def decode_cyclic():
         while len(result) < len(s):
             result.append(result[-1])
         print("".join(result))
+
+
+decode_cyclic()
