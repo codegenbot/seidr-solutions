@@ -5,19 +5,17 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int m = text.size();
-    int n = target.size();
-    for (int i = 0; i <= m - n; ++i) {
-        int j;
-        for (j = 0; j < n; ++j) {
+    int n = text.size(), m = target.size();
+    for (int i = 0; i <= n - m; ++i) {
+        bool found = true;
+        for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
+                found = false;
                 break;
             }
         }
-        if (j == n) {
-            for (j = 0; j < n; ++j) {
-                indices.push_back(i + j);
-            }
+        if (found) {
+            indices.push_back(i);
         }
     }
     return indices;
