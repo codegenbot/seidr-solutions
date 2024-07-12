@@ -1,6 +1,3 @@
-from typing import List
-
-
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     level = 0
@@ -14,4 +11,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if level > max_level:
             max_level = level
     result.append(max_level)
-    return [0] + ([level + 1] if i == 0 else [i - 1] for i in result)
+    return [0] + [level + 1 for level in range(result[0], -1, -1)]
