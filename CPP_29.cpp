@@ -3,7 +3,7 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 int main() {
-    // main function code
+    // Your main function code here
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -17,5 +17,13 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
