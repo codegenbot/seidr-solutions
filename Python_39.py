@@ -1,5 +1,3 @@
-import sys
-
 def prime_fib():
     def fibonacci(num):
         if num <= 1:
@@ -15,7 +13,8 @@ def prime_fib():
                 return False
         return True
 
-    n = int(sys.stdin.readline().strip())
+    print("Enter a number:")
+    n = int(input())
     count = 0
     i = 0
     while count < n:
