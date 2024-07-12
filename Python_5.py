@@ -1,14 +1,26 @@
-from typing import List
+```
+def process_numbers():
+    user_input = input("Enter numbers separated by delimiter: ")
 
+    if "," not in user_input:
+        print("Invalid input")
+        return []
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    result = []
-    for num in numbers:
-        if len(result) % 2 == 0:
-            result.append(delimiter)
-        result.append(num)
+    try:
+        numbers = [int(num) for num in user_input.split(",")]
+    except ValueError:
+        print("Invalid input")
+        return []
+
+    result = [str(numbers[0])]
+    if len(numbers) > 1:
+        for num in numbers[1:]:
+            if num == ",":
+                result.append(",")
+            else:
+                while len(result) > 1 and str(result[-1]) == ",":
+                    result.pop()
+                result.append(str(num))
     return result
 
-numbers = [int(num) for num in input("Enter numbers separated by spaces: ").split()]
-delimiter = int(input("Enter the delimiter: "))
-print(intersperse(numbers, delimiter))
+print(process_numbers())
