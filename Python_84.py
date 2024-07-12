@@ -1,7 +1,6 @@
-```
-def solve():
-    while True:
-        N = input("Please provide a binary number: ")
-        if all(c in "01" for c in N):
-            return bin(int(N, 2))[2:]
-        print("Invalid Input. Please provide a binary number.")
+def solve(n):
+    if not isinstance(n, int):
+        return "Invalid Input. Please provide an integer."
+    if n < 0:
+        return "Invalid Input. Binary cannot be negative."
+    return bin(n)[2:]
