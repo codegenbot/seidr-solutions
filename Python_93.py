@@ -7,6 +7,5 @@ def encode(message):
             else:
                 result += chr((ord(char.upper()) - ord('A')) % 26) if char.isupper() else ''
         else:
-            while not result[-1].isalpha():
-                result += char
+            result += char
     return result
