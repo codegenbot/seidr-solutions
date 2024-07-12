@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    int max_right = nums.back();
+    int max_right = nums[nums.size() - 1];
     
     for (int i = nums.size() - 1; i >= 0; i--) {
         if (nums[i] >= max_right) {
@@ -14,7 +14,7 @@ vector<int> findLeaders(const vector<int>& nums) {
         }
     }
     
-    reverse(leaders.begin(), leaders.end()); // Reverse to restore the original order
+    reverse(leaders.begin(), leaders.end());
 
     return leaders;
 }
@@ -23,10 +23,6 @@ int main() {
     vector<int> nums;
     int num;
     while (cin >> num) {
-        if (cin.peek() == '\n') {
-            nums.push_back(num);
-            break;
-        }
         nums.push_back(num);
     }
 
