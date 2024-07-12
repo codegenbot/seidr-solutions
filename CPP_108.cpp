@@ -1,4 +1,6 @@
+#include <vector>
 #include <iostream>
+#include <initializer_list>
 
 int count_nums(int* nums, int size) {
     int count = 0;
@@ -9,7 +11,7 @@ int count_nums(int* nums, int size) {
                 sum += abs(nums[i] % 10);
                 nums[i] /= 10;
             }
-            if (sum % 2 != 0)
+            if (sum > 0)
                 count++;
         } else {
             int sum = 0, sign = 1;
@@ -18,7 +20,7 @@ int count_nums(int* nums, int size) {
                 nums[i] /= 10;
                 sign *= -1;
             }
-            if (sign * sum % 2 != 0)
+            if (sign * sum > 0)
                 count++;
         }
     }
