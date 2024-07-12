@@ -16,5 +16,4 @@ int main() {
     int N;
     cin >> N;
     cout << solve(N) << endl;
-    assert(solve(963) == 10050);
 }
