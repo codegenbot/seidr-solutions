@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cassert>
 #include <cstdlib>
@@ -23,8 +23,8 @@ int prod_signs(std::vector<int> arr) {
 
 }
 
-int main() {
-    std::vector<int> arr = {-1, 1, 1, 0};
-    int result = prod_signs(arr);
-    return result;
-}
+//int main() {
+//    std::vector<int> arr = {-1, 1, 1, 0};
+//    int result = prod_signs(arr);
+//    return result;
+//}
