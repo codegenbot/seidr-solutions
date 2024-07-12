@@ -1,7 +1,8 @@
+```
 result = []
 paren_string = input()
 for group in paren_string.split():
-    if group:
+    if group:  
         level = 0
         max_level = 0
         for char in group:
@@ -11,4 +12,4 @@ for group in paren_string.split():
                 level -= 1
             max_level = max(max_level, level)
         result.append(max_level)
-return result
+print(result)
