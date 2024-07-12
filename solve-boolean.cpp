@@ -11,14 +11,12 @@ int main() {
     
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == 'T') {
-            result = result && true;
+            result = result & true;
         } else if (input[i] == 'F') {
-            result = result && false;
+            result = result & false;
         } else if (input[i] == '|') {
-            // OR operation
-            // do nothing for now
+            // do nothing
         } else if (input[i] == '&') {
-            // AND operation
             result = true;
         }
     }
