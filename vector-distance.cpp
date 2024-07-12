@@ -17,9 +17,15 @@ int main() {
 
     std::vector<double> vec1(n), vec2(n);
 
-    std::cout << "Enter the elements of the first vector and then the second vector: ";
+    std::cout << "Enter the elements of the first vector: ";
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> vec1[i] >> vec2[i];
+        std::cin >> vec1[i];
+    }
+
+    std::cout << "Enter the elements of the second vector: ";
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
+        getchar(); // Add this line to handle commas between input elements
     }
 
     const double result = calculateEuclideanDistance(vec1, vec2);
