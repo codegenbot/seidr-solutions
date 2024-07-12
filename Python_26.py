@@ -1,11 +1,21 @@
-```
-from typing import List
+def remove_duplicates(input_numbers=None):
+    numbers = []
+    if input_numbers is not None:
+        for num in input_numbers:
+            while True:
+                user_num = int(input(f"Enter an integer ({num} or 'q' to quit): "))
+                if str(user_num).lower() == 'q':
+                    break
+                if user_num != num:
+                    numbers.append(user_num)
 
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    seen = set()
-    result = []
-    for num in numbers:
-        if num not in seen:
-            seen.add(num)
-            result.append(num)
-    return result
+    else:
+        while True:
+            num = int(input("Enter an integer (or 'q' to quit): "))
+            if str(num).lower() == 'q':
+                break
+            numbers.append(num)
+
+    return list(set(numbers))
+
+   
