@@ -1,4 +1,5 @@
 def simplify(x, n):
-    a, b = map(int, x.split("/"))
-    c, d = map(int, n.split("/"))
-    return (a * d) % (b * c) == 0
+    num1, den1 = map(int, x.split("/"))
+    num2, den2 = map(int, n.split("/"))
+
+    return (num1 * den2) % (den1 * den2) == 0
