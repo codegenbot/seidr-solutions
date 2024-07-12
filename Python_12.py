@@ -1,5 +1,8 @@
-```
+Here is the corrected code:
+
+```python
 from typing import Optional
+
 
 def longest_common_substring(str1: str, str2: str) -> Optional[str]:
     if not str1 or not str2:
@@ -15,21 +18,27 @@ def longest_common_substring(str1: str, str2: str) -> Optional[str]:
                     x_longest = x
     return str1[x_longest - longest: x_longest]
 
+
 str1 = input("Enter the first string: ")
 
-while not set(str1).issubset({
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_"
-}):
-    print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
-    str1 = input("Enter the first string: ")
+while True:
+    if set(str1).issubset({"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_"}):
+        break
+    else:
+        print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
+        str1 = input("Enter the first string: ")
 
 str2 = input("Enter the second string: ")
 
-while not set(str2).issubset({
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_"
-}):
-    print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
-    str2 = input("Enter the second string: ")
+while True:
+    if set(str2).issubset({"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_"}):
+        break
+    else:
+        print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
+        str2 = input("Enter the second string: ")
 
 result = longest_common_substring(str1, str2)
-print(f"The longest common substring is: {result}")
+if result:
+    print(f"The longest common substring is: {result}")
+else:
+    print("No common substring found.")
