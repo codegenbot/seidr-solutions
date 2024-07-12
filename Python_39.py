@@ -1,2 +1,1 @@
-import sys
-n = int(sys.stdin.readline())
+n = int(input())
