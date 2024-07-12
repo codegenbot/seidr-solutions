@@ -12,7 +12,7 @@ def bowling_score(bowls):
             score += get_spare_bonus(bowls, bowl_index)
             bowl_index += 1
         else:
-            if bowls[bowl_index] != "-":
+            if bowls[bowl_index] != '/':
                 score += int(bowls[bowl_index])
         bowl_index += 1
         frame += 1
