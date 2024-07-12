@@ -1,7 +1,9 @@
+```cpp
 #include <algorithm>
-using namespace std;
+#include <cmath>
+#include <vector>
 
-int findMax(int arr[], int n) {
-    vector<int> l(arr, arr+n);
-    return *max_element(l.begin(), l.end());
+int main() {
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    return *std::max_element(l.begin(), l.end());
 }
