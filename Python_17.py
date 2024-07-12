@@ -1,3 +1,10 @@
 def parse_music(music_string: str) -> List[int]:
-    beats_map = {"o": 4, "o|": 2, ".|": 1}
-    return [beats_map[note] for note in music_string.split()]
+    durations = {"o": 4, "o|": 2, ".|": 1}
+
+    result = []
+    music_notes = music_string.split()
+
+    for note in music_notes:
+        result.append(durations[note])
+
+    return result
