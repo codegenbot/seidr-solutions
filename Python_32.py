@@ -1,14 +1,9 @@
-def find_zero():  
-    a = 1  
-    while a != 0.0:    
-        try:      
-            a = float(input("Enter a non-zero value for a (a cannot be zero): "))    
-        except ValueError:      
-            print("Invalid input. Please enter a valid number.")  
-    try:    
-        b = float(input("Enter value for b: "))  
-    except ValueError:    
-        print("Invalid input for b. Please enter a valid number.")  
+def find_zero():
+    a = float(input())
+    while a == 0.0:
+        a = float(input())
+        
+    b = float(input())
     return -b / a
 
 result = find_zero()
