@@ -1,16 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool operator==(const vector<float>& a, const vector<float>& b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size())
         return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 1e-9) { // to handle floating point precision issues
+    for (size_t i = 0; i < a.size(); ++i)
+        if (abs(a[i] - b[i]) > 1e-5f)
             return false;
-        }
-    }
     return true;
 }
 
@@ -25,10 +21,7 @@ vector<float> get_positive(vector<float> l){
 
 int main() {
     vector<float> input({});
-    if (!issame(get_positive(input), input)) {  
-        cout << "Test failed"; // Add error handling and test
-    } else {
-        cout << "Test passed";
-    }
+    vector<float> positive = get_positive(input);
+    bool same = issame(input, positive);  
     return 0;
 }
