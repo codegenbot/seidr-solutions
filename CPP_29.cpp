@@ -31,9 +31,7 @@ int main(int argc) {
     std::string prefix;
     std::cin >> prefix;
 
-    std::vector<std::string> filtered = filter_by_prefix(strings, prefix);
-
-    if (areEqual(strings, filtered)) {
+    if (areEqual(strings, filter_by_prefix(strings, prefix))) {
         std::cout << "Yes" << std::endl;
     } else {
         std::cout << "No" << std::endl;
