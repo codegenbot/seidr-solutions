@@ -1,1 +1,1 @@
-cut_index = min(range(n-1), key=lambda i: abs(sum(arr[:i+1]) - sum(arr[i+1:])))
+cut_index = min(range(n-1), key=lambda i: abs(sum(arr[:i+1]) - sum(arr[i+1:]))))
