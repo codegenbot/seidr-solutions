@@ -9,7 +9,6 @@ vector<float> discounts;
 int main() {
     int n;
     cin >> n;
-
     prices.resize(n);
     discounts.resize(n);
 
