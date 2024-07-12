@@ -1,7 +1,12 @@
-for(int i=0; i<str.length(); i++){
-    if(str[i] >= 'a' && str[i] <= 'z')
-        str[i] = toupper(str[i]);
-    else
-        str[i] = tolower(str[i]);
+string filp_case(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        char c = str[i];
+        if(c>=97&&c<=122) // lowercase letters
+            c -= 32;
+        else if(c>=65&&c<=90) // uppercase letters
+            c += 32;
+        result+=c;
+    }
+    return result;
 }
-return str;
