@@ -5,4 +5,4 @@ if indices:
     for index in indices:
         print(index)
 else:
-    print(-1)
+    print(0)
