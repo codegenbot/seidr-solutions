@@ -1,6 +1,6 @@
 ```
 def encode(message):
-    if message is None or len(message) == 0:
+    if message is None or not message:
         return ""
     
     result = ""
