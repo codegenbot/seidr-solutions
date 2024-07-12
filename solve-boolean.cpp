@@ -2,10 +2,9 @@ int main() {
     string s;
     cin >> s;
     if (s == "t") {
-        cout << "True";
+        cout << "True" << endl;
     } else {
-        cout << "False";
+        cout << "False" << endl;
     }
-    
     return 0;
 }
