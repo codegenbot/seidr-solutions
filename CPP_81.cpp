@@ -1,8 +1,9 @@
 #include <vector>
 #include <string>
+#include <iostream>
+#include <initializer_list>
 
-bool issame(vector<string> a){
-    vector<string> b(a);
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -14,7 +15,7 @@ bool issame(vector<string> a){
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
-    for(float g : grades) {
+    for(float g : grades) { 
         string letterGrade;
         if(g >= 4.0) {
             letterGrade = "A+";
@@ -52,10 +53,9 @@ int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
 
-    if(issame(grades_letter))
-        cout << "Grades are same." << endl;
+    if(issame(numerical_letter_grade(grades), grades_letter))
+        std::cout << "Grades are same." << std::endl;
     else
-        cout << "Grades are not the same." << endl;
+        std::cout << "Grades are not the same." << std::endl;
 
     return 0;
-}
