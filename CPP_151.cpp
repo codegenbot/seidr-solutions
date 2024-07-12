@@ -1,29 +1,33 @@
+```cpp
 #include <vector>
 #include <cmath>
 
-int double_the_difference(const std::vector<float>& numbers) {
-    int sum = 0;
-    for (float number : numbers) {
-        if (std::floor(number) == std::ceil(number)) {
-            sum += static_cast<int>(number);
-        }
+std::vector<float> input_vector = {1.0f, 2.0f, 3.0f};
+
+double double_the_difference(std::vector<float>& lst) {
+    if (lst.size() == 0) return 0;
+    float sum = 0;
+    for (float x : lst) {
+        sum += x;
     }
-    return abs(sum - double(sum));
+    return std::abs(sum - lst[0]);
 }
 
-float odd_sum(const std::vector<float>& numbers) {
-    float total = 0.0f;
-    for (float number : numbers) {
-        if (std::floor(number) != std::ceil(number)) {
-            total += number;
+float odd_sum(std::vector<float>& lst) {
+    float sum = 0.0f;
+    for (int i = 0; i < lst.size(); i++) {
+        if (i % 2 != 0) {
+            sum += lst[i];
         }
     }
-    return total;
+    return sum;
 }
 
 int main() {
-    std::vector<float> input_vector({1.0f, 2.0f, 3.0f});
-    int result = double_the_difference(input_vector);
-    assert(result == static_cast<int>(odd_sum(input_vector)));
-    return 0;
+    std::vector<float> lst;
+    float odd_sum_val = 0.0f;
+
+    // your code here
+
+    assert(double_the_difference(lst) == odd_sum_val);
 }
