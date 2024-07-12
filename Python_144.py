@@ -1,12 +1,9 @@
 def simplify(x, n):
-    x_num, x_denom = map(int, [i for i in x.split('/')])
-    n_num, n_denom = map(int, [i for i in n.split('/')])
+    x_num, x_denom = map(int, [i for i in x.split("/")])
+    n_num, n_denom = map(int, [i for i in n.split("/")])
 
-    common_divisor = min(abs(x_num), abs(x_denom), abs(n_num), abs(n_denom))
+    common_divisor = abs(x_num // math.gcd(x_num, x_denom)) * abs(
+        x_denom // math.gcd(x_num, x_denom)
+    )
 
-    gcd = lambda a, b: b if not a else gcd(b % a, a)
-    
-    x_gcd = gcd(x_num, x_denom)
-    n_gcd = gcd(n_num, n_denom)
-
-    return str(x_num//x_gcd) == str(n_num//n_gcd)
+    return str(x_num // common_divisor) == str(n_num // common_divisor)
