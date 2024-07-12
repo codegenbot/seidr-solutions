@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -10,19 +9,24 @@ bool issame(std::vector<std::vector<std::string>> a, std::vector<std::vector<std
     return true;
 }
 
-std::vector<std::vector<std::string>> filter_by_prefix(std::vector<std::vector<std::string>> strings, std::string prefix){
-    std::vector<std::vector<std::string>> result;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
+    std::vector<std::string> result;
     for (const auto& s : strings) {
-        if(s[0].find(prefix) == 0) {
+        if (s.find(prefix) == 0) {
             result.push_back(s);
         }
     }
     return result;
 }
 
+int testmain() {
+    assert(issame({{{"xxx"}, {"asd", "xxy", "john doe", "xxxA", "xxx"}},
+                   {{"xxx"}, {"xxxAAA", "xxx"}}},
+                  false));
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    assert(std::equal(filter_by_prefix(strings, "xxx").begin(), filter_by_prefix(strings, "xxx").end(), {"xxx", "xxxAAA", "xxx"}));
+}
+
 int main() {
-    assert(!issame({{{"xxx"}}, {{"xxx"}}}, {{{"xxx"}}}));
-    std::vector<std::vector<std::string>> strings = {{"xxx"}, {"asd", "xxy", "john doe", "xxxA", "xxx"}};
-    std::vector<std::vector<std::string>> filteredStrings = filter_by_prefix({{strings}}, "xxx");
-    assert(std::equal(filteredStrings.begin(), filteredStrings.end(), {{},{"xxx","xxxAAA","xxx"}}));
+    testmain();
 }
