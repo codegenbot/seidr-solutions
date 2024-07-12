@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
@@ -27,7 +27,7 @@ int count_nums(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {123, -456, 789, -9012};
+    std::vector<int> nums = {123, -456, 789, -9012};
     int result = count_nums(nums);
     std::cout << "The number of positive integers with an odd digital root is: " << result << std::endl;
     return 0;
