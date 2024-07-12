@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include <cassert>
 
 int solve(int N) {
     int sum = 0;
@@ -16,8 +15,11 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        cout << solve(N) << endl;
+        int expected = 15150; 
+        if(solve(963) != expected) {
+            cerr << "Assertion failed: Expected " << expected << ", got " << solve(963) << endl;
+            exit(1); 
+        }
     }
-    assert(solve(963) == 15150);
     return 0;
 }
