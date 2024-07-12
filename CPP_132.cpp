@@ -12,7 +12,7 @@ bool is_nested(const char* str) {
             }
         }
     }
-    return count != 0;
+    return count > 0;
 }
 
 int main() {
