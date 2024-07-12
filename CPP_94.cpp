@@ -19,8 +19,7 @@ int main() {
         std::cout << "Value at index " << i << ": ";
         std::cout << myValues[i] << std::endl;
     }
-    int score = calculateScore(myValues, n);
-    std::cout << "The score is: " << score << std::endl;
+    std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
     assert(calculateScore(myValues, n) == 224); 
     return 0;
 }
