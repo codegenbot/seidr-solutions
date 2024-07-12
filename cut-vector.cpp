@@ -9,11 +9,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (!cin.eof()) {
+    while (cin.good()) {
         cin >> num;
-        if (!cin.eof()) {
-            nums.push_back(num);
-        }
+        nums.push_back(num);
     }
 
     int n = nums.size();
