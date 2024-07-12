@@ -1,9 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
+bool will_it_fly(std::vector<std::vector<int>>& q, std::vector<std::vector<int>> w) {
     std::string str = "";
     for(int i : q[0]) {
         str += std::to_string(i);
@@ -14,11 +12,11 @@ bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
     for(int i : q[0]) {
         sum += i;
     }
-    return sum <= w;
+    return sum <= w[0][0];
 }
 
 int main() {
-    std::vector<std::vector<int>> q = {{5}};
-    assert(will_it_fly(q, 5) == true);
+    std::vector<int> q = {5};
+    assert(will_it_fly(q, {{1,5}}) == true);
     return 0;
 }
