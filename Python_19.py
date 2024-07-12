@@ -1,5 +1,6 @@
-```
 import re
+
+
 def sort_numbers(input_str: str) -> str:
     while True:
         try:
