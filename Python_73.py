@@ -1,8 +1,6 @@
 def smallest_change(arr):
     n = len(arr)
-    rev_arr = arr[::-1]
-    count = 0
-    for i in range(n):
-        if arr[i] != rev_arr[i]:
-            count += 1
-    return count
+    forward = arr.copy()
+    backward = arr.copy()[::-1]
+    changes = sum(c1 != c2 for c1, c2 in zip(forward, backward))
+    return changes
