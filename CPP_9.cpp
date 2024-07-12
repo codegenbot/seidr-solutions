@@ -3,9 +3,8 @@
 #include <vector>
 #include <algorithm>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) 
-{ 
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin()); 
+bool std::operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return std::equal(v1.begin(), v1.end(), v2.begin());
 }; 
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
