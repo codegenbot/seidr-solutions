@@ -20,13 +20,9 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    
-    do {
-        cin >> num;
-        if (!cin.fail()) {
-            nums.push_back(num);
-        }
-    } while (!cin.fail());
+    while (cin >> num && !cin.eof()) {
+        nums.push_back(num);
+    }
 
     vector<int> result = findLeaders(nums);
 
