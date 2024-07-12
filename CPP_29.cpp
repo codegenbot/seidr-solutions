@@ -1,7 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -26,8 +25,8 @@ int main() {
     std::vector<std::string> a;
     std::cout << "Enter strings (stop when empty):" << std::endl;
     std::string s;
-    while (true) {
-        std::cin >> s; 
+    std::cin >> s; // input string
+    while (std::getline(std::cin, s)) {
         if (s.empty()) break;
         a.push_back(s);
     }
@@ -50,4 +49,5 @@ int main() {
     }
 
     return 0;
+
 }
