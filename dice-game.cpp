@@ -6,10 +6,10 @@ int main() {
     std::cin >> n >> m;
 
     long double probability = 0.0;
-    
+
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            probability += (i * (m - j));
+        for (int j = 1; j < m; ++j) {
+            probability += (n - i);
         }
     }
 
