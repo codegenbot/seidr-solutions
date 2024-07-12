@@ -1,9 +1,11 @@
 #include <iostream>
 #include <iomanip>
 
+using namespace std;
+
 int main() {
     int n, m;
-    std::cin >> n >> m;
+    cin >> n >> m;
     double total_outcomes = n * m;
     double favorable_outcomes = 0;
     for (int i = 1; i <= n; ++i) {
@@ -11,6 +13,6 @@ int main() {
             favorable_outcomes += 1;
         }
     }
-    std::cout << std::fixed << std::setprecision(2) << favorable_outcomes / total_outcomes << std::endl;
+    cout << fixed << setprecision(2) << favorable_outcomes / total_outcomes << "\n";
     return 0;
 }
