@@ -11,7 +11,7 @@ def longest_common_substring(str1: str, str2: str) -> Optional[str]:
                 if m[x][y] > longest:
                     longest = m[x][y]
                     x_longest = x
-    return str1[x_longest - longest - 1: x_longest]
+    return str1[x_longest - longest - 1: x_longest - 1]
 
 str1 = input("Enter the first string: ")
 str2 = input("Enter the second string: ")
