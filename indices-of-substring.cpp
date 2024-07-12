@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
+#include <limits>
 
 int main() {
     std::string text, target;
