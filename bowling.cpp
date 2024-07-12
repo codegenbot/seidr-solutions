@@ -1,50 +1,35 @@
-int bowlingScore(string s) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> throws(21, 0);
-
-    for (char c : s) {
-        if (c == 'X') {
-            throws[ball++] = 10;
-            if (frame < 10) {
-                throws[ball++] = 0;
-            }
-        } else if (c == '/') {
-            throws[ball - 1] = 10 - throws[ball - 2];
-            if (frame < 10) {
-                throws[ball++] = 0;
-            }
-        } else if (c == '-') {
-            throws[ball++] = 0;
+int score(vector<char>& bowls) {
+    int frame = 1, score = 0, bowlIndex = 0;
+    for (int i = 0; i < 10; ++i) {
+        if (bowls[bowlIndex] == 'X') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
+            score += (bowls[bowlIndex + 4] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 4]) ? bowls[bowlIndex + 4] - '0' : 10);
+            bowlIndex++;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
+            bowlIndex += 2;
         } else {
-            throws[ball++] = c - '0';
+            score += (isdigit(bowls[bowlIndex]) ? bowls[bowlIndex] - '0' : 0) + (isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 0);
+            bowlIndex += 2;
         }
     }
-
-    for (int i = 0; frame < 10 && i < 20; i += 2, frame++) {
-        if (throws[i] == 10) {
-            score += 10 + throws[i+2] + throws[i+3];
-            if (throws[i+2] == 10) {
-                score += throws[i+4];
-            }
-        } else if (throws[i] + throws[i+1] == 10) {
-            score += 10 + throws[i+2];
-        } else {
-            score += throws[i] + throws[i+1];
-        }
-    }
-
-    for (int i = 18; i < 21; i++) {
-        score += throws[i];
-    }
-
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
+    string input;
+    vector<char> bowls;
+    getline(cin, input);
+    for(char c : input) {
+        if(c != ' ') {
+            bowls.push_back(c);
+        }
+    }
+
+    int result = score(bowls);
+    cout << result << endl;
+
     return 0;
 }
