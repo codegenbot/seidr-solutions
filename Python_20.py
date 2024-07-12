@@ -8,6 +8,7 @@ def find_closest_elements(numbers):
     ][0]
     return closest_elements
 
+# Call the function with the input data
 numbers = [int(x) for x in input().split()]
 result = find_closest_elements(numbers)
 print(result)
