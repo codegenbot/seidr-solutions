@@ -1,32 +1,41 @@
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> nums;
+    int num;
+    
+    while (cin >> num) {
+        nums.push_back(num);
     }
     
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = 0;
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += nums[i];
+    }
+    
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_idx = -1;
     
     for (int i = 0; i < n; ++i) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
+            cut_idx = i;
             break;
         }
     }
     
-    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
-    
-    for (int num : subvector1) {
-        cout << num << endl;
-    }
-    for (int num : subvector2) {
-        cout << num << endl;
+    if (abs(sum - 2 * prefix_sum) < abs(sum - 2 * (prefix_sum - nums[cut_idx]))) {
+        cout << "1\n";
+        for (int i = 0; i <= cut_idx; ++i) {
+            cout << nums[i] << "\n";
+        }
+        cout << "0\n";
+    } else {
+        cout << "1\n";
+        for (int i = 0; i < cut_idx; ++i) {
+            cout << nums[i] << "\n";
+        }
+        cout << nums[cut_idx] << "\n0\n";
     }
     
     return 0;
