@@ -1,4 +1,5 @@
-int test() {
-    assert(issame(get_positive({1.0, 2.0}), get_positive({1.0, 2.0})) == true);
+```cpp
+int main() {
+    assert(issame(get_positive({1.0f, 2.0f}), get_positive({1.0f, 2.0f})) == true); 
     return 0;
 }

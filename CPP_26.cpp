@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool sameVector(std::vector<int> a, std::vector<int> b) {
+bool areSameVectors(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,13 +6,8 @@ bool sameVector(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::set<int> unique;
-    for(int num : numbers)unique.insert(num);
-    return std::vector<int>(unique.begin(), unique.end());
-}
-
 int main() {
-    assert(sameVector(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    std::vector<int> test1 = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+    assert (areSameVectors(test1, {1, 4, 5}));
     return 0;
 }
