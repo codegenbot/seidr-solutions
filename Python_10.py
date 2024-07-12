@@ -1,11 +1,13 @@
-def make_palindrome() -> str:
-    string = input("Enter a string: ")
+```
+def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        print("The palindrome is: " + string)
+        return "The palindrome is: " + string
     else:
         prefix = string[0]
         suffix = string[-1]
         rest = string[1:-1] + prefix + suffix
         while not rest == rest[::-1]:
             rest = prefix + rest + suffix
-        print("The palindrome is: " + rest)
+        return "The palindrome is: " + rest
+
+print(make_palindrome("radar"))
