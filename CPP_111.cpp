@@ -3,7 +3,6 @@
 #include <string>
 #include <set>
 #include <initializer_list>
-#include <cassert>
 
 using namespace std;
 
@@ -37,5 +36,6 @@ map<pair<char,int>, int> histogram(string test) {
 
 int main() {
     map<pair<char,int>, int> test = histogram("a");
-    assert(issameInt(histogram({"a"}), map<pair<char,int>, int>{{'a', 0}}));
+    assert(issameInt(histogram({"a"}), {{'a', 0}}));
     return 0;
+}
