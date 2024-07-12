@@ -1,6 +1,7 @@
 #include <map>
 #include <string>
-#include <algorithm>
+
+string sort_numbers(string numbers);
 
 map<string, int> num_map = {
     {"zero", 0},
@@ -14,8 +15,6 @@ map<string, int> num_map = {
     {"eight", 8},
     {"nine", 9}
 };
-
-string sort_numbers(string numbers);
 
 string sort_numbers(string numbers){
     vector<string> num_list;
