@@ -1,9 +1,9 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
 
-std::vector<double> double_the_difference() {
+std::pair<double, double> double_the_difference() {
     std::vector<int> input_vector;
     int sum_even = 0, sum_odd = 0;
 
