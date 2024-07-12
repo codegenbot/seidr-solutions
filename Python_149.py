@@ -1,3 +1,9 @@
-def check():
-    result = secure_code()
-    print(f"Output: {result}")
+def secure_code():
+    digits = input("Enter the digits separated by spaces: ")
+    unique_digits = set(int(x) for x in digits.split())
+    sorted_unique_digits = str(sorted(unique_digits)).replace(', ', ' ')
+    sorted_list_sum = sum(unique_digits)
+    if sorted_list_sum % 2 == 0:
+        return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - EVEN"
+    else:
+        return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - ODD"
