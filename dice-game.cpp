@@ -5,10 +5,7 @@ int main() {
     int n, m;
     std::cin >> n >> m;
 
-    double probability = 0.0;
-    for(int i = 1; i <= std::min(n, m - 1); ++i) {
-        probability += double(n - i) / n * double(m - i) / m;
-    }
+    double probability = double(n) / 2 / n * double(n + 1) / 2 / m;
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
