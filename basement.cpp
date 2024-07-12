@@ -1,6 +1,6 @@
-#include <vector> // include necessary header file
+#include <vector>
 
-using namespace std; // use namespace std
+using namespace std;
 
 int basement(const vector<int>& nums) {
     int sum = 0;
