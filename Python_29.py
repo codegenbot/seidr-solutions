@@ -7,5 +7,4 @@ def filter_by_prefix() -> List[str]:
     filtered_list = [s for s in strings if s.startswith(prefix)]
     return filtered_list
 
-
 print(len(filter_by_prefix()))
