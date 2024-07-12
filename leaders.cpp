@@ -1,17 +1,17 @@
+```cpp
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    int last = arr[n-1];
+    int maxSoFar = arr[n-1];
     for(int i=n-1; i>=0; i--) {
-        if(arr[i] >= last) {
+        if(arr[i] >= maxSoFar) {
+            maxSoFar = arr[i];
             result.push_back(arr[i]);
-            last = arr[i];
         }
     }
-    reverse(result.begin(), result.end());
     return result;
 }
 
