@@ -21,12 +21,13 @@ bool prime_length(const char* str){
             if(isPrime(n) == false) {
                 s += "0";
             } else {
-                char temp[16]; // adjust buffer size as needed
+                char* temp = new char[16]; // adjust buffer size as needed
                 sprintf(temp, "%d", n);
-                s.append(temp);
+                s += temp;
+                delete[] temp; // free dynamically allocated memory
             }
         } else {
-            s += c;
+            s += c; // append a single character to the string
         }
     }
     return s.length() > 1;
