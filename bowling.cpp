@@ -1,34 +1,28 @@
 #include <iostream>
 #include <string>
 
-int calculateBonus(const std::string& s, int index) {
-    if (s[index] == 'X') {
-        return 10;
-    } else if (s[index] == '/') {
-        return 10 - (s[index - 1] - '0');
-    } else if (s[index] == '-') {
-        return 0;
-    } else {
-        return s[index] - '0';
-    }
-}
-
 int score(std::string s) {
     int total = 0;
-    int roll = 1;
+    int frame = 1;
+    int i = 0;
 
-    for (int i = 0; i < s.size() && roll <= 10; i++) {
+    while (frame <= 10) {
         if (s[i] == 'X') {
-            total += 10 + calculateBonus(s, i + 1) + calculateBonus(s, i + 2);
-            roll++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + calculateBonus(s, i + 1);
-            roll++;
-        } else if (s[i] != '-' && s[i] != '|') {
-            total += s[i] - '0';
-            if (s[i] != 'X' && s[i] != '|') {
-                roll++;
-            }
+            total += 10;
+            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] == '-' ? 0 : s[i + 3] - '0') : (s[i + 2] == '-' ? 0 : s[i + 2] - '0')));
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '-' ? 0 : s[i + 2] - '0'));
+            i += 2;
+        } else {
+            total += (s[i] == '-' ? 0 : s[i] - '0');
+            total += (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
+            i += 2;
+        }
+
+        if (s[i - 2] != 'X') {
+            frame++;
         }
     }
 
