@@ -1,24 +1,17 @@
 n = int(input())
-vec = []
-for i in range(n):
-    vec.append(int(input()))
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(vec)
-left_sum = 0
-right_sum = total_sum
+total_sum = sum(v)
+prefix_sum = 0
 min_diff = total_sum
-cut_index = 0
+cut_idx = 0
 
 for i in range(n):
-    left_sum += vec[i]
-    right_sum -= vec[i]
-    diff = abs(left_sum - right_sum)
+    prefix_sum += v[i]
+    diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
         min_diff = diff
-        cut_index = i
+        cut_idx = i
 
-subvector1 = vec[: cut_index + 1]
-subvector2 = vec[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(*v[: cut_idx + 1])
+print(*v[cut_idx + 1 :] if cut_idx + 1 < n else [0])
