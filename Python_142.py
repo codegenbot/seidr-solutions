@@ -1,6 +1,8 @@
-lst = input("Enter a list of numbers separated by space: ").split()
-int_lst = [int(i) for i in lst if i.lstrip('-').isdigit()]
-print(sum(map(lambda x: int(x)**2, int_lst)))
-
-def sum_squares(lst):
-    return sum(map(lambda x: int(x)**2, lst))
+```
+def sum_of_squares_perfect_square_roots(lst):
+    perfect_squares_sum = 0
+    for num in lst:
+        sqrt = int(num**0.5)
+        if sqrt * sqrt == num:
+            perfect_squares_sum += num
+    return perfect_squares_sum
