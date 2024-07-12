@@ -1,13 +1,12 @@
-```
 def find_closest_number():
     while True:
         try:
             value = float(input("Enter a decimal number: "))
-            closest_value = round(value)
-            if value != closest_value:
-                diff = abs(value - closest_value)
-                print(f"Closest integer: {closest_value}, Difference: {diff}")
+            closest_integer = round(value)
+            if value != closest_integer:
+                diff = abs(value - closest_integer)
+                print(f"Closest integer: {closest_integer}, Difference: {diff}")
             else:
-                print(f"Closest integer: {closest_value}, Difference: 0")
+                print(f"Closest integer: {closest_integer}, Difference: 0")
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
