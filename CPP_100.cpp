@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,7 +13,7 @@ bool isSame(std::vector<int>& a, std::vector<int>& b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
-    while (stones <= n && stones <= ((n + 1) / 2) * 2) {
+    while (stones <= n && stones <= 16) {
         pile.push_back(stones);
         stones += 2; 
     }
