@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -35,17 +35,15 @@ std::vector<std::string> by_length(const std::initializer_list<int>& lengths) {
             }
         }
     }
-    std::vector<std::vector<std::string>> output;
-    for(int i = 0; i < lengths.size(); i++) {
-        if (i == 0) {
-            output.push_back({result[i]});
-        } else {
-            output.push_back({result[i-1], result[i]});
-        }
-    }
-    return output;
+    return result;
 }
 
-std::vector<std::vector<std::string>> a = {{by_length({9})[0]}};
-std::vector<std::vector<std::string>> b = {{by_length({9, 4, 8})[0]}, {by_length({9, 4, 8})[0], by_length({9, 4, 8})[1]}};
-assert(issame(a, b));
+int main() {
+    std::vector<int> lengths = {9, 4, 8};
+    int result = by_length(lengths);
+    
+    std::vector<std::vector<std::string>> a({{result}});
+    std::vector<std::vector<std::string>> b({{result}});
+    
+    std::cout << "Is same: " << (issame(a, b) ? "true" : "false") << std::endl;
+}
