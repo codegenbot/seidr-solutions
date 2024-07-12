@@ -1,35 +1,34 @@
-int bowling_score(string s) {
-    int score = 0, frame = 0, turn = 0;
+int scoreBowlRound(const string& bowls) {
+    int score = 0;
+    int frame = 0;
+    int ball = 0;
     vector<int> frames(10, 0);
-    
-    for (char c : s) {
-        if (c == 'X') {
-            frames[frame++] = 10;
-            if (frame == 10) break;
-        } else if (c == '/') {
-            frames[frame++] = 10 - frames[frame - 1];
-        } else if (c == '-') {
-            frames[frame++] = 0;
-        } else {
-            frames[frame] += c - '0';
-            if (turn % 2 == 1) frame++;
-        }
-        
-        if (frame == 10) break;
-        turn++;
-    }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frames[i] + (frames[i] == 10 ? frames[i+1] + frames[i+2] : 0);
-    }
-    
-    return score;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << bowling_score(s) << endl;
-    
-    return 0;
+    for(int i=0; i<bowls.size(); i++) {
+        if(bowls[i] == 'X') {
+            frames[frame] = 10 + (i+1 < bowls.size() ? 
+                (bowls[i+1] == 'X' ? 10 : 
+                    (isdigit(bowls[i+1]) ? bowls[i+1]-'0' : 10)) : 0) +
+                (i+2 < bowls.size() ? 
+                    (bowls[i+2] == 'X' ? 10 : 
+                        (isdigit(bowls[i+2]) ? bowls[i+2]-'0' : 10)) : 0);
+            frame++;
+        } else if(bowls[i] == '/') {
+            frames[frame] = 10 + (isdigit(bowls[i+1]) ? bowls[i+1]-'0' : 10);
+            frame++;
+            i++;
+        } else if(isdigit(bowls[i])) {
+            frames[frame] += bowls[i] - '0';
+            ball++;
+            if(ball % 2 == 0) {
+                frame++;
+            }
+        }
+    }
+
+    for(int i=0; i<10; i++) {
+        score += frames[i];
+    }
+
+    return score;
 }
