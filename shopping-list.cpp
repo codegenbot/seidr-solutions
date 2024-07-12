@@ -20,7 +20,7 @@ int main() {
 
     float total_price = 0.0;
     for (int i = 0; i < n; i++) {
-        total_price += prices[i] - discounts[i];
+        total_price += prices[i] - prices[i] * discounts[i]; // Remove division by 100.0
     }
 
     cout << fixed << setprecision(2) << total_price << endl;
