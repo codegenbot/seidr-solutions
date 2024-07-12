@@ -1,2 +1,5 @@
-def car_race_collision(n: int):
-    return sum(i + i for i in range(1, n + 1))
+def car_race_collision(n):
+    total_distance = 0
+    for i in range(1, n + 1):
+        total_distance += i * (n - i)
+    return total_distance
