@@ -9,4 +9,7 @@ try:
     factors = factorize(n)
     print(factors)
 except ValueError:
-    print("\nInvalid input. Please enter a valid integer.")
+    print("\nPlease enter a valid integer number.")
+except EOFError:
+    print("\nExiting program due to unexpected input.")
+    exit()
