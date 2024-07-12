@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <string>
 
-bool checkEquality(std::string& s, std::string& c) {
+bool checkEquality(std::string s, std::string c) {
     return s == "True";
 }
 
@@ -49,11 +49,7 @@ int main() {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else if (s1.empty()) {
-            if (!s2.empty()) {
-                std::cout << (s2.empty() ? "" : s2) << " and " << s2 << " are the same." << std::endl;
-            } else {
-                std::cout << "empty" << " and empty are the same." << std::endl;
-            }
+            std::cout << "empty" << " and " << s2 << " are the same." << std::endl;
         } else {
             std::cout << s1 << " and empty are the same." << std::endl;
         }
@@ -61,11 +57,7 @@ int main() {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         } else if (s1.empty()) {
-            if (!s2.empty()) {
-                std::cout << (s2.empty() ? "" : s2) << " and " << s2 << " are not the same." << std::endl;
-            } else {
-                std::cout << "empty" << " and empty are not the same." << std::endl;
-            }
+            std::cout << "empty" << " and " << s2 << " are not the same." << std::endl;
         } else {
             std::cout << s1 << " and empty are not the same." << std::endl;
         }
