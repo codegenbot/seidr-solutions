@@ -1,7 +1,10 @@
-def find_closest_number():
-    value = float(input("Enter a decimal number: "))
-    if value >= 0:
-        closest_value = int(value + 0.5) if value % 1 > 0 else int(value)
+```
+def closest_integer(value):
+    num = float(value)
+    if num >= 0:
+        return int(num + 0.5) if num % 1 > 0 else int(num)
     else:
-        closest_value = int(value - 0.5) if abs(value) % 1 < 0.5 else int(value)
-    return closest_value
+        return int(num - 0.5) if abs(num) % 1 < 0.5 else int(num)
+
+user_input = input("Enter a value: ")
+print(closest_integer(user_input))
