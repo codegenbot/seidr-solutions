@@ -1,3 +1,4 @@
+```cpp
 string fix_spaces(string text) {
     string result = "";
     bool consecutiveSpace = false;
@@ -18,3 +19,4 @@ string fix_spaces(string text) {
     }
 
     return result;
+}
