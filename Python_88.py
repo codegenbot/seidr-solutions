@@ -1,11 +1,7 @@
-Here is the modified code:
-
-```
 def sort_array(array):
-    print("Code starts here")
     if len(array) == 0:
         return array
-    total = array[0] + array[-1]
+    total = sum(array)
     if total % 2 != 0:
         return sorted(array)
     else:
