@@ -3,8 +3,8 @@ arr = list(map(int, input().split()))
 
 left_sum = sum(arr)
 right_sum = 0
-min_diff = abs(left_sum - right_sum)
-cut_index = 0
+min_diff = float('inf')
+cut_index = -1
 
 for i in range(n):
     left_sum -= arr[i]
@@ -13,9 +13,9 @@ for i in range(n):
 
     if diff < min_diff:
         min_diff = diff
-        cut_index = i + 1
+        cut_index = i
 
-subvector1 = arr[:cut_index]
+subvector1 = arr[:cut_index+1]
 subvector2 = arr[cut_index:]
 
 print(*subvector1)
