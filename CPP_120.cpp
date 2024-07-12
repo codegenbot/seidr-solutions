@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result(arr.begin(), arr.begin() + k);
+    std::vector<int> result = arr.begin(), arr.begin() + k);
     std::sort(result.begin(), result.end());
     return result;
 }
@@ -21,6 +20,6 @@ int main() {
     } else {
         std::cout << "Vectors are not same" << std::endl;
     }
-
+    
     return 0;
 }
