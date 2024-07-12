@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,9 +7,9 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
+        if (planets[i][0] == planet1[0]) {
             index1 = i;
-        } else if (planets[i] == planet2) {
+        } else if (planets[i][0] == planet2[0]) {
             index2 = i;
         }
     }
@@ -27,8 +28,19 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
 }
 
 int main() {
-    auto planets = std::vector<std::string>({"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"});
-    assert (bf(planets, "Jupiter", "Makemake").empty());
+    std::cout << "Enter the first planet: ";
+    std::string planet1;
+    std::cin >> planet1;
+    std::cout << "Enter the second planet: ";
+    std::string planet2;
+    std::cin >> planet2;
+
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+
+    std::vector<std::string> result = bf(planets, planet1, planet2);
     
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
     return 0;
 }
