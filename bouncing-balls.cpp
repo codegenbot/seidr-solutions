@@ -4,6 +4,7 @@
 int main() {
     double start_height, bounciness_index, total_distance = 0.0, num_bounces;
     double first_bounce_height;
+    int comma;
 
     std::cin >> start_height >> first_bounce_height;
     std::cin >> num_bounces;
