@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int solve(int N) {
@@ -16,8 +17,9 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        int result = solve(N);
-        cout << result << endl;
-        assert(solve(963) == 505); 
+        string str = to_string(solve(N));
+        cout << str << endl;
+        assert(solve(963) == 1010);
     }
+    return 0;
 }
