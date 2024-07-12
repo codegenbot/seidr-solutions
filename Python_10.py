@@ -1,26 +1,16 @@
-def check_anagrams(string1: str, string2: str) -> bool:
-    return sorted(string1.lower()) == sorted(string2.lower())
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
 
-def find_anagrams(input_string: str) -> list:
-    anagram_dict = {}
-    words = input_string.split()
-    
-    for word in words:
-        sorted_word = "".join(sorted(word.lower()))
-        if sorted_word in anagram_dict:
-            anagram_dict[sorted_word].append(word)
-        else:
-            anagram_dict[sorted_word] = [word]
-            
-    return [words for words in anagram_dict.values() if len(words) > 1]
-
-def main():
-    input_string = input("Enter the string: ")
-    result = find_anagrams(input_string)
-    
-    print("Anagrams:")
-    for i, word_list in enumerate(result):
-        print(f"Group {i+1}: {' -> '.join(word_list)}")
-
-if __name__ == "__main__":
-    main()
+def make_palindrome(string: str) -> str:
+    if is_palindrome(string):
+        return string
+    n = len(string)
+    new_string = "#" + "#".join(list(string)) + "#"
+    i_max = n - 1
+    while not is_palindrome(new_string):
+        new_string = new_string[:i_max+1] + "#"
+        i_max -= 1
+    for i in range(n*2-1):
+        if (i < n) or ((n * 2 - 1) > i >= n - 1 and i % 2 != 0):
+            print(new_string[i], end="")
+    return None
