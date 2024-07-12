@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -38,7 +37,6 @@ int main() {
     vector<int> game(n),guess(n);
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
-        game[i] = guess[i]; 
     }
     vector<int> res = getResult(game,guess);
     if(res.size() != n) {
@@ -47,5 +45,6 @@ int main() {
         for(auto x:res)cout << x << " ";
         cout << endl; 
     }
+    cout << compare(1, 2) << " " << compare(1, -1) << endl;
     return 0;
 }
