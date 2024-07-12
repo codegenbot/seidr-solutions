@@ -11,6 +11,3 @@ def decode_cyclic():
             result.extend([group[0], group[1]])
             i += 3
     print("".join(result))
-
-
-decode_cyclic()
