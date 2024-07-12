@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cassert>
 
@@ -12,6 +13,13 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     assert(any_int(3.01, 4, 7) == false);
-    // Add your test cases here
+    cout << "Enter three numbers: ";
+    float a, b, c;
+    cin >> a >> b >> c;
+    if (any_int(a, b, c)) {
+        cout << "At least one integer.\n";
+    } else {
+        cout << "No integers.\n";
+    }
     return 0;
 }
