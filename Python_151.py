@@ -1,6 +1,9 @@
 def check(func, lst):
     try:
         result = func(lst)
-        print(f"Result: {result}")
+        print(result)
     except Exception as e:
-        print("Error:", str(e))
+        print(f"An error occurred: {str(e)}")
+
+
+check(double_the_difference, [input("Enter space-separated integers: ").split()])
