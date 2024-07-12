@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <algorithm>
 
@@ -18,6 +19,12 @@ bool is_happy(std::string s){
 
 }
 
-int main { 
-    assert(is_happy("iopaxioi") == false );
-    return 0;
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    if(is_happy(input))
+        std::cout << input << " is happy" << std::endl;
+    else
+        std::cout << input << " is not happy" << std::endl;
+}
