@@ -15,8 +15,9 @@ int main() {
     }
 
     double sum = 0.0;
+    // Calculate the squared differences and sum them up
     for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
     double result = std::sqrt(sum);
