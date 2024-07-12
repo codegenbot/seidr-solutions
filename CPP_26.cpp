@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<int> a,vector<int>b){
     return a==b;
 }
@@ -20,5 +19,3 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     }
     return result;
 }
-
-assert (issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})));
