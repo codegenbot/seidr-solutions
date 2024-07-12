@@ -1,4 +1,3 @@
-```Python
 from typing import list
 
 def filter_by_substring(strings: list, substring: str) -> list:
