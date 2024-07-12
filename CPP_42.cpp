@@ -1,6 +1,8 @@
-vector<int> increment(vector<int> l) {
-    for (int i = 0; i < l.size(); i++) {
-        l[i]++;
+bool issame(vector<int> a, vector<int> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
-    return l;
+    return true;
 }
