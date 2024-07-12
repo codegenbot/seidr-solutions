@@ -1,4 +1,8 @@
-string1 = input("Enter the first string: ")
-string2 = input("Enter the second string: ")
+import sys
 
-print(max(string1, string2, key=len))
+string1 = sys.stdin.readline().rstrip().decode("utf-8")
+string2 = sys.stdin.readline().rstrip().decode("utf-8")
+if not string1 or not string2:
+    print("Input not received as expected")
+else:
+    print(max(string1, string2, key=len))
