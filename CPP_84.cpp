@@ -1,7 +1,4 @@
-```
 #include <iostream>
-#include <cassert>
-
 using namespace std;
 
 int solve(int N) {
@@ -16,6 +13,9 @@ int solve(int N) {
 int main() {
     int N;
     cin >> N;
-    cout << solve(N) << endl;
-    assert(solve(963) == 10010);
+    if(N < 1) {
+        cout << "Error: Input should be a positive integer." << endl;
+    } else {
+        cout << solve(N) << endl;
+    }
 }
