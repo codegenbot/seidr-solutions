@@ -1,8 +1,8 @@
-#include <vector>
 #include <map>
+#include <vector>
 
-int search(vector<int> lst) {
-    map<int, int> freq;
+int search(std::vector<int> lst) {
+    std::map<int, int> freq;
     for (int x : lst) {
         if (!freq.count(x)) {
             freq[x] = 1;
