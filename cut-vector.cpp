@@ -30,40 +30,32 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff <= minDiff) {
+        if (diff < minDiff || (diff == minDiff && abs(cutIndex - n/2) < abs(i - n/2))) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    if (cutIndex == 0) {
-        cout << "1" << endl << "1" << endl << nums[0] << endl << "1" << endl;
-        for (int i = 1; i < n; i++) {
-            cout << nums[i];
-            if (i != n-1) {
-                cout << " ";
-            }
-        }
-    } else {
-        cout << "2" << endl << cutIndex+1 << " " << n - 1 - cutIndex << endl;
-        
-        for (int i = 0; i <= cutIndex; i++) {
-            cout << nums[i];
-            if (i != cutIndex) {
-                cout << " ";
-            }
-        }
-        cout << endl;
-        
-        cout << "1" << endl;
-        
-        for (int i = cutIndex + 1; i < n; i++) {
-            cout << nums[i];
-            if (i != n-1) {
-                cout << " ";
-            }
+    cout << "2" << endl << cutIndex+1 << " " << n - 1 - cutIndex << endl;
+    
+    for (int i = 0; i <= cutIndex; i++) {
+        cout << nums[i];
+        if (i != cutIndex) {
+            cout << " ";
         }
     }
+    cout << endl;
+    
+    cout << "2" << endl;
+    
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i];
+        if (i != n-1) {
+            cout << " ";
+        }
+    }
+    
+    cout << endl;
     
     return 0;
 }
