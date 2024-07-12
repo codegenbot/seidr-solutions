@@ -1,13 +1,10 @@
-```
-def check(s):
-    if int(s) % 2 == 0:
-        print("The sum of the numbers is even.")
-    else:
-        print("The sum of the numbers is odd.")
+"""
+Enter your solution here.
+"""
 
 num1 = int(input("Enter the first number: "))
 num2 = int(input("Enter the second number: "))
 
 sum_product = num1 + num2
-
+print(f"The sum of {num1} and {num2} is {sum_product}.")
 check(str(sum_product))
