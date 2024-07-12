@@ -1,3 +1,7 @@
 ```
 def digits(n):
-    return sum(int(digit) for digit in str(n))
+    product = 0
+    for digit in str(n):
+        if int(digit) % 2 != 0:
+            product *= int(digit)
+    return product
