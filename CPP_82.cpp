@@ -1,3 +1,4 @@
+```cpp
 #include <cstring>
 #include <cassert>
 #include <iostream>
@@ -12,12 +13,14 @@ bool isPrime(int n) {
 }
 
 bool prime_length(const char* str){
-    std::string s(str);
-    int len = s.size();
-    if(len <= 1) return false;
-    for(char c : s) {
-        if(!isPrime(c)) return false; 
+    std::string s;
+    for(int i = 0; str[i]; i++) {
+        if(isPrime(str[i] - '0')) { 
+            s += str[i];
+        }
     }
+    int len = s.length();
+    if(len <= 1) return false;
     return true;
 
 }
