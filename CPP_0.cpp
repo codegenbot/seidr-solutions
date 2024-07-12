@@ -1,9 +1,9 @@
 #include <vector>
 #include <cmath>
 
-bool has_close_elements(const std::vector<float>& v, float epsilon) {
-    for (size_t i = 0; i < v.size() - 1; ++i) {
-        if (std::abs(v[i] - v[i + 1]) <= epsilon)
+bool has_close_elements(const std::vector<float>& elements, float threshold) {
+    for (size_t i = 0; i < elements.size() - 1; ++i) {
+        if (std::abs(elements[i] - elements[i + 1]) <= threshold)
             return true;
     }
     return false;
