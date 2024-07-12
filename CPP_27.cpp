@@ -15,9 +15,10 @@ std::string filp_case(std::string str) {
 }
 
 int main() {
-    std::string input = "These violent delights have violent ends";
-    if(filp_case(input) != "tHEse ViOLent DeLIGHTs HaVe ViOLent EnDs") {
-        assert(false);
-    }
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    assert(input == filp_case(input));
+    std::cout << "Result: " << filp_case(input) << std::endl;  
     return 0;
 }
