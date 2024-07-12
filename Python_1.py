@@ -26,7 +26,7 @@ def separate_parentheses(paren_string):
     return separated_groups
 
 try:
-    paren_string = raw_input("Enter the parentheses string: ")
+    paren_string = input("Enter the parentheses string: ").strip()
     print(separate_parentheses(paren_string))
 except ValueError as e:
     print(e)
