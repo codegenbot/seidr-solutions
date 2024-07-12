@@ -33,6 +33,13 @@ int main() {
         }
         lst.push_back(num);
     }
-    std::cout << "The sum of digits is: " << skjkasdkd(lst) << std::endl;
-    return 0;
+    int maxPrime = 0;
+    for (int num : lst) {
+        if (isPrime(num)) {
+            if (num > maxPrime) {
+                maxPrime = num;
+            }
+        }
+    }
+    return sumOfDigits(maxPrime);
 }
