@@ -1,7 +1,6 @@
-```python
+lst = list(map(int, input().split()))
 min_diff = float('inf')
-split_idx = 0
-
+split_idx = -1
 for i in range(1, len(lst)):
     diff = abs(sum(lst[:i]) - sum(lst[i:]))
     if diff < min_diff:
