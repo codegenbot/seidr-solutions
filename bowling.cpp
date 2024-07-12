@@ -5,7 +5,15 @@
 int calculateBowlingScore(const std::string& s) {
     int total = 0;
     for (int i = 0; i < s.size(); ++i) {
-        total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] == '-' ? 0 : s[i + 3] - '0') : (s[i + 2] == '-' ? 0 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10 - (s[i + 3] == '-' ? 0 : s[i + 3] - '0'))));
+        if (s[i] == 'X') {
+            total += 10;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
+        } else if (s[i] == '-') {
+            total += 0;
+        } else if (isdigit(s[i])) {
+            total += s[i] - '0';
+        }
     }
     return total;
 }
