@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,8 +12,11 @@ bool is_prime(int num) {
 }
 
 int main() {
-    int num;
-    cin >> num;
+    string temp; 
+    cin >> temp; 
+    int num = stoi(temp);
     if (is_prime(num))
-        cout << (is_prime(num) ? "true" : "false") << endl;
+        cout << "true";
+    else
+        cout << "false";
 }
