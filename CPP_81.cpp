@@ -50,13 +50,10 @@ vector<string> numerical_letter_grade(vector<float> grades){
 
 int main() {
     vector<float> grades;
-    int n;
-    cout << "Enter the number of grades: ";
-    cin >> n;
-    grades.resize(n);
-    for(int i=0; i<n; i++){
-        cout << "Enter grade " << i+1 << ": ";
-        cin >> grades[i];
+    for(int i = 0; i < 3; ++i) {
+        float g;
+        std::cin >> g;
+        grades.push_back(g);
     }
     vector<string> grades_letter = numerical_letter_grade(grades);
 
