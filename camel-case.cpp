@@ -1,25 +1,19 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <sstream>
 
 std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
     for (char c : s) {
-        if (std::isspace(c)) { 
-            capitalize = true;  
-            continue;          
-        } else if (c == '-') { 
-            result += c;
-            capitalize = true;  
+        if (c == '-') {
+            continue; // don't process '-'
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            if (capitalize) {
-                result += std::toupper(c);  // capitalize the first letter of this word
-                capitalize = false;         // don't capitalize next letters in this word
-            } else {
-                result += std::tolower(c);
-            }
+            result += tolower(c);
         }
     }
 
@@ -28,9 +22,25 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
 
-    std::cout << camelCase(input) << std::endl;
+    std::istringstream iss(input);
+    std::string word;
+    std::string result;
+
+    while (iss >> word) {
+        if (!word.empty()) {
+            for (char& c : word) {
+                if (c == '-') {
+                    c = ' ';
+                }
+            }
+
+            result += camelCase(word + " ");
+        }
+    }
+
+    std::cout << result.substr(0, result.size() - 1) << std::endl;
 
     return 0;
 }
