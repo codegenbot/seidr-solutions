@@ -8,7 +8,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+std::vector<int> std::compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     if(issame(game,guess)){
         for (int i = 0; i < game.size(); i++) {
