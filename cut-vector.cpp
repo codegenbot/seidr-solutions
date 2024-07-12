@@ -1,22 +1,40 @@
 int main() {
-    vector<int> A;
-    int n, a;
-    while (cin >> a) {
-        A.push_back(a);
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
-
-    int sum1 = 0, sum2 = accumulate(A.begin() + 1, A.end(), 0);
-    for (int i = 0; i < A.size(); i++) {
-        sum1 += A[i];
-        sum2 -= A[i];
-        if (sum1 == sum2 || abs(sum1 - sum2) < abs(2*(sum1 - A[i]) - sum2)) {
-            for (int j = 0; j <= i; j++) {
-                cout << A[j] << endl;
-            }
-            cout << "0" << endl;
-            break;
+    
+    int n = nums.size();
+    int totalSum = 0;
+    for (int i = 0; i < n; ++i) {
+        totalSum += nums[i];
+    }
+    
+    vector<int> firstHalf;
+    int sum = 0;
+    int closestDiff = INT_MAX;
+    int cutIndex = 0;
+    
+    for (int i = 0; i < n; ++i) {
+        sum += nums[i];
+        int diff = abs(sum - (totalSum - sum));
+        if (diff < closestDiff) {
+            closestDiff = diff;
+            cutIndex = i;
         }
     }
-
+    
+    for (int i = 0; i <= cutIndex; ++i) {
+        firstHalf.push_back(nums[i]);
+    }
+    
+    cout << "1" << endl;
+    for (int i = 0; i < firstHalf.size(); ++i) {
+        cout << firstHalf[i] << endl;
+    }
+    
+    cout << "0" << endl;
+    
     return 0;
 }
