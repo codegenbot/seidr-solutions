@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int driver() {
+int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -39,8 +39,4 @@ int histogram(string s, vector<int>& arr) {
     } else {
         return -1;
     }
-}
-
-bool issame(map<char,int> a,map<char,int> b){
-    return a == b; 
 }
