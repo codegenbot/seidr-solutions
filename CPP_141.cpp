@@ -1,28 +1,25 @@
-````
-string file_name_check(string file_name){
-    int digit_count = 0;
-    int dot_count = 0;
-    bool valid_start = false;
+int digit_count = 0;
+bool found_dot = false;
+bool valid_prefix = true;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        } else if(file_name[i] == '.'){
-            dot_count++;
-        } else if(!valid_start && isalpha(file_name[i])){
-            valid_start = true;
-        }
-    }
-
-    if(digit_count > 3 || dot_count != 1 || !valid_start){
-        return "No";
-    }
-
-    string extension = file_name.substr(file_name.find('.')+1);
-    if(extension == "txt" || extension == "exe" || extension == "dll"){
-        return "Yes";
-    } else {
-        return "No";
+for (char c : file_name) {
+    if (isdigit(c)) {
+        digit_count++;
+    } else if (c == '.') {
+        found_dot = true;
+    } else if (!found_dot && !isalpha(c)) {
+        valid_prefix = false;
     }
 }
-```
+
+if (digit_count > 3 || !found_dot || !valid_prefix) {
+    return "No";
+} else {
+    size_t dot_pos = file_name.find('.');
+    string suffix = file_name.substr(dot_pos + 1);
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
+        return "No";
+    } else {
+        return "Yes";
+    }
+}
