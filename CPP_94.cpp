@@ -1,18 +1,16 @@
-```cpp
 #include <iostream>
-#include <algorithm>
 
-int skjkasdkd(int arr[]) {
-    int max = *std::max_element(arr, arr + sizeof(arr) / sizeof(arr[0]));
-    if (max >= 8192) {
-        return 10;
-    } else {
-        return 5;
+int calculateScore(int values[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += values[i];
     }
+    return sum;
 }
 
 int main() {
-    int arr[] = {127, 97, 8192};
-    assert(skkjasdkd(arr) == 10);
+    const int n = sizeof(myValues) / sizeof(myValues[0]);
+    int myValues[] = {127, 97, 8192};
+    std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
     return 0;
 }
