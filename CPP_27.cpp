@@ -19,7 +19,7 @@ std::string filp_case(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cout << "Enter your sentence: ";
+    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << filp_case(input) << std::endl;
     return 0;
