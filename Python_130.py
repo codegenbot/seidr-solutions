@@ -1,16 +1,16 @@
+```
 def tri(n):
     if n == 0:
         return [3]
-    elif n == 1:
-        return [3]
-    elif n == 2:
-        return [3, 2]
-    else:
-        trib = [3, 2]
-        for i in range(2, n):
-            if i % 2 != 0:
-                next_val = trib[i - 1] + trib[i - 2] + trib[i + 1]
-            else:
-                next_val = int((i / 2) + 1)
-            trib.append(next_val)
-    return trib
+
+    tri_seq = [3]
+
+    for _ in range(1, n + 1):
+        if len(tri_seq) % 2 == 0:
+            tri_seq.append(1 + (len(tri_seq) // 2))
+        else:
+            a, b = tri_seq[-2], tri_seq[-1]
+            c = a + b
+            tri_seq.append(c)
+
+    return tri_seq
