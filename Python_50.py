@@ -7,7 +7,3 @@ def decode_shift(s: str):
         else:
             result += ch
     return result
-
-shift = int(input("Enter the shift value: "))
-s = input("Enter the string to decode: ")
-print(decode_shift(s))
