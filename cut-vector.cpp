@@ -9,11 +9,7 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (true) {
-        cin >> num;
-        if (num == -1) {
-            break;
-        }
+    while (cin >> num) {
         nums.push_back(num);
     }
 
@@ -46,5 +42,23 @@ int main() {
         cout << nums[i] << endl;
     }
     
+    cout << " " << endl; // Output a separator between the subvectors
+    
+    for (int i = 0; i <= cutIndex; i++) {
+        if (i != cutIndex) {
+            cout << nums[i] << " ";
+        } else {
+            cout << nums[i] << endl;
+        }
+    }
+
+    for (int i = cutIndex + 1; i < n; i++) {
+        if (i != n - 1) {
+            cout << nums[i] << " ";
+        } else {
+            cout << nums[i] << endl;
+        }
+    }
+
     return 0;
 }
