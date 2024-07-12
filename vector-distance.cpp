@@ -2,8 +2,6 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#include <sstream>
-#include <string>
 
 int main() {
     int n;
@@ -16,11 +14,7 @@ int main() {
     
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        char comma;
         std::cin >> vec2[i];
-        if (i < n - 1) {
-            std::cin >> comma;  // Skip comma
-        }
     }
 
     double sum = 0.0;
@@ -29,7 +23,7 @@ int main() {
     }
     
     double result = std::sqrt(sum);
-    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
-
+    std::cout << std::fixed << std::setprecision(15) << result << std::endl;
+  
     return 0;
 }
