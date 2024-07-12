@@ -1,1 +1,1 @@
-numbers = [int(x) for x in input('Enter numbers separated by commas: ').rstrip().split(",")]
+numbers = [int(x) for x in input().strip().split(",")]
