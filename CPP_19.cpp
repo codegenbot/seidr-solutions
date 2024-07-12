@@ -1,3 +1,5 @@
+string sort_numbers(string numbers);
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -5,10 +7,6 @@
 #include <algorithm>
 #include <sstream>
 #include <cassert>
-
-using namespace std;
-
-string sort_numbers(string numbers);
 
 map<string, int> number_map = {
     {"zero", 0},
