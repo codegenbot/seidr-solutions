@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-#include <string>
+#include <limits>
 using namespace std;
 
 int main() {
@@ -10,13 +10,13 @@ int main() {
 
     cin >> ws; 
     cin >> startHeight;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     cin >> ws; 
-    string str;
-    cin >> str; 
-    istringstream iss(str);
-    iss >> firstBounce;
+    cin >> firstBounce;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin >> ws; 
     cin >> numBounces;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     double bouncinessIndex = firstBounce / startHeight;
 
