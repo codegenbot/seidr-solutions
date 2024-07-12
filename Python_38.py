@@ -1,14 +1,19 @@
-```
 def decode_cyclic():
-    s = input("Enter a string: ")
+    n = int(input("Enter a number: "))
+    s = input(f"Enter a string of {3*n} characters: ")
     result = []
-    for char in s:
-        if len(result) % 3 == 1:
-            if char != result[-1]:
-                result.append(char)
-        elif len(result) % 3 == 2:
-            if char != result[-1] and char != result[-2]:
-                result.extend([char])
+    i = 0
+    while i < len(s):
+        group = s[i : i + 3]
+        if len(group) == 1:
+            result.append(group[0])
+        elif len(group) >= 2:
+            if len(group) == 2:
+                result.append(group[1])
+                i += 2
+            else:
+                result.extend([group[0], group[1]])
+                i += 3
     print("".join(result))
 
 
