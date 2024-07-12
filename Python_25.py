@@ -6,6 +6,6 @@ def factorize(n):
     return factors
 
 
-n = int(input("Enter a number: "))
+n = int(input())
 result = factorize(n)
 print(result)
