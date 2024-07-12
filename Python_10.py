@@ -1,11 +1,10 @@
-```
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return "The palindrome is: " + s
     else:
-        prefix = string[0]
-        suffix = string[-1]
-        rest = string[1:-1] + prefix + suffix
+        prefix = s[0]
+        suffix = s[-1]
+        rest = s[1:-1] + prefix + suffix
         while not rest == rest[::-1]:
             rest = prefix + rest + suffix
-        return rest
+        return "The palindrome is: " + rest
