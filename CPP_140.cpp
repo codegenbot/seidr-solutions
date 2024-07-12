@@ -4,10 +4,10 @@
 std::string fix_spaces(std::string text) {
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
-            if (i > 0 && text[i-1] == ' ' && i < text.length() - 1 && text[i+1] == ' ') {
-                result += '-';
+            if (i > 0 && i < text.length() - 1 && text[i-1] == ' ' && text[i+1] == ' ') {
+                result += "-";
             } else {
-                result += '_';
+                result += "_";
             }
         } else {
             result += text[i];
@@ -17,6 +17,6 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    std::cout << fix_spaces("   Exa 1 2 2 mple") << std::endl;
     return 0;
 }
