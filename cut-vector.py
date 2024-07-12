@@ -1,5 +1,6 @@
 n = int(input())
 arr = list(map(int, input().split()))
+
 diff = float("inf")
 cut_point = 0
 
