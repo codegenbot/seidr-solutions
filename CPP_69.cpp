@@ -2,7 +2,7 @@
 #include <map>
 #include <initializer_list>
 
-int findMaxFreq(std::initializer_list<int> lst) {
+int findMaxFreq(std::vector<int> lst) {
     std::map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
@@ -14,7 +14,7 @@ int findMaxFreq(std::initializer_list<int> lst) {
 
     int maxFreqNum = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
+        if (it->second > 0 && it->first == it->second) {
             maxFreqNum = it->first;
             break;
         }
