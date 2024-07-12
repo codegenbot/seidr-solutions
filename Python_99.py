@@ -1,6 +1,3 @@
-import math
-
-
 def find_closest_number():
     while True:
         try:
@@ -10,12 +7,12 @@ def find_closest_number():
                 diff = abs(value - closest_value)
                 return closest_value, diff
             else:
+                pass  
                 return closest_value, 0
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     while True:
         closest_integer, difference = find_closest_number()
         print("Closest integer: {}, Difference: {}".format(closest_integer, difference))
