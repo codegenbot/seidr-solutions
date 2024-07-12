@@ -28,17 +28,18 @@ int main() {
     vector<string> a;
     cout << "Enter strings (stop when empty):" << endl;
     string s;
-    cin >> s;
-    while (!s.empty()) {
+    cin >> s; // input string
+    while (getline(cin, s)) {
+        if (s.empty()) break;
         a.push_back(s);
-        getline(cin, s);
     }
 
     bool same = isSame(a, a);
 
-    string prefix;
     cout << "Enter prefix:" << endl;
-    getline(cin, prefix);
+    string prefix;
+    cin >> prefix;
+
     vector<string> result = filter_by_prefix(a, prefix);
 
     if (!same) 
@@ -51,4 +52,5 @@ int main() {
     }
 
     return 0;
+
 }
