@@ -1,7 +1,7 @@
 from typing import List
 
 
-def mean_absolute_deviation():
+def mean_absolute_deviation() -> float:
     print("Enter some numbers: ")
     numbers = input().split()
     if len(numbers) < 2:
