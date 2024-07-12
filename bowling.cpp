@@ -1,25 +1,52 @@
-int main() {
-    string bowls;
-    cin >> bowls;
+int scoreOfBowlingRound(const std::string& bowls) {
     int score = 0;
-    int frame = 0;
-    int i = 0;
-    while (frame < 10) {
-        if (bowls[i] == 'X') {
+    int frame = 1;
+    int balls = 0;
+    int frameScore = 0;
+    bool spare = false;
+    
+    for (char bowl : bowls) {
+        if (bowl == 'X') {
             score += 10;
-            score += (bowls[i+2]=='X') ? 10 : (bowls[i+1]=='X' ? 10 : (bowls[i+1]-'0') + (bowls[i+2]-'0'));
-            i++;
-        } else if (bowls[i+1] == '/') {
-            score += 10;
-            score += (bowls[i+2]=='X' ? 10 : (bowls[i+2]-'0'));
-            i += 2;
+            if (frame < 10) {
+                score += (balls < 2) ? 0 : (balls == 2) ? 10 : (balls == 4) ? 10 : 0;
+            }
+            balls = (balls < 2) ? balls + 2 : 0;
+            frame++;
+            continue;
+        } else if (bowl == '/') {
+            score += 10 - frameScore;
+            if (frame < 10) {
+                score += (balls < 2) ? 0 : 10;
+            }
+            balls = (balls % 2 == 0) ? balls + 1 : 0;
+            frame++;
+            frameScore = 0;
+            spare = true;
+            continue;
+        } else if (bowl == '-') {
+            frame++;
+            continue;
         } else {
-            score += bowls[i]-'0';
-            score += bowls[i+1]-'0';
-            i += 2;
+            int pins = bowl - '0';
+            score += pins;
+            frameScore += pins;
+            if (spare) {
+                score += pins;
+                spare = false;
+            }
+            balls = (balls % 2 == 0) ? balls + 1 : balls + 2;
         }
-        frame++;
     }
-    cout << score << endl;
+    
+    return score;
+}
+
+int main() {
+    std::string bowls;
+    std::cin >> bowls;
+    
+    std::cout << scoreOfBowlingRound(bowls) << std::endl;
+    
     return 0;
 }
