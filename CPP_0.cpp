@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -12,6 +13,7 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> a=(float)1.0, (float)2.0, (float)3.9, (float)4.0, (float)5.0, (float)2.2);
-    assert(has_close_elements((float)1.1, (float)2.2, (float)3.1, (float)4.1, (float)5.1), 0.5) == false);
+    std::vector<float> a(6);
+    a[0] = 1.0f; a[1] = 2.0f; a[2] = 3.9f; a[3] = 4.0f; a[4] = 5.0f; a[5] = 2.2f;
+    assert((has_close_elements(a, 0.5)) == false);
 }
