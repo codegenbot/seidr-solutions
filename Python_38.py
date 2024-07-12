@@ -1,4 +1,5 @@
-def decode_cyclic() -> str:
+```
+def decode_cyclic():
     s = input("Enter the string: ")
     
     if not isinstance(s, str):
