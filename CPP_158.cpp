@@ -1,13 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
 string find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
+        [](const auto& a, const auto& b) {
             if (a.length() == b.length()) {
                 return a < b;
             }
