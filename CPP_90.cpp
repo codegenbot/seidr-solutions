@@ -1,6 +1,6 @@
 #include <cassert>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
@@ -14,7 +14,7 @@ int findNextSmallest(std::vector<int> lst) {
     return -1; 
 }
 
-int testMain() {
+int mainTest() {
     assert(findNextSmallest({-35, 34, 12, -45}) == 12);
     return 0;
 }
