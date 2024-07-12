@@ -16,12 +16,10 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (float i : l) {
         if (result.size() % 2 == 0) {
-            std::vector<float> even_indices(result.begin(), result.end());
-            std::sort(even_indices.begin(), even_indices.end());
-            result.erase(result.begin() + result.size() / 2, result.end());
-            result = even_indices;
+            std::sort(result.begin(), result.end());
         } else {
             result.push_back(i);
+            std::sort(std::vector<float>(result.begin(), result.end()));
         }
     }
     return result;
