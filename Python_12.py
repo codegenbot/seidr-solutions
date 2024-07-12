@@ -6,6 +6,5 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
-input_strings = sys.argv[1:]
-result = longest(input_strings)
+result = longest(sys.argv[1:])
 print(result)
