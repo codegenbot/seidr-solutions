@@ -1,43 +1,40 @@
 ```
-def decode_shift(shift_value, s):
+def decode_shift():
     print("This function decodes a Caesar cipher with the given shift value.")
     while True:
         try:
-            if 0 <= shift_value <= 25:
+            shift = int(input("Enter the shift value (0-25): "))
+            if 0 <= shift <= 25:
                 break
             else:
                 print("Invalid input. Please enter a value between 0 and 26.")
         except ValueError:
             print("Invalid input. Please enter a valid integer for the shift value.")
 
+    while True:
+        try:
+            encoded_str = input("Enter an encoded string: ")
+            if len(encoded_str) > 0:
+                break
+            else:
+                print("Invalid input. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid string for the encoded string.")
+
     result = ""
-    for ch in s:
+    for ch in encoded_str:
         if ch.isalpha():
-            char_code = ord(ch.lower())
+            if ch.isupper():
+                char_code = ord('A')
+            else:
+                char_code = ord('a')
             result += (
-                chr((char_code - ord("a") - shift_value) % 26 + ord("a"))
+                chr((ord(ch) - char_code - shift) % 26 + char_code)
                 if "a" <= ch <= "z"
-                else chr((ord(ch.upper()) - ord("A") - shift_value) % 26 + ord("A"))
+                else chr((ord(ch) - char_code - shift) % 26 + char_code)
             )
         else:
             result += ch
     return result
 
-
-while True:
-    try:
-        shift_value = int(input("Enter the shift value (0-25): "))
-        break
-    except ValueError:
-        print("Invalid input. Please enter a valid integer for the shift value.")
-
-while True:
-    s = input("Enter an encoded string (or 'quit' to stop): ")
-    if s.lower() == "quit":
-        return ""
-    if len(s) > 0 and isinstance(shift_value, int):
-        break
-    else:
-        print("Invalid input. Please try again.")
-
-print(decode_shift(shift_value, s))
+print(decode_shift())
