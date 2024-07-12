@@ -1,7 +1,1 @@
-numbers = []
-while True:
-    try:
-        line = input()
-        numbers.extend([float(num) for num in line.split()])
-    except EOFError:
-        break
+numbers = [float(num) for num in input("Enter numbers separated by spaces: ").split()]
