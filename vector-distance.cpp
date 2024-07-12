@@ -15,23 +15,16 @@ int main() {
     size_t n;
     std::cin >> n;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    
+
     std::vector<float> vec1(n);
     std::vector<float> vec2(n);
-    
-    std::string input;
-    std::getline(std::cin, input);
 
-    std::stringstream ss(input);
     for (size_t i = 0; i < n; ++i) {
-        ss >> vec1[i];
+        std::cin >> vec1[i];
     }
 
-    std::getline(std::cin, input);
-    ss.str(std::string());
-    ss.clear();
     for (size_t i = 0; i < n; ++i) {
-        ss >> vec2[i];
+        std::cin >> vec2[i];
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
