@@ -1,6 +1,11 @@
 expression = input().strip()
 
 def solve_boolean(expression):
-    return eval(expression.replace("T", "True").replace("F", "False").replace("|", "or").replace("&", "and"))
+    return eval(
+        expression.replace("T", "True ")
+        .replace("F", "False ")
+        .replace("|", "or")
+        .replace("&", "and")
+    )
 
 print(solve_boolean(expression))
