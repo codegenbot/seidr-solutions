@@ -1,2 +1,8 @@
 def solve(N):
-    return bin(N)[2:].lstrip("0") or "0"
+    result = ''
+    for i in bin(N)[2:]:
+        if i == '1':
+            result += str(int(i, 2))
+        else:
+            result += str(int(i, 2))  
+    return int(result)
