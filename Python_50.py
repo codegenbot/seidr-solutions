@@ -1,3 +1,4 @@
+```Python
 def decode_shift(s: str):
     result = ""
     for ch in s:
@@ -7,3 +8,7 @@ def decode_shift(s: str):
         else:
             result += ch
     return result
+
+if __name__ == "__main__":
+    user_input = input("Enter the string to decode: ")
+    print(decode_shift(user_input))
