@@ -7,7 +7,7 @@ def shopping_list():
         line = input().split()
         price = float(line[0])
         if len(line) > 1:
-            discount = float(line[1].strip('%').replace('.', '')) / 100
+            discount = float(line[1].strip('%')) / 100
         else:
             discount = 0.0
         prices.append(price)
