@@ -1,19 +1,25 @@
 def check():
     while True:
         num = input("Enter a number: ")
-        if not num.replace('.','',).strip().isnumeric():
-            print("Invalid input. Please enter a valid integer.")
-        else:
+        try:
             n = int(num.strip())
             if n != 0 and n >= 0:
                 if sumOfDigits(n) % 3 == 0:
-                    print("The number is divisible by 3")
+                    response = input(
+                        "Please enter your expected response (any non-empty string): "
+                    )
+                    while not response.strip():
+                        print("Invalid input. Please enter a valid response.")
+                        response = input(
+                            "Please enter your expected response (any non-empty string): "
+                        )
+                    print(response)
                 else:
                     print("The number is not divisible by 3")
             else:
                 print("Please enter a non-negative integer.")
-            cont = input("Run again? (y/n): ")
-            if cont.lower() != 'y':
-                break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
 
 check()
