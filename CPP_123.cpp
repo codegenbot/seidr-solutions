@@ -16,14 +16,12 @@ vector<int> get_odd_collatz(int n) {
     }
     result.push_back(1);
     
-    sort(result.begin(), result.end());
-    
     vector<int> odd_numbers;
-    for (int i = 0; i < result.size(); ++i) {
-        if (result[i] % 2 != 0) {
-            odd_numbers.push_back(result[i]);
+    for (int num : result) {
+        if (num % 2 != 0) {
+            odd_numbers.push_back(num);
         }
     }
-    
+
     return odd_numbers;
 }
