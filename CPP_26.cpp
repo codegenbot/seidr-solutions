@@ -1,24 +1,33 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <cassert>
-
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result(1); // Initialize with a size of 1.
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> result;
     for (int num : numbers) {
-        if (std::find_if(result.begin(), result.end(), [num](int x) { return x != num; }) == result.end()) {
+        bool isSame = false;
+        for (auto& v : result) {
+            if (issame({num}, {v})) {
+                isSame = true;
+                break;
+            }
+        }
+        if (!isSame) {
             result.push_back(num);
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 1};
+    std::vector<int> output = remove_duplicates(numbers);
+    for (auto num : output) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
