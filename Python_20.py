@@ -8,6 +8,9 @@ def find_closest_elements(numbers):
     ]
     return closest_elements[0]
 
-input_numbers = [int(x) for x in input("Enter the numbers separated by space: ").split()]
+
+input_numbers = [
+    int(x) for x in input("Enter the numbers separated by space: ").split()
+]
 result = find_closest_elements(input_numbers)
 print(result)
