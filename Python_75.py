@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```
 def is_multiply_prime(n):
     if n < 2:
