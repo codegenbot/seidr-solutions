@@ -6,11 +6,13 @@ def concatenate(strings: List[str]) -> str:
 
 
 strings_list = []
-while True:
-    user_input = input("Enter a string (or 'stop' to finish): ")
-    if user_input.lower() == "stop":
-        break
-    strings_list.append(user_input.strip())
+if input("Enter 'stop' to finish (or any string to continue): ").lower() == "stop":
+    break
 
-result = concatenate(strings_list)
+while True:
+    strings_list.append(input("Enter a string: "))
+    if input("Enter 'stop' to finish: ").lower() == "stop":
+        break
+result = concatenate([s.strip() for s in strings_list])
+
 print(result)
