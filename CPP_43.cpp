@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
