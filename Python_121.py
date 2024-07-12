@@ -2,12 +2,11 @@ def count_odd_numbers():
     while True:
         try:
             lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
-            print(len([i for i in lst if i % 2 != 0]))
-            cont = input("Do you want to continue? (yes/no): ")
-            if cont.lower() != "yes":
+            if len(lst) == 0:
                 break
+            print(len([i for i in lst if i % 2 != 0]))
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
-            continue
+    print("Program ended.")
 
 count_odd_numbers()
