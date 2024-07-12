@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -23,29 +24,11 @@ vector<int> leaders(vector<int>& arr) {
     return res;
 }
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> result;
-
-    // The last element is always a leader
-    result.push_back(arr.back());
-
-    for (int i = 0; i < n - 1; ++i) {
-        if (arr[i] >= arr.back()) {
-            result.push_back(arr[i]);
-        }
-    }
-
-    return result;
-}
-
 int main() {
     vector<int> test = {16, 17, 4, 3, 5, 2};
     vector<int> result = leaders(test);
-
     for(int i: result) {
         std::cout << i << " ";
     }
-    
     return 0;
 }
