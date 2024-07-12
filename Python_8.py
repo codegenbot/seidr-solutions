@@ -10,7 +10,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 if __name__ == "__main__":
     try:
         print("Enter space-separated numbers:")
-        numbers = list(map(int, raw_input().split()))
+        numbers = map(int, raw_input().split())
         result_sum, result_product = sum_product(numbers)
         print(result_sum, result_product)
     except ValueError:
