@@ -9,7 +9,7 @@ int main() {
     for (int i = 0; i < s.size(); ++i) {
         if (s[i] == 'X') {
             score += 10;
-            if (s[i + 1] == 'X') {
+            if (s[i + 1] == 'X' || s[i + 2] == 'X') {
                 score += 10;
                 if (s[i + 2] == 'X') {
                     score += 10;
