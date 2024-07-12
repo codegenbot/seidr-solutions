@@ -1,19 +1,19 @@
-#include <iostream>
+# include <iostream >
 
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    
-    double prob = 0.0;
-    double total_possible_outcomes = static_cast<double>(n * m);
+int main () {
+  int n, m ;
+  std :: cin >> n >> m ;
 
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            prob += static_cast<double>((n - i) * (m - j)) / total_possible_outcomes;
-        }
+  double prob = 0.0 ;
+  for (int i = 1 ; i <= n ; ++i) {
+    for (int j = 1 ; j <= m ; ++j) {
+      if (i > j) {
+        prob += 1.0 * (n - i) * (m - j) / (n * m) ;
+      }
     }
-    
-    std::cout << prob << std::endl;
-    
-    return 0;
+  }
+
+  std :: cout << prob << std::endl ;
+
+  return 0 ;
 }
