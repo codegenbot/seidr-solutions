@@ -1,5 +1,5 @@
 def separate_paren_groups():
-    paren_string = input()
+    paren_string = input("Enter the string of parentheses: ").strip()
     separated_groups = []
     current_group = ""
     open_count = 0
