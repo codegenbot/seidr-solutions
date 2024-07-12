@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -7,7 +8,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i].size() != b[i].size()) {
             return false;
         }
     }
