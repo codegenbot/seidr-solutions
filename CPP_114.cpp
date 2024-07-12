@@ -12,7 +12,6 @@ long long minSubArraySum(vector<long long> nums){
         }
     }
     return min_sum;
-
 }
 
 int main() {
