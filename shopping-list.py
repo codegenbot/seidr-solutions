@@ -1,4 +1,3 @@
-```
 def shopping_list():
     n = int(input())
     prices = []
@@ -7,7 +6,7 @@ def shopping_list():
         line = input().split()
         if len(line) >= 2:  
             price = float(line[0])
-            discount = float(line[1]) if len(line) > 1 else 0 
+            discount = float(line[1]) if len(line) > 1 else 0  
             prices.append(price)
             discounts.append(discount)
     total_price = 0
