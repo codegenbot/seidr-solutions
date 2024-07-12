@@ -9,12 +9,16 @@ def Strongest_Extension(extension, extensions_list):
     except ValueError:
         pass
 
-    if extension not in extensions_list:
-        return str(extension)
-      
+    if not isinstance(extension, int) or extension not in extensions_list:
+        return f"{extension}.{max(extensions_list)}"
+
     extension_index = extensions_list.index(extension)
-    
+
     if extension_index == 0:
-        return f"{extension}.{max(extensions_list, key=int)}"
-      
-    return f"{extension}.{extensions_list[extension_index - 1]}" if extensions_list[extension_index - 1] > extension else f"{extension}.{extension}"
+        return f"{extension}.{max(extensions_list)}"
+
+    return (
+        f"{extension}.{extensions_list[extension_index - 1]}"
+        if extensions_list[extension_index - 1] > extension
+        else f"{extension}.{extension}"
+    )
