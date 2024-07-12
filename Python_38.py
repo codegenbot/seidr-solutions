@@ -1,18 +1,16 @@
 ```
-def decode_cyclic():
+def decode_cyclic() -> str:
     s = input("Enter the string: ")
+    if len(s) < 3:
+        return s
     result = ""
     i = 0
     while i < len(s):
         if i + 2 <= len(s):  
-            group = s[i : i + 2] + s[i]
-        else:
-            group = s[i:]
-        if len(group) == 3:
+            group = s[i:i+3]
             result += group[1] + group[0] + group[2]
-        elif len(group) == 2:  
-            result += group[1] + group[0]
+            i += 3
         else:
-            result += group
-        i += 1
+            result += s[i:]
+            break
     return result
