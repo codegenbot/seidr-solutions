@@ -1,9 +1,5 @@
+```
 from typing import List
 
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+def below_zero(temperature_list: List[int]) -> bool:
+    return any(temp < 0 for temp in temperature_list)
