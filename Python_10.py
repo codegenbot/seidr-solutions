@@ -1,10 +1,12 @@
+```
 def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
     return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        rev_str = string[::-1]
-    else:
-        rev_str = "".join(e for e in string if e.isalnum()).__reversed__().join()
-    return string + rev_str
+    prefix = string
+    postfix = ''
+    while len(string) > len(postfix) and not is_palindrome(prefix + postfix):
+        prefix = prefix[:-1]
+    return prefix + prefix[::-1] + postfix
