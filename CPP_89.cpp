@@ -21,5 +21,4 @@ int main(){
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
     std::cout << "Encrypted string: " << encrypt(s) << '\n';
-    return 0;
 }
