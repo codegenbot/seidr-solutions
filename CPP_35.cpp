@@ -1,8 +1,6 @@
-```c++
 #include <algorithm>
 #include <cmath>
 
 int main() {
-    int max_val = *std::max_element(my_vector.begin(), my_vector.end());
-    return std::abs(max_val);
+    return std::abs(*std::max_element(vector_name.begin(), vector_name.end()));
 }
