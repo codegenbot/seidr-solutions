@@ -1,10 +1,13 @@
-Here is the completed code:
+#include <string>
 
-string string_xor(string a, string b) {
-    string result;
+std::string string_xor(std::string a, std::string b) {
+    std::string result = "";
     for (int i = 0; i < a.length(); i++) {
-        char c = (a[i] - '0' ^ b[i] - '0') + '0';
-        result += c;
+        if ((a[i] - '0') ^ (b[i] - '0')) {
+            result += "1";
+        } else {
+            result += "0";
+        }
     }
     return result;
 }
