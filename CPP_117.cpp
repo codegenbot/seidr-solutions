@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,9 +16,6 @@ vector<string> select_words(string s, int n) {
                     count(word.begin(), word.end(), 'u') <= n) {
                     result.push_back(word);
                 }
-                if (!word.empty() && word.length() > n) {
-                    return result;
-                }
                 word = "";
             }
         } else {
@@ -32,19 +28,10 @@ vector<string> select_words(string s, int n) {
             count(word.begin(), word.end(), 'u') <= n) {
             result.push_back(word);
         }
-        if (!word.empty() && word.length() > n) {
-            return result;
-        }
     }
     return result;
 }
 
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> result = select_words(s, n);
-    for (string str : result) {
-        cout << str << endl;
-    }
-    return 0;
+for (string str : result) {
+    cout << str << endl;
 }
