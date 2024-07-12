@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -39,11 +39,6 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     vector<int> result = even_odd_palindrome(n);
-    if (result.size() != 2) {
-        cout << "Error: Invalid input. Please enter a positive integer." << endl;
-    } else {
-        cout << "Even palindromes: " << result[0] << endl;
-        cout << "Odd palindromes: " << result[1] << endl;
-    }
+    cout << "Even palindromes: " << result[0] << endl;
+    cout << "Odd palindromes: " << result[1] << endl;
     return 0;
-}
