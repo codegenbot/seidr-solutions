@@ -1,55 +1,50 @@
-#include <iostream>
+```
 #include <string>
-#include <limits>
+#include <iostream>
 
-std::any compare_one(std::any a, std::any b) {
+bool compareAny(const boost::any &a, const boost::any &b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+        return (int)a.convert<int>() > (float)b.convert<float>();
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
+        return (int)a.convert<int>() > (double)b.convert<double>();
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
+        return (float)a.convert<float>() > (int)b.convert<int>();
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > (int)b ? a : b;
+        return (double)a.convert<double>() > (int)b.convert<int>();
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get());
-            float fb = (float)b.get();
-            return fa > fb ? a : b;
+            float fa = std::stof(a.convert<std::string>().get cref());
+            float fb = (float)b.convert<float>().get cref();
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
-            double fa = std::stod(a.convert<std::string>().get());
-            double fb = (double)b.get();
-            return fa > fb ? a : b;
+            double fa = std::stod(a.convert<std::string>().get cref());
+            double fb = (double)b.convert<double>().get cref();
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
-            int fa = std::stoi(a.convert<std::string>().get());
-            int fb = (int)b.get();
-            return fa > fb ? a : b;
+            int fa = std::stoi(a.convert<std::string>().get cref());
+            int fb = (int)b.convert<int>().get cref();
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get());
-            float fb = std::stof(b.convert<std::string>().get());
-            return fa > fb ? a : b;
+            float fa = std::stof(a.convert<std::string>().get cref());
+            float fb = std::stof(b.convert<std::string>().get cref());
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
+    } else {
+        throw "Unknown types";
     }
-    return "None";
-}
 
-int main() {
-    std::any a, b;
-    // Your code to read input from user
-    std::cout << compare_one(a, b) << std::endl;
-    return 0;
-}
+    return false;
