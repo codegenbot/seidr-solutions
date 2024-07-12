@@ -1,8 +1,10 @@
-def max_fill(grid):
-    n = len(grid)
+import math
+
+
+def max_fill(n, grid):
     m = len(grid[0])
     total_water = 0
-    max_capacity = 0
+    max_capacity = max(max(grid[0]))
     for row in grid:
         for cell in row:
             if cell > 0 and cell > max_capacity:
