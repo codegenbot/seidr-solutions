@@ -1,8 +1,10 @@
 ```cpp
 #include <iostream>
 #include <sstream>
-#include <cassert>
-using namespace std;
+#include <string> // Added this line
+using std::string;
+using std::istringstream;
+using std::getline;
 
 string words_in_sentence(string sentence) {
     istringstream ss(sentence);
@@ -18,8 +20,12 @@ string words_in_sentence(string sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    string input;
-    getline(cin, input);
-    cout << words_in_sentence(input) << endl;
+    string sentence;
+    getline(std::cin, sentence);
+    try {
+        std::cout << words_in_sentence(sentence) << std::endl;
+    } catch (...) {
+        std::cerr << "Error: Invalid input. Please enter a valid sentence." << std::endl;
+    }
     return 0;
 }
