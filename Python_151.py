@@ -1,6 +1,6 @@
 def check(func, lst):
     try:
         result = func(lst)
-        print(result)
-    except Exception as e:
-        print(f"Error occurred: {str(e)}")
+        print(f"The sum of the squares of all even numbers in {lst} is {result}.")
+    except TypeError as e:
+        print("Error: Only integers are allowed. Try again!")
