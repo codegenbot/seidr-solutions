@@ -1,4 +1,6 @@
-```
+Here's the corrected code:
+
+```Python
 from typing import Optional
 
 
