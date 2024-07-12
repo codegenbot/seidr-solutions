@@ -1,25 +1,11 @@
 def encode(message):
-    vowel_map = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q'}
-    non_vowel_map = str.maketrans('AEIOUaeiou', vowel_map['A'] + vowel_map['E'] + vowel_map['I'] + vowel_map['O'] + 'u')
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                if char.lower() == 'a':
-                    result += 'c'
-                elif char.lower() == 'e':
-                    result += 'g'
-                elif char.lower() == 'i':
-                    result += 'k'
-                elif char.lower() == 'o':
-                    result += 'q'
-                else:
-                    result += 'u'
+            if char.isupper():
+                result += chr((ord(char) - 65 + 1) % 26 + 65)
             else:
-                if char.isupper():
-                    result += chr(ord(char) + 32)
-                else:
-                    result += char.translate(non_vowel_map)
+                result += chr((ord(char) - 97 + 1) % 26 + 97)
         else:
             result += char
     return result
