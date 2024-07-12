@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
-bool issame(const initializer_list<int>& a, const initializer_list<int>& b) {
-    vector<int> vecA(a), vecB(b);
-    return vecA == vecB;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> make_a_pile(int n) {
@@ -23,8 +23,13 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main() {
-    vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame({make_a_pile(8)}, make_a_pile_result));
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        cerr << "Usage: " << argv[0] << " <n>" << endl;
+        return 1;
+    }
+    int n = stoi(argv[1]);
+    vector<int> result = make_a_pile(n);
+    assert(issame(result, {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
