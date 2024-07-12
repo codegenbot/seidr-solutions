@@ -1,11 +1,12 @@
 def decode_shift():
+    try:
+        shift = int(input("Enter the shift value: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid integer for the shift value.")
+        return ""
+
     while True:
         s = input("Enter an encoded string: ")
-        try:
-            shift = int(input("Enter the shift value: "))
-        except ValueError:
-            print("Invalid input. Please enter a valid integer for the shift value.")
-            continue
         if len(s) > 0 and isinstance(shift, int):
             break
         else:
