@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
@@ -13,7 +15,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
-    while (stones <= (n + 7) / 2) {
+    while (stones <= n && stones <= std::numeric_limits<std::vector<int>::size_type>::max()) {
         pile.push_back(stones);
         stones += 2; 
     }
