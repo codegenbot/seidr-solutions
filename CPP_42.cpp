@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool issame(vector<int>& a, vector<int>& b) {
+    return a.size() == b.size() && a == b;
 }
 
 vector<int> incr_list(const vector<int>& l){
