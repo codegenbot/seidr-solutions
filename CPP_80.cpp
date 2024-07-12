@@ -1,11 +1,15 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
 
 bool is_happy(const std::string& s) {
-    for (int i = 0; i <= s.length() - 2; i++) {
-        size_t count = std::count_if(s.begin(), s.end(), [&](char c){return c == s[i];});
+    for (int i = 0; i < s.length() - 1; i++) {
+        size_t count = 0;
+        for (char c : s) {
+            if (c == s[i])
+                count++;
+        }
         if (count > 1)
             return false;
     }
