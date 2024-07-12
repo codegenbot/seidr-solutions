@@ -1,10 +1,3 @@
-num_dict = {i: str(i) for i in range(10)}
-
-
+num_dict = {k: int(k) for k in "zero one two three four five six seven eight nine ten"}
 def sort_numbers(numbers: str) -> str:
-    return " ".join(
-        [
-            str(num_dict[int(k)])
-            for k in sorted([int(i) for i in numbers.split() if i in num_dict])
-        ]
-    )
+    return " ".join([str(num_dict[k]) for k in sorted([i for i in numbers.split() if i in num_dict])])
