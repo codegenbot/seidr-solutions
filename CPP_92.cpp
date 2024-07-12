@@ -1,6 +1,5 @@
-```cpp
+```
 #include <iostream>
-#include <cassert>
 using namespace std;
 
 bool any_int(float a, float b, float c) {
