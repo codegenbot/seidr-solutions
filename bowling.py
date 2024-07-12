@@ -21,7 +21,7 @@ def bowling_score(bowls):
                 + (10 if bowls[bowl_index + 1] == "X" else int(bowls[bowl_index + 1]))
             )
         else:
-            score += 0 if bowls[bowl_index] == "-" else int(bowls[bowl_index])
+            score += 0 if bowls[bowl_index] in ['-', '/'] else int(bowls[bowl_index])
         if bowls[bowl_index] != "X":
             bowl_index += 1
         if bowls[bowl_index] == "/":
