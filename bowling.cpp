@@ -1,35 +1,34 @@
-int calculateBowlingScore(string input) {
+int scoreBowlRound(const string& bowls) {
     int score = 0;
     int frame = 0;
-    for (int i = 0; i < input.size() && frame < 10; i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            if (input[i + 1] == 'X') {
-                score += 10;
-                if (input[i + 2] == 'X') {
-                    score += 10;
-                } else if ('0' <= input[i + 2] && input[i + 2] <= '9') {
-                    score += input[i + 2] - '0';
-                }
-            } else if (input[i + 2] == '/') {
-                score += 10;
-            } else if ('0' <= input[i + 1] && input[i + 1] <= '9' &&
-                       '0' <= input[i + 2] && input[i + 2] <= '9') {
-                score += input[i + 1] - '0' + input[i + 2] - '0';
-            }
+    int ball = 0;
+    vector<int> frames(10, 0);
+
+    for(int i=0; i<bowls.size(); i++) {
+        if(bowls[i] == 'X') {
+            frames[frame] = 10 + (i+1 < bowls.size() ? 
+                (bowls[i+1] == 'X' ? 10 : 
+                    (isdigit(bowls[i+1]) ? bowls[i+1]-'0' : 10)) : 0) +
+                (i+2 < bowls.size() ? 
+                    (bowls[i+2] == 'X' ? 10 : 
+                        (isdigit(bowls[i+2]) ? bowls[i+2]-'0' : 10)) : 0);
             frame++;
-        } else if ('0' <= input[i] && input[i] <= '9') {
-            score += input[i] - '0';
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
+        } else if(bowls[i] == '/') {
+            frames[frame] = 10 + (isdigit(bowls[i+1]) ? bowls[i+1]-'0' : 10);
+            frame++;
+            i++;
+        } else if(isdigit(bowls[i])) {
+            frames[frame] += bowls[i] - '0';
+            ball++;
+            if(ball % 2 == 0) {
+                frame++;
+            }
         }
     }
-    return score;
-}
 
-int main() {
-    string input;
-    cin >> input;
-    cout << calculateBowlingScore(input) << endl;
-    return 0;
+    for(int i=0; i<10; i++) {
+        score += frames[i];
+    }
+
+    return score;
 }
