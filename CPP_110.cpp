@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2) {
     int oddCount = 0;
