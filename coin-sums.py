@@ -3,8 +3,8 @@ def coin_sums(cents):
     results = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        count = cents // coins[i]  # number of quarters that fit into cents
-        cents %= coins[i]           # remaining cents after using these quarters
+        count = cents // coins[i]  
+        cents %= coins[i]            
         results[i] = count
 
     return tuple(results)
