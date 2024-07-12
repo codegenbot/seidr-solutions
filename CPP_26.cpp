@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -18,14 +17,12 @@ std::vector<int> remove_duplicates(const std::vector<int>& vec) {
 
 int main() {
     std::vector<int> test1 = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    std::vector<int> test2 = {1, 2, 3, 4, 5};
-    if (issame(test1, test2)) {
-        for (int i : test1) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Test failed" << std::endl;
+    assert(std::equal(test1.begin(), test1.end(), {1, 2, 3, 4, 5}));
+    
+    for (int i : test1) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
+    
     return 0;
 }
