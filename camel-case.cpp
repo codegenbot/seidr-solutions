@@ -17,7 +17,7 @@ std::string camelCase(std::string s) {
             result += toupper(word[0]) + tolower(word.substr(1));
         else
             result += word;
-        capitalize = true;
+        capitalize = false;
     }
 
     return result;
