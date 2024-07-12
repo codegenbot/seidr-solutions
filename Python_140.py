@@ -1,4 +1,4 @@
-```python
+```
 import re
 
 
@@ -7,6 +7,9 @@ def solve(text):
 
 
 text = "Enter your name or title: "
-print(text)  
-user_input = input()
+while True:
+    print(text)
+    user_input = input()
+    if user_input.isalpha():  
+        break
 print(solve(user_input))
