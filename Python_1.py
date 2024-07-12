@@ -13,13 +13,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 start = stack.pop()
                 result.append(paren_string[start:i+1])
     
-    return result
+    return result if len(stack) == 0 else ["Invalid input, parentheses not properly separated."]
 
-input_string = input("Enter a string with parentheses: ")
-
-# Check if input string is not empty before processing
-if input_string:
-    output = separate_paren_groups(input_string)
-    print(output)
-else:
-    print("Input string is empty.")
+input_string = input()
+output = separate_paren_groups(input_string)
+print(output)
