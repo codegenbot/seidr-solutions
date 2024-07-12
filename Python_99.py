@@ -1,7 +1,4 @@
 ```
-def check(num):
-    print(f"Number: {num}")
-
 def find_closest_number():
     while True:
         try:
@@ -12,6 +9,17 @@ def find_closest_number():
                 print(f"Closest integer: {closest_integer}, Difference: {diff:.2f}")
             else:
                 print(f"Closest integer: {closest_integer}, Difference: 0")
-            check(closest_integer) 
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
+        response = input("Do you want to continue? (yes/no): ")
+        if response.lower() != "yes":
+            return
+
+result = None
+while True:
+    find_closest_number()
+    response = input("Do you want to continue? (yes/no): ")
+    if response.lower() != "yes":
+        break
+
+print("Program ended.")
