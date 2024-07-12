@@ -9,8 +9,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (scanf("%d", &num) == 1) {
+    while (cin >> num) {
         nums.push_back(num);
+        if (cin.peek() == '\n') break; // Exit the loop if new line character encountered
     }
 
     int n = nums.size();
@@ -34,11 +35,11 @@ int main() {
         }
     }
     
-    for (int i = 0; i <= cutIndex; i++) {
+    for (int i = 0; i < cutIndex; i++) {
         cout << nums[i] << endl;
     }
     
-    for (int i = cutIndex + 1; i < n; i++) {
+    for (int i = cutIndex; i < n; i++) {
         cout << nums[i] << endl;
     }
     
