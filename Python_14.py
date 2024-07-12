@@ -1,2 +1,6 @@
+```
+from typing import List
+
+
 def all_prefixes(string: str) -> List[str]:
-    return [string[:i] for i in range(len(string), 0, -1)]
+    return [string[:i] for i in range(0, len(string) + 1)]
