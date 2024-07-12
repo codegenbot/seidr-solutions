@@ -1,2 +1,8 @@
-def sum_odd_coefficients(xs):
-    return sum(x for x in xs if xs.index(x) % 2 != 0)
+def find_zero(xs):
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("Input list xs must have an even number of elements")
+    a = xs[0]
+    for i in range(1, n // 2 + 1):
+        a = -a * (n - 2 * i) / (i * (n - 2 * i))
+    return -a
