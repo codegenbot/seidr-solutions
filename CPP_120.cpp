@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -17,7 +17,7 @@ int maximum(int arr[], int n) {
 
 int mainProblemCPP120() {
     std::vector<int> vec1(3, 0); 
-    std::vector<int> vec2({1, 2, 3}); 
+    std::vector<int> vec2 = {1, 2, 3}; 
     
     if (!issame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are not the same." << std::endl;
@@ -28,9 +28,9 @@ int mainProblemCPP120() {
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     int n = sizeof(arr) / sizeof(arr[0]); 
     // Create a vector from the array
-    std::vector<int> vec({1, 2, 3, -23, 243, -400, 0});
+    vec1.assign(arr, arr+n);
     
-    if (!vec.empty()) { // Check for empty vectors
+    if (!vec1.empty()) { // Check for empty vectors
         std::cout << "Vectors are not empty." << std::endl;
     } else {
         std::cout << "Vectors are empty" << std::endl;
