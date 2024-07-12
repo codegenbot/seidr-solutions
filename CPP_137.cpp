@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::variant<const char*, std::string> compare_one(std::string a, std::string b) {
-    return "None";
+    return "None"s;
 }
 
 int main() {
