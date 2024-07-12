@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -10,16 +9,18 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    assert(any_int(3.01, 4, 7) == false);
-
     float a, b, c;
     cout << "Enter three numbers: ";
-    cin >> a >> b >> c;
+    std::string s1 = std::to_string(a);
+    std::string s2 = std::to_string(b);
+    std::string s3 = std::to_string(c);
+    cin >> s1 >> s2 >> s3;
+    a = stod(s1); b = stod(s2); c = stod(s3);
 
-    if(any_int(a, b, c))
-        cout << "At least one of the numbers is an integer." << endl;
+    if (any_int(a, b, c)) 
+        cout << "At least one of the input numbers is an integer.\n";
     else
-        cout << "None of the numbers are integers." << endl;
+        cout << "None of the input numbers are integers.\n";
 
     return 0;
 }
