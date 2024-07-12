@@ -1,13 +1,13 @@
-def replace_multiple_spaces_with_single_space_and_change_non_alphanumeric_to_lowercase(text):
-    result = ''
-    count = 1
-    for char in text:
-        if char == ' ' and count > 1:
-            continue
-        elif char.isalnum():
-            result += char.lower()
-            count = 1
+def replace_multiple_spaces(text):
+    result = ""
+    i = 0
+    while i < len(text):
+        if text[i] == " ":
+            if i + 1 < len(text) and text[i + 1] == " ":
+                result += "&nbsp;"
+            else:
+                result += " "
         else:
-            result += char
-            count = 1
+            result += text[i]
+        i += 1
     return result
