@@ -1,8 +1,2 @@
-def rolling_max(numbers):
-    return [max(numbers[i : i + 3]) for i in range(len(numbers) - 2)]
-
-
-n = int(input().strip())
-numbers = [int(input()) for _ in range(n)]
-
+numbers = list(map(int, input("Enter a list of integers separated by space: ").split()))
 print(rolling_max(numbers))
