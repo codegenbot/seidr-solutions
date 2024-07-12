@@ -3,8 +3,6 @@ def quadratic_equation():
         try:
             print("Enter coefficients (space-separated): ")
             coefficients = list(map(float, input().split()))
-            if len(coefficients) != 3:
-                raise ValueError
             a, b, c = coefficients[0], coefficients[1], coefficients[2]
             
             import math
@@ -20,6 +18,7 @@ def quadratic_equation():
                 print(f"Root: {root}")
             else:
                 print("No real roots")
-            break
+            
+            print("Enter coefficients (space-separated): ")
         except ValueError:
-            print("Invalid input. Please enter exactly three numbers separated by spaces.")
+            print("Invalid input. Please enter three numbers separated by spaces.")
