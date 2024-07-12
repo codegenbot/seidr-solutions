@@ -1,8 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+int main 
+{ 
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
 
-int main() {
     std::vector<int> lst;
     int n;
 
@@ -29,6 +30,7 @@ int main() {
             }
             if(same) std::cout << "-1";
         } else std::cout << "-1";
+
     } else std::cout << "-1";
 
     return 0;
