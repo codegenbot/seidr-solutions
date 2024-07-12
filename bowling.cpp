@@ -13,10 +13,13 @@ int score(const string& s) {
             frame++;
         } else if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
+            if (frame == 9) { // Handle extra ball in the last frame
+                total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0');
+            }
         } else if (s[i] >= '0' && s[i] <= '9') {
             total += s[i] - '0';
         }
-        if (frame == 9) break;
+        if (frame == 10) break;
     }
     return total;
 }
