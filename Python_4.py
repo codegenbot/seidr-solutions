@@ -1,5 +1,4 @@
-```
-def mean_absolute_deviation() -> float:
+def mean_absolute_deviation(numbers) -> float:
     while True:
         print("Enter some numbers (space-separated): ")
         try:
