@@ -1,15 +1,12 @@
 Here is the completed code:
 
 def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    for i in range(len(string)):
-        postfix = string[i:]
-        if postfix == postfix[::-1]:
-            prefix = string[:i][::-1]
-            return prefix + string + postfix
-    prefix = string[::-1]
-    return prefix + string + 'a' * (len(prefix) - len(string))
+    s = string.lower()
+    for i in range(len(s), 0, -1):
+        if s[:i] == s[:i][::-1]:
+            return string + s[i:][::-1]
+    return s + s[::-1]
