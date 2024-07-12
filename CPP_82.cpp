@@ -14,8 +14,11 @@ bool isPrime(int n) {
 
 bool prime_length(const char* str){
     std::string s;
-    for (char c : str) {
-        if (isPrime(c)) s += static_cast<char>(c);
+    for(int i = 0; str[i]; i++) {
+        char c = str[i];
+        if(isPrime(c - '0')) { 
+            s += c; 
+        }
     }
     int len = s.length();
     if(len <= 1) return false;
