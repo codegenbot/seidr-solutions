@@ -11,21 +11,17 @@ double calculateEuclideanDistance(const std::vector<double>& vec1, const std::ve
 }
 
 int main() {
-    size_t n;
-    std::cin >> n;
-    
-    std::vector<double> vec1;
-    std::vector<double> vec2;
-    
+    std::vector<double> vec1, vec2;
     double temp;
+
     while (std::cin >> temp) {
         vec1.push_back(temp);
-        if (vec1.size() == n) break;
+        if (vec1.size() == 11) break;
     }
     
     while (std::cin >> temp) {
         vec2.push_back(temp);
-        if (vec2.size() == n) break;
+        if (vec2.size() == vec1.size()) break;
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
