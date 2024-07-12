@@ -1,38 +1,43 @@
-int score(string frames) {
-    int score = 0;
-    int frame = 0;
-    for (int i = 0; i < frames.size() && frame < 10; ++i) {
-        if (frames[i] == 'X') {
-            score += 10;
-            if (frame < 9) {
-                if (frames[i + 2] == 'X') {
-                    score += 10 + (frames[i + 4] == 'X' ? 10 : frames[i + 4] - '0');
-                } else {
-                    score += (frames[i + 2] == '/' ? 10 : frames[i + 2] - '0') + (frames[i + 3] == '/' ? 10 : frames[i + 3] == 'X' ? 10 : frames[i + 3] - '0');
-                }
-            } else {
-                score += (frames[i + 1] == 'X' ? 10 : frames[i + 1] - '0') + (frames[i + 2] == 'X' ? 10 : frames[i + 2] - '0');
-            }
-            ++frame;
-        } else if (frames[i] == '/') {
-            score += 10 - (frames[i - 1] - '0');
-            score += (frames[i + 1] == 'X' ? 10 : frames[i + 1] - '0');
-            ++frame;
-            ++i;
+int score(string s) {
+    int total = 0;
+    int frame = 1;
+    int ball = 0;
+    int rolls[22] = {0};
+    
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) frame++;
+        } else if (c == '/') {
+            rolls[ball++] = 10 - rolls[ball - 2];
+            if (frame < 10) frame++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            score += frames[i] - '0';
-            if (i + 1 < frames.size() && frames[i + 1] == '/') {
-                score += 10 - (frames[i] - '0');
-            }
-            ++frame;
+            rolls[ball++] = c - '0';
+            if (frame < 10) frame++;
         }
     }
-    return score;
+    
+    for (int i = 0; i < 20; ++i) {
+        if (rolls[i] == 10) {
+            total += 10 + rolls[i + 1] + rolls[i + 2];
+            if (frame == 10) break;
+        } else if (rolls[i] + rolls[i + 1] == 10) {
+            total += 10 + rolls[i + 2];
+            i++;
+        } else {
+            total += rolls[i] + rolls[i + 1];
+            i++;
+        }
+    }
+    
+    return total;
 }
 
 int main() {
-    string frames;
-    cin >> frames;
-    cout << score(frames) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
