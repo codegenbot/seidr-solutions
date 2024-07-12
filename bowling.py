@@ -1,49 +1,30 @@
 def bowling_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
-    while frame <= 10:
-        if bowls[bowl_index] == "X":
-            score += 10 + get_strike_bonus(bowls, bowl_index)
-            bowl_index += 1
-        elif bowls[bowl_index] == "/":
-            score += (
-                10 - int(bowls[bowl_index - 1]) + get_spare_bonus(bowls, bowl_index)
-            )
-            bowl_index += 1
+    frame_score = 0
+    for i, bowl in enumerate(bowls):
+        if bowl == "X":
+            score += 10
+            if frame < 10:
+                score += sum(
+                    map(
+                        lambda x: 10 if x == "X" else (int(x) if x.isdigit() else 0),
+                        bowls[i + 1 : i + 3],
+                    )
+                )
+            frame += 1
+        elif bowl == "/":
+            score += 10 - frame_score
+            if frame < 10:
+                score += 10 if bowls[i + 1] == "X" else int(bowls[i + 1])
+            frame += 1
         else:
-            score += int(bowls[bowl_index])
-        if bowls[bowl_index] in ["X", "/"]:
-            bowl_index += 1
-        frame += 1
+            score += int(bowl)
+            frame_score = int(bowl)
+            if frame % 2 == 0:
+                frame += 1
     return score
 
 
-def get_strike_bonus(bowls, bowl_index):
-    bonus = 0
-    if bowls[bowl_index + 1] == "X":
-        bonus += 10
-        if bowls[bowl_index + 2] == "X":
-            bonus += 10
-        else:
-            bonus += int(bowls[bowl_index + 2])
-    else:
-        bonus += int(bowls[bowl_index + 1])
-        if bowls[bowl_index + 2] == "/":
-            bonus += 10 - int(bowls[bowl_index + 1])
-        else:
-            bonus += int(bowls[bowl_index + 2])
-    return bonus
-
-
-def get_spare_bonus(bowls, bowl_index):
-    bonus = 0
-    if bowls[bowl_index + 1] == "X":
-        bonus += 10
-    else:
-        bonus += int(bowls[bowl_index + 1])
-    return bonus
-
-
-bowls = input()
+bowls = input().strip()
 print(bowling_score(bowls))
