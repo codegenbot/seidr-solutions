@@ -5,6 +5,9 @@ def separate_paren_groups():
     open_count = 0
 
     for char in paren_string:
+        if char not in "()":
+            raise ValueError("Invalid input: Only parentheses are allowed")
+
         if char == "(":
             open_count += 1
         elif char == ")":
@@ -21,5 +24,5 @@ def separate_paren_groups():
 
     return separated_groups
 
-
 print(separate_paren_groups())
+input()
