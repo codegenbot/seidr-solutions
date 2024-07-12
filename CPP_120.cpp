@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,12 +15,10 @@ int mainProblemCPP120() {
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
     
-    if (vec1 == vec2) { // Compare vectors
+    if (issame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
     } else {
-        std::vector<int> numbers = {1, 2, 3, -23, 243, -400, 0};
-        auto max = *std::max_element(numbers.begin(), numbers.end());
-        std::cout << "Maximum element in the vector is: " << max << std::endl;
+        std::cout << "Vectors are not the same." << std::endl;
     }
     
     return 0;
