@@ -13,9 +13,8 @@ def prime_fib(n):
             a, b = b, a + b
         return a
 
-    return is_prime(n)
+    return is_prime(fibonacci(n))
 
-
-n = int(input().strip())
-result = prime_fib(fibonacci(n))
+n = int(input("Enter a number: ").strip())
+result = prime_fib(n)
 print(result)
