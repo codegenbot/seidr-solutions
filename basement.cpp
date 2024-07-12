@@ -14,6 +14,5 @@ int basement(const vector<int>& nums) {
 }
 
 int main() {
-    // Call basement function with test cases here
     return 0;
 }
