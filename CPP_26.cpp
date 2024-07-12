@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -23,3 +23,4 @@ int main() {
     std::vector<int> test1 = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
     assert (issame(test1, {1, 2, 3, 4, 5}));
     return 0;
+}
