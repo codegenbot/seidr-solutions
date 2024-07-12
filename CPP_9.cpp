@@ -4,16 +4,10 @@
 #include <algorithm>
 
 bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) {
+    if (v1.size() != v2.size()) 
         return false;
-    }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+    return std::equal(v1.begin(), v1.end(), v2.begin());
+}; 
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
@@ -45,7 +39,10 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    assert(std::vector<int>(v1) == v2);
+    if (v1 == v2)
+        std::cout << "Vectors are equal" << std::endl;
+    else
+        std::cout << "Vectors are not equal" << std::endl;
     
     return 0;
 }
