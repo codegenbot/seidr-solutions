@@ -4,8 +4,8 @@
 #include <cassert>
 
 bool move_one_ball(const std::vector<int>& arr) {
-    int n = arr.size();
     std::vector<int> arr_copy = arr;
+    int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (std::is_sorted(arr_copy.begin(), arr_copy.end())) {
             return true;
