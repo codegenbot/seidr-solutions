@@ -13,25 +13,15 @@ def check():
                         response = input(
                             "Please enter your expected response (any non-empty string): "
                         )
-                    confirm = input("Press Enter to continue, or type 'stop' to quit: ")
-                    if confirm.lower() == "stop":
-                        break
                     print(response)
                 else:
-                    confirm = input("Press Enter to continue, or type 'stop' to quit: ")
-                    if confirm.lower() == "stop":
-                        break
                     print("The number is not divisible by 3")
             else:
-                confirm = input("Press Enter to continue, or type 'stop' to quit: ")
-                if confirm.lower() == "stop":
-                    break
-                print("Please enter a non-negative integer.")
+                if n == 0:
+                    print("Please enter a non-zero, non-negative integer.")
+                elif n < 0:
+                    print("Please enter a non-negative integer.")
         except ValueError:
-            confirm = input("Press Enter to continue, or type 'stop' to quit: ")
-            if confirm.lower() == "stop":
-                break
             print("Invalid input. Please enter a valid integer.")
-
 
 check()
