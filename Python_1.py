@@ -14,7 +14,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             open_count -= 1
             group += char
-            if open_count == 0:
+            if open_count == 0 and group != ''):
                 groups.append(group)
                 group = ''
-    return [group] if open_count > 0 else groups
+    return groups
