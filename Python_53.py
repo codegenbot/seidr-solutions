@@ -1,5 +1,15 @@
+```
 def add(x: int, y: int):
-    try:
-        return x + y
-    except TypeError:
-        return "Error: Please enter valid integers"
+    while True:
+        try:
+            x = int(input("Enter first integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    while True:
+        try:
+            y = int(input("Enter second integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    return x + y
