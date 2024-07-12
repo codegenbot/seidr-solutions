@@ -1,16 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
 int main() {
-    vector<int> nums;
-    int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    vector<unsigned long long> nums = {2819, 5392, 7741};
+
+    unsigned long long sum = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        sum += floor(nums[i] / 3) - 2;
     }
-    
-    int sum = 0;
-    for (int num : nums) {
-        sum += max(num / 3 - 2, 0);
-    }
-    
+
     cout << sum << endl;
-    
+
     return 0;
 }
