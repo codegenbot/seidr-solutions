@@ -1,8 +1,20 @@
 ```
-def prod_signs(arr):
-    if not arr:
+def calculate_average_and_median():
+    while True:
+        user_input = input("Enter numbers separated by space: ")
+        try:
+            numbers = list(map(int, user_input.split()))
+            break
+        except ValueError:
+            print("Invalid input. Please enter valid numbers separated by space.")
+
+    if not numbers:
         return None
-    sign_product = 1
-    for num in arr:
-        sign_product *= -1 if num < 0 else 1 if num > 0 else 1
-    return sum(abs(num) for num in arr) * sign_product
+
+    average = sum(numbers) / len(numbers)
+    median = sorted(numbers)[len(numbers) // 2]
+
+    print(f"Average: {average}, Median: {median}")
+
+
+calculate_average_and_median()
