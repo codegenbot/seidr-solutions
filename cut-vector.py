@@ -3,16 +3,19 @@ arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
 left_sum = 0
-idx = -1
+min_diff = total_sum
+cut_position = 0
 
 for i in range(n):
     left_sum += arr[i]
-    if left_sum * 2 >= total_sum:
-        idx = i
-        break
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_position = i
 
-if abs(left_sum * 2 - total_sum) < abs((left_sum - arr[idx]) * 2 - total_sum):
-    idx -= 1
+subvector1 = arr[: cut_position + 1]
+subvector2 = arr[cut_position + 1 :]
 
-print(*arr[: idx + 1])
-print(*arr[idx + 1 :])
+print(*subvector1)
+print(*subvector2)
