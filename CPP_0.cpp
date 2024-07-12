@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 using namespace std;
 
 bool has_close_elements(vector<float> v, float tolerance) {
-    for(int i=0; i<v.size()-1; i++){
-        if(abs(v[i]-v[i+1]) <= tolerance){
+    for(int i=0; i<v.size()-1; i++) {
+        if(abs(v[i] - v[i+1]) <= tolerance) {
             return true;
         }
     }
