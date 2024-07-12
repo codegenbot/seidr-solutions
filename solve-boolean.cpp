@@ -3,8 +3,8 @@
 
 int precedence(char op) {
     if (op == '&') return 2; // Higher precedence for '&'
-    if (op == '|') return 1; // Higher precedence for '|'
-    return 0;
+    if (op == '|') return 1; // Lower precedence for '|'
+    return 1;
 }
 
 bool evaluateBooleanExpression(const std::string& expression) {
@@ -17,7 +17,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
         } else if (c == 'F') {
             operands.push(false);
         } else if (c == '&' || c == '|') {
-            while (!operators.empty() && precedence(operators.top()) >= precedence(c)) {
+            while (!operators.empty() && precedence(operators.top()) > precedence(c)) {
                 char op = operators.top();
                 operators.pop();
                 bool operand2 = operands.top();
