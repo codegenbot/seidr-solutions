@@ -1,17 +1,22 @@
 #include <iostream>
-#include <string>
+#include <sstream>
+#include <cassert>
 
-std::string words_in_sentence(std::string sentence) {
-    int word_count = 0;
-    for (char c : sentence) {
-        if (c == ' ') {
-            word_count++;
-        }
+using namespace std;
+
+string words_in_sentence(string sentence) {
+    stringstream ss(sentence);
+    string word;
+    int count = 0;
+    while (getline(ss, word, ' ')) {
+        if (count == 1)
+            return word;
+        ++count;
     }
-    return std::to_string(word_count);
+    return "";
 }
 
 int main() {
-    assert(words_in_sentence("here is") == "1"); 
+    assert(words_in_sentence("here is") == "is");
+    cout << words_in_sentence("Hello world") << endl;
     return 0;
-}
