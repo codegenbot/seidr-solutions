@@ -1,30 +1,22 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-
 std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
     for (char c : s) {
-        if (std::isspace(c)) {
-            continue; // skip spaces and hyphens
+        if (c == '-') {
+            capitalize = true;
         } else if (capitalize) {
-            result += std::toupper(c);
+            result += toupper(c);
             capitalize = false;
         } else {
-            result += std::tolower(c);
+            result += tolower(c);
         }
     }
 
-    return result;
-}
+    // add a space before the first word and capitalize it
+    if (!result.empty()) {
+        result[0] = topper(result[0]);
+    }
 
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::cout << camelCase(input) << std::endl;
-
-    return 0;
+    return (result.empty() ? s : " " + result);
 }
