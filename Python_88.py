@@ -1,4 +1,3 @@
-```
 array = list(map(int, input("Enter an array: ").split()))
 
 def sort_array(array):
