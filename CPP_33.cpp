@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <assert.h>
 #include <vector>
+#include <assert.h>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
@@ -14,6 +14,9 @@ std::vector<int> sort_third(std::vector<int> l) {
             std::vector<int> temp;
             for (int j = i; j < l.size() && j % 3 == 0; j++) {
                 temp.push_back(l[j]);
+            }
+            if (!issame(temp, result)) {
+                assert(false);
             }
             std::sort(temp.begin(), temp.end());
             for (int k = 0; k < temp.size(); k++) {
