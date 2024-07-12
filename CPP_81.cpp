@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,21 +24,8 @@ bool sameLetterGrade(const std::vector<std::string>& a, const std::vector<std::s
 }
 
 int main() {
-    int grade = 70;
-    std::vector<std::string> letter_grade = numerical_letter_grade(grade);
+    int numerical_grade = 70;
+    std::vector<std::string> letter_grade = {"F", "C+"};
 
-    std::cout << "The student has the letter grade: ";
-    for (const auto& str : letter_grade) {
-        std::cout << str << " ";
-    }
-    std::cout << "\n";
-
-    int grade2 = 70;
-    std::vector<std::string> letter_grade2 = numerical_letter_grade(grade2);
-
-    if (sameLetterGrade(letter_grade, letter_grade2)) {
-        std::cout << "The two students have the same letter grade.\n";
-    } else {
-        std::cout << "The two students do not have the same letter grade.\n";
-    }
+    std::cout << "The two students have " << (issame(numerical_letter_grade(0), letter_grade) ? "" : "") << " the same letter grade.\n";
 }
