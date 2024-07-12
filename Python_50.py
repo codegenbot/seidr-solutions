@@ -1,4 +1,4 @@
-```
+```python
 def check(func, *args):
     return func(*args)
 
@@ -6,9 +6,7 @@ def decode(encoded_str, shift):
     result = ""
     try:
         if not 0 <= shift <= 25:
-            raise ValueError(
-                "Invalid shift value. Please enter a value between 0 and 25."
-            )
+            raise ValueError("Invalid shift value. Please enter a value between 0 and 25.")
         for ch in encoded_str:
             try:
                 if ch.isalpha():
@@ -19,9 +17,7 @@ def decode(encoded_str, shift):
                 else:
                     result += ch
             except AttributeError:
-                print(
-                    "Invalid character. Please enter only alphanumeric characters or spaces."
-                )
+                print("Invalid character. Please enter only alphanumeric characters or spaces.")
     except ValueError as e:
         print(e)
     print(result)
