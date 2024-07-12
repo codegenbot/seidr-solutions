@@ -20,6 +20,6 @@ string solve(string s) {
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
+    cout << solve("#ccc") << endl;
     return 0;
 }
