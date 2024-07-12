@@ -1,20 +1,17 @@
-```Python
 def find_zero():
-    n = int(input("Enter number of coefficients: "))
-    xs = []
-    
-    for i in range(n):
-        while True:
-            try:
-                x = float(input(f"Enter coefficient {i+1}: "))
-                xs.append(x)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid floating point number.")
-                
-    if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    
-    a = xs[-1]
-    b = -xs[1] / a
-    return round(-b / (2 * a), 2)
+    while True:
+        try:
+            line1 = list(map(float, input("Enter coefficients for the first line (a b): ").split()))
+            line2 = list(map(float, input("Enter coefficients for the second line (c d): ").split()))
+            if len(line1) != 2 or len(line2) != 2:
+                print("Invalid input. Please enter exactly two numbers for each line.")
+                continue
+            a, b = line1
+            c, d = line2
+            if not all(isinstance(x, (int, float)) for x in [a, b, c, d]):
+                print("Invalid input. Please enter numeric values.")
+                continue
+            x = round((d - b) / (a - c), 2)
+            return [(x, round(a * x + b, 2))]
+        except ValueError:
+            print("Invalid input. Please enter exactly two numbers for each line.")
