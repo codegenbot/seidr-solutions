@@ -3,7 +3,9 @@
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) = default; 
+bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
+}; 
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
