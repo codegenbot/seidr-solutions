@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -12,4 +11,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 
 if __name__ == "__main__":
-    print(sum_product([1, 2, 3]))  # Test with a list of integers
+    print(sum_product([1, 2, 3]))
