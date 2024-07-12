@@ -1,9 +1,6 @@
-from typing import List
-
-
 def rescale_to_unit() -> str:
-    inputs = """Enter space-separated numbers: """
-    numbers = [float(num) for num in input(inputs).split()]
+    inputs = input("Enter space-separated numbers: ")
+    numbers = [float(num) for num in inputs.split()]
     
     if not numbers:
         return "No input provided"
