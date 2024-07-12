@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <vector>
 
@@ -9,7 +10,10 @@ std::vector<int> filter_integers(std::vector<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         int val = boost::any_cast<int>(value);
-        if (val != 0) { 
+        if (val != 0) { // handle non-integer cases
+            if constexpr (!std::is_same_v<decltype(val), int>) {
+                val = 0; // convert to 0
+            }
             result.push_back(val);
         }
     }
