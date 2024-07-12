@@ -1,17 +1,15 @@
+```c++
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+using namespace boost;
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::holds_alternative<int>(value)) {
-            int val = boost::get<int>(value);
-            result.push_back(val);
+        if (is_same(any_cast<int>(value), int()).which()) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
