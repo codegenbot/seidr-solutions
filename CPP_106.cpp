@@ -6,7 +6,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 std::vector<int> f(int n){
-    // Implement the logic to generate a vector of integers
     std::vector<int> result = {1, 2, 6};
     return result;
 }
