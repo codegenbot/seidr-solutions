@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -33,7 +32,7 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cout << __gcd(a,b) << endl;
+    cout << gcd(a,b) << endl;
 
     string text, target;
     cin >> text >> target;
