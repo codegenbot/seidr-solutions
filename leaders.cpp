@@ -22,7 +22,7 @@ int main() {
     int num;
     while (cin >> num) {
         nums.push_back(num);
-        if (!cin)
+        if (cin.fail())
             break;
     }
 
