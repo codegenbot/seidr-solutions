@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int scoreBowlingRound(const string& bowls) {
     int score = 0;
     int frame = 1;
