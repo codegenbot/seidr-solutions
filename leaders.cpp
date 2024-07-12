@@ -1,37 +1,8 @@
-#include <vector>
-using namespace std;
-
 int main() {
-    vector<int> leaders(vector<int>& arr) {
-        int n = arr.size();
-        vector<int> res;
-        
-        if(n == 1)
-            return arr;
-        
-        for(int i=n-2; i>=0; i--){
-            while(i<n-1 && arr[i] <= arr[n-1])
-                n--;
-        }
-        
-        res.push_back(arr[n-1]);
-        
-        for(int i=0; i<n-1; i++){
-            if(arr[i] >= arr[n-1])
-                res.push_back(arr[i]);
-        }
-        
-        return res;
+    vector<int> arr = {16,17,4,3,5,2};
+    vector<int> res = leaders(arr);
+    for (int i:res) {
+        cout << i << " ";
     }
-
-    vector<int> input = {17, 28, 4};
-    vector<int> result = leaders(input);
-
-    for(int num : result) {
-        cout << num << " ";
-    }
-    
-    cout << endl;
-
     return 0;
 }
