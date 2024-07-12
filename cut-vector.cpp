@@ -30,13 +30,13 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    cout << "2" << endl << cutIndex+1 << " " << n - 1 - cutIndex << endl;
+    cout << "2" << endl << cutIndex+1 << endl;
     
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i];
