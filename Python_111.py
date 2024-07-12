@@ -1,15 +1,15 @@
-```
 def histogram(test):
     if not test:
         return {}
-    words = test.split()
-    letter_count = {}
-    for word in words:
-        for letter in word:
-            if letter in letter_count:
-                letter_count[letter] += 1
-            else:
-                letter_count[letter] = 1
-    max_count = max(letter_count.values())
-    result = {k: v for k, v in letter_count.items() if v == max_count}
-    return result
+
+    count_dict = {}
+    for char in test.split():
+        if char in count_dict:
+            count_dict[char] += 1
+        else:
+            count_dict[char] = 1
+
+    max_count = max(count_dict.values())
+    max_letters = [char for char, count in count_dict.items() if count == max_count]
+
+    return {letter: max_count for letter in set(max_letters)}
