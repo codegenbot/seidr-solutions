@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#include <sstream>
+#include <sstream> // Add this line for <sstream>
 
 int main() {
     int n;
@@ -13,15 +13,9 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::string input;
-    std::cin.ignore();
-    std::getline(std::cin, input);
-
-    std::vector<double> vec2;
-    std::stringstream ss(input);
-    double temp;
-    while (ss >> temp) {
-        vec2.push_back(temp);
+    std::vector<double> vec2(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
