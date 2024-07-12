@@ -19,4 +19,3 @@ int main() {
     std::vector<std::vector<int>> q = {{5}};
     assert(will_it_fly({{5}} , 5) == true);
     return 0;
-}
