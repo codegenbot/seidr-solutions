@@ -4,9 +4,9 @@
 #include <unordered_map>
 
 bool is_happy(const std::string& s) {
-    std::unordered_map<char, int> count;
+    std::unordered_map<char, int> count(std::hash<char>(), std::equal_to<char>());
     for (char c : s) {
-        count.insert({c, 1});
+        count[c]++;
     }
     for (auto it = count.begin(); it != count.end(); ++it) {
         if (it->second > 1)
