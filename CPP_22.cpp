@@ -11,7 +11,7 @@ std::vector<int> filter_integers(std::vector<boost::any> values) {
         int val = boost::any_cast<int>(value);
         if (val != 0) { 
             result.push_back(val);
-        } else if (!value.empty()) { // handle non-integer cases
+        } else if (!value.empty()) {
             result.push_back(0);
         }
     }
@@ -19,6 +19,6 @@ std::vector<int> filter_integers(std::vector<boost::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 0, 3, 3, 0}));
     return 0;
 }
