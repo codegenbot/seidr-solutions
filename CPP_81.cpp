@@ -1,9 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-
-bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
@@ -21,7 +18,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade >= 0.4)
             result.push_back("D");
         else
-            result.push_back("F");
+            result.push_back("E");
     }
     return result;
 }
@@ -34,7 +31,5 @@ int main() {
     std::cin >> grade2;
     std::vector<float> grades = {grade1, grade2};
     std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
-    if (!same(result, std::vector<std::string>({"E", "C+"}))) {
-        assert(false);
-    }
+    assert(std::vector<std::string>({"E", "C+"}) == result);
 }
