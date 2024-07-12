@@ -1,2 +1,3 @@
-n, m = int(input()), int(input())
-print(round(sum([(n-i)/n*(m-i)/m for i in range(n)]) , 7))
+n = int(input())
+m = int(input())
+print((m - 1) / (2 * m))
