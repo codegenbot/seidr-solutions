@@ -1,5 +1,5 @@
 #include <vector>
-#include <climits> 
+#include <climits>
 using namespace std;
 
 vector<int> pluck(vector<int> arr) {
@@ -22,3 +22,4 @@ vector<int> pluck(vector<int> arr) {
     result.push_back(index);
     
     return result;
+}
