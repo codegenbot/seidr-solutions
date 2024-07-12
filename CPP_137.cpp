@@ -12,7 +12,7 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (y > x)
         return b;
     else
-        return any(typeid(int));
+        return a;
 } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
     double x = boost::any_cast<double>(a);
     double y = boost::any_cast<double>(b);
@@ -21,34 +21,34 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (y > x)
         return b;
     else
-        return any(typeid(double));
-} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    std::string x = boost::any_cast<std::string>(a);
-    std::string y = boost::any_cast<std::string>(b);
+        return a;
+} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    string x = boost::any_cast<string>(a);
+    string y = boost::any_cast<string>(b);
     if (x > y)
         return a;
     else if (y > x)
         return b;
     else
-        return any(typeid(std::string));
-} else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        return a;
+} else if (a.type() == typeid(string) && b.type() == typeid(double)) {
     double y = boost::any_cast<double>(b);
-    std::string x = boost::any_cast<std::string>(a);
-    if (std::stod(x) > y)
+    string x = boost::any_cast<string>(a);
+    if (stod(x) > y)
         return a;
-    else if (y > std::stod(x))
+    else if (y > stod(x))
         return b;
     else
-        return any(typeid(double));
-} else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        return a;
+} else if (a.type() == typeid(double) && b.type() == typeid(string)) {
     double x = boost::any_cast<double>(a);
-    std::string y = boost::any_cast<std::string>(b);
-    if (x > std::stod(y))
+    string y = boost::any_cast<string>(b);
+    if (x > stod(y))
         return a;
-    else if (std::stod(y) > x)
+    else if (stod(y) > x)
         return b;
     else
-        return any(typeid(double));
+        return a;
 } else {
-    return any(typeid(int));
+    return a;
 }
