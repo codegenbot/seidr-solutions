@@ -1,3 +1,4 @@
+```
 def smallest_change(arr):
     n = len(arr)
     arr = [str(x) for x in arr]
