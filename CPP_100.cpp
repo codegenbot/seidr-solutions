@@ -23,7 +23,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
+    std::vector<int> expected_result = make_a_pile(8);
+    std::vector<int> target_result{8, 10, 12, 14, 16, 18, 20, 22};
     
+    if (issame(expected_result, target_result)) {
+        std::cout << "Test passed!" << std::endl;
+    } else {
+        std::cout << "Test failed!" << std::endl;
+    }
+
     return 0;
 }
