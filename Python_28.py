@@ -18,6 +18,7 @@ while True:
 
 if strings_list:
     result = concatenate(strings_list)
-    print(result)
+    if result:  
+        print(result)
 else:
     print("No strings were provided.")
