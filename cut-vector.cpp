@@ -13,12 +13,12 @@ int main() {
     int minDiff = totalSum;
     int cutIndex = 0;
 
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         leftSum += vec[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff || (diff == minDiff && i == n-2)) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
