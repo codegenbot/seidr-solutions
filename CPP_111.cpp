@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
+#include <string>
 
 using namespace std;
 
+int n;
 int driver() {
-    int n;
     cin >> n;
     vector<int> arr(n);
     for (int i = 0; i < n; i++) {
@@ -29,7 +31,7 @@ int histogram(string s, vector<int>& arr) {
         
         for (int i = min_val; i <= max_val; i++) {
             int count = 0;
-            for (int j = 0; j < arr.size(); j++) { 
+            for (int j = 0; j < n; j++) {
                 if (arr[j] == i) {
                     count++;
                 }
