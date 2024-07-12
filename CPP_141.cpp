@@ -24,3 +24,12 @@ string file_name_check(const string& file_name) {
 
     return (valid) ? "Yes" : "No";
 }
+
+int main() {
+    string file_name;
+    cin >> file_name;
+
+    cout << file_name_check(file_name);
+
+    return 0;
+}
