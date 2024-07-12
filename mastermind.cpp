@@ -23,6 +23,8 @@ int main() {
     for (int i = 0; i < 6; ++i) {
         white += min(codeFreq[i], guessFreq[i]);
     }
+
+    black = 4 - white - black;  
     
     cout << white << endl << black << endl;
     
