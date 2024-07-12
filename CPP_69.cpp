@@ -1,14 +1,13 @@
-#include <vector>
-#include <map>
-#include <initializer_list>
+```cpp
+#include <cassert>
 
-int findMaxFreq(std::vector<int> lst) {
+int findMaxFreq(int arr[], int n) {
     std::map<int, int> freqMap;
-    for (int num : lst) {
-        if (freqMap.find(num) == freqMap.end()) {
-            freqMap[num] = 1;
+    for (int i = 0; i < n; i++) {
+        if (freqMap.find(arr[i]) == freqMap.end()) {
+            freqMap[arr[i]] = 1;
         } else {
-            freqMap[num]++;
+            freqMap[arr[i]]++;
         }
     }
 
@@ -23,7 +22,12 @@ int findMaxFreq(std::vector<int> lst) {
     return maxFreqNum;
 }
 
-int main() {
-    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
+int originalMain() {
+    int numbers[] = {3, 10, 10, 9, 2};
+    int size = sizeof(numbers)/sizeof(numbers[0]);
+    assert(findMaxFreq(numbers, size) == -1);
     return 0;
+}
+int main() {
+    return originalMain();
 }
