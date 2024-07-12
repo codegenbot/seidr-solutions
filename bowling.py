@@ -1,21 +1,10 @@
-def bowling_score(bowls):
-    score = 0
-    bowl_index = 0
+bowls = input("Enter the individual bowls in a 10-frame round of 10 pin bowling: ")
 
-    while bowl_index < len(bowls) - 1:
-        if bowls[bowl_index] == "X":
-            score += 10
-            score += sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[bowl_index + 1:bowl_index + 3]))
-            bowl_index += 1
-        elif bowls[bowl_index] == "/":
-            score += 10 - int(bowls[bowl_index - 1])
-            if bowls[bowl_index + 1] == "X":
-                score += 10
-            else:
-                score += int(bowls[bowl_index + 1]) if bowls[bowl_index + 1].isdigit() else 0
-            bowl_index += 2
-        else:
-            score += sum(map(lambda x: int(x) if x.isdigit() else 0, bowls[bowl_index:bowl_index + 2]))
-            bowl_index += 2
+score = 0
+index = 0
 
-    return score
+for _ in range(10):
+    score += (10 + sum([10 if x == "X" else int(x) for x in bowls[index + 1:index + 3]])) if bowls[index] == "X" else (10 + (10 if bowls[index + 2] == "X" else int(bowls[index + 2]))) if bowls[index + 1] == "/" else ((10 if bowls[index] == "X" else int(bowls[index])) + (10 if bowls[index + 1] == "X" else (10 if bowls[index + 1] == "/" else int(bowls[index + 1])))
+    index += 1 if bowls[index] == "X" else 2
+
+print(score)
