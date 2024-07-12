@@ -1,7 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include <initializer_list>
+#ifdef __cplusplus
+}
+#endif
+
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <initializer_list>
 
 int sum_squares(std::vector<float> lst){
     int total = 0;
@@ -34,3 +41,4 @@ int main() {
     }
     
     return 0;
+}
