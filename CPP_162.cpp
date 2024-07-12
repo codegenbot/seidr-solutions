@@ -6,10 +6,10 @@
 using namespace std;
 
 string string_to_md5(string text) {
-    MD5_CTX md5ctx;
     unsigned char result[16];
     stringstream ss;
     const char* cstr = text.c_str();
+    MD5_CTX md5ctx;
     MD5_Init(&md5ctx);
     MD5_Update(&md5ctx, cstr, text.length());
     MD5_Final(&md5ctx, result);
