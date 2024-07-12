@@ -10,8 +10,8 @@ string spinWords(string str) {
     int wordStart = 0;
     
     for(int i=0; i < str.length(); i++) {
-        if(i == str.length()) {
-            string word = str.substr(wordStart, i-wordStart);
+        if(i == str.length() -1) {
+            string word = str.substr(wordStart, i-wordStart+1);
             
             if(word.length() >= 5) {
                 reverse(word.begin(), word.end());
