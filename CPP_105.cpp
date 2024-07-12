@@ -1,76 +1,44 @@
-#include <vector>
-#include <string>
-#include <stdexcept>
+vector<string> numberToWords(int num) {
+    vector<string> words;
+    
+    if (num < 0 || num > 99999999)
+        return {"Out of range"};
 
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size();
-}
+    int numCopies = 3;
 
-vector<string> by_length(const vector<int>& numbers) {
-    sort(numbers.begin(), numbers.end());
-    
-    for (int i = 0; i < numbers.size(); i++) {
-        if (i > 0 && numbers[i] != numbers[i-1]) {
-            return {""};
-        }
+    string[] ones = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    string[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    string[] teens = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+
+    if (num < 20) {
+        words.push_back(ones[num]);
+    } else if (num < 100) {
+        int tensPlace = num / 10;
+        int onesPlace = num % 10;
+        
+        if (onesPlace > 0)
+            words.push_back(tens[tensPlace] + " " + ones[onesPlace]);
+
+        if (onesPlace == 0)
+            words.push_back(tens[tensPlace]);
+    } else {
+        int hundredsPlace = num / 100;
+        int tensPlace = (num % 100) / 10;
+        int onesPlace = num % 10;
+
+        words.push_back(ones[hundredsPlace] + " Hundred");
+
+        if (tensPlace > 0 || onesPlace > 0)
+            words.push_back("and ");
+
+        if (tensPlace > 1)
+            words.push_back(tens[tensPlace]);
+        else if (tensPlace == 1)
+            words.push_back(teens[onesPlace]);
+
+        if (onesPlace > 0 && !words.get(words.size() - 1).equals("Ten"))
+            words.push_back(ones[onesPlace]);
     }
-    
-    vector<string> result;
-    
-    for (int number : numbers) {
-        if (number == 0) {
-            result.push_back("Zero");
-        } else if (number % 100 < 10) {
-            switch (number % 10) {
-                case 1: result.push_back("One"); break;
-                case 2: result.push_back("Two"); break;
-                case 3: result.push_back("Three"); break;
-                case 4: result.push_back("Four"); break;
-                case 5: result.push_back("Five"); break;
-                case 6: result.push_back("Six"); break;
-                case 7: result.push_back("Seven"); break;
-                case 8: result.push_back("Eight"); break;
-                case 9: result.push_back("Nine"); break;
-            }
-        } else if (number % 100 < 20) {
-            switch (number % 10) {
-                case 1: result.push_back("Ten"); break;
-                case 2: result.push_back("Eleven"); break;
-                case 3: result.push_back("Twelve"); break;
-                case 4: result.push_back("Thirteen"); break;
-                case 5: result.push_back("Fourteen"); break;
-                case 6: result.push_back("Fifteen"); break;
-                case 7: result.push_back("Sixteen"); break;
-                case 8: result.push_back("Seventeen"); break;
-                case 9: result.push_back("Eighteen"); break;
-            }
-        } else {
-            switch (number % 100 / 10) {
-                case 1: result.push_back("Twenty");
-                case 2: result.push_back("Thirty");
-                case 3: result.push_back("Forty");
-                case 4: result.push_back("Fifty");
-                case 6: result.push_back("Sixty");
-                case 7: result.push_back("Seventy");
-                case 8: result.push_back("Eighty");
-                case 9: result.push_back("Ninety");
-            }
-            
-            if (number % 10 > 0) {
-                switch (number % 10) {
-                    case 1: result.back() += " One"; break;
-                    case 2: result.back() += " Two"; break;
-                    case 3: result.back() += " Three"; break;
-                    case 4: result.back() += " Four"; break;
-                    case 5: result.back() += " Five"; break;
-                    case 6: result.back() += " Six"; break;
-                    case 7: result.back() += " Seven"; break;
-                    case 8: result.back() += " Eight"; break;
-                    case 9: result.back() += " Nine"; break;
-                }
-            }
-        }
-    }
-    
-    return result;
+
+    return words;
 }
