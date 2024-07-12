@@ -1,47 +1,20 @@
 ```cpp
-#include <iostream>
 #include <string>
 #include <sstream>
 
-std::string camelCase(const std::string& s) {
-    std::string result;
-    bool capitalize = true;
-
-    for (char c : s) {
-        if (c == '-') {
-            continue; // don't process '-'
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
-        }
-    }
-
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-
+std::string camelCase(const std::string& input) {
     std::istringstream iss(input);
     std::string word;
-    std::string result = "";
+    std::string result;
 
     while (iss >> word) {
-        if (!word.empty()) {
-            for (char& c : word) {
-                if (c == '-') {
-                    c = ' ';
-                }
-            }
-
-            result += camelCase(word + " ");
-        }
+        if (!result.empty())
+            result += char(std::toupper(word[0]));
+        else
+            result = std::move(word).substr(1);
+        for (int i = 1; i < word.size(); ++i)
+            result += char(std::tolower(word[i]));
     }
-
-    std::cout << result.substr(0, result.length() - 1) << std::endl;
-
-    return 0;
+    
+    return result;
 }
