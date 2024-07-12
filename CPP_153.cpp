@@ -1,23 +1,21 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
-int Strongest_Extension(const std::pair<std::string, std::vector<std::string>>& extension) {
+std::string Strongest_Extension(const std::pair<std::string, std::string>& extension) {
     if (extension.second.empty()) {
-        return -1;
+        return extension.first;
+    } else {
+        return extension.first + "." + extension.second;
     }
-    for (const auto& s : extension.second) {
-        if (!s.empty()) {
-            return 0;
-        }
-    }
-    return 1;
 }
 
-int run() {
+int main() {
     std::vector<std::pair<std::string, std::string>> extensions;
-    extensions.push_back({"Sp", "671235"}); 
-    extensions.push_back({"Bb", ""});
-    assert(Strongest_Extension({extensions[0].first, {extensions[0].second}}) == 0);
+    extensions.push_back(std::make_pair("Sp", "671235")); 
+    extensions.push_back(std::make_pair("Bb", ""));
+    
+    assert(Strongest_Extension({{"Sp", "671235"}}) == "Sp.671235");
+    std::cout << Strongest_Extension({{"Sp", "671235"}}); 
     return 0;
-}
