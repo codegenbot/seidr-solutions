@@ -1,5 +1,6 @@
-try:
-    n = int(input())
-    print("Valid input. Continue with the code.")
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+while True:
+    try:
+        n = int(input("Enter an integer: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
