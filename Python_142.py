@@ -1,13 +1,10 @@
-def sum_squares(lst):
-    return sum(i**2 for i in lst)
-
 while True:
     response = input("Do you want to start? (yes/no): ")
     if response.lower() != "yes":
         continue
     while True:
         user_input = input("Enter a list of numbers separated by space: ").split()
-        
+
         try:
             int_lst = [int(i) for i in user_input]
         except ValueError:
@@ -18,3 +15,7 @@ while True:
                 break
             else:
                 print("Some numbers are out of range. Please re-enter.")
+
+
+def sum_squares(lst):
+    return sum(i**2 for i in lst)
