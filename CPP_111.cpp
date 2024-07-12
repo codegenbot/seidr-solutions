@@ -1,3 +1,12 @@
+bool issame(map<char,int> a,map<char,int> b) {
+    if(a.size() != b.size()) return false;
+    for(auto& pair : a) {
+        if(b.find(pair.first) == b.end() || pair.second != b.at(pair.first)) 
+            return false;
+    }
+    return true;
+}
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
