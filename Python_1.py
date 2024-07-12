@@ -1,5 +1,3 @@
-import sys
-
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -10,9 +8,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for i, char in enumerate(paren_string):
         if char == '(' or char == '{':
             if not stack:
-                start = i
+                if start is not None:
+                    start = i
             stack.append(char)
         elif char == ')' or char == '}':
+            if len(stack) == 0:
+                start = i
+                continue
             stack.pop()
             if not stack:
                 result.append(paren_string[start:i+1])
@@ -21,13 +23,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(paren_string[start:])
     
     return result
-
-# Calling the function with input provided as a command line argument or as an input from user within the code
-if len(sys.argv) > 1:
-    input_string = sys.argv[1]
-else:
-    input_string = input("Enter the input string: ")
-
-output = separate_paren_groups(input_string)
-for group in output:
-    print(group)
