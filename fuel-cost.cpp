@@ -4,21 +4,14 @@
 using namespace std;
 
 int main() {
-    vector<int> nums;
-    int n;
-    while (cin >> n) {
-        nums.push_back(n);
-        if (cin.peek() == '\n') {
-            break;
-        }
-    }
+    vector<int> nums = {12, 15, 18, 21}; // Example input vector
 
     int sum = 0;
-    for (int num : nums) {
-        sum += (num / 3) * 3 - 2;
+    for (int i = 0; i < nums.size(); ++i) {
+        sum += (nums[i] / 3) - 2;
     }
 
-    cout << sum << "\n";
+    cout << sum << endl;
 
     return 0;
 }
