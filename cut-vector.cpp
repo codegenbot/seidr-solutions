@@ -1,32 +1,34 @@
 int main() {
     int n;
     cin >> n;
-
-    vector<int> nums(n);
+    vector<int> vec(n);
+    int totalSum = 0;
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        cin >> vec[i];
+        totalSum += vec[i];
     }
-
-    int total_sum = 0;
-    for (int num : nums) {
-        total_sum += num;
-    }
-
-    int left_sum = 0;
-    int index = -1;
-    for (int i = 0; i < n - 1; ++i) {
-        left_sum += nums[i];
-        int right_sum = total_sum - left_sum;
-        
-        if (left_sum == right_sum || abs(left_sum - right_sum) < abs(nums[index] - total_sum)) {
-            index = i;
+    int halfSum = totalSum / 2;
+    int sum = 0;
+    int idx = -1;
+    for (int i = 0; i < n; ++i) {
+        sum += vec[i];
+        if (sum >= halfSum) {
+            idx = i;
+            break;
         }
     }
-
-    for (int i = 0; i <= index; ++i) {
-        cout << nums[i] << endl;
+    if (abs(2*sum - totalSum) < abs(2*(sum-vec[idx]) - totalSum)) {
+        cout << idx + 1 << endl;
+        for (int i = 0; i <= idx; ++i) {
+            cout << vec[i] << endl;
+        }
+        cout << totalSum - sum << endl;
+    } else {
+        cout << idx + 2 << endl;
+        for (int i = 0; i <= idx; ++i) {
+            cout << vec[i] << endl;
+        }
+        cout << vec[idx + 1] << endl;
     }
-    cout << total_sum - left_sum << endl;
-
     return 0;
 }
