@@ -27,8 +27,7 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    while (getline(std::cin, str)) {
+    while (std::cin >> str) {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
-}
