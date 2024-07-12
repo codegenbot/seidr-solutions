@@ -1,6 +1,6 @@
 ```
 def sum_squares(lst):
-    if not lst: 
+    if not lst:
         return 0
     total_sum = 0
     for i in range(len(lst)):
