@@ -39,7 +39,7 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     vector<int> result = even_odd_palindrome(n);
-    cout << "Even palindromes: " << result[0] << endl;
-    cout << "Odd palindromes: " << result[1] << endl;
+    cout << "Number of even palindromes: " << result[0] << endl;
+    cout << "Number of odd palindromes: " << result[1] << endl;
     return 0;
 }
