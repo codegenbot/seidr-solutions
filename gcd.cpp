@@ -35,11 +35,13 @@ int main() {
     int a, b;
     cin >> a >> b;
     
+    // Call the gcd function and print the result
     cout << gcd(a, b) << endl;
     
     string text, target;
     cin >> text >> target;
     
+    // Call the findIndicesOfSubstring function and print the results
     vector<int> indices = findIndicesOfSubstring(text, target);
     for (int idx : indices) {
         cout << idx << " ";
