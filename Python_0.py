@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def has_close_elements():
     numbers = input("Enter space-separated floating point numbers: ")
