@@ -1,7 +1,7 @@
 #include <vector>
 #include <list>
-#include <typeinfo>
 #include <boost/any.hpp>
+#include <typeinfo>
 
 std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
