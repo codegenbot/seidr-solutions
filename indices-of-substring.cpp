@@ -13,7 +13,7 @@ vector<int> indicesOfSubstring(string text, string target) {
             }
         }
         if(found) result.push_back(i);
-        i += (found ? 1 : target.size()); 
+        i += (found ? 1 : target.size()); // increment by 1 or the size of target
     }
     return result;
 }
