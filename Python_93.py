@@ -1,27 +1,20 @@
 def encode(message):
+    message = message.lower()
     encoded_message = ""
-    vowels = "aeiouAEIOU"
+    vowels = "aeiou"
 
     for char in message:
         if char.isalpha():
-            is_upper = char.isupper()
-            char = char.lower()
-
             char_code = ord(char)
-
-            if char not in vowels:
+            if char.lower() not in vowels:
                 new_code = ord(char) + 2
             else:
-                new_code = ord(char) - 2
+                new_code = ord(char) + 2
 
             if new_code > 122:
                 new_code -= 26
 
-            encoded_char = chr(new_code)
-            if is_upper:
-                encoded_char = encoded_char.upper()
-
-            encoded_message += encoded_char
+            encoded_message += chr(new_code)
         else:
             encoded_message += char
 
