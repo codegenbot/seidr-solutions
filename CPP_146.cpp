@@ -3,26 +3,27 @@
 
 int main() {
     std::vector<int> nums;
-    int count;
+    int count = 0;
 
-    std::cout << "Enter the numbers (space separated): ";
-    for (std::string num; std::getline(std::cin, num);) {
-        nums.push_back(stoi(num));
+    // Read input from user
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
 
-    count = specialFilter(nums);
-
-    std::cout << "The count of filtered numbers is: " << count << std::endl;
-
-    return 0;
-}
-
-int specialFilter(std::vector<int> nums) {
-    int count = 0;
+    // Count the numbers that satisfy the condition
     for (int num : nums) {
         if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
-    return count;
+
+    // Print the output
+    cout << "Count: " << count << endl;
+
+    return 0;
 }
