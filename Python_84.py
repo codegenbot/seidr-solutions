@@ -1,3 +1,2 @@
 def solve(N):
-    total_sum = sum(int(digit) for digit in bin(N)[2:])
-    return format(total_sum, "b")
+    return bin(sum(int(i) for i in str(bin(N)[2:])))
