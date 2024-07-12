@@ -1,15 +1,17 @@
-def process_digits():
-    result = []
-    while True:
-        try:
-            user_input = int(input("Please enter a digit: "))
-            result.append(str(user_input))
-        except ValueError:
-            user_input = input("Please enter a digit: ")
-            if user_input.lower() == 'stop':
-                break
-            print("Invalid input. Please enter digits or type 'stop' to finish.")
-    return result
-
+```
 print("Enter digits (or 'stop' to finish).")
-print(process_digits())
+def process_digits():
+    digits = []
+    while True:
+        user_input = input()
+        if user_input.lower() == 'stop':
+            break
+        try:
+            digit = int(user_input)
+            digits.append(digit)
+        except ValueError:
+            print("Invalid input. Please enter a digit or type 'stop' to finish.")
+    return sum(digits) if len(digits) > 0 else None
+
+result = process_digits()
+print(result)
