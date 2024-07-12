@@ -37,9 +37,8 @@ int main() {
     string prefix;
     cout << "Enter prefix:" << endl;
     getline(cin, prefix);
-    vector<string> result;
 
-    result = filter_by_prefix(a, prefix);
+    vector<string> result = filter_by_prefix(a, prefix);
 
     if (!same) 
         cout << "Strings are not the same." << endl;
