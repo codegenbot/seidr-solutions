@@ -1,6 +1,3 @@
-print("Enter a list of integers separated by spaces:")
-xs = list(map(int, input().split()))
-
 def find_zero(xs: list):
     try:
         n = len(xs)
@@ -17,4 +14,5 @@ def find_zero(xs: list):
     except (ValueError, ZeroDivisionError) as e:
         return str(e)
 
+xs = list(map(int, input("Enter a list of integers separated by spaces: ").split()))
 print(find_zero(xs))
