@@ -6,9 +6,6 @@ def find_zero(xs: list):
         b *= -xs[2 * i + 1]
     return b / a
 
-
-# Input list of numbers from user
 xs = list(map(int, input().split()))
-
-# Call function and output result
-print(find_zero(xs))
+result = find_zero(xs)
+print(result)
