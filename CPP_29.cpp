@@ -1,12 +1,11 @@
-```
 #include <vector>
 #include <string>
 #include <initializer_list>
 
-bool areStringsEqual(std::vector<std::string>, std::vector<std::string>);
-std::vector<std::string> filter_by_prefix(std::vector<std::string>, std::string);
+bool sameVectors(vector<string>, vector<string>);
+vector<string> filter_by_prefix(vector<string>, string);
 
-bool areStringsEqual(std::vector<std::string> a, std::vector<std::string> b) {
+bool sameVectors(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[(i + 1) % a.size()]) return false;
@@ -14,8 +13,8 @@ bool areStringsEqual(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
@@ -26,30 +25,32 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> a;
-    std::cout << "Enter strings (stop when empty):" << std::endl;
-    std::string s;
-    std::cin >> s;
-    while (!s.empty()) {
+    vector<string> a;
+    cout << "Enter strings (stop when empty):" << endl;
+    string s;
+    cin >> s; // input string
+    while (getline(cin, s)) {
+        if (s.empty()) break;
         a.push_back(s);
-        std::getline(std::cin, s);
     }
 
-    bool same = areStringsEqual(a, a);
+    bool same = sameVectors(a, a);
 
-    std::string prefix;
-    std::cout << "Enter prefix:" << std::endl;
-    std::getline(std::cin, prefix);
-    std::vector<std::string> result = filter_by_prefix(a, prefix);
+    cout << "Enter prefix:" << endl;
+    string prefix;
+    cin >> prefix;
+
+    vector<string> result = filter_by_prefix(a, prefix);
 
     if (!same) 
-        std::cout << "Strings are not the same." << std::endl;
+        cout << "Strings are not the same." << endl;
     else 
-        std::cout << "Strings are the same." << std::endl;
+        cout << "Strings are the same." << endl;
 
     for (const auto& s : result) {
-        std::cout << s << std::endl;
+        cout << s << endl;
     }
 
     return 0;
+
 }
