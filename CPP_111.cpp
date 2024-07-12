@@ -36,6 +36,7 @@ map<pair<char,int>, bool> histogram(string test) {
 }
 
 int main() {
-    map<pair<char, int>, bool> maxCountMap = histogram("a");
-    assert(issameInt(maxCountMap, {{make_pair('a',1),true},{make_pair('b',2),false}}));
+    map<pair<char,int>, bool> test = histogram("a");
+    assert(issameInt(test, {{make_pair('a',1),true},{make_pair('b',2),false}}));
+    return 0;
 }
