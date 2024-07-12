@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -18,18 +17,13 @@ string compare_one(string a) {
         else
             return a;
     }
-    return "";
 }
 
 int main() {
-    string a, b;
+    string a;
     cout << "Enter the first number: ";
     cin >> a;
-    cout << "Enter the second number: ";
-    cin >> b;
     cout << compare_one(a) << endl;
-
-    assert(compare_one("1") == "None");
 
     return 0;
 }
