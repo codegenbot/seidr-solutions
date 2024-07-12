@@ -1,13 +1,19 @@
 def count_odd_numbers():
-    while True:
+    should_continue = True
+    while should_continue:
         try:
             lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
-            print(len([i for i in lst if i % 2 != 0]))
-            cont = input("Do you want to continue? (yes/no): ")
-            if cont.lower() != "yes":
+            if len(lst) == 0:
                 break
+            print(len([i for i in lst if i % 2 != 0]))
+            while True:
+                cont = input("Continue? (y/n): ")
+                should_continue = cont.strip().lower() in ["yes", "y"]
+                if not should_continue:
+                    break
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
-            continue
+    print("Program ended.")
+
 
 count_odd_numbers()
