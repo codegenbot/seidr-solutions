@@ -1,42 +1,39 @@
 #include <iostream>
-#include <vector>
-#include <climits>
 using namespace std;
 
 int main() {
     vector<int> nums;
     int num;
-    
     while (cin >> num) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
     }
-    
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
+
+    int target = sum / 2;
+    int currSum = 0;
+    int idx = 0;
     for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = std::abs(prefixSum - suffixSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        currSum += nums[i];
+        if (currSum >= target) {
+            idx = i;
+            break;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+
+    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
+
+    for (int num : subVec1) {
+        cout << num << endl;
     }
-    
-    std::cout << 0 << std::endl;
-    
+    for (int num : subVec2) {
+        cout << num << endl;
+    }
+
     return 0;
 }
