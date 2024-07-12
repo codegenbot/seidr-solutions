@@ -1,6 +1,4 @@
-def fruit_distribution():
-    s = input("Enter a string of fruits (e.g., 'apples oranges apples and oranges'): ")
-    total = 0
+def fruit_distribution(s, total):
     s = s.lower().replace("apples", "0").replace("oranges", "0")
     parts = s.split()
     for part in parts:
