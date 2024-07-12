@@ -1,33 +1,17 @@
-def solve(num=None):
-    if num is not None:
-        N = int(input("Please provide a binary number: "), 2)
+def solve(n):
+    if n == 0 or not isinstance(n, int):
+        return "Invalid Input. Please provide an integer."
+    N = bin(n)[2:]
+    while True:
         try:
-            N = int(input("Please provide a binary number: "), 2)
+            N = input("Please provide a binary number: ")
+            if N != "0" and N != "1":
+                break
+            return str(0) if N == "0" else str(1)
         except ValueError:
-            return 
-        if N == 0:
-            return str(0)
-        elif N == 1:
-            return str(1)
-        else:
-            result = ""
-            while N > 0:
-                result = ("1" + result) if N & 1 else (result)
-                N >>= 1
-            return bin(int(result))[2:]
-    else:
-        N = int(input("Please provide a binary number: "), 2)
-        try:
-            N = int(input("Please provide a binary number: "), 2)
-        except ValueError:
-            return 
-        if N == 0:
-            return str(0)
-        elif N == 1:
-            return str(1)
-        else:
-            result = ""
-            while N > 0:
-                result = ("1" + result) if N & 1 else (result)
-                N >>= 1
-            return bin(int(result))[2:]
+            return "Invalid Input. Please provide a binary number."
+    result = ""
+    while N != "0":
+        result = ("1" + result) if N[-1] == "1" else (result)
+        N = N[:-1]
+    return bin(int(result))[2:]
