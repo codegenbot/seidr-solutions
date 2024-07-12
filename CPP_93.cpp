@@ -1,6 +1,8 @@
 #include <string>
 #include <cassert>
 
+std::string encode(std::string message);
+
 std::string encode(std::string message){
     std::string encoded_message = message;
     for (char& c : encoded_message) {
@@ -15,11 +17,8 @@ std::string encode(std::string message){
 }
 
 int main() {
-    std::string encode(std::string message);
+    assert(encode("hello") == "hElLO");
+    assert(encode("world") == "wOrLd");
     
-    std::string message;
-    std::getline(std::cin, message);
-    std::cout << encode(message) << std::endl;
-
     return 0;
 }
