@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -24,8 +25,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    auto result = filter_by_prefix(strings, "xxx");
-    for (const auto& s : result) {
-        if (s != "xxx" && s != "xxxAAA") return 1;
-    }
+    auto filtered = filter_by_prefix(strings, "xxx");
+    std::vector<std::vector<std::string>> b={{filtered.begin(), filtered.end()}};
+    if (issame(std::vector<std<vector<string>>>{{"xxx"}}, b)) return 0;
 }
