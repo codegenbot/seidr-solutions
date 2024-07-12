@@ -1,9 +1,10 @@
 def leaders(input_vector):
-    leaders = []
-    right_max = input_vector[-1]
-    for i in range(len(input_vector) - 1, -1, -1):
-        if input_vector[i] >= right_max:
-            leaders.append(right_max)
-        else:
-            right_max = input_vector[i]
+    left = right = len(input_vector) - 1
+    leaders = [input_vector[right]]
+    for _ in range(len(input_vector) - 1, 0, -1):
+        while input_vector[left] < input_vector[right]:
+            right -= 1
+        leaders.append(input_vector[right])
+        left = right
+        right -= 1
     return leaders
