@@ -1,13 +1,11 @@
-```cpp
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+#include <vector>
+#include <string>
+
+bool issame(std::pair<bool, std::vector<std::string>> result) {
+    return result.first;
 }
 
-std::vector<string> reverse_delete(string s, string c) {
+std::pair<bool, std::vector<string>> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char x : s) {
@@ -27,10 +25,6 @@ std::vector<string> reverse_delete(string s, string c) {
     for (int i = temp.length() - 1; i >= 0; i--) {
         reversed += temp[i];
     }
-    if (temp == reversed) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
-    return result;
+    std::pair<bool, std::vector<string>> p = make_pair(temp == reversed, vector<string>{temp});
+    return p;
 }
