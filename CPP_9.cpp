@@ -1,3 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return std::equal(v1.begin(), v1.end(), v2.begin()) && (v1.size() == v2.size());
+}
+
+std::vector<int> rolling_max(std::vector<int> numbers) {
+    std::vector<int> maxNumbers;
+    int currentMax = INT_MIN;
+
+    for (int num : numbers) {
+        if (num > currentMax)
+            currentMax = num;
+        maxNumbers.push_back(currentMax);
+    }
+
+    return maxNumbers;
+}
+
+bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b; 
+}
+
 int main() {
     std::vector<int> numbers;
     int num;
@@ -15,10 +40,12 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    if (are_vectors_equal(rolling_max(v1), v2))
+    if (v1 == v2)
         std::cout << "Vectors are equal" << std::endl;
     else
         std::cout << "Vectors are not equal" << std::endl;
+    
+    assert(are_vectors_equal({3, 3, 3, 100, 100}, rolling_max({3, 2, 3, 100, 3})));
     
     return 0;
 }
