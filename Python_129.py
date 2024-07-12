@@ -1,4 +1,4 @@
-```def minPath(grid, k):
+def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
     visited = set()
@@ -27,4 +27,4 @@
         for j in range(n):
             dfs(i, j, [m[i][j]])
     
-    return path```
+    return path
