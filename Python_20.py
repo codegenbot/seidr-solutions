@@ -21,6 +21,4 @@ def get_closest_elements(numbers, target_sum):
     
     return closest_pair
 
-target_sum = int(input("Enter the target sum: "))
-numbers = list(map(int, input().split()))
-print(get_closest_elements(numbers, target_sum))
+get_closest_elements(list(map(int, input().split())), int(input("Enter the target sum: ")))
