@@ -8,5 +8,5 @@ def fibfib(n: int):
         total_sum = 0
         while b < n:
             a, b = b, a+b
-            total_sum += a if a % 2 == 0 else 0
-        return total_sum + b if b <= n else total_sum
+            total_sum += a
+        return total_sum + b
