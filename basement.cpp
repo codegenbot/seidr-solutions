@@ -7,5 +7,5 @@ int basement(vector<int> nums) {
             return i;
         }
     }
-    return nums.size();
+    return 0;
 }
