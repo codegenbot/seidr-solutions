@@ -1,10 +1,9 @@
-```Python
 from typing import List
 
 def all_prefixes(string: str) -> List[str]:
     result = [""]
-    for i in range(1, len(string)+1):
-        temp_result = [p + c for p in result for c in string[:i]]
+    for char in string:
+        temp_result = [p + char for p in result]
         result.extend(temp_result)
     return result  
 
