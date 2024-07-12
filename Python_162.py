@@ -5,6 +5,13 @@ def string_to_md5(text):
         return None
     return hashlib.md5(text.encode()).hexdigest()
 
-user_input = input("Enter a string: ")
-result = string_to_md5(user_input)
-print(result)
+def main():
+    text = input("Enter a string to calculate MD5 hash: ")
+    if text:
+        result = string_to_md5(text)
+        print("MD5 hash value:", result)
+    else:
+        print("Invalid input. Please enter a non-empty string.")
+
+if __name__ == "__main__":
+    main()
