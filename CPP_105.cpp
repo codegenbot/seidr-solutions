@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a == b)
         return true;
     for (int i = 0; i < a.size(); i++) {
@@ -11,7 +11,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> byLength(int num) {
+std::vector<std::string> by_length(int num) {
     std::vector<std::string> result;
 
     switch (num) {
@@ -49,99 +49,84 @@ std::vector<std::string> byLength(int num) {
 
 int main() {
     int num1, num2;  
-    std::vector<std::string> result;  
+    std::vector<std::string> result = by_length(num1), temp;
 
     std::cin >> num1 >> num2;
 
     if (num1 >= 1 && num1 <= 9) {
-        result = byLength(num1);
         for(int i = 0; i < 2; i++) {
             switch (i ? num2 : num1) {
                 case 1:
-                    if(i) result.push_back("One");
-                    else result.push_back("One");
+                    temp.push_back(i ? "One" : "One");
                     break;
                 case 2:
-                    if(i) result.push_back("Two");
-                    else result.push_back("Two");
+                    temp.push_back(i ? "Two" : "Two");
                     break;
                 case 3:
-                    if(i) result.push_back("Three");
-                    else result.push_back("Three");
+                    temp.push_back(i ? "Three" : "Three");
                     break;
                 case 4:
-                    if(i) result.push_back("Four");
-                    else result.push_back("Four");
+                    temp.push_back(i ? "Four" : "Four");
                     break;
                 case 5:
-                    if(i) result.push_back("Five");
-                    else result.push_back("Five");
+                    temp.push_back(i ? "Five" : "Five");
                     break;
                 case 6:
-                    if(i) result.push_back("Six");
-                    else result.push_back("Six");
+                    temp.push_back(i ? "Six" : "Six");
                     break;
                 case 7:
-                    if(i) result.push_back("Seven");
-                    else result.push_back("Seven");
+                    temp.push_back(i ? "Seven" : "Seven");
                     break;
                 case 8:
-                    if(i) result.push_back("Eight");
-                    else result.push_back("Eight");
+                    temp.push_back(i ? "Eight" : "Eight");
                     break;
                 case 9:
-                    if(i) result.push_back("Nine");
-                    else result.push_back("Nine");
+                    temp.push_back(i ? "Nine" : "Nine");
                     break;
             }
         }
     }
 
-    std::vector<std::string> temp = byLength(num2);
-    while(!isSame(result, temp)) {
-        for(int i = 0; i < 2; i++) {
-            switch (i ? num1 : num2) {
-                case 1:
-                    if(i) result.push_back("One");
-                    else result.push_back("One");
-                    break;
-                case 2:
-                    if(i) result.push_back("Two");
-                    else result.push_back("Two");
-                    break;
-                case 3:
-                    if(i) result.push_back("Three");
-                    else result.push_back("Three");
-                    break;
-                case 4:
-                    if(i) result.push_back("Four");
-                    else result.push_back("Four");
-                    break;
-                case 5:
-                    if(i) result.push_back("Five");
-                    else result.push_back("Five");
-                    break;
-                case 6:
-                    if(i) result.push_back("Six");
-                    else result.push_back("Six");
-                    break;
-                case 7:
-                    if(i) result.push_back("Seven");
-                    else result.push_back("Seven");
-                    break;
-                case 8:
-                    if(i) result.push_back("Eight");
-                    else result.push_back("Eight");
-                    break;
-                case 9:
-                    if(i) result.push_back("Nine");
-                    else result.push_back("Nine");
-                    break;
-            }
-        }
+    if(issame(by_length(num1), by_length(num2))) {
+        result = temp; 
+    }else{
+        result = by_length((num1 < num2)? num1 : num2); 
     }
-
-    std::reverse(result.begin(), result.end());
     
+    std::vector<std::string> final_result;
+    for (int i = 0; i < 2; i++) {
+        switch (i ? num2 : num1) {
+            case 1:
+                final_result.push_back(i ? "One" : "One");
+                break;
+            case 2:
+                final_result.push_back(i ? "Two" : "Two");
+                break;
+            case 3:
+                final_result.push_back(i ? "Three" : "Three");
+                break;
+            case 4:
+                final_result.push_back(i ? "Four" : "Four");
+                break;
+            case 5:
+                final_result.push_back(i ? "Five" : "Five");
+                break;
+            case 6:
+                final_result.push_back(i ? "Six" : "Six");
+                break;
+            case 7:
+                final_result.push_back(i ? "Seven" : "Seven");
+                break;
+            case 8:
+                final_result.push_back(i ? "Eight" : "Eight");
+                break;
+            case 9:
+                final_result.push_back(i ? "Nine" : "Nine");
+                break;
+        }
+    }
+
+    // Now you have your result vector
+
     return 0;
 }
