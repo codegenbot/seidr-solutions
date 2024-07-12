@@ -1,35 +1,28 @@
 int main() {
-    vector<int> vec;
     int n;
-    while (cin >> n) {
-        vec.push_back(n);
+    cin >> n;
+    
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
-    int sum = 0;
-    for (int i = 0; i < vec.size(); ++i) {
-        sum += vec[i];
-    }
+    int leftSum = 0, rightSum = 0;
+    int leftIdx = 0, rightIdx = n - 1;
     
-    int target = sum / 2;
-    int currSum = 0;
-    int idx = 0;
-    for (int i = 0; i < vec.size(); ++i) {
-        currSum += vec[i];
-        if (currSum >= target) {
-            idx = i;
-            break;
+    while (leftIdx < rightIdx) {
+        if (leftSum < rightSum) {
+            leftSum += nums[leftIdx++];
+        } else {
+            rightSum += nums[rightIdx--];
         }
     }
     
-    vector<int> subVec1(vec.begin(), vec.begin() + idx + 1);
-    vector<int> subVec2(vec.begin() + idx + 1, vec.end());
-    
-    for (int i = 0; i < subVec1.size(); ++i) {
-        cout << subVec1[i] << endl;
+    cout << leftIdx << endl;
+    for (int i = 0; i < leftIdx; ++i) {
+        cout << nums[i] << endl;
     }
-    for (int i = 0; i < subVec2.size(); ++i) {
-        cout << subVec2[i] << endl;
-    }
+    cout << rightSum << endl;
     
     return 0;
 }
