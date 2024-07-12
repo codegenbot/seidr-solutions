@@ -1,11 +1,12 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
-
+    
     for (int i = 1; i < n; i++) {
         if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
             res[0] = vector<int>(vec.begin(), vec.begin() + i);
@@ -13,7 +14,7 @@ vector<vector<int>> cutVector(vector<int>& vec) {
             return res;
         }
     }
-
+    
     if (n > 0) {
         res[0] = vector<int>(vec.begin(), vec.end());
         res[1] = {};
@@ -21,7 +22,7 @@ vector<vector<int>> cutVector(vector<int>& vec) {
         res[0] = {};
         res[1] = {};
     }
-
+    
     return res;
 }
 
