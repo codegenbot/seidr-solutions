@@ -1,3 +1,4 @@
+```
 def total_match(lst1, lst2):
     sum1 = sum(len(s) for s in lst1)
     sum2 = sum(len(s) for s in lst2)
@@ -12,16 +13,10 @@ def total_match(lst1, lst2):
         else:
             return lst2
 
-
 lst1 = []
 while True:
     try:
-        lst1 = [
-            s.strip()
-            for s in input("Enter the first list of strings (comma-separated): ").split(
-                ","
-            )
-        ]
+        lst1 = [s.strip() for s in input("Enter the first list of strings (comma-separated): ").split(",")]
         if not all(isinstance(s, str) for s in lst1):
             raise ValueError
         break
@@ -31,12 +26,7 @@ while True:
 lst2 = []
 while True:
     try:
-        lst2 = [
-            s.strip()
-            for s in input(
-                "Enter the second list of strings (comma-separated): "
-            ).split(",")
-        ]
+        lst2 = [s.strip() for s in input("Enter the second list of strings (comma-separated): ").split(",")]
         if not all(isinstance(s, str) for s in lst2):
             raise ValueError
         break
