@@ -1,15 +1,10 @@
 from typing import List
 
 
-def sum_divisors(n: int) -> int:
-    total = 1
-    for i in range(2, int(math.sqrt(n)) + 1):
-        count = 0
-        while n % i == 0:
-            n //= i
-            count += 1
-        if count > 0:
-            total *= (i ** (count + 1) - 1) // (i - 1)
-    if n > 1:
-        total *= n + 1
-    return total
+def find_common_factor(num1: int, num2: int) -> int:
+    factors1 = set(factorize(num1))
+    factors2 = set(factorize(num2))
+
+    common_factors = factors1 & factors2
+
+    return max(common_factors)
