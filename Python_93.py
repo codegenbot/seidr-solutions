@@ -4,12 +4,9 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in vowels:
-                encoded_message += chr(ord(char) + 2)
+                encoded_message += chr(ord(char) + 2).swapcase()
             else:
-                if char.islower():
-                    encoded_message += char.upper()
-                else:
-                    encoded_message += char.lower()
+                encoded_message += char.swapcase()
         else:
             encoded_message += char
     return encoded_message
