@@ -1,74 +1,50 @@
-#include <iostream>
+```
 #include <string>
-#include <limits>
+#include <iostream>
 
-bool compare(const std::any& a, const std::any& b) {
+bool compareAny(const boost::any &a, const boost::any &b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return static_cast<int>(a.convert<int>().get()) > b.convert<float>().get();
+        return (int)a.convert<int>() > (float)b.convert<float>();
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return static_cast<int>(a.convert<int>().get()) > b.convert<double>().get();
+        return (int)a.convert<int>() > (double)b.convert<double>();
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a.convert<float>().get() > static_cast<float>(b.convert<int>().get());
+        return (float)a.convert<float>() > (int)b.convert<int>();
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a.convert<double>().get() > static_cast<double>(b.convert<int>().get());
+        return (double)a.convert<double>() > (int)b.convert<int>();
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get().c_str());
-            float fb = b.convert<float>().get();
+            float fa = std::stof(a.convert<std::string>().get cref());
+            float fb = (float)b.convert<float>().get cref();
             return fa > fb;
         } catch (...) {
             return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
-            double fa = std::stod(a.convert<std::string>().get().c_str());
-            double fb = b.convert<double>().get();
+            double fa = std::stod(a.convert<std::string>().get cref());
+            double fb = (double)b.convert<double>().get cref();
             return fa > fb;
         } catch (...) {
             return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
-            int fa = std::stoi(a.convert<std::string>().get().c_str());
-            int fb = b.convert<int>().get();
+            int fa = std::stoi(a.convert<std::string>().get cref());
+            int fb = (int)b.convert<int>().get cref();
             return fa > fb;
         } catch (...) {
             return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get().c_str());
-            float fb = std::stof(b.convert<std::string>().get().c_str());
+            float fa = std::stof(a.convert<std::string>().get cref());
+            float fb = std::stof(b.convert<std::string>().get cref());
             return fa > fb;
         } catch (...) {
             return false;
         }
     } else {
-        return false;
-    }
-}
-
-int main() {
-    while (true) {
-        int num1, num2;
-        std::cout << "Enter two numbers or 'q' to quit: ";
-        std::cin >> num1 >> num2;
-
-        if (std::cin.fail()) {
-            std::cout << "Invalid input. Please enter numeric values.\n";
-            break;
-        }
-
-        if (num1 == 0 && num2 == 0) {
-            break;
-        }
-
-        if (compare(std::any(num1), std::any(num2))) {
-            std::cout << "The first number is greater.\n";
-        } else {
-            std::cout << "The second number is greater or equal.\n";
-        }
+        throw "Unknown types";
     }
 
-    return 0;
-}
+    return false;
