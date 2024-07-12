@@ -18,6 +18,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    bool same = issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")) == (filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").size() > 0);
+    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    bool same = issame({result.begin(), result.end()});
     return 0;
 }
