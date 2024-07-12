@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,12 +30,13 @@ int mainProblemCPP120() {
     // Create a vector from the array
     std::vector<int> vec(arr, arr + n);
     
-    if (!vec.empty()) { // Check for empty vectors
-        std::cout << "Vectors are not empty." << std::endl;
+    if (vec.empty()) { // Check for empty vectors
+        std::cout << "Vectors are empty." << std::endl;
     } else {
-        std::cout << "Vectors are empty" << std::endl;
+        std::cout << "Vectors are not empty" << std::endl;
     }
     
+    int* array = &arr[0];
     int max = maximum(arr, n); 
     std::cout << "Maximum value is: " << max << std::endl;
     
