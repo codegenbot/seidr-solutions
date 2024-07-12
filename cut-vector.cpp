@@ -25,11 +25,13 @@ int main() {
     }
 
     std::cout << cutIndex + 1 << std::endl;
+
     for (int i = 0; i <= cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex; i < n; ++i) {
+
+    for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
