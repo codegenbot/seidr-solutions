@@ -16,5 +16,11 @@ std::string encrypt(std::string s){
 
 int main(){
     assert(encrypt("a")=="e");
+    assert(encrypt("Hello, World!")=="Jgnnq, Yqtnf!");
+    assert(encrypt("123")=="123");
+    assert(encrypt("Programming123")=="Rtcugpokpi123");
+    assert(encrypt("UPPERCASE")=="WRRTGTCEG");
+    assert(encrypt("lowercase")=="nqpgtceg");
+    assert(encrypt("")=="");
     return 0;
 }
