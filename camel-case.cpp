@@ -1,28 +1,33 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
 
 std::string camelCase(std::string str) {
-    std::istringstream iss(str);
-    std::string word;
+    std::stringstream ss(str);
     std::string result = "";
-    
-    while (iss >> word) {
-        if (!result.empty()) {
-            result += toupper(word[0]);
-            word = tolower(substr(word, 1));
+    bool capitalizeNextWord = true;
+
+    while (ss >> str) {
+        if (capitalizeNextWord) {
+            result += toupper(str[0]);
+            capitalizeNextWord = false;
         } else {
-            result += word;
+            result += tolower(str);
+        }
+        result += str.substr(1); // add the rest of the word
+        if (capitalizeNextWord) {
+            capitalizeNextWord = false;
         }
     }
-    
+
     return result;
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
+    std::cin >> str;
     std::cout << "camelCase: " << camelCase(str) << std::endl;
     return 0;
 }
