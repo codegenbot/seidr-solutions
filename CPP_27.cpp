@@ -1,10 +1,10 @@
-#include <cassert> // Include <cassert> for using assert
+#include <cassert>
 #include <string>
-#include <cctype> // Include <cctype> for using islower and toupper
+#include <cctype>
 
-std::string flip_case(std::string str) { // Change string to std::string
+std::string flip_case(std::string str) { 
     for (int i = 0; i < str.length(); i++) {
-        if (std::islower(str[i])) { // Add std:: before islower and toupper
+        if (std::islower(str[i])) {
             str[i] = std::toupper(str[i]);
         } else if (std::isupper(str[i])) {
             str[i] = std::tolower(str[i]);
@@ -14,6 +14,6 @@ std::string flip_case(std::string str) { // Change string to std::string
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"); // Correct typo in flip_case
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"); 
     return 0;
 }
