@@ -10,17 +10,20 @@ int main() {
     getline(cin, input);
     
     string word, result;
-    istringstream iss(input);
     
+    istringstream iss(input);
+
     while (iss >> word) {
         if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+            for (char &c : word) {
+                c = word[word.length() - 1 - (&c - &word[0])];
+            }
         }
         result += word + " ";
     }
     
     result.pop_back(); // remove extra space at the end
-    std::cout << result << std::endl;
+    cout << result << endl;
     
     return 0;
 }
