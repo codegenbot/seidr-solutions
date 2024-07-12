@@ -1,14 +1,8 @@
-```python
+```
 input_string = input("Enter car race collision: ").strip().lower()
 def check():
     if "car race collision" in input_string:
-        car_race_collision = int(input("Enter a number: "))
-        if car_race_collision > 5:
-            print("Collision is severe")
-        elif car_race_collision == 5:
-            print("Collision is moderate")
-        else:
-            print("No collision")
+        print("Collision detected")
     else:
         print("Invalid input. Please enter 'car race collision'.")
 
