@@ -1,5 +1,4 @@
 ```cpp
-#include <initializer_list> 
 #include <vector>
 #include <string>
 
@@ -15,7 +14,7 @@ vector<int> even_odd_palindrome(int n) {
         bool isPalindrome = true;
 
         for (int j = 0; j < numStr.length() / 2; j++) {
-            if (numStr[j] != numString[numStr.length() - j - 1]) {
+            if (numStr[j] != numStr[numStr.length() - j - 1]) {
                 isPalindrome = false;
                 break;
             }
