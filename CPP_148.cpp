@@ -3,16 +3,7 @@
 #include <string>
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets;
-    planets.push_back("Mercury");
-    planets.push_back("Venus");
-    planets.push_back("Earth");
-    planets.push_back("Mars");
-    planets.push_back("Jupiter");
-    planets.push_back("Saturn");
-    planets.push_back("Uranus");
-    planets.push_back("Neptune");
-
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
