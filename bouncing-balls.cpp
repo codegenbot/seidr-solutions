@@ -1,13 +1,21 @@
 #include <iostream>
 #include <cmath>
+#include <sstream>
 
 int main() {
     double start_height, bounciness_index, total_distance = 0.0;
-    double num_bounces;
+    int num_bounces;
     double first_bounce_height;
 
-    std::cin >> start_height;
-    std::cin >> first_bounce_height;
+    std::string input;
+    std::getline(std::cin, input);
+    std::replace(input.begin(), input.end(), ',', '.');
+    std::stringstream(input) >> start_height;
+
+    std::getline(std::cin, input);
+    std::replace(input.begin(), input.end(), ',', '.');
+    std::stringstream(input) >> first_bounce_height;
+
     std::cin >> num_bounces;
 
     bounciness_index = first_bounce_height / start_height;
