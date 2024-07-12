@@ -18,9 +18,9 @@ bool prime_length(const char* str){
         char c = str[i];
         if(c >= '0' && c <= '9') {
             int n = c - '0'; 
-            s += isPrime(n) ? std::to_string(n) : std::string(1, c); 
+            s.insert(s.end(), (isPrime(n) ? '0' : c));
         } else {
-            s += c;
+            s.insert(s.end(), c);
         }
     }
     return s.length() > 1;
