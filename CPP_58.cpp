@@ -1,3 +1,4 @@
+```
 #include <set>
 #include <vector>
 #include <iostream>
@@ -28,7 +29,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
+int main(){
     vector<int> v1 = {1, 2, 3};
     vector<int> v2 = {2, 4, 5};
     if (issame(v1, v2)) {
@@ -39,7 +40,7 @@ int main() {
     
     vector<int> common_elements = common(v1, v2);
     for (int i : common_elements) {
-        std::cout << i << " "; // Use std::cout instead of cout
+        cout << i << " ";
     }
     return 0;
 }
