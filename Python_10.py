@@ -16,5 +16,10 @@ def is_palindrome(s: str) -> bool:
 result = input(
     "Enter your desired output (or press enter to get a random palindrome): "
 )
-if not result:
+if not result.lower():
     print(make_palindrome())
+else:
+    if is_palindrome(result):
+        print("It's already a palindrome.")
+    else:
+        print(f"It's not a palindrome. A random one is: {make_palindrome()}")
