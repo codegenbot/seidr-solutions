@@ -1,25 +1,24 @@
 #include <iostream>
 #include <string>
+#include <boost/any.hpp>
 
-using namespace std;
-
-int compare_one(const string& s, int i) {
+int compare_one(const std::string& s, int i) {
     if (i == 1)
-        return stoi(s) - 10;
+        return std::stoi(s) - 10;
     else if (i == 2)
-        return stoi(s);
+        return std::stoi(s);
     else if (i == 3)
-        return stoi(s) + 10;
+        return std::stoi(s) + 10;
     else 
         return 0;
 }
 
 int main() {
-    string a, b;
-    cout << "Enter the first number: ";
-    cin >> a;
-    cout << "Enter the second number: ";
-    cin >> b;
+    std::string a, b;
+    std::cout << "Enter the first number: ";
+    std::cin >> a;
+    std::cout << "Enter the second number: ";
+    std::cin >> b;
 
     int s1 = compare_one(a, 1);
     int s2 = compare_one(b, 2);
