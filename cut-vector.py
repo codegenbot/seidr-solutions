@@ -4,8 +4,8 @@ left_sum = arr[0]
 min_diff = abs(total_sum - 2*arr[0])
 cut_index = -1
 
-if len(arr) == 2:
-    print(arr[:1], arr[1:])
+if len(arr) < 3:
+    print(arr, [])
 else:
     for i in range(1, len(arr)):
         right_sum = total_sum - left_sum - arr[i]
