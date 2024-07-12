@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
+```cpp
 int main() {
     int n;
     cin >> n;
@@ -16,10 +12,12 @@ int main() {
     
     cout << "Histogram: ";
     histogram(min_val, max_val);
+    
+    return 0;
 }
 
-void histogram(int start, int end) {
-    for (int i = start; i <= end; i++) {
+void histogram(int min_val, int max_val) {
+    for (int i = min_val; i <= max_val; i++) {
         int count = 0;
         for (int j = 0; j < n; j++) {
             if (arr[j] == i) {
