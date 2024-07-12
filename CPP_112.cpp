@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool isSame(std::vector<std::basic_string<char>> a, std::vector<std::basic_string<char>> b) {
+bool issame(std::vector<std::basic_string<char>> a, std::vector<std::basic_string<char>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,7 +11,8 @@ bool isSame(std::vector<std::basic_string<char>> a, std::vector<std::basic_strin
     return true;
 }
 
-std::string reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     std::string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -19,22 +20,18 @@ std::string reverse_delete(std::string s, std::string c) {
             if (ch == cc) {
                 found = true;
                 break;
-            }
         }
         if (!found) {
             temp += ch;
         }
     }
+    result.push_back(temp);
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
     if (temp == rev) {
-        return "True";
+        result.push_back("True");
     } else {
-        return "False";
+        result.push_back("False");
     }
-}
-
-int main() {
-    assert(isSame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
+    return result;
 }
