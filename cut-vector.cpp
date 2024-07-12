@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+#include <numeric>
+#include <climits>
 
 int main() {
     int n;
