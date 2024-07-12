@@ -1,4 +1,5 @@
-def encode(message):
+````
+' def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
     for char in message:
@@ -17,3 +18,4 @@ def encode(message):
         else:
             result += char
     return result''
+```
