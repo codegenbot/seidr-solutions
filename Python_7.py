@@ -24,7 +24,12 @@ def find_substring():
                         print([result[0]])
                     else:
                         print(result)
+                break
             elif action == "quit":
                 print("Goodbye!")
+                exit()
         except (ValueError, TypeError):
             print("Expected multiple strings. Please enter again.")
+
+if __name__ == "__main__":
+    find_substring()
