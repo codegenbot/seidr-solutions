@@ -1,9 +1,9 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::set<std::string>& s1) {
-    return (s1.size() > 0);
+bool issame(const std::set<std::string>& a) {
+    return (a.size() > 0);
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
