@@ -27,19 +27,29 @@ int main() {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
-        if (diff <= minDiff) { // Change to <= for inclusivity
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
+    vector<int> firstSubvector;
+    vector<int> secondSubvector;
+
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << " ";
+        firstSubvector.push_back(nums[i]);
+    }
+
+    for (int i = cutIndex + 1; i < n; i++) {
+        secondSubvector.push_back(nums[i]);
+    }
+
+    for (int num : firstSubvector) {
+        cout << num << " ";
     }
     cout << endl;
-    
-    for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << " ";
+    for (int num : secondSubvector) {
+        cout << num << " ";
     }
 
     return 0;

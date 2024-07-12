@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int main() {
         total_price += discounted_price;
     }
 
-    cout << fixed << total_price << "\n";
+    cout << fixed << setprecision(2) << total_price << "\n";
 
     return 0;
 }
