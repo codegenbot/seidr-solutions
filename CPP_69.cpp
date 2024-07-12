@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <map>
 
@@ -14,7 +13,7 @@ int findMaxFreq(std::vector<int> lst) {
 
     int maxFreqNum = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second > it->first && it->first > 0) {
+        if (it->second >= it->first && it->first > 0) {
             maxFreqNum = it->first;
             break;
         }
@@ -24,5 +23,6 @@ int findMaxFreq(std::vector<int> lst) {
 }
 
 int main() {
-    std::cout << findMaxFreq({3, 10, 10, 9, 2}) << std::endl;
+    std::vector<int> lst = vector<int>(vector<int>(lst.begin(), lst.end()));
+    std::cout << findMaxFreq(lst) << std::endl;
 }
