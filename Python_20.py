@@ -1,15 +1,16 @@
-```python
-def find_closest_elements(numbers):
-    min_diff = float("inf")
-    closest_pair = ()
-
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            diff = abs(numbers[i] - numbers[j])
-            if diff < min_diff:
-                min_diff = diff
-                closest_pair = (numbers[i], numbers[j])
-
+```Python
+def find_closest_elements(lst):
+    lst.sort()
+    min_diff = float('inf')
+    closest_pair = []
+    
+    for i in range(len(lst) - 1):
+        diff = lst[i+1] - lst[i]
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = [lst[i], lst[i+1]]
+            
     return closest_pair
 
-print(find_closest_elements(map(int, input().split())))
+numbers = list(map(int, input("Enter numbers: ").split()))
+print(find_closest_elements(numbers))
