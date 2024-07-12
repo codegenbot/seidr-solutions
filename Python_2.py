@@ -1,1 +1,2 @@
-return number - int(number)
+def decimal_part(number):
+    return number - int(number)
