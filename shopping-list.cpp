@@ -18,7 +18,7 @@ int main() {
     float total_price = 0;
 
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] - prices[i] * discounts[i] / 100;
+        total_price += prices[i] * (1 - discounts[i] * 0.01);
     }
 
     std::cout << total_price << std::endl;
