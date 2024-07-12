@@ -1,6 +1,9 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>  
+#include <cstring>  
 
 using namespace std;
 
@@ -24,6 +27,7 @@ vector<string> split(const string& str, const char* delim) {
 
 string words_in_sentence(string sentence) {
     string result;
+    size_t strLen = sentence.size();
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
             result += word + " ";
