@@ -14,5 +14,3 @@ def match_parens(lst):
         return 'Yes'
     else:
         return 'No'
-
-print(match_parens(['(())', '(())()']))
