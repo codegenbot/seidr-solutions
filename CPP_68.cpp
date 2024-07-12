@@ -1,6 +1,12 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::std::vector<int> a, std::std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
+int main() {
+    assert(issame(std::vector<int>{7, 9, 7, 1}, std::vector<int>{}));
+    return 0;
 }
