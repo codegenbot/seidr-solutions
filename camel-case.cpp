@@ -3,7 +3,7 @@
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    getline(std::cin, input);
 
     bool capitalize = true;
     for (char& c : input) {
