@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def factorize(n: int) -> List[int]:
@@ -12,6 +11,12 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-n = int(sys.stdin.readline().strip())
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
 result = factorize(n)
 print(result)
