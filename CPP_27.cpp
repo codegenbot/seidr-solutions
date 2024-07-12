@@ -1,6 +1,14 @@
+#include <string>
+
 using namespace std;
 
-#include <string>
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    string result = flip_case(str);
+    cout << "Flipped case: " << result << endl;
+}
 
 string flip_case(string str){
     string result = "";
