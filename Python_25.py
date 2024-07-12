@@ -1,9 +1,8 @@
-while True:
-    try:
-        n = int(input("Enter a number: "))
-        break
-    except ValueError:
-        print("Invalid input. Please enter a valid number.")
+n = input("Enter a number: ")
+if not n.isdigit():
+    print("Invalid input. Please enter a valid number.")
+    exit()
+n = int(n)
 
 def factorize(n):
     return [i for i in range(1, n + 1) if n % i == 0]
