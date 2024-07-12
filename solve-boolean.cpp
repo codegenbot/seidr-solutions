@@ -1,8 +1,8 @@
 #include <stack>
 
 bool evaluateBooleanExpression(const string& expression) {
-    std::stack<bool> operands;
     std::stack<char> operators;
+    std::stack<bool> operands;
 
     for (char c : expression) {
         if (c == 'T') {
