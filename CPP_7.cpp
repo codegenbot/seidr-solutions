@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <set>
@@ -17,8 +18,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
-    std::vector<std::string> result = filter_by_substring(words, "run");
+    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     std::set<std::string> actualSet(result.begin(), result.end());
     std::set<std::string> expectedSet = {"grunt", "prune"};
     bool same = (actualSet == expectedSet);
