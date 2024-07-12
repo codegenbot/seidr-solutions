@@ -1,8 +1,4 @@
-```
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        num = int(input())
-        total += (num // 3) - 2
-    return total
+import math
+
+def fuel_cost(lst):
+    return sum(math.floor(i / 3) - 2 for i in lst)
