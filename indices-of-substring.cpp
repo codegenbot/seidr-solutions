@@ -4,21 +4,17 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for(int i = 0; i <= text.size() - target.size(); i++) {
+    int i_start = 0;
+    while(i_start < text.size()) {
         bool found = true;
-        int j = 0;
-        while(i+j < text.size()) {
-            if(text[i+j] != target[j]) {
+        for(int j = 0; j < target.size(); j++) {
+            if(text[i_start+j] != target[j]) {
                 found = false;
                 break;
             }
-            j++;
-            if(j == target.size()-1) {
-                result.push_back(i);
-                i += j+1; // Start the search from where the previous match ended.
-                j = 0;
-            }
         }
+        if(found) result.push_back(i_start);
+        i_start++;
     }
     return result;
 }
