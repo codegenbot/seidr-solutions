@@ -2,8 +2,7 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     levels = []
-    groups = paren_string.split()
-    for group in groups:
+    for group in paren_string.split(" "):
         max_depth = current_depth = 0
         for char in group:
             if char == "(":
