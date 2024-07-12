@@ -1,5 +1,2 @@
 def sort_third(l: list):
-    try:
-        return sorted(l, key=lambda x: x[2])
-    except (IndexError, TypeError):
-        return []
+    return sorted(l, key=lambda x: x[2] if isinstance(x, (list, tuple)) and len(x) >= 3 else x)
