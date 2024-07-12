@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     prices = []
@@ -13,7 +14,7 @@ def shopping_list():
         discounts.append(discount)
     total_price = 0
     for i in range(n):
-        total_price += price * (1 - discount)
+        total_price += prices[i] * (1 - discounts[i])
     return round(total_price, 1)
 
 print(shopping_list())
