@@ -2,22 +2,18 @@
 #include <iostream>
 #include <string>
 
-std::string substituteCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result;
-    for (char c : message) {
-        int index = c - 'a';
-        if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
-        } else {
-            result += c;
-        }
+string decipher(string cipher1, string cipher2, string message) {
+    string result = "";
+    for (int i = 0; i < message.length(); i++) {
+        int index = message[i] - 'a';
+        result += cipher2[index];
     }
     return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substituteCipher(cipher1, cipher2, message) << std::endl;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << decipher(cipher1, cipher2, message) << endl;
     return 0;
 }
