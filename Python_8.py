@@ -6,7 +6,7 @@ def sum_product() -> tuple:
 
     while True:
         user_input = input("Please enter a digit or type 'stop' to finish. ")
-        
+
         if str(user_input).lower() == "stop":
             break
         
