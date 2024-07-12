@@ -1,34 +1,30 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-void nextSmallest(int lst[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        if (lst[i] != lst[i+1]) {
-            cout << lst[i];
-            return;
-        }
-    }
-    cout << "-1";
-}
-
-int main(){
-    vector<int> lst;
+int main() {
+    std::vector<int> lst;
     int n;
-    cout << "Enter number of elements: ";
-    cin >> n;
-    cout << "Enter " << n << " integers: ";
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter " << n << " integers: ";
     for(int i = 0; i < n; i++){
         int x;
-        cin >> x;
+        std::cin >> x;
         lst.push_back(x);
     }
-    if(lst.size() < 2) 
-        cout << "-1";
+    if(lst.size() < 2) std::cout << "-1";
     else {
-        sort(lst.begin(), lst.end());
-        nextSmallest(&lst[0], lst.size());
+        std::sort(lst.begin(), lst.end());
+        bool same = true;
+        for(int i = 0; i < lst.size() - 1; i++){
+            if(lst[i] != lst[i+1]) {
+                std::cout << lst[i];
+                same = false;
+                break;
+            }
+        }
+        if(same) std::cout << "-1";
     }
 }
