@@ -13,8 +13,9 @@ def is_prime(n):
         return True
     if n % 2 == 0:
         return False
-    max_divisor = int(n**0.5) + 1
-    for d in range(3, max_divisor, 2):
-        if n % d == 0:
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
             return False
+        i += 2
     return True
