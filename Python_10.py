@@ -1,12 +1,9 @@
-```
+```Python
 import random
 
 def make_palindrome():
-    word = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(5))
-    if random.randint(0,1):
-        word += word[::-1]
-    else:
-        word = word + ''.join(reversed(word))
+    words = ["madam", "mom", "dad", "noon"]
+    word = random.choice(words)
     return word.capitalize()
 
 while True:
