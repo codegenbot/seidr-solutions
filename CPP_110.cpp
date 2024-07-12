@@ -32,15 +32,10 @@ int main() {
                 std::cin >> m1;
             }
         }
-        if (m2 < m1) {
-            // Handle the case when user input is less than expected
-            std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
-        } else {
-            break;
-        }
+        break;
     }
     int m;
-    m = m2; 
+    m = m2; // Store the value in m
     std::vector<int> lst2;
     for (int i = 0; i < m; i++) {
         int temp;
@@ -48,13 +43,8 @@ int main() {
         std::cin >> temp;
         lst2.push_back(temp);
     }
-    if(lst2.size() != m) {
-        // Handle the case when user input is less than expected
-        std::cout << "You need to enter " << m - lst2.size() << " more elements.\n";
-    } else {
-        std::string result = exchange(lst1, lst2);
-        std::cout << result << std::endl;
-    }
+    std::string result = exchange(lst1, lst2);
+    std::cout << result << std::endl;
     return 0;
 }
 
