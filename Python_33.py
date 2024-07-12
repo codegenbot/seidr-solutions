@@ -1,7 +1,8 @@
 try:
-    user_input = [
-        int(i) for i in input("Enter a list of numbers separated by comma: ").split(",")
-    ]
+    user_input = [int(i) for i in input("Enter a list of numbers separated by comma: ").split(",")]
 except ValueError:
     print("Invalid input. Please enter numbers separated by commas.")
-print(sort_third(user_input))
+else:
+    if len(set(map(str, user_input))) != len(user_input):
+        print("Please do not repeat the same number.")
+print(sorted(user_input))
