@@ -1,5 +1,4 @@
 vector<string> reverse_delete(string s, string c) {
-    vector<string> res;
     string result = "";
     for (char ch : s) {
         bool found = false;
@@ -13,9 +12,7 @@ vector<string> reverse_delete(string s, string c) {
             result += ch;
         }
     }
-    res.push_back(result);
-    string rev = result;
-    reverse(rev.begin(), rev.end());
-    res.push_back((result == rev ? "True" : "False"));
+    reverse(result.begin(), result.end());
+    vector<string> res = {result, (result.empty() ? "True" : "False")};
     return res;
 }
