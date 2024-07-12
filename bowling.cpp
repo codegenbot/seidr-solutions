@@ -1,50 +1,34 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int getScore(std::string input) {
-    int score = 0;
-    int frame = 0;
-    int frames[10] = {0};
-    
-    for (int i = 0; i < input.size(); ++i) {
-        if (input[i] == 'X') {
-            frames[frame] = 10;
-            frame++;
-        } else if (input[i] == '/') {
-            frames[frame] = 10 - frames[frame-1];
-            frame++;
-        } else if (input[i] == '-') {
-            frames[frame] = 0;
-            frame++;
+int score(string s) {
+    int total = 0;
+    int frame = 1;
+    int i = 0;
+
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - s[i + 1] + 48 : s[i + 1] + s[i + 2] - 2 * 48;
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : s[i + 2] - 48;
+            i += 2;
         } else {
-            frames[frame] = input[i] - '0';
-            if (frame % 2 == 1) {
-                if (frames[frame-1] + frames[frame] == 10) {
-                    frames[frame] = 10;
-                }
-            }
-            frame++;
+            total += s[i] + s[i + 1] - 2 * 48;
+            i += 2;
         }
+        frame++;
     }
-    
-    for (int i = 0; i < 10; ++i) {
-        score += frames[i];
-        if (i < 8 && frames[i] == 10) {
-            score += frames[i+1] + frames[i+2];
-        } else if (frames[i] == 10) {
-            score += frames[i+1];
-        } else if (frames[i] + frames[i+1] == 10) {
-            score += frames[i+2];
-        }
-    }
-    
-    return score;
+
+    return total;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << getScore(input) << std::endl;
-    
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
