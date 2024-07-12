@@ -14,24 +14,27 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     }
     leaders.push_back(maxLeader);
     
-    std::reverse(leaders.begin(), leaders.end()); // Reverse leaders vector to maintain the order
+    std::reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
 
 int main() {
     int n;
+    std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
     
     std::vector<int> nums(n);
+    std::cout << "Enter the elements:\n";
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i];
     }
     
     std::vector<int> result = findLeaders(nums);
     
-    for (int num : result) {
-        std::cout << num << " ";
+    std::cout << "Leaders in the vector: ";
+    for (int leader : result) {
+        std::cout << leader << " ";
     }
     
     return 0;
