@@ -5,12 +5,12 @@
 int main() {
     std::string text, target;
     
-    std::cin >> text;
-    std::cin >> target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
     
     std::vector<int> indices;
-    int targetSize = int(target.size());
-    for (int i = 0; i <= int(text.size()) - targetSize; ++i) {
+    int targetSize = static_cast<int>(target.size());
+    for (int i = 0; i <= int(text.size()) - targetSize + 1; ++i) {
         if (text.substr(i, targetSize) == target) {
             indices.push_back(i);
         }
