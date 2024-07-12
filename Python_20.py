@@ -1,18 +1,19 @@
 ```
 from typing import List, Tuple
 
-def find_closest_elements():
-    numbers = list(map(float, input("Enter space-separated numbers: ").split()))
-    min_diff = float("inf")
-    closest_pair = ()
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    if len(numbers) <= 1:
+        return ()
 
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            diff = abs(numbers[i] - numbers[j])
-            if diff < min_diff:
-                min_diff = diff
-                closest_pair = (numbers[i], numbers[j])
+    numbers.sort()
+
+    min_diff = float("inf")
+    closest_pair = (0, 0)
+
+    for i in range(len(numbers) - 1):
+        diff = numbers[i + 1] - numbers[i]
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[i], numbers[i + 1])
 
     return closest_pair
-
-print(find_closest_elements())
