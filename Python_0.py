@@ -1,3 +1,7 @@
+numbers = list(map(int, input().split()))
+threshold = int(input())
+
+
 def check_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -5,7 +9,6 @@ def check_numbers(numbers, threshold):
             return False
     return True
 
-numbers = list(map(int, input().split()))
-threshold = int(input())
+
 result = check_numbers(numbers, threshold)
 print(result)
