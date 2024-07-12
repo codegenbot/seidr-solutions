@@ -1,21 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
-bool same(std::vector<int> const &a, const std::vector<int> &b) {
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile = {0, 1};
-    for (int i = 2; i <= n; ++i)
-        pile.push_back(pile.back() + i);
-    return pile;
-}
-
 int main() {
-    int n = 8;
-    std::vector<int> pile = make_a_pile(n);
-    assert(same(pile, pile));
-    return 0;
+    assert(issame(make_a_pile(8), vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
 }
