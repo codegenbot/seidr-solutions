@@ -1,24 +1,37 @@
 int score(string s) {
     int totalScore = 0;
     int frame = 1;
-    int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            totalScore += 10;
-            totalScore += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0');
-            totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0');
-            i++;
-        } else if (s[i + 1] == '/') {
-            totalScore += 10;
-            totalScore += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
-            i += 2;
+    int ball = 0;
+    int rolls[21];
+
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
+        } else if (c == '/') {
+            rolls[ball-1] = 10 - rolls[ball-2];
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            totalScore += (s[i] == '-' ? 0 : s[i] - '0');
-            totalScore += (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+            rolls[ball++] = c - '0';
         }
-        frame++;
     }
+
+    for (int i = 0; i < 10; ++i) {
+        if (rolls[frame] == 10) {
+            totalScore += 10 + rolls[frame+1] + rolls[frame+2];
+            frame += 1;
+        } else if (rolls[frame] + rolls[frame+1] == 10) {
+            totalScore += 10 + rolls[frame+2];
+            frame += 2;
+        } else {
+            totalScore += rolls[frame] + rolls[frame+1];
+            frame += 2;
+        }
+    }
+
     return totalScore;
 }
 
