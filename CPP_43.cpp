@@ -1,17 +1,5 @@
-#ifndef PairsSumToZero_h
-#define PairsSumToZero_h
-
-#include<vector>
-#include<set>
-
-bool pairs_sum_to_zero(std::vector<int> l);
-
-#endif 
-
-#include "PairsSumToZero.h"
-
-#include<vector>
-#include<set>
+#include <vector>
+#include <set>
 
 bool pairs_sum_to_zero(std::vector<int> l) {
     std::set<int> s(l.begin(), l.end());
