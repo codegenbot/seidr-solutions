@@ -27,7 +27,11 @@ int main() {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
-        if (diff < minDiff) {
+        if (diff == 0) {
+            cutIndex = i;
+            break;
+        }
+        else if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
