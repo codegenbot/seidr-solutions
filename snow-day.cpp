@@ -5,7 +5,7 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         snow += rate;
-        snow -= snow * melt;
+        snow *= (1.0 - melt);
     }
 
     cout << snow << endl;
