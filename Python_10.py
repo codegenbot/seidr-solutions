@@ -4,12 +4,9 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        for i in range(len(string), 0, -1):
-            if string[:i] == string[:i][::-1]:
-                return string + (string[:i][::-1])
-    else:
-        for i in range(len(string), 0, -1):
-            if string[:i].lower() == string[:i].lower()[::-1]:
-                return string + (string[:i].lower()[::-1]).upper()
-    return string + string[::-1]
+    s = string.lower()
+    i = len(s) - 1
+    while i >= 0 and s[i] == s[0]:
+        i -= 1
+    palindrome = s[:i+1] + s[i::-1]
+    return string.capitalize() + palindrome if not string.isalpha() else palindrome
