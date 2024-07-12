@@ -6,8 +6,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> findSubstringIndices(string text, string target) {
-    vector<int> indices;
+std::vector<int> findSubstringIndices(std::string text, std::string target) {
+    std::vector<int> indices;
     int n = text.size();
     int m = target.size();
     for (int i = 0; i <= n - m; ++i) {
