@@ -1,31 +1,27 @@
 def bowling_score(bowls):
     score = 0
     frame = 1
-    rolls = list(bowls)
-    for i in range(len(rolls)):
-        if rolls[i] == "X":
-            score += 10
-            if frame <= 10:
-                if rolls[i + 2] == "X":
-                    score += 10
-                else:
-                    score += int(rolls[i + 1]) + int(rolls[i + 2])
-                frame += 1
-        elif rolls[i] == "/":
-            score += 10 - int(rolls[i - 1])
-            if frame <= 10:
-                score += int(rolls[i + 1])
+    rolls = [0] * 22
+    for bowl in bowls:
+        if frame > 21:
+            break
+
+        if bowl == "X":
+            rolls[frame] = 10
+            frame += 2
+        elif bowl == "/":
+            rolls[frame] = 10 - rolls[frame - 1]
             frame += 1
-        elif rolls[i] == "-":
-            continue
         else:
-            score += int(rolls[i])
-            if frame <= 10:
-                if rolls[i + 1] == "/":
-                    score += 10 - int(rolls[i])
-                frame += 0.5
+            rolls[frame] = int(bowl)
+            frame += 1
+
+    for i in range(1, 19, 2):
+        if rolls[i] == 10 and i < 19:
+            score += 10 + rolls[i + 2] + rolls[i + 3]
+        elif i < 18 and rolls[i] + rolls[i + 1] == 10:
+            score += 10 + rolls[i + 2]
+        else:
+            score += rolls[i] + rolls[i + 1]
+
     return score
-
-
-bowls = input()
-print(bowling_score(bowls))

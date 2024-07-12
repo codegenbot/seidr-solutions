@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <numeric>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -18,13 +24,13 @@ int main() {
     }
     
     for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << endl;
+        cout << nums[i] << '\n';
     }
     
-    cout << 0 << endl;
+    cout << 0 << '\n';
     
     for (int i = cut_index; i < n; ++i) {
-        cout << nums[i] << endl;
+        cout << nums[i] << '\n';
     }
     
     return 0;
