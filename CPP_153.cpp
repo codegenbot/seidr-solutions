@@ -4,8 +4,7 @@
 std::string Strongest_Extension(const std::vector<std::string>& extensions);
 
 int main() {
-    std::vector<std::string> extensions = {"671235", "Bb"};
-    assert(Strongest_Extension(extensions) == "Sp.671235");
+    assert(Strongest_Extension(std::vector<std::string>{"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
 
