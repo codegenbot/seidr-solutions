@@ -1,5 +1,4 @@
 #include <iostream>
-#include <limits>
 using namespace std;
 
 void checkNumber(int n) {
@@ -10,9 +9,16 @@ void checkNumber(int n) {
     }
 }
 
+int sum_squares(const vector<int>& nums) { 
+    int total = 0;
+    for (int num : nums) {
+        total += num * num;
+    }
+    return total;
+}
+
 int main() {
     int n;
-    cin.ignore(std::numeric_limits<int>::max(), '\n'); 
     cin >> n; 
     if (!(cin)) {
         cerr << "Invalid input. Please enter an integer." << endl;
