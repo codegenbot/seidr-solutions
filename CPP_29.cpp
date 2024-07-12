@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <bits/stdc++.h>
