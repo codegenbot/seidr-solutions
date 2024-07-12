@@ -1,8 +1,9 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) { 
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
     std::vector<std::string> result; 
     for(auto s : strings){ 
         if (!s.empty() && s.find(prefix) == 0) 
