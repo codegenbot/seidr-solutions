@@ -1,5 +1,3 @@
 ```Python
-def sort_third(l: list):
-    return [(
-        x if i % 3 != 0 else sorted((y for y in l if y != x and (l.index(y) - l.index(x)) % 3 != 0))[::-1][0]
-    ) for i, x in enumerate(l)]
+def sort_third(lst):
+    return sorted([x for _, x in sorted(((j//3, y) for j, y in enumerate(lst)), key=lambda t: (t[0]%3, t[1]))])
