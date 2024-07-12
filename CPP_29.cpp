@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool compare(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -11,7 +9,7 @@ bool compare(const std::vector<std::string>& a, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> issame(const std::vector<std::string>& strings, const std::string& prefix) {
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0)
@@ -22,6 +20,6 @@ std::vector<std::string> issame(const std::vector<std::string>& strings, const s
 }
 
 int main() {
-    assert(compare(issame({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(compare(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
