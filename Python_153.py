@@ -1,6 +1,4 @@
 def strength(extension):
-    extensions = ['com', 'org', 'net', 'io']
-    
     if isinstance(extension, int):
         extension_str = str(extension)
     else:
@@ -12,9 +10,9 @@ def strength(extension):
         return (
             max(upper_count, lower_count),
             len(extension_str),
-            -extension_str.index(extension),
+            -extension.index(extension),
         )
     elif extension_str.isdigit():
-        return (0, len(extension_str), -extension_str.index(extension))
+        return (0, len(extension_str), -extension.index(extension))
     else:
-        return (0, 0, -extension_str.index(extension))
+        return (0, 0, -extension.index(extension))
