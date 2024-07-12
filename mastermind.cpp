@@ -25,7 +25,7 @@ int mastermind(string code, string guess) {
 
 int main() {
     string code = "ABCD";
-    string guess = "BCDE";
+    string guess = "BABA";
 
     int result = mastermind(code, guess);
 
