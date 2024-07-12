@@ -15,6 +15,7 @@ string flip_case(string str){
             result += (char)c;
     }
     return result;
+
 }
 
 int main(){
