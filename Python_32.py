@@ -1,12 +1,12 @@
-```
 def quadratic_equation():
+    import math
+    
+    print("Enter coefficients (space-separated): ")
+    
     while True:
         try:
-            print("Enter coefficients (space-separated): ")
             coefficients = list(map(float, input().split()))
             a, b, c = coefficients[0], coefficients[1], coefficients[2]
-            
-            import math
             
             discriminant = b**2 - 4 * a * c
             
