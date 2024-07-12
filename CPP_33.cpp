@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <assert.h>
 #include <vector>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -34,3 +33,9 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
     return result;
+}
+
+{
+int main() {
+    return 0;
+}
