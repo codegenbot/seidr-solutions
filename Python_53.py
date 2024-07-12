@@ -17,4 +17,3 @@ def main():
                 num1 = num2
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-    input("Press Enter to exit...")
