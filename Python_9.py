@@ -1,5 +1,5 @@
 def rolling_max(numbers):
-    max_values = []
-    for i in range(len(numbers)-2):
-        max_values.append(max(numbers[i:i+3]))
-    return max_values
+    max_list = []
+    for i in range(len(numbers)):
+        max_list.append(max(numbers[:i+1]))
+    return max_list
