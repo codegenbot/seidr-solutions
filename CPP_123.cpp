@@ -3,16 +3,14 @@
 
 vector<int> get_odd_collatz(int n);
 
-bool issame(vector<int>& a, vector<int>& b);
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    for (int num : result) {
-        cout << num << " ";
+bool issame(vector<int>& a, vector<int>& b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
     }
-    return 0;
+    return true;
 }
 
 vector<int> get_odd_collatz(int n) {
@@ -30,4 +28,14 @@ vector<int> get_odd_collatz(int n) {
     result.push_back(1);
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> collatz_result = get_odd_collatz(n);
+    for (int num : collatz_result) {
+        cout << num << " ";
+    }
+    return 0;
 }
