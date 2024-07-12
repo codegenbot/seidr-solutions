@@ -31,7 +31,7 @@ int main() {
         cout << input[i] << endl;
     }
     cout << endl;
-    for (int i = idx;  i < input.size(); ++i) {
+    for (int i = idx; i < input.size(); ++i) {
         cout << input[i] << endl;
     }
 
