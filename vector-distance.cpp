@@ -11,8 +11,8 @@ int main() {
         return 1;
     }
 
-    std::vector<float> vec1(n);
-    std::vector<float> vec2(n);
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -26,12 +26,12 @@ int main() {
         return 1;
     }
 
-    float result = 0.0f;
+    double result = 0.0;
     for (int i = 0; i < n; ++i) {
         result += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    std::cout << std::fixed << std::sqrt(result) << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << std::sqrt(result) << std::endl;
 
     return 0;
 }
