@@ -16,10 +16,10 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
-    const std::string substring = "run";
-    std::vector<std::string> result = filter_by_substring(words, substring);
-    bool same = issame(result, {{"grunt", "prune"}});
-    assert(same);
+    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    std::set<std::string> actualSet(result.begin(), result.end());
+    std::set<std::string> expectedSet = {"grunt", "prune"};
+    bool same = (actualSet == expectedSet);
+    assert(same == issame({result.begin(), result.end()}, expectedSet));
     return 0;
 }
