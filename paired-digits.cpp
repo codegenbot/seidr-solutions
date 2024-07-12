@@ -1,4 +1,7 @@
-```int pairedDigits(std::string s) {
+```c++
+#include <string>
+
+int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
         if ((int)s[i] - '0' == (int)s[i + 1] - '0') {
@@ -9,7 +12,8 @@
 }
 
 int main() {
-    std::string s = "1233345556";
-    int sum = pairedDigits(s);
+    char input[] = "1233345556";
+    std::string str(input);
+    int sum = pairedDigits(str);
     return 0;
 }
