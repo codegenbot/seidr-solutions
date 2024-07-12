@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
