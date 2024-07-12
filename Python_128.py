@@ -5,11 +5,12 @@ def calculate_average_and_median():
         
         try:
             numbers = list(map(int, user_input.split()))
-            if not numbers:
-                return "No numbers entered."
             break
         except ValueError:
-            print("Invalid input. Please enter valid numbers separated by space.")
+            print("Invalid input. Please enter valid integers separated by space.")
+
+    if not numbers:
+        return "No numbers entered."
 
     average = sum(numbers) / len(numbers)
 
