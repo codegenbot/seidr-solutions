@@ -1,5 +1,8 @@
 ```
-def concatenate(strings) -> 'str':
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
     if not strings:
         return "No strings were provided."
     return " ".join(strings)
@@ -13,9 +16,9 @@ while True:
             break
         elif not isinstance(user_input, str):
             raise ValueError("Invalid input. Please enter a string or 'stop'.")
-        if user_input == "stop": 
-            break
-        strings_list.append(user_input.strip())
+        if not user_input.strip():
+            raise ValueError("String cannot be empty.")
+        strings_list.append(user_input)
     except ValueError:
         print("Invalid input. Please enter a string or 'stop'.")
 
