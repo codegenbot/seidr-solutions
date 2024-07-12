@@ -1,48 +1,37 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> points(22, 0);
-    
-    for (char c : input) {
-        if (c == 'X') {
-            points[ball] = 10;
-            points[ball + 1] = 0;
-            ball += 2;
-            frame++;
-        } else if (c == '/') {
-            points[ball - 1] = 10 - points[ball - 2];
-            frame++;
-        } else if (c == '-') {
-            points[ball] = 0;
-            ball++;
-        } else {
-            points[ball] = c - '0';
-            ball++;
-            if (ball % 2 == 0) {
-                if (points[ball - 1] + points[ball - 2] == 10) {
-                    frame++;
+int score(const string &bowls) {
+    int totalScore = 0;
+    int frame = 0;
+    for (int i = 0; i < bowls.size(); ++i) {
+        if (frame == 10) break;
+        if (bowls[i] == 'X') {
+            totalScore += 10;
+            if (i + 2 < bowls.size()) {
+                if (bowls[i + 2] == 'X') {
+                    totalScore += 10;
+                    if (i + 4 < bowls.size()) {
+                        totalScore += (bowls[i + 4] == 'X') ? 10 : bowls[i + 4] - '0';
+                    }
                 } else {
-                    frame += 2;
+                    totalScore += (bowls[i + 2] == '/') ? 10 : bowls[i + 2] - '0';
+                    totalScore += (bowls[i + 3] == 'X') ? 10 : bowls[i + 3] - '0';
                 }
             }
-        }
-    }
-    
-    for (int i = 0; i < 10; i++) {
-        if (points[i * 2] == 10) {
-            score += 10 + points[i * 2 + 2] + points[i * 2 + 3];
-        } else if (points[i * 2] + points[i * 2 + 1] == 10) {
-            score += 10 + points[i * 2 + 2];
+            frame++;
+        } else if (bowls[i] == '/') {
+            totalScore += 10 - (bowls[i - 1] - '0');
+            totalScore += (i + 1 < bowls.size()) ? (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0') : 0;
+            frame++;
         } else {
-            score += points[i * 2] + points[i * 2 + 1];
+            totalScore += bowls[i] - '0';
+            frame++;
         }
     }
-    
-    cout << score << endl;
-    
+    return totalScore;
+}
+
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << score(bowls) << endl;
     return 0;
 }
