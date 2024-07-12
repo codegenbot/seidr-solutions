@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <assert.h>
 
@@ -12,11 +11,11 @@ int solve(int N) {
 }
 
 int main() {
-    std::string N;
-    std::cin >> N;
-    int n = stoi(N);
-    std::cout << solve(n) << std::endl;
+    char input[100];
+    std::cin.getline(input, 100);
+    int N = std::stoi(input);
+    std::cout << solve(N) << std::endl;
 
-    assert(solve(963) == 483); 
+    assert(solve(963) == std::stoi("483")); 
     return 0;
 }
