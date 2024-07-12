@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cassert>
 
@@ -27,10 +28,19 @@ int count_nums(int* nums, int size) {
 }
 
 int main() {
-    int singleNum = 123; 
-    int nums[] = {singleNum}; 
-    int size = 1; 
-    std::cout << "The number of positive integers with an odd digital root is: " << count_nums(&nums[0], size) << std::endl;
-    assert (count_nums(&nums[0], size) == 1); 
+    int size;
+    std::cout << "Enter the number of integers: ";
+    std::cin >> size;
+
+    int* nums = new int[size];
+    for (int i = 0; i < size; i++) {
+        std::cout << "Enter integer # " << i+1 << ": ";
+        std::cin >> nums[i];
+    }
+
+    int count = count_nums(nums, size);
+    delete[] nums;
+    std::cout << "The number of positive integers with an odd digital root is: " << count << std::endl;
+    assert (count == 1); 
     return 0;
 }
