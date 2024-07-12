@@ -1,1 +1,1 @@
-n = int(input("Enter a number: "))  # Request input from user with a prompt message
+n = int(input("Enter a number: "))
