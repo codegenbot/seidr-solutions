@@ -1,4 +1,7 @@
+```cpp
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 bool any_int(float a, float b, float c) {
@@ -19,3 +22,4 @@ int main() {
         cout << "None of the input numbers are integers.\n";
 
     return 0;
+}
