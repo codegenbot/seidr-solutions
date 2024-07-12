@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<int> sortArray(vector<int> array) {
     if (array.empty()) {
         return array;
@@ -10,4 +17,9 @@ vector<int> sortArray(vector<int> array) {
     }
 
     return array;
+}
+
+int main() {
+    assert(sortArray({21, 14, 23, 11}) == vector<int>{23, 21, 14, 11});
+    return 0;
 }
