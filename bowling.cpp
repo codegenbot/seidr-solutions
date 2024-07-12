@@ -1,47 +1,37 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    int score = 0;
-    int frame = 1;
-    int rolls = 0;
-    
-    for (char c : input) {
-        if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (input[rolls + 1] == 'X' ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10));
-                score += (input[rolls + 2] == 'X' ? 10 : (input[rolls + 2] == '/' ? 10 - (input[rolls + 1] == 'X' ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10)) : (isdigit(input[rolls + 2]) ? input[rolls + 2] - '0' : 10)));
-                rolls++;
-            }
+int calculateBowlingScore(string s) {
+    int score = 0, frame = 1, ball = 0;
+    map<char, int> value = {{'X', 10}, {'/', 10}, {'-', 0}};
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            score += value[s[i]] + value[s[i + 1]] + value[s[i + 2]];
+            ball = 0;
             frame++;
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (frame < 10) {
-                if (isdigit(input[rolls + 1])) {
-                    score += input[rolls + 1] - '0';
-                } else if (input[rolls + 1] == '/') {
-                    score += 10 - (c - '0');
-                }
-                rolls++;
-            }
+        } else if (s[i] == '/') {
+            score += value[s[i]] - value[s[i - 1]] + value[s[i + 1]];
+            ball = 0;
             frame++;
-        } else if (c == '/') {
-            score += 10 - (input[rolls - 1] - '0');
-            if (frame < 10) {
-                if (isdigit(input[rolls + 1])) {
-                    score += input[rolls + 1] - '0';
-                } else if (input[rolls + 1] == 'X') {
-                    score += 10;
-                }
-                rolls++;
+        } else if (s[i] == '-') {
+            ball++;
+            if (ball == 2) {
+                ball = 0;
+                frame++;
             }
-            frame++;
+        } else {
+            score += s[i] - '0';
+            ball++;
+            if (ball == 2) {
+                ball = 0;
+                frame++;
+            }
         }
-        rolls++;
+        if (frame > 10) break;
     }
-    
-    cout << score << endl;
-    
+    return score;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << calculateBowlingScore(s) << endl;
     return 0;
 }
