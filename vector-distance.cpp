@@ -6,10 +6,10 @@
 
 using namespace std;
 
-double vectorDistance(int n, double v1[], double v2[]) {
+double vectorDistance(int n, double *vec1, double *vec2) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        sum += pow(vec2[i] - vec1[i], 2);
     }
     return sqrt(sum);
 }
@@ -17,11 +17,11 @@ double vectorDistance(int n, double v1[], double v2[]) {
 int main() {
     int n;
     cin >> n;
-    double v1[n], v2[n];
-    for(int i=0; i<n; i++)
-    {
-        cin >> v1[i] >> v2[i];
+    double vec1[n];
+    double vec2[n];
+    for (int i = 0; i < n; i++) {
+        cin >> vec1[i] >> vec2[i];
     }
-    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n, vec1, vec2) << endl;
     return 0;
 }
