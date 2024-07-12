@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool isSame(vector<string> a, vector<string> b) {
+bool isIdentical(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> selectWords(string s, int n) {
+vector<string> select_words(string s, int n) {
     vector<string> words = {};
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
