@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,8 +25,9 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     
     if(index2 - index1 + 1 > planets.size()) {
         std::vector<std::string> result;
-        
-        for (int i = 0; i <= index2; i++) { 
+        std::vector<std::string>::allocator_type allocator;
+        result.reserve((index2 - index1 + 1), allocator);
+        for (int i = index1; i <= index2; i++) {
             if(i < planets.size()) { 
                 result.push_back(planets[i]);
             } 
