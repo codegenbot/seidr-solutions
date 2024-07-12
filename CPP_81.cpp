@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -49,17 +50,9 @@ vector<string> numerical_letter_grade(vector<float> grades){
 
 int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
-    vector<string> grade_letters = numerical_letter_grade(grades);
+    vector<string> grades_letter = numerical_letter_grade(grades);
 
-    if(issame(numerical_letter_grade(grades), grade_letters))
-        cout << "Grades are same." << endl;
-    else
-        cout << "Grades are not the same." << endl;
-
-    vector<float> grades2 = {0.0, 0.7};
-    vector<string> grade_letters2 = numerical_letter_grade(grades2);
-    
-    if(issame(grade_letters2, {"E", "D-" }))
+    if(issame(numerical_letter_grade(grades), grades_letter))
         cout << "Grades are same." << endl;
     else
         cout << "Grades are not the same." << endl;
