@@ -19,6 +19,6 @@ int do_algebra(std::vector<int> operators, std::vector<int> operands) {
 }
 
 int main() {
-    int result = do_algebra({1, 2}, {7, 3, 4});
+    int result = do_algebra({1,2},{7,3,4});
     return 0;
 }
