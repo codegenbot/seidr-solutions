@@ -1,12 +1,23 @@
-Here is the completed code:
-
 bool is_sorted(vector<int> lst){
-    if (lst.size() <= 1) return true;
-    for(int i = 0; i < lst.size()-1; i++){
-        if(lst[i] >= lst[i+1]){
-            vector<int>::iterator it = unique(lst.begin(), lst.end());
-            lst.erase(it, lst.end());
-            if(lst.size() > 1) return false;
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            vector<int> temp;
+            bool duplicate = false;
+            for(int j = 0; j < lst.size(); j++){
+                int count = 0;
+                for(int k = 0; k < lst.size(); k++){
+                    if(lst[k] == lst[j]){
+                        count++;
+                    }
+                }
+                if(count > 1){
+                    duplicate = true;
+                    break;
+                }
+                temp.push_back(lst[j]);
+            }
+            if(duplicate) return false;
+            else return true;
         }
     }
     return true;
