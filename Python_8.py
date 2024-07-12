@@ -1,5 +1,4 @@
-```
-from typing import List, Tuple
+from typing import Tuple
 
 
 def sum_product():
@@ -17,5 +16,6 @@ def sum_product():
         total_sum += num
         product *= num
     return (total_sum, product)
+
 
 print(sum_product())
