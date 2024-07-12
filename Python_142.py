@@ -1,4 +1,4 @@
-```
+```python
 def sum_squares():
     numbers = list(map(int, input("Enter a comma-separated list of numbers: ").split(',')))
     total_sum = 0
