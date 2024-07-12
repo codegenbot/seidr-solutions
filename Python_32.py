@@ -1,4 +1,4 @@
-def find_zero(xs: list[int]):
+def find_zero(xs: list[int]) -> int:
     assert len(xs) % 2 == 0
     max_coeff = max(xs, key=abs)
     if max_coeff == 0:
