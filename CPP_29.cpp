@@ -28,5 +28,5 @@ int main() {
     for (const auto& s : result) {
         if (s != "xxx" && s != "xxxAAA") return 1;
     }
-    return 0; // Fixed
+    return 0;
 }
