@@ -1,10 +1,13 @@
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
-
+```
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
-        return string
-    new_string = ""
-    while not is_palindrome(new_string + string + new_string):
-        new_string += string[0]
+        return string + string[::-1]
+    else:
+        n = len(string)
+        left = string
+        right = string[::-1]
+        for i in range(n//2, 0, -1):
+            if string[:i] == string[:i][::-1]:
+                left = string[:i]
+                break
+        return (left + right).expandtabs((n-2*len(left))//2)
