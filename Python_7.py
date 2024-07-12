@@ -4,15 +4,16 @@ def find_substring():
         try:
             input_str = input("Enter space separated strings: ").lower().split()
             if not input_str:
-                raise ValueError
-
+                print("Expected multiple strings. Please enter again.")
+                continue
             substring = input("Enter a substring to search: ").lower()
 
-            action = input("Enter search or quit: ")
-
-            while action.lower() not in ["search", "quit"]:
-                print("Invalid input. Please enter either 'search' or 'quit'.")
+            while True:
                 action = input("Enter search or quit: ")
+                if action in ["search", "quit"]:
+                    break
+                else:
+                    print("Invalid input. Please enter either 'search' or 'quit'.")
 
             if action == "search":
                 result = [s for s in input_str if substring in s]
