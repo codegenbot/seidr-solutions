@@ -1,6 +1,6 @@
 from typing import list
 
-def all_prefixes(string: str) -> list:
+def all_prefixes(string: str) -> list[str]:
     prefixes = []
     for i in range(len(string)):
         prefixes.append(string[:i+1])
