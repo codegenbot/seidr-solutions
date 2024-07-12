@@ -1,4 +1,5 @@
-from typing import List
+```python
+    from typing import List
 
     def parse_nested_parens(paren_string: str) -> List[int]:
         result = []
@@ -12,4 +13,4 @@ from typing import List
                 elif char == ')':
                     level -= 1
             result.append(max_level)
-        return [int(i) for i in result]
+        return result
