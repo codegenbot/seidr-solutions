@@ -1,5 +1,5 @@
-num1 = None
-num2 = None
+num1 = 0
+num2 = 0
 
 
 def add(x: int, y: int):
