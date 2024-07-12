@@ -1,4 +1,4 @@
-```cpp
+``` 
 #include <string>
 #include <algorithm>
 
@@ -18,6 +18,8 @@ bool is_happy(std::string s){
     return true;
 
 }
-int main{
-    assert(is_happy("iopaxioi") == false );
+
+int main() {
+    std::cout << is_happy("iopaxioi") << std::endl;
+    return 0;
 }
