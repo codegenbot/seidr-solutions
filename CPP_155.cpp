@@ -1,4 +1,11 @@
-vector<int> counts(2, 0);
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<int> even_odd_count(int num) {
+    vector<int> counts(2, 0);
     string num_str = to_string(abs(num));
     for (char digit : num_str) {
         if ((digit - '0') % 2 == 0) {
