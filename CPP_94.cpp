@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <cassert>
-#include <string>
 
 int calculateScore(int values[], int n) {
     int sum = 0;
@@ -24,4 +22,3 @@ int main() {
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
     assert(calculateScore(myValues, n) == 1224); 
     return 0;
-}
