@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 int bowling(string s) {
     int score = 0;
@@ -6,7 +7,10 @@ int bowling(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == '/') {
-            score += 10 - (i + 1);
+            if (i != 9)
+                score += 10 - (i + 1);
+            else
+                score += 10;
             lastRoll = true;
         } else if (lastRoll) {
             score += s[i] - '0';
