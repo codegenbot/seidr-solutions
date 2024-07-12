@@ -1,5 +1,4 @@
-```
-def max_fill(n, grid_size):
+def max_fill(n):
     m = int(input("Enter the number of columns: "))
     grid = [
         [
