@@ -19,14 +19,14 @@ int main() {
     for (int i = 0; i < n; ++i) {
         int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i + 1, 0) - 
                             std::accumulate(nums.begin() + i + 1, nums.end(), 0));
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
     firstSubvector = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
-    secondSubvector = std::vector<int>(nums.begin() + cutIndex, nums.end());
+    secondSubvector = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
 
     for (int num : firstSubvector) {
         std::cout << num << " ";
