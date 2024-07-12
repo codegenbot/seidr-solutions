@@ -1,24 +1,35 @@
 ```cpp
 #include <iostream>
+#include <vector>
 #include <string>
-#include <cctype>
 
-std::string flip_case(const std::string& str) {
-    std::string result;
-    for(int i=0; i<str.length(); i++){
+using namespace std;
+
+vector<char> swapCase(string str) {
+    vector<char> result;
+    
+    for(size_t i = 0; i < str.size(); i++){
+        using std::islower;
+        using std::toupper;
+        using std::tolower;
         char c = str[i];
-        if(std::islower(c))
-            result.push_back(std::toupper(c));
-        else if(std::isupper(c))
-            result.push_back(std::tolower(c));
+        if(islower(c))
+            result.push_back(toupper(c));
+        else if(isupper(c))
+            result.push_back(tolower(c));
         else
             result.push_back(c);
     }
+    
     return result;
 }
 
 int main() {
-    std::string input = "These violent delights have violent ends";
-    std::cout << flip_case(input) << std::endl; 
+    string s;
+    cout << "Enter a sentence: ";
+    cin >> s;
+    vector<char> swapped = swapCase(s);
+    for(char c : swapped) cout << c;
+    cout << endl;
     return 0;
 }
