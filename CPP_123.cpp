@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,7 +8,7 @@ vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
-            n /= 2;
+            n /= 2;  // No need to store even numbers, just update n
         } else {
             result.push_back(n);
         }
