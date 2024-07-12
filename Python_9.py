@@ -1,4 +1,4 @@
-numbers = list(map(int, input().split()))
+numbers = list(map(int, input().split(",")))
 def rolling_max(numbers):
     result = []
     for i in range(len(numbers)):
