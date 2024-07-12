@@ -8,5 +8,5 @@ def sum_squares(lst):
             total_sum += lst[i] ** 3
     return total_sum
 
-lst = str(input("Enter a list of numbers separated by space: ")).split()
+lst = input("Enter a list of numbers separated by space: ").split()
 print(sum_squares(list(map(int, lst))))
