@@ -9,18 +9,14 @@ int main() {
     cin >> n;
     vector<double> prices(n);
     vector<double> discounts(n);
-
-    for (int i = 0; i < n; ++i) {
-        cin >> prices[i];
-    }
-    for (int i = 0; i < n; ++i) {
-        cin >> discounts[i];
-    }
     
+    for (int i = 0; i < n; ++i) {
+        cin >> prices[i] >> discounts[i];
+    }
+
     double total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        prices[i] -= prices[i] * discounts[i];
-        total_price += prices[i];
+        total_price += prices[i] - prices[i] * discounts[i]/100;
     }
 
     cout << fixed << setprecision(2) << total_price << "\n";
