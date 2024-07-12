@@ -1,16 +1,7 @@
-print("Enter digits (or 'stop' to finish).")
-def process_digits():
-    digits = []
-    while True:
-        user_input = input()
-        if user_input.lower() == 'stop':
-            break
-        try:
-            digit = int(user_input)
-            digits.append(digit)
-        except ValueError:
-            print("Invalid input. Please enter a digit or type 'stop' to finish.")
-    return sum(digits) if len(digits) > 0 else None
+```
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
 
-result = process_digits()
-print(result)
+sum_product = num1 + num2
+
+check(sum_product)
