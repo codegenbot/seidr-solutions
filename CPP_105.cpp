@@ -1,23 +1,26 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
+bool issame(std::vector<std::string> a, std::vector<std::string> b, int len) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i].length() != len || b[i].length() != len)
+            return false;
     return true;
 }
 
-int by_length(std::vector<std::pair<std::string, int>> nums) {
-    std::sort(nums.begin(), nums.end(), [](const auto& a, const auto& b) {
-        return a.first.length() < b.first.length();
-    });
-    return 1; // Assuming the function should always return 1
+int by_length_helper(std::vector<std::pair<std::string, int>>& result) {
+    std::sort(result.begin(), result.end(), [](const auto& a, const auto& b){return a.first.length() < b.first.length();});
+    int max_length = 0;
+    for(const auto& pair : result)
+        max_length = std::max(max_length, pair.first.length());
+    return max_length;
 }
 
 int main() {
-    std::vector<std::pair<std::string, int>> input = {{"Nine", 9}, {"Eight", 8}, {"Four", 4}};
-    assert(issame(by_length(input), {"Nine", "Eight", "Four"}));
+    std::vector<std::pair<std::string, int>> result = {{"apple", 5}, {"banana", 6}, {"cherry", 6}};
+    int answer = by_length_helper(result);
+    // Don't forget to print out the answer!
     return 0;
 }
