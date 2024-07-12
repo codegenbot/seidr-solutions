@@ -1,8 +1,13 @@
-```Python
+```
 from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    if not isinstance(numbers, list):
+        raise ValueError("Expected a list as input")
+    for num in numbers:
+        if not isinstance(num, int):
+            raise ValueError("All elements of the list must be integers")
     if not numbers:
         return []
     result = [numbers[0]]
@@ -14,7 +19,4 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
                 result.pop()
             result.append(delimiter)
             result.append(num)
-    # Check the last element
-    while len(result) > 1 and result[-1] == delimiter:
-        result.pop()
     return result
