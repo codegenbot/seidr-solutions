@@ -5,9 +5,9 @@ def is_palindrome(string: str) -> bool:
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
         return string
-    for i in range(len(string)):
-        half = string[: i + 1]
-        second_half = string[i:]
-        if is_palindrome(half) and is_palindrome(second_half):
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            half = string[:i]
+            second_half = string[i:]
             return half + second_half[::-1]
-    return string
+    return "No palindrome found"
