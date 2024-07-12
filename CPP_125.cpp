@@ -44,7 +44,7 @@ vector<string> split_words(string txt) {
     return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) { // Changed signature as per initial declaration
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
