@@ -1,4 +1,6 @@
-bool findTripletsSumZero(const vector<int>& l) {
+#include <vector>
+
+bool hasZeroSumTriplet(const std::vector<int>& l) {
     int n = l.size();
     for (size_t i = 0; i < n - 2; ++i) {
         for (size_t j = i + 1; j < n - 1; ++j) {
@@ -10,4 +12,10 @@ bool findTripletsSumZero(const vector<int>& l) {
         }
     }
     return false;
+}
+
+int main() {
+    // Read input...
+    // Call hasZeroSumTriplet function with appropriate arguments...
+    return 0;
 }
