@@ -14,19 +14,11 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vec1;
-    std::vector<double> vec2;
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
 
     for (int i = 0; i < n; ++i) {
-        double num;
-        std::cin >> num;
-        vec1.push_back(num);
-    }
-
-    for (int i = 0; i < n; ++i) {
-        double num;
-        std::cin >> num;
-        vec2.push_back(num);
+        std::cin >> vec1[i] >> vec2[i];
     }
 
     double result = calculateEuclideanDistance(vec1, vec2);
