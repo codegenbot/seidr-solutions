@@ -14,7 +14,8 @@ bool solveBoolean(std::string expression) {
             } else {
                 return false;
             }
-        } else if (expression[i] == '&') {
+        } 
+        else if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
@@ -23,7 +24,8 @@ bool solveBoolean(std::string expression) {
             } else {
                 return false;
             }
-        } else {
+        } 
+        else {
             s.push(expression[i]);
         }
     }
