@@ -9,11 +9,9 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
-    vector<int> numbers = {123, 456, 789};
-    cout << "The number of special numbers is: " << specialFilter(numbers) << endl;
+    assert(specialFilter({}) == 0);
     return 0;
 }
