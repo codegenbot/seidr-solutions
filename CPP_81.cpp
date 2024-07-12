@@ -1,35 +1,42 @@
-```
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <algorithm>
+#include <cctype>
 
-int numerical_letter_grade(int grade) {
-    if (grade >= 90)
-        return 'A';
-    else if (grade >= 80)
-        return 'B';
-    else if (grade >= 70)
-        return 'C';
-    else if (grade >= 60)
-        return 'D';
-    else
-        return 'F';
-}
-
-bool issame(char a, char b) {
-    return (a == b);
-}
+std::string numerical_letter_grade(std::pair<int, double> grade);
+bool issame(const std::vector<char>&);
 
 int main() {
-    int grade1, grade2;
-    cout << "Enter the first student's grade: ";
-    cin >> grade1;
-    cout << "Enter the second student's grade: ";
-    cin >> grade2;
-
-    if (issame(numerical_letter_grade(grade1), numerical_letter_grade(grade2)))
-        cout << "The two students have the same letter grade.\n";
-    else
-        cout << "The two students do not have the same letter grade.\n";
+    std::pair<int, double> testGrade = {0, 0.7};
+    std::cout << "Letter Grade: " << numerical_letter_grade(testGrade) << std::endl;
 
     return 0;
+}
+
+std::string numerical_letter_grade(std::pair<int, double> grade) {
+    if (grade.second >= 3.8) {
+        return "A";
+    } else if (grade.second >= 3.5) {
+        return "B+";
+    } else if (grade.second >= 3.2) {
+        return "B";
+    } else if (grade.second >= 3.0) {
+        return "B-";
+    } else if (grade.second >= 2.8) {
+        return "C+";
+    } else if (grade.second >= 2.5) {
+        return "C";
+    } else if (grade.second >= 2.2) {
+        return "C-";
+    } else if (grade.second >= 1.9) {
+        return "D+";
+    } else {
+        return "F";
+    }
+}
+
+bool issame(const std::vector<char>& vec) {
+    for (char c : vec) {
+        // Implement your comparison logic here
+    }
 }
