@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
@@ -8,12 +9,12 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     leaders.push_back(maxLeader); // Include the rightmost element as a leader
     
     for (int i = nums.size() - 2; i >= 0; i--) {
-        if (nums[i] >= maxLeader) { // Update the condition to include equal numbers
-            maxLeader = nums[i];
-            leaders.push_back(maxLeader);
+        if (nums[i] >= leaders.back()) {
+            leaders.push_back(nums[i]);
         }
     }
     
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
