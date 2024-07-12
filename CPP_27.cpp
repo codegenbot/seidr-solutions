@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -17,7 +18,9 @@ std::string filp_case(const std::string& str) {
 }
 
 int main() {
-    std::string input = "These violent delights have violent ends";
-    std::cout << filp_case(input) << std::endl; // Should output: "tHese ViOleNt DelIgHts HavE ViOLeNt EnDs"
+    std::string input;
+    std::cout << "Enter your sentence: ";
+    std::getline(std::cin, input);
+    std::cout << filp_case(input) << std::endl;
     return 0;
 }
