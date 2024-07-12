@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 int solution(vector<int> lst) {
@@ -13,7 +14,9 @@ int solution(vector<int> lst) {
     return sum;
 }
 
-int main() {
+int runMain() {
     vector<int> lst({3, 13, 2, 9});
     cout << solution(lst);
+    return 0;
 }
+assert(solution({3, 13, 2, 9}) == 16);
