@@ -2,13 +2,13 @@ from typing import List
 
 
 def filter_by_prefix() -> None:
-    strings = input("Enter a list of strings (space-separated): ")
-    prefix = input("Enter the prefix to filter by: ")
+    strings = input("Enter a list of strings (comma separated): ")
+    prefix = input("Enter the prefix: ")
 
     try:
-        strings_list = [s.strip() for s in strings.split()]
+        strings_list = [s.strip() for s in strings.split(",")]
         filtered_strings = [s for s in strings_list if s.startswith(prefix)]
 
-        print(f"Strings with '{prefix}' as a prefix: {filtered_strings}")
+        print(f"The strings that start with '{prefix}' are: {filtered_strings}")
     except ValueError:
-        print("Invalid input. Please enter strings and a prefix.")
+        print("Invalid input. Please enter a list of strings and a prefix.")
