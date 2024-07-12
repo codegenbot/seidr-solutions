@@ -1,6 +1,5 @@
 from fractions import Fraction
 
 def simplify():
-    x = float(input("Enter numerator: "))
-    n = float(input("Enter denominator: "))
-    return Fraction(x).limit_denominator().simplify() == Fraction(1)
+    x = float(input("Enter a fraction (e.g., 3/4): "))
+    return str(x) == str(Fraction(x))
