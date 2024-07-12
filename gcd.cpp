@@ -1,25 +1,16 @@
+#include <iostream>
+using namespace std;
+
 int gcd(int a, int b) {
     if (b == 0)
         return a;
     return gcd(b, a % b);
 }
 
-vector<int> findIndices(const string& text, const string& target) {
-    vector<int> indices;
-    int textLen = text.length();
-    int targetLen = target.length();
+int main() {
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << gcd(num1, num2) << endl;
     
-    for (int i = 0; i <= textLen - targetLen; ++i) {
-        bool found = true;
-        for (int j = 0; j < targetLen; ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found)
-            indices.push_back(i);
-    }
-    
-    return indices;
+    return 0;
 }
