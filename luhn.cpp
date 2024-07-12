@@ -1,14 +1,17 @@
-int luhn(const vector<int>& card) {
-    int sum = 0;
-    for (int i = card.size() - 1; i >= 0; --i) {
-        if ((card[i] * 2) > 9) {
-            sum += (card[i] * 2) - 9;
-        } else {
-            sum += card[i] * 2;
-        }
-        if (i % 2 != 0) {
-            sum += card[i];
-        }
+int luhn(const std::vector<int>& numbers) {
+    return numbers.size() % 2 == 0 ? (numbers[15] * 2 >= 10 ? numbers[15] - 9 : numbers[15] * 2) + luhnHelper(numbers, 14) : numbers[14] * 2 >= 10 ? numbers[14] - 9 : numbers[14] * 2 + luhnHelper(numbers, 13);
+}
+
+int luhnHelper(const std::vector<int>& numbers, int pos) {
+    if (pos < 0)
+        return 0;
+    int digit = numbers[pos];
+    if ((pos + 1) % 2 != 0) {
+        if ((digit * 2) >= 10)
+            return digit * 2 - 9 + luhnHelper(numbers, pos - 1);
+        else
+            return digit * 2 + luhnHelper(numbers, pos - 1);
+    } else {
+        return digit + luhnHelper(numbers, pos - 1);
     }
-    return sum;
 }
