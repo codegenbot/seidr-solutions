@@ -1,11 +1,3 @@
 ```
-import hashlib
-
-def string_to_md5(text):
-    if not text:
-        return None
-    return hashlib.md5(text.encode()).hexdigest()
-
-text = "Please enter some text: "
-input_text = input(text)
-print(string_to_md5(input_text))
+print("Please enter some text: ", end="")
+print(string_to_md5(input().encode()))
