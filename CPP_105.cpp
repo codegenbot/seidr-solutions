@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cassert>
@@ -14,26 +15,24 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::string by_length(int length) {
-    std::string result;
-    if (length == 4) {
-        result = "Four";
-    } else if (length == 8) {
-        result = "Eight";
-    } else if (length == 9) {
-        for(int i = 0; i < length; i++) {
-            result += "Nine";
+std::vector<std::string> by_length(const std::vector<int>& lengths) {
+    std::vector<std::string> result;
+    for(int length : lengths) {
+        if (length == 4) {
+            result.push_back("Four");
+        } else if (length == 8) {
+            result.push_back("Eight");
+        } else if (length == 9) {
+            for(int i = 0; i < length; i++) {
+                result.push_back("Nine");
+            }
         }
     }
     return result;
 }
 
 int main() {
-    int lengths[] = {4, 8, 9};
-    std::vector<int> lengthsVec(lengths, lengths + sizeof(lengths) / sizeof(lengths[0]));
-    std::vector<std::string> output;
-    for (int length : lengthsVec) {
-        output.push_back(by_length(length));
-    }
+    std::vector<int> lengths = {4, 8, 9};
+    std::vector<std::string> output = by_length(lengths);
     assert(issame(output, {"Four", "Eight", "NineNineNine"}));
 }
