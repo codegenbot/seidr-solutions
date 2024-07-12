@@ -1,6 +1,7 @@
-```c++
+```cpp
 #include <iostream>
-#include <assert.h>
+#include <string>
+#include <cassert>
 
 int solve(int N) {
     int sum = 0;
@@ -11,9 +12,10 @@ int solve(int N) {
     return sum;
 }
 
-std::cin.getline(input, 100);
-int N = std::stoi(input);
-std::cout << solve(N) << std::endl;
-
-assert(solve(963) == std::stoi("483")); 
-return 0;
+int main() {
+    int N;
+    std::cin >> N;
+    std::cout << solve(N) << std::endl;
+    assert(solve(963) == 483);
+    return 0;
+}
