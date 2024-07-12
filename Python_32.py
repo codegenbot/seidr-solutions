@@ -7,12 +7,13 @@ def find_zero():
                 print("Error: 'a' should not be zero. Please enter a non-zero value for a.")
         except ValueError:
             print("Error: Please enter a valid number.")
-
+            
     b = 0
-    while True:
+    while b == 0:
         try:
             b = float(input("Enter value for b: "))
-            break
+            if b == 0:
+                print("Error: 'b' should not be zero. Please enter a non-zero value for b.")
         except ValueError:
             print("Error: Please enter a valid number.")
 
