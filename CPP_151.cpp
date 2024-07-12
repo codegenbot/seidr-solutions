@@ -1,8 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
-#include <cassert>
-#include <initializer_list>
 
 int double_the_difference(const std::vector<float>& numbers) {
     int sum = 0;
