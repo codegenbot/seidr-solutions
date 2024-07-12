@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,6 +17,7 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
+        assert(solve(963) == 10010);
         cout << solve(N) << endl;
     }
 }
