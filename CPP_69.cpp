@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <map>
 
-int search(vector<int> lst) {
+int findMaxFreq(vector<int> lst) {
     map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
@@ -20,4 +21,9 @@ int search(vector<int> lst) {
     }
 
     return maxFreqNum;
+}
+
+int main() {
+    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
+    return findMaxFreq({4, 5, 6, 7});
 }
