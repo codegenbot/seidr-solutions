@@ -1,15 +1,16 @@
 n = int(input())
 v = [int(input()) for _ in range(n)]
-
 total_sum = sum(v)
-half_sum = total_sum / 2
-residual = 0
+prefix_sum = 0
+min_diff = float("inf")
+cut_idx = -1
+
 for i in range(n):
-    residual += v[i]
-    if residual >= half_sum:
-        if residual == half_sum or abs(total_sum - 2 * residual) < abs(
-            total_sum - 2 * (residual - v[i])
-        ):
-            print(*v[: i + 1])
-            print(*v[i + 1 :])
-            break
+    prefix_sum += v[i]
+    diff = abs(2 * prefix_sum - total_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_idx = i
+
+print(*v[: cut_idx + 1])
+print(*v[cut_idx + 1 :])
