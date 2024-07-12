@@ -14,10 +14,9 @@ int main() {
         indices.push_back(pos);
         startPos = pos + 1;
         pos = text.find(target, startPos);
-        if (pos == startPos) {
+        if (pos == startPos && startPos < text.length()) {
             ++startPos;
             pos = text.find(target, startPos);
-            continue;
         }
     }
     
