@@ -1,15 +1,10 @@
-```
-from typing import List
+from typing import list
 
 
-def below_zero(operations: str) -> bool:
-    result = 0
-    for op in operations.split(','):
-        if 'increase' in op:
-            result += int(op.split(' ')[2])
-        elif 'decrease' in op:
-            result -= int(op.split(' ')[2])
-        else:
-            return False
-    
-    return result < 0
+def below_zero(operations: list[int]) -> bool:
+    balance = 0
+    for operation in operations:
+        balance += operation
+        if balance < 0:
+            return True
+    return False
