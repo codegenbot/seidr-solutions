@@ -1,7 +1,7 @@
 import re
 
 def separate_parentheses(paren_string):
-    if re.match(r'^\((\()*\)*\)*$', paren_string) is None:
+    if re.match(r'^[\(\)]+$', paren_string) is None:
         raise ValueError("Invalid input: Please enter only parentheses")
 
     separated_groups = []
