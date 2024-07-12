@@ -3,19 +3,25 @@
 #include <cassert>
 
 std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> result;
+    std::vector<int> notes;
     int count = 0;
-    for(int i = 0; i < music_string.size(); ++i) {
-        if(music_string[i] == 'o') {
-            count += 2;
-        } else if(music_string[i] == '.') {
-            count += 1;
-        } else if(music_string[i] == '|') {
-            result.push_back(count);
+
+    for (char c : music_string) {
+        if (c == 'o') {
+            count++;
+        } else if (c == '|') {
+            notes.push_back(count);
             count = 0;
+        } else if (c == '.') {
+            notes.push_back(1);
         }
     }
-    return result;
+
+    if (count > 0) {
+        notes.push_back(count);
+    }
+
+    return notes;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
