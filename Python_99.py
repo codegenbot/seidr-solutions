@@ -1,13 +1,13 @@
-def find_closest_number():
-    while True:
+def find_closest_number(value=None):
+    if value is None:
         try:
             value = float(input("Enter a decimal number: "))
-            if value >= 0:
-                closest_value = int(value + 0.5) if value % 1 > 0 else int(value)
-            else:
-                closest_value = int(value - 0.5) if abs(value) % 1 < 0.5 else int(value)
-            return closest_value
         except ValueError:
-            print("Invalid input. Please enter a decimal number.")
+            return None
+    if value >= 0:
+        closest_value = round(value)
+    else:
+        closest_value = -round(-value)
+    return closest_value
 
 print(find_closest_number())
