@@ -1,6 +1,16 @@
 ```cpp
 #include <iostream>
-int calculateScore(int[], int); 
+#include <cassert>
+
+int calculateScore(int arr[], int n) {
+    int score = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > 127) {
+            score += arr[i];
+        }
+    }
+    return score;
+}
 
 int main() {
     int myValues[] = {127, 97, 8192};
@@ -10,13 +20,4 @@ int main() {
     }
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
     return 0;
-}
-
-int calculateScore(int values[], int n) {
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (values[i] > 127)
-            sum += values[i];
-    }
-    return sum;
 }
