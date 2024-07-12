@@ -1,3 +1,4 @@
-expression = expression.replace("|", " or ").replace("&", " and ")
-result = eval(expression.replace("t", "True").replace("f", "False"))
+expression = input()
+operators = {"T": "True", "F": "False", "|": " or ", "&": " and "}
+result = eval("".join(operators.get(c, c) for c in expression))
 print(result)
