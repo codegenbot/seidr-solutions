@@ -1,12 +1,12 @@
-```cpp
 #include <map>
 #include <vector>
 #include <string>
 #include <set>
+#include <initializer_list>
 
 using namespace std;
 
-bool issame(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
+bool issame(map<pair<char,int>, bool> a, map<pair<char,int>, bool> b) {
     if(a.size() != b.size()) return false;
     for(auto& pair : a) {
         if(b.find(pair) == b.end()) 
@@ -51,6 +51,7 @@ map<pair<char,int>, int> histogram(string test) {
 }
 
 int main() {
-    map<pair<char, int>, int> maxCountMap = histogram("a");
-    assert(issame(histogram("a"), histogram("a")));
+    map<pair<char, int>, bool> maxCountMap = histogram("a");
+    assert(issame(map<pair<char,int>, bool>(maxCountMap), 
+              map<pair<char,int>, bool>({{make_pair('a',0),true},{make_pair('b',1),false}})));
 }
