@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,6 +25,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 
 int main() {
     std::vector<int> input = {111111};
-    assert(std::equal(strange_sort_list(input).begin(), strange_sort_list(input).end(), input.begin()));
+    assert(std::equal(strange_sort_list(input).begin(), strange_sort_sort_list(input).end(), input.begin()));
     return 0;
 }
