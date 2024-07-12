@@ -1,5 +1,7 @@
+import sys
+
 def find_zero():
-    xs = list(map(float, input().split()))
+    xs = list(map(float, sys.stdin.readline().strip().split()))
     n = len(xs)
     a = xs[n - 1]
     b = xs[n - 2]
