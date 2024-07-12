@@ -28,5 +28,4 @@ def process_paths():
 
     return minPath
 
-shortest_path = process_paths()
-print(f"The shortest path has {shortest_path} nodes.")
+check(process_paths())
