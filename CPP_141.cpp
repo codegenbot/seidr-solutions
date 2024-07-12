@@ -1,22 +1,34 @@
-```cpp
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_position = string::npos;
+#include <iostream>
+#include <string>
+#include <cctype>
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        digit_count++;
-        if (digit_count > 3) return "No";
-    } else if (c == '.') {
-        has_dot = true;
-        dot_position = file_name.find(c);
+int count_digits(const std::string& s) {
+    int count = 0;
+    for (char c : s) {
+        if (std::isdigit(c)) {
+            count++;
+        }
     }
+    return count;
 }
 
-if (!has_dot || dot_position == string::npos || !file_name.substr(0, dot_position).front() >= 'A' && !file_name.substr(0, dot_position).front() <= 'Z') return "No";
+std::string file_name_check(std::string file_name) {
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3 || file_name.find('.') == std::string::npos) {
+        return "No";
+    }
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == std::string::npos || dot_pos == 0 || !std::isalpha(file_name[0])) {
+        return "No";
+    }
+    std::string extension = file_name.substr(dot_pos + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    }
+    return "Yes";
+}
 
-string extension = file_name.substr(dot_position + 1);
-
-if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
-
-return "Yes";
+int main() {
+    assert(file_name_check("s.") == "No");
+    return 0;
+}
