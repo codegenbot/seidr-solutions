@@ -7,10 +7,9 @@ using namespace std;
 int main() {
     vector<int> nums;
 
-    for (int n; cin >> n; ) {
-        if (cin.fail()) {
-            break;
-        }
+    int n;
+    while (!cin.eof()) {
+        cin >> n;
         nums.push_back(n);
     }
     
