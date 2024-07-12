@@ -1,5 +1,8 @@
-numbers = list(map(int, input().split()))
+input()
+numbers = list(map(int, input().strip().split()))
+input()
 threshold = int(input())
+
 
 def check_numbers(numbers, threshold):
     numbers.sort()
@@ -7,6 +10,7 @@ def check_numbers(numbers, threshold):
         if abs(numbers[i] - numbers[i + 1]) >= threshold:
             return False
     return True
+
 
 result = check_numbers(numbers, threshold)
 print(result)
