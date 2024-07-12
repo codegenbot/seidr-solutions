@@ -22,6 +22,11 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {1,3,5,7,9,11,13,15}) );
+    bool result = issame(make_a_pile(8), std::vector<int>{1,3,5,7,9,11,13,15});
+    if(result) {
+        std::cout << "The two piles are the same." << std::endl;
+    } else {
+        std::cout << "The two piles are not the same." << std::endl;
+    }
     return 0;
 }
