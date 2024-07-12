@@ -1,4 +1,27 @@
-float total_price = 0.0;
-for (int i = 0; i < prices.size(); ++i) {
-    total_price += prices[i] - prices[i] * (discounts[i] * 0.01);
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<float> prices;
+    std::vector<float> discounts;
+
+    int n;
+    std::cin >> n;
+
+    for (int i = 0; i < n; ++i) {
+        float price, discount;
+        std::cin >> price >> discount;
+        prices.push_back(price);
+        discounts.push_back(discount);
+    }
+
+    float total_price = 0;
+
+    for (int i = 0; i < n; ++i) {
+        total_price += prices[i] - prices[i] * (discounts[i] * 0.01);
+    }
+
+    std::cout << total_price << std::endl;
+
+    return 0;
 }
