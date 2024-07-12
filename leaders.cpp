@@ -9,16 +9,16 @@ vector<int> findLeaders(vector<int> nums) {
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= leaders.back()) {
-            leaders.push_back(nums[i]);
+        if (nums[i] >= maxLeader) {
+            maxLeader = nums[i];
+            leaders.push_back(maxLeader);
         }
     }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+    return vector<int>(leaders.rbegin(), leaders.rend());
 }
 
 int main() {
-    vector<int> nums = {5, 3, 15, 8, 12, 10};
+    vector<int> nums = {18, 577, 112, 438, 403, 861, 630, 159, 832, 157, 494, 492, 773, 516, 594, 530, 381, 54, 68};
     vector<int> leaders = findLeaders(nums);
     for (int leader : leaders) {
         cout << leader << " ";
