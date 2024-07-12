@@ -1,1 +1,2 @@
-def check(fix_spaces):
+def fix_spaces(text):
+    return text.replace("  ", " ")
