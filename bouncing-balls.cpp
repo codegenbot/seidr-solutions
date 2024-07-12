@@ -6,7 +6,13 @@ int main() {
 
     std::cin >> start_height >> first_bounce_height >> num_bounces;
 
-    bounciness_index = first_bounce_height / start_height;
+    double max_height = first_bounce_height;
+    double min_height = start_height;
+    if(first_bounce_height < start_height) {
+        max_height = start_height;
+        min_height = first_bounce_height;
+    }
+    bounciness_index = max_height / min_height;
     total_distance = start_height + first_bounce_height;
 
     for (int i = 2; i <= num_bounces; ++i) {
