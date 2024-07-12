@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -11,16 +11,11 @@ int main() {
         a.push_back(s);
     }
 
-    bool same = true;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != a[(i+1)%a.size()]) {
-            same = false;
-            break;
-        }
-    }
+    std::vector<std::string> b = a;
+    bool same = (a == b);
 
-    std::string prefix;
     std::cout << "Enter prefix:" << std::endl;
+    std::string prefix;
     std::getline(std::cin, prefix);
     std::vector<std::string> result = filter_by_prefix(a, prefix);
 
@@ -34,7 +29,14 @@ int main() {
     }
 
     return 0;
+}
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
