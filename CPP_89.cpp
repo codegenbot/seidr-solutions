@@ -19,7 +19,7 @@ std::string encrypt(std::string s){
 int main(){
     std::string s;
     std::cout << "Enter a string: ";
-    if (!(std::cout << "Enter a string: ").getline(&s, (uintmax_t)-1)) {
+    if (!(std::cin >> std::ws).getline(&s, (size_t)1024)) {
         std::cerr << "Invalid input.\n";
     } else {
         std::cout << "Encrypted string: " << encrypt(s) << '\n';
