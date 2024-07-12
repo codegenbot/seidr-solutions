@@ -6,18 +6,15 @@ using namespace std;
 
 string decipher(string cipherText, string key) {
     string decrypted = "";
+    string cipherMap(key);
     for (int i = 0; i < cipherText.length(); i++) {
-        if (cipherText[i] != key[i]) {
-            int j = 0;
-            while (j < key.length()) {
-                if (key[j] == cipherText[i]) {
-                    decrypted += key[(i - j) % key.length()];
-                    break;
-                }
-                j++;
+        int j = 0;
+        while (j < key.length()) {
+            if (cipherText[i] == cipherMap[j]) {
+                decrypted += key.substr(j, 1);
+                break;
             }
-        } else {
-            decrypted += key[i];
+            j++;
         }
     }
     return decrypted;
