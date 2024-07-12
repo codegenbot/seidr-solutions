@@ -1,11 +1,16 @@
 ```
 def parse_music(music_string: str) -> List[int]:
-    beats = []
-    for char in music_string:
-        if char == 'o':
-            beats.append(4)
-        elif char == 'o|':
-            beats.append(2)
-        elif char == '.|':
-            beats.append(1)
-    return beats
+    beats_per_note = {'o': 4, 'o|': 2, '.|': 1}
+    result = []
+    current_beats = 0
+    for note in music_string.split():
+        if note == 'o':
+            current_beats += 4
+        elif note == 'o|':
+            current_beats += 2
+        elif note == '.|':
+            current_beats += 1
+        else:
+            raise ValueError(f"Invalid note: {note}")
+    result.append(current_beats)
+    return result
