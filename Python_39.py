@@ -1,5 +1,2 @@
-try:
-    n = int(input())
-    print(prime_fib(n))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+n = int(input("Enter a positive integer: "))
+print(prime_fib(n))
