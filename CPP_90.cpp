@@ -3,16 +3,10 @@
 #include <algorithm>
 
 int next_smallest(std::vector<int> lst) {
-    if(lst.size() == 0)
-        return -1;
-    int res = -1;
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] > lst[i]){
-            res = lst[i];
-            break;
-        }
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] > lst[i+1]) return lst[i];
     }
-    return res;
+    return -1;
 }
 
 int main() {
@@ -35,19 +29,11 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "-1";
-                    same = false;
-                    break;
+                    std::cout << "The next smallest integer is: " << next_smallest(std::vector<int>(lst.begin(), lst.end()));
+                    return 0;
                 }
             }
-            if(same) std::cout << " -1";
-            else{
-                int smallest = next_smallest(lst);
-                if(smallest == -1)
-                    std::cout << "-1";
-                else
-                    std::cout << " " << smallest;
-            }
+            if(same) std::cout << "-1";
         } else std::cout << "-1";
 
     } else std::cout << "-1";
