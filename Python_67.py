@@ -13,3 +13,5 @@ def fruit_distribution(s):
                 total += int(current_number)
                 current_number = ""
     return -(-total // 2)
+
+check(fruit_distribution("1 apples and 100 oranges"))
