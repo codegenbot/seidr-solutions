@@ -17,9 +17,9 @@ def bowling_score(bowls):
             frame += 1
 
     for i in range(1, 19, 2):
-        if rolls[i] == 10:
+        if rolls[i] == 10 and i < 19:
             score += 10 + rolls[i + 2] + rolls[i + 3]
-        elif rolls[i] + rolls[i + 1] == 10:
+        elif i < 18 and rolls[i] + rolls[i + 1] == 10:
             score += 10 + rolls[i + 2]
         else:
             score += rolls[i] + rolls[i + 1]
