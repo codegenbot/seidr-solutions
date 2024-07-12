@@ -28,4 +28,3 @@ bool solveBoolean(string expression) {
         s.pop();
     }
     return false;
-}
