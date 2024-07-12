@@ -1,5 +1,6 @@
 ```
-array = [int(i) for i in input().split()]
+array = list(map(int, input("Enter an array: ").split()))
+
 def sort_array(array):
     if len(array) == 0:
         return array
@@ -9,7 +10,4 @@ def sort_array(array):
     else:
         return sorted(array, reverse=True)
 
-try:
-    print(sort_array(array))
-except ValueError:
-    print("Invalid input. Please enter space-separated integers.")
+print(sort_array(array))
