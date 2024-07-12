@@ -1,6 +1,6 @@
 #include <vector>
-#include <limits> // Include this for INT_MAX
-#include <cmath>  // Include this for abs
+#include <limits>
+#include <cmath>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
