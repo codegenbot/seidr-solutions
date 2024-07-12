@@ -16,7 +16,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    cout << total_distance << endl;
+    cout << fixed << total_distance << endl;
 
     return 0;
 }
