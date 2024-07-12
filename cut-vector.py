@@ -1,19 +1,14 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-left_sum = arr[0]
-right_sum = sum(arr) - arr[0]
-min_diff = abs(left_sum - right_sum)
-cut_index = 1
+min_diff = abs(sum(arr[:-1]) - arr[-1])
+cut_index = 0
 
-for i in range(1, n):
-    left_sum += arr[i]
-    right_sum -= arr[i]  
-    diff = abs(left_sum - right_sum)
-
+for i in range(n - 2, -1, -1):
+    diff = abs(sum(arr[:i]) - sum(arr[i:]))
     if diff < min_diff:
         min_diff = diff
-        cut_index = i + 1
+        cut_index = i
 
 subvector1 = arr[:cut_index]
 subvector2 = arr[cut_index:]
