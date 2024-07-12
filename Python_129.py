@@ -8,16 +8,16 @@ def minPath(grid, k):
         if (i, j) in visited:
             return []
         visited.add((i, j))
-        ress = []
+        ress = set()
         for x, y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                ress += dfs(ni, nj, p + [grid[ni][nj]])
-        return [p for r in ress for t in r]
+                ress.update(dfs(ni, nj, p + [grid[ni][nj]]))
+        return sorted(list(ress))
 
     visited = set()
     for i, j in [(n // 2, n // 2)]:
         for path in dfs(i, j, []):
-            if len(path) == k:
+            if len(path) == k and len(set(path)) == k:
                 return sorted(path)
     return []
