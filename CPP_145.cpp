@@ -1,6 +1,4 @@
-bool issame(int a, int b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
