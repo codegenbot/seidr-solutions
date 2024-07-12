@@ -6,7 +6,11 @@ def tri(n):
     elif n == 2:
         return [3, 2]
     else:
-        t = [3, 2]
+        tribonacci = [3, 2]
         for i in range(2, n):
-            t.append(sum(t[-1:][0], t[-2], (t[-1] + t[0]) / 2))
-        return t
+            if i % 2 == 0:
+                tribonacci.append(int((i + 1) / 2))
+            else:
+                a, b = tribonacci[-2], tribonacci[-1]
+                tribonacci.append(a + b + int((i + 3) / 2))
+        return tribonacci
