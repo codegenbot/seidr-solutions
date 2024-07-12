@@ -1,18 +1,20 @@
+```
 def minPath(grid, k):
     n = len(grid)
     visited = set()
-    path_sum = float("inf")
-    shortest_path = []
+    path = []
+    min_sum = float('inf')
 
     def dfs(i, j, p, s):
-        nonlocal path_sum, shortest_path
+        nonlocal min_sum
         if len(p) == k:
-            if s < path_sum:
-                path_sum = s
-                shortest_path = [p]
-            elif s == path_sum:
-                shortest_path.append(p)
-            return []
+            if s < min_sum:
+                min_sum = s
+                return [p]
+            elif s == min_sum:
+                return [p]
+            else:
+                return []
         if (i, j) in visited:
             return []
         visited.add((i, j))
