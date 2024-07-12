@@ -1,6 +1,9 @@
 ```cpp
 double getProbability(int n, int m) {
-    double totalOutcomes = (double)(n * m);
-    double favorableOutcomes = (n - 1) * m;
-    return 1.0 * favorableOutcomes / totalOutcomes;
+    if(n < m) {
+        double temp = n;
+        n = m;
+        m = temp;
+    }
+    return 1.0 * (n - 1) / (n * m);
 }
