@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <string>
+
 int main() {
     int n;
     cin >> n;
@@ -18,15 +22,8 @@ int main() {
     return 0;
 }
 
-bool issame(map<char,int> a,map<char,int> b){
-    if(a==b) return true;
-    return false;
-}
-int histogram(string s, vector<int>& arr) {
+int histogram(string s, vector<int> arr) {
     if (s == "print") {
-        int max_val = *max_element(arr.begin(), arr.end());
-        int min_val = *min_element(arr.begin(), arr.end());
-        
         for (int i = min_val; i <= max_val; i++) {
             int count = 0;
             for (int j = 0; j < n; j++) {
