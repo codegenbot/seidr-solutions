@@ -1,23 +1,19 @@
 int main() {
-    string input, word;
-    vector<string> words;
+    string input;
     getline(cin, input);
     
-    for (int i = 0; i < input.size(); ++i) {
-        if (input[i] == '-') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += input[i];
+    bool firstWord = true;
+    for (char& c : input) {
+        if (c == '-') {
+            firstWord = true;
+        } else if (c != ' ') {
+            if (firstWord) {
+                cout << (char)toupper(c);
+                firstWord = false;
+            } else {
+                cout << c;
+            }
         }
-    }
-    words.push_back(word);
-    
-    for (int i = 0; i < words.size(); ++i) {
-        if (i != 0) {
-            words[i][0] = toupper(words[i][0]);
-        }
-        cout << words[i];
     }
     
     return 0;
