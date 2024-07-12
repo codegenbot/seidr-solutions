@@ -1,30 +1,29 @@
 #include <iostream>
-#include <vector>
 using namespace std;
+
+#include <vector>
 
 vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
-    int min_diff = INT_MAX;
     
     for (int i = 1; i < n; i++) {
-        int diff = vec[i] - vec[0];
-        if (abs(diff) <= min_diff) {
+        int diff = abs(vec[i] - vec[0]) - abs(vec[i-1] - vec[0]);
+        
+        if (diff == 0) {
             res[0] = vector<int>(vec.begin(), vec.begin() + i);
             res[1] = vector<int>(vec.begin() + i, vec.end());
             return res;
         }
-        min_diff = abs(diff);
+        
+        if (abs(diff) < minDiff) {
+            minDiff = abs(diff);
+            minDiffIndex = i;
+        }
     }
     
-    if (n > 0) {
-        res[0] = vector<int>(vec.begin(), vec.end());
-        res[1] = {};
-    } else {
-        res[0] = {};
-        res[1] = {};
-    }
-    
+    res[0] = vector<int>(vec.begin(), vec.begin() + minDiffIndex);
+    res[1] = vector<int>(vec.begin() + minDiffIndex, vec.end());
     return res;
 }
 
