@@ -5,7 +5,9 @@ def find_closest_number():
             break
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
+    
     closest_value = round(value)
     return closest_value
 
-print(find_closest_number())
+while True:
+    print(find_closest_number())
