@@ -1,9 +1,13 @@
 ```cpp
 double getProbability(int n, int m) {
-    if(n < m) {
-        double temp = n;
-        n = m;
-        m = temp;
+    double numerator = 1.0 * (n - 1);
+    double denominator = n * m;
+    
+    if(m > n) {
+        double temp = numerator;
+        numerator = denominator - temp;
+        denominator = temp;
     }
-    return 1.0 * (n - 1) / (n * m);
-}
+    
+    return numerator / denominator;
+}```
