@@ -3,25 +3,16 @@ from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if not isinstance(numbers, list):
+    if delimiter in numbers or delimiter < 1:
         return []
-    if not all(isinstance(num, int) for num in numbers):
-        return []
-    if not isinstance(delimiter, int):
-        return []
-    if delimiter < 1:
-        return []
-
-    if delimiter in numbers or len([num for num in numbers if num == delimiter]) > 1:
-        return []
-
     if not numbers:
         return []
-    
     result = [numbers[0]]
     for num in numbers[1:]:
         if num == delimiter:
             result.append(num)
+            if len(result) > 1 and result[-2] != delimiter:
+                result.insert(-1, delimiter)
         else:
             result.extend([delimiter, num])
     return result
