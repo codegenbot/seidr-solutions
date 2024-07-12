@@ -1,10 +1,18 @@
-Here's the solution:
+#include <vector>
+#include <algorithm>
 
-bool is_sorted(vector<int> lst){
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]){
-            if(count(lst.begin(), lst.end(), lst[i]) > 1)
-                return false;
+using namespace std;
+
+bool is_sorted(vector<int> lst) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] >= lst[i - 1]) {
+            continue;
+        }
+        else if (count(lst.begin(), lst.end(), lst[i]) > 1) {
+            return false;
+        }
+        else {
+            return false;
         }
     }
     return true;
