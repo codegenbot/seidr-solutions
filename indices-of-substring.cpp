@@ -8,7 +8,7 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
-    if (text.size() < target.size() || target.empty()) {
+    if (text.size() < target.size()) {
         std::cout << "0";
         return 0;
     }
@@ -16,7 +16,7 @@ int main() {
     std::vector<int> indices;
 
     for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()).compare(target) == 0) {
+        if (text.substr(i, target.size()) == target) {
             indices.push_back(static_cast<int>(i));
         }
     }
