@@ -2,9 +2,19 @@
 #include <string>
 
 bool is_happy(const std::string& s) {
+    if (s.length() < 3)
+        return false;
     for (int i = 0; i <= s.length() - 2; i++) {
-        size_t count = std::count(s.begin(), s.end(), s[i]);
-        if (count > 1)
+        std::string sub = s.substr(i, 2);
+        bool unique = true;
+        for (char a : sub) { 
+            size_t count = std::count(sub.begin(), sub.end(), a);
+            if (count > 1) {
+                unique = false;
+                break;
+            }
+        }
+        if (!unique)
             return false;
     }
     return true;
