@@ -1,6 +1,3 @@
-import math
-
-
 def max_fill(n, capacity_grid):
     rows = len(capacity_grid)
     cols = len(capacity_grid[0])
