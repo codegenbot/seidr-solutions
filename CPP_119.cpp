@@ -15,5 +15,8 @@ std::string match_parens(std::vector<std::string> lst) {
             }
         }
     }
+    if (cnt != 0)
+        return "No";
+    
     return cnt == 0 ? "Yes" : "No";
 }
