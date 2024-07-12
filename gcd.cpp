@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
 
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(std::string text, std::string target) {
     vector<int> result;
     int length = target.length();
     
