@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     for char in message:
@@ -5,7 +6,7 @@ def encode(message):
             if char.lower() in 'aeiou':
                 result += chr((ord(char.lower()) - 97 + 3) % 26 + 97)
             else:
-                result += '9' if char.islower() else '1'
+                result += chr((ord(char.lower()) + 3) % 26 + 65) if char.isupper() else chr((ord(char) + 3) % 128).lower()
         else:
             result += char
     return result
