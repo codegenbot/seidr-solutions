@@ -1,5 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 int main() {
     std::vector<int> vec1; 
@@ -8,8 +13,7 @@ int main() {
     }
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
-    
-    if (vec1 == vec2) {
+    if (issame(vec1, vec2)) {
         std::cout << "Vectors are same" << std::endl;
     } else {
         std::cout << "Vectors are not same" << std::endl;
