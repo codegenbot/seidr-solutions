@@ -2,12 +2,12 @@
 #include <string>
 #include <cassert>
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<int>& v1, vector<int>& v2){
+    if(v1.size() != v2.size()){
         return false;
     }
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    for(int i=0; i<v1.size(); i++){
+        if(v1[i] != v2[i]){
             return false;
         }
     }
@@ -17,11 +17,11 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
 vector<int> parse_nested_parens(string paren_string);
 
 int main() {
-    // Test cases
-    string test_string = "( ( ) ) ( ( ) )";
-    vector<int> expected_output = {1, 2, 2};
-    vector<int> depths = parse_nested_parens(test_string);
-    assert(issame(depths, expected_output));
+    vector<int> depths = parse_nested_parens("( ( ) ( ) )");
+    vector<int> expected = {1, 2, 2};
+    
+    assert(issame(depths, expected));
+    
     return 0;
 }
 
