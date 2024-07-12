@@ -1,14 +1,28 @@
-def separate_paren_groups(paren_string: str) -> List[str]:
-    stack, result, start = [], [], -1
+from typing import List
 
+def separate_paren_groups(paren_string: str) -> List[str]:
+    stack = []
+    result = []
+    
+    start = None
     for i, char in enumerate(paren_string):
-        if char in "({":
+        if char == '(' or char == '{':
             if not stack:
                 start = i
             stack.append(char)
-        elif char in ")}":
-            stack.pop()
-            if not stack:
-                result.append(paren_string[start : i + 1])
-
+        elif char == ')':
+            if stack and stack[-1] == '(':
+                stack.pop()
+                if not stack:
+                    result.append(paren_string[start:i+1])
+            else:
+                stack = []  # Reset stack if closing parenthesis doesn't match
+        elif char == '}':
+            if stack and stack[-1] == '{':
+                stack.pop()
+                if not stack:
+                    result.append(paren_string[start:i+1])
+            else:
+                stack = []  # Reset stack if closing brace doesn't match
+    
     return result
