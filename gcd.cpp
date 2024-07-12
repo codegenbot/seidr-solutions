@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 int gcd(int a, int b) {
     while (b != 0) {
