@@ -1,5 +1,6 @@
 #include <string>
 #include <map>
+
 using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
