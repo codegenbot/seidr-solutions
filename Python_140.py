@@ -1,6 +1,6 @@
 def fix_spaces(text):
     result = ''
-    for char in text.replace(' ', ''):
+    for char in text.replace(' ',=''):
         if char == ' ' and len(result) > 0 and result[-1] != ' ':
             result += '-'
         elif char == ' ':
