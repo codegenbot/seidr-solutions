@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool areEqual(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     vector<int> result(arr.begin(), arr.begin() + k);
@@ -16,7 +12,7 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    assert(areEqual(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 0).empty());
     
     return 0;
 }
