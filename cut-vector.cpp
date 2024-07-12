@@ -32,7 +32,7 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
     
-    std::cout << left_sum << std::endl;
+    std::cout << left_sum << std:: endl;
     
     return 0;
 }
