@@ -1,8 +1,10 @@
+#include <initializer_list>
+
 #include <vector>
 #include <algorithm>
 #include <iostream>
 
-std::vector<std::pair<double, double>> double_the_difference() {
+std::pair<double, double> double_the_difference() {
     std::vector<int> input_vector;
     int sum_even = 0, sum_odd = 0;
 
@@ -22,10 +24,5 @@ std::vector<std::pair<double, double>> double_the_difference() {
         input_vector.push_back(num);
     }
 
-    return {{(double)sum_even, (double)sum_odd}};
-}
-
-int main() {
-    std::vector<std::pair<double, double>> result = double_the_difference();
-    // use the returned value here
+    return {(double)sum_even, (double)sum_odd};
 }
