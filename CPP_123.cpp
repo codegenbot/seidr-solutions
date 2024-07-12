@@ -1,9 +1,5 @@
 #include <vector>
-
-bool issame(vector<int> a, vector<int> b){
-    // Add your code here
-    return a == b;
-}
+#include <algorithm>
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
@@ -27,4 +23,8 @@ vector<int> get_odd_collatz(int n) {
     sort(odd_numbers.begin(), odd_numbers.end());
     
     return odd_numbers;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
