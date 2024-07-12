@@ -1,8 +1,2 @@
-import re
-
-def fix_spaces():
-    text = input("Enter text: ")
-    return re.sub(r"\s{3,}", "-", re.sub(r"\s+", "_", text))
-
-result = fix_spaces()
-print(result)
+def fix_spaces(text: str) -> str:
+    return "_".join(text.split())
