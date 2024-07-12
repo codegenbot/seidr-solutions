@@ -1,6 +1,5 @@
 from typing import List
 
-
 def all_prefixes(string: str) -> List[str]:
     if not string:
         return []
@@ -10,9 +9,8 @@ def all_prefixes(string: str) -> List[str]:
         temp_result = []
         for prefix in result:
             temp_result.append(prefix)
-            temp_result.extend([prefix + c for c in (char,)])
+            temp_result.append(prefix + char)
         result = temp_result
     return result
-
 
 print(all_prefixes("abc"))
