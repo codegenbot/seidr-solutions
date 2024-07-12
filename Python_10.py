@@ -8,7 +8,7 @@ def make_palindrome(string: str) -> str:
     n = len(string)
     new_string = "#" + "#".join(list(string)) + "#"
     palindrome = ""
-    for i in range(n):
+    for i in range(n + 1):
         while not is_palindrome(new_string):
             new_string = new_string[: i + 1] + "#"
         if i < n:
