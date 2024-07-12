@@ -1,7 +1,4 @@
 #include <vector>
-#include <algorithm>
-#include <numeric>
-#include <string>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
