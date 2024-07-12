@@ -1,10 +1,20 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+#include <vector>
+#include <string>
+
+bool issame(const std::string& s1, const std::string& s2) {
+    if (s1.length() != s2.length()) {
+        return false;
+    }
+    for (int i = 0; i < s1.length(); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> result;
     int start = 0;
     for (int i = 0; i < paren_string.size(); ++i) {
         if (paren_string[i] == '(') {
@@ -24,12 +34,4 @@ vector<string> separate_paren_groups(string paren_string) {
     if (start > 0)
         result.push_back(paren_string.substr(start - 1));
     return result;
-}
-
-int main() {
-    string paren_string;
-    cin >> paren_string;
-    vector<string> separate_paren = separate_paren_groups(paren_string);
-    // You could do something with separate_paren here
-    return 0;
 }
