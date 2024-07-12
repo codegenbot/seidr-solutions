@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,10 +11,11 @@ bool is_happy(std::string s) {
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
             sub += s[i+j];
         }
+        std::string strArr = sub;
         bool unique = true;
-        for (char c : sub) {
+        for (char c : strArr) {
             int count = 0;
-            for (char a : sub) {
+            for (char a : strArr) {
                 if (a == c)
                     count++;
             }
@@ -30,10 +31,9 @@ bool is_happy(std::string s) {
 }
 
 int main() {
-    std::cout << (is_happy("iopaxioi") ? "True" : "False") << std::endl;
+    std::cout << "Enter a string: ";
     std::string input;
     while (true) {
-        std::cout << "Enter a string: ";
         std::cin >> input;
         if (input == "exit")
             break;
