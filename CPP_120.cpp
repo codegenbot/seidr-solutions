@@ -2,28 +2,38 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
+int maximum(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+    return max;
+}
+
 int mainProblemCPP120() {
-    // Create vector with custom allocator
-    std::vector<int> vec1; 
+    std::vector<int> vec1(3); // Initialize with 3 elements
     for(int i=0; i<3; i++) {
-        vec1.push_back(i+1);
+        vec1[i] = i+1;
     }
     
-    // Use standard library allocator (which does not have this problem)
-    std::vector<int> vec2(std::vector<int>::allocator_type(), 3, 0); 
+    std::vector<int> vec2(3, 0); 
     for(int i=0; i<3; i++) {
         vec2[i] = i+1;
     }
-
-    if (issame(vec1, vec2)) { // Compare vectors
-        std::cout << "Vectors are same" << std::endl;
-    } else {
+    
+    if (vec1 != vec2) { // Compare vectors
         std::cout << "Vectors are not the same." << std::endl;
+    } else {
+        std::cout << "Vectors are the same" << std::endl;
     }
+    
+    int arr[] = {1, 2, 3, -23, 243, -400, 0};
+    assert (!issame(std::vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0])), {}));
     
     return 0;
 }
