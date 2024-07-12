@@ -1,20 +1,21 @@
+```
 from typing import List
 
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+def intersperse(numbers: list, delimiter: int) -> List[int]:
     if not isinstance(numbers, list):
-        return ["Input should be a list"]
+        return [0]
     if not all(isinstance(i, int) for i in numbers):
-        return ["All elements in the list should be integers"]
+        return [1]
     if not isinstance(delimiter, int):
-        return ["Delimiter should be an integer"]
+        return [2]
 
-    result = []
-    prev_num = None
-    for num in numbers:
-        if prev_num is not None:
-            result.extend([prev_num, delimiter])
-        result.append(num)
-        prev_num = num
+    if not numbers:
+        return []
+    if delimiter not in set(numbers):
+        return [3]
 
+    result = [numbers[0]]
+    for i in range(1, len(numbers)):
+        result.extend([result[-1], delimiter, numbers[i]])
     return result
