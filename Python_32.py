@@ -1,12 +1,11 @@
+```
 def quadratic_equation():
     import math
-    
+
     print("Enter coefficients (space-separated): ")
     coefficients = list(map(float, input().split()))
     a, b, c = coefficients[0], coefficients[1], coefficients[2]
-    
     discriminant = b**2 - 4 * a * c
-    
     if discriminant > 0:
         root1 = (-b + math.sqrt(discriminant)) / (2 * a)
         root2 = (-b - math.sqrt(discriminant)) / (2 * a)
