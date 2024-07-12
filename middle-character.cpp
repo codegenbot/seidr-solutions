@@ -1,14 +1,14 @@
-string getMiddleCharacter(string s) {
-    int len = s.size();
-    if (len % 2 == 0) {
-        return s.substr(len/2 - 1, 2);
-    } else {
-        return s.substr(len/2, 1);
-    }
-}
 int main() {
-    string s;
-    cin >> s;
-    cout << getMiddleCharacter(s);
+    string input;
+    cin >> input;
+
+    int length = input.size();
+  
+    if (length % 2 == 1) {
+        cout << input[length/2];
+    } else {
+        cout << input.substr((length/2) - 1, 2);
+    }
+
     return 0;
 }
