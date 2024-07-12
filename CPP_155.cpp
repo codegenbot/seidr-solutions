@@ -17,11 +17,9 @@ vector<int> even_odd_count(int num) {
     return counts;
 }
 
-bool is_same(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main() {
-    assert(is_same(even_odd_count(0), {1, 0}));
+    vector<int> expected = {1, 0};
+    vector<int> result = even_odd_count(0);
+    assert(expected == result);
     return 0;
 }
