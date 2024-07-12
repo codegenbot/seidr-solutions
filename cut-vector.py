@@ -1,14 +1,22 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+v = [int(input()) for _ in range(n)]
 
+total_sum = sum(v)
+left_sum = 0
+right_sum = total_sum
 min_diff = float("inf")
-cut_index = -1
+cut_point = 0
 
-for i in range(1, n):
-    diff = abs(sum(nums[:i]) - sum(nums[i:]))
+for i in range(n):
+    left_sum += v[i]
+    right_sum -= v[i]
+    diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
-        cut_index = i
+        cut_point = i
 
-print(*nums[:cut_index])
-print(*nums[cut_index:])
+subvector1 = v[: cut_point + 1]
+subvector2 = v[cut_point + 1 :]
+
+print(*subvector1)
+print(*subvector2)
