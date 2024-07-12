@@ -1,14 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (n + m);
-    return 1.0 - (m * 1.0 / total);
+    double total = (double)n * m;
+    double p = 0;
+
+    for (int i = m + 1; i <= n; ++i) {
+        p += (double)(n - i + 1) / total;
+    }
+
+    return p;
 }
 
 int main() {
-    // Test the function
     int n, m;
-    std::cin >> n >> m;
-    std::cout << diceGame(n, m) << '\n';
+    cin >> n >> m;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << diceGame(n,m) << endl;
     return 0;
 }
