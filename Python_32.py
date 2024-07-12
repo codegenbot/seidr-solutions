@@ -1,11 +1,9 @@
-import sys
-
 def main():
-    print("Enter two floats separated by a space:")
+    print("Enter a list of floats separated by spaces:")
     xs = list(map(float, input().strip().split()))
 
-    if len(xs) != 2:
-        print("Input list must have exactly 2 elements")
+    if len(xs) < 2:
+        print("Input list must have at least 2 elements")
         return
 
     def find_zero(xs: list):
@@ -22,6 +20,7 @@ def main():
         print(result)
     except ZeroDivisionError as e:
         print(str(e))
+
 
 if __name__ == "__main__":
     main()
