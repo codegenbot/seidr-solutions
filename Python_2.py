@@ -4,7 +4,10 @@ def calculate_decimal_part(number):
 
 while True:
     try:
-        input_number = float(input("Enter a number: "))
+        input_number = input("Enter a number: ")
+        if input_number == "":
+            raise ValueError
+        input_number = float(input_number)
         break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
