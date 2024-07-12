@@ -17,6 +17,6 @@ vector<int> incr_list(const vector<int>& l){
 }
 
 int main() {
-    assert(issame({6, 3, 6,3, 4, 4, 10, 1, 124}, {5, 2, 5, 2, 3, 3, 9, 0, 123}));
+    assert(issame({7, 4, 7,3, 5, 5, 11, 2, 125}, {6, 3, 6,3, 4, 4, 10, 1, 124}));
     return 0;
 }
