@@ -1,5 +1,5 @@
 ```
-def max_fill(n):
+def max_fill(n, grid_size):
     m = int(input("Enter the number of columns: "))
     grid = [
         [
@@ -21,5 +21,3 @@ def max_fill(n):
             if cell > 0 and cell <= max_capacity:
                 total_water += cell
     return math.ceil(total_water / (n * max_capacity))
-
-result = max_fill(9)
