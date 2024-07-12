@@ -1,6 +1,18 @@
-bool evaluateBooleanExpression(const string& expression) {
-    stack<char> operators;
-    stack<bool> operands;
+#include <iostream>
+#include <stack>
+
+int precedence(char c) {
+    if (c == '&') {
+        return 2;
+    } else if (c == '|') {
+        return 1;
+    }
+    return 0;
+}
+
+bool evaluateBooleanExpression(const std::string& expression) {
+    std::stack<char> operators;
+    std::stack<bool> operands;
 
     for (char c : expression) {
         if (c == 'T') {
