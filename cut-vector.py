@@ -11,9 +11,11 @@ for i in range(n):
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
 
-    if diff <= min_diff:
+    if diff < min_diff:
         min_diff = diff
         cut_index = i + 1
+        if min_diff <= 0:
+            break
 
 subvector1 = arr[:cut_index]
 subvector2 = arr[cut_index:]
