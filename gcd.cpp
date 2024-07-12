@@ -33,19 +33,23 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
+    cout << "Enter two integers: ";
     cin >> a >> b;
-    
-    // Call the gcd function and print the result
-    cout << gcd(a, b) << endl;
-    
+
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+
     string text, target;
-    cin >> text >> target;
-    
-    // Call the findIndicesOfSubstring function and print the results
+    cout << "Enter text string: ";
+    cin >> text;
+    cout << "Enter target string: ";
+    cin >> target;
+
     vector<int> indices = findIndicesOfSubstring(text, target);
-    for (int idx : indices) {
-        cout << idx << " ";
+    cout << "Indices of target string in text:";
+    for (int index : indices) {
+        cout << " " << index;
     }
-    
+    cout << endl;
+
     return 0;
 }
