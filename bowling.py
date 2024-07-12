@@ -10,7 +10,8 @@ while frame >= 0:
         elif bowls[index + 1] == "/":
             frame_score += 10
         else:
-            frame_score += int(bowls[index]) + int(bowls[index + 1])
+            if bowls[index] != '-':
+                frame_score += int(bowls[index]) + int(bowls[index + 1])
 
     score += frame_score
     bowls = bowls.replace("X", "0").replace("/", "0", 1)
