@@ -1,4 +1,6 @@
-```
+def sum_squares(lst):
+    return sum(i**2 for i in lst)
+
 while True:
     response = input("Do you want to start? (yes/no): ")
     if response.lower() != "yes":
@@ -16,6 +18,3 @@ while True:
                 break
             else:
                 print("Some numbers are out of range. Please re-enter.")
-
-def sum_squares(lst):
-    return sum(i**2 for i in lst)
