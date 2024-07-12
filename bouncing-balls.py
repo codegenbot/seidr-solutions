@@ -1,3 +1,4 @@
+```
 def calculate_bouncing_index(start_height, first_bounce_height):
     return first_bounce_height / start_height
 
@@ -7,7 +8,7 @@ def calculate_total_distance(bounciness_index, num_bounces, start_height):
     height = start_height
     for _ in range(num_bounces):
         height *= bounciness_index
-        total_distance += (start_height + height) / 2
+        total_distance += (start_height + height) / 2 
     return total_distance
 
 
