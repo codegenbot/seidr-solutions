@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector> 
+#include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -23,7 +25,7 @@ int main() {
         total_price += discounted_price;
     }
 
-    std::cout << "Total discounted price: " << std::fixed << total_price << std::endl;
+    std::cout << "Total discounted price: " << std::fixed << std::setprecision(2) << total_price << std::endl;
 
     return 0;
 }
