@@ -37,7 +37,7 @@ int main() {
         }
     }
     cout << endl;
-
+    
     for (int i = cutIdx; i < n; ++i) {
         cout << vec[i];
         if (i != n - 1) {
