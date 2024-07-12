@@ -1,7 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
@@ -24,7 +22,7 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame({0}, make_a_pile(make_a_pile_result.size())));
+    vector<int> make_a_pile_result = make_a_pile(8);
+    assert(issame({0}, make_a_pile_result));
     return 0;
 }
