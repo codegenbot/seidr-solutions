@@ -1,10 +1,7 @@
-```
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string
     for i in range(len(string)):
-        first_half = string[:i+1]
-        second_half = string[i:][::-1]
-        if first_half + second_half == first_half + first_half[::-1]:
-            return first_half + second_half
+        if string[: i + 1] == string[: i + 1][::-1] and string[i:] == string[i:][::-1]:
+            return string + string[i:][::-1]
     return string + string[::-1]
