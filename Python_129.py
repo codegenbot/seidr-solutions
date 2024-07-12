@@ -6,6 +6,8 @@ def minPath(grid, k):
         if len(p) == k:
             res.append(sorted(p))
             return
+        if len(p) > k:
+            return
         visited = set()
         visited.add((i, j))
         for x, y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
