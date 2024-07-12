@@ -1,11 +1,24 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+```cpp
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for (int num : unique(numbers.begin(), numbers.end())) {
-        result.push_back(num);
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::unordered_map<int, bool> map;
+    for (int num : numbers) {
+        if (!map[num]) {
+            map[num] = true;
+        } else {
+            map[num] = false;
+        }
+    }
+    std::vector<int> result;
+    for (int num : numbers) {
+        if (map[num]) {
+            result.push_back(num);
+        }
     }
     return result;
 }
+
+assert (issame({1, 4, 5}, remove_duplicates({1, 2, 3, 2, 4, 3, 5})));
