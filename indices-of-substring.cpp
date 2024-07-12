@@ -12,12 +12,14 @@ int main() {
     size_t pos = text.find(target, startPos);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        startPos = pos + target.length();
+        startPos = pos + 1;
         pos = text.find(target, startPos);
+        if(pos == startPos)
+            ++startPos;
     }
     
     for (size_t i = 0; i < indices.size(); ++i) {
-        std::cout << indices[i] << " ";
+       std::cout << indices[i] << " ";
     }
     
     return 0;

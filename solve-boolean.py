@@ -1,4 +1,7 @@
 import ast
+import sys
+
+expression = sys.stdin.readline().strip()
 
 def solve_boolean(expression):
     return ast.literal_eval(
@@ -8,5 +11,4 @@ def solve_boolean(expression):
         .replace("&", " and ")
     )
 
-expression = input().strip()
 print(solve_boolean(expression))
