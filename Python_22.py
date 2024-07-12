@@ -6,7 +6,7 @@ def filter_integers() -> List[int]:
     while True:
         try:
             user_input = input("Enter a list: ")
-            if user_input.strip() != "" and user_input.lower() not in ["yes", "no"]:
+            if user_input:
                 values = ast.literal_eval(user_input)
                 if isinstance(values, list):
                     result = [value for value in values if isinstance(value, int)]
@@ -22,4 +22,6 @@ def filter_integers() -> List[int]:
                 print("Please provide some input.")
         except (ValueError, SyntaxError):
             print(f"Invalid input. Please enter a valid Python expression.")
-    filter_integers()
+
+
+filter_integers()
