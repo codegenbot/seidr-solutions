@@ -1,8 +1,7 @@
 #include <algorithm>
-#include <vector>
 
-std::vector<int> unique(std::vector<int> l) {
-    std::vector<int> result(l.begin(), std::unique_copy(l.begin(), l.end()).end());
+vector<int> unique(vector<int> l) {
+    vector<int> result(l.begin(), std::unique_copy(l.begin(), l.end()).end());
     return result;
 }
 
@@ -25,7 +24,4 @@ bool issame(std::vector<T> a, std::vector<T> b) {
     return true;
 }
 
-int main() {
-    assert(std::is_same(std::vector<int>(unique({5, 3, 5, 2, 3, 3, 9, 0, 123})).begin(), {0, 2, 3, 5, 9, 123}));
-    return 0;
-}
+assert(issame(std::vector<int>(unique({5, 3, 5, 2, 3, 3, 9, 0, 123})).begin(), {0, 2, 3, 5, 9, 123}));
