@@ -3,8 +3,8 @@
 #include <initializer_list>
 
 bool has_close_elements(const std::vector<float>& v, float epsilon) {
-    for(int i = 0; i < v.size() - 1; i++) {
-        if(abs(v[i] - v[i+1]) <= epsilon)
+    for (size_t i = 0; i < v.size() - 1; ++i) {
+        if (std::abs(v[i] - v[i + 1]) <= epsilon)
             return true;
     }
     return false;
