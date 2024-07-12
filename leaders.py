@@ -1,6 +1,11 @@
-```
 def leaders(input):
-    return [i for i in input if all(j <= i for j in input[input.index(i)+1:])]
+    leader = input[-1]
+    result = [leader]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= leader:
+            leader = input[i]
+            result.append(leader)
+    return result[::-1]
 
 input = list(map(int, input().split()))
 print(' '.join(map(str, leaders(input))))
