@@ -1,5 +1,3 @@
-Here is the completed code:
-
 def tri(n):
     if n == 0:
         return [3]
