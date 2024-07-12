@@ -17,17 +17,14 @@ int prod_signs(const vector<int>& arr) {
             product *= 1;
         } else if (num < 0) {
             product *= -1;
-        } else {
-            product *= 0;
         }
-
         sum += abs(num);
     }
 
-    return product * sum;
+    return product;
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0); // Test case
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
