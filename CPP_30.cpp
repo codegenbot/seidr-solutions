@@ -1,18 +1,18 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
 int main() {
-    std::vector<float> input = {1.0f, -2.0f, 3.0f};
+    vector<float> input = {1.0f, -2.0f, 3.0f, -4.0f};
     assert(issame(get_positive(input), {3.0f}));  
     return 0;
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(float x : l){
         if(x > 0)
             result.push_back(x);
