@@ -1,47 +1,25 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    int score = 0;
-    int frame = 1;
-    int rolls = 0;
-    
-    for (char c : input) {
-        if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (input[rolls + 1] == 'X' ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10));
-                score += (input[rolls + 2] == 'X' ? 10 : (input[rolls + 2] == '/' ? 10 - (input[rolls + 1] == 'X' ? 10 : (isdigit(input[rolls + 1]) ? input[rolls + 1] - '0' : 10)) : (isdigit(input[rolls + 2]) ? input[rolls + 2] - '0' : 10)));
-                rolls++;
-            }
+int score(string s) {
+    int sum = 0;
+    int frame = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
+            sum += 10;
+            sum += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0');
+            sum += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0');
             frame++;
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (frame < 10) {
-                if (isdigit(input[rolls + 1])) {
-                    score += input[rolls + 1] - '0';
-                } else if (input[rolls + 1] == '/') {
-                    score += 10 - (c - '0');
-                }
-                rolls++;
-            }
-            frame++;
-        } else if (c == '/') {
-            score += 10 - (input[rolls - 1] - '0');
-            if (frame < 10) {
-                if (isdigit(input[rolls + 1])) {
-                    score += input[rolls + 1] - '0';
-                } else if (input[rolls + 1] == 'X') {
-                    score += 10;
-                }
-                rolls++;
-            }
-            frame++;
+        } else if (s[i] == '/') {
+            sum += 10 - (s[i - 1] - '0');
+        } else {
+            sum += s[i] - '0';
         }
-        rolls++;
+        frame++;
+        if (frame == 10) break;
     }
-    
-    cout << score << endl;
-    
+    return sum;
+}
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
