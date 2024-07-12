@@ -1,5 +1,5 @@
-#include <string>
 #include <algorithm>
+#include <string>
 #include <cassert>
 
 std::string remove_vowels(std::string text) {
@@ -10,9 +10,8 @@ std::string remove_vowels(std::string text) {
 }
 
 int main() {
-    assert(remove_vowels("Hello") == "Hll");
-    assert(remove_vowels("Testing") == "Tstng");
-    assert(remove_vowels("This is a test!") == "Ths s  tst!");
-    
+    assert(remove_vowels("Hello World") == "Hll Wrld");
+    assert(remove_vowels("Programming is fun") == "Prgrmmng s fn");
+    assert(remove_vowels("This is a test") == "Ths s  tst");
     return 0;
 }
