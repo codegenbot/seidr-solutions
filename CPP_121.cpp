@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int solutions(vector<int> lst){
