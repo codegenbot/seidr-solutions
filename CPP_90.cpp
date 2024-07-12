@@ -13,10 +13,11 @@ int next_smallest(int n) {
 
     if(lst.size() >= 2) {
         std::sort(lst.begin(), lst.end());
+        bool same = true;
         for(int i = 1; i < lst.size(); i++){
             if(lst[i] != lst[i-1]) {
                 std::cout << lst[i];
-                return 0;
+                return x;
             }
         }
     } else 
