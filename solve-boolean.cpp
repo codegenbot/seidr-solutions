@@ -2,7 +2,7 @@
 #include <stack>
 
 int precedence(char op) {
-    if (op == '&') return 2; // Update '&' precedence to be higher
+    if (op == '&') return 2;
     if (op == '|') return 1;
     return 0;
 }
