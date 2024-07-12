@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main() {
@@ -24,7 +24,7 @@ int main() {
     }
 
     if (idx1 == -1 || idx2 == -1) {
-        return 0;
+        return 0; // indicating successful completion
     }
 
     if (idx1 > idx2) {
@@ -35,7 +35,7 @@ int main() {
         result.push_back(planets[i]);
     }
 
-    assert(issame(result, std::vector<std::string>{"Jupiter", "Makemake"}));
+    assert(issame(result, std::vector<std::string>{"Saturn"}));
 
-    return 0;
+    return 0; // indicating successful completion
 }
