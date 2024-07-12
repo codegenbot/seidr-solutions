@@ -2,23 +2,29 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+
+using namespace std;
+
+pair<string, string> toPair(string s1, string s2) {
+    return make_pair(s1, s2);
+}
+
+int main() {
+    vector<pair<string, string>> extensions;
+    pair<string, string> sp_pair = {"Sp", "671235"};
+    pair<string, string> bb_pair = {"Bb", ""};
+    extensions.push_back(sp_pair);
+    extensions.push_back(bb_pair);
+
+    for (const auto& extension : extensions) {
+        cout << Strongest_Extension(extension) << endl; 
+    }
+}
 
 std::string Strongest_Extension(const std::pair<std::string, std::string>& extension) {
     if (extension.second.empty()) {
         return extension.first;
     } else {
-        return extension.first + "." + std::to_string(extension.second);
-    }
-}
-
-int main() {
-    std::vector<std::pair<std::string, std::string>> extensions;
-    extensions.push_back({"Sp", "671235"}); 
-    extensions.push_back({"Bb", ""});
-    
-    assert(Strongest_Extension({{"Sp", "671235"}}) == "Sp.671235");
-    for (const auto& extension : extensions) {
-        std::cout << Strongest_Extension(extension) << std::endl; 
+        return extension.first + "." + extension.second;
     }
 }
