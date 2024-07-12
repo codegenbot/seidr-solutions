@@ -23,8 +23,7 @@ vector<string> separate_paren_groups(string paren_string) {
                 current_group += c;
             }
             open_count++;
-        } 
-        else if (c == ')') {
+        } else if (c == ')') {
             open_count--;
             if (open_count > 0) {
                 current_group += c;
@@ -40,5 +39,4 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
