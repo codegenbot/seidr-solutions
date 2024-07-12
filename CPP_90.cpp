@@ -2,25 +2,25 @@
 #include <vector>
 
 int main(){
-    vector<int> lst;
+    std::vector<int> lst;
     int n;
-    cout << "Enter number of elements: ";
-    cin >> n;
-    cout << "Enter " << n << " integers: ";
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter " << n << " integers: ";
     for(int i = 0; i < n; i++){
         int x;
-        cin >> x;
+        std::cin >> x;
         lst.push_back(x);
     }
-    if(lst.size() < 2) cout << "-1";
+    if(lst.size() < 2) std::cout << "-1";
     else {
-        sort(lst.begin(), lst.end());
+        std::sort(lst.begin(), lst.end());
         for(int i = 0; i < lst.size() - 1; i++){
             if(lst[i] != lst[i+1]) {
-                cout << lst[i];
+                std::cout << lst[i];
                 break;
             }
         }
-        if(lst.size() > 1) cout << "-1";
+        if(lst.size() > 1) std::cout << "-1";
     }
 }
