@@ -1,6 +1,6 @@
-```cpp
+```
+#include <initializer_list>
 #include <vector>
-#include <algorithm>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
