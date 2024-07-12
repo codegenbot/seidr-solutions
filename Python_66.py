@@ -4,13 +4,10 @@ def sumOfDigits(n):
 
 
 def check(n):
-    if isinstance(n, int) and n >= 0:
-        if sumOfDigits(n) % 3 == 0:
-            print("The number is divisible by 3")
-        else:
-            print("The number is not divisible by 3")
+    if sumOfDigits(n) % 3 == 0:
+        print("The number is divisible by 3")
     else:
-        print("Invalid input. Please enter a non-negative integer.")
+        print("The number is not divisible by 3")
 
 
 num = int(input("Enter the number: "))
