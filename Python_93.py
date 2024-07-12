@@ -3,22 +3,11 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                if char.lower() == 'a':
-                    result += 'c'
-                elif char.lower() == 'e':
-                    result += 'g'
-                elif char.lower() == 'i':
-                    result += 'k'
-                elif char.lower() == 'o':
-                    result += 'q'
-                else:
-                    result += 'u'
+            if char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u':
+                new_char = chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
             else:
-                if char.islower():
-                    result += char.upper()
-                else:
-                    result += char.lower()
+                new_char = char.swapcase()
+            result += new_char
         else:
             result += char
     return result
