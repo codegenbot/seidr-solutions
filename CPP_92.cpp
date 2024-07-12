@@ -14,7 +14,6 @@ int main() {
     float a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-
     if (any_int(a, b, c)) 
         cout << "At least one of the input numbers is an integer.\n";
     else
