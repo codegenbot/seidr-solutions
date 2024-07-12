@@ -1,26 +1,26 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(std::vector<int>& a, std::vector<int>& b) {
-    if(a.size()!=b.size())
+bool issame(std::vector<int>& a, std::vector<int>& b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i]!=b[i])
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
             return false;
     return true;
 }
 
-std::vector<int> makeAPile(int n) {
+std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = 1; 
+    int stones = 1;
     while (stones <= n) {
         pile.push_back(stones);
-        stones +=2; // increment stones by 2
+        stones += 2; 
     }
     return pile;
 }
 
 int main() {
-    assert(isSame(makeAPile(15), {1,3,5,7,9,11,13,15}) );
+    assert(issame(make_a_pile(8), {1,3,5,7,9,11,13,15}) );
     return 0;
 }
