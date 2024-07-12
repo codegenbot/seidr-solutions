@@ -3,19 +3,15 @@ def remove_duplicates(input_numbers=None):
     if input_numbers is not None:
         for num in input_numbers:
             while True:
-                user_num = int(input(f"Enter an integer ({num} or 'q' to quit): "))
-                if str(user_num).lower() == 'q':
+                user_num = input(f"Enter an integer ({num} or 'q' to quit): ")
+                if user_num.lower() == 'q':
                     break
-                if user_num != num:
-                    numbers.append(user_num)
-
+                elif str(num) != str(user_num):
+                    numbers.append(int(user_num))
     else:
         while True:
-            num = int(input("Enter an integer (or 'q' to quit): "))
-            if str(num).lower() == 'q':
+            num = input("Enter an integer (or 'q' to quit): ")
+            if num.lower() == 'q':
                 break
-            numbers.append(num)
-
+            numbers.append(int(num))
     return list(set(numbers))
-
-   
