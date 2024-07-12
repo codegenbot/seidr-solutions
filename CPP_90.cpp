@@ -1,30 +1,38 @@
-```
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+bool is_consecutive(const vector<int>& lst) {
+    sort(lst.begin(), lst.end());
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] != lst[i + 1]) return false;
+    }
+    return true;
+}
+
+assert(is_consecutive({-35, 34, 12, -45}));
 
 int main(){
-    std::vector<int> lst;
+    vector<int> lst;
     int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-    std::cout << "Enter " << n << " integers: ";
+    cout << "Enter number of elements: ";
+    cin >> n;
+    cout << "Enter " << n << " integers: ";
     for(int i = 0; i < n; i++){
         int x;
-        std::cin >> x;
+        cin >> x;
         lst.push_back(x);
     }
-    if(lst.size() < 2) std::cout << "-1";
+    if(lst.size() < 2) cout << "-1";
     else {
-        std::sort(lst.begin(), lst.end());
-        bool same = true;
+        sort(lst.begin(), lst.end());
         for(int i = 0; i < lst.size() - 1; i++){
             if(lst[i] != lst[i+1]) {
-                std::cout << lst[i];
-                same = false;
+                cout << lst[i];
                 break;
             }
         }
-        if(same) std::cout << "-1";
+        if(lst.size() > 1) cout << "-1";
     }
 }
