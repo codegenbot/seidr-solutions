@@ -1,8 +1,7 @@
-```cpp
-#include <string>
-#include <cctype>
+```
+#include <bits/stdc++.h>
 
-int digitSum(std::string& s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (std::isdigit(c)) {
