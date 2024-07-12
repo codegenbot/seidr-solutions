@@ -1,11 +1,11 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <cassert> // Include assert header
+#include <cassert>
 
 int next_smallest(const std::vector<int>& lst) {
     std::vector<int> sorted_list = lst;
-    std::sort(sorted_list.begin(), sorted_list.end());
+    sort(sorted_list.begin(), sorted_list.end());
     int count = 0;
     for (int i = 1; i < sorted_list.size(); ++i) {
         if (sorted_list[i] > sorted_list[i - 1]) {
