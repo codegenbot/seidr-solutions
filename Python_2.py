@@ -10,5 +10,10 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
+    except KeyboardInterrupt:
+        print("Program terminated by user.")
+        quit()
+    except:
+        print("Unexpected error occurred")
 
 print(calculate_decimal_part(input_number))
