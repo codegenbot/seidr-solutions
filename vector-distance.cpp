@@ -28,8 +28,7 @@ int main() {
     }
 
     std::getline(std::cin, input);
-    ss.str("");
-    ss.str(input);
+    ss.str(std::string());
     ss.clear();
     for (size_t i = 0; i < n; ++i) {
         ss >> vec2[i];
