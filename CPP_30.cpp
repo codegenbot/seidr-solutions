@@ -1,6 +1,17 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
+
+bool issame(vector<float> a, vector<float> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    vector<float> input({});
+    get_positive(input); 
+    assert(issame(get_positive(input), {}));  
+    return 0;
+}
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
@@ -9,14 +20,4 @@ vector<float> get_positive(vector<float> l){
             result.push_back(x);
     }
     return result;
-}
-
-int main() {
-    vector<float> input({});
-    assert(issame(get_positive(input), {}));  
-    return 0;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
 }
