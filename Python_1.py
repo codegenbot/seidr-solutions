@@ -1,6 +1,8 @@
 import re
 
-paren_string = "(()(()))()"
+print("Enter a string of parentheses:")
+paren_string = input().strip()
+
 if re.match("^[()]*$", paren_string) is None:
     raise ValueError("Invalid input: Please enter only parentheses")
 
