@@ -30,14 +30,17 @@ std::string file_name_check(std::string file_name) {
     return "Yes";
 }
 
-/* int main() {
-    assert(file_name_check("s.") == "No");
+// int main() {
+//     assert(file_name_check("s.") == "No");
     
-    return 0;
-} */ 
+//     return 0;
+// }
 
-int main() {
-    assert(file_name_check("s.") == "No");
-    
+int main(){
+    std::string file_name;
+    std::cin >> file_name;
+
+    std::cout << file_name_check(file_name) << std::endl;
+
     return 0;
-}  
+}
