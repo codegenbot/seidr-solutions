@@ -9,7 +9,10 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (!cin.eof()) {
+        if (!(cin >> num)) {
+            break;
+        }
         nums.push_back(num);
     }
 
