@@ -1,4 +1,12 @@
 #include <vector>
+#include <initializer_list>
+
+int main() {
+    std::vector<int> lst = {2, 3, 5, 7, 11};
+    int result = find_max_prime_sum(lst);
+    std::cout << "The sum of the digits of the maximum prime number is: " << result << std::endl;
+    return 0;
+}
 
 int find_max_prime_sum(std::vector<int> lst){
     int maxPrime = 0;
