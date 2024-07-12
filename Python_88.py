@@ -6,9 +6,10 @@ while True:
     try:
         array_str = input("Enter an array: ")
         array = list(map(str.strip, array_str.split()))
-        if len(array) < 2 or not all(x.replace(".", "", 1).replace("-", 1).isdigit() for x in array):
-            print("Array should have at least two elements and all elements should be numbers. Please enter again.")
+        if len(array) < 2:
+            print("Array should have at least two elements. Please enter again.")
             continue
+        array = [int(x) for x in array]
         print(sort_array(array))
         break
     except ValueError as e:
