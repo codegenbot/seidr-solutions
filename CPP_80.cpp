@@ -1,15 +1,12 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
 
-bool is_happy(std::string s) {
+bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        std::string sub = "";
-        for (int j = 0; j < 3 && i + j < s.length(); j++) {
-            sub += std::toupper(s.substr(i, 1)[0]);
-        }
+        std::string sub = s.substr(i, 3);
         bool unique = true;
         for (char a : sub) { 
             int count = 0;
@@ -31,10 +28,9 @@ bool is_happy(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    while (true) {
-        std::cin >> input;
-        if (input == "exit")
-            break;
-        std::cout << (is_happy(input) ? "True" : "False") << std::endl;
-    }
+    std::cin >> input;
+    if (input == "exit")
+        return 0;
+    std::cout << (is_happy(input) ? "True" : "False") << std::endl;
+    return 0;
 }
