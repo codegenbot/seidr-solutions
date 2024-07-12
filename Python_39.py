@@ -18,6 +18,6 @@ def prime_fib(n):
         i += 1
     return i - 1
 
-n = int(input())
+n = int(input().strip())
 result = prime_fib(n)
 print(result)
