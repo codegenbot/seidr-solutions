@@ -12,20 +12,14 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
-    int n;
-    float num;
-    std::vector<float> inputList;
-
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::cout << "Enter the numbers separated by spaces: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        inputList.push_back(num);
+    std::vector<float> numbers;
+    float input;
+    std::cout << "Enter numbers (enter any non-numeric value to stop): ";
+    while (std::cin >> input) {
+        numbers.push_back(input);
     }
 
-    std::cout << "Result: " << sum_squares(inputList) << std::endl;
+    std::cout << "Sum of the squares of rounded numbers: " << sum_squares(numbers) << std::endl;
 
     return 0;
 }
