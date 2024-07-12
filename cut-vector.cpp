@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cmath>
 #include <numeric>
-#include <climits>
 using namespace std;
 
 int main() {
@@ -24,17 +23,14 @@ int main() {
         }
     }
     
-    vector<int> subvector1(nums.begin(), nums.begin() + cut_index);
-    vector<int> subvector2(nums.begin() + cut_index, nums.end());
-    
-    for (int num : subvector1) {
-        cout << num << endl;
+    for (int i = 0; i < cut_index; ++i) {
+        cout << nums[i] << '\n';
     }
     
-    cout << 0 << endl;
+    cout << 0 << '\n';
     
-    for (int num : subvector2) {
-        cout << num << endl;
+    for (int i = cut_index; i < n; ++i) {
+        cout << nums[i] << '\n';
     }
     
     return 0;
