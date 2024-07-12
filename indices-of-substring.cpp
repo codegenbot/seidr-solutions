@@ -4,19 +4,19 @@
 
 int main() {
     std::string text, target;
-
+  
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
-    std::vector<int> indices;
-
     if (text.size() < target.size()) {
-        std::cout << "0";   
+        std::cout << "0";
         return 0;
     }
 
+    std::vector<int> indices;
+
     for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()) == target) {
+        if (text.substr(i, target.size()).compare(target) == 0) {
             indices.push_back(static_cast<int>(i));
         }
     }
