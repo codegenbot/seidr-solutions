@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <assert.h>
 #include <vector>
@@ -34,3 +33,4 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
     return result;
+}
