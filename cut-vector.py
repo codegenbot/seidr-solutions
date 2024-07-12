@@ -9,11 +9,11 @@ for i in range(len(arr)):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-    if abs(diff - total_sum * 2) < abs(min_diff - total_sum * 2):
+    if diff < min_diff:
         min_diff = diff
         cut_index = i
-    if i < len(arr) - 1 and abs(arr[i+1] - arr[i]) <= min_diff:
-        cut_index = i
+        if i < len(arr) - 1 and abs(arr[i + 1] - arr[i]) < min_diff:
+            break
 
 subvector1 = arr[:cut_index + 1]
 subvector2 = arr[cut_index + 1:]
