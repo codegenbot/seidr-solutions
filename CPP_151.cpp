@@ -1,31 +1,24 @@
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-std::vector<double> double_the_difference() {
-    std::vector<int> input_vector;
-    int sum_even = 0, sum_odd = 0;
-
-    while (true) {
-        int num;
-        std::cout << "Enter a number (-1 to finish): ";
-        std::cin >> num;
-
-        if (num == -1)
-            break;
-
-        if (num % 2 == 0)
-            sum_even += num;
-        else
-            sum_odd += num;
-
-        input_vector.push_back(num);
+std::vector<double> double_the_difference(std::vector<double> lst) {
+    int odd_sum = 0;
+    for (double num : lst) {
+        if (num % 2 != 0) {
+            odd_sum += num;
+        }
     }
-
-    return {(double)sum_even, (double)sum_odd};
+    return {static_cast<double>(lst.size()), static_cast<double>(odd_sum)};
 }
 
 int main() {
-    std::vector<double> result = double_the_difference();
-    std::cout << "Double the difference: " << (result[0] - result[1]) * 2.0 << std::endl;
+    std::vector<double> input_vector = {(double)1.0, (double)2.0, (double)3.0};
+    double lst_size, odd_sum;
+    
+    std::tie(lst_size, odd_sum) = double_the_difference(input_vector);
+    
+    assert(double_the_difference(input_vector)[0] == lst_size);
+    assert(double_the_difference(input_vector)[1] == odd_sum);
+    
     return 0;
 }
