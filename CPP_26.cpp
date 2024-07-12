@@ -26,6 +26,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    cout << same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5});
+    same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5});
     return 0;
 }
