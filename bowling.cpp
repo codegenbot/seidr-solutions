@@ -1,8 +1,4 @@
-```
-#include <string>
-using namespace std;
-
-int bowling(string s) {
+int bowling(std::string s) {
     int score = 0;
     bool lastRoll = false;
 
