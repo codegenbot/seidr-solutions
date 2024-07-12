@@ -7,6 +7,8 @@ def fix_spaces(text):
                 new_text += '-'
             else:
                 new_text += '_'
+        elif char.isalpha():
+            new_text += char.lower()
         else:
             new_text += char
     return new_text
