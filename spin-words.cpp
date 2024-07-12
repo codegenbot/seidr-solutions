@@ -1,48 +1,33 @@
 #include <string>
-#include <iostream>
-
 using namespace std;
+
+string reverse(string str) {
+    string revStr = "";
+    
+    for (int i = str.size() - 1; i >= 0; i--) {
+        revStr += str[i];
+    }
+    
+    return revStr;
+}
 
 string spinWords(string str) {
     string result = "";
-    string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                string revWord;
-                for (int j = word.length() - 1; j >= 0; j--)
-                    revWord += word[j];
-                result += revWord + " ";
-                word = "";
-            } else
-                if (!word.empty()) {
-                    result += word + " ";
-                    word = "";
-                }
-        } else {
-            word += str[i];
+    size_t start = 0;
+    
+    for (size_t i = 0; i <= str.size(); i++) {
+        if (i == str.size() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            
+            if (word.size() >= 5) {
+                result += reverse(word) + " ";
+            } else {
+                result += word + " ";
+            }
+            
+            start = i + 1;
         }
     }
-
-    if (word.length() >= 5) {
-        string revWord;
-        for (int j = word.length() - 1; j >= 0; j--)
-            revWord += word[j];
-        result += revWord + " ";
-    } else
-        if (!word.empty()) {
-            result += word + " ";
-            word = "";
-        }
-
-    return result;
-}
-
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+    
+    return result.substr(0, result.size() - 1);
 }

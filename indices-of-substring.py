@@ -1,11 +1,8 @@
 def indices_of_substring(text):
-    target = input()
+    target = [t.strip() for t in input().split(',')]
     result = []
-    last_index = 0
-    while True:
-        pos = text.find(target, last_index)
-        if pos == -1: 
-            break
-        result.append(pos)
-        last_index = pos + 1
+    for t in target:
+        for i in range(len(text)):
+            if text[i:i+len(t)] == t:
+                result.append(i)
     return list(set(result))

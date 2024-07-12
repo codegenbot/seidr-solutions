@@ -1,8 +1,4 @@
-#include <vector>
-#include <initializer_list>
-#include <cmath>
-using namespace std;
-
+```
 int fuelCost(vector<int> prices) {
     int sum = 0;
     for (int price : prices) {
