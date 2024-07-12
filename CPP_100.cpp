@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-bool isSame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -14,14 +14,9 @@ bool isSame(std::vector<int>& a, std::vector<int>& b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
-    while (stones <= n && stones <= ((n + 1) / 2) * 2) {
+    while (stones <= (n + 7) / 2) {
         pile.push_back(stones);
         stones += 2; 
     }
     return pile;
-}
-
-int main() {
-    assert(isSame(make_a_pile(8), std::vector<int>{1,3,5,7,9,11,13,15}) );
-    return 0;
 }
