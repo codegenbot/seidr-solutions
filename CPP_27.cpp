@@ -1,6 +1,7 @@
-```cpp
-#include<cassert>
-string filp_case(string str){
+#include <cassert>
+#include <string>
+
+std::string flipCase(std::string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
         char c = (char)str[i];
@@ -15,6 +16,6 @@ string filp_case(string str){
 }
 
 int main(){
-    assert(flip_case("These violent delights have violent ends") == "tHEse ViOLEnt DeLiGhTs HaVe ViOLEnT EnDs");
+    assert(flipCase("These violent delights have violent ends") == "tHEse ViOLEnt DeLiGhTs HaVe ViOLEnT EnDs");
     return 0;
 }
