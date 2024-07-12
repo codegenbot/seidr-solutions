@@ -5,7 +5,7 @@
 
 int next_smallest(const std::vector<int>& lst) {
     std::vector<int> sorted_list = lst;
-    sort(sorted_list.begin(), sorted_list.end());
+    std::sort(sorted_list.begin(), sorted_list.end());
     int count = 0;
     for (int i = 1; i < sorted_list.size(); ++i) {
         if (sorted_list[i] > sorted_list[i - 1]) {
@@ -18,7 +18,4 @@ int next_smallest(const std::vector<int>& lst) {
     return -1;
 }
 
-int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    return 0;
-}
+assert(next_smallest({-35, 34, 12, -45}) == -35);
