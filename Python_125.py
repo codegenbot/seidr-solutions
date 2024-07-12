@@ -1,6 +1,10 @@
 def split_words(txt):
     words = txt.split()
-    if not any(char in string.whitespace for char in txt):
-        return [word for word in txt.replace(",", " ").split() if word]
-    else:
+    if len(words) > 0:
         return words
+    else:
+        return sum(
+            1
+            for i in range(ord("a"), ord("z") + 1)
+            if (txt.replace(",", "")[i - ord("a")].islower())
+        )
