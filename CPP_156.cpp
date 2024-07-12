@@ -15,8 +15,3 @@ std::string intToMiniRoman(int n) {
     }
     return roman;
 }
-
-int main() {
-    std::cout << intToMiniRoman(1999) << std::endl;
-    return 0;
-}
