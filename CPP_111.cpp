@@ -36,7 +36,7 @@ map<pair<char,int>, int> histogram(string test) {
 }
 
 int main() {
-    map<pair<char,int>, int> test = histogram("a");
+    map<pair<char,int>, int> test = histogram({"a", 1});
     assert(issameInt(test, {{'a', 1}}));
     return 0;
 }
