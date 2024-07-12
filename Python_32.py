@@ -1,4 +1,3 @@
-```
 def find_zero():
     while True:
         try:
@@ -14,5 +13,3 @@ def find_zero():
             x = round((d - b) / (a - c), 2)
             y = round(a * x + b, 2)
             return f"The intersection point is at ({x}, {y})."
-        except ValueError as e:
-            print("Invalid input:", str(e))
