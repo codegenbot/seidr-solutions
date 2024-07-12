@@ -1,9 +1,6 @@
 #include <string>
 
 bool issame(pair<string, string> a, pair<string, string> b) {
-    string s = a.first + b.first;
-    string c = a.second + b.second;
-    
     string result = "";
     for(char ch : s){
         if(c.find(ch) == string::npos){
