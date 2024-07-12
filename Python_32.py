@@ -1,5 +1,5 @@
 def find_zero():
-    xs = list(map(float, iter(input, "")))[-2:]
+    xs = list(map(float, input().split()))[-2:]
     a, b = xs
     return -b / a
 
