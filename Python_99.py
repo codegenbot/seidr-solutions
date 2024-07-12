@@ -1,7 +1,3 @@
-```
-def check(closest_integer):
-    print(f"Closest integer: {closest_integer}")
-
 def find_closest_number():
     while True:
         try:
@@ -10,7 +6,6 @@ def find_closest_number():
             if value != closest_integer:
                 diff = abs(value - closest_integer)
                 print(f"Closest integer: {closest_integer}, Difference: {diff}")
-                check(closest_integer)  
             else:
                 print(f"Closest integer: {closest_integer}, Difference: 0")
         except ValueError:
