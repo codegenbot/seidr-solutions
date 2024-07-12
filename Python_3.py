@@ -8,7 +8,7 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-n = int(input('\n'))
+n = int(input())
 operations = [int(input()) for _ in range(n)]
 result = below_zero(operations)
 print(result)
