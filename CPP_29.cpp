@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -39,9 +38,9 @@ int main() {
     vector<string> result = filter_by_prefix(a, prefix);
 
     if(!same) 
-cout << "Strings are not the same." << endl;
+    cout << "Strings are not the same." << endl;
 else 
-cout << "Strings are the same." << endl;
+    cout << "Strings are the same." << endl;
 
     for(string s : result) {
         cout << s << endl;
