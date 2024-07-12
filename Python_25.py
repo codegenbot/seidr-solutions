@@ -1,6 +1,7 @@
+```
 def factorize(n: int) -> List[int]:
     if n < 1:
-        return [f"Invalid input: Please enter a positive integer."]
+        return ["Invalid input: Please enter a positive integer."]
     factors = []
     i = 2
     while i * i <= n:
@@ -14,4 +15,4 @@ def factorize(n: int) -> List[int]:
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return [str(i) for i in set(factors)]
+    return factors
