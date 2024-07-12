@@ -3,28 +3,16 @@
 #include <cmath>
 
 int main() {
-    int n;
-    std::cin >> n;
-    
-    if (n <= 0) {
-        std::cout << "Invalid input!" << std::endl;
-        return 1;
-    }
+    int n = 2;
 
     std::vector<float> vec1(n);
     std::vector<float> vec2(n);
 
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
-    }
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
-    }
+    vec1[0] = 10.5;
+    vec1[1] = 20.7;
 
-    if (vec1.size() != vec2.size()) {
-        std::cout << "Input vectors must have the same size!" << std::endl;
-        return 1;
-    }
+    vec2[0] = 30.9;
+    vec2[1] = 40.3;
 
     float result = 0.0f;
     for (int i = 0; i < n; ++i) {
