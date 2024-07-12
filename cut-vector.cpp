@@ -10,13 +10,8 @@ int main() {
     vector<int> input;
     int num;
 
-    while (cin >> num && num != -1) {
+    while (cin >> num) {
         input.push_back(num);
-    }
-
-    if (input.empty()) {
-        cout << "No input provided." << endl;
-        return 1;
     }
 
     int diff = numeric_limits<int>::max();
