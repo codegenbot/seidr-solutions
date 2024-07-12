@@ -1,11 +1,27 @@
-```
-import math
-def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    a = xs[0]
-    b = xs[1]
-    c = xs[2] if n > 2 else 0
-    d = (b**3 - 4 * a * c) / (8 * a)
-    return round(-b / (2 * a) + math.sqrt(d), 2)
+def find_zero():
+    while True:
+        try:
+            line1 = list(
+                map(
+                    float,
+                    input("Enter coefficients for the first line (a b): ").split(),
+                )
+            )
+            line2 = list(
+                map(
+                    float,
+                    input("Enter coefficients for the second line (c d): ").split(),
+                )
+            )
+            if len(line1) != 2 or len(line2) != 2:
+                print("Invalid input. Please enter two numbers.")
+                continue
+            a, b = line1
+            c, d = line2
+            x = round((d - b) / (a - c), 2)
+            return [(x, round(a * x + b, 2))]
+        except ValueError as e:
+            print("Invalid input:", str(e))
+
+
+print(find_zero())
