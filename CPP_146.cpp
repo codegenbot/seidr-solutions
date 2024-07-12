@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <iostream>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -10,18 +9,3 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    std::vector<int> nums;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums.push_back(i);
-    }
-    int result = specialFilter(nums);
-    std::cout << "Number of elements that meet the condition: " << result;
-    return 0;
-}
