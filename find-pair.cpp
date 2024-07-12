@@ -1,14 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map> // Include unordered_map header
 
 int main() {
-    int n;
-    long long target;
+    int n, target;
     std::cin >> n >> target;
 
-    std::vector<long long> nums(n);
-    std::map<long long, long long> numIndex;
+    std::vector<int> nums(n);
+    std::unordered_map<int, int> numIndex; // Change map to unordered_map
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
