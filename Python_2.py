@@ -1,13 +1,10 @@
 def calculate_decimal_part(number):
-    try:
-        return abs(number) % 1.0
-    except ZeroDivisionError:
-        return 0.0
+    return abs(number) % 1
 
 
 while True:
     try:
-        input_number = float(input("Enter a number: ").strip())
+        input_number = float(raw_input("Enter a number: ").strip())
         break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
