@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,9 +16,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 int main() {
     assert(std::issame(get_positive({}), {}));
-    std::vector<float> v1 = get_positive({-3.0f, -2.0f, 1.0f, 4.0f});
-    std::vector<float> v2 = get_positive({1.0f, 2.0f, 3.0f, 4.0f});
-    assert(std::issame(v1, {1.0f, 4.0f}));
-    assert(!std::issame(v1, v2));
+    std::vector<float> v1 = {1.0f, 2.0f, -3.0f, 4.0f};
+    std::vector<float> v2 = {-5.0f, 6.0f, 7.0f, -8.0f};
+    assert(std::issame(get_positive(v1), get_positive(v2)));
     return 0;
 }
