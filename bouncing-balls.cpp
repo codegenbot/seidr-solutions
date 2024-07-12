@@ -1,8 +1,8 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
-    double start_height, first_bounce_height, bounciness_index;
-    long double total_distance;
+    double start_height, first_bounce_height, bounciness_index, total_distance;
     int num_bounces;
 
     std::cin >> start_height >> first_bounce_height >> num_bounces;
@@ -16,7 +16,7 @@ int main() {
         bounce_height *= bounciness_index;
     }
 
-    std::cout << total_distance << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << total_distance << std::endl;
 
     return 0;
 }
