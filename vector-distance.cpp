@@ -18,11 +18,11 @@ int main() {
 
     float sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
+        sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    float result = std::sqrt(sum);
-    std::cout << result << '\n';
+    float result = sqrt(sum);
+    std::cout << result << "\n";
 
     return 0;
 }
