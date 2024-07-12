@@ -1,8 +1,7 @@
 def solve_boolean(expression):
-    return eval("(" + expression
-                .replace("|", " or ")
+    return eval(expression
                 .replace("&", " and ")
-                .replace("T", "True")
-                .replace("F", "False")
-                .upper()
-                + ")")
+                .replace("|", " or ")
+                .replace("t", "T")
+                .replace("f", "F")
+                .upper())
