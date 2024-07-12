@@ -7,7 +7,7 @@ def indices_of_substring():
     while i <= len(text) - len(target):
         if text[i:].startswith(target):
             indices.append(i)
-            i += 1  # Increment i by 1 to check for overlapping occurrences
+            i += 1  # Increment i by 1 when overlapping target is found
         else:
             i += 1
 
