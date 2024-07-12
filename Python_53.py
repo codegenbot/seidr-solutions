@@ -1,5 +1,18 @@
-def addition():
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    total = add(num1, num2)
-    print(f"The sum of {num1} and {num2} is {total}")
+def calculator():
+    num1 = float(input("Enter the first number: "))
+    op = input("Enter an operator (+, -, *, /): ")
+    num2 = float(input("Enter the second number: "))
+
+    if op == "+":
+        return num1 + num2
+    elif op == "-":
+        return num1 - num2
+    elif op == "*":
+        return num1 * num2
+    elif op == "/":
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return "Error: Division by zero"
+    else:
+        return "Error: Invalid operator"
