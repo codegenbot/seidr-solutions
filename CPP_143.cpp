@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,7 +24,6 @@ vector<string> split(const string& str, const char* delim) {
             str.erase(0, strlen(delim)); 
         }
     }
-    tokens.push_back(str);
     return tokens;
 }
 
