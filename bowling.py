@@ -5,17 +5,20 @@ def bowling_score(bowls):
     for frame in range(1, 11):
         if bowls[bowl_index] == "X":
             score += 10
-            score += sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[bowl_index + 1:bowl_index + 3]))
+            if bowls[bowl_index + 1] == "/":
+                score += 10
+                score += 10 if bowls[bowl_index + 2] == "X" else int(bowls[bowl_index + 2])
+            else:
+                score += sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[bowl_index + 1:bowl_index + 3]))
             bowl_index += 1
         elif bowls[bowl_index + 1] == "/":
             score += 10
-            if bowls[bowl_index + 2] == "X":
-                score += 10
-            else:
-                score += int(bowls[bowl_index + 2])
+            score += 10 if bowls[bowl_index + 2] == "X" else int(bowls[bowl_index + 2])
             bowl_index += 2
         else:
             score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
             bowl_index += 2
 
     return score
+
+print(bowling_score("15-43442319-71719/X65"))
