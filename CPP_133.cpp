@@ -1,4 +1,14 @@
-int main {
+#include <vector>
+#include <cmath>
+
+int sum_squares(std::vector<float> lst){
+    int total = 0;
+    for(float x : lst){
+        total += std::round(x)*std::round(x);
+    }
+    return total;
+
+int main() {
     std::vector<float> input;
 
     std::cout << "Enter numbers (enter -1 to stop): ";

@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (a.size() != b.size()) {
@@ -8,6 +9,13 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     for (int i = 0; i < a.size(); i++) {
         if (a[i].size() != b[i].size()) {
             return false;
+        }
+    }
+    for (int i = 0; i < a.size(); i++) {
+        for (int j = 0; j < a[i].size(); j++) {
+            if (a[i][j] != b[i][j]) {
+                return false;
+            }
         }
     }
     return true;
@@ -38,5 +46,12 @@ std::vector<std::string> by_length(const std::initializer_list<int>& lengths) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), by_length({9, 4, 8})));
+    std::vector<int> lengths = {9, 4, 8};
+    std::vector<std::string> output = by_length(lengths);
+    
+    // Initialize a,b as required
+    std::vector<std::vector<std::string>> a({{output[0]}});
+    std::vector<std::vector<std::string>> b({{output[0]}, {output[1], output[2]}});
+    
+    assert(issame(a, b));
 }
