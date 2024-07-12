@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 vector<int> tri(int n) {
     vector<int> result(1);
     if (n > 0) {
@@ -7,7 +10,7 @@ vector<int> tri(int n) {
             if (i % 2 == 0)
                 val = 1 + i / 2;
             else
-                val = result[i - 1] + result[i - 2];
+                val = 3 * result[i - 1];
             result.push_back(val);
         }
     }
