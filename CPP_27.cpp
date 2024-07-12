@@ -11,3 +11,8 @@ std::string flipCase(const std::string& str) {
     }
     return str;
 }
+
+int main() {
+    assert(flipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    // ... rest of your code
+}
