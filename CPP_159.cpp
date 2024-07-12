@@ -1,9 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    vector<int> eat(int number, int need, int remaining) {
-        int total = number + min(need, remaining);
-        int left = max(0, remaining - need);
-        return {total, left};
-    }
+    int total = a[0] + min(a[1], b[0]);
+    int left = max(0, b[0] - a[1]);
+    return {total, left};
 }
