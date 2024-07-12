@@ -1,15 +1,20 @@
-def minPath(grid: [[int]], k: int):
+```
+def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    res = []
     
-    def dfs(i, j, path, visited):
+    def dfs(i, j, path):
         if len(path) == k:
-            return path
-        res = []
-        for ni, nj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            newi, newj = i + ni, j + nj
-            if 0 <= newi < n and 0 <= newj < n and (newi, newj) not in visited:
-                res += dfs(newi, newj, path + [m[newi][newj]], visited | {(newi, newj)})
-        return min(res, key=lambda x: tuple(sorted(x)))
-
-    return sorted(dfs(0, 0, [grid[0][0]], set([(0, 0)])), key=int)
+            nonlocal res
+            res = sorted(path)
+            return
+        
+        for x, y in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]:
+            if 0 <= x < n and 0 <= y < n and (x, y) not in set(zip(*[grid[:i], grid[i:]])):
+                dfs(x, y, path + [grid[x][y]])
+    
+    for i in range(n):
+        for j in range(n):
+            dfs(i, j, [grid[i][j]])
+    
+    return res
