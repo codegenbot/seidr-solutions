@@ -1,5 +1,5 @@
 arr = list(map(int, input().split()))
-total_sum = sum(arr[:-1])
+total_sum = sum(arr)
 left_sum = 0
 min_diff = float('inf')
 cut_index = 0
