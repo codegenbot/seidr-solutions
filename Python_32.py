@@ -2,7 +2,7 @@ def main():
     print("Enter a list of integers separated by spaces:")
     xs = list(map(int, input().split()))
 
-    def find_zero(xs: list):
+    def find_zero(xs):
         try:
             n = len(xs)
             if n < 2:
@@ -19,7 +19,6 @@ def main():
             return str(e)
 
     print(find_zero(xs))
-
 
 # Call the main function
 main()
