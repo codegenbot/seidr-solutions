@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <initializer_list>
 
 int sum_squares(std::vector<float> lst){
     int total = 0;
@@ -11,7 +9,7 @@ int sum_squares(std::vector<float> lst){
     }
     return total;
 
-void main() {
+int main() {
     std::vector<float> input;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
@@ -22,16 +20,16 @@ void main() {
             input.push_back(num);
         } else {
             std::cerr << "Error: Invalid input." << std::endl;
-            return;
+            return 1;
         }
     }
     
     if(input.size() <= 1) {
         std::cerr << "Error: No valid input provided." << std::endl;
-        return;
+        return 1;
     } else {
         int result = sum_squares(input);
         std::cout << "Sum of squares: " << result << std::endl;
     }
     
-}.
+}
