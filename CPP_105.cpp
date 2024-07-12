@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (a.size() != b.size()) {
@@ -21,42 +21,37 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     return true;
 }
 
-std::vector<std::string> by_length(int length) {
+std::vector<std::string> by_length(const std::initializer_list<int>& lengths) {
     std::vector<std::string> result;
-    for(int i = 0; i < length; i++) {
-        if (i == 3) {
+    for(int length : lengths) {
+        if (length == 4) {
             result.push_back("Four");
-        } else if (i == 7) {
+        } else if (length == 8) {
             result.push_back("Eight");
-        } else if (i == 8) {
-            for(int j = 0; j < i; j++) {
+        } else if (length == 9) {
+            for(int i = 0; i < length; i++) {
                 result.push_back("Nine");
             }
         }
     }
     std::vector<std::vector<std::string>> output;
-    if(length > 1) {
-        output.push_back({result[0]});
-        for(int i = 1; i < length; i++) {
+    for(int i = 0; i < lengths.size(); i++) {
+        if (i == 0) {
+            output.push_back({result[i]});
+        } else {
             output.push_back({result[i-1], result[i]});
         }
-    } else {
-        output.push_back({result[0]});
     }
     return output;
 }
 
 int main() {
-    std::vector<int> lengths = {9};
-    std::vector<std::string> output = by_length(lengths[0]);
+    std::vector<int> lengths = {9, 4, 8};
+    std::vector<std::string> output = by_length(lengths);
     
     // Initialize a,b as required
     std::vector<std::vector<std::string>> a({{output[0]}});
-    if(output.size() > 1) {
-        std::vector<std::vector<std::string>> b({{output[0]}, {output[1], output[2]}});
-    } else {
-        std::vector<std::vector<std::string>> b({{output[0]}});
-    }
+    std::vector<std::vector<std::string>> b({{output[0]}, {output[1], output[2]}});
     
     assert(issame(a, b));
 }
