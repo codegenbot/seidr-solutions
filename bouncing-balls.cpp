@@ -13,6 +13,7 @@ int main() {
         first_bounce_height *= bounciness_index;
         total_distance += 2 * first_bounce_height;
     }
+    total_distance += start_height;
 
     std::cout << total_distance << std::endl;
 
