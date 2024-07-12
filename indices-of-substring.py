@@ -4,3 +4,11 @@ def indices_of_substring(text, target):
         if text[i : i + len(target)] == target:
             indices.append(i)
     return indices
+
+text = input().strip()
+target = input().strip()
+
+result = indices_of_substring(text, target)
+
+for idx in result:
+    print(idx)
