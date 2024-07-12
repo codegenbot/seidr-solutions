@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::pair<std::string, std::string>> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
         bool found = false;
@@ -18,5 +19,5 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     std::string rev = result;
     std::reverse(rev.begin(), rev.end());
-    return {result, (result == rev ? "True" : "False")};
+    return {{result, result == rev ? "True" : "False"}};
 }
