@@ -4,8 +4,11 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
+    if string.ispalindrome():
         return string + string[::-1]
-    for i in range(len(string)):
-        if string[:i+1] == string[:i+1][::-1]:
-            return string[:i+1] + string[i:][::-1]
+    for i in range(len(string), 0, -1):
+        if string[:i].ispalindrome() and string[i:].ispalindrome():
+            return string[:i] + string[i:][::-1]
+
+def is_palindrome(self, string: str) -> bool:
+    return string == string[::-1]
