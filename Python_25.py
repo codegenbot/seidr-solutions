@@ -1,19 +1,19 @@
+import sys
+
 def factorize(num):
     if num <= 0:
         return []
     factors = [i for i in range(1, num + 1) if num % i == 0]
     return factors
 
-
-while True:
-    n = input()
+for line in sys.stdin:
     try:
-        n = int(n)
+        n = int(line.strip())
         if n <= 0:
-            raise ValueError("Invalid input. Please enter a positive integer.")
+            raise ValueError
         factors = factorize(n)
         print(factors)
-    except ValueError as e:
-        print(e)
+    except ValueError:
+        print("\nInvalid input. Please enter a positive integer.")
     except:
-        print("Invalid input. Please enter a valid integer.")
+        print("\nInvalid input. Please enter a valid integer.")
