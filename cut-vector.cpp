@@ -38,19 +38,19 @@ int main() {
 
     cout << "2" << endl << cutIndex+1 << " " << n - 1 - cutIndex << endl;
     
-    for (int i = 0; i <= cutIndex + 1; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i];
-        if (i != cutIndex + 1) {
+        if (i != cutIndex) {
             cout << " ";
         }
     }
     cout << endl;
     
-    cout << "2" << endl;
+    cout << "2" << endl << n - cutIndex - 1 << endl;
     
-    for (int i = cutIndex + 1; i < n-1; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i];
-        if (i != n-2) {
+        if (i != n-1) {
             cout << " ";
         }
     }
