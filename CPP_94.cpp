@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -35,5 +35,4 @@ int main() {
         maxPrime /= 10;
     }
     cout << "The sum of the digits of the maximum prime number is: " << sum << endl;
-    return 0;
 }
