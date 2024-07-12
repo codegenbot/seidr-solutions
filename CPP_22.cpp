@@ -1,22 +1,27 @@
 #include <boost/any.hpp>
+#include <iostream>
 #include <list>
 #include <vector>
-#include <typeindex>
 
-bool issame(const boost::any& a1, const boost::any& a2) {
-    if (!a1.type() == a2.type()) return false;
-    if (a1.type() != typeid(int)) return true; // not int
-    auto i1 = boost::any_cast<int>(a1);
-    auto i2 = boost::any_cast<int>(a2);
-    return *i1 == *i2;
+template<typename T1, typename T2>
+bool issame(const boost::any& a, const boost::any& b) {
+    return std::holds_alternative<T1>(a) && std::holds_alternative<T2>(b);
 }
 
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (issame(value, value)) {
+        if (boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    std::list<boost::any> values = {1, 2.0, 3, "hello", 4};
+    auto integers = filter_integers(values);
+    for (const auto& i : integers) {
+        std::cout << i << std::endl;
+    }
 }
