@@ -1,9 +1,18 @@
 ```
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
+
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
         return string
-    half = ""
-    for i in range((len(string) + 1) // 2):
-        half += string[i]
-    palindrome = half[::-1] + string + half[::-1]
+    n = len(string)
+    new_string = "#" + "#".join(list(string)) + "#"
+    palindrome = ""
+    i_max = n-1
+    while not is_palindrome(new_string):
+        new_string = new_string[:i_max+1] + "#"
+    for i in range(n):
+        if i <= i_max:
+            palindrome += new_string[i]
+        new_string = new_string[1:]
     return palindrome
