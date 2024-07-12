@@ -1,7 +1,6 @@
-#include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 std::string find_max(std::vector<std::string> words) {
     std::string max_word = *std::max_element(words.begin(), words.end(),
@@ -12,10 +11,10 @@ std::string find_max(std::vector<std::string> words) {
             return a.length() > b.length();
         });
     
-    for (const std::string& word : words) {
+    for (const auto& word : words) {
         if (word.length() >= max_word.length() &&
-            std::count(word.begin(), word.end(), word[0]) ==
-            std::unique(word.begin(), word.end())[0].size()) {
+            std::count(word.begin(), word.end(), *std::unique(word.begin(), word.end()).begin()) ==
+            std::unique(word.begin(), word.end()).size()) {
             max_word = word;
         }
     }
