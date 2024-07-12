@@ -7,7 +7,9 @@ def decode_shift():
         if ch.isalpha():
             ascii_offset = ord('a') if ch.islower() else ord('A')
             result += chr((ord(ch) - ascii_offset - shift) % 26 + ascii_offset)
-        else:
+        elif ch.isnumeric(): 
+            result += ch
+        else: 
             result += ch
     return result
 
