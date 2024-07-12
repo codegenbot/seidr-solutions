@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
 int solve(int N) {
