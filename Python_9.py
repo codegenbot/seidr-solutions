@@ -8,5 +8,5 @@ def rolling_max(numbers):
         result.append(max_num)
     return result
 
-numbers = list(map(int, sys.stdin.readline().split()))
+numbers = [int(x) for x in sys.stdin.readline().split()]
 print(rolling_max(numbers))
