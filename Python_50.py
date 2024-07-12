@@ -3,9 +3,14 @@ encoded_str = input("Enter the encoded string: ")
 result = ""
 for ch in encoded_str:
     if ch.isalpha():
-        if "A" <= ch <= "Z":
-            result += chr((ord(ch) - ord("A") - shift) % 26 + ord("A"))
+        if ch.isupper():
+            char_code = ord("A")
         else:
-            result += chr((ord(ch) - ord("a") - shift) % 26 + ord("a"))
+            char_code = ord("a")
+        result += (
+            chr((ord(ch) - char_code - shift) % 26 + char_code)
+            if "A" <= ch <= "Z"
+            else chr((ord(ch) - char_code - shift) % 26 + char_code)
+        )
     else:
         result += ch
