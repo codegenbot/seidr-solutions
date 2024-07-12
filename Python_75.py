@@ -1,14 +1,7 @@
 ```
 def is_multiply_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        while n % i == 0:
-            j = n // i
-            if not is_prime(i):
-                break
-            if not is_prime(j):
-                break
+    for i in range(2, n + 1):
+        if is_prime(i) and is_prime(n // i):
             return True
     return False
 
@@ -29,5 +22,4 @@ if __name__ == "__main__":
             break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    if not is_multiply_prime(num):
-        print("The given number is not multiply of two prime numbers.")
+    print(is_multiply_prime(num))
