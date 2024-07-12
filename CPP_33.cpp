@@ -17,44 +17,19 @@ std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            auto temp = l.begin() + i;
-            while(temp != l.end() && *temp % 3 == 0) {
-                temp++;
+            int j = i;
+            while(j < l.size() && l[j] % 3 == 0) {
+                j++;
             }
-            std::sort(std::make_reverse_iterator(temp), l.end());
-            for (; temp != l.end(); temp++) {
-                if (*temp % 3 == 0) {
-                    result.push_back(*temp);
-                } else {
-                    break;
-                }
+            std::vector<int> temp(l.begin() + i, l.begin() + j);
+            std::sort(temp.begin(), temp.end());
+            for (int k = 0; k < temp.size(); k++) {
+                result.push_back(temp[k]);
             }
         } else {
             result.push_back(l[i]);
         }
     }
-    return result;
 }
 
-int main() {
-    int n, num;
-    std::cout << "Enter the size of the array: ";
-    std::cin >> n;
-    
-    std::vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element number " << i + 1 << ": ";
-        std::cin >> num;
-        vec[i] = num;
-    }
-    
-    std::vector<int> sorted_vec = sort_third(vec);
-    
-    std::cout << "The sorted array is: ";
-    for (int x : sorted_vec) {
-        std::cout << x << " ";
-    }
-    std::cout << std::endl;
-    
-    return 0;
-}
+int main() { return 0; }
