@@ -1,5 +1,5 @@
 ```
-array = list(map(int, input().split()))
+array = list(map(int, input("Enter an array: ").split()))
 
 def sort_array(array):
     if len(array) == 0:
