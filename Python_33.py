@@ -1,3 +1,9 @@
-```Python
+import itertools as it
+
+
 def sort_third(lst):
-    return sorted([x for _, x in sorted(((j//3, y) for j, y in enumerate(lst)), key=lambda t: (t[0]%3, t[1]))])
+    grouped = [
+        [y for _, y in group]
+        for k, group in it.groupby(enumerate(lst), key=lambda x: x[0] // 3)
+    ]
+    return [min(i) if i[0] % 3 != 0 else max(sorted(i)[1:]) for i in grouped]

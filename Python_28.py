@@ -3,11 +3,13 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    result = ""
-    for string in strings:
-        result += string
-    return result
+    return "".join(strings)
 
-strings = input("Enter a list of strings (space-separated): ")
-strings = strings.split()
-print(concatenate(strings))
+
+user_input = input("Enter multiple strings separated by space or newline (e.g., 'Hello' 'World'): ")
+
+strings_list = [i.strip() for i in user_input.split()]
+
+result = concatenate(strings_list)
+
+print(result)
