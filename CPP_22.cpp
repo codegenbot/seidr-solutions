@@ -1,6 +1,3 @@
-```cpp
-#include <vector>
-#include <list>
 #include <boost/any.hpp>
 #include <boost/container/list.hpp>
 
@@ -8,11 +5,11 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
+vector<any> filter_integers(vector<any> values) {
+    vector<optional<int>> result;
     for (const auto& value : values) {
-        if (boost::get<int>(value) != 0) { 
-            result.push_back(boost::get<int>(value));
+        if (!value.type() || boost::any_cast<bool>(value) != 0) { 
+            result.push_back(optional<int>(boost::any_cast<int>(value)));
         }
     }
     return result;
