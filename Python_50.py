@@ -10,7 +10,7 @@ def decode_shift():
             break
         else:
             print("Invalid input. Please try again.")
-    
+
     result = ""
     for ch in s:
         if ch.isalpha():
