@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -43,3 +44,4 @@ int main() {
     }
     std::cout << "The sum of digits is: " << sumOfDigits(maxPrime) << std::endl;
     return 0;
+}
