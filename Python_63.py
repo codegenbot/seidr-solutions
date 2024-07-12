@@ -3,9 +3,9 @@ def fibfib(n: int):
         return 0
     a, b = 0, 1
     result = 0
-    while True:
-        if a > n:
+    while b <= n:
+        if b > n:
             break
-        result = a
+        result += b
         a, b = b, a + b
     return result
