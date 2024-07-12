@@ -1,3 +1,4 @@
+```
 def main():
     class Item:
         def __init__(self, name):
@@ -19,10 +20,15 @@ def main():
             elif not isinstance(user_input, str):
                 raise ValueError("Invalid input. Please enter an item or 'stop'.")
             items.append(Item(user_input.strip()))
-            cost = float(input(f"Enter the cost of {user_input}: "))
-            for item in items:
-                if item.name == user_input:
-                    item.cost = cost
+            while True:
+                try:
+                    cost = float(input(f"Enter the cost of {user_input}: "))
+                    for item in items:
+                        if item.name == user_input:
+                            item.cost = cost
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a valid number.")
         except ValueError:
             print("Invalid input. Please enter an item or 'stop'.")
 
@@ -31,7 +37,3 @@ def main():
         print(f"The total cost is: {result}")
     else:
         print("No items were provided.")
-
-
-if __name__ == "__main__":
-    main()
