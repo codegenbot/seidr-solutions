@@ -1,24 +1,16 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-int maximum(const std::vector<int>& v, int def) {
-    int max = def;
-    for (int i : v) {
-        if (i > max) {
-            max = i;
-        }
+int maximum(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
     }
     return max;
 }
@@ -29,23 +21,16 @@ int mainProblemCPP120() {
         vec1[i] = i+1;
     }
     
-    std::vector<int> vec2(3, 0); 
-    for(int i=0; i<3; i++) {
-        vec2[i] = i+1;
+    std::vector<int> vec2 {1, 2, 3}; 
+    
+    if (vec1 != vec2) { // Compare vectors
+        std::cout << "Vectors are not the same." << std::endl;
+    } else {
+        std::cout << "Vectors are the same" << std::endl;
     }
     
-    if (issame(vec1, vec2)) { // Compare vectors
-        std::cout << "Vectors are same" << std::endl;
-    } else {
-        std::cout << "Vectors are not the same." << std::endl;
-    }
-
-    int max = maximum({1, 2, 3, -23, 243, -400, 0}, 0);
-    if (issame(std::vector<int>(std::begin({1, 2, 3, -23, 243, -400, 0}), std::end({1, 2, 3, -23, 243, -400, 0})), std::vector<int>())) {
-        std::cout << "Vectors are same" << std::endl;
-    } else {
-        std::cout << "Vectors are not the same." << std::endl;
-    }
+    int arr[] = {1, 2, 3, -23, 243, -400, 0};
+    assert (!issame(std::vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0])), {}));
     
     return 0;
 }
