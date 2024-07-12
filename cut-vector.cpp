@@ -32,7 +32,8 @@ int main() {
     std::cout << std::endl;
 
     for (int i = cutIndex + 1; i < n; ++i) {
-        std::cout << (i > cutIndex + 1 ? " " : "") << nums[i];
+        if (i > cutIndex + 1) std::cout << " ";
+        std::cout << nums[i];
     }
     
     return 0;
