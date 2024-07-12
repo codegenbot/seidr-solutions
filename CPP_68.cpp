@@ -1,4 +1,6 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 std::vector<int> pluck(std::vector<int> v) {
     std::vector<int> result;
@@ -9,5 +11,5 @@ std::vector<int> pluck(std::vector<int> v) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
