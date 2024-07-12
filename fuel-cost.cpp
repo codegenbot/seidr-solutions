@@ -1,12 +1,11 @@
 int main() {
-    int n;
+    int n, num;
     cin >> n;
-    vector<int> vec(n);
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
-        sum += (vec[i] / 3) - 2;
+        cin >> num;
+        sum += (num / 3) - 2;
     }
-    cout << sum << endl;
+    cout << sum;
     return 0;
 }
