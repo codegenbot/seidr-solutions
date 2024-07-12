@@ -44,28 +44,25 @@ int main() {
     // Output the subvectors
     cout << "2" << endl;
     if (cutIndex == 0) {
-        cout << "1 " << n << endl;
+        cout << "1 " << n-1 << endl;
     } else if (cutIndex == n - 1) {
-        cout << n << " 1" << endl;
+        cout << n-1 << " 1" << endl;
     } else {
-        cout << cutIndex + 1 << " " << n - cutIndex << endl;
+        cout << cutIndex << " " << n - cutIndex << endl;
     }
 
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i];
-        if (i != cutIndex) {
-            cout << " ";
-        }
+    for (int i = 0; i < cutIndex; i++) {
+        cout << nums[i] << " ";
     }
     cout << endl;
+
+    cout << "1" << endl << "1" << endl;
+    cout << nums[cutIndex] << endl;
 
     if (cutIndex != n - 1) {
         cout << "1" << endl << n - cutIndex - 1 << endl;
         for (int i = cutIndex + 1; i < n; i++) {
-            cout << nums[i];
-            if (i != n - 1) {
-                cout << " ";
-            }
+            cout << nums[i] << " ";
         }
     }
     
