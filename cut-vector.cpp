@@ -1,30 +1,28 @@
 int main() {
     vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    
+
     int total = accumulate(nums.begin(), nums.end(), 0);
-    int sum = 0;
+    int n1 = 0, n2 = 0;
     int diff = INT_MAX;
-    int idx = -1;
-    
     for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        int currDiff = abs(total - 2 * sum);
-        if (currDiff < diff) {
-            diff = currDiff;
-            idx = i;
+        n1 += nums[i];
+        n2 = total - n1;
+        if (abs(n1 - n2) < diff) {
+            diff = abs(n1 - n2);
+        } else {
+            break;
         }
     }
-    
-    for (int i = 0; i <= idx; ++i) {
+
+    for (int i = 0; i <= n; ++i) {
         cout << nums[i] << endl;
     }
-    
-    cout << 0 << endl;
-    
+    cout << n1 << endl;
+    cout << n2 << endl;
+
     return 0;
 }
