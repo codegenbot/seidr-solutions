@@ -1,10 +1,12 @@
 ```cpp
-#include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    std::vector<std::string> c = b;
-    return a == c;
+    if (a == b) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main() {
@@ -14,8 +16,8 @@ int main() {
 
     std::cin >> num1 >> num2;
 
-    for(int i = num1; i <= num2; i++) {
-        if(i >= 1 && i <= 9) {
+    for (int i = num1; i <= num2; i++) {
+        if (i >= 1 && i <= 9) {
             switch (i) {
                 case 1:
                     result.push_back("One");
@@ -48,20 +50,7 @@ int main() {
         }
     }
 
-    bool by_length = true;
-
-    for(int i = 0; i < result.size(); i++) {
-        if(result[i].size() != (num2 - num1 + 1)) {
-            by_length = false;
-            break;
-        }
-    }
-
-    if(by_length) {
-        std::cout << "By length" << std::endl;
-    } else {
-        std::cout << "Not by length" << std::endl;
-    }
-
+    // Code to call the issame function...
+    
     return 0;
 }
