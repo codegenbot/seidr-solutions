@@ -1,4 +1,17 @@
-int total = number + min(need, remaining);
-    int left = max(0, remaining - need);
-    return {total, left};
+#include <vector>
+
+std::vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = total > remaining ? total - remaining : total;
+    int left = remaining > total ? 0 : remaining - total;
+    return {eaten, left};
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(eat(4, 5, 1), {5, 0}));
+    return 0;
 }
