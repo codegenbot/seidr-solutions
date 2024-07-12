@@ -22,7 +22,7 @@ int main() {
     int num;
     while (cin >> num) {
         nums.push_back(num);
-        if(cin.peek() == '\n' && cin.peek() == EOF)
+        if (!cin)
             break;
     }
 
