@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
-#include "digest.h"
+#include <iomanip>
+
 using namespace std;
 
 string string_to_md5(string text) {
