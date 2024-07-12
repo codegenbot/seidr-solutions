@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 
+namespace {
 bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
