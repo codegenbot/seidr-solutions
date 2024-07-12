@@ -1,5 +1,9 @@
 int main 
-{
+{ 
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
+
     std::vector<int> lst;
     int n;
 
