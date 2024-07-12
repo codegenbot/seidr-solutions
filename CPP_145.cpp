@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <vector>
+```cpp
 #include <initializer_list>
 
 std::pair<bool, bool> issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -19,3 +18,4 @@ std::vector<std::pair<int, int>> order_by_points(const std::vector<int>& nums) {
 }
 
 auto output = order_by_points({0,6,6,-76,-21,23,4});
+assert(std::equal(output.begin(), output.end(), std::vector<std::pair<int, int>>{{-76, -21}, {0, 4}, {0, 6}, {4, 6}}));
