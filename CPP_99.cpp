@@ -1,7 +1,7 @@
 #include <cmath>
-int closest_integer(std::string value) {
+#include <string>
+
+int closest_integer(const std::string& value) {
     double num = std::stod(value);
-    int num_floor = std::floor(num);
-    int num_ceil = std::ceil(num);
-    return (num - num_floor < num_ceil - num) ? num_floor : num_ceil;
+    return (num >= 0) ? std::floor(num + 0.5) : std::ceil(num - 0.5);
 }
