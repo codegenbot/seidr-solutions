@@ -16,22 +16,22 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<float> prices(n);
-    vector<float> discounts(n);
-    bool isValid = false;
-    while (!isValid) {
+    while(true) {
+        cin >> n;
+        vector<float> prices(n);
+        vector<float> discounts(n);
         for(int i = 0; i < n; i++) {
             cin >> prices[i] >> discounts[i];
             if (discounts[i] > 100 || prices[i] < 0 || discounts[i] < 0) {
-                cout << "Invalid input. Please enter a discount percentage between 0 and 100 and prices/quantities greater than zero." << endl;
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            } else {
-                isValid = true;
+                cout << "Invalid input. Please enter a discount percentage between 0 and 100 and price/quantity greater than 0." << endl;
+                n = i + 1; // reset the number of items
+                break;
             }
         }
+        if (n == 1)
+            continue;
+        cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
+        break;
     }
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
     return 0;
 }
