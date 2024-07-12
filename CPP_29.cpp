@@ -1,3 +1,5 @@
+```
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -20,27 +22,27 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> a;
-    cout << "Enter strings (stop when empty):" << endl;
-    string s;
-    while (getline(cin, s)) {
+    std::vector<std::string> a;
+    std::cout << "Enter strings (stop when empty):" << std::endl;
+    std::string s;
+    while (std::getline(std::cin, s)) {
         if (s.empty()) break;
         a.push_back(s);
-   }
+    }
     
-    vector<string> b = a;
+    std::vector<std::string> b = a;
     bool same = issame(a, b);
     
-    string prefix;
-    cout << "Enter prefix:" << endl;
-    cin >> prefix;
-    vector<string> result = filter_by_prefix(a, prefix);
+    std::string prefix;
+    std::cout << "Enter prefix:" << std::endl;
+    std::cin >> prefix;
+    std::vector<std::string> result = filter_by_prefix(a, prefix);
     
-    if(!same) cout << "Strings are not the same." << endl;
-    else cout << "Strings are the same." << endl;
+    if(!same) std::cout << "Strings are not the same." << std::endl;
+    else std::cout << "Strings are the same." << std::endl;
     
     for(string s : result) {
-        cout << s << endl;
+        std::cout << s << std::endl;
     }
     
     return 0;
