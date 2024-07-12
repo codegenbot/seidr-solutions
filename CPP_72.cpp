@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
     std::string str = "";
@@ -18,7 +16,7 @@ bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
 }
 
 int main() {
-    std::vector<std::vector<int>> q = {{5}};
+    std::vector<std::vector<int>> q = {{1,2},{3,4}};
     assert(will_it_fly(q, 5) == true);
     return 0;
 }
