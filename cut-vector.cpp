@@ -1,11 +1,11 @@
 #include <vector>
 #include <iostream>
 #include <climits>
-#include <numeric> 
+#include <numeric>
 
 int main() {
     std::vector<int> nums;
-    int n, cutIndex;
+    int n, cutIndex = 0;
     std::vector<int> firstSubvector, secondSubvector;
 
     std::cin >> n;
@@ -24,7 +24,7 @@ int main() {
             int sum1 = std::accumulate(nums.begin(), nums.begin() + i + 1, 0);
             int sum2 = std::accumulate(nums.begin() + i + 1, nums.end(), 0);
             int diff = std::abs(sum1 - sum2);
-            if (diff <= minDiff) {
+            if (diff < minDiff) {
                 minDiff = diff;
                 cutIndex = i;
             }
