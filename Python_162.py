@@ -10,4 +10,5 @@ while True:
     else:
         print("Please enter some alphanumeric characters.")
         continue
-print(f"Output: {hashlib.md5(s.encode()).hexdigest()}"
+
+print(f"Output: {hashlib.md5(s.encode()).hexdigest()}")
