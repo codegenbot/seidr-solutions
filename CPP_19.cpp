@@ -34,12 +34,3 @@ string sort_numbers(string numbers){
     result.pop_back(); // Remove extra space at the end
     return result;
 }
-
-int main() {
-    string input;
-    cout << "Enter a list of numbers in words separated by spaces: ";
-    getline(cin, input);
-    string sorted_numbers = sort_numbers(input);
-    cout << "Sorted numbers in words: " << sorted_numbers << endl;
-    return 0;
-}
