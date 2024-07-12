@@ -5,26 +5,14 @@ def bowling_score(bowls):
     while bowl_index < len(bowls):
         if bowls[bowl_index] == "X":
             score += 10
-            score += sum(
-                map(
-                    lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0,
-                    bowls[bowl_index + 1 : bowl_index + 3],
-                )
-            )
-            if bowl_index == len(bowls) - 3:
-                break
+            score += sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[bowl_index + 1:bowl_index + 3]))
             bowl_index += 1
         elif bowls[bowl_index] == "/":
             score += 10
-            score += 10 if bowls[bowl_index + 1] == "X" else int(bowls[bowl_index + 1])
+            score += 10 if bowls[bowl_index + 1] == "X" else 10 - int(bowls[bowl_index])
             bowl_index += 2
         else:
-            score += sum(
-                map(
-                    lambda x: int(x) if x.isdigit() else 0,
-                    bowls[bowl_index : bowl_index + 2],
-                )
-            )
+            score += sum(map(lambda x: int(x) if x.isdigit() else 0, bowls[bowl_index:bowl_index + 2]))
             bowl_index += 2
 
     return score
