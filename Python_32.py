@@ -1,10 +1,13 @@
-import math
-
-
-def poly(xs: list, x: float):
-    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
-
 def find_zero(xs: list):
     n = len(xs) - 1
-    return -xs[0] / xs[n]
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients should be even.")
+    
+    max_coeff = max(xs, key=abs)
+    possible_zeros = [i for i, coeff in enumerate(xs) if coeff == max_coeff]
+    
+    for zero_index in possible_zeros:
+        if poly(xs, zero_index) == 0:
+            return zero_index
+
+    raise ValueError("No zero found.")
