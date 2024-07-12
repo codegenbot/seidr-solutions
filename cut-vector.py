@@ -10,7 +10,7 @@ else:
     for i in range(len(arr)):
         right_sum = total_sum - left_sum - arr[i]
         diff = abs(left_sum - right_sum)
-        if right_sum == left_sum or diff < min_diff:
+        if diff < min_diff:
             min_diff = diff
             cut_index = i
         left_sum += arr[i]
