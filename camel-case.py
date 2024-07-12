@@ -5,5 +5,5 @@ def camel_case(input_str):
         if i > 0:
             result += word.capitalize()
         else:
-            result += word
+            result += word.lower()
     return result
