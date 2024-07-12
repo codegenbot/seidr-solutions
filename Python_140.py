@@ -1,9 +1,14 @@
+```
 def fix_spaces(text):
     result = ''
-    for char in text.replace(' ',=''):
+    for char in text:
         if char == ' ' and len(result) > 0 and result[-1] != ' ':
             result += '-'
         elif char == ' ':
             continue
         else:
-            result += char if char != ' ' else '_'
+            if char == ' ':
+                result += '_'
+            else:
+                result += char
+    return result
