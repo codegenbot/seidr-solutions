@@ -2,9 +2,9 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 cut_index = 0
-min_diff = abs(sum(arr) - arr[0])
+min_diff = abs(sum(arr[:1]) - sum(arr[1:]))
 
-for i in range(1, n):
+for i in range(1, n-1):
     left_sum = sum(arr[:i])
     right_sum = sum(arr[i:])
     diff = abs(left_sum - right_sum)
