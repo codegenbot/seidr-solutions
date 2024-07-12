@@ -2,29 +2,22 @@
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
 int main() {
     int n;
-    cin >> n;
-    vector<double> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
-    }
+    std::cin >> n;
 
-    cin >> n;
-    vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
-    }
+    std::vector<float> vec1(n);
+    for (auto& elem : vec1) std::cin >> elem;
 
-    double sum = 0.0;
+    std::vector<float> vec2(n);
+    for (auto& elem : vec2) std::cin >> elem;
+
+    float sum = 0.0;
     for (int i = 0; i < n; ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+    std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
 }
