@@ -2,21 +2,20 @@ int main() {
     int n, target;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
     cin >> target;
-    
-    map<int, int> numToIndex;
-    for (int i = 0; i < n; ++i) {
+
+    map<int, int> mp;
+    for (int i = 0; i < n; i++) {
         int complement = target - nums[i];
-        if (numToIndex.find(complement) != numToIndex.end()) {
-            cout << nums[numToIndex[complement]] << endl;
-            cout << nums[i] << endl;
+        if (mp.find(complement) != mp.end()) {
+            cout << complement << endl << nums[i];
             break;
         }
-        numToIndex[nums[i]] = i;
+        mp[nums[i]] = i;
     }
-    
+
     return 0;
 }
