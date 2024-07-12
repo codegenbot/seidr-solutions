@@ -1,18 +1,15 @@
+```Python
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
 
     music_string = music_string.replace(" ", "")
 
-    if not music_string.isalnum():
-        return ["Invalid input"]
-
     music_list = []
     i = 0
     while i < len(music_string):
-        if not music_string[i : i + 1].isalnum():
-            i += 1
-            continue
+        if not music_string[i].isalnum():
+            break
 
         if music_string[i:i+2] == "o|":
             music_list.append(2)
@@ -25,7 +22,7 @@ def parse_music(music_string: str) -> list:
             i += 5
         elif music_string[i:i+2] == "o o":
             if not music_string[i+1].isalnum() or not music_string[i+1:i+2] == "|":
-                return ["Invalid input"]
+                return []
             music_list.append(4)
             i += 2
         elif music_string[i:i+3] == "o o|":
