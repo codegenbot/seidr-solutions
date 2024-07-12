@@ -18,11 +18,11 @@ def mean_absolute_deviation():
                 print("Please enter positive numbers.")
             else:
                 mean = sum(numbers) / len(numbers)
-                return sum(abs(num - mean) for num in numbers) / len(numbers)
+                return round(sum(abs(num - mean) for num in numbers) / len(numbers), 2)
         except ZeroDivisionError:
             print("Invalid input. Please try again.")
         except TypeError:
             print("Invalid input. Please try again.")
 
 
-mean_absolute_deviation()
+print(mean_absolute_deviation())
