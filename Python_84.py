@@ -1,6 +1,6 @@
 def solve(N):
     try:
-        N = int(bin(int(input(), 2))[2:])
+        N = int(bin(int(input("Please provide a binary number: "), 2))[2:])
     except ValueError:
         return "Invalid Input. Please provide a binary number."
     if N == 0:
@@ -11,4 +11,4 @@ def solve(N):
         return bin(N | (N - 1))[2:].replace("1", "10")
 
 if __name__ == "__main__":
-    print(solve(int(input(), 2)))
+    print(solve(int(input("Please provide a binary number: "), 2)))
