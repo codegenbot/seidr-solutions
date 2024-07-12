@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     s = input("Enter a string: ")
     while True:
@@ -12,12 +13,15 @@ def decode_cyclic():
     if n == "1":
         print(s)
     else:
-        result = s[0]
-        for i, char in enumerate(s[1:], start=2):
+        result = [s[0], s[1]]
+        for i, char in enumerate(s[2:], 2):
             if i % 3 == 1:
-                result += char
+                result.append(char)
             elif i % 3 == 2:
-                result += char
-            else:
-                result += result[-1]
-        print(result)
+                result.append(char)
+        while len(result) < len(s):
+            result.append(result[-1])
+        print("".join(result))
+
+
+decode_cyclic()
