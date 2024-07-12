@@ -1,14 +1,17 @@
-```Python
-def make_palindrome(s: str) -> str:
-    s = s.strip()
-    while not is_palindrome(s):
-        if len(s) % 2 == 0:
-            s = s[1:-1]
-        elif s[0] == s[-1]:
-            s = s[1:-1]
-        else:
-            s = s[1] + s[0] + s[-1]
-    return s
-
+```
 def is_palindrome(s: str) -> bool:
     return s == s[::-1]
+
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s
+    else:
+        temp = s
+        while not is_palindrome(temp):
+            if len(temp) % 2 == 0:
+                temp = temp[1:-1]
+            elif temp[0] == temp[-1]:
+                temp = temp[1:-1]
+            else:
+                temp = temp[1] + temp[0] + temp[-1]
+        return temp
