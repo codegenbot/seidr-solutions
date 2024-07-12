@@ -3,25 +3,27 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 std::any compare_one(std::any a, std::any b) {
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
         // Comparison logic for integers
-    }
-    else if(a.type() == typeid(float) && b.type() == typeid(float)){
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         // Comparison logic for floats
-    }
-    else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        // Comparison logic for strings
-    }
-    else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str_a = std::any_cast<std::string>(a);
+        std::string str_b = std::any_cast<std::string>(b);
+        if (str_a == str_b) {
+            return std::any("Equal");
+        } else {
+            return std::any("Not Equal");
+        }
+    } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
         // Convert and compare int and string
     }
-    return "None"s; // Return string instead of const char*
+    
+    return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<string>(compare_one(string("1"), string("1"))).type() == typeid(string)); // Ensure return type
+    assert(std::any_cast<const char*>(compare_one(std::string("1"), std::string("1")).type() == typeid(const char*))); // Ensure correct return type
     return 0;
 }
