@@ -1,32 +1,23 @@
 int score(string s) {
-    int total = 0, frame = 0, ball = 0;
-    vector<int> scores(22, 0);
-    for (char c : s) {
-        if (c == 'X') {
-            scores[frame] = 10;
-            frame += 2;
-        } else if (c == '/') {
-            scores[frame] = 10 - scores[frame - 1];
-            frame += 1;
-        } else if (c == '-') {
-            scores[frame] = 0;
-            frame += 1;
+    int total = 0;
+    int frame = 1;
+    int i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0');
+            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0');
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
+            i += 2;
         } else {
-            scores[frame] = c - '0';
-            frame += 1;
+            total += (s[i] == '-' ? 0 : s[i] - '0');
+            total += (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
+            i += 2;
         }
-    }
-    for (int i = 0; i < 10; i++) {
-        if (scores[ball] == 10) {
-            total += 10 + scores[ball + 1] + scores[ball + 2];
-            ball += 1;
-        } else if (scores[ball] + scores[ball + 1] == 10) {
-            total += 10 + scores[ball + 2];
-            ball += 2;
-        } else {
-            total += scores[ball] + scores[ball + 1];
-            ball += 2;
-        }
+        frame++;
     }
     return total;
 }
