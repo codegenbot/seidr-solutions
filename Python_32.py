@@ -1,20 +1,8 @@
 def main():
-    xs = []
-    while True:
-        try:
-            val = input().strip()
-            if not val:
-                break
-            xs.append(float(val))
-        except ValueError:
-            print("Invalid input. Please enter a valid number.")
+    xs = list(map(float, input("Enter a space-separated list of floats: ").strip().split()))
 
     def find_zero(xs: list):
         try:
-            n = len(xs)
-            if n < 2:
-                raise ValueError("Input list must have at least 2 elements")
-
             a = xs[-1]
             b = xs[-2]
 
@@ -22,10 +10,14 @@ def main():
                 raise ZeroDivisionError("Division by zero not allowed")
 
             return -b / a
-        except (ValueError, ZeroDivisionError) as e:
-            return str(e)
+        except (ZeroDivisionError, IndexError):
+            raise ValueError("Input list must have at least 2 elements")
 
-    print(find_zero(xs))
+    try:
+        result = find_zero(xs)
+        print(result)
+    except (ValueError, ZeroDivisionError) as e:
+        print(str(e))
 
 # Call the main function
 main()
