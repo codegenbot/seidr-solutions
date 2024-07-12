@@ -1,8 +1,12 @@
-#include <algorithm>
 #include <boost/any.hpp>
-using namespace boost;
+#include <string>
 
-else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    std::string x = std::any_cast<std::string>(a);
-    std::string y = std::any_cast<std::string>(b);
-    return (x < y) ? a : ((y < x) ? b : a);
+bool operator<(const boost::any& a, const boost::any& b) {
+    if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string x = std::any_cast<std::string>(a);
+        std::string y = std::any_cast<std::string>(b);
+        return x < y;
+    }
+    else
+        throw std::runtime_error("Invalid types");
+}
