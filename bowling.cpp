@@ -1,57 +1,33 @@
-int scoreOfRound(string bowls) {
+int bowling(string s) {
     int score = 0;
-    int frame = 1;
-    int ball = 0;
-    int frames[10] = {0};
-    
-    for (int i = 0; i < bowls.size(); i++) {
-        if (bowls[i] == 'X') {
-            frames[frame-1] = 10;
-            if (frame > 1) {
-                frames[frame-1] += frames[frame-2];
+    int frame = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (frame < 9) {
+                score += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - (s[i + 1] - '0') : (s[i + 1] - '0') + (s[i + 2] - '0');
             }
-            if (frame > 2) {
-                frames[frame-1] += frames[frame-3];
+            frame++;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            if (frame < 9) {
+                score += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
             }
-            if (ball == 0) {
-                frame++;
+            frame++;
+        } else if (s[i] >= '0' && s[i] <= '9') {
+            score += s[i] - '0';
+            if (frame < 9 && s[i + 1] == '/') {
+                score += 10 - (s[i] - '0');
             }
-            ball = 0;
-        } else if (bowls[i] == '/') {
-            frames[frame-1] = 10 - frames[frame-1];
-            if (frame > 1) {
-                frames[frame-1] += frames[frame-2];
-            }
-            if (ball == 0) {
-                frame++;
-            }
-            ball = 0;
-        } else if (bowls[i] == '-') {
-            ball++;
-        } else {
-            frames[frame-1] += bowls[i] - '0';
-            if (ball == 1) {
-                if (frame > 1) {
-                    frames[frame-1] += frames[frame-2];
-                }
-                ball = 0;
-                frame++;
-            } else {
-                ball++;
-            }
+            frame++;
         }
     }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-    }
-    
     return score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << scoreOfRound(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << bowling(s) << endl;
     return 0;
 }
