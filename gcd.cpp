@@ -13,15 +13,11 @@ std::vector<int> findSubstringIndices(const std::string& text, const std::string
 }
 
 int main() {
-    std::string text = "458376766960";
-    std::string target = "766960";
-
+    std::string text = "abcdbcdabc";
+    std::string target = "bcd";
     std::vector<int> result = findSubstringIndices(text, target);
-
     for (int index : result) {
         std::cout << index << " ";
     }
-    std::cout << std::endl;
-
     return 0;
 }
