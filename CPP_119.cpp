@@ -15,6 +15,6 @@ std::string match_parens(const std::vector<std::string>& lst) {
 
 int main() {
     // Example test case
-    assert (match_parens({")", "("}) == "Yes");
+    assert (match_parens({")", "("}) == "Yes" );
     return 0;
 }
