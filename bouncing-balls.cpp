@@ -10,7 +10,7 @@ int main() {
     total_distance = starting_height + bounce_height;
 
     for (int i = 2; i <= num_bounces; i++) {
-        bounce_height *= bounciness_index;
+        bounce_height = bounce_height * bounciness_index;
         total_distance += bounce_height * 2;
     }
 
