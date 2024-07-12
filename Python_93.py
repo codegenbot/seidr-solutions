@@ -5,7 +5,7 @@ def encode(message):
         if char.isalpha():
             char_code = ord(char)
             if char.lower() in vowels:
-                new_code = (char_code - ord('A') + vowels.index(char.lower()) + 2) % 26 + ord('A')
+                new_code = char_code + vowels.index(char.lower()) + 2
                 if char.isupper():
                     encoded_message += chr(
                         new_code if new_code <= 90 else new_code - 26
@@ -19,3 +19,8 @@ def encode(message):
         else:
             encoded_message += char
     return encoded_message
+
+def check(func):
+    assert func("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
+
+check(encode)
