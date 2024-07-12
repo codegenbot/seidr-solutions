@@ -7,7 +7,8 @@ def calculate_distance(starting_height, first_bounce_height, num_bounces):
     )
     return total_distance
 
+
 starting_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
-print(calculate_distance(starting_height, first_bounce_height, num_bounces))   
+print(calculate_distance(starting_height, first_bounce_height, num_bounces))
