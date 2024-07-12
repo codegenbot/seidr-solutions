@@ -1,21 +1,22 @@
-#include <initializer_list>
-#include <cassert>
+```cpp
+#include <iostream>
 
-bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
-    std::string str = "";
-    for(int i : q[0]) {
-        str += std::to_string(i);
-    }
-    if(str != std::string(str.rbegin(), str.rend())) 
+bool will_it_fly(std::vector<std::vector<int>> q, int w) {
+    // your function implementation here
+    if(w >= (q[0][1] - q[0][0]) && w >= (q[1][1] - q[1][0])) {
+        return true;
+    } else {
         return false;
-    int sum = 0;
-    for(int i : q[0]) {
-        sum += i;
     }
-    return sum <= w;
 }
 
 int main() {
-    std::vector<std::vector<int>> q = {{5}};
-    assert(will_it_fly({{5}} , 5) == true);
+    std::vector<std::vector<int>> q = {{1, 2}, {3, 4}};
+    int w = 6;
+    if (!will_it_fly(q, w)) {
+        std::cout << "Will not fly.\n";
+    } else {
+        std::cout << "Will fly.\n";
+    }
     return 0;
+}
