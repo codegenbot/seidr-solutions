@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,11 +29,8 @@ std::string reverse_delete(std::string& s, std::string& c) {
     return rev;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return (a.empty() && b.empty()) || (a.size() == b.size());
+bool issame(std::string a, std::string b) {
+    return (a.empty() && b.empty()) || (a == b);
 }
 
 int main() {
@@ -46,7 +42,7 @@ int main() {
         std::cout << "True is not equal to itself." << std::endl;
     }
     
-    assert(issame({reverse_delete("mamma", "mia"), reverse_delete("mamma", "True"), ""}));
+    assert(issame(reverse_delete("mamma", "mia"), reverse_delete("mamma", "True")) && issame("", ""));
     
     return 0;
 }
