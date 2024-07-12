@@ -6,10 +6,13 @@ def largest_prime_factor(n: int):
             return i
         i -= 1
 
-def is_prime(num: int):
-    if num < 2:
+def is_prime(k: int):
+    if k < 2:
         return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
+    for i in range(2, int(k**0.5) + 1):
+        if k % i == 0:
             return False
     return True
+
+num = int(input("Enter a number: "))
+print(largest_prime_factor(num))
