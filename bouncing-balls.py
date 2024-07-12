@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     start_height = float(input())
     first_bounce_height = float(input())
@@ -13,5 +14,6 @@ def bouncing_balls():
             distance = (1 + 2 * ((start_height / first_bounce_height) ** 0.5)) ** (i+1)
         total_distance += distance - 1
     print(total_distance)
+
 
 bouncing_balls()
