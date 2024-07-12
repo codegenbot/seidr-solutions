@@ -5,13 +5,7 @@
 int flip_case(const std::string& input) {
     std::string output = "";
     for (char c : input) {
-        if (isupper(c)) {
-            output += tolower(c);
-        } else if (islower(c)) {
-            output += toupper(c);
-        } else {
-            output += std::string(1, c);
-        }
+        output = output + (c >= 'A' && c <= 'Z' ? (char)(c + ('a' - 'A')) : c);
     }
     return 0;
 }
