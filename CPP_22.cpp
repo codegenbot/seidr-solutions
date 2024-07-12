@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <list>
+#include <boost/config.hpp>
 #include <boost/any.hpp>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
