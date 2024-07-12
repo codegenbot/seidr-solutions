@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = [(i, j) for i in range(n) for j in range(n)]
@@ -19,7 +20,7 @@ def minPath(grid, k):
 
     for i, j in m:
         for p in dfs(i, j, []):
-            print(p)
             if len(p) == k:
                 return sorted(p)
+            print(p)
     return []
