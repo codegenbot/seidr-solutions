@@ -5,11 +5,12 @@ p = int(input("Enter value of p: "))
 
 def power_mod(a, n, p):
     if n < 0:
-        return pow(pow_mod(a, -n, p), -1, p)
-    elif n > 0:
-        return (a * power_mod(a, n - 1, p)) % p
+        a = pow(a, -1, p)
+    elif n > 1:
+        a = (a * power_mod(a, n - 1, p)) % p
     else:
-        return a % p
+        a = a % p
+    return a
 
 
 print(power_mod(a, n, p))
