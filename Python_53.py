@@ -1,5 +1,9 @@
-```Python
+```
 def add(x: int, y: int):
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    return num1 + num2
+    return x + y
+
+print("Enter two numbers separated by space: ")
+num1 = int(input())
+num2 = int(input())
+
+print("The sum is ", add(num1, num2))
