@@ -1,7 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <iostream>
 
 bool issameHelper(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -28,6 +26,6 @@ int mainFunction() {
     }
     std::cout << std::endl;
     if (!issameHelper(sortedListSum({{"aaaa", "bbbb", "dd", "cc"}}), {{"cc","dd","aaaa","bbbb"}}))
-        return 1;
+        return 1; 
     return 0;
 }
