@@ -21,6 +21,9 @@ int main() {
     vector<int> nums;
     int num;
     while (cin >> num) {
+        if (cin.peek() == '\n') {
+            break;
+        }
         nums.push_back(num);
     }
 
