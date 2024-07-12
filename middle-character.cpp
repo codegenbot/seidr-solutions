@@ -8,8 +8,7 @@ int main() {
     
     int len = s.length();
     if (len % 2 == 0) {
-        string res = s.substr(len / 2 - 1, 1);
-        res += s.substr(len / 2, 1);
+        string res = s.substr(len / 2 - 1, 2);
         cout << "Middle characters are: " << res << endl;
     } else {
         string res = s.substr(len / 2, 1);
