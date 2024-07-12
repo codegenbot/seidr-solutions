@@ -1,5 +1,10 @@
-```
-def factorize(n: int) -> List[int]:
+def main():
+    n = int(input("Enter an integer: "))
+    factors = factorize(n)
+    print(f"The prime factors of {n} are: {factors}")
+
+
+def factorize(n: int) -> list:
     if not isinstance(n, int):
         return [n]
     factors = []
@@ -16,3 +21,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+
+if __name__ == "__main__":
+    main()
