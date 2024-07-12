@@ -6,6 +6,7 @@
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
+    std::sort(vec.rbegin(), vec.rend());
 
     int n = vec.size();
     if (n == 1 || std::adjacent_find(vec.begin(), vec.end(), std::not_equal_to<int>()) == vec.end()) {
@@ -21,7 +22,7 @@ int main() {
     int minDiff = totalSum;
     int cutIndex = -1;
 
-    for (int i = 0; i < n - 2; ++i) {
+    for (int i = 0; i < n - 1; ++i) {
         leftSum += vec[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
