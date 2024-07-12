@@ -1,9 +1,7 @@
 import ast
-import sys
 
-expression = sys.stdin.readline().strip()
-
-def solve_boolean(expression):
+def solve_boolean():
+    expression = input().strip()
     return ast.literal_eval(
         expression.replace("T", "True")
         .replace("F", "False")
@@ -11,4 +9,4 @@ def solve_boolean(expression):
         .replace("&", " and ")
     )
 
-print(solve_boolean(expression))
+print(solve_boolean())
