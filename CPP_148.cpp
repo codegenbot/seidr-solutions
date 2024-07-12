@@ -54,10 +54,12 @@ int main() {
 
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    if (!bf(planets, planet1, planet2).empty())
-        std::cout << "Output: ";
-    else
-        std::cout << "No Output";
+    std::vector<std::string> input = {planet1, planet2};
     
+    std::vector<std::string> result = bf(input, planet1, planet2);
+    
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
     return 0;
 }
