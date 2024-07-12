@@ -7,13 +7,11 @@ int vowels_count(string s) {
             case 'i':
             case 'o':
             case 'u':
-                count++;
-                break;
-            case 'y':
-                if (s.find('y') == s.length() - 1)
-                    count++;
-                break;
+                if (c == 'y' && s[s.size() - 1] != 'y') break;
+            default:
+                continue;
         }
+        count++;
     }
     return count;
 }
