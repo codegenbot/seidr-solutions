@@ -1,12 +1,22 @@
-```
-try:
-    num = int(input("Enter the number: "))
-    if isinstance(num, int) and num >= 0:
-        if num >= 3:
-            check(num)
+```Python
+def sumOfDigits(n):
+    return sum(int(digit) for digit in str(n))
+
+def check(n):
+    if isinstance(n, int) and n >= 0:
+        if sumOfDigits(n) % 3 == 0:
+            print("The number is divisible by 3")
         else:
-            print("Program did not receive expected input")
-    else:
-        print("Invalid input. Please enter a non-negative integer.")
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+            print("The number is not divisible by 3")
+
+try:
+    while True:
+        num = input("Enter the number: ")
+        try:
+            n = int(num)
+            check(n)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+except Exception as e:
+    print(f"An error occurred: {e}")
