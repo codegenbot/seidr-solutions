@@ -12,9 +12,9 @@ def solve_boolean(expression):
             op = char
             while len(operators) > 0 and operators[-1] == op:
                 if op == '&':
-                    result = all(operators)
+                    result = all([bool(x) for x in operators])
                 elif op == '|':
-                    result = any(operators)
+                    result = any([bool(x) for x in operators])
                 operators.pop()
             operators.append(char)
         else:
@@ -26,3 +26,9 @@ def solve_boolean(expression):
                 elif op == '|':
                     result = result or (char == 'T')
     return result
+
+print(solve_boolean('t'))  # True
+print(solve_boolean('f'))  # False
+print(solve_boolean('f&f'))  # False
+print(solve_boolean('f&t'))  # False
+print(solve_boolean('t&f'))  # False
