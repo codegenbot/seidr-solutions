@@ -11,5 +11,5 @@ std::vector<int> pluck(std::vector<int> v) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::vector<int>(a) == std::vector<int>(b);
+    return a == b;
 }
