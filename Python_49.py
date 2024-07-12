@@ -1,3 +1,4 @@
+```
 a = int(input("Enter value of a: "))
 n = int(input("Enter value of n: "))
 p = int(input("Enter value of p: "))
