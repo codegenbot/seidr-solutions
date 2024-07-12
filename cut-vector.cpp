@@ -6,17 +6,18 @@
 using namespace std;
 
 int main() {
+    vector<int> nums;
     int n;
     cin >> n;
-    
-    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
 
     int sum = 0;
-    for (int num : nums) {
-        sum += num;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
 
     int prefixSum = 0;
@@ -32,8 +33,18 @@ int main() {
         }
     }
 
-    vector<int> firstSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> secondSubvector(nums.begin() + cutIndex + 1, nums.end());
+    vector<int> firstSubvector;
+    vector<int> secondSubvector;
+
+    for (int i = 0; i < cutIndex + 1; i++) {
+        firstSubvector.push_back(nums[i]);
+    }
+
+    if (cutIndex < n - 1) {
+        for (int i = cutIndex + 1; i < n; i++) {
+            secondSubvector.push_back(nums[i]);
+        }
+    }
 
     for (int num : firstSubvector) {
         cout << num << " ";
