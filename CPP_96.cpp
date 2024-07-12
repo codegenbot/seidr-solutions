@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::vector<int>{a} == std::vector<int>{b};
+    return a == b;
 }
 
 std::vector<int> count_up_to(int n) {
