@@ -23,15 +23,14 @@ int main() {
     }
     
     int prefixSum = 0;
-    int minDiff = INT_MAX;
+    int minDiff = INT_MAX/2;
     int cutIndex = -1;
-    
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
+        int suffixSum = sum - prefixSum - nums[i];
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
@@ -40,12 +39,23 @@ int main() {
     cout << "2" << endl;
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i];
+        if (i != cutIndex) {
+            cout << " ";
+        }
     }
     cout << endl;
+    
+    cout << "1" << endl;
+    
     for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i];
+        if (i != n - 1) {
+            cout << " ";
+        }
     }
+    
+    cout << endl;
     
     return 0;
 }
