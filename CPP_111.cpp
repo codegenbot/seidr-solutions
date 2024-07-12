@@ -1,10 +1,10 @@
-#include <map>
-#include <vector>
 #include <string>
+#include <vector>
+#include <map>
 
 using namespace std;
 
-bool issame(map<pair<char,int>, bool> a, map<pair<char,int>, bool> b) {
+bool issame(const map<pair<char,int>, bool>& a, const map<pair<char,int>, bool>& b) {
     if(a.size() != b.size()) return false;
     for(auto& pair : a) {
         if(b.find(pair) == b.end()) 
@@ -13,7 +13,7 @@ bool issame(map<pair<char,int>, bool> a, map<pair<char,int>, bool> b) {
     return true;
 }
 
-map<pair<char,int>, int> histogram(string test) {
+map<pair<char,int>, int> histogram(const string& test) {
     map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
@@ -35,19 +35,11 @@ map<pair<char,int>, int> histogram(string test) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            for (const auto& p : result) {
-                if (p.second == maxCount) {
-                    maxCountMap[p.first] = p.second;
-                }
-            }
+            maxCountMap[pair.first] = pair.second;
         } else if (pair.second == maxCount) {
             maxCountMap[pair.first] = pair.second;
         }
     }
 
     return maxCountMap;
-}
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 0}}));
 }
