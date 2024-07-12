@@ -4,8 +4,16 @@ def largest_prime_factor(n: int):
     while i > 1:
         if n % i == 0:
             j = i
-            while j > 1 and n % j == 0:
-                j -= 1
-            return i
+            while j <= (n // j):
+                if n % j == 0 and is_prime(j):
+                    return j
+                j += 1
         i -= 1
-    return 2
+
+def is_prime(k: int):
+    if k < 2:
+        return False
+    for d in range(2, int(k**0.5) + 1):
+        if k % d == 0:
+            return False
+    return True
