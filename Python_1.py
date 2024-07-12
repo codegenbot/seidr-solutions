@@ -1,12 +1,13 @@
-def separate_paren_groups(paren_string):
+def separate_paren_groups():
+    paren_string = input("Enter the string of parentheses: ")
     separated_groups = []
     current_group = ""
     open_count = 0
 
     for char in paren_string:
-        if char == '(':
+        if char == "(":
             open_count += 1
-        elif char == ')':
+        elif char == ")":
             open_count -= 1
 
         current_group += char
@@ -17,4 +18,5 @@ def separate_paren_groups(paren_string):
 
     return separated_groups
 
-print(separate_paren_groups(raw_input("Enter the string of parentheses: ").strip()))
+
+print(separate_paren_groups())
