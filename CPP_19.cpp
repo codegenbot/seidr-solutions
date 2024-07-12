@@ -1,24 +1,27 @@
+#include <iostream>
+#include <map>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
-string sort_numbers_with_map(string numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-    map<int, string> reverse_map;
+std::string sort_numbers_with_map(const std::string& numbers) {
+    std::map<std::string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+    std::map<int, std::string> reverse_map;
 
-    for (auto const &pair : number_map) {
+    for (const auto &pair : number_map) {
         reverse_map[pair.second] = pair.first;
     }
 
-    vector<int> sorted_numbers;
-    istringstream iss(numbers);
-    string token;
+    std::vector<int> sorted_numbers;
+    std::istringstream iss(numbers);
+    std::string token;
     while (iss >> token) {
         sorted_numbers.push_back(number_map[token]);
     }
 
-    sort(sorted_numbers.begin(), sorted_numbers.end());
+    std::sort(sorted_numbers.begin(), sorted_numbers.end());
 
-    string result;
+    std::string result;
     for (int num : sorted_numbers) {
         result += reverse_map[num] + " ";
     }
@@ -27,8 +30,7 @@ string sort_numbers_with_map(string numbers) {
 }
 
 int main() {
-    string numbers = "one three five two four";
-    cout << sort_numbers_with_map(numbers) << endl;
-
+    std::string numbers = "one five two four three";
+    std::cout << sort_numbers_with_map(numbers) << std::endl;
     return 0;
 }
