@@ -3,9 +3,7 @@ def fibfib(n: int):
         return 0
     a, b = 0, 1
     total = 0
-    while True:
+    while b <= n:
         total += a
         a, b = b, a + b
-        if b > n:
-            break
-    print(total)
+    return total
