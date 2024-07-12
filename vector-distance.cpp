@@ -5,10 +5,14 @@
 
 using namespace std;
 
-double vectorDistance(int n, double* v1, double* v2) {
+double vectorDistance(int n) {
     double sum = 0;
+    vector<double> vec1(n), vec2(n);
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        cin >> vec1[i] >> vec2[i];
+    }
+    for (int i = 0; i < n; i++) {
+        sum += pow(vec2[i] - vec1[i], 2);
     }
     return sqrt(sum);
 }
@@ -16,13 +20,6 @@ double vectorDistance(int n, double* v1, double* v2) {
 int main() {
     int n;
     cin >> n;
-
-    double val1[n], val2[n];
-
-    for(int i = 0; i < n; i++) {
-        cin >> val1[i] >> val2[i];
-    }
-
-    cout << fixed << setprecision(10) << vectorDistance(n, val1, val2) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
 }
