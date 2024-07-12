@@ -21,6 +21,3 @@ def decode_cyclic():
             else:
                 result = result[-1] + result[:-1] + char
         print("".join(result))
-
-
-decode_cyclic()
