@@ -1,9 +1,12 @@
 #include <string>
-int how_many_times(std::string str, std::string substring) {
+
+int how_many_times(string str, string substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring, pos)) != std::string::npos) {
-        ++count;
-        pos += 1; // skip overlaping cases
+    string temp = str;
+    while ((pos = temp.find(substring)) != string::npos) {
+        count++;
+        temp.erase(0, pos + substring.size());
     }
     return count;
+}
