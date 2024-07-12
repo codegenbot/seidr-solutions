@@ -24,11 +24,6 @@ int main() {
         nums.push_back(num);
     }
 
-    if (nums.empty()) {
-        cout << "No input provided." << endl;
-        return 1;
-    }
-
     vector<int> result = findLeaders(nums);
     for (int i = result.size() - 1; i >= 0; i--) {
         cout << result[i] << " ";

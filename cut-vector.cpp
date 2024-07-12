@@ -19,7 +19,7 @@ int main() {
         int rightSum = totalSum - leftSum;
         int currentDiff = std::abs(leftSum - rightSum);
 
-        if (currentDiff <= diff || (currentDiff == diff && leftSum <= rightSum)) {
+        if (currentDiff < diff || (currentDiff == diff && leftSum <= rightSum)) {
             diff = currentDiff;
             cutIndex = i;
         }
@@ -32,8 +32,9 @@ int main() {
     std::cout << std::endl;
 
     for (int i = cutIndex + 1; i < n; ++i) {
-        std::cout << nums[i] << (i < n ? " " : "\n") ;
+        std::cout << nums[i] << (i < n - 1 ? " " : "") ;
     }
+    std::cout << std::endl;
     
     return 0;
 }

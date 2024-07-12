@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int hours;
@@ -13,9 +12,10 @@ int main() {
         }
         float new_snow_on_ground = snow_on_ground + snow_fallen;
         snow_on_ground = new_snow_on_ground;
+        snow_fall_rate = snow_fallen;
     }
 
-    std::cout << std::fixed << std::setprecision(9) << snow_on_ground << std::endl;
+    std::cout << std::fixed << snow_on_ground << std::endl;
 
     return 0;
 }
