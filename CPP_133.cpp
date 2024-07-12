@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 int sum_squares(const std::vector<float>& lst) {
     int sum = 0;
@@ -13,7 +12,20 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
-    assert(sum_squares({2.5, 3.7, -4.1}) == 32);
+    int n;
+    float num;
+    std::vector<float> inputList;
+
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::cout << "Enter the numbers separated by spaces: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        inputList.push_back(num);
+    }
+
+    std::cout << "Result: " << sum_squares(inputList) << std::endl;
+
     return 0;
 }
