@@ -1,7 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
-
+#include <string>
 using namespace std;
 
 int main() {
@@ -9,7 +8,7 @@ int main() {
     cin >> text >> target;
     
     vector<int> indices;
-    size_t pos = text.find(target, 0);
+    int pos = text.find(target, 0);
     while (pos != string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
