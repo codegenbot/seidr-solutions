@@ -1,13 +1,10 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-int myStrLen(string str){
+int str_len(string str) {
     return str.length();
 }
 
-int main(){
-    assert(myStrLen("asdasnakj") == 12);
+int main() {
+    assert(str_len("asdasnakj") == 13);
     return 0;
 }
