@@ -1,40 +1,26 @@
+Here is the solution:
+
 def minPath(grid, k):
     n = len(grid)
-    visited = [[False] * n for _ in range(n)]
+    m = [(i, j) for i in range(n) for j in range(n)]
+    visited = set()
     path = []
     
-    def dfs(i, j, length):
-        nonlocal path
-        if length == k:
-            return [grid[i][j]]
-        
-        if length > k:
+    def dfs(i, j, p):
+        if len(p) == k:
+            return [p]
+        if (i, j) in visited:
             return []
-        
-        visited[i][j] = True
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        res = None
-        
-        for direction in directions:
-            ni, nj = i + direction[0], j + direction[1]
-            
-            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
-                new_path = dfs(ni, nj, length + 1)
-                
-                if new_path and (not res or new_path + [grid[i][j]] < res):
-                    res = new_path + [grid[i][j]]
-        
-        visited[i][j] = False
+        visited.add((i, j))
+        res = []
+        for x, y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                res += dfs(ni, nj, p + [grid[ni][nj]])
         return res
     
-    for i in range(n):
-        for j in range(n):
-            path = dfs(i, j, 0)
-            
-            if path:
-                break
-            
-        if path:
-            break
-    
-    return path
+    for i, j in m:
+        for p in dfs(i, j, []):
+            if len(p) == k:
+                return sorted(p)
+    return []
