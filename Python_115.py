@@ -2,12 +2,7 @@
 import math
 
 
-def max_fill(grid, n):
-    total_water = 0
-    max_capacity = max(grid)
-    for cell in grid:
-        if cell > 0 and cell > max_capacity:
-            max_capacity = cell
-        if cell > 0 and cell <= max_capacity:
-            total_water += cell
+def max_fill(n, grid):
+    total_water = sum(cell for row in grid for cell in row if cell > 0)
+    max_capacity = min(max(row) for row in grid)
     return math.ceil(total_water / (n * max_capacity))
