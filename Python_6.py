@@ -1,17 +1,22 @@
 def parse_nested_parens(paren_string: str) -> list:
     result = []
     stack = []
+    inside_parens = False
     for char in paren_string:
         if char == "(":
             stack.append(char)
+            inside_parens = True
         elif char == ")":
-            if stack:
+            if stack and stack[-1] == "(":
                 stack.pop()
+                inside_parens = not inside_parens
             else:
-                result.append(1)
-        elif stack:
-            level = len(stack)
-            while stack and stack[-1] != "(":
-                stack.pop()
-            result.append(level)
+                inside_parens = False
+
+    while stack:
+        level = len(stack)
+        result.append(level)
+        for _ in range(level):
+            stack.pop()
+
     return result
