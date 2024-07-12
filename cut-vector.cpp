@@ -1,10 +1,9 @@
 #include <iostream>
-#include <vector>
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
@@ -25,14 +24,14 @@ int main() {
         }
     }
     
-    std::vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
-    std::vector<int> subVec2(nums.begin() + idx + 1, nums.end());
+    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
     
     for (int num : subVec1) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     for (int num : subVec2) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
