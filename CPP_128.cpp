@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cassert>
 #include <cstdlib>
@@ -21,4 +21,8 @@ int prod_signs(std::vector<int> arr) {
 
     return product * sum;
 
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
 }
