@@ -1,22 +1,18 @@
-#include<stdio.h>
-#include<vector>
-using namespace std;
-
 long long minSubArraySum(vector<long long> nums) {
-    long long curr_sum = 0;
-    long long min_sum = LLONG_MAX;
+    if (nums.empty()) return 0;
+
+    int start = 0;
+    long long sum = 0;
+    long long res = INT_MAX;
     
-    for (int i = 0; i < nums.size(); i++) {
-        curr_sum += nums[i];
+    for (int end = 0; end < nums.size(); end++) {
+        sum += nums[end];
         
-        if (curr_sum < min_sum) {
-            min_sum = curr_sum;
-        }
-        
-        if (curr_sum > 0) {
-            curr_sum = 0;
+        while (sum >= 0) {
+            res = min(res, sum);
+            sum -= nums[start++];
         }
     }
     
-    return min_sum;
+    return -res;
 }
