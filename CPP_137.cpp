@@ -1,6 +1,6 @@
 #include <boost/any.hpp>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -11,7 +11,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
             return b;
         } else {
-            return string("None");
+            return boost::any("None");
         }
     } else if(a.type() == typeid(float) && b.type() == typeid(float)){
         if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
@@ -19,7 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
             return b;
         } else {
-            return string("None");
+            return boost::any("None");
         }
     } else if(a.type() == typeid(string) && b.type() == typeid(string)){
         if(stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))){
@@ -27,14 +27,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if(stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))){
             return b;
         } else {
-            return string("None");
+            return boost::any("None");
         }
     } else {
-        return string("None");
+        return boost::any("None");
     }
 }
 
 int main() {
-    assert (boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
-    return 0;
+    assert (boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
 }
