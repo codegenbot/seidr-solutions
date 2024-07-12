@@ -2,7 +2,8 @@ from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    result = []
-    for i in range(1, len(string) + 1):
-        result.append(string[:i])
-    return result
+    prefixes = []
+    for i in range(len(string)):
+        prefix = string[: i + 1]
+        prefixes.append(prefix)
+    return prefixes
