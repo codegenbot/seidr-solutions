@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int score(string s) {
@@ -34,11 +35,4 @@ int score(string s) {
     }
     
     return total;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
 }
