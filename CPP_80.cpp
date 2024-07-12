@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 #include <algorithm>
 
@@ -24,7 +24,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     if(is_happy(input))
-        std::cout << input << " is happy" << std::endl;
+        std::cout << "The string is happy.\n";
     else
-        std::cout << input << " is not happy" << std::endl;
+        std::cout << "The string is not happy.\n";
 }
