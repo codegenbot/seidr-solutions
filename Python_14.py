@@ -3,8 +3,7 @@ from typing import List
 def all_prefixes(string: str) -> List[str]:
     result = [""]
     for char in string:
-        temp_result = [char + p for p in result] + [p + char for p in result]
-        result.extend(temp_result)
+        result.extend([p + char for p in result])
     return result
 
-print(all_prefixes("abc"))
+print(all_prefixs("abc"))
