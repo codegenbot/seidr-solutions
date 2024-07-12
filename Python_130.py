@@ -1,16 +1,13 @@
-```
 def tri(n):
     if n == 0:
         return [3]
     elif n == 1:
-        return [3]
+        return [1]
     elif n == 2:
         return [3, 2]
     else:
-        seq = [3, 2]
-        for i in range(2, n):
-            if i % 2 == 0:
-                seq.append(1 + i // 2)
-            else:
-                seq.append(seq[i-1] + seq[i-2] + seq[i-3])
-        return seq
+        sequence = [3, 2]
+        for _ in range(2, n):
+            next_num = sum(sequence[-3:]) % 7
+            sequence.append(next_num)
+        return sequence
