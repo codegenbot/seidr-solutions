@@ -1,7 +1,6 @@
 import re
 
 paren_string = input("Enter the string of parentheses: ")
-
 if re.match("^[()]*$", paren_string) is None:
     raise ValueError("Invalid input: Please enter only parentheses")
 
@@ -24,4 +23,4 @@ for char in paren_string:
         separated_groups.append(current_group)
         current_group = ""
 
-separated_groups
+print(separated_groups)
