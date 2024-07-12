@@ -5,7 +5,7 @@
 
 using namespace std;
 
-typedef vector<size_t>::size_type size_type;
+using custom_size_type = size_t;
 
 bool checkSame(vector<string> a) {
     if (a.size() != 1) {
