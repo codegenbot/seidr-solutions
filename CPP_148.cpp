@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
+std::vector<std::string> bf(std::vector<std::string>& planets, std::string planet1, std::string planet2) {
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
