@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,9 +19,9 @@ vector<string> split(const string& str, const char* delim) {
     while ((pos = str.find(*delim)) != string::npos) {
         if (pos > 0) {
             tokens.push_back(str.substr(0, pos));
-            str.erase(0, pos + strlen(delim)); 
+            str = str.substr(pos + strlen(delim)); 
         } else {
-            str.erase(0, strlen(delim)); 
+            str = str.substr(strlen(delim)); 
         }
     }
     return tokens;
@@ -42,4 +41,3 @@ int main() {
     assert(words_in_sentence("here is") == "is");
     cout << words_in_sentence("hello world") << endl;
     return 0;
-}
