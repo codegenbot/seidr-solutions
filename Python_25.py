@@ -12,7 +12,7 @@ def factorize(n: int) -> List[int]:
             n //= i
             count += 1
         if count > 0:
-            factors.append(i * count)
+            factors.append(i ** count)
     if n > 1:
         factors.append(n)
     return sorted(factors)
