@@ -12,8 +12,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 start = stack.pop()
                 result.append(paren_string[start:i+1])
+        else:
+            # Handle invalid characters
+            continue
     
     if stack:
-        result.append(paren_string[stack.pop():])
+        # Handle unclosed parentheses
+        return []
     
     return result
