@@ -3,32 +3,22 @@ def sum_product() -> tuple:
     product = 1
     count = 0
 
-    try:
-        user_input = int(input())
-    except ValueError:
-        print("Invalid input. Please enter a digit or type 'stop' to finish.")
-        return sum_product()
-
     while True:
-        if str(user_input).lower() == "stop":
+        print("Enter a number (or 'stop' to finish): ")
+
+        user_input = input()
+
+        if user_input.lower() == "stop":
             break
         elif user_input.isdigit():
-            total_sum += user_input
-            product *= user_input
+            num = int(user_input)
+            total_sum += num
+            product *= num
             count += 1
-            try:
-                user_input = int(input())
-            except ValueError:
-                print("Invalid input. Please enter a digit or type 'stop' to finish.")
-                return sum_product()
         else:
             print("Invalid input. Please enter a digit or type 'stop' to finish.")
-            return sum_product()
 
-    if count > 0:
-        return total_sum, product, total_sum / count
-    else:
-        return total_sum, product, 0
+    return total_sum, product, total_sum / count if count > 0 else 0
 
 result = sum_product()
 print("Sum: ", result[0])
