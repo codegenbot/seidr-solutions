@@ -27,10 +27,10 @@ int main() {
     int cutIndex = -1;
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
-        int suffixSum = ((n % 2 == 0) ? sum - prefixSum : sum) - prefixSum;
+        int suffixSum = sum - prefixSum - nums[i];
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
