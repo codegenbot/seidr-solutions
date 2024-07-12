@@ -1,8 +1,6 @@
 def rolling_max(numbers):
     result = []
-    window_size = 3
+    window_size = 1
     for i in range(len(numbers) - window_size + 1):
         result.append(max(numbers[i : i + window_size]))
-    return result + [max(numbers[-window_size:])]
-
-print(rolling_max([3, 2, 3, 100, 3]))  # Output: [3, 3, 3, 100, 100]
+    return result
