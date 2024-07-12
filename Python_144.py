@@ -1,14 +1,14 @@
-```
 from fractions import Fraction
 
-if __name__ == "__main__":
+def simplify():
+    if input("Are you sure you want to proceed? (yes/no): ") != 'yes':
+        return 
     try:
         x = float(input("Enter numerator: "))
         y = float(input("Enter denominator: "))
     except ValueError:
-        print("Invalid input! Please enter a number.")
-    
+        return 
     if y == 0:
-        print("Denominator cannot be zero!")
+        return 
     else:
-        result = str(Fraction(x,y)); print(result)
+        return str(Fraction(x,y))
