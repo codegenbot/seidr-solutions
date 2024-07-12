@@ -4,8 +4,6 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
-# Read a list of integers from the user
-xs = list(map(int, input().split()))
-
-# Call the function and print the result
-print(find_zero(xs))
+coefficients = list(map(float, input("Enter the coefficients of the polynomial equation separated by spaces: ").split())
+result = find_zero(coefficients)
+print("The zero of the polynomial equation is:", result)
