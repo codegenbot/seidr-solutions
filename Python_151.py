@@ -1,4 +1,8 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
-
-print(double_the_difference([1, 2, 3, 4, 5]))
+def check(func, lst):
+    try:
+        result = func(lst)
+        print(f"The double difference of the input list is {result}")
+    except TypeError as e:
+        print("Error: Please enter a list of integers only.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
