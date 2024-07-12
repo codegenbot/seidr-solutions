@@ -2,7 +2,6 @@
 #include <vector>
 #include <cmath>
 #include <sstream>
-#include <limits>
 
 double calculateEuclideanDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
     double sum = 0.0;
@@ -20,15 +19,20 @@ int main() {
     std::vector<float> vec1(n);
     std::vector<float> vec2(n);
     
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::stringstream ss(input);
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+        ss >> vec1[i];
     }
 
-    // Clear the stream and ignore the comma
-    std::cin.ignore();
-    
+    std::getline(std::cin, input);
+    ss.str("");
+    ss.str(input);
+    ss.clear();
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        ss >> vec2[i];
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
