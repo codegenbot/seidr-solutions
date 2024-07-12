@@ -2,8 +2,7 @@
 import random
 
 def make_palindrome():
-    words = ["madam", "mom", "dad", "noon"]
-    word = random.choice(words)
+    word = random.choice(["madam", "mom", "dad", "noon"])
     return word.capitalize()
 
 while True:
@@ -15,9 +14,7 @@ while True:
         print("Goodbye!")
         break
     else:
-        if result.lower() in ["mom", "dad"]:
-            print(result.capitalize())
-        elif result.lower() not in ["madam", "mom", "dad", "noon"] and len(result) > 1 and result == result[::-1]:
+        if result in [word.lower() for word in ["madam", "mom", "dad", "noon"]]:
             print(result)
         else:
             print("Invalid input. Try again.")
