@@ -1,5 +1,17 @@
 def find_zero(xs: list):
-    x = 0
-    for i in range(len(xs)-1, 0, -1):
-        x = (0 - xs[i]) / xs[i-1]
-    return x
+    if len(xs) % 2 != 0:
+        raise ValueError("Number of coefficients must be even.")
+
+    xs_sorted = sorted(xs, key=abs, reverse=True)
+    largest_non_zero = xs_sorted[0]
+
+    if largest_non_zero == 0:
+        raise ValueError("Largest non zero coefficient must not be zero.")
+
+    if len(xs) == 2:
+        return -xs[0] / xs[1]
+
+    positive_xs = [abs(coeff) for coeff in xs[1::2]]
+    max_ratio = max(positive_xs) / abs(xs[0])
+
+    return 1 / max_ratio
