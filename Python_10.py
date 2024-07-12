@@ -1,4 +1,6 @@
-```Python
+Here is the modified code:
+
+```
 def is_palindrome(s: str) -> bool:
     return s == s[::-1]
 
