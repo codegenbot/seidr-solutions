@@ -6,7 +6,7 @@ right_sum = sum(arr)
 min_diff = float('inf')
 cut_index = -1
 
-for i in range(n):
+for i in range(n-1):
     left_sum += arr[i]
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
@@ -14,8 +14,6 @@ for i in range(n):
     if diff < min_diff:
         min_diff = diff
         cut_index = i + 1
-        if min_diff <= 0:
-            break
 
 subvector1 = arr[:cut_index]
 subvector2 = arr[cut_index:]
