@@ -7,10 +7,10 @@ def encode(message):
             increment = 1 if char.lower() in "aeiou" else 2
             new_code = char_code + increment
 
-            if char.islower() and new_code > ord('z'):
-                new_code -= 26
-            elif char.isupper() and new_code > ord('Z'):
-                new_code -= 26
+            if char.islower() and new_code > 122:
+                new_code = 96 + (new_code - 122)
+            elif char.isupper() and new_code > 90:
+                new_code = 64 + (new_code - 90)
 
             encoded_message += chr(new_code)
         else:
