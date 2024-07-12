@@ -1,3 +1,4 @@
 ```
 def count_upper(s):
-    return sum(1 for i, c in enumerate(s) if i % 2 == 0 and c.upper() in 'AEIOU')
+    vowels = 'AEIOU'
+    return sum(1 for i, c in enumerate(s) if c.upper() in vowels and i % 2 == 0)
