@@ -1,4 +1,4 @@
-''' 
+```
 def process_paths():
     while True:
         paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
@@ -16,4 +16,8 @@ def process_paths():
                 print("Please enter a valid path (e.g., 1-2).")
         else:
             print("Please enter a valid path (e.g., 1-2) or multiple paths separated by commas.")
-''
+    
+    for path in paths:
+        print(f"Path is: {path}")
+
+process_paths()
