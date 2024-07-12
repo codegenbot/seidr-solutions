@@ -1,4 +1,5 @@
-#include <openssl/evp.h>
+#include <openssl/ssl.h>
+#include <openssl/crypto.h>
 #include <string>
 #include <sstream>
 
@@ -10,20 +11,27 @@ string string_to_md5(string text) {
     MD5_CTX ctx;
     unsigned char mdBuffer[16];
     stringstream ss;
-    EVP_MD_CTX* ctx2 = EVP_MD_CTX_new();
-    EVP_MD_CTX_init(ctx2);
-    EVP_DigestInit_ex(ctx2, EVP_md5(), NULL);
-    EVP_DigestUpdate(ctx2, text.c_str(), text.size());
-    unsigned char mdValue[EVP_MAX_BLOCK_LENGTH];
-    int outLen;
-    EVP_DigestFinal_ex(ctx2, mdValue, &outLen);
+    SSL_library_init();
+    CRYPTO_set_locking_callback(NULL);
+    ERR_free_strings();
+    ERR_remove_sect163r2();
+    ERR_remove_sect163k();
+    ERR_remove_sect163g();
+    ERR_remove_sect163f();
+    ERR_remove_sect163e();
+    ERR_remove_sect163d();
+    ERR_remove_sect163c();
+    ERR_remove_sect163b();
+    ERR_remove_sect163a();
 
-    for (int i = 0; i < outLen; i++) {
-        sprintf(&ss.str()[0], "%02x", (char)mdValue[i]);
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.size());
+    MD5_Final(mdBuffer, &ctx);
+
+    for (int i = 0; i < 16; i++) {
+        sprintf(&ss.str()[0], "%02x", (char)mdBuffer[i]);
         ss.seekp(0);
     }
-
-    EVP_MD_CTX_free(ctx2);
 
     return ss.str();
 }
