@@ -1,38 +1,48 @@
 #include <iostream>
 #include <string>
-#include <stdexcept>
+#include <cmath>
 
-using namespace std;
-
-bool compare_any(string a, string b) {
-    try {
-        float fa = stof(a);
-        float fb = stof(b);
-        return fa > fb;
-    } catch (invalid_argument e) {
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a > (double)b ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > (int)b ? a : b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            double fa = stod(a);
-            double fb = stod(b);
-            return fa > fb;
-        } catch (invalid_argument f) {
-            int fa = stoi(a);
-            int fb = stoi(b);
-            return fa > fb;
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = (float)b.convert_to<float>();
+            return fa > fb ? a : b;
+        } catch (...) {
+            return "None";
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        try {
+            double fa = std::stod(a.convert<std::string>().c_str());
+            double fb = b.convert_to<double>();
+            return fa > fb ? a : b;
+        } catch (...) {
+            return "None";
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        try {
+            int fa = std::stoi(a.convert<std::string>().c_str());
+            int fb = b.convert_to<int>();
+            return fa > fb ? a : b;
+        } catch (...) {
+            return "None";
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        try {
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = std::stof(b.convert<std::string>().c_str());
+            return fa > fb ? a : b;
+        } catch (...) {
+            return "None";
         }
     }
-}
-
-int main() {
-    string a, b;
-    cout << "Enter first value: ";
-    cin >> a;
-    cout << "Enter second value: ";
-    cin >> b;
-    
-    if (compare_any(a, b))
-        cout << a << " is greater than " << b << endl;
-    else
-        cout << a << " is not greater than " << b << endl;
-
-    return 0;
+    return "None";
 }
