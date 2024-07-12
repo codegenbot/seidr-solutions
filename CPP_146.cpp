@@ -15,6 +15,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main(){
-    int result = specialFilter(std::vector<int>{});
+    specialFilter(std::vector<int>{});
     return 0;
 }
