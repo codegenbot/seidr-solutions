@@ -1,12 +1,8 @@
 ```
-from typing import List
-
-
-def concatenate(strings: List[str]) -> str:
+def concatenate(strings) -> str:
     if not strings:
         return "No strings were provided."
     return " ".join(strings)
-
 
 strings_list = []
 while True:
