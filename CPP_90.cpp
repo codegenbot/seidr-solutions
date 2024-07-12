@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -37,4 +36,6 @@ int driver() {
     return 0; 
 }
 
-driver();
+int main() { 
+    driver(); 
+}
