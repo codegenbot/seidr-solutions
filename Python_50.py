@@ -1,3 +1,7 @@
+```
+def check(func, *args):
+    return func(*args)
+
 def decode(encoded_str, shift):
     result = ""
     try:
@@ -21,3 +25,5 @@ def decode(encoded_str, shift):
     except ValueError as e:
         print(e)
     print(result)
+
+check(decode, "Hello World", 3)
