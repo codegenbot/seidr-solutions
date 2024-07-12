@@ -12,3 +12,7 @@ int basement(std::vector<int> nums) {
     }
     return negIndex;
 }
+
+int main() {
+    return 0;
+}
