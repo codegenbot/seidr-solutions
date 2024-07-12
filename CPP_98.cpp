@@ -1,10 +1,10 @@
-#include <iostream>
+```cpp
 #include <string>
 
 int count_upper(string s) {
     int count = 0;
-    for (int i = 1; i < s.size(); i += 2) {
-        if (isupper(s[i])) {
+    for(int i = 0; i < s.length(); i++) {
+        if(i % 2 == 0 && (s[i] >= 'A' && s[i] <= 'E') || (s[i] >= 'A' && s[i] <= 'U')) {
             count++;
         }
     }
@@ -12,7 +12,6 @@ int count_upper(string s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 4);
-    std::cout << "All tests passed!" << std::endl;
+    assert(count_upper("EEEE") == 2);
     return 0;
 }
