@@ -1,8 +1,11 @@
+Here is the corrected code:
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-void findConsecutive() {
+int main() {
     std::vector<int> lst;
     int n;
 
@@ -32,8 +35,5 @@ void findConsecutive() {
 
     } else std::cout << "-1";
 
-}
-
-int main() {
-    findConsecutive();
+    return 0;
 }
