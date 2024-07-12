@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+Here is the completed code:
+
+#include <algorithm>
 using namespace std;
 
 vector<float> rescale_to_unit(vector<float> numbers) {
