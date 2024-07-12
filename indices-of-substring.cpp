@@ -5,11 +5,11 @@
 int main() {
     std::string text, target;
     
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    std::cin >> text;
+    std::cin >> target;
     
     std::vector<int> indices;
-    int targetSize = static_cast<int>(target.size());
+    int targetSize = int(target.size());
     for (int i = 0; i <= int(text.size()) - targetSize; ++i) {
         if (text.substr(i, targetSize) == target) {
             indices.push_back(i);
