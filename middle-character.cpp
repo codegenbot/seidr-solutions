@@ -1,12 +1,10 @@
 string middleCharacter(string s) {
-    int len = s.size();
-    if (len % 2 == 0) {
-        return s.substr((len/2) - 1, 2);
+    if (s.length() % 2 == 0) {
+        return s.substr(s.length()/2 - 1, 2);
     } else {
-        return s.substr(len/2, 1);
+        return string(1, s[s.length()/2]);
     }
 }
-
 int main() {
     string s;
     cin >> s;
