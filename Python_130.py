@@ -1,16 +1,14 @@
-```
+Here is the completed code:
+
 def tri(n):
-    if n == 0:
+    if n == 0: 
         return [3]
-
-    tri_seq = [3]
-
-    for _ in range(1, n + 1):
-        if len(tri_seq) % 2 == 0:
-            tri_seq.append(1 + (len(tri_seq) // 2))
-        else:
-            a, b = tri_seq[-2], tri_seq[-1]
-            c = a + b
-            tri_seq.append(c)
-
-    return tri_seq
+    elif n == 1:
+        return [1, 3]
+    elif n == 2:
+        return [1, 3, 2]
+    else:
+        t = [1, 3, 2]
+        for _ in range(3, n + 1):
+            t.append(sum(t[-1], t[-2], (t[-3] + 1) // 2))
+        return t
