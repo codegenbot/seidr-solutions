@@ -1,5 +1,6 @@
-def sorted_list_sum():
-    lst = input("Enter list of words: ").split()
-    digits = [int(word) for word in lst if word.isdigit()]
-    result = [" ".join(map(str, sorted(digits)))]
-    print(result)
+```
+def secure_code():
+    digits = list(input("Enter the digits separated by spaces: ").split())
+    return " ".join(map(str, sorted(digits)))
+
+print(secure_code())
