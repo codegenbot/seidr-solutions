@@ -12,11 +12,13 @@ def separate_paren_groups():
 
         current_group += char
 
+        if open_count < 0:
+            raise ValueError("Invalid input: Unbalanced parentheses")
+
         if open_count == 0:
             separated_groups.append(current_group)
             current_group = ""
 
     return separated_groups
-
 
 print(separate_paren_groups())
