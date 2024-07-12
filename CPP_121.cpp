@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
 int solutions(std::vector<int> lst) {
     int sum = 0;
