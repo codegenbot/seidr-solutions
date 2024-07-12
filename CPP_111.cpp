@@ -16,8 +16,8 @@ bool issameInt(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
     return true;
 }
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
+map<pair<char,int>, int> histogram(string test) {
+    map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
     set<char> letters(test);
@@ -28,7 +28,7 @@ map<char, int> histogram(string test) {
         }
         for(int i=0; i<count; i++) {
             pair<char,int> p = make_pair(c, i);
-            result[p.first] = i;
+            result[p] = 1;
         }
     }
 
@@ -36,7 +36,7 @@ map<char, int> histogram(string test) {
 }
 
 int main() {
-    map<char, int> test = histogram("a");
-    assert(issameInt(test, {{'a', 1}}));
+    map<pair<char,int>, int> test = histogram("a");
+    assert(issameInt(test, {{make_pair('a',0),1},{make_pair('b',1),0}}));
     return 0;
 }
