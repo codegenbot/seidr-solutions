@@ -6,12 +6,14 @@ if not strings or not substring:
         "Invalid input. Please provide at least one string and at least one character to search for."
     )
 else:
-    result = [s for s in strings if s and substring in s]
+    result = [s for s in strings if substring in s]
 
     if not result:
         print(f"Substrings '{substring}' not found in any of the provided strings.")
     else:
-        if len(result) == 1:
-            print([s for s in result if substring in s])
-        else:
-            print(result)
+        print(
+            [
+                f"'{s}' contains '{substring}' at {i+1} and {j+1}"
+                for s, j in zip(result, [s.index(substring) for s in result])
+            ]
+        )
