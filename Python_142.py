@@ -1,14 +1,10 @@
 try:
     lst = input("Enter a list of numbers separated by space: ").split()
-    int_lst = [int(i) for i in lst if i.lstrip('-').isdigit()]
-    
-    if not int_lst:
-        print("No valid integers found.")
-    else:
+    int_lst = [int(i) for i in lst if i.lstrip("-").isdigit()]
+    if all(-100 <= n <= 100 for n in int_lst):
         print(sum_squares(int_lst))
+    else:
+        print("Some numbers are out of range.")
 
 except ValueError as e:
     print("Invalid input. Please enter numeric values.")
-
-def sum_squares(lst):
-    return sum(map(lambda x: int(x)**2, lst))
