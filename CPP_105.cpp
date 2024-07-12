@@ -1,7 +1,6 @@
 #include <vector>
+#include <algorithm>
 #include <string>
-
-bool issame(std::vector<std::string>, std::vector<std::string>);
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> sortedArr;
@@ -38,7 +37,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             }
         }
     }
-    reverse(sortedArr.begin(), sortedArr.end());
+    std::reverse(sortedArr.begin(), sortedArr.end());
     std::vector<std::string> result;
     for (int num : sortedArr) {
         switch (num) {
@@ -72,4 +71,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
     return result;
+}
+
+int main() {
+    if(by_length({9, 4, 8}) != std::vector<std::string>({"Nine", "Eight", "Four"})) {
+        assert(false);
+    }
+    return 0;
 }
