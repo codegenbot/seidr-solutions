@@ -1,11 +1,6 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-
-bool checkEquality(const std::string& s, const std::string& c) {
-    return s == "True";
+bool checkEquality(std::string& s) {
+    return s.compare(0, 4, "True") == 0;
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
@@ -39,23 +34,23 @@ int main() {
     
     if(isEqual) {
         if (!s1.empty() && !s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are the same." << std::endl;
+            std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else if (s1.empty()) {
             if (s2.empty()) {
                 std::cout << "empty and empty are the same." << std::endl;
             } else {
-                std::cout << "empty and " << (s2.empty() ? "empty" : s2) << " are the same." << std::endl;
+                std::cout << "empty and " << s2 << " are the same." << std::endl;
             }
         } else {
             if (s2.empty()) {
-                std::cout << (s1.empty() ? "empty" : s1) << " and empty are the same." << std::endl;
+                std::cout << s1 << " and empty are the same." << std::endl;
             } else {
-                std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are the same." << std::endl;
+                std::cout << s1 << " and " << s2 << " are the same." << std::endl;
             }
         }
     } else {
         if (!s1.empty() && !s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
+            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         } else if (s1.empty() || s2.empty()) {
             std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
         }
