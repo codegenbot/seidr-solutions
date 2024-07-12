@@ -8,5 +8,5 @@ int basement(std::vector<int> vec) {
             return i;
         }
     }
-    return 0;
+    return vec.size();
 }
