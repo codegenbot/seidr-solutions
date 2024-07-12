@@ -2,8 +2,8 @@
 #include <stack>
 
 int precedence(char op) {
-    if (op == '&') return 3; // Higher precedence for '&'
-    if (op == '|') return 2;
+    if (op == '|') return 3; // Higher precedence for '|'
+    if (op == '&') return 2;
     return 1;
 }
 
