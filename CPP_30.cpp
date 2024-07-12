@@ -2,29 +2,21 @@
 #include <algorithm>
 #include <cmath>
 
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
-        if(abs(a[i] - b[i]) > 1e-5)
+        if(std::abs(a[i] - b[i]) > 1e-5)
             return false;
     }
     return true;
 }
 
-int get_positive(vector<float>& v) {
-    for(int i = 0; i < v.size(); ++i) {
-        if(v[i] > 0)
-            return i;
+std::vector<float> get_positive(std::vector<float> v) {
+    std::vector<float> result;
+    for(float x : v) {
+        if(x > 0)
+            result.push_back(x);
     }
-    return -1;
-}
-
-int main() {
-    vector<float> v = {1.2f, 3.4f};
-    cout << get_positive(v) << endl;
-    assert(issame(vector<float>(),v));
-    return 0;
+    return result;
 }
