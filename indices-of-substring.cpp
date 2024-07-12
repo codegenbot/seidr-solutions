@@ -1,10 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 int main() {
     std::string text, target;
+    
     std::getline(std::cin, text);
+    std::cin.ignore(); // Ignore the newline character
     std::getline(std::cin, target);
     
     std::vector<int> indices;
