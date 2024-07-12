@@ -1,39 +1,19 @@
-#include <vector>
-#include <iostream>
-
 int main() {
-    std::vector<int> nums;
-    int n, cutIndex;
-    std::vector<int> firstSubvector, secondSubvector;
+    int cutIndex = 0;
+    int n = nums.size();
+    vector<int> firstSubvector, secondSubvector;
 
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
-    }
-
-    int minDiff = INT_MAX;
-    for (int i = 0; i < n-1; ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i + 1, 0) - accumulate(nums.begin() + i + 1, nums.end(), 0));
-        if (diff < minDiff) {
-            minDiff = diff;
+    for (int i = 1; i < n; ++i) {
+        int diff1 = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+        int diff2 = abs(accumulate(nums.begin(), nums.begin() + i + 1, 0) - accumulate(nums.begin() + i + 1, nums.end(), 0));
+        if (diff1 <= diff2) {
             cutIndex = i;
+            break;
         }
     }
 
-    firstSubvector = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
-    secondSubvector = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
-
-    for (int num : firstSubvector) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    for (int num : secondSubvector) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    firstSubvector = vector<int>(nums.begin(), nums.begin() + cutIndex);
+    secondSubvector = vector<int>(nums.begin() + cutIndex, nums.end());
 
     return 0;
 }
