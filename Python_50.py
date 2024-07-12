@@ -35,6 +35,7 @@ def decode_shift():
             )
         else:
             result += ch
-    return result
 
-print(decode_shift())
+    print(result)
+
+decode_shift()
