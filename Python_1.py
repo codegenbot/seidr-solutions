@@ -17,6 +17,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
 input_string = input("Enter a string with parentheses: ")
 
+# Check if input string is not empty before processing
 if input_string:
     output = separate_paren_groups(input_string)
     print(output)
