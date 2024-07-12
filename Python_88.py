@@ -1,4 +1,3 @@
-'''
 array = list(map(int, input("Enter an array: ").split()))
 
 def sort_array(array):
@@ -11,4 +10,3 @@ def sort_array(array):
         return sorted(array, reverse=True)
 
 print(sort_array(array))
-'''
