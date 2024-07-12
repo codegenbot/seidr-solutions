@@ -1,15 +1,18 @@
 int main() {
     string input;
     getline(cin, input);
-    bool isFirstWord = true;
+    
+    bool capitalize = true;
     for (char& c : input) {
         if (c == '-') {
-            isFirstWord = true;
-        } else if (isFirstWord) {
+            capitalize = true;
+        } else if (capitalize) {
             c = toupper(c);
-            isFirstWord = false;
+            capitalize = false;
         }
     }
+    
     cout << input << endl;
+    
     return 0;
 }
