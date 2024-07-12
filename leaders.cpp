@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -20,13 +21,16 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while (!cin.eof() && cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
 
-    vector<int> result = findLeaders(nums);
-    for (int i = result.size() - 1; i >= 0; i--) {
-        cout << result[i] << " ";
+    if (cin.eof()) {
+        vector<int> result = findLeaders(nums);
+        for (int i = result.size() - 1; i >= 0; i--) {
+            cout << result[i] << " ";
+        }
     }
+    
     return 0;
 }
