@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a) {
-    return true; 
+bool isSame(std::vector<float> a, std::vector<float> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<float> get_positive(std::vector<float> l){
@@ -16,6 +16,6 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 int main() {
-    assert (get_positive({}).size() == 0); 
+    assert (isSame(get_positive({}), {})); 
     return 0;
 }
