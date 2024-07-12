@@ -1,6 +1,7 @@
-#include <vector>
+#include <algorithm>
+using namespace std;
 
-float calculateMedian(vector<float> l) {
+float median(std::vector<float> l) {
     sort(l.begin(), l.end());
     int n = l.size();
     if (n % 2 == 0)
