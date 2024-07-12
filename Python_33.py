@@ -1,4 +1,3 @@
 def sort_third(l: list):
-    for i in range(0, len(l), 3):
-        l[i:i+3] = sorted(l[i:i+3])
-    return l
+    sorted_thirds = sorted([l[i] for i in range(len(l)) if i % 3 == 0])
+    return [sorted_thirds.pop(0) if i % 3 == 0 else l[i] for i in range(len(l))]
