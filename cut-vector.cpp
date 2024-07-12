@@ -20,7 +20,7 @@ int main() {
         int sum1 = std::accumulate(nums.begin(), nums.begin() + i + 1, 0);
         int sum2 = std::accumulate(nums.begin() + i + 1, nums.end(), 0);
         int diff = std::abs(sum1 - sum2);
-        if (diff < minDiff || (diff == minDiff && std::abs(sum1 - sum2) < std::abs(std::accumulate(nums.begin(), nums.begin() + cutIndex + 2, 0) - std::accumulate(nums.begin() + cutIndex + 2, nums.end(), 0)) || (diff == minDiff && i == n - 1))) {
+        if (diff < minDiff || (diff == minDiff && i + 1 < cutIndex)) {
             minDiff = diff;
             cutIndex = i;
         }
