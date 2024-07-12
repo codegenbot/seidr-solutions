@@ -9,14 +9,18 @@ int main() {
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
     if (n > 0) {
-        std::cout << "The count of the numbers that start or end with 1 is: " << starts_one_ends(n) << std::endl;
+        if (n == 1) {
+            std::cout << "The count of the numbers that start or end with 1 is: 2" << std::endl;
+        } else {
+            std::cout << "The count of the numbers that start or end with 1 is: " << starts_one_ends(n) << std::endl;
+        }
     } else {
         std::cout << "Invalid input. Please enter a positive integer." << std::endl;
     }
     return 0;
 }
 
-int starts_one Ends(int n) {
+int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
         std::string str = std::to_string(i);
