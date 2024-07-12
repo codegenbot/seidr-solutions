@@ -1,2 +1,2 @@
 def add_elements(arr, k):
-    return sum(num for num in arr[:k] if num >= 10 and num < 100)
+    return sum(num for num in arr[:k] if num % 2 == 0 and 10 <= num < 100)
