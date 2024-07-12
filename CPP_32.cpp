@@ -1,7 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 double find_zero(std::vector<double> xs){
     double a = xs[0];
@@ -21,9 +20,7 @@ int main(){
     std::vector<double> coeffs = {2.0, -3.0, 1.0}; // example coefficients
     double solution;
     solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
-
-    std::cout << "Solution: " << solution << std::endl;
+    assert(abs(poly(coeffs, solution)) < 1e-3);
 
     return 0;
 }
