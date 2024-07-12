@@ -12,6 +12,8 @@ def indices_of_substring():
 
     return indices
 
+
+# Call the function to solve the problem
 result = indices_of_substring()
 for idx in result:
     print(idx, end=" ")
