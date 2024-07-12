@@ -16,8 +16,12 @@ vector<string> split(const string& str, const char* delim) {
     size_t pos = 0;
     vector<string> tokens;
     while ((pos = str.find(*delim)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+        if (pos > 0) {
+            tokens.push_back(str.substr(0, pos));
+            str.erase(0, pos + 1);
+        } else {
+            str.erase(0, pos + 1);
+        }
     }
     tokens.push_back(str);
     return tokens;
