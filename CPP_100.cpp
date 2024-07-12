@@ -1,19 +1,15 @@
-#include <vector>
-#include <algorithm>
-
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+```cpp
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
-int make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     for (int i = 1; i <= n; ++i) {
-        pile.push_back(i * 2);
+        pile.push_back(i);
     }
-    return 0;
+    return pile;
 }
