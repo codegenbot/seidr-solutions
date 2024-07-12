@@ -1,17 +1,21 @@
 bool solveBoolean(std::string s) {
-    bool result = true;
+    stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
-            char left = s[i - 1];
-            char right = s[i + 1];
-            i++;
-            result = (left == 'T' && right == 'T');
+            char left = st.top();
+            st.pop();
+            char right = st.top();
+            st.pop();
+            st.push((left == 'T' && right == 'T') ? 'T' : 'F');
         } else if (s[i] == '|') {
-            char left = s[i - 1];
+            char left = st.top();
+            st.pop();
             char right = s[i + 1];
             i++;
-            result = (left == 'T' || right == 'T');
+            st.push((left == 'T' || right == 'T') ? 'T' : 'F');
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
+    return (st.top() == 'T');
 }
