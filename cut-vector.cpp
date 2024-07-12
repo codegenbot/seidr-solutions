@@ -22,18 +22,18 @@ int main() {
             cutIndex = i;
         }
     }
-    
+
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << '\n';
     }
-    
+
     std::cout << 0 << '\n';
-    
+
     for (int i = cutIndex; i < nums.size(); ++i) {
         std::cout << nums[i] << '\n';
     }
-    
-    std::cout << 0 << '\n';
 
+    std::cout << 0 << '\n';
+    
     return 0;
 }
