@@ -1,24 +1,21 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 string compare_one(string a) {
-    stof s1 = stof(a);
+    double s1 = stod(a);
     if (a.find('x') != string::npos)
-        return a;
+        return "None";
     else {
-        a = to_string(stoi(a)); 
-        stof s2 = stof(a);
+        int s2 = stoi(a); 
         if (s1 > s2)
-            return a;
+            return to_string(s1);
         else if (s1 == s2)
             return "None";
         else
-            return a;
+            return to_string(s1);
     }
-    return "";
 }
 
 int main() {
