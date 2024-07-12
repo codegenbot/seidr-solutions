@@ -1,8 +1,18 @@
-def find_largest_palindromic_number(n: int) -> int:
-    max_palindrome = 0
-    for i in range(1, n + 1):
-        str_i = str(i)
-        rev_str_i = str_i[::-1]
-        if str_i == rev_str_i and i > max_palindrome:
-            max_palindrome = i
-    return max_palindrome
+```
+from typing import List
+import math
+
+
+def factorize(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while n > 1:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    return factors
