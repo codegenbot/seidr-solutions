@@ -1,11 +1,9 @@
-def add(x: int, y: int):
-    while True:
-        try:
-            result = x + y
-            break
-        except TypeError:
-            print("Error: Please enter valid integers")
-            x = input("Enter first integer: ")
-            y = input("Enter second integer: ")
-            x = int(x)
-            y = int(y)
+def add(x: int, y: int) -> int:
+    result = input("Enter two numbers: ")
+
+    try:
+        x = int(result.split()[0])
+        y = int(result.split()[1])
+        return x + y
+    except ValueError:
+        return "Error: Please enter valid integers"
