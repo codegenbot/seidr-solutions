@@ -5,6 +5,7 @@ def find_zero(xs: list):
         return 0
     return -1 / max_coeff
 
+
 input_list = list(map(int, input().split()))
 output = find_zero(input_list)
 print(output)
