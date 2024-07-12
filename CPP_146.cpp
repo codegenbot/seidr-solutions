@@ -2,14 +2,14 @@
 #include <vector>
 
 int main() {
-    int count = 0;
-    int num;
-    std::cout << "Enter numbers (enter -1 to stop):" << std::endl;
-    while ((std::cin >> num) && (num != -1)) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
-            count++;
-        }
+    std::vector<int> nums;
+    int n;
+    cout << "Enter the number of elements in the vector: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> nums.push_back(i);
     }
-    std::cout << "Count: " << count << std::endl;
+    cout << "The result is: " << specialFilter(nums) << endl;
     return 0;
 }
