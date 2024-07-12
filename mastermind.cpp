@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -22,5 +22,5 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return white;
+    return {white, black};
 }
