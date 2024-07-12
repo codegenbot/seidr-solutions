@@ -5,14 +5,11 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-
 while True:
     input_string = input("Enter a string: ")
-    if input_string.isalpha() and len(input_string) >= 3:
+    if len(input_string) >= 3:
         result = decode_cyclic(input_string)
         print(result)
         break
     else:
-        print(
-            "Input should contain only alphabetic characters and have a length of at least 3. Please try again."
-        )
+        print("Input should have a length of at least 3. Please try again.")
