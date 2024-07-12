@@ -1,10 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <iostream>
-#include<algorithm>
-#include<cmath>
-
 using namespace std;
 
 int gcd(int a, int b) {
