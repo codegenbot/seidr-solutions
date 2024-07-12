@@ -15,13 +15,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     result.append(current_group)
                     current_group = ""
             else:
-                if not stack:
-                    current_group += char
+                current_group += char
 
     if current_group:
         result.append(current_group)
 
     return result
-
-paren_string = input("Enter a string of parentheses: ")
-print(separate_paren_groups(paren_string))
