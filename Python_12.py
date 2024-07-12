@@ -1,3 +1,4 @@
-string1 = input("Enter the first string: ")
-string2 = input("Enter the second string: ")
-print(max([string1, string2], key=len))
+import sys
+string1 = sys.stdin.readline().rstrip()
+string2 = sys.stdin.readline().rstrip()
+print(max(string1, string2, key=len))
