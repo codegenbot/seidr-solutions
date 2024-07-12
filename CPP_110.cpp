@@ -22,8 +22,17 @@ int main() {
     }
     std::cout << "Enter the number of elements in lst2: ";
     std::cin >> m1;
-    std::vector<int> lst2(m1, 0); // Initialize with correct size
-    for (int i = 0; i < m1; i++) {
+    while (m1 < 0) {
+        std::cout << "Please enter a positive integer: ";
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        std::cin >> m1;
+    }
+    int m;
+    std::cout << "Enter the number of elements to fill lst2: ";
+    std::cin >> m;
+    std::vector<int> lst2(m); // Initialize with correct size
+    for (int i = 0; i < m; i++) {
         int temp;
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
