@@ -1,3 +1,4 @@
+```
 def is_multiply_prime(a):
     def is_prime(n):
         if n < 2:
@@ -16,8 +17,4 @@ def is_multiply_prime(a):
     return len(prime_factors) >= 3
 
 if __name__ == "__main__":
-    try:
-        a = int(input("Enter an integer: "))
-        print(is_multiply_prime(a))
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
+    print(is_multiply_prime(int(input("Enter a number: ")))
