@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    int max_right = nums.size() - 1;
-
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] >= nums[max_right]) {
+    
+    for (int i = 0; i < nums.size(); i++) {
+        if (*max_element(nums.begin() + i, nums.end()) == nums[i]) {
             leaders.push_back(nums[i]);
-            max_right = i;
         }
     }
 
@@ -27,7 +26,7 @@ int main() {
     }
 
     vector<int> result = findLeaders(nums);
-    for (int i = result.size() - 1; i >= 0; i--) {
+    for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
 
