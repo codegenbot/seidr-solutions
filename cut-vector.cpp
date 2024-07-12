@@ -42,7 +42,7 @@ int main() {
     }
 
     // Output the subvectors
-    if (cutIndex == 0 || cutIndex == n - 1) {
+    if (cutIndex == 0 || cutIndex == n) {
         cout << "2" << endl;
         cout << cutIndex + 1 << " " << n - cutIndex << endl;
         for (int i = 0; i <= cutIndex; i++) {
