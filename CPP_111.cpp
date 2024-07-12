@@ -2,7 +2,7 @@
 #include <map>
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <set>
 
 using namespace std;
 
@@ -19,10 +19,10 @@ map<pair<char,int>, int> histogram(string test) {
     map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
-    string letters = test;
-    for (char c : unique(letters.begin(), letters.end())) {
+    set<char> letters(test);
+    for (char c : letters) {
         int count = 0;
-        for (char letter : letters) {
+        for (char letter : test) {
             if (letter == c) count++;
         }
         for(int i=0; i<count; i++) {
@@ -51,7 +51,7 @@ map<pair<char,int>, int> histogram(string test) {
 }
 
 int main() {
-    map<pair<char, int>, int> maxCountMap = histogram("a");
-    assert(issame(map<pair<char, int>, bool>(maxCountMap), 
-              map<pair<char, int>, bool>({{'a', 0}})));
+    map<pair<char, int>, bool> maxCountMap = histogram("a");
+    assert(issame(map<pair<char,int>, bool>(maxCountMap), 
+              map<pair<char,int>, bool>({{make_pair('a',0),true},{make_pair('b',1),false}})));
 }
