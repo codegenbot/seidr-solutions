@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     h = float(input())
     hb = float(input())
