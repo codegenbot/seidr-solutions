@@ -1,13 +1,14 @@
+```
 def find_substring():
     while True:
         strings = input("Enter space separated strings: ").lower().split()
         substring = input("Enter a substring to search: ").lower()
 
-        if not strings or not substring:
+        if not (strings and substring):
             print("Expected input: multiple strings and one substring.")
-            print("Invalid input. Please provide at least one string and at least one character to search for.")
-        else:
-            break
+            continue
+
+        break
 
     action = input("Enter search or quit: ")
 
