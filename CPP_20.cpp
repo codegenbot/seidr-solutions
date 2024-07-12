@@ -4,6 +4,7 @@
 #include <limits>
 #include <stdexcept>
 #include <initializer_list>
+#include <utility>
 
 bool issame(vector<float> a,vector<float> b){
     if(a.size() != b.size()) return false;
@@ -18,7 +19,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
         throw runtime_error("Vector must have at least two elements");
     }
     
-    float min_diff = numeric_limits<float>::max();
+    float min_diff = std::numeric_limits<float>::max();
     pair<float, float> closest_pair;
     
     for (int i = 0; i < numbers.size(); ++i) {
@@ -26,7 +27,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_diff), max(min(numbers[i], numbers[j]), min_diff));
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
