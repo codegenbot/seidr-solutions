@@ -1,8 +1,6 @@
-```
 def decode_cyclic():
+    num_groups = int(input("Enter the number of groups: "))
     s = input("Enter the string: ")
-    if len(s) < 3:
-        return s
     result = ""
     i = 0
     while i < len(s):
@@ -13,4 +11,4 @@ def decode_cyclic():
         else:
             result += s[i:]
             break
-    return result
+    return result[:num_groups*3]
