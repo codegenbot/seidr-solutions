@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -15,8 +14,8 @@ int main() {
     int N;
     cin >> N;
     try {
-        cout << to_string(solve(N)) << endl;
+        cout << solve(N) << endl;
     } catch (...) {
-        cout << "Error: Invalid input. Please enter a valid integer." << endl;
+        cout << "Error: Invalid input. Please enter a valid integer - " << N << endl;
     }
 }
