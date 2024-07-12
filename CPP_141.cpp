@@ -1,25 +1,28 @@
-```
-int digit_count = 0;
-bool has_dot = false;
-char prev_char = 'a';
+string file_name_check(string file_name) {
+    bool one_dot = false;
+    int digit_count = 0;
+    char prev_char = 'a'; // assuming first character is a letter
 
-for (char c : file_name) {
-    if (c >= '0' && c <= '9') {
-        digit_count++;
-    } else if (c == '.') {
-        has_dot = true;
-    } else if (c < 'A' || c > 'Z' && c < 'a' || c > 'z') {
-        prev_char = c;
+    for (int i = 0; i < file_name.size(); ++i) {
+        if (file_name[i] == '.') {
+            one_dot = true;
+        } else if (isdigit(file_name[i])) {
+            digit_count++;
+            if (digit_count > 3) return "No";
+        } else if (!isalpha(file_name[i]) || !isalpha(prev_char)) {
+            return "No";
+        }
+        prev_char = file_name[i];
     }
+
+    if (!one_dot) return "No";
+    int dot_pos = file_name.find('.');
+    string ext = file_name.substr(dot_pos + 1);
+
+    vector<string> valid_exts = {"txt", "exe", "dll"};
+    if (find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) {
+        return "No";
+    }
+
+    return "Yes";
 }
-
-if (!has_dot) return "No";
-if (digit_count > 3) return "No";
-
-string suffix = file_name.substr(file_name.find('.') + 1);
-vector<string> valid_suffixes = {"txt", "exe", "dll"};
-if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) {
-    return "No";
-}
-
-return prev_char >= 'A' && prev_char <= 'Z' ? "Yes" : "No";
