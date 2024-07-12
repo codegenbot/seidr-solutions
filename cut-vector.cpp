@@ -2,16 +2,20 @@
 #include <vector>
 #include <climits>
 #include <cstdlib>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
+    string line;
     
-    while (cin >> num) {
+    getline(cin, line);
+    stringstream ss(line);
+    int num;
+    while (ss >> num) {
         nums.push_back(num);
-        if (cin.peek() == ' ' || cin.peek() == '\n') break; // Exit the loop if space or new line character encountered
     }
 
     int n = nums.size();
@@ -35,13 +39,15 @@ int main() {
         }
     }
     
-    for (int i = 0; i < cutIndex; i++) {
-        cout << nums[i] << endl;
+    for (int i = 0; i <= cutIndex; i++) {
+        cout << nums[i] << " ";
     }
+    cout << endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
+    cout << endl;
     
     return 0;
 }
