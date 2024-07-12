@@ -5,9 +5,9 @@ def indices_of_substring():
     indices = [
         i
         for i in range(len(text) - len(target) + 1)
-        if text[i:i + len(target)].lower() == target
+        if target == text[i:i + len(target)]
     ]
 
-    return indices
+    print(indices)
 
-print(indices_of_substring())
+indices_of_substring()
