@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
