@@ -3,6 +3,13 @@
 #include <cctype>
 #include <cassert>
 
+std::string encode(std::string message);
+
+int main() {
+    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
+    return 0;
+}
+
 std::string encode(std::string message){
     std::string encodedMessage = "";
     for(char& c : message){
@@ -19,9 +26,4 @@ std::string encode(std::string message){
         encodedMessage += c;
     }
     return encodedMessage;
-}
-
-int main(){
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg");
-    return 0;
 }
