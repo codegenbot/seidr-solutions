@@ -1,13 +1,12 @@
+import sys
+
 def separate_paren_groups():
-    paren_string = input("Enter the string of parentheses: ")
+    paren_string = sys.stdin.readline().rstrip()
     separated_groups = []
     current_group = ""
     open_count = 0
 
     for char in paren_string:
-        if char not in "()":
-            raise ValueError("Invalid input: Only parentheses are allowed")
-
         if char == "(":
             open_count += 1
         elif char == ")":
@@ -23,6 +22,3 @@ def separate_paren_groups():
             current_group = ""
 
     return separated_groups
-
-print(separate_paren_groups())
-input()
