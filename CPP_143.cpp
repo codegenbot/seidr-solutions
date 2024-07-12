@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -39,8 +39,7 @@ string words_in_sentence(string sentence) {
     return result.empty() ? "" : result.substr(0, result.size() - 1);
 }
 
-int main
-{
+int main() {
     assert(words_in_sentence("here is") == "is");
     cout << words_in_sentence("hello world") << endl;
     return 0;
