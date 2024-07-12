@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <stack>
+using namespace std;
 
 bool evaluateBooleanExpression(std::string expr) {
     std::stack<char> s;
