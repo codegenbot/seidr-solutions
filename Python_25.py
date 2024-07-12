@@ -1,13 +1,11 @@
-def factorize(n):
-    factors = []
-    for i in range(1, n + 1):
-        if n % i == 0:
-            factors.append(i)
-    return factors
-
+n = 0
 try:
     n = int(input("Enter a number: "))
-    result = factorize(n)
-    print(result)
 except ValueError:
-    print("Invalid input! Please enter a valid number.")
+    print("Invalid input. Please enter a valid number.")
+
+def factorize(n):
+    return [i for i in range(1, n + 1) if n % i == 0]
+
+result = factorize(n)
+print(result)
