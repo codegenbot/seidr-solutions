@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 
-int calculateBowlingScore(const string& bowls) {
+int calculateBowlingScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
     int ball = 0;
     int frameScore = 0;
-    vector<int> scores;
+    std::vector<int> scores;
 
     for (char c : bowls) {
         if (c == 'X') {
@@ -49,8 +49,8 @@ int calculateBowlingScore(const string& bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << calculateBowlingScore(bowls) << std::endl;
     return 0;
 }
