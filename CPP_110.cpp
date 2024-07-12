@@ -1,6 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
 
@@ -10,27 +11,24 @@ int main() {
     int n2;
     int m2;
 
-    // Read inputs and handle errors
     while (!(std::cin >> n1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin >> n1;
     }
 
-    // Read inputs and handle errors
     while (!(std::cin >> m2)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin >> m2;
     }
 
-    // Break the loop if m1 is not read successfully
     if (!(std::cin >> m1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         while (true) {
             std::cout << "Enter the number of elements in lst1: ";
             if (!(std::cin >> m1)) break;
@@ -41,18 +39,17 @@ int main() {
         }
     }
 
-    // Read inputs and handle errors
     while (!(std::cin >> n2)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin >> n2;
     }
 
     if (m2 < m1) {
         std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
     } else {
-        break;
+        return 0;
     }
 
     std::vector<int> lst1;
@@ -65,7 +62,7 @@ int main() {
             } catch (...) {
                 std::cout << "Invalid input. Please enter an integer: ";
                 std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cin >> temp;
             }
         }
@@ -85,7 +82,7 @@ int main() {
             } catch (...) {
                 std::cout << "Invalid input. Please enter an integer: ";
                 std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cin >> temp;
             }
         }
