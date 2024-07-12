@@ -1,16 +1,28 @@
+```
+import re
+
 def calculate_score(frames):
     score = 0
-    for i in range(0, len(frames), 2):
-        frame_roll = list(map(int, frames[i:i+2].replace('/', '')))
-        
-        if 'X' in str(frame_roll): 
-            score += 10 + (10 if i < 9 else max(frame_roll))
-        elif '/' in str(frame_roll): 
-            strike_points = [int(x) for x in str(frame_roll).split('/')]
-            score += 10 + sum(strike_points)
-        else: 
-            score += sum(frame_roll) + (i < 9 and 1 or 0)
-    
+    frames = re.sub('[^0-9X\/]', '', frames).upper()
+    i = 0
+    while i < len(frames):
+        if frames[i] == 'X':
+            score += 10
+            i += 1
+        elif frames[i] == '/':
+            score += int(frames[i-1]) + 10 - int(frames[i+1])
+            i += 2
+        else:
+            frame = ''
+            while i < len(frames) and frames[i].isdigit():
+                frame += frames[i]
+                i += 1
+            if len(frame) == 1:
+                score += int(frame)
+            elif len(frame) == 2:
+                score += int(frame[0]) + int(frame[1])
+            else:
+                score += int(frame[0]) + int(frame[1])
     return score
 
 frames = input("Enter the frames string: ")
