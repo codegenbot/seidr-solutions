@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -60,3 +61,4 @@ int main() {
         cout << "Grades are not the same." << endl;
 
     return 0;
+}
