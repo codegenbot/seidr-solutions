@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
 int main() {
     int hours;
@@ -7,12 +8,15 @@ int main() {
     
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
     
-    double snow_remaining = snow_on_ground;
-    for (int i = 1; i <= hours; ++i) {
-        snow_remaining = std::max(0.0, snow_remaining + snow_fall_rate - snow_melt_rate);
+    double remaining_snow = snow_on_ground;
+    for (int i = 0; i < hours; ++i) {
+        remaining_snow = std::max(0.0, remaining_snow + snow_fall_rate - snow_melt_rate);
+        remaining_snow = std::round(remaining_snow * 1e15) / 1e15;
     }
-    
-    std::cout << snow_remaining << std::endl;
+
+    std::cout << std::fixed;
+    std::cout.precision(15);
+    std::cout << remaining_snow << std::endl;
     
     return 0;
 }
