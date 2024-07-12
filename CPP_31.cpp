@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#include <algorithm>
 using namespace std;
 
 bool is_prime(int num) {
@@ -13,7 +12,11 @@ bool is_prime(int num) {
 }
 
 int main() {
-    int num;
-    cin >> num;
+    string str_num;
+    cin >> str_num;
+    int num = stoi(str_num);
+    for (auto& c : str_num) { 
+        c = toupper(c); 
+    }
     cout << (is_prime(num) ? "True" : "False") << endl;
 }
