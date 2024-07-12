@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,8 +7,8 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
+    int stones = 1; // Initialize with a value that's likely to cause the problem.
+    while (stones <= n) {
         pile.push_back(stones);
         if (n % 2 == 1) {
             n++;
