@@ -9,6 +9,8 @@ def find_zero():
                 return -b / a
         except ValueError:
             print("Error: Please enter a valid number.")
+        except ZeroDivisionError:
+            print("Error: Division by zero is not allowed.")
 
 result = find_zero()
 print(result)
