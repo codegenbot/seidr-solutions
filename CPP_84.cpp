@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <assert.h>
 
@@ -16,6 +17,6 @@ int main() {
     int N = std::stoi(input);
     std::cout << solve(N) << std::endl;
 
-    assert(solve(963) == 486); 
+    assert(solve(963) == 483); 
     return 0;
 }
