@@ -3,7 +3,7 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     int y = boost::any_cast<int>(b);
     if (x > y)
         return a;
-    else if (y > x)
+    else if (x < y)
         return b;
     else
         return "None";
@@ -12,37 +12,19 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     double y = boost::any_cast<double>(b);
     if (x > y)
         return a;
-    else if (y > x)
+    else if (x < y)
         return b;
     else
         return "None";
 } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
     string x = boost::any_cast<string>(a);
     string y = boost::any_cast<string>(b);
-    if (x > y)
+    if (stod(x) > stod(y))
         return a;
-    else if (y > x)
-        return b;
-    else
-        return "None";
-} else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-    double y = boost::any_cast<double>(b);
-    string x = boost::any_cast<string>(a);
-    if (stod(x) > y)
-        return a;
-    else if (y > stod(x))
-        return b;
-    else
-        return "None";
-} else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-    double x = boost::any_cast<double>(a);
-    string y = boost::any_cast<string>(b);
-    if (x > stod(y))
-        return a;
-    else if (stod(y) > x)
+    else if (stod(x) < stod(y))
         return b;
     else
         return "None";
 } else {
-    return "None";
+    throw invalid_argument("Invalid input");
 }
