@@ -2,12 +2,14 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+using namespace std;
+
+bool issame(vector<string> v1, vector<string> v2) {
     return v1.size() == v2.size();
 }
 
-std::vector<std::string> by_length(const std::vector<std::string>& vec) {
-    std::vector<std::string> result;
+vector<string> by_length(const vector<string>& vec) {
+    vector<string> result;
     for (const auto& str : vec) {
         if (str.length() < 5) {
             result.push_back(str);
@@ -17,6 +19,6 @@ std::vector<std::string> by_length(const std::vector<std::string>& vec) {
 }
 
 int main() {
-    assert(issame(by_length({"Nine", "Eight", "Four"}), std::vector<std::string>{"Nine", "Eight", "Four"}) );
+    assert(issame(by_length({{"Nine"}, {"Eight"}, {"Four"}}), vector<string>{"Nine", "Eight", "Four"}));
     return 0;
 }
