@@ -1,9 +1,7 @@
-def separate_paren_groups():
-    paren_string = input("Enter the string of parentheses: ")
+import sys
 
-    if len(paren_string) % 2 != 0 or not paren_string:
-        raise ValueError("Invalid input: Please enter a valid string with balanced parentheses")
-    
+def separate_paren_groups():
+    paren_string = sys.stdin.readline().rstrip()
     separated_groups = []
     current_group = ""
     open_count = 0
@@ -24,5 +22,3 @@ def separate_paren_groups():
             current_group = ""
 
     return separated_groups
-
-print(separate_paren_groups())
