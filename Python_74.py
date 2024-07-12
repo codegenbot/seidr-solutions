@@ -8,4 +8,4 @@ def total_match(lst1, lst2):
     elif total_chars_lst1 > total_chars_lst2:
         return lst2
     else:
-        return lst1
+        return "The two lists have the same number of characters."
