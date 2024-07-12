@@ -1,24 +1,16 @@
-```
 def bowling_score(frames):
     score = 0
-    frame_index = 0
-    while frame_index < len(frames):
-        if frames[frame_index] == "X":
+    frame_num = 1
+    for i in range(len(frames)):
+        if frames[i] == "X": 
             score += 10
-            frame_index += 1
-        elif frames[frame_index] == "/":
+            if frame_num < 10:
+                score += int(frames[i+1]) + int(frames[i+2])
+        elif frames[i] == "/": 
             score += 10
-            frame_index += 2
-        else:
-            roll1, roll2 = 0, 0
-            try:
-                roll1 = int(frames[frame_index])
-                if frames[frame_index + 1] != "X" and frames[frame_index + 1] != "/":
-                    roll2 = int(frames[frame_index + 1])
-                frame_index += 1
-                score += roll1
-                if roll1 + roll2 == 10:
-                    score += roll2
-            except ValueError:
-                pass
+            score += int(frames[i+1])
+        else: 
+            if frame_num < 9 and frames[i] != "X" and frames[i] != "/":
+                score += int(frames[i]) + int(frames[i+1])
+        frame_num += (frames[i] == "/" or frames[i] == "X")
     return score
