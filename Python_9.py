@@ -8,5 +8,15 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-user_input = list(map(int, input("Enter space-separated numbers: ").split()))
+user_input = []
+while True:
+    try:
+        line = input()
+        if line:
+            user_input.append(int(line))
+        else:
+            break
+    except EOFError:
+        break
+
 print(rolling_max(user_input))
