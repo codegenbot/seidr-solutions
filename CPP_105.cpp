@@ -126,7 +126,5 @@ int main() {
         }
     }
 
-    // Now you have your result vector
-
     return 0;
 }
