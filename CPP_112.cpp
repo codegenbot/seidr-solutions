@@ -37,6 +37,18 @@ int main() {
     
     bool isSame = checkEquality(s1, "True");
     
+    if (!s1.empty()) {
+        if (!std::count_if(s1.begin(), s1.end(), ::isspace)) { // Check if string has any characters before erasing
+            s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
+        }
+    }
+    
+    if (!s2.empty()) {
+        if (!std::count_if(s2.begin(), s2.end(), ::isspace)) { // Check if string has any characters before erasing
+            s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
+        }
+    }
+    
     if(isSame) {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
