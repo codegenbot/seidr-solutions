@@ -1,6 +1,11 @@
 ```cpp
 #include <vector>
+#include <string>
+#include <initializer_list>
+
 using namespace std;
+
+using custom_size_type = size_t;
 
 bool checkSame(vector<string> a) {
     if (a.size() != 1) {
@@ -50,5 +55,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> grades = {0, 0.7};
     vector<string> result = numerical_letter_grade(grades);
-    assert(checkSame(vector<string>(result.begin(), result.end())) == vector<string>("E", "D-" ));
+    assert(checkSame(vector<string>(result.begin(), result.end())) == vector<string>{"E", "D-" });
     return 0;
+}
