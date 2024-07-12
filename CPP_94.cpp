@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 int calculateScore(int values[], int n) {
     int sum = 0;
@@ -20,6 +19,8 @@ int main() {
     }
     int score = calculateScore(myValues, n);
     std::cout << "The score is: " << score << std::endl;
+
     assert(calculateScore(myValues, n) == 1224);
+
     return 0;
 }
