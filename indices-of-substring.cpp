@@ -12,7 +12,7 @@ int main() {
         indices.push_back(static_cast<int>(pos));
         pos = text.find(target, pos + 1);
     }
-
+    
     for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
