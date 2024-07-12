@@ -6,8 +6,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
+vector<int> findIndicesOfSubstring(const string& text, const string& target) {
+    vector<int> indices;
     int n = text.size(), m = target.size();
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
@@ -26,16 +26,16 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
 
-    std::string text, target;
-    std::cin >> text >> target;
-    std::vector<int> indices = findIndicesOfSubstring(text, target);
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = findIndicesOfSubstring(text, target);
     for (int index : indices) {
-        std::cout << index << " ";
+        cout << index << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
