@@ -4,13 +4,12 @@ def find_closest_number():
             value = float(input("Enter a decimal number: "))
             closest_value = round(value)
             if value != closest_value:
-                diff = abs(value - closest_value)
-                return closest_value, diff
+                print(f"The closest integer is {closest_value} for the input {value}.")
+                return 0
             else:
-                return closest_value, 0
+                return closest_value
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
 
-
-closest_integer, difference = find_closest_number()
-print(f"Closest integer: {closest_integer}, Difference: {difference}")
+closest_integer = find_closest_number()
+print(closest_integer)
