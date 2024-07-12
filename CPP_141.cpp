@@ -1,28 +1,22 @@
-string file_name_check(string file_name) {
-    bool one_dot = false;
-    int digit_count = 0;
-    char prev_char = 'a'; // assuming first character is a letter
+```cpp
+int digit_count = 0;
+bool has_dot = false;
+size_t dot_position = string::npos;
 
-    for (int i = 0; i < file_name.size(); ++i) {
-        if (file_name[i] == '.') {
-            one_dot = true;
-        } else if (isdigit(file_name[i])) {
-            digit_count++;
-            if (digit_count > 3) return "No";
-        } else if (!isalpha(file_name[i]) || !isalpha(prev_char)) {
-            return "No";
-        }
-        prev_char = file_name[i];
+for (char c : file_name) {
+    if (isdigit(c)) {
+        digit_count++;
+        if (digit_count > 3) return "No";
+    } else if (c == '.') {
+        has_dot = true;
+        dot_position = file_name.find(c);
     }
-
-    if (!one_dot) return "No";
-    int dot_pos = file_name.find('.');
-    string ext = file_name.substr(dot_pos + 1);
-
-    vector<string> valid_exts = {"txt", "exe", "dll"};
-    if (find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) {
-        return "No";
-    }
-
-    return "Yes";
 }
+
+if (!has_dot || dot_position == string::npos || !file_name.substr(0, dot_position).front() >= 'A' && !file_name.substr(0, dot_position).front() <= 'Z') return "No";
+
+string extension = file_name.substr(dot_position + 1);
+
+if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
+
+return "Yes";
