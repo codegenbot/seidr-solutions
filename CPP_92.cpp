@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,11 +5,11 @@ bool any_int(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;
     int ci = (int)c;
-    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
+    return (ai == a + bi + ci) || (bi == a + bi + ci) || (ci == a + bi + ci);
 }
 
 int main() {
-    int a, b, c;
+    float a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
 
@@ -20,4 +19,3 @@ int main() {
         cout << "None of the input numbers are integers.\n";
 
     return 0;
-}
