@@ -12,10 +12,8 @@ def indices_of_substring():
         indices = [
             i
             for i in range(len(text) - len(target) + 1)
-            if text[i:i + len(target) - 1] == target[:-1]
+            if text[i:i + len(target) - 1] == target[:-1] or text[i + len(target) - 1] == target[-1]
         ]
-    if not indices and text == target:
-        indices = [0]
 
     print(indices)
 
