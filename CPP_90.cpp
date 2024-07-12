@@ -1,10 +1,24 @@
-Here is the completed code:
-
-int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None in C++ (None doesn't exist)
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    auto it = prev(distance(sorted.begin(), find(sorted.begin(), sorted.end(), *min_element(sorted.begin(), sorted.end()))));
-    if (it != sorted.end()) return *it;
-    else return -1; // Return None in C++ (None doesn't exist)
+```cpp
+int main(){
+    vector<int> lst;
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    cout << "Enter " << n << " integers: ";
+    for(int i = 0; i < n; i++){
+        int x;
+        cin >> x;
+        lst.push_back(x);
+    }
+    if(lst.size() < 2) cout << "-1";
+    else {
+        sort(lst.begin(), lst.end());
+        for(int i = 0; i < lst.size() - 1; i++){
+            if(lst[i] != lst[i+1]) {
+                cout << lst[i];
+                break;
+            }
+        }
+        else cout << "-1";
+    }
 }
