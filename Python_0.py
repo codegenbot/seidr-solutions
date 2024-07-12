@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -19,9 +20,18 @@ while True:
         print("Invalid input. Please enter a valid number or 'done'.")
 
 if len(numbers) < 2:
+    while True:
+        try:
+            num1 = input("Enter a number (or 'done' to finish): ")
+            if num1 == 'done':
+                break
+            numbers.append(float(num1))
+        except ValueError:
+            print("Invalid input. Please enter a valid number or 'done'.")
+
+if len(numbers) < 2:
     print("You need to enter at least two numbers.")
 else:
-    threshold = None
     while True:
         try:
             threshold = float(input("Enter the threshold: "))
@@ -29,4 +39,7 @@ else:
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
-    print(has_close_elements(numbers, threshold))
+    if not has_close_elements(numbers, threshold):
+        print(f"The numbers {', '.join(map(str, numbers))} have close elements for the given threshold {threshold}.")
+    else:
+        print(f"The numbers {', '.join(map(str, numbers))} do not have close elements for the given threshold {threshold}.")

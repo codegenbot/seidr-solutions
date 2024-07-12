@@ -1,5 +1,8 @@
-def decode_cyclic():
+```
+def decode_cyclic() -> str:
     s = input("Enter the string: ")
+    if len(s) < 3:
+        return s
     result = ""
     i = 0
     while i < len(s):
