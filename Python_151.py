@@ -1,1 +1,3 @@
-print(double_the_difference([1, 3, -1, 5, 6]))
+double_even_squares = lambda lst: sum(
+    i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 == 0
+)
