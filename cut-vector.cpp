@@ -26,7 +26,7 @@ int main() {
     }
 
     firstSubvector = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
-    secondSubvector = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
+    secondSubvector = std::vector<int>(nums.begin() + cutIndex, nums.end());
 
     for (int num : firstSubvector) {
         std::cout << num << " ";
