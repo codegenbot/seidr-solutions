@@ -15,12 +15,10 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    int numElements;
-    std::cin >> numElements;
-
-    std::vector<int> input(numElements);
-    for (int i = 0; i < numElements; ++i) {
-        std::cin >> input[i];
+    std::vector<int> input;
+    int n;
+    while (std::cin >> n) {
+        input.push_back(n);
     }
 
     int result = basement(input);
