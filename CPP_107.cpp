@@ -1,18 +1,21 @@
+#include <initializer_list> 
 #include <vector>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+    vector<int> result;
     int countEven = 0;
     int countOdd = 0;
 
     for (int i = 1; i <= n; i++) {
-        string str = to_string(i);
+        string numStr = to_string(i);
         bool isPalindrome = true;
 
-        for (int j = 0; j < str.length() / 2; j++) {
-            if (str[j] != str[str.length() - j - 1]) {
+        for (int j = 0; j < numStr.length() / 2; j++) {
+            if (numStr[j] != numStr[numStr.length() - j - 1]) {
                 isPalindrome = false;
                 break;
             }
@@ -26,8 +29,8 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
 
-    result[0] = countEven;
-    result[1] = countOdd;
+    result.push_back(countEven);
+    result.push_back(countOdd);
 
     return result;
 }
