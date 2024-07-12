@@ -12,11 +12,15 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> v) {
-    std::vector<float> result;
-    for(float x : v) {
-        if(x > 0)
-            result.push_back(x);
+int main() {
+    std::vector<float> get_positive(std::vector<float> v) {
+        for(float &x : v) {
+            x = (x > 0) ? x : 0.0f;
+        }
+        return v;
     }
-    return result;
+
+    // Test the code
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
