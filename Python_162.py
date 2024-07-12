@@ -1,4 +1,3 @@
-```
 import hashlib
 
 while True:
