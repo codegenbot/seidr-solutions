@@ -1,10 +1,9 @@
-#include <iostream>
 #include <vector>
-#include <utility>
+#include <iostream>
 
 using namespace std;
 
-vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& vec) {
+vector<int> cutVector(vector<int>& vec) {
     int minDiff = INT_MAX;
     int splitIndex = -1;
     
@@ -26,7 +25,7 @@ vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& vec) {
     vector<int> leftVec(vec.begin(), vec.begin() + splitIndex + 1);
     vector<int> rightVec(vec.begin() + splitIndex + 1, vec.end());
     
-    return {{leftVec, vector<int>()}, {rightVec, vector<int>()}};
+    return {leftVec, rightVec};
 }
 
 int main() {
@@ -36,17 +35,17 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> vec[i];
     
-    vector<pair<vector<int>, vector<int>>> result = cutVector(vec);
+    auto result = cutVector(vec);
     
     cout << "Left: ";
-    for (auto num : result[0].first)
-        std::cout << num << " ";
-    std::cout << std::endl;
+    for (int num : result.first)
+        cout << num << " ";
+    cout << endl;
     
     cout << "Right: ";
-    for (int num : result[1].first)
-        std::cout << num << " ";
-    std::cout << std::endl;
+    for (int num : result.second)
+        cout << num << " ";
+    cout << endl;
     
     return 0;
 }
