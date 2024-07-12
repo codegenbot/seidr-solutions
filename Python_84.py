@@ -1,4 +1,3 @@
-```
 def solve(n):
     if n == 0 or not isinstance(n, int):
         return "Invalid Input. Please provide an integer."
@@ -16,6 +15,3 @@ def solve(n):
         result = ("1" + result) if N[-1] == "1" else (result)
         N = N[:-1]
     return bin(int(result))[2:]
-
-n = int(input("Please enter an integer: "))
-print(solve(n))
