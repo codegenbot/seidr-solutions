@@ -1,27 +1,26 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<int> const &a, vector<int> const &b) {
-    return a == b;
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        if (min_val < max_val) {
-            result.push_back(min_val);
-            auto it = remove(lst.begin(), lst.end(), min_val);
-            lst.erase(it, lst.end());
+        std::sort(lst.begin(), lst.end());
+        if (lst[0] < lst.back()) {
+            result.push_back(lst[0]);
+            lst.erase(lst.begin());
         } else {
-            result.push_back(max_val);
-            auto it = remove(lst.begin(), lst.end(), max_val);
-            lst.erase(it, lst.end());
+            result.push_back(lst.back());
+            lst.pop_back();
         }
     }
     return result;
+}
+
+int main() {
+    assert(std::vector<int>({111}) == strange_sort_list({111}));
+    return 0;
 }
