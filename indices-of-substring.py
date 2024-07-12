@@ -1,4 +1,4 @@
-```
+```Python
 def indices_of_substring(text):
     targets = input().split(',')
     result = []
@@ -10,4 +10,4 @@ def indices_of_substring(text):
                 break
             result.append(pos)
             pos += len(t)  
-    return list(set(result))
+    return result
