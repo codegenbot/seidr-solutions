@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <sstream>
-#include <cassert>
+
 using namespace std;
 
 string words_in_sentence(string sentence) {
@@ -18,8 +17,8 @@ string words_in_sentence(string sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    string input;
-    getline(cin, input);
-    cout << words_in_sentence(input) << endl;
+    string sentence;
+    getline(cin, sentence);
+    cout << words_in_sentence(sentence) << endl;
     return 0;
 }
