@@ -13,25 +13,29 @@ bool same(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> even, odd;
+    std::vector<float> result;
+    bool needSort = false;
 
     for (float i : l) {
-        if (even.size() % 2 == 0) {
-            if (!even.empty())
-                even.push_back(i);
-            else
-                odd.push_back(i);
+        if (result.size() % 2 == 0) {
+            std::vector<float> even_indices;
+            for (float f : result) {
+                even_indices.push_back(f);
+            }
+            std::sort(even_indices.begin(), even_indices.end());
+            result.clear();
+            needSort = true;
         } else {
-            even.push_back(i);
+            if (needSort) {
+                result.push_back(i);
+                needSort = false;
+            } else {
+                result.push_back(i);
+            }
         }
     }
 
-    std::sort(even.begin(), even.end());
-
-    for (float i : even)
-        odd.insert(odd.end(), i);
-
-    return odd;
+    return result;
 }
 
 int main() {
