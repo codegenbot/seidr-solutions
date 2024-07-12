@@ -6,12 +6,13 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
+    
     map<int, int> numToIndex;
     for (int i = 0; i < n; ++i) {
-        if (numToIndex.find(target - nums[i]) != numToIndex.end()) {
+        int complement = target - nums[i];
+        if (numToIndex.find(complement) != numToIndex.end()) {
+            cout << nums[numToIndex[complement]] << endl;
             cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
             break;
         }
         numToIndex[nums[i]] = i;
