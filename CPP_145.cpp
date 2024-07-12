@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-int order_by_points(const std::vector<int>& nums) {
+int getAscendingOrder(const std::vector<int>& nums) {
     int points = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] > nums[i - 1]) {
@@ -11,7 +11,7 @@ int order_by_points(const std::vector<int>& nums) {
     return points;
 }
 
-bool compare(const std::vector<int>& nums) {
+bool isMonotonic(const std::vector<int>& nums) {
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] <= nums[i - 1]) {
             return false;
@@ -21,6 +21,6 @@ bool compare(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(compare(order_by_points({0,6,6,-76,-21,23,4}) ) == {-76, -21, 0,4,23,6,6});
+    assert(isMonotonic({0,6,6,-76,-21,23,4}) );
     return 0;
 }
