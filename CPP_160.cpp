@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 int do_algebra(std::vector<int> operators, std::vector<int> operands) {
     int result = 0;
@@ -21,10 +22,17 @@ int do_algebra(std::vector<int> operators, std::vector<int> operands) {
     return result;
 }
 
-int main2() {
-    std::vector<int> operators({1,2});
-    std::vector<int> operands({7,3,4});
+int main() {
+    std::vector<int> operators;
+    operators.push_back(1);
+    operators.push_back(2);
+
+    std::vector<int> operands;
+    operands.push_back(7);
+    operands.push_back(3);
+    operands.push_back(4);
 
     int result = do_algebra(operators, operands);
+    std::cout << "The final result is: " << result << std::endl;
     return 0;
 }
