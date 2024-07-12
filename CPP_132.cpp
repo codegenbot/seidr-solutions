@@ -11,18 +11,18 @@ bool is_nested(const std::string& str) {
             count--;
         }
     }
-
-    if (count == 0) {
-        std::cout << str << " is a nested string." << std::endl;
-    } else {
-        std::cout << str << " is not a nested string." << std::endl;
-    }
+    return count == 0;
 }
 
 int main() {
-    is_nested("[]");
-    is_nested("[[]]");
-    is_nested("[]]");
-    is_nested("]]]]]]]]");
+    std::string str;
+    std::cin >> str;
+
+    if (is_nested(str)) {
+        std::cout << "The input has nested brackets." << std::endl;
+    } else {
+        std::cout << "The input does not have nested brackets." << std::endl;
+    }
+
     return 0;
 }
