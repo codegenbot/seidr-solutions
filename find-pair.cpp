@@ -8,15 +8,14 @@ int main() {
     int target;
     cin >> target;
     
-    map<int, int> numToIndex;
+    map<int, int> mp;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (numToIndex.find(complement) != numToIndex.end()) {
-            cout << complement << endl;
-            cout << nums[i] << endl;
+        if (mp.find(complement) != mp.end()) {
+            cout << complement << endl << nums[i];
             break;
         }
-        numToIndex[nums[i]] = i;
+        mp[nums[i]] = i;
     }
     
     return 0;
