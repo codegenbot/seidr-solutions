@@ -25,3 +25,7 @@ def bowling_score(bowls):
             score += rolls[i] + rolls[i + 1]
 
     return score
+
+# Test the fixed code
+input_bowls = "7-X456/129-7236X62"
+print(bowling_score(input_bowls))  # Output should be 102
