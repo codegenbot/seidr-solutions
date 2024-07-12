@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -25,9 +24,8 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     
     if(index2 - index1 + 1 > planets.size()) {
         std::vector<std::string> result;
-        std::vector<std::string>::allocator_type allocator;
-        result.reserve((index2 - index1 + 1), allocator);
-        for (int i = index1; i <= index2; i++) {
+        
+        for (int i = 0; i <= index2; i++) { 
             if(i < planets.size()) { 
                 result.push_back(planets[i]);
             } 
@@ -56,10 +54,10 @@ int main() {
 
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    std::vector<std::string> result = bf(planets, planet1, planet2);
+    if (!bf(planets, planet1, planet2).empty())
+        std::cout << "Output: ";
+    else
+        std::cout << "No Output";
     
-    for (const auto& planet : result) {
-        std::cout << planet << " ";
-    }
     return 0;
 }
