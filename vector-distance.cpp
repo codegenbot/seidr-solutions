@@ -20,7 +20,7 @@ int main() {
     float result = 0.0;
     for (int i = 0; i < n; ++i) {
         float diff = vec1[i] - vec2[i];
-        result += std::pow(diff, 2);
+        result += diff * diff;
     }
 
     result = std::sqrt(result);
