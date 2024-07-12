@@ -16,9 +16,9 @@ bool is_nested(const std::string& str) {
 }
 
 int main() {
-    is_nested("[]");
-    is_nested("[[]]");
-    is_nested("[]]");
-    is_nested("]]]]]]]]");
+    std::cout << is_nested("[]") << std::endl;
+    std::cout << is_nested("[[]]") << std::endl;
+    std::cout << is_nested("[]]") << std::endl;
+    std::cout << is_nested("]]]]]]]]") << std::endl;
     return 0;
 }
