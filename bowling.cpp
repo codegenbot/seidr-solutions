@@ -1,6 +1,7 @@
 #include <iostream>
+using namespace std;
 
-int score(std::string bowls) {
+int score(string bowls) {
     int totalScore = 0;
     int frame = 0;
     for (int i = 0; i < bowls.size(); i++) {
@@ -22,8 +23,8 @@ int score(std::string bowls) {
 }
 
 int main() {
-    std::string bowls;
-    std::cin >> bowls;
-    std::cout << score(bowls) << std::endl;
+    string bowls;
+    cin >> bowls;
+    cout << score(bowls) << endl;
     return 0;
 }
