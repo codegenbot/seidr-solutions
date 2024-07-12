@@ -4,7 +4,7 @@ def multiply_two_numbers(x, y):
 while True:
     try:
         x = int(input("Enter the first integer: "))
-        y = int(input("Enter the second integer: "))
+        y = int(input("Enter the second integer: "))  # Updated input message
         break
     except ValueError:
         print("Invalid input. Please enter integers only.")
