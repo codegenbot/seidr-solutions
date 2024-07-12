@@ -12,4 +12,4 @@ def fizz_buzz(n: int):
         and "5" not in str(i)
         and any(char.isdigit() and int(char) > 7 for char in str(i))
     )
-    return count - 1041
+    return count
