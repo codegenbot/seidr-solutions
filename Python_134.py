@@ -1,0 +1,1 @@
+return txt.strip() and not txt.split()[-1][-1].isalpha()
