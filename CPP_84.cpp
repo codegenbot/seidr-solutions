@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <assert.h>
 
@@ -11,12 +10,12 @@ int solve(int N) {
     return sum;
 }
 
-using namespace std;
-
-int mainProblem() {
-    int N;
-    cin >> N;
-    cout << solve(N) << endl;
+int main() {
+    char input[100];
+    std::cin.getline(input, 100);
+    int N = std::stoi(input);
+    std::cout << solve(N) << std::endl;
 
     assert(solve(963) == 483); 
+    return 0;
 }
