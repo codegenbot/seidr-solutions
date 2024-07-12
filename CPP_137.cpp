@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cassert>
 
+boost::any compare_one(const boost::any& a, const boost::any& b);
+
 boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
@@ -29,11 +31,11 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
         else
             return std::string("None");
     }
-    else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) ||
+    else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || 
              (a.type() == typeid(std::string) && b.type() == typeid(int))) {
-        float a_float = stof(a.type() == typeid(int) ? std::to_string(boost::any_cast<int>(a)) :
+        float a_float = stof(a.type() == typeid(int) ? std::to_string(boost::any_cast<int>(a)) : 
                                                         boost::any_cast<std::string>(a));
-        float b_float = stof(b.type() == typeid(int) ? std::to_string(boost::any_cast<int>(b)) :
+        float b_float = stof(b.type() == typeid(int) ? std::to_string(boost::any_cast<int>(b)) : 
                                                         boost::any_cast<std::string>(b));
         if (a_float > b_float)
             return a;
