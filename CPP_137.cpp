@@ -1,55 +1,47 @@
-#include <iostream>
 #include <string>
 #include <stdexcept>
 
-std::any compare(std::any a, std::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return std::any_cast<double>(a) > std::any_cast<double>(b) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return std::any_cast<float>(b) < std::any_cast<int>(a) ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(float)) {
-        return std::any_cast<double>(a) > std::any_cast<float>(b) ? a : b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return std::any_cast<double>(b) < std::any_cast<int>(a) ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return std::any_cast<float>(a) > std::any_cast<double>(b) ? a : b;
+        return (int)a > (double)b ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > (int)b ? a : b;
     } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         try {
-            float fa = stof(std::any_cast<string>(a).c_str());
-            float fb = std::any_cast<float>(b);
+            float fa = std::stof(a.convert<string>().c_str());
+            float fb = (float)b.convert<float>();
             return fa > fb ? a : b;
         } catch (...) {
-            throw "Invalid input";
+            throw;
         }
     } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         try {
-            double fa = stod(std::any_cast<string>(a).c_str());
-            double fb = std::any_cast<double>(b);
+            double fa = std::stod(a.convert<string>().c_str());
+            double fb = (double)b.convert<double>();
             return fa > fb ? a : b;
         } catch (...) {
-            throw "Invalid input";
+            throw;
         }
     } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         try {
-            int fa = stoi(std::any_cast<string>(a).c_str());
-            int fb = std::any_cast<int>(b);
+            int fa = std::stoi(a.convert<string>().c_str());
+            int fb = (int)b.convert<int>();
             return fa > fb ? a : b;
         } catch (...) {
-            throw "Invalid input";
+            throw;
         }
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         try {
-            float fa = stof(std::any_cast<string>(a).c_str());
-            float fb = stof(std::any_cast<string>(b).c_str());
+            float fa = std::stof(a.convert<string>().c_str());
+            float fb = std::stof(b.convert<string>().c_str());
             return fa > fb ? a : b;
         } catch (...) {
-            throw "Invalid input";
+            throw;
         }
-    } else {
-        throw "Invalid input";
     }
+    return boost::any("None");
 }
