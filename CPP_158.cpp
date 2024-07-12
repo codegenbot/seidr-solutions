@@ -3,7 +3,7 @@
 #include <vector>
 
 std::string find_max(std::vector<std::string> words) {
-    std::string max_word = *std::max_element(words.begin(), words.end(),
+    std::string max_word = *max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
                 return a < b;
@@ -11,10 +11,10 @@ std::string find_max(std::vector<std::string> words) {
             return a.length() > b.length();
         });
     
-    for (auto word : words) {
+    for (std::string word : words) {
         if (word.length() >= max_word.length() &&
-            std::count(word.begin(), word.end(), *std::unique(word.begin(), word.end()).begin()) ==
-            std::distance(std::unique(word.begin(), word.end()), std::unique(word.begin(), word.end()).end()) + 1) {
+            count(word.begin(), word.end(), unique(word.begin(), word.end())[0]) ==
+            unique(word.begin(), word.end()).size()) {
             max_word = word;
         }
     }
