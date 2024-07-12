@@ -1,3 +1,4 @@
+```
 def is_multiply_prime(n):
     for i in range(2, n + 1):
         if is_prime(i) and is_prime(n // i):
