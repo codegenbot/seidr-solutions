@@ -1,5 +1,7 @@
+Here is the modified code:
+
 ```
-def get_closest_elements(arr, target):
+def find_closest_elements(arr, target):
     arr.sort()
     left = 0
     right = len(arr) - 1
@@ -21,10 +23,10 @@ def get_closest_elements(arr, target):
         else:
             closest_pair = [arr[right], arr[right]]
 
-    return closest_pair
+    return [arr[left], arr[left]]
 
 
 def check(func):
     print(func([1, 2, 3, 4, 5], 3.8))
 
-check(get_closest_elements)
+check(find_closest_elements)
