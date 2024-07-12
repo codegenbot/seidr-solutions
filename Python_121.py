@@ -1,4 +1,3 @@
-```
 def count_odd_numbers():
     while True:
         cont = input("Do you want to continue? (y/n): ")
@@ -10,8 +9,7 @@ def count_odd_numbers():
                 if len(lst) == 0:
                     print("Program ended.")
                     return
-                odd_count = sum(1 for i in lst if i % 2 != 0)
-                print(f"Number of odd numbers: {odd_count}")
+                print(len([i for i in lst if i % 2 != 0]))
                 cont = input("Continue? (y/n): ")
                 should_continue = cont.strip().lower() == "y"
             except ValueError as e:
