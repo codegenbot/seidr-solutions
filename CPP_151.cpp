@@ -1,30 +1,32 @@
+```cpp
 #include <vector>
 #include <cmath>
+#include <cassert>
+#include <initializer_list>
 
-int double_the_difference(float numbers[], int n) {
+int double_the_difference(const std::vector<float>& numbers) {
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (std::floor(numbers[i]) == std::ceil(numbers[i])) {
-            sum += static_cast<int>(numbers[i]);
+    for (float number : numbers) {
+        if (std::floor(number) == std::ceil(number)) {
+            sum += static_cast<int>(number);
         }
     }
     return abs(sum - double(sum));
 }
 
-float odd_sum(float numbers[], int n) {
+float odd_sum(const std::vector<float>& numbers) {
     float total = 0.0f;
-    for (int i = 0; i < n; i++) {
-        if (std::floor(numbers[i]) != std::ceil(numbers[i])) {
-            total += numbers[i];
+    for (float number : numbers) {
+        if (std::floor(number) != std::ceil(number)) {
+            total += number;
         }
     }
     return total;
 }
 
 int main() {
-    float numbers[] = {1.0f, 2.0f, 3.0f};
-    int n = sizeof(numbers) / sizeof(numbers[0]);
-    int main_result = double_the_difference(numbers, n);
-    assert(main_result == static_cast<int>(odd_sum(numbers, n))); 
+    std::vector<float> input_vector = {1.0f, 2.0f, 3.0f};
+    int result = double_the_difference(input_vector);
+    assert(result == static_cast<int>(odd_sum(input_vector)));
     return 0;
 }
