@@ -1,26 +1,33 @@
-#include <cctype>
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::string output;
-    bool firstWord = true;
+using namespace std;
 
-    for (char c : input) {
-        if (c == '-') {
-            output += toupper(c + 1);
-            firstWord = false;
-        } else if (c == ' ') {
-            firstWord = true;
-        } else {
-            if (!firstWord) {
-                output.push_back(tolower(c));
-            } else {
-                output += toupper(c);
-                firstWord = false;
-            }
+string toCamelCase(string s) {
+    string result = "";
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == '-') {
+            i++;
+            continue;
         }
+        if (result != "") {
+            result += toupper(s[i]);
+        } else {
+            result += tolower(s[i]);
+        }
+        i++;
     }
+    return result;
+}
 
-    return output;
+int main() {
+    string s;
+    cout << "Enter a string in kebab-case: ";
+    cin >> s;
+    cout << "The camelCase conversion is: " << toCamelCase(s) << endl;
+    return 0;
 }
