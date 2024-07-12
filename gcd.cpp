@@ -1,6 +1,9 @@
+Here is the modified code with the addition of including the `<string>` header file:
+
 ```cpp
 #include <vector>
-#include <string> // include this line at the top of your code
+#include <string> // include this line
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
