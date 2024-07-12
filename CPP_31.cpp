@@ -11,9 +11,9 @@ bool is_prime(long long n) {
 }
 
 int main() {
-    long long num;
-    cin >> num;
-    if (is_prime(num)) {
+    long long number;
+    cin >> number;
+    if (is_prime(number)) {
         cout << "Prime";
     } else {
         cout << "Not Prime";
