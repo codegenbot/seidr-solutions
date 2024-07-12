@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <assert>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
-    set<int> seen;
+    std::set<int> seen;
     for (int num : numbers) {
         if (seen.find(num) == seen.end()) {
             result.push_back(num);
