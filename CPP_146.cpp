@@ -2,28 +2,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> nums;
-    int count = 0;
-
-    std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
-
-    while (true) {
-        int num;
-        std::cin >> num;
-
-        if (num == -1)
-            break;
-
-        nums.push_back(num);
-    }
-
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
-            count++;
-        }
-    }
-
-    std::cout << "The count is: " << count << std::endl;
-
+    int count = specialFilter({11, 12, 13, 14, 15, 21, 22, 23, 24, 25});
+    std::cout << "The number of numbers in the input vector that meet the condition is: " << count << std::endl;
     return 0;
 }
