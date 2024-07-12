@@ -1,4 +1,4 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
-def fuel_cost(fuel_prices):
-    return sum((i // 3 - 2) for i in fuel_prices)
+def fuel_cost(lst):
+    return sum((i//3)-2 for i in lst)
