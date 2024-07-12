@@ -36,12 +36,8 @@ int driver() {
     string str;
     cin >> str;
     
-    if(str == "print"){
-        int result = histogram(str, arr); 
-        cout << result << endl;
-    } else{
-        //handle other commands
-    }
+    int result = histogram(str, arr); 
+    cout << result << endl;
     
     return 0;
 }
