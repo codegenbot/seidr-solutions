@@ -1,4 +1,3 @@
-```
 paren_string = input()
 while True:
     try:
