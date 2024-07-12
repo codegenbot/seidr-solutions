@@ -1,4 +1,3 @@
-```Python
 def decode_cyclic():
     s = input("Enter a string: ")
     while True:
@@ -21,9 +20,4 @@ def decode_cyclic():
                 result += char
             else:
                 result += result[-1]
-
-        while True:
-            print("Decoded string:", result)
-            cont = input("Do you want to continue (yes/no): ")
-            if cont.lower() != "yes":
-                break
+        print(result)
