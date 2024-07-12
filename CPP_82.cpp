@@ -15,24 +15,26 @@ bool isPrime(int n) {
 bool prime_length(const char* str){
     std::string s = "";
     for(int i = 0; str[i]; i++) {
-        char c = str[i];
-        if(c >= '0' && c <= '9') {
-            int n = c - '0'; 
-            if(isPrime(n) == false)
-                s += std::to_string(0); // convert int to string and append
-            else
-                s += std::to_string(n);
+        int num = str[i] - '0';
+        if(isPrime(num)) {
+            int nextPrime = num;
+            while(!isPrime(nextPrime+1)) nextPrime++;
+            s += char(nextPrime + '0');
         } else {
-            s += c; // push_back char instead of appending as string
+            s += char(num + '0');
         }
     }
     return s.length() > 1;
 }
 
-int main() {
-    assert(prime_length("0123") == true); 
-    const char* str = "Hello";
-    bool result = prime_length(str);
-    std::cout << "Prime length of '" << str << "' is: " << (result ? "prime" : "not prime") << std::endl;
+int main(){
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    if(prime_length(str.c_str())){
+        std::cout << "Length of the new string is greater than 1." << std::endl;
+    } else {
+        std::cout << "Length of the new string is not greater than 1." << std::endl;
+    }
     return 0;
 }
