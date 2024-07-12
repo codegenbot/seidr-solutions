@@ -28,5 +28,5 @@ int count_nums(char** nums, int size) {
 }
 
 int main() {
-    assert(count_nums((char*[1]) {"1"}, 1) == 1);
+    assert(count_nums((char**) &{"1"}, 1) == 1);
 }
