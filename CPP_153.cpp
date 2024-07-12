@@ -1,29 +1,53 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 #include <cctype>
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
-    int max_strength = 0;
-    std::string strongest_extension;
+    int strongest = 0;
+    std::string result = "";
 
-    for (std::string extension : extensions) {
-        int cap = 0;
-        int sm = 0;
+    for (const auto& extension : extensions) {
+        int cap = 0, sm = 0;
 
         for (char c : extension) {
-            if (std::isupper(c))
-                cap++;
-            else if (std::islower(c))
-                sm++;
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
         }
 
         int strength = cap - sm;
-        if (strength > max_strength) {
-            max_strength = strength;
-            strongest_extension = extension;
+
+        if (strength > strongest) {
+            strongest = strength;
+            result = extension;
         }
     }
 
-    return class_name + "." + strongest_extension;
+    return class_name + "." + result;
+}
+
+int main() {
+    std::string class_name;
+    std::vector<std::string> extensions;
+
+    std::cout << "Enter the name of the class: ";
+    std::cin >> class_name;
+
+    std::cout << "Enter the list of extensions (space separated): ";
+    std::getline(std::cin, class_name);
+    size_t pos = 0;
+    while ((pos = class_name.find(' ')) != std::string::npos) {
+        extensions.push_back(class_name.substr(0, pos));
+        class_name.erase(0, pos + 1);
+    }
+    if (!class_name.empty()) {
+        extensions.push_back(class_name);
+    }
+
+    int result = Strongest_Extension(class_name, extensions);
+
+    std::cout << "The strongest extension is: " << result << std::endl;
+
+    return 0;
 }
