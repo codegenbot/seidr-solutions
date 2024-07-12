@@ -1,12 +1,12 @@
-```
-def solve(N):
+def solve():
+    N = int(input("Please provide a binary number: "), 2)
     try:
-        N = int(bin(N)[2:])
+        if N == 0 or N == 1:
+            return str(N)
+        else:
+            return bin(N | (N - 1))[2:].replace("1", "10")
     except ValueError:
         return "Invalid Input. Please provide a binary number."
-    if N == 0:
-        return str("0")
-    elif N == 1:
-        return str("1")
-    else:
-        return bin(N | (N - 1))[2:].replace("1", "10")
+
+if __name__ == "__main__":
+    print(solve())

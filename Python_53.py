@@ -1,7 +1,4 @@
-def add(x: int, y: int):
-    return x + y
-
-
+```
 def main():
     while True:
         try:
@@ -20,7 +17,8 @@ def main():
                     break
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
-
-
-if __name__ == "__main__":
-    main()
+        else:
+            input("Press Enter to continue...")
+            cont = input("Do you want to start again? (y/n): ")
+            if cont.lower() != "y":
+                break
