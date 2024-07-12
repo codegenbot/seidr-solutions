@@ -1,20 +1,6 @@
 def solve_boolean(expression):
-    stack = []
-    for char in expression:
-        if char == "T":
-            stack.append(True)
-        elif char == "F":
-            stack.append(False)
-        elif char == "&":
-            op1 = stack.pop()
-            op2 = stack.pop()
-            stack.append(op1 and op2)
-        elif char == "|":
-            op1 = stack.pop()
-            op2 = stack.pop()
-            stack.append(op1 or op2)
-    return stack[0]
+    return eval(expression.replace("T", "True").replace("F", "False"))
 
 
-expression = input().strip()
-print(solve_boolean(expression))
+input_str = input()
+print(solve_boolean(input_str))
