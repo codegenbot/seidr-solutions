@@ -7,11 +7,11 @@ def make_palindrome(string: str) -> str:
         return string
     n = len(string)
     new_string = "#" + "#".join(list(string)) + "#"
-    i_max = n - 1
     while not is_palindrome(new_string):
-        new_string = new_string[: i_max + 1] + "#"
-        i_max -= 1
+        new_string = new_string[:n] + "#"
+        n -= 1
+    palindrome = ""
     for i in range(n * 2 - 1):
         if (i < n) or ((n * 2 - 1) > i >= n - 1 and i % 2 != 0):
-            palindrome = new_string[i]
-    return "".join(list(palindrome))
+            palindrome += new_string[i]
+    return palindrome
