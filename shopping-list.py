@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     prices = list(map(float, input().split()))
@@ -8,4 +9,5 @@ def shopping_list():
             total_price += prices[i] * (1 - discounts[i] / 100)
     return round(total_price, 2)
 
-print(shopping_list())
+if __name__ == "__main__":
+    print(shopping_list())
