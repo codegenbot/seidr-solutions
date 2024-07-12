@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <memory>
 
 bool isPrime(int n) {
     if (n <= 1) {
