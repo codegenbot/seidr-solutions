@@ -1,3 +1,3 @@
-```
 def solve(N):
-    return bin(sum(int(i) for i in bin(N)[2:]))[2:]
+    total_sum = sum(int(digit) for digit in bin(N)[2:])
+    return format(total_sum, "b")
