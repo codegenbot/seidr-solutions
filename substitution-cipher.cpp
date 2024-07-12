@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,11 +7,13 @@ using namespace std;
 string decipher(string cipherText, string key) {
     string decrypted = "";
     for (int i = 0; i < cipherText.length(); i++) {
-        for (int j = 0; j < key.length(); j++) {
+        int j = 0;
+        while (j < key.length()) {
             if (key[j] == cipherText[i]) {
-                decrypted += i % key.length();
+                decrypted += cipherText[(i - j) % key.length()];
                 break;
             }
+            j++;
         }
     }
     return decrypted;
