@@ -11,10 +11,10 @@ bool is_prime(int n) {
     return true;
 }
 
-std::vector<std::string> split(const std::string& str, const char* delim) {
+vector<string> split(const string& str, const char* delim) {
     size_t pos = 0;
-    std::vector<std::string> tokens;
-    while ((pos = str.find(delim)) != std::string::npos) {
+    vector<string> tokens;
+    while ((pos = str.find(delim)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + strlen(delim));
     }
@@ -22,15 +22,15 @@ std::vector<std::string> split(const std::string& str, const char* delim) {
     return tokens;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::string result;
+string words_in_sentence(string sentence) {
+    string result;
     size_t strLen = sentence.size();
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
             result += word + " ";
         }
     }
-    return result.empty() ? "" : result.substr(0, result.size() - 1);
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
