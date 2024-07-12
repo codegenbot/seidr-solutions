@@ -7,3 +7,7 @@ def below_zero(operations: List[int]) -> bool:
         if balance < 0:
             return True
     return False
+
+if __name__ == "__main__":
+    operations = list(map(int, input().split()))
+    print(below_zero(operations))
