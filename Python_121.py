@@ -1,5 +1,2 @@
 def solution(lst):
-    total = 0
-    for i in range(1, len(lst), 3):
-        total += lst[i]
-    return total
+    return sum(i for i in lst[1::2] if i % 2 != 0)
