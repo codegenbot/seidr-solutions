@@ -13,9 +13,9 @@ bool isSame(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> make_a_pile(int n) {
-    vector<int> pile(n+1); 
+    vector<int> pile;
     for (int i = 1; i <= n; ++i) {
-        pile[i] = i; 
+        pile.push_back(i);
     }
     return pile;
 }
@@ -28,7 +28,9 @@ int main() {
     cout << "Enter the number of cards in your hand: ";
     int m;
     cin >> m;
-    vector<int> b = make_a_pile(m);
+    vector<int> b = make_a_pile(m);  // Initialize with m cards
+    std::sort(b.begin(), b.end());    // Sort before pushing into vector
+    b = make_a_pile(m);                // Push elements from sorted array into vector
     sort(b.begin(), b.end());
     
     if (isSame(a, b)) {
