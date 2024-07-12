@@ -1,10 +1,14 @@
 int main() {
-    string s1, s2, s3;
-    cin >> s1 >> s2 >> s3;
-    
-    for (char c : s3) {
-        cout << s2[s1.find(c)];
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+
+    for (char &c : message) {
+        if (c == cipher1[0]) {
+            c = cipher2[0];
+        }
     }
-    
+
+    cout << message;
+
     return 0;
 }
