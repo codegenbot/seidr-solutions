@@ -11,4 +11,4 @@ first_bounce_height = float(input())
 num_bounces = int(input())
 
 result = calculate_total_distance(starting_height, first_bounce_height, num_bounces)
-print("{:.15f}".format(result))  # Print the result with higher precision
+print("{:.15f}".format(result))
