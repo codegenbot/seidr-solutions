@@ -24,7 +24,7 @@ vector<string> split(const string& str, const string& delimiter) {
 }
 
 string words_in_sentence(string sentence){
-    string result;
+    string result = ""; // Initialize the result string
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
             result += word + " ";
