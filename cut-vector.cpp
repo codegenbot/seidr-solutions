@@ -10,21 +10,27 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = 0;
 
-    for (int i = 1; i < n-1; ++i) {
-        int sumLeft = std::accumulate(vec.begin(), vec.begin() + i, 0);
-        int sumRight = std::accumulate(vec.begin() + i, vec.end(), 0);
-        int diff = std::abs(sumLeft - sumRight);
-        if (diff < minDiff) {
+    for (int i = 1; i < n; ++i) {
+        int sumLeft = 0, sumRight = 0;
+        for (int j = 0; j <= i; ++j) {
+            sumLeft += vec[j];
+        }
+        for (int j = i + 1; j < n; ++j) {
+            sumRight += vec[j];
+        }
+        int diff = abs(sumLeft - sumRight);
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    for (int i = 0; i < cutIndex; ++i) {
+    std::cout << cutIndex + 1 << std::endl;
+    for (int i = 0; i <= cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex; i < n; ++i) {
+    for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
