@@ -1,7 +1,16 @@
-for(int i = y; i >= x; i--){
-        if(i % 2 == 0){
-            return i;
+#include <cassert>
+
+int choose_num(int x, int y) {
+    int max_even = -1;
+    for (int i = y; i >= x; i--) {
+        if (i % 2 == 0) {
+            max_even = i;
+            break;
         }
     }
-    return -1;
+    return max_even;
+}
+
+int main() {
+    assert(choose_num(546, 546) == 546);
 }
