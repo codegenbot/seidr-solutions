@@ -1,4 +1,4 @@
-```
+```python
 import re
 
 num_dict = {str(i): str(i) for i in range(10)}
