@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
 std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
     int index1 = -1, index2 = -1;
     
@@ -12,10 +17,42 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     if (index1 == -1 || index2 == -1)
         return {};
     
+    if(index2 < index1) {
+        int temp = index1;
+        index1 = index2;
+        index2 = temp;
+    }
+    
+    if(index2 - index1 + 1 > planets.size()) {
+        return {};
+    }
+    
     std::vector<std::string> result;
-    for (int i = index1 + 1; i < index2; i++) {
-        result.push_back(planets[i]);
+    for (int i = 0; i < planets.size(); i++) {
+        if (i >= index1 && i < index2) {
+            result.push_back(planets[i]);
+        } else if(i == index2) {
+            result.push_back(planets[i]);
+        }
     }
     
     return result;
+}
+
+int main() {
+    std::cout << "Enter the first planet: ";
+    std::string planet1;
+    std::cin >> planet1;
+    std::cout << "Enter the second planet: ";
+    std::string planet2;
+    std::cin >> planet2;
+
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+
+    std::vector<std::string> result = bf(planets, planet1, planet2);
+    
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
+    return 0;
 }
