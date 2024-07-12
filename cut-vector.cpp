@@ -1,33 +1,33 @@
 int main() {
-    vector<int> v;
-    int n;
-    while (cin >> n) {
-        v.push_back(n);
+    vector<int> vec;
+    int num;
+    while (cin >> num) {
+        vec.push_back(num);
     }
     
-    int sum = accumulate(v.begin(), v.end(), 0);
-    int half_sum = sum / 2;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    int current_sum = 0;
-    int idx = 0;
-    for (int i = 0; i < v.size(); ++i) {
-        current_sum += v[i];
-        if (current_sum >= half_sum) {
-            idx = i;
-            break;
+    for (int i = 1; i < vec.size(); ++i) {
+        int sum_left = accumulate(vec.begin(), vec.begin() + i, 0);
+        int sum_right = accumulate(vec.begin() + i, vec.end(), 0);
+        
+        int current_diff = abs(sum_left - sum_right);
+        
+        if (current_diff < min_diff || (current_diff == min_diff && sum_left == sum_right)) {
+            min_diff = current_diff;
+            cut_index = i;
         }
     }
     
-    if (abs(sum - 2 * current_sum) < abs(sum - 2 * (current_sum - v[idx]))) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << v[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i <= idx - 1; ++i) {
-            cout << v[i] << endl;
-        }
-        cout << v[idx] << endl;
+    for (int i = 0; i < cut_index; ++i) {
+        cout << vec[i] << endl;
+    }
+    
+    cout << "0" << endl;
+    
+    for (int i = cut_index; i < vec.size(); ++i) {
+        cout << vec[i] << endl;
     }
     
     return 0;
