@@ -15,7 +15,7 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> byLength(std::initializer_list<int> lengths) {
+std::vector<std::string> by_length(std::initializer_list<int> lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
         if (length == 4) {
@@ -27,4 +27,9 @@ std::vector<std::string> byLength(std::initializer_list<int> lengths) {
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<std::string> output = by_length({4, 8, 9});
+    assert(isSame(output, {"Four", "Eight", "Nine"}));
 }
