@@ -1,4 +1,3 @@
-```
 def max_fill(n, capacity_grid):
     total_water = 0
     max_capacity = float("inf")
