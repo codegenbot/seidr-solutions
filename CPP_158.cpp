@@ -5,7 +5,7 @@
 int main() {
     vector<string> words = {"play", "play", "play"};
     string max_word = find_max(words);
-    cout << max_word;
+    cout << "The maximum word is: " << max_word << endl;
 }
 
 string find_max(vector<string> words) {
