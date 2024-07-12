@@ -13,5 +13,5 @@ while True:
             break
         else:
             print("Some numbers are out of range.")
-    except Exception as e:
-        print(f"Invalid input. {e}. Try again!")
+    except ValueError as e:
+        print(f"Invalid input. Please enter numeric values: {e}. Try again!")
