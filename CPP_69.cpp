@@ -15,9 +15,8 @@ int findMaxFreq(std::vector<int> lst) {
 
     int maxFreqNum = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            maxFreqNum = it->first;
-            break;
+        if (it->second > 0 && (maxFreqNum == -1 || it->second > maxFreqNum)) {
+            maxFreqNum = it->second;
         }
     }
 
