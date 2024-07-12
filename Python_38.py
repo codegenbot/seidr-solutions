@@ -3,17 +3,17 @@ def encode_cyclic(s: str):
     groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-
 def decode_cyclic(s: str):
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    groups = [
-        (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
-    ]
+    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-input_str = input()
-encoded = encode_cyclic(input_str)
-decoded = decode_cyclic(input_str)
+# Read user input
+s = input("Enter the string: ")
 
-print(f"Encoded string: {encoded}")
-print(f"Decoded string: {decoded}")
+# Call the encode and decode functions
+encoded_string = encode_cyclic(s)
+decoded_string = decode_cyclic(encoded_string)
+
+print(f"Encoded string: {encoded_string}")
+print(f"Decoded string: {decoded_string}")
