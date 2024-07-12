@@ -1,5 +1,13 @@
+```
 def double_the_difference(lst):
-    positive_odd_numbers = [i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0]
-    return sum(positive_odd_numbers)
+    odd_nums = [num for num in lst if num % 2 != 0]
+    return sum([i**2 for i in odd_nums]) * 2
 
-check(double_the_difference([1, 3, 5]))
+def check(lst):
+    result = sum([i for i in lst if i % 2 == 0]) * 2
+    if result == double_the_difference(lst):
+        print("Yes, it equals two.")
+    else:
+        print("No, it doesn't equal two.")
+
+check([1, 2, 3, 4, 5])
