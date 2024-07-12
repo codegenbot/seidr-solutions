@@ -1,5 +1,6 @@
 def find_zero(xs: list):
-    largest_coeff = max(xs)
-    degree = len(xs) - 1
-    x = -largest_coeff / degree
-    return x
+    x = -1
+    while True:
+        if poly(xs, x) == 0:
+            return x
+        x += 0.01
