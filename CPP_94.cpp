@@ -1,26 +1,24 @@
 ```cpp
 #include <iostream>
-#include <cassert>
+using namespace std;
 
-int calculateScore(int values[], int n) {
-    int sum = 0;
+int calculateScore(int* myValues, int n) {
+    int score = 0;
     for (int i = 0; i < n; i++) {
-        if(values[i] > 100) {
-            std::cout << "Value at index " << i << ": " << values[i] << std::endl;
-            sum += values[i];
-        }
+        if (myValues[i] > 127)
+            score += myValues[i];
     }
-    return sum;
+    return score;
 }
 
 int main() {
     int myValues[] = {127, 97, 8192};
     const int n = sizeof(myValues) / sizeof(myValues[0]);
     for (int i = 0; i < n; i++) {
-        std::cout << "Value at index " << i << ": ";
-        std::cout << myValues[i] << std::endl;
+        cout << "Value at index " << i << ": ";
+        cout << myValues[i] << endl;
     }
-    std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
-    assert(calculateScore(myValues, n) == 1224); 
+    cout << "The score is: " << calculateScore(myValues, n) << endl;
+    assert(calculateScore(myValues, n) == 8192); 
     return 0;
 }
