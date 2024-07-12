@@ -6,11 +6,14 @@ def count_odd_numbers():
             if len(lst) == 0:
                 break
             print(len([i for i in lst if i % 2 != 0]))
-            cont = input("Continue? (y/n): ")
-            should_continue = cont.strip().lower() == "y"
+            while True:
+                cont = input("Continue? (y/n): ")
+                should_continue = cont.strip().lower() in ["yes", "y"]
+                if not should_continue:
+                    break
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
-    if not should_continue: 
-        print("Program ended.")
+    print("Program ended.")
+
 
 count_odd_numbers()
