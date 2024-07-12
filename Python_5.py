@@ -1,19 +1,11 @@
-def process_numbers():
-    user_input = input("Enter numbers separated by delimiter: ")
-    numbers = [int(num) for num in user_input.split(",")]
-    delimiter = ","
-    
-    if numbers[0] == int(delimiter):
-        result = [numbers[0]]
-    else:
-        result = [numbers[0], delimiter]
-    for num in numbers[1:]:
-        if num == int(delimiter):
-            result.append(num)
+def process_numbers(numbers, delimiter):
+    result = []
+    for num in numbers:
+        if num == delimiter:
+            if len(result) > 0 and result[-1] != delimiter:
+                result.append(delimiter)
         else:
             while len(result) > 1 and result[-1] == delimiter:
                 result.pop()
-            result.extend([delimiter, num])
+            result.append(num)
     return result
-
-print(process_numbers())
