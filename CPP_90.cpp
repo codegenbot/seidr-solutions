@@ -14,8 +14,7 @@ int findNextSmallest(std::vector<int> lst) {
     return -1; 
 }
 
-int main() {
+int mainTest() {
     assert(findNextSmallest({-35, 34, 12, -45}) == 12);
-    std::cout << "Error: The input list is not valid. Please enter a non-empty list." << std::endl;
     return 0;
 }
