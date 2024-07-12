@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int can_arrange(vector<int> arr){
