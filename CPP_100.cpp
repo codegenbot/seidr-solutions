@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <initializer_list>
@@ -24,6 +25,7 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame({0}, make_a_pile(make_a_pile_result.size())));
+    vector<int> result = make_a_pile(8); 
+    assert(issame({0}, result));
     return 0;
+}
