@@ -1,3 +1,6 @@
 ```
 def sorted_list_sum(lst):
-    return [word for word in sorted([word for word in lst if len(word) % 2 == 0], key=len)]
+    total_sum = 0
+    for word in lst:
+        total_sum += sum(ord(c) for c in word)
+    return str(total_sum)
