@@ -1,1 +1,1 @@
-a, b, c = sorted([int(x) for x in input().split()])
+a, b, c = sorted(map(int, input("Enter three integers separated by spaces: ").split()))
