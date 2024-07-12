@@ -17,11 +17,24 @@ bool prime_length(const char* str){
     for(int i = 0; str[i]; i++) {
         int num = str[i] - '0';
         if(isPrime(num)) {
-            while(!isPrime(num+1)) num++;
-            s.push_back('0' + num);
+            int nextPrime = num;
+            while(!isPrime(nextPrime+1)) nextPrime++;
+            s += char(nextPrime + '0');
         } else {
-            s.push_back(str[i]);
+            s += char(num + '0');
         }
     }
     return s.length() > 1;
+}
+
+int main(){
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    if(prime_length(str.c_str())){
+        std::cout << "Length of the new string is greater than 1." << std::endl;
+    } else {
+        std::cout << "Length of the new string is not greater than 1." << std::endl;
+    }
+    return 0;
 }
