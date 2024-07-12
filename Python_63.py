@@ -6,4 +6,4 @@ def fibfib(n: int):
         if (b >= n): 
             break
         a, b = b, a + b
-    return b
+    return a
