@@ -1,4 +1,8 @@
-vector<int> parse_music(string music_string){
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
@@ -14,4 +18,8 @@ vector<int> parse_music(string music_string){
         }
     }
     return beats;
+}
+
+bool check_beats(vector<int> parsed_beats, vector<int> target_beats) {
+    return parsed_beats == target_beats;
 }
