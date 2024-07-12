@@ -2,10 +2,6 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
