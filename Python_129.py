@@ -23,6 +23,7 @@ def process_paths():
     minPath = float('inf')  
 
     for path in paths:
+        print(f"Path is: {path}")
         if len(path) < minPath:
             minPath = len(path)
 
