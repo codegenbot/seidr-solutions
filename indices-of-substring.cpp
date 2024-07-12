@@ -5,7 +5,7 @@ using namespace std;
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int i_start = 0;
-    while(i_start <= text.size() - target.size()) {
+    while(i_start < text.size()) {
         bool found = true;
         for(int j = 0; j < target.size(); j++) {
             if(text[i_start+j] != target[j]) {
