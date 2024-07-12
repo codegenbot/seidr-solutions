@@ -1,5 +1,3 @@
-Here is the modified code:
-
 from fractions import Fraction
 
 def simplify():
