@@ -1,27 +1,29 @@
 int main() {
-    vector<int> nums;
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
     
-    int min_diff = INT_MAX;
-    int cut_idx = 0;
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
+    int diff = INT_MAX;
+    int idx = -1;
+    for (int i = 1; i < n; ++i) {
+        int left_sum = accumulate(v.begin(), v.begin() + i, 0);
+        int right_sum = accumulate(v.begin() + i, v.end(), 0);
+        int current_diff = abs(left_sum - right_sum);
+        if (current_diff < diff) {
+            diff = current_diff;
+            idx = i;
         }
     }
     
-    for (int i = 0; i < cut_idx; ++i) {
-        cout << nums[i] << endl;
+    for (int i = 0; i < idx; ++i) {
+        cout << v[i] << endl;
     }
     cout << 0 << endl;
-    
-    for (int i = cut_idx; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+    for (int i = idx; i < n; ++i) {
+        cout << v[i] << endl;
     }
     cout << 0 << endl;
     
