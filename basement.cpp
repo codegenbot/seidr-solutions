@@ -1,3 +1,4 @@
+```
 int firstNegative(std::vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
