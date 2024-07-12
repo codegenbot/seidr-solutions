@@ -1,10 +1,12 @@
 vector<int> intersperse(vector<int> numbers, int delimeter){
+    if(numbers.size() <= 1) return numbers;
+    
     vector<int> result;
-    for (int i = 0; i < numbers.size(); ++i) {
+    for(int i = 0; i < numbers.size() - 1; ++i){
         result.push_back(numbers[i]);
-        if (i != numbers.size() - 1) {
-            result.push_back(delimeter);
-        }
+        result.push_back(delimeter);
     }
+    result.push_back(numbers[numbers.size() - 1]);
+    
     return result;
 }
