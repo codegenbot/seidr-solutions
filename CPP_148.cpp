@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
@@ -8,7 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+    std::vector<std::string> result = {};
     int idx1 = -1, idx2 = -1;
     std::string planet1 = "Jupiter";
     std::string planet2 = "Makemake";
@@ -23,7 +24,7 @@ int main() {
     }
 
     if (idx1 == -1 || idx2 == -1) {
-        return 0; // indicating successful completion
+        return 0;
     }
 
     if (idx1 > idx2) {
@@ -34,5 +35,6 @@ int main() {
         result.push_back(planets[i]);
     }
 
-    return 0; // indicating successful completion
+    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, result));
+    return 0;
 }
