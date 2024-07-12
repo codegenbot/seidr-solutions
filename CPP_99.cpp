@@ -1,5 +1,9 @@
-int closest_integer(string value){
+Here is the solution:
+
+#include <string>
+#include <cmath>
+
+int closest_integer(string value) {
     double num = stod(value);
-    int integer = (num > 0) ? ceil(num) : floor(num);
-    return integer;
+    return (num > 0)? ceil(num): floor(num);
 }
