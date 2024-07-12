@@ -1,6 +1,5 @@
 from typing import List
 
-
 def below_zero(operations: List[int]) -> bool:
     balance = 0
     for operation in operations:
@@ -9,8 +8,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-
-print("Enter operations separated by spaces:")
-operations = list(map(int, input().strip().split()))
+operations = list(map(int, input().strip().split(',')))
 result = below_zero(operations)
 print(result)
