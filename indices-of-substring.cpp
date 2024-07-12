@@ -9,16 +9,19 @@ int main() {
 
     std::vector<int> indices;
 
+    int found = 0;
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
         ++pos;
+        found = 1;
     }
-
-    for (int i = 0; i < indices.size(); ++i) {
-        std::cout << indices[i] << " ";
+    
+    std::cout << indices.size() << std::endl;
+    for (int i : indices) {
+        std::cout << i << " ";
     }
-    std::cout << std::endl << indices.size() << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }
