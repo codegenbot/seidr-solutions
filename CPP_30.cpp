@@ -22,8 +22,6 @@ std::vector<float> get_positive(const std::vector<float>& l){
     return result;
 
 }
-int main() {
-    std::vector<float> input = {1, -2, 3, -4};
-    assert(issame(get_positive(input), {}));  
-    return 0;
-}
+std::vector<float> input = {1, -2, 3, -4};
+assert(issame(get_positive(input), {}));  
+return 0;
