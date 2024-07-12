@@ -1,9 +1,8 @@
 #include <vector>
 #include <algorithm>
-#include <numeric> // Add missing include directive for numeric
+#include <numeric>
 
-namespace contest { // Ensure proper namespace is used
-
+namespace contest {
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         return std::equal(a.begin(), a.end(), b.begin());
     }
@@ -14,5 +13,4 @@ namespace contest { // Ensure proper namespace is used
                        [](int g, int gu) { return std::abs(g - gu); });
         return result;
     }
-
 }
