@@ -1,11 +1,13 @@
 sort(lst.begin(), lst.end());
-    if (lst.size() < 2) {
-        return -1;
-    }
-    int smallest = lst[0];
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] > smallest) {
-            return lst[i];
+    int count = 1;
+    int prev = lst[0];
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] != prev) {
+            count++;
+            if (count == 2) {
+                return lst[i];
+            }
+            prev = lst[i];
         }
     }
     return -1;
