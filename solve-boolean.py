@@ -3,4 +3,4 @@ def solve_boolean(expression):
     return eval(expression.replace("|", " or ").replace("&", " and"))
 
 input_str = input().strip()
-print(solve_boolean(input_str))     
+print(solve_boolean(input_str))
