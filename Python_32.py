@@ -1,4 +1,4 @@
-```Python
+```
 def find_zero():
     n = int(input("Enter number of coefficients: "))
     xs = []
