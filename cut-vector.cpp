@@ -1,31 +1,43 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v[i];
+        cin >> nums[i];
     }
     
-    int diff = INT_MAX;
-    int idx = -1;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
     for (int i = 1; i < n; ++i) {
-        int left_sum = accumulate(v.begin(), v.begin() + i, 0);
-        int right_sum = accumulate(v.begin() + i, v.end(), 0);
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff) {
-            diff = current_diff;
-            idx = i;
+        int sum_left = 0;
+        int sum_right = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            sum_left += nums[j];
+        }
+        
+        for (int j = i; j < n; ++j) {
+            sum_right += nums[j];
+        }
+        
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << v[i] << endl;
+    for (int i = 0; i < cut_index; ++i) {
+        cout << nums[i] << endl;
     }
-    cout << 0 << endl;
-    for (int i = idx; i < n; ++i) {
-        cout << v[i] << endl;
+    cout << endl;
+    for (int i = cut_index; i < n; ++i) {
+        cout << nums[i] << endl;
     }
-    cout << 0 << endl;
     
     return 0;
 }
