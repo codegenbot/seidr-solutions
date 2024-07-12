@@ -1,15 +1,14 @@
 from typing import List
 
 
-def rescale_to_unit(numbers: List[float]) -> List[float]:
+def rescale_to_unit(numbers: List[float]) -> str:
     if not numbers:
-        return []
-    
-    if 0 in numbers:
-        min_val = min(x for x in numbers if x != 0)
-        max_val = max(x for x in numbers if x != 0)
-        return [(x - min_val) / (max_val - min_val) for x in numbers]
+        return "No input provided"
+
+    zero_count = sum(1 for x in numbers if x == 0)
+    if zero_count > 0:
+        return "All inputs are zero. Please provide non-zero values"
     else:
         min_val = min(numbers)
         max_val = max(numbers)
-        return [(x - min_val) / (max_val - min_val) for x in numbers]
+        return ", ".join(str((x - min_val) / (max_val - min_val)) for x in numbers)
