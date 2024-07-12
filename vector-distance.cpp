@@ -8,23 +8,23 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    vector<double> vec1(n), vec2(n);
-
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
-    }
+    vector<float> vec1(n), vec2(n);
 
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
-    double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec2[i] - vec1[i], 2);
+        cin >> vec2[i];
     }
 
-    double distance = sqrt(sum);
-    cout << fixed << setprecision(14) << distance << endl;
+    float sum = 0.0f;
+    for (int i = 0; i < n; ++i) {
+        sum += pow(vec1[i] - vec2[i], 2);
+    }
+
+    float distance = sqrt(sum);
+    cout << fixed << setprecision(15) << distance << endl;
 
     return 0;
 }
