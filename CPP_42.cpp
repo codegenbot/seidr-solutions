@@ -1,32 +1,29 @@
-bool issame(const vector<int> &a, const vector<int> &b) {
-    if (a.size() != b.size()) {
-        return false;
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> incr_list(vector<int> l) {
+    for (int i = 0; i < l.size(); i++) {
+        l[i]++;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return l;
 }
 
-vector<int> incr_list(const vector<int> &l) {
-    vector<int> result = l;
-    for (int i = 0; i < result.size(); i++) {
-        result[i]++;
+bool issame(vector<int> a, vector<int> b) {
+    if (a == b) {
+        return true;
+    } else {
+        return false;
     }
-    return result;
 }
 
 int main() {
-    vector<int> l = {1, 2, 3};
-    vector<int> modified_l = incr_list(l);
-    vector<int> expected_l = {2, 3, 4};
+    vector<int> vec = {1, 2, 3, 4, 5};
+    vector<int> modified_vec = incr_list(vec);
 
-    if (issame(modified_l, expected_l)) {
-        cout << "Test passed." << endl;
-    } else {
-        cout << "Test failed." << endl;
+    for (int num : modified_vec) {
+        cout << num << " ";
     }
 
     return 0;
