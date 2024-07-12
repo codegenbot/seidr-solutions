@@ -11,7 +11,7 @@ def match_parens(lst):
                         return 'No'
                     else:
                         stack.pop()
-        elif isinstance(s, str):  
+        elif isinstance(s, str):
             if s == '(':
                 stack.append(s)
             elif s == ')':
