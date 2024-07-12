@@ -4,7 +4,10 @@ using namespace std;
 
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    int max = (numbers.empty()) ? INT_MIN : numbers[0];
+    if (numbers.empty()) {
+        return result; 
+    }
+    int max = numbers[0];
     for (int i = 1; i < numbers.size(); i++) {
         if (numbers[i] > max) {
             max = numbers[i];
@@ -18,7 +21,7 @@ int main() {
     vector<int> maxNumbers = rolling_max(numbers);
 
     for (int i = 0; i < maxNumbers.size(); i++) {
-        cout << "Maximum up to " << numbers[i] << " is " << maxNumbers[i] << endl;
+        cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << endl;
     }
 
     return 0;
