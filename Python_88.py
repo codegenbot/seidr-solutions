@@ -5,7 +5,4 @@ def sort_array(array):
     if total % 2 != 0:
         return sorted(array)
     else:
-        return sorted(array, reverse=True)
-
-array = [int(i) for i in input().split()]
-print(sort_array(array))
+        return sorted(array)[::-1]
