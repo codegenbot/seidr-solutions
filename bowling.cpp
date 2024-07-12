@@ -1,25 +1,26 @@
-int score(const string& s) {
-    int sum = 0;
-    int i = 0;
+int score(const string &s) {
+    int total = 0;
     int frame = 1;
-
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            sum += 10;
-            sum += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 1] - '0' + s[i + 2] - '0');
-            i++;
-        } else if (s[i + 1] == '/') {
-            sum += 10;
-            sum += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
-            i += 2;
+    int ball = 1;
+    for (char c : s) {
+        if (c == 'X') {
+            total += 10;
+            frame++;
+            if (frame > 10) break;
+        } else if (c == '/') {
+            total += 10 - (s[ball - 2] - '0');
+            frame++;
+            if (frame > 10) break;
+        } else if (c == '-') {
+            frame++;
+            if (frame > 10) break;
         } else {
-            sum += (s[i] == '-') ? 0 : s[i] - '0';
-            sum += (s[i + 1] == '-') ? 0 : s[i + 1] - '0';
-            i += 2;
+            total += c - '0';
+            if (ball % 2 == 0) frame++;
         }
-        frame++;
+        ball++;
     }
-    return sum;
+    return total;
 }
 
 int main() {
