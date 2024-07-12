@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+```cpp
 #include <vector>
 #include <string>
 #include <assert.h>
+#include <initializer_list>
 
 bool issame(const std::vector& a, const std::vector& b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
