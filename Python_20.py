@@ -1,4 +1,26 @@
-list1 = list(map(int, input("Enter elements for List 1: ").split()))
-list2 = list(map(int, input("Enter elements for List 2: ").split()))
-find_closest_elements = get_closest_elements(list1 + list2)
-check(find_closest_elements)
+def get_closest_elements(numbers):
+    numbers.sort()
+    min_diff = float('inf')
+    closest_pair = ()
+    left = 0
+    right = len(numbers) - 1
+    
+    while right > left:
+        current_sum = numbers[left] + numbers[right]
+        diff = abs(target_sum - current_sum)
+        
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[left], numbers[right])
+        
+        if current_sum < target_sum:
+            left += 1
+        else:
+            right -= 1
+    
+    return closest_pair
+
+target_sum = int(input("Enter the target sum: "))
+numbers = list(map(int, input().split()))
+find_closest_elements = get_closest_elements(numbers)
+print(find_closest_elements)
