@@ -1,4 +1,4 @@
-Here's the corrected code:
+Here is the corrected code:
 
 ```
 def file_name_check(file_name):
