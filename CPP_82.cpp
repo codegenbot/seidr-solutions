@@ -16,13 +16,14 @@ bool prime_length(const char* str){
     std::string s;
     for(int i = 0; str[i]; i++) {
         char c = str[i];
-        int n = c - '0'; // Convert character to integer
-        if(isPrime(n)) { 
-            s += c; 
+        if(isPrime(c - '0')) { 
+            s += static_cast<char>(c); // Convert int to char
         }
     }
     int len = s.length();
-    return len > 1;
+    if(len <= 1) return false;
+    return true;
+
 }
 
 assert(prime_length("0") == false);
