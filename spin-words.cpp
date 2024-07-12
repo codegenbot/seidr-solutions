@@ -4,14 +4,15 @@ int main() {
     
     stringstream ss(input);
     
-    while (ss >> word) {
-        if (word.size() >= 5) {
+    while(ss >> word) {
+        if(word.length() >= 5) {
             reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
     
-    result.pop_back(); // Remove extra space at the end
+    result.pop_back(); // Remove trailing space
+    
     cout << result << endl;
     
     return 0;
