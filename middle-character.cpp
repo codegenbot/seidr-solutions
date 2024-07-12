@@ -1,10 +1,12 @@
 int main() {
-    string s;
-    cin >> s;
-    if (s.size() % 2 == 0) {
-        cout << s.substr(s.size() / 2 - 1, 2);
+    string str;
+    cin >> str;
+    
+    if (str.length() % 2 == 0) {
+        cout << str.substr((str.length() / 2) - 1, 2);
     } else {
-        cout << s[s.size() / 2];
+        cout << str.substr(str.length() / 2, 1);
     }
+
     return 0;
 }
