@@ -2,12 +2,12 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <limits>
 
 int main() {
     std::string text, target;
     
     std::getline(std::cin, text);
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear newline character
     std::getline(std::cin, target);
     
     std::vector<int> indices;
