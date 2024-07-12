@@ -4,8 +4,14 @@
 
 using namespace std;
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool same(const vector<int>& v1, const vector<int>& v2) {
+    if(v1.size() != v2.size())
+        return false;
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i])
+            return false;
+    }
+    return true;
 }
 
 vector<int> incr_list(const vector<int>& l){
@@ -17,6 +23,6 @@ vector<int> incr_list(const vector<int>& l){
 }
 
 int main() {
-    assert(issame({7, 3, 7,3, 5, 5, 11, 1, 125}, incr_list({6, 2, 6, 2, 4, 4, 10, 0, 124})));
+    assert(same({6, 3, 6,3, 4, 4, 10, 1, 124}, incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123})));
     return 0;
 }
