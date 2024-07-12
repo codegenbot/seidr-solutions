@@ -1,27 +1,32 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+using namespace std;
 
-int sum_squares(std::vector<float> lst){
+int sum_squares(vector<float> lst){
     int total = 0;
     for(float x : lst){
-        total += std::ceil(x)*std::ceil(x);
+        total += ceil(x)*ceil(x);
     }
     return total;
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    vector<float> input;
+    float num;
     
-    std::vector<float> lst(n);
-    std::cout << "Enter the elements: ";
-    for(int i = 0; i < n; i++){
-        std::cin >> lst[i];
+    cout << "Enter numbers (enter -1 to stop): ";
+    while(cin >> num) {
+        if(num == -1.0f) break;
+        input.push_back(num);
+   
+    
+    if(input.empty()) {
+        cerr << "Error: No valid input provided." << endl;
+        return 1;
+    } else {
+        int result = sum_squares(input);
+        cout << "Sum of squares: " << result << endl;
     }
-    
-    int result = sum_squares(lst);
-    std::cout << "Sum of squares is: " << result << std::endl;
     
     return 0;
 }
