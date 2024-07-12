@@ -1,5 +1,3 @@
 double num = stod(value);
-    int num_floor = floor(num);
-    int num_ceil = ceil(num);
-    return (num - num_floor < num_ceil - num) ? num_floor : num_ceil;
+    return (num >= 0) ? floor(num + 0.5) : ceil(num - 0.5);
 }
