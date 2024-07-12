@@ -1,4 +1,3 @@
-# Corrected code
 #include <iostream>
 #include <string>
 #include <vector>
