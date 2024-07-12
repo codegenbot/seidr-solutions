@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,7 +17,7 @@ vector<float> get_positive(vector<float> l){
 
 int main() {
     vector<float> input = {};
-    vector<float> result = get_positive(input);
-    assert(issame(result, {}));  
+    vector<float> positives = get_positive(input);
+    assert(issame(positives, {}));  
     return 0;
 }
