@@ -1,1 +1,3 @@
-'def find_zero(xs: list):\n    n = len(xs)\n    if n % 2 != 0:\n        raise ValueError("xs must have even number of coefficients")\n    a = xs[0]\n    b = xs[1]\n    c = xs[2] if n > 2 else 0\n    d = xs[3] if n > 3 else 0\n    import math\n    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)\n    return round(x, 2)'
+```
+def find_zero(xs: list):
+    return (-xs[1] / xs[-1]) if len(xs) > 1 else None
