@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -25,5 +25,5 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(compare_vectors(even_odd_count(0), {0,1}));
+    assert(compare_vectors(even_odd_count(0), vector<int>{0,1}));
 }
