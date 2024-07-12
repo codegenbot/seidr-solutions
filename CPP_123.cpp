@@ -6,19 +6,19 @@ using namespace std;
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
-    bool has_odd_collatz = false;
+    int i = 0;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
         } else {
+            n = 3 * n + 1;
+        }
+        if (n % 2 != 0 && i < 9) {
             result.push_back(n);
-            has_odd_collatz = true;
-            break; // no need to check i anymore
+            i++;
         }
     }
-    if (!has_odd_collatz) return vector<int>(); // return empty vector if no odd Collatz found
-    sort(result.begin(), result.end());
-    return result;
+    return (result.size() > 0) ? result : vector<int>(); 
 }
 
 int main() {
