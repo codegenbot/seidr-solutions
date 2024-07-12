@@ -13,24 +13,23 @@ int main() {
     int minDiff = totalSum;
     int cutIndex = 0;
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n - 1; ++i) {
+        leftSum += vec[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff || (diff == minDiff && i == n-1)) {
+        if (diff < minDiff || (diff == minDiff && i == n-2)) {
             minDiff = diff;
             cutIndex = i;
         }
-
-        if (i == cutIndex) {
-            for (int j = 0; j <= cutIndex; ++j) {
-                std::cout << vec[j] << " ";
-            }
-            std::cout << std::endl;
-        }
-
-        leftSum += vec[i];
     }
+
+    std::cout << cutIndex << std::endl;
+
+    for (int i = 0; i <= cutIndex; ++i) {
+        std::cout << vec[i] << " ";
+    }
+    std::cout << std::endl;
 
     for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << vec[i] << " ";
