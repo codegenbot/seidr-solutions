@@ -1,19 +1,18 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <unordered_map>
 
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
+    std::unordered_map<char, char> mapping;
+    for (int i = 0; i < cipher2.length(); i++) {
+        mapping[cipher2[i]] = cipher1[i];
+    }
     std::string result = "";
-    char current_char = 'a'; // Initialize with a default character
-    for (int i = 0; i < message.length(); i++) {
-        int index = 0;
-        while (index < cipher2.length() && cipher2[index] != message[i]) {
-            index++;
-        }
-        if (index < cipher2.length()) {
-            result += cipher1[std::distance(cipher2.begin(), std::find(cipher2.begin(), cipher2.end(), message[i]))];
+    for (char c : message) {
+        if (mapping.find(c) != mapping.end()) {
+            result += mapping[c];
         } else {
-            result += message[i];
+            result += c;
         }
     }
     return result;
