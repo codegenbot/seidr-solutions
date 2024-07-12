@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -26,5 +27,4 @@ bool is_happy(std::string s) {
 
 int main() {
     std::cout << (is_happy("iopaxioi") ? "True" : "False") << std::endl;
-    return 0;
 }
