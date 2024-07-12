@@ -13,11 +13,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 start = stack.pop()
                 result.append(paren_string[start:i+1])
         else:
-            # Handle invalid characters
-            continue
+            return "Invalid input, only '(' and ')' characters are allowed."
     
     if stack:
-        # Handle unclosed parentheses
-        return []
+        return "Invalid input, missing closing brackets."
     
     return result
