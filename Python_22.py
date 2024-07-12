@@ -1,14 +1,17 @@
-```
-def filter_integers():
+from typing import List, Any
+
+def filter_integers() -> None:
+    values: List[Any] = []
     while True:
+        user_input = input("Enter a value (or 'stop' to finish): ")
+        if user_input.lower() == 'stop':
+            break
         try:
-            value = int(input("Enter an integer between 0 and 100 (or -1 to quit): "))
-            if 0 <= value <= 100: 
-                return [value]
-            elif value == -1: 
-                break
-            else:
-                print("Invalid input. Please enter a number within the specified range.")
+            value = int(user_input)
+            values.append(value)
         except ValueError:
-            if input("Invalid input. Enter again? (y/n): ") != 'y':
-                break
+            print(f"Invalid input: {user_input}. Please enter an integer.")
+    filtered_values = [value for value in values if isinstance(value, int) and 0 <= value <= 100]
+    print("Filtered integers:", filtered_values)
+
+filter_integers()
