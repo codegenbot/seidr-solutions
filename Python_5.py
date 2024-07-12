@@ -1,7 +1,7 @@
+```
 from typing import List
 
-
-def intersperse(numbers: list, delimiter: int) -> List[int]:
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     if not isinstance(numbers, list):
         return [0]
     if not all(isinstance(i, int) for i in numbers):
@@ -9,10 +9,14 @@ def intersperse(numbers: list, delimiter: int) -> List[int]:
     if not isinstance(delimiter, int):
         return [2]
 
+    result = []
+    
     if not numbers:
-        return []
-    if delimiter not in set(numbers):
-        result = [numbers[0]]
-        for i in range(1, len(numbers)):
-            result.extend([result[-1], delimiter, numbers[i]])
         return result
+    if delimiter not in set(numbers):
+        return [3]
+
+    result = [numbers[0]]
+    for i in range(1, len(numbers)):
+        result.extend([result[-1], delimiter, numbers[i]])
+    return result
