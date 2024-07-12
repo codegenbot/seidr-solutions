@@ -1,8 +1,8 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
+#include <iostream>
 
-bool my_issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size()!=b.size()) return false;
     for(int i = 0; i < a.size();i++){
         if(a[i] != b[i]) return false;
     }
@@ -11,7 +11,7 @@ bool my_issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> getResult(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
-    if(my_issame(game,guess)){
+    if(issame(game,guess)){
         for (int i = 0; i < game.size(); i++) {
             result.push_back(2);
         }
