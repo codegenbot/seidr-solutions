@@ -34,4 +34,7 @@ while True:
         print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
 
 result = longest_common_substring(str1, str2)
-print(f"The longest common substring is: {result}")
+if result:
+    print(f"The longest common substring is: {result}")
+else:
+    print("No common substring found.")
