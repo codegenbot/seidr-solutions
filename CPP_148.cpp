@@ -6,11 +6,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-bool issame(std::initializer_list<std::string> a, std::initializer_list<std::string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame({"Jupiter", "Makemake"}, {}));
+    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, std::vector<std::string>{}));
     return 0;
 }
