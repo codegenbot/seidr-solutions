@@ -1,5 +1,4 @@
-def separate_paren_groups():
-    paren_string = input("Enter the string of parentheses: ")
+def separate_paren_groups(paren_string):
     separated_groups = []
     current_group = ""
     open_count = 0
@@ -21,5 +20,5 @@ def separate_paren_groups():
 
     return separated_groups
 
-print(separate_paren_groups())
-input()
+paren_string = input("Enter the string of parentheses: ")
+print(separate_paren_groups(paren_string))
