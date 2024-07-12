@@ -9,12 +9,9 @@ for i in range(len(arr)):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-    if diff < min_diff:
+    if diff < min_diff or (diff == min_diff and abs(arr[i+1] - arr[i]) < abs(arr[cut_index+1] - arr[cut_index]):
         min_diff = diff
         cut_index = i
-    elif diff == min_diff:
-        if i < len(arr) - 1 and abs(arr[i+1] - arr[i]) < abs(arr[cut_index+1] - arr[cut_index]):
-            cut_index = i
 
 subvector1 = arr[:cut_index + 1]
 subvector2 = arr[cut_index + 1:]
