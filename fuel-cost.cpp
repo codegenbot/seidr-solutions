@@ -4,11 +4,11 @@
 using namespace std;
 
 int main() {
-    vector<int> nums = {2819, 5392, 7741};
+    vector<double> nums = {2819, 5392, 7741};
 
-    int sum = 0;
+    unsigned long long sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i] / 3 - 2;
+        sum += static_cast<unsigned long long>(nums[i] / 3) - 2;
     }
 
     cout << sum << endl;
