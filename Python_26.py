@@ -1,6 +1,5 @@
-````
+```
 def remove_duplicates(numbers):
-    """Remove duplicates from a list of numbers."""
     input_numbers = []
 
     while True:
