@@ -1,49 +1,44 @@
-int score(const string &bowls) {
-    int totalScore = 0;
-    int frame = 1;
+int bowlingScore(string input) {
+    int score = 0;
+    int frame = 0;
     int ball = 0;
-    int rolls[21];
-    for (char c : bowls) {
+    vector<int> frames(10, 0);
+    
+    for (char c : input) {
         if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
+            frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            rolls[ball - 1] = 10 - rolls[ball - 2];
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
+            frames[frame] = 10 - frames[frame - 1];
             frame++;
+            ball = 0;
         } else if (c == '-') {
-            rolls[ball++] = 0;
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
-            frame++;
+            ball++;
         } else {
-            rolls[ball++] = c - '0';
-            if (frame % 2 == 0 || c == '9') {
+            frames[frame] += c - '0';
+            ball++;
+            if (ball == 2) {
                 frame++;
+                ball = 0;
             }
         }
     }
+    
     for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            totalScore += 10 + rolls[i * 2 + 2] + rolls[i * 2 + 4];
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            totalScore += 10 + rolls[i * 2 + 2];
-        } else {
-            totalScore += rolls[i * 2] + rolls[i * 2 + 1];
+        score += frames[i];
+        if (i < 8 && frames[i] == 10) {
+            score += frames[i + 1] + (frames[i + 2] == 10 ? frames[i + 2] : frames[i + 2] - frames[i + 1]);
+        } else if (i == 9 && (frames[i] == 10 || frames[i - 1] == 10)) {
+            score += frames[i + 1] + frames[i + 2];
         }
     }
-    return totalScore;
+    
+    return score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << score(bowls) << endl;
+    string input;
+    cin >> input;
+    cout << bowlingScore(input) << endl;
     return 0;
 }
