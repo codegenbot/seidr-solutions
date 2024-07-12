@@ -2,16 +2,17 @@
 #include <cassert>
 #include <iostream>
 
-std::string change_base(int x, int base);
+string change_base(int x, int base);
 
 int main() {
-    // Your implementation for the main function if needed
+    // Test the function here
+    return 0;
 }
 
-std::string change_base(int x, int base){
-    std::string result = "";
+string change_base(int x, int base){
+    string result = "";
     while (x > 0) {
-        result = std::to_string(x % base) + result;
+        result = to_string(x % base) + result;
         x /= base;
     }
     return result;
