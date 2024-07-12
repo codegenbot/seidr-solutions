@@ -1,21 +1,15 @@
-string find_max(vector<string> words) {
-    string result;
-    int max_unique_chars = 0;
+string find_max(vector<string> words){
+    string maxWord = "";
+    int maxUniqueChars = 0;
     
-    for (const string& word : words) {
-        string unique_chars;
-        for (char ch : word) {
-            if (unique_chars.find(ch) == string::npos) {
-                unique_chars.push_back(ch);
-            }
-        }
+    for(const string& word : words){
+        int uniqueChars = std::set<char>(word.begin(), word.end()).size();
         
-        if (unique_chars.size() > max_unique_chars || 
-            (unique_chars.size() == max_unique_chars && word < result)) {
-            max_unique_chars = unique_chars.size();
-            result = word;
+        if(uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)){
+            maxUniqueChars = uniqueChars;
+            maxWord = word;
         }
     }
     
-    return result;
+    return maxWord;
 }
