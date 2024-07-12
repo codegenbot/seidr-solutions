@@ -1,7 +1,7 @@
-```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool assertSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -39,4 +39,3 @@ int main() {
         assert(false);
     }
     return 0;
-}
