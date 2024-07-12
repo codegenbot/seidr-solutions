@@ -36,7 +36,7 @@ int driver() {
     string str;
     cin >> str;
     
-    int result = histogram(str, arr);
+    int result = histogram(str, arr); 
     cout << result << endl;
     
     return 0;
