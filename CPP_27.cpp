@@ -3,26 +3,15 @@
 #include <string>
 
 std::string filp_case(const std::string& str) {
-    for (int i = 0; i < str.size(); i++) {
-        if (islower(str[i])) {
-            str[i] = toupper(str[i]);
-        } else if (isupper(str[i])) {
-            str[i] = tolower(str[i]);
+    std::string s = str;
+    for (int i = 0; i < s.size(); i++) {
+        if (islower(s[i])) {
+            s[i] = toupper(s[i]);
+        } else if (isupper(s[i])) {
+            s[i] = tolower(s[i]);
         }
     }
-    return str;
-}
-
-std::string filp_case(const std::string& str) {
-    std::string output = str;
-    for (int i = 0; i < str.size(); i++) {
-        if (islower(output[i])) {
-            output[i] = toupper(output[i]);
-        } else if (isupper(output[i])) {
-            output[i] = tolower(output[i]);
-        }
-    }
-    return output;
+    return s;
 }
 
 int main() {
