@@ -6,15 +6,17 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
-    map<int, int> mp;
+    
+    map<int, int> numIndex;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << "\n" << nums[i] << "\n";
+        int complement = target - nums[i];
+        if (numIndex.find(complement) != numIndex.end()) {
+            cout << nums[i] << endl;
+            cout << complement << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numIndex[nums[i]] = i;
     }
-
+    
     return 0;
 }
