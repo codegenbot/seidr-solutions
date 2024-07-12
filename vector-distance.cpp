@@ -27,8 +27,7 @@ int main() {
     }
 
     result = std::sqrt(result);
-
-    std::cout << std::fixed << result << std::endl;
-
+    std::cout << result << std::endl;
+    
     return 0;
 }
