@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int n, m;
@@ -9,13 +10,11 @@ int main() {
     
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j < i && j <= m; ++j) {
-            favorable_outcomes += 1.0;
+            favorable_outcomes += 1;
         }
     }
     
-    double probability = favorable_outcomes / total_outcomes;
-    
-    std::cout << probability << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << favorable_outcomes / total_outcomes << std::endl;
     
     return 0;
 }
