@@ -1,10 +1,9 @@
-#include <vector>
-#include <string>
-
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
-    for(auto s : strings){
-        if(s.find(prefix) == 0)
-            result.push_back(s);
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, string prefix){
+    vector<string> result;
+    for(string str : strings) {
+        if(str.find(prefix) == 0) {
+            result.push_back(str);
+        }
     }
     return result;
+}
