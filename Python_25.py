@@ -5,7 +5,6 @@ def factorize(n):
             factors.append(i)
     return factors
 
-
-n = int(input())
+n = int(input("Enter a number: "))
 result = factorize(n)
 print(result)
