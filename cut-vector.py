@@ -11,7 +11,7 @@ for i in range(n):
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
 
-    if diff < min_diff:
+    if diff <= min_diff:
         min_diff = diff
         cut_index = i
 
