@@ -19,5 +19,6 @@ def solve_boolean(expression):
             stack.append(op1 or op2)
     return stack[0]
 
+
 expression = input().strip()
 print(solve_boolean(expression))
