@@ -1,7 +1,7 @@
-```cpp
 #include <cassert>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 std::string filp_case(const std::string& str) {
     std::string result = "";
@@ -19,5 +19,4 @@ std::string filp_case(const std::string& str) {
 
 int main() {
     assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
 }
