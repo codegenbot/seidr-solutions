@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -9,10 +8,10 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> incr_list(initializer_list<int> l){
-    vector<int> result = vector<int>(l);
-    for(int i : result) {
-        i++;
+vector<int> incr_list(const vector<int>& l){
+    vector<int> result(l.size());
+    for(int i = 0; i < l.size(); ++i) {
+        result[i] = l[i]+1;
     }
     return result;
 }
