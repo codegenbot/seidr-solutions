@@ -1,8 +1,8 @@
-# include <iostream>
-# include <vector>
-# include <numeric>
-# include <cmath>
-# include <limits>
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <cmath>
+#include <limits>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ int main() {
     vector<int> input;
     int num;
 
-    while (cin >> num && num != -1) {
+    while (cin >> num && num != -1 && !cin.eof()) {
         input.push_back(num);
     }
 
