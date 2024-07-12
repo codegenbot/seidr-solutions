@@ -2,7 +2,10 @@ import re
 
 
 def fix_spaces():
-    text = input("Enter your text: ")
+    text = input("Enter a string: ")
+    if not isinstance(text, str):
+        return "Invalid input. Please enter a string."
+
     try:
         return re.sub(" +", "_", text)
     except Exception as e:
