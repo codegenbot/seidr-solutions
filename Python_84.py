@@ -1,3 +1,4 @@
+```
 def solve(n):
     if n == 0 or not isinstance(n, int):
         return "Invalid Input. Please provide an integer."
