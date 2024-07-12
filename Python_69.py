@@ -6,7 +6,6 @@ def search(lst):
             freq_dict[num] += 1
         else:
             freq_dict[num] = 1
-    
     for key, value in freq_dict.items():
         if key > 0 and value >= key:
             return key
