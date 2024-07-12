@@ -5,5 +5,5 @@ def format_numbers(numbers, delimiter):
 
 numbers = list(map(int, input("Enter numbers separated by space: ").split()))
 delimiter = input("Enter delimiter: ")
-result = delimiter.join(intersperse(format_numbers(numbers, delimiter), delimiter))
-print(result)
+result = delimiter.join(intersperse(format_numbers(numbers, delimiter)))
+print(''.join(result))
