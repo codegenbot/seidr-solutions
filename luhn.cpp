@@ -1,7 +1,7 @@
 #include <vector>
 
 int luhn(const std::vector<int>& numbers) {
-    return luhnHelper(numbers, numbers.size() - 1);
+    return luhnHelper(numbers, 15);
 }
 
 int luhnHelper(const std::vector<int>& numbers, int pos) {
