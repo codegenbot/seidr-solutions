@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -23,7 +24,7 @@ std::vector<float> get_positive(std::vector<float> l){
 
 int main() {
     std::vector<float> input = {1.2, -4.5, 7.8};
-    if (issame(get_positive(input), {}) ) 
-        return 0;  
+    if (issame(get_positive(input), {})) 
+        return 0; 
     return 1;
 }
