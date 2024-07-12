@@ -6,17 +6,15 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    int i = 0;
+    vector<int> result(std::size_t(10000)); // or some reasonable large size
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
         } else {
             n = 3 * n + 1;
         }
-        if (n % 2 != 0 && i < 10) {
+        if (n % 2 != 0) {
             result.push_back(n);
-            i++;
         }
     }
     sort(result.begin(), result.end());
