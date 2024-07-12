@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 int main(){
