@@ -1,9 +1,10 @@
 ```cpp
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include <string>
 
 bool checkEquality(std::string& s) {
-    return s.compare(0, 4, "True") == 0;
+    return s == "True";
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
@@ -29,40 +30,24 @@ std::string reverse_delete(std::string& s, std::string& c) {
     return rev;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 int main() {
-    bool issame(int a, int b) { return a == b; }
-    std::string s1 = reverse_delete("mamma", "mia");
-    std::string s2 = "mama";
+    bool isEqual = (checkEquality("True"));
     
-    if (issame(s1.compare(s2), 0)) {
-        std::cout << "Equal" << std::endl;
-    } else {
-        std::cout << "Not Equal" << std::endl;
-    }
-    
-    bool isEqual = checkEquality(s1);
     if(isEqual) {
-        if (!s1.empty() && !s2.empty()) {
-            std::cout << s1 << " and " << s2 << " are the same." << std::endl;
-        } else if (s1.empty()) {
-            if (s2.empty()) {
-                std::cout << "empty and empty are the same." << std::endl;
-            } else {
-                std::cout << "empty and " << s2 << " are the same." << std::endl;
-            }
+        if (!isEqual) {
+            std::cout << "True is equal to itself." << std::endl;
         } else {
-            if (s2.empty()) {
-                std::cout << s1 << " and empty are the same." << std::endl;
-            } else {
-                std::cout << s1 << " and " << s2 << " are the same." << std::endl;
-            }
+            std::cout << "True is not equal to itself." << std::endl;
         }
     } else {
-        if (!s1.empty() && !s2.empty()) {
-            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
-        } else if (s1.empty() || s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
-        }
+        std::cout << "True is not equal to itself." << std::endl;
     }
+    
+    assert(issame({reverse_delete("mamma", "mia"), "", "True"});
+    
     return 0;
 }
