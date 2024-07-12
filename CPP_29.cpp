@@ -20,7 +20,15 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 }
 
-int main(int argc) {
+std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return {};
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return {};
+    }
+    return a;
+}
+
+int main() {
     int n;
     std::cin >> n;
     std::vector<std::string> strings(n);
@@ -31,7 +39,7 @@ int main(int argc) {
     std::string prefix;
     std::cin >> prefix;
 
-    if (areEqual(strings, filter_by_prefix(strings, prefix))) {
+    if (issame(strings, filter_by_prefix(strings, prefix))) {
         std::cout << "Yes" << std::endl;
     } else {
         std::cout << "No" << std::endl;
