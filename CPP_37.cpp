@@ -15,7 +15,7 @@ std::vector<float> sortEven(std::vector<float> l) {
     std::vector<float> result(l.size(), 0.0);
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> evenIndices(l.size(), 0.0f); 
+            std::vector<float> evenIndices;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evenIndices.push_back(l[j]);
