@@ -17,13 +17,14 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     if (index1 == -1 || index2 == -1)
         return {};
     
-    if(index2 - index1 > planets.size()) {
-        return {};
-    }
-    
     std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if (i > index1 && i < index2) {
+        bool isBetween = (i > index1 && i < index2);
+        if (!isBetween) {
+            if (index1 <= i && i <= index2)
+                isBetween = true;
+        }
+        if (isBetween) {
             result.push_back(planets[i]);
         }
     }
