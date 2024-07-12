@@ -1,6 +1,5 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -15,10 +14,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 if not stack:
                     result.append(current_group)
                     current_group = ""
-        else:
+        elif stack:
             current_group += char
 
-    if current_group:
+    if not stack:  # Check if stack is empty before appending group
         result.append(current_group)
-
+    
     return result
