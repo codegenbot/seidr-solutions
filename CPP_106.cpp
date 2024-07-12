@@ -7,9 +7,7 @@ vector<int> f(int n) {
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) { // even index
             int factorial = 1;
-            for (int j = 1; j <= i; j++) {
-                factorial *= j;
-            }
+            factorial *= i + 1; 
             result[i] = factorial;
         } else { // odd index
             int sum = 0;
