@@ -3,9 +3,9 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.isupper():
-                result += chr((ord(char) - 65 + 13) % 26 + 65)
+                result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
             else:
-                result += chr((ord(char) - 97 + 13) % 26 + 97)
+                result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
         else:
             result += char
     return result
