@@ -8,8 +8,9 @@ int main() {
     cents %= 10;
     int nickels = cents / 5;
     cents %= 5;
+    int pennies = cents;
     
-    cout << cents << endl;
+    cout << pennies << endl;
     cout << nickels << endl;
     cout << dimes << endl;
     cout << quarters << endl;
