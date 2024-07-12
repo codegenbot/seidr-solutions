@@ -3,7 +3,7 @@
 int main() {
     int x;
     std::cin >> x;
-
+    
     if (x % 3 == 0 && x % 5 == 0) {
         std::cout << "FizzBuzz";
     } else if (x % 3 == 0) {
