@@ -2,7 +2,7 @@ import sys
 
 def main():
     print("Enter a list of floats separated by spaces:")
-    xs = list(map(float, input().rstrip().split()))
+    xs = list(map(float, sys.stdin.readline().rstrip().split()))
 
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
