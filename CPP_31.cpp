@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>  
 using namespace std;
 
 bool is_prime(int num) {
@@ -13,9 +14,7 @@ bool is_prime(int num) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    int num = stoi(s);
-    if (is_prime(num))
-        cout << "true" << endl;
+    int num;
+    cin >> num;
+    cout << (is_prime(num) ? "true" : "false") << endl;
 }
