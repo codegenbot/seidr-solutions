@@ -4,10 +4,7 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    if string.isupper():
-        string = string.lower()
-    for i in range(len(string), -1, -1):
-        if string[:i] + string[i:][::-1] != string:
-            continue
-        return string[:i] + string[i:][::-1]
-    return string + string[::-1]
+    prefix = ""
+    while string.startswith(prefix + prefix[::-1]):
+        prefix += prefix[-1]
+    return string + (string[::-1]).lstrip(prefix)
