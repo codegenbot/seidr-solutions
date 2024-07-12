@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string encrypt(const std::string& s) {
-    for (char& c : s) { 
+    std::string result = s; 
+    for (char c : s) {
         if (c == 'a') c = 'e';
         else if (c == 'A') c = 'E';
     }
-    return s; 
+    return result;
 }
 
 int main() {
@@ -16,4 +16,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << encrypt(input) << std::endl;
     return 0;
-}

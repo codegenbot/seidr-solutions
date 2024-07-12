@@ -1,3 +1,4 @@
+```cpp
 #include <map>
 #include <vector>
 #include <string>
@@ -28,7 +29,7 @@ map<pair<char,int>, int> histogram(string test) {
         }
         for(int i=0; i<count; i++) {
             pair<char,int> p = make_pair(c, i);
-            result[p] = 1;
+            result[p] = i;
         }
     }
 
@@ -37,6 +38,6 @@ map<pair<char,int>, int> histogram(string test) {
 
 int main() {
     map<pair<char,int>, int> test = histogram("a");
-    assert(issameInt(test, {{make_pair('a',0),1},{make_pair('b',1),0}}));
+    assert(issameInt(test, {make_pair('a', 0), 1}));
     return 0;
 }
