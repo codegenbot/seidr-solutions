@@ -1,10 +1,5 @@
-def fix_spaces(text):
-    while " " in text:
-        text = text.replace(" ", "_")
-    return text
+```
+import re
 
-text_to_fix = input("Enter a text to replace spaces with underscores: ")
-if text_to_fix: 
-    print(fix_spaces(text_to_fix))
-else:
-    print("Please provide some input.")
+def fix_spaces(text):
+    return re.sub(" +", "_", text)
