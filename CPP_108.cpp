@@ -1,6 +1,7 @@
 ```c++
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 int count_nums(int* nums, int size) {
     int count = 0;
