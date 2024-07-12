@@ -1,3 +1,5 @@
+s = input()
+
 def decode_shift(s):
     decoded = ""
     for char in s:
