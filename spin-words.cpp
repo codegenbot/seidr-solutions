@@ -7,19 +7,16 @@ int main() {
     bool first = true;
     
     while (iss >> word) {
-        if (word.length() >= 5) {
+        if (word.size() >= 5) {
             reverse(word.begin(), word.end());
         }
         
         if (!first) {
             cout << " ";
         }
-        
-        cout << word;
         first = false;
+        cout << word;
     }
-    
-    cout << endl;
     
     return 0;
 }
