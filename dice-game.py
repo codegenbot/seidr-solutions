@@ -1,9 +1,12 @@
 n = int(input())
 m = int(input())
-print(
-    "{:.2f}".format(
-        sum([(n - i) / n * (m - i) / m for i in range(1, n + 1)])
-        if n > 1 and m > 1
-        else 0.0
-    )
-)
+
+def probability_higher(n, m):
+    count = 0
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            if i > j:
+                count += 1
+    return count / (n * m)
+
+print(probability_higher(n, m))
