@@ -1,38 +1,34 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
-    
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+
+    int left_sum = 0, right_sum = 0;
+    int left_idx = 0, right_idx = n - 1;
+
+    while (left_idx < right_idx) {
+        if (left_sum < right_sum) {
+            left_sum += nums[left_idx++];
+        } else {
+            right_sum += nums[right_idx--];
+        }
     }
-    
-    int half_sum = sum / 2;
-    int left_sum = 0;
-    int idx = 0;
-    
-    while (left_sum <= half_sum) {
-        left_sum += nums[idx];
-        idx++;
+
+    cout << left_idx << endl;
+    for (int i = 0; i < left_idx; ++i) {
+        cout << nums[i] << endl;
     }
-    
-    if (std::abs(left_sum - half_sum) < std::abs(left_sum - half_sum + nums[idx - 1])) {
-        idx--;
-        left_sum -= nums[idx];
+    cout << right_sum << endl;
+    for (int i = right_idx + 1; i < n; ++i) {
+        cout << nums[i] << endl;
     }
-    
-    for (int i = 0; i < idx; i++) {
-        std::cout << nums[i] << std::endl;
-    }
-    
-    std::cout << left_sum << std::endl;
-    
+
     return 0;
 }
