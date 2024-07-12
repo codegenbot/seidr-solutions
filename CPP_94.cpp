@@ -1,5 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cstddef>
+#pragma GCC cxx11
+using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
