@@ -13,9 +13,11 @@ std::string taskDescription(int n, int m) {
     int avg = round((double)sum / (m - n + 1));
     
     std::string binary = "";
-    while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
-        avg /= 2;
+    {
+        while (avg > 0) {
+            binary = to_string(avg % 2) + binary;
+            avg /= 2;
+        }
     }
     
     return binary;
