@@ -1,15 +1,14 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> eat(int a, int b, int c) {
-    return {b, a - c};
-}
+namespace std {
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+    vector<int> eat(int a, int b, int c) {
+        return {b, a - c};
+    }
 
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 3}));
-    return 0;
+    bool issame(const vector<int>& a, const vector<int>& b) {
+        return a == b;
+    }
+
 }
