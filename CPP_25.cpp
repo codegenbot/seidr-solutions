@@ -1,9 +1,6 @@
 #include <vector>
 #include <cassert>
 
-vector<int> factorize(int n);
-void issame(vector<int> vec1, vector<int> vec2);
-
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i=2; i*i<=n; i++){
@@ -19,8 +16,7 @@ vector<int> factorize(int n){
 }
 
 int main() {
-    vector<int> result = factorize(100);
-    assert(result == vector<int>{2, 2, 5, 5});
-    
+    vector<int> expected_factors = {2, 2, 3, 5};
+    assert(factorize(60) == expected_factors);
     return 0;
 }
