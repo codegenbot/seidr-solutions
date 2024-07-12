@@ -11,11 +11,8 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     return result;
 }
 
-auto main() -> int {
-    auto result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    auto actualSet(result.begin(), result.end());
-    auto expectedSet = {"grunt", "prune"};
-    bool same = (actualSet == set<string>(expectedSet.begin(), expectedSet.end()));
-    assert(same);
-    return 0;
+int main() {
+    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    bool same = (std::set<std::string>(result.begin(), result.end()) == std::set<std::string>({"grunt", "prune"}));
+    return same ? 0 : 1;
 }
