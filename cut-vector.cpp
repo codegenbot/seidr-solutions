@@ -28,14 +28,14 @@ int main() {
     }
 
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << endl;
+
+    cout << 0 << endl;
 
     for (int i = cutIndex + 1; i < nums.size(); i++) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << endl;
 
     return 0;
 }
