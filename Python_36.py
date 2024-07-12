@@ -7,7 +7,6 @@ def fizz_buzz(n: int):
             or ("7" in str(i))
         )
         and all(i % num != 0 for num in [13, 21, 15, 35, 33, 77])
-        and i != 33111 and str(i) != "33111"
     )
     return count
 
