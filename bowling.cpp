@@ -1,22 +1,23 @@
 int score(string s) {
-    int frames = 10, score = 0, frameIndex = 0;
-    for (int i = 0; i < frames; i++) {
-        if (s[frameIndex] == 'X') {
-            score += 10 + (s[frameIndex + 1] == 'X' ? 10 : (isdigit(s[frameIndex + 1]) ? s[frameIndex + 1] - '0' : 10));
-            if (s[frameIndex + 1] == 'X' && s[frameIndex + 2] == 'X')
-                score += 10;
-            else if (s[frameIndex + 1] == 'X')
-                score += (isdigit(s[frameIndex + 2]) ? s[frameIndex + 2] - '0' : 10);
-            frameIndex++;
-        } else if (s[frameIndex + 1] == '/') {
-            score += 10 + (s[frameIndex + 2] == 'X' ? 10 : (isdigit(s[frameIndex + 2]) ? s[frameIndex + 2] - '0' : 10));
-            frameIndex += 2;
+    int total = 0;
+    int frame = 0;
+    int i = 0;
+    while (frame < 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 1] - '0' + s[i + 2] - '0'));
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
+            i += 2;
         } else {
-            score += (isdigit(s[frameIndex]) ? s[frameIndex] - '0' : 0) + (isdigit(s[frameIndex + 1]) ? s[frameIndex + 1] - '0' : 0);
-            frameIndex += 2;
+            total += s[i] - '0' + s[i + 1] - '0';
+            i += 2;
         }
+        frame++;
     }
-    return score;
+    return total;
 }
 
 int main() {
