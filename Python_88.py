@@ -1,6 +1,7 @@
+Here is the corrected code:
+
 def sort_array(arr):
     return sorted(map(int, arr))
-
 
 while True:
     try:
