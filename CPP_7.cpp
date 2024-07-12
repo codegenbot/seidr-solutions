@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const set<string>& b) {
-    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [&b](const string& s){return b.find(s) != set<string>::end();});
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return (a == b);
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
