@@ -2,13 +2,13 @@ arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 left_sum = 0
-min_diff = 0
+min_diff = float("inf")
 cut_index = -1
 
-for i in range(len(arr)):
+for i in range(len(arr)-1):
     right_sum = total_sum - left_sum - arr[i]
     diff = abs(left_sum - right_sum)
-    if diff <= min_diff:
+    if diff < min_diff:
         min_diff = diff
         cut_index = i
     left_sum += arr[i]
