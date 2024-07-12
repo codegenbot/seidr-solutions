@@ -9,11 +9,7 @@ bool is_happy(const std::string& s) {
         std::string sub = s.substr(i, 2);
         bool unique = true;
         for (char a : sub) { 
-            size_t count = 0;
-            for (char b : sub) {
-                if (b == a)
-                    ++count;
-            }
+            size_t count = std::count(sub.begin(), sub.end(), a);
             if (count > 1) {
                 unique = false;
                 break;
