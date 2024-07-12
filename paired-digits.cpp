@@ -1,16 +1,14 @@
-#include <string>
-
-int pairedDigits(std:string s) {
+int pairedDigits(const std::string& str) {
     int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i + 1]) {
-            sum += s[i] - '0';
+    for (int i = 0; i < str.length() - 1; ++i) {
+        if (str[i] == str[i + 1]) {
+            sum += str[i] - '0';
         }
     }
     return sum;
-}
+
+} 
 
 int main() {
-    int sum = pairedDigits("1233345556");
-    return 0;
+    std::cout << pairedDigits("1113123") << std::endl;
 }
