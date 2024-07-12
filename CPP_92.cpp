@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -21,4 +20,3 @@ int main() {
         cout << "None of the input numbers are integers.\n";
 
     return 0;
-}
