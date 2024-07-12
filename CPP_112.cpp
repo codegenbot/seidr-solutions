@@ -1,48 +1,20 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool checkEquality(std::string& s) {
-    return s == "True";
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a == b);
 }
 
-std::string reverse_delete(std::string& s, std::string& c) {
-    if(s.empty() || c.empty()) {
-        return "";
+std::string reverse_delete(const std::string& s1, const std::string& s2) {
+    for (int i = 0; i < s2.length(); i++) {
+        while (s1.find(s2.substr(i, 1)) != std::string::npos)
+            s1.erase(s1.find(s2.substr(i, 1)), 1);
     }
-    
-    std::string temp = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += ch;
-        }
-    }
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
-    return rev;
-}
-
-bool issame(std::string a, std::string b) {
-    return (a.empty() && b.empty()) || (a == b);
+    return s1;
 }
 
 int main() {
-    bool isEqual = checkEquality("True");
-    
-    if(isEqual) {
-        std::cout << "True is equal to itself." << std::endl;
-    } else {
-        std::cout << "True is not equal to itself." << std::endl;
-    }
-    
-    assert(issame(reverse_delete("mamma", "mia"), reverse_delete({"", "True"}).front()));
-    
+    std::vector<std::string> v = {"", "True"};
+    assert(issame(std::vector<std::string>({reverse_delete("mamma", "mia")}), v));
     return 0;
 }
