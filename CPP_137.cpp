@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -20,7 +21,7 @@ int main() {
     std::cin >> b;
 
     int s1 = compare_one(a, 1);
-    int s2 = compare_one(b, 2);
+    int s2 = compare_one(b, 3);
 
     if (s1 < s2) {
         return -1;
