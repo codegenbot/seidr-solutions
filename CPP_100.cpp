@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 
@@ -26,6 +25,6 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame({0}, make_a_pile_result));
+    assert(issame(make_a_pile(8), make_a_pile_result));
     return 0;
 }
