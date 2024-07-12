@@ -4,10 +4,8 @@ def encode(message):
         if char.isalpha():
             if char.lower() in 'aeiou':
                 result += chr((ord(char.lower()) - 97 + 3) % 26 + 97)
-            elif char.islower():
-                result += chr((ord(char) - 97) % 26 + 97)
             else:
-                result += char
+                result += '9' if char.islower() else '1'
         else:
             result += char
     return result
