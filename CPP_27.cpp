@@ -1,10 +1,21 @@
-```cpp
-for(int i=0; i<str.length(); i++){
-    char c = str[i];
-    if(c >= 'a' && c <= 'z')
-        result += toupper((char)c);
-    else if(c >= 'A' && c <= 'Z')
-        result += tolower((char)c);
-    else
-        result += c;
+#include <iostream>
+#include <string>
+using namespace std;
+
+string flip_case(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        if(str[i] >= 'a' && str[i] <= 'z')
+            result += toupper(str[i]);
+        else if(str[i] >= 'A' && str[i] <= 'Z')
+            result += tolower(str[i]);
+        else
+            result += str[i];
+    }
+    return result;
+}
+
+int main(){
+    assert(flip_case("These violent delights have violent ends") == "tHEse ViOLEnt DeLiGhTs HaVe ViOLEnT EnDs");
+    return 0;
 }
