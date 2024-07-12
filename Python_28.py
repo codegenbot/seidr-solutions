@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -7,9 +8,13 @@ def concatenate(strings: List[str]) -> str:
 
 strings_list = []
 while True:
-    strings_list.append(input("Enter a string (or 'stop' to finish): "))
-    if input("Enter 'stop' to finish: ").lower() == "stop":
+    user_input = input("Enter a string (or 'stop' to finish): ")
+    if user_input.lower() == "stop":
         break
-result = concatenate([s.strip() for s in strings_list])
+    strings_list.append(user_input.strip())
 
-print(result)
+if strings_list:
+    result = concatenate(strings_list)
+    print(result)
+else:
+    print("No strings were provided.")
