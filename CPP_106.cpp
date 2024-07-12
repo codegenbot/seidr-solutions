@@ -4,13 +4,25 @@
 std::vector<int> f(int n){
     std::vector<int> result(n);
     for (int i = 0; i < n; ++i) {
-        result[i] = (i % 2 == 0) ? std::accumulate(1, i + 1, 1, std::multiplies<int>()) : std::accumulate(1, i + 1, 0);
+        if (i % 2 == 0) {
+            int fact = 1;
+            for (int j = 1; j <= i; ++j) {
+                fact *= j;
+            }
+            result[i] = fact;
+        } else {
+            int sum = 0;
+            for (int j = 1; j <= i; ++j) {
+                sum += j;
+            }
+            result[i] = sum;
+        }
     }
     return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+   return a == b;
 }
 
 int main(){
