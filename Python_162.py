@@ -1,18 +1,20 @@
-```
-import hashlib
+def problem162():
+    import hashlib
 
-#
-while True:
-    print("Please enter some text (alphanumeric characters only): ", end="")
-    s = input().strip()
-    
-    if not s: 
-        continue
-    
-    if s.isalnum():  
-        break
-    else:
-        print("Please enter some alphanumeric characters.")
+    def get_hash(s):
+        return hashlib.md5(s.encode()).hexdigest()
 
-output = hashlib.md5(s.encode()).hexdigest()
-print(f"Output: {output}")
+    while True:
+        print("Please enter some text (alphanumeric characters only): ", end="")
+        s = input().strip()
+
+        if not s:
+            continue
+
+        if s.isalnum():
+            break
+        else:
+            print("Please enter some alphanumeric characters.")
+
+    output = get_hash(s)
+    print(f"Output: {output}")
