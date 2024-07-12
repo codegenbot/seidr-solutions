@@ -1,9 +1,13 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for (int num : lst) {
         if (num < 2) continue;
         bool isPrime = true;
-        for (int i = 2; i * i <= num; i++) {
+        for (int i = 2; i * i <= num; ++i) {
             if (num % i == 0) {
                 isPrime = false;
                 break;
