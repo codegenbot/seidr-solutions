@@ -1,35 +1,18 @@
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    if index + 2 < len(bowls) and bowls[index + 2] == "X":
-        bonus += 10
-        if index + 4 < len(bowls) and bowls[index + 4] == "X":
-            bonus += 10
-        else:
-            bonus += int(bowls[index + 4]) if index + 4 < len(bowls) else 0
-    else:
-        bonus += get_frame_score(bowls, index + 2) if index + 2 < len(bowls) else 0
-    return bonus
-
-def get_spare_bonus(bowls, index):
-    bonus = 0
-    if index + 2 < len(bowls) and bowls[index + 2] == "X":
-        bonus += 10
-    else:
-        bonus += int(bowls[index + 2]) if index + 2 < len(bowls) else 0
-    return bonus
-
-def get_frame_score(bowls, index):
+def bowling_score(bowls):
     score = 0
-    if index < len(bowls):
-        if bowls[index] == "-":
-            score += 0
+    bowl_index = 0
+
+    for frame in range(1, 11):
+        if bowls[bowl_index] == "X":
+            score += 10
+            score += sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[bowl_index + 1:bowl_index + 3]))
+            bowl_index += 1
+        elif bowls[bowl_index + 1] == "/":
+            score += 10
+            score += int(bowls[bowl_index + 2])
+            bowl_index += 2
         else:
-            score += int(bowls[index])
-    if index + 1 < len(bowls):
-        if bowls[index + 1] == "-":
-            score += 0
-        elif bowls[index + 1] == "/":
-            score += 10 - int(bowls[index]) if index < len(bowls) else 0
-        else:
-            score += int(bowls[index + 1])
+            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+            bowl_index += 2
+
     return score
