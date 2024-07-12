@@ -7,12 +7,12 @@ bool is_happy(std::string s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         std::string sub = s.substr(i, 3);
-        std::array<char, 3> arr = sub.begin(), arr.end();
         bool unique = true;
-        for (char c : arr) {
+        for (char c : sub) {
+            std::string temp(1, c);
             int count = 0;
-            for (char a : arr) {
-                if (a == c)
+            for (char t : temp) {
+                if (t == c)
                     count++;
             }
             if (count > 1) {
