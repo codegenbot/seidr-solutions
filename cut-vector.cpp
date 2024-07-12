@@ -17,6 +17,15 @@ int main() {
     }
 
     int n = nums.size();
+    
+    if (n == 1) {
+        cout << "1" << endl << "0" << " " << "0" << endl;
+        cout << nums[0] << endl;
+        cout << "0" << endl;
+        
+        return 0;
+    }
+
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -30,7 +39,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff || (diff == minDiff && abs(cutIndex - n/2) < abs(i - n/2))) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
