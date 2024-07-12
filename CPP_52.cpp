@@ -1,4 +1,4 @@
-```#include <iostream>
+#include <iostream>
 #include <vector>
 
 bool below_threshold(std::vector<int> l, int t) {
@@ -8,27 +8,10 @@ bool below_threshold(std::vector<int> l, int t) {
         }
     }
     return true;
+
 }
 
 int main() {
-    std::vector<int> numbers;
-    int threshold;
-
-    std::cout << "Enter the threshold: ";
-    std::cin >> threshold;
-
-    std::cout << "Enter a series of numbers separated by spaces: ";
-    for (int i = 0; i < 5; ++i) {
-        int num;
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-
-    if (below_threshold(numbers, threshold)) {
-        std::cout << "All numbers are below the threshold.\n";
-    } else {
-        std::cout << "At least one number is not below the threshold.\n";
-    }
-
+    assert(not(below_threshold({1, 8, 4, 10}, 10)));
     return 0;
 }
