@@ -12,5 +12,8 @@ def bouncing_balls():
         if _ == 0:
             total_distance += abs(2 * height - start_height)
         else:
-            total_distance += 2 * height
+            total_distance += abs(2 * height) - abs(2 * height - start_height)
     print(round(total_distance, 2))
+
+if __name__ == "__main__":
+    bouncing_balls()
