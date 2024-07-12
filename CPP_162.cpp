@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 #include <openssl/md5.h>
@@ -21,5 +20,5 @@ string string_to_md5(string text) {
         ss << setfill(2) << right << hex << (int)md5[i];
     }
 
-    return std::string(ss.str());
+    return string(ss.str());
 }
