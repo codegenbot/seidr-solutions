@@ -4,8 +4,8 @@ def sort_array(arr):
 
 while True:
     try:
-        array = list(map(int, input("Enter an array: ").split()))
+        array = list(map(int, input("Enter an array: comma-separated ").split(',')))
         print(sort_array(array))
         break
     except ValueError:
-        print("Invalid input. Please enter numbers separated by spaces.")
+        print("Invalid input. Please enter numbers comma-separated.")
