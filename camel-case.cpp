@@ -1,23 +1,21 @@
 ```cpp
+#include <vector>
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-' || str[i] == ' ') {
-            if (str[i] == '-') {
-                result += std::toupper(str[i+1]);
-                i++;
-            } else if (str[i] == ' ') {
-                continue;
-            }
-        } else {
-            if (!result.empty() && (result.back() == '-' || result.back() == ' ')) {
-                result.push_back(std::toupper(str[i]));
+    for (const auto& c : str) {
+        if (c == '-' || c == ' ') {
+            if (!result.empty()) {
+                result += std::toupper(c);
             } else {
-                result += str[i];
+                result += c;
             }
+        } else if (!result.empty()) {
+            result += std::tolower(c);
+        } else {
+            result += c;
         }
     }
     return result;
