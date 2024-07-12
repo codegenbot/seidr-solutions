@@ -1,7 +1,5 @@
-```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string intToMiniRoman(int n) {
     if (n <= 0)
@@ -18,7 +16,7 @@ std::string intToMiniRoman(int n) {
     return roman;
 }
 
-main() {
+int main() {
     std::cout << intToMiniRoman(1999) << std::endl;
     assert(intToMiniRoman(1000) == "M");
     return 0;
