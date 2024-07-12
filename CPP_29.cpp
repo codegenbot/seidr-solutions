@@ -1,7 +1,16 @@
+#include <cassert>
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
-    for (const string &str : strings) {
-        if (str.find(prefix) == 0) {
+    for(const string &str : strings) {
+        if(str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
