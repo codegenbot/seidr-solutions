@@ -17,12 +17,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     result.append(current_group)
                     current_group = ""
             else:
-                current_group = ""
+                current_group += ")"
 
-    if not stack and not current_group:
-        return result
-    else:
-        return ["Invalid input, please enter a string in proper parentheses format."]
+    if current_group:
+        result.append(current_group)
+
+    return result
 
 paren_string = input().strip()
 output = separate_paren_groups(paren_string)
