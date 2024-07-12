@@ -7,11 +7,12 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     int n = nums.size();
     int maxRight = nums[n - 1];
     for (int i = n - 1; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
+        if (i == n - 1 || nums[i] >= maxRight) {
             maxRight = nums[i];
-            leaders.insert(leaders.begin(), maxRight);
+            leaders.push_back(maxRight);
         }
     }
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
