@@ -1,4 +1,3 @@
-```
 def cut_vector(lst):
     min_diff = float("inf")
     split_idx = 0
@@ -11,4 +10,4 @@ def cut_vector(lst):
             min_diff = diff
             split_idx = i
 
-    return lst[:split_idx], lst[split_idx:]
+    return split_idx, lst.index(min(lst[split_idx:]))
