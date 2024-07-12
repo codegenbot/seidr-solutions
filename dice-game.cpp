@@ -7,11 +7,13 @@ int main() {
     double prob = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            prob += (n - i) * (m - j);
+            if (i > j) {
+                prob += 1.0 / static_cast<double>(n * m);
+            }
         }
     }
     
-    std::cout << prob / static_cast<double>(n * m) << std::endl;
+    std::cout << prob << std::endl;
     
     return 0;
 }
