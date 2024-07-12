@@ -1,4 +1,7 @@
+Here is the modified code:
+
 ```
+# Code starts here
 import random
 import re
 
