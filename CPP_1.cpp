@@ -4,8 +4,6 @@
 
 std::vector<std::string> separate_paren_groups(std::string paren_string);
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
-
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
     std::string current_group;
@@ -33,4 +31,13 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
+}
+
+int main() {
+    std::vector<std::string> test_input = separate_paren_groups("(group1)(group2)");
+    std::vector<std::string> expected_output = {"group1", "group2"};
+    
+    assert(issame(test_input, expected_output));
+    
+    return 0;
 }
