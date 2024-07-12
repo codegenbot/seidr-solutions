@@ -1,6 +1,6 @@
-```
 def is_palindrome(s: str) -> bool:
     return s == s[::-1]
+
 
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
@@ -10,8 +10,8 @@ def make_palindrome(string: str) -> str:
     palindrome = ""
     for i in range(n):
         while not is_palindrome(new_string):
-            new_string = new_string[:i+1] + "#"
-        if i < n:  
-        palindrome += new_string[i]
+            new_string = new_string[: i + 1] + "#"
+        if i < n:
+            palindrome += new_string[i]
         new_string = new_string[1:]
     return palindrome
