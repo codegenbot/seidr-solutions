@@ -7,7 +7,7 @@ def decode_shift(s):
     )
 
 input_string = input("Enter a lowercase string consisting only of alphabets: ").strip()
-if input_string.islower() and input_string.isalpha() and len(input_string) > 0:
+if input_string.islower() and all(ch.isalpha() for ch in input_string):
     decoded_string = decode_shift(input_string)
     print(decoded_string)
 else:
