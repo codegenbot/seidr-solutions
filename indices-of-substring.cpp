@@ -17,7 +17,11 @@ int main() {
         found = 1;
     }
     
-    std::cout << found << std::endl;
+    std::cout << indices.size() << std::endl;
+    for (int i : indices) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
