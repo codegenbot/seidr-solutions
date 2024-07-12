@@ -1,15 +1,15 @@
 def Strongest_Extension(extension, extensions_list):
     try:
         extension = int(extension)
+    except ValueError:
+        extension = 0
+
+    try:
         extensions_list = [int(ext) for ext in extensions_list]
     except ValueError:
-        extension = None
-        extensions_list = [None]
+        extensions_list = []
 
-    if extension is None or any(ext is None for ext in extensions_list):
-        return "Invalid input. Please provide integer values."
-
-    if extension not in extensions_list:
+    if not isinstance(extension, int) or extension not in extensions_list:
         return f"{extension}.{max(extensions_list)}"
 
     extension_index = extensions_list.index(extension)
