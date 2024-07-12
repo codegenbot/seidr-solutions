@@ -2,9 +2,13 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+std::vector<std::string> separate_paren_groups(const std::string& paren_string);
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> result;
     std::string current_group;
     int open_count = 0;
@@ -29,15 +33,10 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
 int main() {
-    std::vector<std::string> test_input = separate_paren_groups("(group1)(group2)");
-    std::vector<std::string> expected_output = {"group1", "group2"};
-    
-    assert(issame(test_input, expected_output));
-    
+    std::vector<std::string> input = separate_paren_groups("((group)one)(group)two");
+    std::vector<std::string> expected_output = {"(group)one", "(group)", "two"};
+    assert(issame(input, expected_output));
+
     return 0;
-}
+}  
