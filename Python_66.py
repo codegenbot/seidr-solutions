@@ -1,7 +1,12 @@
-```Python
+```
 def sumOfDigits(n):
     return sum(int(digit) for digit in str(n))
 
-n = int(input("Enter a number: "))
-for i in range(1, n+1):
-    print(f"The sum of digits for {i} is: {sumOfDigits(i)}")
+def check(n):
+    if n % 3 == 0:
+        print("The number is divisible by 3")
+    else:
+        print("The number is not divisible by 3")
+
+digitSum = sumOfDigits(123)
+check(digitSum)
