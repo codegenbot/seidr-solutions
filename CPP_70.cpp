@@ -1,10 +1,10 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
