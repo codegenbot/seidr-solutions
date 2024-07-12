@@ -1,7 +1,13 @@
-Here is the completed code:
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    largest_coeff = max(abs(x) for x in xs)
-    return -xs[1] / (2 * largest_coeff)
+    n = len(xs)
+    a = xs[n // 2]
+    b = -xs[0] / (2 * a)
+    c = xs[0] / (4 * a) - b**2
+    return round(-b + math.sqrt(c), 2)
