@@ -4,10 +4,12 @@ using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    
+    int max_right = nums.size() - 1;
+
     for (int i = nums.size() - 1; i >= 0; i--) {
-        if (i == nums.size() - 1 || nums[i] >= nums[i + 1]) {
+        if (nums[i] >= nums[max_right]) {
             leaders.push_back(nums[i]);
+            max_right = i;
         }
     }
 
