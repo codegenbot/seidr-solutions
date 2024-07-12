@@ -13,7 +13,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return levels
 
 # Read input from the user
-paren_string = input("Enter nested parentheses string:")
+paren_string = input("Enter a string with parentheses: ")
 
 # Call the function with the input and print the output
 print(parse_nested_parens(paren_string))
