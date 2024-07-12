@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,9 +6,9 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
-        if (i < planets.size() && planets[i][0] == planet1[0]) {
+        if (planets[i][0] == planet1[0]) {
             index1 = i;
-        } else if (i < planets.size() && planets[i][0] == planet2[0]) {
+        } else if (planets[i][0] == planet2[0]) {
             index2 = i;
         }
     }
@@ -23,7 +22,7 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
         index2 = temp;
     }
     
-    if(index2 - index1 + 1 <= planets.size()) {
+    if(index2 >= 0 && index1 <= index2) {
         std::vector<std::string> result;
         for (int i = index1; i <= index2; i++) {
             if(i < planets.size()) { 
