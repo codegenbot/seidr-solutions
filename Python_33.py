@@ -1,5 +1,5 @@
-def flatten_list(list_of_lists):
-    if isinstance(list_of_lists, list):
-        return [item for sublist in list_of_lists for item in flatten_list(sublist)]
+def flatten_list(input_list):
+    if isinstance(input_list, list):
+        return [item for sublist in input_list for item in flatten_list(sublist)]
     else:
-        return [list_of_lists]
+        return [input_list]
