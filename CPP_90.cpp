@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,9 +12,9 @@ std::vector<int> nextSmallest(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> lst;
-    int n;
 
     std::cout << "Enter number of elements: ";
+    int n;
     std::cin >> n;
 
     if (n > 0) {
@@ -26,9 +27,16 @@ int main() {
 
         if(lst.size() >= 2) {
             std::sort(lst.begin(), lst.end());
-            std::cout << nextSmallest(lst)[0];
-        } else std::cout << "-1";
-    } else std::cout << "-1";
+            bool same = true;
+            for(int i = 0; i < lst.size() - 1; i++){
+                if(lst[i] != lst[i+1]) {
+                    std::cout << "Next smallest number is: " << lst[0];
+                    return 0;
+                }
+            }
+            if(same) std::cout << "All numbers are the same.";
+        } else std::cout << "Please enter more than one number.";
+    } else std::cout << "Please enter a positive number.";
 
     return 0;
 }
