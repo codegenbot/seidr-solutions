@@ -1,2 +1,4 @@
-def check(input_list): 
-    print(double_the_difference(input_list))
+def check():
+    lst = [1, 2, 3]
+    result = double_the_difference(lst)
+    print(result)
