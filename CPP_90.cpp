@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
@@ -33,6 +33,7 @@ int driver() {
             std::cout << "The next smallest number in the given list is " << result << std::endl;
         }
     }
+    return 0; // Add a return statement here
 }
 
 int main() { 
