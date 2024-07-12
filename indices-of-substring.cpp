@@ -4,7 +4,8 @@
 
 int main() {
     char text[100], target[100];
-    std::cin >> text >> target;
+    std::cin.getline(text, 100);
+    std::cin.getline(target, 100);
 
     std::vector<int> indices;
     int textLen = strlen(text);
