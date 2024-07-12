@@ -1,7 +1,10 @@
-int main() {
-    int hours;
-    while (!(cin >> hours)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input! Please enter a valid integer for the number of hours.\n";
+double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHour) {
+    double totalSnow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        totalSnow += snowFallRate;
+        if (totalSnow > 0) {
+            totalSnow -= meltPerHour;
+        }
     }
+    return totalSnow;
+}
