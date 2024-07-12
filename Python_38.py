@@ -1,16 +1,13 @@
 def decode_cyclic():
+    s = input("Enter a string: ")
     while True:
-        n = input("Enter 1 for linear decoding and any other number for cyclic decoding: ")
+        n = input(
+            "Enter 1 for linear decoding and any other number for cyclic decoding: "
+        )
         if n.isdigit() and (n == "1" or int(n) > 0):
             break
         else:
             print("Invalid input. Please enter either 1 or a number greater than 0.")
-
-    while True:
-        s = input("Enter an encoded string (or 'quit' to finish): ")
-        if s.lower() == "quit":
-            break
-    print()
 
     if n == "1":
         print(s)
@@ -24,3 +21,6 @@ def decode_cyclic():
             else:
                 result += result[-1]
         print(result)
+
+input_string = input("Enter a cyclically encoded string: ")
+decode_cyclic()
