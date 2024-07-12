@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cassert>
 
@@ -22,4 +21,3 @@ int main() {
     std::cout << "The score is: " << score << std::endl;
     assert(calculateScore(myValues, n) == 1224);
     return 0;
-}
