@@ -9,10 +9,10 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
+
 }
 
 int main() {
-    vector<int> numbers = {100, 101, 102, 103};
-    cout << "Count of filtered numbers: " << specialFilter(numbers) << endl;
+    assert(specialFilter({}) == 0);
     return 0;
 }
