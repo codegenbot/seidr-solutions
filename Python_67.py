@@ -1,4 +1,8 @@
-def fruit_distribution(s,n):
-    s = s.lower()
-    nums = [int(x) for x in re.findall('\d+',s)]
-    return n - nums[0] - nums[1]
+def fruit_distribution(s, n):
+    words = s.split()
+    mangoes = (
+        n
+        - int(words[words.index("apples") - 1].split()[0])
+        - int(words[words.index("oranges") - 1].split()[0])
+    )
+    return mangoes
