@@ -1,5 +1,6 @@
-```Python
-def decode_shift(s: str):
+```
+def decode_shift():
+    s = input("Enter a string: ")
     result = ""
     for ch in s:
         if ch.isalpha():
@@ -9,6 +10,4 @@ def decode_shift(s: str):
             result += ch
     return result
 
-if __name__ == "__main__":
-    user_input = input("Enter the string to decode: ")
-    print(decode_shift(user_input))
+print(decode_shift())
