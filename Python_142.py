@@ -1,23 +1,9 @@
-```
 while True:
     response = input("Do you want to start? (yes/no): ")
-    if response.lower() != "yes":
-        print("Goodbye!")
+    if response.lower() == "yes":
         break
-    while True:
-        user_input = input("Enter a list of numbers separated by space: ").split()
-
-        try:
-            int_lst = [int(i) for i in user_input]
-        except ValueError:
-            print("Some numbers are out of range. Please re-enter.")
-        else:
-            if all(-100 <= n <= 100 for n in int_lst):
-                print(sum_squares(int_lst))
-                break
-            else:
-                print("Some numbers are out of range. Please re-enter.")
-
-
-def sum_squares(lst):
-    return sum(i**2 for i in lst)
+    elif response.lower() == "no":
+        print("Thanks for trying!")
+        exit()
+    else:
+        print("Invalid response. Please enter 'yes' or 'no'.")
