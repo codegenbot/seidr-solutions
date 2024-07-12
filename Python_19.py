@@ -1,11 +1,5 @@
-import re
-
-num_dict = {str(i): str(i) for i in range(10)}
-
-
 def sort_numbers(input_str: str) -> str:
-    numbers = [c for c in input_str]
-    matches = re.findall("[0-9]+", "".join(map(str, numbers)))
-    if not matches:
-        return "No numbers found"
-    return " ".join(sorted([num_dict[num] for num in matches]))
+    numbers = [int(num) for num in re.findall(r"\d+", input_str)]
+    if not numbers:
+        return "Please enter a string that contains at least one number."
+    return " ".join(sorted(map(str, set(numbers))))
