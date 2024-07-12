@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -25,15 +26,12 @@ string spinWords(string str) {
 }
 
 int main() {
-    // Read input from user
     string str;
     cout << "Enter a string of one or more words (separated by spaces): ";
     getline(cin, str);
 
-    // Process the input string
     string output = spinWords(str);
     
-    // Print the output
     cout << "Output: " << output << endl;
 
     return 0;
