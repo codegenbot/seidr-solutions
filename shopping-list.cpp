@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -7,7 +8,9 @@ using namespace std;
 double totalShoppingTrip(vector<float> prices, vector<float> discounts) {
     double totalPrice = 0;
     for (int i = 0; i < prices.size(); i++) {
-        totalPrice += prices[i] * (1 - discounts[i]/100.0);
+        float price = prices[i];
+        float discount = (price * (1 - discounts[i] / 100.0));
+        totalPrice += price - discount;
     }
     return totalPrice;
 }
