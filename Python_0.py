@@ -1,20 +1,18 @@
-```
 from typing import List
+
 
 def has_close_elements():
     numbers = input("Enter space-separated floating point numbers: ")
     threshold = float(input("Enter a threshold value: "))
-    
+
     try:
         nums = list(map(float, numbers.split()))
-        return has_close_elements(nums, threshold)
+
+        if len(nums) < 2:
+            print("At least two numbers are required to check for close elements.")
+            return False
+
+        return any(abs(a - b) <= threshold for a, b in zip(nums, nums[1:]))
     except ValueError:
         print("Invalid input. Please enter valid floating point numbers.")
         return False
-
-def has_close_elements(numbers: List[float], threshold: float) -> bool:
-    numbers = sorted(set(numbers))
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i+1]) <= threshold:
-            return True
-    return False
