@@ -11,4 +11,6 @@ def parse_music(music_string: str) -> list:
         elif music_string[i:i+5] == '..|.||.|':
             music_list.append(0.5)
             i += 5
+        else:
+            i += 1
     return music_list
