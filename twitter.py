@@ -1,7 +1,8 @@
+```
 def validate_tweet(tweet):
-    if len(re.sub(r'\W+', '', tweet)) == 0:
+    if not tweet:
         return "You didn't type anything"
-    elif len(re.sub(r'\W+', '', tweet)) > 140:
+    elif len(tweet) > 140:
         return "Too many characters"
     else:
-        return f"Your tweet has {len(re.sub(r'\W+', '', tweet))} character"
+        return f"Your tweet has {len(tweet)} characters"
