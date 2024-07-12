@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
-#include <iostream>
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a) {
+    static vector<string> b; // declare b as static
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -12,7 +13,7 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> numericalLetterGrade(vector<float> grades) {
+vector<string> numericalLetterGrade(vector<float> grades){
     vector<string> result;
     for(float g : grades) {
         string letterGrade;
@@ -52,10 +53,10 @@ int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> gradesLetter = numericalLetterGrade(grades);
 
-    if(issame(gradesLetter, gradesLetter))
-        std::cout << "Grades are same." << std::endl;
+    if(issame(gradesLetter))
+        cout << "Grades are same." << endl;
     else
-        std::cout << "Grades are not the same." << std::endl;
+        cout << "Grades are not the same." << endl;
 
     return 0;
 }
