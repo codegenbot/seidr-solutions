@@ -1,3 +1,4 @@
+```python
 def decode_cyclic() -> str:
     s = input("Enter the string: ")
     result = ""
@@ -11,3 +12,5 @@ def decode_cyclic() -> str:
     else:
         result = s
     return result
+
+print(decode_cyclic())
