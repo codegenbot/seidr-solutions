@@ -13,10 +13,10 @@ def coin_sums(cents):
         combinations = new_combinations
 
     min_coins = min(combinations)
-    return (*min(min_coins))
+    return (*min_coins)
 
 cents = int(input())
-*, quarters, nickles, dimes, pennies = coin_sums(cents)
+quarters, nickles, dimes, pennies = coin_sums(cents)
 
 print(quarters)
 print(nickles)
