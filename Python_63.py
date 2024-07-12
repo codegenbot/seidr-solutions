@@ -1,4 +1,3 @@
-```
 def fibfib(n: int):
     if n <= 1:
         return 0
@@ -7,7 +6,7 @@ def fibfib(n: int):
     else:
         a, b = 0, 1
         total_sum = 0
-        for _ in range(2, n+1):  
+        while b < n:
             a, b = b, a+b
             total_sum += a
-        return total_sum
+        return total_sum + b if b <= n else total_sum
