@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool areSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -14,9 +14,23 @@ std::vector<int> maximumSubarray(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
-    if (issame(vec1, vec2)) {
+    std::vector<int> vec1;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        vec1.push_back(num);
+    }
+    
+    int k;
+    std::cout << "Enter the value of k: ";
+    std::cin >> k;
+    
+    if (areSame(vec1, maximumSubarray(vec1, k))) {
         std::cout << "Vectors are same" << std::endl;
     } else {
         std::cout << "Vectors are not same" << std::endl;
