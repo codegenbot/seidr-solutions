@@ -1,8 +1,8 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string decimal_to_binary(int decimal){
-    std::string binary = "";
+string decimal_to_binary(int decimal){
+    string binary = "";
     while(decimal > 0) {
         if((decimal & 1) == 1)
             binary.insert(0,"1");
