@@ -2,10 +2,10 @@ def find_zero():
     xs = []
     while True:
         try:
-            line = input()
+            line = input().strip()
             if not line:
                 break
-            xs.extend(map(float, line.strip().split()))
+            xs.extend(map(float, line.split()))
         except EOFError:
             break
     a = xs[-2]
