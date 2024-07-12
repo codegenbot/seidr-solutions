@@ -1,3 +1,12 @@
+#include <vector>
+
 bool below_zero(const vector<int>& operations) {
-    return accumulate(operations.begin(), operations.end(), 0) < 0;
+    int balance = 0;
+    for (int op : operations) {
+        balance += op;
+        if (balance < 0) {
+            return true;
+        }
+    }
+    return false;
 }
