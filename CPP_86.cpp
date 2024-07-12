@@ -1,33 +1,29 @@
 #include <algorithm>
+using namespace std;
 
-string anti_shuffle(string s) {
+string antiShuffle(string s) {
     string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ' ') {
-            result += s[i];
+    string word;
+    for (char c : s) {
+        if (c == ' ') {
+            result += word + " ";
+            word = "";
         } else {
-            string word;
-            for (int j = i; j < s.size() && s[j] != ' '; j++) {
-                word += s[j];
-            }
-            string sortedWord;
-            for (char c : word) {
-                if (!sortedWord.empty()) {
-                    sortedWord.push_back(' ');
+            int nextCharIndex = 0;
+            while (nextCharIndex < word.length()) {
+                if (word[nextCharIndex] <= c) {
+                    break;
                 }
-                for (char d = 'a'; d <= 'z'; d++) {
-                    if (c >= d) {
-                        sortedWord += d;
-                        break;
-                    } else if (c < d) {
-                        sortedWord += d - 1;
-                        break;
-                    }
-                }
+                nextCharIndex++;
             }
-            result += sortedWord + " ";
-            i = j;
+            word.insert(nextCharIndex, 1, c);
         }
     }
-    return result.substr(0, result.size() - 1);
+    result += word;
+    return result;
+}
+
+int main() {
+    assert(antiShuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
 }
