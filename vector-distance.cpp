@@ -25,7 +25,6 @@ int main() {
     std::cout << "Enter the elements of the second vector: ";
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        getchar(); // Add this line to handle commas between input elements
     }
 
     const double result = calculateEuclideanDistance(vec1, vec2);
