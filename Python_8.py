@@ -1,18 +1,17 @@
 ```
-def sum_product() -> tuple:
-    total_sum = 0
-    product = 1
+print("Enter digits (or 'stop' to finish).")
+def process_digits():
+    digits = []
     while True:
-        user_input = input("Enter a number (or 'stop' to finish): ")
+        user_input = input()
         if user_input.lower() == 'stop':
             break
-        elif user_input.isdigit():
-            total_sum += int(user_input)
-            product *= int(user_input)
-        else:
+        try:
+            digit = int(user_input)
+            digits.append(digit)
+        except ValueError:
             print("Invalid input. Please enter a digit or type 'stop' to finish.")
-    return total_sum, product
+    return sum(digits) if len(digits) > 0 else None
 
-result = sum_product()
-print("Sum: ", result[0])
-print("Product: ", result[1])
+result = process_digits()
+print(result)

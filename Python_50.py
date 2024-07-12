@@ -1,3 +1,4 @@
+```
 def decode_shift():
     print("This function decodes a Caesar cipher with the given shift value.")
     while True:
@@ -11,26 +12,30 @@ def decode_shift():
             print("Invalid input. Please enter a valid integer for the shift value.")
 
     while True:
-        s = input("Enter an encoded string (or 'quit' to stop): ")
-        if s.lower() == "quit":
-            return ""
-        if len(s) > 0 and isinstance(shift, int):
-            break
-        else:
-            print("Invalid input. Please try again.")
+        try:
+            encoded_str = input("Enter an encoded string: ")
+            if len(encoded_str) > 0:
+                break
+            else:
+                print("Invalid input. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid string for the encoded string.")
 
     result = ""
-    for ch in s:
+    for ch in encoded_str:
         if ch.isalpha():
-            char_code = ord(ch.lower())
+            if ch.isupper():
+                char_code = ord('A')
+            else:
+                char_code = ord('a')
             result += (
-                chr((char_code - ord("a") - shift) % 26 + ord("a"))
+                chr((ord(ch) - char_code - shift) % 26 + char_code)
                 if "a" <= ch <= "z"
-                else chr((ord(ch.upper()) - ord("A") - shift) % 26 + ord("A"))
+                else chr((ord(ch) - char_code - shift) % 26 + char_code)
             )
         else:
             result += ch
-    return result
 
+    print(result)
 
-print(decode_shift())
+decode_shift()
