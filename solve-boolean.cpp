@@ -1,33 +1,58 @@
-bool evaluateBooleanExpression(const std::string& expression) {
+#include <iostream>
+#include <string>
+
+bool boolEvaluate(const std::string& expression, int& pos) {
+    if (pos >= expression.size()) return false;
+
     bool result = true;
-    int operation = 0; // Flag for AND (0), OR (1)
-    char currentBit = ' ';
-    for (char c : expression) {
-        if (c == '&') {
-            operation = 0;
-            currentBit = ' ';
-        } else if (c == '|') {
-            result = !result; 
-            operation = 1;
-            currentBit = ' ';
-        } else if (c != 't' && c != 'f') {
-            if (operation) {
-                result = result || (c == 't');
-            } else {
-                result &= (c == 't');
-            }
+    while (pos < expression.size() && expression[pos] != '&' && expression[pos] != '|') {
+        if (expression[pos] == 't') {
+            result = true;
+            pos++; 
+            while (pos < expression.size() && expression[pos] != '&' && expression[pos] != '|') {
+                if (expression[pos] == 'f') {
+                    result = false;
+                    break; 
+                }
+                pos++;
+            } 
+        }
+        else if (expression[pos] == 'f') {
+            result = false;
+            while (pos < expression.size() && expression[pos] != '&' && expression[pos] != '|') {
+                if (expression[pos] == 't') {
+                    return true; 
+                }
+                pos++;
+            } 
         }
     }
-    return !result; 
+
+    if (expression[pos] == '&') {
+        result = boolEvaluate(expression, ++pos) && result;
+    } else if (expression[pos] == '|') {
+        return boolEvaluate(expression, ++pos) || result;
+    }
+
+    return result; 
 }
 
 int main() {
     int testCases;
     std::cin >> testCases;
+
     for (int i = 0; i < testCases; ++i) {
         std::string expression;
         std::cin >> expression;
-        std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
+        int pos = 0; 
+
+        if (!boolEvaluate(expression, pos)) { 
+            std::cout << "False" << std::endl;
+        }
+        else {
+            std::cout << "True" << std::endl;
+        }
     }
+
     return 0;
 }
