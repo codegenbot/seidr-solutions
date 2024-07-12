@@ -30,6 +30,6 @@ int sumOfDigits(int n) {
 int main() {
     std::vector<int> input = {127, 97, 8192};
     int output = skjkasdkd(input);
-    std::cout << "The sum of digits for the maximum prime number is: " << output << std::endl;
+    std::cout << "The maximum prime number is: " << output << std::endl;
     return 0;
 }
