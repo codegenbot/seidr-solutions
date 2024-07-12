@@ -4,8 +4,9 @@ def find_substring():
         strings = input("Enter space separated strings: ").lower().split()
         substring = input("Enter a substring to search: ").lower()
 
-        if not (strings and substring):
+        if not strings or not substring:
             print("Expected input: multiple strings and one substring.")
+            print("Invalid input. Please provide at least one string and at least one character to search for.")
             continue
 
         break
