@@ -7,8 +7,10 @@ def tri(n):
         return [3, 2]
     else:
         sequence = [3, 2]
-        for _ in range(2, n):
-            sequence.append(
-                sequence[-1] + sequence[-2] + (sequence[-3] if len(sequence) > 3 else 0)
-            )
+        for i in range(2, n):
+            if i % 2 == 0:
+                sequence.append(1 + i // 2)
+            else:
+                a, b = sequence[-2], sequence[-1]
+                sequence.append(a + b + (a + 1) if i > 3 else 1 + i // 2)
         return sequence
