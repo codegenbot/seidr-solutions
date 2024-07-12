@@ -4,6 +4,7 @@ double diceGame(int n, int m) {
         sum += 1.0 / m;
     }
     for (int j = m + 1; j <= n; j++) {
-        sum += 1.0 / n;
+        sum += 1.0 / m;
     }
     return sum;
+}
