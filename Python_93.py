@@ -1,4 +1,5 @@
-def encode(message): 
+```
+def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
