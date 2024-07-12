@@ -7,7 +7,7 @@ bool issame(std::vector<std::string> a) {
         return true;
     }
     for (const auto& str : a) {
-        if (!issame({str})) {
+        if (!str.empty() && *std::next(a.begin(), 0) != str) {
             return false;
         }
     }
@@ -49,17 +49,9 @@ int main() {
     std::string c;
     std::cin >> c;
 
-    if (!s.empty()) {
-        if (issame({s})) {
-            std::vector<std::string> result = reverse_delete(s, c);
-            for (const auto& str : result) {
-                std::cout << str << std::endl;
-            }
-        } else {
-            std::cout << "Error: Input string contains duplicate characters." << std::endl;
-        }
-    } else {
-        std::cout << "Error: Input string is empty." << std::endl;
+    std::vector<std::string> result = reverse_delete(s, c);
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
     }
     
     return 0;
