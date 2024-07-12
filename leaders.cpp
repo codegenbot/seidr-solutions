@@ -8,7 +8,7 @@ vector<int> findLeaders(vector<int> nums) {
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
 
-    for (int i = n - 2; i >= 0; i--) {
+    for (int i = n - 2; i > 0; i--) {
         if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
             leaders.push_back(maxLeader);
@@ -20,7 +20,10 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num || !cin.eof()) {
+    while (cin >> num) {
+        if (cin.peek() == '\n') {
+            break;
+        }
         nums.push_back(num);
     }
 
