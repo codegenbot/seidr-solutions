@@ -6,7 +6,7 @@ int main() {
     int n;
     
     std::vector<int> nums;
-    
+    int n;
     while (std::cin >> n) {
         nums.push_back(n);
     }
