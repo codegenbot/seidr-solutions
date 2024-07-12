@@ -4,7 +4,6 @@ def sort_array(array):
         return array
     total = array[0] + array[-1]
     if total % 2 != 0:
-        array.sort()
+        return sorted(array)
     else:
-        array.sort(reverse=True)
-    return array.copy()
+        return sorted(array, reverse=True)
