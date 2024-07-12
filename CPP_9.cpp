@@ -15,7 +15,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return maxNumbers;
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     return a == b; 
 }
 
