@@ -1,5 +1,4 @@
 arr = list(map(int, input().split()))
-
 n = len(arr)
 total_sum = sum(arr)
 prefix_sum = 0
@@ -17,4 +16,4 @@ subvector1 = arr[: cut_position + 1]
 subvector2 = arr[cut_position + 1 :]
 
 print(*subvector1)
-print(*subvector2)
+print(*subvector2)  
