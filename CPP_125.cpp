@@ -7,10 +7,6 @@
 vector<string> split_words(string txt);
 bool issame(vector<string> a, vector<string> b);
 
-bool islower(char c) {
-    return c >= 'a' && c <= 'z';
-}
-
 vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
