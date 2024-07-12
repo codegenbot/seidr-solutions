@@ -13,7 +13,7 @@ std::string solve(std::string s) {
         }
     }
     if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
-        std::reverse(s.begin(), s.end());
+        reverse(s.begin(), s.end());
     }
     return s;
 }
