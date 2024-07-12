@@ -1,8 +1,4 @@
-#include <iostream>
-#include <map>
 #include <vector>
-
-using namespace std;
 
 int search(vector<int> lst) {
     map<int, int> freq;
@@ -17,9 +13,3 @@ int search(vector<int> lst) {
             return p.first;
     }
     return -1;
-}
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    return 0;
-}
