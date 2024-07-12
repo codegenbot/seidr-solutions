@@ -6,3 +6,6 @@ def sort_array(array):
         return sorted(array)
     else:
         return sorted(array, reverse=True)
+
+array = [int(i) for i in input().split()]
+print(sort_array(array))
