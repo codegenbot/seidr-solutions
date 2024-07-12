@@ -11,10 +11,10 @@ int score(const std::string& s) {
             totalScore += 10;
             if (frame < 10) {
                 totalScore += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-                totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : (s[i + 2] == '-' ? 0 : (s[i + 2] - '0')));
+                totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : (s[i + 2] == '-' ? 0 : (s[i + 2] - '0' - '0')));
             }
             i++;
-        } else if (s[i + 1] == '/') {
+        } else if (i + 1 < s.length() && s[i + 1] == '/') {
             totalScore += 10;
             totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
             i += 2;
