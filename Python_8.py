@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def sum_product(numbers: List[int]) -> int:
