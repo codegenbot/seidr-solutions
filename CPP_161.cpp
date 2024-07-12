@@ -1,4 +1,9 @@
-for (char &c : s) {
+#include <algorithm>
+#include <string>
+#include <cctype>
+
+std::string solve(std::string s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             if (islower(c)) {
                 c = toupper(c);
@@ -7,8 +12,15 @@ for (char &c : s) {
             }
         }
     }
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-        reverse(s.begin(), s.end());
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+        std::reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << solve(input);
+    return 0;
 }
