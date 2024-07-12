@@ -1,17 +1,24 @@
-```
 def decode_cyclic():
     s = input("Enter a string: ")
-    n = int(input("Enter 1 for linear decoding and any other number for cyclic decoding: "))
-    
-    if n == 1:
+    while True:
+        n = input(
+            "Enter 1 for linear decoding and any other number for cyclic decoding: "
+        )
+        if n.isdigit() and (n == "1" or int(n) > 0):
+            break
+        else:
+            print("Invalid input. Please enter either 1 or a number greater than 0.")
+
+    if n == "1":
         print(s)
     else:
-        result = []
-        for i, char in enumerate(s):
-            if i < len(result) or (i % len(result)) < 2:
+        result = [s[0], s[1]]
+        for char in s[2:]:
+            if len(result) % 3 == 1:
                 result.append(char)
-            elif result[-1] != char:
-                result.append(char)
+            elif len(result) % 3 == 2:
+                result.extend([char])
         print("".join(result))
+
 
 decode_cyclic()
