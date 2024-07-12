@@ -1,4 +1,4 @@
-```c++
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -18,4 +18,24 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
     }
     return result;
 
+}
+
+int main(int argc) {
+    int n;
+    std::cin >> n;
+    std::vector<std::string> strings(n);
+    for (auto &s : strings) {
+        std::cin >> s;
+    }
+
+    std::string prefix;
+    std::cin >> prefix;
+
+    if (areEqual(strings, filter_by_prefix(strings, prefix))) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
+    
+    return 0;
 }
