@@ -11,18 +11,15 @@ int main() {
         return 1;
     }
 
-    std::vector<float> vec1(n);
-    std::vector<float> vec2(n);
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
 
+    double result = 0.0;
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-    }
-
-    float result = 0.0f;
-    for (int i = 0; i < n; ++i) {
         result += std::pow(vec1[i] - vec2[i], 2);
     }
 
