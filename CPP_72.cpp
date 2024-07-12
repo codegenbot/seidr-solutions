@@ -1,30 +1,31 @@
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
 
-bool will_it_fly(vector<vector<int>> q, int w) {
-    if(w >= (q[0][1] - q[0][0]) && w >= (q[1][1] - q[1][0])) {
-        return true;
-    } else {
-        return false;
+bool will_it_fly(const std::vector<std::vector<int>>& q, int w) {
+    for (const auto& pair : q) {
+        if (pair[0] + pair[1] > w) {
+            return false;
+        }
     }
+    return true;
 }
 
-int main() {
+int main() {  
     int n;  
     cin >> n;
-    vector<vector<int>> q;  // Initialize q with an empty vector of int
+    std::vector<std::vector<int>> q(n);  
     for(int i=0; i<n; i++) {
         int x, y; 
         cin >> x >> y;
-        q.push_back({{x,y}}); // initialize each inner vector inside the outer vector
+        q[i].push_back({x,y});
     }
     int w;
     cin >> w;
-    if (!will_it_fly(q, w)) {
+    if (!will_it_fly(q, w)) { 
         cout << "Will not fly.\n";
     } else {
         cout << "Will fly.\n";
     }
-    return 0;
+    return 0;  
 }
