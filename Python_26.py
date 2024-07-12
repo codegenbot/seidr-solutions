@@ -7,4 +7,4 @@ def remove_duplicates(numbers: list[int]) -> list[int]:
         if num not in seen:
             seen.add(num)
             result.append(num)
-    return result```
+    return result
