@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>  
 using namespace std;
 
 bool is_prime(int num) {
@@ -15,6 +13,6 @@ bool is_prime(int num) {
 
 int main() {
     int num;
-    cin >> to_string(num);
-    cout << (is_prime(stoi(to_string(num))) ? "true" : "false") << endl;
+    cin >> num;
+    cout << (is_prime(num) ? "True" : "False") << endl;
 }
