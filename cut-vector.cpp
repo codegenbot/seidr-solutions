@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cmath>
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
@@ -9,22 +10,16 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = 0;
 
-    for (int i = 1; i < n; ++i) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j < i; ++j) {
-            sumLeft += vec[j];
-        }
-        for (int j = i; j < n; ++j) {
-            sumRight += vec[j];
-        }
-        int diff = abs(sumLeft - sumRight);
+    for (int i = 1; i < n-1; ++i) {
+        int sumLeft = std::accumulate(vec.begin(), vec.begin() + i, 0);
+        int sumRight = std::accumulate(vec.begin() + i, vec.end(), 0);
+        int diff = std::abs(sumLeft - sumRight);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    std::cout << vec[cutIndex - 1] << std::endl;
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
