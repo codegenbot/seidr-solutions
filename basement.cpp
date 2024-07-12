@@ -3,8 +3,10 @@ int basement(vector<int>& v) {
     int idx = -1;
     for (int i = 0; i < v.size(); i++) {
         sum += v[i];
-        if (sum < 0)
-            return i + 1;
+        if (sum < 0) {
+            idx = i + 1;
+            break;
+        }
     }
-    return -1;
+    return idx == -1 ? -1 : idx;
 }
