@@ -1,7 +1,7 @@
 ```
 from typing import List
 
-def parse_music(music_string: str) -> list:
+def parse_music(music_string: str) -> List[int]:
     if not music_string:
         raise ValueError("Invalid input: Empty string")
     music_list = []
