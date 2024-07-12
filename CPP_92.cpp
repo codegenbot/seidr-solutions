@@ -1,7 +1,11 @@
-```cpp
+#include <cassert>
+
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
+    return (a == b + c || a == b - c || a == c + b || a == c - b) && 
+           (int(a) == a) && (int(b) == b) && (int(c) == c);
+}
+
+int main() {
+    assert(any_int(3.01, 4, 7) == false);
+    return 0;
 }
