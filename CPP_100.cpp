@@ -4,9 +4,8 @@
 
 using namespace std;
 
-bool issame(const initializer_list<int>& a, const initializer_list<int>& b) {
-    vector<int> vecA(a), vecB(b);
-    return vecA == vecB;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> make_a_pile(int n) {
@@ -25,6 +24,7 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame({0}, {8, 10, 12, 14, 16, 18, 20, 22}));
+    vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
+    assert(issame({0}, make_a_pile(make_a_pile_result.size())));
     return 0;
 }
