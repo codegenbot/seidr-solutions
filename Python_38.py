@@ -1,3 +1,3 @@
-input_list = [int(input("Enter element {}: ".format(i+1))) for i in range(int(input("Enter the number of elements: ")))]
+input_list = [int(input()) for _ in range(int(input()))]
 result = sum(input_list)
 print(result)
