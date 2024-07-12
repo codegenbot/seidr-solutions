@@ -1,5 +1,5 @@
+n = int(input())
 nums = list(map(int, input().split()))
-n = len(nums)
 total_sum = sum(nums)
 half_sum = total_sum // 2
 prefix_sum = 0
