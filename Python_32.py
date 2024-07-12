@@ -1,13 +1,17 @@
 ```
-import math
-coefficients = input().split()
-a = float(coefficients[0])
-b = float(coefficients[1])
-c = float(coefficients[2])
-discriminant = b**2 - 4*a*c
-if discriminant > 0:
-    print("The equation has two distinct real roots.")
-elif discriminant == 0:
-    print("The equation has one repeated real root.")
-else:
-    print("The equation has no real roots.")
+def quadratic_equation():
+    import math
+
+    print("Enter coefficients (space-separated): ")
+    coefficients = list(map(float, input().split()))
+    a, b, c = coefficients[0], coefficients[1], coefficients[2]
+    discriminant = b**2 - 4 * a * c
+    if discriminant > 0:
+        root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        print(f"Roots: {root1} and {root2}")
+    elif discriminant == 0:
+        root = -b / (2 * a)
+        print(f"Root: {root}")
+    else:
+        print("No real roots")
