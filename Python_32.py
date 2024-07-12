@@ -1,4 +1,6 @@
 def find_zero(xs: list):
-    for a, b in zip(xs, xs[1:]):
-        if a * b < 0:
-            return -a / b
+    x = -1
+    while True:
+        if poly(xs, x) == 0:
+            return x
+        x += 0.01
