@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -15,10 +14,16 @@ string spinWords(string str) {
             string word = str.substr(wordStart, i-wordStart);
             
             if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                // Reverse the word
+                string reversedWord;
+                for(int j=word.length()-1; j>=0; j--) {
+                    reversedWord += word[j];
+                }
+                result += reversedWord + " ";
+            } else {
+                result += word + " ";
             }
             
-            result += word + (i == str.length() ? "" : " ");
             wordStart = i+1;
         }
     }
