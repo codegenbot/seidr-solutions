@@ -1,15 +1,19 @@
-#include <vector>
-using namespace std;
+bool checkBalance(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (c == '(')
+            count++;
+        else if (count > 0)
+            count--;
+    }
+    return count == 0;
+}
 
 string match_parens(vector<string> lst) {
-    int open = 0, close = 0;
-    
-    for (const string &s : lst) {
-        for (char c : s) {
-            if (c == '(') open++;
-            else close++;
-        }
-    }
-    
-    return (open == close) ? "Yes" : "No";
+    string first = lst[0], second = lst[1];
+    if (checkBalance(first + second))
+        return "Yes";
+    if (checkBalance(second + first))
+        return "Yes";
+    return "No";
 }
