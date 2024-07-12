@@ -1,11 +1,6 @@
-Here's the modified code:
-
 ```cpp
-#include <vector>
-#include <string>
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
 
     for (char& ch : s) {
         bool found = false;
@@ -16,12 +11,12 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found) {
-            result.push_back(std::to_string(ch));
+            result.push_back(string(1, ch));
         }
     }
 
-    std::string resStr = "";
-    for (std::string str : result) {
+    string resStr = "";
+    for (string str : result) {
         resStr += str;
     }
 
@@ -41,13 +36,18 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         result.push_back("False");
     }
 
+    bool same = issame(result, {"True"});
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
