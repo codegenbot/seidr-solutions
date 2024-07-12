@@ -1,12 +1,13 @@
-```
+```cpp
 #include <string>
 
-int how_many_times(string str, string substring) {
+int how_many_times(const string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    string temp = str; 
+    while ((pos = temp.find(substring)) != string::npos) {
         count++;
-        str.erase(0, pos + substring.size());
+        temp.erase(0, pos + substring.size());
     }
     return count;
 }
