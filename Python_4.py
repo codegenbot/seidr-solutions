@@ -1,6 +1,7 @@
+```
 from typing import List
 
-def mean_absolute_deviation(numbers: List[float]) -> float:
+def mean_absolute_deviation(numbers: list) -> float:
     if not numbers or len(numbers) == 0 or any(x <= 0 for x in numbers):
         return None  
     try:
