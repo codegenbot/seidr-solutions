@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -18,4 +19,9 @@ def below_zero() -> None:
             print("No temperatures are below zero. Exit program?")
             confirm_input = input("(y/n): ")
             if confirm_input.lower() == 'y':
+                break
+        else:
+            print("Temperatures both above and below zero.")
+            confirm_input = input("Exit program? (y/n): ")
+            if confirm_input.lower() != 'n':
                 break
