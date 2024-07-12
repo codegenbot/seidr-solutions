@@ -1,3 +1,4 @@
+```python
 import re
 def validate_tweet(tweet):
     if len(re.sub(r'\W+', '', tweet)) == 0:
