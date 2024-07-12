@@ -1,9 +1,9 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b) {
-    return std::includes(b.begin(), b.end(), a.begin(), a.end());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
