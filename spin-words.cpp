@@ -27,6 +27,7 @@ int main() {
             }
         }
         result += word + " ";
+        word = ""; // Reset word
     }
     
     result.pop_back(); // remove extra space at the end
