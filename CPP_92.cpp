@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 using namespace std;
 
 bool any_int(float a, float b, float c) {
@@ -11,16 +10,10 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     float a, b, c;
+    string s; 
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-
-    string str;
-    str += to_string(a);
-    str += " + ";
-    str += to_string(b);
-    str += " + ";
-    str += to_string(c);
-
+    s = to_string(a) + " " + to_string(b) + " " + to_string(c);
     if (any_int(a, b, c)) 
         cout << "At least one of the input numbers is an integer.\n";
     else
