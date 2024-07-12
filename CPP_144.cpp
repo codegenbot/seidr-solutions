@@ -1,15 +1,14 @@
-#include <string>
+bool simplify(const string& x, const string& n) {
+    int num1 = stoi(x.substr(0, x.find('/')));
+    int den1 = stoi(x.substr(x.find('/') + 1));
+    int num2 = stoi(n.substr(0, n.find('/')));
+    int den2 = stoi(n.substr(n.find('/') + 1));
 
-bool simplify(std::string x, std::string n) {
-    int x_num = std::stoi(x.substr(0, x.find("/")));
-    int x_den = std::stoi(x.substr(x.find("/") + 1));
-    int n_num = std::stoi(n.substr(0, n.find("/")));
-    int n_den = std::stoi(n.substr(n.find("/") + 1));
-
-    return (x_num * n_num) % (x_den * n_den) == 0;
+    return (num1 * num2) % (den1 * den2) == 0;
 }
 
 int main() {
     assert(simplify("1/5", "1/5") == false);
-    // Add more test cases as needed
+    
+    return 0;
 }
