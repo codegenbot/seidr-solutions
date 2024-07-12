@@ -1,4 +1,4 @@
-```Python
+```python
 def double_the_difference(lst):
     even_sum = sum(i for i in lst if i % 2 == 0)
     odd_sum = sum(i for i in lst if i % 2 != 0)
