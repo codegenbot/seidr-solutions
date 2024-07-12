@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 std::string flip_case(std::string& input) {
     std::string result;
     for (char c : input) {
