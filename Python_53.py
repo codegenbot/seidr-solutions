@@ -1,2 +1,6 @@
+```
 def add(x: int, y: int):
-    return x + y
+    try:
+        return x + y
+    except TypeError:
+        return "Error: Please enter valid integers"
