@@ -1,4 +1,6 @@
+```Python
 from fractions import Fraction
+
 
 def simplify():
     x = float(input("Enter numerator: "))
