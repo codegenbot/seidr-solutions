@@ -5,18 +5,18 @@
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        // Comparison logic for integers
+        return std::any(std::any_cast<int>(a) == std::any_cast<int>(b));
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        // Comparison logic for floats
+        return std::any(std::any_cast<float>(a) == std::any_cast<float>(b));
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        // Comparison logic for strings
+        return std::any(std::any_cast<std::string>(a) == std::any_cast<std::string>(b));
     } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
-        // Convert and compare int and string
+        return std::any(std::any_cast<int>(a) == std::stoi(std::any_cast<std::string>(b)));
     }
     return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<const char*>(compare_one(std::string("1"), std::string("1"))) != nullptr); // Ensure correct return type
+    assert(std::any_cast<bool>(compare_one(1, 1)).has_value());
     return 0;
 }
