@@ -1,3 +1,4 @@
+```
 def calculate_average_and_median():
     while True:
         user_input = input("Enter numbers separated by space: ")
@@ -17,3 +18,9 @@ def calculate_average_and_median():
     median = (sorted_numbers[n // 2] + sorted_numbers[n // 2 - 1]) / 2 if n % 2 == 0 else sorted_numbers[n // 2]
     
     print(f"Average: {average}, Median: {median}")
+
+def main():
+    calculate_average_and_median()
+    print("Program executed successfully")
+
+main()
