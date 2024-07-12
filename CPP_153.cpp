@@ -4,19 +4,16 @@
 
 std::vector<std::pair<std::string, std::string>> extensions;
 
-int len(const std::string& s) {
-    return s.length();
-}
-
 int compare(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
-    int lenA = len(a.second);
-    int lenB = len(b.second);
-    return (lenA > lenB) ? 1 : ((lenA < lenB) ? -1 : 0);
+    return a.second.size() - b.second.size();
 }
 
 std::string Strongest_Extension(std::string type, const std::vector<std::string>& strong) {
-    extensions.push_back({type, *max_element(strong.begin(), strong.end(), compare)});
-    return extensions.back().first + "." + extensions.back().second;
+    auto max_str = *std::max_element(strong.begin(), strong.end(),
+        [](const std::string& s1, const std::string& s2) {
+            return std::make_pair(s1, s1), (s1 + "." + s1));
+    extensions.push_back({type, max_str});
+    return type + "." + max_str;
 }
 
 int main() {
