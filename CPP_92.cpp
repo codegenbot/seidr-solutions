@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,7 @@ bool is_integer(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;
     int ci = (int)c;
-    return (ai == a) || (bi == b) || (ci == c);
+    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
 }
 
 int calculate_total(float a, float b, float c) {
