@@ -1,12 +1,5 @@
-```
 def double_the_difference(lst):
     even_sum = sum(i for i in lst if i % 2 == 0)
     odd_sum = sum(i for i in lst if i % 2 != 0)
-    difference = abs(even_sum - odd_sum) if even_sum >= odd_sum else abs(odd_sum - even_sum)
+    difference = abs(even_sum - (10**6 - odd_sum)) if even_sum > (10**6 - odd_sum) else abs((10**6 - odd_sum) - even_sum)
     return difference * 2
-
-def check():
-    result = double_the_difference([1, 2, 3, 4, 5])
-    print("Yes, it equals two.") if result == 2 else print("No, it doesn't equal two.")
-
-check()
