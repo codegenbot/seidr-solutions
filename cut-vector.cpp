@@ -6,6 +6,7 @@
 int main() {
     std::vector<int> nums;
     int num;
+    
     while (std::cin >> num) {
         nums.push_back(num);
         if (std::cin.peek() == '\n') {
@@ -13,10 +14,6 @@ int main() {
         }
     }
     
-    if (nums.empty()) {
-        return 1;
-    }
-
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
