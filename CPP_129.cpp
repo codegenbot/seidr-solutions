@@ -6,23 +6,16 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k);
 
-bool compareVectors(vector<int>& v1, vector<int>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(compareVectors(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-
+    vector<int> expected = {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
+    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    
+    assert(issame(result, expected));
+    
     return 0;
 }
 
