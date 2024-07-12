@@ -6,21 +6,21 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<float> vec1(n);
+    std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
     std::cin >> n;
-    std::vector<float> vec2(n);
+    std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
-    float result = 0.0;
+    double result = 0.0;
     for (int i = 0; i < n; ++i) {
-        float diff = vec1[i] - vec2[i];
-        result += diff * diff;
+        double diff = vec1[i] - vec2[i];
+        result += std::pow(diff, 2);
     }
 
     result = std::sqrt(result);
