@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -30,7 +29,7 @@ string words_in_sentence(string sentence) {
             result += word + " ";
         }
     }
-    return result.substr(0, result.size() - 1);
+    return result.empty() ? "" : result.substr(0, result.size() - 1);
 }
 
 int main() {
