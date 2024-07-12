@@ -9,15 +9,11 @@ bool is_prime(int num) {
             return false;
     }
     return true;
-
 }
 
 int main() {
     int num;
     cin >> num;
-    if (is_prime(num)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (is_prime(num) ? "True" : "False") << endl;
+    return 0;
 }
