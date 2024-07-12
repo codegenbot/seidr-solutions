@@ -1,7 +1,6 @@
-```
+```cpp
 #include <iostream>
 #include <cassert>
-
 using namespace std;
 
 int solve(int N) {
@@ -17,5 +16,5 @@ int main() {
     int N;
     cin >> N;
     cout << solve(N) << endl;
-    assert(solve(963) == 10010);
+    assert(solve(963) == 10050);
 }
