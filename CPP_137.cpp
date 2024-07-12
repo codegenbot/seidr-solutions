@@ -14,7 +14,7 @@ string compare_one(string a) {
         else if (s1 == s2)
             return "None";
         else
-            return to_string(s2);
+            return to_string(s1);
     }
 }
 
