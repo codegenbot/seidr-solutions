@@ -1,10 +1,10 @@
+```
 #include <vector>
-using namespace std;
 
-int fuelCost(vector<int> prices) {
+int fuelCost(std::vector<int> prices) {
     int sum = 0;
     for (int price : prices) {
-        int new_price = floor((double)price / 3);
+        int new_price = std::floor(double(price) / 3);
         if (new_price < 1)
             new_price = 0;
         else
@@ -12,3 +12,4 @@ int fuelCost(vector<int> prices) {
         sum += new_price;
     }
     return sum;
+}
