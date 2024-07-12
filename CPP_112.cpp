@@ -28,15 +28,14 @@ std::string reverse_delete(std::string& s, std::string& c) {
     }
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return rev;
+    return rev == temp ? "True" : "False";
 }
 
 int main() {
     std::string s1 = reverse_delete("mamma", "mia");
     std::string s2 = "mama";
     
-    bool isSame = checkEquality(reverse_delete("mamma", "mia"), "True");
-    if(s1.length() > 0 && s2.length() > 0) {
+    if(checkEquality(reverse_delete("mamma", "mia"), "True")) {
         s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
         s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
         
@@ -45,8 +44,6 @@ int main() {
         } else {
             std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         }
-    } else if (s1.empty() && s2.empty()) {
-        std::cout << s1 << " and " << s2 << " are the same." << std::endl;
     } else {
         std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
     }

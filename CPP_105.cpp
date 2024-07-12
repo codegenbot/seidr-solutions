@@ -1,9 +1,8 @@
 ```cpp
-#include <initializer_list>
-#include <vector>
 #include <string>
+#include <vector>
 
-bool IsSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +14,7 @@ bool IsSame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> ByLength(std::initializer_list<int> lengths) {
+std::vector<std::string> byLength(std::initializer_list<int> lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
         if (length == 4) {
@@ -30,6 +29,8 @@ std::vector<std::string> ByLength(std::initializer_list<int> lengths) {
 }
 
 int main() {
-    std::vector<std::string> output = ByLength({4, 8, 9});
-    assert(IsSame(output, {"Four", "Eight", "Nine"}));
+    std::vector<std::string> output = byLength({4, 8, 9});
+    std::vector<std::string> b;
+    bool same = issame(output, {"Four", "Eight", "Nine"});
+    assert(same);
 }
