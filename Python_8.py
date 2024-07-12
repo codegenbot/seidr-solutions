@@ -1,6 +1,7 @@
 from typing import List, Tuple
 
 def get_user_input() -> List[int]:
+    n = int(input().strip())
     return list(map(int, input().strip().split()))
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
