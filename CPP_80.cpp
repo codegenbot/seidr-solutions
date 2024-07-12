@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 
@@ -30,4 +29,3 @@ int main() {
         std::cout << "The string is not happy." << std::endl;
     }
     return 0;
-}
