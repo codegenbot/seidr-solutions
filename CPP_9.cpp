@@ -28,19 +28,22 @@ bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    std::vector<int> numbers(0); // Initialize the vector with 0 elements
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
-    for (int i = 0; i < INT_MAX; i++) {
+    int prev_num = INT_MIN;
+    while (true) {
         if (!(std::cin >> num) || num == -1)
             break;
 
         if (num < 0)
             continue; // Skip invalid inputs
 
-        if (num > numbers.back())
-            numbers.push_back(num);
+        if (num > prev_num)
+            prev_num = num;
+        
+        numbers.push_back(prev_num);
     }
 
     std::vector<int> maxNumbers = rolling_max(numbers);
