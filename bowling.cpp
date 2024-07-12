@@ -24,7 +24,6 @@ int bowlingScore(std::string s) {
     }
     return score;
 }
-
 int main() {
     std::string s;
     std::cin >> s;
