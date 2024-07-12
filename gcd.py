@@ -4,6 +4,7 @@ b = int(input())
 
 print(gcd(a, b))
 
+
 text = input()
 target = input()
 
