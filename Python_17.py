@@ -20,7 +20,6 @@ def parse_music(music_string: str) -> list:
         elif music_string[i:i+2] == 'o o|':
             music_list.append(4)
             i += 2
-        if i < len(music_string):
-            while i < len(music_string) and not music_string[i].isalnum():
-                i += 1
+        while i < len(music_string) and (not music_string[i].isdigit() and not music_string[i].isalpha()):
+            i += 1
     return music_list
