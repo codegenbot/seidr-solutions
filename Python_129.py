@@ -27,6 +27,6 @@ def minPath(grid, k):
         for j in range(n):
             paths = dfs(i, j, [])
             if not min_paths or len(min_paths[0]) > len(paths[0]):
-                min_paths = paths
+                min_paths = [paths[0]]
 
     return min_paths[0] if min_paths else []
