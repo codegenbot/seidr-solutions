@@ -15,6 +15,13 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    
+    // Check if n exceeds the maximum size for an unsigned integer
+    if(n > std::numeric_limits<unsigned long>::max()) {
+        std::cout << "Error: Input too large. Please enter a number less than or equal to 4,294,967,295." << std::endl;
+        return 1; // Exit with error code
+    }
+    
     lst.resize(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
