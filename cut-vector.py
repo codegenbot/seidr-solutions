@@ -14,7 +14,7 @@ for i in range(n-1):
         cut_position = i
 
 subvector1 = arr[: cut_position + 1]
-subvector2 = arr[cut_position + 1:]
+subvector2 = arr[cut_position + 1 :]
 
 print(*subvector1)
 print(*subvector2)
