@@ -1,14 +1,8 @@
 #include <iostream>
 #include <map>
+#include <cassert>
 
 using namespace std;
-
-map<char, int> histogram(string test);
-
-int main() {
-    assert(histogram("a") == map<char, int>{{'a', 1}});
-    return 0;
-}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -32,4 +26,9 @@ map<char, int> histogram(string test) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
