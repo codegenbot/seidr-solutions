@@ -1,8 +1,5 @@
 #include <vector>
 
-vector<int> parse_music(string music_string);
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;
@@ -26,23 +23,10 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    string music_string = "o|o|.||";
-    vector<int> music_beats = parse_music(music_string);
-    
-    vector<int> pattern1 = {4, 2, 4, 1, 1};
-    vector<int> pattern2 = {4, 2, 4, 1, 1};
-    
-    if (issame(music_beats, pattern1)) {
-        cout << "Patterns match!" << endl;
-    } else {
-        cout << "Patterns do not match!" << endl;
+    vector<int> music1 = parse_music("o|o|o|");
+    vector<int> music2 = parse_music("ooo||");
+    if (issame(music1, music2)) {
+        // Perform desired action when music sequences are the same
     }
-    
-    if (issame(pattern1, pattern2)) {
-        cout << "Patterns match!" << endl;
-    } else {
-        cout << "Patterns do not match!" << endl;
-    }
-    
     return 0;
 }
