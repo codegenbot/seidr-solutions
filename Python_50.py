@@ -4,8 +4,13 @@ def decode_shift():
     result = ""
     for ch in s:
         if ch.isalpha():
-            ascii_offset = ord('a') if ch.islower() else ord('A')
-            result += chr((ord(ch) - ascii_offset - shift) % 26 + ascii_offset)
+            ascii_offset = ord('a')
+            temp_value = ord(ch.lower()) - ascii_offset
+            temp_value = (temp_value - shift) % 26
+            if ch.isupper():
+                result += chr(temp_value + ord('A'))
+            else:
+                result += chr(temp_value + ord('a'))
         else:
             result += ch
     return result
