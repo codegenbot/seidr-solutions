@@ -1,4 +1,3 @@
-```
 def decode_cyclic() -> str:
     s = input("Enter the string: ")
     if len(s) < 3:
@@ -11,6 +10,8 @@ def decode_cyclic() -> str:
             result += group[1] + group[0] + group[2]
             i += 3
         else:
-            result += s[i:]
+            j, k = divmod(i, 3)  # Calculate the division and remainder of i by 3
+            if k > 0:  
+                result += s[j*3+k-1:s[-1]+1][::-1]  # Reverse the remaining characters
             break
     return result
