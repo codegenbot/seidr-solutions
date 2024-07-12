@@ -1,5 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <cassert>
+#include <initializer_list>
+
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
@@ -22,7 +25,7 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    vector<int> make_a_pile_result = make_a_pile(8);
-    assert(issame({0}, make_a_pile_result));
+    vector<int> result = make_a_pile(8); 
+    assert(issame({0}, result));
     return 0;
 }
