@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
