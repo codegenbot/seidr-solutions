@@ -4,9 +4,9 @@
 using namespace std;
 
 int main() {
-    vector<unsigned long long> nums = {2819, 5392, 7741};
+    vector<int> nums = {2819, 5392, 7741};
 
-    unsigned long long sum = 0;
+    int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i] / 3 - 2;
     }
