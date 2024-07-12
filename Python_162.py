@@ -1,8 +1,14 @@
-```Python
+```
 import hashlib
 
 def string_to_md5(s):
-    return hashlib.md5(s).hexdigest()
+    try:
+        return hashlib.md5(s.encode()).hexdigest()
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return None
 
 print("Please enter some text: ", end="")
-print(f"Output: {string_to_md5(input().encode())}")
+output = string_to_md5(input())
+if output is not None:
+    print(f"Output: {output}")
