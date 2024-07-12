@@ -3,19 +3,27 @@
 #include <vector>
 #include <string>
 
-std::string match_parens(std::vector<std::string> lst) {
+bool match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
-    for (const std::string& s : lst) {
+    for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else if (c == ')') close++;
+            else close++;
         }
     }
-    return open == close ? "Yes" : "No";
+    return open == close;
 }
 
 int main() {
-    std::vector<std::string> input = {")", "("};
-    assert(match_parens(input) == "Yes" );
+    std::vector<std::string> input;
+    while(true) {
+        std::string s;
+        std::cin >> s;
+        if(s != "exit")
+            input.push_back(s);
+        else
+            break;
+    }
+    assert(match_parens(input));
     return 0;
 }
