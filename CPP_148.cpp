@@ -24,9 +24,10 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     }
     
     if(index2 - index1 + 1 <= planets.size()) {
-        std::vector<std::string> result;
+        std::vector<std::string> result(planets.size() - index2 + 1);
+        
         for (int i = index1; i <= index2; i++) {
-            if(i < planets.size()) { 
+            if(i >= 0 && i < planets.size()) { 
                 result.push_back(planets[i]);
             } 
         }
