@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,13 +16,15 @@ vector<int> get_odd_collatz(int) {
         } else {
             result.push_back(n);
         }
-        n = (n * 3) + 1;
     }
     return result;
 }
 
 int main() {
-    get_odd_collatz(0);
+    int res = get_odd_collatz(0);
+    for (int i : res) {
+        cout << i << " ";
+    }
     cout << endl;
     return 0;
 }
