@@ -4,4 +4,4 @@ def middle_character(s):
     if length % 2 == 0:
         return s[mid_index - 1:mid_index + 1]
     else:
-        return s[mid_index] if length % 2 else 'R'
+        return s[mid_index] if length % 2 != 0 else 'R'
