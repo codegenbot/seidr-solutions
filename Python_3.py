@@ -20,3 +20,8 @@ def below_zero() -> None:
             confirm_input = input("(y/n): ")
             if confirm_input.lower() == 'y':
                 break
+        else:
+            print("Temperatures both above and below zero.")
+            confirm_input = input("Exit program? (y/n): ")
+            if confirm_input.lower() != 'n':
+                break
