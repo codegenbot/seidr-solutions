@@ -5,14 +5,18 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-strings_input = input("Enter a list of strings (comma-separated): ")
 while True:
     try:
-        strings_list = [string.strip() for string in strings_input.split(",")]
+        strings_list = []
+        for _ in range(5):
+            string_input = input("Enter a string (or 'stop' to finish): ")
+            if string_input.lower() == 'stop':
+                break
+            strings_list.append(string_input.strip())
         break
     except ValueError:
-        print("Invalid input. Please enter a comma-separated list of strings.")
-        strings_input = input("Enter a list of strings (comma-separated): ")
+        print("Invalid input. Please enter a string.")
+        continue
 
 result = longest(strings_list)
 print(f"The longest string is: {result}")
