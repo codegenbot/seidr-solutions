@@ -1,15 +1,5 @@
-int main() {
-    int hours = 8; 
-    float initialSnow = 10.0f;
-    float snowFallRate = 2.5f;
-    float meltPerHour = 1.0f;
-
-    double totalSnow = snowDay(hours, initialSnow, snowFallRate, meltPerHour);
-
-    std::cout << "Total snow: " << totalSnow << std::endl;
-
-    return 0;
-}
+```
+#include <iostream>
 
 double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHour) {
     double totalSnow = initialSnow;
@@ -20,4 +10,15 @@ double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHo
         }
     }
     return totalSnow;
+}
+
+int main() {
+    int hours = 5; 
+    float initialSnow = 0.0f;
+    float snowFallRate = 1.0f;
+    float meltPerHour = 0.2f;
+
+    double result = snowDay(hours, initialSnow, snowFallRate, meltPerHour);
+    std::cout << "Total snow after " << hours << " hours: " << result << std::endl;
+    return 0;
 }
