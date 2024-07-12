@@ -9,16 +9,18 @@ int main() {
 
     int n = vec.size();
     int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
-    int leftSum = 0;
-    int minDiff = std::abs(totalSum - 2 * vec[0]);
     int cutIndex = 0;
+    int minDiff = totalSum;
+    
+    int leftSum = 0;
+    int rightSum = totalSum;
 
     for (int i = 0; i < n; ++i) {
         leftSum += vec[i];
-        int rightSum = totalSum - leftSum;
+        rightSum -= vec[i];
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
