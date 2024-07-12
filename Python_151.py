@@ -1,5 +1,6 @@
-def check(lst):
-    return double_the_difference(lst)
+def check():
+    numbers = [int(x) for x in input("Enter space-separated integers: ").split()]
+    print(double_the_difference(numbers))
 
 
 def double_the_difference(lst):
