@@ -5,9 +5,27 @@
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
 
 int main() {
-    std::vector<int> lst1 = {1, 2, 3}; 
-    std::vector<int> lst2 = {4, 5, 6};
-    std::cout << exchange(lst1, lst2) << std::endl;
+    int n1, m1, n2, m2;
+    std::cout << "Enter the number of elements in lst1: ";
+    std::cin >> n1;
+    std::cout << "Enter the number of elements in lst1: ";
+    std::cin >> m1;
+    std::vector<int> lst1(n1);
+    std::cout << "Enter elements of lst1: ";
+    for (int &i : lst1) {
+        std::cin >> i;
+    }
+    std::cout << "Enter the number of elements in lst2: ";
+    std::cin >> m2;
+    std::cout << "Enter the number of elements in lst2: ";
+    std::cin >> n2;
+    std::vector<int> lst2(n2);
+    std::cout << "Enter elements of lst2: ";
+    for (int &i : lst2) {
+        std::cin >> i;
+    }
+    std::string result = exchange(lst1, lst2);
+    std::cout << result << std::endl;
     return 0;
 }
 
