@@ -1,4 +1,10 @@
-```
 def fix_spaces(text):
-    text = text.replace(' ', '_')
-    return text.replace('  ', ' -').replace('_  ', '_-').replace('__ ', '_-').replace('___', '_-').replace('____', '_-')
+    result = ""
+    for char in text:
+        if char == " " and (result == "" or result[-1] != " "):
+            result += "_"
+        elif char == " " and (len(result) > 0 and result[-1] == " "):
+            result += "-"
+        else:
+            result += char
+    return result
