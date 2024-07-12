@@ -1,6 +1,8 @@
 #include <map>
 
-bool issame(map<char, int> a, map<char, int> b);
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -26,11 +28,7 @@ map<char, int> histogram(string test) {
     return result;
 }
 
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
-}
-
 int main() {
-    issame(histogram("a"), {{'a', 1}});
+    bool same = issame(histogram("a"), {{'a', 1}});
     return 0;
 }
