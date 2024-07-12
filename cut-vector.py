@@ -1,14 +1,16 @@
 n = int(input())
-a = [int(input()) for i in range(n)]
-total_sum = sum(a)
-target_sum = total_sum / 2
-current_sum = 0
+arr = [int(input()) for _ in range(n)]
+total_sum = sum(arr)
+prefix_sum = 0
+result = float("inf")
+index = -1
+
 for i in range(n):
-    current_sum += a[i]
-    if current_sum >= target_sum:
-        if current_sum == target_sum or abs(current_sum - target_sum) < abs(
-            current_sum - a[i] - target_sum
-        ):
-            print(a[: i + 1])
-            print(a[i + 1 :])
-            break
+    prefix_sum += arr[i]
+    diff = abs(prefix_sum - (total_sum - prefix_sum))
+    if diff < result:
+        result = diff
+        index = i
+
+print(arr[: index + 1])
+print(arr[index + 1 :])
