@@ -14,6 +14,6 @@ int sum_squares(const std::vector<float>& lst) {
 
 int main() {
     assert(sum_squares({-1, 1, 0}) == 2);
-    // Add more test cases if needed
+    assert(sum_squares({2.5, 3.7, -4.1}) == 32);
     return 0;
 }
