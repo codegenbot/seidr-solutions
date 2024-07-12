@@ -16,21 +16,14 @@ vector<vector<int>> cutVector(vector<int>& vec) {
             return res;
         }
         
-        if (abs(diff) < abs(vec[i] - vec[0]) - abs(vec[i-1] - vec[0])) {
-            res[0] = vector<int>(vec.begin(), vec.begin() + i);
-            res[1] = vector<int>(vec.begin() + i, vec.end());
-            return res;
+        if (abs(diff) < abs(minDiff)) {
+            minDiff = diff;
+            minDiffIndex = i;
         }
     }
     
-    if (n > 0) {
-        res[0] = vector<int>(vec.begin(), vec.end());
-        res[1] = {};
-    } else {
-        res[0] = {};
-        res[1] = {};
-    }
-    
+    res[0] = vector<int>(vec.begin(), vec.begin() + minDiffIndex);
+    res[1] = vector<int>(vec.begin() + minDiffIndex, vec.end());
     return res;
 }
 
