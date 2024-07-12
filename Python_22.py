@@ -1,5 +1,5 @@
-```
-from typing import List, Any
+from typing import List
+import ast
 
 
 def filter_integers() -> None:
@@ -7,5 +7,5 @@ def filter_integers() -> None:
         try:
             values = eval(input("Enter a list: "))
             return [value for value in values if isinstance(value, int)]
-        except Exception as e:
-            print(f"Invalid input. Please enter a list of integers or any other valid Python expression. Error: {e}")
+        except (SyntaxError, NameError):
+            print(f"Invalid input. Please enter a valid Python expression.")
