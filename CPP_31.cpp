@@ -15,6 +15,9 @@ bool is_prime(int num) {
 int main() {
     int num;
     cin >> num;
-    cout << (is_prime(num) ? "True" : "False") << endl;
-    return 0;
+    if(num < 2) {
+        cout << "Error: Input should be greater than or equal to 2." << endl;
+    } else {
+        cout << (is_prime(num) ? "True" : "False") << endl;
+    }
 }
