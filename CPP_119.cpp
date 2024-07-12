@@ -1,15 +1,9 @@
-int cnt = 0;
+int open = 0, close = 0;
     for (string s : lst) {
         for (char c : s) {
-            if (c == '(') {
-                cnt++;
-            } else {
-                if (cnt == 0) {
-                    return "No";
-                }
-                cnt--;
-            }
+            if (c == '(') open++;
+            else close++;
         }
     }
-    return cnt == 0 ? "Yes" : "No";
+    return open == close ? "Yes" : "No";
 }
