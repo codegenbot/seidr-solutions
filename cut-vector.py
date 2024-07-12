@@ -13,12 +13,12 @@ for i in range(n):
         break
 
 if curr_sum == half_sum:
-    print(v[:idx + 1])
-    print(v[idx + 1:])
+    print(v[: idx + 1])
+    print(v[idx + 1 :])
 else:
     if abs(curr_sum - half_sum) < abs(curr_sum - v[idx] - half_sum):
-        print(v[:idx + 1])
-        print(v[idx + 1:])
+        print(v[: idx + 1])
+        print(v[idx + 1 :])
     else:
         print(v[:idx])
         print(v[idx:])
