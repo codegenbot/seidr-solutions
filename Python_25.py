@@ -1,7 +1,12 @@
 ```
+from typing import List
+import math
+
+
 def factorize(n: int) -> List[int]:
-    if n < 1:
-        return "Error: Factorization is not possible for a negative number."
+    if n <= 0:
+        print("Error: Input must be a positive integer.")
+        return []
     factors = []
     i = 2
     while i * i <= n:

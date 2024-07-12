@@ -1,6 +1,5 @@
-```
 def add(x: int, y: int):
-    if isinstance(x, int) and isinstance(y, int):
+    try:
         return x + y
-    else:
+    except TypeError:
         return "Error: Please enter valid integers"
