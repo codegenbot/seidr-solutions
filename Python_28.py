@@ -5,11 +5,10 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-user_input = input("Enter multiple strings separated by space or newline (e.g., 'Hello' 'World'): ")
+user_input = input("Enter multiple strings separated by space or comma (e.g., 'Hello' 'World'): ")
 
-try:
-    strings_list = [i.strip() for i in user_input.split()]
-    result = concatenate(strings_list)
-    print(result.strip())  # Remove any trailing spaces
-except ValueError:
-    print("Invalid input. Please enter multiple strings separated by space or newline.")
+strings_list = user_input.replace("'", "").split() if " " in user_input else [i.strip() for i in user_input.split(",")]
+
+result = concatenate(strings_list)
+
+print(result)
