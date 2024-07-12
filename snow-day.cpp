@@ -8,7 +8,7 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         float snow_fallen = snow_fall_rate - (snow_melt_rate * snow_on_ground);
-        float snow_remaining = snow_on_ground + snow_fallen - (snow_melt_rate * snow_on_ground);
+        float snow_remaining = snow_on_ground + snow_fallen;
         snow_on_ground = (snow_remaining < 0) ? 0 : snow_remaining;
     }
 
