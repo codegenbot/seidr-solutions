@@ -1,4 +1,8 @@
-int res = -1;
+#include <vector>
+#include <cassert>
+
+int search(std::vector<int> lst) {
+    int res = -1;
     for (int num : lst) {
         int freq = 0;
         for (int n : lst) {
