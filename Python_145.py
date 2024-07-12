@@ -1,2 +1,2 @@
 def order_by_points(nums):
-    return sorted(nums, key=lambda x: (sum(map(int, str(x))), nums.index(x)) if nums else nums
+    return sorted(nums, key=lambda x: (sum(int(digit) for digit in str(abs(x))), nums.index(x)))
