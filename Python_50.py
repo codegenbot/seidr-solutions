@@ -1,5 +1,5 @@
 def decode_shift():
-    s = input()
+    s = input("Enter the encoded string (lowercase alphabets only, no spaces): ").strip()
     decoded = ""
     for char in s:
         decoded += chr((ord(char) - 97 + 25) % 26 + 97)
