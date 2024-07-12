@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     deciphered_message = ""
     for char in message:
@@ -8,6 +7,6 @@ def substitution_cipher(cipher1, cipher2, message):
                 deciphered_message += cipher2[index].lower() if char.islower() else cipher2[index].upper()
             else:
                 deciphered_message += char
-        else:  
+        else:
             deciphered_message += char
     return deciphered_message
