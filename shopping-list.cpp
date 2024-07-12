@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         float price, discount;
         std::cin >> price >> discount;
-        total_price += price - (price * discount / 100.0);
+        total_price += price - price * discount / 100;
     }
 
     std::cout << total_price << std::endl;
