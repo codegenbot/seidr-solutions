@@ -8,7 +8,7 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         long double snowmelt = melt * snow;
-        snow = snow + static_cast<long double>(rate) - snowmelt; // updated snowmelt calculation
+        snow = snow + static_cast<long double>(rate) - snowmelt;
     }
 
     std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
