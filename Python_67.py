@@ -11,3 +11,6 @@ def fruit_distribution(s, total):
                 last_number = int(parts[parts.index(part)-1])
                 total += -(-last_number // 2)
     return -(-total // 2)
+
+user_input = input("Enter the fruit distribution: ")
+print(fruit_distribution(user_input, 0))
