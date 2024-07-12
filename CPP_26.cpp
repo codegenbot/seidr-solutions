@@ -1,7 +1,15 @@
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::unordered_map<int, bool> map;
     for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
+        if (!map[num]) {
+            map[num] = true;
+        } else {
+            map[num] = false;
+        }
+    }
+    std::vector<int> result;
+    for (int num : numbers) {
+        if (map[num]) {
             result.push_back(num);
         }
     }
