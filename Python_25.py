@@ -12,7 +12,6 @@ while True:
             raise ValueError("Invalid input. Please enter a positive integer.")
         factors = factorize(n)
         print(factors)
-        break
     except ValueError as e:
         print(e)
     except:
