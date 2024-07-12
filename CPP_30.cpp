@@ -16,7 +16,7 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    vector<float> input;
+    vector<float> input = {};
     assert(issame(get_positive(input), {}));  
     return 0;
 }
