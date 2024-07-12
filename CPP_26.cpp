@@ -1,15 +1,19 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <unordered_set>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+std::vector<int> remove_duplicates(std::vector<int> input) {
+    std::vector<int> result;
+    for (int i : input) {
+        if (!std::binary_search(result.begin(), result.end(), i)) {
+            result.push_back(i);
+        }
+    }
+    return result;
 }
 
-std::vector<int> remove_duplicates(const std::vector<int>& vec) {
-    std::unordered_set<int> result(vec.begin(), vec.end());
-    return std::vector<int>(result.begin(), result.end());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
