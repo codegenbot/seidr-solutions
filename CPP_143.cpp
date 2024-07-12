@@ -1,4 +1,19 @@
-string words_in_sentence(string sentence){
+#include <string>
+using namespace std;
+
+bool is_prime(int n){
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= n / 2; ++i) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::string words_in_sentence(std::string sentence){
     string result = "";
     string word = "";
     for (char c : sentence) {
