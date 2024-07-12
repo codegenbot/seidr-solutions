@@ -7,7 +7,8 @@ int main() {
     std::cin >> hours >> snow >> rate >> melt;
 
     for (int i = 0; i < hours; ++i) {
-        snow = snow - melt * snow + rate;
+        float snowmelt = melt * snow;
+        snow = snow + rate - snowmelt;
     }
 
     std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
