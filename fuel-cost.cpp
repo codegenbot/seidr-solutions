@@ -1,15 +1,7 @@
-int main() {
-    int numTests;
-    cin >> numTests;
-    
+int fuel_cost(vector<int> nums) {
     int sum = 0;
-    for (int i = 0; i < numTests; i++) {
-        int num;
-        cin >> num;
-        sum += (num / 3 - 2);
+    for (int num : nums) {
+        sum += max(num / 3 - 2, 0);
     }
-    
-    cout << sum << endl;
-    
-    return 0;
+    return sum;
 }
