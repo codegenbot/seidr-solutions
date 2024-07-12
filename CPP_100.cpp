@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,6 +22,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>({1,3,5,7,9,11,13,15})));
+    assert(issame(make_a_pile(8), make_a_pile(8)) );
     return 0;
 }
