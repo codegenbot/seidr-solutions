@@ -14,10 +14,8 @@ bool is_prime(int num) {
 
 int main() {
     int num;
+    cout << "Enter a number: ";
     cin >> num;
-    if (is_prime(num)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (is_prime(num) ? "True" : "False") << endl;
+    return 0;
 }
