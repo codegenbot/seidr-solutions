@@ -1,10 +1,8 @@
 int main { 
-
-#include <iostream>
+    #include <iostream>
 #include <vector>
 #include <algorithm>
 
-int main { 
     std::vector<int> lst;
     int n;
 
@@ -35,3 +33,4 @@ int main {
     } else std::cout << "-1";
 
     return 0;
+}
