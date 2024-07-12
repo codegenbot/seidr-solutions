@@ -1,3 +1,5 @@
-l = [10, 20, 30, 40, 50]
+l = [5, 10, 15, 20, 25]
+
 result = [num + 1 for num in l]
+
 print(result)
