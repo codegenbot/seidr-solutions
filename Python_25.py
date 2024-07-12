@@ -1,2 +1,2 @@
-except (ValueError, EOFError):
-    print("Invalid input. Please enter an integer value.")
+n = int(input())
+print(factorize(n))
