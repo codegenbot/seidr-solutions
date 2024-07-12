@@ -13,9 +13,9 @@ bool is_nested(const std::string& str) {
     }
 
     if (count == 0) {
-        std::cout << "true" << std::endl;
+        std::cout << str << " is a nested string." << std::endl;
     } else {
-        std::cout << "false" << std::endl;
+        std::cout << str << " is not a nested string." << std::endl;
     }
 }
 
