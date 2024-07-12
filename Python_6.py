@@ -1,7 +1,8 @@
 from typing import List
 
+
 def parse_nested_parens(paren_string: str) -> List[int]:
-    levels = [0]  # Initialize levels list with a single value of 0
+    levels = [0]
     max_depth = current_depth = 0
     for char in paren_string:
         if char == "(":
