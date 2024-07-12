@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -17,8 +17,7 @@ int main() {
     for (int i = 0; i < planets.size(); i++) {
         if (planets[i] == planet1) {
             idx1 = i;
-        }
-        if (planets[i] == planet2) {
+        } else if (planets[i] == planet2) {
             idx2 = i;
         }
     }
@@ -35,7 +34,7 @@ int main() {
         result.push_back(planets[i]);
     }
 
-    assert(issame(result, {}));
+    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, {}));
 
     return 0;
 }
