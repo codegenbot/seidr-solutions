@@ -1,8 +1,4 @@
-Here's the modified code:
-
-```cpp
-#include <vector>
-#include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
@@ -24,4 +20,3 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
-}
