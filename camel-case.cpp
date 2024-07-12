@@ -1,33 +1,32 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool nextUpper = true;
 
-string toCamelCase(string s) {
-    string result = "";
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == '-') {
-            i++;
+    for (char c : str) {
+        if (c == '-') {
+            nextUpper = true;
+        } else if (c == ' ') {
             continue;
-        }
-        if (result != "") {
-            result += toupper(s[i]);
         } else {
-            result += tolower(s[i]);
+            if (nextUpper) {
+                result += toupper(c);
+                nextUpper = false;
+            } else {
+                result += tolower(c);
+            }
         }
-        i++;
     }
+
     return result;
 }
 
 int main() {
-    string s;
-    cout << "Enter a string in kebab-case: ";
-    cin >> s;
-    cout << "The camelCase conversion is: " << toCamelCase(s) << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
