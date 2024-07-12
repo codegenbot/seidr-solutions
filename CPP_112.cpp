@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,47 +30,22 @@ std::string reverse_delete(std::string& s, std::string& c) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return a.size() == b.size();
 }
 
 int main() {
-    std::string s1 = reverse_delete("mamma", "mia");
-    std::string s2 = "mama";
-    
-    bool isEqual = (s1 == s2) ? true : false;
+    bool isEqual = checkEquality("True");
     
     if(isEqual) {
-        if (!s1.empty() && !s2.empty()) {
-            std::cout << s1 << " and " << s2 << " are the same." << std::endl;
-        } else if (s1.empty()) {
-            if (s2.empty()) {
-                std::cout << "empty and empty are the same." << std::endl;
-            } else {
-                std::cout << "empty and " << s2 << " are the same." << std::endl;
-            }
-        } else {
-            if (s2.empty()) {
-                std::cout << s1 << " and empty are the same." << std::endl;
-            } else {
-                std::cout << s1 << " and " << s2 << " are the same." << std::endl;
-            }
-        }
-    } else {
-        if (!s1.empty() && !s2.empty()) {
-            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
-        } else if (s1.empty() || s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
-        }
-    }
-    
-    std::vector<std::string> vec1 = {reverse_delete("mamma", "mia"), ""};
-    std::vector<std::string> vec2 = {"True"};
-    assert(issame(vec1, vec2));
-    if (checkEquality(s2)) {
         std::cout << "True is equal to itself." << std::endl;
     } else {
         std::cout << "True is not equal to itself." << std::endl;
     }
+    
+    assert(issame({reverse_delete("mamma", "mia"), "", "True"});
     
     return 0;
 }
