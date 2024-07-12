@@ -3,8 +3,8 @@ def modp(n: int, p: int):
         raise ValueError("Modulus cannot be zero")
     result = 1
     while p > 0:
-        if p % 2 == 1:
+        if p > 1:
             result = (result * n) % p
-        n = (n * n) % p
+        n = pow(n, 2, p)
         p //= 2
     return result
