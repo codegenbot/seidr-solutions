@@ -1,5 +1,7 @@
+```
 #include <vector>
 #include <map>
+#include <cassert>
 
 int findMaxFreq(std::vector<int> lst) {
     std::map<int, int> freqMap;
@@ -23,6 +25,6 @@ int findMaxFreq(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> vec(lst.begin(), lst.end());
-    std::cout << findMaxFreq(vec) << std::endl;
+    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
