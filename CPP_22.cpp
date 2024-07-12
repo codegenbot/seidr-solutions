@@ -1,20 +1,26 @@
-```cpp
-bool issame(const list_any& first, const list_any& second) {
-    if (first.empty() && second.empty()) return true;
-    if ((first.empty() || second.empty())) return false;
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
 
-    return std::equal(first.begin(), first.end(),
-                      second.begin(), second.end(),
-                      [](const auto& a, const auto& b) {
-                          return boost::any_cast<int>(a).type() == typeid(int)
-                              && boost::any_cast<int>(b).type() == typeid(int);
-                      });
+namespace boost {
+    namespace type_erasure {
+        template<typename T1, typename T2>
+        struct equal_to {
+            bool operator()(const T1 &, const T2 &) const {
+                return true;
+            }
+        };
+    }
 }
 
-vector<int> filter_integers(list_any values) {
+bool is_same(const boost::any &a, const boost::any &b) {
+    return boost::get(boost::any_cast<boost::any>(boost::any(a).type()), b);
+}
+
+vector<int> filter_integers(list-any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).type() == typeid(int)) {
+        if (is_same(value, boost::any(int(0)))) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
