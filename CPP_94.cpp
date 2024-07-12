@@ -15,7 +15,12 @@ int main() {
     int myValues[] = {127, 97, 8192};
     const int n = sizeof(myValues) / sizeof(myValues[0]);
     for (int i = 0; i < n; i++) {
-        cout << "Value at index " << i << ": " << myValues[i] << endl;
+        if (myValues[i] <= 127) {
+            string str = to_string(myValues[i]);
+            cout << "Value at index " << i << ": " << str << endl;
+        } else {
+            cout << "Value at index " << i << ": " << myValues[i] << " (out of range)" << endl;
+        }
     }
     cout << "The score is: " << calculateScore(myValues, n) << endl;
     assert(calculateScore(myValues, n) == 8192); 

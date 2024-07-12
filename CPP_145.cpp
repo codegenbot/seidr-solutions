@@ -1,29 +1,44 @@
 ```cpp
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+using namespace std;
+
+bool issame(int a, int b) {
+    if (a > b)
+        return false;
+    else if (a < b)
+        return true;
+    else
+        return false;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<std::pair<int, int>> pairs;
-    for (int i = 0; i < nums.size(); i++) {
-        int sumOfDigits = 0;
-        int num = nums[i];
-        while (num != 0) {
-            sumOfDigits += num % 10;
-            num /= 10;
-        }
-        pairs.push_back({sumOfDigits, i});
+int order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (!issame(nums[i], nums[i + 1]))
+            return 0;
+    }
+    return 1;
+}
+
+int test() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
 
-    std::sort(pairs.begin(), pairs.end());
-
-    std::vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+    vector<int> result = order_by_points(nums);
+    for (const auto& num : result) {
+        cout << num << " ";
     }
+    return 0;
+}
 
-    return result;
+int main() {
+    test();
+    return 0;
 }
