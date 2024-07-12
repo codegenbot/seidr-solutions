@@ -1,5 +1,2 @@
-try:
-    x, y = map(int, input().split())
-    print(x + y)
-except:
-    print("Error in input. Please provide two integers separated by space.")
+x, y = map(int, input("Enter two numbers separated by space: ").split())
+print(x + y)
