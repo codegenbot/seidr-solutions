@@ -1,24 +1,4 @@
-```
-def calculate_average_and_median():
-    while True:
-        user_input = input("Enter 'stop' to exit, or numbers separated by space: ")
-        
-        if user_input.lower() == 'stop':
-            break
-
-        try:
-            numbers = list(map(int, user_input.split()))
-            if not numbers:
-                return "No numbers entered."
-
-            average = sum(numbers) / len(numbers)
-
-            sorted_numbers = sorted(numbers)
-            n = len(sorted_numbers)
-            median = (sorted_numbers[n // 2] + sorted_numbers[n // 2 - 1]) / 2 if n % 2 == 0 else sorted_numbers[n // 2]
-
-            return f"Average: {average}, Median: {median}"
-        except ValueError:
-            print("Invalid input. Please enter valid integers separated by space.")
-
-print(calculate_average_and_median())
+def solve(grades):
+    averages = [sum(student) / len(student) for student in grades]
+    medians = [sorted(student)[len(student)//2] if len(student) % 2 != 0 else (sorted(student)[len(student)//2 - 1] + sorted(student)[len(student)//2]) / 2 for student in grades]
+    return f"Average: {sum(averages) / len(averages)}, Median: {' '.join(map(str, [sum(median) / len(median) for median in medians]))}"
