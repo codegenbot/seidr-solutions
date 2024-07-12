@@ -1,3 +1,3 @@
-```
 def sorted_list_sum(lst):
-    return ",".join(sorted(lst, key=len))
+    even_lengths_sum = sum(len(word) for word in lst)
+    return str(even_lengths_sum)
