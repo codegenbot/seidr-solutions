@@ -1,6 +1,6 @@
-```
 def sort_array(arr):
     return sorted(map(int, arr))
+
 
 while True:
     try:
@@ -9,7 +9,7 @@ while True:
         if len(array) < 2:
             print("Array should have at least two elements. Please enter again.")
             continue
-        array = [int(i) for i in array]
+        array = [i for i in (int(x) for x in array) if isinstance(i, int)]
         print(sort_array(array))
         break
     except ValueError as e:
