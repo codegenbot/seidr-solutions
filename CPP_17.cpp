@@ -25,10 +25,3 @@ std::vector<int> parse_music(std::string music_string) {
     }
     return beats;
 }
-
-int main() {
-    // Sample usage
-    std::vector<int> beats = parse_music("o|o|.||");
-    assert(issame(beats, {2, 4, 1, 1}));
-    return 0;
-}
