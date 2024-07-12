@@ -1,3 +1,5 @@
+import sys
+
 def is_prime(num):
     if num < 2:
         return False
@@ -7,7 +9,7 @@ def is_prime(num):
     return True
 
 def prime_fib():
-    n = int(input("Enter a number: "))
+    n = int(sys.stdin.readline())
     
     def fibonacci(n):
         if n <= 1:
