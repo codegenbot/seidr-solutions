@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -19,13 +18,6 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {969, 867, 838, 289, 554, 542, 867, 33, 482, 249, 218, 149, 969, 710, 267, 60, 485, 157, 451};
-    vector<int> leaders = findLeaders(nums);
-
-    for (int i = 0; i < leaders.size(); i++) {
-        cout << leaders[i] << " ";
-    }
-    cout << endl;
-
+    // Your test code here
     return 0;
 }
