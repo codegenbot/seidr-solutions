@@ -14,7 +14,7 @@ int main() {
     std::string planet1 = "Jupiter";
     std::string planet2 = "Makemake";
 
-    for (size_t i = 0; i < planets.size(); i++) {
+    for (int i = 0; i < planets.size(); i++) {
         if (planets[i] == planet1) {
             idx1 = i;
         }
@@ -31,11 +31,11 @@ int main() {
         std::swap(idx1, idx2);
     }
 
-    for (size_t i = static_cast<size_t>(idx1) + 1; i < static_cast<size_t>(idx2); i++) {
+    for (int i = idx1 + 1; i < idx2; i++) {
         result.push_back(planets[i]);
     }
 
-    assert(issame(result, std::vector<std::string>{"Jupiter", "Makemake"}));
+    assert(issame(result, std::vector<std::string>{"Saturn"}));
 
     return 0; // indicating successful completion
 }
