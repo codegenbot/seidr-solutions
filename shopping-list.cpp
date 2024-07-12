@@ -19,8 +19,7 @@ int main() {
     double total_price = 0.0;
 
     for (int i = 0; i < n; ++i) {
-        double discounted_price = prices[i] - prices[i] * discounts[i] / 100.0;
-        total_price += discounted_price;
+        total_price += prices[i] * (1 - discounts[i] / 100.0);
     }
 
     std::cout << "Total discounted price: " << std::fixed << total_price << std::endl;
