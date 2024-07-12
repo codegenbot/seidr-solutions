@@ -12,9 +12,10 @@ def smallest_change(arr):
                     changes += 1
                     break
             else:
-                changes += right - left
-            break
-        left += 1
-        right -= 1
+                changes += (right - left)
+            left += 1
+        else:
+            left += 1
+            right -= 1
     
     return changes
