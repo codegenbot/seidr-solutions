@@ -1,6 +1,7 @@
-```c++
+```cpp
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 int do_algebra(std::vector<int> operators, std::vector<int> operands) {
     int result = 0;
@@ -26,5 +27,6 @@ int main() {
     std::vector<int> operands({7,3,4});
 
     int result = do_algebra(operators, operands);
+    std::cout << "The final result is: " << result << std::endl;
     return 0;
 }
