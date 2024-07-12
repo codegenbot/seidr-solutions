@@ -1,7 +1,5 @@
-import sys
-
 def decode_shift():
-    s = sys.stdin.readline().strip()
+    s = input("Enter the encoded string: ").strip()
     decoded = ""
     for char in s:
         decoded += chr((ord(char) - 97 + 25) % 26 + 97)
