@@ -9,6 +9,5 @@ def find_closest_number():
                 print(f"Closest integer: {closest_integer}, Difference: {diff}")
             else:
                 print(f"Closest integer: {closest_integer}, Difference: 0")
-            return 
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
