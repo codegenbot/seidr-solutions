@@ -1,4 +1,3 @@
-n = int(input())
-arr = [int(input()) for i in range(n)]
-result = sum((x // 3 - 2) for x in arr)
+arr = list(map(int, input().split()))
+result = sum([(num // 3 - 2) for num in arr])
 print(result)
