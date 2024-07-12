@@ -5,24 +5,30 @@ using namespace std;
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
-    int maxRight = nums[n - 1];
-    leaders.push_back(maxRight);
-    
+    int maxLeader = nums[n - 1];
+    leaders.push_back(maxLeader);
+
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-            leaders.insert(leaders.begin(), maxRight);
+        if (nums[i] >= maxLeader) {
+            maxLeader = nums[i];
+            leaders.push_back(maxLeader);
         }
     }
-    
     return leaders;
 }
 
 int main() {
-    vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        cout << num << " ";
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
+
+    vector<int> result = findLeaders(nums);
+
+    for (int i = result.size() - 1; i >= 0; i--) {
+        cout << result[i] << " ";
+    }
+    
     return 0;
 }
