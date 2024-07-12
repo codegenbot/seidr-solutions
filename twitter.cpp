@@ -1,7 +1,7 @@
 int main() {
     std::string tweet;
     std::cout << "Enter your tweet: ";
-    std::getline(std::cin, tweet);
+    std::cin >> tweet;
     if (tweet.size() > 140) {
         std::cout << "Too many characters";
     } else if (tweet.empty()) {
