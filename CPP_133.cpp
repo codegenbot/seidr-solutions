@@ -2,14 +2,6 @@
 #include <limits>
 using namespace std;
 
-int sum_squares(int n) {
-    int sum = 0;
-    for (int i = 1; i <= n; i++) {
-        sum += i * i;
-    }
-    return sum;
-}
-
 void checkNumber(int n) {
     if(n % 2 == 0) {
         cout << "Even" << endl;
@@ -18,7 +10,7 @@ void checkNumber(int n) {
     }
 }
 
-int mainFunc() {
+int main() {
     int n;
     cin.ignore(std::numeric_limits<int>::max(), '\n'); 
     cin >> n; 
