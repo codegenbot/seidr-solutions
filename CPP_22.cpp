@@ -1,9 +1,9 @@
 #include <boost/any.hpp>
-#include <iostream>
-#include <list>
 #include <vector>
+#include <list>
+#include <typeindex>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -12,15 +12,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::list<boost::any> values = {3, 3, 3};
-    std::vector<int> result = filter_integers(values);
-    for (const auto& value : result) {
-        std::cout << value << " ";
-    }
-    if (issame({1, 2, 3}, result)) {
-        std::cout << "\nLists are the same.\n";
+    std::vector<boost::any> values = {3, 3, 3};
+    vector<int> result = filter_integers(values);
+    if (issame({1,2,3}, result)) {
+        for (const auto& value : result) {
+            cout << value << " ";
+        }
+        cout << endl;
     } else {
-        std::cout << "\nLists are different.\n";
+        cout << "Vectors are not same." << endl;
     }
     return 0;
 }
