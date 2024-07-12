@@ -2,34 +2,35 @@
 def find_substring():
     while True:
         try:
-            while True: 
-                input_str = input("Enter space separated strings: ").lower().split()
-                if not input_str:
-                    raise ValueError
+            while True:
+                input_str = input("Enter space separated strings (or 'q' to quit): ").lower().split()
+                if len(input_str) > 0 or input() == 'q':
+                    break
+                print("Expected multiple strings. Please enter again.")
 
-                substring = input("Enter a substring to search: ").lower()
+            if not input_str:
+                raise ValueError
 
+            substring = input(f"Enter a substring to search from {input_str}: ").lower()
+
+            action = input("Enter search or quit: ")
+
+            while action.lower() not in ["search", "quit"]:
+                print("Invalid input. Please enter either 'search' or 'quit'.")
                 action = input("Enter search or quit: ")
 
-                while action.lower() not in ["search", "quit"]:
-                    print("Invalid input. Please enter either 'search' or 'quit'.")
-                    action = input("Enter search or quit: ")
+            if action == "search":
+                result = [s for s in input_str if substring in s]
 
-                if action == "search":
-                    result = [s for s in input_str if substring in s]
-
-                    if not result:
-                        print(f"Substrings '{substring}' not found in any of the provided strings.")
+                if not result:
+                    print(f"Substrings '{substring}' not found in any of the provided strings.")
+                else:
+                    if len(result) == 1:
+                        print([result[0]])
                     else:
-                        if len(result) == 1:
-                            print([result[0]])
-                        else:
-                            print(result)
-                    break
-                elif action == "quit":
-                    print("Goodbye!")
-                    exit()
-            break
+                        print(result)
+            elif action == "quit":
+                print("Goodbye!")
         except (ValueError, TypeError):
             print("Expected multiple strings. Please enter again.")
 
