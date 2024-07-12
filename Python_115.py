@@ -1,19 +1,20 @@
-def max_fill(n):
-    m = int(input("Enter the number of columns: "))
-    grid = [
+```
+def max_fill(m):
+    n = m[0].__len__()
+    m = [
         [
             (
                 int(input(f"Enter value for row {i+1}, column {j+1}: "))
-                if i < n and j < m
+                if i < len(m) and j < n
                 else 0
             )
-            for j in range(m)
+            for j in range(n)
         ]
-        for i in range(n)
+        for i in range(len(m))
     ]
     total_water = 0
     max_capacity = 0
-    for row in grid:
+    for row in m:
         for cell in row:
             if cell > 0 and cell > max_capacity:
                 max_capacity = cell
