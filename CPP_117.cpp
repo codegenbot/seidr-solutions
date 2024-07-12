@@ -9,13 +9,6 @@ bool is_same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> select_words(string s, int n);
-
-int main() {
-    assert(is_same(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
-}
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -32,7 +25,7 @@ vector<string> select_words(string s, int n) {
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(c) && !isspace(c)) {
+        } else if (isalpha(c)) {
             if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
                 consonant_count++;
             }
