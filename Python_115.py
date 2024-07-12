@@ -1,15 +1,15 @@
+```
+import math
 def max_fill(n, capacity_grid):
-    import math
-
     total_water = 0
-    max_capacity = float("inf")
+    max_capacity = float('inf')  
 
-    for i in range(len(capacity_grid)):
-        if isinstance(capacity_grid[i], list):
-            total_water += sum(capacity_grid[i])
-            max_capacity = min(max_capacity, min(capacity_grid[i]))
-        elif isinstance(capacity_grid[i], int):
-            total_water += capacity_grid[i]
-            max_capacity = min(max_capacity, capacity_grid[i])
+    for value in capacity_grid:
+        if isinstance(value, list):  
+            total_water += sum(value)
+            max_capacity = min(max_capacity, min(value))  
+        elif isinstance(value, int):  
+            total_water += value
+            max_capacity = min(max_capacity, value)  
 
     return math.ceil(total_water / (n * max_capacity)) if max_capacity else 0
