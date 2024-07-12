@@ -14,7 +14,7 @@ for i in range(n):
         min_diff = diff
         cut_index = i + 1
 
-if left_sum == total_sum - left_sum:
+if left_sum == total_sum - left_sum or min_diff == 0:
     cut_index = 0
 
 subvector1 = arr[:cut_index]
