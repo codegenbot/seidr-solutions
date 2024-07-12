@@ -1,11 +1,11 @@
 numbers.sort()
 min_diff = float("inf")
-result = None
+closest_pair = (0.0, 0.0)
 
 for i in range(len(numbers) - 1):
     diff = numbers[i + 1] - numbers[i]
     if diff < min_diff:
         min_diff = diff
-        result = (numbers[i], numbers[i + 1])
+        closest_pair = (numbers[i], numbers[i + 1])
 
-result
+closest_pair
