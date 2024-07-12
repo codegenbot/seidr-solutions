@@ -1,21 +1,8 @@
 ```
 def valid_date(date):
-    mm, dd, yyyy = date.split('-')
-    if len(mm) == 1: 
-        mm = '0' + mm
-    if len(dd) == 1:
-        dd = '0' + dd
-    if not (date[2:].isdigit() and len(yyyy) == 4):
+    day, month, year = map(int, date.split('-'))
+    if len(date) != 9 or day < 1 or day > 31 or month < 1 or month > 12:
         return False
-    if int(mm) < 1 or int(mm) > 12:
+    if (month in [4,6,9,11] and day > 30) or (month == 2 and day > 29):
         return False
-    if int(mm) in [1,3,5,7,8,10,12]:
-        if int(dd) < 1 or int(dd) > 31:
-            return False
-    elif int(mm) in [4,6,9,11]:
-        if int(dd) < 1 or int(dd) > 30:
-            return False
-    elif int(mm) == 2:
-        if int(dd) < 1 or int(dd) > 29:
-            return False
     return True
