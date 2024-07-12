@@ -1,13 +1,11 @@
-```cpp
 #include <iostream>
 #include <string>
 
-std::string encrypt(std::string& s) {
-    std::string result = "";
+std::string encrypt(const std::string& s) {
+    std::string result = s; // Create a copy of the input string
     for (char c : s) {
         if (c == 'a') c = 'e';
         else if (c == 'A') c = 'E';
-        result += c;
     }
     return result;
 }
