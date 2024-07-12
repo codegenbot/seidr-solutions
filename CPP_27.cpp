@@ -1,17 +1,13 @@
-```c++
-#include <cassert>
-#include <algorithm>
-#include <string>
-#include <initializer_list>
 #include <iostream>
+#include <string>
 
-std::string filp_case(const std::string& str) {
-    std::string result = "";
-    for (char c : str) {
-        if (c >= 'A' && c <= 'Z') {
-            result += (char)(c + 32);
-        } else if (c >= 'a' && c <= 'z') {
-            result += (char)(c - 32);
+std::string flip_case(const std::string& input) {
+    std::string result;
+    for (char c : input) {
+        if (c >= 'a' && c <= 'z') {
+            result += c - ('a' - 'A');
+        } else if (c >= 'A' && c <= 'Z') {
+            result += c + ('a' - 'A');
         } else {
             result += c;
         }
@@ -22,7 +18,7 @@ std::string filp_case(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, (std::string)input);
-    std::cout << "Flipped case: " << filp_case(input) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "Flipped case: " << flip_case(input) << std::endl;
     return 0;
 }
