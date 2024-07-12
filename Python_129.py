@@ -1,5 +1,5 @@
 ```
-def minPath(grid, k):
+def minPathCost(grid, k):
     n = len(grid)
     m = [(i, j) for i in range(n) for j in range(n)]
     visited = set()
