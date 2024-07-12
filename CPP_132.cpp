@@ -1,16 +1,14 @@
-#include <cctype>
-using namespace std;
+```cpp
+#include <string>
 
-bool is_nested(string str) {
+bool is_nested(const char* str) {
     int count = 0;
-    for (char c : str) {
-        if (std::isascii(c)) {
-            if (c == '[') {
-                count++;
-            } else if (c == ']') {
-                if (count > 0) {
-                    count--;
-                }
+    for (char c : std::string(str)) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
             }
         }
     }
