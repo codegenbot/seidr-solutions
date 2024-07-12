@@ -1,6 +1,4 @@
 #include <vector>
-
-#include <vector>
 #include <algorithm> // for sort
 #include <cmath>     // for fabs
 
