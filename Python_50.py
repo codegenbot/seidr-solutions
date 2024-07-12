@@ -1,11 +1,9 @@
-def decode_shift(s: str):
-    result = ""
-    for ch in s:
-        if ch.isalpha():
-            if ch.islower():
-                result += chr(((ord(ch) - 97) % 26) + 97)
-            else:
-                result += chr(((ord(ch) - 65) % 26) + 65)
-        else:
-            result += ch
-    return result
+```Python
+def decode_shift():
+    s = input("Enter a string: ")
+    if s:
+        return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+    else:
+        return ""
+
+print(decode_shift())
