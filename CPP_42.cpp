@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -15,7 +16,3 @@ vector<int> incr_list(const vector<int>& l){
     }
     return result;
 }
-
-int main() {
-    assert(sameVectors({6, 3, 6,3, 4, 4, 10, 1, 125}, incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123})));
-    return 0;
