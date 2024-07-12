@@ -31,3 +31,4 @@ int main() {
     }
     assert(findNextSmallest({-35, 34, 12, -45}) == -35);
     return 0;
+}
