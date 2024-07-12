@@ -1,12 +1,16 @@
-using namespace std;
-
-bool is_happy(string s) {
-    if (s.length() < 3) return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        bool unique = true;
-        for (int j = 1; j <= 3; j++) {
-            if (s[i + j - 1] == s[(i + j) % s.length()]) unique = false;
+```cpp
+bool is_happy(string s){
+    if(s.length() < 3) return false;
+    for(int i = 0; i <= s.length()-3; i++){
+        string sub = s.substr(i, 3);
+        bool distinct = true;
+        for(char c : sub){
+            if(count(sub.begin(), sub.end(), c) > 1){
+                distinct = false;
+                break;
+            }
         }
-        if (!unique) return false;
+        if(!distinct) return false;
     }
     return true;
+}
