@@ -1,12 +1,12 @@
-```python
+```
 def double_the_difference(lst):
     odd_nums = [num for num in lst if num % 2 != 0]
-    return sum([i ** 2 for i in odd_nums]) * 2
+    return sum([i**2 for i in odd_nums]) * 2
 
-def check():
-    lst = input("Enter a list of numbers separated by spaces: ")
-    lst = list(map(int, lst.split()))
+
+def check(lst):
     result = double_the_difference(lst)
-    print("The sum of squares of positive odd numbers in the list is: ", result)
-
-check()
+    if result == 2:
+        print("Yes, it equals two.")
+    else:
+        print("No, it doesn't equal two.")
