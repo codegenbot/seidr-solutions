@@ -1,12 +1,10 @@
 int main() {
-    string expression;
-    cin >> expression;
-
-    if (expression == "t") {
+    string s;
+    cin >> s;
+    if (s == "t") {
         cout << "True";
     } else {
         cout << "False";
     }
-
     return 0;
 }
