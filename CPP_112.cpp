@@ -4,12 +4,8 @@
 #include <algorithm>
 #include <string>
 
-bool checkEquality(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool checkEquality(std::string s, std::string c) {
+    return s == "True";
 }
 
 std::string reverse_delete(std::string s, std::string c) {
@@ -28,18 +24,16 @@ std::string reverse_delete(std::string s, std::string c) {
     }
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        return "True";
-    } else {
-        return "False";
-    }
+    return rev == temp ? "True" : "False";
 }
 
 int main() {
-    if(checkEquality({{"", "True"}}, {{"", reverse_delete("mamma", "mia").to_string()}}) == 0) {
-        std::cout << "The strings are the same." << std::endl;
+    std::string s1 = reverse_delete("mamma", "mia");
+    std::string s2 = "mama";
+    if(checkEquality(reverse_delete("mamma", "mia"), "True")) {
+        std::cout << s1 << " and " << s2 << " are the same." << std::endl;
     } else {
-        std::cout << "The strings are not the same." << std::endl;
+        std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
     }
     return 0;
 }
