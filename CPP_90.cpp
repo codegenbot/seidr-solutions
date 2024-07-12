@@ -15,7 +15,7 @@ int findNextSmallest(std::vector<int> lst) {
     return -1; 
 }
 
-int main() { 
+int driver() { 
     std::vector<int> lst;
     int num;
     while (true) {
@@ -35,4 +35,8 @@ int main() {
         }
     }
     return 0; 
+}
+
+int main() { 
+    driver(); 
 }
