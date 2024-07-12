@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cassert>
 #include <vector>
 #include <string>
@@ -18,8 +18,5 @@ std::string Strongest_Extension(const std::string& type, const std::vector<std::
 
 int main() {
     assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    std::string type = "Sp";
-    std::vector<std::string> strong = {"671235", "Bb"};
-    std::cout << Strongest_Extension(type, strong) << std::endl;
     return 0;
 }
