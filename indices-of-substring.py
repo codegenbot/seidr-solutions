@@ -1,10 +1,11 @@
-```
-import itertools
-
 def indices_of_substring(text):
     target = input()
     result = []
-    for i, char in enumerate(itertools.zip_longest(*[(text,)*(len(target)+1)]), 0):
-        if ''.join(map(str, filter(None, [char] + list(target)))) == target:
-            result.append(i - len(target))
-    return sorted(result)
+    last_index = 0
+    while True:
+        pos = text.find(target, last_index)
+        if pos == -1: 
+            break
+        result.append(pos)
+        last_index = pos + 1
+    return list(set(result))
