@@ -1,8 +1,5 @@
 #include <initializer_list>
 
-#include <vector>
-#include <string>
-
 bool assertSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
