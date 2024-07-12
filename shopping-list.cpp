@@ -14,13 +14,11 @@ int main() {
         cin >> prices[i];
     }
 
-    for (int i = 0; i < n; i++) {
-        cin >> discounts[i];
-    }
-
     float total_price = 0.0;
     for (int i = 0; i < n; i++) {
-        total_price += prices[i] * (1 - discounts[i] / 100);
+        cin >> discounts[i];
+        float discounted_price = prices[i] - prices[i] * discounts[i] / 100;
+        total_price += discounted_price;
     }
 
     cout << fixed << setprecision(2) << total_price << endl;
