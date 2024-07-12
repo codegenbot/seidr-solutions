@@ -27,4 +27,3 @@ int main() {
     int main_result = double_the_difference(lst);
     assert(main_result == static_cast<int>(odd_sum(lst))); 
     return 0;
-}
