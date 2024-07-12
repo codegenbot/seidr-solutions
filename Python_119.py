@@ -1,5 +1,6 @@
-```
-def """match_parens(lst):
+````
+def match_parens(lst):
+    """Docstring here"""
     s1 = lst[0]
     s2 = lst[1]
     stack = []
@@ -15,4 +16,4 @@ def """match_parens(lst):
     if stack:
         return 'No'
     else:
-        return 'Yes'""```
+        return 'Yes'
