@@ -1,9 +1,7 @@
-// Fix the function signature of issame
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-// Provide the implementation of parse_music function
 vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;
