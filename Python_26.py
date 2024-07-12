@@ -1,6 +1,8 @@
-def remove_duplicates(numbers_list):
-    return sorted(list(set(numbers_list)))
+import sys
 
-numbers_list = list(map(int, input().split()))
+def remove_duplicates(numbers_list):
+    return list(set(numbers_list))
+
+numbers_list = list(map(int, sys.stdin.readline().strip().split()))
 result = remove_duplicates(numbers_list)
 print(result)
