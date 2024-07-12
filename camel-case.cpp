@@ -20,8 +20,8 @@ string kebabToCamel(string str) {
 }
 
 int main() {
-    string str;
     #define c++11
+    string str;
     while (cin >> str) {
         cout << kebabToCamel(str) << endl;
     }
