@@ -1,41 +1,45 @@
-int bowling(string s) {
+int main() {
+    string input;
+    cin >> input;
+    
     int score = 0;
     int frame = 1;
     int ball = 0;
-    int rolls[21] = {0};
+    vector<int> points(22, 0);
     
-    for (char c : s) {
-        if (c == 'X') {
-            rolls[ball] = 10;
-            rolls[ball + 1] = 0;
-            ball += 2;
+    for(char c : input) {
+        if(c == 'X') {
+            points[ball++] = 10;
+            points[ball++] = 0;
             frame++;
-        } else if (c == '/') {
-            rolls[ball] = 10 - rolls[ball - 1];
-            ball++;
-        } else if (c == '-') {
-            rolls[ball] = 0;
-            ball++;
+        } else if(c == '/') {
+            points[ball-1] = 10 - points[ball-2];
+            frame++;
+        } else if(c == '-') {
+            points[ball++] = 0;
         } else {
-            rolls[ball] = c - '0';
-            ball++;
-        }
-    }
-    
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            score += 10 + rolls[i * 2 + 2] + rolls[i * 2 + 3];
-            if (rolls[(i + 1) * 2] == 10) {
-                score += rolls[(i + 2) * 2];
-            }
-        } else {
-            if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-                score += 10 + rolls[i * 2 + 2];
-            } else {
-                score += rolls[i * 2] + rolls[i * 2 + 1];
+            points[ball++] = c - '0';
+            if(ball % 2 == 0) {
+                if(points[ball-1] + points[ball-2] >= 10) {
+                    frame++;
+                } else {
+                    frame += 0.5;
+                }
             }
         }
     }
     
-    return score;
+    for(int i = 0; i < frame; i++) {
+        if(points[i*2] == 10) {
+            score += 10 + points[i*2+2] + points[i*2+3];
+        } else if(points[i*2] + points[i*2+1] == 10) {
+            score += 10 + points[i*2+2];
+        } else {
+            score += points[i*2] + points[i*2+1];
+        }
+    }
+    
+    cout << score << endl;
+    
+    return 0;
 }
