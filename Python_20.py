@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```Python
+```
 def find_closest_elements(arr, target):
     arr.sort()
     left = 0
