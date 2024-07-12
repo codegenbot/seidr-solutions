@@ -1,23 +1,24 @@
-#include <iostream>
 #include <string>
 
-std::string fix_spaces(std::string text) {
-    std::string result = "";
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (i > 0 && i < text.length() - 1 && text[i-1] != ' ' && text[i+1] != ' ') {
+string fix_spaces(string text){
+    string result = "";
+    bool spaceFound = false;
+
+    for(int i=0; i < text.length(); i++){
+        if(text[i] == ' '){
+            if(spaceFound) {
                 result += '-';
+                spaceFound = false;
             } else {
-                result += '_';
+                if(result.length() > 0) result += '_';
+                result += ' ';
+                spaceFound = true;
             }
         } else {
             result += text[i];
+            spaceFound = false;
         }
     }
-    return result;
-}
 
-int main() {
-    std::cout << fix_spaces("   Exa 1 2 2 mple") << std::endl;
-    return 0;
+    return result;
 }
