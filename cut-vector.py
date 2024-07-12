@@ -1,19 +1,19 @@
-n = int(input())
-arr = [int(input()) for _ in range(n)]
-
+arr = list(map(int, input().split()))
+n = len(arr)
 total_sum = sum(arr)
-half_sum = total_sum // 2
-
 prefix_sum = 0
 min_diff = float("inf")
-cut_index = -1
+cut_position = -1
 
 for i in range(n):
     prefix_sum += arr[i]
-    diff = abs(prefix_sum - (total_sum - prefix_sum))
+    diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
         min_diff = diff
-        cut_index = i
+        cut_position = i
 
-print(*arr[: cut_index + 1])
-print(*arr[cut_index + 1 :])
+subvector1 = arr[: cut_position + 1]
+subvector2 = arr[cut_position + 1 :]
+
+print(*subvector1)
+print(*subvector2)
