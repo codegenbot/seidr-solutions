@@ -15,23 +15,25 @@ vector<string> select_words(string s, int n) {
         return result;
     }
     
+    s += ' '; // Ensure string ends with a space for proper word extraction
+    
     string word = "";
     int consonant_count = 0;
     
-    for (size_t i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == ' ') {
-            if (consonant_count == n) {
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty() && consonant_count == n) {
                 result.push_back(word);
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(s[i])) {
-            if (tolower(s[i]) != 'a' && tolower(s[i]) != 'e' && tolower(s[i]) != 'i' && tolower(s[i]) != 'o' && tolower(s[i]) != 'u') {
+        } else if (isalpha(c)) {
+            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
                 consonant_count++;
             }
-            word += s[i];
+            word += c;
         }
     }
-
+    
     return result;
 }
