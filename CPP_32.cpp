@@ -1,27 +1,27 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-double poly(std::vector<double> coeffs, double x) {
-    double result = 0.0;
+using namespace std;
+
+double poly(vector<double>& coeffs, double x) {
+    double result = 0;
     for (int i = 0; i < coeffs.size(); ++i) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(std::vector<double> coeffs) {
-    double x = 0.0; // initial guess
-    double epsilon = 1e-6; // tolerance
-
-    while (abs(poly(coeffs, x)) > epsilon) {
-        x -= poly(coeffs, x) / poly(std::vector<double>{derivative(coeffs, x)}, x);
-    }
-    return x;
+double find_zero(const vector<double>& coeffs) {
+    double a = coeffs[0];
+    double b = coeffs[1];
+    return -b / a;
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -3.0, -4.0}; // example coefficients
-    auto solution = find_zero(coeffs);
+    vector<double> coeffs = {1, -3, 2}; // example coefficients
+    double solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
+    
     return 0;
 }
