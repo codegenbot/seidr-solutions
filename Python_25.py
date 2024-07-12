@@ -1,6 +1,10 @@
 def factorize(n):
     factors = []
-    for i in range(1, n + 1):
-        if n % i == 0 and i not in factors:
+    i = 2
+    while i <= n:
+        if n % i == 0:
             factors.append(i)
-    return sorted(factors)
+            n //= i
+        else:
+            i += 1
+    return factors
