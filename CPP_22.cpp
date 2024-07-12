@@ -1,26 +1,16 @@
-#include <boost/any.hpp>
-#include <vector>
-#include <list>
-
-namespace boost {
-    namespace type_erasure {
-        template<typename T1, typename T2>
-        struct equal_to {
-            bool operator()(const T1 &, const T2 &) const {
-                return true;
-            }
-        };
+template <typename T, typename U>
+bool issame(const list<T>& a, const list<U>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (!boost::iequal(a[i], b[i])) return false;
     }
+    return true;
 }
 
-bool is_same(const boost::any &a, const boost::any &b) {
-    return boost::get(boost::any_cast<boost::any>(boost::any(a).type()), b);
-}
-
-vector<int> filter_integers(list-any values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same(value, boost::any(int(0)))) {
+        if (issame({value}, list<int>()) && boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
