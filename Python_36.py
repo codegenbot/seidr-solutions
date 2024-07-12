@@ -9,6 +9,7 @@ def fizz_buzz(n: int):
             or i % 7 == 0
         )
         and all(i % num != 0 for num in [13, 21, 15, 35, 33, 77])
+        and "5" not in str(i)
     )
     return count
 
