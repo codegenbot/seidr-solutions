@@ -4,13 +4,12 @@
 using namespace std;
 
 pair<int, int> findPair(const vector<int>& nums, int target) {
-    std::unordered_map<int, int> numIndex;
+    unordered_map<int, int> numIndex;
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            int pair[] = {complement, nums[i]};
-            sort(pair, pair + 2);
-            return {pair[0], pair[1]};
+            auto it = numIndex.find(complement);
+            return min({complement, nums[i]}) == complement ? make_pair(complement, nums[i]) : make_pair(nums[i], complement);
         }
         numIndex[nums[i]] = i;
     }
