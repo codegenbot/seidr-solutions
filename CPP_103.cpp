@@ -1,6 +1,7 @@
 #include <string>
+#include <cassert>
 
-std::string taskDescription(int n, int m) {
+string average_binary(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -12,12 +13,10 @@ std::string taskDescription(int n, int m) {
     
     int avg = round((double)sum / (m - n + 1));
     
-    std::string binary = "";
-    {
-        while (avg > 0) {
-            binary = to_string(avg % 2) + binary;
-            avg /= 2;
-        }
+    string binary = "";
+    while (avg > 0) {
+        binary = to_string(avg % 2) + binary;
+        avg /= 2;
     }
     
     return binary;
