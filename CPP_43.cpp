@@ -1,10 +1,20 @@
-#include <vector>
+#ifndef PAIRSSUMTOZERO_H
+#define PAIRSSUMTOZERO_H
 
-bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
+#include<vector>
+#include<set>
+
+bool pairs_sum_to_zero(std::vector<int> l);
+
+#endif  // PAIRSSUMTOZERO_H
+
+#include "PairSumToZero.h"
+
+bool pairs_sum_to_zero(std::vector<int> l) {
+    std::set<int> s(l.begin(), l.end());
     for (int i = 0; i < s.size(); i++) {
-        int complement = -s[i];
-        if (s.find(complement) != s.end() && s[i] != complement) {
+        int target = -s[i];
+        if (target != s[i] && s.count(target)) {
             return true;
         }
     }
