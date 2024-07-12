@@ -1,10 +1,7 @@
 ```
-a = int(input("Enter a number: "))
-b = int(input("Enter another number: "))
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
 
-product = a * b
-sum_ = a + b
+sum_product = num1 + num2
 
-sum_product = product + sum_
-
-check(sum_product)
+check(str(sum_product))
