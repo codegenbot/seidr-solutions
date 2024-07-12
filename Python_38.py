@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     s = input("Enter a string: ")
     n = int(input("Enter 1 for linear decoding and any other number for cyclic decoding: "))
