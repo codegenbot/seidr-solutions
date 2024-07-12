@@ -27,7 +27,7 @@ bool isMonotonic(const std::vector<int>& nums) {
     return increasing || decreasing;
 }
 
-bool isIdentical(const std::vector<int>& a, const std::vector<int>& b) { 
+bool areIdentical(const std::vector<int>& a, const std::vector<int>& b) { 
     return isMonotonic(a) && isMonotonic(b);
 }
 
@@ -44,7 +44,7 @@ int order_by_points(const std::vector<int>& nums) {
 int main() {
     std::vector<int> vec1 = {0,6,6,-76,-21,23,4};
     std::vector<int> vec2 = {-76, -21, 0, 4, 23, 6, 6};
-    assert(isIdentical(vec1,vec2) == true);
+    assert(areIdentical(vec1,vec2) == true);
     int result = order_by_points({0,6,6,-76,-21,23,4});
     std::cout << "order_by_points: " << result << std::endl;
     return 0;
