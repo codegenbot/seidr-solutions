@@ -3,7 +3,8 @@ import re
 
 
 def solve(text):
-    return re.sub(r"[^a-zA-Z]*([a-zA-Z])[^a-zA-Z]*", lambda m: "_" + m.group(1).upper(), text.lower())
+    words = re.split('(?<=[a-z])[A-Z]', text.upper())
+    return '_'.join([word.capitalize() for word in words])
 
 
 text = input("Enter your name or title: ")
