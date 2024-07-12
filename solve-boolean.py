@@ -1,16 +1,16 @@
-def solve.Boolean(expression):
+def solveBoolean(expression):
     stack = []
-    for char in expression:
-        if char == 'T':
+    for char in expression[::-1]:
+        if char == "T":
             stack.append(True)
-        elif char == 'F':
+        elif char == "F":
             stack.append(False)
-        elif char == '|':
-            b1 = stack.pop()
-            b2 = stack.pop()
-            stack.append(b1 or b2)
-        elif char == '&':
-            b1 = stack.pop()
-            b2 = stack.pop()
-            stack.append(b1 and b2)
+        elif char == "&":
+            right = stack.pop()
+            left = stack.pop()
+            stack.append(left and right)
+        elif char == "|":
+            right = stack.pop()
+            left = stack.pop()
+            stack.append(left or right)
     return stack[0]
