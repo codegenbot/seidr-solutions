@@ -6,4 +6,7 @@ def double_the_difference(lst):
     return difference * 2
 
 def check(lst):
-    return double_the_difference(lst)
+    result = double_the_difference(input("Enter a list of numbers: ").split())
+    return result
+
+print(check(input("Enter a list of numbers: ").split()))
