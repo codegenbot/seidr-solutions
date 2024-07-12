@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) 
@@ -27,7 +26,10 @@ int main() {
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
-    while ((std::cin >> num) && (num != -1)) {
+    while (true) {
+        std::cin >> num;
+        if (num == -1)
+            break;
         numbers.push_back(num);
     }
 
