@@ -27,12 +27,11 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string paren_string = "( ) (( )) (( )( ))";
-    vector<string> result = separate_paren_groups(paren_string);
-
-    for (string s : result) {
+    string paren_string = "( ) (( )) (( )( \"";
+    vector<string> result;
+    
+    for (string s : separate_paren_groups(paren_string)) {
         cout << s << endl;
     }
-    
     return 0;
 }
