@@ -42,8 +42,9 @@ int order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame({0,6,6,-76,-21,23,4}, {(-76), (-21), 0, 4, 23, 6, 6}) == true);
-    int result = order_by_points({0,6,6,-76,-21,23,4});
-    std::cout << "order_by_points: " << result << std::endl;
+    int nums1[] = {0,6,6,-76,-21,23,4};
+    int nums2[] = {-76, -21, 0, 4, 23, 6, 6};
+    assert(issame(nums1, nums2));
+    std::cout << "order_by_points: " << order_by_points({0,6,6,-76,-21,23,4}) << std::endl;
     return 0;
 }
