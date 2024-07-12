@@ -6,7 +6,9 @@ def fibfib(n: int):
     else:
         a, b = 0, 1
         total_sum = 0
-        while b < n:
+        while True:
+            total_sum += a if a % 2 == 0 else 0
             a, b = b, a+b
-            total_sum += a
-        return total_sum + b
+            if b >= n:
+                break
+        return total_sum
