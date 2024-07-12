@@ -9,7 +9,7 @@ def bouncing_balls():
     total_distance = 0
     max_height = first_bounce_height
     for i in range(num_bounces):
-        new_height = first_bounce_height / (2 ** (i+1)) * bounciness_index
+        new_height = first_bounce_height / (2 ** i) * bounciness_index
         total_distance += abs(new_height)
         max_height = new_height
 
