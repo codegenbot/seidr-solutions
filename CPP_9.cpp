@@ -1,29 +1,31 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-// Function to compare two vectors
-bool are_vectors_equal(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
-}
-
-// Function to find rolling maximums of a vector
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
     std::vector<int> maxNumbers;
+    int currentMax = INT_MIN;
 
-    int max = INT_MIN;
-
-    for (int i = 0; i < numbers.size(); i++) {
-        if (numbers[i] > max)
-            max = numbers[i];
-        maxNumbers.push_back(max);
+    for (int num : numbers) {
+        if (num > currentMax)
+            currentMax = num;
+        maxNumbers.push_back(currentMax);
     }
 
     return maxNumbers;
 }
 
-// Main function
+bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
+}
+
 int main() {
     std::vector<int> numbers;
     int num;
