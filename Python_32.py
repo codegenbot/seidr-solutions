@@ -1,11 +1,11 @@
+```
 def quadratic_equation():
-    import math
-    
-    print("Enter coefficients (space-separated): ")
-    
     while True:
         try:
+            print("Enter coefficients (space-separated): ")
             coefficients = list(map(float, input().split()))
+            if len(coefficients) != 3:
+                raise ValueError
             a, b, c = coefficients[0], coefficients[1], coefficients[2]
             
             discriminant = b**2 - 4 * a * c
@@ -21,7 +21,4 @@ def quadratic_equation():
                 print("No real roots")
             break
         except ValueError:
-            print("Invalid input. Please enter three numbers separated by spaces.")
-
-if __name__ == "__main__":
-    quadratic_equation()
+            print("Invalid input. Please enter exactly three numbers separated by spaces.")
