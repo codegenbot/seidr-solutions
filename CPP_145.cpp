@@ -1,33 +1,44 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 bool issame(int a, int b) {
-    return a == b;
+    if (a > b)
+        return false;
+    else if (a < b)
+        return true;
+    else
+        return false;
 }
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end());
+int order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end());
     for (int i = 0; i < nums.size() - 1; i++) {
-        if (issame(nums[i], nums[i + 1])) {
-            return {nums[i]};
-        }
+        if (!issame(nums[i], nums[i + 1]))
+            return 0;
     }
-    return nums;
+    return 1;
 }
 
-int main() {
+int test() {
     int n;
     cin >> n;
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
-    std::vector<int> result = order_by_points(nums);
+
+    vector<int> result = order_by_points(nums);
     for (const auto& num : result) {
         cout << num << " ";
     }
+    return 0;
+}
+
+int main() {
+    test();
     return 0;
 }
