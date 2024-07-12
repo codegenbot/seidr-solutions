@@ -15,12 +15,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         if (min_val < max_val) {
             result.push_back(min_val);
             if (!lst.empty()) {
-                lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+                auto it = std::remove(lst.begin(), lst.end(), min_val);
+                lst.erase(it, lst.end());
             }
         } else {
             result.push_back(max_val);
             if (!lst.empty()) {
-                lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+                auto it = std::remove(lst.begin(), lst.end(), max_val);
+                lst.erase(it, lst.end());
             }
         }
     }
@@ -29,6 +31,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 
 int main() {
     std::vector<int> input = {111111};
-    assert(std::equal(strange_sort_list(input).begin(), strange_sort_list(input).end(), input.begin()));
+    assert(std::equal(input.begin(), input.end(), strange_sort_list(input).begin()));
     return 0;
 }
