@@ -24,12 +24,10 @@ int main() {
         nums.push_back(num);
     }
 
-    if (cin.eof()) {
-        vector<int> result = findLeaders(nums);
+    vector<int> result = findLeaders(nums);
 
-        for (int i = result.size() - 1; i >= 0; i--) {
-            cout << result[i] << " ";
-        }
+    for (int i = result.size() - 1; i >= 0; i--) {
+        cout << result[i] << " ";
     }
     
     return 0;
