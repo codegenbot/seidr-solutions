@@ -1,8 +1,11 @@
-bool issame(vector<int> a,vector<int>b){
+#include <algorithm>
+#include <vector>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> sort_third(vector<int> l) {
+std::vector<int> sort_third(std::vector<int> l) {
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
