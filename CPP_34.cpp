@@ -1,11 +1,11 @@
 #include <algorithm>
 
-vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), std::unique_copy(l.begin(), l.end()).end());
+std::vector<int> unique(std::vector<int> l) {
+    std::vector<int> result(std::unique_copy(l.begin(), l.end()), l.end());
     return result;
 }
 
-auto std::unique_copy = [](auto first, auto last)
+auto unique_copy = [](auto first, auto last)
 {
     std::sort(first, last);
     first = std::unique(first, last);
@@ -24,4 +24,4 @@ bool issame(std::vector<T> a, std::vector<T> b) {
     return true;
 }
 
-assert(issame(std::vector<int>(unique({5, 3, 5, 2, 3, 3, 9, 0, 123})).begin(), {0, 2, 3, 5, 9, 123}));
+assert(issame(std::vector<int>(unique({5, 3, 5, 2, 3, 3, 9, 0, 123})), {0, 2, 3, 5, 9, 123}));
