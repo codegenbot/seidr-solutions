@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -16,9 +15,9 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
     std::stable_sort(std::next(lst.begin()), lst.end(),
                       [](const auto& a, const auto& b) {
                           if (a.length() != b.length())
-                              std::tie(a, b);
+                              return std::tie(a, b);
                           else
-                              std::tie(a, b);
+                              return std::tie(a, b);
                       });
     return lst;
 }
