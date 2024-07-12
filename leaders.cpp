@@ -5,11 +5,15 @@ using namespace std;
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
+    if (n == 0) {
+        return leaders;
+    }
+
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
 
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] > maxLeader) {
+        if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
             leaders.push_back(maxLeader);
         }
@@ -21,17 +25,14 @@ int main() {
     vector<int> nums;
     int num;
     while (cin >> num) {
-        if (cin.peek() == '\n') {
-            break;
-        }
         nums.push_back(num);
     }
-
-    vector<int> result = findLeaders(nums);
-
-    for (int i = result.size() - 1; i >= 0; i--) {
-        cout << result[i] << " ";
+    if (cin.eof()) {
+        vector<int> result = findLeaders(nums);
+        for (int i = result.size() - 1; i >= 0; i--) {
+            cout << result[i] << " ";
+        }
     }
-    
+
     return 0;
 }
