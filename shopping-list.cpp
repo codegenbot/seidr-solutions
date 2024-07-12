@@ -15,7 +15,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
-        total_price += prices[i] - (prices[i] * discounts[i] / 100.0);
+        total_price += prices[i] - (prices[i] * discounts[i] / 100.0 * prices[i]);
     }
 
     cout << fixed << setprecision(2) << total_price << endl;
