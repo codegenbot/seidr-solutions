@@ -1,6 +1,7 @@
-```
 #include <vector>
 #include <cmath>
+#include <cassert>
+#include <initializer_list>
 
 int double_the_difference(const std::vector<float>& numbers) {
     int sum = 0;
@@ -12,15 +13,19 @@ int double_the_difference(const std::vector<float>& numbers) {
     return abs(sum - double(sum));
 }
 
-int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
-    int result = double_the_difference(lst);
-    float odd_sum = 0.0f;
-    for (float number : lst) {
+float odd_sum(const std::vector<float>& numbers) {
+    float total = 0.0f;
+    for (float number : numbers) {
         if (std::floor(number) != std::ceil(number)) {
-            odd_sum += number;
+            total += number;
         }
     }
-    assert(result == static_cast<int>(odd_sum)); 
-    return result;
+    return total;
+}
+
+int main() {
+    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
+    int main_result = double_the_difference(lst);
+    assert(main_result == static_cast<int>(odd_sum(lst))); 
+    return 0;
 }
