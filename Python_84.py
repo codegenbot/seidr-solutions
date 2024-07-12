@@ -1,9 +1,11 @@
-def solve():
-    N = int(input(), 2)
+def solve(N):
     try:
-        if N > 1:
-            return "0b" + bin(N | (N - 1))[2:].replace("1", "10")
-        else:
-            return "0b" + str(bin(N)[2:])
+        N = int(bin(N)[2:])
     except ValueError:
         return "Invalid Input. Please provide a binary number."
+    if N == 0:
+        return str("0")
+    elif N == 1:
+        return str("1")
+    else:
+        return bin(N | (N - 1))[2:].replace("1", "10")
