@@ -6,17 +6,17 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result;
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result = {};
     for (int num : numbers) {
-        bool isSame = false;
-        for (auto& v : result) {
-            if (issame({num}, {v})) {
-                isSame = true;
+        bool duplicate = false;
+        for (int i = 0; i < result.size(); ++i) {
+            if (issame({num}, {result[i]})) {
+                duplicate = true;
                 break;
             }
         }
-        if (!isSame) {
+        if (!duplicate) {
             result.push_back(num);
         }
     }
@@ -24,10 +24,11 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 1};
-    std::vector<int> output = remove_duplicates(numbers);
-    for (auto num : output) {
-        std::cout << num << " ";
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> no_duplicates = remove_duplicates(numbers);
+    for (int num : no_duplicates) {
+        cout << num << " ";
     }
+    cout << endl;
     return 0;
 }
