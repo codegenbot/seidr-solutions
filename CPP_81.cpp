@@ -13,11 +13,11 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade >= 0.8)
             result.push_back("B");
         else if (grade >= 0.7)
-            result.push_back("C+");
+            result.push_back(grade >= 0.8 ? "B" : "C+");
         else if (grade >= 0.6)
             result.push_back("C");
         else if (grade >= 0.5)
-            result.push_back("D+");
+            result.push_back(grade >= 0.6 ? "C" : "D+");
         else if (grade >= 0.4)
             result.push_back("D");
         else
@@ -26,15 +26,12 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     return result;
 }
 
-int main() {
-    float grade1, grade2;
-    std::cout << "Enter the first grade: ";
-    std::cin >> grade1;
-    std::cout << "Enter the second grade: ";
-    std::cin >> grade2;
-    std::vector<float> grades = {grade1, grade2};
-    std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
-    if (!same(result, std::vector<std::string>({"E", "C+"}))) {
-        assert(false);
-    }
+std::cout << "Enter the first grade: ";
+float grade1; std::cin >> grade1;
+std::cout << "Enter the second grade: ";
+float grade2; std::cin >> grade2;
+std::vector<float> grades = {grade1, grade2};
+std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
+if (!same(result, {"E", "C+"})) {
+    assert(false);
 }
