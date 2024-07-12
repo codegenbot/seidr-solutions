@@ -6,10 +6,13 @@ int main() {
     std::string text, target;
     
     std::getline(std::cin, text);
+    std::cin.ignore();
     std::getline(std::cin, target);
     
+    target.erase(std::remove_if(target.begin(), target.end(), ::isspace), target.end());
+    int targetSize = target.size();
+    
     std::vector<int> indices;
-    int targetSize = target.size(); // Update targetSize calculation
     
     for (int i = 0; i <= static_cast<int>(text.size()) - targetSize; ++i) {
         if (text.substr(i, targetSize) == target) {
