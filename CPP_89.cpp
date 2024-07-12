@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -22,4 +21,3 @@ int main(){
     std::getline(std::cin, s);
     std::cout << "Encrypted string: " << encrypt(s) << '\n';
     return 0;
-}
