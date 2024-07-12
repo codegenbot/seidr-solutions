@@ -1,22 +1,8 @@
-Problem description: Write a Python function to check if a given string is a palindrome and make it a palindrome if possible.
+Problem description: Write a Python function that takes a string as input and returns whether the string is a palindrome or not.
 
 function signature:
-def is_palindrome_and_make_palindrome(string: str) -> str:
+def is_palindrome(string: str) -> bool:
 
 Solution:
-def is_palindrome_and_make_palindrome(string: str) -> str:
-    def is_palindrome(s: str) -> bool:
-        return s == s[::-1]
-
-    def make_palindrome(s: str) -> str:
-        if not s.isalnum():
-            return 'Error: Input contains non-alphanumeric characters.'
-        for i in range(len(s), -1, -1):
-            if s[:i].lower() == s[:i][::-1].lower():
-                return s + s[:i][::-1]
-        return s + s[::-1]
-
-    if is_palindrome(string):
-        return string
-    else:
-        return make_palindrome(string)
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
