@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -21,7 +22,7 @@ std::string file_name_check(std::string file_name) {
     if (dot_pos == std::string::npos || dot_pos == 0 || !std::isalpha(file_name[0])) {
         return "No";
     }
-    string extension = file_name.substr(dot_pos + 1);
+    std::string extension = file_name.substr(dot_pos + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
