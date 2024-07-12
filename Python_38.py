@@ -11,5 +11,4 @@ def decode_cyclic():
                 result.extend([char])
     print("".join(result))
 
-
 decode_cyclic()
