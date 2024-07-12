@@ -5,7 +5,7 @@ def fix_spaces(text):
         if char == ' ' and len(result) > 0 and result[-1] != ' ':
             result += '-'
         elif char == ' ':
-            result += ' '
+            continue
         else:
-            result += char.replace(' ', '_')
+            result = result + char.replace(' ', '_')
     return result
