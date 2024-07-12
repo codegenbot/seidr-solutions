@@ -1,8 +1,8 @@
-#include <string>
 #include <vector>
+#include <string>
 
-string concatenate(vector<string> strings){
-    string result = "";
+std::string concatenate(std::vector<std::string> strings){
+    std::string result = "";
     for (const auto &s : strings) {
         result += s;
     }
