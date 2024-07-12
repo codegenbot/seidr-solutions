@@ -23,9 +23,11 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
         std::vector<std::string> result;
         
         for (int i = index1; i <= index2; i++) { 
-            if(i < planets.size() && i >= 0) { 
+            if(i < planets.size()) { 
                 result.push_back(planets[i]);
-            } 
+            } else {
+                break; // exit the loop as we have processed all the required elements
+            }
         }
         
         return result;
