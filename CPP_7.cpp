@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
-    return !a.empty();
+bool has_items(const std::vector<std::string>& a) {
+    return (a.size() > 0);
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
@@ -17,6 +17,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    bool same = !filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").empty();
+    bool same = has_items(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"));
     return 0;
 }
