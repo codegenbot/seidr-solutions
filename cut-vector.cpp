@@ -1,43 +1,28 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <climits>
+#include <cmath>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    pair<vector<int>, vector<int>> res;
+pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] - v[0] <= v[i-1] - v[0]) {
-            res.first = vector<int>(v.begin(), v.begin() + i);
-            res.second = vector<int>(v.begin() + i, v.end());
-            return res;
+    for(int i = 0; i < nums.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for(int j = 0; j <= i; j++)
+            left_sum += nums[j];
+        
+        for(int j = i + 1; j < nums.size(); j++)
+            right_sum += nums[j];
+        
+        if(abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            cut_index = i;
         }
     }
     
-    res.first = vector<int>(v.begin(), v.end());
-    res.second.clear();
-    return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
+    vector<int> left_vec(nums.begin(), nums.begin() + cut_index + 1);
+    vector<int> right_vec(nums.begin() + cut_index + 1, nums.end());
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
-    }
-    cout << "] [" << "[";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " ";
-    }
-    cout << "]" << endl;
-    
-    return 0;
+    return {left_vec, right_vec};
 }
