@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cmath>
 using namespace std;
 
 int main() {
@@ -29,16 +27,14 @@ int main() {
         }
     }
 
-    vector<int> subVector1(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> subVector2(nums.begin() + cutIndex + 1, nums.end());
-
-    for (int num : subVector1) {
-        cout << num << " ";
+    for (int i = 0; i <= cutIndex; i++) {
+        cout << nums[i] << endl;
     }
-    cout << endl;
 
-    for (int num : subVector2) {
-        cout << num << " ";
+    cout << 0 << endl;
+
+    for (int i = cutIndex + 1; i < nums.size(); i++) {
+        cout << nums[i] << endl;
     }
 
     return 0;
