@@ -1,17 +1,13 @@
 int main() {
-    double start_height, bounce_height, bounciness_index;
-    int num_bounces;
-    cin >> start_height >> bounce_height >> num_bounces;
+    double h0, hb, bouncinessIndex, totalDistance;
+    int bounces;
 
-    bounciness_index = bounce_height / start_height;
-    double total_distance = start_height; // Account for the first drop
+    cin >> h0 >> hb >> bounces;
 
-    for (int i = 0; i < num_bounces; i++) {
-        total_distance += 2 * bounce_height;
-        bounce_height *= bounciness_index;
-    }
+    bouncinessIndex = hb / h0;
+    totalDistance = h0 + (h0 + hb) * (1 - pow(bouncinessIndex, bounces)) / (1 - bouncinessIndex);
 
-    printf("%.15f\n", total_distance);
+    cout << totalDistance << endl;
 
     return 0;
 }
