@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,9 +21,5 @@ string solve(string s) {
 }
 
 int main() {
-    assert (solve("#ccc") == "#CCC");
-    {  
-        std::cout << "This is an example output." << std::endl;
-    }
-    return 0;
+    cout << solve("#ccc") << endl;
 }
