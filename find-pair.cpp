@@ -1,25 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 int main() {
-    int n;
+    int64_t n;
     std::cin >> n;
 
-    int64_t target; // Change data type to int64_t
+    int64_t target;
     std::cin >> target;
 
-    std::vector<int64_t> nums(n); // Change data type to int64_t
+    std::vector<int64_t> nums;
+    nums.reserve(n);
+    std::unordered_map<int64_t, int64_t> numIndex;
 
-    std::map<int64_t, int> numIndex;
+    for (int64_t i = 0; i < n; ++i) {
+        int64_t num;
+        std::cin >> num;
+        nums.push_back(num);
 
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-        if (numIndex.find(target - nums[i]) != numIndex.end() && i != numIndex[target - nums[i]]) {
-            std::cout << target - nums[i] << " " << nums[i] << std::endl;
+        if (numIndex.find(target - num) != numIndex.end()) {
+            std::cout << target - num << " " << num << std::endl;
             return 0;
         }
-        numIndex[nums[i]] = i;
+        numIndex[num] = i;
     }
 
     std::cout << "No pair found." << std::endl;
