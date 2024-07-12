@@ -1,2 +1,2 @@
-def """words_string(s)""":
-    return ' '.join([word.strip() for word in s.split(',')])
+def words_string(s):
+    return ' '.join(s.replace(",", " ").split())
