@@ -1,4 +1,3 @@
-````
 #include <vector>
 #include <string>
 
@@ -9,4 +8,3 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
             result.push_back(s);
     }
     return result;
-}
