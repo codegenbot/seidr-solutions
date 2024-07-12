@@ -7,7 +7,7 @@ int main() {
     string input;
     cin >> input;
     
-    bool result = true;
+    bool result = false;
     
     for (int i = 0; i < input.size(); i += 2) {
         if (input[i] == 't' || input[i] == 'T') {
@@ -16,7 +16,7 @@ int main() {
             result = false;
         }
         
-        if (i + 1 < input.size() && input[i + 1] == '|') {
+        if (result || (i + 1 < input.size() && input[i + 1] == '|')) {
             continue;
         } else if (i + 1 < input.size() && input[i + 1] == '&') {
             i++;
