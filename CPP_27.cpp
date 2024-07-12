@@ -1,6 +1,8 @@
+```
 #include <cassert>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 std::string filp_case(const std::string& str) {
     std::string result = "";
@@ -18,4 +20,9 @@ std::string filp_case(const std::string& str) {
 
 int main() {
     assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Flipped case: " << filp_case(input) << std::endl;
+    return 0;
 }
