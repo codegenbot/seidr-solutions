@@ -1,6 +1,7 @@
-```
 def double_the_difference(lst):
-    return (max(lst) - min(lst)) * 2
+    lst.sort()
+    return (lst[-1] - lst[0]) * 2
+
 
 def check(lst):
     return double_the_difference(lst)
