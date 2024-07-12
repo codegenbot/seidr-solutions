@@ -1,6 +1,6 @@
 #include <string>
 
-std::string flip_case(const std::string& str) {
+std::string flip_case(const std::string& str){
     std::string result = str;
     for(int i=0; i<str.length(); i++){
         char c = str[i];
