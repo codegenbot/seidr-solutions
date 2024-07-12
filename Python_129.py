@@ -1,4 +1,5 @@
-def process_paths():
+```
+def main():
     paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
     if "," in paths:
         paths = [[*map(int, x.strip().split("-"))] for x in paths.split(",")]
@@ -8,5 +9,7 @@ def process_paths():
         else:
             print("Please enter a valid path (e.g., 1-2).")
             return None
+    return paths
 
-process_paths()
+if __name__ == "__main__":
+    main()
