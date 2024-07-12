@@ -10,8 +10,8 @@ int main() {
     std::vector<int> indices;
     size_t startPos = 0;
     size_t pos;
-    while (startPos < text.size() && (pos = text.find(target, startPos)) != std::string::npos) {
-        if (pos != 0 || !indices.empty()) {
+    while ((pos = text.find(target, startPos)) != std::string::npos) {
+        if (pos != std::string::npos || !indices.empty()) {
             indices.push_back(pos);
         }
         startPos = pos + 1;
