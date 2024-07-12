@@ -1,11 +1,11 @@
-#include <iostream>
+\#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool isEqual(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -24,6 +24,6 @@ vector<int> sortArray(vector<int> array) {
 }
 
 int main() {
-    assert (isSame(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(isEqual(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
