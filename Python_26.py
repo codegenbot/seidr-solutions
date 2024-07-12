@@ -1,6 +1,6 @@
 def check(func):
-    def wrapper(numbers):
-        return func(numbers)
+    def wrapper(args):
+        return func(args)
     return wrapper
 
 @check
