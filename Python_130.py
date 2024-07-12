@@ -5,10 +5,10 @@ def tri(n):
         return [3]
     else:
         result = [3]
-        a, b, c = 0, 0, 3
-        for i in range(1, n):
-            if i % 2 == 0:
-                c = 1 + i // 2
+        a, b, c = 1, 1, 3
+        for _ in range(2, n + 1):
+            if _ % 2 == 0:
+                c = 1 + _ // 2
             else:
                 a, b, c = b, c, a + b + c
             result.append(c)
