@@ -3,23 +3,7 @@
 #include <algorithm>
 #include <cctype>
 
-int main() {
-    std::string class_name;
-    int num_extensions;
-
-    std::cout << "Enter the class name: ";
-    std::cin >> class_name;
-
-    std::cout << "Enter the number of extensions: ";
-    std::cin >> num_extensions;
-
-    std::vector<std::string> extensions(num_extensions);
-
-    for (int i = 0; i < num_extensions; ++i) {
-        std::cout << "Enter extension " << i + 1 << ": ";
-        std::cin >> extensions[i];
-    }
-
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = 0;
     std::string result = "";
 
@@ -39,7 +23,27 @@ int main() {
         }
     }
 
-    std::cout << "The strongest extension is: " << class_name + "." + result << std::endl;
+    return class_name + "." + result;
+}
+
+int main() {
+    std::string class_name;
+    std::vector<std::string> extensions;
+    
+    // Read input from user
+    std::cout << "Enter the name of the class: ";
+    std::cin >> class_name;
+
+    std::cout << "Enter the list of extensions (separated by space): ";
+    std::string temp;
+    while(std::cin >> temp) {
+        extensions.push_back(temp);
+    }
+
+    // Calculate and print the strongest extension
+    int strongest_extension = Strongest_Extension(class_name, extensions);
+
+    std::cout << "The strongest extension is: " << class_name + "." << extensions[0] << std::endl;
 
     return 0;
 }
