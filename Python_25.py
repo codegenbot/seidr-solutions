@@ -16,3 +16,6 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return sorted(factors)
+
+n = int(input("Enter a number: "))
+print(factorize(n))
