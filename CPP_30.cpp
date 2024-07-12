@@ -24,6 +24,7 @@ int get_positive(vector<float>& v) {
 
 int main() {
     vector<float> v = {1.2f, 3.4f};
-    assert(issame({}, {}));
+    cout << get_positive(v) << endl;
+    assert(issame(vector<float>(),v));
     return 0;
 }
