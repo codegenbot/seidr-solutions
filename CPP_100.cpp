@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,8 +13,10 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
-    while (stones <= n && stones <= 8) {
+    while (stones <= n && stones <= 16) {
         pile.push_back(stones);
+        if (stones + 2 > 16)
+            break;
         stones += 2; 
     }
     return pile;
