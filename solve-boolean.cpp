@@ -1,6 +1,6 @@
 bool evaluateBooleanExpression(const string& expression) {
-    std::stack<char> operators;
-    std::stack<bool> operands;
+    stack<bool> operands;
+    stack<char> operators;
 
     for (char c : expression) {
         if (c == 'T') {
