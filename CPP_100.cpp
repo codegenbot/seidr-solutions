@@ -25,5 +25,8 @@ vector<int> make_a_pile(int n) {
 int main() {
     vector<int> result = make_a_pile(8); 
     assert(issame({0}, result));
+    for (int i = 0; i < (int)result.size(); i++) {
+        cout << result[i] << " ";
+    }
     return 0;
 }
