@@ -2,10 +2,10 @@ def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string
     for char in string:
-        temp = string[: len(string) - 1].replace(char, "")
         if (
-            temp == temp[::-1]
+            string[: len(string) - 1].replace(char, "")
+            == (string[: len(string) - 1].replace(char, ""))[::-1]
             and string[1:].replace(char, "") == (string[1:]).replace(char, "")[::-1]
         ):
-            return char + temp + temp[::-1]
+            return char + string + string[::-1]
     return string + string[::-1]
