@@ -1,35 +1,35 @@
-int bowling_score(string s) {
-    int score = 0, frame = 0, turn = 0;
-    vector<int> frames(10, 0);
-    
-    for (char c : s) {
-        if (c == 'X') {
-            frames[frame++] = 10;
-            if (frame == 10) break;
-        } else if (c == '/') {
-            frames[frame++] = 10 - frames[frame - 1];
-        } else if (c == '-') {
-            frames[frame++] = 0;
-        } else {
-            frames[frame] += c - '0';
-            if (turn % 2 == 1) frame++;
+int calculateBowlingScore(string input) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < input.size() && frame < 10; i++) {
+        if (input[i] == 'X') {
+            score += 10;
+            if (input[i + 1] == 'X') {
+                score += 10;
+                if (input[i + 2] == 'X') {
+                    score += 10;
+                } else if ('0' <= input[i + 2] && input[i + 2] <= '9') {
+                    score += input[i + 2] - '0';
+                }
+            } else if (input[i + 2] == '/') {
+                score += 10;
+            } else if ('0' <= input[i + 1] && input[i + 1] <= '9' &&
+                       '0' <= input[i + 2] && input[i + 2] <= '9') {
+                score += input[i + 1] - '0' + input[i + 2] - '0';
+            }
+            frame++;
+        } else if ('0' <= input[i] && input[i] <= '9') {
+            score += input[i] - '0';
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] - '0');
         }
-        
-        if (frame == 10) break;
-        turn++;
     }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frames[i] + (frames[i] == 10 ? frames[i+1] + frames[i+2] : 0);
-    }
-    
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowling_score(s) << endl;
-    
+    string input;
+    cin >> input;
+    cout << calculateBowlingScore(input) << endl;
     return 0;
 }
