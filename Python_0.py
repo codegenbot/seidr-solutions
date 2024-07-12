@@ -8,11 +8,12 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             return False
     return True
 
+
 numbers = []
 while True:
     try:
         num1 = input("Enter a number (or 'done' to finish): ")
-        if num1 == 'done':
+        if num1 == "done":
             break
         numbers.append(float(num1))
     except ValueError:
@@ -22,7 +23,7 @@ if len(numbers) < 2:
     while True:
         try:
             num1 = input("Enter a number (or 'done' to finish): ")
-            if num1 == 'done':
+            if num1 == "done":
                 break
             numbers.append(float(num1))
         except ValueError:
@@ -38,7 +39,4 @@ else:
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
-    if not has_close_elements(numbers, threshold):
-        print(f"The numbers {', '.join(map(str, numbers))} have close elements for the given threshold {threshold}.")
-    else:
-        print(f"The numbers {', '.join(map(str, numbers))} do not have close elements for the given threshold {threshold}."
+    print(has_close_elements(numbers, threshold))
