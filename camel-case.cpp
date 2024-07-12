@@ -1,22 +1,35 @@
 int main() {
-    string input, output;
+    string input;
     getline(cin, input);
     
-    bool capitalize = true;
-    for (char c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (c != ' ') {
-            if (capitalize) {
-                output += toupper(c);
-                capitalize = false;
-            } else {
-                output += tolower(c);
-            }
+    bool isDash = false;
+    for (char &c : input) {
+        if (c == '-' || c == ' ') {
+            isDash = true;
+            break;
         }
     }
     
-    cout << output << endl;
+    if (!isDash) {
+        cout << input << endl;
+        return 0;
+    }
+    
+    bool capitalize = false;
+    for (char &c : input) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (c == ' ') {
+            capitalize = false;
+        } else {
+            if (capitalize) {
+                cout << (char)toupper(c);
+            } else {
+                cout << c;
+            }
+        }
+    }
+    cout << endl;
     
     return 0;
 }
