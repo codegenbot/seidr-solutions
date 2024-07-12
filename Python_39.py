@@ -1,3 +1,4 @@
-n = int(input())
-result = prime_fib(n)
-print(result)
+def prime_fib(n):
+    # Your implementation of prime_fib function
+
+result = prime_fib(int(input().strip()))
