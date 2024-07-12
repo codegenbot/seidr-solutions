@@ -10,4 +10,4 @@ else:
     if not result:
         print(f"Substrings '{substring}' not found in any of the provided strings.")
     else:
-        print([s for s in result if substring in s])
+        print(result[0] if result else "Substrings not found in any string.")
