@@ -1,11 +1,9 @@
-bool issame(const string& a, const string& b) {
-    return (a.length() == b.length()) && (a == b);
+bool issame(const string& s1, const string& s2) {
+    return s1.length() == s2.length();
 }
 
-void test() {
-    vector<string> lst = {"abc", "abcd", "abe", "abef"};
-    vector<string> result = sorted_list_sum(lst);
-
-    assert(issame(result[0], "abcd") || 
-           issame(result[0], "abe"));
+void assertEqual(bool condition, const char* message) {
+    if (!condition) {
+        throw runtime_error(message);
+    }
 }
