@@ -1,4 +1,3 @@
-```python
 def valid_date(date):
     date_parts = date.split('-')
     if len(date_parts) != 3:
