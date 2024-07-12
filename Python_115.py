@@ -1,7 +1,7 @@
+```
 import math
-
-
 def max_fill(n, grid):
+    grid = grid[0]
     rows = len(grid)
     cols = len(grid[0])
     total_water = rows * cols
