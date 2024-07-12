@@ -14,7 +14,7 @@ int main() {
         }
     }
 
-    std::cout << snow_on_ground << "\n";
+    std::cout << snow_on_ground << std::endl;
 
     return 0;
 }
