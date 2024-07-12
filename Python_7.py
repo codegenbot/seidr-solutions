@@ -1,13 +1,17 @@
-```
 strings = input("Enter space separated strings: ").lower().split()
 substring = input("Enter a substring to search: ").lower()
 
 if not strings or not substring:
-    print("Invalid input. Please provide at least one string and at least one character to search for.")
+    print(
+        "Invalid input. Please provide at least one string and at least one character to search for."
+    )
 else:
-    result = [s for s in strings if substring in s]
-    
+    result = [s for s in strings if s and substring in s]
+
     if not result:
         print(f"Substrings '{substring}' not found in any of the provided strings.")
     else:
-        print(result[0] if result else "Substrings not found in any string.")
+        if len(result) == 1:
+            print([s for s in result if substring in s])
+        else:
+            print(result)
