@@ -1,10 +1,9 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
-
+#include <cassert>
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b){
+bool isSame(vector<int> a, vector<int> b){
     if (a != b) {
         return false;
     }
@@ -16,7 +15,7 @@ bool issame(vector<int> a,vector<int> b){
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
+vector<int> removeDuplicates(vector<int> numbers) {
     vector<int> result;
     for (int num : numbers) {
         if (find(result.begin(), result.end(), num) == result.end()) {
@@ -25,3 +24,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
     return result;
 }
+
+int main() {
+    assert(isSame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    return 0;
