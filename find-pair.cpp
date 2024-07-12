@@ -1,8 +1,6 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <algorithm>
 using namespace std;
 
 pair<int, int> findPair(const vector<int>& nums, int target) {
@@ -12,7 +10,7 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
         if (numIndex.count(complement)) {
             int pair[] = {complement, nums[i]};
             sort(pair, pair + 2);
-            return make_pair(pair[0], pair[1]);
+            return {pair[0], pair[1]};
         }
         numIndex[nums[i]] = i;
     }
