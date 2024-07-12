@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,7 +31,18 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-int main_test() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+int cpp37() {
+    int n;
+    std::cin >> n;
+    std::vector<float> l(n);
+    for (float &i : l) {
+        std::cin >> i;
+    }
+    l = sort_even(l);
+    std::cout << "Sorted array: ";
+    for (const auto &i : l) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
