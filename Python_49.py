@@ -1,8 +1,7 @@
-import math
-
+from math import gcd
 
 def modp(n: int, p: int):
-    if math.gcd(p, n) == 1:
-        return pow(n, p - 1, p) * n % p
+    if gcd(p, n) == 1:
+        return pow(n, (p-1)//gcd(p,n), p) * n % p
     else:
         return n
