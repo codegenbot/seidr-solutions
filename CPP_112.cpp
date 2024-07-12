@@ -2,11 +2,16 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string>& b) {
-    if (b.empty()) {
-        return false;
+bool issame(std::vector<std::string> a) {
+    if (a.empty()) {
+        return true;
     }
-    return a == b;
+    for (const auto& str : a) {
+        if (!issame({str})) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
@@ -39,7 +44,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::cin >> s;
-    
+
     std::cout << "Enter a character to be deleted: ";
     std::string c;
     std::cin >> c;
