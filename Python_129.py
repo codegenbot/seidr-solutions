@@ -1,3 +1,4 @@
+```
 def process_paths():
     while True:
         paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
@@ -25,4 +26,7 @@ def process_paths():
         if len(path) < minPath:
             minPath = len(path)
 
-    print(f"The shortest path has {minPath} nodes.")
+    return minPath
+
+shortest_path = process_paths()
+print(f"The shortest path has {shortest_path} nodes.")
