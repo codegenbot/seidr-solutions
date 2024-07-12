@@ -13,12 +13,8 @@ int main() {
         if (c == '-') {
             capitalize = true;
         } else if (c != ' ') {
-            if (capitalize) {
-                cout << (char)toupper(c);
-                capitalize = false;
-            } else {
-                cout << c;
-            }
+            cout << (capitalize ? (char)toupper(c) : c);
+            capitalize = false;
         }
     }
 
