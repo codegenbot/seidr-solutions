@@ -1,5 +1,5 @@
-def add(x: int, y: int):
-    print("Please enter two integers separated by space.")
-    x = int(input())
-    y = int(input())
+```
+def add():
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
     return x + y

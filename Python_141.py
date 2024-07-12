@@ -1,14 +1,15 @@
+Here is the corrected code:
+
 ```
 def file_name_check(file_name):
-    if len([i for i in file_name if i.isdigit()]) > 3:
+    if len([c for c in file_name if c.isdigit()]) > 3:
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    if file_name[:file_name.index('.')] and not file_name[:file_name.index('.')].isalpha():
+    before_dot, after_dot = file_name.split('.')
+    if not before_dot[0].isalpha():
         return 'No'
-    if file_name[file_name.index('.') + 1:] not in ['txt', 'exe', 'dll']:
+    valid_extensions = ['txt', 'exe', 'dll']
+    if after_dot.lower() not in valid_extensions:
         return 'No'
     return 'Yes'
-
-file_name = input("Enter the file name: ")
-print(file_name_check(file_name))
