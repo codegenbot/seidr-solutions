@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -8,10 +10,11 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
-
+  
     int m;
     cin >> m;
     vector<float> discounts(m);
+
     for (int i = 0; i < m; ++i) {
         cin >> discounts[i];
     }
