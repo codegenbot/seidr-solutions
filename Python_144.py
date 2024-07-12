@@ -1,5 +1,5 @@
-```
 from fractions import Fraction
+
 
 def simplify():
     while True:
@@ -9,6 +9,15 @@ def simplify():
             break
         except ValueError:
             print("Invalid input! Please enter a number.")
-    
+
     if y == 0:
-        return str(Fraction(x,y))
+        return str(Fraction(x, y))
+    else:
+        return str(Fraction(x, y))
+
+
+def main():
+    print(simplify())
+
+
+main()
