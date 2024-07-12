@@ -1,7 +1,9 @@
 double diceGame(int n, int m) {
     double total = 0.0;
-    for (int i = 1; i < n; i++) { 
-        total += min(i+1, n)*min(m-1, m-min(n-i,0))/static_cast<double>(n*m);
+    for (int diff = 1; diff <= n - m; ++diff) {
+        if (n == m || diff == 1)
+            continue;
+        total += (n - diff) * pow(m, diff) / pow(n * m, diff);
     }
     return total;
 }
