@@ -1,3 +1,4 @@
+```
 from fractions import Fraction
 
 def simplify():
