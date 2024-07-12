@@ -1,7 +1,4 @@
-```
-def decode_cyclic() -> str:
-    s = input("Enter the string: ")
-    
+def decode_cyclic(s: str) -> str:
     if not isinstance(s, str):
         return "Invalid Input"
 
