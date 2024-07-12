@@ -11,7 +11,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-
+    
     int min_diff = INT_MAX;
     int cut_index = -1;
     for (int i = 0; i < n-1; ++i) {
@@ -21,14 +21,14 @@ int main() {
             cut_index = i;
         }
     }
-
-    for (int i = 0; i < cut_index; ++i) {
+    
+    for (int i = 0; i <= cut_index; ++i) {
         std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
-    for (int i = cut_index; i < n; ++i) {
+    for (int i = cut_index + 1; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
