@@ -1,7 +1,8 @@
-```Python
 def cycpattern_check(a, b):
-    a = a + a  
+    a = ''.join(e for e in a if e.isalnum()).lower()
+    b = ''.join(e for e in b if e.isalnum()).lower()
     for i in range(len(a)):
-        if sorted(a[i:]) == sorted(b):
+        temp = a[i:][::-1] + a[:i]
+        if sorted(temp) == sorted(b):
             return True
     return False
