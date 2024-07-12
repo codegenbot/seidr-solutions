@@ -1,5 +1,4 @@
-from typing import List
-
+Here is the solution:
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
@@ -7,9 +6,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         level = 0
         max_level = 0
         for char in group:
-            if char == "(":
+            if char == '(':
                 level += 1
-            elif char == ")":
+            elif char == ')':
                 level -= 1
             max_level = max(max_level, level)
         result.append(max_level)
