@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
-int digitSum(const std::string& s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (c >= '0' && c <= '9') {
@@ -9,7 +10,6 @@ int digitSum(const std::string& s) {
         }
     }
     return sum;
-
 }
 
 int main() {
