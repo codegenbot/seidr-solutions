@@ -1,5 +1,4 @@
 arr = list(map(int, input().split()))
-
 n = len(arr)
 total_sum = sum(arr)
 prefix_sum = 0
