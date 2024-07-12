@@ -1,5 +1,14 @@
+```cpp
 #include <algorithm>
 #include <vector>
+
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 int order_by_points(const std::vector<int>& nums) {
     int points = 0;
@@ -21,8 +30,5 @@ int main() {
         }
     }
     // If the loop didn't break, then the array is sorted
-    std::vector<int> expected(expected_output);
-    if (!std::equal(actual_output.begin(), actual_output.end(), expected.begin())) {
-        return 1;  
-    }
+    assert(isSame(actual_output, std::vector<int>(expected_output.begin(), expected_output.end())));
 }

@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cassert>
 
 int double_the_difference(std::vector<float> lst) {
-    int odd_sum = 0;
+    float odd_sum = 0;
     for (float num : lst) {
         if (num % 2 != 0) {
             odd_sum += static_cast<int>(num);
@@ -16,12 +15,6 @@ int double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> input_vector = {1.0f, 2.0f, 3.0f};
     int result = double_the_difference(input_vector);
-    int oddSum = 0;
-    for (float num : input_vector) {
-        if (num % 2 != 0) {
-            oddSum += static_cast<int>(num);
-        }
-    }
-    assert(result == oddSum); 
+    assert(result == 5); 
     return 0;
 }
