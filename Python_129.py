@@ -1,4 +1,4 @@
-def min_length(all_paths):
-    return min(sum(map(int, ''.join(path))) for path in all_paths)
-
-check(min_length(['123', '456', '789']))
+def min_length():
+    n = int(input())
+    all_paths = [list(map(int, input().split())) for _ in range(n)]
+    return min(sum(path) for path in all_paths)
