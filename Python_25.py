@@ -1,6 +1,3 @@
-Here's the corrected code:
-
-```
 from typing import List
 
 def factorize(n: int) -> List[int]:
