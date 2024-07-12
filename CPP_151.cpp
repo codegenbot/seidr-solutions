@@ -10,12 +10,18 @@ int double_the_difference(std::vector<float> lst) {
             odd_sum += static_cast<int>(num);
         }
     }
-    return abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0f));
+    return std::abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0f));
 }
 
 int main() {
     std::vector<float> input_vector = {1.0f, 2.0f, 3.0f};
     int result = double_the_difference(input_vector);
-    assert(result == 5); 
+    int oddSum = 0;
+    for (float num : input_vector) {
+        if (num % 2 != 0) {
+            oddSum += static_cast<int>(num);
+        }
+    }
+    assert(result == oddSum); 
     return 0;
 }
