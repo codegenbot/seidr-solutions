@@ -1,7 +1,12 @@
-```cpp
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 using namespace std;
+
+bool is_next_smaller(int x, vector<int> v) {
+    for (int i = 0; i < v.size(); i++) {
+        if (v[i] < x) return true;
+    }
+    return false;
+}
 
 int main(){
     vector<int> lst;
@@ -17,13 +22,12 @@ int main(){
     if(lst.size() < 2) cout << "-1";
     else {
         sort(lst.begin(), lst.end());
-        int next_smallest = -1;
-        for(int i = 0; i < lst.size()-1; i++){
-            if(lst[i] != lst[i+1]) {
-                next_smallest = lst[i];
+        for(int i = 0; i < lst.size(); i++){
+            if(is_next_smaller(lst[i], lst)) {
+                cout << lst[i];
                 break;
             }
         }
-        cout << (next_smallest == -1 ? "-1" : to_string(next_smallest));
+        else cout << "-1";
     }
 }
