@@ -1,11 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cstdlib>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
-    int num;
+    string line;
     
-    while (cin >> num) {
+    getline(cin, line);
+    stringstream ss(line);
+    int num;
+    while (ss >> num) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -26,12 +38,16 @@ int main() {
             cutIndex = i;
         }
     }
+
+    cout << "2" << endl;
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
     
-    cout << 0 << endl;
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << " ";
+    }
     
     return 0;
 }
