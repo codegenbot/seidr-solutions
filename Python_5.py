@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def intersperse(numbers: list[int], delimeter: int) -> list[int]:
