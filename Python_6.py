@@ -8,12 +8,14 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth += 1
             max_depth = max(max_depth, current_depth)
         elif char == ")":
+            if current_depth == 0:  # Check for invalid nesting
+                return "Invalid input: Not a valid nested parentheses string"
             current_depth -= 1
         levels.append(max_depth)
+    
+    if current_depth != 0:  # Check for invalid nesting
+        return "Invalid input: Not a valid nested parentheses string"
     return levels
 
-# Read input from the user
-paren_string = input()
-
-# Call the function with the input and print the output
+paren_string = input("Enter nested parentheses string: ")
 print(parse_nested_parens(paren_string))
