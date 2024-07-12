@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
-#include <climits>
 #include <numeric>
+#include <cmath>
 
 int main() {
     std::vector<int> nums;
@@ -15,23 +15,24 @@ int main() {
         nums.push_back(num);
     }
 
-    if (n == 1) {
-        firstSubvector.push_back(nums[0]);
-        secondSubvector.push_back(nums[0]);
-    } else {
-        int minDiff = INT_MAX;
+    if (n > 1) {
+        int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
+        int sum1 = 0, minDiff = totalSum, newDiff;
+
         for (int i = 0; i < n; ++i) {
-            int sum1 = std::accumulate(nums.begin(), nums.begin() + i + 1, 0);
-            int sum2 = std::accumulate(nums.begin() + i + 1, nums.end(), 0);
-            int diff = std::abs(sum1 - sum2);
-            if (diff < minDiff) {
-                minDiff = diff;
+            sum1 += nums[i];
+            newDiff = std::abs(totalSum - 2 * sum1);
+            if (newDiff < minDiff) {
+                minDiff = newDiff;
                 cutIndex = i;
             }
         }
 
         firstSubvector = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
         secondSubvector = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
+    } else {
+        firstSubvector.push_back(nums[0]);
+        secondSubvector.push_back(nums[0]);
     }
 
     for (int num : firstSubvector) {
