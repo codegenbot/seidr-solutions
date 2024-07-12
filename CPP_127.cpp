@@ -6,11 +6,9 @@ using namespace std;
 
 int isPrime(int n) {
     if (n <= 1) return 0;
-    
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return 0;
     }
-    
     return 1;
 }
 
@@ -27,4 +25,9 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     } else {
         return "NO";
     }
+}
+
+int main() {
+    assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    return 0;
 }
