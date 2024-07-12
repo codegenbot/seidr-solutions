@@ -22,20 +22,3 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     }
     return result;
 }
-
-int main() {
-    int n, temp;
-    std::vector<int> v;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> temp;
-        v.push_back(temp);
-    }
-    std::vector<int> sortedList = strange_sort_list(v);
-    std::cout << "Sorted List: ";
-    for(int i : sortedList)
-        std::cout << i << " ";
-    return 0;
-}
