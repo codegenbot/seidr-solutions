@@ -1,4 +1,6 @@
-```
 def sorted_list_sum(lst):
-    lst.sort(key=len)
-    return str(sum([len(word) for i, word in enumerate(lst) if i % 2 == 1]))
+    even_words = [word for word in lst if len(word) % 2 == 0]
+    even_lengths_sum = sum(len(word) for word in even_words)
+    return ",".join(
+        sorted(lst, key=lambda x: (sum(1 for ch in x if len(x) % 2 == 0), x))
+    )
