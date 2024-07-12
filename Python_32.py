@@ -1,9 +1,18 @@
 def find_zero():
-    a, b = map(float, input().split())
-    while a == 0.0:
-        a, b = map(float, input().split())
+    try:
+        print("Enter a non-zero value for 'a': ")
+        a = float(input())
+        while a == 0.0:
+            print("Please enter a non-zero value for 'a': ")
+            a = float(input())
         
-    return -b / a
+        print("Enter a value for 'b': ")
+        b = float(input())
+        return -b / a
+    except ValueError:
+        print("Invalid input. Please enter a valid numeric value.")
+        return None
 
 result = find_zero()
-print(result)
+if result is not None:
+    print(result)
