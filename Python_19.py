@@ -8,7 +8,10 @@ def sort_numbers(input_str: str) -> str:
             if not re.match(r"^\s*\d+(?:\s+\d+)*)$", input_str):
                 raise ValueError
             numbers = [int(num) for num in input_str.split() if num.isdigit()]
-            break
+            if len(numbers) > 0:
+                break
+            else:
+                raise ValueError
         except ValueError:
             print("Invalid input. Please enter a string of space-separated integers.")
             input_str = input("Enter your input: ")
