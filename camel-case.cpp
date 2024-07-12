@@ -7,16 +7,14 @@ std::string camelCase(std::string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-' || str[i] == ' ') {
             if (str[i] == '-') {
+                result += std::toupper(str[i+1]);
                 i++;
-            }
-            if (!result.empty()) {
-                result += std::toupper(str[i]);
-            } else {
-                result += str[i];
+            } else if (str[i] == ' ') {
+                continue;
             }
         } else {
-            if (i > 0 && (str[i-1] == '-' || str[i-1] == ' ')) {
-                result += std::toupper(str[i]);
+            if (!result.empty() && (result.back() == '-' || result.back() == ' ')) {
+                result.push_back(std::toupper(str[i]));
             } else {
                 result += str[i];
             }
