@@ -1,3 +1,4 @@
+```
 def has_close_elements(numbers: list[float], threshold: float) -> bool:
     if len(numbers) < 2:
         return False
