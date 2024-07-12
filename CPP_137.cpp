@@ -1,28 +1,29 @@
+#include <string>
 #include <iostream>
 
-int compare_one(int i) {
+int compare_one(const std::string& s, int i) {
     if (i == 1)
-        return -10;
+        return std::stoi(s) - 10;
     else if (i == 2)
-        return 0;
+        return std::stoi(s);
     else if (i == 3)
-        return 10;
+        return std::stoi(s) + 10;
     else 
         return 0;
 }
 
 int main() {
-    int a, b;
+    std::string a, b;
     std::cout << "Enter the first number: ";
     std::cin >> a;
     std::cout << "Enter the second number: ";
     std::cin >> b;
 
-    if (a != 0 && b != 0) {
-        int x = compare_one(1);
-        int y = compare_one(2);
+    if (a.size() > 0 && b.size() > 0) {
+        int s1 = compare_one(a, 1);
+        int s2 = compare_one(b, 2);
 
-        return (x < y) ? -1 : ((y < x) ? 1 : 0); 
+        return (s1 < s2) ? -1 : ((s2 < s1) ? 1 : 0); 
     } else
         return 0;
 }
