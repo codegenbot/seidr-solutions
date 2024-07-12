@@ -17,5 +17,4 @@ def sum_product():
         product *= num
     return (total_sum, product)
 
-
 print(sum_product())
