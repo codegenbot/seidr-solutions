@@ -14,9 +14,8 @@ try:
         num = input("Enter the number: ")
         try:
             n = int(num)
-            if n >= 0:
+            if n != 0 and n >= 0:
                 check(n)
-                break
             else:
                 print("Please enter a non-negative integer.")
         except ValueError:
