@@ -1,18 +1,20 @@
 #include <vector>
-#include <cmath>
-
-bool has_close_elements(const std::vector<float>& elements, float threshold) {
-    for (size_t i = 0; i < elements.size() - 1; ++i) {
-        if (std::abs(elements[i] - elements[i + 1]) <= threshold)
-            return true;
-    }
-    return false;
-}
+#include <iostream>
 
 int main() {
-    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    std::vector<float> a(1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f);
     
-    assert(has_close_elements({1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f}, 0.1) == true);
-    
+    bool hasCloseElements = false;
+    float minDiff = 10.0f;
+
+    for(int i=0; i<a.size()-1; i++) {
+        if (abs(a[i]-a[i+1]) < minDiff) {
+            minDiff = abs(a[i]-a[i+1]);
+            hasCloseElements = true;
+        }
+    }
+
+    std::cout << "Has close elements: " << (hasCloseElements ? "Yes" : "No") << std::endl;
+
     return 0;
 }
