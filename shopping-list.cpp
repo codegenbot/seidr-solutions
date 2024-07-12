@@ -1,21 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <iomanip>
-using namespace std;
-
-double shoppingList(vector<float> prices, vector<float> discounts) {
-    double total = 0;
-    for(int i = 0; i < prices.size(); i++) {
-        if (discounts[i] > 100 || prices[i] < 0 || discounts[i] < 0) {
-            cout << "Invalid input. Please enter a discount percentage between 0 and 100." << endl;
-            return -1.0;
-        }
-        total += prices[i] * (1 - discounts[i]/100.0);
-    }
-    return total;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -28,6 +11,14 @@ int main() {
         cout << "Invalid input. The number of items in the list and discount do not match." << endl;
         return -1;
     }
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
+    double total = 0;
+    for(int i = 0; i < prices.size(); i++) {
+        if (discounts[i] > 100 || prices[i] < 0 || discounts[i] < 0) {
+            cout << "Invalid input. Please enter a discount percentage between 0 and 100." << endl;
+            return -1.0;
+        }
+        total += prices[i] * (1 - discounts[i]/100.0);
+    }
+    cout << fixed << setprecision(2) << total << endl;
     return 0;
 }
