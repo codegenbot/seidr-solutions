@@ -6,21 +6,33 @@ int main() {
         nums.push_back(num);
     }
     
-    int half_sum = 0, total_sum = accumulate(nums.begin(), nums.end(), 0);
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += nums[i];
+    }
     
-    for (int i = 0; i < nums.size(); i++) {
-        half_sum += nums[i];
-        if (half_sum * 2 >= total_sum) {
-            if (half_sum * 2 == total_sum || abs(half_sum * 2 - total_sum) <= abs(half_sum * 2 - nums[i] * 2)) {
-                for (int j = 0; j <= i; j++) {
-                    cout << nums[j] << endl;
-                }
-                cout << 0 << endl;
-                break;
-            } else {
-                half_sum -= nums[i];
-            }
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_idx = -1;
+    
+    for (int i = 0; i < n; ++i) {
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
+            cut_idx = i;
+            break;
         }
+    }
+    
+    vector<int> subvector1(nums.begin(), nums.begin() + cut_idx + 1);
+    vector<int> subvector2(nums.begin() + cut_idx + 1, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
+    }
+    
+    for (int num : subvector2) {
+        cout << num << endl;
     }
     
     return 0;
