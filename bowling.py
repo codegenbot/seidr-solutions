@@ -1,21 +1,22 @@
+```
 def calculate_score(frames):
-    frames = [int(x) for x in str(frames)]
     score = 0
-    roll = 1
-    for i in range(len(frames)):
-        if frames[i] == 10:
-            score += frames[i]
-        elif frames[i] == '/':
-            first_roll = frames[i - 2] + frames[i - 1]
-            second_roll = 10 - first_roll
-            score += first_roll + second_roll
-            roll += 2
-        else:
-            if roll == 1:
-                score += frames[i] + frames[i+1]
-            elif roll == 2:
-                score += max(frames[i-1:i+1])
-            roll -= 1
+    current_frame = []
+    for char in frames:
+        if char.isdigit() or char == 'X':
+            current_frame.append(int(char) if char.isdigit() else 10)
+        elif char == '-':
+            continue
+        elif char == '/':
+            next_frame = [int(x) for x in str(frames[frames.index(char)+1:]).replace('--', '')]
+            if sum(current_frame) + min(next_frame) <= 10:
+                score += sum(current_frame) + min(next_frame)
+            else:
+                score += 10 + max(next_frame)
+            current_frame = []
+    while len(current_frame) > 0 and '/' not in str(current_frame):
+        score += sum(current_frame)
+        current_frame = []
     return score
 
 frames = input("Enter the frames string: ")
