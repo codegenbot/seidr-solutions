@@ -1,1 +1,1 @@
-import sys; n = int(sys.argv[1])
+import sys; n = int(sys.argv[0])

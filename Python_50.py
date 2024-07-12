@@ -1,8 +1,9 @@
-def decode_shift(s):
+def decode_shift():
+    s = input("Enter the encoded string: ").strip()
     decoded = ""
     for char in s:
-        if char.isalpha():
-            decoded += chr((ord(char) - 97 + 25) % 26 + 97)
-        else:
-            decoded += char
+        decoded += chr((ord(char) - 97 + 25) % 26 + 97)
     return decoded
+
+result = decode_shift()
+print(result)
