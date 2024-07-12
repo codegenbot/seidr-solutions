@@ -1,55 +1,36 @@
 #include <boost/any.hpp>
-#include <string>
+#include <stdexcept>
 
-std::any compare_one(std::any a, std::any b) {
-    bool found = false;
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        if (x > y)
-            return a;
-        else if (y > x)
-            return b;
-        else
-            found = true;
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = boost::any_cast<double>(a);
-        double y = boost::any_cast<double>(b);
-        if (x > y)
-            return a;
-        else if (y > x)
-            return b;
-        else
-            found = true;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        if (x > y)
-            return a;
-        else if (y > x)
-            return b;
-        else
-            found = true;
-    } else if ((a.type() == typeid(std::string) && b.type() == typeid(double)) ||
-               (a.type() == typeid(double) && b.type() == typeid(std::string))) {
-        double y;
-        std::string x = boost::any_cast<std::string>(a);
-        if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-            y = boost::any_cast<double>(b);
-        } else {
-            x = boost::any_cast<std::string>(b);
-            y = std::stod(x);
-        }
-        if (std::stod(x) > y)
-            return a;
-        else if (y > std::stod(x))
-            return b;
-        else
-            found = true;
-    } else {
-        found = true;
-    }
+using namespace boost;
 
-    if (!found)
-        return "None";
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    int x = any_cast<int>(a);
+    int y = any_cast<int>(b);
+    if (x > y)
+        return a;
+    else if (x < y)
+        return b;
+    else
+        return a; // Return the first integer value
+} else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+    double x = any_cast<double>(a);
+    double y = any_cast<double>(b);
+    if (x > y)
+        return a;
+    else if (x < y)
+        return b;
+    else
+        return a; // Return the first double value
+} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+    std::string x = any_cast<std::string>(a);
+    std::string y = any_cast<std::string>(b);
+    int xi = stoi(x), yi = stoi(y);
+    if (xi > yi)
+        return a;
+    else if (xi < yi)
+        return b;
+    else
+        return a; // Return the first string value
+} else {
+    throw invalid_argument("Invalid input");
 }
