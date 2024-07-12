@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,8 +34,9 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
+    string s;
+    int n;
+    cin >> s >> n;
     vector<string> result = select_words(s, n);
     for (string str : result) {
         cout << str << endl;
