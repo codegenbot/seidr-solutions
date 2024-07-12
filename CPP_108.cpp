@@ -1,13 +1,14 @@
 #include <vector>
-#include <string>
-#include <initializer_list>
 
-int count_nums(const std::vector<std::string>& nums) {
+const int MAX_LENGTH = 256;
+char buffer[MAX_LENGTH];
+
+int count_nums(const std::vector<const char*>& nums) {
     int count = 0;
     for (const auto& num : nums) {
-        if (num[0] == '-') {
+        if (*num == '-') {
             int sign = -1, sum = 0;
-            for(int j=num.length()-1; j>=0; j--) {
+            for(int j=strlen(num)-1; j>=0; j--) {
                 if (num[j] == '-') {
                     continue;
                 }
@@ -33,6 +34,7 @@ int count_nums(const std::vector<std::string>& nums) {
 }
 
 int main() { 
-    std::vector<std::string> numbers = {"-123", "456", "-789"};
-    return count_nums(numbers);
+    const char* numbers[] = {"-123", "456", "-789"};
+    std::vector<const char*> nums(numbers, numbers+3);
+    return count_nums(nums);
 }
