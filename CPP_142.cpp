@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+using namespace std;
 
 int sum_squares(vector<int> lst) {
     int total = 0;
@@ -7,7 +8,7 @@ int sum_squares(vector<int> lst) {
         if ((i + 1) % 3 == 0 && (i + 1) % 4 != 0) {
             total += pow(lst[i], 3);
         } else if ((i + 1) % 4 == 0 && (i + 1) % 3 != 0) {
-            total += lst[i] * lst[i];
+            total += lst[i] * lst[i] * lst[i];
         } else {
             total += lst[i];
         }
