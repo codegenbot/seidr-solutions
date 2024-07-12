@@ -31,9 +31,11 @@ int main() {
         if (cin.eof() || num == 0) {
             break;
         }
+
         if (!(cin >> num)) {
             break;
         }
+        
         nums.push_back(num);
     } while (true);
     
