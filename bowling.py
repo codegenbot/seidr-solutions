@@ -29,5 +29,7 @@ def bowling_score(bowls):
             score += sum(frame)
 
     return score
+
+
 bowls = input()
 print(bowling_score(bowls))
