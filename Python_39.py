@@ -1,4 +1,4 @@
 try:
-    n = int(input("Enter a number: "))  # Read and convert input to integer
+    n = int(input("Enter a number: "))
 except ValueError:
-    print("Invalid input. Please enter an integer.")
+    print("Invalid input. Please enter a valid integer.")
