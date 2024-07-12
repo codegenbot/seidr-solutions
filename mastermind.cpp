@@ -1,7 +1,12 @@
 #include <string>
-using namespace std;
+#include <algorithm>
 
-int mastermind(string code, string guess) {
+struct MastermindResult {
+    int black;
+    int white;
+};
+
+MastermindResult mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -13,5 +18,5 @@ int mastermind(string code, string guess) {
         }
     }
 
-    return black;
+    return {black, white};
 }
