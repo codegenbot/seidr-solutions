@@ -21,6 +21,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(std::make_a_pile(8) == std::vector<int>{1,3,5,7,9,11,13,15});
+    assert(make_a_pile(8) == std::vector<int>{1,3,5,7,9,11,13,15});
     return 0;
 }
