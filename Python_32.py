@@ -4,14 +4,13 @@ def find_zero():
             line1 = list(map(float, input("Enter coefficients for the first line (a b): ").split()))
             line2 = list(map(float, input("Enter coefficients for the second line (c d): ").split()))
             if len(line1) != 2 or len(line2) != 2:
-                print("Invalid input. Please enter exactly two numbers for each line.")
+                print("Invalid input. Please enter two numbers.")
                 continue
             a, b = line1
             c, d = line2
-            if not all(isinstance(x, (int, float)) for x in [a, b, c, d]):
-                print("Invalid input. Please enter numeric values.")
-                continue
+            if abs(a - c) < 0.01:  
+                return ["No solution", "Program did not receive expected input"]
             x = round((d - b) / (a - c), 2)
-            return [(x, round(a * x + b, 2))]
-        except ValueError:
-            print("Invalid input. Please enter exactly two numbers for each line.")
+            return [round(a * x + b, 2), x]
+        except ValueError as e:
+            print("Invalid input:", str(e))

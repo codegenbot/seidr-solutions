@@ -1,5 +1,9 @@
-```
+import math
+
+
 def max_fill(grid, capacity):
-    total_water = sum((min(row[i], col) for i in range(len(row))) for row, col in zip(*grid)) // 2
-    buckets_needed = math.ceil(total_water / capacity)
+    total_water = 0
+    for row in grid:
+        total_water += sum(row)
+    buckets_needed = -(-total_water // capacity)  # use ceiling division
     return buckets_needed
