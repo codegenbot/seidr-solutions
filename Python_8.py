@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -8,7 +9,7 @@ def sum_product():
     except ValueError:
         print("Invalid input. Please enter only integers.")
         return
-
+    
     if not numbers:
         result = (0, 1)
     else:
@@ -17,7 +18,7 @@ def sum_product():
         for num in numbers:
             product *= num
         result = (total_sum, product)
-
+    
     print(f"The sum is {result[0]} and the product is {result[1]}.")
 
 
