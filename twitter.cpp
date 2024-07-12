@@ -9,6 +9,6 @@ int main() {
     } else {
         cout << "Your tweet has " << tweet.size() << " characters" << endl;
     }
-    
+
     return 0;
 }
