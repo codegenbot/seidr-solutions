@@ -1,9 +1,7 @@
-import ast
-
-expression = input("Enter the boolean expression: ").strip()
+expression = input().strip()
 
 def solve_boolean(expression):
-    return ast.literal_eval(
+    return eval(
         expression.replace("T", "True")
         .replace("F", "False")
         .replace("|", " or ")
