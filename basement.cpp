@@ -1,21 +1,35 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-int basement(vector<int>& arr) {
+int basement(vector<int>& v) {
     int sum = 0;
     int index = -1;
-    for (int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
-        if (sum < 0 && index == -1) {
-            index = i;
-        }
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i];
+        if ((sum += v[i]) < 0)
+            return i + 1;
     }
-    return index;
+    return -1;
 }
 
 int main() {
-    vector<int> arr = {-2, 3, 4, -1, -2, 1, 5, -3};
-    int result = basement(arr);
-    cout << "Result: " << result << endl;
+    // test cases
+    vector<int> v1({1});
+    cout << basement(v1) << endl;
+
+    vector<int> v2({1, -100});
+    cout << basement(v2) << endl;
+
+    vector<int> v3({2, -1, 100});
+    cout << basement(v3) << endl;
+
+    vector<int> v4({2, -95, 100});
+    cout << basement(v4) << endl;
+
+    vector<int> v5({2, -30, 5});
+    cout << basement(v5) << endl;
+    
     return 0;
 }
