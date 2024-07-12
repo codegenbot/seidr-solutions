@@ -1,16 +1,16 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a) {
+using namespace std;
+
+bool checkSame(vector<string> a) {
     if (a.size() != 1) {
         return false;
     }
+    vector<string> b = {numerical_letter_grade({0, 0.7})};
     for (int i = 0; i < a.size(); i++) {
-        vector<string> b = {numerical_letter_grade({a[i]})};
-        for (int j = 0; j < a.size(); j++) {
-            if (i != j && a[j] != b[0]) {
-                return false;
-            }
+        if (a[i] != b[0]) {
+            return false;
         }
     }
     return true;
@@ -48,8 +48,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7};
-    vector<string> output = numerical_letter_grade(grades);
-    assert(issame({output[0], output[1]}) == {output[0], output[1]});
+    vector<float> grades = {0, 0.7};
+    assert(checkSame({numerical_letter_grade(grades)}) == {"E", "D-" });
     return 0;
 }
