@@ -1,7 +1,7 @@
-import math
-if __name__ == "__main__":
+def main():
     try:
-        xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+        input_str = input("Enter coefficients (space-separated): ")
+        xs = list(map(float, input_str.split()))
         n = len(xs)
         if n % 2 != 0:
             raise ValueError("xs must have even number of coefficients")
