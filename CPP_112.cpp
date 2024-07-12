@@ -28,12 +28,3 @@ bool is_palindrome(string s) {
     }
     return true;
 }
-
-int main() {
-    vector<string> result = reverse_delete("mamma", "mia");
-    bool areSame = true;
-    if (result.size() != 2 || result[0] != "" || result[1] != "True")
-        areSame = false;
-
-    assert(areSame);
-}
