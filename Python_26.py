@@ -1,15 +1,10 @@
-```
-def remove_duplicates():
-    input_numbers = input("Enter a list of integers (space-separated) or 'q' to quit: ")
-    if input_numbers.lower() == 'q':
-        return []
-    numbers = set(input_numbers.split()) if input_numbers != '' else set()
+def remove_duplicates(input_numbers=None):
+    if input_numbers is not None:
+        return list(set(input_numbers))
+    numbers = set()
     while True:
-        user_num = input("Enter an integer (or 'q' to quit): ")
-        if user_num.lower() == 'q':
+        user_num = int(input("Enter an integer (or 'q' to quit): "))
+        if str(user_num).lower() == 'q':
             break
-        try:
-            numbers.add(int(user_num))
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+        numbers.add(user_num)
     return list(numbers)
