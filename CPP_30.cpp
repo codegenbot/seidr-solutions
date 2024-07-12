@@ -1,20 +1,24 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size())
-        return false;
-    for (int i = 0; i < v1.size(); ++i)
-        if (std::abs(v1[i] - v2[i]) > 0.00001f)
-            return false;
-    return true;
-}
-
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float x : l) {
         if (x > 0)
             result.push_back(x);
     }
     return result;
+}
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    assert(std::issame(get_positive({}), {}));
+    std::vector<float> v1 = {1.0f, -2.0f, 3.0f};
+    std::vector<float> v2 = {-4.0f, 5.0f, 6.0f};
+    assert(std::issame(get_positive(v1), get_positive(v2)));
+    return 0;
 }
