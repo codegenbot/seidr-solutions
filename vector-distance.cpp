@@ -22,8 +22,6 @@ int main() {
     }
 
     float result = std::sqrt(sum);
-
-    // Set output precision to match the required result
     std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
