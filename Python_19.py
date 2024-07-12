@@ -1,8 +1,4 @@
-```
-import re
-
-
-def sort_numbers(input_str: str) -> str
+def sort_numbers(input_str: str) -> str:
     while True:
         try:
             if not re.match(r"^\s*\d+(?:\s+\d+)*)$", input_str):
