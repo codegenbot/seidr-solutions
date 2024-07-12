@@ -1,8 +1,9 @@
 int main() {
-    vector<int> nums;
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
     int sum = 0;
@@ -11,11 +12,11 @@ int main() {
     }
     
     int target = sum / 2;
-    int currSum = 0;
+    int prefixSum = 0;
     int idx = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        currSum += nums[i];
-        if (currSum >= target) {
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
             idx = i;
             break;
         }
