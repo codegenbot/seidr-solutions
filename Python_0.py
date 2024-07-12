@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 def check_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -8,7 +5,10 @@ def check_numbers(numbers, threshold):
             return False
     return True
 
-numbers = list(map(int, input().split()))  # Split input into a list of numbers
-threshold = int(input())
+
+numbers = list(
+    map(int, input("Enter space-separated numbers: ").split())
+)  # Accept input from user
+threshold = int(input("Enter threshold: "))  # Accept input from user
 result = check_numbers(numbers, threshold)
 print(result)
