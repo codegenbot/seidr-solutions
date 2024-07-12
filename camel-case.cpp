@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -15,7 +14,7 @@ std::string camelCase(std::string str) {
         } else {
             result += tolower(str);
         }
-        result += str.substr(1); // add the rest of the word
+        result += str.substr(1); 
         if (capitalizeNextWord) {
             capitalizeNextWord = false;
         }
