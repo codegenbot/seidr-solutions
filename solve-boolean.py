@@ -5,9 +5,9 @@ def solve_boolean(expression):
         return False
     elif "&" in expression:
         left, right = expression.split("&")
-        return bool(solve_boolean(left)) and bool(solveBoolean(right))
-    elif "| " in expression:
-        left, right = expression.split("| ")
-        return bool(solveBoolean(left)) or bool(solveBoolean(right))
-    else: 
+        return bool(solve_boolean(left)) and bool(solve_boolean(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(solve_boolean(left)) or bool(solve_boolean(right))
+    else:  
         return True if expression == "T" else False
