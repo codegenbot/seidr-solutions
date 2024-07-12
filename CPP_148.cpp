@@ -54,7 +54,9 @@ int main() {
 
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    std::vector<std::string> result = bf(planets, planet1, planet2);
+    std::vector<std::string> input = {planet1, planet2};
+    
+    std::vector<std::string> result = bf(input, planet1, planet2);
     
     for (const auto& planet : result) {
         std::cout << planet << " ";
