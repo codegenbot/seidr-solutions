@@ -17,12 +17,13 @@ def find_indices(text, target):
     return indices
 
 
-a = int(input())
-b = int(input())
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
 
 print(gcd(a, b))
 
-text = input()
-target = input()
+
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
 
 print(find_indices(text, target))
