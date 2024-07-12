@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,7 +10,7 @@ void checkNumber(int n) {
     }
 }
 
-int main() {
+void program() {
     int n;
     cin >> n; 
     checkNumber(n); 
