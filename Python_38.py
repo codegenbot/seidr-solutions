@@ -1,2 +1,3 @@
 input_list = list(map(int, input().split()))
-print(sum(input_list))
+result = sum(input_list)
+print(result)
