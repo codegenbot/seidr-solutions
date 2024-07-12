@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -28,15 +27,14 @@ bool is_happy(std::string s) {
             return false;
     }
     return true;
+
 }
 
-int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    while (true) {
-        std::cin >> input;
-        if (input == "exit")
-            break;
-        std::cout << (is_happy(input) ? "True" : "False") << std::endl;
-    }
+std::cout << "Enter a string: ";
+std::string input;
+while (true) {
+    std::cin >> input;
+    if (input == "exit")
+        break;
+    std::cout << (is_happy(input) ? "True" : "False") << std::endl;
 }
