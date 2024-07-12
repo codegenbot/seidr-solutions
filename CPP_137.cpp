@@ -24,6 +24,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(strcmp(typeid(const char*).name(), std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).type().name()) == 0);
+    assert(strcmp(typeid(const char*).name(), std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).type().name()) == 0); // Ensure correct return type
     return 0;
 }
