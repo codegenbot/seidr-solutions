@@ -1,4 +1,6 @@
 ```
 #!/usr/bin/env python3.11
-def concatenate(strings: list[str]) -> str:
+from typing import List
+
+def concatenate(strings: List[str]) -> str:
     return ''.join(strings)
