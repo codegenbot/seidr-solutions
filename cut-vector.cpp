@@ -1,6 +1,10 @@
 #include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
 
 int main() {
+    int totalSum = 0;
     int n;
     std::cin >> n;
     std::vector<int> vec(n);
