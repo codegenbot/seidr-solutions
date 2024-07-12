@@ -1,25 +1,35 @@
-int digit_count = 0;
-bool found_dot = false;
-bool valid_prefix = true;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        digit_count++;
-    } else if (c == '.') {
-        found_dot = true;
-    } else if (!found_dot && !isalpha(c)) {
-        valid_prefix = false;
+int countDigits(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (isdigit(c)) {
+            count++;
+        }
     }
+    return count;
 }
 
-if (digit_count > 3 || !found_dot || !valid_prefix) {
-    return "No";
-} else {
-    size_t dot_pos = file_name.find('.');
-    string suffix = file_name.substr(dot_pos + 1);
-    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
-        return "No";
+string file_name_check(string file_name) {
+    int digitCount = countDigits(file_name);
+    int dotCount = 0;
+    bool validStart = false;
+
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] == '.') {
+            dotCount++;
+            if (dotCount > 1) {
+                return "No";
+            }
+        } else if (!validStart && isalpha(file_name[i])) {
+            validStart = true;
+        } else if (i > 0 && !isalpha(file_name[i]) && !isdigit(file_name[i]) && file_name[i] != '.') {
+            return "No";
+        }
+    }
+
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if (extension == "txt" || extension == "exe" || extension == "dll") {
+        return digitCount <= 3 ? "Yes" : "No";
     } else {
-        return "Yes";
+        return "No";
     }
 }
