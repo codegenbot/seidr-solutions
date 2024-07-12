@@ -40,14 +40,13 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k > 0) {
             --k;
 
-            // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
                     int ni = pos.first + i;
                     int nj = pos.second + j;
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                        Cell cell = {grid[ni][nj], {ni, nj}};
+                        Cell cell = {grid[ni][j], {ni, nj}};
                         pq.push(cell);
                         visited[ni][nj] = true;
                     }
@@ -59,14 +58,4 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
