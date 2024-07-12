@@ -7,7 +7,6 @@ int main() {
     std::cin.ignore();
     std::getline(std::cin, target);
     std::getline(std::cin, text);
-    
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
