@@ -1,4 +1,3 @@
-```
 def process_paths():
     while True:
         paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
