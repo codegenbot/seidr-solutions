@@ -1,7 +1,4 @@
 ```
-''
-
-
 def decode_cyclic() -> str:
     s = input("Enter the string: ")
     
