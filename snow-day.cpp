@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHour) {
@@ -13,9 +14,9 @@ double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHo
 
 int main() {
     int hours = 5; 
-    float initialSnow = 1.0f;
-    float snowFallRate = 2.0f;
-    float meltPerHour = 0.3f;
+    float initialSnow = 0.0f;
+    float snowFallRate = 1.0f;
+    float meltPerHour = 0.2f;
 
     double result = snowDay(hours, initialSnow, snowFallRate, meltPerHour);
     std::cout << "Total snow after " << hours << " hours: " << result << std::endl;
