@@ -1,6 +1,6 @@
-def multiply(x: int, y: int) -> int:
-    return x * y
+def add(x: int, y: int) -> int:
+    return x + y
 
 x, y = map(int, input().split())
-result = multiply(x, y)
+result = add(x, y)
 print(result)
