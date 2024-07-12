@@ -6,7 +6,9 @@ if not strings or not substring:
     print("Expected input: multiple strings and one substring.")
     print("Invalid input. Please provide at least one string and at least one character to search for.")
 
-elif 'search' in action.lower():
+action = input("Enter search or quit: ")
+
+if action == 'search':
     result = [s for s in strings if substring in s]
 
     if not result:
@@ -16,6 +18,5 @@ elif 'search' in action.lower():
             print([result[0]])
         else:
             print(result)
-
 else:
     print("Goodbye!")
