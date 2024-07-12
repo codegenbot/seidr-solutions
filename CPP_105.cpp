@@ -1,22 +1,5 @@
-```cpp
-#include <vector>
-#include <string>
-using namespace std;
-
-bool isSame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) 
-        return false;
-    for (int i = 0; i < v1.size(); i++) 
-        if (v1[i] != v2[i]) 
-            return false;
-    return true;
-}
-
-bool by_length(const string& s1, const string& s2) {
-    return s1.length() > s2.length();
-}
-
 int main() {
-    assert(isSame(by_length(vector<string>({"Nine", "Eight", "Four"})), {"Nine", "Eight", "Four"}));
+    std::vector<std::pair<std::string, int>> input = {std::make_pair("Nine", 1), std::make_pair("Eight", 2), std::make_pair("Four", 3)};
+    auto output = by_length({std::get<0>(x) for x in input});
     return 0;
 }
