@@ -9,7 +9,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             level += 1
         elif char == ')':
             level -= 1
-        if level > len(result):
-            result.append(0)
-        result[-1] = level
+        if level > 0:
+            result.append(level)
     return result
