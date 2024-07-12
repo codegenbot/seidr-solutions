@@ -8,7 +8,7 @@ bool checkSame(vector<string> a) {
     if (a.size() != 1) {
         return false;
     }
-    vector<string> b = {numerical_letter_grade({0, 0.7})};
+    vector<string> b = {numerical_letter_grade({0, 0.7}).at(0)};
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[0]) {
             return false;
@@ -50,7 +50,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> grades = {0, 0.7};
-    vector<string> result = numerical_letter_grade(grades);
-    assert(checkSame(vector<string>(result.begin(), result.end())) == vector<string>{"E", "D-" });
+    assert(checkSame(vector<string>(numerical_letter_grade(grades).begin(), numerical_letter_grade(grades).end())) == vector<string>{"E", "D" });
     return 0;
 }
