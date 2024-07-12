@@ -1,6 +1,7 @@
 def mastermind(code, guess):
-    correct = [char for char in code if char == guess[0]]
-    incorrect_correct = [char for char in code if char in guess and char != guess[0]]
-    black_pegs = len(correct)
-    white_pegs = len(incorrect_correct)
-    return str(black_pegs), str(white_pegs)
+    correct_place = sum(c1 == c2 for c1, c2 in zip(code, guess))
+    correct_color = sum(
+        sum(1 for a, b in zip(code, guess) if a == c and b == d)
+        for c, d in set((c1, c2) for c1, c2 in zip(code, guess))
+    )
+    return str(correct_place), str(correct_color)
