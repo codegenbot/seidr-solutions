@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <string>
+#include <vector>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -29,6 +29,8 @@ std::vector<std::string> byLength(std::initializer_list<int> lengths) {
 }
 
 int main() {
-    std::vector<std::string> output = byLength({9, 4, 8});
-    assert(issame(output, {"Nine", "Four", "Eight"}));
+    std::vector<std::string> output = byLength({4, 8, 9});
+    std::vector<std::string> b;
+    bool same = issame(output, {"Four", "Eight", "Nine"});
+    assert(same);
 }
