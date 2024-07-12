@@ -1,4 +1,3 @@
-```
 def remove_duplicates(numbers):
     input_numbers = []
 
@@ -11,4 +10,4 @@ def remove_duplicates(numbers):
         if user_num not in input_numbers:
             input_numbers.append(user_num)
 
-    return list(set(input_numbers))
+    return sorted(list(set(input_numbers)))
