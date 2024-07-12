@@ -1,1 +1,2 @@
-strings = input("Enter space-separated strings: ").split()
+string1 = raw_input("Enter string1: ")
+string2 = raw_input("Enter string2: ")
