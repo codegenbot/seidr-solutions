@@ -27,8 +27,12 @@ int main() {
             break;
         else{
             std::cout << "Please enter a positive integer: ";
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
+            while(std::cin.fail()) { 
+                std::cout << "Invalid input. Please enter a positive integer: ";
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
+                std::cin >> m1;
+            }
         }
     }
     int m;
