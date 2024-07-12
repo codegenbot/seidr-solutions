@@ -1,4 +1,11 @@
 ```
+def calculate_total_cost(items):
+    total_cost = 0
+    for item in items:
+        total_cost += item.cost
+    return total_cost
+
+
 def main():
     class Item:
         def __init__(self, name):
@@ -25,7 +32,7 @@ def main():
             break
 
     if items:
-        total_cost = calculate_total_cost(items)
-        print(f"The total cost is: {total_cost}")
+        result = calculate_total_cost(items)
+        print(f"The total cost is: {result}")
     else:
         print("No items were provided.")
