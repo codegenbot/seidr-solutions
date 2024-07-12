@@ -12,7 +12,7 @@ for i in range(len(arr)):
         min_diff = diff
         cut_index = i + 1
 
-    if left_sum == right_sum or min_diff == 0 or min_diff == 1:
+    if left_sum == right_sum or min_diff == 0:
         cut_index = i + 1
         break
 
