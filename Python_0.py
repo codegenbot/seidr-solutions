@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -13,10 +13,12 @@ def has_close_elements():
             print("At least two numbers are required to check for close elements.")
             return False
 
-        return any(abs(a - b) <= threshold for a, b in zip(nums, nums[1:]))
-    except ValueError as e:
-        if "not enough values" in str(e):
-            print("Invalid input. Please enter valid space-separated floating point numbers.")
-            return False
+        result = any(abs(a - b) <= threshold for a, b in zip(nums, nums[1:]))
+        if result:
+            print(f"Close elements found with a distance of {threshold}.")
         else:
-            raise e
+            print("No close elements found.")
+        return result
+    except ValueError:
+        print("Invalid input. Please enter valid floating point numbers.")
+        return False
