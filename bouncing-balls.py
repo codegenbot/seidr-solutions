@@ -7,7 +7,7 @@ def bouncing_balls():
     total_distance = 0
     height = hb
     for _ in range(n):
-        total_distance += 2 * height
+        total_distance += (h + height) * 2
         height *= bi
     print(bi)
     print(total_distance)

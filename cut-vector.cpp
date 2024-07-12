@@ -1,33 +1,50 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int idx = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            idx = i;
+    int cutIndex = -1;
+    
+    for(int i=0; i<v.size()-1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for(int j=0; j<i; j++) 
+            leftSum += v[j];
+        for(int j=i+1; j<v.size(); j++) 
+            rightSum += v[j];
+        
+        if(abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            cutIndex = i;
         }
     }
-    return {nums.begin(), nums.begin() + idx} |{nums.begin() + idx, nums.end()};
+    
+    vector<vector<int>> result(2);
+    result[0].reserve(cutIndex+1);
+    for(int i=0; i<=cutIndex; i++) 
+        result[0].push_back(v[i]);
+    result[1].reserve(v.size()-cutIndex-1);
+    for(int i=cutIndex+1; i<v.size(); i++) 
+        result[1].push_back(v[i]);
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (auto& num : nums) {
-        cin >> num;
-    }
-    auto result = cutVector(nums);
-    for (auto num : result[0]) {
-        cout << num << " ";
-    }
-    cout << endl;
-    for (auto num : result[1]) {
-        cout << num << " ";
-    }
+    vector<int> v(n);
+    for(auto &x : v) 
+        cin >> x;
+    vector<vector<int>> res = cutVector(v);
+    cout << "[";
+    for(int i=0; i<res[0].size(); i++) 
+        cout << res[0][i] << " ";
+    cout << "]" << endl;
+    cout << "[";
+    for(int i=0; i<res[1].size(); i++) 
+        cout << res[1][i] << " ";
+    cout << "]" << endl;
+    
     return 0;
 }
