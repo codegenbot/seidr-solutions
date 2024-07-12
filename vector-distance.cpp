@@ -5,7 +5,7 @@
 int main() {
     int n;
     std::cin >> n;
-    
+
     if (n <= 0) {
         std::cout << "Invalid input!" << std::endl;
         return 1;
