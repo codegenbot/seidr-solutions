@@ -19,7 +19,7 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        cout << to_string(solve(N)) << endl;
+        cout << solve(N) << endl;
     }
     return 0;
 }
