@@ -26,10 +26,7 @@ int main() {
     cout << "Enter the second student's grade: ";
     cin >> grade2;
 
-    char letter_grade1 = numerical_letter_grade(grade1);
-    char letter_grade2 = numerical_letter_grade(grade2);
-
-    if (issame(letter_grade1, letter_grade2))
+    if (issame(char(numerical_letter_grade(grade1)), char(numerical_letter_grade(grade2))))
         cout << "The two students have the same letter grade.\n";
     else
         cout << "The two students do not have the same letter grade.\n";
