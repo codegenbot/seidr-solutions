@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <numeric>
@@ -6,7 +5,6 @@
 #include <stdexcept>
 #include <initializer_list>
 #include <utility>
-#include <bits/stdc++.h>
 
 bool issame(vector<float> a,vector<float> b){
     if(a.size() != b.size()) return false;
