@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> pluck(std::vector<int> v) {
     std::vector<int> result;
     for (int i = 0; i < v.size(); i += 2) {
