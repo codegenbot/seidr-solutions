@@ -11,9 +11,8 @@ int solve(int N) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    int N = std::stoi(input);
+    int N;
+    std::cin >> N;
     std::cout << solve(N) << std::endl;
 
     assert(solve(963) == 483); 
