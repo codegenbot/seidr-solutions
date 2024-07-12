@@ -1,8 +1,13 @@
 def multiply_two_numbers(x, y):
     return x * y
 
-x = int(input("Enter the first integer: "))
-y = int(input("Enter the second integer: "))
+while True:
+    try:
+        x = int(input("Enter the first integer: "))
+        y = int(input("Enter the second integer: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers only.")
 
 result = multiply_two_numbers(x, y)
-print("The result of multiplying the two numbers is:", result)
+print("Result of multiplication:", result)
