@@ -1,9 +1,13 @@
-int stack = 0;
-for (char c : str) {
-    if (c == '[') stack++;
-    else if (c == ']') {
-        if (stack > 0) stack--;
-        else return false;
+#include <string>
+using namespace std;
+
+bool is_nested(string str) {
+    int open = 0, close = 0;
+    for (char c : str) {
+        if (c == '[') open++;
+        else if (c == ']') close++;
+        if (open > close && c != '[')
+            return true;
     }
+    return false;
 }
-return stack > 0;
