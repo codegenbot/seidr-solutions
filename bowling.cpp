@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-
 int bowlingScore(const string& s) {
     int score = 0;
     int frame = 1;
@@ -37,11 +32,4 @@ int bowlingScore(const string& s) {
         }
     }
     return score;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
-    return 0;
 }
