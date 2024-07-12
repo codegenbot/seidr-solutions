@@ -1,6 +1,11 @@
 #include <any>
 #include <typeindex>
 #include <memory>
+#include <string>
+
+bool operator>(const std::string& x, const std::string& y) {
+    return x.compare(y) > 0;
+}
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -16,7 +21,6 @@ std::any compare_one(std::any a, std::any b) {
         std::string y = std::any_cast<std::string>(b);
         return (x > y) ? a : ((y > x) ? b : a); 
     } else {
-        // If they are not of the same type, return both
         return a;
     }
 }
