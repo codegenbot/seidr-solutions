@@ -7,8 +7,7 @@ bool is_int(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;
     int ci = (int)c;
-    return (ai == a && bi == b && ci == c) || (ai == a + bi + ci) || 
-           (bi == a + bi + ci) || (ci == a + bi + ci);
+    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
 }
 
 int main_function() {
@@ -20,5 +19,6 @@ int main_function() {
     else
         cout << "None of the input numbers are integers.\n";
 
+    assert(is_int(3.01, 4, 7) == false);
     return 0;
 }
