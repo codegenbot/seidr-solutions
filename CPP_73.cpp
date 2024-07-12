@@ -1,7 +1,4 @@
-```cpp
-#include <iostream>
 #include <vector>
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -22,17 +19,4 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n - 1];
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::vector<int> arr(n);
-    std::cout << "Enter " << n << " integers separated by spaces: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
-    }
-    std::cout << "Smallest change is: " << smallest_change(arr) << std::endl;
-    return 0;
 }
