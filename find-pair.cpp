@@ -1,24 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 int main() {
     int n;
-    std::cin >> n;
-
-    long long target;
-    std::cin >> target;
+    int target;
+    std::cin >> n >> target;
 
     std::vector<int> nums(n);
-    std::map<long long, int> numIndex;
+    std::unordered_map<int, int> numIndex;
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
-        if (numIndex.find(target - static_cast<long long>(nums[i])) != numIndex.end()) {
-            std::cout << target - static_cast<long long>(nums[i]) << " " << nums[i] << std::endl;
+        int complement = target - nums[i];
+        if (numIndex.find(complement) != numIndex.end()) {
+            std::cout << complement << " " << nums[i] << std::endl;
             return 0;
         }
-        numIndex[static_cast<long long>(nums[i])] = i;
+        numIndex[nums[i]] = i;
     }
 
     std::cout << "No pair found." << std::endl;
