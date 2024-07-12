@@ -1,4 +1,2 @@
-input_list = list(
-    map(int, input("Enter a space-separated list of integers: ").strip().split())
-)
+input_list = list(map(int, input().rstrip().split()))
 print(sum(input_list))
