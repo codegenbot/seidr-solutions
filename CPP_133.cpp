@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -12,6 +11,11 @@ void checkNumber(int n) {
 
 int main() {
     int n;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     cin >> n; 
-    checkNumber(n); 
+    if (!(cin)) {
+        cerr << "Invalid input. Please enter an integer." << endl;
+    } else {
+        checkNumber(n); 
+    }
 }
