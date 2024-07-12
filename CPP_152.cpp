@@ -33,7 +33,7 @@ int main() {
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
     }
-    vector<int> res = compare(game,guess);
+    vector<int> res = compare(game,guess); 
     for(auto x:res)cout << x << " ";
     return 0;
 }
