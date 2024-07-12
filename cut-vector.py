@@ -1,11 +1,4 @@
-n = int(input())
-arr = list(map(int, input().split()))
-
-total_sum = sum(arr)
-left_sum = 0
-min_diff = total_sum
-cut_index = 0
-
+n = len(arr)
 for i in range(n):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
@@ -14,12 +7,6 @@ for i in range(n):
         min_diff = diff
         cut_index = i + 1
 
-    if left_sum == right_sum:
+    if left_sum == right_sum or min_diff == 0:
         cut_index = i + 1
         break
-
-subvector1 = arr[:cut_index]
-subvector2 = arr[cut_index:]
-
-print(*subvector1)
-print(*subvector2)
