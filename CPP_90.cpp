@@ -1,8 +1,3 @@
-#include <cassert>
-#include <algorithm>
-#include <vector>
-#include <iostream>
-
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
     std::vector<int> sorted = lst;
@@ -34,5 +29,5 @@ int main() {
             std::cout << "The next smallest number in the given list is " << result << std::endl;
         }
     }
+    assert(findNextSmallest({-35, 34, 12, -45}) == -35);
     return 0;
-}
