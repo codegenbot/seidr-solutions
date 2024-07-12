@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
+#include <boost/config.hpp>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -24,5 +26,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    assert(is_same(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
+    std::list<boost::any> values = {3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')};
+    assert(is_same(filter_integers(values), {3, 3, 3}));
+    return 0;
 }
