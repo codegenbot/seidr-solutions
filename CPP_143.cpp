@@ -15,10 +15,9 @@ bool is_prime(int n) {
 vector<string> split(const string& str, const char* delim) {
     size_t pos = 0;
     vector<string> tokens;
-    tokens.reserve(str.size() * 2 + 1);
-    while ((pos = str.find(delim)) != string::npos) {
+    while ((pos = str.find(*delim)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + strlen(delim));
+        str.erase(0, pos + 1);
     }
     tokens.push_back(str);
     return tokens;
