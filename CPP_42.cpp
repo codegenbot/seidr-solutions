@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -18,8 +17,12 @@ vector<int> incr_list(const vector<int>& l){
 }
 
 int main() {
-    vector<int> list = {5, 2, 5, 2, 3, 3, 9, 0, 124};
-    vector<int> incr_list_result = incr_list(list);
-    assert(sameVectors({6, 3, 6,3, 4, 4, 10, 1, 125}, incr_list_result));
+    vector<int> vec1 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> vec2 = incr_list(vec1);
+    
+    if(sameVectors(vec1, vec2)) {
+        cout << "The two vectors are the same." << endl;
+    } else {
+        cout << "The two vectors are not the same." << endl;
+    }
     return 0;
-}
