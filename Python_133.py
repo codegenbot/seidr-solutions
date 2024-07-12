@@ -1,5 +1,4 @@
 ```
-from math import ceil
-
+import math
 def sum_squares(lst):
-    return sum(ceil(i) ** 2 for i in lst)
+    return sum(math.ceil(i) ** 2 for i in lst)
