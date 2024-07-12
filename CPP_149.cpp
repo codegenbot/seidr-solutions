@@ -5,7 +5,7 @@
 #include <string>
 #include <iostream>
 
-bool areSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -24,7 +24,7 @@ std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
 }
 
 int main() {
-    bool same = areSame(sortedListSum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"});
+    bool same = issame(sortedListSum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"});
     assert(same);
     std::cout << "Result: ";
     for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
