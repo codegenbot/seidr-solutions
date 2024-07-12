@@ -1,24 +1,30 @@
+```Python
 def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return abs(a)
+
+a = None
+b = None
+while not (isinstance(a, int) and isinstance(b, int)):
     try:
-        return abs(gcd(b, a % b)) if b else a
-    except TypeError:
+        a = int(input("Enter first integer: "))
+        b = int(input("Enter second integer: "))
+    except ValueError:
         print("Invalid input. Please enter integers.")
-        exit()
+
+print(gcd(a, b))
 
 def find_indices(text, target):
+    return [i for i in range(len(text)-len(target)+1) if text.startswith(target, i)]
+
+text = None
+target = None
+while not (isinstance(text, str) and isinstance(target, str)):
     try:
-        return [i for i in range(len(text)-len(target)+1) if text.startswith(target, i)]
-    except TypeError:
+        text = input("Enter the text: ")
+        target = input("Enter the target string: ")
+    except ValueError:
         print("Invalid input. Please enter strings.")
-        exit()
 
-if __name__ == "__main__":
-    a = int(input())
-    b = int(input())
-
-    print(gcd(a, b))
-
-    text = input()
-    target = input()
-
-    print(find_indices(text, target))
+print(find_indices(text, target))

@@ -5,7 +5,7 @@ def cut_vector(lst):
         left_sum = sum(lst[:i])
         right_sum = sum(lst[i:])
         diff = abs(left_sum - right_sum)
-        if diff <= min_diff or (left_sum == right_sum):
+        if diff < min_diff:
             min_diff = diff
             split_idx = i
     return lst[:split_idx], lst[split_idx:]
