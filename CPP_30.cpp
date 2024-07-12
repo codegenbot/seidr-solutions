@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std; 
+using namespace std;
 
 vector<float> get_positive(vector<float> v) {
     vector<float> result;
