@@ -1,7 +1,13 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <cctype>
+
+bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    if (vec1.size() != vec2.size()) return false;
+    for (const auto& str : vec1)
+        if (!std::count(vec2.begin(), vec2.end(), std::string(str).toLowerCase())) return false;
+    return true;
+}
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result = lst;
@@ -14,16 +20,8 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
     sort(result.begin(), result.end(),
          [](const std::string& a, const std::string& b) {
-             auto alen = a.length();
-             auto blen = b.length();
-             if (alen != blen) return alen < blen;
-             for (auto i = 0; i < alen; ++i) {
-                 if (std::tolower(a[i]) < std::tolower(b[i]))
-                     return true;
-                 else if (std::tolower(a[i]) > std::tolower(b[i]))
-                     return false;
-             }
-             return false;
+             if (a.length() != b.length()) return a.length() < b.length();
+             else return a < b;
          });
     return result;
 }
