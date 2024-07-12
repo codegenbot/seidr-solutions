@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -24,10 +25,9 @@ int bowlingScore(string s) {
     }
     return score;
 }
-
 int main() {
     string s;
-    std::cin >> s;
-    std::cout << bowlingScore(s) << std::endl;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
