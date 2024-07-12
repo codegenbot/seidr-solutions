@@ -1,7 +1,9 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,13 +15,28 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int by_length(std::vector<std::pair<std::string, int>> nums) {
-    std::sort(nums.begin(), nums.end(), [](const auto& a, const auto& b) {
-        return a.first.length() < b.first.length();
-    });
-    return 1; // Assuming the function should always return 1
+vector<string> by_length(vector<pair<string, int>> numbers) {
+    vector<string> result;
+    for (const auto& num : numbers) {
+        string str = std::to_string(num.second);
+        if (str.length() == 3) {
+            str.insert(1, "0");
+        }
+        else if (str.length() == 4) {
+            str[0] = str[0].toupper();
+            for (int i = 1; i < 4; i++) {
+                if (str[i] != '0' && str[i] != '1') {
+                    str[i] = '?';
+                }
+            }
+        }
+        result.push_back(str);
+    }
+    return result;
 }
 
 int main() {
-    return by_length({std::make_pair("Nine"), std::make_pair("Eight"), std::make_pair("Four")});
+    vector<pair<string, int>> numbers = {std::make_pair("Nine", 9), std::make_pair("Eight", 8), std::make_pair("Four", 4)};
+    assert(issame(by_length(numbers), {"090", "2187", "1021"}));
+    return 0;
 }
