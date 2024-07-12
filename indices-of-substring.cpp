@@ -14,7 +14,6 @@ int main() {
         indices.push_back(pos);
         startPos = pos + 1;
         pos = text.find(target, startPos);
-        startPos = pos + 1;
     }
     
     for (size_t i = 0; i < indices.size(); ++i) {
