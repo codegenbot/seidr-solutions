@@ -23,3 +23,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
 
     return result
+
+paren_string = input()
+output = separate_paren_groups(paren_string)
+print(output)
