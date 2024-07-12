@@ -1,13 +1,10 @@
-#include <string>
-
-string validateTweet(string tweet) {
-    if (tweet.empty()) {
-        return "You didn't type anything";
-    }
-    else if (tweet.length() > 140) {
+```cpp
+std::string validateTweet(std::string tweet) {
+    if (tweet.size() > 140) {
         return "Too many characters";
-    }
-    else {
-        return "Your tweet has " + to_string(tweet.length()) + " characters";
+    } else if (tweet.empty()) {
+        return "You didn't type anything";
+    } else {
+        return "Your tweet has " + std::to_string(tweet.length()) + " characters";
     }
 }
