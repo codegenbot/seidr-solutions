@@ -1,53 +1,45 @@
-int getBowlingScore(string input) {
-    int score = 0;
-    int frame = 1;
+int score(const string& s) {
+    int totalScore = 0;
+    int frame = 0;
     int ball = 0;
-    vector<int> frames(10, 0);
+    vector<int> scores(22, 0);
 
-    for (char c : input) {
+    for (char c : s) {
         if (c == 'X') {
-            frames[frame - 1] = 10;
-            frame++;
-            if (frame > 10) break;
+            scores[frame] = 10;
+            scores[frame + 1] = 10;
+            scores[frame + 2] = 10;
+            frame += 2;
         } else if (c == '/') {
-            frames[frame - 1] = 10 - frames[frame - 1];
-            frame++;
-            ball = 0;
-            if (frame > 10) break;
+            scores[frame] = 10 - scores[frame - 1];
         } else if (c == '-') {
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
-                if (frame > 10) break;
-            }
+            scores[frame] = 0;
         } else {
-            frames[frame - 1] += c - '0';
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
-                if (frame > 10) break;
-            }
+            scores[frame] = c - '0';
         }
+
+        frame++;
     }
 
     for (int i = 0; i < 10; i++) {
-        score += frames[i];
-        if (i > 0 && frames[i - 1] == 10 && frames[i] < 10) {
-            score += frames[i];
-        }
-        if (i > 1 && frames[i - 2] == 10 && frames[i - 1] == 10) {
-            score += frames[i];
+        if (scores[ball] == 10) {
+            totalScore += 10 + scores[ball + 1] + scores[ball + 2];
+            ball++;
+        } else if (scores[ball] + scores[ball + 1] == 10) {
+            totalScore += 10 + scores[ball + 2];
+            ball += 2;
+        } else {
+            totalScore += scores[ball] + scores[ball + 1];
+            ball += 2;
         }
     }
 
-    return score;
+    return totalScore;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << getBowlingScore(input) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
