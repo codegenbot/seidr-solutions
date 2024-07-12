@@ -1,3 +1,6 @@
+#include <cassert>
+#include <map>
+
 int findMaxFreq(int arr[], int n) {
     static std::map<int, int> freqMap;
     for (int i = 0; i < n; i++) {
