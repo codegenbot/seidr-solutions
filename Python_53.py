@@ -1,3 +1,3 @@
-x, y = map(int, input().split())
+x, y = map(int, input("Enter two integers separated by space: ").strip().split())
 result = x + y
 print(result)
