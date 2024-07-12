@@ -24,14 +24,17 @@ int main() {
         }
     }
     
-    for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subvector1(nums.begin(), nums.begin() + cut_index);
+    vector<int> subvector2(nums.begin() + cut_index, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
     }
     
     cout << 0 << endl;
     
-    for (int i = cut_index; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int num : subvector2) {
+        cout << num << endl;
     }
     
     return 0;
