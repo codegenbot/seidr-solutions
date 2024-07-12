@@ -18,7 +18,7 @@ int main() {
     float threshold = 0.5;
 
     if (has_close_elements(a, threshold)) {
-        std::cout << "Close elements found within the threshold." << std::endl;
+        std::cout << "Found close elements within the threshold." << std::endl;
     } else {
         std::cout << "No close elements found within the threshold." << std::endl;
     }
