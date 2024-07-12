@@ -14,7 +14,7 @@ double find_zero(std::vector<double> coeffs) {
     double epsilon = 1e-6; // tolerance
 
     while (abs(poly(coeffs, x)) > epsilon) {
-        x -= poly(coeffs, x) / poly(std::vector<double>{derivative(coeffs, x)}, x);
+        x -= poly(coeffs, x) / poly(std::vector<double>{0, 1}, x);
     }
     return x;
 }
