@@ -1,17 +1,18 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool compareVec(vector<string> a, vector<string> b){
-    if(a.size() != b.size())
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
     }
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades){
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for(float g : grades) {
         string letterGrade;
@@ -51,7 +52,7 @@ int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
 
-    if(compareVec(grades_letter, grades_letter))
+    if (issame(grades_letter, grades_letter))
         cout << "Grades are same." << endl;
     else
         cout << "Grades are not the same." << endl;
