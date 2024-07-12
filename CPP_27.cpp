@@ -1,16 +1,13 @@
-#include <algorithm>
-#include <cctype>
 #include <iostream>
+#include <string>
 
-std::string filp_case(const std::string& str) {
+std::string filp_case(std::string str) {
     std::string result = "";
-    for (char c : str) {
-        if (::isupper(c)) {
-            result += ::tolower(c);
-        } else if (::islower(c)) {
-            result += ::toupper(c);
+    for(int i=0; i<str.length(); i++) {
+        if(str[i] >= 'a' && str[i] <= 'z') {
+            result += (char)(str[i] | 32);
         } else {
-            result += c;
+            result += str[i];
         }
     }
     return result;
@@ -18,7 +15,6 @@ std::string filp_case(const std::string& str) {
 
 int main() {
     std::string input = "These violent delights have violent ends";
-    assert(filp_case(input) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    std::cout << filp_case(input) << std::endl;
+    assert(filp_case(input) == "tHEse ViOLent DeLIGHTs HaVe ViOLent EnDs");
     return 0;
 }
