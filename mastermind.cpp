@@ -24,7 +24,6 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
     
-    // Adjust black by subtracting white pegs
     black -= white;
 
     cout << white << endl << black << endl;
