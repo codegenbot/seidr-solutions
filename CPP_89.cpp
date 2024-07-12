@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,6 +15,7 @@ string encrypt(string s){
         result += c;
     }
     return result;
+
 }
 
 int main(){
