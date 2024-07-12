@@ -1,3 +1,2 @@
-min_num = min(numbers)
-max_num = max(numbers)
-return [(x - min_num) / (max_num - min_num) for x in numbers]
+numbers.sort()
+return [(num - numbers[0]) / (numbers[-1] - numbers[0]) for num in numbers]
