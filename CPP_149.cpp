@@ -4,6 +4,10 @@
 #include <string>
 #include <iostream>
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> sorted_list_sum(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(),
                       [](const string& a, const string& b){ return a.length() % 2 == 1; });
@@ -18,11 +22,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
+int main_test() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
     assert(issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"}));
 }
