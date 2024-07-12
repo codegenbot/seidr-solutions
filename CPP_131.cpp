@@ -7,5 +7,5 @@ int digits(int n){
         }
         n /= 10;
     }
-    return product == 1 ? 0 : product;
+    return product == 1 ? -1 : product;
 }
