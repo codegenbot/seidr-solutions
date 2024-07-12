@@ -1,7 +1,7 @@
-def process_numbers(numbers, delimeter):
+def complete_code(numbers, delimiter):
     result = []
     for i in range(len(numbers)):
         result.append(numbers[i])
         if i != len(numbers) - 1:
-            result.append(delimeter)
+            result.append(delimiter)
     return result
