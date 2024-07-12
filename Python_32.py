@@ -1,5 +1,7 @@
 def main():
-    xs = list(map(float, input("Enter a list of floats separated by spaces:").strip().split()))
+    xs = list(
+        map(float, input("Enter a list of floats separated by spaces:").strip().split())
+    )
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
         return
@@ -18,6 +20,7 @@ def main():
         print(result)
     except ZeroDivisionError as e:
         print(str(e))
+
 
 if __name__ == "__main__":
     main()
