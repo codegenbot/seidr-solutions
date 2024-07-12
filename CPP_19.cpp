@@ -1,33 +1,45 @@
-#include <vector>
+#include <map>
+#include <string>
 #include <algorithm>
 
-string sort_numbers_with_map(string numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-    map<int, string> reverse_map;
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-    for (auto const &pair : number_map) {
-        reverse_map[pair.second] = pair.first;
-    }
+string sort_numbers(string numbers);
 
-    vector<int> sorted_numbers;
-    istringstream iss(numbers);
+string sort_numbers(string numbers){
+    vector<string> num_list;
+    stringstream ss(numbers);
     string token;
-    while (iss >> token) {
-        sorted_numbers.push_back(number_map[token]);
+    while (ss >> token){
+        num_list.push_back(token);
     }
-
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-
-    string result;
-    for (int num : sorted_numbers) {
-        result += reverse_map[num] + " ";
+    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b){
+        return num_map[a] < num_map[b];
+    });
+    string result = "";
+    for (const string& num : num_list){
+        result += num + " ";
     }
-
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
 
 int main() {
-    string numbers = "three one four zero two";
-    cout << sort_numbers_with_map(numbers) << endl;
+    string input;
+    cout << "Enter a list of numbers in words separated by spaces: ";
+    getline(cin, input);
+    string sorted_numbers = sort_numbers(input);
+    cout << "Sorted numbers in words: " << sorted_numbers << endl;
     return 0;
 }
