@@ -3,8 +3,18 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+std::vector<int> even_odd_palindrome(int n);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> even_odd_palindrome(int n){
@@ -25,6 +35,9 @@ std::vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    // Test the even_odd_palindrome function
+    std::vector<int> test_result = even_odd_palindrome(20);
+    assert(issame(test_result, {9, 11}));
+    
     return 0;
 }
