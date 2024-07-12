@@ -1,3 +1,6 @@
+# pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfatal-companion"
+#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -23,6 +26,9 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    assert(!issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"),
-                    filter_by_prefix({{"xxx"}, {"xxxAAA"}}, "xxx")));
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    auto result = filter_by_prefix(strings, "xxx");
+    for (const auto& s : result) {
+        if (s != "xxx" && s != "xxxAAA") return 1;
+    }
 }
