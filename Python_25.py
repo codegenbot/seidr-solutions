@@ -1,18 +1,14 @@
 import sys
-import select
 
 try:
     print("Enter a number: ")
-    rlist, _, _ = select.select([sys.stdin], [], [], 10)
+    n = int(input())
 
-    if rlist:
-        n = int(input())
+    def factorize(n):
+        return [i for i in range(1, n + 1) if n % i == 0]
 
-        def factorize(n):
-            return [i for i in range(1, n + 1) if n % i == 0]
-
-        result = factorize(n)
-        print(result)
+    result = factorize(n)
+    print(result)
 
 except ValueError:
     print("Invalid input. Please enter a valid number.")
