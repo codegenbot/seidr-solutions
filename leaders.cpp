@@ -14,11 +14,12 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxLeader);
         }
     }
-    return vector<int>(leaders.rbegin(), leaders.rend());
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
 }
 
 int main() {
-    vector<int> nums = {18, 577, 112, 438, 403, 861, 630, 159, 832, 157, 494, 492, 773, 516, 594, 530, 381, 54, 68};
+    vector<int> nums = {5, 3, 15, 8, 12, 10};
     vector<int> leaders = findLeaders(nums);
     for (int leader : leaders) {
         cout << leader << " ";
