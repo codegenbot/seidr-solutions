@@ -2,26 +2,28 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
 
-    std::vector<int> indices;
+    vector<size_t> indices;
 
-    int found = 0;
+    size_t found = 0;
     size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
+    while ((pos = text.find(target, pos)) != string::npos) {
         indices.push_back(pos);
         ++pos;
         found = 1;
     }
     
-    std::cout << indices.size() << std::endl;
-    for (int i : indices) {
-        std::cout << i << " ";
+    cout << indices.size() << endl;
+    for (size_t i : indices) {
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
