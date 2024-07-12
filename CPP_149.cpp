@@ -1,28 +1,17 @@
-```
-#include <algorithm>
 #include <vector>
-#include <string>
+#include <algorithm>
 #include <cctype>
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (const auto& str : vec1) {
-        bool found = false;
-        for (const auto& other : vec2) {
-            if (std::equal(str.begin(), str.end(), other.begin(),
-                           [](unsigned char a, unsigned char b)
-                           { return std::tolower(a) == std::tolower(b); })) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) return false;
+bool issame(const std::string &s1, const std::string &s2) {
+    if (s1.size() != s2.size()) return false;
+    for (int i = 0; i < s1.size(); ++i) {
+        if (std::tolower(s1[i]) != std::tolower(s2[i])) return false;
     }
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result = lst;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result = lst;
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
             it = result.erase(it);
@@ -31,7 +20,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
     sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
+         [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
