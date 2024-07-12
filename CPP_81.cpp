@@ -1,5 +1,9 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
@@ -57,3 +61,4 @@ int main() {
         cout << "Grades are not the same." << endl;
 
     return 0;
+}
