@@ -18,6 +18,4 @@ int main() {
     }
     
     std::cout << std::fixed << total_distance << std::endl;
-    
-    return 0;
 }
