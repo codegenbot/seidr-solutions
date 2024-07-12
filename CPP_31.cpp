@@ -13,9 +13,9 @@ bool is_prime(int num) {
 }
 
 int main() {
-    string num;
+    int num;
     cin >> num;
-    if (is_prime(stoi(num)))
+    if (is_prime(num))
         cout << "true";
     else
         cout << "false";
