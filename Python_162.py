@@ -5,10 +5,9 @@ while True:
     if not s: 
         continue
     
-    if not s.isalnum():
-        print("Invalid input. Please enter alphanumeric characters.")
-    else:  
+    if s.isalnum():  
         break
-else:
-    output = hashlib.md5(s.encode()).hexdigest()
-    print(f"Output: {output}")
+    else:
+        print("Please enter some alphanumeric characters.")
+        continue
+print(f"Output: {hashlib.md5(s.encode()).hexdigest()}"
