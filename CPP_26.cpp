@@ -1,17 +1,18 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <set>
+#include <cassert>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    set<int> bset(b.begin(), b.end());
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (bset.find(a[i]) == bset.end()) {
             return false;
         }
     }
@@ -19,16 +20,12 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
-            result.push_back(num);
-        }
-    }
+    set<int> s(numbers.begin(), numbers.end());
+    vector<int> result(s.begin(), s.end());
     return result;
 }
 
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>{1, 4, 5}));
+    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>{1, 4, 5}));
     return 0;
 }
