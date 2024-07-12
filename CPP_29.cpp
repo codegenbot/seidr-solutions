@@ -1,9 +1,6 @@
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
-
-bool isSame(vector<string>, vector<string>);
-vector<string> filter_by_prefix(vector<string>, string);
 
 bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -24,7 +21,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 
 }
 
-void userInputAndOutput() {
+int main() {
     vector<string> a;
     cout << "Enter strings (stop when empty):" << endl;
     string s;
@@ -50,10 +47,5 @@ void userInputAndOutput() {
         cout << s << endl;
     }
 
-    return;
-}
-
-int main() {
-    userInputAndOutput();
     return 0;
 }
