@@ -1,2 +1,2 @@
-numbers = list(map(int, input().strip().split()))
-print(rolling_max(numbers))
+numbers = list(map(int, input().split()))
+print(*rolling_max(numbers))
