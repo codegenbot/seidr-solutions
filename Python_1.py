@@ -19,7 +19,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             result.append(''.join(groups))
             groups = []
     
-    if groups:
-        result.append(''.join(groups))
+    if stack or (stack == [] and groups):
+        return [""]  # Unbalanced parentheses, return an empty list
     
     return [group for group in result if group]
