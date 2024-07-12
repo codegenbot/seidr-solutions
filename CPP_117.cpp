@@ -18,24 +18,20 @@ vector<string> select_words(string s, int n) {
     string word = "";
     int consonant_count = 0;
     
-    for (char c : s) {
-        if (c == ' ') {
+    for (size_t i = 0; i <= s.size(); i++) {
+        if (i == s.size() || s[i] == ' ') {
             if (consonant_count == n) {
                 result.push_back(word);
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+        } else if (isalpha(s[i])) {
+            if (tolower(s[i]) != 'a' && tolower(s[i]) != 'e' && tolower(s[i]) != 'i' && tolower(s[i]) != 'o' && tolower(s[i]) != 'u') {
                 consonant_count++;
             }
-            word += c;
+            word += s[i];
         }
     }
-    
-    if (consonant_count == n) {
-        result.push_back(word);
-    }
-    
+
     return result;
 }
