@@ -9,7 +9,7 @@ def bowling_score(bowls):
             bowl_index += 1
         elif bowls[bowl_index + 1] == "/":
             score += 10
-            if bowls[bowl_index + 2] == "X":
+            if bowls[bowl_index + 2] == "X" or frame == 10:
                 score += 10
             else:
                 score += 10 - int(bowls[bowl_index])
