@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string compare_one(string a) {
+string compare_one(string a, int b) {
     double s1 = stod(a);
     if (a.find('x') != string::npos)
         return "None";
@@ -22,7 +22,7 @@ int main() {
     string a;
     cout << "Enter the first number: ";
     cin >> a;
-    cout << compare_one(a) << endl;
+    cout << compare_one(a, 0) << endl;
 
     return 0;
 }
