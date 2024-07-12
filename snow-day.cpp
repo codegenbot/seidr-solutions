@@ -2,7 +2,7 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHour) {
-    double totalSnow = initialSnow;
+    double totalSnow = static_cast<double>(initialSnow);
     for (int i = 0; i < hours; i++) {
         totalSnow += static_cast<double>(snowFallRate);
         if (totalSnow > 0) {
