@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-
+```cpp
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
     int maxRight = INT_MIN;
@@ -15,3 +16,4 @@ vector<int> findLeaders(const vector<int>& nums) {
     
     return leaders;
 }
+```
