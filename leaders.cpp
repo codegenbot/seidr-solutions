@@ -10,10 +10,9 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     for (int i = n - 2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
             maxRight = nums[i];
-            leaders.push_back(maxRight);
+            leaders.insert(leaders.begin(), maxRight); // Insert leaders at the beginning to maintain order
         }
     }
 
-    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
