@@ -1,4 +1,5 @@
-bool result = true;
+bool evaluateBooleanExpression(const std::string& expression) {
+    bool result = true;
     int operation = 0; // Flag for AND (0), OR (1)
     char currentBit = ' ';
     if (expression[0] == '&' || expression[0] == '|') {
