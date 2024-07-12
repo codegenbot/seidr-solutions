@@ -10,5 +10,4 @@ def decode_shift():
             result += ch
     return result
 
-"""
 print(decode_shift())
