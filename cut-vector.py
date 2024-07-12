@@ -1,18 +1,11 @@
-def cut_vector(vector):
-    total_sum = sum(vector)
-    left_sum = 0
+def cut_vector(lst):
     min_diff = float("inf")
-    split_indices = []
+    split_idx = 0
 
-    for i in range(len(vector)):
-        right_sum = sum(vector[:i+1])
-        diff = abs(left_sum - right_sum)
+    for i in range(1, len(lst)):
+        diff = abs(sum(lst[:i]) - sum(lst[i:]))
         if diff < min_diff:
             min_diff = diff
-            split_indices = [i]
-        elif diff == min_diff:
-            split_indices.append(i)
+            split_idx = i
 
-        left_sum += vector[i]
-
-    return vector[:split_indices[0]+1], vector[split_indices[-1]:]
+    return lst[:split_idx], lst[split_idx:]
