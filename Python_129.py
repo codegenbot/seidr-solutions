@@ -1,24 +1,25 @@
-def minPath(grid, k):
+def minPathCost(grid, k):
     n = len(grid)
     m = [(i, j) for i in range(n) for j in range(n)]
     visited = set()
-    result = []
+    path = []
 
-    def dfs(i, j, p):
-        if len(p) == k:
+    def dfs(i, j, p, cost):
+        if cost == k:
             return [p]
-        if (i, j) in visited:
+        if (i, j) in visited or cost > k:
             return []
         visited.add((i, j))
         res = []
         for x, y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                res += dfs(ni, nj, p + [grid[ni][nj]])
+                new_path = p + [grid[ni][nj]]
+                res += dfs(ni, nj, new_path, cost + grid[ni][nj])
         return res
 
     for i, j in m:
-        for p in dfs(i, j, []):
+        for p in dfs(i, j, [], 0):
             if len(p) == k:
-                result.append(sorted(p))
-    return result if result else []
+                return sorted(p)
+    return []
