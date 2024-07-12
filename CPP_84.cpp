@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int solve(int N) {
     int sum = 0;
     for (int i = 1; i <= N; i++) {
@@ -15,6 +18,6 @@ int main() {
     } else {
         cout << solve(N) << endl;
     }
-    assert(solve(963) == 15150);  
+    assert(solve(963) == 15150);
     return 0;
 }
