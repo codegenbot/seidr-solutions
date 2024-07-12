@@ -1,1 +1,1 @@
-std::string("Your tweet has ") + std::to_string(tweet.length()) + " characters";
+std::string("Your tweet has ") + std::to_string(std::char_traits<char>::length(tweet)) + " characters";

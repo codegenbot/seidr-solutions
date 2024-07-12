@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 #include <vector>
@@ -13,12 +12,6 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
             continue;
         }
         numIndex[nums[i]] = i;
-    }
-    vector<int> pairs;
-    for (const auto& p : numIndex) {
-        if (target - p.first == p.second) {
-            return {p.first, p.second};
-        }
     }
     return {};
 }
