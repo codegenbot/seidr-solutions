@@ -4,12 +4,10 @@ bool issame(vector<int> a, vector<int> b);
 vector<int> minPath(vector<vector<int>> grid, int k);
 
 bool issame(vector<int> a, vector<int> b){
-    // Implement the issame function to compare two vectors
     return a == b;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
-    // Implement the minPath function as per the contest problem description
     int n = grid.size();
     vector<int> result;
     int row = 0, col = 0;
