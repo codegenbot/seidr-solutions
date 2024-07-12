@@ -1,4 +1,6 @@
 #include <string>
+#include <sstream>
+
 using namespace std;
 
 string encrypt(string s){
