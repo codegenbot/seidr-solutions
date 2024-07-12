@@ -1,13 +1,6 @@
-text = input().strip()
-target = input().strip()
-
-start_index = 0
-indices = []
-while start_index < len(text):
-    idx = text.find(target, start_index)
-    if idx == -1:
-        break
-    indices.append(idx)
-    start_index = idx + 1
-
-print(*indices)
+def indices_of_substring(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i : i + len(target)] == target:
+            indices.append(i)
+    return indices
