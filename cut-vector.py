@@ -1,13 +1,22 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-diff = float("inf")
-cut_idx = -1
-for i in range(1, n):
-    curr_diff = abs(sum(v[:i]) - sum(v[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        cut_idx = i
+total_sum = sum(arr)
+half_sum = total_sum // 2
+current_sum = 0
+idx = 0
 
-print(*v[:cut_idx])
-print(*v[cut_idx:])
+while current_sum + arr[idx] <= half_sum:
+    current_sum += arr[idx]
+    idx += 1
+
+if current_sum == half_sum:
+    print(arr[:idx])
+    print(arr[idx:])
+else:
+    if current_sum + arr[idx] - half_sum <= half_sum - current_sum:
+        print(arr[: idx + 1])
+        print(arr[idx + 1 :])
+    else:
+        print(arr[:idx])
+        print(arr[idx:])
