@@ -1,15 +1,6 @@
 def check():
-    numbers = input("Enter space-separated integers: ").split()
-    try:
-        numbers = [int(i) for i in numbers]
-    except ValueError:
-        print("Invalid input")
-        return
-    result = double_the_difference(numbers)
-    if result > 0:
-        print(f"The difference is {result}")
-    else:
-        print("The difference is not positive")
+    numbers = [int(x) for x in input("Enter space-separated integers: ").split()]
+    print(double_the_difference(numbers))
 
 
 def double_the_difference(lst):
