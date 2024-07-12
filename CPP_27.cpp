@@ -1,12 +1,10 @@
-```c++
-#include <iostream>
+```cpp
 #include <string>
-
 using namespace std;
 
-string flip_case(string str){
+string flip_case(string str) {
     string result = "";
-    for(int i=0; i<str.length(); i++){
+    for (int i=0; i<str.length(); i++) {
         char c = str[i];
         if(c >= 'a' && c <= 'z')
             result += toupper(c);
@@ -16,11 +14,12 @@ string flip_case(string str){
             result += c;
     }
     return result;
+}
 
 int main() {
-    string s;
+    string str;
     cout << "Enter a string: ";
-    getline(cin, s);
-    cout << "Flipped case: " << flip_case(s) << endl;
-    return 0;
+    cin >> str;
+    string result = flip_case(str);
+    cout << "Flipped case: " << result << endl;
 }
