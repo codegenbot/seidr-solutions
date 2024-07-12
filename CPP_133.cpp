@@ -1,13 +1,23 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
 
 int sum_squares(std::vector<float> lst){
     int total = 0;
     for(float x : lst){
-        total += std::ceil(x)*std::ceil(x);
+        total += ceil(x)*ceil(x);
     }
     return total;
 
-int main() {
+int main(){
+    std::vector<float> input; // get input from user
+
+    float num;
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+
+    int result = sum_squares(input);
+    std::cout << "Sum of squares: " << result << std::endl;
+
     return 0;
 }
