@@ -1,4 +1,4 @@
-nums = list(map(int, input().split()))
+n = list(map(int, input().split()))
 
 total_sum = sum(nums)
 left_sum = 0
@@ -13,8 +13,8 @@ for i in range(len(nums)):
         min_diff = diff
         cut_index = i
 
-subvector1 = nums[:cut_index + 1]
-subvector2 = nums[cut_index + 1:]
+subvector1 = nums[: cut_index + 1]
+subvector2 = nums[cut_index + 1 :]
 
 print(*subvector1)
 print(*subvector2)
