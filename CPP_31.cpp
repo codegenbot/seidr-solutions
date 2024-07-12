@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,6 +10,7 @@ bool is_prime(int num) {
             return false;
     }
     return true;
+}
 
 int main() {
     string str_num;
