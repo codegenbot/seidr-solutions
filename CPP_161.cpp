@@ -1,13 +1,25 @@
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : std::tolower(c);
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
+    if(result.empty()) {
+        string temp = s;
+        std::reverse(temp.begin(), temp.end());
+        return temp;
+    } else {
+        return result;
+    }
+}
+
+int main() {
+    assert (solve("#ccc") == "#CCC");
+    return 0;
 }
