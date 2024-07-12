@@ -1,14 +1,13 @@
-```
-from itertools import zip_longest
-
+```Python
 def sort_even(l: list):
     evens = sorted([i for i in l if i % 2 == 0])
+    odds = sorted([i for i in l if i % 2 != 0])
+    
+    max_length = max(len(evens), len(odds))
     result = []
-    j = 0
-    for i in l:
-        if i % 2 == 0:
-            result.append(evens[j])
-            j += 1
-        else:
-            result.append(i)
-    return [i if i % 2 != 0 else j for i, j in zip_longest(l, result, fillvalue=0)]
+    
+    for _ in range(max_length):
+        result.append(evens.pop(0) if evens else 0)
+        result.append(odds.pop(0) if odds else 0)
+        
+    return result

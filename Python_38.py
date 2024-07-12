@@ -1,7 +1,11 @@
+Here is the modified code:
+
+```
 def decode_cyclic():
     s = input("Enter the string: ")
     result = ""
     i = 0
+    group = ""  
     while i < len(s):
         if i + 2 <= len(s):  
             group = s[i : i + 2] + s[i]
