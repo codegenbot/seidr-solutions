@@ -1,9 +1,12 @@
-for (size_t i = 0; i < numbers.size(); ++i) {
-        for (size_t j = i + 1; j < numbers.size(); ++j) {
-            if (fabs(numbers[i] - numbers[j]) < threshold) {
-                return true;
-            }
+#include <vector>
+
+bool has_close_elements(std::vector<float> numbers, float threshold) {
+    sort(numbers.begin(), numbers.end());
+    for (int i = 1; i < numbers.size(); ++i) {
+        if (fabs(numbers[i] - numbers[i - 1]) < threshold) {
+            return true;
         }
     }
     return false;
 }
+```
