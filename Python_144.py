@@ -1,20 +1,17 @@
+```
 from fractions import Fraction
-
 
 def simplify():
     x = float(input("Enter numerator: "))
     y = float(input("Enter denominator: "))
 
     if y == 0:
-        return False
+        print("Denominator cannot be zero!")
     else:
-        return Fraction(x, y) == 1
-
+        print(Fraction(x,y) == 1)
 
 while True:
-    print(simplify())
+    simplify()
     response = input("Do you want to continue (yes/no)? ")
-    if response.lower() not in ["yes", "no"]:
-        print("Invalid input. Please enter either yes or no.")
-    elif response.lower() != "yes":
+    if response.lower() != 'yes':
         break
