@@ -1,1 +1,2 @@
-string1, string2 = input("Input string 1 and string 2: ").strip().split()
+string1 = input("Input string 1: ").strip()
+string2 = input("Input string 2: ").strip()
