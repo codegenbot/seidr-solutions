@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,7 +13,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size(), 0.0); // initialize with zeros
+    std::vector<float> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             std::vector<float> even_indices;
@@ -22,9 +23,9 @@ std::vector<float> sort_even(std::vector<float> l) {
                 }
             }
             std::sort(even_indices.begin(), even_indices.end());
-            result[i] = even_indices[0];
+            result.push_back(even_indices[0]);
         } else {
-            result[i] = l[i];
+            result.push_back(l[i]);
         }
     }
     return result;
