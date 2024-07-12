@@ -1,8 +1,8 @@
 arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = arr[0]
-min_diff = abs(total_sum - 2 * arr[0] - arr[1])
-cut_index = -1
+min_diff = abs(total_sum - 2 * arr[0])
+cut_index = 1
 
 if len(arr) == 2 or len(arr) == 3:
     print(arr[:1], arr[1:])
