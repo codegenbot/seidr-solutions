@@ -11,7 +11,8 @@ while True:
     user_input = input("Enter a string (or 'stop' to finish): ")
     if user_input.lower() == "stop":
         break
-    strings_list.append(user_input.strip())
+    if user_input.strip() != "":
+        strings_list.append(user_input.strip())
 
 if strings_list:
     result = concatenate(strings_list)
