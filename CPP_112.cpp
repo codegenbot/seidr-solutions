@@ -42,7 +42,7 @@ int main() {
         std::cout << "True is not equal to itself." << std::endl;
     }
     
-    assert(issame(reverse_delete("mamma", "mia"), reverse_delete(std::vector<std::string>({"", "True"})).front()));
+    assert(issame(reverse_delete("mamma", "mia"), reverse_delete(std::string({"True"})).front()));
     
     return 0;
 }
