@@ -1,5 +1,7 @@
+``` 
 #include <vector>
 #include <string>
+#include <set>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
     std::vector<std::string> result;
@@ -13,6 +15,15 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 
 int main() {
     std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    bool same = (std::set<std::string>(result.begin(), result.end()) == std::set<std::string>({"grunt", "prune"}));
-    return same ? 0 : 1;
+    std::set<std::string> actualSet(result.begin(), result.end());
+    std::set<std::string> expectedSet = {"grunt", "prune"};
+    bool same = (actualSet == expectedSet);
+    if (!same) {
+        for (const auto& word : actualSet) {
+            if (expectedSet.find(word) == expectedSet.end()) {
+                std::cout << "Expected to find '" << word << "' but it was not present." << std::endl;
+            }
+        }
+    }
+    return 0;
 }
