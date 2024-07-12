@@ -1,6 +1,7 @@
+```
 def factorize(n: int) -> List[int]:
     if n < 1:
-        return ["Invalid input: Please enter a positive integer."]
+        return "Error: Factorization is not possible for a negative number."
     factors = []
     i = 2
     while i * i <= n:
