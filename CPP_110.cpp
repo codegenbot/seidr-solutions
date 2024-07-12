@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
-#include <limits>
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
 
