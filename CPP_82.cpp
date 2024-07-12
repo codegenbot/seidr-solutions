@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cstring>
 #include <cassert>
