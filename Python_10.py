@@ -27,15 +27,4 @@ while True:
         elif result.lower() not in ["madam", "mom", "dad", "noon"] and re.match('^[a-zA-Z]+$', result) and len(result) > 1 and result == result[::-1]:
             print(result)
         else:
-            while True:
-                try:
-                    if int(input("Invalid input. Try again (0 for false or 1 for true): ")) == 0:
-                        word = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(5))
-                        print(word.capitalize())
-                        break
-                    elif int(input("Invalid input. Try again (0 for false or 1 for true): ")) == 1:
-                        word = ''.join(reversed(''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(5))))
-                        print(word.capitalize())
-                        break
-                except ValueError:
-                    pass
+            print("Invalid input. Try again.")
