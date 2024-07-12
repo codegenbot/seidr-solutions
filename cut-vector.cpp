@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -28,10 +30,10 @@ int main() {
     vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
     vector<int> subVec2(nums.begin() + idx + 1, nums.end());
 
-    for (int num : subVec1) {
+    for (auto num : subVec1) {
         cout << num << endl;
     }
-    for (int num : subVec2) {
+    for (auto num : subVec2) {
         cout << num << endl;
     }
 
