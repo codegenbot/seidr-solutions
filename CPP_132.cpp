@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 bool is_nested(string str) {
@@ -12,3 +13,8 @@ bool is_nested(string str) {
         }
     }
     return count > 0;
+}
+
+int main() {
+    assert(is_nested("]]]]]]]]") == false);
+}
