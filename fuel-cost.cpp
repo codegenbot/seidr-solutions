@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int main() {
 
     long long sum = 0;
     for (long long num : nums) {
-        sum += (num + 1) / 3 - 2;
+        sum += floor(num / 3) - 2;
     }
 
     cout << sum << "\n";
