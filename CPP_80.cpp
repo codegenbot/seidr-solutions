@@ -1,17 +1,16 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
-    for (int i = 0; i <= s.length() - 2; i++) {
-        std::string sub = s.substr(i, 2);
+    for (int i = 0; i < s.length() - 2; i++) {
+        std::string sub = s.substr(i, 3);
         bool unique = true;
-        for (char a : sub) { 
+        for (size_t j = 0; j < sub.size(); j++) { 
             size_t count = 0;
-            for (char b : sub) {
-                if (b == a)
+            for (size_t k = 0; k < sub.size(); k++) {
+                if (sub[k] == sub[j])
                     ++count;
             }
             if (count > 1) {
