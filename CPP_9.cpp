@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -31,8 +32,15 @@ int main() {
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
-    while ((std::cin >> num) && (num != -1)) {
-        numbers.push_back(num);
+    while(std::cin >> num) {
+        if(num == -1)
+            break;
+
+        if(num < 0)
+            continue; // Skip invalid inputs
+
+        if(numbers.empty() || num > numbers.back())
+            numbers.push_back(num);
     }
 
     std::vector<int> maxNumbers = rolling_max(numbers);
