@@ -1,11 +1,8 @@
-```
 def total_match(lst1, lst2):
-    len1 = sum(len(s) for s in lst1)
-    len2 = sum(len(s) for s in lst2)
-    
-    if len1 < len2:
-        return [s for s in lst1 if any(len(t) < len2 for t in lst2)]
-    elif len2 < len1:
-        return [s for s in lst2 if any(len(t) < len1 for t in lst1)]
-    else:
-        return lst1
+    return min(
+        [
+            lst if sum(len(i) for i in lst) < sum(len(j) for j in lst2) else lst2
+            for lst in [lst1, lst2]
+        ],
+        key=lambda x: (sum(len(i) for i in x), id(x)),
+    )
