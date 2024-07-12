@@ -16,8 +16,5 @@ def process_paths():
                 print("Please enter a valid path (e.g., 1-2).")
         else:
             print("Please enter a valid path (e.g., 1-2) or multiple paths separated by commas.")
-    
-    for path in paths:
-        print(f"Path is: {path}")
 
 process_paths()
