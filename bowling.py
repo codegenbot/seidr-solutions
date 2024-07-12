@@ -21,6 +21,5 @@ def bowling_score(frames):
                 score += 10 + first_roll - previous_rolls
             else:
                 score += sum(frames[i])
-        if i > 0 and len(frames[i]) >= 2:
-            previous_rolls = sum(frames[i])
+        previous_rolls = sum(frames[i-1]) if i > 0 and len(frames[i-1]) >= 2 else 0
     return score
