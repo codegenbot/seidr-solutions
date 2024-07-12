@@ -19,25 +19,34 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     size_t targetLen = target.length();
     size_t textLen = text.length();
 
-    for (size_t i = 0; i <= textLen - targetLen; ++i) {
-        if (text.substr(i, targetLen) == target) {
+    for (size_t i = 0; i < textLen - targetLen + 1; ++i) {
+        bool found = true;
+        for (size_t j = 0; j < targetLen; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
             indices.push_back(i);
         }
     }
-    
+
     return indices;
 }
 
 int main() {
     std::string text, target;
-    std::cout << "Enter the text and target separated by a space: ";
-    std::cin >> text >> target;
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+    std::cout << "Enter the target: ";
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
-
+    
     for (int index : result) {
         std::cout << index << " ";
     }
-
+    
     return 0;
 }
