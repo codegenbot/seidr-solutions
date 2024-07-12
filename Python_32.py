@@ -7,4 +7,5 @@ def find_zero(xs: list):
     return b / a
 
 xs = list(map(int, input().split()))
-print(find_zero(xs))
+result = find_zero(xs)
+print(result)
