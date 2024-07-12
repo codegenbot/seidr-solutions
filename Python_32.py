@@ -1,8 +1,15 @@
 def find_zero():
-    xs = list(map(float, input("Enter space-separated coefficients: ").strip().split()))
-    n = len(xs)
-    a = xs[n - 1]
-    b = xs[n - 2]
+    xs = []
+    while True:
+        try:
+            line = input().strip()
+            if not line:
+                break
+            xs.extend(map(float, line.split()))
+        except EOFError:
+            break
+    a = xs[-2]
+    b = xs[-1]
     return -b / a
 
 result = find_zero()
