@@ -3,18 +3,18 @@
 
 using namespace std;
 
-string compare_one(string a) {
+void compare_one(string a) {
     double s1 = stod(a);
     if (a.find('x') != string::npos)
-        return "None";
+        cout << "None" << endl;
     else {
         int s2 = stoi(a); 
         if (s1 > s2)
-            return to_string(s1);
+            cout << to_string(s1) << endl;
         else if (s1 == s2)
-            return "None";
+            cout << "None" << endl;
         else
-            return to_string(s1);
+            cout << to_string(s1) << endl;
     }
 }
 
@@ -22,7 +22,7 @@ int main() {
     string a;
     cout << "Enter the first number: ";
     cin >> a;
-    cout << compare_one(a) << endl;
+    compare_one(a);
 
     return 0;
 }
