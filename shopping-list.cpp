@@ -19,8 +19,8 @@ int main() {
     
     double total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        prices[i] -= prices[i] * discounts[i]/100;
-        total_price += prices[i];
+        double discounted_price = prices[i] * (1 - discounts[i]/100);
+        total_price += discounted_price;
     }
 
     cout << fixed << setprecision(2) << total_price << "\n";
