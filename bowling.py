@@ -23,5 +23,6 @@ def calculate_bowling_score(input_str):
 
     return score
 
+
 input_str = input()
 print(calculate_bowling_score(input_str))
