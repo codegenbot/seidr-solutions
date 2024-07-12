@@ -17,7 +17,16 @@ int main() {
     string s;
     cin >> s;
 
-    int num = stoi(s);
+    int num = 0;
+    string strNum = "";
+    for (char c : s) {
+        if (!isdigit(c)) {
+            cout << "Error: Input should contain only digits." << endl;
+            return 0;
+        }
+        strNum += c;
+    }
+    num = stoi(strNum);
     if(num < 2) {
         cout << "Error: Input should be greater than or equal to 2." << endl;
     } else {
