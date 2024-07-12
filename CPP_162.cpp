@@ -1,7 +1,6 @@
 ```cpp
 #include <string>
-#include <stringstream>
-#include <openssl/md5.h>
+#include <sstream>
 
 using namespace std;
 
