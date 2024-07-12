@@ -2,10 +2,10 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-#include <cctype> 
+#include <cctype>
 
 std::vector<std::string> split_words(std::string txt);
-bool issame(std::vector<std::string> a, std::vector<std::string> b); // Fix the function signature
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
@@ -40,7 +40,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> b;
     assert(issame(split_words(""), {"0"}));
     return 0;
 }
