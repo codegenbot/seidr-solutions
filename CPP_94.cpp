@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 
 int calculateScore(int values[], int n) {
     int score = 0;
     for (int i = 0; i < n; i++) {
         if (values[i] > 127) {
-            score += values[i];
-        } else {
-            score -= values[i];
+            score += 2;
+        } else if (values[i] >= 97 && values[i] <= 122) {
+            score++;
         }
     }
     return score;
