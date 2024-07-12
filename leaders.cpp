@@ -1,8 +1,8 @@
-```c++
+```cpp
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int> arr) {
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
@@ -10,20 +10,15 @@ vector<int> leaders(vector<int> arr) {
         return arr;
     }
     
+    int rightmost = arr[n - 1];
     for (int i = n - 2; i >= 0; i--) {
-        while (i > 0 && arr[i] <= arr[i + 1]) {
-            i--;
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
-        result.push_back(arr[i]);
     }
-    
-    result.push_back(arr[n - 1]);
     
     return result;
 }
 
-int main() {
-    vector<int> v = { };
-    leaders(v);
-    return 0;
-}
+int main() { std::vector<int> input = {}; leaders(input); }
