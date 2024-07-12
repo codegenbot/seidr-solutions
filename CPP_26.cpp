@@ -1,13 +1,13 @@
-#include <unordered_set>
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_set<int> uniqueNumbers(numbers.begin(), numbers.end());
+vector<int> remove_duplicates(vector<int> numbers){
+    unordered_map<int,int> mp;
     vector<int> result;
-    for (int num : numbers) {
-        if (uniqueNumbers.find(num) != uniqueNumbers.end()) {
-            result.push_back(num);
-            uniqueNumbers.erase(num);
+
+    for(int i = 0; i < numbers.size(); i++){
+        if(mp.find(numbers[i]) == mp.end()){
+            mp[numbers[i]] = 1;
+            result.push_back(numbers[i]);
         }
     }
+
     return result;
 }
