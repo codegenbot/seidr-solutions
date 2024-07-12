@@ -1,36 +1,14 @@
-#include <iostream>
-#include <stack>
-#include <string>
+int main() {
+    // Read input from user
+    std::string expression;
+    std::cout << "Enter the Boolean expression (using T, F, |, and &): ";
+    std::cin >> expression;
 
-using namespace std;
+    // Evaluate the Boolean expression
+    bool result = evaluateBooleanExpression(expression);
 
-void evaluateBooleanExpression(const string& expression) {
-    stack<bool> operands;
-    stack<char> operators;
+    // Output the result
+    std::cout << "Result: " << (result ? "T" : "F") << std::endl;
 
-    for (char c : expression) {
-        if (c == '&') {
-            while (!operators.empty() && operators.top() == '&') {
-                char op = operators.top();
-                operators.pop();
-                bool operand2 = operands.top();
-                operands.pop();
-                bool operand1 = operands.top();
-                operands.pop();
-                operands.push(operand1 && operand2);
-            }
-            operators.push(c);
-        } else if (c == '|') {
-            while (!operators.empty() && operators.top() == '|') {
-                char op = operators.top();
-                operators.pop();
-                bool operand2 = operands.top();
-                operands.pop();
-                bool operand1 = operands.top();
-                operands.pop();
-                operands.push(operand1 || operand2);
-            }
-            operators.push(c);
-        }
-    }
+    return 0;
 }

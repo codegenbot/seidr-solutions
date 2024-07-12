@@ -15,7 +15,7 @@ int main() {
     }
 
     int diff = INT_MAX, cutIndex = -1, leftSum = 0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n-1; ++i) {
         int rightSum = totalSum - leftSum;
         int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff || (currentDiff == diff && leftSum <= rightSum)) {
