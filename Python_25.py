@@ -1,22 +1,25 @@
+```
 from typing import List
-import math
 
 
-def factorize():
-    num = int(input("Enter a number: "))
+def factorize(n: int) -> List[int]:
     factors = []
-    for i in range(2, math.isqrt(num) + 1):
-        if num % i:
-            continue
-        count = 0
-        while num % i == 0:
-            num //= i
-            count += 1
-        if count > 0:
-            factors.append(i * count)
-    if num > 1:
-        factors.append(num)
-    return sorted(factors)
-
-
-print(factorize())
+    if n > 1:
+        if n == 2:
+            factors.append(n)
+            n = 1
+        else:
+            i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.append(i) if i not in factors else None
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
