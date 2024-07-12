@@ -1,19 +1,19 @@
 def decode_cyclic():
     s = input("Enter a string: ")
-    result = []
-    if len(s) % 3 == 1:
-        result.extend([s[0], s[1]] + list(s[2:]))
-    elif len(s) % 3 == 2:
-        result.extend(list(s[:2]) + [s[2]])
+    n = int(
+        input("Enter 1 for linear decoding and any other number for cyclic decoding: ")
+    )
+
+    if n == 1:
+        print(s)
     else:
-        for char in s:
-            if len(result) % 3 == 0:
-                if char != result[-1]:
-                    result.append(char)
-            elif len(result) % 3 == 1:
-                if char != result[-1] and char != result[-2]:
-                    result.extend([char])
-    print("".join(result))
+        result = [s[0], s[1]]
+        for char in s[2:]:
+            if len(result) % 3 == 1:
+                result.append(char)
+            elif len(result) % 3 == 2:
+                result.extend([char])
+        print("".join(result))
 
 
 decode_cyclic()
