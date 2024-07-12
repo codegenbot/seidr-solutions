@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
@@ -6,5 +7,8 @@ def sum_squares(lst):
     return total_sum
 
 lst = input("Enter a list of numbers separated by space: ")
-lst = [int(x) for x in lst.split()]
-print(sum_squares(lst))
+try:
+    lst = [int(x) for x in lst.split()]
+    print(sum_squares(lst))
+except ValueError:
+    print("Invalid input. Please enter a list of numbers.")
