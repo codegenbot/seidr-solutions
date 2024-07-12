@@ -1,1 +1,2 @@
-input_string = input("Enter a string (contains only uppercase letters): ").strip().upper()
+import sys
+input_string = input().strip().upper()
