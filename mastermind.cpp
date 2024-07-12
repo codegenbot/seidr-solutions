@@ -1,9 +1,35 @@
-for (int i = 0; i < 6; ++i) {
-    white += min(codeFreq[i], guessFreq[i]);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    
+    transform(code.begin(), code.end(), code.begin(), ::toupper);
+    transform(guess.begin(), guess.end(), guess.begin(), ::toupper);
+    
+    int white = 0, black = 0;
+    vector<int> codeFreq(6, 0), guessFreq(6, 0);
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
+        }
+    }
+    
+    for (int i = 0; i < 6; ++i) {
+        white += min(codeFreq[i], guessFreq[i]);
+    }
+
+    black -= white;  
+    
+    cout << white << endl << black << endl;
+    
+    return 0;
 }
-
-black = count_if(code.begin(), code.end(), guess.begin(), [codeFreq, guessFreq](char c, char g) {
-    return c != g && codeFreq[c - 'A'] && guessFreq[g - 'A'];
-}) - white;
-
-cout << white << endl << black << endl;
