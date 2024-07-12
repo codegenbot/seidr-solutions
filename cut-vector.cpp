@@ -1,36 +1,32 @@
 int main() {
     vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    
+
     int sum = 0;
-    for (int n : nums) {
-        sum += n;
+    for (int num : nums) {
+        sum += num;
     }
-    
-    int target = sum / 2;
-    int runningSum = 0;
-    int idx = 0;
-    for (; idx < nums.size(); ++idx) {
-        runningSum += nums[idx];
-        if (runningSum >= target) {
+
+    bool found = false;
+    int prefixSum = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        prefixSum += nums[i];
+        if (prefixSum * 2 == sum || (prefixSum * 2 == sum - nums[i])) {
+            for (int j = 0; j <= i; ++j) {
+                cout << nums[j] << endl;
+            }
+            cout << 0 << endl;
+            found = true;
             break;
         }
     }
-    
-    if (abs(runningSum - target) < abs(sum - runningSum - target)) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
+
+    if (!found) {
+        cout << "No valid cut found" << endl;
     }
-    
+
     return 0;
 }
