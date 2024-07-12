@@ -1,7 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
