@@ -1,17 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-int next_smallest(int x) {
-    int n = x;
-    if (n <= 1) return -1;
-    int res = -1;
-    while (n > 0) {
-        n /= 10;
-        if (res == -1 || res > n) res = n;
+void next_smallest(int val, std::vector<int>& lst) {
+    for (int i = 0; i < lst.size(); i++) {
+        if (lst[i] < val)
+            return;
     }
-    return res;
+    std::cout << "-1";
 }
 
 int main() {
@@ -32,15 +28,18 @@ int main() {
         if(lst.size() >= 2) {
             std::sort(lst.begin(), lst.end());
             bool same = true;
+            int val = lst[1];
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    if(next_smallest(lst[i]) == -1) std::cout << "-1";
-                    else std::cout << lst[i];
+                    std::cout << lst[i];
                     same = false;
                     break;
                 }
+                else{
+                    val = lst[i];
+                }
             }
-            if(same) std::cout << "-1";
+            next_smallest(val, lst);
         } else std::cout << "-1";
 
     } else std::cout << "-1";
