@@ -1,5 +1,3 @@
-import math
-
-n, m = map(int, input().split())
+n, m = map(int, input("Enter n and m separated by a space: ").split())
 p = sum(1 for i in range(1, n+1) for j in range(1, m+1) if i > j) / (n * m)
 print('{:.8f}'.format(p))
