@@ -1,1 +1,4 @@
-int main
+#include "cpp"
+int main() {
+    // ...
+}
