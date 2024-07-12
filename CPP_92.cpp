@@ -10,6 +10,11 @@ bool is_int(float a, float b, float c) {
     return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
 }
 
+bool any_int(float a, float b) {
+    int ai = (int)a;
+    return (ai == ai + (int)b);
+}
+
 int main_function() {
     float a, b, c;
     cout << "Enter three numbers: ";
@@ -19,6 +24,7 @@ int main_function() {
     else
         cout << "None of the input numbers are integers.\n";
 
-    assert(is_int(3.01, 4, 7) == false);
+    assert(any_int(3.01,4,7)==false);
+
     return 0;
 }
