@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -11,7 +12,12 @@ bool is_prime(int num) {
     return true;
 }
 
-main() {
+int main() {
     int num;
     cin >> num;
-    cout << (is_prime(num) ? "True" : "False") << endl;
+    if(num < 2) {
+        cout << "Error: Input should be greater than or equal to 2." << endl;
+    } else {
+        cout << (is_prime(num) ? "True" : "False") << endl;
+    }
+}
