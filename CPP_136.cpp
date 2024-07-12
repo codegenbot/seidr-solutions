@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
-using namespace std;
+#include <algorithm>
+#include <iterator>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -18,6 +18,10 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
             smallest_positive = num;
         }
     }
+
+    if (largest_negative == INT_MIN) largest_negative = 0;
+    if (smallest_positive == INT_MAX) smallest_positive = 0;
+
     return {largest_negative, smallest_positive};
 }
 
