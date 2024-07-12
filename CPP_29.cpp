@@ -1,10 +1,7 @@
-```
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <initializer_list>
-#include <iostream>
-
-using namespace std;
 
 bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -39,7 +36,6 @@ int main() {
     string prefix;
     cout << "Enter prefix:" << endl;
     getline(cin, prefix);
-    
     vector<string> result = filter_by_prefix(a, prefix);
 
     if (!same) 
