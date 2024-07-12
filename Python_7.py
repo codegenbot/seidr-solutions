@@ -14,8 +14,8 @@ elif action == 'search':
         print(f"Substrings '{substring}' not found in any of the provided strings.")
     else:
         if len(result) == 1:
-            print([result[0]])
+            print(result[0])
         else:
-            print(result)
+            print(*result, sep='\n')
 else:
     print("Goodbye!")
