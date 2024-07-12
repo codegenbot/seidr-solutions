@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
@@ -33,6 +34,3 @@ def parse_music(music_string: str) -> list:
             while i < len(music_string) and not music_string[i].isalnum():
                 i += 1
     return music_list
-
-input_str = input("Enter a music string: ")
-print(parse_music(input_str))
