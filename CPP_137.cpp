@@ -1,7 +1,9 @@
 #include <boost/any.hpp>
-using namespace boost;
+using namespace std;
 
-// Rest of your function code here...
+// your function definition
+boost::any a = ...;
+boost::any b = ...;
 
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
     int x = boost::any_cast<int>(a);
@@ -11,7 +13,8 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (x < y)
         return b;
     else
-        return "None";
+        return a; // since it's equal, we can return either one
+
 } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
     double x = boost::any_cast<double>(a);
     double y = boost::any_cast<double>(b);
@@ -20,17 +23,19 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (x < y)
         return b;
     else
-        return "None";
-} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    std::string x = boost::any_cast<std::string>(a);
-    std::string y = boost::any_cast<std::string>(b);
+        return a; // since it's equal, we can return either one
+
+} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    string x = boost::any_cast<string>(a);
+    string y = boost::any_cast<string>(b);
     int xi = stoi(x), yi = stoi(y);
     if (xi > yi)
         return a;
     else if (xi < yi)
         return b;
     else
-        return "None";
+        return a; // since it's equal, we can return either one
+
 } else {
     throw invalid_argument("Invalid input");
 }
