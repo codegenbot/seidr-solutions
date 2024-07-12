@@ -7,4 +7,4 @@ guess_count = {c: guess.count(c) for c in set(guess)}
 
 white_pegs = sum(min(code_count.get(c, 0), guess_count.get(c, 0)) for c in set(code)) - black_pegs
 
-print(max(0, white_pegs - black_pegs), black_pegs)
+print(max(0, white_pegs), black_pegs)
