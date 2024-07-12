@@ -18,9 +18,9 @@ bool prime_length(const char* str){
         char c = str[i];
         if(c >= '0' && c <= '9') {
             int n = c - '0'; 
-            s.insert(s.end(), (isPrime(n) ? '0' : c));
+            s.push_back((isPrime(n) ? (c - '0' + '1') : c));
         } else {
-            s.insert(s.end(), c);
+            s.push_back(c);
         }
     }
     return s.length() > 1;
