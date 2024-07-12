@@ -1,16 +1,16 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cassert>
 
 int double_the_difference(std::vector<float> lst) {
-    int odd_sum = 0;
+    float odd_sum = 0;
     for (float num : lst) {
         if (num % 2 != 0) {
             odd_sum += static_cast<int>(num);
         }
     }
-    return abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0f));
+    return std::abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0f));
 }
 
 int main() {

@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool areSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     for(int i = 0; i < a.size();i++){
         if(a[i] != b[i]) return false;
     }
@@ -10,7 +10,7 @@ bool areSame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> getResult(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
-    if(areSame(game,guess)){
+    if(issame(game,guess)){
         for (int i = 0; i < game.size(); i++) {
             result.push_back(2);
         }
