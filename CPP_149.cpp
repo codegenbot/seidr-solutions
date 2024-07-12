@@ -2,14 +2,6 @@
 #include <algorithm>
 #include <cctype>
 
-bool issame(const std::string& s1, const std::string& s2) {
-    if (s1.size() != s2.size()) return false;
-    for (size_t i = 0; i < s1.size(); ++i) {
-        if (std::tolower(s1[i]) != std::tolower(s2[i])) return false;
-    }
-    return true;
-}
-
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result = lst;
     for (auto it = result.begin(); it != result.end();) {
@@ -21,11 +13,13 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
     sort(result.begin(), result.end(),
          [](const std::string& a, const std::string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
+             if (std::tolower(a[0]) != std::tolower(b[0]))
+                 return std::tolower(a[0]) < std::tolower(b[0]);
+             for (size_t i = 1; i < a.size(); ++i) {
+                 if (a[i] != b[i])
+                     return a[i] < b[i];
              }
+             return a.size() < b.size();
          });
     return result;
 }
