@@ -1,3 +1,4 @@
+```
 def process_numbers():
     user_input = input("Enter numbers separated by delimiter: ")
 
@@ -18,6 +19,6 @@ def process_numbers():
             result.append(",")
         result.append(str(num))
         prev_num = num
-    return ''.join(result)
+    return result
 
 print(process_numbers())
