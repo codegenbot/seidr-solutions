@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <vector>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
@@ -8,4 +10,9 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     return oddCount == 0 ? "YES" : "NO";
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    // ...
 }
