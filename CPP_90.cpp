@@ -4,13 +4,14 @@
 
 using namespace std;
 
-int nextSmallest(int lst[], int n) {
+void nextSmallest(int lst[], int n) {
     for (int i = 0; i < n - 1; i++) {
         if (lst[i] != lst[i+1]) {
-            return lst[i];
+            cout << lst[i];
+            return;
         }
     }
-    return -1;
+    cout << "-1";
 }
 
 int main(){
@@ -28,6 +29,6 @@ int main(){
         cout << "-1";
     else {
         sort(lst.begin(), lst.end());
-        cout << nextSmallest(&lst[0], lst.size());
+        nextSmallest(&lst[0], lst.size());
     }
 }
