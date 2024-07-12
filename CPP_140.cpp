@@ -1,3 +1,5 @@
+#include <string>
+
 string fix_spaces(string text){
     string result = "";
     bool spaceFound = false;
