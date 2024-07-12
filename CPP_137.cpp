@@ -20,10 +20,10 @@ int main() {
     std::cin >> b;
 
     if (a.size() > 0 && b.size() > 0) {
-        int s1 = compare_one(a, 1);
-        int s2 = compare_one(b, 2);
+        int num1 = compare_one(a, 1);
+        int num2 = compare_one(b, 2);
 
-        return (s1 < s2) ? -1 : ((s2 < s1) ? 1 : 0); 
+        return (num1 < num2) ? -1 : ((num2 < num1) ? 1 : 0); 
     } else
         return 0;
 }
