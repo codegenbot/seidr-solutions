@@ -2,7 +2,7 @@ def calculate_bowling_score(input_str):
     score = 0
     frame = 1
     rolls = list(input_str.replace("-", "0"))
-
+    
     for i in range(len(rolls)):
         if rolls[i] == "X":
             score += 10
@@ -18,7 +18,7 @@ def calculate_bowling_score(input_str):
                 frame += 1
         else:
             score += int(rolls[i])
-
+    
     return score
 
 input_str = input()
