@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int maxRight = nums[n - 1];
     leaders.push_back(maxRight);
@@ -14,22 +13,20 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    reverse(leaders.begin(), leaders.end());
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
-vector<int> nums;
-vector<int> result;
-
 int main() {
     int n;
-    cin >> n;
-    nums.resize(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
 
-    result = findLeaders(nums);
+    std::reverse(nums.begin(), nums.end()); // Reverse the input vector
+    std::vector<int> result = findLeaders(nums);
 
     for (int leader : result) {
         std::cout << leader << " ";
