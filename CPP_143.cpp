@@ -23,7 +23,7 @@ vector<string> split(const string& str, const string& delimiter) {
     return tokens;
 }
 
-string words_in_sentence(string sentence){
+string words_in_sentence(string& sentence){
     string result = "";
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
