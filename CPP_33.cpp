@@ -37,24 +37,23 @@ std::vector<int> sort_third(std::vector<int> l) {
 }
 
 int main() {
-    int n, num;
-    std::cout << "Enter the size of the array: ";
+    int n, i;
     std::cin >> n;
-    
-    std::vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element number " << i + 1 << ": ";
-        std::cin >> num;
-        vec[i] = num;
+    std::vector<int> l(n);
+    for (i = 0; i < n; i++) {
+        std::cin >> l[i];
     }
     
-    std::vector<int> sorted_vec = sort_third(vec);
-    
-    std::cout << "The sorted array is: ";
-    for (int x : sorted_vec) {
-        std::cout << x << " ";
-    }
+    std::cout << "Original: ";
+    for (i = 0; i < n; i++) {
+        std::cout << l[i] << " ";
+    } 
     std::cout << std::endl;
     
-    return 0;
+    std::vector<int> result = sort_third(l);
+    std::cout << "Sorted: ";
+    for (i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
+    }
+    std::cout << std::endl;
 }
