@@ -17,8 +17,12 @@ int main() {
     string str;
     cin >> str;
     
-    int result = histogram(str, arr);
-    cout << result << endl;
+    if(str == "print") {
+        int result = histogram(str, arr); 
+        cout << result << endl;
+    } else {
+        return 0;
+    }
     
     return 0;
 
