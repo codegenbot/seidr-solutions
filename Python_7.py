@@ -1,4 +1,3 @@
-```
 def find_substring():
     while True:
         try:
@@ -28,3 +27,6 @@ def find_substring():
                 print("Goodbye!")
         except (ValueError, TypeError):
             print("Expected multiple strings. Please enter again.")
+
+if __name__ == "__main__":
+    find_substring()
