@@ -1,21 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> const &a, std::vector<int> const &b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
-        std::sort(lst.begin(), lst.end());
-        if (lst[0] < lst[lst.size() - 1]) {
-            result.push_back(lst[0]);
-            lst.erase(lst.begin());
+        int min_val = *std::min_element(lst.begin(), lst.end());
+        int max_val = *std::max_element(lst.begin(), lst.end());
+        if (min_val < max_val) {
+            result.push_back(min_val);
+            lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end() - 1);
         } else {
-            result.push_back(lst.back());
-            lst.pop_back();
+            result.push_back(max_val);
+            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end() - 1);
         }
     }
     return result;
