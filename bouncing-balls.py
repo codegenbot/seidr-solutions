@@ -10,3 +10,6 @@ def bouncing_balls():
         height = start_height * (bounciness_index ** (_ + 1))
         total_distance += abs(2 * height - start_height) if _ == 0 else 2 * height
     print(round(total_distance, 2))
+
+if __name__ == "__main__":
+    bouncing_balls()
