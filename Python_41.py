@@ -1,6 +1,6 @@
-```python
-input_string = input("Enter car race collision: ").strip().lower()
+```
 def check():
+    input_string = input("Enter car race collision: ").strip().lower()
     if "car race collision" in input_string:
         car_race_collision = int(input("Enter a number: "))
         if car_race_collision > 5:
