@@ -29,7 +29,7 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "Next smallest: " << nextSmallest(lst).at(0);
+                    std::cout << "The smallest number that is different from the next in order is: " << lst[i];
                     same = false;
                     break;
                 }
