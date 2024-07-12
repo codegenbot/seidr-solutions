@@ -1,17 +1,14 @@
 int main() {
-    string a, b, c;
-    cin >> a >> b >> c;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
 
-    for (char &ch : c) {
-        for (int i = 0; i < a.size(); ++i) {
-            if (c[i] == a[i]) {
-                ch = b[i];
-                break;
-            }
+    for (char &c : message) {
+        if (c == cipher1[0]) {
+            c = cipher2[0];
         }
     }
 
-    cout << c << endl;
+    cout << message;
 
     return 0;
 }
