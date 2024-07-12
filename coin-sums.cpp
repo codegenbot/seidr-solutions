@@ -11,7 +11,7 @@ int main() {
     int dimes = min((cents - quarters * 25) / 10, ((cents - quarters * 25) % 20) / 10);
     cents -= dimes * 10;
 
-    int nickels = min(cents / 5, cents / 5); // Calculate max number of nickels
+    int nickels = min(cents / 5, cents / 5); 
     cents -= nickels * 5; 
 
     int pennies = cents;
