@@ -5,7 +5,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     current_group = ""
 
-    valid = True
     for char in paren_string:
         if char == "(":
             stack.append("(")
@@ -18,10 +17,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     result.append(current_group)
                     current_group = ""
             else:
-                valid = False
-                break
+                current_group += ")"
 
-    if stack or not valid:
-        return ["Invalid input string with unbalanced parentheses"]
-    else:
-        return result
+    while "(" in current_group:
+        current_group = current_group.replace("(", "", 1)
+        result.append("(")
+
+    if current_group:
+        result.append(current_group)
+
+    return result
