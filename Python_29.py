@@ -1,4 +1,3 @@
-```
 def filter_by_prefix(prefix="", user_input=None):
     if user_input is None:
         strings = input('Enter a list of strings (separated by commas): ')
