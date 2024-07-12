@@ -15,24 +15,18 @@ bool same(std::vector<float> a, std::vector<float> b) {
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even, odd;
 
-    even.reserve(l.size());
-    odd.reserve(l.size());
-
     for (float i : l) {
-        if (even.size() % 2 == 0) {
-            if (!even.empty())
-                even.push_back(i);
-            else
-                odd.push_back(i);
-        } else {
+        if (i % 2 == 0) {
             even.push_back(i);
+        } else {
+            odd.push_back(i);
         }
     }
 
     std::sort(even.begin(), even.end());
 
-    for (float i : even)
-        odd.insert(odd.end(), i);
+    for (auto it = even.rbegin(); it != even.rend(); ++it)
+        odd.insert(odd.end(), *it);
 
     return odd;
 }
