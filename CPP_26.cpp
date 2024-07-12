@@ -1,25 +1,22 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b) {
-    return std::includes(b.begin(), b.end(), a.begin(), a.end());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::unordered_set<int> seen;
     std::vector<int> result;
+    
     for (int num : numbers) {
-        bool isSame = false;
-        for (auto& v : result) {
-            if (issame({num}, {v})) {
-                isSame = true;
-                break;
-            }
-        }
-        if (!isSame) {
+        if (!seen.count(num)) {
+            seen.insert(num);
             result.push_back(num);
         }
     }
+    
     return result;
 }
 
