@@ -8,5 +8,3 @@ def count_odd_numbers():
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
     print("Program ended.")
-
-count_odd_numbers()
