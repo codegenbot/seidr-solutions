@@ -9,7 +9,12 @@ int compare(const std::pair<std::string, std::string>& a, const std::pair<std::s
 }
 
 std::string Strongest_Extension(std::string type, const std::vector<std::string>& strong) {
-    extensions.push_back({type, *std::max_element(strong.begin(), strong.end(), compare)});
+    if (strong.empty()) {
+        return "";
+    }
+    
+    std::sort(strong.begin(), strong.end(), compare);
+    extensions.push_back({type, *std::rbegin(strong)});
     return extensions.back().first + "." + extensions.back().second;
 }
 

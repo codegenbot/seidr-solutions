@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -19,4 +18,6 @@ std::string intToMiniRoman(int n) {
 
 int main() {
     std::cout << intToMiniRoman(1999) << std::endl;
+    assert(intToMiniRoman(1000) == "M");
+    return 0;
 }
