@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,7 +7,7 @@ bool issame(vector<float> a, vector<float> b) {
 
 int main() {
     vector<float> input({});
-    get_positive(input); 
+    move(get_positive(input), {});
     assert(issame(get_positive(input), {}));  
     return 0;
 }
