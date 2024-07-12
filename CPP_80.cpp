@@ -10,11 +10,10 @@ bool is_happy(std::string s) {
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
             sub += s[i+j];
         }
-        std::string strArr = sub;
         bool unique = true;
-        for (char c : strArr) {
+        for (char c : sub) {
             int count = 0;
-            for (char a : strArr) {
+            for (char a : sub) {
                 if (a == c)
                     count++;
             }
@@ -27,14 +26,15 @@ bool is_happy(std::string s) {
             return false;
     }
     return true;
-
 }
 
-std::cout << "Enter a string: ";
-std::string input;
-while (true) {
-    std::cin >> input;
-    if (input == "exit")
-        break;
-    std::cout << (is_happy(input) ? "True" : "False") << std::endl;
+int main() {
+    std::cout << "Enter a string: ";
+    std::string input;
+    while (true) {
+        std::cin >> input;
+        if (input == "exit")
+            break;
+        std::cout << (is_happy(input) ? "True" : "False") << std::endl;
+    }
 }
