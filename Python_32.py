@@ -1,8 +1,6 @@
-import sys
-
 def main():
     print("Enter a list of floats separated by spaces:")
-    xs = list(map(float, sys.stdin.readline().strip().split()))
+    xs = list(map(float, input().split()))
 
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
@@ -23,5 +21,6 @@ def main():
     except ZeroDivisionError as e:
         print(str(e))
 
+# Call the main function
 if __name__ == "__main__":
     main()
