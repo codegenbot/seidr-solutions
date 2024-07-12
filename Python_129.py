@@ -4,7 +4,7 @@ def minPath(grid, k):
 
     def dfs(i, j, path):
         if len(path) == k:
-            return [path]
+            return [sum([int(x) for x in path])]
         paths = []
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
@@ -17,10 +17,8 @@ def minPath(grid, k):
     for i in range(n):
         for j in range(n):
             paths = dfs(i, j, [])
-            if paths:
-                all_paths.append(min(paths))
+            all_paths.extend(paths)
 
-    all_paths.sort()
     return min(all_paths)
 
 
