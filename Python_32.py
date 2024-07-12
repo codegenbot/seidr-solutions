@@ -1,7 +1,10 @@
-import sys
-
 def main():
-    xs = list(map(float, sys.argv[1:]))
+    try:
+        xs = list(map(float, input("Enter a list of floats separated by spaces:").split()))
+    except:
+        print("Input must be a list of floats separated by spaces")
+        return
+
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
         return
