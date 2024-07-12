@@ -17,7 +17,10 @@ bool prime_length(const char* str){
         char c = str[i];
         if(c >= '0' && c <= '9') {
             int n = c - '0'; 
-            s += std::to_string(isPrime(n) ? n : 0); // convert int to string and append
+            while(n > 0) {
+                s.append(std::to_string(n % 10));
+                n /= 10;
+            }
         } else {
             s += std::string(1, c); // push_back char as a string instead of char
         }
@@ -31,3 +34,4 @@ int main() {
     bool result = prime_length(str);
     std::cout << "Prime length of '" << str << "' is: " << (result ? "prime" : "not prime") << std::endl;
     return 0;
+}
