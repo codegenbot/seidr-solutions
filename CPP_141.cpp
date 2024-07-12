@@ -2,36 +2,38 @@
 #include <string>
 #include <cassert>
 
-string file_name_check(string file_name) {
+std::string file_name_check(std::string file_name) {
     int digitCount = 0;
-    bool valid = true;
-    
-    for (char c : file_name) {
-        if (isdigit(c)) {
+    int dotCount = 0;
+    int dotIndex = -1;
+    for(int i = 0; i < file_name.size(); i++){
+        if(isdigit(file_name[i])){
             digitCount++;
-        } else if (c == '.') {
-            if (digitCount > 3 || file_name.find('.') != file_name.rfind('.') || file_name.find('.') == 0 || file_name.find('.') == file_name.size() - 1) {
-                valid = false;
-                break;
-            }
-            string ext = file_name.substr(file_name.find('.') + 1);
-            if (ext != "txt" && ext != "exe" && ext != "dll") {
-                valid = false;
-                break;
-            }
+            if(digitCount > 3)
+                return "No";
+        }
+        else if(file_name[i] == '.'){
+            dotCount++;
+            dotIndex = i;
         }
     }
+    if(dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size()-1)
+        return "No";
     
-    if (digitCount > 3) {
-        valid = false;
-    }
+    std::string extension = file_name.substr(dotIndex + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll")
+        return "No";
     
-    return (valid) ? "Yes" : "No";
+    if(!isalpha(file_name[0]))
+        return "No";
+    
+    return "Yes";
 }
 
+int main();
+
 int main() {
-    assert (file_name_check("s.") == "No");
-    // Add more test cases here..
+    assert(file_name_check("s.") == "No");
     
     return 0;
 }
