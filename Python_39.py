@@ -1,6 +1,4 @@
-n = None
-while n is None:
-    try:
-        n = int(input("Enter a number: "))
-    except ValueError:
-        print("Invalid input. Please enter a valid number.")
+try:
+    n = int(input())
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
