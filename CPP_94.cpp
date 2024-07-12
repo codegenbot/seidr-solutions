@@ -1,16 +1,18 @@
 ```cpp
 #include <iostream>
+#include <algorithm>
 
-int calculateScore(int values[]) {
-    int sum = 0;
-    for (int i = 0; i < sizeof(values) / sizeof(values[0]); i++) {
-        sum += values[i];
+int skjkasdkd(int arr[]) {
+    int max = *std::max_element(arr, arr + sizeof(arr) / sizeof(arr[0]));
+    if (max >= 8192) {
+        return 10;
+    } else {
+        return 5;
     }
-    return sum;
 }
 
 int main() {
-    int myValues[] = {127, 97, 8192};
-    std::cout << "The score is: " << calculateScore(myValues) << std::endl;
+    int arr[] = {127, 97, 8192};
+    assert(skkjasdkd(arr) == 10);
     return 0;
 }
