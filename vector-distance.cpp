@@ -21,17 +21,19 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    if (vec1.size() != vec2.size()) {
+    if (vec1.size() != n) {
         std::cout << "Input vectors must have the same size!" << std::endl;
         return 1;
     }
 
     float result = 0.0f;
     for (int i = 0; i < n; ++i) {
-        result += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        result += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    std::cout << std::fixed << std::sqrt(result) << std::endl;
+    result = std::sqrt(result);
+
+    std::cout << std::fixed << result << std::endl;
 
     return 0;
 }
