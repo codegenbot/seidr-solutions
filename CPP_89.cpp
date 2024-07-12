@@ -1,9 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-std::string encrypt(const std::string& s) {
+std::string encrypt(std::string& s) {
     std::string result = "";
     for (char c : s) {
         if (c == 'a') c = 'e';
@@ -14,9 +13,9 @@ std::string encrypt(const std::string& s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << encrypt(input) << endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << encrypt(input) << std::endl;
     return 0;
 }
