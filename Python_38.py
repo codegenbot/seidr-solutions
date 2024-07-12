@@ -6,7 +6,6 @@ def decode_cyclic(s: str):
         if i == len(s) - 1:
             break
         i += 3
-    # Check for remaining characters
     if i != len(s) - 1:
         result.append(s[i:])
     return "".join(result)
