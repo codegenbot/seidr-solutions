@@ -16,6 +16,8 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        cout << solve(N) << endl;
+        int result = solve(N);
+        cout << result << endl;
+        assert(solve(963) == 505); 
     }
 }
