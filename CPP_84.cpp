@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -19,6 +18,7 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
+        assert(to_string(solve(963)) == "10010");
         cout << to_string(solve(N)) << endl;
     }
     return 0;
