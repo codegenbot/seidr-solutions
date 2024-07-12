@@ -1,32 +1,41 @@
-int score(const string& s) {
-    int frame = 1, score = 0, i = 0;
-    while (frame <= 10 && i < s.size()) {
-        if (s[i] == 'X') {
-            score += 10;
-            score += (s[i+2] == 'X') ? 10 : (isdigit(s[i+1]) ? s[i+1]-'0' : 10);
-            score += (s[i+2] == 'X' && s[i+4] == 'X') ? 10 : (isdigit(s[i+2]) ? s[i+2]-'0' : 10);
-            i += 2;
-        } else if (isdigit(s[i])) {
-            score += s[i] - '0';
-            if (s[i+1] == '/') {
-                score += 10 - (s[i] - '0');
-            } else if (isdigit(s[i+1])) {
-                score += s[i+1] - '0';
-            }
-            i += 2;
-        } else if (s[i] == '/') {
-            score += 10 - (s[i-1] - '0');
-            score += (isdigit(s[i+1]) ? s[i+1]-'0' : 10);
-            i += 2;
+int bowling(string s) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    int rolls[21] = {0};
+    
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball] = 10;
+            rolls[ball + 1] = 0;
+            ball += 2;
+            frame++;
+        } else if (c == '/') {
+            rolls[ball] = 10 - rolls[ball - 1];
+            ball++;
+        } else if (c == '-') {
+            rolls[ball] = 0;
+            ball++;
+        } else {
+            rolls[ball] = c - '0';
+            ball++;
         }
-        frame++;
     }
+    
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i * 2] == 10) {
+            score += 10 + rolls[i * 2 + 2] + rolls[i * 2 + 3];
+            if (rolls[(i + 1) * 2] == 10) {
+                score += rolls[(i + 2) * 2];
+            }
+        } else {
+            if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
+                score += 10 + rolls[i * 2 + 2];
+            } else {
+                score += rolls[i * 2] + rolls[i * 2 + 1];
+            }
+        }
+    }
+    
     return score;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s);
-    return 0;
 }
