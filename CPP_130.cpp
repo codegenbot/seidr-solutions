@@ -1,13 +1,7 @@
 #include <vector>
 
 std::vector<int> tri(int n) {
-    std::vector<int> triangle;
-    int sum = 0;
-    for (int i = 1; i <= n; ++i) {
-        sum += i;
-        triangle.push_back(sum);
-    }
-    return triangle;
+    return std::vector<int>(n, 1);
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
