@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (std::cin >> n) {
         nums.push_back(n);
     }
     
@@ -24,7 +23,7 @@ int main() {
             right_sum += nums[j];
         }
         
-        int current_diff = abs(left_sum - right_sum);
+        int current_diff = std::abs(left_sum - right_sum);
         if (current_diff < diff) {
             diff = current_diff;
             idx = i;
@@ -32,14 +31,14 @@ int main() {
     }
     
     for (int i = 0; i < idx; i++) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     
     for (int i = idx; i < nums.size(); i++) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     
     return 0;
 }
