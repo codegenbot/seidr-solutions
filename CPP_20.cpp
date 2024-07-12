@@ -20,14 +20,12 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> numbers = {3.5, 2.1, 5.4, 1.8, 4.2};
+    vector<float> numbers = {3.5, 2.0, 7.1, 4.3, 1.8};
     pair<float, float> result = find_closest_elements(numbers);
-    
-    if(issame(result, {3.5, 4.2})) {
-        cout << "Correct answer" << endl;
+    if (issame(result, {2.0, 3.5})) {
+        cout << "Correct"; 
     } else {
-        cout << "Incorrect answer" << endl;
+        cout << "Incorrect"; 
     }
-
     return 0;
 }
