@@ -1,6 +1,7 @@
+```
 def fizz_buzz(n: int):
     count = 0
-    for i in range(1, n + 1):
-        if str(i).count("7") > 0 and i % 13 == 0:
+    for i in range(1, n+1):
+        if i % 13 == 0 and '7' in str(i):
             count += 1
     return count
