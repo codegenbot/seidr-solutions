@@ -1,4 +1,2 @@
-```
-def car_race_collision():
-    n = int(input("Enter a number: "))
-    return n * (n - 1) // 2
+def car_race_collision(n: int):
+    return (n * 1000) + ((n - 1) * 1000)
