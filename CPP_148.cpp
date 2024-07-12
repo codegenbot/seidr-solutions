@@ -34,14 +34,14 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
 }
 
 int main() {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    
     std::cout << "Enter the first planet: ";
     std::string planet1;
     std::cin >> planet1;
     std::cout << "Enter the second planet: ";
     std::string planet2;
     std::cin >> planet2;
-
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
     if (!bf(planets, planet1, planet2).empty())
         std::cout << "Output: ";
