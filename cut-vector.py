@@ -2,13 +2,13 @@ n = int(input())
 numbers = [int(input()) for _ in range(n)]
 
 total_sum = sum(numbers)
-left_sum = 0
-right_sum = total_sum
+half_sum = total_sum // 2
+closest_sum = 0
 
 for i in range(n):
-    left_sum += numbers[i]
-    right_sum -= numbers[i]
-    if left_sum >= right_sum:
+    if closest_sum + numbers[i] <= half_sum:
+        closest_sum += numbers[i]
+    else:
         break
 
 subvector1 = numbers[: i + 1]
