@@ -36,13 +36,19 @@ int main() {
     std::string s2 = "mama";
     
     if(checkEquality(reverse_delete("mamma", "mia"), "True")) {
-        if(s1 == s2) {
-            std::cout << std::move(s1) << " and " << s2 << " are the same." << std::endl;
+        if(s1.length() == s2.length()) {
+            for(int i=0; i<s1.length(); i++) {
+                if(s1[i] != s2[i]) {
+                    std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+                    return 0;
+                }
+            }
+            std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else {
-            std::cout << std::move(s1) << " and " << s2 << " are not the same." << std::endl;
+            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         }
     } else {
-        std::cout << std::move(s1) << " and " << s2 << " are not the same." << std::endl;
+        std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
     }
     return 0;
 }
