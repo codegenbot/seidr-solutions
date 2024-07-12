@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int driver() {
+int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -24,6 +24,10 @@ int driver() {
 
 }
 
+bool issame(map<char,int> a,map<char,int> b){
+    if(a==b) return true;
+    return false;
+}
 int histogram(string s, vector<int>& arr) {
     if (s == "print") {
         int max_val = *max_element(arr.begin(), arr.end());
