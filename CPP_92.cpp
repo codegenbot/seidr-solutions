@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -19,6 +18,5 @@ int main() {
         cout << "At least one of the input numbers is an integer.\n";
     else
         cout << "None of the input numbers are integers.\n";
-    
     return 0;
 }
