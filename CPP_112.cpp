@@ -40,26 +40,22 @@ int main() {
     if(isSame) {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
-        } else if (s1.empty()) {
-            if (!s2.empty()) {
-                std::cout << (s2.empty() ? "" : s2) << " and " << s2 << " are the same." << std::endl;
-            } else {
-                std::cout << "empty" << " and empty are the same." << std::endl;
-            }
-        } else {
+        } else if (s1.empty() && s2.empty()) {
+            std::cout << "empty" << " and empty are the same." << std::endl;
+        } else if (!s1.empty()) {
             std::cout << s1 << " and empty are the same." << std::endl;
+        } else {
+            std::cout << s2 << " and empty are the same." << std::endl;
         }
     } else {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
-        } else if (s1.empty()) {
-            if (!s2.empty()) {
-                std::cout << (s2.empty() ? "" : s2) << " and " << s2 << " are not the same." << std::endl;
-            } else {
-                std::cout << "empty" << " and empty are not the same." << std::endl;
-            }
-        } else {
+        } else if (s1.empty() && s2.empty()) {
+            std::cout << "empty" << " and empty are not the same." << std::endl;
+        } else if (!s1.empty()) {
             std::cout << s1 << " and empty are not the same." << std::endl;
+        } else {
+            std::cout << s2 << " and empty are not the same." << std::endl;
         }
     }
     return 0;
