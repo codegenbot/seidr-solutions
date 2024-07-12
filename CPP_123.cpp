@@ -29,7 +29,7 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(get_odd_collatz(1) == vector<int>{1});
+    assert(get_odd_collatz(1) == vector<int>({1}));
     
     return 0;
 }
