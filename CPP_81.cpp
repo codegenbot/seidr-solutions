@@ -10,7 +10,7 @@ bool checkSame(vector<string> a) {
     }
     vector<float> grades = {0, 0.7};
     vector<string> b = numerical_letter_grade(grades);
-    for (int i = 0; i < a.size(); i++) {
+    for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[0]) {
             return false;
         }
