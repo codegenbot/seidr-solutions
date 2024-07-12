@@ -1,6 +1,3 @@
 n = int(input())
 m = int(input())
-if n > m:
-    print(0.5)
-else:
-    print((m - 1) / m)
+print('{:.2f}'.format((n-1) / n if n > m else 0.5 if n < m else 0.0))
