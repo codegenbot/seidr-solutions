@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 #include <limits>
 
 using namespace std;
@@ -22,7 +21,7 @@ bool checkSame(vector<string> a) {
 
 vector<string> numerical_letter_grade(initializer_list<float> grades) {
     vector<string> result;
-    for (auto&& grade : grades) {
+    for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");
         else if (grade > 3.7)
