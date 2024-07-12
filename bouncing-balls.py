@@ -3,7 +3,7 @@ def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
     total_distance = starting_height + first_bounce_height
     for _ in range(2, num_bounces + 1):
         first_bounce_height *= bounciness_index
-        total_distance += first_bounce_height
+        total_distance += first_bounce_height * 2
     return total_distance
 
 
@@ -12,4 +12,4 @@ first_bounce_height = float(input())
 num_bounces = int(input())
 
 result = calculate_total_distance(starting_height, first_bounce_height, num_bounces)
-print("{:.15f}".format(result))
+print("{:.15f}".format(result))  # Print the result with higher precision
