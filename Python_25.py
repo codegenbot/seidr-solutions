@@ -1,10 +1,21 @@
+```
 from typing import List
+import math
 
 
-def find_common_factor(num1: int, num2: int) -> int:
-    factors1 = set(factorize(num1))
-    factors2 = set(factorize(num2))
-
-    common_factors = factors1 & factors2
-
-    return max(common_factors)
+def factorize(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
