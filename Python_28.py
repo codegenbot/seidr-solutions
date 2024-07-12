@@ -1,8 +1,9 @@
 ```
+```
 from typing import List
 
 def concatenate() -> str:
-    strings = []
+    strings: List[str] = []
     while True:
         user_input = input("Enter a string (or 'done' to finish): ")
         if user_input.lower() == 'done':
@@ -11,3 +12,4 @@ def concatenate() -> str:
     return ''.join(strings)
 
 print(concatenate())
+```
