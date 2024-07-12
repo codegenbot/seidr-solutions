@@ -1,10 +1,3 @@
-import itertools
-
-
+```python
 def sort_third(lst):
-    return [
-        sum(g) // len(g)
-        for _, g in itertools.groupby(
-            sorted((i // 3, j) for i, j in enumerate(lst)), key=lambda x: (x[0])
-        )
-    ]
+    return sorted([i for i in lst if (lst.index(i) + 1) % 3 == 0])
