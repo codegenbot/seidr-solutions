@@ -1,14 +1,12 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-# define c++11
-
-size_t kebabToCamel(string str) {
-    size_t result = "";
+string kebabToCamel(string str) {
+    string result = "";
     for (char c : str) {
         if (c == '-') {
             result += toupper(str[str.find(c) + 1]);
@@ -23,6 +21,7 @@ size_t kebabToCamel(string str) {
 }
 
 int main() {
+    #define c++11
     string str;
     while (cin >> str) {
         cout << kebabToCamel(str) << endl;
