@@ -24,14 +24,11 @@ def decode_shift():
     result = ""
     for ch in encoded_str:
         if ch.isalpha():
-            if ch.isupper():
-                char_code = ord('A')
-            else:
-                char_code = ord('a')
+            char_code = ord(ch.lower())
             result += (
-                chr((ord(ch) - char_code - shift) % 26 + char_code)
+                chr((char_code - ord("a") - shift) % 26 + ord("a"))
                 if "a" <= ch <= "z"
-                else chr((ord(ch) - char_code - shift) % 26 + char_code)
+                else chr((ord(ch.upper()) - ord("A") - shift) % 26 + ord("A"))
             )
         else:
             result += ch
