@@ -1,22 +1,21 @@
-```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-bool any_int(float a, float b, float c) {
+bool is_int(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;
     int ci = (int)c;
-    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
+    return (ai == a && bi == b && ci == c) || (ai == a + bi + ci) || 
+           (bi == a + bi + ci) || (ci == a + bi + ci);
 }
 
-int main
-{
+int main_function() {
     float a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-    if (any_int(a, b, c)) 
+    if (is_int(a, b, c)) 
         cout << "At least one of the input numbers is an integer.\n";
     else
         cout << "None of the input numbers are integers.\n";
