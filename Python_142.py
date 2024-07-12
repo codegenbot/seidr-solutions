@@ -1,7 +1,3 @@
-```
-def sum_squares(lst):
-    return sum(i**2 for i in lst)
-
 while True:
     try:
         lst = input("Enter a list of numbers separated by space: ").split()
@@ -12,4 +8,4 @@ while True:
         else:
             print("Some numbers are out of range.")
     except ValueError as e:
-        print("Invalid input. Please enter numeric values.")
+        print(f"Invalid input. Please enter numeric values: {e}. Try again!")
