@@ -1,6 +1,3 @@
-def concat_numbers_with_delimeter(numbers, delimeter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    result.pop()
-    return result
+numbers = [1, 2, 3, 4]
+delimeter = ","
+print(concat_numbers_with_delimeter(numbers, delimeter))
