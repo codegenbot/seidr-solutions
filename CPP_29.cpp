@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -22,9 +22,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 int main() {
     vector<string> a;
-    std::cout << "Enter strings (stop when empty):" << std::endl;
-    std::string s;
-    while (std::getline(std::cin, s)) {
+    cout << "Enter strings (stop when empty):" << endl;
+    string s;
+    while (getline(cin, s)) {
         if (s.empty()) break;
         a.push_back(s);
     }
@@ -32,18 +32,17 @@ int main() {
     vector<string> b = a;
     bool same = issame(a, b);
 
-    std::string prefix;
-    std::cout << "Enter prefix:" << std::endl;
-    std::cin >> prefix;
+    string prefix;
+    cout << "Enter prefix:" << endl;
+    cin >> prefix;
+    getline(cin, s); // consume newline left-over
     vector<string> result = filter_by_prefix(a, prefix);
 
-    if(!same) 
-        std::cout << "Strings are not the same." << std::endl;
-    else 
-        std::cout << "Strings are the same." << std::endl;
+    if(!same) cout << "Strings are not the same." << endl;
+    else cout << "Strings are the same." << endl;
 
     for(string s : result) {
-        std::cout << s << std::endl;
+        cout << s << endl;
     }
 
     return 0;
