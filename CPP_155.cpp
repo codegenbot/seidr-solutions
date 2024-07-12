@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <cmath>
 
-vector<int> count_even_odd_digits(int num) {
+vector<int> countEvenOddDigits(int num) {
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
