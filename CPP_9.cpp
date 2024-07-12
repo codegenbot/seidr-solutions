@@ -1,10 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
     std::vector<int> maxNumbers;
-    int currentMax = INT_MIN;
+    int currentMax = std::numeric_limits<int>::min();
 
     for (int num : numbers) {
         if (num > currentMax)
@@ -37,7 +38,7 @@ int main() {
             break;
 
         if(num < 0)
-            continue; 
+            continue; // Skip invalid inputs
 
         numbers.push_back(num);
     }
@@ -50,7 +51,7 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    if(areEqual(rolling_max(v1), rolling_max(v2)))
+    if(areEqual(rolling_max(v1), v2))
         std::cout << "Vectors are equal" << std::endl;
     else
         std::cout << "Vectors are not equal" << std::endl;
