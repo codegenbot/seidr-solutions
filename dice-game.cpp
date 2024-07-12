@@ -1,12 +1,16 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 
 int main() {
     int n, m;
     std::cin >> n >> m;
 
-    double probability = 1.0 - pow((double)(n - 1) / m, n);
+    double probability = 0.0;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m - 1; ++j) {
+            probability += (double)i / n * (double)j / (m - 1);
+        }
+    }
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
