@@ -1,4 +1,10 @@
-```
+def find_closest_number():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    closest_num = min(num1, num2)
+    print(f"The closest number is {closest_num}")
+
+
 def main():
     result = None
     while True:
@@ -9,9 +15,6 @@ def main():
 
     print("Program ended.")
 
-def find_closest_number():
-    num = int(input("Enter a number: "))
-    print(f"The closest integer is {num}.")
 
 if __name__ == "__main__":
     main()
