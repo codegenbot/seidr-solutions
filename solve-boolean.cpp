@@ -17,6 +17,8 @@ bool solveBoolean(string expression) {
             if (s.empty()) {
                 return true;
             }
+        } else if (expression[i] != 'T' && expression[i] != 'F') {
+            return false;
         } else {
             s.push(expression[i]);
         }
@@ -24,4 +26,5 @@ bool solveBoolean(string expression) {
     while (!s.empty()) {
         s.pop();
     }
-    return false;
+    return static_cast<char>(s.top()) == 'T';
+}
