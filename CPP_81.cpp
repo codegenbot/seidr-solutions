@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -14,7 +13,7 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
-    for(int i = 0; i < grades.size(); i++){
+    for(int i=0; i<grades.size(); i++) { 
         string letterGrade;
         if(grades[i] >= 4.0) {
             letterGrade = "A+";
