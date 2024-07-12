@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -35,7 +35,6 @@ int main() {
     string prefix;
     cout << "Enter prefix:" << endl;
     cin >> prefix;
-    getline(cin, s); // consume newline left-over
     vector<string> result = filter_by_prefix(a, prefix);
 
     if(!same) cout << "Strings are not the same." << endl;
@@ -46,4 +45,3 @@ int main() {
     }
 
     return 0;
-}
