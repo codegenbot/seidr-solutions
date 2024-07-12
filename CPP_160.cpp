@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
 
@@ -12,7 +12,10 @@ int do_algebra(std::vector<int> operators, std::vector<int> operands) {
         } else if (operators[i] == 3) {
             result *= operands[i];
         } else if (operators[i] == 4) {
-            result = result / static_cast<int>(operands[i]);
+            if(operands[i] != 0)
+                result = result / static_cast<int>(operands[i]);
+            else
+                return -1; // Division by zero is not allowed
         }
     }
     return result;
