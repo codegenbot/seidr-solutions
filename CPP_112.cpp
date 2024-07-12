@@ -5,7 +5,9 @@
 #include <string>
 
 bool checkEquality(std::string& s, std::string& c) {
-    return s == "True";
+    if (s.empty()) return false;
+    if (c == "True") return true;
+    else return false;
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
@@ -36,17 +38,14 @@ int main() {
     std::string s2 = "mama";
     
     bool isSame = checkEquality(s1, "True");
-    if(s1.length() > 0 && s2.length() > 0) {
-        std::string s1_non_const = s1;
-        std::string s2_non_const = s2;
+    if(!s1.empty() && !s2.empty()) {
+        s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
+        s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
         
-        s1_non_const.erase(std::remove_if(s1_non_const.begin(), s1_non_const.end(), ::isspace), s1_non_const.end());
-        s2_non_const.erase(std::remove_if(s2_non_const.begin(), s2_non_const.end(), ::isspace), s2_non_const.end());
-        
-        if(s1_non_const == s2_non_const) {
-            std::cout << s1_non_const << " and " << s2_non_const << " are the same." << std::endl;
+        if(s1 == s2) {
+            std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else {
-            std::cout << s1_non_const << " and " << s2_non_const << " are not the same." << std::endl;
+            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         }
     } else if (s1.empty() && s2.empty()) {
         std::cout << s1 << " and " << s2 << " are the same." << std::endl;
