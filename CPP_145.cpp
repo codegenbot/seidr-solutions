@@ -12,12 +12,19 @@ int getAscendingOrder(const std::vector<int>& nums) {
 }
 
 bool isMonotonic(const std::vector<int>& nums) {
+    bool increasing = true;
+    bool decreasing = true;
+
     for (int i = 1; i < nums.size(); i++) {
-        if (nums[i] <= nums[i - 1]) {
-            return false;
+        if (nums[i] > nums[i - 1]) {
+            decreasing = false;
+        }
+        else if (nums[i] < nums[i - 1]) {
+            increasing = false;
         }
     }
-    return true;
+
+    return increasing || decreasing;
 }
 
 int main() {
