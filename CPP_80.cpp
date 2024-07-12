@@ -10,7 +10,7 @@ bool is_happy(std::string s) {
         std::string sub = "";
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
             char c = std::toupper(s[i+j]); 
-            sub.push_back(std::toupper(s[i+j])); 
+            sub += std::toupper(s[i+j]); 
         }
         bool unique = true;
         for (char a : sub) { // Check the modified substring
