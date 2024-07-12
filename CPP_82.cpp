@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cstring>
 #include <cassert>
@@ -18,16 +17,17 @@ bool prime_length(const char* str){
         char c = str[i];
         if(c >= '0' && c <= '9') {
             int n = c - '0'; 
-            s += std::to_string(isPrime(n) ? n : 0); 
+            s += std::to_string(isPrime(n) ? n : 0); // convert int to string and append
         } else {
-            s += std::string(1, c); 
+            s += std::string(1, c); // push_back char as a string instead of char
         }
     }
     return s.length() > 1;
 }
 
-void main() {
-    const char* str = "0123";
+int main() {
+    {assert(prime_length("0123") == true); 
+    const char* str = "Hello";
     bool result = prime_length(str);
     std::cout << "Prime length of '" << str << "' is: " << (result ? "prime" : "not prime") << std::endl;
-}
+    return 0;}
