@@ -1,29 +1,23 @@
 #include <vector>
-#include <algorithm> 
-using namespace std; 
+#include <algorithm>
 
-vector<float> get_positive(vector<float> v) {
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> v) {
+    std::vector<float> result;
     for (float x : v) {
-        if (x > 0)
+        if (x > 0) {
             result.push_back(x);
+        }
     }
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (std::abs(a[i] - b[i]) > 1e-9) {
             return false;
+        }
     }
     return true;
-}
-
-int test() {
-    assert(issame(get_positive({1.0, 2.0}), get_positive({1.0, 2.0})) == true);
-    return 0;
-}
