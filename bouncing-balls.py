@@ -6,9 +6,7 @@ def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
         total_distance += first_bounce_height * 2
     return total_distance
 
-starting_height = float(input())
-first_bounce_height = float(input())
-num_bounces = int(input())
+starting_height, first_bounce_height, num_bounces = map(float, input().split())
 
 result = calculate_total_distance(starting_height, first_bounce_height, num_bounces)
-print("{:.15f}".format(result))  # Print the result with higher precision
+print(result)
