@@ -24,7 +24,7 @@ int sumOfDigits(int num) {
 }
 
 int main() {
-    std::vector<int> lst; // initialize here
+    std::vector<int> lst;
     int num, maxPrime = 0;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
