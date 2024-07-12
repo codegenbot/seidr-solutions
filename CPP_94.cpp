@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,8 +24,8 @@ int sumOfDigits(int num) {
 }
 
 int main() {
-    std::vector<int> lst;
-    int num;
+    std::vector<long long> lst;
+    long long num, maxPrime = 0;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
@@ -32,14 +33,14 @@ int main() {
             break;
         }
         lst.push_back(num);
-    }
-    int maxPrime = 0;
-    for (int num : lst) {
-        if (isPrime(num)) {
-            if (num > maxPrime) {
-                maxPrime = num;
+        for (long long n : lst) {
+            if (isPrime(n)) {
+                if (n > maxPrime) {
+                    maxPrime = n;
+                }
             }
         }
     }
-    return sumOfDigits(maxPrime);
+    std::cout << "The sum of digits is: " << sumOfDigits(maxPrime) << std::endl;
+    return 0;
 }
