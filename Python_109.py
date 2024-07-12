@@ -1,13 +1,9 @@
-Here is the completed code:
-
 def move_one_ball(arr):
-    if not arr:
+    if len(arr) == 0:
         return True
-    
-    min_val = min(arr)
-    
-    for i in range(len(arr)):
-        if arr[i] > min_val:
+    i = 1
+    while i < len(arr):
+        if arr[i] < arr[0]:
             return False
-    
+        i += 1
     return True
