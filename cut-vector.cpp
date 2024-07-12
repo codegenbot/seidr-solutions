@@ -9,8 +9,8 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (!cin.eof()) {
-        if (!(cin >> num)) {
+    while (cin >> num) {
+        if (num == -1) {
             break;
         }
         nums.push_back(num);
