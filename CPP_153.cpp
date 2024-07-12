@@ -27,9 +27,23 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
 }
 
 int main() {
-    std::string class_name = "MyClass";
-    std::vector<std::string> extensions = {"Java", "Python", ".txt", "C++"};
-    int output = Strongest_Extension(class_name, extensions);
-    std::cout << "The strongest extension for " << class_name << " is: " << output << std::endl;
+    std::string class_name;
+    std::vector<std::string> extensions;
+
+    // Input from user
+    std::cout << "Enter the class name: ";
+    std::cin >> class_name;
+    std::cout << "Enter the extensions (space separated): ";
+    std::string input;
+    std::getline(std::cin, input);
+    for (const auto& ext : input.split(' ')) {
+        extensions.push_back(ext);
+    }
+
+    // Print output
+    int result = Strongest_Extension(class_name, extensions);
+
+    std::cout << "The strongest extension is: " << result << std::endl;
+
     return 0;
 }
