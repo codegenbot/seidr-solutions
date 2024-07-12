@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
