@@ -1,3 +1,4 @@
+```
 def process_paths(paths):
     while True:
         paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
@@ -20,8 +21,6 @@ def process_paths(paths):
             if len(path) < minPath:
                 minPath = len(path)
 
-        minPath = float('inf')  
-        for path in paths:
-            if len(path) < minPath:
-                minPath = len(path)
         return minPath
+
+print(process_paths([]))
