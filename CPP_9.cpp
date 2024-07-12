@@ -19,7 +19,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return maxNumbers;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b; 
 }
 
@@ -45,7 +45,7 @@ int main() {
     else
         std::cout << "Vectors are not equal" << std::endl;
     
-    assert(issame(rolling_max({3, 2, 3, 100, 3}) ,{3, 3, 3, 100, 100}));
+    assert(are_vectors_equal(rolling_max({3, 2, 3, 100, 3}) ,{3, 3, 3, 100, 100}));
     
     return 0;
 }
