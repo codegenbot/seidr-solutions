@@ -8,7 +8,7 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    OpenSSL_add_all_algorithms(); // Initialize OpenSSL library
+    OpenSSL_add_all_algorithms();
 
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     if (mdctx == nullptr) {
@@ -37,7 +37,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     EVP_MD_CTX_free(mdctx);
-    EVP_cleanup(); // Free resources after usage
+    EVP_cleanup();
 
     char mdString[33];
     for(int i = 0; i < 16; i++) {
