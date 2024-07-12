@@ -1,10 +1,10 @@
 #include <string>
 #include <stack>
 
-int precedence(char c) {
-    if (c == '&') {
+int precedence(char op) {
+    if (op == '&') {
         return 1;
-    } else if (c == '|') {
+    } else if (op == '|') {
         return 0;
     }
     return -1;
