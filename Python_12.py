@@ -1,23 +1,24 @@
-def longest_common_substring(str1: str, str2: str) -> Optional[str]:
-    m = [[0] * (1 + len(str2)) for _ in range(1 + len(str1))]
-    longest, x_longest = 0, 0
-    for x in range(1, len(str1) + 1):
-        for y in range(1, len(str2) + 1):
-            if str1[x - 1] == str2[y - 1]:
-                m[x][y] = m[x - 1][y - 1] + 1
-                if m[x][y] > longest:
-                    longest = m[x][y]
-                    x_longest = x
-    return str1[x_longest - longest : x_longest]
+```
+from typing import List, Optional
 
+def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
+        return None
+    return max(strings, key=len)
 
-while True:
-    try:
-        str1 = input("Enter the first string: ")
-        str2 = input("Enter the second string: ")
-        break
-    except ValueError:
-        print("Invalid input. Please enter a valid string.")
+strings_list = []
+for _ in range(5):
+    while True:
+        string_input = input("Enter a string (or 'stop' to finish): ")
+        if string_input.lower() == 'stop':
+            break
+        try:
+            strings_list.append(string_input.strip())
+        except ValueError:
+            print("Invalid input. Please enter a valid string.")
+            continue
+        if len(strings_list) == 5:
+            break
 
-result = longest_common_substring(str1, str2)
-print(f"The longest common substring is: {result}")
+result = longest(strings_list)
+print(f"The longest string is: {result}")
