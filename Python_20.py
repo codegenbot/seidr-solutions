@@ -1,16 +1,26 @@
-```
-try:
-    target_sum = int(input("Enter the target sum: "))
-    numbers_str = input("Enter numbers with comma as delimiter: ")
-except ValueError:
-    print("Invalid input. Please enter valid integers.")
-else:
-    try:
-        numbers = list(map(int, numbers_str.split(',')))
-        closest_pair = get_closest_elements(numbers, target_sum)
-        if closest_pair:
-            print(f"Closest pair of elements is {closest_pair} with a sum of {sum(closest_pair)}")
+def get_closest_elements(numbers, target_sum):
+    numbers.sort()
+    min_diff = float('inf')
+    closest_pair = ()
+    left = 0
+    right = len(numbers) - 1
+    
+    while right > left:
+        current_sum = numbers[left] + numbers[right]
+        diff = abs(target_sum - current_sum)
+        
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[left], numbers[right])
+        
+        if current_sum < target_sum:
+            left += 1
         else:
-            print("No pair found.")
-    except ValueError:
-        print("Invalid input. Please enter valid integers.")
+            right -= 1
+    
+    return closest_pair
+
+numbers_str = input("Enter numbers with comma as delimiter: ")
+target_sum = int(input("Enter the target sum: "))
+numbers = list(map(int, numbers_str.split(',')))
+print(get_closest_elements(numbers, target_sum))
