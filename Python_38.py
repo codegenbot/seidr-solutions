@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def decode_cyclic() -> str:
     s = input("Enter the string: ")
     if len(s) < 3:
