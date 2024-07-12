@@ -6,4 +6,4 @@ text = input()
 target = input()
 result = indices_of_substring(text, target)
 for idx in result:
-    print(idx, end=" ") 
+    print(idx, end=" ")
