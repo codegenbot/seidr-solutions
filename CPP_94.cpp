@@ -1,8 +1,12 @@
+```cpp
 #include <iostream>
 
-int calculateScore(int values[], int n) {
-    // implement your scoring logic here
-    return 0; 
+int calculateScore(int arr[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    return sum;
 }
 
 int main() {
