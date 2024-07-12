@@ -1,13 +1,23 @@
-```cpp
+#include <vector>
 #include <string>
-#include <cstdlib>
 
-int count_nums(char** nums, int size) {
+int count_nums(const std::vector<std::string>& nums) {
     int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (atoi(nums[i]) >= 0) {
+    for (const auto& num : nums) {
+        if (num[0] == '-') {
+            int sign = -1, sum = 0;
+            for(int j=num.length()-1; j>=0; j--) {
+                if (num[j] == '-') {
+                    continue;
+                }
+                sum += std::abs(num[j] - '0') * sign;
+                sign *= -1;
+            }
+            if (sign * sum % 2 != 0)
+                count++;
+        } else {
             int sum = 0;
-            for (char c : std::string(nums[i])) {
+            for (char c : num) {
                 if (c == '-') {
                     continue;
                 }
@@ -15,25 +25,23 @@ int count_nums(char** nums, int size) {
             }
             if (sum % 2 != 0)
                 count++;
-        } else {
-            int sign = -1, sum = 0;
-            for(int j=std::string(nums[i]).length()-1; j>=0; j--) {
-                if (std::string(nums[i])[j] == '-') {
-                    continue;
-                }
-                sum += std::abs(std::string(nums[i])[j] - '0') * sign;
-                sign *= -1;
-            }
-            if (sign * sum % 2 != 0)
-                count++;
         }
     }
     return count;
 
 }
 
-char* numbers[] = {"1"};
 int main() {
-    char* numbers[] = {"1", "-12", "3-4", "5", "-6", "7-8", "9", "-10", "11-12", "13", "-14", "15-16", "17", "-18", "19-20"};
-    assert(count_nums(numbers, 22) == 15);
+    int n;
+    cin >> n;
+
+    std::vector<std::string> numbers; 
+
+    for(int i = 0; i < n; i++) {
+        string num; 
+        cin >> num; 
+        numbers.push_back(num);
+    }
+
+    return count_nums(numbers);
 }
