@@ -1,4 +1,3 @@
-```
 #include <cstddef>
 #include <string>
 #include <cassert>
@@ -18,7 +17,6 @@ std::string filp_case(const std::string& str) {
 }
 
 int main() {
-    std::string input = "These violent delights have violent ends";
-    std::cout << filp_case(input) << std::endl;
+    assert(filp_case("These violent delights have violent ends") == "these Violent Delights Have Violent Ends");
     return 0;
 }
