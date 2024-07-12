@@ -1,10 +1,9 @@
-```
 #include <vector>
 
 int fuelCost(std::vector<int> prices) {
     int sum = 0;
     for (int price : prices) {
-        int new_price = std::floor(double(price) / 3);
+        int new_price = static_cast<int>(price / 3.0);
         if (new_price < 1)
             new_price = 0;
         else
