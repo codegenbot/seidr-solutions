@@ -3,13 +3,19 @@
 #include <string>
 
 std::string encrypt(const std::string& s) {
-    // Implement your encryption logic here.
-    return s;  
+    for (char &c : s) {
+        if (c == 'a') c = 'e';
+        else if (c == 'A') c = 'E';
+    }
+    return s;
 }
 
 int main() {
     std::string s;
     std::getline(std::cin, s);
-    std::cout << encrypt(s) << std::endl;
-    return 0;
+    std::string result = encrypt(s);
+    for (char c : result) {
+        std::cout << c;
+    }
+    std::cout << std::endl;
 }
