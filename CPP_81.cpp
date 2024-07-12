@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -48,11 +49,11 @@ vector<string> numerical_letter_grade(vector<float> grades){
     return result;
 }
 
-int main() {
+int main {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
 
-    if(issame(numerical_letter_grade({grades[0]}), {grades_letter[0]}))
+    if(issame(numerical_letter_grade(grades), grades_letter))
         cout << "Grades are same." << endl;
     else
         cout << "Grades are not the same." << endl;
