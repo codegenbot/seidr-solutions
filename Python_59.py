@@ -1,4 +1,5 @@
 ```
+n = int(input("Enter a positive integer: "))
 def largest_prime_factor(n: int):
     i = n - 1
     while i > 1:
@@ -13,3 +14,5 @@ def is_prime(num: int):
         if num % i == 0:
             return False
     return True
+
+print(largest_prime_factor(n))
