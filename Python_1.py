@@ -1,8 +1,9 @@
 import re
 
-paren_string = "(()(()))()"
-if re.match(r'^\(*\)*$', paren_string) is None:
-    raise ValueError("Invalid input: Please enter only parentheses")
+paren_string = input()
+
+if re.match("^[()]*$", paren_string) is None:
+    raise ValueError('Invalid input: Please enter only parentheses')
 
 separated_groups = []
 current_group = ""
@@ -17,7 +18,7 @@ for char in paren_string:
     current_group += char
 
     if open_count < 0:
-        raise ValueError("Invalid input: Unbalanced parentheses")
+        raise ValueError('Invalid input: Unbalanced parentheses')
 
     if open_count == 0:
         separated_groups.append(current_group)
