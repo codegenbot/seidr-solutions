@@ -1,4 +1,8 @@
-```cpp
+#include <vector>
+#include <map>
+#include <cassert>
+#include <initializer_list>
+
 int findMaxFreq(std::vector<int> lst) {
     std::map<int, int> freqMap;
     for (int num : lst) {
