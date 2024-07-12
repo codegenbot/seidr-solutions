@@ -1,6 +1,5 @@
 #include <iostream>
-#include <vector> 
-#include <cmath>
+#include <vector>
 #include <iomanip>
 
 int main() {
@@ -21,8 +20,7 @@ int main() {
     double total_price = 0.0;
 
     for (int i = 0; i < n; ++i) {
-        double discounted_price = std::round(prices[i] * (100.0 - discounts[i])) / 100.0;
-        total_price += discounted_price;
+        total_price += prices[i] * (100.0 - discounts[i]);
     }
 
     std::cout << "Total discounted price: " << std::fixed << std::setprecision(2) << total_price << std::endl;
