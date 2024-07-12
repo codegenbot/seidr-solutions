@@ -1,7 +1,6 @@
 from fractions import Fraction
 
-
 def simplify():
     x = float(input("Enter numerator: "))
-    y = float(input("Enter denominator: "))
-    return Fraction(x, y) == 1
+    n = float(input("Enter denominator: "))
+    return f"The simplified fraction is {Fraction(x)/Fraction(n)}"
