@@ -11,7 +11,8 @@ void checkNumber(int n) {
 
 int main() {
     int n;
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    cin >> ws; 
+    cin.ignore(); 
     cin >> n; 
     if (!(cin)) {
         cerr << "Invalid input. Please enter an integer." << endl;
