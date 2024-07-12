@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <string>
 using namespace std;
@@ -16,7 +16,4 @@ bool by_length(const string& s1, const string& s2) {
     return s1.length() > s2.length();
 }
 
-int main() {
-    assert(isSame(by_length(vector<string>({"Nine", "Eight", "Four"})), {"Nine", "Eight", "Four"}));
-    return 0;
-}
+assert(isSame(vector<string>{{"Nine", "Eight", "Four"}}, {"Nine", "Eight", "Four"}));
