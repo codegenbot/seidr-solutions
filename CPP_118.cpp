@@ -3,22 +3,19 @@
 #include<algorithm>
 using namespace std;
 
-string get_closest_vowel(string word) {
-    string::reverse_iterator it = word.rbegin();
-    for (; it != word.rend(); ++it) {
-        if (tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i' || tolower(*it) == 'o' || tolower(*it) == 'u') {
-            string::iterator it2 = word.begin();
-            while (it2 != it && !isvowel(tolower(*it2))) {
-                ++it2;
-            }
-            if (it2 != it) {
-                return string(1, *it);
-            }
+string get_closest_vowel(string word){
+    int left = 0;
+    while(word[left] != ' ' && !isalpha(word[left])) left++;
+    
+    for(int right = word.size() - 1; right >= 0 && !isalpha(word[right]); right--){
+        if(!isalpha(word[right-1]) && (word[right] == 'a' || word[right] == 'e' || 
+                                       word[right] == 'i' || word[right] == 'o' || 
+                                       word[right] == 'u'|| word[right] == 'A' || 
+                                       word[right] == 'E' || word[right] == 'I' || 
+                                       word[right] == 'O' || word[right] == 'U')) {
+            return string(1, word[right]);
         }
     }
+    
     return "";
-}
-
-bool isvowel(char c) {
-    return tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u';
 }
