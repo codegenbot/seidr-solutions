@@ -9,7 +9,7 @@ def encode(message):
             index = (ord(char.lower()) - ord('a')) % 26
             if index == 0:
                 index = 26
-            result += chr((index + (1 if index != 0 else 2)) % 26 + ord('a'))
+            result += chr((index + 2) % 26 + ord('a'))
         else:
-            result += char.upper()
+            result += (char.lower() in vowels) and chr((ord(char.lower()) - ord('a')) % 26 + ord('a')) or char
     return result
