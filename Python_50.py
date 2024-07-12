@@ -1,6 +1,6 @@
-```
-def decode_shift(s: str):
+def decode_shift():
     while True:
+        s = input("Enter the message to be decoded (shifted letters): ")
         while True:
             try:
                 shift = int(input("Enter the shift (0-25): "))
