@@ -21,4 +21,8 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() { std::vector<int> input = {}; leaders(input); return 0; }
+int main() {
+    vector<int> arr = {};
+    leaders(arr);
+    return 0;
+}
