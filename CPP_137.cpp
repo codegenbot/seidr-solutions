@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
+#include <boost/any.hpp>
 
 int compare_one(const std::string& s, int i) {
     if (i == 1)
-        return "None";
+        return std::stoi(s) - 10;
     else if (i == 2)
-        return s;
+        return std::stoi(s);
     else if (i == 3)
-        return "None";
+        return std::stoi(s) + 10;
     else 
         return 0;
 }
