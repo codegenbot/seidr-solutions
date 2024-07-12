@@ -19,11 +19,9 @@ int main() {
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        for (char c : std::to_string(i)) {
-            if (c == '1') {
-                count++;
-                break; // We don't care about the rest of the string, so exit the loop.
-            }
+        std::string str = std::to_string(i);
+        if ((str.front() == '1' && str.size() > 2 && str.substr(0, 1) != "11") || str == "11" || str == "111") {
+            count++;
         }
     }
     return count;
