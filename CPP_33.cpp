@@ -37,21 +37,23 @@ std::vector<int> sort_third(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    std::vector<int> input;  // get input from user
+    int n; // number of elements
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
     
-    for(int i = 0; i < n; i++) {
-        int val;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        input.push_back(val);
+    input.resize(n); // resize vector to accommodate 'n' elements
+    
+    for (int i = 0; i < n; i++) {
+        printf("Enter element %d: ", i+1);
+        scanf("%d", &(input[i]));
     }
     
-    std::vector<int> sorted_input = sort_third(input);
-    for(int i = 0; i < sorted_input.size(); i++) {
-        std::cout << "Element " << i + 1 << ": " << sorted_input[i] << std::endl;
+    std::vector<int> output = sort_third(input);
+    printf("\nSorted array:\n");
+    for (int i = 0; i < output.size(); i++) {
+        printf("%d ", output[i]);
     }
+    printf("\n");
     return 0;
 }
