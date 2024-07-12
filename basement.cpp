@@ -5,17 +5,16 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
-    int sum = 0, index = 0;
+    
+    int sum = 0;
     for (int i = 0; i < n; ++i) {
         sum += nums[i];
         if (sum < 0) {
-            index = i;
-            break;
+            cout << i << endl;
+            return 0;
         }
     }
     
-    cout << index << endl;
-
+    cout << 0 << endl;
     return 0;
 }
