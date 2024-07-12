@@ -8,7 +8,7 @@ int main() {
     int sum = 0;
     for (int i = 0; i < digits.size(); ++i) {
         if (digits[i] == digits[(i + 1) % digits.size()]) {
-            sum += digits[i] - '0';
+            sum += digits[i] - '0' + '0';
         }
     }
     
