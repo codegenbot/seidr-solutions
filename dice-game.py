@@ -1,5 +1,11 @@
-n, m = int(input()), int(input())
-total_outcomes = n * m
-peter_wins_outcomes = sum(1 for i in range(1, n+1) for j in range(1, m+1) if i > j)
-probability = peter_wins_outcomes / total_outcomes
+n = int(input())
+m = int(input())
+
+count = 0
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        if i > j:
+            count += 1
+
+probability = count / (n * m)
 print(probability)
