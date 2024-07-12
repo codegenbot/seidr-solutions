@@ -14,17 +14,14 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    return vector<int>(leaders.rbegin(), leaders.rend());
+    return leaders;
 }
 
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num) {
+    while (cin >> num && num != -1) {
         nums.push_back(num);
-    }
-    if (cin.eof()) {
-        cin.clear();
     }
 
     vector<int> result = findLeaders(nums);
