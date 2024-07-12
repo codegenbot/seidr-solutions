@@ -32,7 +32,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
     return res;
 }
 
-void testGame() {
+int main() {
     int n;
     cin >> n;
     vector<int> game(n), guess(n);
@@ -49,20 +49,16 @@ void testGame() {
     
     vector<int> testGame = {1,2,3,5};
     vector<int> testGuess = {-1,2,3,4};
-    int result = compare(testGame[0],testGuess[0]);
-    for(int i = 1; i < testGame.size();i++){
-        if(issame(testGame[i],testGuess[i]))
-            continue;
-        else if(result == 1)
-            assert(compare(testGame[i],testGuess[i]) == -1);
-        else
-            assert(result == compare(testGame[i],testGuess[i]));
+    if(issame(compare(testGame[0],testGuess[0]), 2)) {
+        for(int i = 1; i < testGame.size();i++){
+            if(issame(testGame[i],testGuess[i]))
+                continue;
+            else if(compare(testGame[i],testGuess[i]) == -1)
+                assert(compare(testGame[i],testGuess[i]) == -1);
+            else
+                assert(compare(testGame[i],testGuess[i]) == 0);
+        }
     }
     
-    return;
-}
-
-int main() {
-    testGame();
     return 0;
 }
