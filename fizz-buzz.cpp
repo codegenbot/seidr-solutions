@@ -1,16 +1,18 @@
+#include <iostream>
+
 int main() {
     int x;
-    cin >> x;
-
+    std::cin >> x;
+    
     if (x % 3 == 0 && x % 5 == 0) {
-        cout << "FizzBuzz";
+        std::cout << "FizzBuzz" << std::endl;
     } else if (x % 3 == 0) {
-        cout << "Fizz";
+        std::cout << "Fizz" << std::endl;
     } else if (x % 5 == 0) {
-        cout << "Buzz";
+        std::cout << "Buzz" << std::endl;
     } else {
-        cout << x;
+        std::cout << x << std::endl;
     }
-
+    
     return 0;
 }
