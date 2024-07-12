@@ -23,4 +23,4 @@ def minPath(grid, k):
         for p in dfs(i, j, []):
             if len(p) == k:
                 all_paths.append(sorted(p))
-    return all_paths or []
+    return all_paths
