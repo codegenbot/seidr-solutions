@@ -1,4 +1,3 @@
-```
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     stack = []
@@ -12,6 +11,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             stack.pop()
             if not stack:
                 result.append(max_level)
-                return [max_level]
-    result.append(max_level)
-    return result
+                break
+    return [max_level]
