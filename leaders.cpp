@@ -22,13 +22,16 @@ int main() {
     int num;
     while (std::cin >> num) {
         if (std::cin.fail()) {
-            break;
+            std::cout << "Invalid input. Please enter a valid integer." << std::endl;
+            std::cin.clear();
+            std::cin.ignore();
+        } else {
+            nums.push_back(num);
         }
-        nums.push_back(num);
     }
 
-    if (nums.empty()) {
-        std::cout << "No numbers entered." << std::endl;
+    if (nums.size() == 0) {
+        std::cout << "Please provide at least one number." << std::endl;
         return 1;
     }
 
