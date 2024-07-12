@@ -16,9 +16,5 @@ string flip_case(string str){
 
 int main(){
     assert(flip_case("These violent delights have violent ends") == "tHEse ViOLEnt DeLiGhTs HaVe ViOLEnT EnDs");
-    string user_input;
-    cout << "Enter a sentence: ";
-    getline(cin, user_input);
-    cout << "The flipped case of the sentence is: " << flip_case(user_input) << endl;
     return 0;
 }
