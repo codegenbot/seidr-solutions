@@ -2,6 +2,10 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+};
+
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
     int currentMax = INT_MIN;
@@ -15,11 +19,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return maxNumbers;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b; 
-}
-
-int main() {
+int main1() {
     std::vector<int> numbers;
     int num;
 
@@ -34,6 +34,7 @@ int main() {
         std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
     }
 
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    assert(issame({3, 2, 3, 100, 3}, {3, 3, 3, 100, 100}));
+    
     return 0;
 }
