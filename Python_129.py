@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     visited = [[False] * n for _ in range(n)]
@@ -31,4 +32,4 @@ def minPath(grid, k):
     if min_paths == float('inf'):
         return []
     else:
-        return [grid[i][j] for i, j in enumerate(next(iter(min(paths))))]
+        return [grid[i][j] for i, j in enumerate(next(iter(min_path)))]
