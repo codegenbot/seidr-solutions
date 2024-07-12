@@ -1,3 +1,5 @@
 def find_zero(xs: list):
-    a, b = xs
-    return -a / b
+    x = -1
+    while poly(xs, x) != 0:
+        x += 0.1
+    return x
