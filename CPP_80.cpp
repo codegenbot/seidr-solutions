@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,7 +10,7 @@ bool is_happy(std::string s) {
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
             sub += s[i+j];
         }
-        std::string strArr(sub.begin(), sub.end());
+        std::string strArr = sub;
         bool unique = true;
         for (char c : strArr) {
             int count = 0;
