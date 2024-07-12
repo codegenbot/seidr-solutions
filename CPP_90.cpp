@@ -12,15 +12,15 @@ std::vector<int> nextSmallest(std::vector<int>& nums) {
 
 int main() {
     std::vector<int> lst;
+    int n;
 
     std::cout << "Enter number of elements: ";
-    int n;
     std::cin >> n;
 
     if (n > 0) {
-        std::cout << "Enter " << n << " integers: ";
         for(int i = 0; i < n; i++){
             int x;
+            std::cout << "Enter integer: ";
             std::cin >> x;
             lst.push_back(x);
         }
@@ -30,7 +30,7 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "Next smallest number is: " << lst[0];
+                    std::cout << "Next smallest number is: " << lst[i];
                     return 0;
                 }
             }
