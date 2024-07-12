@@ -1,4 +1,3 @@
-```Python
 def indices_of_substring(text):
     targets = input().split(',')
     result = []
