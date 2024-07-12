@@ -9,10 +9,11 @@ int main() {
     std::getline(std::cin, target);
     
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    int targetSize = target.size();
+    for (int i = 0; i <= int(text.size()) - targetSize; ++i) {
+        if (text.substr(i, targetSize) == target) {
+            indices.push_back(i);
+        }
     }
     
     for (int i = 0; i < indices.size(); ++i) {
