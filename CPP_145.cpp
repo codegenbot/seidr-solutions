@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 #include <numeric>
 #include <cmath>
 
@@ -19,7 +20,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             return sum + (c - '0');
         });
         if (sumA == sumB) {
-            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
+            return a < b;
         } else {
             return sumA < sumB;
         }
