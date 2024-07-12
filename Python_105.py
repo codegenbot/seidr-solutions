@@ -1,4 +1,4 @@
 def by_length(arr):
-    sorted_arr = sorted([num for num in arr if 1 <= num <= 9])
+    sorted_arr = sorted([i for i in arr if 1 <= i <= 9])
     reversed_arr = sorted_arr[::-1]
-    return [str(i) + "o" if i < 5 else str(i) + "n" for i in reversed_arr]
+    return [f"{'One' if x == 1 else 'Two' if x == 2 else 'Three' if x == 3 else 'Four' if x == 4 else 'Five' if x == 5 else 'Six' if x == 6 else 'Seven' if x == 7 else 'Eight' if x == 8 else 'Nine'" for x in reversed_arr]
