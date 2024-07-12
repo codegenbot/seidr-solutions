@@ -1,5 +1,5 @@
-```Python
-from typing import List, Set
+```
+from typing import List
 
 def all_prefixes(string: str) -> List[str]:
     result = [""]
