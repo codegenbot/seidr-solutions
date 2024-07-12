@@ -1,3 +1,11 @@
+#include <algorithm>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a,vector<string> b){
+    return a == b;
+}
+
 vector<string> sorted_list_sum(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(), 
         [](const string& a, const string& b){return (a.length() % 2 == 1 && a.length() != b.length());});
