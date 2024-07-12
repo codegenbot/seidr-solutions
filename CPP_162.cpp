@@ -1,22 +1,14 @@
-#include <openssl/ssl.h>
+#include <string>
+#include <cryptopp/sha.h>
 
-using namespace std;
+std::string string_to_md5(const std::string& input) {
+    SHA256 sha;
+    byte hash[SHA256::DIGEST_SIZE];
+    to_string(sha.ComputeHash((byte*)input.c_str(), input.size()), hash);
+    return stringFromHex(hash, 32);
+}
 
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    MD5_CTX ctx;
-    unsigned char mdBuffer[16];
-    stringstream ss;
-
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(mdBuffer, &ctx);
-
-    for (int i = 0; i < 16; i++) {
-        sprintf(&ss.str()[0], "%02x", mdBuffer[i]);
-        ss.seekp(0);
-    }
-
-    return ss.str();
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
