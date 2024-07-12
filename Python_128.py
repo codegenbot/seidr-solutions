@@ -1,14 +1,8 @@
-def calculate_average_and_median():
-    user_input = input("Enter numbers separated by space: ")
-    numbers = list(map(int, user_input.split()))
-
-    if not numbers:
+```
+def prod_signs(arr):
+    if not arr:
         return None
-
-    average = sum(numbers) / len(numbers)
-    median = sorted(numbers)[len(numbers) // 2]
-
-    print(f"Average: {average}, Median: {median}")
-
-
-calculate_average_and_median()
+    sign_product = 1
+    for num in arr:
+        sign_product *= -1 if num < 0 else 1 if num > 0 else 1
+    return sum(abs(num) for num in arr) * sign_product
