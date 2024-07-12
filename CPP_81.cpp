@@ -1,7 +1,7 @@
-```c++
+#include <bits/stdc++.h>
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
@@ -49,7 +49,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
     return result;
 }
 
-int main {
+int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
 
