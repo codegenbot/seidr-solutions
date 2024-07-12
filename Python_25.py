@@ -1,1 +1,1 @@
-return [item for sublist in factors for item in sublist]
+`return [item for sublist in factors for item in sublist]`
