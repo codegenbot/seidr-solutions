@@ -1,21 +1,19 @@
-#include <algorithm>
-string anti_shuffle(string s){
+string anti_shuffle(string s) {
     string result = "";
-    int i = 0;
-    while(i < s.length()){
-        if(s[i] == ' '){
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
             result += ' ';
-            i++;
-        }else{
-            string word = "";
-            while(i < s.length() && s[i] != ' '){
-                word += s[i];
-                i++;
-            }
-            for(char c : word){
-                result += (char)tolower(c);
-            }
+            continue;
         }
+        string temp = "";
+        bool firstChar = true;
+        for (int j = i; j <= s.length(); j++) {
+            temp += s[j];
+            i = j - 1;
+            break;
+        }
+        sort(temp.begin(), temp.end());
+        result += temp;
     }
     return result;
 }
