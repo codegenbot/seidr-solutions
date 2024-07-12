@@ -15,6 +15,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     return result
 
-input_string = input()
-output = separate_paren_groups(input_string)
-print(output)
+input_string = input("Enter a string with parentheses: ")
+
+if input_string:
+    output = separate_paren_groups(input_string)
+    print(output)
+else:
+    print("Input string is empty.")
