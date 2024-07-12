@@ -1,8 +1,9 @@
 #include <vector>
 #include <map>
+using namespace std;
 
-std::vector<int> findPair(std::vector<int>& nums, int target) {
-    std::map<int, int> numIndex;
+vector<int> findPair(vector<int>& nums, int target) {
+    map<int, int> numIndex;
     for (int i = 0; i < nums.size(); ++i) {
         if (numIndex.find(target - nums[i]) != numIndex.end()) {
             return {nums[i], target - nums[i]};
