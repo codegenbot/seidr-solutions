@@ -1,4 +1,6 @@
+```
 #include <vector>
+#include <cmath>
 
 int calculateFuelCost(vector<int> prices) {
     int total = 0;
@@ -7,3 +9,4 @@ int calculateFuelCost(vector<int> prices) {
         total += newPrice;
     }
     return total;
+}
