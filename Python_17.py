@@ -1,14 +1,11 @@
 from typing import List
 
 def parse_music() -> List[int]:
-    music_string = input().strip()
-    if not music_string:
-        return []
-
+    music_string = input("Enter music notes separated by '|': ")
     notes_duration = {"o": 4, "o|": 2, ".|": 1}
     return [
         notes_duration.get(note, 0)
-        for note in music_string.split("|")
+        for note in music_string.split("|") if note != ""
     ]
 
 result = parse_music()
