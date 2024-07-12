@@ -13,11 +13,17 @@ bool is_prime(int num) {
 }
 
 int main() {
-    int num;
-    cin >> num;
-    if(num < 2) {
-        cout << "Error: Input should be greater than or equal to 2." << endl;
+    string s;
+    cin >> s;
+    
+    if(s.size() < 1) {
+        cout << "Error: Input should not be empty." << endl;
     } else {
-        cout << (is_prime(num) ? "True" : "False") << endl;
+        int num = stoi(s);
+        if(num < 2) {
+            cout << "Error: Input should be greater than or equal to 2." << endl;
+        } else {
+            cout << (is_prime(num) ? "True" : "False") << endl;
+        }
     }
 }
