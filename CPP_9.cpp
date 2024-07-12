@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,7 +15,7 @@ std::vector<int> rolling_max(const std::vector<int>& numbers) {
     return maxNumbers;
 }
 
-bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
 
@@ -26,7 +27,7 @@ bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-void testMain() {
+int main() {
     std::vector<int> numbers;
     int num;
 
@@ -36,10 +37,9 @@ void testMain() {
             break;
 
         if(num < 0)
-            continue; // Skip invalid inputs
+            continue; 
 
-        if(numbers.empty() || num > numbers.back())
-            numbers.push_back(num);
+        numbers.push_back(num);
     }
 
     std::vector<int> maxNumbers = rolling_max(numbers);
@@ -50,12 +50,10 @@ void testMain() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    std::cout << (are_vectors_equal(rolling_max(v1), v2) ? "Vectors are equal" : "Vectors are not equal") << std::endl;
+    if(areEqual(rolling_max(v1), rolling_max(v2)))
+        std::cout << "Vectors are equal" << std::endl;
+    else
+        std::cout << "Vectors are not equal" << std::endl;
     
-    return;
-}
-
-int main() {
-    testMain();
     return 0;
 }
