@@ -1,6 +1,6 @@
+```c++
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 float snowDay(int hours, float currentSnow, float rateOfSnowFall, float proportionOfSnowMelting) {
