@@ -1,8 +1,7 @@
 while True:
     try:
         n = int(input("Enter a number to factorize: "))
-        if n <= 0:
-            raise ValueError
+
         def factorize(num):
             if num <= 0:
                 return []
@@ -12,5 +11,5 @@ while True:
         factors = factorize(n)
         print(factors)
         break
-    except ValueError:
-        print("\nInvalid input. Please enter a positive integer.")
+    except (ValueError, ZeroDivisionError):
+        print("\nInvalid input. Please enter a valid non-zero integer.")
