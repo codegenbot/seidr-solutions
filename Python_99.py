@@ -11,14 +11,11 @@ def find_closest_number():
                 print(f"Closest integer: {closest_integer}, Difference: 0")
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
-        response = input("Do you want to continue? (yes/no): ")
-        if response.lower() != "yes":
-            return
 
-result = None
 while True:
     find_closest_number()
     response = input("Do you want to continue? (yes/no): ")
+    result = response.lower()  
     if response.lower() != "yes":
         break
 
