@@ -4,7 +4,7 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for(int i = 0; i <= text.size() - target.size(); ) {
+    for(int i = 0; i <= text.size() - target.size(); i++) {
         bool found = true;
         for(int j = 0; j < target.size(); j++) {
             if(text[i+j] != target[j]) {
@@ -13,7 +13,6 @@ vector<int> indicesOfSubstring(string text, string target) {
             }
         }
         if(found) result.push_back(i);
-        i += (found ? 1 : target.size()); // increment by 1 or the size of target
     }
     return result;
 }
