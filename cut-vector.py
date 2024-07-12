@@ -1,8 +1,8 @@
 arr = list(map(int, input().split()))
 total_sum = sum(arr)
 
-if len(arr) < 2:
-    print("Invalid input, please provide at least 2 integers.")
+if len(arr) < 3:
+    print("Invalid input, please provide at least 3 integers.")
 else:
     left_sum = arr[0]
     min_diff = abs(total_sum - 2 * arr[0] - arr[1])
