@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
-int main() {
+int driver() {
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -39,4 +40,9 @@ int histogram(string s, vector<int>& arr) {
     } else {
         return -1;
     }
+    return 1;
+}
+
+bool issame(map<char,int> a,map<char,int> b){
+    return a == b; 
 }
