@@ -20,12 +20,10 @@ int main() {
         std::cin >> temp;
         lst1.push_back(temp);
     }
-    while (true) {
+    while(true) {
         std::cout << "Enter the number of elements to fill lst2: ";
         std::cin >> m1;
-        if(m1 >= 0)
-            break;
-        else{
+        while(m1 < 0) { 
             std::cout << "Please enter a positive integer: ";
             while(std::cin.fail()) { 
                 std::cout << "Invalid input. Please enter a positive integer: ";
@@ -34,31 +32,29 @@ int main() {
                 std::cin >> m1;
             }
         }
+        if (m2 < m1) {
+            // Handle the case when user input is less than expected
+            std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
+        } else {
+            break;
+        }
     }
     int m;
-    m = m2; // Store the value in m
+    m = m2; 
     std::vector<int> lst2;
     for (int i = 0; i < m; i++) {
         int temp;
-        while(true) {
-            std::cout << "Enter element of lst2: ";
-            std::cin >> temp;
-            if(temp >= 0)
-                break;
-            else{
-                std::cout << "Please enter a positive integer: ";
-                while(std::cin.fail()) { 
-                    std::cout << "Invalid input. Please enter a positive integer: ";
-                    std::cin.clear();
-                    std::cin.ignore(10000, '\n');
-                    std::cin >> temp;
-                }
-            }
-        }
+        std::cout << "Enter element of lst2: ";
+        std::cin >> temp;
         lst2.push_back(temp);
     }
-    std::string result = exchange(lst1, lst2);
-    std::cout << result << std::endl;
+    if(lst2.size() != m) {
+        // Handle the case when user input is less than expected
+        std::cout << "You need to enter " << m - lst2.size() << " more elements.\n";
+    } else {
+        std::string result = exchange(lst1, lst2);
+        std::cout << result << std::endl;
+    }
     return 0;
 }
 
