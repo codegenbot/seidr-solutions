@@ -1,8 +1,8 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> rolling_max(const std::vector<int>& numbers) {
+std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
     int currentMax = INT_MIN;
 
@@ -15,19 +15,23 @@ std::vector<int> rolling_max(const std::vector<int>& numbers) {
     return maxNumbers;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b; 
+}
+
 int main() {
-    vector<int> numbers;
+    std::vector<int> numbers;
     int num;
-    
-    cout << "Enter numbers (enter -1 to stop): ";
-    while ((cin >> num) && (num != -1)) {
+
+    std::cout << "Enter numbers (enter -1 to stop): ";
+    while ((std::cin >> num) && (num != -1)) {
         numbers.push_back(num);
     }
-    
-    vector<int> maxNumbers = rolling_max(numbers);
+
+    std::vector<int> maxNumbers = rolling_max(numbers);
 
     for (int i = 0; i < maxNumbers.size(); i++) {
-        cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << endl;
+        std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
     }
 
     return 0;
