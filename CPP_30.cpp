@@ -22,4 +22,3 @@ std::vector<float> get_positive(const std::vector<float>& l){
             result.push_back(x);
     }
     return result;
-}
