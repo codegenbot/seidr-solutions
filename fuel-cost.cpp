@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
 
-    for (int n; cin >> n; ) {
+    int n;
+    while (cin >> n || !cin.eof()) {
+        if (cin.eof()) break;
         nums.push_back(n);
     }
     
