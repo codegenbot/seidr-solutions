@@ -5,16 +5,12 @@ using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    int max_right = nums.back();
     
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] >= max_right) {
+    for (int i = 0; i < nums.size(); i++) {
+        if (*max_element(nums.begin() + i + 1, nums.end()) <= nums[i]) {
             leaders.push_back(nums[i]);
-            max_right = nums[i];
         }
     }
-    
-    reverse(leaders.begin(), leaders.end()); // Reverse to restore the original order
 
     return leaders;
 }
