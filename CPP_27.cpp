@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string filp_case(std::string str) {
     std::string result = "";
@@ -15,10 +14,9 @@ std::string filp_case(std::string str) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    assert(input == filp_case(input));
-    std::cout << "Result: " << filp_case(input) << std::endl;  
+    std::string input = "These violent delights have violent ends";
+    if(filp_case(input) != "tHEse ViOLent DeLIGHTs HaVe ViOLent EnDs") {
+        assert(false);
+    }
     return 0;
 }
