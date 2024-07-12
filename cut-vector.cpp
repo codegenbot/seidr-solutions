@@ -1,33 +1,42 @@
 int main() {
-    int n, sum = 0, ans = INT_MAX;
-    vector<int> nums;
-
-    while (cin >> n) {
-        nums.push_back(n);
-        sum += n;
+    int n;
+    cin >> n;
+    
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
     }
-
-    int halfSum = sum / 2;
-    vector<int> sub1, sub2;
-
-    for (int i = 0; i < nums.size(); ++i) {
-        sub1.push_back(nums[i]);
-        if (abs(2 * accumulate(sub1.begin(), sub1.end(), 0) - sum) < ans) {
-            sub2.clear();
-            for (int j = i + 1; j < nums.size(); ++j) {
-                sub2.push_back(nums[j]);
-            }
-            ans = abs(2 * accumulate(sub1.begin(), sub1.end(), 0) - sum);
+    
+    int diff = INT_MAX;
+    int cutIndex = -1;
+    
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            leftSum += vec[j];
+        }
+        
+        for (int j = i; j < n; ++j) {
+            rightSum += vec[j];
+        }
+        
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
+            cutIndex = i;
         }
     }
-
-    for (int i = 0; i < sub1.size(); ++i) {
-        cout << sub1[i] << endl;
+    
+    for (int i = 0; i < cutIndex; ++i) {
+        cout << vec[i] << endl;
     }
-
-    for (int i = 0; i < sub2.size(); ++i) {
-        cout << sub2[i] << endl;
+    
+    cout << endl;
+    
+    for (int i = cutIndex; i < n; ++i) {
+        cout << vec[i] << endl;
     }
-
+    
     return 0;
 }
