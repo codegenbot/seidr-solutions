@@ -1,8 +1,6 @@
-def check(func, lst):
+def check(func, args):
     try:
-        result = func(lst)
-        print(f"The double difference of the input list is {result}")
-    except TypeError as e:
-        print("Error: Please enter a list of integers only.")
+        result = func(*args)
+        print(result)
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"Error: {str(e)}")
