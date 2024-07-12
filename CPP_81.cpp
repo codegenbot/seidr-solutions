@@ -1,7 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
-#include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -61,4 +58,3 @@ int main() {
         cout << "Grades are not the same." << endl;
 
     return 0;
-}
