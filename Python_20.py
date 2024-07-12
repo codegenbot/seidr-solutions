@@ -1,3 +1,8 @@
-numbers = list(map(int, input("Enter the numbers (space separated): ").split()))
-target_sum = int(input("Enter the target sum: "))
-print(get_closest_elements(numbers, target_sum))
+```
+def get_closest_elements(numbers, target_sum):
+    closest_pair = None
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if abs(sum([numbers[i], numbers[j]]) - target_sum) < abs(target_sum - sum(closest_pair)) or not closest_pair:
+                closest_pair = [numbers[i], numbers[j]]
+    return closest_pair
