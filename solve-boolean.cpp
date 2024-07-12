@@ -1,31 +1,18 @@
-#include <string>
-#include <iostream>
-
 bool evaluateBooleanExpression(const std::string& expression) {
     bool result = true;
     int operation = 0; 
     for (char c : expression) {
-        if (c == '&') {
-            operation = 0;
-        } else if (c == '|') {
-            operation = 1;
-        } else if (c != 't' && c != 'f') {
+        if (c == 't' || c == 'f') { 
             if (operation) {
-                result |= (c == 't');
+                result |= (c == 't'); 
             } else {
                 result &= (c == 't');
             }
+        } else if (c == '&') {
+            operation = 0;
+        } else if (c == '|') {
+            operation = 1;
         }
     }
     return result;
 }
-
-int main() {
-    int testCases;
-    std::cin >> testCases;
-    for (int i = 0; i < testCases; ++i) {
-        std::string expression;
-        std::cin >> expression;
-        std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
-    }
-    return 0;
