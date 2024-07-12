@@ -1,34 +1,50 @@
-int score(string s) {
-    int totalScore = 0;
+int bowlingScore(string s) {
+    int score = 0;
     int frame = 1;
-    int i = 0;
-    while (frame <= 10 && i < s.size()) {
-        if (s[i] == 'X') {
-            totalScore += 10;
+    int ball = 0;
+    vector<int> throws(21, 0);
+
+    for (char c : s) {
+        if (c == 'X') {
+            throws[ball++] = 10;
             if (frame < 10) {
-                totalScore += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 : (s[i + 1] - '0'));
-                totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : (s[i + 2] - '0'));
-                i++;
+                throws[ball++] = 0;
             }
-            frame++;
-        } else if (s[i + 1] == '/') {
-            totalScore += 10;
-            totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
-            i += 2;
-            frame++;
+        } else if (c == '/') {
+            throws[ball - 1] = 10 - throws[ball - 2];
+            if (frame < 10) {
+                throws[ball++] = 0;
+            }
+        } else if (c == '-') {
+            throws[ball++] = 0;
         } else {
-            totalScore += (s[i] == '-') ? 0 : (s[i] - '0');
-            totalScore += (s[i + 1] == '-') ? 0 : (s[i + 1] - '0');
-            i += 2;
-            frame++;
+            throws[ball++] = c - '0';
         }
     }
-    return totalScore;
+
+    for (int i = 0; frame < 10 && i < 20; i += 2, frame++) {
+        if (throws[i] == 10) {
+            score += 10 + throws[i+2] + throws[i+3];
+            if (throws[i+2] == 10) {
+                score += throws[i+4];
+            }
+        } else if (throws[i] + throws[i+1] == 10) {
+            score += 10 + throws[i+2];
+        } else {
+            score += throws[i] + throws[i+1];
+        }
+    }
+
+    for (int i = 18; i < 21; i++) {
+        score += throws[i];
+    }
+
+    return score;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
