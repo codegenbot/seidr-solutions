@@ -1,4 +1,7 @@
+#include <iostream>
 #include <vector>
+#include <iomanip>
+
 using namespace std;
 
 double shoppingList(double price[], double discount[], int n) {
