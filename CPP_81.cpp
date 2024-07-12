@@ -1,11 +1,8 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
-
-using custom_size_type = size_t;
 
 bool checkSame(vector<string> a) {
     if (a.size() != 1) {
