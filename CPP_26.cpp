@@ -8,7 +8,4 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
     return result;
 }
-
-bool issame(const vector<int>& a, const vector<int>& b) { 
-  return std::equal(a.begin(), a.end(), b.begin());
-}
+bool issame(const vector<int>& a, const vector<int>& b) { return std::equal(a.begin(), a.end(), b.begin()); }
