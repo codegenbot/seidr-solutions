@@ -16,4 +16,4 @@ subvector1 = arr[: cut_position + 1]
 subvector2 = arr[cut_position + 1 :]
 
 print(*subvector1)
-print(*subvector2)  
+print(*subvector2)
