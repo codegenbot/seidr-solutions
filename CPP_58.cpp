@@ -29,7 +29,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main(){
+int originalMain(){
     vector<int> v1 = {1, 2, 3};
     vector<int> v2 = {2, 4, 5};
     if (issame(v1, v2)) {
@@ -42,5 +42,10 @@ int main(){
     for (int i : common_elements) {
         cout << i << " ";
     }
+    return 0;
+}
+
+int main(){
+    originalMain();
     return 0;
 }
