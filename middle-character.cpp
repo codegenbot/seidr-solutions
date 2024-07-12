@@ -12,6 +12,6 @@ int main() {
     } else {
         std::cout << s.substr(len / 2 - 1, 2);
     }
-    
+
     return 0;
 }
