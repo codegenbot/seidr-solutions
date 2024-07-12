@@ -1,7 +1,6 @@
-```
 #include <cstddef>
 #include <string>
-#include <assert.h>
+#include <cassert>
 
 std::string filp_case(const std::string& str) {
     std::string result = "";
