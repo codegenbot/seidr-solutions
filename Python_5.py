@@ -1,11 +1,6 @@
-def process_numbers(numbers, delimeter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    result.pop()
-    return result
-
-numbers = input("Enter the numbers separated by spaces: ").split()
-delimeter = input("Enter the delimeter: ")
-output = process_numbers(numbers, delimeter)
-print(output)
+result = []
+for num in numbers[:-1]:
+    result.extend([num, delimeter])
+if numbers:
+    result.append(numbers[-1])
+return result
