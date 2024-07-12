@@ -1,16 +1,13 @@
-#include <algorithm>
 #include <vector>
-#include <string>
+#include <algorithm>
 #include <cctype>
 
 bool issame(const std::string& s1, const std::string& s2) {
-    std::string t1 = s1;
-    std::string t2 = s2;
-    std::transform(t1.begin(), t1.end(), t1.begin(),
-                   [](unsigned char c){ return std::tolower(c); });
-    std::transform(t2.begin(), t2.end(), t2.begin(),
-                   [](unsigned char c){ return std::tolower(c); });
-    return t1 == t2;
+    if (s1.size() != s2.size()) return false;
+    for (size_t i = 0; i < s1.size(); ++i) {
+        if (std::tolower(s1[i]) != std::tolower(s2[i])) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
