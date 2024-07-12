@@ -11,17 +11,19 @@ bool will_it_fly(vector<vector<int>> q, int w) {
 }
 
 int main() {
-    vector<vector<int>> q;
-    int n;  // number of pairs
+    int n;  
     cin >> n;
+    vector<vector<int>> q(n);  
     for(int i=0; i<n; i++) {
-        int x, y; // two numbers in a pair
+        int x, y; 
         cin >> x >> y;
-        q.push_back({x,y});
+        q[i].resize(2);
+        q[i][0] = x;
+        q[i][1] = y;
     }
     int w;
     cin >> w;
-    if (!will_it_fly({{q[0][0], q[0][1]}, {q[1][0], q[1][1]}}, w)) {
+    if (!will_it_fly(q, w)) {
         cout << "Will not fly.\n";
     } else {
         cout << "Will fly.\n";
