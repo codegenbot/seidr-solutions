@@ -4,31 +4,25 @@
 using namespace std;
 
 string camelCase(string s) {
-    string result = ""; // initialize here
+    string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            string word = s.substr(i + 1);
-            result += word;
-            break;
+            if (i < s.size()) {
+                result += tolower(s.substr(i + 1));
+            } else {
+                break;
+            }
         } else if (s[i] == ' ') {
-            if (i > 0) {
+            if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += s.substr(0, i);
-            result += s.substr(i + 1).substr(0, 1);
-            for (int j = 1; j < s.substr(i + 1).size(); j++) {
-                result += tolower(s.substr(i + 1)[j]);
-            }
-            break;
+            result += toupper(s[i+1]) + s.substr(i + 2);
+            i = s.size();
         } else {
-            if (!result.empty()) {
-                result += tolower(s[i]);
-            } else {
-                result += toupper(s[i]);
-            }
+            result += tolower(s[i]);
         }
     }
     return result;
