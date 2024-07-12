@@ -1,22 +1,19 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-total_sum = sum(nums)
+total_sum = sum(numbers)
 half_sum = total_sum // 2
+left_sum = 0
+cut_index = 0
 
-prefix_sum = 0
-for i, num in enumerate(nums):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(
-            prefix_sum - num - half_sum
-        ):
-            print(*nums[: i + 1])
-            print(*nums[i + 1 :])
-        else:
-            print(*nums[:i])
-            print(*nums[i:])
+for i, num in enumerate(numbers):
+    left_sum += num
+    if left_sum >= half_sum:
+        cut_index = i
         break
-else:
-    print(*nums)
-    print(0)
+
+if abs(total_sum - 2 * left_sum) < abs(total_sum - 2 * (left_sum - num)):
+    cut_index += 1
+
+print(numbers[: cut_index + 1])
+print(numbers[cut_index + 1 :])
