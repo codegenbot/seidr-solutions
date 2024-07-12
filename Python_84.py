@@ -1,3 +1,4 @@
+```
 def solve():
     while True:
         N = input("Please provide a binary number: ")
