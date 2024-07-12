@@ -3,7 +3,7 @@ def valid_date(date):
     parts = date.split('-')
     if len(parts) != 3:
         return False
-    month, year, day = map(int, parts)
+    month, day, year = map(int, parts)
     if month < 1 or month > 12:
         return False
     if (month in [1, 3, 5, 7, 8, 10, 12] and day > 31) or \
