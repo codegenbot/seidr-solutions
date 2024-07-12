@@ -1,4 +1,3 @@
-```cpp
 int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
