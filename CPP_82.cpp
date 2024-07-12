@@ -2,6 +2,12 @@
 #include <string>
 #include <cassert>
 
+bool prime_length(string str);
+
+int main() {
+    assert(prime_length("0") == false);
+}
+
 bool prime_length(string str){
     int len = str.length();
     if(len <= 1) return false;
@@ -10,8 +16,4 @@ bool prime_length(string str){
     }
     return true;
 
-}
-
-int main() {
-    assert(prime_length("0") == false);
 }
