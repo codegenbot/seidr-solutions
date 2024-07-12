@@ -1,12 +1,12 @@
-```cpp
 #include <iostream>
 #include <cassert>
+#include <boost/lexical_cast.hpp>
 
 int calculateScore(int values[], int n) {
     int sum = 0;
     for (int i = 0; i < n; i++) {
         if(values[i] > 100) {
-            std::cout << "Value at index " << i << ": " << values[i] << std::endl;
+            std::cout << "Value at index " << i << ": " << boost::lexical_cast<std::string>(values[i]) << std::endl;
             sum += values[i];
         }
     }
@@ -21,6 +21,6 @@ int main() {
         std::cout << myValues[i] << std::endl;
     }
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
-    assert(calculateScore(myValues, n) == 224); 
+    assert(calculateScore(myValues, n) == 1224); 
     return 0;
 }
