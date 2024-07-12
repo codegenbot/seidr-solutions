@@ -22,7 +22,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
-int main_test() {
+int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assert(issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> result = sorted_list_sum(lst);
+    bool same = issame(result, {"cc", "dd", "aaaa", "bbbb"});
+    assert(same);
 }
