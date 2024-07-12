@@ -1,5 +1,11 @@
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+
 def find_zero(xs: list):
     n = len(xs) - 1
-    assert n % 2 == 0
-    assert xs[n] != 0
-    return -xs[0] / xs[n]
+    res = -xs[0] / xs[n]
+    return res
