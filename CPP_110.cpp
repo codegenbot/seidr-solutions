@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,49 +12,52 @@ int main() {
         std::cin >> n1;
     }
 
+    bool isValidM1 = false;
     long m1 = 0;
-    while (!(std::cin >> m1)) {
-        std::cout << "Invalid input. Please enter a positive integer: ";
-        std::cin.clear();
-        std::cin.ignore();
-        std::cin >> m1;
-    }
-
-    int n2, m2;
-    n2 = m1; 
-    while (!(std::cin >> n2)) {
-        std::cout << "Invalid input. Please enter a positive integer: ";
-        std::cin.clear();
-        std::cin.ignore();
-        std::cin >> n2;
-    }
-
-    if (m2 < m1) {
-        std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
-    } else {
-        int temp = -1;
-        while (temp == -1) {
-            std::cout << "Enter the number of elements in lst2: ";
-            try {
-                std::cin >> temp;
-            } catch (...) {
-                std::cout << "Invalid input. Please enter a positive integer: ";
-                std::cin.clear();
-                std::cin.ignore();
-                std::cin >> temp;
-            }
-        }
-
-        if (temp < m1) {
-            std::cout << "You need to enter " << m1 - temp << " more elements.\n";
+    while (!isValidM1) {
+        if (!(std::cin >> m1)) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore();
         } else {
-            return 0;
+            isValidM1 = true;
         }
     }
 
-    int m = m2; 
-    std::vector<int> lst1 = std::vector<int>();
-    lst1.resize(n1);
+    long n2, m2;
+    n2 = m1; 
+    bool isValidM2 = false;
+    while (!isValidM2) {
+        if (!(std::cin >> m2)) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore();
+        } else {
+            isValidM2 = true;
+        }
+    }
+
+    int temp = -1;
+    while (temp == -1) {
+        std::cout << "Enter the number of elements in lst2: ";
+        try {
+            std::cin >> temp;
+        } catch (...) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore();
+            std::cin >> temp;
+        }
+    }
+
+    if (temp < m1) {
+        std::cout << "You need to enter " << m1 - temp << " more elements.\n";
+    } else {
+        return 0;
+    }
+
+    int count = m2; 
+    std::vector<int> lst1;
     for (int i = 0; i < n1; i++) {
         int temp = -1;
         while (temp == -1) {
@@ -70,14 +72,13 @@ int main() {
             }
         }
         if (temp != 0) {
-            lst1[i] = temp;
+            lst1.push_back(temp);
         }
     }
 
-    int m = m2; 
-    std::vector<int> lst2 = std::vector<int>();
-    lst2.resize(m);
-    for (int i = 0; i < m; i++) {
+    int count = m2; 
+    std::vector<int> lst2;
+    for (int i = 0; i < count; i++) {
         int temp = -1;
         while (temp == -1) {
             std::cout << "Enter element of lst2: ";
@@ -91,12 +92,12 @@ int main() {
             }
         }
         if (temp != 0) {
-            lst2[i] = temp;
+            lst2.push_back(temp);
         }
     }
 
-    if(lst2.size() != m) {
-        std::cout << "You need to enter " << m - lst2.size() << " more elements.\n";
+    if(lst2.size() != count) {
+        std::cout << "You need to enter " << count - lst2.size() << " more elements.\n";
     } else {
         std::string result = exchange(lst1, lst2);
         std::cout << result << std::endl;
