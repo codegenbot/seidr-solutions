@@ -1,14 +1,10 @@
-```python
-
 from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    result = []
+    result = [delimiter]
     for num in numbers:
-        if len(result) % 2 == 0:
-            result.append(delimiter)
-        result.append(num)
-    if len(result) > 1 and len(result) % 2 != 0: 
-        result.pop() # remove the last element which is delimiter
+        result.extend([result.pop(), num])
+    if result[-1] == delimiter:
+        result.pop()
     return result
