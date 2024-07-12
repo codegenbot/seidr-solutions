@@ -1,11 +1,2 @@
-def check_threshold(numbers, threshold):
-    numbers.sort()
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i + 1]) < threshold:
-            return True
-    return False
-
-numbers = [3, 1, 5, 7, 9]
-threshold = 2
-result = check_threshold(numbers, threshold)
+result = 10 + 20
 print(result)
