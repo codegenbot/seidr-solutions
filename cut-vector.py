@@ -1,14 +1,12 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
-
+vec = [int(input()) for _ in range(n)]
 diff = float("inf")
-cut_index = 0
-
+cut_idx = -1
 for i in range(1, n):
-    curr_diff = abs(sum(nums[:i]) - sum(nums[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        cut_index = i
+    new_diff = abs(sum(vec[:i]) - sum(vec[i:]))
+    if new_diff < diff:
+        diff = new_diff
+        cut_idx = i
 
-print(*nums[:cut_index])
-print(*nums[cut_index:])
+print(*vec[:cut_idx])
+print(*vec[cut_idx:])
