@@ -22,10 +22,10 @@ int main() {
         a.push_back(s);
     }
 
-    bool areStringsSame = true;
+    bool same = true;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != a[(i+1)%a.size()]) {
-            areStringsSame = false;
+            same = false;
             break;
         }
     }
@@ -35,7 +35,7 @@ int main() {
     std::getline(std::cin, prefix);
     std::vector<std::string> result = filter_by_prefix(a, prefix);
 
-    if (!areStringsSame) 
+    if (!same) 
         std::cout << "Strings are not the same." << std::endl;
     else 
         std::cout << "Strings are the same." << std::endl;
