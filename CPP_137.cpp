@@ -1,10 +1,6 @@
-#include <iostream>
+#include <boost/any.hpp>
 #include <string>
-using namespace std;
-
-bool isNumeric(const string& s) {
-    return all_of(s.begin(), s.end(), ::isdigit);
-}
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -15,54 +11,38 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (float)a > (int)b ? a : b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return (double)a > (int)b ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            float fa = stof(a.convert<string>().c_str());
-            float fb = (float)b;
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = (float)b.convert_to<float>();
             return fa > fb ? a : b;
         } catch (...) {
-            return "None";
+            return boost::any("None");
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
-            double fa = stod(a.convert<string>().c_str());
-            double fb = (double)b;
+            double fa = std::stod(a.convert<std::string>().c_str());
+            double fb = (double)b.convert_to<double>();
             return fa > fb ? a : b;
         } catch (...) {
-            return "None";
+            return boost::any("None");
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
-            int fa = stoi(a.convert<string>().c_str());
-            int fb = (int)b;
+            int fa = std::stoi(a.convert<std::string>().c_str());
+            int fb = (int)b.convert_to<int>();
             return fa > fb ? a : b;
         } catch (...) {
-            return "None";
+            return boost::any("None");
         }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         try {
-            float fa = stof(a.convert<string>().c_str());
-            float fb = stof(b.convert<string>().c_str());
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = std::stof(b.convert<std::string>().c_str());
             return fa > fb ? a : b;
         } catch (...) {
-            return "None";
-        }
-    } else if (a.type() == typeid(string) && isNumeric(a.convert<string>().c_str()) && b.type() == typeid(int)) {
-        try {
-            int fa = stoi(a.convert<string>().c_str());
-            int fb = (int)b;
-            return fa > fb ? a : b;
-        } catch (...) {
-            return "None";
-        }
-    } else if (a.type() == typeid(string) && isNumeric(b.convert<string>().c_str()) && b.type() == typeid(int)) {
-        try {
-            int fa = stoi(a.convert<string>().c_str());
-            int fb = stoi(b.convert<string>().c_str());
-            return fa > fb ? a : b;
-        } catch (...) {
-            return "None";
+            return boost::any("None");
         }
     }
-    return "None";
+    return boost::any("None");
 }
