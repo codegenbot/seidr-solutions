@@ -1,3 +1,4 @@
+```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -13,12 +14,14 @@ while True:
                 string_input = input("Enter a string (or 'stop' to finish): ")
                 if string_input.lower() == 'stop':
                     break
-                strings_list.append(string_input.strip())
-                if len(strings_list) == 5:
+                elif not isinstance(string_input.strip(), str):
+                    print("Invalid input. Please enter a string.")
+                else:
+                    strings_list.append(string_input.strip())
                     break
         break
     except ValueError:
-        print("Invalid input. Please enter a valid string.")
+        print("Invalid input. Please enter a string.")
         continue
 
 result = longest(strings_list)
