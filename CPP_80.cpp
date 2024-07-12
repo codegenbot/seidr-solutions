@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -27,12 +26,4 @@ bool is_happy(std::string s) {
 
 int main() {
     std::cout << (is_happy("iopaxioi") ? "True" : "False") << std::endl;
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string: ";
-        std::cin >> input;
-        if (input == "exit")
-            break;
-        std::cout << (is_happy(input) ? "True" : "False") << std::endl;
-    }
 }
