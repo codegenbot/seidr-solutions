@@ -42,6 +42,10 @@ int order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame({0,6,6,-76,-21,23,4}, { {-76, -21, 0, 4, 23, 6, 6} }));
+    assert(issame({0,6,6,-76,-21,23,4}) );
+    int result = order_by_points({0,6,6,-76,-21,23,4});
+    std::cout << "order_by_points: " << result << std::endl;
+    bool same = issame({}, {});
+    std::cout << "issame: " << (same ? "True" : "False") << std::endl;
     return 0;
 }

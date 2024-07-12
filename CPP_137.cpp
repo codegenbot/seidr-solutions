@@ -3,11 +3,11 @@
 
 int compare_one(const std::string& s, int i) {
     if (i == 1)
-        return "None";
+        return std::stoi(s) - 10;
     else if (i == 2)
-        return s;
+        return std::stoi(s);
     else if (i == 3)
-        return "None";
+        return std::stoi(s) + 10;
     else 
         return 0;
 }
@@ -22,5 +22,11 @@ int main() {
     int s1 = compare_one(a, 1);
     int s2 = compare_one(b, 2);
 
-    return (s1 < s2) ? -1 : ((s2 < s1) ? 1 : 0); 
+    if (s1 < s2) {
+        return -1;
+    } else if (s2 < s1) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
