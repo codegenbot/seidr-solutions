@@ -1,4 +1,5 @@
-```
+"""
+
 def sumOfDigits(n):
     return sum(int(digit) for digit in str(n))
 
@@ -9,10 +10,16 @@ def check(n):
         else:
             print("The number is not divisible by 3")
 
-while True:
-    num = input("Enter the number: ")
-    try:
-        n = int(num)
-        check(n)
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+try:
+    while True:
+        num = input("Enter the number: ")
+        try:
+            n = int(num)
+            if n != 0 and n >= 0:
+                check(n)
+            else:
+                print("Please enter a non-negative integer.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+except Exception as e:
+    print(f"An error occurred: {e}")
