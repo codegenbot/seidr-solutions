@@ -7,18 +7,10 @@ def is_prime(num):
     return True
 
 def prime_fib(n: int):
-    def fibonacci(n):
-        if n <= 0:
-            return 0
-        elif n == 1:
-            return 1
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
-
+    a, b = 0, 1
     count = 0
-    i = 0
     while count < n:
-        if is_prime(fibonacci(i)):
+        a, b = b, a + b
+        if is_prime(a):
             count += 1
-        i += 1
-    return fibonacci(i - 1)
+    return a
