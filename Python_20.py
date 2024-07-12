@@ -1,5 +1,5 @@
-```
-def get_closest_elements(numbers, target_sum):
+```Python
+def get_closed_elements(numbers, target_sum):
     numbers.sort()
     min_diff = float('inf')
     closest_pair = ()
