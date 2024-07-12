@@ -12,3 +12,14 @@ def compare_one(a, b):
         return b
     else:
         return None
+
+if __name__ == "__main__":
+    a = input("Enter the first value: ")
+    b = input("Enter the second value: ")
+
+    result = compare_one(a, b)
+    
+    if result:
+        print(f"{result} is greater than {not result}")
+    else:
+        print("Both values are equal.")
