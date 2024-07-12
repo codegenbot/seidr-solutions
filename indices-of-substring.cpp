@@ -4,11 +4,11 @@
 
 int main() {
     std::string text, target;
-  
+    
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
-    if (text.size() < target.size() || target.empty()) {
+    if (text.empty() || target.empty() || text.size() < target.size()) {
         std::cout << "0";
         return 0;
     }
