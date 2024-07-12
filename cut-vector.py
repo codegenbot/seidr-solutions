@@ -1,9 +1,9 @@
 arr = list(map(int, input().split()))
-total_sum = sum(arr)
 
 if len(arr) < 3:
     print("Invalid input, please provide at least 3 integers.")
 else:
+    total_sum = sum(arr)
     left_sum = arr[0]
     min_diff = abs(total_sum - 2 * arr[0] - arr[1])
     cut_index = 1

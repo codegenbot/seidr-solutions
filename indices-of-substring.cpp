@@ -1,26 +1,28 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
 int main() {
-    std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    char text[100], target[100];
+    std::cin >> text >> target;
 
     std::vector<int> indices;
-
-    if (target.empty()) {
-        std::cout << "0";
-        return 0;
+    int textLen = strlen(text);
+    int targetLen = strlen(target);
+    
+    for (int i = 0; i <= textLen - targetLen; ++i) {
+        bool found = true;
+        for (int j = 0; j < targetLen; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            indices.push_back(i);
+        }
     }
 
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
-    }
-
-    for (int i = 0; i < indices.size(); ++i) {
+    for (size_t i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
 
