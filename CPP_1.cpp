@@ -33,8 +33,3 @@ vector<string> separate_paren_groups(string paren_string) {
 
     return result;
 }
-
-int main() {
-    // Main function can be implemented here if needed
-    return 0;
-}
