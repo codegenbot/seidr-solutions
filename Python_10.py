@@ -4,7 +4,9 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    prefix = ""
-    while string.startswith(prefix + prefix[::-1]):
-        prefix += prefix[-1]
-    return string + (string[::-1]).lstrip(prefix)
+    if string.isalnum() == False:
+        raise ValueError("Input must be alphanumeric")
+    i = len(string) - 1
+    while i >= 0 and string[i] == string[0].lower():
+        i -= 1
+    return string.lower() + string[i + 1 :][::-1].lower()
