@@ -3,8 +3,8 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> make_a_pile(int n) {
