@@ -1,11 +1,10 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool sameVectors(vector<string>, vector<string>);
+bool is_Same(vector<string>, vector<string>);
 vector<string> filter_by_prefix(vector<string>, string);
 
-bool sameVectors(vector<string> a, vector<string> b) {
+bool is_Same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[(i + 1) % a.size()]) return false;
@@ -34,7 +33,7 @@ int main() {
         a.push_back(s);
     }
 
-    bool same = sameVectors(a, a);
+    bool same = is_Same(a, a);
 
     cout << "Enter prefix:" << endl;
     string prefix;
