@@ -5,14 +5,14 @@
 using namespace std;
 
 pair<float, float> find_closest_elements(const vector<float>& numbers) {
-    vector<float> sortedNumbers = numbers;
-    sort(sortedNumbers.begin(), sortedNumbers.end());
-    float min_diff = sortedNumbers[1] - sortedNumbers[0];
-    pair<float, float> result = {sortedNumbers[0], sortedNumbers[1]};
-    for (int i = 1; i < sortedNumbers.size() - 1; ++i) {
-        if (sortedNumbers[i + 1] - sortedNumbers[i] < min_diff) {
-            min_diff = sortedNumbers[i + 1] - sortedNumbers[i];
-            result = {sortedNumbers[i], sortedNumbers[i + 1]};
+    vector<float> sorted_numbers = numbers;
+    sort(sorted_numbers.begin(), sorted_numbers.end());
+    float min_diff = sorted_numbers[1] - sorted_numbers[0];
+    pair<float, float> result = {sorted_numbers[0], sorted_numbers[1]};
+    for (int i = 1; i < sorted_numbers.size() - 1; ++i) {
+        if (sorted_numbers[i + 1] - sorted_numbers[i] < min_diff) {
+            min_diff = sorted_numbers[i + 1] - sorted_numbers[i];
+            result = {sorted_numbers[i], sorted_numbers[i + 1]};
         }
     }
     return {result.first, result.second};
