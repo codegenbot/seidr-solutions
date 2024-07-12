@@ -1,7 +1,7 @@
-def find_zero():
-    a = float(input("Enter value for a: "))
-    b = float(input("Enter value for b: "))
+def find_zero(input_list):
+    a, b = input_list[-2:]
     return -b / a
 
-result = find_zero()
+input_list = list(map(float, input().split()))
+result = find_zero(input_list)
 print(result)
