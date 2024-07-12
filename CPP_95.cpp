@@ -3,16 +3,20 @@ Here is the completed code:
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
-    bool allUpper = true;
     bool allLower = true;
+    bool allUpper = true;
 
-    for (auto &pair : dict) {
-        if (!isupper(pair.first[0]) && !islower(pair.first[0])) {
-            return false;
+    for (const auto& pair : dict) {
+        if (!allLower && !allUpper) break;
+
+        string key = pair.first;
+        if (!islower(key[0])) {
+            allLower = false;
         }
-        if (isupper(pair.first[0])) allLower = false;
-        if (islower(pair.first[0])) allUpper = false;
+        if (!isupper(key[0])) {
+            allUpper = false;
+        }
     }
 
-    return allUpper || allLower;
+    return allLower || allUpper;
 }
