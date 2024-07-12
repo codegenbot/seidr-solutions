@@ -10,7 +10,7 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::cin >> n;
+    n = vec1.size();
     std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
