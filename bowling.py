@@ -1,5 +1,4 @@
 score = 0
-
 frame = 9
 if frame == 9:
     score += (
