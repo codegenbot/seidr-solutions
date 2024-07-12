@@ -2,7 +2,7 @@
 
 float calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
     if (prices.size() != discounts.size()) {
-        return 0.0; // or any other appropriate handling
+        return 0.0;
     }
 
     float total_price = 0.0;
