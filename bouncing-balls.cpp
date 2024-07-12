@@ -9,9 +9,9 @@ int main() {
     cin >> start_height >> bounce_height >> num_bounces;
     
     bounciness_index = bounce_height / start_height;
-    total_distance = start_height + bounce_height * 2;
+    total_distance = start_height;
     
-    for (int i = 2; i <= num_bounces; ++i) {
+    for (int i = 1; i <= num_bounces; ++i) {
         total_distance += (bounce_height * pow(bounciness_index, i));
     }
     
