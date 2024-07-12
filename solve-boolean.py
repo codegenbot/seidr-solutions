@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -27,9 +26,3 @@ def solve_boolean(expression):
                 elif op == '|':
                     result = result or (char == 'T')
     return result
-
-print(solve_boolean('t'))  # True
-print(solve_boolean('f'))  # False
-print(solve_boolean('f&f'))  # False
-print(solve_boolean('f&t'))  # False
-print(solve_boolean('t&f'))  # False
