@@ -29,6 +29,7 @@ int main() {
 
     int result = mastermind(code, guess);
 
-    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
+    cout << "Number of white pegs and black pegs: " << result << endl;
 
     return 0;
+}
