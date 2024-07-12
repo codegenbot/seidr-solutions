@@ -9,8 +9,12 @@ def encode(message):
 
             if char.islower() and new_code > ord('z'):
                 new_code = new_code - ord('z') + ord('a') - 1
+                if new_code > ord('z'):
+                    new_code = new_code - ord('z') + ord('a') - 1
             elif char.isupper() and new_code > ord('Z'):
                 new_code = new_code - ord('Z') + ord('A') - 1
+                if new_code > ord('Z'):
+                    new_code = new_code - ord('Z') + ord('A') - 1
                 
             encoded_message += chr(new_code)
         else:
