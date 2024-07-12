@@ -31,23 +31,22 @@ std::string reverse_delete(std::string& s, std::string& c) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return a.size() == b.size();
 }
 
 int main() {
     bool isEqual = checkEquality("True");
     
     if(isEqual) {
-        if (!isEqual) {
-            std::cout << "True is equal to itself." << std::endl;
-        } else {
-            std::cout << "True is not equal to itself." << std::endl;
-        }
+        std::cout << "True is equal to itself." << std::endl;
     } else {
         std::cout << "True is not equal to itself." << std::endl;
     }
     
-    assert(issame({reverse_delete("mamma", "mia"), "", "True"});
+    assert(issame({reverse_delete("mamma", "mia"), reverse_delete("mamma", "True"), ""}));
     
     return 0;
 }
