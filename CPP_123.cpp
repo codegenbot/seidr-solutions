@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,20 +8,13 @@ using namespace std;
 vector<int> get_odd_collatz(int) {
     int n;
     cout << "Enter a positive integer: ";
-    cin >> n; 
-
-    if (n <= 0) { 
-        return vector<int>(); 
-    }
-
+    cin >> n;
     vector<int> result;  
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;  
-        } else {
+        } else { 
             result.push_back(n);
-        }
-        if (n % 2 != 0) { 
             n = (n * 3) + 1;
         }
     }
