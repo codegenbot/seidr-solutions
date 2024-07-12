@@ -1,1 +1,41 @@
-total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] == '-' ? 0 : s[i + 3] - '0') : (s[i + 2] == '-' ? 0 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10 - (s[i + 3] == '-' ? 0 : s[i + 3] - '0'))));
+#include <iostream>
+#include <string>
+#include <cctype>
+
+int calculateBowlingScore(const std::string& s) {
+    int total = 0;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == '/') {
+            total += 10 - (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
+            i++; // Move to the next bowl after spare
+        } else if (s[i] == 'X') {
+            total += 10;
+            if (s[i + 1] == 'X') {
+                total += 10;
+                if (s[i + 2] == 'X') {
+                    total += 10;
+                } else {
+                    total += isdigit(s[i + 2]) ? s[i + 2] - '0' : 0;
+                }
+            } else {
+                total += isdigit(s[i + 1]) ? s[i + 1] - '0' : 0;
+                total += isdigit(s[i + 2]) ? s[i + 2] - '0' : 0;
+            }
+        } else if (s[i] == '-') {
+            total += 0;
+        } else if (isdigit(s[i])) {
+            total += s[i] - '0';
+        }
+    }
+    return total;
+}
+
+int main() {
+    std::string s;
+    std::cin >> s;
+
+    int score = calculateBowlingScore(s);
+    std::cout << score << std::endl;
+
+    return 0;
+}
