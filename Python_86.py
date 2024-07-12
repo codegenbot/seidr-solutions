@@ -1,8 +1,2 @@
-```
 def anti_shuffle(s):
-    words = s.split()
-    result = []
-    for word in words:
-        new_word = ''.join(sorted(word))
-        result.append(new_word)
-    return ' '.join(result)
+    return " ".join(word[::-1] if word.isalpha() else word for word in s.split())
