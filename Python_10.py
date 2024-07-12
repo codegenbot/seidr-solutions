@@ -1,11 +1,16 @@
+Here is the completed code:
+
 def is_palindrome(string: str) -> bool:
-    """Test if given string is a palindrome"""
     return string == string[::-1]
 
-
 def make_palindrome(string: str) -> str:
-    reversed_string = string[::-1]
-    for i in range(len(string)):
-        if string[: i + 1] == string[: i + 1][::-1]:
-            return string + reversed_string[len(string) - i - 1 :]
-    return string + reversed_string
+    if string.islower():
+        prefix = ''
+    else:
+        for i in range(len(string) - 1, -1, -1):
+            if not string[i].isalnum():
+                break
+            prefix = string[:i+1]
+        prefix = prefix[::-1]
+
+    return string + prefix
