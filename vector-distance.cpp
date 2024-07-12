@@ -13,16 +13,19 @@ double calculateEuclideanDistance(const std::vector<float>& vec1, const std::vec
 
 int main() {
     size_t n;
+    std::cout << "Enter the number of dimensions: ";
     std::cin >> n;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::vector<float> vec1(n);
     std::vector<float> vec2(n);
 
+    std::cout << "Enter the first vector values: ";
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
+    std::cout << "Enter the second vector values: ";
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
