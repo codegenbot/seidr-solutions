@@ -1,3 +1,17 @@
+vector<int> findPair(vector<int> nums, int target) {
+    map<int, int> numIdx;
+    vector<int> result;
+    for (int i = 0; i < nums.size(); ++i) {
+        int complement = target - nums[i];
+        if (numIdx.find(complement) != numIdx.end()) {
+            result.push_back(complement);
+            result.push_back(nums[i]);
+            return result;
+        }
+        numIdx[nums[i]] = i;
+    }
+    return result;
+}
 int main() {
     int n, target;
     cin >> n;
@@ -6,17 +20,9 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-    
-    map<int, int> numIndex;
-    for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (numIndex.find(complement) != numIndex.end()) {
-            cout << complement << endl;
-            cout << nums[i] << endl;
-            break;
-        }
-        numIndex[nums[i]] = i;
+    vector<int> result = findPair(nums, target);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << endl;
     }
-    
     return 0;
 }
