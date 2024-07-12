@@ -1,39 +1,44 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    std::vector<char> temp;
-    for (const auto& c : str) {
-        if (c == '-' || c == ' ') {
-            for (auto ch : temp) {
+    std::string temp;
+    for (const auto& word : str) {
+        if (word == '-' || word == ' ') {
+            for (auto c : temp) {
                 if (!result.empty()) {
-                    result += std::toupper(ch);
+                    result += std::toupper(c);
                 } else {
-                    result += ch;
+                    result += c;
                 }
             }
             temp.clear();
-            if (c == '-') {
-                result += c;
+            if (word == '-') {
+                result += word;
             } else {
-                temp.push_back(c);
+                temp.push_back(word);
             }
         } else {
-            temp.push_back(c);
+            temp.push_back(word);
         }
     }
-    for (auto ch : temp) {
+    for (auto c : temp) {
         if (!result.empty()) {
-            result += std::toupper(ch);
+            result += std::toupper(c);
         } else {
-            result += ch;
+            result += c;
         }
     }
     return result;
 }
 
-std::string str;
-std::getline(std::cin, str);
-std::cout << camelCase(str) << std::endl;
+int main() {
+    std::string str;
+    while (std::getline(std::cin, str)) {
+        std::cout << camelCase(str) << std::endl;
+    }
+    return 0;
+}
