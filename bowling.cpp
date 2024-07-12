@@ -6,24 +6,15 @@ int calculateBowlingScore(const std::string& s) {
     int total = 0;
     for (int i = 0; i < s.size(); ++i) {
         if (s[i] == '/') {
-            total += 10 - (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
-            i++; // Move to the next bowl after spare
+            total += 10 - (isdigit(s[i - 1]) ? s[i - 1] - '0' : 0);
         } else if (s[i] == 'X') {
             total += 10;
-            if (s[i + 1] == 'X') {
+            if (s[i + 2] == 'X') {
                 total += 10;
-                if (s[i + 2] == 'X') {
-                    total += 10;
-                } else if (s[i + 2] == '/') {
-                    total += 10 - (isdigit(s[i + 3]) ? s[i + 3] - '0' : 0);
-                } else {
-                    total += isdigit(s[i + 2]) ? s[i + 2] - '0' : 0;
-                }
-            } else if (s[i + 1] == '/') {
-                total += 10;
+                total += isdigit(s[i + 4]) ? s[i + 4] - '0' : 0;
             } else {
-                total += isdigit(s[i + 1]) ? s[i + 1] - '0' : 0;
                 total += isdigit(s[i + 2]) ? s[i + 2] - '0' : 0;
+                total += isdigit(s[i + 4]) ? s[i + 4] - '0' : 0;
             }
         } else if (s[i] == '-') {
             total += 0;
