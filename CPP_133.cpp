@@ -11,7 +11,6 @@ void checkNumber(int n) {
 
 int main() {
     int n;
-    cin >> n;
-    cout << "The number is: ";
-    checkNumber(n);
+    cin >> n; 
+    checkNumber(n); 
 }
