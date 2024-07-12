@@ -1,11 +1,3 @@
-def decipher(cipher1, cipher2, message):
-    deciphered = ""
-    for char in message:
-        if len(cipher1) > 0 and len(cipher2) > 0:
-            idx = cipher1.index(char)
-            deciphered += cipher2[idx]
-            cipher1 = cipher1[:idx] + cipher1[idx + 1 :]
-            cipher2 = cipher2[:idx] + cipher2[idx + 1 :]
-        else:
-            deciphered += char
-    return deciphered
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    cipher = {c1: c2 for c1, c2 in zip(cipher_text1, cipher_text2)}
+    return "".join([cipher.get(char, char) for char in message])
