@@ -1,42 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
+int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
+    dp[0][0] = grid[0][0];
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
-    int n = grid.size();
-    int row = 0, col = 0;
-    for (int i = 0; i < k; ++i) {
-        result.push_back(grid[row][col]);
-        if ((row + col) % 2 == 0) {
-            if (col == n - 1) {
-                row++;
-            } else if (row == 0) {
-                col++;
-            } else {
-                row--;
-                col++;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i > 0) {
+                dp[i][j] = min(dp[i][j], dp[i-1][j] + grid[i][j]);
             }
-        } else {
-            if (row == n - 1) {
-                col++;
-            } else if (col == 0) {
-                row++;
-            } else {
-                row++;
-                col--;
+            if (j > 0) {
+                dp[i][j] = min(dp[i][j], dp[i][j-1] + grid[i][j]);
             }
         }
     }
-    return result;
-}
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
-}
+    return dp[n-1][n-1] <= k ? vector<int>({dp[n-1][n-1]}) : vector<int>();
