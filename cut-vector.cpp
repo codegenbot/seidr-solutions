@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include<fstream>
+#include <fstream>
+#include <climits>
 
 using namespace std;
 
@@ -15,8 +16,8 @@ int main() {
 
     int n = nums.size();
     int sum = 0;
-    for (int i = 0; i < n; i++) { 
-        sum += nums[i]; 
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
 
     int half_sum = sum / 2;
@@ -25,8 +26,8 @@ int main() {
     }
 
     int min_diff = INT_MAX;
-    int prefix_sum = 0;
     int cut_idx = -1;
+    int prefix_sum = 0;
 
     for (int i = 0; i < n; i++) {
         if (abs(2 * prefix_sum - sum) < min_diff) {
