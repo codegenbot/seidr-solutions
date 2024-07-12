@@ -1,1 +1,1 @@
-string1, string2 = input().rstrip().split()
+string1, string2 = input().split()
