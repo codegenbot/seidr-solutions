@@ -1,12 +1,14 @@
+```
 strings = input("Enter space separated strings: ").lower().split()
 substring = input("Enter a substring to search: ").lower()
 
 if not strings or not substring:
     print("Expected input: multiple strings and one substring.")
-    print(
-        "Invalid input. Please provide at least one string and at least one character to search for."
-    )
-else:
+    print("Invalid input. Please provide at least one string and at least one character to search for.")
+
+action = input("Enter search or quit: ")
+
+if action == 'search':
     result = [s for s in strings if substring in s]
 
     if not result:
@@ -16,3 +18,5 @@ else:
             print([result[0]])
         else:
             print(result)
+else:
+    print("Goodbye!")
