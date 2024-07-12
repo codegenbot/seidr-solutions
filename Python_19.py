@@ -1,10 +1,10 @@
-num_dict = {i: str(i) for i in range(10)}
+num_dict = {str(i): str(i) for i in range(10)}
 
 
 def sort_numbers(numbers: str) -> str:
     return " ".join(
         [
-            str(num_dict[int(k)])
-            for k in sorted([int(i) for i in numbers.split() if i in num_dict])
+            num_dict[num]
+            for num in sorted([num for num in numbers.split() if num in num_dict])
         ]
     )
