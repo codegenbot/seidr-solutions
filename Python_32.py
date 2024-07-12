@@ -1,6 +1,6 @@
 def find_zero():
-    xs = list(map(float, iter(input, "")))[-2:]
-    a, b = xs
+    a = float(input("Enter value for a: "))
+    b = float(input("Enter value for b: "))
     return -b / a
 
 result = find_zero()
