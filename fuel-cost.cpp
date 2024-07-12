@@ -1,20 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
+        if (cin.peek() == '\n') {
+            break;
+        }
     }
 
     int sum = 0;
     for (int num : nums) {
-        sum += std::floor(num / 3) - 2;
+        sum += (num / 3) - 2;
     }
 
-    std::cout << sum << std::endl;
+    cout << sum << "\n";
 
     return 0;
 }
