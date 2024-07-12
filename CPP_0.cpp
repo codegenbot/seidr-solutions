@@ -1,20 +1,20 @@
-```cpp
 #include <vector>
+#include <algorithm>
 
-int main() {
-    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    
-    bool hasCloseElements = false;
-    float minDiff = 10.0f;
-
-    for(int i=0; i<a.size()-1; i++) {
-        if (abs(a[i]-a[i+1]) < minDiff) {
-            minDiff = abs(a[i]-a[i+1]);
-            hasCloseElements = true;
+bool has_close_elements(const std::vector<float>& a) {
+    for (size_t i = 1; i < a.size(); ++i) {
+        if (std::abs(a[i] - a[i-1]) < 0.5f) {
+            return true;
         }
     }
+    return false;
+}
 
-    std::cout << "Has close elements: " << (hasCloseElements ? "Yes" : "No") << std::endl;
-
-    return 0;
+int main() {
+    std::vector<float> a = {1.0, 2.0, 3.9f, 4.0, 5.0, 2.2};
+    if (has_close_elements(a)) {
+        std::cout << "The vector has close elements." << std::endl;
+    } else {
+        std::cout << "The vector does not have close elements." << std::endl;
+    }
 }
