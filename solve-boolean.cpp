@@ -1,4 +1,4 @@
-```
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -31,4 +31,3 @@ int main() {
         std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
     }
     return 0;
-}
