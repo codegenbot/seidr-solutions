@@ -1,16 +1,16 @@
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentFrame = 1;
     int rollsLeftInFrame = 1;
 
     for (char c : s) {
-        if (c == 'X') { // strike
+        if (c == 'X') { 
             score += 10 + nextRollValue(s, currentFrame);
             currentFrame++;
             rollsLeftInFrame = 1;
-        } else if (c == '/') { // spare
+        } else if (c == '/') { 
             score += 10 - nextRollValue(s, currentFrame) + nextRollValue(s, currentFrame);
             currentFrame++;
             rollsLeftInFrame = 0;
@@ -18,10 +18,10 @@ int bowlingScore(std::string s) {
             int rollValue = c - '0';
             score += rollValue;
 
-            if (rollsLeftInFrame == 1) { // first roll
+            if (rollsLeftInFrame == 1) { 
                 currentFrame++;
-                rollsLeftInFrame = 2; // two rolls left in frame
-            } else { // second roll
+                rollsLeftInFrame = 2; 
+            } else { 
                 rollsLeftInFrame--;
             }
         }
@@ -30,7 +30,7 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int nextRollValue(std::string s, int frameNumber) {
+int nextRollValue(string s, int frameNumber) {
     for (char c : s) {
         if (c == '/') {
             continue;
