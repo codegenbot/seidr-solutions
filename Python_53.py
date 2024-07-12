@@ -13,9 +13,7 @@ def main():
             try:
                 num2 = int(input("Enter second number: "))
                 print(f"The sum is {add(num1, num2)}")
-                cont = input("Do you want to continue? (y/n): ")
-                if cont.lower() != "y":
-                    break
+                break
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
 
