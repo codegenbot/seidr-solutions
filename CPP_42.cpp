@@ -1,4 +1,4 @@
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -10,15 +10,20 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b) {
     return true;
 }
 
-std::vector<int> incr_list(const std::vector<int> &l) {
-    std::vector<int> result = l;
-    for (int i = 0; i < result.size(); i++) {
-        result[i]++;
+vector<int> incr_list(vector<int> l) {
+    for (int i = 0; i < l.size(); i++) {
+        l[i]++;
     }
-    return result;
+    return l;
 }
 
 int main() {
-    // Call incr_list function with input parameter and perform desired operations
-    // Call issame function with appropriate arguments for comparison
+    vector<int> input = {1, 2, 3};
+    vector<int> output = incr_list(input);
+    if (issame(output, {2, 3, 4})) {
+        cout << "Output is correct!" << endl;
+    } else {
+        cout << "Output is incorrect!" << endl;
+    }
+    return 0;
 }
