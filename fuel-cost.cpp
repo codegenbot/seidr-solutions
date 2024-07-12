@@ -15,7 +15,7 @@ int main() {
 
     long long sum = 0;
     for (long long num : nums) {
-        sum += (num / 3) - 2 * nums.size();
+        sum += max(0LL, ((num / 3) - 2));
     }
 
     cout << sum << "\n";
