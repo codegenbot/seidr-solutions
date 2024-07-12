@@ -1,6 +1,6 @@
 #include <string>
 
-string validateTweet(string tweet) {
+std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
@@ -8,6 +8,6 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     else {
-        return "Your tweet has " + std::to_string(tweet.length()) + " characters";
+        return "Your tweet has " + std::to_string(tweet.size()) + " characters";
     }
 }
