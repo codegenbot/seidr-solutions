@@ -12,7 +12,7 @@ int main() {
     std::cout << "Enter the number of elements in lst1: ";
     std::cin >> n1;
     std::cout << "Enter the number of elements in lst2: ";
-    std::cin >> m1;
+    std::cin >> n2;
     std::vector<int> lst1;
     for (int i = 0; i < n1; i++) {
         int temp;
@@ -23,7 +23,7 @@ int main() {
     std::cout << "Enter the number of elements in lst2: ";
     std::cin >> m2;
     std::vector<int> lst2;
-    for (int i = 0; i < m1; i++) {
+    for (int i = 0; i < m2; i++) {
         int temp;
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
