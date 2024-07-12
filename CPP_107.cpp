@@ -1,11 +1,11 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+    vector<int> result;
     int countEven = 0;
     int countOdd = 0;
 
@@ -28,8 +28,8 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
 
-    result[0] = countEven;
-    result[1] = countOdd;
+    result.push_back(countEven);
+    result.push_back(countOdd);
 
     return result;
 }
@@ -39,6 +39,11 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     vector<int> result = even_odd_palindrome(n);
-    cout << "Even palindromes: " << result[0] << endl;
-    cout << "Odd palindromes: " << result[1] << endl;
+    if (result.size() != 2) {
+        cout << "Error: Invalid input. Please enter a positive integer." << endl;
+    } else {
+        cout << "Even palindromes: " << result[0] << endl;
+        cout << "Odd palindromes: " << result[1] << endl;
+    }
     return 0;
+}

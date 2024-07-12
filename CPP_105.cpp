@@ -1,59 +1,27 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].size() != b[i].size()) {
+            return false;
         }
     }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
-    vector<string> result;
-    for (int i : temp) {
-        string s = "";
-        switch (i) {
-            case 1:
-                s = "One";
-                break;
-            case 2:
-                s = "Two";
-                break;
-            case 3:
-                s = "Three";
-                break;
-            case 4:
-                s = "Four";
-                break;
-            case 5:
-                s = "Five";
-                break;
-            case 6:
-                s = "Six";
-                break;
-            case 7:
-                s = "Seven";
-                break;
-            case 8:
-                s = "Eight";
-                break;
-            case 9:
-                s = "Nine";
-                break;
-        }
-        result.push_back(s);
+    return true;
+}
+
+std::vector<std::string> by_length(std::vector<int> lengths) {
+    std::vector<std::string> result;
+    for (int length : lengths) {
+        result.push_back(std::to_string(length));
     }
     return result;
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    assert(is_same(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
     return 0;
+}
