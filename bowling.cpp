@@ -6,16 +6,11 @@ int score(std::string s) {
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             total += 10;
-            total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 : s[i + 1] - '0');
-            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0');
+            total += (s[i + 1] == 'X' || s[i + 1] == '/') ? 10 : (s[i + 1] == '/' ? 10 - ((s[i + 2] == 'X') ? 10 : (s[i + 2] - '0')) : s[i + 1] - '0');
+            total += (s[i + 2] == 'X' || s[i + 2] == '/') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0');
             frame++;
         } else if (s[i] == '/') {
-            if (s[i + 1] != '-') {
-                total += s[i + 1] - '0';
-            } else {
-                total += 0;
-            }
-            total += 10 - (s[i - 1] - '0');
+            total += 10 - ((s[i - 1] == 'X') ? 10 : (s[i - 1] - '0'));
         } else if (s[i] == '-') {
             // do nothing
         } else {
