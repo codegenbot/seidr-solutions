@@ -3,8 +3,8 @@ def is_multiply_prime(n):
         return False
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
-            j = n // i
-            if is_prime(i) and is_prime(j):
+            k = n // i
+            if k != i and all(is_prime(j) for j in range(i, k + 1)):
                 return True
     return False
 
