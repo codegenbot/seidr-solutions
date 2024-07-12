@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -9,9 +10,9 @@ vector<int> leaders(vector<int>& arr) {
         return arr;
     }
     
-    for (int i = 0; i < n - 1; i++) {
-        while (i + 1 < n && arr[i] <= arr[i + 1]) {
-            i++;
+    for (int i = n - 2; i >= 0; i--) {
+        while (i > 0 && arr[i] <= arr[i + 1]) {
+            i--;
         }
         result.push_back(arr[i]);
     }
@@ -21,4 +22,8 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() { vector<int> input = {}; leaders(input); return 0; }
+int main() {
+    vector<int> input;
+    leaders(input);
+    return 0;
+}
