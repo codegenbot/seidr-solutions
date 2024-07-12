@@ -1,3 +1,7 @@
+"""
+Write a function that takes some text as input and returns the MD5 hash of this text.
+For example, if you enter "Hello World", the function should return the hexadecimal representation of the MD5 hash of "Hello World".
+
 import hashlib
 
 def string_to_md5(text):
