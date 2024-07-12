@@ -1,5 +1,6 @@
-```
-def fruit_distribution(s, total):
+def fruit_distribution():
+    s = input("Enter a string of fruits (e.g., 'apples oranges apples and oranges'): ")
+    total = 0
     s = s.lower().replace("apples", "0").replace("oranges", "0")
     parts = s.split()
     for part in parts:
@@ -8,6 +9,6 @@ def fruit_distribution(s, total):
                 total += int(part)
         elif part.startswith("and"):
             if part.startswith("and "):
-                last_number = int(parts[parts.index(part)-1])
+                last_number = int(parts[parts.index(part) - 1])
                 total += -(-last_number // 2)
     return -(-total // 2)
