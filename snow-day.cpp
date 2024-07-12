@@ -1,15 +1,14 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 
 int main() {
     int hours;
-    double snow, rate, melt;
+    long double snow, rate, melt;
     std::cin >> hours >> snow >> rate >> melt;
 
     for (int i = 0; i < hours; ++i) {
-        double snowmelt = melt * snow;
-        snow = std::round((snow + rate - snowmelt) * 1e15) / 1e15; // rounding to 15 decimal places
+        long double snowmelt = melt * snow;
+        snow = snow + static_cast<long double>(rate) - static_cast<long double>(snowmelt);
     }
 
     std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
