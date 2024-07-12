@@ -1,9 +1,12 @@
-```Python
 from collections import OrderedDict
 
 def remove_duplicates(input_numbers=None):
     if input_numbers is None:
-        input_str = input("Enter numbers separated by space: ")
-        input_numbers = list(map(int, input_str.split()))
-    
-    return sorted(list(OrderedDict.fromkeys(input_numbers))) if input("Do you want to keep the original order? (yes/no): ") != "yes" else list(OrderedDict.fromkeys(input_numbers))
+        while True:
+            try:
+                input_str = input("Enter numbers separated by space: ")
+                input_numbers = list(map(int, filter(str.isdigit, input_str.split())))
+                break
+            except ValueError:
+                print("Invalid input. Please enter valid numbers.")
+    return sorted(list(OrderedDict.fromkeys(input_numbers)))
