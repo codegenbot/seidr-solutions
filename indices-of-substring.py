@@ -1,4 +1,10 @@
 def indices_of_substring(text):
     target = [t.strip() for t in input().split(',')]
-    result = [i for t in target for i in range(len(text)-len(t)+1) if text[i:i+len(t)] == t]
-    return list(set(result))
+    result = []
+    for t in target:
+        while True:
+            i = text.find(t)
+            if i == -1: break
+            result.append(i)
+            text = text[i + len(t):]  # Remove found substring to avoid duplicates
+    return result
