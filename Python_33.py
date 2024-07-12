@@ -15,3 +15,5 @@ def unique_and_sorted():
         except Exception as e:
             print("Invalid input. Please enter numbers separated by commas.")
     return sorted(user_input)
+
+sort_third = unique_and_sorted()
