@@ -2,32 +2,40 @@ int score(string s) {
     int total = 0;
     int frame = 1;
     int ball = 0;
-    vector<int> points;
+    vector<int> scores(21, 0);
+
     for (char c : s) {
         if (c == 'X') {
-            points.push_back(10);
-            if (frame < 10) {
-                points.push_back(0);
-            }
+            scores[ball] = 10;
+            scores[ball + 1] = 0;
+            ball += 2;
             frame++;
         } else if (c == '/') {
-            points.push_back(10 - points.back());
+            scores[ball] = 10 - scores[ball - 1];
+            ball++;
+            frame++;
         } else if (c == '-') {
-            points.push_back(0);
+            scores[ball] = 0;
+            ball++;
         } else {
-            points.push_back(c - '0');
+            scores[ball] = c - '0';
+            ball++;
+            if (frame % 2 == 0) {
+                frame++;
+            }
         }
     }
-    for (int i = 0; i < points.size(); i++) {
-        total += points[i];
-        if (points[i] == 10 && frame < 10) {
-            total += points[i + 1] + points[i + 2];
-            frame++;
-        } else if (ball % 2 == 1 || points[i] == 10) {
-            frame++;
+
+    for (int i = 0; i < 10; i++) {
+        if (scores[i * 2] == 10) {
+            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
+        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
+            total += 10 + scores[i * 2 + 2];
+        } else {
+            total += scores[i * 2] + scores[i * 2 + 1];
         }
-        ball = (ball + 1) % 2;
     }
+
     return total;
 }
 
