@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include <numeric>
+#include <numeric> // Add this header for std::accumulate
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
