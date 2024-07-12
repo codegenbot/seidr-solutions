@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,13 +29,15 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "Next smallest number is: " << lst[i];
-                    return 0;
+                    std::cout << "Next smallest number: " << lst[i];
+                    same = false;
+                    break;
                 }
             }
-            if(same) std::cout << "All numbers are the same.";
-        } else std::cout << "Please enter more than one number.";
-    } else std::cout << "Please enter a positive number.";
+            if(same) std::cout << "-1";
+        } else std::cout << "-1";
+
+    } else std::cout << "-1";
 
     return 0;
 }
