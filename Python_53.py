@@ -1,6 +1,4 @@
-```
-def add(x: int, y: int):
-    try:
-        return x + y
-    except TypeError:
-        return "Error: Please enter valid integers"
+def add():
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
+    return x + y
