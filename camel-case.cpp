@@ -12,8 +12,6 @@ std::string camelCase(std::string str) {
         }
     }
 
-    words.push_back(str.substr(start));
-
     std::string result;
     for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
@@ -29,7 +27,7 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
+    while (getline(std::cin, str)) {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
