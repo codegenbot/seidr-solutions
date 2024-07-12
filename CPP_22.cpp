@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
-#include "/usr/include/boost/any.hpp"
+#include <boost/any.hpp>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
