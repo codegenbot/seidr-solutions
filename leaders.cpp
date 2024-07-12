@@ -9,7 +9,7 @@ vector<int> findLeaders(vector<int> nums) {
     int maxRight = nums[n - 1];
     leaders.push_back(maxRight);
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
+        if (nums[i] >= maxRight && nums[i] != leaders.back()) {
             maxRight = nums[i];
             leaders.push_back(maxRight);
         }
@@ -20,21 +20,17 @@ vector<int> findLeaders(vector<int> nums) {
 
 int main() {
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-    
     vector<int> nums(n);
-    cout << "Enter the elements: ";
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
 
-    vector<int> leaders = findLeaders(nums);
-    
-    cout << "Leaders: ";
-    for (int num : leaders) {
-        cout << num << " ";
+    vector<int> result = findLeaders(nums);
+
+    for (int leader : result) {
+        cout << leader << " ";
     }
-    
+
     return 0;
 }
