@@ -2,8 +2,8 @@
 #include <cassert>
 
 bool has_close_elements(const std::vector<float>& v, float epsilon) {
-    for(int i=0; i<v.size()-1; i++){
-        if(abs(v[i]-v[i+1]) <= epsilon){
+    for (int i = 0; i < v.size() - 1; ++i) {
+        if (abs(v[i] - v[i+1]) <= epsilon) {
             return true;
         }
     }
@@ -11,6 +11,12 @@ bool has_close_elements(const std::vector<float>& v, float epsilon) {
 }
 
 int main() {
-    std::vector<float> a = std::vector<float>( {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f} );
+    std::vector<float> a(6);
+    a[0] = 1.0f;
+    a[1] = 2.0f;
+    a[2] = 3.9f;
+    a[3] = 4.0f;
+    a[4] = 5.0f;
+    a[5] = 2.2f;
     assert(has_close_elements(a, 0.5) == false);
 }
