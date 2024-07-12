@@ -4,10 +4,12 @@ def tri(n):
     elif n == 1:
         return [3]
     else:
-        res = [0, 3]
-        for i in range(2, n + 1):
-            if i % 2 == 0:
-                res.append(1 + i // 2)
+        result = [3]
+        a, b, c = 1, 1, 3
+        for _ in range(2, n + 1):
+            if _ % 2 == 0:
+                c = 1 + _ // 2
             else:
-                res.append(res[i - 1] + res[i - 2] + res[i - 3])
-        return res
+                a, b, c = b, c, a + b + c
+            result.append(c)
+        return result
