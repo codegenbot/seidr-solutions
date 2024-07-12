@@ -10,7 +10,7 @@ def below_zero() -> bool:
             print("Invalid input. Please try again.")
             continue
         
-        if all(temp < 0 for temp in temperature_list):
+        if any(temp < 0 for temp in temperature_list):
             return True
-        elif any(temp >= 0 for temp in temperature_list):
+        elif all(temp >= 0 for temp in temperature_list):
             return False
