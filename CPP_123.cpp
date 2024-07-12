@@ -5,28 +5,34 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    vector<int> result;  
     while (n != 1) {
         if (n % 2 == 0) {
-            n /= 2;
+            n /= 2;  
         } else {
-            n = 3 * n + 1;
+            if (n > 0) {
+                result.push_back(n);
+            }
         }
-        if (n % 2 != 0) {
-            result.push_back(n);
+        if (n % 2 != 0) { 
+            n = (n * 3) + 1;
+        } else {
+            if (n > 0) {
+                result.push_back(n);
+            }
         }
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
-int main() {
-    int n;
+int new_main() {
+    int input;
     cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    for (int i : res) {
-        cout << i << " ";
+    cin >> input; 
+    vector<int> odd_collatz = get_odd_collatz(input);
+    cout << "The sequence of Collatz Conjecture for the given number is: ";
+    for (int num : odd_collatz) {
+        cout << num << " ";
     }
     cout << endl;
     return 0;
