@@ -39,7 +39,7 @@ int main() {
         }
     }
 
-    std::cout << result.substr(0, result.size() - 1) << std::endl;
+    std::cout << result.substr(0, result.length() - 1) << std::endl;
 
     return 0;
 }
