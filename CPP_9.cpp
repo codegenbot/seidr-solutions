@@ -1,10 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
+    if (v1.size() != v2.size()) 
+        return false;
+    return std::equal(v1.begin(), v1.end(), v2.begin());
 }; 
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
@@ -25,7 +26,10 @@ int main() {
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
-    while ((std::cin >> num) && (num != -1)) {
+    while (true) {
+        std::cin >> num;
+        if (num == -1)
+            break;
         numbers.push_back(num);
     }
 
