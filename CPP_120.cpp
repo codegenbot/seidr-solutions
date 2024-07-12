@@ -16,8 +16,10 @@ std::vector<int> maximumSubarray(std::vector<int> arr) {
 int main() {
     std::vector<int> vec1(3); 
     vec1[0] = 1; vec1[1] = 2; vec1[2] = 3; 
-    std::vector<int> vec2(3); 
-    vec2[0] = 1; vec2[1] = 2; vec2[2] = 3;
+    std::vector<int> vec2(3); // Remove default value and just use constructor
+    for(int i=0; i<3; i++) {
+        vec2[i] = i+1;
+    }
     if (issame(vec1, vec2)) {
         std::cout << "Vectors are same" << std::endl;
     } else {
