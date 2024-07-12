@@ -13,4 +13,7 @@ int order_by_points(const std::vector<int>& nums) {
     return points;
 }
 
-auto output = order_by_points({0,6,6,-76,-21,23,4});
+int main() {
+    int output = order_by_points({0,6,6,-76,-21,23,4});
+    return 0;
+}

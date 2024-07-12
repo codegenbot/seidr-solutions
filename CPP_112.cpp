@@ -2,17 +2,20 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s1, const std::string& s2) {
-    std::vector<std::string> result;
+std::string reverse_delete(const std::string& s1, const std::string& s2) {
+    std::string result = s1;
     for (int i = 0; i < s2.length(); i++) {
-        while (s1.find(s2.substr(i, 1)) != std::string::npos)
-            s1.erase(s1.find(s2.substr(i, 1)), 1);
+        while (result.find(s2.substr(i, 1)) != std::string::npos)
+            result.erase(result.find(s2.substr(i, 1)), 1);
     }
-    result.push_back(s1);
-    return {std::vector<std::string>{result}};
+    return result;
 }
 
 int main() {
