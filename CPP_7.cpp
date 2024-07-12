@@ -13,6 +13,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 
 int main() {
     vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(result == {"grunt", "prune"});
+    assert(result == set<string>({"grunt", "prune"}));
     return 0;
 }
