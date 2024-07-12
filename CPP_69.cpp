@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <map>
 
@@ -20,4 +21,8 @@ int findMaxFreq(std::vector<int> lst) {
     }
 
     return maxFreqNum;
+}
+
+int main() {
+    std::cout << findMaxFreq({3, 10, 10, 9, 2}) << std::endl;
 }
