@@ -1,7 +1,7 @@
 int main() {
     string code, guess;
     cin >> code >> guess;
-    
+
     int white = 0, black = 0;
     map<char, int> codeCount, guessCount;
 
@@ -14,11 +14,11 @@ int main() {
         }
     }
 
-    for (auto& pair : codeCount) {
-        white += min(pair.second, guessCount[pair.first]);
+    for (auto& it : codeCount) {
+        white += min(it.second, guessCount[it.first]);
     }
 
     cout << white << endl << black << endl;
-    
+
     return 0;
 }
