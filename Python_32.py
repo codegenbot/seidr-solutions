@@ -18,8 +18,7 @@ def main():
         result = find_zero(xs)
         print(result)
     except ZeroDivisionError as e:
-        print(str(e))
+        print(str(e)
 
 # Call the main function
-if __name__ == "__main__":
-    main()
+main()
