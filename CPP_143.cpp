@@ -1,15 +1,13 @@
 ```cpp
 #include <iostream>
 #include <sstream>
-using std::string;
-using std::istringstream;
-using std::getline;
+#include <string>
 
-string words_in_sentence(string sentence) {
-    istringstream ss(sentence);
-    string word;
+std::string words_in_sentence(std::string sentence) {
+    std::istringstream ss(sentence);
+    std::string word;
     int count = 0;
-    while (getline(ss, word, ' ')) {
+    while (std::getline(ss, word, ' ')) {
         if (count == 1)
             return word;
         ++count;
@@ -19,8 +17,8 @@ string words_in_sentence(string sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    string sentence;
-    getline(std::cin, sentence);
+    std::string sentence;
+    std::getline(std::cin, sentence);
     try {
         std::cout << words_in_sentence(sentence) << std::endl;
     } catch (...) {
