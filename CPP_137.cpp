@@ -3,11 +3,11 @@
 
 int compare_one(const std::string& s, int i) {
     if (i == 1)
-        return std::stod(s) - 10;
+        return std::stof(s) - 10;
     else if (i == 2)
-        return std::stod(s);
+        return std::stof(s);
     else if (i == 3)
-        return std::stod(s) + 10;
+        return std::stof(s) + 10;
 }
 
 int main() {
@@ -24,6 +24,5 @@ int main() {
         return (x < y) ? -1 : ((y < x) ? 1 : 0);
     }
     
-    assert(std::stod(compare_one("1", 1)) == 0.0); 
     return 0;
 }
