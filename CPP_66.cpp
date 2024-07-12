@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int digitSum(std::string s) {
     int sum = 0;
-    for (char c : s) {
-        if (std::isdigit(c)) {
-            sum += c - '0';
-            s = s.substr(0, std::distance(s.begin(), s.end()) - 1) + std::to_string(sum % 10);
+    while (!s.empty()) {
+        if (!s.empty()) {
+            int digit = s[0] - '0';
+            sum += digit;
+            s.erase(0, 1);
         }
     }
     return sum;
