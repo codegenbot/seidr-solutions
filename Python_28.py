@@ -1,3 +1,4 @@
+```
 def main():
     class Item:
         def __init__(self, name):
@@ -21,8 +22,15 @@ def main():
             items.append(Item(user_input.strip()))
             cost = float(input(f"Enter the cost of {user_input}: "))
             for item in items:
-                if item.name == user_input:
-                    item.cost = cost
+                if user_input in [item.name for item in items]:
+                    for i in items:
+                        if i.name == user_input:
+                            i.cost = cost
+                else:
+                    for i in items:
+                        if i.name == user_input:
+                            i.cost = cost
+                    items[-1].cost = cost
         except ValueError:
             print("Invalid input. Please enter an item or 'stop'.")
 

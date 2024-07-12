@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def find_closest_elements(arr, target):
     arr.sort()
