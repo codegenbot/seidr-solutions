@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     visited = [[False] * n for _ in range(n)]
@@ -21,16 +22,13 @@ def minPath(grid, k):
         visited[i][j] = False
         return res
 
-    min_paths = float("inf")
+    min_paths = []
     for i in range(n):
         for j in range(n):
             paths = dfs(i, j, [])
-            if len(paths) < min_paths:
-                min_paths = len(paths)
+            if not min_paths or len(min_paths[0]) > len(paths[0]):
+                min_paths = [paths[0]]
+            elif len(min_paths[0]) == len(paths[0]):
+                min_paths.append(paths[0])
 
-    if min_paths == float("inf"):
-        return []
-    else:
-        return [
-            grid[i][j] for i, j in enumerate(next(iter(min([p for p in minPath[0]]))))
-        ]
+    return min_paths[0] if min_paths and len(min_paths[0]) <= k else []
