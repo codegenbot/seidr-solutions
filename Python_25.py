@@ -3,7 +3,7 @@ from typing import List
 import math
 
 
-def factorize() -> List[int]:
+def factorize():
     num = int(input("Enter a positive integer: "))
     if num <= 0:
         print("Please enter a positive integer.")
