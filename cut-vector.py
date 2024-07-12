@@ -3,12 +3,10 @@ def cut_vector(lst):
     split_idx = 0
 
     for i in range(1, len(lst)):
-        left_max = max(lst[:i])
-        right_max = max(lst[i:])
-        if left_max == right_max:
-            return lst[:i], lst[i:]
-        diff = abs(sum(lst[:i]) - sum(lst[i:]))
-        if diff < min_diff:
+        left_sum = sum(lst[:i])
+        right_sum = sum(lst[i:])
+        diff = abs(left_sum - right_sum)
+        if (diff < min_diff and diff != 0) or (left_sum == right_sum):
             min_diff = diff
             split_idx = i
 
