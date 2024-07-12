@@ -1,7 +1,6 @@
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+def below_zero(temperature_list) -> bool:
+    if not temperature_list or len(temperature_list) == 0:
+        print("Invalid input. Please try again.")
+        return False
+
+    return any(temp < 0 for temp in temperature_list)
