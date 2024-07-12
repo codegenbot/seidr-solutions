@@ -1,22 +1,22 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    return std::includes(b.begin(), b.end(), a.begin(), a.end());
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result = {};
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> result;
     for (int num : numbers) {
-        bool duplicate = false;
-        for (int i = 0; i < result.size(); ++i) {
-            if (issame({num}, {result[i]})) {
-                duplicate = true;
+        bool isSame = false;
+        for (auto& v : result) {
+            if (issame({num}, {v})) {
+                isSame = true;
                 break;
             }
         }
-        if (!duplicate) {
+        if (!isSame) {
             result.push_back(num);
         }
     }
@@ -24,11 +24,10 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> no_duplicates = remove_duplicates(numbers);
-    for (int num : no_duplicates) {
-        cout << num << " ";
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 1};
+    std::vector<int> output = remove_duplicates(numbers);
+    for (auto num : output) {
+        std::cout << num << " ";
     }
-    cout << endl;
     return 0;
 }
