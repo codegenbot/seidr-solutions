@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,5 +12,9 @@ std::string encrypt(const std::string& s) {
 int main() {
     std::string s;
     std::getline(std::cin, s);
-    std::cout << encrypt(s) << std::endl;
+    std::string result = encrypt(s);
+    for (char c : result) {
+        std::cout << static_cast<char>(c);  // Fix: Use static cast to convert char
+    }
+    std::cout << std::endl;
 }
