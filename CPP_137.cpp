@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <boost/any.hpp>
 #include <string>
@@ -46,6 +47,6 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    assert(boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
     return 0;
 }
