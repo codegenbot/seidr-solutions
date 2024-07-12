@@ -1,5 +1,4 @@
-Here's the corrected code:
-
+```
 def decode_cyclic():
     s = input("Enter the string: ")
     result = ""
