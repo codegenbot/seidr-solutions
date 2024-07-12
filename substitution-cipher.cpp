@@ -17,7 +17,7 @@ string decipher(string cipherText, string key) {
                 j++;
             }
         } else {
-            decrypted += key[i];
+            decrypted += cipherText[i];
         }
     }
     return decrypted;
