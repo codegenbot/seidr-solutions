@@ -1,5 +1,5 @@
 def main():
-    xs = list(map(float, input().split()))
+    xs = list(map(int, input().split()))
 
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
@@ -18,7 +18,7 @@ def main():
         result = find_zero(xs)
         print(result)
     except ZeroDivisionError as e:
-        print(str(e)
+        print(str(e))
 
 # Call the main function
 main()
