@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int score(string s) {
     int res = 0;
     int frame = 0;
