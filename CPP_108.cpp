@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,11 +17,9 @@ int main() {
     int n; 
     cin >> n;
     
-    numbers.push_back(num); // error: num is not declared
-    
     for(int i = 0; i < n; i++) {
         std::string num; 
-        cin >> num; 
+        cin >> ws >> num; // Add this line
         numbers.push_back(num);
     }
     
