@@ -32,14 +32,14 @@ int main() {
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
-    while(std::cin >> num) {
-        if(num == -1)
+    for (int i = 0; i < 10; i++) {
+        if (!(std::cin >> num) || num == -1)
             break;
 
-        if(num < 0)
+        if (num < 0)
             continue; // Skip invalid inputs
 
-        if(numbers.empty() || num > numbers.back())
+        if (num > numbers.back())
             numbers.push_back(num);
     }
 
