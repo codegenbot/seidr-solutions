@@ -3,7 +3,6 @@ def fibfib(n: int):
         return 0
     a, b = 0, 1
     while True:
-        if (a >= n): 
-            break
+        if (b >= n): 
+            return b
         a, b = b, a + b
-    return a
