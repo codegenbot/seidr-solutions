@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -23,8 +22,6 @@ std::vector<float> get_positive(const std::vector<float>& l){
 }
 int main() {
     std::vector<float> input = {1, -2, 3, -4};
-    namespace std{
-    assert(issame(get_positive(input), {}));  
-    }
+    assert(issame(get_positive(input), std::vector<float>()) == false);  
     return 0;
 }
