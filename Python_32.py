@@ -1,2 +1,2 @@
-def find_zero(xs: list):
+def find_zero(xs):
     return -xs[1] / xs[0]
