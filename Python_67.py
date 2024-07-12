@@ -1,7 +1,6 @@
-```
-def fruit_distribution(fruits):
+def fruit_distribution(s):
     total = 0
-    for s_part in fruits:
+    for s_part in s.split():
         s_part = s_part.lower()
         for part in s_part.split():
             if part.isdigit():
