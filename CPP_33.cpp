@@ -1,10 +1,9 @@
+```cpp
 #include <algorithm>
 #include <assert.h>
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool std::vector<int> a == std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -14,15 +13,15 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+std::vector<std::vector<int>> sort_third(std::vector<int> l) {
+    std::vector<std::vector<int>> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
             auto temp = l.begin() + i;
             while(temp != l.end() && *temp % 3 == 0) {
                 temp++;
             }
-            sort(rbegin(temp), rend(l));
+            std::sort(std::make_reverse_iterator(temp), l.end());
             for (; temp != l.end(); temp++) {
                 if (*temp % 3 == 0) {
                     result.push_back(*temp);
@@ -35,3 +34,4 @@ vector<int> sort_third(vector<int> l) {
         }
     }
     return result;
+}
