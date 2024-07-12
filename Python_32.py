@@ -1,14 +1,19 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    return -b / a
+    try:
+        n = len(xs)
+        if n < 2:
+            raise ValueError("Input list must have at least 2 elements")
+            
+        a = xs[-1]
+        b = xs[-2]
 
-# Prompt the user to enter a list of integers separated by spaces
+        if a == 0:
+            raise ZeroDivisionError("Division by zero not allowed")
+            
+        return -b / a
+    except (ValueError, ZeroDivisionError) as e:
+        return str(e)
+
 print("Enter a list of integers separated by spaces:")
-
-# Read a list of integers from the user
 xs = list(map(int, input().split()))
-
-# Call the function and print the result
 print(find_zero(xs))
