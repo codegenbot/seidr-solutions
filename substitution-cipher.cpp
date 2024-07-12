@@ -7,17 +7,13 @@ using namespace std;
 string decipher(string cipherText, string key) {
     string decrypted = "";
     for (int i = 0; i < cipherText.length(); i++) {
-        if (key.find(cipherText[i]) != string::npos) {
-            int j = 0;
-            while (j < key.length()) {
-                if (key[j] == cipherText[i]) {
-                    decrypted += key[(i - j) % key.length()];
-                    break;
-                }
-                j++;
+        int j = 0;
+        while (j < key.length()) {
+            if (key[j] == cipherText[i]) {
+                decrypted += key[(i - j) % key.length()];
+                break;
             }
-        } else {
-            decrypted += cipherText[i];
+            j++;
         }
     }
     return decrypted;
