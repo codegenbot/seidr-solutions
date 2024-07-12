@@ -1,6 +1,7 @@
+```
 import re
 
-input_string = input("Enter car race collision: ").strip().lower()
+input_string = input('Enter car race collision: ').strip().lower()
 
 def check(input_string):
     pattern = r"\b(car\b\s+race\s+collision)\b"
