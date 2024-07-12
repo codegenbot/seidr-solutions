@@ -1,3 +1,3 @@
 x, y = map(int, input().split())
-result = x + y
+result = x * y
 print(result)
