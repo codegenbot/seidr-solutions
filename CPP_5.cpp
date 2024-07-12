@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -8,7 +9,7 @@ bool issame(vector<int> a, vector<int> b) {
         return false;
     }
 
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -17,15 +18,18 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> intersperse(vector<int> numbers, int delimiter){
+vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
-    for(int i = 0; i < numbers.size(); ++i){
+    for (size_t i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
-        if(i != numbers.size() - 1){
+        if (i != numbers.size() - 1) {
             result.push_back(delimiter);
         }
     }
     return result;
 }
 
-assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+int main() {
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    return 0;
+}
