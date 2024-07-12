@@ -19,8 +19,4 @@ def calculate_average_and_median():
     
     print(f"Average: {average}, Median: {median}")
 
-def main():
-    calculate_average_and_median()
-
-if __name__ == "__main__":
-    main()
+calculate_average_and_median()
