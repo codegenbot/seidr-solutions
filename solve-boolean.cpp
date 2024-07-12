@@ -20,5 +20,5 @@ bool solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    return (st.top() == 'T');
+    return st.top() == 'T';
 }
