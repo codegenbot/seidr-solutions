@@ -6,4 +6,3 @@ double vectorDistance(int n) {
         sum += pow(val2 - val1, 2);
     }
     return sqrt(sum);
-}
