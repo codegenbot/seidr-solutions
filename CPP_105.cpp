@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
 bool issame(vector<string> a,vector<string>b){
     return a==b;
 }
@@ -45,6 +40,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-     assert (issame(by_length({1, 2, 3}), vector<string>({"One", "Two", "Three"})));
-     //... rest of your code ...
+    assert (issame(by_length({9, 4, 8}) , vector<string>({"Nine", "Four", "Eight"})));
+    return 0;
 }
