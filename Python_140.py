@@ -1,7 +1,7 @@
 def fix_spaces(text):
     return "".join(
         [
-            c if c != " " or (i > 0 and text[i - 1] != " ") else "_"
+            "_" if c == " " and (i == 0 or text[i - 1] != " ") else c
             for i, c in enumerate(text)
         ]
     )
