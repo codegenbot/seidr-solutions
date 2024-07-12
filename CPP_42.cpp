@@ -11,9 +11,9 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> incr_list(initializer_list<int> l){
-    vector<int> result(l.size());
-    for(int i = 0; i < l.size(); i++) {
-        result[i] = l[i] + 1;
+    vector<int> result;
+    for(int i: l) {
+        result.push_back(i+1);
     }
     return result;
 }
