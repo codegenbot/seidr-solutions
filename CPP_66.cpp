@@ -1,15 +1,13 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
 int digitSum(std::string s) {
     int sum = 0;
     while (!s.empty()) {
-        if (!s.empty()) {
-            int digit = s[0] - '0';
-            sum += digit;
-            s.erase(0, 1);
-        }
+        int digit = s[0] - '0';
+        sum += digit;
+        s.erase(0, 1);
     }
     return sum;
 }
