@@ -1,7 +1,6 @@
-def find_zero(xs: list):
-    a = xs[-1]
-    b = xs[-2]
-    if a == 0:
-        return "Not a valid quadratic equation"
-    x = -b / a
-    return x
+def find_zero(xs: list[int]):
+    assert len(xs) % 2 == 0
+    max_coeff = max(xs, key=abs)
+    if max_coeff == 0:
+        return 0
+    return -1 / max_coeff
