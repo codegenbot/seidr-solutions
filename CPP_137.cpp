@@ -1,6 +1,6 @@
+#include <boost/any.hpp>
 #include <string>
 #include <iostream>
-#include <boost/any.hpp>
 
 int compare_one(const boost::any& s, int i) {
     if (i == 1)
@@ -10,7 +10,7 @@ int compare_one(const boost::any& s, int i) {
     else if (i == 3)
         return std::stoi(s.convert_to<std::string>()) + 10;
     else 
-        return "None";
+        return 0;
 }
 
 int main() {
