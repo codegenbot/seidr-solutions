@@ -1,28 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <climits>
+
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
-    
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
     
-    int leftSum = 0, rightSum = 0;
-    int leftIdx = 0, rightIdx = n - 1;
-    
-    while (leftIdx < rightIdx) {
-        if (leftSum < rightSum) {
-            leftSum += nums[leftIdx++];
-        } else {
-            rightSum += nums[rightIdx--];
+    int diff = INT_MAX;
+    int idx = -1;
+    for (int i = 1; i < n; ++i) {
+        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        int curr_diff = abs(left_sum - right_sum);
+        if (curr_diff < diff) {
+            diff = curr_diff;
+            idx = i;
         }
     }
     
-    cout << leftIdx << endl;
-    for (int i = 0; i < leftIdx; ++i) {
-        cout << nums[i] << endl;
+    for (int i = 0; i < idx; ++i) {
+        cout << nums[i] << "\n";
     }
-    cout << rightSum << endl;
+    cout << "\n";
+    for (int i = idx; i < n; ++i) {
+        cout << nums[i] << "\n";
+    }
     
     return 0;
 }
