@@ -31,6 +31,6 @@ int main() {
     int nums[] = {singleNum}; 
     int size = 1; 
     std::cout << "The number of positive integers with an odd digital root is: " << count_nums(&nums[0], size) << std::endl;
-    assert (count_nums(&nums[0], size) == 1); 
+    assert (count_nums(&singleNum, 1) == 1); 
     return 0;
 }
