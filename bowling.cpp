@@ -1,6 +1,6 @@
-using namespace std;
+#include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
     int rollsLeftInFrame = 2;
