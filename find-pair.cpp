@@ -12,7 +12,7 @@ int main() {
         std::cin >> nums[i];
     }
     
-    std::unordered_map<long long, int> map;
+    std::unordered_map<long long, long long> map;
     bool pairFound = false;
     for (int i = 0; i < n; ++i) {
         long long complement = target - nums[i];
