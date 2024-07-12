@@ -2,6 +2,9 @@
 #include <string>
 #include <initializer_list>
 
+bool isSame(vector<string>, vector<string>);
+vector<string> filter_by_prefix(vector<string>, string);
+
 bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -10,37 +13,8 @@ bool isSame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    std::vector<std::string> a;
-    std::cout << "Enter strings (stop when empty):" << std::endl;
-    std::string s;
-    while (std::getline(std::cin, s)) {
-        if (s.empty()) break;
-        a.push_back(s);
-    }
-
-    bool same = isSame(a, a);
-
-    std::string prefix;
-    std::cout << "Enter prefix:" << std::endl;
-    std::getline(std::cin, prefix);
-    std::vector<std::string> result = filter_by_prefix(a, prefix);
-
-    if (!same) 
-        std::cout << "Strings are not the same." << std::endl;
-    else 
-        std::cout << "Strings are the same." << std::endl;
-
-    for (const auto& s : result) {
-        std::cout << s << std::endl;
-    }
-
-    return 0;
-
-}
-
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
@@ -48,4 +22,33 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     }
     return result;
 
+}
+
+int main() {
+    vector<string> a;
+    cout << "Enter strings (stop when empty):" << endl;
+    string s;
+    cin >> s;
+    while (!s.empty()) {
+        a.push_back(s);
+        getline(cin, s);
+    }
+
+    bool same = isSame(a, a);
+
+    string prefix;
+    cout << "Enter prefix:" << endl;
+    getline(cin, prefix);
+    vector<string> result = filter_by_prefix(a, prefix);
+
+    if (!same) 
+        cout << "Strings are not the same." << endl;
+    else 
+        cout << "Strings are the same." << endl;
+
+    for (const auto& s : result) {
+        cout << s << endl;
+    }
+
+    return 0;
 }
