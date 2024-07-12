@@ -1,32 +1,24 @@
-# Here is the Python solution for the bowling problem:
-def bowling_score(score):
-    score = score.replace('/', '')
-    frames = [int(x) if x != 'X' else 10 for x in score]
-    bonus_frames = []
-    total = 0
-    i = 0
-    while i < len(frames):
-        if frames[i] == 10:
-            total += frames[i]
-            i += 1
-        elif i + 1 < len(frames) and frames[i] + frames[i+1] >= 10:
-            if frames[i] == 10:
-                bonus_frames.append(10)
-                i += 1
+```
+def bowling_score(frames):
+    score = 0
+    for i in range(0, len(frames), 2):
+        if frames[i] == 'X':
+            score += 10
+            if i < 8 and frames[i+1] == 'X':
+                score += 10
+            elif i < 18 and frames[i+1].count('/') == 1:
+                roll = list(map(int, frames[i+2:i+4].split()))
+                score += sum(roll)
+        elif frames[i] == '/':
+            roll = list(map(int, frames[i+1].split()))
+            if sum(roll) == 10:
+                score += sum(roll)
             else:
-                bonus_frames.append(frames[i] + frames[i+1])
-                i += 2
+                score += sum(roll) + 10
         else:
-            total += frames[i]
-            if i + 1 < len(frames):
-                total += frames[i+1]
-            i += 2
-    for j in range(len(bonus_frames)):
-        if bonus_frames[j] == 10:
-            if j + 1 < len(bonus_frames):
-                total += bonus_frames[j] + bonus_frames[j+1]
+            frame = list(map(int, frames[i:i+2]))
+            if sum(frame) == 10:
+                score += sum(frame)
             else:
-                total += bonus_frames[j]
-        else:
-            total += bonus_frames[j] + frames[j+1]
-    return total
+                score += sum(frame) + 10
+    return score
