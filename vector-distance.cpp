@@ -5,15 +5,9 @@
 int main() {
     int n;
     std::cin >> n;
-    
-    if (n <= 0) {
-        std::cout << "Invalid input!" << std::endl;
-        return 1;
-    }
 
     std::vector<double> vec1(n);
     std::vector<double> vec2(n);
-
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
@@ -28,6 +22,6 @@ int main() {
 
     result = std::sqrt(result);
     std::cout << result << std::endl;
-    
+
     return 0;
 }
