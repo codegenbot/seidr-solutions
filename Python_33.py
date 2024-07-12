@@ -1,5 +1,5 @@
 def sort_third(l: list):
-    return [
+    [
         (
             l[i - 1]
             if (i := len(l)) > 1 and i % 3 != 0
