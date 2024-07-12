@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,10 +24,16 @@ std::string reverse_delete(std::string s, std::string c) {
     }
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return rev + " " + temp;
+    return rev == temp ? "True" : "False";
 }
 
 int main() {
-    std::cout << reverse_delete("mamma", "mia") << std::endl;
+    std::string s1 = reverse_delete("mamma", "mia");
+    std::string s2 = "mama";
+    if(checkEquality(reverse_delete("mamma", std::move("mia")), "True")) {
+        std::cout << s1 << " and " << s2 << " are the same." << std::endl;
+    } else {
+        std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+    }
     return 0;
 }
