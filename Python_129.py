@@ -21,3 +21,4 @@ def minPath(grid, k):
             for p in dfs(i, j, []):
                 if len(p) == k:
                     return sorted([i for sublist in [p] for i in sublist])
+    return []
