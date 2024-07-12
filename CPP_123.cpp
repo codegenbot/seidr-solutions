@@ -21,7 +21,8 @@ vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-int main() {
+int main 
+{
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
