@@ -1,13 +1,12 @@
-```
+Here is the modified code:
+
+```Python
 def bowling_score(gutter_balls):
     score = 0
     frame = 1
     for i in range(0, len(gutter_balls), 2):
         if gutter_balls[i:i+2] == 'X':
-            if frame < 10:
-                score += 10 + (10 - int(sum([c == 'X' for c in gutter_balls[:i]]) / 2)) * 10
-            else:
-                score += 10 + int(sum([c == 'X' for c in gutter_balls[:i]]) / 2) * 10
+            score += 10 + (10 - int(gutter_balls[0:i].count('X'))) * 10
             frame += 1
         elif gutter_balls[i:i+2] in ['--', '//']:
             score += 10
