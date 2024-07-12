@@ -1,6 +1,11 @@
+```
 def calculate_average_and_median():
     while True:
         user_input = input("Enter numbers separated by space: ")
+        
+        if len(user_input.split()) == 1 and user_input.replace(' ', '').isdigit():
+            return f"Average: {int(user_input)}, Median: {int(user_input)}"
+
         try:
             numbers = list(map(int, user_input.split()))
             break
