@@ -1,3 +1,3 @@
-expression = input().replace("&", "and").replace("|", "or").replace("T", "True").replace("F", "False")
-result = eval(expression)
+expression = input()
+result = eval(expression.replace("T", "True").replace("F", "False").replace("|", " or ").replace("&", " and "))
 print(result)
