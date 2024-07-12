@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
+
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
 
@@ -30,14 +31,14 @@ int main() {
     }
 
     for (int i = 0; i <= cut_index; i++) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << "\n";
     }
-    std::cout << 0 << std::endl;
+    cout << 0 << "\n";
 
     for (int i = cut_index + 1; i < n; i++) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << "\n";
     }
-    std::cout << 0 << std::endl;
+    cout << 0 << "\n";
 
     return 0;
 }
