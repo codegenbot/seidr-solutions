@@ -1,10 +1,9 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+#include <vector>
 
 vector<int> rolling_max(vector<int> numbers);
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> rolling_max(vector<int> numbers) {
+vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
     int n = numbers.size();
     for (int i = 0; i < n; i++) {
@@ -17,7 +16,11 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-int main() {
+bool issame(vector<int> a, vector<int> b){
+    return a == b; // compare two vectors for equality
+}
+
+int main(){
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
