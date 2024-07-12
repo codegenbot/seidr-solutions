@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -27,11 +28,11 @@ bool isMonotonic(const std::vector<int>& nums) {
     return increasing || decreasing;
 }
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) { 
     return isMonotonic(a) && isMonotonic(b);
 }
 
-int orderByPoints(const std::vector<int>& nums) {
+int order_by_points(const std::vector<int>& nums) {
     int points = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] > nums[i - 1]) {
@@ -45,7 +46,7 @@ int main() {
     std::vector<int> vec1 = {0,6,6,-76,-21,23,4};
     std::vector<int> vec2 = {-76, -21, 0, 4, 23, 6, 6};
     assert(isSame(vec1,vec2) == true);
-    int result = orderByPoints({0,6,6,-76,-21,23,4});
-    std::cout << "orderByPoints: " << result << std::endl;
+    int result = order_by_points({0,6,6,-76,-21,23,4});
+    std::cout << "order_by_points: " << result << std::endl;
     return 0;
 }

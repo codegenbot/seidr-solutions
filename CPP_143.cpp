@@ -1,6 +1,7 @@
+```cpp
 #include <iostream>
 #include <sstream>
-
+#include <string>
 using namespace std;
 
 string words_in_sentence(string sentence) {
@@ -19,6 +20,10 @@ int main() {
     assert(words_in_sentence("here is") == "is");
     string sentence;
     getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+    try {
+        cout << words_in_sentence(sentence) << endl;
+    } catch (...) {
+        cerr << "Error: Invalid input. Please enter a valid sentence." << endl;
+    }
     return 0;
 }
