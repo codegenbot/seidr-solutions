@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -5,23 +6,20 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int count = 0;
-    for (int i = 0; i < str.length(); i++) {
+    for (int i = str.length() - 1; i >= 0; i--) {
         if (str[i] == ' ') {
+            result += '\n';
             count = 0;
-            result += " ";
         } else {
-            count++;
-            if (count >= 5) {
-                string temp = str.substr(i-count+1, count);
-                for(int j = 0; j < temp.length(); j++){
-                    if(j == 0 || j == temp.length() - 1){
-                        result += temp[j];
-                    } else{
-                        result += temp.substr(1, temp.length() - 2);
-                    }
-                }
-            } else {
+            if (count++ < 5) {
                 result += str[i];
+            } else {
+                while (count-- > 4) {
+                    result += ' ';
+                }
+                for (int j = i; j >= i - count + 1; j--) {
+                    result += str[j];
+                }
             }
         }
     }
