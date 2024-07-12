@@ -6,7 +6,7 @@ std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2)
 
 int main() {
     int n1;
-    int m1;
+    int m1 = 0;
     int n2;
     int m2;
     std::cout << "Enter the number of elements in lst1: ";

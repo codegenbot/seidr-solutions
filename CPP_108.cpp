@@ -1,3 +1,17 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+int count_nums(std::vector<std::string> numbers) {
+    int even_count = 0;
+    for (const auto& num : numbers) {
+        if (stoi(num) % 2 == 0)
+            even_count++;
+    }
+    return even_count;
+}
+
 int main() { 
     std::vector<std::string> numbers; 
     int n; 
@@ -9,14 +23,5 @@ int main() {
         numbers.push_back(num);
     }
     
-    return count_nums(numbers);
-}
-
-int count_nums(std::vector<std::string> numbers) {
-    int even_count = 0;
-    for (const auto& num : numbers) {
-        if (num.length() % 2 == 0)
-            even_count++;
-    }
-    return even_count;
+    return static_cast<int>(count_nums(numbers));
 }
