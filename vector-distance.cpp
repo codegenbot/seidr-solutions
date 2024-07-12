@@ -18,10 +18,12 @@ int main() {
     std::vector<double> vec2(n);
     
     for (size_t i = 0; i < n; ++i) {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ' '); // Ignore comma
         std::cin >> vec1[i];
     }
 
     for (size_t i = 0; i < n; ++i) {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), ' '); // Ignore comma
         std::cin >> vec2[i];
     }
 
