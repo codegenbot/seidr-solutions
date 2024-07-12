@@ -1,2 +1,2 @@
-x, y, z = map(int, raw_input().strip().split())
+x, y, z = map(int, input().split())
 print(x + y + z)
