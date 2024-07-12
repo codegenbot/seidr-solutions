@@ -1,3 +1,4 @@
+```
 import random
 
 def make_palindrome()-> str:
