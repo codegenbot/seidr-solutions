@@ -1,7 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 bool any_int(float a, float b, float c) {
