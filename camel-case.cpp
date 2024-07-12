@@ -5,31 +5,26 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    std::vector<char> temp;
-    for (char word : str) {
-        if (word == '-' || word == ' ') {
-            for (auto c : temp) {
-                if (!result.empty()) {
-                    result += std::toupper(c);
+    bool isNextUpper = false;
+    for (const auto& c : str) {
+        if (c == '-' || c == ' ') {
+            if (!isNextUpper) {
+                if (c == '-') {
+                    result += char::toupper(c);
                 } else {
-                    result += c;
+                    if (!result.empty()) {
+                        result += ' ';
+                    }
                 }
             }
-            temp.clear();
-            if (word == '-') {
-                result += word;
+            isNextUpper = true;
+        } else {
+            isNextUpper = false;
+            if (!result.empty() && c >= 'a' && c <= 'z') {
+                result += char::toupper(c);
             } else {
-                temp.push_back(word);
+                result += c;
             }
-        } else {
-            temp.push_back(word);
-        }
-    }
-    for (auto c : temp) {
-        if (!result.empty()) {
-            result += std::toupper(c);
-        } else {
-            result += c;
         }
     }
     return result;
