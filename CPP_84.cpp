@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int solve(int N) {
@@ -14,5 +13,9 @@ int solve(int N) {
 int main() {
     int N;
     cin >> N;
-    cout << solve(N) << endl;
+    try {
+        cout << solve(N) << endl;
+    } catch (...) {
+        cout << "Error: Invalid input. Please enter a valid integer - " << N << endl;
+    }
 }
