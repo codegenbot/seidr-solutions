@@ -22,4 +22,3 @@ bool is_happy(std::string s){
 int main() {
     assert(is_happy("iopaxioi") == false );
     return 0;
-}
