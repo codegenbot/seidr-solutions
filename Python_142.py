@@ -1,4 +1,7 @@
+```
 def sum_squares(lst):
+    if not lst: 
+        return 0
     total_sum = 0
     for i in range(len(lst)):
         if (i % 3 == 0 and i % 4 != 0) or (i % 4 == 0 and i % 3 != 0):
