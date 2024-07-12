@@ -1,38 +1,22 @@
-```
+```Python
 def calculate_score(frames):
+    frames = [int(x) for x in str(frames)]
     score = 0
-    frame = []
-    frames_list = list(frames)
+    roll = 1
     for i in range(len(frames)):
-        if frames[i].isdigit():
-            frame.append(int(frames[i]))
+        if frames[i] == 10:
+            score += frames[i]
+        elif frames[i] == '/':
+            first_roll = frames[i - 2] + frames[i - 1]
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            roll += 2
         else:
-            if 'X' in str(frame) or '/' in str(frame):
-                if len(frame) == 2:
-                    if 'X' in str(frame):
-                        score += 10 + max(frame)
-                    elif '/' in str(frame):
-                        next_frame = [int(x) for x in str(''.join(frames_list[i+1:]))]
-                        score += 10 + sum(min(next_frame))
-                else:
-                    if 'X' in str(frame):
-                        score += 10 + sum(max(frame, min(frame)))
-                    elif '/' in str(frame):
-                        next_frame = [int(x) for x in str(''.join(frames_list[i+1:]))]
-                        score += 10 + max(min(next_frame), max(frame))
-                frame = []
-            else:
-                if len(frame) == 1:
-                    if 'X' in str(frame):
-                        score += 10
-                    elif frame[0] < 10:
-                        score += frame[0] + 1
-                    frame = []
-                else:
-                    if '/' not in str(''.join(frames_list[:i])):
-                        score += sum(frame)
-            if len(frame) > 1 and '/' in str(''.join(frames_list[:i])):
-                score += max(frame)
+            if roll == 1:
+                score += frames[i] + frames[i+1]
+            elif roll == 2:
+                score += max(frames[i-1:i+1])
+            roll -= 1
     return score
 
 frames = input("Enter the frames string: ")
