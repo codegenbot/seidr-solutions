@@ -13,21 +13,15 @@ bool isPrime(int n) {
 }
 
 bool prime_length(const char* str){
-    std::string s = "";
+    std::string s;
     for(int i = 0; str[i]; i++) {
         char c = str[i];
-        if(c >= '0' && c <= '9') {
-            int n = c - '0'; 
-            if(isPrime(n)) { 
-                s += c; 
-            } else {
-                s += c;
-            }
-        } else {
-            s += c;
+        if(isPrime(c - '0')) { 
+            s.push_back(c); 
         }
     }
-    return s.length() > 1;
+    int len = s.length();
+    return len > 1;
 }
 
 assert(prime_length("0") == false);
