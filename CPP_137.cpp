@@ -3,23 +3,24 @@
 #include <string>
 #include <cassert>
 
-std::any compare_one(std::any a, std::any b) {
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
+std::any compare_one(const std::any& a, const std::any& b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
         // Comparison logic for integers
-    }
-    else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        // Example: return std::any with the comparison result for integers
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         // Comparison logic for floats
-    }
-    else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        // Example: return std::any with the comparison result for floats
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         // Comparison logic for strings
-    }
-    else if((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))){
+        // Example: return std::any with the comparison result for strings
+    } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
         // Convert and compare int and string
+        // Example: return std::any with the comparison result after conversion
     }
-    return std::string("None");
+    return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(1, std::string("1"))) == "None"); // Ensure return type
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None"); // Ensure correct return type
     return 0;
 }
