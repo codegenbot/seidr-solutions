@@ -23,5 +23,6 @@ def solve_boolean(expression):
         return stack[0]
     return "Invalid expression"
 
+
 expression = input().strip()
 print(solve_boolean(expression))
