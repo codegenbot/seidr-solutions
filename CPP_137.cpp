@@ -3,11 +3,11 @@
 
 int compare_one(const std::string& s, int i) {
     if (i == 1)
-        return std::stoi(s) - 10;
+        return "None";
     else if (i == 2)
-        return std::stoi(s);
+        return s;
     else if (i == 3)
-        return std::stoi(s) + 10;
+        return "None";
     else 
         return 0;
 }
