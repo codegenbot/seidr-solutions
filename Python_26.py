@@ -1,3 +1,5 @@
+from six.moves import input
+
 def check(func):
     def wrapper(numbers):
         return func(numbers)
