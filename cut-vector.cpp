@@ -6,8 +6,7 @@ int main() {
     }
     
     int total_sum = accumulate(nums.begin(), nums.end(), 0);
-    int left_sum = 0;
-    int right_sum = total_sum;
+    int left_sum = 0, right_sum = total_sum;
     int min_diff = INT_MAX;
     int cut_index = -1;
     
