@@ -25,4 +25,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if temp:
         result.append(temp)
 
-    return [group + ")" for group in result]
+    return [group + (")(" if opening else "") for group, opening in ((temp, False), *zip(*[iter(stack)] * 2)))]
