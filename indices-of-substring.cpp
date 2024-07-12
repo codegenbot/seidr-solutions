@@ -2,40 +2,47 @@
 #include <iostream>
 using namespace std;
 
-vector<int> lps(string target) {
-    vector<int> result(0);
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    vector<int> lps(target.size());
     int length = 0;
-    for(int i = 1; i < target.size(); i++) {
-        while(length > 0 && target[i] != target[result[0]]) {
-            length = result[0];
-            result.erase(result.begin());
-        }
-        if(target[i] == target[0]) {
+    int i = 1;
+    
+    // Preprocess the pattern to build the LPS array
+    while(i < target.size()) {
+        if(target[i] == target[length]) {
             length++;
-            result.push_back(i);
+            lps[i] = length;
+            i++;
+        }
+        else if(length != 0) {
+            length = lps[length-1];
+        }
+        else {
+            i++;
         }
     }
-    return result;
-}
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> lpsArray = lps(target);
-    vector<int> result;
+    
     for(int i = 0; i <= text.size() - target.size(); i++) {
         int j = 0;
-        while(j < target.size()) {
+        while(i+j < text.size() && i+j < target.size()) {
             if(text[i+j] != target[j]) {
-                if(j > lpsArray[0]) {
-                    i = i + (j - lpsArray[0]);
-                    j = 0;
-                } else {
-                    break;
-                }
+                j = lps[j-1];
+                i++;
+                if(j == 0) break;
             }
-            j++;
+            else
+                j++;
         }
-        if(j == target.size()) result.push_back(i);
+        
+        // If the pattern is found, then update the result and shift the index to the next character in text
+        if(j == target.size()) {
+            result.push_back(i);
+            i++;
+            found = true;
+        }
     }
+    
     return result;
 }
 
