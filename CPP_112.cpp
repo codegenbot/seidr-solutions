@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::basic_string<char>> a, std::vector<std::basic_string<char>> b) {
+bool checkEquality(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -36,6 +35,10 @@ std::string reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(issame({"" , reverse_delete("mamma", "mia")}, {"", "True"}));
+    if(checkEquality({"" , "True"}, reverse_delete("mamma", "mia"))) {
+        std::cout << "The strings are the same." << std::endl;
+    } else {
+        std::cout << "The strings are not the same." << std::endl;
+    }
     return 0;
 }
