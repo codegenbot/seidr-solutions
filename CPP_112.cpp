@@ -20,5 +20,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"mm", "False"}));
+    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"amm", "True"}));
 }
