@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int):
     if p == 2 or n < 0:
         return None
