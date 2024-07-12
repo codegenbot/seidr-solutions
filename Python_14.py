@@ -8,4 +8,4 @@ def all_prefixes(string: str) -> List[str]:
         result.extend(temp_result)
     return result
 
-print(all_prefixs("abc"))
+print(all_prefixes("abc"))
