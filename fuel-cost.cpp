@@ -14,3 +14,4 @@ int fuelCost(vector<int> prices) {
         sum += new_price;
     }
     return sum;
+}
