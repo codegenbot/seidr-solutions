@@ -1,5 +1,5 @@
-```
-def valid_date(date):
+def valid_date():
+    date = input("Enter a date in YYYY-MM-DD format: ")
     parts = date.split('-')
     if len(parts) != 3:
         return False
