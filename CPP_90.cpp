@@ -1,20 +1,12 @@
-```cpp
 #include <algorithm>
 #include <vector>
-#include <iostream>
 using namespace std;
 
-bool is_consecutive(const vector<int>& lst) {
-    sort(lst.begin(), lst.end());
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] != lst[i + 1]) return false;
-    }
-    return true;
+int next_smallest(vector<int> lst) {
+    // your implementation
 }
 
-assert(is_consecutive({-35, 34, 12, -45}));
-
-int main(){
+int main() {
     vector<int> lst;
     int n;
     cout << "Enter number of elements: ";
@@ -34,6 +26,6 @@ int main(){
                 break;
             }
         }
-        if(lst.size() > 1) cout << "-1";
+        else if (lst.empty()) cout << "-1";
     }
 }
