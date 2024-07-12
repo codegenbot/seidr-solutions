@@ -11,7 +11,7 @@ double calculateEuclideanDistance(const std::vector<float>& vec1, const std::vec
 }
 
 int main() {
-    int n;
+    float n;
     std::cin >> n;
 
     std::vector<float> vec1(n);
@@ -27,7 +27,7 @@ int main() {
 
     double result = calculateEuclideanDistance(vec1, vec2);
 
-    std::cout << "Euclidean Distance: " << std::fixed << result << std::endl;
+    std::cout << "Euclidean Distance: " << result << std::endl;
 
     return 0;
 }
