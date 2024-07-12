@@ -11,20 +11,9 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    vector<string> num_list;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token){
-        num_list.push_back(token);
-    }
-    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b){
-        return num_map[a] < num_map[b];
-    });
-    string result = "";
-    for (const string& num : num_list){
-        result += num + " ";
-    }
-    result.pop_back(); // Remove extra space at the end
-    return result;
+sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
+    return num_map[a] < num_map[b];
+});
+
+return numbers;
 }
