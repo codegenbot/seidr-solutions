@@ -1,16 +1,18 @@
 #include <iostream>
+using namespace std;
 
 int main() {
     int hours;
     float snow, rate, melt;
-    std::cin >> hours >> snow >> rate >> melt;
-    
+    cin >> hours >> snow >> rate >> melt;
+
+    float final_snow = snow;
     for (int i = 0; i < hours; ++i) {
-        snow += rate;
-        snow -= melt * snow;
+        final_snow += rate;
+        final_snow -= melt * final_snow;
     }
-    
-    std::cout << snow << "\n";
-    
+
+    cout << final_snow << endl;
+
     return 0;
 }

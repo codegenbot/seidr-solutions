@@ -4,10 +4,10 @@
 
 int main() {
     std::string text, target;
-    std::cin >> target >> text;
+    std::cin >> text >> target;
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
-    while (pos != std::string::npos && pos + 1 <= text.size() - target.size()) {
+    while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
