@@ -1,9 +1,3 @@
-#include <iostream>
-#include <algorithm>
-#include <string>
-#include <cassert>
-using namespace std;
-
 string solve(string s) {
     for (char &c : s) {
         if (isalpha(c)) {
@@ -18,10 +12,4 @@ string solve(string s) {
         reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    // Add more test cases here
-    return 0;
 }
