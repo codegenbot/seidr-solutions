@@ -1,11 +1,12 @@
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 bool any_int(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;
     int ci = (int)c;
-    return (ai == a + bi + ci) || (bi == a + bi + ci) || (ci == a + bi + ci);
+    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
 }
 
 int main() {
@@ -21,3 +22,4 @@ int main() {
         cout << "None of the numbers are integers." << endl;
 
     return 0;
+}
