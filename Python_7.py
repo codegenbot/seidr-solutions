@@ -11,9 +11,7 @@ else:
     if not result:
         print(f"Substrings '{substring}' not found in any of the provided strings.")
     else:
-        print(
-            [
-                f"'{s}' contains '{substring}' at {i+1} and {j+1}"
-                for s, j in zip(result, [s.index(substring) for s in result])
-            ]
-        )
+        if len(result) == 1:
+            print([result[0]])
+        else:
+            print(result)
