@@ -1,4 +1,6 @@
-```cpp
+Here is the updated code:
+
+```c++
 #include <iostream>
 #include <vector>
 #include <list>
