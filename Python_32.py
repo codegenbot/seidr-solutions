@@ -1,7 +1,8 @@
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
-    a = max(xs, key=abs)
-    for i in range(-1000, 1000):
-        if poly(xs, i) == 0:
-            return i
+    total = len(xs)
+    assert total % 2 == 0
+    leading_coeff = max(xs, key=abs)
+    for i in range(total - 1):
+        if xs[i] == leading_coeff:
+            leading_index = i
+    return -xs[0] / xs[1]
