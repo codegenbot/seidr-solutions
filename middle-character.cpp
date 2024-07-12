@@ -9,9 +9,11 @@ int main() {
     
     int len = s.length();
     if (len % 2 == 0) {
-        cout << "Middle characters are: " << s.substr(len / 2 - 1, 2) << endl;
+        string res = s.substr(len / 2 - 1, 2);
+        cout << "Middle characters are: " << res << endl;
     } else {
-        cout << "Middle character is: " << s.substr(len / 2, 1) << endl;
+        string res = s.substr(len / 2, 1);
+        cout << "Middle character is: " << res << endl;
     }
     
     return 0;
