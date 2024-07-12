@@ -1,22 +1,16 @@
-```c++
 #include <vector>
 #include <string>
+using namespace std;
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    return v1.size() == v2.size();
+bool isSame(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size()) 
+        return false;
+    for (int i = 0; i < v1.size(); i++) 
+        if (v1[i] != v2[i]) 
+            return false;
+    return true;
 }
 
-std::vector<std::string> by_length(const std::vector<std::string>& vec) {
-    std::vector<std::string> result;
-    for (const auto& str : vec) {
-        if (str.length() < 5) {
-            result.push_back(str);
-        }
-    }
-    return result;
-}
-
-int main() {
-    assert(issame(by_length({{"Nine"}, {"Eight"}, {"Four"}}), std::vector<std::string>{"Nine", "Eight", "Four"}) );
-    return 0;
+bool by_length(const string& s1, const string& s2) {
+    return s1.length() > s2.length();
 }
