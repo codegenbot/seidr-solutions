@@ -9,13 +9,13 @@ vector<float> discounts;
 int main() {
     int n;
     cin >> n;
+    
     prices.resize(n);
-    discounts.resize(n);
-
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
 
+    discounts.resize(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
