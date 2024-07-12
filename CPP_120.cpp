@@ -14,9 +14,11 @@ std::vector<int> maximumSubarray(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> vec1(3); 
-    vec1[0] = 1; vec1[1] = 2; vec1[2] = 3; 
-    std::vector<int> vec2(3); // Remove default value and just use constructor
+    std::vector<int> vec1; 
+    for(int i=0; i<3; i++) {
+        vec1.push_back(i+1);
+    }
+    std::vector<int> vec2(3, 0); 
     for(int i=0; i<3; i++) {
         vec2[i] = i+1;
     }
