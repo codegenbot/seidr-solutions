@@ -1,3 +1,3 @@
-```Python
+```
 def solve(N):
-    return bin(N)[2:]
+    return bin(N)[2:].count('1')
