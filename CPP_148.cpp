@@ -1,8 +1,9 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -33,13 +34,7 @@ int main() {
     std::cout << "Enter the second planet: ";
     std::string planet2;
     std::cin >> planet2;
-
-    // Create a list of planets
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-
-    // Call the bf function with the planets and planets to find the result
-    std::vector<std::string> result = bf(planets, planet1, planet2);
-    
+    std::vector<std::string> result = bf(planet1, planet2);
     for (const auto& planet : result) {
         std::cout << planet << " ";
     }
