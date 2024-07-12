@@ -1,7 +1,7 @@
-# include <iostream>
-# include <string>
-# include <sstream>
-# include <algorithm> // For std::reverse
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm> // For std::reverse
 
 using namespace std;
 
@@ -10,17 +10,22 @@ int main() {
     getline(cin, input);
     
     string word, result;
-    istringstream iss(input);
     
+    istringstream iss(input);
+
     while (iss >> word) {
         if (word.length() >= 5) {
-            std::reverse(&word[0], &word[0] + word.length());
+            for (size_t i = 0; i < word.length() / 2; ++i) {
+                char temp = word[i];
+                word[i] = word[word.length() - i - 1];
+                word[word.length() - i - 1] = temp;
+            }
         }
         result += word + " ";
     }
     
     result.pop_back(); // remove extra space at the end
-    std::cout << result << std::endl;
+    cout << result << endl;
     
     return 0;
 }
