@@ -1,12 +1,13 @@
+```
 from typing import List
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     if not isinstance(numbers, list):
-        return [numbers]
+        return [numbers[0]]
     if not all(isinstance(i, int) for i in numbers):
         return [0]
     if not isinstance(delimiter, int):
-        return [delimiter]
+        return [1]
 
     result = []
     
