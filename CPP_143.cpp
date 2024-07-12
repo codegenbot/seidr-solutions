@@ -1,5 +1,4 @@
-```cpp
-#include <iostream>
+#include <c++/11>
 #include <sstream>
 #include <cassert>
 using namespace std;
@@ -21,4 +20,3 @@ int main() {
     string result = words_in_sentence("Hello world");
     cout << result << endl;
     return 0;
-}
