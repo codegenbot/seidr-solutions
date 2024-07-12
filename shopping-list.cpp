@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <vector> 
 
 int main() {
     int n;
@@ -19,10 +19,10 @@ int main() {
     double total_price = 0.0;
 
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (1.0 - (discounts[i] * 0.01));
+        total_price += prices[i] - prices[i] * discounts[i] / 100.0;
     }
 
-    std::cout << "Total discounted price: " << total_price << std::endl;
+    std::cout << "Total discounted price: " << std::fixed << total_price << std::endl;
 
     return 0;
 }

@@ -1,16 +1,15 @@
 #include <iostream>
 #include <stack>
+#include <string>
 
-bool evaluateBooleanExpression(const std::string& expression) {
-    std::stack<bool> operands;
-    std::stack<char> operators;
+using namespace std;
+
+void evaluateBooleanExpression(const string& expression) {
+    stack<bool> operands;
+    stack<char> operators;
 
     for (char c : expression) {
-        if (c == 'T') {
-            operands.push(true);
-        } else if (c == 'F') {
-            operands.push(false);
-        } else if (c == '&') {
+        if (c == '&') {
             while (!operators.empty() && operators.top() == '&') {
                 char op = operators.top();
                 operators.pop();
@@ -34,20 +33,4 @@ bool evaluateBooleanExpression(const std::string& expression) {
             operators.push(c);
         }
     }
-
-    while (!operators.empty()) {
-        char op = operators.top();
-        operators.pop();
-        bool operand2 = operands.top();
-        operands.pop();
-        bool operand1 = operands.top();
-        operands.pop();
-        if (op == '&') {
-            operands.push(operand1 && operand2);
-        } else if (op == '|') {
-            operands.push(operand1 || operand2);
-        }
-    }
-
-    return operands.top();
 }
