@@ -8,5 +8,5 @@ double vectorDistance(int n) {
         std::cin >> val1 >> val2;
         sum += std::abs(val2 - val1);
     }
-    return std::sqrt(sum);
+    return sqrt(sum);
 }
