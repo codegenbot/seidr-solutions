@@ -1,31 +1,31 @@
+```c++
+#include <vector>
 #include <iostream>
 #include <string>
-#include <unordered_map>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::unordered_map<char, char> mapping;
-    for (int i = 0; i < cipher2.length(); i++) {
-        mapping[cipher2[i]] = cipher1[i];
-    }
-    std::string result = "";
-    for (char c : message) {
-        if (mapping.find(c) != mapping.end()) {
-            result += mapping[c];
-        } else {
-            result += c;
+using namespace std;
+
+string decipher(string cipherText, string key) {
+    string decrypted = "";
+    for (int i = 0; i < cipherText.length(); i++) {
+        for (int j = 0; j < key.length(); j++) {
+            if (key[j] == cipherText[i]) {
+                decrypted += i % key.length();
+                break;
+            }
         }
     }
-    return result;
+    return decrypted;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second string: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
+    string key, cipherText, plainText;
+    cout << "Enter the first string: ";
+    cin >> key;
+    cout << "Enter the second string: ";
+    cin >> cipherText;
+    cout << "Enter the third string: ";
+    cin >> plainText;
+    cout << "Decrypted message: " << decipher(cipherText, key) << endl;
     return 0;
 }
