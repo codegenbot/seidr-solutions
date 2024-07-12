@@ -15,15 +15,10 @@ def main():
             try:
                 num2 = int(input("Enter second number: "))
                 break
-            except ValueError:
+            except (ValueError, KeyboardInterrupt):
                 print("Invalid input. Please enter a valid number.")
         print(f"The sum is {add(num1, num2)}")
         cont = input("Do you want to continue? (y/n): ")
-        while True:
-            if cont.lower() != "y" and cont.lower() != "n":
-                print("Invalid input. Please enter y or n.")
-            else:
-                break
-        if cont.lower() != "n":
+        if cont.lower() != "y":
             print("Program ended.")
             break
