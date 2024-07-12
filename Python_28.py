@@ -13,24 +13,17 @@ def main():
 
     items = []
     while True:
-        try:
-            user_input = input("Enter an item (or 'stop' to finish): ")
-            if user_input.lower() == "stop":
-                break
-            elif not isinstance(user_input, str):
-                raise ValueError("Invalid input. Please enter an item or 'stop'.")
-            items.append(Item(user_input.strip()))
-            while True:
-                try:
-                    cost = float(input(f"Enter the cost of {user_input}: "))
-                    for item in items:
-                        if item.name == user_input:
-                            item.cost = cost
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter a valid number.")
-        except ValueError:
-            print("Invalid input. Please enter an item or 'stop'.")
+        user_input = input("Enter an item (or 'stop' to finish): ")
+        if user_input.lower() == "stop":
+            break
+        elif not isinstance(user_input, str):
+            raise ValueError("Invalid input. Please enter an item or 'stop'.")
+        name = user_input.strip()
+        cost = float(input(f"Enter the cost of {name}: "))
+        items.append(Item(name))
+        for i in items:
+            if i.name == name:
+                i.cost = cost
 
     if items:
         result = calculate_total_cost(items)
