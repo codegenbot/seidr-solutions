@@ -1,6 +1,5 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
     notes_duration = {"o": 4, "o|": 2, ".|": 1}
     return [
@@ -9,7 +8,6 @@ def parse_music(music_string: str) -> List[int]:
         if note in notes_duration
     ]
 
-
-music_string = input("Enter the music string: ").rstrip("|")
+music_string = input("Enter the music string separated by '|': ")
 result = parse_music(music_string)
 print(result)
