@@ -7,7 +7,7 @@ def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 # Read input
-xs = list(map(float, input().split())
+xs = list(map(float, input().split()))
 
 # Call the find_zero function with the input list
 result = find_zero(xs)
