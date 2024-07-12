@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
 
 double calculateEuclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sum = 0.0;
@@ -21,9 +20,6 @@ int main() {
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
-    // Read the extra newline character after the first set of numbers
-    std::cin.ignore();
 
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec2[i];
