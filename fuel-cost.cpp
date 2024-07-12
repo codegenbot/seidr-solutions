@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -8,8 +7,7 @@ int main() {
     vector<int> nums;
 
     int n;
-    while (!cin.eof()) {
-        cin >> n;
+    while (cin >> n) {
         nums.push_back(n);
     }
     
