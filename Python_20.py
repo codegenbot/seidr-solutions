@@ -1,4 +1,5 @@
-from typing import List, Tuple
+```
+from typing import Tuple
 
 def find_closest_elements() -> Tuple[float, float]:
     input_str = input("Enter numbers separated by space: ")
@@ -9,6 +10,16 @@ def find_closest_elements() -> Tuple[float, float]:
     
     try:
         numbers = [float(num) for num in input_str.split()]
+        
+        if len(numbers) < 2:
+            while True:
+                confirm = input("Please enter at least two numbers to find the closest pair. Press Enter again when correct: ")
+                if not confirm:
+                    break
+                numbers = [float(num) for num in input_str.split()]
+                if len(numbers) >= 2:
+                    break
+        
     except ValueError:
         print("Program did not receive expected input. Please enter numbers separated by a space.")
         return None

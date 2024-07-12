@@ -1,3 +1,4 @@
+```
 def mean_absolute_deviation() -> float:
     while True:
         print("Enter some numbers (space-separated): ")
