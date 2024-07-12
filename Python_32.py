@@ -3,6 +3,6 @@ def find_zero(xs: list):
     assert b != 0
     return -a / b
 
-a, b = map(int, input("Enter the coefficients 'a' and 'b' of the quadratic equation: ").split())
-result = find_zero([a, b])
+coefficients = list(map(int, input("Enter two coefficients of the quadratic equation (a b): ").split()))
+result = find_zero(coefficients)
 print(f"The value of x where the equation is equal to zero is: {result}")
