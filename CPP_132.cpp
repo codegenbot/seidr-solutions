@@ -11,18 +11,13 @@ bool is_nested(const std::string& str) {
             count--;
         }
     }
-
-    if (count == 0) {
-        std::cout << str << " is a nested string." << std::endl;
-    } else {
-        std::cout << str << " is not a nested string." << std::endl;
-    }
+    return count == 0;
 }
 
 int main() {
-    is_nested("[]");
-    is_nested("[[]]");
-    is_nested("[]]");
-    is_nested("]]]]]]]]");
+    assert(is_nested("[]") == true);
+    assert(is_nested("[[]]") == true);
+    assert(is_nested("[]]") == false);
+    assert(is_nested("]]]]]]]]") == false);
     return 0;
 }

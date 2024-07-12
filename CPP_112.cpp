@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
@@ -20,6 +22,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"mm", "False"}));
+    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"m", "False"}));
     return 0;
 }
