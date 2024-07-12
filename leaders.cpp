@@ -1,3 +1,4 @@
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -10,5 +11,6 @@ vector<int> leaders(vector<int>& arr) {
             maxRight = arr[i];
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
