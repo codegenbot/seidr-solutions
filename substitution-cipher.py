@@ -1,14 +1,7 @@
-```
-def substitution_cipher(cipher1, cipher2, message):
-    result = ""
-    for char in message:
-        if char.isalpha():
-            pos = ord(char.upper()) - ord('A')
-            new_pos = (pos + ord(cipher2[0].upper()) - ord(cipher1[0].upper())) % 26
-            if char.islower():
-                result += chr(ord('a') + new_pos)
-            else:
-                result += chr(ord('A') + new_pos)
-        else:
-            result += char
-    return result
+def substitution_cipher(input1, input2, input3):
+    cipher = {
+        char: char
+        for char in set(input1 + input2)
+        if input1.count(char) == 1 or input2.count(char) == 1
+    }
+    return "".join(cipher[char] for char in input3)
