@@ -1,1 +1,1 @@
-x, y = map(int, input("Enter two integers separated by space: ").split())
+x, y = map(int, input("Enter two integers separated by a space: ").split())
