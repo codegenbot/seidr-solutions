@@ -22,7 +22,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = sqrt(sum);
+    double result = static_cast<double>(sqrt(sum));
     std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
