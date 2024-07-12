@@ -1,9 +1,10 @@
 ```cpp
-#include <iostream>
 #include <string>
 #include <cctype>
 
-int count_digits(const std::string& s) {
+using namespace std;
+
+int count_digits(const string& s) {
     int count = 0;
     for (char c : s) {
         if (std::isdigit(c)) {
@@ -13,23 +14,18 @@ int count_digits(const std::string& s) {
     return count;
 }
 
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name) {
     int digit_count = count_digits(file_name);
-    if (digit_count > 3 || file_name.find('.') == std::string::npos) {
+    if (digit_count > 3 || file_name.find('.') == string::npos) {
         return "No";
     }
     size_t dot_pos = file_name.find('.');
-    if (dot_pos == std::string::npos || dot_pos == 0 || !std::isalpha(file_name[0])) {
+    if (dot_pos == string::npos || dot_pos == 0 || !isalpha(file_name[0])) {
         return "No";
     }
-    std::string extension = file_name.substr(dot_pos + 1);
+    string extension = file_name.substr(dot_pos + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
 }
