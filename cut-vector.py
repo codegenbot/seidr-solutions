@@ -1,18 +1,18 @@
 n = int(input())
-arr = []
-for i in range(n):
-    arr.append(int(input()))
+vector = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
-left_sum = 0
-right_sum = total_sum
-
-for i in range(n):
-    left_sum += arr[i]
-    right_sum -= arr[i]
-    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
-        (left_sum - arr[i]) - (right_sum + arr[i])
-    ):
-        print(arr[: i + 1])
-        print(arr[i + 1 :])
+total_sum = sum(vector)
+half_sum = total_sum // 2
+current_sum = 0
+index = 0
+for i, num in enumerate(vector):
+    current_sum += num
+    if current_sum >= half_sum:
+        index = i
         break
+
+subvector1 = vector[: index + 1]
+subvector2 = vector[index + 1 :]
+
+print(*subvector1)
+print(*subvector2)
