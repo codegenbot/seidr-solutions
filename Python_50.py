@@ -6,7 +6,7 @@ def decode_shift():
         except ValueError:
             print("Invalid input. Please enter a valid integer for the shift value.")
             continue
-        if len(s) > 0 and isinstance(shift, int):
+        if 1 <= abs(shift) <= 25 and len(s) > 0:
             break
         else:
             print("Invalid input. Please try again.")
@@ -14,8 +14,9 @@ def decode_shift():
     result = ""
     for ch in s:
         if ch.isalpha():
-            ascii_offset = ord('a') if ch.islower() else ord('A')
-            result += chr((ord(ch) - ascii_offset - (shift % 26)) % 26 + ascii_offset)
+            char_code = ord(ch.lower())
+            result += chr((char_code - ord('a') - shift) % 26 + ord('a')) if 'a' <= ch <= 'z' else \
+                       chr((ord(ch.upper()) - ord('A') - shift) % 26 + ord('A'))
         else:
             result += ch
     return result
