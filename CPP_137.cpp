@@ -8,6 +8,8 @@ int compare_one(const std::string& s, int i) {
         return std::stof(s);
     else if (i == 3)
         return std::stof(s) + 10;
+    
+    return -1; 
 }
 
 int main() {
