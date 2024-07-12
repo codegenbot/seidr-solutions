@@ -16,7 +16,7 @@ int next_smallest(int n) {
         bool same = true;
         for(int i = 1; i < lst.size(); i++){
             if(lst[i] != lst[i-1]) {
-                std::cout << "The next smallest integer is: " << lst[i];
+                std::cout << lst[i];
                 return x;
             }
         }
@@ -26,7 +26,7 @@ int next_smallest(int n) {
     return -1;
 }
 
-int main() {
+int userMain() {
     int n;
 
     std::cout << "Enter number of elements: ";
