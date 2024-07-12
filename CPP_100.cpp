@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSamePile(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++)
@@ -21,6 +21,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(8) == std::vector<int>{1,3,5,7,9,11,13,15});
+    assert(isSamePile(make_a_pile(8), {1,3,5,7,9,11,13,15}) );
     return 0;
 }
