@@ -1,9 +1,8 @@
-Problem description: Determine whether a given string is a palindrome and if not, make it one.
+```
+```python
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
 
-function signature:
-def make_palindrome(string: str) -> str:
-
-Solution:
 def make_palindrome(string: str) -> str:
     if string.isalnum():
         for i in range(len(string), -1, -1):
@@ -11,4 +10,5 @@ def make_palindrome(string: str) -> str:
                 return string + string[:i][::-1]
         return string + string[::-1]
     else:
-        return 'Error: Input contains non-alphanumeric characters.'
+        return string + string[::-1]
+```
