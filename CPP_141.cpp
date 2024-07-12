@@ -18,7 +18,7 @@ std::string file_name_check(std::string file_name) {
         return "No";
     }
     size_t dot_pos = file_name.find('.');
-    if (dot_pos == std::string::npos || dot_pos == 0 || !std::isalpha(file_name[0])) {
+    if (dot_pos == std::string::npos || dot_pos == 0 || !std::isalpha((file_name[0]))) {
         return "No";
     }
     std::string extension = file_name.substr(dot_pos + 1);
