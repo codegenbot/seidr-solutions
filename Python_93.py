@@ -7,6 +7,6 @@ def encode(message):
         elif char.lower() not in vowels:  
             index = (ord(char.lower()) - ord('a')) % 26
             result += chr((index + 1) % 26 + ord('a'))
-        else:
-            result += char.upper()
+        elif char.lower() in vowels:  
+            result += char.lower()
     return result
