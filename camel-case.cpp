@@ -1,51 +1,34 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::vector<std::string> split(const std::string& s, char c) {
-    std::vector<std::string> result;
-    size_t prev = 0, next = s.find(c);
-    while (next != std::string::npos) {
-        result.push_back(s.substr(prev, next - prev));
-        prev = next + 1;
-        next = s.find(c, prev);
-    }
-    result.push_back(s.substr(prev));
-    return result;
-
-}
-
-std::string camelCase(const std::string& s) {
-    if (s.find(' ') == std::string::npos && !s.empty()) {
-        for (char c : s) {
-            c = std::tolower(c);
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
         }
-        return s;
     }
-
-    std::vector<std::string> groups;
-    if (s.find(' ') != std::string::npos)
-        groups = split(s, ' ');
-    else if (s.find('-') != std::string::npos)
-        groups = split(s, '-');
 
     std::string result;
-    for (int i = 0; i < groups.size(); ++i) {
-        if (i > 0)
-            result += char(std::toupper(groups[i][0]));
-        else
-            result += tolower(groups[i][0]);
-        result += groups[i].substr(1);
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (!result.empty()) {
+            result += std::toupper(words[i][0]);
+            result += words[i].substr(1);
+        } else {
+            result += words[i];
+        }
     }
 
     return result;
 }
 
 int main() {
-    std::string s;
-    #include <initializer_list>
-    while (std::getline(std::cin, s)) {
-        std::cout << camelCase(s) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
+    return 0;
 }
