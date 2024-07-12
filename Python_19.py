@@ -1,6 +1,14 @@
 import re
+
+
 def sort_numbers(input_str: str) -> str:
-    if not re.search(r'\b\d+\b', input_str):
-        return "No numbers found"
-    numbers = [int(num) for num in re.split(r'\s+', input_str) if num.isdigit()]
-    return ' '.join(map(str, sorted(numbers)))
+    while True:
+        try:
+            numbers = [int(num) for num in re.split(r"\s+", input_str) if num.isdigit()]
+            break
+        except ValueError:
+            print("Invalid input. Please enter a string of space-separated integers.")
+            input_str = input("Enter your input: ")
+    if not numbers:
+        return str(numbers)
+    return " ".join(map(str, sorted(numbers)))
