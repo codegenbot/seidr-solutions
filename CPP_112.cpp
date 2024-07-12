@@ -1,9 +1,10 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool is_palindrome(std::string s) {
+bool is_palindrome(string s) {
     int start = 0, end = s.length() - 1;
     while (start < end) {
         if (s[start] != s[end]) {
@@ -35,6 +36,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>({"", "True"}));
+    assert(reverse_delete("mamma", "mia") == std::vector<std::string>({"", "True"}));
     return 0;
 }
