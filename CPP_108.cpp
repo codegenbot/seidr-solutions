@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <cassert>
-
 int count_nums(char** nums, int size) {
     int count = 0;
     for (int i = 0; i < size; i++) {
@@ -14,7 +10,7 @@ int count_nums(char** nums, int size) {
             if (sum % 2 != 0)
                 count++;
         } else {
-            std::string str = std::to_string(atoi(nums[i]));
+            std::string str = "-" + std::to_string(abs(atoi(nums[i])));
             int sum = 0, sign = 1;
             for(int j=str.length()-1; j>=0; j--) {
                 sum += abs(str[j] - '0') * sign;
@@ -25,30 +21,4 @@ int count_nums(char** nums, int size) {
         }
     }
     return count;
-}
-
-int main() {
-    int size;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> size;
-
-    char** nums = new char*[size];
-    for (int i = 0; i < size; i++) {
-        std::cout << "Enter integer # " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        std::string str = std::to_string(num);
-        nums[i] = new char[str.length() + 2]; // Add 1 for the null-terminator
-        strcpy(nums[i], str.c_str());
-        nums[i][str.length()] = '\0'; // Manually add the null-terminator
-    }
-
-    int count = count_nums(nums, size);
-    for (int i = 0; i < size; i++) {
-        delete[] nums[i]; 
-    }
-    delete[] nums;
-    std::cout << "The number of positive integers with an odd digital root is: " << count << std::endl;
-    assert(count == 1); 
-    return 0;
 }

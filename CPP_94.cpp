@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include <cassert>
-#include <string>
+#include <boost/lexical_cast.hpp>
 
 int calculateScore(int values[], int n) {
     int sum = 0;
     for (int i = 0; i < n; i++) {
         if(values[i] > 100) {
-            std::cout << "Value at index " << i << ": " << values[i] << std::endl;
+            std::cout << "Value at index " << i << ": " << static_cast<std::string>(std::to_string(values[i])) << std::endl;
             sum += values[i];
         }
     }
