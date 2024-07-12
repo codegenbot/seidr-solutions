@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
@@ -10,7 +10,7 @@ bool compare(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> issame(vector<string> strings, string prefix) {
+vector<string> filterByPrefix(vector<string> strings, string prefix) {
     vector<string> result;
     for (string s : strings) {
         if (s.find(prefix) == 0)
@@ -20,6 +20,6 @@ vector<string> issame(vector<string> strings, string prefix) {
 
 }
 int main() {
-    assert(compare(issame({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(compare(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
