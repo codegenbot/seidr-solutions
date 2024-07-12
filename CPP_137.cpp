@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 
 int compare_one(const std::string& s, int i) {
     if (i == 1)
