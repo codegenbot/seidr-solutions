@@ -1,17 +1,17 @@
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-int isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
-        return 0;
+        return false;
     }
     for (int i = 0; i < a.size(); i++) {
         if (a[i].size() != b[i].size()) {
-            return 0;
+            return false;
         }
     }
-    return 1;
+    return true;
 }
 
 std::vector<std::string> byLength(std::initializer_list<int> lengths) {
@@ -28,4 +28,7 @@ std::vector<std::string> byLength(std::initializer_list<int> lengths) {
     return result;
 }
 
-assert(isSame(byLength({9, 4, 8}), {"Nine", "Four", "Eight"}));
+int main() {
+    std::vector<std::string> output = byLength({4, 8, 9});
+    assert(isSame(output, {"Four", "Eight", "Nine"}));
+}
