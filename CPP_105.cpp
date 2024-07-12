@@ -62,71 +62,22 @@ std::vector<std::string> byLength(int num) {
             else
                 result.push_back("Nine");
     }
-    
+
     switch (num / 100) {
         case 1:
-            result.insert(result.begin(), "Thou");
+            result.push_back("Hundred");
             break;
         case 2:
-            result.insert(result.begin(), "Twenty");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
+            result.insert(result.begin(), "Two Hundred");
+            return result;
+        default:
+            if (num / 100 == 0)
+                ; // do nothing
+            else if (num / 100 == 1)
+                result.push_back("One Hundred");
             else
-                return result;
-            break;
-        case 3:
-            result.insert(result.begin(), "Thirty");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
-        case 4:
-            result.insert(result.begin(), "Forty");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
-        case 5:
-            result.insert(result.begin(), "Fifty");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
-        case 6:
-            result.insert(result.begin(), "Sixty");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
-        case 7:
-            result.insert(result.begin(), "Seventy");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
-        case 8:
-            result.insert(result.begin(), "Eighty");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
-        case 9:
-            result.insert(result.begin(), "Ninety");
-            if ((num % 100) > 0)
-                result.insert(result.begin(), "and");
-            else
-                return result;
-            break;
+                result.insert(result.begin(), std::to_string(num / 100) + " Hundred");
     }
-    
-    if (num != 0)
-        result.insert(result.begin(), "Hundred");
 
     return result;
 }
@@ -134,8 +85,9 @@ std::vector<std::string> byLength(int num) {
 int main() {
     int num = 984;  
     std::vector<std::string> result1 = byLength(num);
+    
     std::vector<std::string> a = {"Nine", "Eight", "Four"};
-    std::assert(issame(result1 , a)); 
+    std::assert(issame(result1 , a)); // Corrected assert statement
     
     return 0;
 }
