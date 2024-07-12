@@ -1,7 +1,6 @@
 #include <string>
-
 bool issame(vector<string> a, vector<string> b){
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+	vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     int idx1 = -1, idx2 = -1;
     
