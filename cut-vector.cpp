@@ -1,7 +1,5 @@
-Here is the modified code:
-```
+#include <iostream>
 #include <vector>
-#include <iostream> 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -35,10 +33,10 @@ int main() {
     for (int i = 0; i < result.first.size(); i++) {
         cout << result.first[i] << " ";
     }
-    cout << "] ["; 
+    cout << "] [" << "[";
     for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " "; 
-    } 
+        cout << result.second[i] << " ";
+    }
     cout << "]" << endl;
     
     return 0;
