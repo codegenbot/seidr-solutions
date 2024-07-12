@@ -1,34 +1,16 @@
-int solve_boolean(string expression) {
+int solve(string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
     
-    bool result;
-    if (expression.find('&') != string::npos) {
-        int pos = expression.find('&');
-        string left = expression.substr(0, pos);
-        string right = expression.substr(pos + 1);
-        result = solve_boolean(left) && solve_boolean(right);
-    } else if (expression.find('|') != string::npos) {
-        int pos = expression.find('|');
-        string left = expression.substr(0, pos);
-        string right = expression.substr(pos + 1);
-        result = solve_boolean(left) || solve_boolean(right);
-    }
-    
-    return result;
-}
+    string operand1 = expression.substr(0, 1);
+    char op = expression[1];
+    string operand2 = expression.substr(2);
 
-int main() {
-    string expression;
-    cin >> expression;
-    
-    bool result = solve_boolean(expression);
-    
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    
-    return 0;
+    bool result1 = solve(operand1);
+    bool result2 = solve(operand2);
+
+    if (op == '&') return result1 && result2;
+    if (op == '|') return result1 || result2;
+
+    return false; // handle invalid input
 }
