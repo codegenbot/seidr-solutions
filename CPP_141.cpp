@@ -1,6 +1,6 @@
-int count_digits(const string& s) {
+int countDigits(const string& str) {
     int count = 0;
-    for (char c : s) {
+    for (char c : str) {
         if (isdigit(c)) {
             count++;
         }
@@ -9,17 +9,26 @@ int count_digits(const string& s) {
 }
 
 string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3 || digit_name.find('.') == string::npos) {
+    if (countDigits(file_name) > 3) {
         return "No";
     }
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || !isalpha(file_name[0])) {
+
+    size_t dotPos = file_name.find('.');
+    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
         return "No";
     }
-    string extension = file_name.substr(dot_pos + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
+
+    string beforeDot = file_name.substr(0, dotPos);
+    string afterDot = file_name.substr(dotPos + 1);
+
+    if (!all_of(beforeDot.begin(), beforeDot.end(), ::isalpha)) {
         return "No";
     }
+
+    vector<string> allowedExtensions = {"txt", "exe", "dll"};
+    if (find(allowedExtensions.begin(), allowedExtensions.end(), afterDot) == allowedExtensions.end()) {
+        return "No";
+    }
+
     return "Yes";
 }
