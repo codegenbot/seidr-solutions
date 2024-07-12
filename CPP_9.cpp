@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,8 +5,6 @@
 bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
     return std::equal(v1.begin(), v1.end(), v2.begin()) && (v1.size() == v2.size());
 }
-
-std::vector<int>::std::vector<int>() = default;
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
