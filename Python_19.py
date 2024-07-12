@@ -1,4 +1,4 @@
-```python
+```
 import re
 
 
@@ -16,6 +16,3 @@ def sort_numbers(input_str: str) -> str:
         return " ".join(map(str, sorted(numbers)))
     else:
         return input_str
-
-input_str = input("Enter a string of space-separated integers: ")
-print(sort_numbers(input_str))
