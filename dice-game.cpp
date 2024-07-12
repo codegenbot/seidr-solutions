@@ -7,7 +7,7 @@ int main() {
 
     double probability = 0.0;
     for (int i = 1; i < n + 1; ++i) {
-        probability += i * (i - 1.0) / (n * m);
+        probability += i * 1.0 / n * ((m - 1) * 1.0 / m);
     }
     probability += n * 1.0 / n * m * 1.0 / m;
 
