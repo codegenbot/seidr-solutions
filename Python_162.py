@@ -1,10 +1,17 @@
+```python
 import hashlib
 
-print("Please enter some text (alphanumeric characters only): ")
-s = input()
-if not s:
-    print("Please enter some alphanumeric characters.")
-else:
-    output = hashlib.md5(s.encode()).hexdigest()
-    if output:
-        print(f"Output: {output}")
+while True:
+    print("Please enter some text (alphanumeric characters only): ", end="")
+    s = input().strip()
+    
+    if not s: 
+        continue
+    
+    if s.isalnum():  
+        break
+    else:
+        print("Please enter some alphanumeric characters.")
+
+output = hashlib.md5(s.encode()).hexdigest()
+print(f"Output: {output}")
