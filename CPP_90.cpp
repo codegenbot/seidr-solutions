@@ -1,6 +1,6 @@
 ```cpp
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
 int findNextSmallest(std::vector<int> lst) {
@@ -15,7 +15,7 @@ int findNextSmallest(std::vector<int> lst) {
     return -1; 
 }
 
-int main() { 
+int driver() { 
     std::vector<int> lst;
     int num;
     while (true) {
@@ -34,4 +34,9 @@ int main() {
             std::cout << "The next smallest number in the given list is " << result << std::endl;
         }
     }
+    return 0; 
+}
+
+int main() { 
+    driver(); 
 }
