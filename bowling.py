@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     frames = frames.split('/')
     score = 0
@@ -13,7 +14,7 @@ def bowling_score(frames):
                 score += 10
             else:
                 score += first_roll + second_roll
-        else: 
+        else:
             first_roll, second_roll, third_roll = map(int, frame)
             if first_roll + second_roll == 10:
                 score += 10 + third_roll
