@@ -27,18 +27,14 @@ int main() {
             break;
         else{
             std::cout << "Please enter a positive integer: ";
-            while(std::cin.fail()) { 
-                std::cout << "Invalid input. Please enter a positive integer: ";
-                std::cin.clear();
-                std::cin.ignore(10000, '\n');
-                std::cin >> m1;
-            }
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
         }
     }
-    int m;
-    m = m2; // Store the value in m
+    int n;
+    n = m2; // Store the value in n
     std::vector<int> lst2;
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         int temp;
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
