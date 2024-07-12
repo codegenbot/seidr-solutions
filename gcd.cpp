@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -26,12 +26,11 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text, target;
     int a, b;
     cin >> a >> b;
-
     cout << gcd(a, b) << endl;
 
+    string text, target;
     cin >> text >> target;
     vector<int> result = findIndices(text, target);
     for (int i : result)
