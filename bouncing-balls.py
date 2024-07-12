@@ -14,4 +14,4 @@ def bouncing_balls():
 
     return "{:.3f}\n{}".format(bounciness_index, total_distance)
 
-print("""{:.3f}\n{}'.format(bouncing_balls())```
+print(bouncing_balls())
