@@ -14,9 +14,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> count_up_to(int limit) {
-    std::vector<int> count;
+    std::vector<int> result;
     for (int i = 2; i <= limit; i++) {
-        count.push_back(i);
+        result.push_back(i);
     }
-    return count;
+    return result;
 }
