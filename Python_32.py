@@ -1,22 +1,19 @@
 def find_zero():
-    a = 0
-    while a == 0:
-        try:
-            a = float(input("Enter a non-zero value for a: "))
-            if a == 0:
-                print("Error: 'a' should not be zero. Please enter a non-zero value for a.")
-        except ValueError:
-            print("Error: Please enter a valid number.")
-
-    b = 0
-    while True:
-        try:
-            b = float(input("Enter value for b: "))
-            break
-        except ValueError:
-            print("Error: Please enter a valid number.")
-
-    return -b / a
+    try:
+        print("Enter a non-zero value for 'a': ")
+        a = float(input())
+        while a == 0.0:
+            print("Please enter a non-zero value for 'a': ")
+            a = float(input())
+        
+        print("Enter a value for 'b': ")
+        b = float(input())
+        return -b / a
+    except ValueError:
+        print("Invalid input. Please enter a valid numeric value.")
+        print("Make sure to enter a numeric value for 'a' and 'b'.")
+        return None
 
 result = find_zero()
-print(result)
+if result is not None:
+    print(result)
