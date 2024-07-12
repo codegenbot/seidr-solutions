@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -26,7 +25,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    std::list<boost::any> values = {3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')};
+    std::list<boost::any> values = {3, boost::any(97), 3, 3, boost::any(97), boost::any(98)};
     std::vector<int> expected = {3, 3, 3};
     if (!is_same(filter_integers(values), expected)) {
         for (const auto& value : filter_integers(values)) {
