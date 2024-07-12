@@ -13,11 +13,15 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     
     if not numbers:
         return result
-    if delimiter not in set(numbers): 
-        result.extend(numbers)
-        return result
+    if delimiter not in set(numbers):
+        return [delimiter]
 
     result.append(numbers[0])
     for i in range(1, len(numbers)):
         result.extend([result[-1], delimiter, numbers[i]])
     return result
+
+if __name__ == "__main__":
+    numbers = list(map(int, input("Enter numbers: ").split()))
+    delimiter = int(input("Enter delimiter: "))
+    print(intersperse(numbers, delimiter))
