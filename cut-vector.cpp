@@ -1,30 +1,33 @@
 int main() {
+    vector<int> v;
     int n;
-    cin >> n;
-    
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    while (cin >> n) {
+        v.push_back(n);
     }
     
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    for (int i = 0; i < n - 1; ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i + 1, 0) - accumulate(nums.begin() + i + 1, nums.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    int sum = accumulate(v.begin(), v.end(), 0);
+    int half_sum = sum / 2;
+    
+    int current_sum = 0;
+    int idx = 0;
+    for (int i = 0; i < v.size(); ++i) {
+        current_sum += v[i];
+        if (current_sum >= half_sum) {
+            idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cut_index; ++i) {
-        cout << nums[i] << endl;
-    }
-    for (int i = cut_index + 1; i < n; ++i) {
-        if (i == cut_index + 1) {
-            cout << endl;
+    if (abs(sum - 2 * current_sum) < abs(sum - 2 * (current_sum - v[idx]))) {
+        for (int i = 0; i <= idx; ++i) {
+            cout << v[i] << endl;
         }
-        cout << nums[i] << endl;
+        cout << 0 << endl;
+    } else {
+        for (int i = 0; i <= idx - 1; ++i) {
+            cout << v[i] << endl;
+        }
+        cout << v[idx] << endl;
     }
     
     return 0;
