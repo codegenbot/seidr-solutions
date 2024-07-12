@@ -2,24 +2,12 @@
 
 int score(std::string s) {
     int total = 0;
-    int frame = 1;
+    int roll = 1;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             total += 10;
-            
-            if (s[i + 1] == 'X') {
-                total += 10;
-                if (s[i + 2] == 'X') {
-                    total += 10;
-                } else {
-                    total += (s[i + 2] == '/') ? 10 : (s[i + 2] - '0');
-                }
-            } else {
-                total += (s[i + 1] == '/') ? 10 : (s[i + 1] - '0');
-                total += (s[i + 2] == 'X' || s[i + 2] == '/') ? 10 : (s[i + 2] - '0');
-            }
-            
-            frame++;
+            total += (s[i + 1] == 'X' || s[i + 1] == '/') ? 10 : (s[i + 1] == '/' ? 10 - ((s[i + 2] == 'X') ? 10 : (s[i + 2] - '0')) : s[i + 1] - '0');
+            total += (roll < 10 || (roll == 10 && (s[i + 1] == 'X' || s[i + 2] == 'X'))) ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0');
         } else if (s[i] == '/') {
             total += 10 - ((s[i - 1] == 'X') ? 10 : (s[i - 1] - '0'));
         } else if (s[i] == '-') {
@@ -29,9 +17,11 @@ int score(std::string s) {
             if (s[i + 1] == '/') {
                 total += 10 - (s[i + 2] - '0');
             }
-            frame++;
         }
-        if (frame == 11) break;
+        if (s[i] != 'X') {
+            roll++;
+        }
+        if (roll > 10) break;
     }
     return total;
 }
