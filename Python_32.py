@@ -1,7 +1,4 @@
-Here is the modified code:
-
 ```
-import math
 def quadratic_equation():
     while True:
         try:
@@ -22,6 +19,6 @@ def quadratic_equation():
                 print(f"Root: {root}")
             else:
                 print("No real roots")
-            break
+            
         except ValueError:
             print("Invalid input. Please enter exactly three numbers separated by spaces.")
