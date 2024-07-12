@@ -1,5 +1,5 @@
 def indices_of_substring(text):
-    targets = ['target1', 'target2']
+    targets = ['target1', 'target2']  
     result = []
     for target in targets:
         target = target.strip()
