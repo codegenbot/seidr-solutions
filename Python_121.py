@@ -1,4 +1,3 @@
-```
 def count_odd_numbers():
     while True:
         cont = input("Do you want to continue? (y/n): ")
@@ -18,3 +17,6 @@ def count_odd_numbers():
                 cont = input("Do you want to continue? (y/n): ")
                 if cont.strip().lower() != "y":
                     return
+
+if __name__ == "__main__":
+    count_odd_numbers()
