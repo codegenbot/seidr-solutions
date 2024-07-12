@@ -1,41 +1,27 @@
-```
-#include <string>
 #include <vector>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i].size() != b[i].size()) {
             return false;
         }
     }
     return true;
 }
 
+std::vector<std::string> by_length(std::vector<int> lengths) {
+    std::vector<std::string> result;
+    for (int length : lengths) {
+        result.push_back(std::to_string(length));
+    }
+    return result;
+}
+
 int main() {
-    int n;
-    std::cin >> n;
-    vector<string> words(n);
-    for (int i = 0; i < n; i++) {
-        cin >> words[i];
-    }
-    string longest_word = *max_element(words.begin(), words.end(),
-                                          [](const string& a, const string& b) {
-                                              return a.size() < b.size();
-                                          });
-    vector<string> same_words;
-    for (int i = 0; i < n; i++) {
-        if (issame({longest_word}, {words[i]})) {
-            same_words.push_back(words[i]);
-        }
-    }
-    cout << "Longest word: " << longest_word << endl;
-    cout << "Same words: ";
-    for (int i = 0; i < same_words.size(); i++) {
-        cout << same_words[i] << " ";
-    }
-    cout << endl;
+    assert(is_same(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
     return 0;
 }
