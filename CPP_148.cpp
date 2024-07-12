@@ -9,8 +9,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 std::vector<std::string> result;
 int idx1 = -1, idx2 = -1;
-std::string planet1 = "Jupiter";
-std::string planet2 = "Makemake";
+std::string planet1 = "Planet1";
+std::string planet2 = "Planet2";
 
 for (int i = 0; i < planets.size(); i++) {
     if (planets[i] == planet1) {
