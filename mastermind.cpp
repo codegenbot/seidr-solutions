@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(char* code, char* guess) {
     int white = 0;
     int black = 0;
 
@@ -15,8 +14,8 @@ int mastermind(std::string code, std::string guess) {
     for(int i = 0; i < 6; i++) {
         int countCode = 0, countGuess = 0;
         for(int j = 0; j < 4; j++) {
-            if(code[j] == (char)(i + 'A')) countCode++;
-            if(guess[j] == (char)(i + 'A')) countGuess++;
+            if(code[j] == (char)(i + 'A' - 1)) countCode++;
+            if(guess[j] == (char)(i + 'A' - 1)) countGuess++;
         }
         white += min(countCode, countGuess);
     }
@@ -25,8 +24,8 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "BABA";
+    char* code = "ABCD";
+    char* guess = "BCDE";
 
     int result = mastermind(code, guess);
 
