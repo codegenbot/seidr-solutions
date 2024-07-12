@@ -1,26 +1,25 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <algorithm> // For std::reverse
-
-using namespace std;
+#include <algorithm>
 
 int main() {
     string input;
     getline(cin, input);
     
-    string word, result;
+    string word;
+    string result;
     istringstream iss(input);
-    
+
     while (iss >> word) {
         if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+            std::reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
     
     result.pop_back(); // remove extra space at the end
-    std::cout << result << std::endl;
+    cout << result << endl;
     
     return 0;
 }
