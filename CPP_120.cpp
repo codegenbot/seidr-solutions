@@ -14,11 +14,12 @@ int mainProblemCPP120() {
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
     
-    if (issame(vec1, vec2)) { // Compare vectors
+    if (vec1 == vec2) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
     } else {
-        int maximum_element = *std::max_element({1, 2, 3, -23, 243, -400, 0}.begin(), {1, 2, 3, -23, 243, -400, 0}.end());
-        std::cout << "Maximum element in the vector is: " << maximum_element << std::endl;
+        std::vector<int> numbers = {1, 2, 3, -23, 243, -400, 0};
+        auto max = *std::max_element(numbers.begin(), numbers.end());
+        std::cout << "Maximum element in the vector is: " << max << std::endl;
     }
     
     return 0;
