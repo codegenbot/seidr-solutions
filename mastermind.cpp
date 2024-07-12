@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -9,15 +12,16 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for(int i=0; i<4; i++) {
-        bool isPresentInCode = false;
+        bool inCode = false;
         for(int j=0; j<4; j++) {
             if(guess[i] == code[j]) {
-                isPresentInCode = true;
+                inCode = true;
                 break;
             }
         }
-        if(isPresentInCode) white++;
+        if(!inCode) continue;
+        white++;
     }
 
-    return black + white;
+    return black;
 }
