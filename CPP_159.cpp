@@ -9,5 +9,10 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
+}
+
+int main() {
+    assert(issame(eat(4, 5, 1), {5, 0}));
+    return 0;
 }
