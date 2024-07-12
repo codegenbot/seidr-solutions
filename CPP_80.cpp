@@ -1,19 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
 
-bool is_happy(std::string s) {
+bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        std::string sub = "";
-        for (int j = 0; j < 3 && i + j < s.length(); j++) {
-            char c = static_cast<char>(std::toupper(s[i+j])); 
-            sub.push_back(std::toupper(s[i+j])); 
-        }
+        std::string sub = s.substr(i, 3);
         bool unique = true;
-        for (char a : sub) { // Check the modified substring
+        for (char a : sub) { 
             int count = 0;
             for (char b : sub) {
                 if (b == a)
