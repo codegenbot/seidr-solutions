@@ -1,5 +1,5 @@
 ```
-def remove_duplicates():
+def remove_duplicates(input_numbers=None):
     if input_numbers is not None:
         return list(dict.fromkeys(input_numbers))
 
