@@ -1,5 +1,5 @@
 def calculate_decimal_part(number):
-    return float(number) % 1
+    return abs(float(number)) % 1
 
 
 while True:
