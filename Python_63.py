@@ -4,8 +4,8 @@ def fibfib(n: int):
     a, b = 0, 1
     total = 0
     while True:
-        if b > n:
-            break
-        total = 0; total += b
+        total = a
         a, b = b, a + b
+        if a > n:
+            break
     return total
