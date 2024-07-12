@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     s = input("Enter a string: ")
     n = int(input("Enter 1 for linear decoding and any other number for cyclic decoding: "))
@@ -15,7 +16,7 @@ def decode_cyclic():
                     result.append(chunk[0])
             else:
                 if chunk[0] != result[-1] and chunk[0] != result[-2]:
-                    result.extend(chunk)
+                    result.extend(list(chunk))
         print("".join(result))
 
 decode_cyclic()
