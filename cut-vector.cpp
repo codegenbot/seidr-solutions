@@ -20,7 +20,7 @@ int main() {
         secondSubvector.push_back(nums[0]);
     } else {
         int minDiff = INT_MAX;
-        for (int i = 0; i < n - 1; ++i) {
+        for (int i = 0; i < n; ++i) {
             int sum1 = std::accumulate(nums.begin(), nums.begin() + i + 1, 0);
             int sum2 = std::accumulate(nums.begin() + i + 1, nums.end(), 0);
             int diff = std::abs(sum1 - sum2);
@@ -31,7 +31,7 @@ int main() {
         }
 
         firstSubvector = std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1);
-        secondSubvector = std::vector<int>(nums.begin() + cutIndex + 1, nums.end());
+        secondSubvector = std::vector<int>(nums.begin() + cutIndex + 1, nums.end() + 1);
     }
 
     for (int num : firstSubvector) {
