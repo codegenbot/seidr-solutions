@@ -1,13 +1,14 @@
+Here is the corrected code:
+
 ```
 def is_multiply_prime(n):
     if n < 2:
         return False
     for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            if i * i == n and is_prime(i):
+        if is_prime(i) and n % i == 0:
+            j = n // i
+            if is_prime(j):
                 return True
-    if is_prime(n):
-        return True
     return False
 
 def is_prime(num):
