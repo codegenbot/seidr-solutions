@@ -1,37 +1,35 @@
-int bowlingScore(string input) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    map<char, int> value = {{'X', 10}, {'/', 10}, {'-', 0}};
-
-    for (char c : input) {
-        if (isdigit(c)) {
-            score += c - '0';
-            if (ball == 0) {
-                ball = 1;
-            } else {
-                ball = 0;
-                frame++;
-            }
+int score(vector<char>& bowls) {
+    int frame = 1, score = 0, bowlIndex = 0;
+    for (int i = 0; i < 10; ++i) {
+        if (bowls[bowlIndex] == 'X') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
+            score += (bowls[bowlIndex + 4] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 4]) ? bowls[bowlIndex + 4] - '0' : 10);
+            bowlIndex++;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
+            bowlIndex += 2;
         } else {
-            score += value[c];
-            if (c == 'X' || ball == 1) {
-                frame++;
-            }
-            ball = (c == 'X') ? 0 : 1;
-        }
-
-        if (frame == 11) {
-            break;
+            score += (isdigit(bowls[bowlIndex]) ? bowls[bowlIndex] - '0' : 0) + (isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 0);
+            bowlIndex += 2;
         }
     }
-
     return score;
 }
 
 int main() {
     string input;
-    cin >> input;
-    cout << bowlingScore(input) << endl;
+    vector<char> bowls;
+    getline(cin, input);
+    for(char c : input) {
+        if(c != ' ') {
+            bowls.push_back(c);
+        }
+    }
+
+    int result = score(bowls);
+    cout << result << endl;
+
     return 0;
 }
