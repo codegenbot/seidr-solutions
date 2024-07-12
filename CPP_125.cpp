@@ -1,20 +1,12 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>
-#include <cctype>
 #include <algorithm>
 
 using namespace std;
 
-int islower(int c); // Declare missing function prototype
-
 vector<string> split_words(string txt);
 bool issame(vector<string> a, vector<string> b);
-
-int islower(int c) {
-    return (c >= 'a' && c <= 'z');
-}
 
 vector<string> split_words(string txt) {
     vector<string> words;
