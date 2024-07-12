@@ -12,8 +12,8 @@ for i in range(len(arr)):
     if diff < min_diff:
         min_diff = diff
         cut_index = i
-    elif diff == min_diff:
-        if i < len(arr) - 1 and abs(arr[i+1] - arr[i]) < abs(arr[cut_index+1] - arr[cut_index]) or cut_index == 0:
+    if diff == min_diff:
+        if i < len(arr) - 1 and (abs(arr[i+1] - arr[i]) < abs(arr[cut_index+1] - arr[cut_index]) or cut_index == -1):
             cut_index = i
 
 subvector1 = arr[:cut_index + 1]
