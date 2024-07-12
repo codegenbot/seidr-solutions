@@ -1,3 +1,13 @@
+```cpp
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
@@ -42,4 +52,9 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(s);
     }
     return result;
+}
+
+int main() {
+    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    return 0;
 }
