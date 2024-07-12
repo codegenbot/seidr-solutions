@@ -1,7 +1,8 @@
-def fruit_distribution(s):
-    s = s.lower().replace("apples", "0").replace("oranges", "0")
+def fruit_distribution(*s):
+    s = [i.lower() for i in str(s)]
     total = 0
-    parts = s.split()
+    parts = ' '.join(map(str, s)).replace("apples", "0").replace("oranges", "0")
+    parts = parts.split()
     for part in parts:
         if part.isdigit() or (part == "and" and len(parts) > 2):
             if part.isdigit():
