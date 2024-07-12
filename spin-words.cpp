@@ -1,19 +1,25 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
+    std::getline(std::cin, input);
     
-    string word, result;
-    istringstream iss(input);
+    std::string word;
+    std::stringstream ss(input);
+    std::string result = "";
     
-    while (iss >> word) {
+    while (ss >> word) {
         if (word.size() >= 5) {
-            reverse(word.begin(), word.end());
+            std::reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
     
-    result.pop_back(); // remove extra space at the end
-    cout << result;
+    result.pop_back();
+    std::cout << result;
     
     return 0;
 }
