@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::vector<std::string>> a, std::vector<std::vector<std::string>> b) {
     if(a.size() != b.size()) return false;
@@ -26,6 +26,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 int main() {
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     auto filtered = filter_by_prefix(strings, "xxx");
-    std::vector<std::vector<std::string>> b({{filtered.begin(), filtered.end()}});
-    if (issame(std::vector<std::vector<std::string>{{"xxx"}}>, b)) return 0;
+    std::vector<std::vector<std::string>> b={filtered.begin(), filtered.end()};
+    if (issame(std::vector<std<vector<string>>>{{"xxx"}}, b)) return 0;
 }
