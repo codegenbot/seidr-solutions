@@ -9,13 +9,7 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (true) {
-        if (!(cin >> num)) {
-            break;
-        }
-        if (num == -1) {
-            break;
-        }
+    while (cin >> num) {
         nums.push_back(num);
     }
 
