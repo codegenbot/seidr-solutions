@@ -1,4 +1,3 @@
-```
 def sort_third(lst):
     counts = {}
     for num in lst:
