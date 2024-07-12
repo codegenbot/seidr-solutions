@@ -12,7 +12,7 @@ def factorize(n: int) -> List[int]:
     return factors
 
 try:
-    n = int(input("Enter a number to factorize: "))
+    n = int(input("Enter a number: "))
     result = factorize(n)
     for factor in result:
         print(factor)
