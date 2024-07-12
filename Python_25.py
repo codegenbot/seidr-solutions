@@ -5,7 +5,7 @@ import math
 
 def factorize(n: int) -> List[int]:
     if not isinstance(n, int):
-        return [n]
+        return "Error: Input must be an integer"
     factors = []
     i = 2
     while i * i <= n:
