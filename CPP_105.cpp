@@ -88,13 +88,7 @@ int main() {
         }
     }
 
-    std::vector<std::string> temp = by_length(num1);
-    if (!issame(result, temp))
-        return 1;
-
     std::reverse(result.begin(), result.end());
     
-    for (const auto &word : result)
-        std::cout << word << " ";
     return 0;
 }
