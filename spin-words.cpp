@@ -1,24 +1,20 @@
 int main() {
-    string sentence;
-    getline(cin, sentence);
-    
+    string input;
+    getline(cin, input);
+
+    istringstream iss(input);
     string word;
-    for (size_t i = 0; i < sentence.size(); ++i) {
-        if (sentence[i] != ' ') {
-            word += sentence[i];
-        } else {
-            if (word.size() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            cout << word << " ";
-            word.clear();
+    bool first = true;
+    while (iss >> word) {
+        if (word.length() >= 5) {
+            reverse(word.begin(), word.end());
         }
+        if (!first) {
+            cout << " ";
+        }
+        cout << word;
+        first = false;
     }
-    
-    if (word.size() >= 5) {
-        reverse(word.begin(), word.end());
-    }
-    cout << word << endl;
-    
+
     return 0;
 }
