@@ -4,9 +4,6 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
     for (int i = 0; i < a.size(); ++i) {
         if (find(b.begin(), b.end(), a[i]) == b.end()) {
             return false;
@@ -22,7 +19,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
             result.push_back(num);
         }
     }
-    return result;
+    return numbers;
 }
 
 int main() {
