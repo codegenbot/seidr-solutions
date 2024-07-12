@@ -10,7 +10,7 @@ int main() {
     
     std::vector<int> indices;
     
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+    for (int i = 0; i + target.size() <= static_cast<int>(text.size()); ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
         }
