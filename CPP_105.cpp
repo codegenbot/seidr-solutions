@@ -1,25 +1,26 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <map>
-#include <string>
-#include <cassert>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> valid_nums;
-    
+
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             valid_nums.push_back(num);
         }
     }
-    
+
     sort(valid_nums.begin(), valid_nums.end());
+
     reverse(valid_nums.begin(), valid_nums.end());
-    
+
     map<int, string> num_to_name = {
         {1, "One"},
         {2, "Two"},
@@ -31,19 +32,12 @@ vector<string> by_length(vector<int> arr){
         {8, "Eight"},
         {9, "Nine"}
     };
-    
+
     for (int num : valid_nums) {
         result.push_back(num_to_name[num]);
     }
-    
+
     return result;
-}
+} 
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
-}
+assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
