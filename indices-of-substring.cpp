@@ -2,11 +2,13 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+    string text, target;
+    cin >> text >> target;
     
-    std::vector<int> indices;
+    vector<int> indices;
     for (size_t i = 0; i <= text.size() - target.size(); ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
@@ -14,7 +16,7 @@ int main() {
     }
     
     for (int idx : indices) {
-        std::cout << idx << " ";
+        cout << idx << " ";
     }
     
     return 0;
