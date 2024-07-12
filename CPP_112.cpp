@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(std::vector<std::basic_string<char>> a, std::vector<std::basic_string<char>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,7 +11,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverseDelete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
     for (char ch : s) {
@@ -38,6 +38,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert(isSame(reverseDelete("mamma", "mia"), {"", "True"}));
     return 0;
 }

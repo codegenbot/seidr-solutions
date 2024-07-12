@@ -1,26 +1,22 @@
-```
+```cpp
 #include <iostream>
-
-int starts_one_ends(int);
-
-int main() {
-    int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
-    if (n > 0) {
-        std::cout << "The count of the numbers that start or end with 1 is: " << starts_one_ends(n) << std::endl;
-    } else {
-        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
-    }
-    return 0;
-}
+#include <string>
 
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        if ((i % 10 == 1 && i != 11) || (i % 100 == 11) || (i % 1000 == 111)) {
+        std::string s = std::to_string(i);
+        if ((s[0] == '1' || s[0] == 'o') || (s.back() == '1' || s.back() == 'l')) {
             count++;
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::cout << "Number of strings that start with or end with '1' or 'o' or 'l': " << starts_one_ends(n) << std::endl;
+    return 0;
 }
