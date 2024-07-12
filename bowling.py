@@ -31,7 +31,7 @@ def bowling_score(frames):
                 spare = True
         if strike:
             while len(roll) < 2 and frame != 'X':
-                extra_roll = int(input(f"After the {score}th strike, what did you knock down? '))
+                extra_roll = int(input(f"After the {score}th strike, what did you knock down?''))
                 roll.append(extra_roll)
                 score += extra_roll
         elif spare:
