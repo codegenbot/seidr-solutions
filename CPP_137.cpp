@@ -22,10 +22,14 @@ string compare_one(string a) {
 }
 
 int main() {
-    string a;
+    string a, b;
     cout << "Enter the first number: ";
     cin >> a;
+    cout << "Enter the second number: ";
+    cin >> b;
     cout << compare_one(a) << endl;
+
+    assert(compare_one("1") == "None");
 
     return 0;
 }
