@@ -4,20 +4,16 @@
 
 using namespace std;
 
-string compare_one(string a) {
+string compare_one(string a, string b) {
     stof s1 = stof(a);
-    if (a.find('x') != string::npos)
+    stof s2 = stof(b);
+    
+    if (s1 > s2)
         return a;
-    else {
-        a = to_string(stoi(a)); 
-        stof s2 = stof(a);
-        if (s1 > s2)
-            return a;
-        else if (s1 == s2)
-            return "None";
-        else
-            return a;
-    }
+    else if (s1 == s2)
+        return "None";
+    else
+        return b;
 }
 
 int main() {
@@ -26,7 +22,7 @@ int main() {
     cin >> a;
     cout << "Enter the second number: ";
     cin >> b;
-    cout << compare_one(a) << endl;
+    cout << compare_one(a, b) << endl;
 
     return 0;
 }
