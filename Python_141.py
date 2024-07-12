@@ -1,13 +1,15 @@
 ```
 def file_name_check(file_name):
-    if len([i for i in file_name if i.isdigit()]) > 3:
+    parts = file_name.split('.')
+    if len(parts) != 2:
         return 'No'
-    if '.' not in file_name or file_name.count('.') != 1:
+    name, extension = parts
+    if not name[0].isalpha():
         return 'No'
-    before_dot = file_name[:file_name.index('.')]
-    after_dot = file_name[file_name.index('.'):].split('.')[1]
-    if not before_dot or not before_dot[0].isalpha():
-        return 'No'
-    if after_dot not in ['txt', 'exe', 'dll']:
+    if any(char.isdigit() for char in name):
+        count = sum(1 for char in name if char.isdigit())
+        if count > 3:
+            return 'No'
+    if extension not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
