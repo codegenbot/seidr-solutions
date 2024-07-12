@@ -35,7 +35,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff || (diff == minDiff && abs(2*prefixSum - sum) < abs(2*(prefixSum-nums[i]) - sum))) {
+        if (diff < minDiff || (diff == minDiff && abs(2 * prefixSum - sum) < abs(2 * (prefixSum - nums[i]) - sum))) {
             minDiff = diff;
             cutIndex = i;
         }
@@ -43,9 +43,15 @@ int main() {
 
     // Output the subvectors
     cout << "2" << endl;
-    cout << cutIndex << " " << n - cutIndex << endl;
+    if (cutIndex == 0) {
+        cout << "1 1" << endl;
+    } else if (cutIndex == n - 1) {
+        cout << n << " 1" << endl;
+    } else {
+        cout << cutIndex + 1 << " " << n - cutIndex << endl;
+    }
 
-    for (int i = 0; i < cutIndex; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << " ";
     }
     cout << endl;
@@ -54,7 +60,7 @@ int main() {
     cout << nums[cutIndex] << endl;
 
     if (cutIndex != n - 1) {
-        cout << "1" << endl << n - cutIndex - 1 << endl;
+        cout << "1" << endl << n - cutIndex << endl;
         for (int i = cutIndex + 1; i < n; i++) {
             cout << nums[i] << " ";
         }
