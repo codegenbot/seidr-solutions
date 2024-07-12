@@ -1,7 +1,7 @@
 double diceGame(int n, int m) {
-    double total = 0.0;
-    for (int i = n; i < m + n; i++) {
-        total += (m - (i % m)) / (n * m);
+    double probability = 0.0;
+    for (int i = n; i < n + m - 1; i++) {
+        probability += (n - i) * pow((1.0 / n), n) * pow((1.0 / m), m);
     }
-    return total;
+    return probability;
 }
