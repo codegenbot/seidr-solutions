@@ -21,7 +21,7 @@ string encrypt(string s){
 int main(){
     string s;
     cout << "Enter a string: ";
-    getline(cin,s);
+    getline(cin, s);
     cout << "Encrypted string: " << encrypt(s);
     return 0;
 }
