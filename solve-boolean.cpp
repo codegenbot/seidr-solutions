@@ -1,29 +1,15 @@
-int solve_boolean(string expression) {
-    if (expression == "t") return 1;
-    if (expression == "f") return 0;
+int evaluateBoolean(const string& expression) {
+    if (expression == "t") return true;
+    if (expression == "f") return false;
     
-    int result = 0;
-    for (int i = 1; i < expression.size(); i += 2) {
-        int left = solve_boolean(expression.substr(0, i));
-        int right = solve_boolean(expression.substr(i + 1));
-        
-        if (expression[i] == '&') {
-            result = left & right;
-        } else if (expression[i] == '|') {
-            result = left | right;
-        }
+    bool operand1 = (expression[0] == 't') ? true : false;
+    bool operand2 = (expression[2] == 't') ? true : false;
+    
+    if (expression[1] == '&') {
+        return operand1 && operand2;
+    } else if (expression[1] == '|') {
+        return operand1 || operand2;
     }
     
-    return result;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    
-    int result = solve_boolean(input);
-    
-    cout << (result == 1 ? "True" : "False") << endl;
-    
-    return 0;
+    return false;
 }
