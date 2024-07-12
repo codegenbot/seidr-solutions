@@ -18,17 +18,10 @@ string camelCase(string s) {
                 result[0] = toupper(result[0]);
             }
             result += s.substr(0, i);
-            result += s.substr(i + 1).substr(0, 1);
-            for (int j = 1; j < s.substr(i + 1).size(); j++) {
-                result += tolower(s.substr(i + 1)[j]);
-            }
+            result += s.substr(i + 1);
             break;
         } else {
-            if (!result.empty()) {
-                result += tolower(s[i]);
-            } else {
-                result += toupper(s[i]);
-            }
+            result += s[i];
         }
     }
     return result;
