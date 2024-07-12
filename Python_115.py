@@ -3,8 +3,8 @@ def max_fill(grid, capacity):
     max_water = (total_water + capacity - 1) // capacity
     remaining_capacity = max_water * capacity - total_water
 
-    if remaining_capacity > 0:
-        return max_fill(grid, capacity)
+    if remaining_capacity < 0:
+        return grid
 
     for row in grid:
         for i in range(len(row)):
@@ -13,4 +13,4 @@ def max_fill(grid, capacity):
                 row[i] += add_water
                 remaining_capacity -= add_water
 
-    return max_fill(grid, capacity)
+    return grid
