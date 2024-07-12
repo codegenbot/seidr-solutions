@@ -1,22 +1,30 @@
-```cpp
 #include <iostream>
 #include <vector>
+using namespace std;
 
-bool will_it_fly(const std::vector<std::vector<int>>& q, int w) {
-    if (q[0].size() > w) {
+bool will_it_fly(vector<vector<int>> q, int w) {
+    if(w >= (q[0][1] - q[0][0]) && w >= (q[1][1] - q[1][0])) {
+        return true;
+    } else {
         return false;
     }
-    for (const auto& row : q) {
-        if (row.size() != w) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
-    std::vector<std::vector<int>> q = {{1}};
-    int w = 2;
-    bool result = will_it_fly(q, w);
-    std::cout << (result ? "The plane will fly." : "The plane won't fly.") << std::endl;
+    vector<vector<int>> q;
+    int n;  // number of pairs
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int x, y; // two numbers in a pair
+        cin >> x >> y;
+        q.push_back({x,y});
+    }
+    int w;
+    cin >> w;
+    if (!will_it_fly(q, w)) {
+        cout << "Will not fly.\n";
+    } else {
+        cout << "Will fly.\n";
+    }
+    return 0;
 }
