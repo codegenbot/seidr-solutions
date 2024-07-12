@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -33,4 +33,5 @@ int main() {
     for (int i = 0; i < (int)result.size(); i++) {
         cout << result[i] << " ";
     }
+    return 0;
 }
