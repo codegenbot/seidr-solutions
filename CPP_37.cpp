@@ -15,18 +15,19 @@ bool same(std::vector<float> a, std::vector<float> b) {
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even, odd;
 
-    for (float i : l) {
-        if (i % 2 == 0) 
-            even.push_back(i);
-        else
+    for (auto i : l) {
+        if (l.size() % 2 != 0) { 
             odd.push_back(i);
+        } else {
+            if (odd.size() > even.size()) { 
+                std::sort(odd.begin(), odd.end());
+                odd.clear();
+                even = odd;
+                odd.clear();
+            }
+            even.push_back(i);
+        }
     }
-
-    // Sort the two vectors separately based on their parity.
-    if (!even.empty())
-        std::sort(even.begin(), even.end());
-    if (!odd.empty())
-        std::sort(odd.begin(), odd.end());
 
     return even;
 }
