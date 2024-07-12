@@ -6,21 +6,23 @@ vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
     
+    if (n == 0) {
+        return {{}, {}};
+    }
+    
+    int min_diff = vec[1] - vec[0];
     for (int i = 1; i < n; i++) {
-        if ((vec[i] - vec[0]) <= (vec[i-1] - vec[0])) {
+        int diff = vec[i] - vec[0];
+        if (abs(diff) <= abs(min_diff)) {
             res[0] = vector<int>(vec.begin(), vec.begin() + i);
             res[1] = vector<int>(vec.begin() + i, vec.end());
             return res;
         }
+        min_diff = abs(diff);
     }
     
-    if (n > 0) {
-        res[0] = vector<int>(vec.begin(), vec.end());
-        res[1] = {};
-    } else {
-        res[0] = {};
-        res[1] = {};
-    }
+    res[0] = vector<int>(vec.begin(), vec.end());
+    res[1] = {};
     
     return res;
 }
