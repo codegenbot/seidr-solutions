@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -14,11 +14,11 @@ int mainProblemCPP120() {
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
     
-    if (issame(vec1, vec2)) { // Compare vectors
+    if (isSame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
     } else {
-        auto max = *std::max_element({1, 2, 3, -23, 243, -400, 0});
-        std::cout << "Maximum element in the vector is: " << max << std::endl;
+        int maximum = *std::max_element({1, 2, 3, -23, 243, -400, 0});
+        std::cout << "Maximum element in the vector is: " << maximum << std::endl;
     }
     
     return 0;
