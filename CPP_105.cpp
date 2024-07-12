@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -14,11 +13,11 @@ int by_length(std::vector<std::pair<std::string, int>> nums) {
     std::sort(nums.begin(), nums.end(), [](const auto& a, const auto& b) {
         return a.first.length() < b.first.length();
     });
-    return 1; 
+    return 1; // Assuming the function should always return 1
 }
 
 int main() {
-    std::vector<std::pair<std::string, int>> input = {{"Nine",9}, {"Eight",8}, {"Four",4}};
-    assert(issame(by_length(input), {"Nine","Eight","Four"}));
+    std::vector<std::pair<std::string, int>> input = {{"Nine", 9}, {"Eight", 8}, {"Four", 4}};
+    assert(issame(by_length(input), {"Nine", "Eight", "Four"}));
     return 0;
 }
