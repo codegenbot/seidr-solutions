@@ -1,14 +1,8 @@
-```
 def solve(s):
     result = ""
-    is_letter_prev = False
-    for c in s:
-        if c.isalpha():
-            result += c.swapcase()
-            is_letter_prev = True
-        elif is_letter_prev:
-            result += c
-            is_letter_prev = False
+    for char in s:
+        if char.isalpha():
+            result += char.swapcase()
         else:
-            result += c
-    return result[::-1] if not any(c.isalpha() for c in s) else result
+            result += char
+    return result if any(c.isalpha() for c in s) else s[::-1]
