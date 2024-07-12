@@ -1,14 +1,15 @@
 def encode(message):
-    if message is None:
-        return ""
-    
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                result += chr(((ord(char) - 65 + 3) % 26) + 65)
+                base = 65
             else:
-                result += chr(((ord(char) - 97 + 3) % 26) + 97)
+                base = 97
+            if char.isupper():
+                result += chr((ord(char) - base + 3) % 26 + base)
+            else:
+                result += chr((ord(char) - base + 3) % 26 + base)
         else:
             result += char
     return result
