@@ -7,6 +7,11 @@ int main() {
     int n;
     std::cin >> n;
 
+    if (n == 0) {
+        std::cout << std::fixed << std::setprecision(1) << 0.0 << std::endl;
+        return 0;
+    }
+
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -22,7 +27,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = static_cast<double>(sqrt(sum));
+    double result = sqrt(sum);
     std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
