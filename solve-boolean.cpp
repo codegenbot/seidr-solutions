@@ -3,8 +3,8 @@
 
 int precedence(char op) {
     if (op == '&') return 2; // Higher precedence for '&'
-    if (op == '|') return 2; // Higher precedence for '|'
-    return 1;
+    if (op == '|') return 1; // Lower precedence for '|'
+    return 0; // Return 0 for operands 'T' and 'F'
 }
 
 bool evaluateBooleanExpression(const std::string& expression) {
@@ -52,8 +52,12 @@ bool evaluateBooleanExpression(const std::string& expression) {
 }
 
 int main() {
-    std::string expression = "f&f&t&f|t&f|t&f&f&f|f|t|f&f&t|t|f"; // Update with the correct input
+    std::string expression;
+    std::cout << "Enter a boolean expression: ";
+    std::getline(std::cin, expression);
+    
     bool result = evaluateBooleanExpression(expression);
     std::cout << "Result: " << (result ? "T" : "F") << std::endl;
+
     return 0;
 }
