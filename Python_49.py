@@ -1,3 +1,4 @@
+```
 def modp(n: int, p: int):
     if p == 1:
         return 0
