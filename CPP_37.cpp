@@ -14,24 +14,14 @@ bool same(std::vector<float> a, std::vector<float> b) {
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
-    bool needSort = false;
-
     for (float i : l) {
         if (result.size() % 2 == 0) {
-            std::vector<float> even_indices(result.begin(), result.end());
-            std::sort(even_indices.begin(), even_indices.end());
-            result.clear();
-            needSort = true;
+            result.erase(result.begin() + result.size() / 2, result.end());
+            result = std::vector<float>(l.begin(), std::next(l.begin(), result.size()));
         } else {
-            if (needSort) {
-                result.push_back(i);
-                needSort = false;
-            } else {
-                result.push_back(i);
-            }
+            result.push_back(i);
         }
     }
-
     return result;
 }
 
