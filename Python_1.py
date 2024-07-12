@@ -15,9 +15,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     return result if len(stack) == 0 else ["Invalid input, parentheses not properly separated."]
 
-import sys
-
-if len(sys.argv) > 1:
-    input_string = sys.argv[1]
-    output = separate_paren_groups(input_string)
-    print(output)
+input_string = input().strip()
+output = separate_paren_groups(input_string)
+print(output)
