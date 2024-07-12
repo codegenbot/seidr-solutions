@@ -1,8 +1,5 @@
-```
 #include <vector>
 #include <string>
-#include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -23,8 +20,4 @@ vector<int> even_odd_count(int num) {
             result[1]++;
     }
     return result;
-}
-
-int main() {
-    assert(compare_vectors(even_odd_count(0), vector<int>{0,1}));
 }
