@@ -16,11 +16,11 @@ int main() {
     return 0;
 }
 
-int starts_one_ends(int n) {
+int starts_one Ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        std::string str = std::to_string(i);
-        if ((str[0] == '1' && str != "11") || str == "11" || str == "111") {
+        std::string str;
+        if ((str = std::to_string(i))[0] == '1' && str != "11") || str == "11" || str == "111") {
             count++;
         }
     }
