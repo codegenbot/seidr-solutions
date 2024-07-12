@@ -20,17 +20,21 @@ vector<int> findLeaders(vector<int> nums) {
 
 int main() {
     int n;
+    cout << "Enter the number of elements: ";
     cin >> n;
+    
     vector<int> nums(n);
+    cout << "Enter the elements: ";
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
 
-    vector<int> result = findLeaders(nums);
-
-    for (int leader : result) {
-        cout << leader << " ";
+    vector<int> leaders = findLeaders(nums);
+    
+    cout << "Leaders: ";
+    for (int num : leaders) {
+        cout << num << " ";
     }
-
+    
     return 0;
 }
