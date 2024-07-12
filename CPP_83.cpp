@@ -19,9 +19,8 @@ int main() {
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        if (std::to_string(i)[0] == '1' || std::to_string(i).back() == '1') {
+        if (std::to_string(i).find("1") == 0 || std::to_string(i).rfind("1") == (std::to_string(i).size() - 1))
             count++;
-        }
     }
     return count;
 }
