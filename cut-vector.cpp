@@ -6,12 +6,13 @@
 using namespace std;
 
 int main() {
+    vector<int> nums;
     int n;
     cin >> n;
-    vector<int> nums(n);
-
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
 
     int sum = 0;
@@ -22,7 +23,7 @@ int main() {
     int prefixSum = 0;
     int minDiff = INT_MAX;
     int cutIndex = -1;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n - 1; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
