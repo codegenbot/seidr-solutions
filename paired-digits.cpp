@@ -14,6 +14,5 @@ int pairedDigits(std::string s) {
 int main() {
     std::string s = "1233345556";
     int sum = pairedDigits(s);
-    std::cout << sum << std::endl; 
     return 0;
 }
