@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool cycpattern_check(const std::string& a, const std::string& b) {
-    return (a + a).find(b) != std::string::npos;
+    return ((a + a).find(b) != std::string::npos) && (a.size() == b.size());
 }
 
 int main() {
