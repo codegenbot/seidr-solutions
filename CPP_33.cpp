@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <algorithm>
 #include <assert.h>
 #include <vector>
@@ -37,23 +37,19 @@ std::vector<int> sort_third(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> input;  // get input from user
-    int n; // number of elements
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-    
-    input.resize(n); // resize vector to accommodate 'n' elements
-    
+    int n;
+    std::cin >> n;
+    std::vector<int> nums;
     for (int i = 0; i < n; i++) {
-        printf("Enter element %d: ", i+1);
-        scanf("%d", &(input[i]));
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
     }
+    std::cout << "[";
+    for (int num : sort_third(nums)) {
+        std::cout << num << " ";
+    }
+    std::cout << "]" << std::endl;
     
-    std::vector<int> output = sort_third(input);
-    printf("\nSorted array:\n");
-    for (int i = 0; i < output.size(); i++) {
-        printf("%d ", output[i]);
-    }
-    printf("\n");
     return 0;
 }
