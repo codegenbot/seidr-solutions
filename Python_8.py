@@ -1,6 +1,4 @@
-Here is the completed code:
-
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
+def sum_product(numbers: list) -> tuple:
     if not numbers:
         return 0, 1
     total_sum = sum(numbers)
