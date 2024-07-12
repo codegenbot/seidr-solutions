@@ -5,11 +5,9 @@ def indices_of_substring():
     indices = []
     i = 0
     while i < len(text) - len(target) + 1:
-        if text[i:].startswith(target):
+        if text[i:i+len(target)] == target:
             indices.append(i)
-            i += 1
-        else:
-            i += 1
+        i += 1
 
     return indices
 
