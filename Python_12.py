@@ -12,7 +12,7 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter a comma-separated list of strings.")
-        strings_input = input("Try again: ")
+        strings_input = input("Enter a list of strings (comma-separated): ")
 
 result = longest(strings_list)
 print(f"The longest string is: {result}")
