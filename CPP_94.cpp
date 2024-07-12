@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,7 +25,7 @@ int sumOfDigits(int num) {
 
 int main() {
     std::vector<int> lst;
-    int num;
+    int num, maxPrime = 0;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
@@ -32,7 +33,14 @@ int main() {
             break;
         }
         lst.push_back(num);
+        for (int n : lst) {
+            if (isPrime(n)) {
+                if (n > maxPrime) {
+                    maxPrime = n;
+                }
+            }
+        }
     }
-    std::cout << "The sum of digits is: " << skjkasdkd(lst) << std::endl;
+    std::cout << "The sum of digits is: " << sumOfDigits(maxPrime) << std::endl;
     return 0;
 }
