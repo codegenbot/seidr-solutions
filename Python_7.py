@@ -1,4 +1,3 @@
-```
 strings = input("Enter space separated strings: ").lower().split()
 substring = input("Enter a substring to search: ").lower()
 
