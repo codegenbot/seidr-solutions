@@ -1,7 +1,13 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    res = max(abs(xs))
-    while True:
-        if poly(xs, -res) * poly(xs, res) <= 0:
-            return -res if abs(poly(xs, -res)) < abs(poly(xs, res)) else res
-        res += abs(xs[n]) + 1
+    a = xs[-1]
+    b = xs[-2]
+    return -a / b
+
+# Get user input for list 'xs'
+user_input = input("Enter a list of numbers separated by spaces: ")
+input_list = [int(num) for num in user_input.split()]
+
+# Call the function with the input list
+result = find_zero(input_list)
+print(result)
