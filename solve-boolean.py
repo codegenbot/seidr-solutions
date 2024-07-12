@@ -26,9 +26,3 @@ def solve_boolean(expression):
                 elif op == '|':
                     result = result or (char == 'T')
     return result
-
-print(solve_boolean('t'))  
-print(solve_boolean('f'))  
-print(solve_boolean('f&f'))  
-print(solve_boolean('f&t'))  
-print(solve_boolean('t&f'))
