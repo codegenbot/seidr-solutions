@@ -23,7 +23,6 @@ int main() {
 
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        if(i != n-1) std::cin.ignore();
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
