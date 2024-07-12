@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,13 +11,13 @@ bool will_it_fly(vector<vector<int>> q, int w) {
 }
 
 int main() {
-    vector<vector<int>> q;
+    vector<vector<int>> q(n);
     int n;  // number of pairs
     cin >> n;
     for(int i=0; i<n; i++) {
         int x, y; // two numbers in a pair
         cin >> x >> y;
-        q.push_back({x,y});
+        q[i].push_back(x,y);
     }
     int w;
     cin >> w;
