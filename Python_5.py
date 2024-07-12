@@ -11,4 +11,5 @@ def find_max_min_average(numbers):
 
     return f"Max: {max_num}, Min: {min_num}, Average: {average}"
 
-print(find_max_min_average(input().split()))
+numbers = list(map(int, input().split()))
+print(find_max_min_average(numbers))
