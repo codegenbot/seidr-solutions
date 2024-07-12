@@ -3,9 +3,6 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not isinstance(paren_string, str):
-        return "Invalid input: please provide a string."
-    
     result = []
     stack = []
     groups = []
@@ -19,10 +16,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             stack.pop()
             groups.append(")")
-        if not stack:
-            result.append("".join(groups))
-            groups = []
-
+        else:
+            while stack:
+                groups.append(")")
+                stack.pop()
     if groups:
         result.append("".join(groups))
 
