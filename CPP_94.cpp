@@ -6,7 +6,8 @@ int calculateScore(int values[], int n) {
     int sum = 0;
     for (int i = 0; i < n; i++) {
         if(values[i] > 100) {
-            sum += 1;
+            std::cout << "Value at index " << i << ": " << values[i] << std::endl;
+            sum += values[i];
         }
     }
     return sum;
@@ -19,8 +20,7 @@ int main() {
         std::cout << "Value at index " << i << ": ";
         std::cout << myValues[i] << std::endl;
     }
-    int score = calculateScore(myValues, n);
-    std::cout << "The score is: " << score << std::endl;
-    assert(calculateScore(myValues, n) == 3); 
+    std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
+    assert(calculateScore(myValues, n) == 224); 
     return 0;
 }
