@@ -1,21 +1,27 @@
-int score(string s) {
-    int res = 0, frame = 1, i = 0;
-    
-    while (frame <= 10 && i < s.size()) {
+int solve(string s) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
-            res += 10 + (s[i + 1] == 'X' ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10));
-            if (s[i + 2] == '/')
-                res += 10 - (s[i + 1] == 'X' ? 0 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10));
-            else
-                res += (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
-            i++;
-        } else if (isdigit(s[i]) || s[i] == '/')
-            res += (s[i] == '/' ? 10 - (isdigit(s[i - 1]) ? s[i - 1] - '0' : 0) : s[i] - '0');
-        i++;
-        if (s[i] == '/')
-            res += (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
+            score += 10;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i-1] - '0');
+        } else if (s[i] == '-') {
+            continue;
+        } else {
+            score += s[i] - '0';
+        }
         frame++;
+        if (frame == 2 || s[i] == 'X') {
+            frame = 0;
+        }
     }
-    
-    return res;
+    return score;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << solve(s) << endl;
+    return 0;
 }
