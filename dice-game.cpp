@@ -1,9 +1,7 @@
-#include <cmath>
-
 double diceGame(int n, int m) {
-    double probability = 0.0;
-    for (int i = 1; i <= m - 1; i++) {
-        probability += pow((n-m)/(double)n, n)*pow(1.0/m, m);
+    double total = 0.0;
+    for (int i = 1; i < n; i++) { 
+        total += (n - i) * (m - 1) / (n * m);
     }
-    return probability;
+    return total;
 }
