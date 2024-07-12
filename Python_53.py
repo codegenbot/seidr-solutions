@@ -22,3 +22,5 @@ def main():
         if cont.lower() != "y":
             print("Program ended.")
             break
+        else:
+            continue
