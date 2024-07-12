@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cassert>
+using namespace std;
 
 int solve(int N) {
     int sum = 0;
@@ -11,6 +13,7 @@ int solve(int N) {
 
 int main() {
     int N;
-    std::cin >> N;
-    std::cout << solve(N) << std::endl;
+    cin >> N;
+    cout << solve(N) << endl;
+    assert(solve(963) == 10010);
 }
