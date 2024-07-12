@@ -5,11 +5,13 @@ double calculate_total_distance(double starting_height, double bounce_height, in
     double total_distance = 0.0;
 
     for (int i = 0; i < num_bounces; ++i) {
-        total_distance += starting_height + bounce_height;
+        total_distance += 2 * starting_height;
+        total_distance -= bounce_height;
         starting_height += bounce_height;
+        bounce_height *= bounciness_index;
     }
 
-    return total_distance;
+    return total_distance + starting_height;
 }
 
 int main() {
