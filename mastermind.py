@@ -1,9 +1,8 @@
 from collections import Counter
 
-code = input("Enter the code: ").strip()
-guess = input("Enter the guess: ").strip()
+code, guess = input().strip().split()
 
-if len(code) != 4 or len(guess) != 4 or not all(c in '123456' or c in 'abcdef' for c in code) or not all(c in '123456' or c in 'abcdef' for c in guess):
+if len(code) != 4 or len(guess) != 4 or not all(c in '123456' for c in code) or not all(c in '123456' for c in guess):
     print("Invalid input. Both code and guess should be 4-character strings consisting of 6 possible characters.")
 else:
     code_freq = Counter(code)
