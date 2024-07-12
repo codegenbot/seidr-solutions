@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -58,4 +57,3 @@ int main() {
         cout << "Grades are not the same." << endl;
 
     return 0;
-}
