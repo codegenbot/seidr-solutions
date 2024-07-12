@@ -1,47 +1,32 @@
 #include <string>
-#include <stdexcept>
+#include <iostream>
+using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > (int)b ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+bool compare_one(string a, string b) {
+    try {
+        float fa = stof(a);
+        float fb = stof(b);
+        return fa > fb;
+    } catch (...) {
         try {
-            float fa = std::stof(a.convert<string>().c_str());
-            float fb = (float)b.convert<float>();
-            return fa > fb ? a : b;
+            double fa = stod(a);
+            double fb = stod(b);
+            return fa > fb;
         } catch (...) {
-            throw;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        try {
-            double fa = std::stod(a.convert<string>().c_str());
-            double fb = (double)b.convert<double>();
-            return fa > fb ? a : b;
-        } catch (...) {
-            throw;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        try {
-            int fa = std::stoi(a.convert<string>().c_str());
-            int fb = (int)b.convert<int>();
-            return fa > fb ? a : b;
-        } catch (...) {
-            throw;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        try {
-            float fa = std::stof(a.convert<string>().c_str());
-            float fb = std::stof(b.convert<string>().c_str());
-            return fa > fb ? a : b;
-        } catch (...) {
-            throw;
+            int fa = stoi(a);
+            int fb = stoi(b);
+            return fa > fb;
         }
     }
-    return boost::any("None");
+}
+
+int main() {
+    string a, b;
+    cin >> a >> b;
+    if (compare_one(a, b))
+        cout << a << " is greater than " << b << endl;
+    else
+        cout << b << " is greater than or equal to " << a << endl;
+
+    return 0;
 }
