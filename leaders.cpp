@@ -4,9 +4,6 @@ using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
-    if (nums.empty()) {
-        return leaders;
-    }
     int n = nums.size();
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
@@ -24,7 +21,7 @@ int main() {
     vector<int> nums;
     int num;
     while (cin >> num) {
-        if (cin.peek() == '\n' || cin.peek() == EOF) {
+        if (cin.peek() == '\n') {
             break;
         }
         nums.push_back(num);
