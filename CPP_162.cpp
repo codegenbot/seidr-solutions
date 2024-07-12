@@ -1,4 +1,4 @@
-#include <cryptopp/cryptlib.h>
+#include "cryptopp/sha.h"
 
 using namespace std;
 using namespace CryptoPP;
