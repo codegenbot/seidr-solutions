@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 
 int luhn(const std::vector<int>& numbers) {
-    return (numbers[14] * 2 >= 10 ? numbers[14] - 9 : numbers[14] * 2) + luhnHelper(numbers, 13);
+    return numbers.size() % 2 == 0 ? (numbers[14] * 2 >= 10 ? numbers[14] - 9 : numbers[14] * 2) + luhnHelper(numbers, 13) : numbers[15] * 2 >= 10 ? numbers[15] - 9 : numbers[15] * 2 + luhnHelper(numbers, 12);
 }
 
 int luhnHelper(const std::vector<int>& numbers, int pos) {
