@@ -8,7 +8,7 @@ int score(std::string s) {
         if (s[i] == 'X') {
             if (s[i + 1] == 'X' && s[i + 2] == 'X') {
                 total += 30;
-            } else if (s[i + 1] == '/' || s[i + 2] == '/') {
+            } else if (s[i + 1] == '/' || (s[i + 2] == '/' && s[i + 1] != 'X')) {
                 total += 20;
             } else {
                 total += 10 + (s[i + 1] - '0') + (s[i + 2] - '0');
@@ -20,7 +20,7 @@ int score(std::string s) {
             total += s[i] - '0';
         }
         frame++;
-        if (frame == 10) break;
+        if (frame == 9) break;
     }
     return total;
 }
