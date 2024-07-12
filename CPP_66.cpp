@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -8,7 +9,6 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-
 }
 
 int main() {
@@ -18,4 +18,3 @@ int main() {
     int result = digitSum(input);
     std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
-}
