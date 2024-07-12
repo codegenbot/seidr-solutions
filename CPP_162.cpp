@@ -1,5 +1,8 @@
-```
+Here is the modified code:
+
+```c++
 #include <string>
+#include <iomanip>
 #include <sstream>
 #include <openssl/md5.h>
 
