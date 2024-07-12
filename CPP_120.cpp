@@ -16,7 +16,8 @@ int maximum(int arr[], int n) {
 }
 
 int mainProblemCPP120() {
-    std::vector<int> vec1(3, 0); 
+    int arr[] = {1, 2, 3};
+    std::vector<int> vec1(arr, arr + sizeof(arr) / sizeof(arr[0])); 
     std::vector<int> vec2 = {1, 2, 3}; 
     
     if (vec1 != vec2) { // Compare vectors
@@ -26,10 +27,7 @@ int mainProblemCPP120() {
     }
     
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
-    int n = sizeof(arr) / sizeof(arr[0]); // Calculate the size of the array
-    std::vector<int> vec(arr, arr + n); // Create a vector from the array
-    
-    assert (!issame(vec, std::vector<int>())); // Compare vectors
+    assert (!issame(std::vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0])), {}));
     
     return 0;
 }
