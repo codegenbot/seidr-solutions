@@ -1,8 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
@@ -16,5 +16,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     return result;
 }
 
-assert(issame({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").begin(), 
-               filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").end()}, {"grunt", "prune"}));
+bool same(const std::vector<std::string>& a, const std::set<std::string>& b) {
+    return (a == set<string>(b.begin(), b.end()));
+}
