@@ -1,6 +1,6 @@
 def Strongest_Extension(extension, extensions_list):
     if extension not in extensions_list:
-        return extension
+        return f"{extension}.{extensions_list[-1]}"
     extension_index = extensions_list.index(extension)
     if extension_index == 0:
         return f"{extension}.{extensions_list[-1]}"
