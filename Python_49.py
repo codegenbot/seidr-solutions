@@ -1,3 +1,4 @@
+```python
 def power_mod(a: int, n: int, p: int):
     if n < 0:
         a = pow(a, -1, p)
