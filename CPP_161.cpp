@@ -18,5 +18,3 @@ std::string solve(std::string s) {
     }
     return s;
 }
-
-#include <iostream>
