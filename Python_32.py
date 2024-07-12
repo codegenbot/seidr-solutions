@@ -10,7 +10,7 @@ def find_zero():
             a, b = line1
             c, d = line2
             if a - c == 0: 
-                return "The lines are parallel."
+                return f"The lines are parallel."
             x = round((d - b) / (a - c), 2)
             y = round(a * x + b, 2)
             return f"The intersection point is at ({x}, {y})."
