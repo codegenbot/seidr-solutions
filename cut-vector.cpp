@@ -6,19 +6,21 @@
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
+    
+    std::sort(vec.begin(), vec.end(), std::greater<int>()); // Sort in descending order
 
     int n = vec.size();
     int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
     int leftSum = 0;
     int minDiff = totalSum;
-    int cutIndex = -1;
+    int cutIndex = 0;
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n - 1; ++i) {
         leftSum += vec[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
