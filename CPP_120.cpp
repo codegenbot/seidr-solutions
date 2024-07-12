@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -12,7 +11,7 @@ int mainProblemCPP120() {
     for(int i=0; i<3; i++) {
         vec1.push_back(i+1);
     }
-    std::vector<int> vec2(3); 
+    std::vector<int> vec2(3, 0); 
     for(int i=0; i<3; i++) {
         vec2[i] = i+1;
     }
