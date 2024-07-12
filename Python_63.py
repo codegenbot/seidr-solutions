@@ -8,11 +8,9 @@ def fibfib(n: int):
         total_sum = 0
         seen = {0, 1}  
         while b <= n:
-            if b % 2 == 0 and b not in seen:  
+            if b % 2 == 0:  
                 total_sum += b
-                seen.add(b)  
-            if b % 2 == 0 and b not in seen:  
-                total_sum += b
-                seen.add(b)  
+            elif b > n:
+                break
             a, b = b, a+b
         return total_sum
