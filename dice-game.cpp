@@ -3,15 +3,17 @@
 int main() {
     int n, m;
     std::cin >> n >> m;
-
+    
     double probability = 0.0;
-    if (n > m) {
-        probability = static_cast<double>(n - 1) / n;
-    } else if (n < m) {
-        probability = static_cast<double>(n) / m;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            if (i > j) {
+                probability += 1.0 / (n * m);
+            }
+        }
     }
-
+    
     std::cout << probability << std::endl;
-
+    
     return 0;
 }
