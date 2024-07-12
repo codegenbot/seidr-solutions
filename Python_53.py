@@ -1,7 +1,8 @@
-def main():
-    def add(x: int, y: int):
-        return x + y
+def add(x: int, y: int):
+    return x + y
 
+
+def main():
     while True:
         try:
             num1 = int(input("Enter first number: "))
@@ -19,3 +20,7 @@ def main():
                     break
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
+
+
+if __name__ == "__main__":
+    main()
