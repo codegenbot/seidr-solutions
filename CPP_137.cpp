@@ -1,55 +1,39 @@
 #include <boost/any.hpp>
 #include <string>
+#include <stdexcept>
 
-std::any compare_one(std::any a, std::any b) {
-    bool found = false;
+using namespace boost;
+
+boost::any compare(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
         if (x > y)
             return a;
-        else if (y > x)
+        else if (x < y)
             return b;
         else
-            found = true;
+            return typeid(int);
     } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double x = boost::any_cast<double>(a);
         double y = boost::any_cast<double>(b);
         if (x > y)
             return a;
-        else if (y > x)
+        else if (x < y)
             return b;
         else
-            found = true;
+            return typeid(double);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string x = boost::any_cast<std::string>(a);
         std::string y = boost::any_cast<std::string>(b);
-        if (x > y)
+        int xi = stoi(x), yi = stoi(y);
+        if (xi > yi)
             return a;
-        else if (y > x)
+        else if (xi < yi)
             return b;
         else
-            found = true;
-    } else if ((a.type() == typeid(std::string) && b.type() == typeid(double)) ||
-               (a.type() == typeid(double) && b.type() == typeid(std::string))) {
-        double y;
-        std::string x = boost::any_cast<std::string>(a);
-        if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-            y = boost::any_cast<double>(b);
-        } else {
-            x = boost::any_cast<std::string>(b);
-            y = std::stod(x);
-        }
-        if (std::stod(x) > y)
-            return a;
-        else if (y > std::stod(x))
-            return b;
-        else
-            found = true;
+            return typeid(std::string);
     } else {
-        found = true;
+        throw invalid_argument("Invalid input");
     }
-
-    if (!found)
-        return "None";
 }
