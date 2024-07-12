@@ -1,24 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include <numeric>
-
 int main() {
-    std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
-
-    int n = vec.size();
-    if (n == 1 || std::adjacent_find(vec.begin(), vec.end(), std::not_equal_to<int>()) == vec.end()) {
-        for (int val : vec) {
-            std::cout << val << " ";
-        }
-        std::cout << std::endl;
-        return 0;
+    int n;
+    std::cin >> n;
+    std::vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec[i];
+        totalSum += vec[i];
     }
 
-    int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
     int leftSum = 0;
-    int minDiff = totalSum;
+    int minDiff = INT_MAX;
     int cutIndex = -1;
 
     for (int i = 0; i < n - 1; ++i) {
@@ -26,19 +16,22 @@ int main() {
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    for (int i = 0; i <= cutIndex; ++i) {
-        std::cout << vec[i] << " ";
+    std::vector<int> leftSubvec(vec.begin(), vec.begin() + cutIndex + 1);
+    std::vector<int> rightSubvec(vec.begin() + cutIndex + 1, vec.end());
+
+    for (int num : leftSubvec) {
+        std::cout << num << " ";
     }
     std::cout << std::endl;
 
-    for (int i = cutIndex + 1; i < n; ++i) {
-        std::cout << vec[i] << " ";
+    for (int num : rightSubvec) {
+        std::cout << num << " ";
     }
     std::cout << std::endl;
 
