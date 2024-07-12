@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -32,14 +31,14 @@ int main() {
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
-    for (int i = 0; i < 10; i++) {
-        if (!(std::cin >> num) || num == -1)
+    while(std::cin >> num) {
+        if(num == -1)
             break;
 
-        if (num < 0)
+        if(num < 0)
             continue; // Skip invalid inputs
 
-        if (num > numbers.back())
+        if(numbers.empty() || num > numbers.back())
             numbers.push_back(num);
     }
 
