@@ -19,7 +19,10 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 }
 
-int testMain() {
-    assert(areEqual(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+int main() {
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    const std::string prefix = "xxx";
+    std::vector<std::string> output = filter_by_prefix(input, prefix);
+    assert(areEqual(output, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
