@@ -1,29 +1,43 @@
+#include <iostream>
+#include <vector>
 #include <string>
-bool issame(vector<string> a, vector<string> b){
-	vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
-    int idx1 = -1, idx2 = -1;
-    
-    for (int i = 0; i < planets.size(); i++) {
+#include <cassert>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
+
+    int start = -1, end = -1;
+    for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
-            idx1 = i;
+            start = i;
         }
         if (planets[i] == planet2) {
-            idx2 = i;
+            end = i;
         }
     }
-    
-    if (idx1 == -1 || idx2 == -1) {
+
+    if (start == -1 || end == -1) {
         return result;
     }
-    
-    if (idx1 > idx2) {
-        swap(idx1, idx2);
+
+    if (start > end) {
+        std::swap(start, end);
     }
-    
-    for (int i = idx1 + 1; i < idx2; i++) {
+
+    for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
-    
+
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    
+    return 0;
 }
