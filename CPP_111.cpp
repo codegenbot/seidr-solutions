@@ -1,4 +1,9 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -11,12 +16,6 @@ int main() {
     int min_val = *min_element(arr.begin(), arr.end());
     
     cout << "Histogram: ";
-    histogram(min_val, max_val);
-    
-    return 0;
-}
-
-void histogram(int min_val, int max_val) {
     for (int i = min_val; i <= max_val; i++) {
         int count = 0;
         for (int j = 0; j < n; j++) {
@@ -26,4 +25,6 @@ void histogram(int min_val, int max_val) {
         }
         cout << count << " ";
     }
+    
+    return 0;
 }
