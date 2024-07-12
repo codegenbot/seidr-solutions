@@ -7,7 +7,7 @@ min_diff = abs(total_sum - 2 * sum(arr[:1]))
 cut_index = 0
 
 for i in range(1, n):
-    left_sum += arr[i]
+    left_sum += arr[i-1]
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
