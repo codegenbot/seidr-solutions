@@ -7,8 +7,8 @@ vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
     
-    for (int i = 1; i < n; i++) {
-        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
+    for (int i = 1; i <= n/2; i++) {
+        if (vec[i] - vec[0] == vec[n-i-1] - vec[0]) {
             res[0] = vector<int>(vec.begin(), vec.begin() + i);
             res[1] = vector<int>(vec.begin() + i, vec.end());
             return res;
