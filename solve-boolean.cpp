@@ -30,4 +30,3 @@ int main() {
         std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
     }
     return 0;
-}
