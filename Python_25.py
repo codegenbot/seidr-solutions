@@ -1,11 +1,9 @@
+```
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
-    if n <= 0:
-        print("Error: Input must be a positive integer.")
-        return []
     factors = []
     i = 2
     while i * i <= n:
@@ -21,3 +19,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+
+n = int(input("Enter an integer to factorize: "))
+print(factorize(n))
