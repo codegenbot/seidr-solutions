@@ -3,20 +3,18 @@
 #include <vector>
 #include <string>
 
-bool by_length(const std::pair<int, std::string>& a) {
-    return a.second.size();
-}
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
-        std::cout << "Error: Input vectors are not of the same size.\n";
+        std::cout << "Error: Vectors of different sizes.\n";
         return false;
     }
-    std::sort(a.begin(), a.end(), by_length);
+    std::sort(a.begin(), a.end(), [](const std::pair<int, std::string>& a) {
+        return a.second.size();
+    });
     std::sort(b.begin(), b.end());
     for (int i = 0; i < a.size(); ++i) {
         if (std::tolower(a[i]) != std::tolower(b[i])) {
-            std::cout << "Error: Input vectors are not the same.\n";
+            std::cout << "Error: Vectors contain different strings.\n";
             return false;
         }
     }
