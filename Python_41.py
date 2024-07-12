@@ -1,4 +1,4 @@
-```
+```python
 input_string = input("Enter car race collision: ").strip().lower()
 def check():
     if "car race collision" in input_string:
