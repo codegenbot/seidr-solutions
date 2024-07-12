@@ -15,6 +15,6 @@ bool is_prime(int num) {
 
 int main() {
     int num;
-    cin >> num;
-    cout << (is_prime(num) ? "True" : "False") << endl;
+    cin >> to_string(num);
+    cout << (is_prime(stoi(to_string(num))) ? "true" : "false") << endl;
 }
