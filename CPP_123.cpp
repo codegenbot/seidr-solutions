@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert> // Include the <cassert> header
+#include <cassert>
 
 using namespace std;
 
@@ -26,10 +26,6 @@ vector<int> get_odd_collatz(int n) {
     sort(odd_numbers.begin(), odd_numbers.end());
     
     return odd_numbers;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 int main() {
