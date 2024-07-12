@@ -1,3 +1,4 @@
+import sys
 import hashlib
 
 def string_to_md5(text):
@@ -5,7 +6,7 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
     return None
 
-text = input().strip()
+text = sys.stdin.readline().rstrip()
 
 if all(32 <= ord(char) <= 126 and char.isprintable() and ord(char) < 127 for char in text):
     md5_hash = string_to_md5(text)
