@@ -1,13 +1,24 @@
-string encrypt(string s){
-    string result = "";
+#include <iostream>
+#include <string>
+
+int encrypt(std::string s){
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2) % 26 + 'a';
+            c = (c - 'a' + 3) % 26 + 'a';
         } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2) % 26 + 'A';
+            c = (c - 'A' + 3) % 26 + 'A';
         }
         result += c;
     }
-    return result;
+    return 0;
+}
+
+int main(){
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    int output = encrypt(input);
+    return 0;
 }
