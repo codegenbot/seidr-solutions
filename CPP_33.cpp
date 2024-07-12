@@ -1,7 +1,6 @@
-#include <algorithm>
-#include <assert.h>
+#include <iostream>
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -13,21 +12,39 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
+std::vector<int> sort_third(std::vector<int> input) {
+    std::sort(input.begin(), input.end());
+    return input;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> v1, v2, v3;
+    
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cin >> x;
         if (i % 3 == 0) {
-            // values at the indices that are divisible by three are equal to the values of the corresponding indicies of l, but sorted
-            std::vector<int> temp;
-            for (int j = i; j < l.size() && j % 3 == 0; j++) {
-                temp.push_back(l[j]);
-            }
-            std::sort(temp.begin(), temp.end());
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
-            }
+            v1.push_back(x);
+        } else if (i % 3 == 1) {
+            v2.push_back(x);
         } else {
-            result.push_back(l[i]);
+            v3.push_back(x);
         }
     }
-    return result;
+
+    v1 = sort_third(v1);
+    v2 = sort_third(v2);
+    v3 = sort_third(v3);
+
+    if (issame(v1, v2)) {
+        for (int i : v3) std::cout << i << " ";
+    } else {
+        for (int i : v1) std::cout << i << " ";
+        for (int i : v2) std::cout << i << " ";
+        for (int i : v3) std::cout << i << " ";
+    }
+
+    return 0;
+}
