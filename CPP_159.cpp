@@ -1,11 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    int number = a[0];
-    int need = a[1];
-    int remaining = a[2];
-
-    int total = number + std::min(need, remaining);
-    int left = std::max(0, remaining - need);
+    int total = a[0] + min(a[1], b[0]);
+    int left = max(0, b[0] - a[1]);
     return {total, left};
 }
