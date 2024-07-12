@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 int gcd(int a, int b) {
     if (b == 0) {
@@ -8,8 +9,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     for (size_t i = 0; i <= text.size() - target.size(); ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
@@ -20,14 +21,14 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << std::endl;
 
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
+    std::string text, target;
+    std::cin >> text >> target;
+    std::vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
     return 0;
 }
