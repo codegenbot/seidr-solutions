@@ -25,6 +25,6 @@ int prod_signs(const vector<int>& arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0); // Test case
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
