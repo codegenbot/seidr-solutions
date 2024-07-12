@@ -2,16 +2,23 @@
 def process_paths():
     while True:
         paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
-        try:
-            if "," in paths: 
-                paths = [[*map(int, x.strip().split("-"))] for x in paths.split(",")]
-            elif "-" in paths:
+        
+        if "-" in paths and "," not in paths:
+            try:
                 paths = [[*map(int, paths.strip().split("-"))]]
-            else:
-                raise ValueError
-            break
-        except ValueError:
-            print("Please enter valid path numbers. For example, 1-2.")
+                break
+            except ValueError:
+                print("Please enter a valid path (e.g., 1-2).")
+        elif "," in paths and "- " not in paths:
+            try:
+                paths = [[*map(int, x.strip().split("-"))] for x in paths.split(",")]
+                break
+            except ValueError:
+                print("Please enter valid path numbers. For example, 1-2.")
+        else:
+            print(
+                "Please enter a valid path (e.g., 1-2) or multiple paths separated by commas."
+            )
 
     minPath = float('inf')  
 
