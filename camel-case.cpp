@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -9,9 +10,6 @@ std::string camelCase(std::string str) {
         if (i == str.size() || str[i] == ' ') {
             words.push_back(str.substr(start, i - start));
             start = i + 1;
-        } else if (start < i) {
-            words.push_back(str.substr(start, i - start));
-            start = i;
         }
     }
 
@@ -30,7 +28,7 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    while (std::getline(std::cin, str)) {
+    while (std::cin >> str) {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
