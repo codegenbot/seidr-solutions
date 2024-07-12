@@ -1,5 +1,3 @@
 def sort_even(l: list):
-    return [
-        y if i % 2 == 0 else x
-        for i, (x, y) in enumerate(sorted(zip(l, l[1:] + [l[-1]])), 1)
-    ]
+    sorted_pairs = [(x, y) for i in range(len(l)-1) for (x, y) in [(l[i], l[i + 1]), [l[i]]]]
+    return [x if j % 2 != 0 else y for j, (_, (x, y)) in enumerate(sorted_pairs)]
