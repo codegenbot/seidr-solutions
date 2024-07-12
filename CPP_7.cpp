@@ -1,11 +1,9 @@
-```cpp
 #include <initializer_list>
-
 #include <vector>
 #include <string>
 
 bool issame(const std::vector<std::string>& a) {
-    return (a.size() > 0);
+    return !a.empty();
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
@@ -19,6 +17,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    bool same = issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"));
+    bool same = !filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").empty();
     return 0;
 }
