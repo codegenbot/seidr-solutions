@@ -1,11 +1,9 @@
 ```cpp
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <string>
 
 bool checkEquality(std::string& s) {
-    return s == "True";
+    return s.compare(0, 4, "True") == 0;
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
@@ -32,11 +30,17 @@ std::string reverse_delete(std::string& s, std::string& c) {
 }
 
 int main() {
+    bool issame(int a, int b) { return a == b; }
     std::string s1 = reverse_delete("mamma", "mia");
     std::string s2 = "mama";
     
-    bool isEqual = (s1 == s2) ? true : false;
+    if (issame(s1.compare(s2), 0)) {
+        std::cout << "Equal" << std::endl;
+    } else {
+        std::cout << "Not Equal" << std::endl;
+    }
     
+    bool isEqual = checkEquality(s1);
     if(isEqual) {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
@@ -55,7 +59,7 @@ int main() {
         }
     } else {
         if (!s1.empty() && !s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
+            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         } else if (s1.empty() || s2.empty()) {
             std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
         }
