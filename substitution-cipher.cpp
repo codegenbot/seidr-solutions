@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,13 +7,15 @@ using namespace std;
 
 string decipher(string cipherText, string key) {
     string decrypted = "";
-    for (char c : cipherText) {
-        for (int i = 0; i < key.length(); i++) {
-            if (key[i] == c) {
-                int index = find(key.begin(), key.end(), c) - key.begin();
-                decrypted += key.substr(index, 1);
+    for (int i = 0; i < cipherText.length(); i++) {
+        int j = 0;
+        while(j < key.length()) {
+            if (key[j] == cipherText[i]) {
+                int pos = key.find(cipherText[i]);
+                decrypted += key.substr(pos,1);
                 break;
             }
+            j++;
         }
     }
     return decrypted;
@@ -28,4 +31,3 @@ int main() {
     cin >> plainText;
     cout << "Decrypted message: " << decipher(cipherText, key) << endl;
     return 0;
-}
