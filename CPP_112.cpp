@@ -1,44 +1,51 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 
-using namespace std;
-
-bool is_palindrome(string s) {
-    int start = 0, end = s.length() - 1;
-    while (start < end) {
-        if (s[start] != s[end]) {
-            return false;
-        }
-        start++;
-        end--;
-    }
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<char> char_s(s.begin(), s.end());
-    for (char ch : c) {
-        auto it = find(char_s.begin(), char_s.end(), ch);
-        if (it != char_s.end()) {
-            char_s.erase(it);
+int main() {
+    assert(issame(reverse_delete("mamma", "a"), {"True"}));
+    // ... rest of your code
+}
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    vector<string> result;
+
+    for (char& ch : s) {
+        bool found = false;
+        for (char& cc : c) {
+            if (ch == cc) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push_back(string(1, ch));
         }
     }
-    string result_str(char_s.begin(), char_s.end());
-    vector<string> result;
-    result.push_back(result_str);
-    if (is_palindrome(result_str)) {
+
+    std::string resStr = "";
+    for (string str : result) {
+        resStr += str;
+    }
+
+    bool isPalindrome = false;
+    int left = 0, right = resStr.length() - 1;
+    while (left < right) {
+        if (resStr[left] != resStr[right]) {
+            isPalindrome = false;
+            break;
+        }
+        left++;
+        right--;
+    }
+    if (isPalindrome) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
+
     return result;
-
-}
-
-int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>({"", "True"}));
-    return 0;
 }
