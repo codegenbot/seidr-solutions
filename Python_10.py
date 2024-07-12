@@ -1,9 +1,10 @@
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string
-    else:
-        for char in string:
-            temp = string.replace(char, "")
-            if temp == temp[::-1]:
-                return char + temp + temp[::-1]
-        return string + string[::-1]
+    for char in string:
+        new_string = char + string[1:] + string[:0][::-1]
+        if new_string == new_string[::-1]:
+            return new_string
+    return string + string[::-1]
+
+print(make_palindrome(input("Enter a string: ")))
