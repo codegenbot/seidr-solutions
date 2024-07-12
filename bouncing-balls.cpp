@@ -11,7 +11,7 @@ int main() {
 
     for (int i = 2; i <= num_bounces; ++i) {
         first_bounce_height *= bounciness_index;
-        total_distance += 2 * first_bounce_height;
+        total_distance += 2 * first_bounce_height * bounciness_index;
     }
     total_distance += start_height;
 
