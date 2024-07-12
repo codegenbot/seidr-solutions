@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <numeric>
@@ -26,8 +25,5 @@ vector<int> order_by_points(const vector<int>& nums) {
 
 int main() {
     vector<int> result = order_by_points(vector<int>({0,6,6,-76,-21,23,4}));
-    for (int num : result) {
-        cout << num << " ";
-    }
     return 0;
 }
