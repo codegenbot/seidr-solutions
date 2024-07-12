@@ -1,9 +1,4 @@
-def check(s):
-    if int(s) % 2 == 0:
-        return "EVEN"
-    else:
-        return "ODD"
-
+```
 def secure_code():
     digits = input("Enter the digits separated by spaces: ")
     unique_digits = set(int(x) for x in digits.split())
@@ -14,3 +9,9 @@ def secure_code():
         return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - {check(str(sorted_list_sum))}"
     else:
         return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - {check(str(sorted_list_sum))}"
+
+def check(s):
+    if int(s) % 2 == 0:
+        return "EVEN"
+    else:
+        return "ODD"
