@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,19 +13,25 @@ bool same(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(std::allocator<float>());
+    std::vector<float> result;
+    bool needSort = false;
+
     for (float i : l) {
         if (result.size() % 2 == 0) {
             std::vector<float> even_indices(result.begin(), result.end());
             std::sort(even_indices.begin(), even_indices.end());
             result.clear();
-            for (float j : even_indices) {
-                result.push_back(j);
-            }
+            needSort = true;
         } else {
-            result.push_back(i);
+            if (needSort) {
+                result.push_back(i);
+                needSort = false;
+            } else {
+                result.push_back(i);
+            }
         }
     }
+
     return result;
 }
 
