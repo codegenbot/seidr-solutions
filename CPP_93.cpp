@@ -1,22 +1,18 @@
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char newChar;
-            if (islower(c)) {
-                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                    newChar = (char)(((c - 'a' + 2) % 26) + 'a');
-                } else {
-                    newChar = (char)(c + ('a' - 'a'));
-                }
-            } else if (isupper(c)) {
-                if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                    newChar = (char)(((c - 'A' + 2) % 26) + 'A');
-                } else {
-                    newChar = (char)(c + ('A' - 'A'));
-                }
+            char base = isupper(c) ? 'A' : 'a';
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                result += (char)(base + ((c - base) + 2) % 26);
+            } else {
+                result += (char)(base + ((c - base) + 1) % 26);
             }
-            result += newChar;
         } else {
             result += c;
         }
