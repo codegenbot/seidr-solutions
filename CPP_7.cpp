@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
@@ -19,6 +19,9 @@ int main() {
     std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
     const std::string& substring = "run";
     auto result = filter_by_substring(words, substring);
-    bool same = isSame({result.begin(), result.end()}, {{"grunt", "prune"}});
+    auto actualSet(result.begin(), result.end());
+    auto expectedSet({"grunt", "prune"});
+    bool same = (actualSet == expectedSet);
+    assert(same == same({result.begin(), result.end()}, expectedSet));
     return 0;
 }
