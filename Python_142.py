@@ -1,5 +1,3 @@
-I'd be happy to help with that! Here's the modified prompt:
-
 def sum_squares(lst):
     total = 0
     for i in range(len(lst)):
