@@ -1,26 +1,20 @@
-```cpp
 #include <iostream>
+#include <string>
 #include <cctype>
-using namespace std;
 
-std::string flip_case(std::string str){
-    std::string result = "";
+std::string flip_case(const std::string& str){
+    std::string result = str;
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(std::islower(c))
-            result += std::toupper(c);
+            result[i] = std::toupper(c);
         else if(std::isupper(c))
-            result += std::tolower(c);
-        else
-            result += c;
+            result[i] = std::tolower(c);
     }
     return result;
 }
 
-int main(){
-    string str;
-    cout<<"Enter the string: ";
-    getline(cin,str);
-    cout<<"Flip case: "<<flip_case(str)<<endl;
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
