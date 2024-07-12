@@ -8,6 +8,5 @@ def find_max(words):
             max_unique_chars = len(unique_chars)
             max_word = word
         elif len(unique_chars) == max_unique_chars:
-            if word < max_word:
-                max_word = word
+            max_word = min(max_word, word)
     return max_word
