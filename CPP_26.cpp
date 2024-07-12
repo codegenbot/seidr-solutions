@@ -3,9 +3,7 @@
 #include <cassert>
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    numbers.erase(std::remove_if(numbers.begin(), numbers.end(), [&numbers](int num) {
-        return std::count(numbers.begin(), numbers.end(), num) > 1;
-    }), numbers.end());
+    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
 }
 
