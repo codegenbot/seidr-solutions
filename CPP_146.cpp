@@ -4,8 +4,7 @@
 using namespace std;
 
 int specialFilter(int num) {
-    string num_str;
-    num_str += to_string(num); 
+    string num_str = to_string(num); 
     if (abs(stoi(num_str)) > 10 && (stoi(num_str) % 10) % 2 != 0 && (stoi(num_str) / 10) % 10 % 2 != 0) {
         return 1;
     }
