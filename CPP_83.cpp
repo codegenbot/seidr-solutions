@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
 int starts_one_ends(int n) {
     int count = 0;
@@ -14,5 +16,9 @@ int starts_one_ends(int n) {
 
 int main() {
     assert(starts_one_ends(5) == 18000);
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::cout << "The number of integers that start or end with '1' up to " << n << " is " << starts_one_ends(n) << "." << std::endl;
     return 0;
 }
