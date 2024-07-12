@@ -1,4 +1,7 @@
+#include <vector>
+#include <algorithm>
 #include <string>
+#include <iostream>
 
 int isPrime(int n) {
     if (n <= 1) return 0;
@@ -26,8 +29,12 @@ std::string intersection(std::vector<int> interval1, std::vector<int> interval2)
 }
 
 int main() {
-    std::vector<int> v1 = {3, 8};
-    std::vector<int> v2 = {5, 10};
+    std::vector<int> interval1 = {3, 8};
+    std::vector<int> interval2 = {5, 10};
     
-    intersection(v1, v2);
+    std::string result = intersection(interval1, interval2);
+    
+    std::cout << result << std::endl;
+    
+    return 0;
 }
