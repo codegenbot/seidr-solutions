@@ -8,7 +8,7 @@
         remaining_cents %= 10
         penny_count = remaining_cents
 
-        return    quarter_count, nickel_count, dime_count, penny_count
+        return quarter_count, nickel_count, dime_count, penny_count
 
     cents = int(input())
     quarters, nickles, dimes, pennies = coin_sums(cents)
