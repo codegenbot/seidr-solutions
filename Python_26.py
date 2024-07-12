@@ -11,4 +11,4 @@ def remove_duplicates(numbers):
         if user_num not in input_numbers:
             input_numbers.append(user_num)
     
-    return [x for x in set(input_numbers) if input_numbers.count(x) > 1]
+    return sorted(list(set(input_numbers)))
