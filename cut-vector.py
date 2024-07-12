@@ -1,7 +1,7 @@
 arr = list(map(int, input("Enter a list of positive integers separated by space: ").split()))
 
 cut_index = arr.index(
-    min(arr, key=lambda x: abs(sum(arr) - 2 * sum(arr[: arr.index(x) + 1]))
+    min(arr, key=lambda x: abs(sum(arr) - 2 * sum(arr[: arr.index(x) + 1])))
 )
 
 if cut_index == len(arr) - 1:
