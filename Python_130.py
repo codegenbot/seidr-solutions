@@ -6,11 +6,10 @@ def tri(n):
     elif n == 2:
         return [3, 2]
     else:
-        sequence = [3, 2]
+        seq = [3, 2]
         for i in range(2, n):
             if i % 2 == 0:
-                sequence.append(1 + i // 2)
+                seq.append(i//2 + 1)
             else:
-                a, b = sequence[-2], sequence[-1]
-                sequence.append(a + b + (a + 1) if i > 3 else 1 + i // 2)
-        return sequence
+                seq.append(seq[i-1] + seq[i-2] + seq[i-3])
+        return seq
