@@ -1,9 +1,4 @@
-def check(target, expected):
-    result = double_the_difference([1, 2, -3, 4, 5, 6])
-    if result == expected:
-        return "Test passed"
-    else:
-        return f"Expected {expected}, but got {result}"
-    
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0)
+def check(d):
+    result = double_the_difference(d)
+    half_diff = (abs(1 - d[0]) + abs(1 - d[-1])) / 2
+    return 2 * half_diff if result == min(d) else result
