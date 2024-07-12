@@ -1,2 +1,6 @@
-x, y, z = map(int, input().split())
-print(x + y + z)
+def solve(x: int, y: int) -> int:
+    return x + y
+
+x, y = map(int, input().split())
+result = solve(x, y)
+print(result)
