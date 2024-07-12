@@ -1,20 +1,21 @@
-#include <iostream>
+```cpp
 #include <string>
-using namespace std;
+#include <iostream>
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+
     int len = s.length();
     if (len % 2 == 0) {
-        string res = s.substr(len / 2 - 1, 2);
-        cout << "Middle characters are: " << res << endl;
+        std::string mid1 = s.substr(len / 2 - 1, 1);
+        std::string mid2 = s.substr(len / 2, 1);
+        std::cout << "Middle characters are: " << mid1 + mid2 << std::endl;
     } else {
-        string res = s.substr(len / 2, 1);
-        cout << "Middle character is: " << res << endl;
+        std::string mid = s.substr(len / 2, 1);
+        std::cout << "Middle character is: " << mid << std::endl;
     }
-    
+
     return 0;
 }
