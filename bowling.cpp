@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
 int bowlingScore(const string& s) {
@@ -39,6 +38,7 @@ int bowlingScore(const string& s) {
     }
     return score;
 }
+
 int main() {
     string s;
     cin >> s;
