@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,15 +6,16 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int) {
-    vector<int> result(1); // Initialize with a capacity of 1.
+    vector<int> result;
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;  
-        } else {
-            result.push_back(n);
+        } 
+        else {
+            // Do nothing
         }
         n = (n * 3) + 1;
     }
