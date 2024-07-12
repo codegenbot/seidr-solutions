@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,3 +26,4 @@ int main() {
     std::vector<int> actual = strange_sort_list({111});
     assert(actual == expected);
     return 0;
+}
