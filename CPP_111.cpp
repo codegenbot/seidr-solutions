@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
-
-using namespace std;
-
 int histogram(string s, vector<int>& arr) {
     if (s == "print") {
         int max_val = *max_element(arr.begin(), arr.end());
@@ -36,8 +29,12 @@ int driver() {
     string str;
     cin >> str;
     
-    int result = histogram(str, arr); 
-    cout << result << endl;
+    if(str == "print"){
+        histogram("print", arr); 
+        cout << endl;
+    } else{
+        //handle other commands
+    }
     
     return 0;
 }
