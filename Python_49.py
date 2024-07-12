@@ -1,5 +1,6 @@
+```Python
 def modp(n: int, p: int):
-    if gcd(p, n) == 1:
-        return pow(n, (p-1)//p, p) * n % p
+    if n % p == 0:
+        return 0
     else:
-        return n
+        return n % p
