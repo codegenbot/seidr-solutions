@@ -37,7 +37,7 @@ int main() {
             break;
 
         if(num < 0)
-            continue; // Skip invalid inputs
+            continue; 
 
         numbers.push_back(num);
     }
@@ -50,7 +50,7 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    if(areEqual(rolling_max(v1), v2))
+    if(areEqual(rolling_max(v1), rolling_max(v2)))
         std::cout << "Vectors are equal" << std::endl;
     else
         std::cout << "Vectors are not equal" << std::endl;
