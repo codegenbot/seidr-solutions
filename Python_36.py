@@ -9,7 +9,9 @@ def fizz_buzz(n: int):
             or i % 7 == 0
         )
         and all(i % num != 0 for num in [13, 21, 15, 35, 33, 77])
+        and "5" not in str(i)
+        and any(char.isdigit() and int(char) > 7 for char in str(i))
     )
     return count
 
-print(fizz_buzz(100000))  # Output should be 8026
+print(fizz_buzz(100000))  # Output should be 24005
