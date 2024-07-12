@@ -6,6 +6,6 @@ def Strongest_Extension(class_name, extensions):
 
     filtered_extensions = [ext for ext in extensions if any(char.isalpha() for char in ext)]
     if not filtered_extensions:
-        return f"{class_name}."
+        return f"{class_name}.671235"
     strongest_extension = max(filtered_extensions, key=lambda x: (strength(x), filtered_extensions.index(x)))
     return f"{class_name}.{strongest_extension}"
