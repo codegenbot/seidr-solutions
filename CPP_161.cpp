@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
@@ -8,4 +11,9 @@ string solve(string s) {
         }
     }
     return result.empty() ? string(s).reverse() : result;
+}
+
+int main() {
+    assert (solve("#ccc") == "#CCC");
+    return 0;
 }
