@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> sortArray(vector<int> array) {
     if (array.empty()) {
         return array;
@@ -24,6 +20,6 @@ vector<int> sortArray(vector<int> array) {
 }
 
 int main() {
-    assert (isSame(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(sortArray({21, 14, 23, 11}) == vector<int>{23, 21, 14, 11});
     return 0;
 }
