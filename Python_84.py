@@ -6,6 +6,4 @@ def solve():
             break
         else:
             print("Invalid Input. Please provide a binary number.")
-            print("Try again!")
-
-solve()
+            continue
