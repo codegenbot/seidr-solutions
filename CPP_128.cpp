@@ -1,7 +1,7 @@
-```
 #include <vector>
 #include <cassert>
 #include <cstdlib>
+#include <initializer_list>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
@@ -23,8 +23,8 @@ int prod_signs(std::vector<int> arr) {
 
 }
 
-//int main() {
-//    std::vector<int> arr = {-1, 1, 1, 0};
-//    int result = prod_signs(arr);
-//    return result;
-//}
+int main() {
+    std::vector<int> arr = {-1, 1, 1, 0};
+    int result = prod_signs(arr);
+    return result;
+}
