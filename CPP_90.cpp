@@ -1,16 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-int main() {
+std::vector<int> getNumbers(int n) {
     std::vector<int> lst;
-    int n;
-
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-
     if (n > 0) {
-        std::cout << "Enter " << n << " integers: ";
         for(int i = 0; i < n; i++){
             int x;
             std::cin >> x;
@@ -29,7 +24,7 @@ int main() {
             }
             if(same) std::cout << "-1";
         } else std::cout << "-1";
-
     } else std::cout << "-1";
-
-    return 0;
+    
+    return lst;
+}
