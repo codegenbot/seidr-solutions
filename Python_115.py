@@ -1,4 +1,8 @@
-```
+# Original incomplete code
+def max_fill(grid, capacity):
+    pass
+
+# Correct completed code
 import math
 
 def max_fill(grid, capacity):
