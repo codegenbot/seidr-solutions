@@ -1,3 +1,7 @@
+```
+num1 = 0
+num2 = 0
+
 def add(x: int, y: int):
     return x + y
 
@@ -21,6 +25,7 @@ def main():
             cont = input("Do you want to continue? (y/n): ")
             if cont.lower() != "y" and cont.lower() != "n":
                 print("Invalid input. Please enter either 'y' or 'n'.")
+                break
             elif cont.lower() == "n":
                 print("Program ended.")
                 break
