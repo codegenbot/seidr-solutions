@@ -1,2 +1,2 @@
 def sum_squares(lst):
-    return round(sum(map(lambda x: math.ceil(x) ** 2, lst)))
+    return sum(ceil(i) ** 2 for i in lst)
