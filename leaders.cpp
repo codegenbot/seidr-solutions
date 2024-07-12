@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream> 
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -9,11 +9,6 @@ vector<int> leaders(vector<int>& arr) {
     if(n == 1)
         return arr;
         
-    for(int i=n-2; i>=0; i--){
-        while(i<n-1 && arr[i] <= arr[n-1])
-            n--;
-    }
-    
     res.push_back(arr[n-1]);
     
     for(int i=0; i<n-1; i++){
@@ -31,3 +26,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
