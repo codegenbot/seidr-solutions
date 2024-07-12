@@ -1,10 +1,23 @@
-int n = arr.size();
-    int min_val = *min_element(arr.begin(), arr.end());
-    int min_idx = find(arr.begin(), arr.end(), min_val) - arr.begin();
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool move_one_ball(std::vector<int>& arr) {
+    int n = arr.size();
     for (int i = 0; i < n; ++i) {
-        if (arr[(min_idx + i) % n] != min_val + i) {
-            return false;
+        if (std::is_sorted(arr.begin(), arr.end())) {
+            return true;
         }
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    return true;
+    return false;
+}
+
+int main() {
+    // Test cases
+    assert(move_one_ball({1, 2, 3, 4, 5}) == true);
+    assert(move_one_ball({2, 3, 1, 5, 4}) == true);
+    assert(move_one_ball({1, 5, 3, 2, 4}) == false);
+
+    return 0;
 }
