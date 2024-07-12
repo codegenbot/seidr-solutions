@@ -11,7 +11,7 @@ def find_substring():
 
     action = input("Enter search or quit: ")
 
-    if action == "search":
+    if action == 'search':
         result = [s for s in strings if substring in s]
 
         if not result:
@@ -21,10 +21,9 @@ def find_substring():
                 print([result[0]])
             else:
                 print(result)
-    elif action == "quit":
+    elif action == 'quit':
         print("Goodbye!")
     else:
         print("Invalid input. Please enter either 'search' or 'quit'.")
-
 
 find_substring()
