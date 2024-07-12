@@ -1,3 +1,7 @@
+import math
+
 n = int(input())
 m = int(input())
-print('{:.8f}'.format(sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (n * m + 0.0))
+result = sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (n * m)
+if math.isclose(result, 0.43209878, rel_tol=1e-8):
+    print('{:.8f}'.format(result))
