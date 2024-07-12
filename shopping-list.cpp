@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 double totalShoppingTrip(vector<float> prices, vector<float> discounts) {
@@ -29,7 +30,7 @@ int main() {
 
     double result = totalShoppingTrip(prices, discounts);
 
-    std::cout << fixed << setprecision(1) << result << endl;
+    std::cout << fixed << setprecision(1) << result << std::endl;
 
     return 0;
 }
