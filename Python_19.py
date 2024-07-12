@@ -1,4 +1,11 @@
-def sort_numbers(user_input=""):
-    numbers = user_input.split(" ")
-    sorted_numbers = " ".join(map(str, sorted([int(num) for num in numbers])))
-    print(sorted_numbers)
+def sort_numbers():
+    while True:
+        numbers = input("Enter space-separated numbers: ")
+        try:
+            sorted_numbers = " ".join(map(str, sorted([int(num) for num in numbers.split()])))
+            print(sorted_numbers)
+            break
+        except ValueError:
+            print("Invalid input. Please enter valid numbers separated by spaces.")
+
+sort_numbers()
