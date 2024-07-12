@@ -1,4 +1,4 @@
-```
+```python
 def encode(message):
     result = ""
     for char in message:
@@ -7,9 +7,9 @@ def encode(message):
                 result += chr((ord(char) - 97 + 3) % 26 + 97)
             else:
                 if char.isupper():
-                    result += chr((ord(char) - 65 + 3) % 26 + 65)
+                    result += chr((ord(char) - 65 + 1) % 26 + 65)
                 else:
-                    result += char.swapcase()
+                    result += chr((ord(char) - 97 + 1) % 26 + 97)
         else:
             result += char
     return result
