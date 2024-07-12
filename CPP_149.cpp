@@ -3,17 +3,15 @@
 #include <cctype>
 
 bool issame(const std::string& s1, const std::string& s2) {
-    auto it1 = s1.begin(), it2 = s2.begin();
-    while (it1 != s1.end() && it2 != s2.end()) {
-        if (std::tolower(*it1) != std::tolower(*it2))
-            return false;
-        ++it1, ++it2;
+    if (s1.size() != s2.size()) return false;
+    for (int i = 0; i < s1.size(); ++i) {
+        if (std::tolower(s1[i]) != std::tolower(s2[i])) return false;
     }
-    return it1 == s1.end() && it2 == s2.end();
+    return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result = lst;
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
             it = result.erase(it);
@@ -22,7 +20,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
     sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
+         [](const std::string& a, const std::string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
