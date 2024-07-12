@@ -5,5 +5,5 @@ def filter_by_prefix(prefix="", user_input=None):
     else:
         strings = user_input
     strings_list = [s.strip() for s in strings.split(',')]
-    result = [s for s in strings_list if s.startswith(prefix)]
-    print(result)
+    result = [s.split()[0].lower().startswith(prefix.lower()) and s for s in strings_list if s]
+    print([s for s in result if result])
