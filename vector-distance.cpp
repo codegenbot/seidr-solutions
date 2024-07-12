@@ -11,20 +11,17 @@ double calculateEuclideanDistance(const std::vector<float>& vec1, const std::vec
 }
 
 int main() {
-    int dimension;
-    std::cout << "Enter the dimension of the vectors: ";
-    std::cin >> dimension;
+    int n;
+    std::cin >> n;
 
-    std::vector<float> vec1(dimension);
-    std::vector<float> vec2(dimension);
+    std::vector<float> vec1(n);
+    std::vector<float> vec2(n);
 
-    std::cout << "Enter the values of the first vector: ";
-    for (int i = 0; i < dimension; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
-    std::cout << "Enter the values of the second vector: ";
-    for (int i = 0; i < dimension; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
