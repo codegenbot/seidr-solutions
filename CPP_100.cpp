@@ -1,41 +1,22 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <assert.h>
 
-using namespace std;
-
-bool isSame(const vector<int>& a, const vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     return a == b;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     for (int i = 1; i <= n; ++i) {
-        pile.push_back(i);
+        pile.push_back(i * 2);
     }
     return pile;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> a = make_a_pile(n);
-    sort(a.begin(), a.end());
-    cout << "Enter the number of cards in your hand: ";
-    int m;
-    cin >> m;
-    vector<int> b = make_a_pile(m);
-    sort(b.begin(), b.end());
-    
-    if (isSame(a, b)) {
-        cout << "You have the same pile as me." << endl;
-    } else {
-        cout << "You don't have the same pile as me." << endl;
-    }
-    
+    assert(std::isSame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
