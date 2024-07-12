@@ -27,3 +27,10 @@ vector<int> get_odd_collatz(int n) {
     
     return odd_numbers;
 }
+
+int main() {
+    assert(get_odd_collatz(1) == vector<int>({1}));
+    assert(get_odd_collatz(7) == vector<int>({1, 3, 5, 7}));
+    
+    return 0;
+}
