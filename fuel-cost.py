@@ -1,4 +1,3 @@
-data = list(map(int, input().split()))
-
-result = sum((x // 3 - 2) for x in data)
-print(result)
+n = int(input())
+total = sum([(num // 3 - 2) for num in range(1, n + 1)])
+print(total)
