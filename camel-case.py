@@ -1,4 +1,3 @@
-```
 def camel_case():
     s = input().replace('-', ' ').split()
     result = s[0].lower()  
