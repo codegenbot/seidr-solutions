@@ -11,14 +11,14 @@ int main() {
     int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
     int leftSum = 0;
     int minDiff = totalSum;
-    int cutIndex = 0;
+    int cutIndex = -1;
 
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         leftSum += vec[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
