@@ -6,8 +6,13 @@ bool is_happy(std::string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        int substr_length = i == s.length() - 1 ? 1 : 3;
-        std::string sub = s.substr(i, substr_length);
+        std::string sub;
+        if (i == s.length() - 1) {
+            sub += s[i];
+        } else {
+            for (int j = i; j < i + 3; j++)
+                sub += s[j];
+        }
         bool unique = true;
         for (char c : sub) {
             int count = 0;
