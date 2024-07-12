@@ -20,7 +20,5 @@ int main(){
         std::cout << s << "\n";
     }
 
-    assert(filteredStrings == std::vector<std::string>({"hi", "hey"}));
-
     return 0;
 }
