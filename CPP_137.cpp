@@ -2,47 +2,73 @@
 #include <string>
 #include <limits>
 
-std::any compareOne(std::any a, std::any b) {
+bool compare(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+        return static_cast<int>(a.convert<int>().get()) > b.convert<float>().get();
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
+        return static_cast<int>(a.convert<int>().get()) > b.convert<double>().get();
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
+        return a.convert<float>().get() > static_cast<float>(b.convert<int>().get());
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > (int)b ? a : b;
+        return a.convert<double>().get() > static_cast<double>(b.convert<int>().get());
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            float fa = std::stof(a.convert<std::string>().c_str());
-            float fb = (float)b.convert_to<float>();
-            return fa > fb ? a : b;
+            float fa = std::stof(a.convert<std::string>().get().c_str());
+            float fb = b.convert<float>().get();
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
-            double fa = std::stod(a.convert<std::string>().c_str());
-            double fb = (double)b.convert_to<double>();
-            return fa > fb ? a : b;
+            double fa = std::stod(a.convert<std::string>().get().c_str());
+            double fb = b.convert<double>().get();
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
-            int fa = std::stoi(a.convert<std::string>().c_str());
-            int fb = (int)b.convert_to<int>();
-            return fa > fb ? a : b;
+            int fa = std::stoi(a.convert<std::string>().get().c_str());
+            int fb = b.convert<int>().get();
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         try {
-            float fa = std::stof(a.convert<std::string>().c_str());
-            float fb = std::stof(b.convert<std::string>().c_str());
-            return fa > fb ? a : b;
+            float fa = std::stof(a.convert<std::string>().get().c_str());
+            float fb = std::stof(b.convert<std::string>().get().c_str());
+            return fa > fb;
         } catch (...) {
-            return "None";
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    while (true) {
+        int num1, num2;
+        std::cout << "Enter two numbers or 'q' to quit: ";
+        std::cin >> num1 >> num2;
+
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter numeric values.\n";
+            break;
+        }
+
+        if (num1 == 0 && num2 == 0) {
+            break;
+        }
+
+        if (compare(std::any(num1), std::any(num2))) {
+            std::cout << "The first number is greater.\n";
+        } else {
+            std::cout << "The second number is greater or equal.\n";
         }
     }
-    return "None";
+
+    return 0;
 }
