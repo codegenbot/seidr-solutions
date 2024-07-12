@@ -5,13 +5,13 @@ def shopping_list():
     discounts = []
     for _ in range(n):
         line = input().split()
-        if len(line) < 2:
-            print("Invalid input: expected 2 values per line")
-            return
-        price = float(line[0])
-        discount = float(line[1]) / 100 
-        prices.append(price)
-        discounts.append(discount)
+        if len(line) >= 2:
+            price = float(line[0])
+            discount = float(line[1]) / 100
+            prices.append(price)
+            discounts.append(discount)
+        else:
+            return None 
     total_price = 0
     for i in range(n):
         total_price += prices[i] * (1 - discounts[i])
