@@ -4,12 +4,13 @@
 using namespace std;
 
 int main() {
-    string input;
-    cin >> input;
+    int num;
+    cin >> num;
     string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+    while (num > 0) {
+        int digit = num % 10;
+        output = to_string(digit * digit) + output;
+        num /= 10;
     }
     cout << output << endl;
     return 0;
