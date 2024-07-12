@@ -19,10 +19,15 @@ def main():
             elif not isinstance(user_input, str):
                 raise ValueError("Invalid input. Please enter an item or 'stop'.")
             items.append(Item(user_input.strip()))
-            cost = float(input(f"Enter the cost of {user_input}: "))
-            for item in items:
-                if item.name == user_input:
-                    item.cost = cost
+            while True:
+                cost = float(input(f"Enter the cost of {user_input}: "))
+                if cost >= 0:
+                    for item in items:
+                        if item.name == user_input:
+                            item.cost = cost
+                    break
+                else:
+                    print("Cost must be a positive number. Please try again.")
         except ValueError:
             print("Invalid input. Please enter an item or 'stop'.")
 
