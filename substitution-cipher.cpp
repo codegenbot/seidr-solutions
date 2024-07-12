@@ -1,14 +1,17 @@
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    
+    string from, to, message;
+    cin >> from >> to >> message;
+
     for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
+        for (int i = 0; i < from.size(); ++i) {
+            if (c == from[i]) {
+                c = to[i];
+                break;
+            }
         }
     }
-    
+
     cout << message << endl;
-    
+
     return 0;
 }
