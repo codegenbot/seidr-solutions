@@ -1,37 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
 
-int main() {
-    std::vector<std::string> a;
-    std::cout << "Enter strings (stop when empty):" << std::endl;
-    std::string s;
-    while (std::getline(std::cin, s)) {
-        if (s.empty()) break;
-        a.push_back(s);
-    }
+using namespace std;
 
-    std::vector<std::string> b = a;
-    bool same = (a == b);
-
-    std::cout << "Enter prefix:" << std::endl;
-    std::string prefix;
-    std::getline(std::cin, prefix);
-    std::vector<std::string> result = filter_by_prefix(a, prefix);
-
-    if (!same) 
-        std::cout << "Strings are not the same." << std::endl;
-    else 
-        std::cout << "Strings are the same." << std::endl;
-
-    for (const auto& s : result) {
-        std::cout << s << std::endl;
-    }
-
-    return 0;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -48,4 +20,35 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     }
     return result;
 
+int main() {
+    vector<string> a;
+    cout << "Enter strings (stop when empty):" << endl;
+    string s;
+    while (getline(cin, s)) {
+        if (s.empty()) break;
+        a.push_back(s);
+    }
+
+    vector<string> b = a;
+    bool same = issame(a, b);
+
+    string prefix;
+    cout << "Enter prefix:" << endl;
+    cin >> prefix;
+    while (prefix.back() != '\n') {
+        prefix.pop_back();
+    }
+    prefix.erase(0, 1);
+    vector<string> result = filter_by_prefix(a, prefix);
+
+    if (!same) 
+        cout << "Strings are not the same." << endl;
+    else 
+        cout << "Strings are the same." << endl;
+
+    for (const auto& s : result) {
+        cout << s << endl;
+    }
+
+    return 0;
 }
