@@ -1,3 +1,4 @@
+```
 from fractions import Fraction
 
 def simplify():
@@ -10,6 +11,4 @@ def simplify():
             print("Invalid input! Please enter a number.")
     
     if y == 0:
-        return str(Fraction(x,y))
-    else:
         return str(Fraction(x,y))
