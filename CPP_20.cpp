@@ -9,5 +9,5 @@ pair<float, float> closest_pair(const vector<float>& numbers) {
             result = {numbers[i], numbers[i + 1]};
         }
     }
-    return result;
+    return {result.first, result.second};
 }
