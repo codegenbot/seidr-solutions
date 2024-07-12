@@ -1,5 +1,6 @@
-#include <iostream>
+#include <string>
 #include <vector>
+#include <iostream>
 #include <cstddef>
 
 int main() {
@@ -7,8 +8,7 @@ int main() {
     std::cin >> text >> target;
     
     std::vector<int> indices;
-    size_t i;
-    for (i = 0; i <= text.size() - target.size(); ++i) {
+    for (std::size_t i = 0; i <= text.size() - target.size(); ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
         }
