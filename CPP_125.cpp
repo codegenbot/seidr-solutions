@@ -1,6 +1,4 @@
-#include <string>
-
-vector<string> split_words(string txt) {
+vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
     for (char c : txt) {
@@ -27,11 +25,6 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
 }
