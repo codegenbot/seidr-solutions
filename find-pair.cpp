@@ -7,15 +7,15 @@ int main() {
     }
     cin >> target;
     
-    map<int, int> num_to_index;
+    map<int, int> seen;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (num_to_index.find(complement) != num_to_index.end()) {
+        if (seen.find(complement) != seen.end()) {
             cout << complement << endl;
             cout << nums[i] << endl;
             break;
         }
-        num_to_index[nums[i]] = i;
+        seen[nums[i]] = i;
     }
     
     return 0;
