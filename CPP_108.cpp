@@ -1,6 +1,4 @@
-#include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int count_nums(int* nums, int size) {
     int count = 0;
@@ -11,7 +9,7 @@ int count_nums(int* nums, int size) {
                 sum += abs(nums[i] % 10);
                 nums[i] /= 10;
             }
-            if (sum > 0)
+            if (sum % 2 != 0)
                 count++;
         } else {
             int sum = 0, sign = 1;
@@ -20,7 +18,7 @@ int count_nums(int* nums, int size) {
                 nums[i] /= 10;
                 sign *= -1;
             }
-            if (sign * sum > 0)
+            if (sign * sum % 2 != 0)
                 count++;
         }
     }
@@ -28,10 +26,10 @@ int count_nums(int* nums, int size) {
 }
 
 int main() {
-    int nums[] = {123, -456, 789, -9012};
-    int size = sizeof(nums) / sizeof(nums[0]);
-    int result = count_nums(&nums[0], size);
-    std::cout << "The number of positive integers with an odd digital root is: " << result << std::endl;
-    assert (count_nums(&nums[0], 1) == 1); 
+    int singleNum = 123; 
+    int nums[] = &singleNum; 
+    int size = 1; 
+    std::cout << "The number of positive integers with an odd digital root is: " << count_nums(&nums[0], size) << std::endl;
+    assert (count_nums(&nums[0], size) == 1); 
     return 0;
 }
