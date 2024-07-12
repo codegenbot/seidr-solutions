@@ -1,5 +1,5 @@
 def separate_paren_groups():
-    paren_string = input().strip()
+    paren_string = input()
     separated_groups = []
     current_group = ""
     open_count = 0
