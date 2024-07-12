@@ -13,4 +13,4 @@
                 factors.append([i] * count)
         if n > 1:
             factors.append([n])
-        return [factor for factor in filters(None, factors) if factor]
+        return [factor for factor in factors if factor]
