@@ -1,9 +1,6 @@
 #include <any>
 #include <string>
-#include <boost/any.hpp>
-#include <iostream>
 
-using namespace boost;
 using namespace std;
 
 int compare_one(const string& s, int i) {
@@ -17,18 +14,12 @@ int compare_one(const string& s, int i) {
 
 int main() {
     string a, b;
-    cout << "Enter the first number: ";
-    cin >> a;
-    cout << "Enter the second number: ";
-    cin >> b;
-
+    cin >> a >> b;
     if (a.size() > 0 && b.size() > 0) {
         int x = compare_one(a, 1);
         int y = compare_one(b, 2);
-
         return (x < y) ? -1 : ((y < x) ? 1 : 0);
     }
     
     assert (compare_one("1", 1) == 0);
-    return 0;
 }

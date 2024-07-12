@@ -1,26 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using namespace std;
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    
-    string str;
-    cin >> str;
-    
-    int result = histogram(str, arr);
-    cout << result << endl;
-    
-    return 0;
-
-}
 
 int histogram(string s, vector<int>& arr) {
     if (s == "print") {
@@ -39,4 +22,22 @@ int histogram(string s, vector<int>& arr) {
     } else {
         return -1;
     }
+    return 1;
+}
+
+int driver() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    string str;
+    cin >> str;
+    
+    int result = histogram(str, arr);
+    cout << result << endl;
+    
+    return 0;
 }

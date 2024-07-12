@@ -32,14 +32,14 @@ int count_nums(const std::vector<std::string>& nums) {
 
 }
 
-int main() { 
+int main_func() {
     std::vector<std::string> numbers; 
     int n; 
-    cin >> n;
+    std::cin >> n;
     
     for(int i = 0; i < n; i++) {
         std::string num; 
-        cin >> num; 
+        std::cin >> num; 
         numbers.push_back(num);
     }
     
