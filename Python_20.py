@@ -1,1 +1,4 @@
-numbers = [int(x) for x in input('Enter numbers separated by commas, e.g. "1,2,3,4,5": ').rstrip().split(",")]
+try:
+    numbers = [int(x) for x in input("Enter numbers separated by commas:").strip().split(",")]
+except ValueError:
+    print("Invalid input. Please enter numbers separated by commas.")
