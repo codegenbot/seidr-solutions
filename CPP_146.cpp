@@ -1,34 +1,29 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
-    int count = 0;
     std::vector<int> nums;
-    int num;
+    int count = 0;
 
-    // Input numbers from user until -1 is entered.
+    std::cout << "Enter numbers (enter -1 to finish):" << std::endl;
+
     while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
+        int num;
         std::cin >> num;
+
         if (num == -1)
             break;
+
         nums.push_back(num);
     }
 
-    count = specialFilter(nums);
-
-    std::cout << "Number of numbers filtered: " << count << "\n";
-
-    return 0;
-}
-
-int specialFilter(std::vector<int> nums) {
-    int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
-    return count;
+
+    std::cout << "The count is: " << count << std::endl;
+
+    return 0;
 }
