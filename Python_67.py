@@ -1,5 +1,5 @@
-def fruit_distribution(s):
-    s = s.lower()
+def fruit_distribution(s=None):
+    s = input().lower()
     total = 0
     parts = s.split()
     for part in parts:
