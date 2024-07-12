@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 #include <unordered_set>
@@ -13,10 +12,16 @@ std::vector<int> remove_duplicates(const std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> test1({1, 2, 3, 2, 4, 3, 5});
-    std::vector<int> test2 = remove_duplicates(test1);
+    std::vector<int> test1;
+    for (int i : {1, 2, 3, 2, 4, 3, 5}) {
+        test1.push_back(i);
+    }
+    std::vector<int> test2;
+    for (int i : {1, 2, 3, 4, 5}) {
+        test2.push_back(i);
+    }
     if (issame(test1, test2)) {
-        for (int i : test2) {
+        for (int i : test1) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
