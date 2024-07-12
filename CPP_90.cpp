@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -25,7 +26,6 @@ int driver() {
     }
     if (lst.empty()) {
         std::cout << "Error: The input list is not valid. Please enter a non-empty list." << std::endl;
-        return 1; 
     } else {
         int result = findNextSmallest(lst);
         if (result == -1) {
@@ -34,6 +34,7 @@ int driver() {
             std::cout << "The next smallest number in the given list is " << result << std::endl;
         }
     }
+    return 0; 
 }
 
 int main() { 
