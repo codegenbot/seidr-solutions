@@ -9,12 +9,16 @@ def main():
             print("Invalid input. Please enter a valid number.")
             continue
 
-        while True:
-            try:
-                num2 = int(input("Enter second number: "))
-                print(f"The sum is {add(num1, num2)}")
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
+        try:
+            num2 = int(input("Enter second number: "))
+            print(f"The sum is {add(num1, num2)}")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    print("Program finished. Run again? (yes/no): ")
+    response = input()
+    if response.lower() != "yes":
+        exit()
 
 
 if __name__ == "__main__":
