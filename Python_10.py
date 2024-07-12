@@ -1,9 +1,11 @@
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string  
-    for i in range(len(string), 0, -1):
-        prefix = string[:i]
-        suffix = string[i-1::-1]
+```Python
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s + s
+
+    for i in range(len(s), 0, -1):
+        prefix = s[:i]
+        suffix = s[i-1::-1]
         if prefix == prefix[::-1]:  
-            return prefix + string + suffix
-    return string + string[::-1]
+            return prefix + s + suffix
+    return s + s[::-1]
