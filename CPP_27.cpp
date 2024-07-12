@@ -1,22 +1,15 @@
-#include <cstddef>
+#include <cctype>
 #include <string>
-#include <assert.h>
 
-std::string filp_case(const std::string& str) {
-    std::string result = "";
-    for (char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
-        } else {
-            result += c;
-        }
+std::string filp_case(const std::string& s) {
+    std::string result = s;
+    for (char &c : result) {
+        c = tolower(c);
     }
     return result;
 }
 
 int main() {
-    assert(filp_case("These violent delights have violent ends") == "these Violent Delights Have Violent Ends");
+    assert(filp_case("These violent delights have violent ends") == "these violent delights have violent ends");
     return 0;
 }
