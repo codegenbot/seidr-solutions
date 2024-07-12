@@ -6,12 +6,11 @@ std::pair<int, int> eat(int number, int need, int remaining) {
     return {total, left};
 }
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
     assert(issame(eat(4, 5, 1), {5, 0}));
-    // Additional test cases can be added here
     return 0;
 }
