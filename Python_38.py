@@ -1,2 +1,1 @@
-import sys
-input_string = sys.stdin.readline().strip().upper()
+input_string = input("Enter a string (contains only uppercase letters): ").strip().upper()
