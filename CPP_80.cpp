@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -20,4 +20,3 @@ int main() {
         return 0;
     std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     return 0;
-}
