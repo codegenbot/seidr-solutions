@@ -8,8 +8,10 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     for (int i = 0; i < a.size(); ++i) {
-        if (find(b.begin(), b.end(), a[i]) == b.end()) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -26,6 +28,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return result;
 }
 
-vector<int> main() {
-    return remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+int main() {
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>{1, 4, 5}));
+    return 0;
 }
