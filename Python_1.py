@@ -25,4 +25,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if temp:
         result.append(temp)
 
-    return [group + ")" for group in result]
+    return [
+        temp + stack.pop() * (stack.count("(") - 1)
+        for _ in range(stack.count("(")) or [""]
+    ][0].split(")(")[1:-1]
