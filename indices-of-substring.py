@@ -1,4 +1,5 @@
-def indices_of_substring(text, targets):
+def indices_of_substring(text):
+    targets = [t.strip() for t in input().split(',')]
     result = []
     for t in targets:
         for i in range(len(text)):
