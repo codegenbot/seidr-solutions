@@ -9,21 +9,15 @@ int main() {
     
     bool result = true;
     
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 't' || input[i] == 'T') {
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == 't') {
+            result = result & true;
+        } else if (input[i] == 'f') {
+            result = result & false;
+        } else if (input[i] == '|') {
+            // do nothing
+        } else if (input[i] == '&') {
             result = true;
-        } else if (input[i] == 'f' || input[i] == 'F') {
-            result = false;
-        }
-        
-        if (i + 1 < input.size()) {
-            if (input[i + 1] == '|') {
-                continue;
-            } else if (input[i + 1] == '&') {
-                i++;
-            } else {
-                break;
-            }
         }
     }
     
