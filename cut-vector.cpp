@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 using namespace std;
+
+#include <vector>
 
 vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
