@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,9 +16,9 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
     for (float i : l) {
         if (result.size() % 2 == 0) {
-            auto even_indices = std::vector<float>(result.begin(), result.end());
-            std::sort(even_indices.begin(), even_indices.end());
-            result = std::vector<float>(even_indices.begin(), even_indices.begin() + result.size());
+            auto even = std::vector<float>(result.begin(), result.end());
+            std::sort(even.begin(), even.end());
+            result = even;
         } else {
             result.push_back(i);
         }
