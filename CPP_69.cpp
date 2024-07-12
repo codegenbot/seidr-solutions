@@ -1,10 +1,14 @@
-int findMaxFreq(int arr[], int n) {
+```
+#include <vector>
+#include <map>
+#pragma GCC required -std=c++11
+int findMaxFreq(std::vector<int> lst) {
     std::map<int, int> freqMap;
-    for (int i = 0; i < n; i++) {
-        if (freqMap.find(arr[i]) == freqMap.end()) {
-            freqMap[arr[i]] = 1;
+    for (int num : lst) {
+        if (freqMap.find(num) == freqMap.end()) {
+            freqMap[num] = 1;
         } else {
-            freqMap[arr[i]]++;
+            freqMap[num]++;
         }
     }
 
@@ -17,4 +21,9 @@ int findMaxFreq(int arr[], int n) {
     }
 
     return maxFreqNum;
+}
+
+int main() {
+    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
