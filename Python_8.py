@@ -1,4 +1,4 @@
-```
+```python
 print("Enter digits (or 'stop' to finish).")
 def process_digits():
     digits = []
