@@ -8,11 +8,11 @@ def decode_cyclic(s: str):
 
 while True:
     input_string = input("Enter a string: ")
-    if input_string.isalnum() and len(input_string) >= 3:
+    if input_string.isalpha() and len(input_string) >= 3:
         result = decode_cyclic(input_string)
         print(result)
         break
     else:
         print(
-            "Input should contain only alphanumeric characters and have a length of at least 3. Please try again."
+            "Input should contain only alphabetic characters and have a length of at least 3. Please try again."
         )
