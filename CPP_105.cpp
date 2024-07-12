@@ -1,17 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -60,7 +51,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 int main() {
     std::vector<int> arr = {9, 4, 8};
     std::vector<std::string> result = by_length(arr);
-    bool same = issame(result, std::vector<std::string>{ "Nine", "Eight", "Four" });
-    assert(same);
+    std::vector<std::string> b = {"Nine", "Four", "Eight"};
+    assert(issame(result, b));
     return 0;
 }
