@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 bool isSame(vector<int> a,vector<int> b){
@@ -38,6 +37,11 @@ int main() {
         cin >> game[i] >> guess[i];
     }
     vector<int> res = getResult(game,guess);
-    for(auto x:res)cout << x << " ";
+    if(res.size() != n) {
+        cout << "Error: Invalid input. Please check your input again." << endl;
+    } else {
+        for(auto x:res)cout << x << " ";
+        cout << endl; 
+    }
     return 0;
 }
