@@ -1,11 +1,12 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    string expression;
-    cin >> expression;
+    string input;
+    cin >> input;
 
-    if (expression == "t") {
+    if (input == "t") {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
