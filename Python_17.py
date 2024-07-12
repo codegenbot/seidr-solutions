@@ -1,15 +1,9 @@
 ```
-def parse_music(music_string: str) -> List[int]:
-    """
-    This function parses music string into a list of integers.
-    
-    Parameters:
-    music_string (str): The input music string.
+from typing import List
 
-    Returns:
-    List[int]: A list of integers representing the parsed music.
-    """
-
+def parse_music(music_string: str) -> list:
+    if not music_string:
+        raise ValueError("Invalid input: Empty string")
     music_list = []
     i = 0
     while i < len(music_string):
