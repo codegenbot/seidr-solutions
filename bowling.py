@@ -1,30 +1,26 @@
 def bowling_score(bowls):
     score = 0
     frame = 1
-    frame_score = 0
-    for i, bowl in enumerate(bowls):
-        if bowl == "X":
-            score += 10
-            if frame < 10:
-                score += sum(
-                    map(
-                        lambda x: 10 if x == "X" else (int(x) if x.isdigit() else 0),
-                        bowls[i + 1 : i + 3],
-                    )
-                )
-            frame += 1
-        elif bowl == "/":
-            score += 10 - frame_score
-            if frame < 10:
-                score += 10 if bowls[i + 1] == "X" else int(bowls[i + 1])
-            frame += 1
+    i = 0
+    while frame <= 10:
+        if bowls[i] == "X":
+            score += (
+                10
+                + (10 if i + 2 < len(bowls) else 0)
+                + (10 if i + 3 < len(bowls) else 0)
+            )
+            i += 1
+        elif bowls[i] == "/":
+            score += 10 - int(bowls[i - 1]) + (10 if i + 1 < len(bowls) else 0)
         else:
-            score += int(bowl)
-            frame_score = int(bowl)
-            if frame % 2 == 0:
-                frame += 1
+            score += int(bowls[i])
+        if bowls[i] != "X":
+            i += 1
+        if bowls[i - 1] == "/" or bowls[i - 1] == "X":
+            i += 1
+        frame += 1
     return score
 
 
-bowls = input().strip()
+bowls = input()
 print(bowling_score(bowls))
