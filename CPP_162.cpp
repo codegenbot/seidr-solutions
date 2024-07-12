@@ -1,15 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
-#include "digest.h"
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    std::string output = string_to_md5(input);
-    std::cout << "MD5 of the input string is: " << output << std::endl;
-    return 0;
-}
+#include <iomanip>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
@@ -26,4 +18,13 @@ std::string string_to_md5(std::string text) {
         result.append(buf);
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::string output = string_to_md5(input);
+    std::cout << "MD5 of the input string is: " << output << std::endl;
+    return 0;
 }
