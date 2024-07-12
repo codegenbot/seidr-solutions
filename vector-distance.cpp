@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -12,7 +13,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
@@ -22,7 +22,7 @@ int main() {
         result += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    std::cout << std::fixed << std::sqrt(result) << std::endl;
+    std::cout << std::setprecision(17) << std::sqrt(result) << std::endl;
 
     return 0;
 }
