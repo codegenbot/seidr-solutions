@@ -1,3 +1,4 @@
+```
 def get_closest_elements(numbers, target_sum):
     closest_pair = None
     min_diff = float('inf')
