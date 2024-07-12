@@ -1,35 +1,50 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> numerical_letter_grade(int grade) {
-    std::vector<std::string> letter_grades = {"F", "F", "D", "D+", "C", "C+", "B", "B+", "A", "A+"};
-    return {letter_grades.begin() + (grade / 10), letter_grades.begin() + (grade % 10)};
+std::vector<std::string> numerical_letter_grade(double grade) {
+    if (grade >= 0.9) {
+        return {"A"};
+    } else if (grade >= 0.8) {
+        return {"B+"};
+    } else if (grade >= 0.7) {
+        return {"B"};
+    } else if (grade >= 0.6) {
+        return {"C+"};
+    } else if (grade >= 0.5) {
+        return {"C"};
+    } else if (grade >= 0.4) {
+        return {"D+"};
+    } else if (grade >= 0.3) {
+        return {"D"};
+    } else {
+        return {"F"};
+    }
 }
 
-bool sameLetterGrade(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && a[0] == b[0];
+bool sameLetterGrade(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 int main() {
     int grade = 70;
-    std::vector<std::string> letter_grade = numerical_letter_grade(grade);
+    double avgGrade = grade / 100.0;
 
     std::cout << "The student has the letter grade: ";
-    for (const auto& str : letter_grade) {
+    for (const auto& str : numerical_letter_grade(avgGrade)) {
         std::cout << str << " ";
     }
     std::cout << "\n";
 
     int grade2 = 70;
-    std::vector<std::string> letter_grade2 = numerical_letter_grade(grade2);
+    double avgGrade2 = grade2 / 100.0;
 
-    if (sameLetterGrade(letter_grade, letter_grade2)) {
+    if (sameLetterGrade(numerical_letter_grade(avgGrade), numerical_letter_grade(avgGrade2))) {
         std::cout << "The two students have the same letter grade.\n";
     } else {
         std::cout << "The two students do not have the same letter grade.\n";
     }
 
-    int average = 70;
+    double average = (0 + 0.7) / 2; // Assuming grades are from 0 to 1
     std::vector<std::string> letter_grade_avg = numerical_letter_grade(average);
 
     std::cout << "The students with average grade have the letter grade: ";
