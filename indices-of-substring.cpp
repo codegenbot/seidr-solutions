@@ -1,7 +1,7 @@
-```c++
 #include <vector>
 #include <iostream>
-#include <algorithm>
+#include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
