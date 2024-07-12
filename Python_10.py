@@ -1,7 +1,11 @@
-```
 def is_palindrome(string: str) -> bool:
-    """ Test if given string is a palindrome """
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    return (string + string[::-1]).center(len(string)*2, " ")
+    if is_palindrome(string):
+        return string
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            half = string[:i+1]
+            second_half = string[i:]
+            return half + second_half[::-1]
