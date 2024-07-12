@@ -12,8 +12,7 @@ int main() {
     total_distance = start_height;
 
     for (int i = 1; i <= num_bounces; ++i) {
-        total_distance += first_bounce_height * 2 * pow(bounciness_index, i - 1);
-        first_bounce_height *= bounciness_index; // Update first_bounce_height for the next bounce
+        total_distance += first_bounce_height * 2 * pow(bounciness_index, i) + first_bounce_height * pow(bounciness_index, i) * 2;
     }
 
     cout << fixed << total_distance << endl;
