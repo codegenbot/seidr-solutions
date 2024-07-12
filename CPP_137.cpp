@@ -1,4 +1,3 @@
-```cpp
 #include <any>
 #include <typeindex>
 #include <memory>
@@ -15,8 +14,8 @@ std::any compare_one(std::any a, std::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string x = std::any_cast<std::string>(a);
         std::string y = std::any_cast<std::string>(b);
-        return (x > y) ? a : ((y > x) ? b : a);
-    } else if (a.type() != b.type()) {
+        return (x > y) ? a : ((y > x) ? b : a); 
+    } else {
         return a;
     }
 }
