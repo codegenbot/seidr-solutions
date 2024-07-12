@@ -1,30 +1,31 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-int Strongest_Extension(const std::vector<std::string>& extensions);
+std::string Strongest_Extension(const std::vector<std::pair<std::string, std::string>>& extensions);
 
 int run() {
-    std::vector<std::string> extensions = {"671235", "Bb"};
-    int result = Strongest_Extension(extensions);
-    return result;
+    std::vector<std::pair<std::string, std::string>> extensions = {{"Sp", "671235"}};
+    assert(Strongest_Extension(extensions) == "Sp.671235");
+    return 0;
 }
 
-int Strongest_Extension(const std::vector<std::string>& extensions){
+std::string Strongest_Extension(const std::vector<std::pair<std::string, std::string>>& extensions){
     int max_strength = 0;
-    int strongest_extension_index;
+    std::string strongest_extension;
 
-    for(int i = 0; i < extensions.size(); i++){
+    for(auto extension : extensions){
         int cap = 0, sm = 0;
-        for(char c : extensions[i]){
+        for(char c : extension.first){
             if(std::isupper(c)) cap++;
             else if(std::islower(c)) sm++;
         }
         int strength = cap - sm;
-        if(strength > max_strength || (strength == max_strength && i < strongest_extension_index)){
+        if(strength > max_strength || (strength == max_strength && extension.first < strongest_extension)){
             max_strength = strength;
-            strongest_extension_index = i;
+            strongest_extension = extension.first + "." + extension.second;
         }
     }
 
-    return strongest_extension_index;
+    return strongest_extension;
 }
