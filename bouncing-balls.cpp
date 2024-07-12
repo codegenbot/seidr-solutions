@@ -1,16 +1,18 @@
 int main() {
-    double h0, h, bounciness;
-    int num_bounces;
-    cin >> h0 >> h >> num_bounces;
+    double startingHeight, firstBounceHeight, bouncinessIndex;
+    int numBounces;
+    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    
+    bouncinessIndex = firstBounceHeight / startingHeight;
+    double totalDistance = startingHeight + firstBounceHeight;
 
-    bounciness = h / h0;
-    double total_distance = h0 + h;
-
-    for (int i = 2; i <= num_bounces; ++i) {
-        total_distance += h * pow(bounciness, i);
+    for (int i = 2; i <= numBounces; ++i) {
+        totalDistance += 2 * firstBounceHeight; // As the ball bounces back to the initial height
+        firstBounceHeight *= bouncinessIndex;
+        totalDistance += firstBounceHeight;
     }
-
-    cout << total_distance;
+    
+    cout << totalDistance << endl;
 
     return 0;
 }
