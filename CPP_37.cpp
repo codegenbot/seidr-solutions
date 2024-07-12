@@ -16,30 +16,22 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even, odd;
 
     for (float i : l) {
-        if ((l.size() & 1) == 0 || (l.size() & 1)) {
-            if (l.size() % 2 == 0) {
-                even.push_back(i);
-            } else {
-                odd.push_back(i);
-            }
-        } else {
-            if (l.size() % 2 == 0) {
-                std::sort(even.begin(), even.end());
-                even.clear();
-            }
-            odd.push_back(i);
-        }
-    }
-
-    for (float i : odd) {
         if (even.size() % 2 == 0) {
-            std::sort(even.begin(), even.end());
-            even.clear();
+            if (!even.empty())
+                even.push_back(i);
+            else
+                odd.push_back(i);
+        } else {
+            even.push_back(i);
         }
-        even.push_back(i);
     }
 
-    return even;
+    std::sort(even.begin(), even.end());
+
+    for (float i : even)
+        odd.insert(odd.end(), i);
+
+    return odd;
 }
 
 int main() {
