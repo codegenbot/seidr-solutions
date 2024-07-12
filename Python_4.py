@@ -1,8 +1,7 @@
-```
 from typing import List
 
 
-def mean_absolute_deviation() -> float:
+def mean_absolute_deviation():
     print("Enter some numbers: ")
     numbers = input().split()
     if len(numbers) < 2:
@@ -19,11 +18,11 @@ def mean_absolute_deviation() -> float:
                 print("Please enter positive numbers.")
             else:
                 mean = sum(numbers) / len(numbers)
-                return round(sum(abs(num - mean) for num in numbers) / len(numbers), 2)
+                return sum(abs(num - mean) for num in numbers) / len(numbers)
         except ZeroDivisionError:
             print("Invalid input. Please try again.")
         except TypeError:
             print("Invalid input. Please try again.")
 
 
-print(mean_absolute_deviation())
+mean_absolute_deviation()
