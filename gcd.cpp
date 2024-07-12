@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cmath>
+#include <sstream>
 
 int gcd(int a, int b) {
     if (a < 0 || b < 0) {
@@ -31,8 +31,11 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     std::string text, target;
     std::cout << "Enter the text and target separated by a space: ";
-    std::cin >> text >> target;
+    std::getline(std::cin, text);
     
+    std::istringstream iss(text);
+    iss >> text >> target;
+
     std::vector<int> result = indicesOfSubstring(text, target);
 
     for (int index : result) {
