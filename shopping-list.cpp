@@ -11,7 +11,7 @@ int main() {
     cin >> n;
     prices.resize(n);
     discounts.resize(n);
-
+    
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
