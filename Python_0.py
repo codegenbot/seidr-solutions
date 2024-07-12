@@ -1,5 +1,5 @@
 numbers = list(map(int, input().split()))
-threshold = int(input())
+threshold = numbers.pop()
 
 def check_numbers(numbers, threshold):
     numbers.sort()
