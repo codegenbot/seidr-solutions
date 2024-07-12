@@ -1,28 +1,17 @@
-```c++
-#include <cmath>
-#include <iostream>
+double startHeight, bouncinessIndex, numBounces;
+double totalDistance = 0.0;
 
-int main() {
-    int numBounces;
-    double startHeight;
+cout << "Enter the starting height: ";
+cin >> startHeight;
 
-    std::cout << "Enter number of bounces: ";
-    std::cin >> numBounces;
+cout << "Enter the height after the first bounce: ";
+cin >> bouncinessIndex;
 
-    std::cout << "Enter starting height: ";
-    std::cin >> startHeight;
+cout << "Enter the number of bounces: ";
+cin >> numBounces;
 
-    double totalDistance = 0.0, bouncinessIndex; // Calculate bounciness index
-
-    double firstBounce = startHeight / 2;
-    bouncinessIndex = firstBounce / startHeight;
-
-    for (int b = 0; b < numBounces; ++b) {
-        double distance = pow(2, -b * bouncinessIndex) * startHeight;
-        totalDistance += distance;
-    }
-
-    std::cout << "Total distance travelled: " << totalDistance << std::endl;
-
-    return 0;
+totalDistance = 0.0;
+for (int i = 0; i < numBounces; ++i) {
+    double distance = pow(2, -i * bouncinessIndex) * startHeight;
+    totalDistance += distance;
 }
