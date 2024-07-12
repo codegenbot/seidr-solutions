@@ -1,3 +1,4 @@
+```
 def power_mod(a, n, p):
     a = int(input(f"Enter value of a: "))
     n = int(input(f"Enter value of n: "))
@@ -11,4 +12,4 @@ def power_mod(a, n, p):
         return a % p
 
 
-print(power_mod(int(input("Enter value of a: ")), int(input("Enter value of n: ")), int(input("Enter value of p: "))))
+power_mod(int(input("Enter value of a: ")), int(input("Enter value of n: ")), int(input("Enter value of p: ")) )
