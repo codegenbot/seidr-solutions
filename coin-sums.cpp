@@ -2,8 +2,6 @@ int main() {
     int cents;
     cin >> cents;
     cout << cents << endl;
-    cout << cents / 5 << endl;
-    cout << (cents % 5) / 2 << endl;
-    cout << ((cents % 5) % 2) << endl;
+    cout << 0 << endl << 0 << endl << 0 << endl;
     return 0;
 }
