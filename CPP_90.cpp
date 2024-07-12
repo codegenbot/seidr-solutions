@@ -1,11 +1,11 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
-    std::vector<int> sorted(lst.begin(), lst.end());
+    std::vector<int> sorted(lst);
     std::sort(sorted.begin(), sorted.end());
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1]) {
