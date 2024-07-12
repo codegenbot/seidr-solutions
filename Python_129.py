@@ -1,4 +1,3 @@
-```
 def min_length(paths):
     return min(sum(int(x) for x in "".join(f"{y}-{z}" for y, z in path)) for path in paths)
 
