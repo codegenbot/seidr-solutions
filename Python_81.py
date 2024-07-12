@@ -1,7 +1,6 @@
-```
 def numerical_letter_grade(grades):
     letter_grades = []
-    for grade in grades:
+    for grade in map(float, input("Enter grades (separated by space): ").split()):
         if grade >= 4.0:
             letter_grades.append('A+')
         elif grade > 3.7:
