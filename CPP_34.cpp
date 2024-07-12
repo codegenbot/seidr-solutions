@@ -1,9 +1,10 @@
 #include <algorithm>
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    if(a.size() != b.size()) return false;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> solve(std::vector<int> l) {
