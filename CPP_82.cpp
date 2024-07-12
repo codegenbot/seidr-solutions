@@ -19,15 +19,14 @@ bool prime_length(const char* str){
         if(c >= '0' && c <= '9') {
             int n = c - '0'; 
             if(isPrime(n) == false) {
-                s.append("0");
+                s += "0";
             } else {
-                char* temp = new char[16]; // adjust buffer size as needed
+                char temp[16]; // adjust buffer size as needed
                 sprintf(temp, "%d", n);
                 s.append(temp);
-                delete[] temp; // free dynamically allocated memory
             }
         } else {
-            s.append(1, c); // append a single character to the string
+            s += c;
         }
     }
     return s.length() > 1;
