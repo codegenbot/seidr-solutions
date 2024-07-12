@@ -1,2 +1,6 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
+def check(func, lst):
+    try:
+        result = func(lst)
+        print(f"The sum of the squares of all even numbers in {lst} is {result}.")
+    except TypeError as e:
+        print("Error: Only integers are allowed. Try again!")
