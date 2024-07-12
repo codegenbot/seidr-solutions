@@ -1,29 +1,28 @@
 #include <boost/type_index.hpp>
 
 bool issame(const list_any& a, const list_any& b) {
-    if (a.type() != b.type()) {
-        return false;
-    }
-    if (a.type() == typeid(list_any)) {
-        auto iter_a = boost::any_cast<list_any>(a).begin();
-        auto iter_b = boost::any_cast<list_any>(b).begin();
-        while (iter_a != boost::any_cast<list_any>(a).end()) {
-            if (!issame(*iter_a++, *iter_b++)) {
+    if (!a.empty() && !b.empty()) {
+        auto it_a = a.begin();
+        auto it_b = b.begin();
+        while (it_a != a.end() && it_b != b.end()) {
+            if (!boost::any_cast<int>(*it_a).type().is_same(typeid(int)) ||
+                !boost::any_cast<int>(*it_b).type().is_same(typeid(int))) {
                 return false;
             }
+            ++it_a;
+            ++it_b;
         }
-    } else {
-        return boost::any_cast<int>(a) == boost::any_cast<int>(b);
+        return it_a == a.end() && it_b == b.end();
     }
-    return true;
+    return a.empty() && b.empty();
 }
 
-int main() {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
-    return 0;
+    return result;
 }
