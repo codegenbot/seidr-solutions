@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -38,3 +39,4 @@ int main() {
             break;
         std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     }
+}
