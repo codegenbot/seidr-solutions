@@ -1,7 +1,7 @@
 arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = arr[0]
-min_diff = float('inf')
+min_diff = float('inf)
 cut_index = 0
 
 for i in range(len(arr)):
