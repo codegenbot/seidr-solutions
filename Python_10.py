@@ -1,15 +1,12 @@
+```Python
 def is_palindrome(s: str) -> bool:
+    s = ''.join(e for e in s if e.isalnum()).lower()
     return s == s[::-1]
 
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
         return string
-    n = len(string)
-    new_string = "#" + "#".join(list(string)) + "#"
-    palindrome = ""
-    for i in range(n):
-        while not is_palindrome(new_string):
-            new_string = new_string[:i+1] + "#"
-        palindrome += new_string[i]
-        new_string = new_string[1:]
-    return palindrome
+    new_string = ""
+    while not is_palindrome(new_string + ''.join(e for e in string if e.isalnum()).lower() + new_string):
+        new_string += ''.join(e for e in string if e.isalnum())[0].lower()
+    return new_string + ''.join(e for e in string if e.isalnum()).lower() + new_string
