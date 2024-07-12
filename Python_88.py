@@ -4,7 +4,7 @@ def sort_array(arr):
 
 while True:
     try:
-        array_str = input("Enter an array: ")
+        array_str = input("Enter an array: separated by spaces: ")
         array = list(map(int, array_str.split()))
         if len(array) < 2:
             print("Array should have at least two elements. Please enter again.")
