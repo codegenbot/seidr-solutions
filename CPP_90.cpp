@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -33,7 +34,7 @@ int driver() {
             std::cout << "The next smallest number in the given list is " << result << std::endl;
         }
     }
-    return 0; // Add a return statement here
+    return 0; 
 }
 
 int main() { 
