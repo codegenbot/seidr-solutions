@@ -2,12 +2,15 @@
 def bowling_score(gutter_balls):
     score = 0
     frame = 1
-    for i in range(0, len(gutter_balls), 2):
-        if gutter_balls[i:i+2] == 'X':
-            score += 10 + (10 - int(''.join(c for c in gutter_balls[:i].replace('X', '')).count('X'))) * 10
+    i = 0
+    while i < len(gutter_balls):
+        if gutter_balls[i:i+2] == 'X ' * 2:
+            score += 10 + (10 - int(gutter_balls[:i].count('X') * 2)) * 10
+            i += 2
             frame += 1
         elif gutter_balls[i:i+2] in ['--', '//']:
             score += 10
+            i += 2
             frame += 1
         else:
             strike = False
@@ -17,12 +20,14 @@ def bowling_score(gutter_balls):
                     break
             if strike:
                 score += 10 + int(gutter_balls[i:i+2].replace('X', '')) * 10
+                i += 3
                 frame += 1
             else:
-                score += sum(int(c) for c in gutter_balls[i:i+2])
+                score += int(gutter_balls[i:i+2])
                 for j in range(i, len(gutter_balls)):
                     if gutter_balls[j] == '/':
                         break
-                score += int(''.join(c for c in gutter_balls[i+2:j].replace('/', '')).replace('X', '')) * 10
+                score += int(gutter_balls[i+2:j].replace('/', '')) * 10
+                i = j
                 frame += 1
     return score
