@@ -1,15 +1,17 @@
-```
 def histogram(test):
     if not test:
         return {}
-    words = test.split()
-    max_count = 0
+
+    word_list = test.split()
+    max_count = len(word_list)
     result = {}
-    for word in words:
-        count = words.count(word)
-        if count > max_count:
-            max_count = count
-            result = {word: count}
-        elif count == max_count:
-            result[word] = count
-    return result
+
+    for word in word_list:
+        if word in result:
+            result[word] += 1
+        else:
+            result[word] = 1
+
+    max_repetitions = max(result.values())
+
+    return {k: v for k, v in result.items() if v == max_repetitions}
