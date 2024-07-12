@@ -1,23 +1,2 @@
-#include <iostream>
-#include <iomanip> // Include for precision
-
-int main() {
-    double start_height, first_bounce_height, bounciness_index;
-    long double total_distance;
-    int num_bounces;
-
-    std::cin >> start_height >> first_bounce_height >> num_bounces;
-
-    bounciness_index = first_bounce_height / start_height;
-    total_distance = start_height;
-
-    double bounce_height = first_bounce_height;
-    for (int i = 1; i <= num_bounces; ++i) {
-        total_distance += bounce_height * 2; // Add the distance up and down
-        bounce_height *= bounciness_index;
-    }
-
-    std::cout << std::fixed << std::setprecision(14) << total_distance << std::endl; // Set precision to match expected output
-
-    return 0;
-}
+double total_distance = 0.0;
+total_distance += bounce_height * 2;
