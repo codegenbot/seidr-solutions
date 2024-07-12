@@ -3,13 +3,12 @@ from typing import List
 
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    if not numbers:
-        return 0
-
+    if not numbers or len(numbers) == 0 or any(x <= 0 for x in numbers):
+        return 
     try:
         mean = sum(numbers) / len(numbers)
         return sum(abs(num - mean) for num in numbers) / len(numbers)
     except ZeroDivisionError:
-        return 'Error: Input list cannot be empty or contain zero values'
+        return 
     except TypeError:
-        return 'Error: All elements of the input list must be floats'
+        return
