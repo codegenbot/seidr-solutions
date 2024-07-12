@@ -1,21 +1,20 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
-total_sum = sum(nums)
-half_sum = total_sum // 2
-left_sum = 0
-cut_idx = 0
+arr = [int(input()) for _ in range(n)]
 
-for i, num in enumerate(nums):
-    left_sum += num
-    if left_sum >= half_sum:
-        cut_idx = i
-        break
+total_sum = sum(arr)
+prefix_sum = 0
+min_diff = total_sum
+cut_index = -1
 
-if abs(left_sum - (total_sum - left_sum)) < abs(
-    left_sum - (total_sum - left_sum - nums[cut_idx])
-):
-    print(nums[: cut_idx + 1])
-    print(nums[cut_idx + 1 :])
-else:
-    print(nums[:cut_idx])
-    print(nums[cut_idx:])
+for i in range(n):
+    prefix_sum += arr[i]
+    diff = abs(total_sum - 2 * prefix_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+subvector1 = arr[: cut_index + 1]
+subvector2 = arr[cut_index + 1 :]
+
+print(*subvector1)
+print(*subvector2)
