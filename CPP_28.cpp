@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::string concatenate(const std::vector<std::string>& strings) {
     std::string result = "";
@@ -12,6 +12,6 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> v = {"x", "yz", "wk"};
+    std::vector<std::string> v = {"xy", "z", "wk"};
     assert(concatenate(v) == "xyzwk");
 }
