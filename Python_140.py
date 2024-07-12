@@ -1,10 +1,8 @@
 import re
 
 
-def fix_spaces(text):
-    if not isinstance(text, str):
-        return "Invalid input. Please enter a string."
-
+def fix_spaces():
+    text = input("Enter your text: ")
     try:
         return re.sub(" +", "_", text)
     except Exception as e:
