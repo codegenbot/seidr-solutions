@@ -1,3 +1,4 @@
+```
 def find_zero():
     while True:
         try:
@@ -8,9 +9,7 @@ def find_zero():
                 continue
             a, b = line1
             c, d = line2
-            if abs(a - c) < 0.01:  
-                return ["No solution", "Program did not receive expected input"]
             x = round((d - b) / (a - c), 2)
-            return [round(a * x + b, 2), x]
+            return [line1[0]*x + line1[1], x]
         except ValueError as e:
             print("Invalid input:", str(e))
