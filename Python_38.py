@@ -1,17 +1,17 @@
+def encode_cyclic(s: str):
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
+
 def decode_cyclic(s: str):
-    result = ""
-    temp_group = ""
-    for char in s:
-        temp_group += char
-        if len(temp_group) == 3:
-            if len(result) % 3 == 0 and result != "":
-                result += temp_group[1] + temp_group[0]
-            else:
-                result += temp_group
-            temp_group = ""
-    if temp_group != "":
-        if len(result) % 3 == 0 and result != "":
-            result += temp_group[1] + temp_group[0]
-        else:
-            result += temp_group
-    return result
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [
+        (
+            (groups[i][2] + groups[i][1] + groups[i][0])
+            if len(groups[i]) == 3
+            else groups[i]
+        )
+        for i in range(len(groups))
+    ]
+    return "".join(groups)
