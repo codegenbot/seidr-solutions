@@ -1,7 +1,8 @@
-```cpp
-#include <algorithm>
+#include <initializer_list>
 #include <vector>
+#include <algorithm>
 #include <string>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -22,5 +23,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    assert(issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"}));
 }

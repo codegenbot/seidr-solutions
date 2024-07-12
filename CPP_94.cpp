@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -20,4 +19,3 @@ int main() {
     cout << "The score is: " << calculateScore(myValues, n) << endl;
     assert(calculateScore(myValues, n) == 8192); 
     return 0;
-}
