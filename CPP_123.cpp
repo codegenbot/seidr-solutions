@@ -28,8 +28,13 @@ vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(7), {1, 3, 5, 7}));
     
     return 0;
 }

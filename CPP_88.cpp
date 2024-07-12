@@ -19,8 +19,9 @@ vector<int> sortArray(vector<int> array) {
     return array;
 }
 
+// Only one main() function is allowed in a C++ program
 int main() {
     assert(sortArray({21, 14, 23, 11}) == vector<int>{23, 21, 14, 11});
-
+    
     return 0;
 }
