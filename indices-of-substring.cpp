@@ -6,12 +6,11 @@ int main() {
     std::string text, target;
     
     std::getline(std::cin, text);
-    std::cin.ignore();
     std::getline(std::cin, target);
     
     std::vector<int> indices;
     
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+    for (int i = 0; i < static_cast<int>(text.size()); ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
         }
