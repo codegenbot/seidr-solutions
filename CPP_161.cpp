@@ -1,8 +1,10 @@
+#include <iostream>
 #include <algorithm>
 #include <string>
-#include <cctype>
+#include <cassert>
+using namespace std;
 
-std::string solve(std::string s) {
+string solve(string s) {
     for (char &c : s) {
         if (isalpha(c)) {
             if (islower(c)) {
@@ -12,15 +14,14 @@ std::string solve(std::string s) {
             }
         }
     }
-    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
         reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << solve(input);
+    assert(solve("#ccc") == "#CCC");
+    // Add more test cases here
     return 0;
 }
