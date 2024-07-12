@@ -1,6 +1,7 @@
 ```
 import hashlib
 
+#
 while True:
     print("Please enter some text (alphanumeric characters only): ", end="")
     s = input().strip()
