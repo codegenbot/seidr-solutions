@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = list(map(int, card_number))
     result = sum(int(d) for d in card_number[0:1])
