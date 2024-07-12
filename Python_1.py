@@ -5,6 +5,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     current_group = ""
 
+    paren_string = input().strip()
+
     for char in paren_string:
         if char == "(":
             stack.append("(")
@@ -21,6 +23,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
 
     return result
-
-paren_string = input("Enter a string of parentheses: ")
-print(separate_paren_groups(paren_string))
