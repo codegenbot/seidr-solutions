@@ -1,10 +1,11 @@
-#include <string>
-#include <vector>
+```cpp
 #include <map>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-bool issame(const map<pair<char,int>, bool>& a, const map<pair<char,int>, bool>& b) {
+bool issame(map<pair<char,int>, bool> a, map<pair<char,int>, bool> b) {
     if(a.size() != b.size()) return false;
     for(auto& pair : a) {
         if(b.find(pair) == b.end()) 
@@ -13,7 +14,7 @@ bool issame(const map<pair<char,int>, bool>& a, const map<pair<char,int>, bool>&
     return true;
 }
 
-map<pair<char,int>, int> histogram(const string& test) {
+map<pair<char,int>, int> histogram(string test) {
     map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
@@ -35,11 +36,21 @@ map<pair<char,int>, int> histogram(const string& test) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             maxCountMap.clear();
-            maxCountMap[pair.first] = pair.second;
+            for (const auto& p : result) {
+                if (p.second == maxCount) {
+                    maxCountMap[p.first] = p.second;
+                }
+            }
         } else if (pair.second == maxCount) {
             maxCountMap[pair.first] = pair.second;
         }
     }
 
     return maxCountMap;
+}
+
+int main() {
+    map<pair<char, int>, int> maxCountMap = histogram("a");
+    assert(issame(map<pair<char, int>, bool>(maxCountMap), 
+              map<pair<char, int>, bool>({{'a', 0}})));
 }
