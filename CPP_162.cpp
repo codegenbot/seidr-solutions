@@ -30,14 +30,14 @@ std::string string_to_md5(const std::string& text) {
 
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
-    if (E‌VP_DigestFinal_ex(mdctx, digest, &digest_len) != 1) {
+    if (EVP_DigestFinal_ex(mdctx, digest, &digest_len) != 1) {
         EVP_MD_CTX_free(mdctx);
         EVP_cleanup();
         return "Error finalizing digest";
     }
 
     EVP_MD_CTX_free(mdctx);
-    EVP_cleanup();
+    EVP_cleanup(); // Free resources after usage
 
     char mdString[33];
     for(int i = 0; i < 16; i++) {
