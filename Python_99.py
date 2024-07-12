@@ -1,3 +1,4 @@
+```
 def find_closest_number():
     while True:
         try:
@@ -12,9 +13,5 @@ def find_closest_number():
             print("Invalid input. Please enter a decimal number.")
 
 if __name__ == "__main__":
-    while True:
-        closest_integer, difference = find_closest_number()
-        print("Closest integer: {}, Difference: {}".format(closest_integer, difference))
-        response = input("Do you want to continue? (yes/no): ")
-        if response.lower() != "yes":
-            break
+    closest_integer, difference = find_closest_number()
+    print("Closest integer: {}, Difference: {}".format(closest_integer, difference))
