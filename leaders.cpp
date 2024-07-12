@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -10,21 +9,17 @@ vector<int> leaders(vector<int>& arr) {
         return arr;
     }
     
-    int maxRight = arr[n - 1];
-    result.push_back(maxRight);
-    
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= maxRight) {
-            maxRight = arr[i];
-            result.push_back(maxRight);
+        while (i > 0 && arr[i] <= arr[i + 1]) {
+            i--;
         }
+        result.push_back(arr[i]);
     }
+    
+    result.push_back(arr[n - 1]);
     
     return result;
 }
 
 int main() {
-    vector<int> arr = {};
-    leaders(arr);
-    return 0;
-}
+    leaders({});
