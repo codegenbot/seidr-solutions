@@ -8,7 +8,7 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         snow += rate;
-        snow -= melt * snow;
+        snow *= (1 - melt);
     }
 
     cout << snow << endl;
