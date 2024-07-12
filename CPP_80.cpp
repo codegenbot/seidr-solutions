@@ -9,7 +9,7 @@ bool is_happy(std::string s) {
     for (int i = 0; i <= s.length() - 3; i++) {
         std::string sub = "";
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
-            sub += s.substr(i+j, 1);
+            sub += s[i+j];
         }
         std::array<char, 3> arr({sub.begin(), sub.begin() + 2});
         bool unique = true;
