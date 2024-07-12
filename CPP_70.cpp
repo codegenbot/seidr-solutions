@@ -22,6 +22,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 
 void assertEquals(const std::vector<int>& expected, const std::vector<int>& actual) {
     if (expected != actual) {
+        std::cout << "Test failed. Expected: ";
         for (int x : expected) {
             std::cout << x << " ";
         }
