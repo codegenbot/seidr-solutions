@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,15 +5,17 @@ bool is_happy(std::string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        std::string sub = s.substr(i, (i == s.length() - 1) ? 1 : 3);
+        std::string sub = s.substr(i, 3);
         bool unique = true;
         for (char c : sub) {
             int count = 0;
-            for (int j = i; j < i + sub.length(); j++) {
-                if (s[j] == c)
-                    count++;
+            char cTemp[4];
+            for (int j = i; j < i + 3; j++) {
+                cTemp[count] = s[j];
+                count++;
             }
-            if (count > 1) {
+            std::string tempStr(cTemp, count);
+            if (tempStr.find(c) != std::string::npos) {
                 unique = false;
                 break;
             }
