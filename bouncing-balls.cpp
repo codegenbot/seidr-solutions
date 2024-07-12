@@ -1,12 +1,12 @@
 #include <iostream>
-#include <cmath>
-#include <iomanip>
+#include <cmath> 
+#include <iomanip> 
 
-using namespace std;
+using namespace std; 
 
-int main() {
+int main() { 
     double startHeight, firstBounce;
-    int numBounces;
+    int numBounces; 
     
     cin >> startHeight >> firstBounce >> numBounces;
     
