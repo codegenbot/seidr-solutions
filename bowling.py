@@ -1,5 +1,5 @@
 ```
-def calculate_score(frames):
+def bowling(frames):
     score = 0
     for i in range(0, len(frames), 2):
         frame_roll = list(map(int, frames[i:i+2]))
@@ -10,8 +10,7 @@ def calculate_score(frames):
             score += 10 + max(frame_roll)
         else: 
             score += sum(frame_roll) + (i < 18 and 1 or 0)
+        
+        frame_count = (i // 2) + 1
     
     return score
-
-frames = input("Enter the frames string: ")
-print(calculate_score(frames))
