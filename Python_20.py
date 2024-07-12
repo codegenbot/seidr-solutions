@@ -1,19 +1,30 @@
-```python
-def get_closest_elements(input_list):
-    if len(input_list) < 2:
-        return "List should have at least two elements"
-    input_list.sort()
-    closest_diff = float('inf')
-    closest_pair = ()
-    for i in range(len(input_list) - 1):
-        diff = input_list[i+1] - input_list[i]
-        if diff < closest_diff:
-            closest_diff = diff
-            closest_pair = (input_list[i], input_list[i+1])
-    return closest_pair
+```Python
+def find_closest_elements(arr, target):
+    arr.sort()
+    left = 0
+    right = len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] == target:
+            return [arr[mid], arr[mid]]
+
+        if arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+        closest_pair = []
+        if abs(arr[left] - target) < abs(arr[right] - target):
+            closest_pair = [arr[left], arr[left]]
+        else:
+            closest_pair = [arr[right], arr[right]]
+
+    return [arr[left], arr[left]]
+
 
 def check(func):
-    result = func([int(x) for x in input("Enter elements separated by space: ").split()])
-    return result
+    print(func([1, 2, 3, 4, 5], 3.8))
 
-print(check(get_closest_elements))
+check(find_closest_elements)
