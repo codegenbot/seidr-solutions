@@ -1,4 +1,3 @@
-```
 from typing import Optional
 
 
@@ -19,19 +18,103 @@ def longest_common_substring(str1: str, str2: str) -> Optional[str]:
 
 while True:
     str1 = input("Enter the first string: ")
-    
-    if set(str1).issubset({"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_"}):
+
+    if set(str1).issubset(
+        {
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "_",
+        }
+    ):
         break
     else:
-        print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
+        print(
+            "Invalid input. Please enter a string that only contains alphanumeric characters and underscores."
+        )
 
 while True:
     str2 = input("Enter the second string: ")
-    
-    if set(str2).issubset({"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_"}):
+
+    if set(str2).issubset(
+        {
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "_",
+        }
+    ):
         break
     else:
-        print("Invalid input. Please enter a string that only contains alphanumeric characters and underscores.")
+        print(
+            "Invalid input. Please enter a string that only contains alphanumeric characters and underscores."
+        )
 
 result = longest_common_substring(str1, str2)
 print(f"The longest common substring is: {result}")
