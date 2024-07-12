@@ -1,14 +1,9 @@
-```Python
-def min_length(paths):
-    return min(sum(int(x) for x in "".join(f"{y}-{z}" for y, z in path)) for path in paths)
-
-
 paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
-if "," not in paths:
-    print("Please enter multiple paths separated by commas")
-else:
+if "," in paths:
     paths = [[*map(int, x.strip().split("-"))] for x in paths.split(",")]
-    if len(paths) > 0:
-        print(min_length(paths))
+else:
+    if len(paths) > 0 and "-" in paths:
+        paths = [[*map(int, paths.strip().split("-"))]]
     else:
-        print("No paths entered. Please try again.")
+        print("Please enter a valid path (e.g., 1-2).")
+        return
