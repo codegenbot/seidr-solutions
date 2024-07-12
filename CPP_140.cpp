@@ -1,24 +1,21 @@
-Here is the solution:
+#include <string>
 
-```cpp
 string fix_spaces(string text) {
     string result = "";
-    bool consecutiveSpace = false;
-
+    bool previousSpace = false;
     for (char c : text) {
         if (c == ' ') {
-            if (!consecutiveSpace) {
+            if (!previousSpace) {
                 result += '_';
-                consecutiveSpace = true;
+                previousSpace = true;
+            } else if (result.size() > 1 && result.back() == ' ') {
+                result.pop_back();
+                result += '-';
             }
         } else {
-            if (consecutiveSpace) {
-                result += '-';
-                consecutiveSpace = false;
-            }
             result += c;
+            previousSpace = false;
         }
     }
-
     return result;
 }
