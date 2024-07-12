@@ -34,7 +34,10 @@ vector<int> get_odd_collatz(int) {
 }
 
 int main() {
-    vector<int> odd_collatz = get_odd_collatz(0);
+    int input;
+    cout << "Enter a positive integer: ";
+    cin >> input; 
+    vector<int> odd_collatz = get_odd_collatz(input);
     cout << "The sequence of Collatz Conjecture for the given number is: ";
     for (int num : odd_collatz) {
         cout << num << " ";
