@@ -1,7 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -18,8 +17,5 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
             result.push_back(s);
     }
     return result;
-}
 
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
 }
