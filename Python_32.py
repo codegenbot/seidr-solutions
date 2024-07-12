@@ -6,10 +6,8 @@ def find_zero():
             if not line:
                 break
             xs.extend(map(float, line.split()))
-        except (EOFError, KeyboardInterrupt):
+        except:
             break
-        except Exception as e:
-            print(f"Error: {e}")
     a = xs[-2]
     b = xs[-1]
     return -b / a
