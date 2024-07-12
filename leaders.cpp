@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+vector<int> leaders(vector<int> arr) {
     int n = arr.size();
     vector<int> result;
     
@@ -23,3 +23,5 @@ vector<int> leaders(vector<int>& arr) {
 
 int main() {
     leaders({});
+    return 0;
+}
