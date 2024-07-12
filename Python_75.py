@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def is_multiply_prime(n):
     if n < 2:
@@ -11,6 +9,7 @@ def is_multiply_prime(n):
                 return True
     return False
 
+
 def is_prime(num):
     if num < 2:
         return False
@@ -19,14 +18,17 @@ def is_prime(num):
             return False
     return True
 
-if __name__ == "__main__":
+
+def main():
     while True:
         try:
-            num = int(input("Enter a number: "))
-            if num < 2:
-                print("Invalid input. Please enter a number greater than or equal to 2.")
-                continue
-            break
+            n = int(input("Enter a number: "))
+            if is_multiply_prime(n):
+                print(f"{n} is a product of two prime numbers.")
+            else:
+                print(f"{n} is not a product of two prime numbers.")
+            cont = input("Do you want to continue? (y/n): ")
+            if cont.lower() != "y":
+                break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    print(is_multiply_prime(num))
