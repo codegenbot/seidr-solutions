@@ -1,7 +1,8 @@
+```cpp
 #include <cassert>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
+//#include <initializer_list>
 #include <iostream>
 
 std::string filp_case(const std::string& str) {
@@ -24,3 +25,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Flipped case: " << filp_case(input) << std::endl;
     return 0;
+}
