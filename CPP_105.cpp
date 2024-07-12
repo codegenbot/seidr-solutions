@@ -1,19 +1,20 @@
-using namespace std;
+#include <vector>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a == b)
-        return true;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
+    if (vec1.size() != vec2.size())
+        return false;
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i])
             return false;
     }
     return true;
 }
 
-vector<string> byLength(int num) {
-    vector<string> result;
+std::vector<std::string> byLength(int num) {
+    std::vector<std::string> result;
 
-    switch (num % 1000 / 100) {
+    switch (num % 100) {
         case 1:
             result.push_back("One");
             break;
@@ -41,76 +42,100 @@ vector<string> byLength(int num) {
         case 9:
             result.push_back("Nine");
             break;
+        default:
+            if (num % 10 == 1)
+                result.push_back("One");
+            else if (num % 10 == 2)
+                result.push_back("Two");
+            else if (num % 10 == 3)
+                result.push_back("Three");
+            else if (num % 10 == 4)
+                result.push_back("Four");
+            else if (num % 10 == 5)
+                result.push_back("Five");
+            else if (num % 10 == 6)
+                result.push_back("Six");
+            else if (num % 10 == 7)
+                result.push_back("Seven");
+            else if (num % 10 == 8)
+                result.push_back("Eight");
+            else
+                result.push_back("Nine");
     }
-
-    switch (num % 100 / 10) {
+    
+    switch (num / 100) {
         case 1:
-            result.push_back("Ten");
+            result.insert(result.begin(), "Thou");
             break;
         case 2:
-            result.push_back("Twenty");
+            result.insert(result.begin(), "Twenty");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 3:
-            result.push_back("Thirty");
+            result.insert(result.begin(), "Thirty");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 4:
-            result.push_back("Forty");
+            result.insert(result.begin(), "Forty");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 5:
-            result.push_back("Fifty");
+            result.insert(result.begin(), "Fifty");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 6:
-            result.push_back("Sixty");
+            result.insert(result.begin(), "Sixty");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 7:
-            result.push_back("Seventy");
+            result.insert(result.begin(), "Seventy");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 8:
-            result.push_back("Eighty");
+            result.insert(result.begin(), "Eighty");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
         case 9:
-            result.push_back("Ninety");
+            result.insert(result.begin(), "Ninety");
+            if ((num % 100) > 0)
+                result.insert(result.begin(), "and");
+            else
+                return result;
             break;
     }
-
-    if (num % 10 != 0) {
-        switch (num % 10) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-                result.push_back("Two");
-                break;
-            case 3:
-                result.push_back("Three");
-                break;
-            case 4:
-                result.push_back("Four");
-                break;
-            case 5:
-                result.push_back("Five");
-                break;
-            case 6:
-                result.push_back("Six");
-                break;
-            case 7:
-                result.push_back("Seven");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
-        }
-    }
+    
+    if (num != 0)
+        result.insert(result.begin(), "Hundred");
 
     return result;
 }
 
 int main() {
     int num = 984;  
-    vector<string> result1 = byLength(num);
-    assert(issame(result1 , {"Nine", "Eight", "Four"}));
+    std::vector<std::string> result1 = byLength(num);
+    std::vector<std::string> a = {"Nine", "Eight", "Four"};
+    std::assert(issame(result1 , a)); 
     
     return 0;
+}
