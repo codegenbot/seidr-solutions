@@ -1,12 +1,13 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> incr_list(vector<int> l){
-    vector<int> result;
+std::vector<int> incr_list(std::vector<int> l){
+    std::vector<int> result;
     for(int i: l) {
         result.push_back(i+1);
     }
@@ -14,6 +15,11 @@ vector<int> incr_list(vector<int> l){
 }
 
 int main() {
-    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}) , {6, 3, 6,3, 4, 4, 10, 1, 124}));
+    std::vector<int> list = {1, 2, 3};
+    std::vector<int> incr_list_val = incr_list(list);
+    assert(issame(list, incr_list_val));
+    for(int i: incr_list_val) {
+        std::cout << i << " ";
+    }
     return 0;
 }
