@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,6 +13,6 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> strings = {"x", "y", "z", "w", "k"};
-    assert(concatenate(strings) == "xyzwk");
+    std::vector<std::string> v = {"x", "y", "z", "w", "k"};
+    assert(concatenate(v) == "xyzwk");
 }
