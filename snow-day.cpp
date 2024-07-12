@@ -3,13 +3,12 @@
 
 int main() {
     int hours;
-    float snow, rate, melt;
+    double snow, rate, melt;
     std::cin >> hours >> snow >> rate >> melt;
 
     for (int i = 0; i < hours; ++i) {
-        float snowmelt = melt * snow;
-        float snow_temp = snow + rate - snowmelt;
-        snow = snow_temp;
+        double snowmelt = melt * snow;
+        snow = snow + static_cast<double>(rate) - snowmelt;
     }
 
     std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
