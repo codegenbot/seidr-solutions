@@ -1,3 +1,4 @@
+"""
 from typing import List
 
 def parse_music(music_string: str) -> List[int]:
@@ -7,12 +8,12 @@ def parse_music(music_string: str) -> List[int]:
         if music_string[i] == 'o':
             music_list.append(4)
             i += 1
-        elif i+1 < len(music_string) and music_string[i:i+2] == 'o|':
+        elif music_string[i:i+2] == 'o|':
             music_list.append(2)
             i += 2
-        elif i+2 < len(music_string) and music_string[i:i+3] == '.|':
+        elif music_string[i] == '.':
             music_list.append(1)
-            i += 3
+            i += 1
         else:
-            raise ValueError(f"Invalid input '{music_string[i:]}'")
+            raise ValueError("Invalid input")
     return music_list
