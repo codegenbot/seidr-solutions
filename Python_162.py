@@ -1,19 +1,17 @@
 ```Python
 import hashlib
 
-def secure_input():
-    while True:
-        print("Please enter some text (alphanumeric characters only): ", end="")
-        s = input()
-        if s.isalnum():  
-            break
-        else:
-            print("Please enter some alphanumeric characters.")
-
-    if not s:
-        print("Please enter some alphanumeric characters.")
+while True:
+    print("Please enter some text (alphanumeric characters only): ", end="")
+    s = input().strip()
+    
+    if not s: 
+        continue
+    
+    if s.isalnum():  
+        break
     else:
-        output = hashlib.md5(s.encode()).hexdigest()
-        return output
+        print("Please enter some alphanumeric characters.")
 
-print(secure_input())
+output = hashlib.md5(s.encode()).hexdigest()
+print(f"Output: {output}")
