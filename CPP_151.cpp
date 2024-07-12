@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -9,12 +10,19 @@ long long double_the_difference(std::vector<float> lst) {
             sum += static_cast<long long>(pow(num, 2));
         }
     }
-    return sum * 2;
+    return sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0};
+    int n;
+    std::cin >> n;
+    std::vector<float> lst;
+    for (int i = 0; i < n; ++i) {
+        float num;
+        std::cin >> num;
+        lst.push_back(num);
+    }
     long long odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
+    std::cout << odd_sum << std::endl;
     return 0;
 }
