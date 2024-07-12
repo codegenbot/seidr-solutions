@@ -1,4 +1,3 @@
-```cpp
 int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = 0;
