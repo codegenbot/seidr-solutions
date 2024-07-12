@@ -4,5 +4,5 @@ def filter_by_prefix(prefix="", user_input=None):
     else:
         strings = user_input
     strings_list = [s.strip() for s in strings.split(',')]
-    result = [str(s.strip()).lower() for s in strings_list if s and any(str(s.strip()).lower().startswith(p.lower()) for p in prefix)]
+    result = [s.strip().lower() for s in strings_list if s and s.lower().startswith(prefix.lower())]
     print(result)
