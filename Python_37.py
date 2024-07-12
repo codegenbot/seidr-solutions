@@ -1,2 +1,7 @@
 def sort_even(l: list):
-    return [i if i % 2 != 0 else j for j, i in sorted((j, i) for j, i in enumerate(l)) if i % 2 == 0]
+    return [
+        y if i % 2 != 0 else x
+        for i, (x, y) in zip(
+            range(len(l)), [(y, x) for _, x in enumerate(l)]
+        )
+    ]
