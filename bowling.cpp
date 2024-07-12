@@ -1,31 +1,31 @@
-int score(const string &s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 1;
-    for (char c : s) {
-        if (c == 'X') {
-            total += 10;
-            frame++;
-            if (frame > 10) break;
-        } else if (c == '/') {
-            total += 10 - (s[ball - 2] - '0');
-            frame++;
-            if (frame > 10) break;
-        } else if (c == '-') {
-            frame++;
-            if (frame > 10) break;
-        } else {
-            total += c - '0';
-            if (ball % 2 == 0) frame++;
-        }
-        ball++;
-    }
-    return total;
-}
-
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == 'X') {
+            score += 10 + (input[i + 1] == 'X' ? 10 : (input[i + 2] == '/' ? 10 : (input[i + 2] - '0')));
+            frame++;
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] - '0') + (input[i + 1] == 'X' ? 10 : (input[i + 1] - '0'));
+            frame++;
+        } else if (input[i] == '-') {
+            score += 0;
+            frame++;
+        } else {
+            score += input[i] - '0';
+            if ((input[i] - '0' + (input[i + 1] - '0')) == 10) {
+                score += input[i + 1] - '0';
+            }
+            i++;
+            frame++;
+        }
+        if (frame == 10) break;
+    }
+
+    cout << score << endl;
+    
     return 0;
 }
