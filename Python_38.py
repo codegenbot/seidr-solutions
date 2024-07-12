@@ -1,1 +1,4 @@
-input_list = [int(x) for x in input("Enter space-separated integers: ").split()]
+import sys
+
+input_str = sys.stdin.readline().rstrip()
+input_list = list(map(int, input_str.split()))
