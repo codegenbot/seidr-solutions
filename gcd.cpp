@@ -8,19 +8,13 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-std::vector<int> findIndices(const std::string &text, const std::string &target) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int textLength = text.length();
-    int targetLength = target.length();
-
-    for (int i = 0; i <= textLength - targetLength; ++i) {
-        if (text.substr(i, targetLength) == target) {
-            for (int j = 0; j < targetLength; ++j) {
-                indices.push_back(i + j);
-            }
-        }
+    size_t pos = text.find(target, 0);
+    while (pos != std::string::npos) {
+        indices.push_back(pos);
+        pos = text.find(target, pos + 1);
     }
-
     return indices;
 }
 
@@ -30,10 +24,13 @@ int main() {
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cin >> text >> target;
-    std::vector<int> result = findIndices(text, target);
-    for (int idx : result) {
-        std::cout << idx << " ";
+    std::cin.ignore();
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
+
+    std::vector<int> result = indicesOfSubstring(text, target);
+    for (int ind : result) {
+        std::cout << ind << " ";
     }
 
     return 0;
