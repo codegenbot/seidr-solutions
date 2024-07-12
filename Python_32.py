@@ -6,7 +6,7 @@ def find_zero():
             if not line:
                 break
             xs.extend(map(float, line.split()))
-        except:
+        except (EOFError, KeyboardInterrupt):
             break
     a, b = xs[-2:]
     return -b / a
