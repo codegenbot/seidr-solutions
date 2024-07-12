@@ -1,7 +1,8 @@
+```
 def match_parens(lst):
-    s1 = ''.join(lst[0])
-    s2 = ''.join(lst[1])
-    
+    s1 = ''.join(map(str, lst[0]))
+    s2 = ''.join(map(str, lst[1]))
+
     stack = []
     
     for char in s1 + s2:
