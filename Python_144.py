@@ -11,7 +11,7 @@ def simplify():
             print("Invalid input! Please enter a number.")
 
     if y == 0:
-        return str(Fraction(x, y))
+        return "Denominator cannot be zero!"
     else:
         return str(Fraction(x, y))
 
@@ -20,4 +20,5 @@ def main():
     print(simplify())
 
 
-main()
+if __name__ == "__main__":
+    main()
