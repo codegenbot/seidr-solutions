@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,10 +5,15 @@ bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 2; i++) {
-        std::string sub = s.substr(i, 2);
+        char start = i;
+        std::string sub = s.substr(start, 2);
         bool unique = true;
         for (char a : sub) { 
-            size_t count = std::count(sub.begin(), sub.end(), a);
+            size_t count = 0;
+            for (char b : sub) {
+                if (b == a)
+                    ++count;
+            }
             if (count > 1) {
                 unique = false;
                 break;
