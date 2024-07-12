@@ -1,2 +1,5 @@
-input_str = raw_input("Enter space-separated integers: ")
-input_list = list(map(int, input_str.split()))
+try:
+    input_list = list(map(int, input().strip().split()))
+    # Continue with the remaining code
+except:
+    print("Invalid input. Please enter space-separated integers.")
