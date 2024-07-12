@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,13 +29,15 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "Next smallest number is: " << lst[i];
+                    std::cout << "Next smallest is: ";
+                    std::cout << nextSmallest(lst).at(0);
                     same = false;
                     break;
                 }
             }
-            if(same) std::cout << "No two adjacent elements are different, so the next smallest number doesn't exist";
-        } else std::cout << "At least one element, so there's no need to check for next smallest number";
+            if(same) std::cout << "-1";
+        } else std::cout << "-1";
+
     } else std::cout << "-1";
 
     return 0;
