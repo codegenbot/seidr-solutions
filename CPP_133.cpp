@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int sum_squares(std::vector<float> lst){
     int total = 0;
@@ -7,7 +8,7 @@ int sum_squares(std::vector<float> lst){
     }
     return total;
 
-int main() {
+int main {
     std::vector<float> input;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
@@ -31,3 +32,4 @@ int main() {
     }
     
     return 0;
+}
