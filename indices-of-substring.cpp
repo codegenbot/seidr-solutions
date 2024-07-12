@@ -9,8 +9,8 @@ int main() {
 
     std::vector<int> indices;
 
-    if (target.empty()) {
-        indices.push_back(0);
+    if (target.empty() || text.empty()) {
+        return 1;
     }
 
     int pos = 0;
