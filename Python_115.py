@@ -1,7 +1,5 @@
-import math
-
-
-def max_fill(n, grid):
+def max_fill(grid):
+    n = len(grid)
     m = len(grid[0])
     total_water = 0
     max_capacity = 0
