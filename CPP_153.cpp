@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,16 +32,20 @@ int main() {
     std::vector<std::string> extensions;
     
     // Read input from user
-    std::cout << "Enter the name of the class: ";
+    std::cout << "Enter the class name: ";
     std::cin >> class_name;
 
-    std::cout << "Enter the list of extensions (space separated): ";
-    for(std::string extension; std::getline(std::cin, extension), !extension.empty();) {
-        extensions.push_back(extension);
+    std::cout << "Enter the list of extensions (separated by spaces): ";
+    std::string temp;
+    while(std::cin >> temp) {
+        extensions.push_back(temp);
     }
 
+    // Calculate and return the strongest extension
+    int result = Strongest_Extension(class_name, extensions);
+
     // Print output
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+    std::cout << "The strongest extension is: " << class_name + "." << result << std::endl;
 
     return 0;
 }
