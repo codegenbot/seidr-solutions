@@ -2,7 +2,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> inputVector = {4, 7, 10, 15}; // Example input
+    std::vector<int> inputVector = {4, 7, 10, 15};
     int sum = 0;
     for (int num : inputVector) {
         sum += (num / 3) - 2;
