@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> maximum(vector<int> arr, int k) {
     assert(!arr.empty());
-    sort(arr.begin(), arr.end(), greater<int>());
+    sort(arr.begin(), arr.end()); // or sort(arr.begin(), arr.end(), less<int>());
     vector<int> result(arr.begin(), arr.begin() + k);
     return result;
 }
