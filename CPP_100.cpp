@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
 
 bool isSame(std::vector<int>& a, std::vector<int>& b) {
     if (a.size() != b.size())
@@ -14,7 +14,7 @@ bool isSame(std::vector<int>& a, std::vector<int>& b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     int stones = 1;
-    while (stones <= n) {
+    while (stones <= n && stones <= ((n + 1) / 2) * 2) {
         pile.push_back(stones);
         stones += 2; 
     }
