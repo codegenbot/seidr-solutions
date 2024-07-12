@@ -1,36 +1,32 @@
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v[i];
+        cin >> nums[i];
     }
 
-    int diff = INT_MAX;
-    int index = -1;
-
-    for (int i = 0; i < n - 1; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            left_sum += v[j];
-        }
-        for (int j = i + 1; j < n; ++j) {
-            right_sum += v[j];
-        }
-
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff) {
-            diff = current_diff;
-            index = i;
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int idx = -1;
+    for (int i = 0; i < n; ++i) {
+        prefix_sum += nums[i];
+        int diff = abs(sum - 2 * prefix_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
         }
     }
 
-    for (int i = 0; i <= index; ++i) {
-        cout << v[i] << endl;
+    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+
+    for (int num : subvector1) {
+        cout << num << endl;
     }
-    for (int i = index + 1; i < n; ++i) {
-        cout << v[i] << endl;
+    for (int num : subvector2) {
+        cout << num << endl;
     }
 
     return 0;
