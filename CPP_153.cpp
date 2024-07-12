@@ -13,9 +13,9 @@ std::string Strongest_Extension(const std::pair<std::string, std::string>& exten
 
 int main() {
     std::vector<std::pair<std::string, std::string>> extensions;
-    extensions.push_back(std::make_pair("Sp", "671235")); 
+    extensions.push_back(std::make_pair("Sp", "671235"));
     extensions.push_back(std::make_pair("Bb", ""));
-    
+
     assert(Strongest_Extension({{"Sp", "671235"}}) == "Sp.671235");
     for (const auto& extension : extensions) {
         std::cout << Strongest_Extension(extension) << std::endl; 
