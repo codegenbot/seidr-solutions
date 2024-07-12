@@ -1,20 +1,24 @@
+```cpp
 #include <vector>
 #include <cmath>
 
-std::vector<std::string> do_algebra(std::vector<std::string>, std::vector<int>) {
-    // implement your algorithm here
+int do_algebra(std::vector<int> operators, std::vector<int> operands) {
+    int result = 0;
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == 1) {
+            result += operands[i];
+        } else if (operators[i] == 2) {
+            result -= operands[i];
+        } else if (operators[i] == 3) {
+            result *= operands[i];
+        } else if (operators[i] == 4) {
+            result = result / static_cast<int>(operands[i]);
+        }
+    }
+    return result;
 }
 
 int main() {
-    int result = 0;
-    std::vector<std::string> operators = {"//", "*"};
-    std::vector<int> operands = {7, 3, 4};
-    for (int i = 0; i < operators.size(); i++) {
-        if (operators[i] == "//") {
-            result /= operands[i + 1];
-        } else if (operators[i] == "*") {
-            result *= operands[i + 1];
-        }
-    }
+    int result = do_algebra({1, 2}, {7, 3, 4});
     return 0;
 }
