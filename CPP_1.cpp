@@ -1,43 +1,42 @@
-bool issame(string s) {
-    stack<char> st;
-    for (char c : s) {
-        if (c == '(') {
-            st.push(c);
-        } else if (c == ')') {
-            if (st.empty() || st.top() != '(') {
-                return false;
-            }
-            st.pop();
-        }
-    }
-    return st.empty();
-}
+#include <vector>
+#include <string>
+#include <cassert>
 
-vector<string> separate_paren_groups(string paren_string) {
+using namespace std;
+
+vector<string> separate_paren_groups(std::string paren_string);
+
+vector<string> separate_paren_groups(std::string paren_string) {
     vector<string> result;
-    string temp;
-    int count = 0;
+    string current_group;
+    int open_count = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
-            if (count > 0) {
-                temp += c;
+            if (open_count > 0) {
+                current_group += c;
             }
-            count++;
+            open_count++;
         } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                temp += c;
-            } else if (count == 0) {
-                result.push_back(temp);
-                temp = "";
+            open_count--;
+            if (open_count > 0) {
+                current_group += c;
+            } else if (open_count == 0) {
+                result.push_back(current_group);
+                current_group = "";
             }
         }
     }
+
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    cout << issame("(())()") << endl; // Example usage of the issame function
-    // Add more test cases to validate the function if needed
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    
     return 0;
 }
