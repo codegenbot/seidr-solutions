@@ -1,8 +1,6 @@
-import hashlib
-
-def string_to_md5(text):
-    if not text:
+def string_to_md5(input_str):
+    if not isinstance(input_str, str):
+        return "Error: Input must be a string."
+    if not input_str:
         return None
-    md5_hash = hashlib.md5()
-    md5_hash.update(text.encode())
-    return md5_hash.hexdigest()
+    return hashlib.md5(input_str.encode()).hexdigest()
