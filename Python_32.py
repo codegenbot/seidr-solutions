@@ -1,5 +1,5 @@
 def main():
-    xs = list(map(float, input().strip().split()))
+    xs = list(map(int, input().strip().split()))
 
     def find_zero(xs: list):
         try:
