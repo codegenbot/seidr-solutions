@@ -15,11 +15,11 @@ int main() {
     cents %= 5;
     
     int pennies = cents;
-    
+
     cout << quarters << endl;
     cout << dimes << endl;
     cout << nickles << endl;
     cout << pennies << endl;
-    
+
     return 0;
 }
