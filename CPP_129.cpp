@@ -6,8 +6,15 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k);
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
 int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+    vector<int> expected = {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
+    vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+    
+    assert(issame(result, expected));
     
     return 0;
 }
