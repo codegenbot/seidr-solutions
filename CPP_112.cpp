@@ -1,6 +1,11 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
 bool checkEquality(std::string& s) {
-    return s.compare(0, 4, "True") == 0;
+    return s == "True";
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
@@ -50,7 +55,7 @@ int main() {
         }
     } else {
         if (!s1.empty() && !s2.empty()) {
-            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
         } else if (s1.empty() || s2.empty()) {
             std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
         }
