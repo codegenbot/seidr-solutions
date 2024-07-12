@@ -37,8 +37,9 @@ int main() {
         std::cout << "Enter integer # " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        nums[i] = new char[10]; 
-        sprintf(nums[i], "%d", num);
+        std::string str = std::to_string(num);
+        nums[i] = new char[str.length() + 1];
+        strcpy(nums[i], str.c_str());
     }
 
     int count = count_nums(nums, size);
