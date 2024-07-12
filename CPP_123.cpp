@@ -20,14 +20,12 @@ vector<int> get_odd_collatz(int) {
         } else {
             if (n > 0) {
                 result.push_back(n);
+            } else {
+                return vector<int>(); 
             }
         }
         if (n % 2 != 0) { 
             n = (n * 3) + 1;
-        } else {
-            if (n > 0) {
-                result.push_back(n);
-            }
         }
     }
     return result;
