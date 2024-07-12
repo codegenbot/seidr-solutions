@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return std::includes(b.begin(), b.end(), a.begin(), a.end());
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
