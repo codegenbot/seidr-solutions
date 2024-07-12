@@ -12,9 +12,9 @@ int main() {
     
     vector<int> indices;
     size_t pos = text.find(target, 0);
-    while (pos != string::npos) {
+    while (pos != string::npos && pos+1 < text.size()) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1); // Start searching from the next index to consider overlapping occurrences
+        pos = text.find(target, pos + 1); // Start searching from the next index
     }
     
     for (int i = 0; i < indices.size(); ++i) {
@@ -22,4 +22,4 @@ int main() {
     }
     
     return 0;
-}  
+}
