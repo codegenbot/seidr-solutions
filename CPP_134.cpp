@@ -1,5 +1,1 @@
-int i = txt.length()-2;
-while(i >= 0 && txt[i] == ' ') {
-    i--;
-}
-return !isLastCharLetter;
+```int i = txt.length()-2;while(i >= 0 && txt[i] == ' ') {    i--;}if (i >= 0) {    return false;}return isLastCharLetter;```
