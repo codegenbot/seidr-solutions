@@ -9,7 +9,7 @@ def calculate_average_and_median():
         try:
             numbers = list(map(int, user_input.split()))
             if not numbers:
-                return "No numbers entered."
+                return f"No numbers entered."
 
             average = sum(numbers) / len(numbers)
 
