@@ -1,17 +1,16 @@
-Here is the solution:
-
-def solve_boolean(input):
-    if input == 'T':
+```
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif input == 'F':
+    elif expression == 'F':
         return False
-    elif '&' in input and '|' in input:
-        t = input.split('&')
-        f = t[1].split('|')[0]
-        return (input.startswith('t') or f == 'f') and (f == 'f' or input.endswith('t'))
-    elif '&' in input:
-        t, f = input.split('&')
-        return (t == 't' and f != 't') or (t == 'f' and f == 'f')
-    elif '|' in input:
-        t, f = input.split('|')
-        return (t == 't' and f != 't') or (t == 'f' and f == 't')
+    elif '&' in expression and '|' in expression:
+        raise ValueError('Invalid Boolean operation')
+    else:
+        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
+        result = expression[0]
+        for i in range(1, len(expression)):
+            if expression[i] in operators:
+                result = operators[expression[i]](result, expression[i+1])
+                i += 1
+        return result
