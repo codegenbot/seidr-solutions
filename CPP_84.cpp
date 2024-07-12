@@ -13,9 +13,5 @@ int solve(int N) {
 int main() {
     int N;
     cin >> N;
-    if(N < 1) {
-        cout << "Error: Input should be a positive integer." << endl;
-    } else {
-        cout << solve(N) << endl;
-    }
+    cout << solve(N) << endl;
 }
