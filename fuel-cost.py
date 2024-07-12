@@ -1,3 +1,3 @@
-input_data = list(map(int, input().split()))
-result = sum([(x // 3) - 2 for x in input_data])
+nums = list(map(int, input().split()))
+result = sum((num // 3 - 2) for num in nums)
 print(result)
