@@ -1,13 +1,13 @@
+```
+def power_mod(a: int, n: int):
+    if n < 0:
+        a = pow(a, -1, p)
+    elif n > 1:
+        a = (a * power_mod(a, n-1)) % p
+    return a
+
 def modp(n: int, p: int):
     if p == 0:
         raise ValueError("Modulus cannot be zero")
-    if n < 2 or p <= 0:
-        return n % p
-    
-    result = 1
-    while p > 0:
-        if p % 2 == 1:
-            result = (result * n) % p
-        n = (n * n) % p
-        p //= 2
+    result = power_mod(n, p)
     return result
