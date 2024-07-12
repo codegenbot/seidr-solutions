@@ -5,9 +5,9 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
     return None
 
-text = input().strip()
+text = input("Enter text containing only visible ASCII characters: ").strip()
 
-if all(32 <= ord(char) <= 126 and char.isprintable() for char in text):
+if all(32 <= ord(char) <= 126 and char.isprintable() and ord(char) < 127 for char in text):
     md5_hash = string_to_md5(text)
     if md5_hash:
         print("MD5 Hash:", md5_hash)
