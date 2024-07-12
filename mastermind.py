@@ -14,6 +14,6 @@ for c, g in zip(code, guess):
     code_count[c] += 1
     guess_count[g] += 1
 
-white_pegs = sum(min(code_count.get(c, 0), guess_count.get(c, 0)) for c in set(code) if c != guess[code.index(c)])
+white_pegs = sum(min(code_count.get(c, 0), guess_count.get(c, 0)) for c in set(code) | set(guess)) - black_pegs
 
 print(max(0, white_pegs), black_pegs)
