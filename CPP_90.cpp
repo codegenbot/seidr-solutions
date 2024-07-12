@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> nextSmallest(std::vector<int>& nums) {
+std::vector<int> next_smallest(std::vector<int>& nums) {
     for (int i = 0; i < nums.size() - 1; i++) {
         if (nums[i] != nums[i + 1]) return {nums[i]};
     }
@@ -29,7 +29,7 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "Next smallest number: " << lst[i];
+                    std::cout << lst[i];
                     same = false;
                     break;
                 }
