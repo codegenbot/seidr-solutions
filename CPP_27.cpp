@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -17,10 +16,10 @@ std::string filp_case(const std::string& str) {
     return result;
 }
 
-int main() {
+int originalMain() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << filp_case(input) << std::endl;
+    std::cout << filp_case(input) << std::endl; 
     return 0;
 }
