@@ -20,7 +20,7 @@ string find_max(vector<string> words){
     return result;
 }
 
-int main() {
+int main(){
     assert(find_max({"play", "play", "play"}) == "play");
     
     return 0;
