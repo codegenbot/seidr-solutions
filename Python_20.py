@@ -1,4 +1,6 @@
-Here is the completed code:
+```
+from typing import List, Tuple
+import math
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     min_diff = float('inf')
@@ -10,5 +12,5 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             if diff < min_diff:
                 min_diff = diff
                 closest_pair = (numbers[i], numbers[j])
-                
+    
     return tuple(sorted(closest_pair))
