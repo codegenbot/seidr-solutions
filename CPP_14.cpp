@@ -1,14 +1,7 @@
 #include <string>
+#include <vector>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> result;
@@ -18,12 +11,4 @@ vector<string> all_prefixes(string str){
         result.push_back(prefix);
     }
     return result;
-}
-
-int main(){
-    // Sample code for using the functions
-    vector<string> prefixes = all_prefixes("hello");
-    vector<string> expected = {"h", "he", "hel", "hell", "hello"};
-    bool areSame = issame(prefixes, expected);
-    return 0;
 }
