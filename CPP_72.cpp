@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,17 +11,17 @@ bool will_it_fly(vector<vector<int>> q, int w) {
 }
 
 int main() {
-    vector<vector<int>> q(n);  // Initialize q with n vectors of int
-    int n;  
+    vector<vector<int>> q;
+    int n;  // number of pairs
     cin >> n;
     for(int i=0; i<n; i++) {
-        int x, y; 
+        int x, y; // two numbers in a pair
         cin >> x >> y;
-        q[i].push_back({x,y});
+        q.push_back({x,y});
     }
     int w;
     cin >> w;
-    if (!will_it_fly(q, w)) {
+    if (!will_it_fly({{q[0][0], q[0][1]}, {q[1][0], q[1][1]}}, w)) {
         cout << "Will not fly.\n";
     } else {
         cout << "Will fly.\n";
