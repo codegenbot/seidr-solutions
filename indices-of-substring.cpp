@@ -14,7 +14,7 @@ int main() {
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
         ++pos;
-        found = 1;
+        found = 0;
     }
     
     std::cout << found << std::endl;
