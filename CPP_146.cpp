@@ -1,27 +1,6 @@
 #include <iostream>
 #include <vector>
 
-int main() {
-    int count = 0;
-    std::vector<int> nums;
-    
-    // Read input from user
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
-    
-    count = specialFilter(nums);
-    
-    // Print output
-    cout << "The number of elements that meet the condition is: " << count << endl;
-    
-    return 0;
-}
-
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -30,4 +9,10 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    std::vector<int> nums = {1, 11, 111};
+    assert(specialFilter(nums) == 2);
+    return 0;
 }
