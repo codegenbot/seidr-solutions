@@ -7,14 +7,6 @@ vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
     vector<vector<int>> res;
     
-    for (int i = 1; i < n; i++) {
-        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
-            res.push_back(vector<int>(vec.begin(), vec.begin() + i));
-            res.push_back(vector<int>(vec.begin() + i, vec.end()));
-            return res;
-        }
-    }
-    
     int minDiff = INT_MAX;
     int pos = 0;
     for (int i = 1; i < n; i++) {
