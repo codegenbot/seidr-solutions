@@ -1,4 +1,4 @@
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -6,29 +6,30 @@
 using namespace std;
 
 string spinWords(string str) {
-    vector<string> words;
-    
-    string word = "";
-    
-    for(int i=0; i<str.length(); i++) {
-        if(str[i] == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += str[i];
-        }
-    }
-    
-    words.push_back(word);
-    
     string result = "";
     
-    for(auto w : words) {
-        if(w.length() >= 5) {
-            reverse(w.begin(), w.end());
+    int wordStart = 0;
+    
+    for(int i=0; i<str.length(); i++) {
+        if(i == str.length() - 1) {
+            string word = str.substr(wordStart, i-wordStart+1); 
+            if(word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            
+            result += word + " ";
+        } else if (str[i] == ' ') {
+            string word = str.substr(wordStart, i-wordStart);
+            
+            if(word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+
+            result += word + " ";
+            wordStart = i+1;
+        } else {
+            wordStart++;
         }
-        
-        result += w + " ";
     }
     
     return result;
