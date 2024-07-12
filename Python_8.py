@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10**6)
+
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
@@ -8,6 +11,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 if __name__ == "__main__":
-    numbers = list(map(int, input("Enter space-separated numbers:").split()))
+    print("Enter space-separated numbers:")
+    numbers = list(map(int, input().split()))
     result_sum, result_product = sum_product(numbers)
     print(result_sum, result_product)
