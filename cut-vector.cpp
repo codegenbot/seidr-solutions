@@ -7,7 +7,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> res;
     
     for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] - v[0] <= v[i-1] - v[0]) {
+        if (i == 0 || abs(v[i] - v[0]) <= abs(v[i-1] - v[0])) {
             res.first = vector<int>(v.begin(), v.begin() + i);
             res.second = vector<int>(v.begin() + i, v.end());
             return res;
