@@ -1,6 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
+#include <sstream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -14,7 +14,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
             float fa = std::stof(a.convert<std::string>().c_str());
-            float fb = (float)b.convert_to<float>();
+            float fb = (float)b;
             return fa > fb ? a : b;
         } catch (...) {
             return boost::any("None");
@@ -22,7 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
             double fa = std::stod(a.convert<std::string>().c_str());
-            double fb = (double)b.convert_to<double>();
+            double fb = (double)b;
             return fa > fb ? a : b;
         } catch (...) {
             return boost::any("None");
@@ -30,7 +30,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
             int fa = std::stoi(a.convert<std::string>().c_str());
-            int fb = (int)b.convert_to<int>();
+            int fb = (int)b;
             return fa > fb ? a : b;
         } catch (...) {
             return boost::any("None");
