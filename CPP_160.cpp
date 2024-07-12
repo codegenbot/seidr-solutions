@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -18,15 +19,6 @@ int do_algebra(std::vector<int> operators, std::vector<int> operands) {
 }
 
 int main() {
-    std::vector<int> operators;
-    for (int i : {1,2}) {
-        operators.push_back(i);
-    }
-    std::vector<int> operands;
-    for (int i : {7,3,4}) {
-        operands.push_back(i);
-    }
-
-    int result = do_algebra(operators, operands);
+    int result = do_algebra(std::vector<int>({1,2}), std::vector<int>({7,3,4}));
     return 0;
 }
