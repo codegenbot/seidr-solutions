@@ -1,18 +1,11 @@
-import sys
-
-def find_zero():
+def find_zero(input_lines):
     xs = []
-    while True:
-        try:
-            line = sys.stdin.readline().strip()
-            if not line:
-                break
-            xs.extend(map(float, line.split()))
-        except:
-            break
-    a = xs[-2]
-    b = xs[-1]
+    for line in input_lines:
+        xs.extend(map(float, line.split()))
+    a, b = xs[-2:]
     return -b / a
 
-result = find_zero()
+# Example input
+input_lines = ['2 4', '0 0', '3 6', '']
+result = find_zero(input_lines)
 print(result)
