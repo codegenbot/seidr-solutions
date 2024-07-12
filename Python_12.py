@@ -1,3 +1,3 @@
-string1 = input("Enter the first string: ").strip()
-string2 = input("Enter the second string: ").strip()
+string1 = input().strip()
+string2 = input().strip()
 print(max(string1, string2, key=len))
