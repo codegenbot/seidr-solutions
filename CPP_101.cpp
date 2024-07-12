@@ -25,7 +25,7 @@ vector<string> words_string(string s) {
     return result;
 }
 
-int main() {
+int runTestMain() {
     string s;
     cout << "Enter a string: ";
     getline(cin, s);
