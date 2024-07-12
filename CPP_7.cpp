@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool equalVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
@@ -16,10 +17,12 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    std::set<std::string> actualSet(result.begin(), result.end());
-    std::set<std::string> expectedSet = {"grunt", "prune"};
-    bool same = (actualSet == expectedSet);
-    assert(same == issame({result.begin(), result.end()}, expectedSet));
+    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+    const std::string& substring = "run";
+    auto result = filter_by_substring(words, substring);
+    auto actualSet(result.begin(), result.end());
+    auto expectedSet({"grunt", "prune"});
+    bool same = (actualSet == std::vector<std::string>(expectedSet));
+    assert(same == equalVectors({result.begin(), result.end()}, expectedSet));
     return 0;
 }
