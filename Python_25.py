@@ -3,19 +3,19 @@ import math
 
 
 def factorize():
-    num = int(input("Enter a number: "))
+    n = int(input("Enter an integer: "))
     factors = []
-    for i in range(2, math.isqrt(num) + 1):
-        if num % i:
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i:
             continue
         count = 0
-        while num % i == 0:
-            num //= i
+        while n % i == 0:
+            n //= i
             count += 1
         if count > 0:
             factors.append(i * count)
-    if num > 1:
-        factors.append(num)
+    if n > 1:
+        factors.append(n)
     return sorted(factors)
 
 
