@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <assert.h>
 #include <vector>
@@ -16,17 +17,16 @@ std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            auto temp = l.begin() + i;
-            while(temp != l.end() && *temp % 3 == 0) {
-                temp++;
+            // values at the indices that are divisible by three are equal to the values of the corresponding indicies of l, but sorted
+            std::vector<int> temp;
+            int j = i;
+            while(j < l.size() && j % 3 == 0) {
+                temp.push_back(l[j]);
+                j++;
             }
-            std::sort(std::make_reverse_iterator(temp), l.end());
-            for (; temp != l.end(); temp++) {
-                if (*temp % 3 == 0) {
-                    result.push_back(*temp);
-                } else {
-                    break;
-                }
+            sort(temp.begin(), temp.end());
+            for (int k = 0; k < temp.size(); k++) {
+                result.push_back(temp[k]);
             }
         } else {
             result.push_back(l[i]);
