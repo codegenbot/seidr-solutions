@@ -1,31 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <cmath>
+#include <algorithm>
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
 
     int n = vec.size();
-    int minDiff = INT_MAX;
+    int minDiff = std::abs(vec[0] - std::accumulate(vec.begin() + 1, vec.end(), 0));
     int cutIndex = 0;
 
-    for (int i = 1; i < n - 1; ++i) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j < i; ++j) {
-            sumLeft += vec[j];
-        }
-        for (int j = i; j < n; ++j) {
-            sumRight += vec[j];
-        }
-        int diff = abs(sumLeft - sumRight);
+    for (int i = 1; i < n; ++i) {
+        int diff = std::abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    std::cout << cutIndex << std::endl;
+    std::cout << cutIndex + 1 << std::endl;
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
