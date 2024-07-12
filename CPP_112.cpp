@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -46,6 +45,7 @@ vector<string> reverse_delete(string s, string c) {
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
+    string temp = "";
     for (char x : s) {
         bool found = false;
         for (char y : c) {
@@ -55,21 +55,20 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, x));
+            temp += x;
         }
     }
-    string temp = "";
-    for (int i = result.size() - 1; i >= 0; i--) {
-        temp += result[i];
+    result.push_back(temp);
+    string reversed = "";
+    for (int i = temp.length() - 1; i >= 0; i--) {
+        reversed += temp[i];
     }
-    vector<string> res2;
-    res2.push_back(temp);
-    if (temp == s) {
-        res2.push_back("True");
+    if (temp == reversed) {
+        result.push_back("True");
     } else {
-        res2.push_back("False");
+        result.push_back("False");
     }
-    return res2;
+    return result;
 }
 
 int main() {
