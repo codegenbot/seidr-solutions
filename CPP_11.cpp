@@ -1,3 +1,4 @@
+```cpp
 string string_xor(string a, string b) {
     string result;
     for (int i = 0; i < a.length(); i++) {
@@ -8,11 +9,11 @@ string string_xor(string a, string b) {
 }
 
 int main() {
-   string a, b;
-   cout << "Enter the first binary number: ";
-   cin >> a;
-   cout << "Enter the second binary number: ";
-   cin >> b;
-   cout << "The XOR of the two numbers is: " << string_xor(a, b);
-   return 0;
+    string a, b;
+    cout << "Enter the first string: ";
+    cin >> a;
+    cout << "Enter the second string: ";
+    cin >> b;
+    cout << "The XOR of the two strings is : " << string_xor(a, b);
+    return 0;
 }
