@@ -1,4 +1,2 @@
-x = int(input())
-y = int(input())
-z = int(input())
+x, y, z = map(int, input("Enter three numbers separated by spaces: ").strip().split())
 print(x + y + z)
