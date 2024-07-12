@@ -1,4 +1,5 @@
 #include <boost/any.hpp>
+#include <string>
 using namespace std;
 
 boost::any a = ...;
@@ -34,4 +35,3 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return "None";
 } else {
     throw invalid_argument("Invalid input");
-}
