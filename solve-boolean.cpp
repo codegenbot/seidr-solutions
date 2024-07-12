@@ -1,7 +1,12 @@
-bool evaluateBooleanExpression(string expression) {
-    if (expression == "t") {
-        return true;
+int main() {
+    string input;
+    cin >> input;
+    
+    if (input == "t") {
+        cout << "True" << endl;
     } else {
-        return false;
+        cout << "False" << endl;
     }
+    
+    return 0;
 }
