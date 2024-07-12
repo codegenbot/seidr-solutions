@@ -1,4 +1,3 @@
-```
 from typing import Optional
 
 def longest_common_substring(str1: str, str2: str) -> Optional[str]:
