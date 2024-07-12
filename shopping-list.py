@@ -4,9 +4,8 @@ def shopping_list():
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
     total_price = 0
-    if len(prices) == n and len(discounts) == n:
-        for i in range(n):
-            total_price += prices[i] * (1 - discounts[i] / 100)
+    for i in range(min(n, len(prices), len(discounts))):
+        total_price += prices[i] * (1 - discounts[i] / 100)
     return round(total_price, 2)
 
 
