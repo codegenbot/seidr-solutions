@@ -1,7 +1,7 @@
 while True:
-    n = input("Enter an integer: ")
-    if n.isdigit():
-        n = int(n)
+    try:
+        n = int(input("Enter an integer: "))
+        print("Integer entered:", n)
         break
-    else:
+    except ValueError:
         print("Invalid input. Please enter a valid integer.")
