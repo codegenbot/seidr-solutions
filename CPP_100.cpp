@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -9,25 +10,22 @@ bool same(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> make_a_pile(int n) {
-    int stones = n;
+    int stones = 0;
     vector<int> pile;
     for (int i = 0; i < n; i++) {
         if (stones % 2 == 1) {
             pile.push_back(stones);
-            stones += 2;
+            stones++;
         } else {
-            pile.push_back(stones);
-            stones += 1;
+            pile.push_back(0);
+            stones++;
         }
     }
     return pile;
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of stones: ";
-    cin >> n;
-    vector<int> result = make_a_pile(n); 
+    vector<int> result = make_a_pile(8); 
     assert(same({0}, result));
     for (int i = 0; i < (int)result.size(); i++) {
         cout << result[i] << " ";
