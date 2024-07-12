@@ -6,19 +6,15 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     start = -1
     for i, char in enumerate(paren_string):
-        if char in '({':
-            if not stack:
-                start = i
-            stack.append(char)
-        elif char in ')}':
-            if not stack:
+        if char == '(':
+            stack.append(i)
+        elif char == ')':
+            if stack:
+                start = stack.pop()
                 result.append(paren_string[start:i+1])
-            stack.pop()
     
-    if stack:
-        result.append(paren_string[start:])
-    
-    if not stack:
-        result.append(paren_string[start:])
-        
     return result
+
+input_string = input("Enter a string with parentheses: ")
+output = separate_paren_groups(input_string)
+print(output)
