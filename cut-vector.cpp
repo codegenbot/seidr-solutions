@@ -17,12 +17,13 @@ int main() {
 
     int minDiff = INT_MAX;
     for (int i = 0; i < n; ++i) {
-        int sum1 = std::accumulate(nums.begin(), nums.begin() + i + 1, 0);
-        int sum2 = std::accumulate(nums.begin() + i + 1, nums.end(), 0);
-        int diff = std::abs(sum1 - sum2);
-        if (diff < minDiff || (diff == minDiff && i == n - 1)) {
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i + 1, 0) - 
+                            std::accumulate(nums.begin() + i + 1, nums.end(), 0));
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
+        } else if (diff == minDiff) {
+            cutIndex = i; // choose the earlier cutIndex for equal differences
         }
     }
 
