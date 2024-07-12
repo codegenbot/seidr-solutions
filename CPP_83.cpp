@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int starts_one_ends(int n); // Forward declaration of the function
 
@@ -18,7 +19,8 @@ int main() {
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        if ((i % 10 == 1 && i != 11) || (i % 100 == 11) || (i % 1000 == 111)) {
+        std::string str = std::to_string(i);
+        if ((str.front() == '1' && str != "11") || (str == "11")) {
             count++;
         }
     }
