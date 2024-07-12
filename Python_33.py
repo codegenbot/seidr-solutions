@@ -1,4 +1,3 @@
-```
 def unique_and_sorted():
     while True:
         try:
