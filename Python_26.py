@@ -1,4 +1,4 @@
-def remove_duplicates(input_numbers): 
+def remove_duplicates(input_numbers):
     unique_numbers = []
 
     for num in input_numbers:
