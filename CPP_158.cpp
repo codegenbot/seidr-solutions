@@ -6,6 +6,13 @@ using namespace std;
 
 string find_max(vector<string> words);
 
+int main() {
+    vector<string> words = {"cat", "dog", "rabbit", "elephant", "bird"};
+    string max_word = find_max(words);
+    assert(max_word == "elephant");
+    return 0;
+}
+
 string find_max(vector<string> words){
     string result;
     int max_unique = 0;
