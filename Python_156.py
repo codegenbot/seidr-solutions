@@ -1,10 +1,23 @@
+```
 def int_to_mini_roman(number):
-    roman = ''
-    valuations = [(1000, 'm'), (900, 'cm'), (500, 'd'), (400, 'cd'), 
-                  (100, 'c'), (90, 'xc'), (50, 'l'), (40, 'xl'), 
-                  (10, 'x'), (9, 'ix'), (5, 'v'), (4, 'iv'), (1, 'i')
-    for val, roman_val in valuations:
-        while number >= val:
-            roman += roman_val
-            number -= val
-    return roman.lower()
+    val = [
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+        10, 9, 5, 4,
+        1
+    ]
+    syb = [
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL",
+        "X", "IX", "V", "IV",
+        "I"
+    ]
+
+    roman_num = ''
+    i = 0
+    while number > 0:
+        for _ in range(number // val[i]):
+            roman_num += syb[i]
+            number -= val[i]
+        i += 1
+    return roman_num.lower()
