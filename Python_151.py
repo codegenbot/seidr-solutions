@@ -1,3 +1,2 @@
-```
-def double_the_difference(lst=None):
+def double_the_difference(lst=None): 
     return sum(i**2 for i in lst if isinstance(i, int) and i >= 0)
