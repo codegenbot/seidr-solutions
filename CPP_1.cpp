@@ -1,22 +1,38 @@
 bool issame(const string& s) {
-    stack<char> st;
+    int count = 0;
     for (char c : s) {
         if (c == '(') {
-            st.push(c);
+            count++;
         } else if (c == ')') {
-            if (st.empty() || st.top() != '(') {
-                return false;
-            }
-            st.pop();
+            count--;
         }
     }
-    return st.empty();
+    return count == 0;
 }
+
+vector<string> separate_paren_groups(string paren_string);
 
 vector<string> separate_paren_groups(string paren_string) {
-    ...
-}
-
-int main() {
-    ...
+    vector<string> result;
+    string temp;
+    int count = 0;
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (count > 0) {
+                temp += c;
+            }
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                temp += c;
+            } else if (count == 0) {
+                if (issame(temp)) {
+                    result.push_back(temp);
+                }
+                temp = "";
+            }
+        }
+    }
+    return result;
 }
