@@ -15,7 +15,7 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1);
-
+    
     vector<int> odd_numbers;
     for (int num : result) {
         if (num % 2 != 0) {
@@ -23,7 +23,5 @@ vector<int> get_odd_collatz(int n) {
         }
     }
 
-    sort(odd_numbers.begin(), odd_numbers.end());
-
-    return result;
+    return odd_numbers;
 }
