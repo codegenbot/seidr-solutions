@@ -6,15 +6,20 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     current_group = ""
 
     for char in paren_string:
-        if char in "()":
-            if char == "(":
-                stack.append("(")
-            else:
-                if stack:
-                    stack.pop()
+        if char == "(":
+            stack.append("(")
+            current_group += "("
+        elif char == ")":
+            if stack and stack[-1] == "(":
+                stack.pop()
+                current_group += ")"
                 if not stack:
                     result.append(current_group)
                     current_group = ""
-            current_group += char
+            else:
+                current_group += ")"
+
+    if current_group:
+        result.append(current_group)
 
     return result
