@@ -10,7 +10,7 @@ int double_the_difference(std::vector<float> lst) {
             odd_sum += static_cast<int>(num);
         }
     }
-    return std::abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0f));
+    return abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0f));
 }
 
 int main() {
