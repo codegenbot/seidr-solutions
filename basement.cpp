@@ -9,18 +9,12 @@ int basement(std::vector<int> nums) {
             return i;
         }
     }
-    return 0;
+    return -1; // Return -1 if no negative sum is found
 }
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-    
+    std::vector<int> nums = {3, -83, 4, -56};
     int result = basement(nums);
-    std::cout << result << std::endl;
-    
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
