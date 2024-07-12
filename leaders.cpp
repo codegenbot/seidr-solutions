@@ -23,6 +23,7 @@ vector<int> leaders(vector<int> arr) {
 }
 
 int main() {
-    vector<int> leaders(vector<int>{});
+    vector<int> v = { };
+    leaders(v);
     return 0;
 }
