@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int flip_case(const std::string& input) {
+std::string flip_case(const std::string& input) {
     std::string output;
     for (char c : input) {
         if (std::isalpha(c)) {
@@ -15,7 +15,7 @@ int flip_case(const std::string& input) {
             output += static_cast<char>(c);
         }
     }
-    return 0;
+    return output;
 }
 
 int main() {
