@@ -1,20 +1,17 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
-    std::vector<std::string> result;
-    for (const auto& word : words) {
-        if (word.find(substring) != std::string::npos) {
-            result.push_back(word);
-        }
+bool same(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (const auto& word : v1) {
+        if (std::find(v2.begin(), v2.end(), word) == v2.end())
+            return false;
     }
-    return result;
+    return true;
 }
 
 int main() {
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    set<string> actualSet(result.begin(), result.end());
-    set<string> expectedSet = {"grunt", "prune"};
-    bool same = (actualSet == expectedSet);
+    bool result = same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"});
     return 0;
 }
