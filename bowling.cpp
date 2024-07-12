@@ -1,34 +1,39 @@
-int scoreBowlRound(const string& bowls) {
+int getScore(string input) {
     int score = 0;
     int frame = 0;
-    int ball = 0;
-    vector<int> frames(10, 0);
+    int rolls[22] = {0};
 
-    for(int i=0; i<bowls.size(); i++) {
-        if(bowls[i] == 'X') {
-            frames[frame] = 10 + (i+1 < bowls.size() ? 
-                (bowls[i+1] == 'X' ? 10 : 
-                    (isdigit(bowls[i+1]) ? bowls[i+1]-'0' : 10)) : 0) +
-                (i+2 < bowls.size() ? 
-                    (bowls[i+2] == 'X' ? 10 : 
-                        (isdigit(bowls[i+2]) ? bowls[i+2]-'0' : 10)) : 0);
-            frame++;
-        } else if(bowls[i] == '/') {
-            frames[frame] = 10 + (isdigit(bowls[i+1]) ? bowls[i+1]-'0' : 10);
-            frame++;
-            i++;
-        } else if(isdigit(bowls[i])) {
-            frames[frame] += bowls[i] - '0';
-            ball++;
-            if(ball % 2 == 0) {
-                frame++;
-            }
+    for(char c : input) {
+        if(c == 'X') {
+            rolls[frame++] = 10;
+        } else if(c == '/') {
+            rolls[frame-1] = 10 - rolls[frame-1];
+        } else if(c == '-') {
+            rolls[frame++] = 0;
+        } else {
+            rolls[frame++] = c - '0';
         }
     }
 
-    for(int i=0; i<10; i++) {
-        score += frames[i];
+    for(int i = 0; i < 10; ++i) {
+        if(rolls[i*2] == 10) {
+            score += 10 + rolls[i*2+2] + rolls[i*2+3];
+            if(rolls[i*2+2] == 10) {
+                score += rolls[i*2+4];
+            }
+        } else if(rolls[i*2] + rolls[i*2+1] == 10) {
+            score += 10 + rolls[i*2+2];
+        } else {
+            score += rolls[i*2] + rolls[i*2+1];
+        }
     }
 
     return score;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << getScore(input) << endl;
+    return 0;
 }
