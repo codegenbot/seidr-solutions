@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -9,7 +10,6 @@ int main() {
     int n2;
     int m2;
 
-    // Read inputs and handle errors
     while (!(std::cin >> n1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -17,7 +17,6 @@ int main() {
         std::cin >> n1;
     }
 
-    // Read inputs and handle errors
     while (!(std::cin >> m2)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -25,7 +24,6 @@ int main() {
         std::cin >> m2;
     }
 
-    // Break the loop if m1 is not read successfully
     if (!(std::cin >> m1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -40,7 +38,6 @@ int main() {
         }
     }
 
-    // Read inputs and handle errors
     while (!(std::cin >> n2)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -51,7 +48,7 @@ int main() {
     if (m2 < m1) {
         std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
     } else {
-        break;
+        return 0;
     }
 
     std::vector<int> lst1;
@@ -99,7 +96,6 @@ int main() {
         std::string result = exchange(lst1, lst2);
         std::cout << result << std::endl;
     }
-    return 0;
 }
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2) {
