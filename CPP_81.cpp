@@ -27,25 +27,25 @@ bool sameLetterGrade(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     int grade = 70;
-    double avgGrade = grade / 100.0;
+    std::vector<std::string> letter_grade = numerical_letter_grade(grade / 100.0);
 
     std::cout << "The student has the letter grade: ";
-    for (const auto& str : numerical_letter_grade(avgGrade)) {
+    for (const auto& str : letter_grade) {
         std::cout << str << " ";
     }
     std::cout << "\n";
 
     int grade2 = 70;
-    double avgGrade2 = grade2 / 100.0;
+    std::vector<std::string> letter_grade2 = numerical_letter_grade(grade2 / 100.0);
 
-    if (sameLetterGrade(numerical_letter_grade(avgGrade), numerical_letter_grade(avgGrade2))) {
+    if (letter_grade == letter_grade2) {
         std::cout << "The two students have the same letter grade.\n";
     } else {
         std::cout << "The two students do not have the same letter grade.\n";
     }
 
-    double average = (0 + 0.7) / 2; // Assuming grades are from 0 to 1
-    std::vector<std::string> letter_grade_avg = numerical_letter_grade(average);
+    int average = (0 + 70) / 2; // Assuming grades are from 0 to 1
+    std::vector<std::string> letter_grade_avg = numerical_letter_grade(average / 100.0);
 
     std::cout << "The students with average grade have the letter grade: ";
     for (const auto& str : letter_grade_avg) {
