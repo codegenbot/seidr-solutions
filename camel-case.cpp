@@ -1,4 +1,3 @@
-```
 int main() {
     std::string str;
     while (std::cin >> str) {
