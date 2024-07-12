@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -19,10 +19,10 @@ int main_function() {
     float a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-    if (is_integer(a, b, c)) 
-        cout << "At least one of the input numbers is an integer.\n";
-    else
+    if (!is_integer(a, b, c)) 
         cout << "None of the input numbers are integers.\n";
+    else
+        cout << "At least one of the input numbers is an integer.\n";
 
     return 0;
 }
