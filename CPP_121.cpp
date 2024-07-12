@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
-#include <iostream>
-#include <initializer_list> 
+#include <iostream> 
 using namespace std;
 
 int solution(vector<int> lst) {
