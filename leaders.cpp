@@ -6,8 +6,7 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
     int maxRight = nums[n - 1];
-    leaders.push_back(maxRight);
-    for (int i = n - 2; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxRight) {
             maxRight = nums[i];
             leaders.push_back(maxRight);
@@ -25,7 +24,6 @@ int main() {
         std::cin >> nums[i];
     }
 
-    std::reverse(nums.begin(), nums.end()); // Reverse the input vector
     std::vector<int> result = findLeaders(nums);
 
     for (int leader : result) {
