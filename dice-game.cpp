@@ -3,17 +3,19 @@
 int main() {
     int n, m;
     std::cin >> n >> m;
-
-    double probability = 0.0;
-    for (double i = 1; i <= n; ++i) {
-        for (double j = 1; j <= m; ++j) {
-            if (i > j) {
-                probability += 1.0 / (n * m);
-            }
+    
+    double total_outcomes = n * m;
+    double favorable_outcomes = 0;
+    
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j < i; ++j) {
+            favorable_outcomes += 1.0;
         }
     }
-
+    
+    double probability = favorable_outcomes / total_outcomes;
+    
     std::cout << probability << std::endl;
-
+    
     return 0;
 }
