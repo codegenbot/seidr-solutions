@@ -16,8 +16,8 @@ int main() {
     extensions.push_back(std::make_pair("Sp", "671235")); 
     extensions.push_back(std::make_pair("Bb", ""));
     
-    for (const auto& ext : extensions) {
-        std::cout << Strongest_Extension(ext) << std::endl;
+    assert(Strongest_Extension({{"Sp", "671235"}}) == "Sp.671235");
+    for (const auto& extension : extensions) {
+        std::cout << Strongest_Extension(extension) << std::endl; 
     }
-    return 0;
 }
