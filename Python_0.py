@@ -1,5 +1,7 @@
-numbers = [int(input()) for _ in range(3)]
-threshold = int(input())
+import sys
+
+numbers = list(map(int, sys.stdin.readline().strip().split()))
+threshold = numbers.pop()
 
 def check_numbers(numbers, threshold):
     numbers.sort()
