@@ -1,21 +1,19 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <limits>
 
 int main() {
     std::string text, target;
     
     std::getline(std::cin, text);
     std::getline(std::cin, target);
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    int targetSize = static_cast<int>(target.size());
+    for (int i = 0; i <= int(text.size()) - targetSize; ++i) {
+        if (text.substr(i, targetSize) == target) {
+            indices.push_back(i);
+        }
     }
     
     for (int i = 0; i < indices.size(); ++i) {
