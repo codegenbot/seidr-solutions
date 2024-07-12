@@ -1,6 +1,5 @@
+```cpp
 #include <iostream>
-#include <cassert>
-
 using namespace std;
 
 bool any_int(float a, float b, float c) {
@@ -11,7 +10,14 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    assert(any_int(3.01, 4, 7) == false);
-    cout << any_int(1.5, 2, 3) << endl;
+    float a, b, c;
+    cout << "Enter three numbers: ";
+    cin >> a >> b >> c;
+
+    if (any_int(a, b, c)) 
+        cout << "At least one of the input numbers is an integer.\n";
+    else
+        cout << "None of the input numbers are integers.\n";
+
     return 0;
 }
