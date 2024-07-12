@@ -1,12 +1,15 @@
-int main() {
-    string str;
-    cin >> str;
-    
-    if (str.length() % 2 == 0) {
-        cout << str.substr(str.length() / 2 - 1, 2);
+string middleCharacter(string s) {
+    int len = s.length();
+    if (len % 2 == 0) {
+        return s.substr(len/2 - 1, 2);
     } else {
-        cout << str[str.length() / 2];
+        return s.substr(len/2, 1);
     }
-    
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << middleCharacter(s) << endl;
     return 0;
 }
