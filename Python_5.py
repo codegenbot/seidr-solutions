@@ -1,5 +1,5 @@
 ```
-def find_max_min_average(numbers: List[int]) -> str:
+def find_max_min_average(numbers):
     if not isinstance(numbers, list):
         return "Error: Input is not a list."
     if not all(isinstance(i, int) for i in numbers):
@@ -9,4 +9,4 @@ def find_max_min_average(numbers: List[int]) -> str:
     min_num = min(numbers)
     average = sum(numbers) / len(numbers)
 
-    return f"""Max: {max_num}, Min: {min_num}, Average: {average}"""
+    return f"Max: {max_num}, Min: {min_num}, Average: {average}"
