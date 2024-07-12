@@ -21,7 +21,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> expected = {111};
-    std::vector<int> actual = strange_sort_list({111});
-    assert(actual == expected);
+    assert({111} == strange_sort_list({111111}));
     return 0;
+}
