@@ -1,11 +1,15 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int digitSum(std::string s) {
     int sum = 0;
-    for (char c : s) {
-        if (c >= '0' && c <= '9') {
-            sum += (c - '0');
+    while (!s.empty()) {
+        if (isdigit(s[0])) { 
+            sum += s[0] - '0';
+            s.erase(0, 1);
+        } else {
+            break; 
         }
     }
     return sum;
