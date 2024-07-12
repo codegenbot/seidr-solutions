@@ -1,4 +1,9 @@
-int prod_signs(vector<int> arr) {
+#include <vector>
+#include <cassert>
+#include <cstdlib>
+#include <initializer_list>
+
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     long long sum = 0;
 
@@ -15,4 +20,5 @@ int prod_signs(vector<int> arr) {
     }
 
     return product * sum;
+
 }
