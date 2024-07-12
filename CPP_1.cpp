@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,7 +28,7 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string paren_string = "( ) (( )) (( )( )";
+    string paren_string = "( ) (( )) (( )( ))";
     vector<string> result = separate_paren_groups(paren_string);
 
     for (string s : result) {
