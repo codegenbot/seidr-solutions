@@ -32,8 +32,18 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    if (!issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), 
-               {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}))
-        std::cout << "Test failed";
-    else
-        std::cout << "Test passed";
+    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    std::vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
+    if (!issame(sort_even(input), expected)) {
+        for (float num : input) {
+            std::cout << num << " ";
+        }
+        std::cout << "\n";
+        return 1;
+    } else {
+        for (float num : sort_even(input)) {
+            std::cout << num << " ";
+        }
+        std::cout << "\n";
+    }
+}
