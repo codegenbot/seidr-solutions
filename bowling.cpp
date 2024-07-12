@@ -1,7 +1,6 @@
 #include <iostream>
-using namespace std;
 
-int score(string s) {
+int score(std::string s) {
     int total = 0;
     int frame = 0;
     for (int i = 0; i < s.size(); i++) {
@@ -21,14 +20,14 @@ int score(string s) {
             }
             frame++;
         }
-        if (frame == 10) break;
+        if (frame == 9) break;
     }
     return total;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << score(s) << std::endl;
     return 0;
 }
