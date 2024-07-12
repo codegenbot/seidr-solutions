@@ -13,17 +13,15 @@ std::vector<int> findLeaders(std::vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    reverse(leaders.begin(), leaders.end());
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
 int main() {
-    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
-    std::vector<int> result = findLeaders(nums);
-    
-    for (int leader : result) {
+    std::vector<int> nums = {5, 3, 15, 10, 8, 2, 25, 10};
+    std::vector<int> leaders = findLeaders(nums);
+    for (int leader : leaders) {
         std::cout << leader << " ";
     }
-    
     return 0;
 }
