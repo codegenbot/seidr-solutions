@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -10,10 +11,11 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     float a, b, c;
-    string s; 
     cout << "Enter three numbers: ";
+    string s; 
     cin >> a >> b >> c;
     s = to_string(a) + " " + to_string(b) + " " + to_string(c);
+    
     if (any_int(a, b, c)) 
         cout << "At least one of the input numbers is an integer.\n";
     else
