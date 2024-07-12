@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -7,7 +8,7 @@ bool issame(std::vector<std::string> a) {
         return true;
     }
     for (const auto& str : a) {
-        if (!str.empty() && *std::next(a.begin(), 0) != str) {
+        if (!issame({str})) {
             return false;
         }
     }
