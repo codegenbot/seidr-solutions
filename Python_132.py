@@ -3,6 +3,8 @@ def is_nested(string):
     for char in string:
         if char == '[':
             stack.append(char)
-        elif char == ']' and stack:
+        elif char == ']' and stack and stack[-1] == '[':
             stack.pop()
+        else:
+            return False
     return not stack
