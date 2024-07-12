@@ -33,27 +33,28 @@ std::vector<int> sort_third(std::vector<int> l) {
             result.push_back(l[i]);
         }
     }
-    return result;
 }
 
 int main() {
-    std::vector<int> l;
+    std::vector<int> v;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for(int i=0; i<n; i++) {
-        int x;
-        std::cout << "Enter element "<<i+1<<":";
-        std::cin >> x;
-        l.push_back(x);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        int num;
+        std::cin >> num;
+        v.push_back(num);
     }
-    std::vector<int> result = sort_third(l);
-    if(result.size() > 0) {
-        for(int i=0; i<result.size(); i++) {
-            std::cout << "Element "<<i+1<<": " << result[i] <<std::endl;
+    std::vector<int> res = sort_third(v);
+    if (!issame(v, res)) {
+        std::cout << "After sorting: ";
+        for (int j : res) {
+            std::cout << j << " ";
         }
+        std::cout << std::endl;
     } else {
-        std::cout<<"The array is empty."<<std::endl;
+        std::cout << "The array is already sorted." << std::endl;
     }
     return 0;
 }
