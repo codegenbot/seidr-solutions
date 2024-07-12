@@ -2,10 +2,12 @@
 #include <vector>
 
 bool is_sorted(const std::vector<int>& lst) {
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
-            return false;
-        }
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
+    
+    if (std::adjacent_find(sorted_lst.begin(), sorted_lst.end()) != sorted_lst.end()) {
+        return false;
     }
-    return true;
+    
+    return std::is_sorted(lst.begin(), lst.end());
 }
