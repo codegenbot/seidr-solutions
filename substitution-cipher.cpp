@@ -1,33 +1,17 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string decipher(string cipherText, string key) {
     string decrypted = "";
-    string cipherMap(key);
     for (int i = 0; i < cipherText.length(); i++) {
-        int j = 0;
-        while (j < key.length()) {
-            if (cipherText[i] == cipherMap[j]) {
-                decrypted += key.substr(j, 1);
+        bool found = false;
+        for (int j = 0; j < key.length(); j++) {
+            if (key[j] == cipherText[i]) {
+                decrypted += key[(key.find(key[j])) % key.length()];
+                found = true;
                 break;
             }
-            j++;
+        }
+        if (!found) {
+            decrypted += cipherText[i];
         }
     }
     return decrypted;
-}
-
-int main() {
-    string key, cipherText, plainText;
-    cout << "Enter the first string: ";
-    cin >> key;
-    cout << "Enter the second string: ";
-    cin >> cipherText;
-    cout << "Enter the third string: ";
-    cin >> plainText;
-    cout << "Decrypted message: " << decipher(plainText, key) << endl;
-    return 0;
 }
