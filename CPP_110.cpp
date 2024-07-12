@@ -5,7 +5,7 @@
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
 
 int main() {
-    int n1;
+    long n1;
     while (!(std::cin >> n1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -13,7 +13,7 @@ int main() {
         std::cin >> n1;
     }
 
-    int m1 = 0;
+    long m1 = 0;
     while (!(std::cin >> m1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -54,7 +54,8 @@ int main() {
     }
 
     int m = m2; 
-    std::vector<int> lst1;
+    std::vector<int> lst1 = std::vector<int>();
+    lst1.resize(n1);
     for (int i = 0; i < n1; i++) {
         int temp = -1;
         while (temp == -1) {
@@ -69,12 +70,13 @@ int main() {
             }
         }
         if (temp != 0) {
-            lst1.push_back(temp);
+            lst1[i] = temp;
         }
     }
 
     int m = m2; 
-    std::vector<int> lst2;
+    std::vector<int> lst2 = std::vector<int>();
+    lst2.resize(m);
     for (int i = 0; i < m; i++) {
         int temp = -1;
         while (temp == -1) {
@@ -89,7 +91,7 @@ int main() {
             }
         }
         if (temp != 0) {
-            lst2.push_back(temp);
+            lst2[i] = temp;
         }
     }
 
