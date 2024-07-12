@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -13,3 +14,5 @@ def all_prefixes(string: str) -> List[str]:
             temp_result.append(prefix + char)
         result = temp_result
     return result
+
+print(all_prefixes("abc"))
