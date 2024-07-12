@@ -1,23 +1,18 @@
 ```
-from typing import Tuple
-
-def sum_product() -> Tuple[int, int]:
+def sum_product() -> tuple:
     total_sum = 0
     product = 1
-    numbers = []
+    user_input = int(input("Enter a number: "))
 
     while True:
-        user_input = input("Enter a number (or 'stop' to finish): ")
-
-        if user_input.lower() == 'stop':
+        if str(user_input).lower() == 'stop':
             break
         elif user_input.isdigit():
-            num = int(user_input)
-            total_sum += num
-            product *= num
-            numbers.append(num)
+            total_sum += user_input
+            product *= user_input
         else:
             print("Invalid input. Please enter a digit or type 'stop' to finish.")
+        user_input = int(input("Enter a number (or 'stop' to finish): "))
 
     return total_sum, product
 
