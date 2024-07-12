@@ -4,34 +4,28 @@
 #include <string>
 
 std::string camelCase(std::string str) {
-    std::string result = "";
-    std::vector<char> temp;
-    for (const auto& word : str) {
-        if (word == '-' || word == ' ') {
-            for (auto c : temp) {
-                if (!result.empty()) {
-                    result += std::toupper(c);
-                } else {
-                    result += c;
-                }
-            }
-            temp.clear();
-            if (word == '-') {
-                result += word;
-            } else {
-                temp.push_back(word);
-            }
-        } else {
-            temp.push_back(word);
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
+        } else if (start < i) {
+            words.push_back(str.substr(start, i - start));
+            start = i;
         }
     }
-    for (auto c : temp) {
+
+    std::string result;
+    for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
-            result += std::toupper(c);
+            result += std::toupper(words[i][0]);
+            result += words[i].substr(1);
         } else {
-            result += c;
+            result += words[i];
         }
     }
+
     return result;
 }
 
