@@ -4,30 +4,20 @@ def calculate_bowling_score(input_str):
     rolls = list(input_str.replace("-", "0"))
 
     for i in range(len(rolls)):
-        if rolls[i] == "X":
+        if rolls[i] == "X" or rolls[i] == "/":
             score += 10
-            if frame < 10 and i < len(rolls) - 2:
-                score += int(rolls[i + 1]) if rolls[i + 1] != "/" else 10
-                if rolls[i + 1] == "/":
-                    score += 10 - int(rolls[i])
+            if frame < 10 and rolls[i] != "/":
+                score += sum(int(rolls[j]) for j in range(i + 1, i + 3) if rolls[j] != "/")
                 frame += 1
         elif rolls[i] == "/":
             score += 10 - int(rolls[i - 1])
-            if frame < 10 and i < len(rolls) - 2:
+            if frame < 10 and rolls[i] != "/":
                 score += int(rolls[i + 1])
                 if rolls[i + 1] == "/":
                     score += 10 - int(rolls[i])
                 frame += 1
         else:
             score += int(rolls[i])
-            if frame < 10 and i < len(rolls) - 2:
-                if rolls[i + 1] == "X":
-                    score += 10
-                    if rolls[i + 2] == "/":
-                        score += 10 - int(rolls[i + 1])
-                    else:
-                        score += int(rolls[i + 1]) + int(rolls[i + 2])
-                frame += 1
 
     return score
 
