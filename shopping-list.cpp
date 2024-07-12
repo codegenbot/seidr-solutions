@@ -23,8 +23,6 @@ int main() {
         total_price += prices[i] - round(prices[i] * discounts[i] / 10000) * 100;
     }
 
-    cout << fixed;
-    cout.precision(2);
     cout << total_price << endl;
 
     return 0;
