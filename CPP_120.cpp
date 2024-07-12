@@ -12,10 +12,8 @@ int mainProblemCPP120() {
     for(int i=0; i<3; i++) {
         vec1.push_back(i+1);
     }
-    std::vector<int> vec2(3); 
-    for(int i=0; i<3; i++) {
-        vec2[i] = i+1;
-    }
+    std::vector<int> vec2(3, 1); 
+    std::iota(vec2.begin(), vec2.end(), 1);
     
     if (issame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
