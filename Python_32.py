@@ -7,8 +7,5 @@ def find_zero(xs: list):
     return b / a
 
 
-# Input list of numbers from user
 xs = list(map(int, input().split()))
-
-# Call function and output result
 print(find_zero(xs))
