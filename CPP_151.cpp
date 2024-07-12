@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 int double_the_difference(const std::vector<float>& numbers) {
     int sum = 0;
@@ -23,8 +23,8 @@ float odd_sum(const std::vector<float>& numbers) {
 }
 
 int main() {
-    std::vector<float> lst({1.0f, 2.0f, 3.0f});
+    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
     int main_result = double_the_difference(lst);
-    assert(main_result == odd_sum(lst)); 
+    assert(main_result == static_cast<int>(odd_sum(lst))); 
     return 0;
 }
