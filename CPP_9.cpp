@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,4 +13,13 @@ vector<int> rolling_max(vector<int> numbers) {
     }
     return result;
 
+}
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 2, 3, 4, 2};
+    vector<int> result = rolling_max(numbers);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
