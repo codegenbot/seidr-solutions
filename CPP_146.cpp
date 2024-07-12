@@ -1,25 +1,24 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
-    int count = 0;
     std::vector<int> nums;
-    int num;
-
-    // Input numbers from user until -1 is entered.
+    int count;
+    
+    std::cout << "Enter numbers (enter 'q' to finish): ";
     while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
-        if (num == -1)
-            break;
+        char input;
+        std::cin >> input;
+        if (input == 'q') break;
+        
+        int num;
+        cin >> num;
         nums.push_back(num);
     }
-
+    
     count = specialFilter(nums);
-
-    std::cout << "Number of numbers filtered: " << count << "\n";
-
+    std::cout << "Number of special numbers: " << count << std::endl;
+    
     return 0;
 }
 
