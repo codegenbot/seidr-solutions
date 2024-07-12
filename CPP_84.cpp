@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -19,5 +18,6 @@ int main() {
     } else {
         cout << solve(N) << endl;
     }
+    // assert (solve(963) == "10010"); 
     return 0;
 }
