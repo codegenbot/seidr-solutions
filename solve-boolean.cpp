@@ -9,18 +9,17 @@ int main() {
     
     bool result = false;
     
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'T') {
+    for (int i = 0; i < input.size(); i += 2) {
+        if (input[i] == 't' || input[i] == 'T') {
             result = true;
-        } else if (input[i] == 'F') {
+        } else if (input[i] == 'f' || input[i] == 'F') {
             result = false;
         }
         
-        if (i + 1 < input.size() && input[i + 1] == '|') {
-            // handle OR operation
+        if (result || (i + 1 < input.size() && input[i + 1] == '|')) {
+            continue;
         } else if (i + 1 < input.size() && input[i + 1] == '&') {
-            // handle AND operation
-            i++; // Skip the operator
+            i++;
         } else {
             break;
         }
