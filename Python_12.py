@@ -1,2 +1,3 @@
-str_list = [input("Enter the first string: ") for _ in range(2)]
-print(max(str_list, key=len))
+string1 = input().strip()
+string2 = input().strip()
+print(max(string1, string2, key=len))
