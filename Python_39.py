@@ -1,1 +1,1 @@
-n = int(input())  # Read input without prompt
+n = int(input("Enter a number: "))  # Read input with prompt
