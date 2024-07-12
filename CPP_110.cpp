@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
 
 int main() {
-    int n1;
+    long n1;
     while (!(std::cin >> n1)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
@@ -13,39 +12,51 @@ int main() {
         std::cin >> n1;
     }
 
-    int m1 = n1;
-    int n2 = m1; 
-    while (!(std::cin >> n2)) {
-        std::cout << "Invalid input. Please enter a positive integer: ";
-        std::cin.clear();
-        std::cin.ignore();
-        std::cin >> n2;
-    }
-
-    if (n2 < m1) {
-        std::cout << "You need to enter " << m1 - n2 << " more elements.\n";
-    } else {
-        int temp = -1;
-        while (temp == -1) {
-            std::cout << "Enter the number of elements in lst2: ";
-            try {
-                std::cin >> temp;
-            } catch (...) {
-                std::cout << "Invalid input. Please enter a positive integer: ";
-                std::cin.clear();
-                std::cin.ignore();
-                std::cin >> temp;
-            }
-        }
-
-        if (temp < m1) {
-            std::cout << "You need to enter " << m1 - temp << " more elements.\n";
+    bool isValidM1 = false;
+    long m1 = 0;
+    while (!isValidM1) {
+        if (!(std::cin >> m1)) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore();
         } else {
-            return 0;
+            isValidM1 = true;
         }
     }
 
-    int m = n2; 
+    long n2, m2;
+    n2 = m1; 
+    bool isValidM2 = false;
+    while (!isValidM2) {
+        if (!(std::cin >> m2)) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore();
+        } else {
+            isValidM2 = true;
+        }
+    }
+
+    int temp = -1;
+    while (temp == -1) {
+        std::cout << "Enter the number of elements in lst2: ";
+        try {
+            std::cin >> temp;
+        } catch (...) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore();
+            std::cin >> temp;
+        }
+    }
+
+    if (temp < m1) {
+        std::cout << "You need to enter " << m1 - temp << " more elements.\n";
+    } else {
+        return 0;
+    }
+
+    int m = m2; 
     std::vector<int> lst1;
     for (int i = 0; i < n1; i++) {
         int temp = -1;
@@ -65,7 +76,7 @@ int main() {
         }
     }
 
-    int m = n2; 
+    int m = m2; 
     std::vector<int> lst2;
     for (int i = 0; i < m; i++) {
         int temp = -1;
