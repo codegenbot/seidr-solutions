@@ -1,19 +1,27 @@
-```c++
+```
 #include <iostream>
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expression) {
     bool andOperation = true;
     bool result = true;
+
     for (char c : expression) {
         if (c == '|') {
-            andOperation = false;
-        } else if (c == '&') {
             andOperation = true;
-        } else {
-            result = (andOperation ? (result & (c == 't')) : (result | (c == 't')));
+            result = true;
+        } else if (c == '&') {
+            andOperation = false;
+            result = true;
+        } else if (c != 't' && c != 'f') {
+            if (andOperation) {
+                result &= (c == 't');
+            } else {
+                result |= (c == 't');
+            }
         }
     }
+
     return result;
 }
 
