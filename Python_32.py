@@ -9,7 +9,6 @@ def find_zero(xs: list):
             break
     return -xs[-1] / xs[i]
 
-
-coefficients_str = input("Enter the list of coefficients separated by spaces: ")
-coefficients_list = [int(x) for x in coefficients_str.split()]
-print(find_zero(coefficients_list))
+input_list = list(map(int, input().split()))
+result = find_zero(input_list)
+print(result)
