@@ -1,7 +1,6 @@
 def cycpattern_check(a, b):
-    a = a + a
     for i in range(len(a)):
-        temp = a[i:] + a[:i]
-        if b in temp:
+        temp = a[i:][::-1] + a[:i]
+        if sorted(temp) == sorted(b):
             return True
     return False
