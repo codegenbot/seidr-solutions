@@ -10,7 +10,7 @@ int flip_case(const std::string& input) {
         } else if (islower(c)) {
             output += toupper(c);
         } else {
-            output += c;
+            output += c;  // Changed this line
         }
     }
     return 0;
