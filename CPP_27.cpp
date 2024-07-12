@@ -1,7 +1,6 @@
 #include <cassert>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 std::string filp_case(const std::string& str) {
     std::string result = "";
