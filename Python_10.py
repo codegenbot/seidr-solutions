@@ -10,4 +10,3 @@ def make_palindrome(string: str) -> str:
             half = string[:i+1]
             second_half = string[i:]
             return half + second_half[::-1]
-    return string
