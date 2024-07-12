@@ -1,7 +1,3 @@
-```
-from typing import List
-
-
 def below_zero() -> None:
     while True:
         temperature_list = list(map(int, input("Enter temperatures separated by space: ").split()))
