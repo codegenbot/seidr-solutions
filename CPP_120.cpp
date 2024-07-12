@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(int a, int b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -20,7 +20,7 @@ int main() {
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
     
-    if (issame(*vec1.rbegin(), *vec2.rbegin())) { // Compare last elements
+    if (issame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
     } else {
         int max = maximum(vec1);
