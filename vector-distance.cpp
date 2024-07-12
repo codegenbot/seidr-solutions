@@ -18,10 +18,6 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    double val1, val2;
-    for (int i = 0; i < n; i++) {
-        cin >> val1 >> val2; // Read two vectors
-    }
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
 }
