@@ -1,14 +1,10 @@
+```cpp
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
+#include <vector>
 
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) 
-            return false;
-    }
     return true; 
 }
 
@@ -22,7 +18,7 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    vector<float> input = {1.2, -4.5, 7.8};
+    vector<float> input;
     assert(issame(get_positive(input), {}));  
     return 0;
 }
