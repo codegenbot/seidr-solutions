@@ -1,24 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
+#include <cassert>
 
-int double_the_difference(std::vector<double> lst) {
-    if (lst.empty()) {
-        std::cerr << "Error: Input vector is empty." << std::endl;
-        return -1;
+int double_the_difference(const std::vector<double>& input_vector) {
+    int odd_sum = 0;
+    for (double x : input_vector) {
+        if (std::floor(x + 0.5) != x)
+            odd_sum += static_cast<int>(x * 2);
     }
-    double odd_sum = 0;
-    for (double num : lst) {
-        if (num % 2 != 0) {
-            odd_sum += num;
-        }
-    }
-    return std::abs(odd_sum - std::accumulate(lst.begin(), lst.end(), 0.0));
+    return odd_sum;
 }
 
 int main() {
     std::vector<double> input_vector = {1.0, 2.0, 3.0};
-    int result = double_the_difference(input_vector);
-    assert(result == 5); 
+    int result = double_the_difference(input_vector); 
+    assert(result == 5);
     return 0;
 }
