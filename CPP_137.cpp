@@ -1,8 +1,4 @@
-#include <iostream>
-#include <any>
-#include <string>
-#include <boost/any.hpp> // Include the header for boost::any_cast
-#include <cassert>
+#include <boost/any.hpp>  // Include the header for boost::any_cast
 
 std::any compare_one(std::any a, std::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)) {
