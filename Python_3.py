@@ -6,6 +6,7 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
+
 # Read input from the user
 operations = list(map(int, input().split()))
 
