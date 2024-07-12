@@ -3,7 +3,7 @@
 #include <cmath>
 #include <sstream>
 
-double calculateEuclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
+double calculateEuclideanDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
     double sum = 0.0;
     for (size_t i = 0; i < vec1.size(); ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
@@ -14,16 +14,24 @@ double calculateEuclideanDistance(const std::vector<double>& vec1, const std::ve
 int main() {
     size_t n;
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
-    std::vector<double> vec1(n);
-    std::vector<double> vec2(n);
+    std::vector<float> vec1(n);
+    std::vector<float> vec2(n);
     
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::stringstream ss(input);
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+        ss >> vec1[i];
     }
 
+    std::getline(std::cin, input);
+    ss.str(input);
+    ss.clear();
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        ss >> vec2[i];
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
