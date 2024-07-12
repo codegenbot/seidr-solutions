@@ -2,9 +2,9 @@
 #include <stack>
 
 int precedence(char op) {
-    if (op == '&') return 3; // Higher precedence for '&'
-    if (op == '|') return 2;
-    return 1;
+    if (op == '|') return 2; 
+    if (op == '&') return 1; // Update '&' precedence to be higher
+    return 0;
 }
 
 bool evaluateBooleanExpression(const std::string& expression) {
