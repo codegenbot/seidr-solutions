@@ -3,31 +3,19 @@
 #include <vector>
 
 bool evaluateBooleanExpression(const std::string& expression) {
-    std::vector<char> stack;
+    bool result = true;
 
     for (char c : expression) {
-        if (c == 'T' || c == 'F') {
-            stack.push_back(c);
-        } else if (c == '&') {
-            char operand1 = stack.back();
-            stack.pop_back();
-            char operand2 = stack.back();
-            stack.pop_back();
-            if ((operand1 == 'T' || operand1 == 'F') && (operand2 == 'T' || operand2 == 'F')) {
-                stack.push_back((operand1 == 'T' && operand2 == 'T') ? 'T' : 'F');
-            }
+        if (c == 'T') result = true;
+        else if (c == 'F') result = false;
+        else if (c == '&') {
+            result = result && true;
         } else if (c == '|') {
-            char operand1 = stack.back();
-            stack.pop_back();
-            char operand2 = stack.back();
-            stack.pop_back();
-            if ((operand1 == 'T' || operand1 == 'F') && (operand2 == 'T' || operand2 == 'F')) {
-                stack.push_back((operand1 == 'T' || operand2 == 'T') ? 'T' : 'F');
-            }
+            result = result || false;
         }
     }
 
-    return stack[0] == 'T';
+    return result;
 }
 
 int main() {
