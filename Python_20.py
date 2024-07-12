@@ -1,4 +1,4 @@
-numbers = [float(x) for x in input().strip().split(",")]
+numbers = [float(x) for x in input("Enter numbers separated by commas: ").split(",")]
 
 def find_closest_elements(numbers):
     sorted_numbers = sorted(numbers)
