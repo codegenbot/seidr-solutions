@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int solve(int N) {
     int sum = 0;
@@ -13,5 +14,5 @@ int solve(int N) {
 int main() {
     int N;
     std::cin >> N;
-    std::cout << solve(N) << std::endl;
+    std::cout << std::to_string(solve(N)) << std::endl;
 }
