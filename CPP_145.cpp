@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> order_by_points(vector<int> nums) {
+vector<int> order_by_points(const vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         auto sumDigits = [](int num) {
             return accumulate(to_string(abs(num)).begin(), to_string(abs(num)).end(), 0,
@@ -23,4 +23,7 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
-order_by_points(vector<int>{0,6,6,-76,-21,23,4});
+int main() {
+    vector<int> result = order_by_points(vector<int>({0,6,6,-76,-21,23,4}));
+    return 0;
+}
