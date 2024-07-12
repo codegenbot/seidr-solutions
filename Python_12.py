@@ -1,7 +1,8 @@
 ```
+from typing import Optional
+
+
 def longest_common_substring(str1: str, str2: str) -> Optional[str]:
-    if not str1 or not str2:
-        return None
     m = [[0] * (len(str2) + 1) for _ in range(len(str1) + 1)]
     longest, x_longest = 0, 0
     for x in range(1, len(str1) + 1):
@@ -54,17 +55,9 @@ while not set(str1).issubset(
         "7",
         "8",
         "9",
-        "_",
+        "_"
     }
-):
-    print(
-        "Invalid input. Please enter a string that only contains alphanumeric characters and underscores."
-    )
-    str1 = input("Enter the first string: ")
-
-str2 = input("Enter the second string: ")
-
-while not set(str2).issubset(
+) or not set(str2).issubset(
     {
         "a",
         "b",
@@ -102,12 +95,13 @@ while not set(str2).issubset(
         "7",
         "8",
         "9",
-        "_",
+        "_"
     }
 ):
     print(
-        "Invalid input. Please enter a string that only contains alphanumeric characters and underscores."
+        "Invalid input. Please enter strings that only contain alphanumeric characters and underscores."
     )
+    str1 = input("Enter the first string: ")
     str2 = input("Enter the second string: ")
 
 result = longest_common_substring(str1, str2)
