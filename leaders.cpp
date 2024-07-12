@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -24,8 +25,12 @@ int main() {
         return res;
     }
 
-    int main() {
-        vector<int> leaders(vector<int>& arr);
-    }
+    // Testing the function
+    vector<int> test = {16,17,4,3,2};
+    vector<int> result = leaders(test);
+    
+    for(int i : result)
+        cout << i << endl;
+
     return 0;
 }
