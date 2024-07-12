@@ -1,8 +1,12 @@
-def format_numbers(numbers, delimiter):
-    return delimiter.join(map(str, numbers))
+from typing import List
 
-# Call the function with appropriate inputs
+def format_numbers(numbers: List[int], delimiter: str) -> List[str]:
+    return [str(num) for num in numbers]
+
+def intersperse(numbers: List[int], delimiter: str) -> str:
+    return delimiter.join(format_numbers(numbers, delimiter))
+
 numbers = [1, 2, 3, 4, 5]
 delimiter = ","
-result = format_numbers(numbers, delimiter)
+result = intersperse(numbers, delimiter)
 print(result)
