@@ -2,7 +2,9 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-#include <cctype>
+#include <cctype> 
+
+using namespace std;
 
 std::vector<std::string> split_words(std::string txt);
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
