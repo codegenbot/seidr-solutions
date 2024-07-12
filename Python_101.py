@@ -1,3 +1,2 @@
-```
 def words_string(s):
-    return s.replace(",", " ").split()
+    return ' '.join([word.capitalize() for word in s.split()])
