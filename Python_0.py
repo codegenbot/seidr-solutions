@@ -38,10 +38,6 @@ else:
             print("Invalid input. Please enter a valid number.")
 
     if not has_close_elements(numbers, threshold):
-        print(
-            f"The numbers {', '.join(map(str, numbers))} have close elements for the given threshold {threshold}."
-        )
+        print(f"The numbers {', '.join(map(str, numbers))} have close elements for the given threshold {threshold}.")
     else:
-        print(
-            f"The numbers {', '.join(map(str, numbers))} do not have close elements for the given threshold {threshold}."
-        )
+        print(f"The numbers {', '.join(map(str, numbers))} do not have close elements for the given threshold {threshold}."
