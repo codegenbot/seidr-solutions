@@ -9,5 +9,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_depth = max(max_depth, current_depth)
         elif char == ")":
             current_depth -= 1
-        levels.append(max_depth)
+    levels.append(max_depth)
     return levels
+
+# Example usage
+parse_nested_parens("((()))")
