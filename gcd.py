@@ -5,7 +5,6 @@ def gcd(a, b):
     return abs(a)
 
 
-# test cases
 print(gcd(1, 1))  
 print(gcd(4, 400000))  
 print(gcd(54, 24))  
