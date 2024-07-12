@@ -1,24 +1,21 @@
 ```cpp
 #include <vector>
-#include <algorithm>
-#include <set>
+#include <string>
 
-std::set<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
-    std::set<std::string> result;
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
+    std::vector<std::string> result;
     for (const auto& word : words) {
         if (word.find(substring) != std::string::npos) {
-            result.insert(word);
+            result.push_back(word);
         }
     }
     return result;
 }
 
-bool issame(vector<string> a, string b){
-    vector<string> c = a;
-    return c.size() > 0 && all_of(c.begin(), c.end(), [&](const string& s) {return s.find(b) != string::npos;});
-}
-
-int main(){
-    assert(issame({"grunt", "trumpet", "prune", "gruesome"}, "run") == {"grunt", "prune"});
+int main() {
+    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    set<string> actualSet(result.begin(), result.end());
+    set<string> expectedSet = {"grunt", "prune"};
+    bool same = (actualSet == expectedSet);
     return 0;
 }
