@@ -4,9 +4,14 @@ def fibfib(n: int):
     elif n == 2:
         return 1
     else:
-        total_sum = 0
         a, b = 0, 1
-        while b <= n:
-            total_sum += a if a % 2 == 0 else 0
+        total_sum = 0
+        seen = {0, 1}  
+        while True:
+            if b % 2 == 0 and b not in seen:  
+                total_sum += b
+                seen.add(b)  
             a, b = b, a+b
+            if b > n:
+                break
         return total_sum
