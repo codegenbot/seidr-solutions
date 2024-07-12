@@ -1,15 +1,12 @@
-```
 import random
 
 def make_palindrome() -> str:
     while True:
-        s = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(3))
-        if is_palindrome(s):
+        length = random.randint(1, 1000)
+        s = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(length))
+        if s == s[::-1]:
             break
     return s
-
-def is_palindrome(s: str) -> bool:
-    return s == s[::-1]
 
 result = make_palindrome()
 print(result)
