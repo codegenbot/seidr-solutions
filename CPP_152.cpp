@@ -45,5 +45,6 @@ int main() {
         for(auto x:res)cout << x << " ";
         cout << endl; 
     }
+    cout << compare(1, 2) << " " << compare(1, -1) << endl;
     return 0;
 }
