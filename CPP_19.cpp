@@ -17,6 +17,10 @@ map<string, int> num_map = {
 
 string sort_numbers(string numbers);
 
+int main() {
+    // Main function implementation here
+}
+
 string sort_numbers(string numbers){
     vector<string> num_list;
     stringstream ss(numbers);
