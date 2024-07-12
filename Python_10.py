@@ -5,12 +5,9 @@ def make_palindrome(string: str) -> str:
     if is_palindrome(string):
         return string
     n = len(string)
-    new_string = "#" + "#".join(list(string)) + "#"
+    palindrome_part = "#" * (len(string) // 2)
+    new_string = palindrome_part + string[::-1] + palindrome_part
     while not is_palindrome(new_string):
-        palindrome_part = "#" * (len(string) // 2)
-        new_string = palindrome_part + string[::-1] + palindrome_part
-    palindrome = ""
-    for i in range(len(new_string) - 1):
-        if (i < n) or ((2 * n - 1) > i >= n and i % 2 != 0):
-            palindrome += new_string[i]
-    return palindrome
+        new_string = palindrome_part + new_string[-(n+1):][:-1] + palindrome_part
+        n += 1
+    return new_string[len(palindrome_part)*2 - 1:]
