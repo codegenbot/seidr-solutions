@@ -1,4 +1,3 @@
-```
 def calculate_average_and_median():
     while True:
         user_input = input("Enter numbers separated by space: ")
