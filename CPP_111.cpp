@@ -1,8 +1,4 @@
-#include <map>
-#include <vector>
-#include <string>
-#include <set>
-#include <initializer_list>
+```cpp
 #include <cassert>
 
 using namespace std;
@@ -16,8 +12,8 @@ bool issameInt(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
     return true;
 }
 
-map<pair<char,int>, bool> histogram(string test) {
-    map<pair<char,int>, bool> result;
+map<pair<char,int>, int> histogram(string test) {
+    map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
     set<char> letters(test);
@@ -28,14 +24,30 @@ map<pair<char,int>, bool> histogram(string test) {
         }
         for(int i=0; i<count; i++) {
             pair<char,int> p = make_pair(c, i);
-            result[p] = true;
+            result[p] = 1;
         }
     }
 
-    return result;
+    map<pair<char,int>, int> maxCountMap;
+    int maxCount = 0;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            maxCountMap.clear();
+            for (const auto& p : result) {
+                if (p.second == maxCount) {
+                    maxCountMap[p.first] = p.second;
+                }
+            }
+        } else if (pair.second == maxCount) {
+            maxCountMap[pair.first] = pair.second;
+        }
+    }
+
+    return maxCountMap;
 }
 
 int main() {
     map<pair<char, int>, bool> maxCountMap = histogram("a");
-    assert(issameInt(maxCountMap, {{make_pair('a',1),true},{make_pair('b',2),false}}));
+    assert(issameInt(maxCountMap, {{make_pair('a', 1), true}, {make_pair('b', 2), false}}));
 }
