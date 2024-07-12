@@ -23,7 +23,5 @@ int main() {
         numbers.push_back(num);
     }
     
-    int result = count_nums(numbers);
-    std::cout << result;
-    return 0;
+    return count_nums(numbers);
 }
