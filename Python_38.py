@@ -1,15 +1,17 @@
 def decode_cyclic(s: str):
+    if not all(char.isupper() for char in s):
+        return "Input should contain only uppercase letters"
+    
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
     groups = [
         (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
     ]
     return "".join(groups)
 
-while True:
-    input_string = input("Enter a string: ").strip()
-    if len(input_string) >= 3:
-        result = decode_cyclic(input_string)
-        print(result)
-        break
-    else:
-        print("Input should have a length of at least 3. Please try again.")
+
+input_string = input("Enter a string: ").strip()
+if len(input_string) >= 3:
+    result = decode_cyclic(input_string)
+    print(result)
+else:
+    print("Input should have a length of at least 3. Please try again.")
