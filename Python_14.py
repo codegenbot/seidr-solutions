@@ -2,9 +2,10 @@ from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    result = []
-    for i, char in enumerate(string):
-        for j in range(i + 1):
-            result.append(string[j : i + 1])
-    result.sort()
-    return result
+    result = [""]
+    for char in string:
+        temp_result = []
+        for prefix in result:
+            temp_result.append(prefix + char)
+        result = temp_result
+    return sorted(result)
