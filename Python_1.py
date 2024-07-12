@@ -23,4 +23,4 @@ for char in paren_string:
         separated_groups.append(current_group)
         current_group = ""
 
-print(separated_groups)
+separated_groups
