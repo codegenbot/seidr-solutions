@@ -12,5 +12,6 @@ bool any_int(float a, float b, float c) {
 
 int main() {
     assert(any_int(3.01, 4, 7) == false);
+    cout << any_int(1.5, 2, 3) << endl;
     return 0;
 }
