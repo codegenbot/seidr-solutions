@@ -1,10 +1,11 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+#define c++11
 
-# define c++11
+using namespace std;
 
 string kebabToCamel(string str) {
     string result = "";
