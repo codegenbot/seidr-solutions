@@ -24,10 +24,11 @@ int do_algebra(std::vector<int> operators, std::vector<int> operands) {
 
 int main() {
     std::vector<int> operators;
+    std::vector<int> operands;
+
     operators.push_back(1);
     operators.push_back(2);
 
-    std::vector<int> operands;
     operands.push_back(7);
     operands.push_back(3);
     operands.push_back(4);
