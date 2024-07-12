@@ -1,32 +1,37 @@
 int main() {
+    vector<int> input;
     int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    while (cin >> n) {
+        input.push_back(n);
     }
     
-    int min_diff = INT_MAX;
-    int cut_point = -1;
-    
-    for (int i = 1; i < n; ++i) {
-        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_point = i;
-        }
+    int sum = 0;
+    for (int num : input) {
+        sum += num;
     }
     
-    for (int i = 0; i < cut_point; ++i) {
-        cout << nums[i] << endl;
+    int halfSum = sum / 2;
+    int currSum = 0;
+    int idx = 0;
+    
+    while (currSum <= halfSum) {
+        currSum += input[idx];
+        idx++;
     }
     
-    cout << endl;
+    if (abs(currSum - halfSum) < abs(currSum - halfSum - input[idx])) {
+        idx--;
+    }
     
-    for (int i = cut_point; i < n; ++i) {
-        cout << nums[i] << endl;
+    vector<int> firstHalf(input.begin(), input.begin() + idx);
+    vector<int> secondHalf(input.begin() + idx, input.end());
+    
+    for (int num : firstHalf) {
+        cout << num << endl;
+    }
+    
+    for (int num : secondHalf) {
+        cout << num << endl;
     }
     
     return 0;
