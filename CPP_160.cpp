@@ -34,4 +34,3 @@ int main() {
     int result = do_algebra(operators, operands);
     std::cout << "The final result is: " << result << std::endl;
     return 0;
-}
