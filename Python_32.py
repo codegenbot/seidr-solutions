@@ -1,17 +1,15 @@
 def find_zero(xs: list):
-    """xs are coefficients of a polynomial.
-    find_zero find x such that poly(x) = 0.
-    find_zero returns only only zero point, even if there are many.
-    Moreover, find_zero only takes list xs having even number of coefficients
-    and largest non zero coefficient as it guarantees
-    a solution.
-    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x
-    -0.5
-    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3
-    1.0
-    """
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    x = -a / b
-    return x
+    if n % 2 == 1:
+        return None
+    a = abs(max(xs, key=abs))
+    b = abs(min(xs, key=abs))
+    lo = -1
+    hi = max(a, b) + 1
+    while hi - lo > 1e-9:
+        mid = (lo + hi) / 2
+        if poly(xs, mid) < 0:
+            lo = mid
+        else:
+            hi = mid
+    return round((lo + hi) / 2, 9)
