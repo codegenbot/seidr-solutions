@@ -16,7 +16,7 @@ int main() {
             black++;
         } else {
             codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++; // Change '--' to '++'
+            ++guessFreq[guess[i] - 'A']; // Changed '--' to '++'
         }
     }
     
