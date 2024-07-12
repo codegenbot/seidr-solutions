@@ -1,2 +1,7 @@
 def Strongest_Extension(extension, extensions_list):
-    return extension + '.' + max(extensions_list) if extension in extensions_list else extension
+    if extension not in extensions_list:
+        return extension
+    extension_index = extensions_list.index(extension)
+    if extension_index == 0:
+        return f"{extension}.{extensions_list[extension_index]}"
+    return f"{extension}.{extensions_list[extension_index-1]}"
