@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -51,7 +52,6 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 int main() {
     std::vector<int> arr = {9, 4, 8};
     std::vector<std::string> result = by_length(arr);
-    std::vector<std::string> b = {"Nine", "Four", "Eight"};
-    assert(issame(result, b));
+    assert(issame(result, std::vector<std::string>{ "Nine", "Eight", "Four" }));
     return 0;
 }
