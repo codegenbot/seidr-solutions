@@ -6,6 +6,6 @@ def sort_numbers():
             print(sorted_numbers)
             break
         except ValueError:
-            print("Invalid input. Please enter valid numbers separated by spaces.")
+            print("Invalid input. Please enter space-separated numbers.")
 
 sort_numbers()
