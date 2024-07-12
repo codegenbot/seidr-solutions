@@ -1,5 +1,3 @@
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -7,21 +5,16 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     for char in paren_string:
         if char == "(":
+            if stack:
+                current_group += char
             stack.append("(")
         elif char == ")":
+            stack.pop()
+            if not stack:
+                result.append(current_group)
+                current_group = ""
+        else:
             if stack:
-                stack.pop()
-                if not stack:
-                    result.append(current_group)
-                    current_group = ""
-        elif stack:
-            current_group += char
-
-    if current_group:
-        result.append(current_group)
+                current_group += char
 
     return result
-
-paren_string = input("Enter a string with parentheses: ")
-result = separate_paren_groups(paren_string)
-print(result)
