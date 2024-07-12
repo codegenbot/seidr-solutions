@@ -1,15 +1,24 @@
-bool check_dict_case(map<string,string> dict){
-    bool allLower = true;
-    bool allUpper = true;
+Here is the completed code:
 
-    for(auto& pair : dict) {
-        if(dict.empty()) return false; // Check if map is empty
-        string key = pair.first;
-        if(!allLower && !allUpper) break; // If both conditions are not met, stop checking
+bool check_dict_case(map<string, string> dict) {
+    if (dict.empty()) return false;
 
-        if(allLower && !islower(key[0])) allLower = false; // Check if first character of the key is lowercase
-        if(allUpper && !isupper(key[0])) allUpper = false; // Check if first character of the key is uppercase
+    bool all_lower = true;
+    bool all_upper = true;
+
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        string key = it->first;
+        for (char& c : key) {
+            if (!islower(c)) {
+                all_lower = false;
+                break;
+            }
+            if (!isupper(c)) {
+                all_upper = false;
+                break;
+            }
+        }
     }
 
-    return allLower || allUpper;
+    return all_lower || all_upper;
 }
