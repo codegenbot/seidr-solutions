@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cassert>
+#include <string>
 
 int count_nums(int* nums, int size) {
     int count = 0;
@@ -34,8 +35,11 @@ int main() {
 
     int* nums = new int[size];
     for (int i = 0; i < size; i++) {
-        std::cout << "Enter integer # " << std::to_string(i+1) << ": ";
-        std::cin >> nums[i];
+        std::string str;
+        std::cout << "Enter integer # " << i+1 << ": ";
+        std::cin >> std::ws;
+        std::getline(std::cin, str);
+        nums[i] = std::stoi(str);
     }
 
     int count = count_nums(nums, size);
