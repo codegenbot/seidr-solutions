@@ -1,4 +1,2 @@
-import sys
-string1 = sys.stdin.readline().rstrip()
-string2 = sys.stdin.readline().rstrip()
+string1, string2 = input().strip().split()
 print(max(string1, string2, key=len))
