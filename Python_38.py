@@ -1,6 +1,7 @@
 ```
 def decode_cyclic():
-    s = input("Enter the string: ")
+    print("Enter the string: ")
+    s = input()
     result = ""
     i = 0
     while i < len(s):
