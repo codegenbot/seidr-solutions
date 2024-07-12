@@ -3,4 +3,4 @@ target = input("Enter the target string: ")
 
 indices = [i for i in range(len(text) - len(target) + 1) if text[i: i + len(target)] == target]
 
-print(indices if indices else [0])
+print(indices if target and indices else [0])
