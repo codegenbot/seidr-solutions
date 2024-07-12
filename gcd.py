@@ -5,6 +5,11 @@ def gcd(a, b):
     return abs(a)
 
 
+text = input()
+target = input()
+
+print(find_indices(text, target))
+
 def find_indices(text, target):
     indices = []
     start = 0
@@ -15,9 +20,3 @@ def find_indices(text, target):
         indices.append(pos)
         start = pos + 1
     return indices
-
-
-a = int(input())
-b = int(input())
-print(gcd(a, b))
-print(find_indices(input(), input()))
