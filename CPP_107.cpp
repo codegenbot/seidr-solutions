@@ -34,16 +34,3 @@ vector<int> even_odd_palindrome(int n) {
 
     return result;
 }
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-
-    vector<int> result = even_odd_palindrome(n);
-
-    cout << "Even palindrome count: " << result[0] << endl;
-    cout << "Odd palindrome count: " << result[1] << endl;
-
-    return 0;
-}
