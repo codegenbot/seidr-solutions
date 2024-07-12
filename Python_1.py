@@ -22,4 +22,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 stack.pop()
     result.append("".join(groups))
 
-    return [group for group in map(str, filter(None, [result]))]
+    return [group for group in map(str, filter(None, result))]
