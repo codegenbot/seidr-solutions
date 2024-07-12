@@ -10,27 +10,24 @@ def parse_music(music_string: str) -> list:
         if not music_string[i : i + 1].isalnum():
             return []
 
-        if music_string[i : i + 2] == "o|":
+        if music_string[i:i+2] == "o|":
             music_list.append(2)
             i += 2
-        elif music_string[i : i + 3] == "| .|":
+        elif music_string[i:i+3] == "| .|":
             music_list.append(1)
             i += 3
-        elif music_string[i : i + 5] == "..|.||.|":
+        elif music_string[i:i+5] == "..|.||.|":
             music_list.append(0.5)
             i += 5
-        elif music_string[i : i + 2] == "o o":
-            if (
-                not music_string[i + 1].isalnum()
-                or not music_string[i + 1 : i + 2] == "|"
-            ):
+        elif music_string[i:i+2] == "o o":
+            if not music_string[i+1].isalnum() or not music_string[i+1:i+2] == "|":
                 return []
             music_list.append(4)
             i += 2
-        elif music_string[i : i + 3] == "o o|":
+        elif music_string[i:i+3] == "o o|":
             music_list.append(4)
             i += 3
-        elif music_string[i : i + 2] == "o o|":
+        elif music_string[i:i+2] == "o o|":
             music_list.append(4)
             i += 2
 
@@ -40,10 +37,12 @@ def parse_music(music_string: str) -> list:
     return music_list
 
 
-main = True
-while main:
-    input_str = input("Enter a music string (or 'q' to quit): ")
-    if input_str.lower() == 'q':
-        main = False
-    else:
-        print(parse_music(input_str))
+while True:
+    try:
+        input_str = input("Enter a music string: ")
+        if not isinstance(input_str, str):
+            raise Exception
+        break
+    except Exception:
+        print("Invalid input. Please enter a string.")
+print(parse_music(input_str))
