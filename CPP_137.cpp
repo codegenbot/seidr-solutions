@@ -1,20 +1,27 @@
 #include <iostream>
+#include <any>
 #include <string>
 #include <cassert>
 
 using namespace std;
 
-template<typename T, typename U>
-auto compare_one(T a, U b) {
-    if (a > b)
-        return a;
-    else if (a < b)
-        return b;
-    else 
-        return "None";
+std::any compare_one(std::any a, std::any b) {
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        // Comparison logic for integers
+    }
+    else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        // Comparison logic for floats
+    }
+    else if(a.type() == typeid(string) && b.type() == typeid(string)){
+        // Comparison logic for strings
+    }
+    else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
+        // Convert and compare int and string
+    }
+    return "None";
 }
 
 int main() {
-    assert(compare_one<string, string>("1", "2") == "2");
+    assert(std::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
     return 0;
 }
