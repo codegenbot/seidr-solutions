@@ -1,4 +1,3 @@
-
 from typing import List, Tuple
 
 def get_user_input() -> List[int]:
