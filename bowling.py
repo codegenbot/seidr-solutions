@@ -18,7 +18,7 @@ def bowling_score(bowls):
             bowl_index += 2
         else:
             score += int(bowls[bowl_index]) if bowls[bowl_index].isdigit() else 0
-            score += 10 - int(bowls[bowl_index]) if bowls[bowl_index + 1] == "/" else int(bowls[bowl_index + 1]) if bowls[bowl_index + 1].isdigit() else 0
+            score += int(bowls[bowl_index + 1]) if bowls[bowl_index + 1].isdigit() else 0
             bowl_index += 2
 
     return score
