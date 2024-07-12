@@ -1,16 +1,14 @@
 #include <iostream>
+#include <any>
 #include <string>
-#include <cassert>
+#include <typeinfo>
 
-std::string compare_one(std::string a, std::string b) {
-    if (a == b) {
-        return "Equal";
-    } else {
-        return "Not Equal";
-    }
+std::any compare_one(std::any a, std::any b) {
+    // Add your comparison logic here
+    return std::any("None");
 }
 
 int main() {
-    assert(compare_one("1", "1") == "Equal");
+    assert(std::any_cast<const char*>(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).c_str()) == typeid(const char*)); // Corrected assert statement
     return 0;
 }
