@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -16,6 +17,6 @@ std::vector<std::string> by_length(const std::vector<std::string>& vec) {
 }
 
 int main() {
-    assert(issame(by_length({{"Nine"}, {"Eight"}, {"Four"}}), {{"Nine"}, {"Eight"}, {"Four"}}));
+    assert(issame(by_length({{"Nine"}, {"Eight"}, {"Four"}}), std::vector<std::string>{"Nine", "Eight", "Four"}) );
     return 0;
 }
