@@ -1,5 +1,3 @@
-Here is the solution:
-
 def decode_cyclic(s: str):
     result = ""
     temp = ""
@@ -9,5 +7,5 @@ def decode_cyclic(s: str):
             result += temp[1] + temp[0]
             temp = ""
     if temp:
-        result += temp
+        result += temp[1] + temp[0]
     return result
