@@ -20,7 +20,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             return sum + (c - '0');
         });
         if (sumA == sumB) {
-            return a < b;
+            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
         } else {
             return sumA < sumB;
         }
