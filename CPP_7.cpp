@@ -1,5 +1,4 @@
 ```cpp
-#include <bits/c++config.h>
 #include <vector>
 #include <string>
 
@@ -17,11 +16,4 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     return result;
 }
 
-int main() {
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    set<string> actualSet(result.begin(), result.end());
-    set<string> expectedSet = {"grunt", "prune"};
-    bool same = (actualSet == expectedSet);
-    assert(same == (issame({result.begin(), result.end()}, expectedSet)));
-    return 0;
-}
+assert(issame({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").begin(), filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").end()}, {"grunt", "prune"}));
