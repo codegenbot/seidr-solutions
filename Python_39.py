@@ -20,7 +20,6 @@ def prime_fib():
         if is_prime(fibonacci(i)):
             count += 1
         i += 1
-    return fibonacci(i - 1)
+    print(fibonacci(i - 1))
 
-result = prime_fib()
-print(result)
+prime_fib()
