@@ -8,7 +8,6 @@ int main() {
 
     int n;
     while (cin >> n || !cin.eof()) {
-        if (cin.eof()) break;
         nums.push_back(n);
     }
     
