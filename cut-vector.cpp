@@ -6,6 +6,8 @@
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
+    
+    std::sort(vec.begin(), vec.end(), std::greater<int>()); // Sort in descending order
 
     int n = vec.size();
     int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
