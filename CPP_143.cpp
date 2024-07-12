@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <vector>
 using namespace std;
 
 bool is_prime(int n) {
@@ -11,21 +10,19 @@ bool is_prime(int n) {
     return true;
 }
 
-std::vector<std::string> split(const std::string& str, const char* delim) {
+vector<string> split(const string& str, const char* delim) {
     size_t pos = 0;
-    std::vector<std::string> tokens;
-    while ((pos = str.find(delim)) != std::string::npos) {
-        const char* token = str.substr(0, pos).c_str();
-        tokens.push_back(std::string(token));
+    vector<string> tokens;
+    while ((pos = str.find(delim)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + strlen(delim));
     }
-    const char* token = str.c_str();
-    tokens.push_back(std::string(token));
+    tokens.push_back(str);
     return tokens;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::string result;
+string words_in_sentence(string sentence) {
+    string result;
     size_t strLen = sentence.size();
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
@@ -37,5 +34,6 @@ std::string words_in_sentence(std::string sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == "is");
+    cout << words_in_sentence("hello world") << endl;
     return 0;
 }
