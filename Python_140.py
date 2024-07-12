@@ -1,4 +1,4 @@
-```
+```Python
 def fix_spaces(text):
     new_text = ''
     for char in text:
