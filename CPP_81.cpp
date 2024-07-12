@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -52,8 +51,8 @@ vector<string> numerical_letter_grade(initializer_list<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {0.0, 0.7};
+    vector<float> grades = {3.2, 0.7};
     vector<string> result = numerical_letter_grade({grades});
-    assert(checkSame(vector<string>(result.begin(), result.end())) == vector<string>{"E", "D-" });
+    assert(checkSame(vector<string>(result.begin(), result.end())) == vector<string>{"B-", "D-" });
     return 0;
 }
