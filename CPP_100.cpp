@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int>& a, std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -22,6 +22,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>{1,3,5,7,9,11,13,15}) );
+    assert(isSame(make_a_pile(8), std::vector<int>{1,3,5,7,9,11,13,15}) );
     return 0;
 }
