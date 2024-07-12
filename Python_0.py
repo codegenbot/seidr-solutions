@@ -1,2 +1,3 @@
-result = 10 + 20
+n = int(input())
+result = n * (n + 1) // 2
 print(result)
