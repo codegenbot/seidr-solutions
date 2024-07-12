@@ -9,4 +9,7 @@ def simplify(x, n):
     x_gcd = gcd(x_num, x_denom)
     n_gcd = gcd(n_num, n_denom)
 
-    return str(x_num//x_gcd) == str(n_num//n_gcd)
+    new_x_num, new_x_denom = x_num//x_gcd, x_denom//x_gcd
+    new_n_num, new_n_denom = n_num//n_gcd, n_denom//n_gcd
+
+    return str(new_x_num) + "/" + str(new_x_denom) == str(new_n_num) + "/" + str(new_n_denom)
