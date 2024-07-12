@@ -9,7 +9,6 @@ def find_zero(xs: list):
             break
     return -xs[-1] / xs[i]
 
-numbers = input("Enter numbers separated by spaces: ")
-numbers_list = list(map(int, numbers.split()))
-result = find_zero(numbers_list)
+input_list = list(map(int, input().split()))
+result = find_zero(input_list)
 print(result)
