@@ -1,8 +1,10 @@
-```cpp
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
-int next_smallest(vector<int> lst){
+int next_smallest(vector<int> lst) {
     if(lst.size() < 2) return -1; 
     sort(lst.begin(), lst.end());
     for(int i = 0; i < lst.size() - 1; i++){
@@ -11,6 +13,7 @@ int next_smallest(vector<int> lst){
     return -1; 
 }
 
-int main(){
+int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
 }
