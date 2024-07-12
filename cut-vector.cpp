@@ -1,41 +1,30 @@
 int main() {
     int n;
     cin >> n;
+    
     vector<int> nums(n);
-    int total = 0;
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
-        total += nums[i];
     }
     
-    int half = total / 2;
-    int sum = 0;
-    int idx = -1;
-    for (int i = 0; i < n; ++i) {
-        sum += nums[i];
-        if (sum >= half) {
-            idx = i;
-            break;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    for (int i = 0; i < n - 1; ++i) {
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i + 1, 0) - accumulate(nums.begin() + i + 1, nums.end(), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    if (sum == half) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
+    for (int i = 0; i <= cut_index; ++i) {
+        cout << nums[i] << endl;
+    }
+    for (int i = cut_index + 1; i < n; ++i) {
+        if (i == cut_index + 1) {
+            cout << endl;
         }
-        cout << "0" << endl;
-    } else {
-        if (abs(2 * sum - total) < abs(2 * (sum - nums[idx]) - total)) {
-            for (int i = 0; i <= idx; ++i) {
-                cout << nums[i] << endl;
-            }
-            cout << "0" << endl;
-        } else {
-            for (int i = 0; i <= idx; ++i) {
-                cout << nums[i] << endl;
-            }
-            cout << nums[idx] << endl;
-        }
+        cout << nums[i] << endl;
     }
     
     return 0;
