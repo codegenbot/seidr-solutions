@@ -4,12 +4,10 @@ def indices_of_substring():
     
     indices = []
     i = 0
-    while i < len(text) - len(target) + 1:
-        if text[i:].startswith(target):
+    while i < len(text):
+        if text[i:i+len(target)] == target:
             indices.append(i)
-            i += len(target)
-        else:
-            i += 1
+        i += 1
 
     return indices
 
