@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,4 +16,3 @@ int main() {
     cin >> num;
     cout << (is_prime(num) ? "True" : "False") << endl;
     return 0;
-}
