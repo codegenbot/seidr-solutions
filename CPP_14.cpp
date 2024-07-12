@@ -3,22 +3,32 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> all_prefixes(string str) {
-    vector<string> prefixes;
-    for (int i = 1; i <= str.length(); i++) {
-        prefixes.push_back(str.substr(0, i));
+std::vector<std::string> all_prefixes(const std::string& str){
+    std::vector<std::string> result;
+    std::string prefix = "";
+    for (char c : str) {
+        prefix += c;
+        result.push_back(prefix);
     }
-    return prefixes;
+    return result;
 }
 
-int main() {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+  
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main(){
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    cout << "Test passed!" << endl;
+    
     return 0;
 }
