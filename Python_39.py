@@ -6,14 +6,18 @@ def prime_fib(n):
             if num % i == 0:
                 return False
         return True
-    
-    fib = [0, 1]
-    while len(fib) <= n:
-        fib.append(fib[-1] + fib[-2])
-    
-    prime_fib_list = [num for num in fib if is_prime(num)]
-    return prime_fib_list
 
-n = int(input().strip())
+    def is_fib(num):
+        return (5 * num * num + 4) ** 0.5 % 1 == 0 or (5 * num * num - 4) ** 0.5 % 1 == 0
+
+    count = 0
+    i = 2
+    while count < n:
+        if is_prime(i) and is_fib(i):
+            count += 1
+        i += 1
+    return i - 1
+
+n = int(input())
 result = prime_fib(n)
 print(result)
