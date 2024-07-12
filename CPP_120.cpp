@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +17,8 @@ int mainProblemCPP120() {
     if (issame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
     } else {
-        std::cout << "Vectors are not the same." << std::endl;
+        int max_element = *std::max_element({1, 2, 3, -23, 243, -400, 0}.begin(), ({1, 2, 3, -23, 243, -400, 0}).end());
+        std::cout << "Maximum element in the vector is: " << max_element << std::endl;
     }
     
     return 0;
