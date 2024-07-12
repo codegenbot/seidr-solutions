@@ -1,4 +1,6 @@
 def by_length(arr):
-    sorted_arr = sorted([num for num in arr if 1 <= num <= 9])
-    reversed_arr = sorted_arr[::-1]
-    return [str(i) + "o" if i < 5 else str(i) + "n" for i in reversed_arr]
+    result = sorted([str(i) for i in arr if 1 <= i <= 9])
+    return [names[int(i) - 1] for i in reversed(result)]
+
+
+names = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
