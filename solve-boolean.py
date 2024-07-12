@@ -1,6 +1,23 @@
 def solve_boolean(expression):
-    mapping = {'T': 'True', 'F': 'False'}
-    return eval(''.join(mapping.get(c, c) for c in expression))
+    stack = []
+    for char in expression:
+        if char == "T":
+            stack.append(True)
+        elif char == "F":
+            stack.append(False)
+        elif char == "&":
+            if len(stack) < 2:
+                return "Invalid expression"
+            op1 = stack.pop()
+            op2 = stack.pop()
+            stack.append(op1 and op2)
+        elif char == "|":
+            if len(stack) < 2:
+                return "Invalid expression"
+            op1 = stack.pop()
+            op2 = stack.pop()
+            stack.append(op1 or op2)
+    return stack[0]
 
-input_expression = input()
-print(solve_boolean(input_expression))
+expression = input().strip()
+print(solve_boolean(expression))
