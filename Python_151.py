@@ -1,7 +1,7 @@
 ```
 def double_the_difference(lst):
-    odd_nums = [num for num in lst if num % 2 != 0]
-    return sum([i ** 2 for i in odd_nums]) * 2
+    positive_odd_numbers = [x**2 for x in lst if x > 0 and x % 2 != 0]
+    return sum(2*y for y in positive_odd_numbers)
 
 def check(lst):
     result = double_the_difference(lst)
