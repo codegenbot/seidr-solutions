@@ -1,3 +1,4 @@
+```
 def solve():
     while True:
         N = input("Please provide a binary number: ")
@@ -5,5 +6,6 @@ def solve():
             return bin(int(N, 2))[2:]
         print("Invalid Input. Please provide a binary number.")
 
-result = solve()
-print(result)
+if __name__ == '__main__':
+    result = solve()
+    print(result)
