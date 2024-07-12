@@ -1,3 +1,8 @@
-input_string = input("Enter a string consisting only of lowercase alphabets: ").strip()
-decoded_string = decode_shift(input_string)
-print(decoded_string)
+def decode_shift(s):
+    decoded = ""
+    for char in s:
+        if char.isalpha():
+            decoded += chr((ord(char) - 97 + 25) % 26 + 97)
+        else:
+            decoded += char
+    return decoded
