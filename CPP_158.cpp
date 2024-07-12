@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
-string find_max(initializer_list<string> words){
+string find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
@@ -18,7 +17,6 @@ string find_max(initializer_list<string> words){
 }
 
 int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
-    vector<string> words = {"play", "play", "play"};
+    vector<string> words = {"play"};
     string result = find_max(words);
 }
