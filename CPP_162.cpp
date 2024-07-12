@@ -1,6 +1,4 @@
-#include "CryptoPP/sha.h"
-#include <string>
-#include <iomanip>
+#include "sha.h"
 
 using namespace std;
 using namespace CryptoPP;
