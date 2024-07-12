@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     try:
         return abs(gcd(b, a % b)) if b else a
