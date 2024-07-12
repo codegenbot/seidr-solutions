@@ -1,10 +1,12 @@
 from fractions import Fraction
 
-
 def simplify():
     x = float(input("Enter numerator: "))
     y = float(input("Enter denominator: "))
-    return y != 0 and Fraction(x, y) == 1
 
+    if y == 0:
+        return "Error: Denominator cannot be zero"
+    else:
+        return str(Fraction(x,y)) 
 
 print(simplify())
