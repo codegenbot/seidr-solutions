@@ -1,5 +1,5 @@
-```cpp
 #include <initializer_list>
+
 #include <vector>
 #include <string>
 
@@ -50,4 +50,3 @@ int main() {
     }
 
     return 0;
-}
