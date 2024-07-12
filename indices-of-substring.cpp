@@ -1,12 +1,18 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 int main() {
     std::string text, target;
-
+  
     std::getline(std::cin, text);
     std::getline(std::cin, target);
+
+    if (text.size() < target.size()) {
+        std::cout << "0";
+        return 0;
+    }
 
     std::vector<int> indices;
 
