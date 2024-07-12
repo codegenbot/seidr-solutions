@@ -3,6 +3,8 @@
 #include <cassert>
 #include <algorithm>
 
+using namespace std;
+
 vector<string> split_words(string txt);
 bool issame(vector<string> a, vector<string> b);
 
@@ -39,5 +41,5 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words(""), { "0" }));
 }
