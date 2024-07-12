@@ -4,9 +4,10 @@
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& v, const std::string& substr) {
     std::vector<std::string> result;
-    for (const auto& s : v) {
-        if (s.find(substr) != std::string::npos)
-            result.push_back(s);
+    for (const auto& str : v) {
+        if (str.find(substr) != std::string::npos) {
+            result.push_back(str);
+        }
     }
     return result;
 }
