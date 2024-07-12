@@ -16,28 +16,32 @@ int main() {
     std::vector<int> lst1;
     for (int i = 0; i < n1; i++) {
         int temp;
-        std::cout << "Enter element of lst1: ";
-        std::cin >> temp;
-        lst1.push_back(temp);
-    }
-    std::cout << "Enter the number of elements to fill lst2: ";
-    while (true) {
-        std::cin >> m1;
-        if(m1 >= 0)
-            break;
-        else{
+        while (!(std::cin >> temp) || temp < 0) {
             std::cout << "Please enter a positive integer: ";
             std::cin.clear();
             std::cin.ignore(10000, '\n');
+            std::cin >> temp;
         }
+        lst1.push_back(temp);
+    }
+    std::cout << "Enter the number of elements to fill lst2: ";
+    while (!(std::cin >> m1) || m1 < 0) {
+        std::cout << "Please enter a positive integer: ";
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        std::cin >> m1;
     }
     int m;
     m = m2; // Store the value in m
     std::vector<int> lst2;
     for (int i = 0; i < m; i++) {
         int temp;
-        std::cout << "Enter element of lst2: ";
-        std::cin >> temp;
+        while (!(std::cin >> temp) || temp < 0) {
+            std::cout << "Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            std::cin >> temp;
+        }
         lst2.push_back(temp);
     }
     std::string result = exchange(lst1, lst2);
