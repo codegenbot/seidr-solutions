@@ -10,4 +10,4 @@ def encode(message):
         else:
             encoded_message += char
 
-    return encoded_message.lower()  # Ensure the output is in lowercase
+    return encoded_message
