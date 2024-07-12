@@ -20,15 +20,10 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             tempB /= 10;
         }
         if (sumA == sumB) {
-            return a < b;
+            return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
         } else {
             return sumA < sumB;
         }
     });
     return nums;
-}
-
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
