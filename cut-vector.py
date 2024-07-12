@@ -1,8 +1,10 @@
-arr = list(map(int, input("Enter a list of positive integers separated by space: ").split()))
-cut_index = arr.index(min(arr, key=lambda x: abs(sum(arr) - 2 * sum(arr[: arr.index(x) + 1])))
-if cut_index == len(arr) - 1:
-    cut_index -= 1
-subvector1 = arr[:cut_index + 1]
-subvector2 = arr[cut_index + 1:]
-print("Subvector 1:", subvector1)
-print("Subvector 2:", subvector2)
+arr = list(map(int, input().split()))
+
+if not arr:
+    print("Input vector is empty.")
+else:
+    split_index = min(range(1, len(arr)), key=lambda x: abs(sum(arr[:x]) - sum(arr[x:])))
+    subvector1 = arr[:split_index]
+    subvector2 = arr[split_index:]
+    print("Subvector 1:", subvector1)
+    print("Subvector 2:", subvector2)
