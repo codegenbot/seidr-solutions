@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
     
@@ -31,14 +32,14 @@ int main() {
     }
     
     for (int i = 0; i < idx; i++) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
     
     for (int i = idx; i < nums.size(); i++) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
     
     return 0;
 }
