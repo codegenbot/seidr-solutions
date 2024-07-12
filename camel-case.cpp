@@ -7,22 +7,12 @@ std::string kebabToCamelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            if (capitalize) {
-                result += toupper(s[++i] - 1);
-                capitalize = false;
-            } else {
-                result += ' ';
-                capitalize = true;
-            }
-        } else if (c == ' ') { 
-            capitalize = true; 
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            if (capitalize) {
-                result += toupper(c);
-                capitalize = false;
-            } else {
-                result += tolower(c);
-            }
+            result += tolower(c);
         }
     }
 
@@ -32,9 +22,9 @@ std::string kebabToCamelCase(const std::string& s) {
 int main() {
     std::string input;
     while (true) {
-        std::cout << "Enter a string in kebab-case: ";
+        std::cout << "Enter a string in kebab-case (type 'q' to quit): ";
         std::getline(std::cin, input);
-        if (input == "nospaceordash" || input == "two-words" || input == "two words" || input == "all separate words") break;
+        if(input == "q") break;
         std::cout << "Output: " << kebabToCamelCase(input) << '\n';
     }
     return 0;
