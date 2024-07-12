@@ -33,13 +33,9 @@ int main() {
     for (int i = 0; i < cutIdx; ++i) {
         cout << vec[i] << endl;
     }
-    cout << 0 << endl;
-    for (int i = cutIdx; i < n; ++i) {
+    cout << vec[cutIdx] << endl;
+    for (int i = cutIdx + 1; i < n; ++i) {
         cout << vec[i] << endl; 
-        // add extra check to prevent printing the last 0
-        if (i != n-1) {
-            cout << 0 << endl;
-        }
     }
 
     return 0;
