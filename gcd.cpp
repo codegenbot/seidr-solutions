@@ -33,9 +33,7 @@ int main() {
     std::cout << "Enter the text and target separated by a space: ";
     std::getline(std::cin, text);
     
-    std::istringstream iss(text);
-    std::getline(iss, text, ' ');
-    std::getline(iss, target);
+    std::istringstream iss(text + " " + target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
