@@ -1,6 +1,7 @@
 def fruit_distribution(s, n):
     s = s.replace("apples", "0").replace("oranges", "0")
-    parts = s.split()
-    for i in range(len(parts)-1, -1, -1): 
-        if not parts[i].isdigit():
-            return (n // int(parts[i-1])) + 1
+    total = 0
+    for part in s.split():
+        if not part.isdigit():
+            total += int(part)
+    return (-(-total // n))
