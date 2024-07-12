@@ -1,22 +1,31 @@
-Here is the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int result = 0;
-    for (int i = 0; i < n; i++) {
-        int totalWater = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (grid[i][j] == 1) {
-                totalWater++;
+    int rows = grid.size();
+    int cols = grid[0].size();
+    int max_time = 0;
+
+    for (int i = 0; i < rows; i++) {
+        int water = 0;
+        vector<int> col(cols, 0);
+        
+        for (int j = 0; j < cols; j++) {
+            col[j] += grid[i][j];
+            water += grid[i][j];
+        }
+        
+        while (water > 0) {
+            max_time++;
+            
+            for (int j = 0; j < cols; j++) {
+                if (col[j] >= capacity) {
+                    col[j] -= capacity;
+                } else {
+                    break;
+                }
             }
-        }
-        while (totalWater > capacity) {
-            result += capacity;
-            totalWater -= capacity;
-        }
-        if (totalWater > 0) {
-            result += totalWater;
+            
+            water -= capacity * (cols - (count(col.begin(), col.end(), 0)));
         }
     }
-    return result;
+    
+    return max_time;
 }
