@@ -1,6 +1,6 @@
-def sort_third(lst: list[list[int]]) -> list[list[int]]:
+def sort_third(lst: list):
     try:
-        return sorted(lst, key=lambda x: x[2])
+        return sorted(lst, key=lambda x: x[2] if len(x) > 2 else float('inf'))
     except (IndexError, TypeError):
         return []
 
