@@ -12,10 +12,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 start = stack.pop()
                 result.append(paren_string[start:i+1])
-        else:
-            return "Invalid input, only '(' and ')' characters are allowed."
     
-    if stack:
-        return "Invalid input, missing closing brackets."
-    
-    return result
+    return result if len(stack) == 0 else ["Invalid input, parentheses not properly separated."]
+
+input_string = input("Enter a string with parentheses: ")
+output = separate_paren_groups(input_string)
+print(output)
