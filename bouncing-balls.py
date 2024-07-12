@@ -11,4 +11,4 @@ first_bounce_height = float(input("Enter the height after the first bounce: "))
 num_bounces = int(input("Enter the number of bounces: "))
 
 result = calculate_total_distance(starting_height, first_bounce_height, num_bounces)
-print("Total distance traveled across bounces: {:.15f}".format(result))
+print("Total distance traveled across bounces:", result)
