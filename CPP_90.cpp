@@ -1,10 +1,15 @@
-if(lst.size() < 2) {
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2){
         return -1;
     }
-    sort(lst.begin(), lst.end());
-    int secondSmallest = lst[1];
-    if(lst[0] == secondSmallest) {
+    
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    
+    int smallest = sorted_lst[0], second_smallest = sorted_lst[1];
+    if(smallest == second_smallest){
         return -1;
     }
-    return secondSmallest;
+    
+    return second_smallest;
 }
