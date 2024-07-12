@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -8,6 +7,8 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
         if len(result) % 2 == 0:
             result.append(delimiter)
         result.append(num)
-    if len(result) % 2 != 0: 
-        result.pop() # remove the last element which is delimiter
     return result
+
+numbers = [int(num) for num in input("Enter numbers separated by spaces: ").split()]
+delimiter = int(input("Enter the delimiter: "))
+print(intersperse(numbers, delimiter))
