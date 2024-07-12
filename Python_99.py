@@ -6,6 +6,7 @@ def find_closest_number():
             if value != closest_integer:
                 diff = abs(value - closest_integer)
                 print(f"Closest integer: {closest_integer}, Difference: {diff}")
+                print(f"Closest integer: {closest_integer}")  
             else:
                 print(f"Closest integer: {closest_integer}, Difference: 0")
         except ValueError:
