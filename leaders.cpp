@@ -25,7 +25,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 vector<int> result = leaders({16, 17, 4, 3, 5, 2});
-for(int x: result) {
-    cout << x << " ";
+for(int i: result) {
+    cout << i << " ";
 }
 return 0;
