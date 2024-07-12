@@ -9,18 +9,10 @@ int main() {
     
     std::vector<int> indices;
     size_t startPos = 0;
-    size_t pos = text.find(target, startPos);
-    while (pos != std::string::npos) {
+    size_t pos;
+    while ((pos = text.find(target, startPos)) != std::string::npos) {
         indices.push_back(pos);
-        startPos = pos + 1;
-        pos = text.find(target, startPos);
-        if (pos == pos-1 && pos < text.length()) {
-            ++startPos;
-            pos = text.find(target, startPos);
-            if (pos == std::string::npos) {
-                break;
-            }
-        }
+        startPos = pos;
     }
     
     for (size_t i = 0; i < indices.size(); ++i) {
