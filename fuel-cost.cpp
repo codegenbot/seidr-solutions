@@ -8,7 +8,7 @@ int main() {
 
     unsigned long long sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        sum += (nums[i] / 3) - 2;
+        sum += nums[i] / 3 - 2;
     }
 
     cout << sum << endl;
