@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
 
-bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
+bool areEqual(const std::vector<std::string>& a) {
+    if (a.size() != 3) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if ((i == 0 && a[i] != "xxx") || (i == 1 && a[i] != "xxxAAA") || (i == 2 && a[i] != "xxx")) 
+            return false;
     }
     return true;
 }
@@ -19,7 +20,12 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 }
 
-int main() {
-    assert(std::equal(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx").begin(), filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx").end(), {"xxx", "xxxAAA", "xxx"}));
+int test() {
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
+    const std::string prefix = "xxx";
+    std::vector<std::string> output = filter_by_prefix(input, prefix);
+    if (!areEqual(output)) { 
+        return 1;
+    }
     return 0;
 }
