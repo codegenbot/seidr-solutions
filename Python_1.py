@@ -13,9 +13,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(current_group)
                 current_group = ""
-        elif not stack:  # Check if the stack is empty before appending
+        elif not stack:  
             current_group += char
-
+            
     if current_group:
         result.append(current_group)
 
