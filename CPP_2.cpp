@@ -1,4 +1,4 @@
 float truncate_number(float number) {
-    int integerPart = (int)round(number);
-    return float(integerPart);
+    int integerPart = number;
+    return number - integerPart;
 }
