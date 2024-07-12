@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 string flip_case(string str){
@@ -5,9 +9,9 @@ string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            result += toupper(c);
+            result += (c - ('a' - 'A'));
         else if(c >= 'A' && c <= 'Z')
-            result += tolower(c);
+            result += (c - ('A' - 'a'));
         else
             result += c;
     }
