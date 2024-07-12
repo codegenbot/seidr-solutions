@@ -1,23 +1,17 @@
-int i = 0;
-while(i < text.length()){
-    if(text[i] == ' '){
-        if(i+1 < text.length() && text[i+1] == ' '){
-            if(i+2 >= text.length() || text[i+2] != ' '){
-                replace(text.begin(), text.begin()+i+1, '_', 1);
-                i++;
-                while(i+1 < text.length() && text[i+1] == ' '){
-                    text.replace(i+1, 1, "-");
-                    i++;
-                }
+string fix_spaces(string text){
+    string result = "";
+    for(int i=0; i < text.length(); i++){
+        if(text[i] == ' ')
+        {
+            if(i+1 < text.length() && text[i+1] == ' ' && text.find(' ', i+2) != string::npos){
+                while(i+1 < text.length() && text[i+1] == ' ') i++;
+                result += "-";
             }else{
-                i++;
+                result += "_";
             }
-        }else{
-            text.replace(i, 1, "_");
-            i++;
+        } else {
+            result += text[i];
         }
-    }else{
-        i++;
     }
+    return result;
 }
-return text;
