@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <string>
 
-bool checkEquality(const std::string& s, const std::string& c) {
+bool checkEquality(std::string& s) {
     return s == "True";
 }
 
