@@ -1,8 +1,9 @@
 sort(lst.begin(), lst.end());
-int smallest = lst[0];
-for (int num : lst) {
-    if (num > smallest) {
-        return num;
+int prev = lst[0];
+for (int i = 1; i < lst.size(); ++i) {
+    if (lst[i] > prev) {
+        return lst[i];
     }
+    prev = lst[i];
 }
 return -1;
