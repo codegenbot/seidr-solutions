@@ -1,41 +1,43 @@
-int calculateBowlingScore(const string &bowls) {
-    int score = 0;
-    int frame = 0;
-    int throws = 0;
-    vector<int> frameScores(10, 0);
+int score(string s) {
+    int totalScore = 0;
+    int frame = 1;
+    int ball = 0;
+    int rolls[21];
 
-    for (char bowl : bowls) {
-        if (bowl == 'X') {
-            score += 10;
-            if (frame < 9) {
-                score += frameScores[frame + 1] + frameScores[frame + 2];
-                frameScores[frame++] = 10;
-            } else {
-                throws++;
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
             }
-            throws++;
-        } else if (bowl == '/') {
-            score += 10 - frameScores[frame - 1];
-            frameScores[frame++] = 10 - frameScores[frame - 1];
-            throws++;
-        } else if (bowl == '-') {
-            frameScores[frame++] = 0;
+        } else if (c == '/') {
+            rolls[ball-1] = 10 - rolls[ball-2];
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            score += bowl - '0';
-            frameScores[frame] += bowl - '0';
-            if (frame < 9 && frameScores[frame] == 10) {
-                score += bowls[throws + 1] - '0';
-            }
-            throws++;
+            rolls[ball++] = c - '0';
         }
     }
 
-    return score;
+    for (int i = 0; i < 10; ++i) {
+        if (rolls[frame] == 10) {
+            totalScore += 10 + rolls[frame+1] + rolls[frame+2];
+            frame += 1;
+        } else if (rolls[frame] + rolls[frame+1] == 10) {
+            totalScore += 10 + rolls[frame+2];
+            frame += 2;
+        } else {
+            totalScore += rolls[frame] + rolls[frame+1];
+            frame += 2;
+        }
+    }
+
+    return totalScore;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
