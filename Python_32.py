@@ -1,9 +1,5 @@
-Here is the modified code:
-
-```
-# This program solves quadratic equations.
+```python
 import math
-
 def quadratic_equation():
     while True:
         try:
