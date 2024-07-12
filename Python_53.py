@@ -8,15 +8,14 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
             continue
-
+        
         while True:
             try:
                 num2 = int(input("Enter second number: "))
                 print(f"The sum is {add(num1, num2)}")
-                input("Press Enter to continue...")
                 cont = input("Do you want to continue? (y/n): ")
                 if cont.lower() != "y":
-                    break
+                    return  # Exit the program
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
 
