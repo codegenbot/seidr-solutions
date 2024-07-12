@@ -1,11 +1,7 @@
-```
 def shopping_list():
     n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
-
-    if len(prices) != len(discounts):
-        return "Number of items and discounts must be equal"
+    prices = list(map(float, input().split()[:n]))
+    discounts = list(map(float, input().split()[:n]))
 
     total_price = 0
     for i in range(n):

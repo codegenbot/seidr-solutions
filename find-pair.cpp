@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10,7 +11,7 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
         }
         numIndex[nums[i]] = i;
     }
-    return {}; // or throw an exception
+    return {};
 }
 
 int main() {
