@@ -11,3 +11,5 @@ def decode_cyclic() -> str:
     else:
         result = s
     return result
+
+print(decode_cyclic())
