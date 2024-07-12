@@ -1,3 +1,5 @@
+using namespace std;
+
 #include <string>
 
 string remove_vowels(string text){
