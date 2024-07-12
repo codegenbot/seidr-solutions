@@ -7,5 +7,5 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {{0, 0}}; // Return a default value when no matching elements are found
+    return {{0, 0}};
 }
