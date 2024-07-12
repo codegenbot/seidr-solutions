@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,17 +12,11 @@ bool is_prime(int num) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    
-    if(s.size() < 1) {
-        cout << "Error: Input should not be empty." << endl;
+    int num;
+    cin >> num;
+    if(num < 2) {
+        cout << "Error: Input should be greater than or equal to 2." << endl;
     } else {
-        int num = stoi(s);
-        if(num < 2) {
-            cout << "Error: Input should be greater than or equal to 2." << endl;
-        } else {
-            cout << (is_prime(num) ? "True" : "False") << endl;
-        }
+        cout << (is_prime(num) ? "True" : "False") << std::endl;
     }
 }
