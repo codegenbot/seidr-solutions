@@ -5,13 +5,11 @@ int main() {
     for (char c : input) {
         if (c == '-') {
             capitalize = true;
-        } else if (c != ' ') {
-            if (capitalize) {
-                output += toupper(c);
-                capitalize = false;
-            } else {
-                output += c;
-            }
+        } else if (capitalize) {
+            output += toupper(c);
+            capitalize = false;
+        } else {
+            output += c;
         }
     }
     cout << output << endl;
