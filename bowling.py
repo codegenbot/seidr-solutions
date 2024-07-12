@@ -11,7 +11,7 @@ if frame == 9:
                 sum(
                     map(
                         lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0,
-                        bowls[bowl_index + 1 : bowl_index + 3],
+                        bowls[bowl_index + 1 : bowl_index + 4],
                     )
                 )
             )
