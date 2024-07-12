@@ -40,12 +40,8 @@ int main() {
         firstSubvector.push_back(nums[i]);
     }
 
-    if (cutIndex == n - 1) {
-        secondSubvector.push_back(nums[cutIndex]);
-    } else {
-        for (int i = cutIndex; i < n; i++) {
-            secondSubvector.push_back(nums[i]);
-        }
+    for (int i = cutIndex; i < n; i++) {
+        secondSubvector.push_back(nums[i]);
     }
 
     for (int num : firstSubvector) {
