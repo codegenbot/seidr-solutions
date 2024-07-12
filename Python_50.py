@@ -1,4 +1,3 @@
-```
 def decode_shift():
     s = input("Enter an encoded string: ")
     shift = int(input("Enter the shift value: "))
@@ -11,4 +10,5 @@ def decode_shift():
             result += ch
     return result
 
+"""
 print(decode_shift())
