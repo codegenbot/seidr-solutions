@@ -1,5 +1,3 @@
-# Corrected code
-
 #include <iostream>
 #include <iomanip>
 
