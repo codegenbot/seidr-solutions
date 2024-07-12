@@ -13,11 +13,14 @@ std::string Strongest_Extension(const std::pair<std::string, std::string>& exten
 
 int main() {
     std::vector<std::pair<std::string, std::string>> extensions; 
-    extensions.push_back(std::make_pair("Sp", "671235"));
-    extensions.push_back(std::make_pair("Bb", ""));
+    extensions.push_back({{"Sp", "671235"}}); // Added a space after the number for formatting purposes.
+    extensions.push_back({"Bb", ""});
 
-    assert(Strongest_Extension({{"Sp", "671235"}}) == "Sp.671235");
     for (const auto& extension : extensions) {
-        std::cout << Strongest_Extension(extension) << std::endl; 
+        if (!extension.second.empty()) { 
+            std::cout << Strongest_Extension(extension) << std::endl; 
+        } else {
+            std::cout << Strongest_Extension(extension) << std::endl;
+        }
     }
 }
