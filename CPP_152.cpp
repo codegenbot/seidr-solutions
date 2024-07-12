@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
+
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess);
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
