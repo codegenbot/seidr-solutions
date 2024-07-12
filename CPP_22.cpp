@@ -1,14 +1,16 @@
+```cpp
 #include <boost/any.hpp>
+#include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(vector<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::vector<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
         int val = boost::any_cast<int>(value);
-        if (!boost::isNaN(val)) { // handle non-integer cases, e.g., characters to 0
+        if (!boost::iequals(boost::any_cast<std::string>(value), "0")) { // handle non-integer cases
             result.push_back(val);
         }
     }
@@ -16,6 +18,6 @@ vector<int> filter_integers(vector<boost::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
