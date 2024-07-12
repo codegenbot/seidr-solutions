@@ -1,13 +1,12 @@
-```cpp
 #include <initializer_list>
-
-#ifndef __cplusplus
-#define _MSC_VER 1900
-#endif
 
 #include <vector>
 #include <iostream>
 #include <string>
+
+#ifndef __cplusplus
+#define _MSC_VER 1900
+#endif
 
 using namespace std;
 
@@ -20,7 +19,12 @@ string kebabToCamel(string str) {
         } else if (c == ' ') {
             result += " ";
         } else {
-            result += tolower(c);
+            if (!result.empty()) {
+                result[0] = tolower(c);
+            }
+            else {
+                result += tolower(c);
+            }
         }
     }
     return result;
