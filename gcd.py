@@ -3,9 +3,13 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-values = input("Enter two integers separated by space: ")
-if len(values.split()) != 2:
-    print("Invalid input! Please enter exactly two integers.")
-else:
-    a, b = map(int, values.split())
-    print(gcd(a, b))
+def indices_of_substring(text, target):
+    indices = []
+    i = 0
+    while i < len(text):
+        pos = text.find(target)
+        if pos == -1:
+            break
+        indices.append(pos + 1)  
+        i += pos + 1
+    return indices
