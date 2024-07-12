@@ -1,4 +1,3 @@
-
 def check_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
