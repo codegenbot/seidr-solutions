@@ -11,6 +11,7 @@ bool is_prime(int num) {
             return false;
     }
     return true;
+
 }
 
 int main() {

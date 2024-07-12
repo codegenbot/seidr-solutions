@@ -11,11 +11,11 @@ bool is_happy(std::string s) {
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
             sub += s[i+j];
         }
-        std::array<char, 3> arr({sub.begin(), sub.begin() + 2});
+        std::string strArr(sub.begin(), sub.end());
         bool unique = true;
-        for (char c : arr) {
+        for (char c : strArr) {
             int count = 0;
-            for (char a : arr) {
+            for (char a : strArr) {
                 if (a == c)
                     count++;
             }
