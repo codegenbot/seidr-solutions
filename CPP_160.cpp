@@ -1,22 +1,32 @@
-#include <initializer_list>
+#include <vector>
+#include <cmath>
 
-int do_algebra(int operators[], std::initializer_list<int> operands) {
+int do_algebra(std::vector<int> operators, std::vector<int> operands) {
     int result = 0;
-    for (int i = 0; i < sizeof(operators)/sizeof(operators[0]); i++) {
+    for (int i = 0; i < operators.size(); i++) {
         if (operators[i] == 1) {
-            result += *std::next(operands.begin(), i);
+            result += operands[i];
         } else if (operators[i] == 2) {
-            result -= *std::next(operands.begin(), i);
+            result -= operands[i];
         } else if (operators[i] == 3) {
-            result *= *std::next(operands.begin(), i);
+            result *= operands[i];
         } else if (operators[i] == 4) {
-            result = result / *std::next(operands.begin(), i);
+            result = result / static_cast<int>(operands[i]);
         }
     }
     return result;
 }
 
 int main() {
-    int result = do_algebra(new int[] {1, 2}, {7, 3, 4});
+    std::vector<int> operators;
+    for (int i : {1,2}) {
+        operators.push_back(i);
+    }
+    std::vector<int> operands;
+    for (int i : {7,3,4}) {
+        operands.push_back(i);
+    }
+
+    int result = do_algebra(operators, operands);
     return 0;
 }
