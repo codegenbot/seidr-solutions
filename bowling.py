@@ -13,7 +13,7 @@ def bowling_score(bowls):
                 bowl_index += 1
             else:
                 break
-        elif bowls[bowl_index] in ["X", "/"]:
+        elif bowls[bowl_index] == "/" or bowls[bowl_index] == "X":
             score += 10
             if bowls[bowl_index + 2] == "X":
                 score += 10
