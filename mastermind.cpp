@@ -12,8 +12,8 @@ int main() {
     vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
+        if (codeFreq[code[i] - 'A'] > 0 && guessFreq[guess[i] - 'A'] > 0) {
+            white++;
         } else {
             codeFreq[code[i] - 'A']++;
             guessFreq[guess[i] - 'A']++;
@@ -24,7 +24,7 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
 
-    black = 4 - white - black;  
+    black -= white;  
     
     cout << white << endl << black << endl;
     
