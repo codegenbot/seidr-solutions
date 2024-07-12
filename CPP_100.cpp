@@ -1,14 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) = delete;
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    int stones = 1; // Initialize with a value that's likely to cause the problem.
-    while (stones <= n) {
+    int stones = n;
+    while (stones > 0) {
         pile.push_back(stones);
         if (n % 2 == 1) {
             n++;
