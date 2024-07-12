@@ -1,6 +1,5 @@
-#include <cmath>
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 double vectorDistance(int n) {
     double sum = 0;
