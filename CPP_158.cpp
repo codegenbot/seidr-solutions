@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -14,9 +13,4 @@ string find_max(vector<string> words){
             return a.length() > b.length();
         });
     return max_word;
-}
-
-int main() {
-    vector<string> words = {"play"};
-    string result = find_max(words);
 }
