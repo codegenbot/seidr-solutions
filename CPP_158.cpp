@@ -2,9 +2,8 @@
 #include <vector>
 #include <unordered_set>
 #include <cassert>
-using namespace std;
 
-string find_max(vector<string> words);
+using namespace std;
 
 string find_max(vector<string> words){
     string result;
@@ -20,3 +19,5 @@ string find_max(vector<string> words){
     
     return result;
 }
+
+assert(find_max({"play", "play", "play"}) == "play");
