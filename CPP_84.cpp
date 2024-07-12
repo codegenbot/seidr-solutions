@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 int solve(int N) {
@@ -18,5 +19,6 @@ int main() {
     } else {
         cout << solve(N) << endl;
     }
+    assert(solve(963) == 15150);  
     return 0;
 }
