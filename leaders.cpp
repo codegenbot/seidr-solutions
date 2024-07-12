@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <vector>
 using namespace std;
 
@@ -23,7 +23,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input;
+    std::vector<int> input;
     leaders(input);
     return 0;
 }
