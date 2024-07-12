@@ -4,7 +4,7 @@ def sort_third(l: list):
         (
             x
             if i % 3 != 0
-            else sorted((y, j) for j, y in enumerate(l) if y != x and (j - l.index(x)) % 3 != 0)[::-1][0][1]
+            else min([y for y in l if y != x and (i - l.index(y)) % 3 != 0], default=x)
         )
         for i, x in enumerate(l)
     ]
