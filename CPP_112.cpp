@@ -46,4 +46,3 @@ vector<string> reverse_delete(string s, string c) {
 int main() {
     assert(same(reverse_delete("mamma", "mia"), vector<string> {"", "True"}));
     return 0;
-}
