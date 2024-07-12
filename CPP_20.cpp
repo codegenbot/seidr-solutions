@@ -1,4 +1,4 @@
-pair<float, float> closest_pair(const vector<float>& numbers) {
+pair<float, float> findClosestPair(const vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     pair<float, float> result = {numbers[0], numbers[1]};
