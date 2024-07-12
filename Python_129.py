@@ -1,3 +1,2 @@
-```
-def min_length(all_paths):
-    return min(sum(map(int, path.split('/'))) for path in all_paths)
+def min_length(paths):
+    return min(sum(map(int, path)) for path in paths)
