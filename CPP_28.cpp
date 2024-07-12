@@ -7,8 +7,8 @@ string concatenate(vector<string> strings){
         result += s;
     }
     return result;
-}
 
+}
 int main() {
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     return 0;
