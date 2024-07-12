@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -35,11 +36,10 @@ int main() {
         if(num == -1)
             break;
 
-        if(num < 0)
-            continue; // Skip invalid inputs
+        if(num < 0 || (numbers.size() > 0 && num <= numbers.back()))
+            continue; // Skip invalid inputs or non-increasing sequence
 
-        if(numbers.empty() || num > numbers.back())
-            numbers.push_back(num);
+        numbers.push_back(num);
     }
 
     std::vector<int> maxNumbers = rolling_max(numbers);
