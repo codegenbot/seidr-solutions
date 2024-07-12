@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -8,11 +9,11 @@ vector<int> even_odd_palindrome(int n) {
     int countOdd = 0;
 
     for (int i = 1; i <= n; i++) {
-        string str = to_string(i);
+        string numStr = to_string(i);
         bool isPalindrome = true;
 
-        for (int j = 0; j < str.length() / 2; j++) {
-            if (str[j] != str[str.length() - j - 1]) {
+        for (int j = 0; j < numStr.length() / 2; j++) {
+            if (numStr[j] != numStr[numStr.length() - j - 1]) {
                 isPalindrome = false;
                 break;
             }
@@ -30,4 +31,3 @@ vector<int> even_odd_palindrome(int n) {
     result[1] = countOdd;
 
     return result;
-}
