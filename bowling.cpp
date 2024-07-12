@@ -1,43 +1,56 @@
-int bowlingScore(const string& s) {
+#include <iostream>
+#include <string>
+
+int calculateBowlingScore(const std::string& bowls) {
     int score = 0;
-    int frame = 0;
-    int bowl = 0;
-    vector<int> frames(10, 0);
-    
-    for (char c : s) {
+    int frame = 1;
+    int ball = 0;
+    int frameScore = 0;
+    std::vector<int> scores;
+
+    for (char c : bowls) {
         if (c == 'X') {
-            frames[frame] = 10;
+            scores.push_back(10);
+            if (frame < 10) {
+                scores.push_back(0);
+            }
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - frames[frame-1];
-            frame++;
+            scores.push_back(10 - scores.back());
         } else if (c == '-') {
-            frames[frame] = 0;
-            frame++;
+            scores.push_back(0);
         } else {
-            frames[frame] = c - '0';
-            bowl++;
-            if (bowl % 2 == 0) {
-                frame++;
-            }
+            scores.push_back(c - '0');
         }
     }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-        if (frames[i] == 10) {
-            score += frames[i+1] + frames[i+2];
-        } else if (frames[i] + frames[i+1] == 10) {
-            score += frames[i+2];
+
+    for (std::size_t i = 0; i < scores.size(); i++) {
+        if (frameScore == 10 || ball == 2) {
+            frame++;
+            frameScore = 0;
+            ball = 0;
+        }
+
+        frameScore += scores[i];
+        score += scores[i];
+
+        if (scores[i] == 10) {
+            score += scores[i + 1] + scores[i + 2];
+            ball = 2;
+        } else if (frameScore == 10 || ball == 1) {
+            score += scores[i + 1];
+            ball = 1;
+        } else {
+            ball++;
         }
     }
-    
+
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << calculateBowlingScore(bowls) << std::endl;
     return 0;
 }
