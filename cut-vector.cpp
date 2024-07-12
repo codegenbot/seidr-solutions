@@ -19,13 +19,6 @@ int main() {
 
     int n = nums.size();
     
-    if (n == 1) {
-        cout << "1" << endl;
-        cout << "1 0" << endl;
-        cout << nums[0] << endl;
-        return 0;
-    }
-    
     // Calculate total sum of the vector
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -61,7 +54,7 @@ int main() {
         }
     } else {
         cout << "2" << endl;
-        cout << cutIndex << " " << n - cutIndex << endl;
+        cout << cutIndex + 1 << " " << n - cutIndex << endl;
         for (int i = 0; i < cutIndex; i++) {
             cout << nums[i] << " ";
         }
