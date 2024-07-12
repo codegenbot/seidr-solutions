@@ -1,9 +1,7 @@
-```cpp
+bool is_happy(std::string s); 
 #include <cassert>
 #include <string>
 #include <algorithm>
-
-bool is_happy(std::string s); 
 
 int main() {
     assert(is_happy("iopaxioi") == false );
