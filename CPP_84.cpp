@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 int solve(int N) {
     int sum = 0;
@@ -13,5 +14,6 @@ int main() {
     int N;
     std::cin >> N;
     std::cout << solve(N) << std::endl;
+    assert(solve(963) == 486);
     return 0;
 }
