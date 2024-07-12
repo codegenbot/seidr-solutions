@@ -1,7 +1,6 @@
 import ast
-import sys
 
-expression = sys.stdin.readline().rstrip()
+expression = input().strip()
 
 def solve_boolean(expression):
     return ast.literal_eval(
