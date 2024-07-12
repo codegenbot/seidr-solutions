@@ -1,4 +1,4 @@
-numbers = input("Enter numbers separated by space: ").replace(" ", "")
-delimiter = input("Enter delimiter: ")
-result = delimiter.join(numbers)
+numbers = list(map(int, input().split()))
+delimiter = input()
+result = delimiter.join(map(str, numbers))
 print(result)
