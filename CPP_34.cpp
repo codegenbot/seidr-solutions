@@ -5,7 +5,7 @@ vector<int> distinct(vector<int> l) {
     return result;
 }
 
-vector<int>::iterator myunique(vector<int>::iterator start, vector<int>::iterator end) {
+vector<int>::iterator unique(vector<int>::iterator start, vector<int>::iterator end) {
     sort(start, end);
     auto it = start;
     while (it != end) {
