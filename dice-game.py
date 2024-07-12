@@ -2,7 +2,7 @@ n = int(input())
 m = int(input())
 
 if n > m:
-    print(0.5)
+    print((n - m) / n)
 elif n < m:
     print(1 - (n / m))
 else:
