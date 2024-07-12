@@ -1,3 +1,4 @@
+```
 import hashlib
 
 def string_to_md5():
@@ -6,3 +7,5 @@ def string_to_md5():
         return None
     else:
         return hashlib.md5(text.encode()).hexdigest()
+
+print(string_to_md5())
