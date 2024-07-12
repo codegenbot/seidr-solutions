@@ -14,5 +14,5 @@ def decode_cyclic():
             result += group[1] + group[0]
         else:
             result += group
-        i += 3
+        i += 1
     return result
