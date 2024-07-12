@@ -20,8 +20,9 @@ int main() {
         std::cin >> temp;
         lst1.push_back(temp);
     }
+    std::cout << "Enter the number of elements to fill lst2: ";
+    int m1;
     while (true) {
-        std::cout << "Enter the number of elements to fill lst2: ";
         std::cin >> m1;
         if(m1 >= 0)
             break;
@@ -31,8 +32,7 @@ int main() {
             std::cin.ignore(10000, '\n');
         }
     }
-    int m;
-    m = m2; // Store the value in m
+    int m = m2; // Store the value in m
     std::vector<int> lst2;
     for (int i = 0; i < m; i++) {
         int temp;
