@@ -1,14 +1,10 @@
-```
-class my_solution:
-    def count_odd_numbers(self):
-        while True:
-            try:
-                lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
-                print(len([i for i in lst if i % 2 != 0]))
-            except ValueError:
-                print("Invalid input. Please enter numbers separated by spaces.")
+def count_odd_numbers():
+    while True:
+        try:
+            lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
+            print(len([i for i in lst if i % 2 != 0]))
+        except ValueError:
+            print("Invalid input. Please enter numbers separated by spaces.")
+            continue
 
-def check():
-    my_solution().count_odd_numbers()
-
-check()
+count_odd_numbers()
