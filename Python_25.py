@@ -1,3 +1,4 @@
+```
 def factorize(n: int) -> list:
     if n < 1:
         return ["Invalid input: Please enter a positive integer."]
