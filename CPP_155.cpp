@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -10,7 +9,7 @@ bool compare_vectors(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> even_odd_count(int num) {
-    vector<int> result(2);
+    vector<int> result = {0, 1};
     if (num == 0) {
         return {1, 0};
     }
