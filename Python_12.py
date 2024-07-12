@@ -1,3 +1,3 @@
-string1 = input().strip()
-string2 = input().strip()
-print(max(string1, string2, key=len))
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+print(max(num1, num2, key=int))
