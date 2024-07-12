@@ -1,5 +1,7 @@
+```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 int order_by_points(const std::vector<int>& nums) {
     int points = 0;
