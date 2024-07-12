@@ -36,6 +36,6 @@ int main() {
     }
 
     assert(issame(result, {}));
-    
+
     return 0;
 }
