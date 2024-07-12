@@ -13,7 +13,5 @@ def find_closest_number():
             print("Invalid input. Please enter a decimal number.")
 
 
-if __name__ == '__main__':
-    while True:
-        closest_integer, difference = find_closest_number()
-        print(f"Closest integer: {closest_integer}, Difference: {difference}")
+closest_integer, difference = find_closest_number()
+print(f"Closest integer: {closest_integer}, Difference: {difference}")
