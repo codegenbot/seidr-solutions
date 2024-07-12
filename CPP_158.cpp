@@ -3,7 +3,9 @@
 #include <algorithm>
 
 int main() {
-    assert((find_max({"play", "play", "play"}) == "play"));
+    vector<string> words = {"play", "play", "play"};
+    string max_word = find_max(words);
+    cout << max_word;
 }
 
 string find_max(vector<string> words) {
