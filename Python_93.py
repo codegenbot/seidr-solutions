@@ -1,4 +1,3 @@
-```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ""
@@ -16,3 +15,4 @@ def encode(message):
                 index = (ord(char.lower()) - ord('a')) % 6
                 result += chr((index + 1) % 6 + ord('a'))
     return result
+    pass
