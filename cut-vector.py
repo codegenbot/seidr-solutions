@@ -1,11 +1,15 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-min_diff = abs(sum(arr[:-1]) - arr[-1])
-cut_index = 0
+cumulative_sum = [0] * (n + 1)
+for i in range(1, n + 1):
+    cumulative_sum[i] = cumulative_sum[i - 1] + arr[i - 1]
 
-for i in range(n - 2, -1, -1):
-    diff = abs(sum(arr[:i]) - sum(arr[i:]))
+min_diff = abs(cumulative_sum[-1] - 2 * cumulative_sum[1])
+cut_index = 1
+
+for i in range(2, n):
+    diff = abs(cumulative_sum[i] - (cumulative_sum[-1] - cumulative_sum[i]))
     if diff < min_diff:
         min_diff = diff
         cut_index = i
