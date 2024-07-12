@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
-#include <cmath> 
+#include <cmath> // Include this header file
+#include <iomanip>
 #include <initializer_list>
 
 using namespace std;
@@ -20,4 +21,3 @@ int main() {
     cin >> n;
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
-}
