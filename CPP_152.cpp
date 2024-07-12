@@ -1,12 +1,11 @@
 #include <vector>
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b){
+bool issame(vector<int> a,vector<int>b){
     for(int i = 0; i < a.size();i++){
         if(a[i] != b[i]) return false;
     }
     return true;
-
 }
 
 vector<int> getResult(vector<int> game, vector<int> guess) {
@@ -25,7 +24,6 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
         }
     }
     return result;
-
 }
 
 int main() {
