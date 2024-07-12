@@ -1,5 +1,6 @@
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
+    auto it = unique(lst.begin(), lst.end(),
                       [](const string& a, const string& b){ return a.length() % 2 == 1; });
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
@@ -10,4 +11,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
                  return a < b;
          });
     return lst;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
 }

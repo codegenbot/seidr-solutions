@@ -20,7 +20,6 @@ vector<string> split(const string& str, const string& delimiter) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + delimiter.length());
     }
-    tokens.push_back(str);
     return tokens;
 }
 
