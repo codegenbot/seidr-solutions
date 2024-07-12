@@ -1,33 +1,37 @@
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int prefix_sum = 0;
-    int min_diff = INT_MAX;
+    
+    int diff = INT_MAX;
     int idx = -1;
-    for (int i = 0; i < n; ++i) {
-        prefix_sum += nums[i];
-        int diff = abs(sum - 2 * prefix_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
+    
+    for (int i = 0; i < n-1; i++) {
+        int sum_left = 0;
+        int sum_right = 0;
+        for (int j = 0; j <= i; j++) {
+            sum_left += arr[j];
+        }
+        for (int j = i+1; j < n; j++) {
+            sum_right += arr[j];
+        }
+        if (abs(sum_left - sum_right) < diff) {
+            diff = abs(sum_left - sum_right);
             idx = i;
         }
+        if (diff == 0) break;
     }
-
-    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
-
-    for (int num : subvector1) {
-        cout << num << endl;
+    
+    for (int i = 0; i <= idx; i++) {
+        cout << arr[i] << endl;
     }
-    for (int num : subvector2) {
-        cout << num << endl;
+    cout << endl;
+    for (int i = idx+1; i < n; i++) {
+        cout << arr[i] << endl;
     }
-
+    
     return 0;
 }
