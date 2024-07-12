@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::set<std::string>& a) {
+bool issame(const std::vector<std::string>& a) {
     return (a.size() > 0);
 }
 
@@ -21,6 +20,6 @@ int main() {
     std::set<std::string> actualSet(result.begin(), result.end());
     std::set<std::string> expectedSet = {"grunt", "prune"};
     bool same = (actualSet == expectedSet);
-    assert(same == issame(actualSet));
+    assert(same == issame({result.begin(), result.end()}));
     return 0;
 }
