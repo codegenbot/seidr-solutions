@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -30,4 +29,4 @@ int main() {
         std::cin >> expression;
         std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
     }
-    return 0;
+}
