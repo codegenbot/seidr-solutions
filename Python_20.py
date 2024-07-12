@@ -1,4 +1,4 @@
-numbers = [float(x) for x in input().rstrip().split(",")]
+numbers = [float(x) for x in input().split()]
 
 def find_closest_elements(numbers):
     sorted_numbers = sorted(numbers)
