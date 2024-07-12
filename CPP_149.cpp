@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -7,7 +6,7 @@
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
-}
+};
 
 std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
     auto it = std::stable_partition(lst.begin(), lst.end(),
@@ -21,12 +20,14 @@ std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
                               return a < b;
                       });
     return lst;
-}
+};
 
 int main() {
     std::cout << "Result: ";
     for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
-        std::cout << str << "";
+        std::cout << str << " ";
     }
     std::cout << std::endl;
+    assert(issame(sortedListSum({{"aaaa", "bbbb", "dd", "cc"}}), {{"cc","dd","aaaa","bbbb"}}));
+    return 0;
 }
