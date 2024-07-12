@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -25,7 +24,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 
 }
 
-int originalMain() {
+void originalMain() {
     vector<string> a;
     cout << "Enter strings (stop when empty):" << endl;
     string s;
@@ -51,5 +50,10 @@ int originalMain() {
         cout << s << endl;
     }
 
+    return;
+}
+
+int main() {
+    originalMain();
     return 0;
 }
