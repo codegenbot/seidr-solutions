@@ -11,4 +11,4 @@ bounciness_index = first_bounce_height / starting_height
 num_bounces = int(input("Enter the number of bounces: "))
 
 result = calculate_total_distance(starting_height, first_bounce_height, bounciness_index, num_bounces)
-print("Total distance traveled across bounces:", result)
+print("Total distance traveled: ", result)
