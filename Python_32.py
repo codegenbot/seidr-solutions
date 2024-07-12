@@ -1,3 +1,7 @@
 def find_zero(xs: list):
-    a, b = xs[0], xs[1]
-    return -a/b if b != 0 else 0
+    n = len(xs) - 1
+    res = max(abs(xs))
+    while True:
+        if poly(xs, -res) * poly(xs, res) <= 0:
+            return -res if abs(poly(xs, -res)) < abs(poly(xs, res)) else res
+        res += abs(xs[n]) + 1
