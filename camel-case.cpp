@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-#define c++11
-
 using namespace std;
+
+# define c++11
 
 string kebabToCamel(string str) {
     string result = "";
