@@ -1,7 +1,11 @@
-string file_name_check(const string& file_name) {
+#include <iostream>
+#include <string>
+#include <cassert>
+
+string file_name_check(string file_name) {
     int digitCount = 0;
     bool valid = true;
-
+    
     for (char c : file_name) {
         if (isdigit(c)) {
             digitCount++;
@@ -17,19 +21,17 @@ string file_name_check(const string& file_name) {
             }
         }
     }
-
+    
     if (digitCount > 3) {
         valid = false;
     }
-
+    
     return (valid) ? "Yes" : "No";
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
-
-    cout << file_name_check(file_name);
-
+    assert (file_name_check("s.") == "No");
+    // Add more test cases here..
+    
     return 0;
 }
