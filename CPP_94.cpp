@@ -6,6 +6,7 @@ int calculateScore(int values[], int n) {
     int sum = 0;
     for (int i = 0; i < n; i++) {
         if(values[i] > 100) {
+            std::cout << "Value at index " << i << ": " << std::to_string(values[i]) << std::endl;
             sum += values[i];
         }
     }
