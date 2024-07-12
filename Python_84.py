@@ -1,9 +1,9 @@
 def solve(N):
     try:
-        N = int(bin(int(str(N), 2))[2:].replace("1", "10"))
+        N = int(bin(N)[2:])
     except ValueError:
-        return str(N).replace("1", "10")
+        return "Invalid Input. Please provide a binary number."
     if N > 1:
-        return str(N).replace("1", "10")
+        return bin(N | (N - 1))[2:].replace("1", "10")
     else:
-        return str(N)
+        return str(bin(N)[2:])
