@@ -6,6 +6,9 @@ def decode_cyclic(s: str):
             group = s[i : i + 3]
         else:
             group = s[i:]
-        result += group[1] + group[0]
+        if len(group) == 3:
+            result += group[1] + group[0]
+        else:
+            result += group
         i += 3
     return result
