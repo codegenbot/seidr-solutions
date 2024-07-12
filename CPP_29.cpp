@@ -31,15 +31,6 @@ int main(){
         std::cout << s << "\n";
     }
 
-    std::vector<std::string> testStrings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    std::string testPrefix = "xxx";
-
-    std::vector<std::string> testFilteredStrings = filter_by_prefix(testStrings, testPrefix);
-
-    for(auto s : testFilteredStrings){
-        std::cout << s << "\n";
-    }
-
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     
     return 0;
