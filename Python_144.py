@@ -1,3 +1,4 @@
+```
 from fractions import Fraction
 
 
@@ -7,12 +8,9 @@ def simplify():
         y = float(input("Enter denominator: "))
 
         if y == 0:
-            print("Denominator cannot be zero.")
+            print("Cannot have a denominator of zero. Please try again.")
         else:
-            if Fraction(x, y) == 1:
-                print("The fraction is simplified.")
-            else:
-                print(f"The fraction {x}/{y} is not simplified.")
+            print(f"{x}/{y} is simplified to {'1' if Fraction(x, y) == 1 else str(Fraction(x, y))}")
 
 
 simplify()
