@@ -5,7 +5,7 @@ int main() {
     int n, m;
     std::cin >> n >> m;
 
-    double probability = 1.0 * (n + 1) / (2 * n) * (m - 1) / m + 1.0 / (2 * n);
+    double probability = (n + 1.0) / (2 * n) * (m - 1.0) / m;
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
