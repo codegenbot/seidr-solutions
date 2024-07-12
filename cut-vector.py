@@ -18,6 +18,9 @@ for i in range(n):
 subvector1 = arr[:cut_index + 1]
 subvector2 = arr[cut_index + 1:]
 
-if abs(left_sum - right_sum) <= min_diff:
-    print(*subvector1)
-    print(*subvector2)
+if abs(left_sum - right_sum) < min_diff or (abs(left_sum - right_sum) == min_diff and right_sum >= left_sum):
+    print(*arr[:cut_index + 1])
+    print(*arr[cut_index + 1:])
+else:
+    print(*arr[:cut_index + 2])
+    print(*arr[cut_index + 2:])
