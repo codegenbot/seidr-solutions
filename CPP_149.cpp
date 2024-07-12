@@ -1,8 +1,11 @@
 bool issame(const string& a, const string& b) {
-    if (a.length() != b.length())
-        return false;
-    for (int i = 0; i < a.length(); ++i)
-        if (tolower(a[i]) != tolower(b[i]))
-            return false;
-    return true;
+    return (a.length() == b.length()) && (a == b);
+}
+
+void test() {
+    vector<string> lst = {"abc", "abcd", "abe", "abef"};
+    vector<string> result = sorted_list_sum(lst);
+
+    assert(issame(result[0], "abcd") || 
+           issame(result[0], "abe"));
 }
