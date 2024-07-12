@@ -1,20 +1,21 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
+#include <map>
 
 int main() {
     int n;
-    int target;
-    std::cin >> n >> target;
+    std::cin >> n;
+
+    long long target;
+    std::cin >> target;
 
     std::vector<int> nums(n);
-    std::unordered_map<int, int> numIndex;
+    std::map<int, int> numIndex;
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
-        int complement = target - nums[i];
-        if (numIndex.find(complement) != numIndex.end()) {
-            std::cout << complement << " " << nums[i] << std::endl;
+        if (numIndex.find(target - nums[i]) != numIndex.end()) {
+            std::cout << target - nums[i] << " " << nums[i] << std::endl;
             return 0;
         }
         numIndex[nums[i]] = i;
