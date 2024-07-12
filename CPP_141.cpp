@@ -1,7 +1,12 @@
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 int count_digits(const string& s) {
     int count = 0;
     for (char c : s) {
-        if (isdigit(c)) {
+        if (std::isdigit(c)) {
             count++;
         }
     }
@@ -10,7 +15,7 @@ int count_digits(const string& s) {
 
 string file_name_check(string file_name) {
     int digit_count = count_digits(file_name);
-    if (digit_count > 3 || digit_name.find('.') == string::npos) {
+    if (digit_count > 3 || file_name.find('.') == string::npos) {
         return "No";
     }
     size_t dot_pos = file_name.find('.');
