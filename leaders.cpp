@@ -11,6 +11,6 @@ std::vector<int> findLeaders(std::vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    leaders.push_back(maxRight); // Adding the rightmost element explicitly
+    leaders.push_back(maxRight);
     return leaders;
 }
