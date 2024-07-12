@@ -4,3 +4,6 @@ def solve():
         if all(c in "01" for c in N):
             return bin(int(N, 2))[2:]
         print("Invalid Input. Please provide a binary number.")
+
+result = solve()
+print(result)
