@@ -9,8 +9,8 @@ int main() {
 
     std::vector<int> indices;
 
-    if (text == target) {
-        std::cout << 0;
+    if (target.length() == 0) {
+        std::cout << 1;
         return 0;
     }
 
