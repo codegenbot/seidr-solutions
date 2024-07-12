@@ -1,4 +1,3 @@
-```
 import re
 
 
@@ -13,3 +12,4 @@ def sort_numbers() -> str:
                 return " ".join(map(str, sorted(numbers)))
         except ValueError:
             print("Invalid input. Please enter a string of space-separated integers.")
+    '''
