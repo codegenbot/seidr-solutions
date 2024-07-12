@@ -1,3 +1,4 @@
+```python
 def leaders(input):
     leaders = [max(input)]
     for i in range(len(input) - 2, -1, -1):
