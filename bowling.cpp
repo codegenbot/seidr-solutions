@@ -1,32 +1,37 @@
-int score(string s) {
-    int totalScore = 0;
+#include <vector>
+#include <string>
+
+string input;
+vector<int> frameScores(10, 0);
+
+int scoreBowlingRound() {
+    int score = 0;
     int frame = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            totalScore += 10;
-            if (frame < 9) {
-                totalScore += (s[i + 2] == 'X') ? 10 + ((s[i + 4] == 'X') ? 10 : (s[i + 4] - '0')) : ((s[i + 3] == '/') ? 10 : (s[i + 2] - '0') + (s[i + 3] - '0'));
-            } else {
-                totalScore += (s[i + 2] == 'X') ? 10 + ((s[i + 4] == 'X') ? 10 : (s[i + 4] - '0')) : ((s[i + 3] == '/') ? 10 : (s[i + 2] - '0') + (s[i + 3] - '0'));
-            }
-            frame++;
-        } else if (s[i] == '/') {
-            totalScore += 10 - (s[i - 1] - '0');
-            totalScore += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-            frame++;
-        } else if (s[i] == '-') {
-            totalScore += 0;
-            frame++;
+    int rolls = 0;
+
+    for (int i = 0; i < input.size(); ++i) {
+        char c = input[i];
+        if (c == 'X') {
+            score += 10;
+            frameScores[frame++] = 10;
+            rolls = 0;
+        } else if (c == '/') {
+            score += 10 - frameScores[frame - 1];
+            frameScores[frame++] = 10;
+            rolls = 0;
+        } else if (c == '-') {
+            frameScores[frame++] = 0;
+            rolls = 0;
         } else {
-            totalScore += s[i] - '0';
+            int pins = c - '0';
+            score += pins;
+            frameScores[frame] += pins;
+            if (++rolls == 2 || c == '9') {
+                frame++;
+                rolls = 0;
+            }
         }
     }
-    return totalScore;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
+    return score;
 }
