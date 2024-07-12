@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 
 bool is_prime(int n) {
     bool is_divisible = false;
@@ -15,5 +13,5 @@ bool is_prime(int n) {
 int main() {
     int num;
     std::cin >> num;
-    std::cout << std::to_string(is_prime(num)); 
+    std::cout << (int)(is_prime(num));
 }
