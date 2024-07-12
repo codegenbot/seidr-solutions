@@ -1,9 +1,12 @@
+```
 def solve():
     while True:
         N = input("Please provide a binary number: ")
         if all(c in "01" for c in N):
-            print(bin(int(N, 2))[2:])
-        else:
-            print("Invalid Input. Please provide a binary number.")
+            return bin(int(N, 2))[2:]
+        print("Invalid Input. Please provide a binary number.")
 
-solve()
+if __name__ == "__main__":
+    result = solve()
+    if result:
+        print(result)
