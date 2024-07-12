@@ -50,9 +50,7 @@ std::vector<std::string> byLength(int num) {
 int main() {
     int num = 0;  
     std::vector<std::string> result1 = byLength(984);
+    std::assert(issame(result1 , {"Nine", "Eight", "Four"}));
     
-    if (issame({"One", "Nine", "Four"}, result1))
-        return 0;
-    else
-        return 1;
+    return 0;
 }
