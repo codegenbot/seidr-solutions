@@ -11,7 +11,8 @@ def indices_of_substring():
         else:
             i += 1
 
-    return indices
+    result = sorted(list(set(indices)))
+    return result
 
 output = indices_of_substring()
 for index in output:
