@@ -1,5 +1,5 @@
-string result = "";
-for(const auto& str : strings){
+string result;
+for (const string& str : strings) {
     result += str;
 }
 return result;
