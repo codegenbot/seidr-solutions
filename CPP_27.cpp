@@ -1,17 +1,9 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    string result = flip_case(str);
-    cout << "Flipped case: " << result << endl;
-}
-
-string flip_case(string str){
+string flip_case(string str) {
     string result = "";
-    for(int i=0; i<str.length(); i++){
+    for (int i=0; i<str.length(); i++) {
         char c = str[i];
         if(c >= 'a' && c <= 'z')
             result += toupper(c);
@@ -21,3 +13,11 @@ string flip_case(string str){
             result += c;
     }
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    string result = flip_case(str);
+    cout << "Flipped case: " << result << endl;
