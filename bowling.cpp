@@ -1,17 +1,37 @@
-int calculateBowlingScore(const string& s) {
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string s;
+    std::cin >> s;
+
     int score = 0;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.size(); ++i) {
         if (s[i] == 'X') {
-            if (s[i + 2] == 'X' || s[i + 3] == 'X') {
-                score += 20;
+            score += 10;
+            if (s[i + 1] == 'X' || s[i + 1] == '/') {
+                score += 10;
+                if (s[i + 2] == 'X') {
+                    score += 10;
+                } else {
+                    score += (s[i + 2] - '0');
+                }
             } else {
-                score += 10 + (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0')) + (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : (s[i + 2] == 'X' ? 10 : (s[i + 2] - '0')));
+                if (s[i + 2] == '/') {
+                    score += 10;
+                } else {
+                    score += (s[i + 1] - '0') + (s[i + 2] - '0');
+                }
             }
         } else if (s[i] == '/') {
-            score += 10 - (s[i - 1] - '0') + (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0'));
-        } else if (s[i] != '-') {
-            score += s[i] - '0';
+            score += (10 - (s[i - 1] - '0'));
+            score += (s[i + 1] - '0');
+        } else if (s[i] >= '0' && s[i] <= '9') {
+            score += (s[i] - '0');
         }
     }
-    return score;
+
+    std::cout << score << std::endl;
+
+    return 0;
 }
