@@ -5,7 +5,9 @@ def sort_array(arr):
 def main():
     while True:
         try:
-            array_str = input("Enter an array: ")
+            array_str = input("Enter an array (or type 'exit' to quit): ")
+            if array_str.lower() == "exit":
+                break
             if not array_str:
                 print("Please enter an array")
                 continue
@@ -21,7 +23,3 @@ def main():
             break
         except ValueError as e:
             print(f"Invalid input. Please enter numbers separated by spaces: {str(e)}")
-
-
-if __name__ == "__main__":
-    main()
