@@ -3,6 +3,25 @@
 #include <vector>
 #include <algorithm>
 
+bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) 
+        return false;
+    return std::equal(v1.begin(), v1.end(), v2.begin());
+}; 
+
+std::vector<int> rolling_max(std::vector<int> numbers) {
+    std::vector<int> maxNumbers;
+    int currentMax = INT_MIN;
+
+    for (int num : numbers) {
+        if (num > currentMax)
+            currentMax = num;
+        maxNumbers.push_back(currentMax);
+    }
+
+    return maxNumbers;
+}
+
 int main() {
     std::vector<int> numbers;
     int num;
@@ -18,18 +37,12 @@ int main() {
         std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
     }
     
+    std::vector<int> v1({3, 2, 3, 100, 3});
+    std::vector<int> v2({3, 3, 3, 100, 100});
+    if (v1 == v2)
+        std::cout << "Vectors are equal" << std::endl;
+    else
+        std::cout << "Vectors are not equal" << std::endl;
+    
     return 0;
-}
-
-std::vector<int> rolling_max(std::vector<int> numbers) {
-    std::vector<int> maxNumbers;
-    int currentMax = INT_MIN;
-
-    for (int num : numbers) {
-        if (num > currentMax)
-            currentMax = num;
-        maxNumbers.push_back(currentMax);
-    }
-
-    return maxNumbers;
 }
