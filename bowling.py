@@ -1,24 +1,28 @@
 ```
-def bowling_score(frames):
+def bowling_score(gutter_balls):
     score = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
+    frame = 1
+    for i in range(0, len(gutter_balls), 2):
+        if gutter_balls[i:i+2] == 'X':
+            score += 10 + (10 - int(gutter_balls[0:i].count('X'))) * 10
+            frame += 1
+        elif gutter_balls[i:i+2] in ['--', '//']:
             score += 10
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            if first_roll + second_roll == 10:
-                score += 10
-            else:
-                score += first_roll + second_roll
+            frame += 1
         else:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            third_roll = int(frame[2])
-            if first_roll + second_roll == 10:
-                score += 10 + third_roll
-            elif second_roll + third_roll == 10:
-                score += 10 + first_roll
+            strike = False
+            for j in range(i, i+3):
+                if gutter_balls[j] == 'X':
+                    strike = True
+                    break
+            if strike:
+                score += 10 + int(gutter_balls[i:i+2].replace('X', '')) * 10
+                frame += 1
             else:
-                score += first_roll + second_roll + third_roll
+                score += int(gutter_balls[i:i+2])
+                for j in range(i, len(gutter_balls)):
+                    if gutter_balls[j] == '/':
+                        break
+                score += int(gutter_balls[i+2:j].replace('/', '')) * 10
+                frame += 1
     return score
