@@ -1,10 +1,10 @@
 def sort_array(arr):
-    return sorted(map(int, arr))
+    return sorted(arr)
 
 while True:
     try:
         array_str = input("Enter an array: ")
-        array = list(array_str.split())
+        array = list(map(int, array_str.split()))
         if len(array) < 2:
             print("Array should have at least two elements. Please enter again.")
             continue
