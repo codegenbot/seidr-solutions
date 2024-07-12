@@ -1,3 +1,12 @@
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+
 def prime_fib():
     def fibonacci(num):
         if num <= 1:
@@ -5,7 +14,7 @@ def prime_fib():
         else:
             return fibonacci(num - 1) + fibonacci(num - 2)
 
-    n = int(input().strip())
+    n = int(input("Enter a number: "))
     count = 0
     i = 0
     while count < n:
