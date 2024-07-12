@@ -1,4 +1,3 @@
-```
 def encrypt(s):
     result = ''
     for char in s:
