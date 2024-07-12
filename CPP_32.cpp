@@ -14,18 +14,12 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; // invalid input
-    double x = 1.0;
-    while(abs(poly(xs, x)) > 1e-6){
-        x -= poly(xs, x)/poly(vector<double>(xs.begin(), xs.end()), x); // Newton's method
+    if(xs.size() % 2 != 0) return -1; // return -1 if the number of coefficients is odd
+    double x = -xs[1]/(2*xs[0]);
+    double p = poly(xs, x);
+    while(abs(p)>1e-6){ 
+        x -= p/xs[0];
+        p = poly(xs, x);
     }
-    return round(x, 2);
-}
-
-int main() {
-    vector<double> xs = {1, 2};
-    printf("%.2f\n", find_zero(xs));  // -0.50
-    xs = {-6, 11, -6, 1};
-    printf("%.2f\n", find_zero(xs));  // 1.00
-    return 0;
+    return round(x, 10);
 }
