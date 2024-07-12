@@ -2,11 +2,11 @@
 #include <vector>
 #include <unordered_set>
 #include <cassert>
+#include <algorithm>
 using namespace std;
 
-string find_max(vector<string> words);
-
-string find_max(vector<string> words){
+string find_max(vector<string> words) {
+    if (words.empty()) return "";  
     string result;
     int max_unique = 0;
     
