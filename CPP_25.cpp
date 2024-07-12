@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
@@ -14,29 +15,19 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    
-    for (size_t i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
-    
     return true;
 }
 
 int main() {
-    std::vector<int> factors = factorize(30);
-    std::vector<int> expected_factors = {2, 3, 5};
-
-    if (issame(factors, expected_factors)) {
-        // Test passed
-    } else {
-        // Test failed
-    }
-
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
     return 0;
 }
