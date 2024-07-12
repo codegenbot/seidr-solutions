@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 int main() {
     std::string text, target;
@@ -10,7 +11,9 @@ int main() {
     
     std::vector<int> indices;
     
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+    text.erase(std::remove(text.begin(), text.end(), ' '), text.end());
+    
+    for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(static_cast<int>(i));
         }

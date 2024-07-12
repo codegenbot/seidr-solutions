@@ -14,18 +14,15 @@ int main() {
     size_t n;
     std::cin >> n;
     
-    std::vector<double> vec1;
-    std::vector<double> vec2;
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
     
-    double temp;
-    while (std::cin >> temp) {
-        vec1.push_back(temp);
-        if (vec1.size() == n) break;
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> vec1[i];
     }
-    
-    while (std::cin >> temp) {
-        vec2.push_back(temp);
-        if (vec2.size() == n) break;
+
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
     }
 
     double distance = calculateEuclideanDistance(vec1, vec2);
