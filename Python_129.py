@@ -5,22 +5,22 @@ def minPath(grid, k):
     path = []
 
     def dfs(i, j, p):
-        if sum(p) == k:
-            return [p]
         if len(p) == k:
-            return []
+            return p
         if (i, j) in visited:
-            return []
+            return None
         visited.add((i, j))
         res = []
         for x, y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                 res += dfs(ni, nj, p + [grid[ni][nj]])
-        return res
+        return min([x for x in res if x], default=None)
 
+    first_path = None
     for i, j in m:
-        for p in dfs(i, j, []):
-            if sum(p) == k:
-                return sorted(p)
-    return []
+        path = dfs(i, j, [])
+        if len(path) == k and (first_path is None or path < first_path):
+            first_path = path
+
+    return first_path or []
