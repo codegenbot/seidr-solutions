@@ -3,17 +3,18 @@
 #include <climits>
 #include <cstdlib>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
+    string line;
     
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
-    while (iss >> num) {
+    getline(cin, line);
+    stringstream ss(line);
+    int num;
+    while (ss >> num) {
         nums.push_back(num);
     }
 
@@ -37,16 +38,16 @@ int main() {
             cutIndex = i;
         }
     }
+
+    cout << "2" << endl;
     
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << " ";
     }
-    cout << endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
-    cout << endl;
     
     return 0;
 }
