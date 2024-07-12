@@ -1,10 +1,4 @@
 ```cpp
-#include <initializer_list>
-
-#ifndef __cplusplus
-#define _MSC_VER 1900
-#endif
-
 #include <vector>
 #include <iostream>
 #include <string>
@@ -15,7 +9,7 @@ string kebabToCamel(string str) {
     string result = "";
     for (char c : str) {
         if (c == '-') {
-            result += toupper(str.substr(str.find(c) + 1, 1));
+            result += toupper(str[str.find(c) + 1]);
             str.erase(str.find(c), 1);
         } else if (c == ' ') {
             result += " ";
@@ -27,6 +21,7 @@ string kebabToCamel(string str) {
 }
 
 int main() {
+    #define c++11
     string str;
     while (cin >> str) {
         cout << kebabToCamel(str) << endl;
