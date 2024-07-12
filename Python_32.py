@@ -1,9 +1,9 @@
-```
-def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    a = xs[-1]
-    if a == 0:
-        raise ValueError("coefficients must be for a quadratic equation (a != 0)")
-    b = -xs[1] / a
-    return round(-b / (2 * a), 2)
+def find_zero():
+    while True:
+        try:
+            xs = [float(x) for x in input("Enter coefficients (space separated): ").split()]
+            if len(xs) % 2 != 0:
+                raise ValueError("xs must have an even number of coefficients")
+            return round(-(-xs[1] / xs[-1]) / (2 * xs[-1]), 2)
+        except ValueError as e:
+            print(f"Error: {e}")
