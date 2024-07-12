@@ -1,5 +1,9 @@
 def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0
-    xs = [-x for x in xs]
-    return round(next(x for x in range(-1000, 1000) if poly(xs, x) == 0), 2)
+    n = len(xs) // 2  # largest non zero coefficient guarantees a solution
+    return -xs[0] / xs[1]  # -a0/a1, for f(x) = a0 + a1*x
+
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
