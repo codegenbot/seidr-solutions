@@ -1,3 +1,4 @@
+```python
 def decode_shift():
     s = input()  
     decoded = ""
