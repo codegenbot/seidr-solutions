@@ -1,4 +1,3 @@
-```
 def simplify(x, n):
     x_num, x_denom = map(int, [i for i in x.split("/")])
     n_num, n_denom = map(int, [i for i in n.split("/")])
@@ -13,4 +12,4 @@ def simplify(x, n):
     new_x_num, new_x_denom = x_num // x_gcd, x_denom // x_gcd
     new_n_num, new_n_denom = n_num // n_gcd, n_denom // n_gcd
 
-    return (new_x_num / new_x_denom) == (new_n_num / new_n_denom)
+    return new_x_num // new_x_denom == new_n_num // new_n_denom
