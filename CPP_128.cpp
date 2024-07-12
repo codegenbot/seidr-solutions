@@ -17,11 +17,14 @@ int prod_signs(const vector<int>& arr) {
             product *= 1;
         } else if (num < 0) {
             product *= -1;
+        } else {
+            product *= 0;
         }
-        sum += abs(num);
+
+        sum += std::abs(num);
     }
 
-    return product;
+    return product * sum;
 }
 
 int main() {
