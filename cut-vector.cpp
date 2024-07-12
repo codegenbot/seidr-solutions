@@ -2,13 +2,14 @@
 #include <vector>
 #include <numeric>
 #include <limits>
+#include <cmath>
 
 using namespace std;
 
 int main() {
     vector<int> input;
     int num;
-
+    
     while (true) {
         cin >> num;
         if (num == -1) {
@@ -20,7 +21,7 @@ int main() {
     int diff = numeric_limits<int>::max();
     int idx = 0;
     for (int i = 1; i < input.size(); ++i) {
-        if (abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0)) < diff) {
+        if (abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0)) <= diff) {
             diff = abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0));
             idx = i;
         }
@@ -30,7 +31,7 @@ int main() {
         cout << input[i] << endl;
     }
     cout << endl;
-    for (int i = idx;  i < input.size(); ++i) {
+    for (int i = idx; i < input.size(); ++i) {
         cout << input[i] << endl;
     }
 
