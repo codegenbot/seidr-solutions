@@ -1,14 +1,10 @@
-```cpp
-#include <iostream>
-#include <string>
-
 std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
     for (char c : s) {
         if (c == '-') {
-            continue; // don't process '-'
+            capitalize = true;
         } else if (capitalize) {
             result += toupper(c);
             capitalize = false;
@@ -17,14 +13,10 @@ std::string camelCase(const std::string& s) {
         }
     }
 
-    return result;
-}
+    // add a space before the first word and capitalize it
+    if (!result.empty()) {
+        result[0] = topper(result[0]);
+    }
 
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::cout << camelCase(input) << std::endl;
-
-    return 0;
+    return (result.empty() ? s : " " + result);
 }
