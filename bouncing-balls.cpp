@@ -1,10 +1,10 @@
 #include <iostream>
+using namespace std;
 
 int main() {
     double start_height, first_bounce_height, bounciness_index;
     int num_bounces;
-    
-    std::cin >> start_height >> first_bounce_height >> num_bounces;
+    cin >> start_height >> first_bounce_height >> num_bounces;
     
     bounciness_index = first_bounce_height / start_height;
     
@@ -13,7 +13,7 @@ int main() {
         total_distance += 2 * bounciness_index * total_distance;
     }
     
-    std::cout << total_distance << std::endl;
+    cout << total_distance << endl;
     
     return 0;
 }
