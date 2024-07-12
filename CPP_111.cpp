@@ -16,7 +16,7 @@ bool issameInt(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
     return true;
 }
 
-map<pair<char,int>, int> histogram(string test) {
+map<pair<char,int>, int> histogram(string test) -> map<pair<char,int>, int> {
     map<pair<char,int>, int> result;
     if (test.empty()) return result;
 

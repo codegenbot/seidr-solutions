@@ -18,7 +18,7 @@ int main() {
     const int n = sizeof(myValues) / sizeof(myValues[0]);
     for (int i = 0; i < n; i++) {
         std::cout << "Value at index " << i << ": ";
-        std::cout << myValues[i] << std::endl;
+        std::cout << std::to_string(myValues[i]) << std::endl;
     }
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
     assert(calculateScore(myValues, n) == 224); 
