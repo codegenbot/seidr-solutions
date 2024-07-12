@@ -9,9 +9,8 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (scanf("%d", &num) == 1) {
         nums.push_back(num);
-        if (cin.peek() == '\n') break; // Exit the loop if new line character encountered
     }
 
     int n = nums.size();
