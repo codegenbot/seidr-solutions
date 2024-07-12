@@ -1,9 +1,10 @@
+```
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-bool sameVectors(const vector<int>& v1, const vector<int>& v2) {
+bool issame(const vector<int>& v1, const vector<int>& v2) {
     return v1 == v2;
 }
 
@@ -16,6 +17,8 @@ vector<int> incr_list(const vector<int>& l){
 }
 
 int main() {
-    assert(sameVectors({6, 3, 6,3, 4, 4, 10, 1, 124}, incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123})));
+    vector<int> v1({6, 3, 6,3, 4, 4, 10, 1, 124});
+    vector<int> v2 = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
+    assert(issame(v1, v2));
     return 0;
 }
