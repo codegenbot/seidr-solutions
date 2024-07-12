@@ -1,9 +1,11 @@
-```c++
-bool issame(vector<string> a, vector<string> b) {  
-    return a == b;
+#include <vector>
+#include <string>
+
+bool issame(const vector<std::string>& a,const vector<std::string>& b){
+    return (a==b);
 }
 
-int main() {
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == {"grunt", "prune"});
-    return 0; 
+int main(){
+    bool result = issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"});
+    return 0;
 }
