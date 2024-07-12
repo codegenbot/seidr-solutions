@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <assert.h>
 #include <vector>
@@ -33,7 +32,10 @@ std::vector<int> sort_third(std::vector<int> l) {
             result.push_back(l[i]);
         }
     }
+    return result;
 }
 
-{ 
-    int main() { return 0; }
+{
+int main() {
+    return 0;
+}
