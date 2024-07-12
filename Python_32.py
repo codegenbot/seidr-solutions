@@ -1,17 +1,14 @@
-import sys
-
 def find_zero():
     xs = []
     while True:
         try:
-            line = sys.stdin.readline().strip()
+            line = input().strip()
             if not line:
                 break
             xs.extend(map(float, line.split()))
-        except:
+        except EOFError:
             break
-    a = xs[-2]
-    b = xs[-1]
+    a, b = xs[-2:]
     return -b / a
 
 result = find_zero()
