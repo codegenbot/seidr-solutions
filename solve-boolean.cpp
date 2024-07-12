@@ -1,5 +1,6 @@
 #include <string>
-#include <stack> 
+#include <stack>
+
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -9,12 +10,10 @@ bool solveBoolean(string expression) {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            s.push('&');
         } else if (expression[i] == '|') {
             while (!s.empty()) {
                 s.pop();
             }
-            s.push('|');
         } else {
             s.push(expression[i]);
         }
