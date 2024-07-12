@@ -1,5 +1,8 @@
-def double_the_difference(nums):
-    odd_sum = sum(i for i in nums if isinstance(i, int) and i % 2 != 0)
-    return sum(
-        i**2 for i in filter(lambda x: isinstance(x, int) and x > 0, nums)
-    ) * 2 - abs(odd_sum)
+```Python
+def double_the_difference(lst):
+    if len(lst) < 2:
+        return 0
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i > 0)
+    return (max(lst) - min(lst)) * 2 if odd_sum != 0 else 0
+
+print(double_the_difference([1, 2, 3, 4]))
