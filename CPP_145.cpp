@@ -10,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
-        int tempA = std::abs(a), tempB = std::abs(b);
+        int tempA = abs(a), tempB = abs(b);
         while (tempA > 0) {
             sumA += tempA % 10;
             tempA /= 10;
