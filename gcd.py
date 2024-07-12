@@ -1,9 +1,8 @@
+```Python
 def gcd(a, b):
-    try:
-        return abs(gcd(b, a % b)) if b else a
-    except TypeError:
-        print("Invalid input. Please enter integers.")
-        exit()
+    while b:
+        a, b = b, a % b
+    return abs(a)
 
 a = int(input())
 b = int(input())
@@ -11,11 +10,20 @@ b = int(input())
 print(gcd(a, b))
 
 def find_indices(text, target):
-    try:
-        return [i for i in range(len(text)-len(target)+1) if text.startswith(target, i)]
-    except TypeError:
-        print("Invalid input. Please enter strings.")
-        exit()
+    indices = []
+    index = 0
+    while index < len(text):
+        pos = text.find(target, index)
+        if pos != -1:
+            indices.append(pos)
+            # Find all overlapping occurrences
+            while index + len(target) <= len(text) and text[index:index+len(target)] == target:
+                index += len(target)
+            else:
+                break
+        else:
+            break
+    return indices
 
 text = input()
 target = input()
