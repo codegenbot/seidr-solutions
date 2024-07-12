@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cctype>
-
 using namespace std;
 
 int main() {
@@ -11,10 +10,12 @@ int main() {
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
-        } else if (capitalize) {
+        } 
+        else if (capitalize) {
             cout << (char)toupper(c);
             capitalize = false;
-        } else {
+        } 
+        else {
             cout << c;
         }
     }
