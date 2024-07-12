@@ -1,20 +1,25 @@
-int main() {
-    string input;
-    getline(cin, input);
+#include <iostream>
+#include <string>
+#include <sstream>
 
-    bool capitalize = true;
-    for (char &c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (c != ' ') {
-            if (capitalize) {
-                cout << (char)toupper(c);
-                capitalize = false;
-            } else {
-                cout << c;
-            }
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::string output;
+    std::istringstream iss(input);
+    std::string word;
+    bool firstWord = true;
+
+    while (iss >> word) {
+        if (!firstWord) {
+            word[0] = std::toupper(word[0]);
         }
+        output += word;
+        firstWord = false;
     }
+
+    std::cout << output << std::endl;
 
     return 0;
 }
