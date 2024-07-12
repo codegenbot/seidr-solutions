@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -6,13 +5,13 @@
 using namespace std;
 
 pair<int, int> findPair(const vector<int>& nums, int target) {
-    unordered_map<int, int> numIndex;
+    std::unordered_map<int, int> numIndex;
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            int pair[] = {complement, nums[i]};
-            sort(pair, pair + 2);
-            return {pair[0], pair[1]};
+            std::vector<int> v({complement, nums[i]});
+            std::sort(v.begin(), v.end());
+            return {v[0], v[1]};
         }
         numIndex[nums[i]] = i;
     }
