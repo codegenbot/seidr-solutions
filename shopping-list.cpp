@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -10,7 +7,8 @@ using namespace std;
 double shoppingList(vector<double>& prices, vector<double>& discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
+        double discountedPrice = prices[i] * (1 - (discounts[i] / 100));
+        total += discountedPrice;
     }
     return total;
 }
