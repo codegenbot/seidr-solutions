@@ -29,11 +29,3 @@ std::string file_name_check(std::string file_name) {
     
     return "Yes";
 }
-
-int main();
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    
-    return 0;
-}
