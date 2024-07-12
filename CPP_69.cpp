@@ -26,4 +26,3 @@ int main() {
     int size = sizeof(numbers)/sizeof(numbers[0]);
     assert(findMaxFreq(numbers, size) == -1);
     return 0;
-}
