@@ -1,5 +1,3 @@
 def choose_num(x, y):
-    for i in range(max(x, y), min(x, y), -1):
-        if i % 2 == 0:
-            return i
-    return -1
+    evens = [i for i in range(x, y + 1) if i % 2 == 0]
+    return max(evens) if evens else -1
