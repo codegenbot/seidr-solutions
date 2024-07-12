@@ -12,5 +12,4 @@ def indices_of_substring():
 
     return indices
 
-
 print(*indices_of_substring())
