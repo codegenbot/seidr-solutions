@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -10,15 +9,15 @@ std::tuple<bool, bool> issame(const std::vector<std::string>& a, const std::vect
 }
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
-    auto it = std::remove_if(lst.begin(), lst.end(),
-                              [](std::string& s) { return !s.length() % 2; }),
+    auto it = std::stable_partition(lst.begin(), lst.end(),
+                                     [&](auto& s) { return !s.length() % 2; }),
         end = lst.erase(it, lst.end());
     std::stable_sort(std::next(lst.begin()), lst.end(),
                       [](const auto& a, const auto& b) {
                           if (a.length() != b.length())
-                              return a.length() < b.length();
+                              return std::tie(a, b);
                           else
-                              return a < b;
+                              return std::tie(a, b);
                       });
     return lst;
 }
