@@ -8,10 +8,9 @@ def bowling_score(frames):
             first_roll = int(frame[0])
             second_roll = int(frame[1])
             if first_roll + second_roll == 10:
-                if i < 9:
+                if i < 9: 
                     score += 10 + int(frames[i+1].lstrip())
-                else:
-                    score += 10
+                else: score += 10
             else:
                 score += first_roll + second_roll
         elif len(frame) == 3:
