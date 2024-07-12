@@ -5,11 +5,11 @@
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) 
         return false;
-    for(int i = 0; i<a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) 
             return false;
     }
-    return true;
+    return true; 
 }
 
 vector<float> get_positive(vector<float> l){
@@ -22,7 +22,7 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    vector<float> input = {1, -2, 3, -4};
+    vector<float> input = {1.2, -4.5, 7.8};
     assert(issame(get_positive(input), {}));  
     return 0;
 }
