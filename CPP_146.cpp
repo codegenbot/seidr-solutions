@@ -1,18 +1,24 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
+    int count = 0;
     std::vector<int> nums;
-    int count;
+    int num;
 
-    std::cout << "Enter the numbers (space separated): ";
-    for (std::string num; std::getline(std::cin, num);) {
-        nums.push_back(stoi(num));
+    // Input numbers from user until -1 is entered.
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if (num == -1)
+            break;
+        nums.push_back(num);
     }
 
     count = specialFilter(nums);
 
-    std::cout << "The count of filtered numbers is: " << count << std::endl;
+    std::cout << "Number of numbers filtered: " << count << "\n";
 
     return 0;
 }
