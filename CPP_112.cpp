@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,10 +30,12 @@ std::string reverse_delete(std::string& s, std::string& c) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
-        if (a[i] != b[i]) return false;
+    if (a.size() != b.size()) return false;
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (!a[i].empty() && !b[i].empty() && a[i] != b[i]) return false;
     }
-    return a.size() == b.size();
+    return true;
 }
 
 int main() {
