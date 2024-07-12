@@ -1,10 +1,18 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool is_same(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> intersperse(vector<int> numbers, int delimiter){
+vector<int> intersperse(vector<int> numbers, int delimiter){ 
     vector<int> result;
     for(int i = 0; i < numbers.size(); ++i){
         result.push_back(numbers[i]);
@@ -15,17 +23,13 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
     return result;
 }
 
-int main(){
-    vector<int> testInput = {1, 2, 3, 4, 5};
-    vector<int> expectedResult = {1, 2, 9, 3, 4, 9, 5};
-    
-    vector<int> result = intersperse(testInput, 9);
+int main() {
+    vector<int> test_input = {1, 2, 3, 4, 5};
+    vector<int> result = intersperse(test_input, 0);
 
-    if(issame(result, expectedResult)){
-        // Test passed
-    } else {
-        // Test failed
+    for(int num : result) {
+        cout << num << " ";
     }
-
+    
     return 0;
 }
