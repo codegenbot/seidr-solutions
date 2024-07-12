@@ -13,18 +13,12 @@ def simplify():
 
     except ValueError:
         print("Invalid input. Please enter a number.")
-        return None
+        return simplify()
 
 while True:
-    result = simplify()
-    if result is not None and result:
-        print(result)
-    else:
-        break
-    
+    print(simplify())
     response = input("Do you want to continue (yes/no)? ")
-    while response.lower() not in ['yes', 'no']:
+    if response.lower() not in ['yes', 'no']:
         print("Invalid input. Please enter either yes or no.")
-        response = input("Do you want to continue (yes/no)? ")
-    if response.lower() != 'yes':
+    elif response.lower() != 'yes':
         break
