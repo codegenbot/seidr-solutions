@@ -31,18 +31,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     std::string text, target;
     std::cout << "Enter the text and target separated by a space: ";
-    std::getline(std::cin, text);
+    std::cin >> text >> target;
     
-    size_t spacePos = text.find(' ');
-
-    if (spacePos == std::string::npos) {
-        std::cout << "Invalid input format. Please enter the text and target separated by a space.";
-        return 1;
-    }
-
-    target = text.substr(spacePos + 1);
-    text = text.substr(0, spacePos);
-
     std::vector<int> result = indicesOfSubstring(text, target);
 
     for (int index : result) {
