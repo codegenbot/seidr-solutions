@@ -23,6 +23,6 @@ int findMaxFreq(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = vector<int>(vector<int>(lst.begin(), lst.end()));
-    std::cout << findMaxFreq(lst) << std::endl;
+    std::vector<int> vec(lst.begin(), lst.end());
+    std::cout << findMaxFreq(vec) << std::endl;
 }
