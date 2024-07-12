@@ -15,11 +15,7 @@ int main() {
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        int expected = 15150; 
-        if(solve(963) != expected) {
-            cerr << "Assertion failed: Expected " << expected << ", got " << solve(963) << endl;
-            exit(1); 
-        }
+        cout << solve(N) << endl;
     }
+    assert(solve(963) == 15151);  
     return 0;
-}
