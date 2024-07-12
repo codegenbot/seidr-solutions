@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift(s: str):
     while True:
         while True:
@@ -9,7 +9,7 @@ def decode_shift(s: str):
                 else:
                     print("Invalid shift. Please enter a value between 0 and 25.")
             except ValueError:
-                print("Invalid input. Please enter an integer.")
+                print("Invalid input. Please enter an integer."
         
         decoded = "".join([chr(((ord(ch) - ord('a') - shift) % 26) + ord('a')) for ch in s])
         print(decoded)
