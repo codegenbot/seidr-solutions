@@ -22,9 +22,9 @@ int main() {
     int num;
     while (cin >> num) {
         nums.push_back(num);
-        if (cin.fail())
-            break;
     }
+    if (!cin)
+        cin.clear();
 
     vector<int> result = findLeaders(nums);
 
