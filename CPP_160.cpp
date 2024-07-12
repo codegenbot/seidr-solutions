@@ -1,3 +1,6 @@
+```cpp
+#include <vector>
+#include <cmath>
 #include <initializer_list>
 
 int do_algebra(std::vector<int> operators, std::vector<int> operands) {
