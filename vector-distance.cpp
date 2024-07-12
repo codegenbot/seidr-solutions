@@ -5,7 +5,7 @@
 int main() {
     int n;
     std::cin >> n;
-
+    
     if (n <= 0) {
         std::cout << "Invalid input!" << std::endl;
         return 1;
@@ -26,9 +26,7 @@ int main() {
         result += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    result = std::sqrt(result);
-
-    std::cout << std::fixed << result << std::endl;
+    std::cout << std::fixed << std::sqrt(result) << std::endl;
 
     return 0;
 }
