@@ -1,9 +1,10 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return std::equal(v1.begin(), v1.end(), v2.begin()) && (v1.size() == v2.size());
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b; 
 }
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
@@ -17,10 +18,6 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     }
 
     return maxNumbers;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b; 
 }
 
 int main() {
@@ -45,7 +42,7 @@ int main() {
     else
         std::cout << "Vectors are not equal" << std::endl;
     
-    assert(issame(rolling_max({3, 2, 3, 100, 3}) ,{3, 3, 3, 100, 100}));
+    assert(v1 == {3, 3, 3, 100, 100});
     
     return 0;
 }
