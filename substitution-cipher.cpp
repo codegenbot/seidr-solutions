@@ -1,17 +1,15 @@
 int main() {
-    string cipher1, cipher2, text;
-    cin >> cipher1 >> cipher2 >> text;
-
-    for (char &c : text) {
-        for (int i = 0; i < cipher1.size(); ++i) {
-            if (cipher1[i] == c) {
-                c = cipher2[i];
-                break;
-            }
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+    
+    for (char& c : s3) {
+        int idx = s1.find(c);
+        if (idx != string::npos) {
+            c = s2[idx];
         }
     }
-
-    cout << text;
-
+    
+    cout << s3 << endl;
+    
     return 0;
 }
