@@ -1,16 +1,14 @@
 ```
 from fractions import Fraction
 
-
 def simplify():
-    while True:
+    try:
         x = float(input("Enter numerator: "))
         y = float(input("Enter denominator: "))
-
-        if y == 0:
-            print("Cannot have a denominator of zero. Please try again.")
-        else:
-            print(f"{x}/{y} is simplified to {'1' if Fraction(x, y) == 1 else str(Fraction(x, y))}")
-
-
-simplify()
+    except ValueError:
+        return "Invalid input! Please enter a number."
+    
+    if y == 0:
+        return "Denominator cannot be zero!"
+    else:
+        return str(Fraction(x,y))
