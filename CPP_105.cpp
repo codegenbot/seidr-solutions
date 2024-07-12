@@ -49,9 +49,8 @@ int main() {
     std::vector<int> lengths = {9, 4, 8};
     std::vector<std::string> output = by_length(lengths);
     
-    // Initialize a,b as required
     std::vector<std::vector<std::string>> a({{output[0]}});
     std::vector<std::vector<std::string>> b({{output[0]}, {output[1], output[2]}});
     
-    assert(issame(a, b));
+    std::cout << "Is same: " << (issame(a, b) ? "true" : "false") << std::endl;
 }

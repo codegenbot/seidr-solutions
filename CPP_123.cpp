@@ -5,10 +5,10 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int) {
-    vector<int> result(1); // Initialize with a capacity of 1.
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
+    vector<int> result(1);  
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;  
