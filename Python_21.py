@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the modified code:
 
 """
 Rescale a list of numbers to be between 0 and 1.
