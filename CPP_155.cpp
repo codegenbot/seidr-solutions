@@ -8,7 +8,7 @@ bool issame(const std::vector& a, const std::vector& b) {
 }
 
 std::vector<int> even_odd_count(int num) {
-    std::vector<int> result({0, 0});
+    std::vector<int> result(std::vector<int>(2));
     if (num == 0) {
         return {1, 0};
     }
