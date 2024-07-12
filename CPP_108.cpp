@@ -18,11 +18,12 @@ int main() {
     cin >> n;
     
     for(int i = 0; i < n; i++) {
-        std::string num; 
+        string num; 
         cin >> num; 
         numbers.push_back(num);
     }
     
     int result = count_nums(numbers);
-    return static_cast<int>(result);
+    std::cout << result;
+    return 0;
 }
