@@ -22,7 +22,6 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers);
-
 string sort_numbers(string numbers){
     vector<string> num_list;
     stringstream ss(numbers);
