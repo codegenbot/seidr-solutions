@@ -19,11 +19,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             else:
                 current_group += ")"
 
-    if current_group:
-        result.append(current_group)
-    
     while "(" in current_group:
         current_group = current_group.replace("(", "", 1)
         result.append("(")
+
+    if current_group:
+        result.append(current_group)
 
     return result
