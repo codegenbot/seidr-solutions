@@ -19,18 +19,10 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    vector<int> nums = {5, 3, 15, 8, 12, 10};
+    vector<int> leaders = findLeaders(nums);
+    for (int leader : leaders) {
+        cout << leader << " ";
     }
-
-    vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-
     return 0;
 }
