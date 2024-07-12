@@ -1,10 +1,9 @@
-```Python
-from itertools import islice, accumulate
-
 def fibfib(n: int):
     if n <= 1:
         return 0
-    fib_series = (0, 1)
-    for _ in range(2, n+2):  
-        fib_series = tuple(accumulate(fib_series)[1:])
-    return sum(fib_series)
+    elif n == 2:
+        return 1
+    a, b = 0, 1
+    for _ in range(2, n):  
+        a, b = b, a + b
+    return b
