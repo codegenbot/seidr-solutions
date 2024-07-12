@@ -4,8 +4,10 @@ def double_the_difference(lst):
     return sum([i**2 for i in odd_nums]) * 2
 
 def check(lst):
-    result = double_the_difference(lst)
-    if double_the_difference(lst) == 2:
+    result = sum([i for i in lst if i % 2 == 0]) * 2
+    if result == double_the_difference(lst):
         print("Yes, it equals two.")
     else:
         print("No, it doesn't equal two.")
+
+check([1, 2, 3, 4, 5])
