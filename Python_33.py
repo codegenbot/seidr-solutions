@@ -1,5 +1,2 @@
 def sort_third(l: list):
-    l_copy = l.copy()
-    for i in range(0, len(l_copy), 3):
-        l_copy[i:i+3] = sorted(l_copy[i:i+3])
-    return l_copy
+    return [sorted(l[i::3])[j] if i % 3 == 0 else l[i] for j, i in enumerate(range(len(l)))]
