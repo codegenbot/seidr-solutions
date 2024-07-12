@@ -14,8 +14,8 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-subvector1 = v[:cut_index + 1]
-subvector2 = v[cut_index + 1:]
+subvector1 = v[: cut_index + 1]
+subvector2 = v[cut_index + 1 :]
 
 print(*subvector1)
 print(*subvector2)
