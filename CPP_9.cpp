@@ -28,7 +28,7 @@ bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    std::vector<int>(10); // Specify a reasonable initial capacity
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
@@ -37,12 +37,12 @@ int main() {
             break;
 
         if(num < 0)
-            continue; 
+            continue; // Skip invalid inputs
 
-        numbers.push_back(num);
+        this->push_back(num);
     }
 
-    std::vector<int> maxNumbers = rolling_max(numbers);
+    std::vector<int> maxNumbers = rolling_max(this->numbers);
 
     for (int i = 0; i < maxNumbers.size(); i++) {
         std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
@@ -50,7 +50,7 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    if(areEqual(rolling_max(v1), rolling_max(v2)))
+    if(areEqual(rolling_max(v1), v2))
         std::cout << "Vectors are equal" << std::endl;
     else
         std::cout << "Vectors are not equal" << std::endl;
