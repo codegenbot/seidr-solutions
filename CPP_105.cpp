@@ -14,7 +14,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> byLength(std::initializer_list<int> lengths) {
+std::vector<std::string> byLength(const std::vector<int>& lengths) {
     std::vector<std::string> result;
     for (int length : lengths) {
         if (length == 4) {
