@@ -9,15 +9,3 @@ bool is_prime(long long n) {
     }
     return true;
 }
-
-int main() {
-    long long number;
-    std::cin >> number;
-    if (is_prime(number)) {
-        std::cout << number << " is a prime number." << std::endl;
-    } else {
-        std::cout << number << " is not a prime number." << std::endl;
-    }
-
-    return 0;
-}
