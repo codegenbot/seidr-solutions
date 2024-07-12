@@ -5,14 +5,16 @@ using namespace std;
 int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
+    
+    int n = message.length();
 
-    for (char &c : message) {
-        for (int i = 0; i < cipher1.length(); ++i) {
-            if (c == cipher1[i]) {
-                c = cipher2[i];
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < cipher1.length(); ++j) {
+            if (message[i] == cipher1[j]) {
+                message[i] = cipher2[j];
                 break;
-            } else if (c == cipher2[i]) {
-                c = cipher1[i];
+            } else if (message[i] == cipher2[j]) {
+                message[i] = cipher1[j];
                 break;
             }
         }
