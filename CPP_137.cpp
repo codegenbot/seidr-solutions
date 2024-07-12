@@ -24,6 +24,7 @@ int main() {
         int y = compare_one(b, 2);
 
         return (x < y) ? -1 : ((y < x) ? 1 : 0); 
-    } else
-        return 0;
+    }
+    
+    return 0;
 }
