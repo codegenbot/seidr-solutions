@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
-#include <ostream>
+#include <iostream>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -27,7 +25,15 @@ int find_max_prime_sum(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {2, 3, 5, 7, 11};
+    std::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    lst.resize(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
+    }
     int result = find_max_prime_sum(lst);
     std::cout << "The sum of the digits of the maximum prime number is: " << result << std::endl;
     return 0;
