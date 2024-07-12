@@ -5,7 +5,13 @@ frame = 9
 while frame >= 0:
     frame_score = 0
     for index in range(0, len(bowls), 2):
-        frame_score += 10 if bowls[index] == "X" else 10 if bowls[index + 1] == "/" else 0 if bowls[index] == "-" else int(bowls[index])
+        if bowls[index] == "X":
+            frame_score += 10 + sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[index + 1:index + 3]))
+        elif bowls[index + 1] == "/":
+            frame_score += 10
+        else:
+            if bowls[index] != '-':
+                frame_score += int(bowls[index]) + int(bowls[index + 1])
 
     score += frame_score
     bowls = bowls.replace("X", "0").replace("/", "0", 1)
