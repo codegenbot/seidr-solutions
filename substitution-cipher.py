@@ -10,6 +10,3 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             result += char
     return result
-
-if __name__ == "__main__":
-    print(substitution_cipher("abc", "xyz", "hello"))
