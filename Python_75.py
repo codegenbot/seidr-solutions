@@ -1,17 +1,11 @@
-```
 def is_multiply_prime(n):
     if n < 2:
         return False
     for i in range(2, int(n**0.5) + 1):
-        while n % i == 0:
-            j = n // i
-            if not is_prime(i):
-                break
-            if not is_prime(j):
-                break
+        j = n // i
+        if is_prime(i) and is_prime(j) and i * j == n:
             return True
     return False
-
 
 def is_prime(num):
     if num < 2:
@@ -20,7 +14,6 @@ def is_prime(num):
         if num % i == 0:
             return False
     return True
-
 
 if __name__ == "__main__":
     while True:
