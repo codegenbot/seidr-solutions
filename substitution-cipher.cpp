@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -11,8 +11,7 @@ string decipher(string cipherText, string key) {
         int j = 0;
         while(j < key.length()) {
             if (key[j] == cipherText[i]) {
-                int pos = key.find(cipherText[i]);
-                decrypted += key.substr(pos,1);
+                decrypted += i % key.length();
                 break;
             }
             j++;
@@ -31,3 +30,4 @@ int main() {
     cin >> plainText;
     cout << "Decrypted message: " << decipher(cipherText, key) << endl;
     return 0;
+}
