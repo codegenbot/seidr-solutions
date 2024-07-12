@@ -4,10 +4,9 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string.isalnum():
-        for i in range(len(string), -1, -1):
-            if string[:i].lower() == string[:i][::-1].lower():
-                return string + string[:i][::-1]
-        return string + string[::-1]
-    else:
-        return 'Error: Input contains non-alphanumeric characters.'
+    s = string.lower()
+    i = len(s) - 1
+    while i >= 0 and s[i] == s[0]:
+        i -= 1
+    palindrome = s[:i+1] + s[i::-1]
+    return string.capitalize() + palindrome if not string.isalpha() else palindrome
