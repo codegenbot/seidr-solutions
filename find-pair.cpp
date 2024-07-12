@@ -3,16 +3,17 @@
 #include <map>
 
 int main() {
-    long long n;
+    int n;
     std::cin >> n;
 
-    long long target;
+    int64_t target; // Change data type to int64_t
     std::cin >> target;
 
-    std::vector<long long> nums(n);
-    std::map<long long, long long> numIndex;
+    std::vector<int64_t> nums(n); // Change data type to int64_t
 
-    for (long long i = 0; i < n; ++i) {
+    std::map<int64_t, int> numIndex;
+
+    for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
         if (numIndex.find(target - nums[i]) != numIndex.end() && i != numIndex[target - nums[i]]) {
             std::cout << target - nums[i] << " " << nums[i] << std::endl;
