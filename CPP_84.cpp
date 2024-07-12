@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <assert.h>
+#include <string>
 
 int solve(int N) {
     int sum = 0;
@@ -12,8 +11,9 @@ int solve(int N) {
 }
 
 int main() {
-    int N;
-    std::cin >> N;
+    std::string input;
+    std::cin >> input;
+    int N = std::stoi(input);
     std::cout << solve(N) << std::endl;
 
     assert(solve(963) == 483); 
