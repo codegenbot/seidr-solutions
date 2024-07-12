@@ -1,8 +1,10 @@
 #include <vector>
+#include <limits> // Include this for INT_MAX
+#include <cmath>  // Include this for abs
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
-    int min_diff = INT_MAX;
+    int min_diff = numeric_limits<int>::max();
     int cut_index = -1;
     
     for(int i = 0; i < nums.size() - 1; i++) {
