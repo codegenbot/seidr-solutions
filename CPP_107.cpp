@@ -1,7 +1,12 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    assert(a.size() == b.size());
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
