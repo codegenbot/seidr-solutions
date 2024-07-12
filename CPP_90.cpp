@@ -26,17 +26,8 @@ int main() {
 
         if(lst.size() >= 2) {
             std::sort(lst.begin(), lst.end());
-            bool same = true;
-            for(int i = 0; i < lst.size() - 1; i++){
-                if(lst[i] != lst[i+1]) {
-                    std::cout << "The smallest number that is not repeated is " << nextSmallest(lst)[0];
-                    same = false;
-                    break;
-                }
-            }
-            if(same) std::cout << "-1";
+            std::cout << nextSmallest(lst)[0];
         } else std::cout << "-1";
-
     } else std::cout << "-1";
 
     return 0;
