@@ -1,7 +1,7 @@
-#include <iostream>
-#include <any>
-#include <string>
-#include <cassert>
+#include<iostream>
+#include<any>
+#include<string>
+#include<cstring>
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -42,6 +42,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(std::any_cast<const char*>(compare_one(std::string("1"), std::string("1")).type()) == typeid(const char*));
+    assert(std::any_cast<const char*>(compare_one(std::string("1"), std::string("1")).type()) == typeid(const char*)); // Ensure correct return type
     return 0;
 }
