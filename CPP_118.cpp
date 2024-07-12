@@ -1,13 +1,18 @@
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if (isvowel(word[i])) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isvowel(word[j]) && !isconsonant(word, j)) break;
-                else if (!isvowel(word[j]) && isconsonant(word, j)) continue;
-                else {
-                    return word.substr(j + 1, i - j - 1);
-                }
+    string::reverse_iterator it = word.rbegin();
+    for (; it != word.rend(); ++it) {
+        if (tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i' || tolower(*it) == 'o' || tolower(*it) == 'u') {
+            string::iterator it2 = word.begin();
+            while (it2 != it && !isvowel(tolower(*it2))) {
+                ++it2;
+            }
+            if (it2 != it) {
+                return string(1, *it);
             }
         }
     }
@@ -15,11 +20,5 @@ string get_closest_vowel(string word) {
 }
 
 bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
-bool isconsonant(string word, int i) {
-    char c = tolower(word[i]);
-    return (!isvowel(c) && c >= 'b' && c <= 'z');
+    return tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u';
 }
