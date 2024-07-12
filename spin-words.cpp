@@ -1,24 +1,17 @@
 int main() {
-    string input;
+    string input, word, output;
     getline(cin, input);
     
-    string word;
-    bool firstWord = true;
-    for (int i = 0; i <= input.size(); ++i) {
-        if (i == input.size() || input[i] == ' ') {
-            if (word.size() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            if (!firstWord) {
-                cout << " ";
-            }
-            cout << word;
-            word = "";
-            firstWord = false;
-        } else {
-            word += input[i];
+    istringstream iss(input);
+    while (iss >> word) {
+        if (word.length() >= 5) {
+            reverse(word.begin(), word.end());
         }
+        output += word + " ";
     }
+    
+    output.pop_back(); // Remove extra space at the end
+    cout << output << endl;
     
     return 0;
 }
