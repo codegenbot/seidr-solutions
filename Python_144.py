@@ -10,4 +10,12 @@ def simplify():
     if y == 0:
         return False
     else:
-        return str(Fraction(x,y))
+        return str(Fraction(x,y)) != '1/1'
+
+while True:
+    print(simplify())
+    response = input("Do you want to continue (yes/no)? ")
+    if response.lower() not in ['yes', 'no']:
+        print("Invalid input. Please enter either yes or no.")
+    elif response.lower() != 'yes':
+        break
