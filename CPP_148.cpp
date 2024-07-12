@@ -35,8 +35,10 @@ int main() {
     std::string planet2;
     std::cin >> planet2;
 
+    // Create a list of planets
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
+    // Call the bf function with the planets and planets to find the result
     std::vector<std::string> result = bf(planets, planet1, planet2);
     
     for (const auto& planet : result) {
