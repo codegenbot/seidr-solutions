@@ -1,13 +1,6 @@
-from typing import List
-
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+def below_zero(operations):
+    return sum(1 for num in operations if num < 0)
 
 if __name__ == "__main__":
-    operations = list(map(int, input().split()))
+    operations = list(map(int, input().strip().split()))
     print(below_zero(operations))
