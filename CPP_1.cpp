@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
@@ -16,7 +19,7 @@ vector<string> separate_paren_groups(string paren_string) {
             }
         } else if (start > 0) {
             if (paren_string[i] == ')') {
-                result.push_back(paren_string.substr(start - 1, i - start + 1));
+                result.push_back(paren_string.substr(start - 1, i - start + 2));
                 start = 0;
             }
         }
@@ -28,8 +31,17 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     string paren_string;
+    cout << "Enter a string of parentheses: ";
     cin >> paren_string;
-    vector<string> separate_paren = separate_paren_groups(paren_string);
-    // You could do something with separate_paren here
+    
+    vector<string> groups = separate_paren_groups(paren_string);
+    for (const auto& group : groups) {
+        if (issame({group}, {"()"})) {
+            cout << "Grouped parenthesis: " << group << endl;
+        } else {
+            cout << "Error: Non-matching grouped parentheses: " << group << endl;
+        }
+    }
+    
     return 0;
 }
