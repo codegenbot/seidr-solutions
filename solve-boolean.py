@@ -1,7 +1,8 @@
 import ast
 
-def solve_boolean():
-    expression = input().strip()
+expression = input().strip()
+
+def solve_boolean(expression):
     return ast.literal_eval(
         expression.replace("T", "True")
         .replace("F", "False")
@@ -9,4 +10,4 @@ def solve_boolean():
         .replace("&", " and ")
     )
 
-print(solve_boolean())
+print(solve_boolean(expression))
