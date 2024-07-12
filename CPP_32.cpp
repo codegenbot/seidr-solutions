@@ -19,11 +19,7 @@ double poly(std::vector<double> coeffs, double x){
 int main(){
     std::vector<double> coeffs = {2.0, -3.0, 1.0}; // example coefficients
     double solution;
-
-    // Find the zero of the polynomial
     solution = find_zero(coeffs);
-
-    // Check if the zero returns a near-zero value when substituted back into the polynomial
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
