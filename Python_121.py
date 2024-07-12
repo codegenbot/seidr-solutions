@@ -1,4 +1,5 @@
-def count_odd_numbers():
+```
+def solution():
     while True:
         cont = input("Do you want to continue? (y/n): ")
         should_continue = cont.strip().lower() == "y"

@@ -6,6 +6,9 @@ def main():
     while True:
         try:
             array_str = input("Enter an array: ")
+            if not array_str:
+                print("Please enter an array")
+                continue
             array = list(map(str.strip, array_str.split()))
             if any(not x.replace(".", "", 1).isdigit() for x in array):
                 print("Invalid input. Please enter numbers separated by spaces.")
