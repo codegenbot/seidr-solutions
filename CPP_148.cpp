@@ -7,9 +7,9 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i][0] == planet1[0]) {
+        if (i < planets.size() && planets[i][0] == planet1[0]) {
             index1 = i;
-        } else if (planets[i][0] == planet2[0]) {
+        } else if (i < planets.size() && planets[i][0] == planet2[0]) {
             index2 = i;
         }
     }
@@ -23,10 +23,12 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
         index2 = temp;
     }
     
-    if(index2 >= 0 && index1 <= index2) {
+    if(index2 - index1 + 1 <= planets.size()) {
         std::vector<std::string> result;
         for (int i = index1; i <= index2; i++) {
-            result.push_back(planets[i]);
+            if(i < planets.size()) { 
+                result.push_back(planets[i]);
+            } 
         }
         
         return result;
