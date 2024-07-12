@@ -1,7 +1,6 @@
-def complete_code(numbers, delimiter):
+def generate_output(numbers, delimiter):
     result = []
-    for i in range(len(numbers)):
-        result.append(numbers[i])
-        if i != len(numbers) - 1:
-            result.append(delimiter)
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop()
     return result
