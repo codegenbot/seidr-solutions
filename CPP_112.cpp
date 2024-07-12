@@ -1,11 +1,6 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-
 bool checkEquality(std::string& s) {
-    return s == "True";
+    return s.compare(0, 4, "True") == 0;
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
