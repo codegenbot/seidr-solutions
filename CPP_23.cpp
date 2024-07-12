@@ -1,2 +1,5 @@
-return str.length();
+#include <cstring>
+
+int countCharacters(const char* str) {
+    return strlen(str);
 }
