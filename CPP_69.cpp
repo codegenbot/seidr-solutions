@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <map>
-#include <cassert>
+#include <initializer_list>
 
-int findMaxFreq(std::vector<int> lst) {
+int findMaxFreq(std::initializer_list<int> lst) {
     std::map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
@@ -24,7 +25,6 @@ int findMaxFreq(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 10, 10, 9, 2};
-    int result = findMaxFreq(lst);
+    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
     return 0;
 }
