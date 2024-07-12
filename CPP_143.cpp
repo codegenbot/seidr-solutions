@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstring>
-#include <cassert>
 
 using namespace std;
 
@@ -19,12 +17,11 @@ vector<string> split(const string& str, const char* delim) {
     while ((pos = str.find(*delim)) != string::npos) {
         if (pos > 0) {
             tokens.push_back(str.substr(0, pos));
-            str.erase(0, pos + strlen(delim)); 
+            str = str.substr(pos + strlen(delim)); 
         } else {
-            str.erase(0, strlen(delim)); 
+            str = str.substr(strlen(delim)); 
         }
     }
-    tokens.push_back(str);
     return tokens;
 }
 
