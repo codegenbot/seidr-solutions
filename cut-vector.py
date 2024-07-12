@@ -15,8 +15,8 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-subvector1 = arr[: cut_index + 1]
-subvector2 = arr[cut_index + 1 :]
+subvector1 = arr[:cut_index+1]
+subvector2 = arr[cut_index+1:]
 
 if abs(sum(subvector1) - sum(subvector2)) <= min_diff:
     print(*subvector1)
