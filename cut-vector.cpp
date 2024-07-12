@@ -36,7 +36,7 @@ int main() {
     vector<int> firstSubvector;
     vector<int> secondSubvector;
 
-    for (int i = 0; i < cutIndex + 1; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         firstSubvector.push_back(nums[i]);
     }
 
@@ -52,6 +52,10 @@ int main() {
     cout << endl;
     for (int num : secondSubvector) {
         cout << num << " ";
+    }
+
+    if (cutIndex == n - 1) {
+        cout << endl << nums[n - 1];
     }
 
     return 0;
