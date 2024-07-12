@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -18,8 +19,7 @@ int main() {
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        std::string str = std::to_string(i);
-        if (str[0] == '1' || str.back() == '1') {
+        if ((std::to_string(i)).substr(0, 1) == "1" || (std::to_string(i)).substr(std::to_string(i).size() - 1, 1) == "1") {
             count++;
         }
     }
