@@ -2,12 +2,17 @@
 #include <vector>
 #include <algorithm>
 
-void next_smallest(int val, std::vector<int>& lst) {
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] < val)
-            return;
+int next_smallest(std::vector<int> lst) {
+    if(lst.size() == 0)
+        return -1;
+    int res = -1;
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i-1] > lst[i]){
+            res = lst[i];
+            break;
+        }
     }
-    std::cout << "-1";
+    return res;
 }
 
 int main() {
@@ -28,18 +33,21 @@ int main() {
         if(lst.size() >= 2) {
             std::sort(lst.begin(), lst.end());
             bool same = true;
-            int val = lst[1];
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << lst[i];
+                    std::cout << "-1";
                     same = false;
                     break;
                 }
-                else{
-                    val = lst[i];
-                }
             }
-            next_smallest(val, lst);
+            if(same) std::cout << " -1";
+            else{
+                int smallest = next_smallest(lst);
+                if(smallest == -1)
+                    std::cout << "-1";
+                else
+                    std::cout << " " << smallest;
+            }
         } else std::cout << "-1";
 
     } else std::cout << "-1";
