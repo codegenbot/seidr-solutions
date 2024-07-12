@@ -4,25 +4,11 @@ score = 0
 frame = 9
 while frame >= 0:
     frame_score = 0
-    for i in range(len(bowls)):
-        if bowls[i] == "/":
-            frame_score += 10 - int(bowls[i - 1])
-        elif bowls[i] == "X":
-            frame_score += 10 + sum(
-                map(
-                    lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0,
-                    bowls[i + 1 : i + 4],
-                )
-            )
-        elif bowls[i].isdigit():
-            frame_score += int(bowls[i])
+    for index in range(0, len(bowls), 2):
+        frame_score += 10 if bowls[index] == "X" else 10 if bowls[index + 1] == "/" else 0 if bowls[index] == "-" else int(bowls[index])
 
     score += frame_score
-    bowls = bowls.replace("X", "0").replace(
-        "/", "0", 1
-    )  # Update bowls string for the next frame with the first occurrence of "/"
+    bowls = bowls.replace("X", "0").replace("/", "0", 1)
     frame -= 1
-
-    frame_score = 0  # Move this line outside the inner for loop to reset frame score after each frame
 
 print(score)
