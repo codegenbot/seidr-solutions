@@ -3,6 +3,4 @@ def solve_boolean(expression):
                 .replace("T", "True")
                 .replace("F", "False")
                 .replace("|", " or ")
-                .replace("&", " and ")
-                .replace(" or ", ") or (")
-                .replace(" and ", ") and ("))
+                .replace("&", " and "))
