@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 
@@ -16,5 +15,5 @@ long long minSubArraySum(std::vector<long long> nums){
 }
 
 int main() {
-    assert (minSubArraySum(std::vector<long long>({-1}))) == -1);
+    assert (minSubArraySum(std::vector<long long>({-1, 1})) == -1);
 }
