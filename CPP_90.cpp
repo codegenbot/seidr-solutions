@@ -16,6 +16,6 @@ int findNextSmallest(std::vector<int> lst) {
 }
 
 int main() {
-    assert(findNextSmallest({-35, 34, 12, -45}) == 12);
+    assert(findNextSmallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
