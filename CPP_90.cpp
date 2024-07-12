@@ -1,14 +1,9 @@
+if(lst.size() < 2) return None;
 sort(lst.begin(), lst.end());
-    int cnt = 0;
-    int prev = lst[0];
-    for (int num : lst) {
-        if (num > prev) {
-            cnt++;
-            if (cnt == 1) {
-                return num;
-            }
-        }
-        prev = num;
+for(int i = 1; i < lst.size(); ++i){
+    if(lst[i] > lst[0]){
+        return lst[i];
     }
-    return -1;
+}
+return None;
 }
