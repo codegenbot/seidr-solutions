@@ -21,7 +21,7 @@ int main() {
     int cut_index = -1;
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        int diff = std::abs(prefix_sum - half_sum);
+        int diff = abs(prefix_sum - half_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
