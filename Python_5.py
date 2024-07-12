@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```
+```Python
 def process_numbers():
     user_input = input("Enter numbers separated by delimiter: ")
 
