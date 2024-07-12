@@ -6,9 +6,9 @@ std::string flip_case(const std::string& input) {
     std::string result;
     for (char c : input) {
         if (c >= 'a' && c <= 'z') {
-            result += (c - ('a' - 'A')) + 0;
+            result += c - ('a' - 'A');
         } else if (c >= 'A' && c <= 'Z') {
-            result += (c - ('A' - 'a')) + 0;
+            result += c + ('a' - 'A');
         } else {
             result += c;
         }
