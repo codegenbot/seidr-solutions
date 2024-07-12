@@ -14,31 +14,31 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
-    for(float g : grades) { 
+    for(int i = 0; i < grades.size(); i++){
         string letterGrade;
-        if(g >= 4.0) {
+        if(grades[i] >= 4.0) {
             letterGrade = "A+";
-        } else if(g > 3.7) {
+        } else if(grades[i] > 3.7) {
             letterGrade = "A";
-        } else if(g > 3.3) {
+        } else if(grades[i] > 3.3) {
             letterGrade = "A-";
-        } else if(g > 3.0) {
+        } else if(grades[i] > 3.0) {
             letterGrade = "B+";
-        } else if(g > 2.7) {
+        } else if(grades[i] > 2.7) {
             letterGrade = "B";
-        } else if(g > 2.3) {
+        } else if(grades[i] > 2.3) {
             letterGrade = "B-";
-        } else if(g > 2.0) {
+        } else if(grades[i] > 2.0) {
             letterGrade = "C+";
-        } else if(g > 1.7) {
+        } else if(grades[i] > 1.7) {
             letterGrade = "C";
-        } else if(g > 1.3) {
+        } else if(grades[i] > 1.3) {
             letterGrade = "C-";
-        } else if(g > 1.0) {
+        } else if(grades[i] > 1.0) {
             letterGrade = "D+";
-        } else if(g > 0.7) {
+        } else if(grades[i] > 0.7) {
             letterGrade = "D";
-        } else if(g > 0.0) {
+        } else if(grades[i] > 0.0) {
             letterGrade = "D-";
         } else {
             letterGrade = "F";
@@ -52,12 +52,9 @@ int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
 
-    vector<string> temp = numerical_letter_grade(grades); // Create a temporary copy of the original grades
-
-    if(issame(temp, grades_letter)) // Compare the temporary copy with the actual output
+    if(issame(numerical_letter_grade(grades), grades_letter))
         cout << "Grades are same." << endl;
     else
         cout << "Grades are not the same." << endl;
 
     return 0;
-}
