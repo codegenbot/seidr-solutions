@@ -1,7 +1,7 @@
-def minPath(grid, k):
+def minPath(grid: [[int]], k: int):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
-
+    
     def dfs(i, j, path, visited):
         if len(path) == k:
             return path
