@@ -1,4 +1,4 @@
-string decimal_to_binary(int decimal){ 
+string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0){
         if (decimal % 2 == 0)
@@ -7,4 +7,4 @@ string decimal_to_binary(int decimal){
             binary = "1" + binary;
         decimal /= 2;
     }
-    return binary;
+    return binary + "db";
