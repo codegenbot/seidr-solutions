@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a) {
+bool issame() {
     return true; 
 }
 
@@ -16,6 +16,6 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 int main() {
-    assert(issame({}) == issame({1.0,2.0}) && "Test failed");
+    assert (get_positive({}).size() == 0); 
     return 0;
 }
