@@ -1,8 +1,6 @@
 import re
 
-def separate_parentheses():
-    paren_string = input("Enter the parentheses string: ")
-    
+def separate_parentheses(paren_string):
     if re.match(r'^[\(\)]+$', paren_string) is None:
         raise ValueError("Invalid input: Please enter only parentheses")
     
@@ -28,7 +26,8 @@ def separate_parentheses():
     return separated_groups
 
 try:
-    print(separate_parentheses())
+    paren_string = input("Enter the parentheses string: ")
+    print(separate_parentheses(paren_string))
 except ValueError as e:
     print(e)
 except EOFError:
