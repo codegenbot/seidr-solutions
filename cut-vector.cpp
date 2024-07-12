@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 
 int main() {
@@ -34,11 +33,6 @@ int main() {
     }
     
     std::cout << left_sum << std::endl;
-    
-    std::cout << "Second subvector: " << std::endl;
-    for (int i = idx; i < n; i++) {
-        std::cout << nums[i] << std::endl;
-    }
     
     return 0;
 }
