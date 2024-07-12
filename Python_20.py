@@ -1,4 +1,4 @@
-```
+```python
 from typing import List, Tuple
 
 def find_closest_elements():
