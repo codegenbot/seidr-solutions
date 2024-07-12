@@ -1,7 +1,7 @@
 ```
 input_string = input("Enter car race collision: ").strip().lower()
 def check():
-    if "car race collision" in input_string:
+    if input_string.replace(" ", "") == "car race collision":
         car_race_collision = int(input("Enter a number: "))
         if car_race_collision > 5:
             print("Collision is severe")
