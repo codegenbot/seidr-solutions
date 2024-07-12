@@ -1,8 +1,15 @@
 def decode_cyclic(s: str):
-    groups = [s[i:i+3] for i in range(0, len(s), 3)]
-    rotated_groups = [(group[-1] + group[:-1]) for group in groups]
-    return "".join(rotated_groups)
+    groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
+    groups = [
+        (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
+    ]
+    return "".join(groups)
 
-input_string = input()
-result = decode_cyclic(input_string)
-print(result)
+while True:
+    input_string = input("Enter a string: ")
+    if input_string.isalnum() and len(input_string) >= 3:
+        result = decode_cyclic(input_string)
+        print(result)
+        break
+    else:
+        print("Input should contain only alphanumeric characters and have a length of at least 3. Please try again.")
