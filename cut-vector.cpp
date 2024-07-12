@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cstdlib>
 #include <sstream>
-#include <string>
 
 using namespace std;
 
@@ -12,7 +10,7 @@ int main() {
     string line;
     
     getline(cin, line);
-    stringstream ss(line);
+    istringstream ss(line);
     int num;
     while (ss >> num) {
         nums.push_back(num);
@@ -44,7 +42,7 @@ int main() {
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << " ";
     }
-    
+    cout << endl;
     for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
