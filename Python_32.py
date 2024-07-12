@@ -6,7 +6,6 @@ def find_zero(xs: list):
         b *= -xs[2 * i + 1]
     return b / a
 
-
 xs = list(map(int, input().split()))
 result = find_zero(xs)
 print(result)
