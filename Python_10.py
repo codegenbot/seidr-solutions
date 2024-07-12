@@ -1,8 +1,5 @@
-import random
-
 def make_palindrome():
-    word = random.choice(["madam", "mom", "dad", "noon"])
-    return word.capitalize()
+    pass
 
 while True:
     result = input("Enter your desired output (or press enter to get a random palindrome): ")
