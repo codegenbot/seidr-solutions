@@ -3,8 +3,8 @@
 int calculateFuelCost(vector<int> &numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = static_cast<int>(floor(double(num)/3)) - 2;
-        sum += result;
+        double result = static_cast<double>(num) / 3;
+        sum += (int)(result - 2);
     }
     return sum;
 }
