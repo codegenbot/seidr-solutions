@@ -1,11 +1,15 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
-bool is_happy(const std::string& s) {
+bool is_happy(std::string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        std::string sub = s.substr(i, 3);
+        std::string sub = "";
+        for (int j = 0; j < 3 && i + j < s.length(); j++) {
+            sub += std::toupper(s.substr(i, 1)[0]);
+        }
         bool unique = true;
         for (char a : sub) { 
             int count = 0;
