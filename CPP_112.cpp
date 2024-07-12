@@ -8,7 +8,7 @@ bool checkEquality(const std::string& s, const std::string& c) {
     return s == "True";
 }
 
-std::string reverse_delete(std::string& s, std::string& c) {
+std::string reverse_delete(const std::string& s, const std::string& c) {
     if(s.empty() || c.empty()) {
         return "";
     }
@@ -35,9 +35,9 @@ int main() {
     std::string s1 = reverse_delete("mamma", "mia");
     std::string s2 = "mama";
     
-    bool isEqual = (s1 == s2) ? true : false;
+    bool isSame = checkEquality(s1, "True");
     
-    if(isEqual) {
+    if(isSame) {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else if (s1.empty()) {
