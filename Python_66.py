@@ -7,6 +7,6 @@ def check(n):
     else:
         print("The number is not divisible by 3")
 
-num = int(input("Enter a number: "))
+num = 12
 digitSum = sumOfDigits(num)
 check(digitSum)
