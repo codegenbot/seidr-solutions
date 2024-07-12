@@ -16,7 +16,5 @@ int main() {
     int num;
     cin >> num;
     if (is_prime(num))
-        cout << "true";
-    else
-        cout << "false";
+        cout << (is_prime(num) ? "true" : "false") << endl;
 }
