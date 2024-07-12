@@ -19,9 +19,11 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums = {5, 3, 15, 10, 8, 2, 25, 10};
+    
     std::vector<int> leaders = findLeaders(nums);
     for (int leader : leaders) {
         std::cout << leader << " ";
     }
+    
     return 0;
 }
