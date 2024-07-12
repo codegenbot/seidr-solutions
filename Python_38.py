@@ -1,1 +1,1 @@
-input_list = list(map(int, input().strip().split()))
+input_string = input("Enter a string: ").strip()
