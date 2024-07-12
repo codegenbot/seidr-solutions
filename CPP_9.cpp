@@ -3,13 +3,13 @@
 #include <vector>
 #include <algorithm>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) 
+bool issame(stdvector<int> a, stdvector<int> b) 
 { 
     return a == b; 
 }; 
 
-std::vector<int> rolling_max(std::vector<int> numbers) {
-    std::vector<int> maxNumbers;
+stdvector<int> rolling_max(stdvector<int> numbers) {
+    stdvector<int> maxNumbers;
     int currentMax = INT_MIN;
 
     for (int num : numbers) {
@@ -22,22 +22,22 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    stdvector<int> numbers;
     int num;
 
-    std::cout << "Enter numbers (enter -1 to stop): ";
-    while ((std::cin >> num) && (num != -1)) {
+    stdcout << "Enter numbers (enter -1 to stop): ";
+    while ((stdcin >> num) && (num != -1)) {
         numbers.push_back(num);
     }
 
-    std::vector<int> maxNumbers = rolling_max(numbers);
+    stdvector<int> maxNumbers = rolling_max(numbers);
 
     for (int i = 0; i < maxNumbers.size(); i++) {
-        std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
+        stdcout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << stdendl;
     }
     
-    std::vector<int> v1({3, 2, 3, 100, 3});
-    std::vector<int> v2({3, 3, 3, 100, 100});
+    stdvector<int> v1({3, 2, 3, 100, 3});
+    stdvector<int> v2({3, 3, 3, 100, 100});
     assert(issame(v1, v2));
     
     return 0;
