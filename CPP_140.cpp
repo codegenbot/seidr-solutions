@@ -2,8 +2,8 @@
 #include <string>
 #include <algorithm>
 
-string fix_spaces(string text) {
-    string result = "";
+std::string fix_spaces(std::string text) {
+    std::string result = "";
     bool previousSpace = false;
     for (char c : text) {
         if (c == ' ') {
