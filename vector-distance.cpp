@@ -13,9 +13,20 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+    std::string input;
+    std::cin.ignore();
+    std::getline(std::cin, input);
+
+    std::vector<double> vec2;
+    std::stringstream ss(input);
+    double temp;
+    while (ss >> temp) {
+        vec2.push_back(temp);
+    }
+
+    if (vec2.size() != n) {
+        std::cout << "Error: Vectors must be of the same size." << std::endl;
+        return 1;
     }
 
     double sum = 0.0;
