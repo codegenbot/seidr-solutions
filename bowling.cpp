@@ -19,8 +19,14 @@ int bowlingScore(string s) {
             rollsLeftInFrame--;
         } else {
             int currentRoll = s[i] - '0';
-            score += currentRoll;
-            rollsLeftInFrame--;
+            if (currentRoll + rollsLeftInFrame <= 10) {
+                score += currentRoll + rollsLeftInFrame;
+                rollsLeftInFrame = 0;
+            } else {
+                score += 10;
+                rollsLeftInFrame = 0;
+                currentFrame++;
+            }
         }
     }
 
