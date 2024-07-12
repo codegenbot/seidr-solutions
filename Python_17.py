@@ -1,7 +1,7 @@
 from typing import List
 
 def parse_music() -> List[int]:
-    music_string = input("Enter music notes separated by '|': ").strip()
+    music_string = input().strip()
     if not music_string:
         return []
 
