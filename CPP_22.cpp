@@ -1,35 +1,36 @@
+```
 #include <boost/any.hpp>
-#include <iostream>
-#include <list>
 #include <vector>
+#include <list>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 int main() {
-    std::list<boost::any> values = {3, 3, 3};
-    vector<int> result = filter_integers(values);
-    
-    for (const auto& value : result) {
-        std::cout << value << " ";
+    std::list<boost::any> values = {3, 'c', 3, 3, 'a', 'b'};
+    for (auto& value : values) {
+        boost::any_cast<int>(value);
     }
-    std::cout << std::endl;
-    
-    if (issame({1, 2, 3}, {1, 2, 3})) {
-        std::cout << "Vectors are the same" << std::endl;
+    std::vector<int> filtered = filter_integers(values);
+
+    if (issame({1}, filtered)) {
+        for (int i : filtered) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
     } else {
-        std::cout << "Vectors are not the same" << std::endl;
+        std::cout << "Vectors are not equal." << std::endl;
     }
-    
+
     return 0;
 }
 
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).type() == typeid(int)) {
