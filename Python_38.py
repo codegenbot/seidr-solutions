@@ -1,9 +1,10 @@
-```
+```Python
 def decode_cyclic():
     s = input("Enter a string: ")
     if len(s) < 3:
         print("Input length should be at least 3.")
         return
+
     result = []
     i = 0
     while i < len(s):
