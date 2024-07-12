@@ -1,5 +1,5 @@
 ```
-def get_closest_elements(numbers, target_sum):
+def get_closest_elements(numbers):
     numbers.sort()
     min_diff = float('inf')
     closest_pair = ()
@@ -21,7 +21,7 @@ def get_closest_elements(numbers, target_sum):
     
     return closest_pair
 
-target_sum = int(input("Enter the target sum: "))
 numbers = list(map(int, input().split()))
-find_closest_elements = get_closest_elements(numbers, target_sum)
+target_sum = int(input("Enter the target sum: "))
+find_closest_elements = get_closest_elements(numbers)
 print(find_closest_elements)
