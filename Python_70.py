@@ -1,14 +1,15 @@
 ```
 def strange_sort_list(lst):
-    result = []
+    sorted_lst = []
     while lst:
-        if len(lst) == 1:
-            result.append(lst.pop())
-        else:
-            min_val = min(lst)
-            max_val = max(lst)
-            result.append(min_val)
+        min_val = min(lst)
+        max_val = max(lst)
+        if len(lst) > 1:
+            sorted_lst.append(min_val)
             lst.remove(min_val)
-            result.append(max_val)
+            sorted_lst.append(max_val)
             lst.remove(max_val)
-    return result
+        else:
+            sorted_lst.extend(lst)
+            break
+    return sorted_lst
