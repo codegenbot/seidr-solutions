@@ -8,7 +8,7 @@ for i in range(1, len(arr)):
     left_sum = sum(arr[:i])
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-    if diff < min_diff or (diff == min_diff and i < cut_index):
+    if diff <= min_diff:
         min_diff = diff
         cut_index = i
 
