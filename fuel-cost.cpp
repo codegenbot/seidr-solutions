@@ -13,10 +13,10 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += num / 3 - 2;
+        sum += (num / 3) - 2;
     }
     
-    cout << sum << endl;
+    cout << sum << "\n";
     
     return 0;
 }
