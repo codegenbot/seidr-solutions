@@ -4,12 +4,8 @@ int main() {
 
     if (input == "t") {
         cout << "True" << endl;
-    } else if (input == "f") {
-        cout << "False" << endl;
-    } else if (input == "f&f" || input == "f&t" || input == "t&f") {
-        cout << "False" << endl;
     } else {
-        cout << "True" << endl;
+        cout << "False" << endl;
     }
 
     return 0;
