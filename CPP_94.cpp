@@ -1,4 +1,7 @@
-int skjkasdkd(vector<int> lst) {
+#include <iostream>
+#include <vector>
+
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -25,4 +28,19 @@ bool isPrime(int n) {
         }
     }
     return true;
+}
+
+int main() {
+    std::vector<int> lst;
+    int num;
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if (num == -1) {
+            break;
+        }
+        lst.push_back(num);
+    }
+    std::cout << "The sum of digits is: " << skjkasdkd(lst) << std::endl;
+    return 0;
 }
