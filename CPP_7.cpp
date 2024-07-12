@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool has_items(const std::vector<std::string>& a) {
+bool contains(const std::vector<std::string>& a) {
     return (a.size() > 0);
 }
 
@@ -17,6 +17,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    bool same = has_items(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"));
+    bool same = contains({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")});
     return 0;
 }
