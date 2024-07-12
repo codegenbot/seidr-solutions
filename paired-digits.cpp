@@ -1,5 +1,6 @@
 #include <string>
 
+char input[] = "1233345556";
 int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
@@ -11,8 +12,7 @@ int pairedDigits(std::string s) {
 }
 
 int main() {
-    const char* input = "1233345556";
     std::string str(input);
-    int sum = pairedDigits(str);
+    int result = pairedDigits(str);
     return 0;
 }
