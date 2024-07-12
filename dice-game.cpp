@@ -5,13 +5,7 @@ int main() {
     int n, m;
     std::cin >> n >> m;
 
-    long double probability = 0.0;
-    
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            probability += (1.0 * i / n) * (1.0 * (m - j) / m);
-        }
-    }
+    double probability = 1.0 * (n + 1) / (2 * n) * (m - 1) / m + 1.0 / (2 * n);
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
