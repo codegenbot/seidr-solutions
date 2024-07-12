@@ -1,13 +1,10 @@
-```Python
 def secure_code():
     s = input("Enter the digits separated by spaces: ")
     digits = [int(x) for x in s.split()]
     unique_digits = set(digits)
     sorted_unique_digits = str(sorted(unique_digits)).replace(", ", " ")
-    sorted_list_sum = sum(unique_digits)
-    is_even = sorted_list_sum % 2 == 0
-    result = " ".join(map(str, digits)) + f" Sum: {sorted_list_sum} - {'Even' if is_even else 'Odd'}"
-    return result
+    is_even = sum(unique_digits) % 2 == 0
+    return " ".join(map(str, digits)) + f" Sum: {sum(unique_digits)} - {'Even' if is_even else 'Odd'}"
 
-output = secure_code()
-print(output)
+sorted_list_sum = secure_code()
+check(sorted_list_sum)
