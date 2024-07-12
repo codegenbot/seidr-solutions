@@ -10,7 +10,7 @@ string decipher(string cipherText, string key) {
         int j = 0;
         while (j < key.length()) {
             if (key[j] == cipherText[i]) {
-                decrypted += cipherText[(i - j) % key.length()];
+                decrypted += key[(i - j) % key.length()];
                 break;
             }
             j++;
@@ -27,6 +27,6 @@ int main() {
     cin >> cipherText;
     cout << "Enter the third string: ";
     cin >> plainText;
-    cout << "Decrypted message: " << decipher(cipherText, key) << endl;
+    cout << "Decrypted message: " << decipher(plainText, key) << endl;
     return 0;
 }
