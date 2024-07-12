@@ -1,7 +1,9 @@
+```
 def add(x: int, y: int):
-    try:
-        if not isinstance(x, int) or not isinstance(y, int):
-            return "Error: Please enter valid integers"
-        return x + y
-    except TypeError as e:
-        return str(e)
+    while True:
+        try:
+            return x + y
+            break
+        except TypeError:
+            x = input("Please enter a valid integer for X: ")
+            y = input("Please enter a valid integer for Y: ")
