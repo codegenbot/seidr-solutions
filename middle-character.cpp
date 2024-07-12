@@ -8,8 +8,8 @@ string middleCharacter(string s) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << middleCharacter(input) << endl;
+    string s;
+    cin >> s;
+    cout << middleCharacter(s) << endl;
     return 0;
 }
