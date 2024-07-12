@@ -6,6 +6,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     else:
         return sum(numbers), 1 if 0 in numbers else eval("*".join(map(str, numbers)))
 
-numbers = list(map(int, input().split()))
-result = sum_product(numbers)
+input_numbers = list(map(int, input().split()))
+result = sum_product(input_numbers)
 print(result)
