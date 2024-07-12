@@ -1,2 +1,4 @@
+```
 def fix_spaces(text):
-    return text.replace("    ", " ")
+    new_text = ' '.join(text.split())
+    return new_text
