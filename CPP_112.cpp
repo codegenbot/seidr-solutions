@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -9,9 +11,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -25,12 +27,17 @@ std::vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
+    std::string rev = temp;
+    std::reverse(rev.begin(), rev.end());
     if (temp == rev) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
     return result;
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
 }
