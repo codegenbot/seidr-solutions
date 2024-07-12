@@ -1,8 +1,6 @@
 expression = input().strip()
 
 def solve_boolean(expression):
-    mapping = {"T": "True", "F": "False", "|": " or ", "&": " and "}
-    converted_expression = "".join(mapping.get(char, char) for char in expression)
-    return eval(converted_expression)
+    return eval(expression.replace("T", "t").replace("F", "f").replace("|", " or ").replace("&", " and ").replace("t", "True").replace("f", "False"))
 
 print(solve_boolean(expression))
