@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 #include <vector>
@@ -5,12 +6,19 @@ using namespace std;
 
 pair<int, int> findPair(const vector<int>& nums, int target) {
     unordered_map<int, int> numIndex;
-    for (int i = nums.size() - 1; i >= 0; --i) {
+    for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            return {complement, nums[i]};
+            numIndex[complement] = i;
+            continue;
         }
         numIndex[nums[i]] = i;
+    }
+    vector<int> pairs;
+    for (const auto& p : numIndex) {
+        if (target - p.first == p.second) {
+            return {p.first, p.second};
+        }
     }
     return {};
 }
