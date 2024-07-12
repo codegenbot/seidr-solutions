@@ -28,6 +28,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 }
 
 int main(){
-    assert (issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW"), std::vector<std::string>{"W", "WW", "WWW"}));
+    
     return 0;
 }
