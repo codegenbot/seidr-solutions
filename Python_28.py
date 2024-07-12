@@ -1,22 +1,25 @@
-def concatenate(strings) -> str:
-    if not strings:
-        return "No strings were provided."
-    return " ".join(strings)
+def calculate_total_cost(items):
+    total_cost = 0
+    for item in items:
+        cost = float(input(f"Enter the cost of {item}: "))
+        total_cost += cost
+    return total_cost
 
-strings_list = []
+
+items = []
 while True:
     try:
-        user_input = input("Enter a string (or 'stop' to finish): ")
+        user_input = input("Enter an item (or 'stop' to finish): ")
         if user_input.lower() == "stop":
             break
         elif not isinstance(user_input, str):
-            raise ValueError("Invalid input. Please enter a string or 'stop'.")
-        strings_list.append(user_input.strip())
+            raise ValueError("Invalid input. Please enter an item or 'stop'.")
+        items.append(user_input.strip())
     except ValueError:
-        print("Invalid input. Please enter a string or 'stop'.")
+        print("Invalid input. Please enter an item or 'stop'.")
 
-if strings_list:
-    result = concatenate(strings_list)
-    print(result)
+if items:
+    result = calculate_total_cost(items)
+    print(f"The total cost is: {result}")
 else:
-    print("No strings were provided.")
+    print("No items were provided.")
