@@ -1,4 +1,12 @@
 ```
 def find_max(words):
-    max_word = max((word for word in words), key=lambda x: len(set(x)))
-    return max((word for word in words if len(set(word)) == len(set(max_word))), key=words.index)
+    max_word = ''
+    max_unique_chars = 0
+    for word in words:
+        unique_chars = len(set(word))
+        if unique_chars > max_unique_chars:
+            max_unique_chars = unique_chars
+            max_word = word
+        elif unique_chars == max_unique_chars:
+            max_word = min(max_word, word)
+    return max_word
