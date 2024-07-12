@@ -11,13 +11,14 @@ def match_parens(lst):
                         return 'No'
                     else:
                         stack.pop()
-        elif s == '(':
-            stack.append(s)
-        elif s == ')':
-            if len(stack) == 0:
-                return 'No'
-            else:
-                stack.pop()
+        elif isinstance(s, str):
+            if s == '(':
+                stack.append(s)
+            elif s == ')':
+                if len(stack) == 0:
+                    return 'No'
+                else:
+                    stack.pop()
     if len(stack) == 0:
         return 'Yes'
     else:
