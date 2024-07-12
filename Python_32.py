@@ -1,10 +1,11 @@
-def main():
+```
+import math
+if __name__ == "__main__":
     try:
-        input_str = input("Enter coefficients (space-separated): ")
-        xs = list(map(float, input_str.split()))
+        xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
         n = len(xs)
-        if n % 2 != 0:
-            raise ValueError("xs must have even number of coefficients")
+        if n % 2 != 0 or any(x < 0 for x in xs):
+            raise ValueError("xs must have even number of non-negative coefficients")
         a = xs[0]
         b = xs[1]
         c = xs[2] if n > 2 else 0
