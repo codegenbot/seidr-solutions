@@ -10,8 +10,8 @@ int main() {
     map<int, int> mp;
     for (int i = 0; i < n; i++) {
         if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << endl;
             cout << nums[i] << endl;
+            cout << target - nums[i] << endl;
             break;
         }
         mp[nums[i]] = i;
