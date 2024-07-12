@@ -7,7 +7,7 @@ int main() {
     double prob = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            prob += static_cast<double>((n - i) * (m - j)) / (n * m);
+            prob += (double)(n - i) * (m - j) / (n * m);
         }
     }
     
