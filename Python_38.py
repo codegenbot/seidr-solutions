@@ -1,2 +1,2 @@
-# join groups back together to form the encoded string.
+groups = [group[-1] + group[:2] if len(group) == 3 else group for group in groups]
     return "".join(groups)
