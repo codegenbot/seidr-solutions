@@ -24,7 +24,6 @@ def find_substring():
                         print([result[0]])
                     else:
                         print(result)
-                break
             elif action == "quit":
                 print("Goodbye!")
                 exit()
