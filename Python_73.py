@@ -8,7 +8,7 @@ def smallest_change(arr):
         if arr[left] != arr[right]:
             for i in range(left + 1, right):
                 if arr[i] == arr[right]:
-                    arr[i], arr[left] = arr[left], arr[i]
+                    arr[left], arr[i] = arr[i], arr[left]
                     changes += 1
                     break
             else:
