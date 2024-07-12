@@ -13,7 +13,7 @@ int main() {
     std::cin >> n1;
     std::cout << "Enter the number of elements in lst1: ";
     std::cin >> m1;
-    std::vector<int> lst1(n1, 0); // initialize all elements to 0
+    std::vector<int> lst1(n1, 0);
     std::cout << "Enter elements of lst1: ";
     for (int &i : lst1) {
         std::cin >> i;
