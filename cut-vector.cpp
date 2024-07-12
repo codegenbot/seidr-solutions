@@ -4,30 +4,33 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
-    int n = nums.size();
+    
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    for (int n : nums) {
+        sum += n;
     }
-
+    
     int target = sum / 2;
-    int prefixSum = 0;
-    int diff = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int newDiff = abs(2 * prefixSum - sum);
-        if (newDiff < diff) {
-            diff = newDiff;
-        } else {
-            cout << i + 1 << endl;
-            for (int j = 0; j <= i; j++) {
-                cout << nums[j] << endl;
-            }
-            cout << endl;
+    int runningSum = 0;
+    int idx = 0;
+    for (; idx < nums.size(); ++idx) {
+        runningSum += nums[idx];
+        if (runningSum >= target) {
             break;
         }
     }
-
+    
+    if (abs(runningSum - target) < abs(sum - runningSum - target)) {
+        for (int i = 0; i <= idx; ++i) {
+            cout << nums[i] << endl;
+        }
+        cout << 0 << endl;
+    } else {
+        for (int i = 0; i <= idx; ++i) {
+            cout << nums[i] << endl;
+        }
+        cout << 0 << endl;
+    }
+    
     return 0;
 }
