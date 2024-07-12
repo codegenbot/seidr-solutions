@@ -2,17 +2,20 @@
 def sum_product() -> tuple:
     total_sum = 0
     product = 1
-    user_input = int(input("Enter a number: "))
 
     while True:
-        if str(user_input).lower() == 'stop':
+        user_input = input("Enter a number (or 'stop' to finish): ")
+
+        if user_input.lower() == 'stop':
             break
         elif user_input.isdigit():
-            total_sum += user_input
-            product *= user_input
+            num = int(user_input)
+            total_sum += num
+            product *= num
         else:
             print("Invalid input. Please enter a digit or type 'stop' to finish.")
-        user_input = int(input("Enter a number (or 'stop' to finish): "))
+            while not user_input.isdigit():
+                user_input = input("Enter a valid number: ")
 
     return total_sum, product
 
