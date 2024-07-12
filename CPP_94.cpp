@@ -1,7 +1,7 @@
-```
-#include <vector>
+```cpp
+#include <initializer_list>
 
-int findMaxSumOfDigitsInPrimes(std::vector<int> lst){
+int find_max_prime_sum(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
