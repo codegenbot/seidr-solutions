@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 int solve(int N) {
