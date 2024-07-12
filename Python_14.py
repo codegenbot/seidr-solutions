@@ -8,8 +8,11 @@ def all_prefixes(string: str) -> List[str]:
 
     result = [""]
     for char in string:
-        temp_result = [p + char for p in result]
-        result.extend(temp_result)
+        temp_result = []
+        for prefix in result:
+            temp_result.append(prefix)
+            temp_result.append(prefix + char)
+        result = temp_result
     return result
 
 
