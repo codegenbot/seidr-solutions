@@ -6,20 +6,18 @@ int count_nums(char** nums, int size) {
     int count = 0;
     for (int i = 0; i < size; i++) {
         if (atoi(nums[i]) >= 0) {
-            std::string str = nums[i];
             int sum = 0;
-            while (str[0] != '\0') {
-                sum += abs(str[0] - '0');
-                for(int j=str.length()-1; j>=0; j--) str[j]=str[j+1],str.pop_back();
+            while (atoi(nums[i]) > 0) {
+                sum += abs(atoi(nums[i]) % 10);
+                atoi(nums[i]) /= 10;
             }
             if (sum % 2 != 0)
                 count++;
         } else {
-            std::string str = nums[i];
             int sum = 0, sign = 1;
-            while (str[0] != '\0') {
-                sum += abs(str[0] - '0');
-                for(int j=str.length()-1; j>=0; j--) str[j]=str[j+1],str.pop_back();
+            while (atoi(nums[i]) < 0) {
+                sum += abs(atoi(nums[i]) % 10);
+                atoi(nums[i]) /= 10;
                 sign *= -1;
             }
             if (sign * sum % 2 != 0)
@@ -39,10 +37,8 @@ int main() {
         std::cout << "Enter integer # " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        std::string str;
-        str = std::to_string(num);
-        nums[i] = new char[str.length() + 1];
-        strcpy(nums[i], str.c_str());
+        nums[i] = new char[10]; 
+        strcpy(nums[i], std::to_string(num).c_str());
     }
 
     int count = count_nums(nums, size);
