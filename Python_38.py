@@ -1,2 +1,2 @@
-input_list = list(map(int, input().rstrip().split()))
+input_list = list(map(int, input().split()))
 print(sum(input_list))
