@@ -1,6 +1,7 @@
+Here's the modified code:
+
 ```
 import math
-
 def quadratic_equation():
     while True:
         try:
