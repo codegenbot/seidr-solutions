@@ -5,5 +5,6 @@ def find_zero():
     b = xs[-2]
     return -b / a
 
+input_values = input("Enter numbers separated by space: ")
 result = find_zero()
 print(result)
