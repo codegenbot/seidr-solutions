@@ -19,6 +19,9 @@ std::string encrypt(std::string s){
 int main(){
     std::string s;
     std::cout << "Enter a string: ";
-    s = std::getline(std::cin, s);
+    char c;
+    while((c = cin.get()) != '\n' && c != '\r') {
+        s += c;
+    }
     std::cout << "Encrypted string: " << encrypt(s) << '\n';
 }
