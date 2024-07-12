@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <algorithm>
 #include <string>
@@ -25,3 +26,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Flipped case: " << filp_case(input) << std::endl;
     return 0;
+}
