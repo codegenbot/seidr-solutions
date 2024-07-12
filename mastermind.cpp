@@ -13,9 +13,10 @@ int mastermind(char* code, char* guess) {
 
     for(int i = 0; i < 6; i++) {
         int countCode = 0, countGuess = 0;
+        char c = (char)(i + 'A');
         for(int j = 0; j < 4; j++) {
-            if(code[j] == (char)(i + 'A' - 1)) countCode++;
-            if(guess[j] == (char)(i + 'A' - 1)) countGuess++;
+            if(code[j] == c) countCode++;
+            if(guess[j] == c) countGuess++;
         }
         white += min(countCode, countGuess);
     }
