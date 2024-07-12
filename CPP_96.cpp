@@ -1,9 +1,6 @@
-
 #include <iostream>
 #include <vector>
 #include <cassert>
-
-using namespace std;
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
