@@ -10,7 +10,8 @@ def secure_code():
     unique_digits = set(int(x) for x in digits.split())
     sorted_unique_digits = str(sorted(unique_digits)).replace(', ', ' ')
     sorted_list_sum = sum(unique_digits)
-    if sorted_list_sum % 2 == 0:
-        return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - {check(int(sorted_list_sum))}"
+    is_even = sorted_list_sum % 2 == 0
+    if is_even:
+        return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - {check(str(sorted_list_sum))}"
     else:
-        return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - {check(int(sorted_list_sum))}"
+        return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sorted_list_sum} - {check(str(sorted_list_sum))}"
