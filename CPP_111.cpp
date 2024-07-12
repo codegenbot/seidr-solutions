@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <map>
-#include <string>
 
 using namespace std;
 
-int main() {
+int driver() {
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -24,10 +22,6 @@ int main() {
 
 }
 
-bool issame(map<char,int> a,map<char,int> b){
-    if(a==b) return true;
-    return false;
-}
 int histogram(string s, vector<int>& arr) {
     if (s == "print") {
         int max_val = *max_element(arr.begin(), arr.end());
@@ -35,7 +29,7 @@ int histogram(string s, vector<int>& arr) {
         
         for (int i = min_val; i <= max_val; i++) {
             int count = 0;
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < arr.size(); j++) { 
                 if (arr[j] == i) {
                     count++;
                 }
