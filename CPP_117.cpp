@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -36,10 +35,15 @@ vector<string> select_words(string s, int n) {
 int main() {
     string s;
     int n;
+    
+    // Read input from user
     cin >> s >> n;
+
     vector<string> result = select_words(s, n);
+
     for (string str : result) {
         cout << str << endl;
     }
+
     return 0;
 }
