@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -9,7 +8,8 @@ bool is_happy(std::string s) {
     for (int i = 0; i <= s.length() - 3; i++) {
         std::string sub = "";
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
-            sub += std::toupper(s[i+j]); 
+            char c = std::toupper(s[i+j]); 
+            sub.push_back(std::toupper(s[i+j])); 
         }
         bool unique = true;
         for (char a : sub) { // Check the modified substring
@@ -38,4 +38,3 @@ int main() {
             break;
         std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     }
-}
