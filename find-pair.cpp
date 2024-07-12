@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <limits>
 
 int main() {
     int n, target;
@@ -14,9 +15,12 @@ int main() {
     std::unordered_map<int, int> map;
     bool pairFound = false;
     for (int i = 0; i < n; ++i) {
+        if (nums[i] > target || target - nums[i] < std::numeric_limits<int>::min() || target - nums[i] > std::numeric_limits<int>::max()) {
+            continue;
+        }
         int complement = target - nums[i];
         if (map.find(complement) != map.end()) {
-            std::cout << nums[i] << " " << map[complement] << std::endl;
+            std::cout << nums[i] << " " << complement << std::endl;
             pairFound = true;
             break;
         }
