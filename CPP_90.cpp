@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> next_smallest(std::vector<int>& nums) {
+std::vector<int> nextSmallest(std::vector<int>& nums) {
     for (int i = 0; i < nums.size() - 1; i++) {
         if (nums[i] != nums[i + 1]) return {nums[i]};
     }
@@ -29,13 +29,13 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "The next smallest integer is: ";
-                    std::cout << lst[i];
+                    std::cout << "The smallest number that is not repeated is " << nextSmallest(lst)[0];
+                    same = false;
                     break;
                 }
             }
-            else std::cout << "No smaller integers found";
-        } else std::cout << "No smaller integers found";
+            if(same) std::cout << "-1";
+        } else std::cout << "-1";
 
     } else std::cout << "-1";
 
