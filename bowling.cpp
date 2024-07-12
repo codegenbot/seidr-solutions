@@ -1,41 +1,41 @@
-int calculateBowlingScore(string bowls) {
+int main() {
+    string input;
+    cin >> input;
     int score = 0;
-    int frame = 1;
-    int ball = 0;
-    for (char c : bowls) {
+    int frame = 0;
+    int rolls = 0;
+    vector<int> frames(10, 0);
+    
+    for (char c : input) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[ball + 1] == 'X' ? 10 : (bowls[ball + 1] == '/' ? 10 - (bowls[ball + 2] - '0') : bowls[ball + 1] - '0'));
-                score += (bowls[ball + 2] == 'X' ? 10 : (bowls[ball + 2] == '/' ? 10 - (bowls[ball + 3] - '0') : bowls[ball + 2] - '0'));
-                ball++;
-            }
-            frame++;
+            frames[frame++] = 10;
+            if (frame == 10) break;
         } else if (c == '/') {
-            score += 10 - (bowls[ball - 1] - '0');
-            score += (bowls[ball + 1] == 'X' ? 10 : bowls[ball + 1] - '0');
-            ball += 2;
-            frame++;
+            frames[frame++] = 10 - frames[frame - 1];
+            if (frame == 10) break;
+            rolls++;
         } else if (c == '-') {
-            ball++;
-            frame++;
+            frames[frame++] = 0;
+            if (frame == 10) break;
         } else {
-            score += c - '0';
-            ball++;
-            if (frame < 10 && c != '5') {
-                if (bowls[ball] == '/') {
-                    score += 10 - (c - '0');
-                    ball++;
-                }
-            }
+            frames[frame] += c - '0';
+            if (++rolls % 2 == 0) frame++;
         }
     }
-    return score;
-}
-
-int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+        if (frames[i] == 10 && i < 9) {
+            score += frames[i + 1];
+            if (frames[i + 1] == 10) score += frames[i + 2];
+        } else if (frames[i] == 10 && i == 9) {
+            score += frames[i + 1] + frames[i + 2];
+        } else if (frames[i] + frames[i + 1] == 10) {
+            score += frames[i + 1];
+        }
+    }
+    
+    cout << score << endl;
+    
     return 0;
 }
