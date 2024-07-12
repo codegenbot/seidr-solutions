@@ -5,36 +5,23 @@
 std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
-    std::string word;
 
     for (char c : s) {
-        if (std::isspace(c)) {
-            // Append the current word to the result, and reset it
-            if (!capitalize) {
-                result += std::tolower(word[0]);
-                word.erase(0, 1);
-            }
-            result += " " + word;
-            capitalize = true;
-            word.clear();
-        } else if (c == '-') {
-            // Start a new word
-            capitalize = true;
-        } else if (!capitalize) {
-            word += c;
+        if (std::isspace(c)) { 
+            capitalize = true;  
+            continue;            
+        } else if (c == '-') { 
+            result += c;
+            capitalize = true;  
         } else {
-            result += std::toupper(c);
-            capitalize = false;
-            word += c;
+            if (capitalize) {
+                result += std::toupper(c);  
+                capitalize = false;      
+            } else {
+                result += std::tolower(c);
+            }
         }
     }
-
-    // Append the last word to the result
-    if (!capitalize) {
-        result += std::tolower(word[0]);
-        word.erase(0, 1);
-    }
-    result += word;
 
     return result;
 }
