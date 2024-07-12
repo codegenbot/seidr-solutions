@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
+std::vector<std::string> filter_by_substring(std::vector<std::string> words, std::string substring) {
     std::vector<std::string> result;
     for (const auto& word : words) {
         if (word.find(substring) != std::string::npos) {
@@ -12,17 +12,12 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     return result;
 }
 
-bool issame(const std::vector<std::string>& words) {
-    std::sort(words.begin(), words.end());
-    for (size_t i = 0; i < words.size() - 1; ++i) {
-        if (words[i] != words[i + 1]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    bool same = issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"));
+    auto filtered = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    bool same = issame(filtered, {"grunt", "prune"});
     return 0;
 }
