@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 std::vector<std::pair<std::string, std::string>> extensions;
 
@@ -9,7 +9,7 @@ int compare(const std::pair<std::string, std::string>& a, const std::pair<std::s
     return a.second.size() - b.second.size();
 }
 
-std::string Strongest_Extension(std::string type, const std::vector<std::string>& strong) {
+std::string Strongest_Extension(const std::string& type, const std::vector<std::string>& strong) {
     auto max_str = *std::max_element(strong.begin(), strong.end());
     extensions.push_back({type, max_str});
     return type + "." + max_str;
