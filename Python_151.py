@@ -1,4 +1,2 @@
-```
-def check(double_the_difference):
-    lst = [1, 2, 3]
-    double_the_difference(lst)
+def double_the_difference(numbers):
+    return sum(i**2 for i in numbers if isinstance(i, int) and i > 0) * 2
