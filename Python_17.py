@@ -1,14 +1,15 @@
-Here is the corrected code:
-
+```
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
 
+    music_string = music_string.replace(" ", "")
     music_list = []
     i = 0
     while i < len(music_string):
-        if not music_string[i:i+2].isalnum() or not music_string[i+1:i+2] == '|':
+        if not music_string[i:i+1].isalnum():
             return []
+
         if music_string[i:i+2] == 'o|':
             music_list.append(2)
             i += 2
@@ -29,7 +30,11 @@ def parse_music(music_string: str) -> list:
         elif music_string[i:i+2] == 'o o|':
             music_list.append(4)
             i += 2
+        
         if i < len(music_string):
             while i < len(music_string) and not music_string[i].isalnum():
                 i += 1
     return music_list
+
+input_str = input("Enter a music string: ")
+print(parse_music(input_str))
