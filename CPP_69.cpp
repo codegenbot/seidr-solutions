@@ -1,7 +1,9 @@
 #include <map>
+#include <iostream>
+
+std::map<int, int> freqMap;
 
 int findMaxFreq(int arr[], int n) {
-    std::map<int, int> freqMap;
     for (int i = 0; i < n; i++) {
         if (freqMap.find(arr[i]) == freqMap.end()) {
             freqMap[arr[i]] = 1;
