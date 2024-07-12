@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 using namespace std;
@@ -8,12 +9,15 @@ string toCamelCase(string s) {
     while (i < s.length()) {
         if (s[i] == '-') {
             i++;
-            continue;
-        }
-        if (result != "") {
-            result += toupper(s[i]);
-        } else {
-            result += tolower(s[i]);
+            if (!result.empty())
+                result += toupper(s[i]);
+            else
+                result += tolower(s[i]);
+        } else if (s[i] != ' ') {
+            if (!result.empty())
+                result += toupper(s[i]);
+            else
+                result += tolower(s[i]);
         }
         i++;
     }
