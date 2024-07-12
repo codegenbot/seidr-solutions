@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -19,6 +18,12 @@ int main() {
     assert(words_in_sentence("here is") == "is");
     std::string sentence;
     std::getline(std::cin, sentence);
+    
+    if (sentence.empty()) {
+        std::cerr << "Error: Invalid input. Please enter a valid sentence." << std::endl;
+        return 1; 
+    }
+    
     try {
         std::cout << words_in_sentence(sentence) << std::endl;
     } catch (...) {
