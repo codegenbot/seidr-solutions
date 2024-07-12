@@ -23,7 +23,7 @@ int main() {
             right_sum += nums[j];
         }
         
-        int current_diff = abs(left_sum - right_sum);
+        int current_diff = std::abs(left_sum - right_sum);
         if (current_diff < diff) {
             diff = current_diff;
             idx = i;
