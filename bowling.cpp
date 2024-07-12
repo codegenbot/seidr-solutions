@@ -11,7 +11,6 @@ int scoreBowlingRound() {
 
     for (int i = 0; i < input.size(); ++i) {
         char c = input[i];
-        
         if (c == 'X') {
             score += 10;
             frameScores[frame++] = 10;
