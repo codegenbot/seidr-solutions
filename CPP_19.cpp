@@ -27,7 +27,8 @@ string sort_numbers_with_map(string numbers) {
 }
 
 int main() {
-    string numbers = "zero one two three four five";
+    string numbers = "one three five two four";
     cout << sort_numbers_with_map(numbers) << endl;
+
     return 0;
 }
