@@ -1,12 +1,17 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 bool will_it_fly(const std::vector<std::vector<int>>& q, int w) {
-    if(q[0][0] <= 5 && q.size() > 1 && q[1].size() > 0)
-        return true;
-    else
+    if (q[0].size() > w) {
         return false;
+    }
+    for (const auto& row : q) {
+        if (row.size() != w) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
