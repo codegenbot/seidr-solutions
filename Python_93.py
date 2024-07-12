@@ -9,7 +9,7 @@ def encode(message):
             if char not in vowels:
                 new_code = ord(char) + 2
             else:
-                new_code = ord(char) - 2
+                new_code = ord(char) + 2
 
             if new_code > 122:
                 new_code -= 26
