@@ -1,6 +1,4 @@
 ```
-from typing import List
-
 def factorize(n: int) -> List[int]:
     if n < 1:
         return ["Invalid input: Please enter a positive integer."]
