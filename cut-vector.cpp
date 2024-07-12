@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int main() {
@@ -32,7 +31,7 @@ int main() {
         cout << nums[i] << endl;
     }
 
-    cout << 0 << endl;
+    cout << "0" << endl;
 
     for (int i = cutIndex + 1; i < nums.size(); i++) {
         cout << nums[i] << endl;
