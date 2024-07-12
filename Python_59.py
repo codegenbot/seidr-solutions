@@ -1,4 +1,3 @@
-```Python
 def largest_prime_factor(n: int):
     largest = 1
     for i in range(2, n + 1):
