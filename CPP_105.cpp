@@ -32,5 +32,7 @@ std::vector<std::string> byLength(int lengths) {
 }
 
 int main() {
-    assert(issame(byLength({9}), {"Nine", "Nine", "Nine", "Nine", "Nine", "Nine", "Nine", "Nine", "Nine"}));
+    std::vector<int> lengths = {9};
+    std::vector<std::string> output = byLength(lengths[0]);
+    assert(issame(output, {"Nine", "Nine", "Nine", "Nine", "Nine", "Nine", "Nine", "Nine", "Nine"}));
 }
