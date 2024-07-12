@@ -18,8 +18,7 @@ std::vector<float> sort_even(std::vector<float> l) {
         if (result.size() % 2 == 0) {
             std::vector<float> even_indices(result.begin(), result.end());
             std::sort(even_indices.begin(), even_indices.end());
-            result.clear();
-            result = std::vector<float>(even_indices.begin(), even_indices.end());
+            result = std::vector<float>(even_indices.begin(), even_indices.end()); // corrected line
         } else {
             result.push_back(i);
         }
