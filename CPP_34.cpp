@@ -1,34 +1,29 @@
 #include <algorithm>
-#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> unique(std::vector<int> l) {
-    std::vector<int> result(l.begin(), myunique(l.begin(), l.end()).end());
+vector<int> unique(vector<int> l) {
+    vector<int> result(l.begin(), std::unique_copy(l.begin(), l.end()).end());
     return result;
 }
 
-std::vector<int>::iterator myunique(std::vector<int>::iterator start, std::vector<int>::iterator end) {
-    if (start == end)
-        return end;
-
-    sort(start, end);
-
-    auto it = start;
-    while (it != end) {
-        auto next = it + 1;
-        while (next != end && *next == *it) {
-            ++next;
-        }
-        it = next;
+auto std::unique_copy = [](auto first, auto last)
+{
+    std::sort(first, last);
+    first = std::unique(first, last);
+    while (first != last) {
+        ++first;
+        --last;
     }
+    return first;
+};
 
-    return it;
+template <typename T>
+bool issame(std::vector<T> a, std::vector<T> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
 }
 
 int main() {
-    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) , {0, 2, 3, 5, 9, 123}));
-    return 0;
+    assert(issame(std::vector<int>(unique({5, 3, 5, 2, 3, 3, 9, 0, 123})).begin(), {0, 2, 3, 5, 9, 123}));
 }
