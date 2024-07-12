@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -18,8 +18,8 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
         int num;
+        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         nums.push_back(num);
     }
