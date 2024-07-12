@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 
 #include <vector>
@@ -18,8 +19,6 @@ std::pair<double, double> double_the_difference(const std::initializer_list<int>
     return {(double)sum_even, (double)sum_odd};
 }
 
-int main() {
-    std::initializer_list<int> lst = {1, 3, 5, 7}; 
-    auto [a, b] = double_the_difference(lst);
-    return 0;
-}
+std::pair<double, double> result = double_the_difference({1, 3, 5, 7}); 
+assert(result.first == 10.0 && result.second == 15.0); 
+return 0;
