@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -17,8 +16,8 @@ vector<int> incr_list(const vector<int>& l){
 }
 
 int main() {
-    vector<int> v1({6, 3, 6,3, 4, 4, 10, 1, 124});
-    vector<int> v2 = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
-    assert(issame(v1, v2));
+    vector<int> expected({6, 3, 6,3, 4, 4, 10, 1, 124});
+    vector<int> actual = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
+    assert(issame(expected, actual));
     return 0;
 }
