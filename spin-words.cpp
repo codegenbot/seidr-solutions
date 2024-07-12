@@ -1,25 +1,47 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 string spinWords(string str) {
     vector<string> words;
+    
     string word = "";
     
-    for (char c : str) {
-        if (c == ' ') {
+    for(int i=0; i<str.length(); i++) {
+        if(str[i] == ' ') {
             words.push_back(word);
             word = "";
         } else {
-            word += c;
+            word += str[i];
         }
     }
     
-    words.back() = word;  // Add the last word
+    words.push_back(word);
     
     string result = "";
-    for (string w : words) {
-        if (w.length() >= 5) {
+    
+    for(auto w : words) {
+        if(w.length() >= 5) {
             reverse(w.begin(), w.end());
         }
+        
         result += w + " ";
     }
     
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string of one or more words (separated by spaces): ";
+    getline(cin, str);
+
+    string output = spinWords(str);
+    
+    cout << "Output: " << output << endl;
+
+    return 0;
 }
