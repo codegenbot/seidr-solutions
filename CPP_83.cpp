@@ -1,20 +1,9 @@
-```c++
 #include <iostream>
-
 using namespace std;
 
-int starts_one_ends(int n) {
-    int count = 0;
-    for (int i = 10; i <= n * 10; i++) {
-        if (i % 10 == 1 || i / 10 == 1) {
-            count++;
-        }
-    }
-    return count;
-}
+int starts_one_ends(int n);  
 
-int main 
-{
+int main() -> int {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -24,4 +13,14 @@ int main
         cout << "Invalid input. Please enter a positive integer." << endl;
     }
     return 0;
+}
+
+int starts_one_ends(int n) { 
+    int count = 0;
+    for (int i = 1; i <= n; i++) {
+        if (i % 10 == 1 || i % 100 == 11 || i % 1000 == 111) {
+            count++;
+        }
+    }
+    return count;
 }
