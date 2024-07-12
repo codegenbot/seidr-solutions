@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -24,3 +23,6 @@ def mean_absolute_deviation():
             print("Invalid input. Please try again.")
         except TypeError:
             print("Invalid input. Please try again.")
+
+
+print(mean_absolute_deviation())
