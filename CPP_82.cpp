@@ -17,13 +17,11 @@ bool prime_length(const char* str){
     for(int i = 0; str[i]; i++) {
         char c = str[i];
         if(c >= '0' && c <= '9') {
-            int n = c - '0'; 
-            if(isPrime(n) == false) {
-                s += "0";
+            char n = c - '0'; 
+            if(!isPrime(n)) {
+                s.push_back('0');
             } else {
-                char temp[16]; // adjust buffer size as needed
-                sprintf(temp, "%d", n);
-                s += temp;
+                s.push_back(c);
             }
         } else {
             s += c;
