@@ -1,3 +1,4 @@
+```
 def calculate_average_and_median():
     while True:
         while True:
