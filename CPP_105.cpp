@@ -14,7 +14,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> by_length(int num) {
     std::vector<std::string> result;
-    
+
     switch (num) {
         case 1:
             result.push_back("One");
@@ -44,14 +44,14 @@ std::vector<std::string> by_length(int num) {
             result.push_back("Nine");
             break;
     }
-    
+
     return result;
 }
 
 int main() {
     int num1, num2;  
     std::vector<std::string> result = by_length(num1), temp;
-    
+
     std::cin >> num1 >> num2;
 
     if (num1 >= 1 && num1 <= 9) {
@@ -129,35 +129,8 @@ int main() {
     
     std::reverse(final_result.begin(), final_result.end());
     
-    for (std::string &s : final_result) {
-        if (s == "One") {
-            s = "1";
-        } else if (s == "Two") {
-            s = "2";
-        } else if (s == "Three") {
-            s = "3";
-        } else if (s == "Four") {
-            s = "4";
-        } else if (s == "Five") {
-            s = "5";
-        } else if (s == "Six") {
-            s = "6";
-        } else if (s == "Seven") {
-            s = "7";
-        } else if (s == "Eight") {
-            s = "8";
-        } else if (s == "Nine") {
-            s = "9";
-        }
+    for (std::string s : final_result) {
+        std::cout << s << " ";
     }
-    
-    for (std::string &s : final_result) {
-        if (s == "1" || s == "2" || s == "3" || s == "4" || s == "5" || s == "6" || s == "7" || s == "8" || s == "9") {
-            std::cout << s << " ";
-        } else {
-            std::cout << s << "\n";
-        }
-    }
-    
     return 0;
 }
