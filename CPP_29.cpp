@@ -1,5 +1,3 @@
-#include /std:c++11
-
 #include <vector>
 #include <string>
 
