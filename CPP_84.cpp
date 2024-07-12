@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-
 using namespace std;
 
 int solve(int N) {
@@ -9,15 +7,13 @@ int solve(int N) {
         if (i % 2 == 0)
             sum += i;
     }
-    return sum;
+    string strSum = to_string(sum);
+    return stoi(strSum);
 }
 
 int main() {
     int N;
     cin >> N;
-    try {
-        cout << solve(N) << endl;
-    } catch (...) {
-        cout << "Error: Invalid input. Please enter a valid integer." << endl;
-    }
+    cout << solve(N) << endl;
+    assert(solve(963) == 10050);
 }
