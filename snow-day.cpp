@@ -7,9 +7,9 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        float total_snow_fall = snow_fall_rate - snow_on_ground * snow_melt_rate;
+        float total_snow_fall = snow_fall_rate - snow_melt_rate * snow_on_ground;
         snow_on_ground += total_snow_fall;
-        snow_on_ground = max(0.0f, min(snow_on_ground, snow_fall_rate));
+        snow_on_ground = max(snow_on_ground, 0.0f);
     }
 
     cout << fixed << snow_on_ground << '\n';
