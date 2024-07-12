@@ -1,13 +1,14 @@
+```
 import math
 
 if __name__ == "__main__":
     try:
         xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
         n = len(xs)
-
+        
         if any(x < 0 for x in xs):
             raise ValueError("xs must have non-negative coefficients")
-
+        
         if n != 4:
             print("Error: Please enter exactly four coefficients.")
         else:
