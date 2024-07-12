@@ -20,5 +20,5 @@ string string_to_md5(string text) {
         ss << setfill(2) << right << hex << (int)md5[i];
     }
 
-    return string(ss.str());
+    return std::string(ss.str());
 }
