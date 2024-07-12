@@ -14,10 +14,8 @@ int main() {
     
     for (int i = 2; i <= num_bounces; ++i) {
         total_bounce_height *= bounciness_index;
-        total_distance += total_bounce_height + total_bounce_height * bounciness_index;
+        total_distance += 2 * total_bounce_height;
     }
     
     std::cout << std::fixed << total_distance << std::endl;
-    
-    return 0;
 }
