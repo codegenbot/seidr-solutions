@@ -34,7 +34,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
-    return a.size() == b.size();
+    return (a.empty() && b.empty()) || (a.size() == b.size());
 }
 
 int main() {
