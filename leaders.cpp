@@ -1,9 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
+    
+    if (nums.empty()) {
+        return leaders;
+    }
+    
     int maxLeader = nums.back();
     
     leaders.push_back(maxLeader); // Include the rightmost element as a leader
