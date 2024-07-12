@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,6 +25,7 @@ std::string reverse_delete(std::string& s, std::string& c) {
             temp += ch;
         }
     }
+    
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
     return rev;
@@ -56,8 +56,14 @@ int main() {
     } else {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
-        } else if (s1.empty() || s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
+        } else if (s1.empty()) {
+            if (!s2.empty()) {
+                std::cout << s2 << " and " << s2 << " are not the same." << std::endl;
+            } else {
+                std::cout << "empty and empty are not the same." << std::endl;
+            }
+        } else {
+            std::cout << s1 << " and empty are not the same." << std::endl;
         }
     }
     return 0;
