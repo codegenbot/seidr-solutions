@@ -1,17 +1,14 @@
-```
 def total_match(lst1, lst2):
-    sum1 = sum(len(s) for s in lst1)
-    sum2 = sum(len(s) for s in lst2)
+    set1 = set(len(s) for s in lst1)
+    set2 = set(len(s) for s in lst2)
 
-    if set(map(len, lst1)) < set(map(len, lst2)):
+    if len(set1) < len(set2):
         return lst1
-    elif set(map(len, lst1)) > set(map(len, lst2)):
+    elif len(set1) > len(set2):
         return lst2
     else:
-        if sum1 >= sum2:
-            return lst1
-        else:
-            return lst2
+        sum1, sum2 = sum(len(s) for s in lst1), sum(len(s) for s in lst2)
+        return lst1 if sum1 >= sum2 else lst2
 
 lst1 = []
 while True:
