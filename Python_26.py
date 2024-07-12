@@ -4,10 +4,10 @@ def check(func):
     return wrapper
 
 @check
-def remove_duplicates():
-    numbers_list = list(map(int, input().split()))
-    return list(set(numbers_list))
+def remove_duplicates(numbers):
+    return list(set(numbers))
 
-# Test the function
-result = remove_duplicates()
-print(result)
+if __name__ == "__main__":
+    numbers_list = list(map(int, input().split()))
+    result = remove_duplicates(numbers_list)
+    print(result)
