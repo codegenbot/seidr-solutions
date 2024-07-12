@@ -28,21 +28,20 @@ int main() {
         if (s.empty()) break;
         a.push_back(s);
     }
-
+    
     vector<string> b = a;
     bool same = issame(a, b);
-
+    
     string prefix;
     cout << "Enter prefix:" << endl;
     cin >> prefix;
     vector<string> result = filter_by_prefix(a, prefix);
-
+    
     if(!same) cout << "Strings are not the same." << endl;
     else cout << "Strings are the same." << endl;
-
+    
     for(string s : result) {
         cout << s << endl;
     }
     
     return 0;
-}
