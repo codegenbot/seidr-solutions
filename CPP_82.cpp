@@ -4,17 +4,26 @@
 #include <iostream>
 #include <string>
 
-bool prime_length(const std::string& s){
+bool isPrime(int n) {
+    if(n <= 1) return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i==0) return false;
+    }
+    return true;
+}
+
+bool prime_length(const char* str){
+    std::string s = "";
+    for(char c : str) {
+        if(isPrime(c)) s += c;
+    }
     int len = s.length();
     if(len <= 1) return false;
-    for(int i=2; i*i<=len; i++){
-        if(len%i==0) return false;
-    }
     return true;
 
 }
 
 assert(prime_length("0") == false);
-const std::string str = "Hello";
+const char* str = "Hello";
 bool result = prime_length(str);
 std::cout << "Prime length of '" << str << "' is: " << (result ? "prime" : "not prime") << std::endl;
