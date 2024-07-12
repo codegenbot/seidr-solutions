@@ -27,30 +27,23 @@ bool isMonotonic(const std::vector<int>& nums) {
     return increasing || decreasing;
 }
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::vector<int> result;
-    for (int i : nums) {
-        int points = getAscendingOrder(result);
-        while (!isMonotonic(result) && !result.empty()) {
-            result.pop_back();
-            points = getAscendingOrder(result);
-        }
-        result.push_back(i);
-    }
-    return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return isMonotonic(a) && isMonotonic(b);
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
+int order_by_points(const std::vector<int>& nums) {
+    int points = 0;
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] > nums[i - 1]) {
+            points++;
+        }
     }
-    return true;
+    return points;
 }
 
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame({0,6,6,-76,-21,23,4}) );
+    int result = order_by_points({0,6,6,-76,-21,23,4});
+    std::cout << "order_by_points: " << result << std::endl;
     return 0;
 }
