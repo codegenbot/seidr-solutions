@@ -1,20 +1,9 @@
-from collections import deque
-from typing import List
+from typing import List, Tuple
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
-    q = deque()
-
-    for i, num in enumerate(numbers):
-        while q and numbers[q[-1]] <= num:
-            q.pop()
-
-        q.append(i)
-
-        if q[0] == i - len(numbers):
-            q.popleft()
-
-        result.append(numbers[q[0]])
-
-    return result
+    max_list = []
+    for i in range(len(numbers)):
+        max_val = max(numbers[: i + 1])
+        max_list.append(max_val)
+    return max_list
