@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -35,5 +34,7 @@ int main() {
     std::cin >> grade2;
     std::vector<float> grades = {grade1, grade2};
     std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
-    assert(same({{"E"}, {"C+"}}));
+    if (!same(result, std::vector<std::string>({"E", "C+"}))) {
+        assert(false);
+    }
 }
