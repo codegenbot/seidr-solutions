@@ -10,7 +10,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append("(")
             current_group += "("
         elif char == ")":
-            if stack and stack[-1] == "(":
+            if stack:
                 stack.pop()
                 current_group += ")"
                 if not stack:
@@ -23,3 +23,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
 
     return result
+
+paren_string = input().strip()
+output = separate_paren_groups(paren_string)
+print(output)
