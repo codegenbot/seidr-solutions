@@ -12,7 +12,7 @@ std::vector<int> remove_duplicates(std::vector<int> input) {
     return result;
 }
 
-std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
