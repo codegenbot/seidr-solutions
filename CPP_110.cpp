@@ -12,18 +12,22 @@ int main() {
     std::cout << "Enter the number of elements in lst1: ";
     std::cin >> n1;
     std::cout << "Enter the number of elements in lst2: ";
-    std::cin >> m2;
-    std::vector<int> lst1(n1);
-    std::cout << "Enter elements of lst1: ";
-    for (int &i : lst1) {
-        std::cin >> i;
+    std::cin >> m1;
+    std::vector<int> lst1;
+    for (int i = 0; i < n1; i++) {
+        int temp;
+        std::cout << "Enter element of lst1: ";
+        std::cin >> temp;
+        lst1.push_back(temp);
     }
     std::cout << "Enter the number of elements in lst2: ";
-    std::cin >> n2;
-    std::vector<int> lst2(m2);
-    std::cout << "Enter elements of lst2: ";
-    for (int &i : lst2) {
-        std::cin >> i;
+    std::cin >> m2;
+    std::vector<int> lst2;
+    for (int i = 0; i < m1; i++) {
+        int temp;
+        std::cout << "Enter element of lst2: ";
+        std::cin >> temp;
+        lst2.push_back(temp);
     }
     std::string result = exchange(lst1, lst2);
     std::cout << result << std::endl;
