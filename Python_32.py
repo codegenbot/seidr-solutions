@@ -1,4 +1,3 @@
-```
 def find_zero(xs: list):
     if len(xs) < 2 or xs[-1] == 0:
         raise ValueError("xs must have at least two coefficients and the last one should be non-zero")
