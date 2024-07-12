@@ -4,16 +4,14 @@ def factorize(num):
     factors = [i for i in range(1, num + 1) if num % i == 0]
     return factors
 
-
 while True:
     try:
-        n = int(input("Enter a positive integer to factorize: "))
+        n = int(input())
         if n <= 0:
-            raise ValueError("Input should be a positive integer.")
+            raise ValueError
         factors = factorize(n)
         print(factors)
-        break
-    except ValueError as e:
-        print("\nInvalid input:", e)
+    except ValueError:
+        print("\nInvalid input. Please enter a positive integer.")
     except:
         print("\nInvalid input. Please enter a valid integer.")
