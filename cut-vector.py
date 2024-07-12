@@ -1,4 +1,4 @@
-n, = map(int, input().split())
+n = int(input())
 vec = list(map(int, input().split()))
 
 total_sum = sum(vec)
