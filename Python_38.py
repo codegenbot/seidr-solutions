@@ -3,9 +3,9 @@ def decode_cyclic() -> str:
     result = ""
     if len(s) >= 3:
         while len(s) >= 3:
-            group = s[:min(3, len(s))]
-            result += group[1] + group[0] + group[-1]
-            s = s[len(group):]
+            group = s[:3]
+            result += group[1] + group[0] + group[2]
+            s = s[3:]
         if s:
             result += s
     else:
