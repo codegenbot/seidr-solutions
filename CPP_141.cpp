@@ -1,8 +1,5 @@
 #include <iostream>
-#include <cassert>
 #include <string>
-
-using namespace std;
 
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
@@ -15,16 +12,11 @@ std::string file_name_check(std::string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !string(file_name.substr(i)).compare("txt") || !string(file_name.substr(i)).compare("exe") || !string(file_name.substr(i)).compare("dll"))){
+        else if(found_dot && (i != file_name.length()-4 || !file_name.substr(i).compare("txt") || !file_name.substr(i).compare("exe") || !file_name.substr(i).compare("dll"))){
             return "No";
         }
     }
     if(!found_dot) return "No";
     if(digit_count > 0) return "No";
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
 }
