@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 int main() {
     std::string text, target;
@@ -10,19 +9,17 @@ int main() {
     std::cin.ignore();
     std::getline(std::cin, target);
     
-    target.erase(std::remove_if(target.begin(), target.end(), ::isspace), target.end());
-    int targetSize = target.size();
-    
     std::vector<int> indices;
     
-    for (int i = 0; i <= static_cast<int>(text.size()) - targetSize; ++i) {
-        if (text.substr(i, targetSize) == target) {
+    for (size_t i = 0; i < text.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
+            i += target.size() - 1;
         }
     }
     
-    for (int i = 0; i < indices.size(); ++i) {
-        std::cout << indices[i] << " ";
+    for (int i : indices) {
+        std::cout << i << " ";
     }
 
     return 0;
