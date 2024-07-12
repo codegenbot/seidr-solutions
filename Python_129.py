@@ -1,35 +1,23 @@
-```
 def minPath(grid, k):
     n = len(grid)
-    m = len(grid[0])
-    values = set()
-    for i in range(n):
-        for j in range(m):
-            values.add(grid[i][j])
+    m = [[i * n + j for j in range(n)] for i in range(n)]
 
-    def dfs(i, j, path, visited):
+    def dfs(i, j, path):
         if len(path) == k:
             return path
-        min_path = path
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            ni, nj = i + dx, j + dy
-            if 0 <= ni < n and 0 <= nj < m and grid[ni][nj] not in visited:
-                new_path = path + [grid[ni][nj]]
-                new_visited = set(visited)
-                new_visited.add(grid[ni][nj])
-                p = dfs(ni, nj, new_path, new_visited)
-                if len(p) > len(min_path):
-                    min_path = p
+        min_path = None
+        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and m[ni][nj] not in path:
+                new_path = dfs(ni, nj, path + [m[ni][nj]])
+                if min_path is None or path_to_tuple(new_path) < path_to_tuple(
+                    min_path
+                ):
+                    min_path = new_path
         return min_path
 
-    min_path = []
-    for i in range(n):
-        for j in range(m):
-            path = dfs(i, j, [grid[i][j]], {grid[i][j]})
-            if len(path) == k:
-                min_path = path
-                break
-        if min_path:
-            break
+    def path_to_tuple(path):
+        return tuple(sorted(path))
 
-    return min_path
+    start_path = dfs(0, 0, [grid[0][0]])
+    return path_to_tuple(start_path)
