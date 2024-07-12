@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
@@ -18,17 +17,23 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    std::cout << "Enter the size of the vector: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    std::cout << "Enter the elements of the vector:\n";
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
     }
 
-    vector<int> result = findLeaders(nums);
+    std::vector<int> leaders = findLeaders(nums);
 
-    for (int i = result.size() - 1; i >= 0; i--) {
-        cout << result[i] << " ";
+    std::cout << "The leaders in the vector are: ";
+    for (int i = 0; i < leaders.size(); i++) {
+        std::cout << leaders[i] << " ";
     }
-    
+    std::cout << std::endl;
+
     return 0;
 }
