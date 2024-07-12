@@ -1,6 +1,8 @@
-#include <cassert>
+```cpp
 #include <algorithm>
 #include <vector>
+#include <iostream>
+#include <cassert>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
@@ -26,7 +28,8 @@ int main() {
     if (lst.empty()) {
         std::cout << "Error: The input list is not valid. Please enter a non-empty list." << std::endl;
     } else {
-        int result = findNextSmallest(lst);
+        std::vector<int> test = {-35, 34, 12, -45};
+        int result = findNextSmallest(test);
         if (result == -1) {
             std::cout << "The input list does not contain any distinct elements." << std::endl;
         } else {
