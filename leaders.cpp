@@ -1,17 +1,32 @@
+// leaders.h
+#pragma once
 #include <vector>
-#include <algorithm>
 
-std::vector<int> findLeaders(const std::vector<int>& nums) {
-    std::vector<int> leaders;
-    int n = nums.size();
-    int maxRight = nums[n - 1];
-    leaders.push_back(maxRight);
-    for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-            leaders.push_back(maxRight);
-        }
+std::vector<int> findLeaders(const std::vector<int>& nums);
+
+// main.cpp
+#include "leaders.h"
+#include <iostream>
+
+int main() {
+    std::vector<int> numbers;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
     }
-    std::reverse(leaders.begin(), leaders.end());
-    return leaders;
+
+    std::vector<int> result = findLeaders(numbers);
+
+    std::cout << "Leaders: ";
+    for (int leader : result) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
