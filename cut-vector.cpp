@@ -1,33 +1,32 @@
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
-
-    int n = nums.size();
-    int diff = INT_MAX;
-    int idx = -1;
-
-    for (int i = 1; i < n; ++i) {
-        int diff_curr = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff_curr < diff) {
-            diff = diff_curr;
+    
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int target = sum / 2;
+    int curSum = 0;
+    int idx = 0;
+    for (int i = 0; i < n; ++i) {
+        curSum += nums[i];
+        if (curSum >= target) {
             idx = i;
-        }
-        if (diff == 0) {
             break;
         }
     }
-
-    for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
+    
+    vector<int> sub1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> sub2(nums.begin() + idx + 1, nums.end());
+    
+    for (int i = 0; i < sub1.size(); ++i) {
+        cout << sub1[i] << endl;
     }
-    cout << 0 << endl;
-    for (int i = idx; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int i = 0; i < sub2.size(); ++i) {
+        cout << sub2[i] << endl;
     }
-    cout << 0 << endl;
-
+    
     return 0;
 }
