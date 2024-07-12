@@ -1,4 +1,5 @@
-def fruit_distribution(s):
+```
+def fruit_distribution(s, max_weight):
     s = s.lower().replace("apples", "0").replace("oranges", "0")
     total = 0
     current_number = ""
@@ -11,4 +12,4 @@ def fruit_distribution(s):
             if current_number:
                 total += int(current_number)
                 current_number = ""
-    return -(-total // 2)
+    return min(total, max_weight) // 2
