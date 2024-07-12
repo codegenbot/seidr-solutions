@@ -15,6 +15,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(paren_string[start:i+1])
     
-    result.append(paren_string[start:]) if stack else None
+    if stack:
+        result.append(paren_string[start:])
+    elif start != -1:
+        result.append(paren_string[start:])
     
     return result
