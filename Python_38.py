@@ -1,10 +1,10 @@
 import re
 
 def decode_cyclic(s: str):
-    groups = [s[i:] + s[:i] for i in range(0, len(s), 3)]
+    groups = [s[i:] + s[:i] for i in range(1, len(s)+1, 3)]
     return "".join(groups)
 
-input_string = input("Enter a string (contains only uppercase letters): ").strip()
+input_string = input().strip()
 
 if not re.match("^[A-Z]+$", input_string):
     print("Input should contain only uppercase letters. Please try again.")
