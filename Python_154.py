@@ -1,6 +1,2 @@
 def cycpattern_check(a, b):
-    n = len(a)
-    m = len(b)
-    if n != m:
-        return False
-    return b in (a + a)
+    return b in a + a if len(a) == len(b) else len(a) == len(b) and b in a * 2
