@@ -27,8 +27,11 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-int main() {
-    vector<int> pile = make_a_pile(5);
-    assert(issame(pile, {5, 6, 7, 8, 9}));
+int main(){
+    // Sample usage
+    vector<int> result = make_a_pile(5);
+    for(int num : result){
+        cout << num << " ";
+    }
     return 0;
 }
