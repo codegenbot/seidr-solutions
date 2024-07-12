@@ -1,20 +1,10 @@
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    
+int solve(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0) {
-            cout << i << endl;
-            return 0;
+            return i;
         }
     }
-    
-    cout << 0 << endl; // If the sum never becomes negative, return 0
     return 0;
 }
