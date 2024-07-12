@@ -1,7 +1,6 @@
 def calculate_decimal_part(number):
     return float(number) % 1
 
-
 while True:
     try:
         input_number = float(input("Enter a number: "))
