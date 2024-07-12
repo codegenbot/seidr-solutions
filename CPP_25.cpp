@@ -14,7 +14,7 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -27,10 +27,12 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
 }
 
 int main() {
-    std::vector<int> factors1 = factorize(36);
-    std::vector<int> factors2 = {2, 2, 3, 3};
+    std::vector<int> factors = factorize(100);
+    std::vector<int> expected = {2, 2, 5, 5};
     
-    bool same = issame(factors1, factors2);
-    
-    return 0;
+    if (issame(factors, expected)) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
