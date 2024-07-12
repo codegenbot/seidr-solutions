@@ -34,7 +34,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
 int main() {
     int n;
     cin >> n;
-    vector<int> game(n),guess(n);
+    vector<int> game(n), guess(n);
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
     }
@@ -45,6 +45,18 @@ int main() {
         for(auto x:res)cout << x << " ";
         cout << endl; 
     }
-    cout << compare(1, 2) << " " << compare(1, -1) << endl;
+    
+    vector<int> testGame = {1,2,3,5};
+    vector<int> testGuess = {-1,2,3,4};
+    int result = compare(testGame[0],testGuess[0]);
+    for(int i = 1; i < testGame.size();i++){
+        if(issame(testGame[i],testGuess[i]))
+            continue;
+        else if(result == 1)
+            assert(compare(testGame[i],testGuess[i]) == -1);
+        else
+            assert(result == compare(testGame[i],testGuess[i]));
+    }
+    
     return 0;
 }
