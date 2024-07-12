@@ -3,9 +3,8 @@
 #include <cassert>
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    // Existing code implementation for minPath function
-    int n = grid.size();
     vector<int> result;
+    int n = grid.size();
     int row = 0, col = 0;
     for (int i = 0; i < k; ++i) {
         result.push_back(grid[row][col]);
