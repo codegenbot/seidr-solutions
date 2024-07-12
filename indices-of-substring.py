@@ -1,8 +1,8 @@
-text = input("Enter the text string: ")
-target = input("Enter the target string: ")
+text = input("Enter the text string: ").strip()
+target = input("Enter the target string: ").strip()
 
 indices = [
-    i for i in range(len(text) - len(target) + 1) if text[i : i + len(target)] == target
+    i for i in range(len(text) - len(target) + 1) if text[i : i + len(target)].strip() == target.strip()
 ]
 
-print(indices if indices else [0])
+print(indices)
