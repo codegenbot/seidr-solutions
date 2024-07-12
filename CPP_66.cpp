@@ -4,11 +4,16 @@
 
 int digitSum(std::string s) {
     int sum = 0;
-    while (!s.empty()) {
-        int digit = s[0] - '0';
-        sum += digit;
-        s.erase(0, 1);
+    std::string temp = s; // copy input string to temp
+
+    while (!temp.empty()) {
+        if (!temp.empty()) {
+            int digit = temp[0] - '0';
+            sum += digit;
+            temp.erase(0, 1); // remove first character from temp
+        }
     }
+
     return sum;
 }
 
