@@ -2,23 +2,23 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <numeric>
+#include <cmath>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = 0, sumB = 0;
-        int tempA = abs(a), tempB = abs(b);
-        while (tempA > 0) {
-            sumA += tempA % 10;
-            tempA /= 10;
-        }
-        while (tempB > 0) {
-            sumB += tempB % 10;
-            tempB /= 10;
-        }
+        int sumA = std::accumulate(std::to_string(std::abs(a)).begin(), std::to_string(std::abs(a)).end(), 0, 
+        [](int sum, char c) {
+            return sum + (c - '0');
+        });
+        int sumB = std::accumulate(std::to_string(std::abs(b)).begin(), std::to_string(std::abs(b)).end(), 0, 
+        [](int sum, char c) {
+            return sum + (c - '0');
+        });
         if (sumA == sumB) {
             return std::find(nums.begin(), nums.end(), a) < std::find(nums.begin(), nums.end(), b);
         } else {
@@ -29,8 +29,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> sorted_nums = order_by_points({0, 6, 6, -76, -21, 23, 4});
-    assert(issame(sorted_nums, std::vector<int>{-76, -21, 0, 4, 23, 6, 6});
-    
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76,-21,0,4,23,6,6}));
     return 0;
 }
