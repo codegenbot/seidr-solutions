@@ -5,9 +5,9 @@ double calculate_total_distance(double starting_height, double bounce_height, in
     double total_distance = 0.0;
     total_distance += starting_height;
     
-    for (int i = 2; i <= num_bounces; ++i) {
-        bounce_height *= bounciness_index;
+    for (int i = 1; i < num_bounces; ++i) {
         total_distance += bounce_height;
+        bounce_height *= bounciness_index;
     }
     
     return total_distance;
