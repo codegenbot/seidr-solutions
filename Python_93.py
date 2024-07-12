@@ -1,12 +1,11 @@
-```
 def encode(message):
-    vowels = 'aeiou'
+    vowels = 'aeiouAEIOU'
     result = ""
     for char in message:
         if not char.isalpha():
             result += char
-        elif ('AEIOU' + vowels).index(char.lower()) < 3:
-            result += chr(ord('a') + (ord(char) - ord('a')) % 26)
+        elif char in vowels:
+            result += chr((ord(char) - ord('a')) % 26 + ord('a') + 2)
         else:
             result += char.upper()
     return result
