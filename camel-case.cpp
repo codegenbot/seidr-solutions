@@ -5,8 +5,8 @@
 std::string camelCase(std::string str) {
     std::vector<std::string> words;
     size_t start = 0;
-    for (size_t i = 0; i < str.size(); ++i) {
-        if (str[i] == ' ') {
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == '-') {
             words.push_back(str.substr(start, i - start));
             start = i + 1;
         }
@@ -27,7 +27,7 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    while (getline(std::cin, str)) {
+    while (std::cin >> str) {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
