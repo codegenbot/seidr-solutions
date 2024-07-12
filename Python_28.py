@@ -1,3 +1,4 @@
+```
 def main():
     class Item:
         def __init__(self, name):
@@ -12,31 +13,25 @@ def main():
 
     items = []
     while True:
-        try:
-            user_input = input("Enter an item (or 'stop' to finish): ")
-            if user_input.lower() == "stop":
-                break
-            elif not isinstance(user_input, str):
-                raise ValueError("Invalid input. Please enter an item or 'stop'.")
-            items.append(Item(user_input.strip()))
-            while True:
+        user_input = input("Enter an item (or 'stop' to finish): ")
+        if user_input.lower() == "stop":
+            break
+        elif not isinstance(user_input, str):
+            raise ValueError("Invalid input. Please enter an item or 'stop'.")
+        new_item = Item(user_input.strip())
+        while True:
+            try:
                 cost = float(input(f"Enter the cost of {user_input}: "))
-                if cost >= 0:
-                    for item in items:
-                        if item.name == user_input:
-                            item.cost = cost
-                    break
-                else:
-                    print("Cost must be a positive number. Please try again.")
-        except ValueError:
-            print("Invalid input. Please enter an item or 'stop'.")
+                new_item.cost = cost
+                items.append(new_item)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+        if user_input.lower() == "stop":
+            break
 
     if items:
         result = calculate_total_cost(items)
         print(f"The total cost is: {result}")
     else:
         print("No items were provided.")
-
-
-if __name__ == "__main__":
-    main()
