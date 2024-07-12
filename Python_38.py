@@ -1,2 +1,2 @@
 import sys
-input_string = sys.stdin.readline().strip().upper()
+input_string = input().strip().upper()
