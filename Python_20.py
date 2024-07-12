@@ -1,7 +1,13 @@
-```python
+```
 from typing import List, Tuple
 
-def find_closest_elements():
+def find_closest_elements() -> Tuple[float, float]:
+    """
+    This function finds the closest pair of numbers in a list.
+    
+    Args: None
+    Returns: A tuple containing the two closest numbers.
+    """
     numbers = list(map(float, input("Enter space-separated numbers: ").split()))
     min_diff = float("inf")
     closest_pair = ()
