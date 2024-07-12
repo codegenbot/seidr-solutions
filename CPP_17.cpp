@@ -1,7 +1,3 @@
-#include <vector>
-#include <string>
-using namespace std;
-
 vector<int> parse_music(string music_string) {
     vector<int> beats;
     int i = 0;

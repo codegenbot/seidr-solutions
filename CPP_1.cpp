@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(std::string paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int open_count = 0;
@@ -29,8 +29,10 @@ vector<string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
+bool issame(vector<string>, vector<string>);
+
 int main() {
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     
     return 0;
 }
