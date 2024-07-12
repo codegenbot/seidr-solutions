@@ -1,32 +1,47 @@
 #include <vector>
-#include <string>
-#include <iostream>
-
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> result;
-    int pos = 0; // position in text
+    int n = text.size();
+    int m = target.size();
 
-    while (pos != string::npos) { 
-        pos = text.find(target, pos);
-        
-        if (pos == string::npos) {
-            break;
+    for (int i = 0; i <= n - m; ++i) {
+        bool found = true;
+        for (int j = 0; j < m; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
         }
-
-        result.push_back(pos);
-        pos += target.size(); // move to the next occurrence
+        if (found) {
+            result.push_back(i);
+        }
     }
-    
+
     return result;
 }
 
 int main() {
-    string text = "3/G(N7\"3/Ga,";
-    string target = "G,";
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << endl;
+    int t, n;
+    cin >> t;
+    while(t--) {
+        string text;
+        cin >> n;
+        text.resize(n);
+        for(int i = 0; i < n; ++i) {
+            cin >> text[i];
+        }
+        string target;
+        cin >> n;
+        target.resize(n);
+        for(int i = 0; i < n; ++i) {
+            cin >> target[i];
+        }
+        vector<int> res = indicesOfSubstring(text, target);
+        for(auto x:res)
+            cout << x << " ";
+        cout << endl;
     }
+    return 0;
 }

@@ -4,6 +4,14 @@
 
 using namespace std;
 
+string reverse(string str) {
+    string reversedStr = "";
+    for(int i=str.length()-1; i>=0; i--) {
+        reversedStr += str[i];
+    }
+    return reversedStr;
+}
+
 string spinWords(string str) {
     string result = "";
     int wordStart = 0;
@@ -23,14 +31,6 @@ string spinWords(string str) {
     }
     
     return result.substr(0, result.length()-1);
-}
-
-string reverse(string str) {
-    string reversedStr = "";
-    for(int i=str.length()-1; i>=0; i--) {
-        reversedStr += str[i];
-    }
-    return reversedStr;
 }
 
 int main() {
