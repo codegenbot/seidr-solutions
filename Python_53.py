@@ -1,8 +1,7 @@
-Here is the corrected code:
-
 ```
 def add(x: int, y: int):
     return x + y
+
 
 def main():
     while True:
