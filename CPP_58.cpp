@@ -3,9 +3,11 @@
 #include <vector>
 #include <iterator>
 #include <cassert>
+#include <set>
+
 using namespace std;
 
-vector<int> solveProblem(vector<int>& l1, vector<int>& l2) {
+vector<int> findCommonElements(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
@@ -15,6 +17,14 @@ vector<int> solveProblem(vector<int>& l1, vector<int>& l2) {
 }
 
 int main() {
-    // Test cases can be added here
+    // Test cases
+    vector<int> l1 = {1, 2, 3, 4, 5};
+    vector<int> l2 = {3, 4, 5, 6, 7};
+    vector<int> commonElements = findCommonElements(l1, l2);
+    
+    for (int num : commonElements) {
+        cout << num << " ";
+    }
+    
     return 0;
 }
