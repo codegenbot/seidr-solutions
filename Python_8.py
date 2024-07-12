@@ -1,7 +1,7 @@
 from typing import List, Tuple
 
 def get_user_input() -> List[int]:
-    return list(map(int, input("Enter the list of numbers separated by spaces: ").strip().split()))
+    return list(map(int, input("Enter numbers separated by space: ").strip().split()))
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (
