@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -14,5 +13,9 @@ int solve(int N) {
 int main() {
     int N;
     cin >> N;
-    cout << solve(N) << endl;
+    if(N < 1) {
+        cout << "Error: Input should be a positive integer." << endl;
+    } else {
+        cout << solve(N) << endl;
+    }
 }
