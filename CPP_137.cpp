@@ -16,10 +16,10 @@ std::any compare_one(std::any a, std::any b) {
     else if((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))){
         // Convert and compare int and string
     }
-    return std::any("None");
+    return std::string("None");
 }
 
 int main() {
-    assert(std::any_cast<const char*>(compare_one(1, "1")) == "None"); // Ensure return type
+    assert(std::any_cast<std::string>(compare_one(1, std::string("1"))) == "None"); // Ensure return type
     return 0;
 }
