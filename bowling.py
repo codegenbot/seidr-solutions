@@ -1,35 +1,18 @@
-"""def calculate_score(frames):
+"""
+def calculate_score(frames):
     score = 0
-    frame = []
-    for char in frames:
-        if char.isdigit():
-            frame.append(int(char))
-        else:
-            if 'X' in str(frame) or '/' in str(frame):
-                if len(frame) == 2:
-                    if 'X' in str(frame):
-                        score += 10 + max(frame)
-                    elif '/' in str(frame):
-                        score += 10 + sum(frame)
-                    frame = []
-                else:
-                    if 'X' in str(frame):
-                        score += 10 + max(frame)
-                    elif '/' in str(frame):
-                        score += 10 + sum(frame)
-            else:
-                if len(frame) == 1:
-                    if 'X' in str(frame):
-                        score += 10
-                    elif frame[0] < 10:
-                        score += frame[0] + 1
-                    frame = []
-                else:
-                    if '/' not in str(frame):
-                        score += sum(frame)
-            if len(frame) > 1 and '/' in str(frame):
-                score += max(frame)
+    for i in range(0, len(frames), 2):
+        frame_roll = list(map(int, frames[i:i+2].replace('/', '')))
+        
+        if 'X' in str(frame_roll): 
+            score += 10 + (10 if i < 9 else max(frame_roll))
+        elif '/' in str(frame_roll): 
+            strike_points = [int(x) for x in str(frame_roll).split('/')]
+            score += 10 + sum(strike_points)
+        else: 
+            score += sum(frame_roll) + (i < 9 and 1 or 0)
+    
     return score
 
 frames = input("Enter the frames string: ")
-print(calculate_score(frames))"""
+print(calculate_score(frames))
