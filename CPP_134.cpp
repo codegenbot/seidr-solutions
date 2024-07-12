@@ -15,7 +15,7 @@ bool check_if_last_char_is_a_letter(string txt) {
         i--;
     }
     if (i >= 0) {
-        return true; // Change here
+        return true; // <--- Change here
     }
     
     return isLastCharLetter;
