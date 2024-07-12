@@ -1,13 +1,13 @@
+```
 #include <iostream>
-int sum_squares(int arr[], int n) {
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += arr[i] * arr[i];
-    }
-    return sum;
-}
+using namespace std;
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
-    return 0;
+    int n;
+    cin >> n;
+    if(n % 2 == 0) {
+        cout << "Even" << endl;
+    } else {
+        cout << "Odd" << endl;
+    }
 }
