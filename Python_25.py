@@ -4,6 +4,9 @@ import math
 
 
 def factorize(n: int) -> List[int]:
+    if n <= 0:
+        print("Error: Input must be a positive integer.")
+        return []
     factors = []
     i = 2
     while i * i <= n:
@@ -16,6 +19,6 @@ def factorize(n: int) -> List[int]:
                 n //= i
                 count += 1
             factors.extend([i] * count)
-    if n == 2:
-        factors.append(2)
+    if n > 1:
+        factors.append(n)
     return factors
