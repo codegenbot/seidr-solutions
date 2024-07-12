@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <climits>
+#include <numeric> 
 
 int main() {
     std::vector<int> nums;
@@ -16,14 +17,8 @@ int main() {
 
     int minDiff = INT_MAX;
     for (int i = 0; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i + 1; j < n; ++j) {
-            rightSum += nums[j];
-        }
-        int diff = std::abs(leftSum - rightSum);
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i + 1, 0) - 
+                            std::accumulate(nums.begin() + i + 1, nums.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;

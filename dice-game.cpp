@@ -7,8 +7,8 @@ int main() {
     std::cin >> n >> m;
 
     double probability = 0.0;
-    for (int j = 1; j < m; ++j) {
-        probability += 1.0 / m * (1 - pow((double)j / m, n));
+    for (int j = 1; j <= n; ++j) {
+        probability += 1.0 / m * (pow((double)j / m, n) - pow((double)(j-1) / m, n));
     }
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;

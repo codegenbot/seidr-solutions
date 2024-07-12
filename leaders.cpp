@@ -15,8 +15,6 @@ std::vector<int> findLeaders(std::vector<int> nums) {
         }
     }
     
-    std::reverse(leaders.begin(), leaders.end()); // Reverse the order of leaders
-    
     return leaders;
 }
 
