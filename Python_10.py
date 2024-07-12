@@ -1,3 +1,4 @@
+```
 import random
 
 def make_palindrome()-> str:
@@ -10,8 +11,9 @@ def make_palindrome()-> str:
 def is_palindrome(s: str)-> bool:
     return s == s[::-1]
 
-result = input("Enter your desired output (or press enter to get a random palindrome): ")
-if not result:
-    print(make_palindrome())
-else:
-    print(result)
+result = make_palindrome()
+print(result)
+response = input("Is the result acceptable? (y/n): ")
+if response.lower() != 'y':
+    result = make_palindrome()
+print(result)
