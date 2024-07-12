@@ -1,6 +1,4 @@
-#pragma GCC required -std=c++11
-#include <vector>
-#include <map>
+#include <initializer_list>
 
 int findMaxFreq(std::vector<int> lst) {
     std::map<int, int> freqMap;
@@ -14,7 +12,7 @@ int findMaxFreq(std::vector<int> lst) {
 
     int maxFreqNum = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second > 0) {
+        if (it->second >= it->first && it->first > 0) {
             maxFreqNum = it->first;
             break;
         }
@@ -26,4 +24,3 @@ int findMaxFreq(std::vector<int> lst) {
 int main() {
     assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
     return 0;
-}
