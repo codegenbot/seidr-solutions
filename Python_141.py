@@ -4,9 +4,10 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    prefix, suffix = file_name.split('.')
-    if not prefix[0].isalpha():
+    before_dot = file_name.split('.')[0]
+    after_dot = file_name.split('.')[1]
+    if not before_dot or not before_dot[0].isalpha():
         return 'No'
-    if not set(['txt', 'exe', 'dll']).issuperset(set([suffix])):
+    if after_dot not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
