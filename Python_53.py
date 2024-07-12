@@ -1,2 +1,2 @@
-x, y = map(int, input("Enter two numbers: ").split())
+x, y = map(int, input().strip().split())
 print(x + y)
