@@ -1,6 +1,6 @@
-```
-def bowling(frames):
+def bowling_score(frames):
     score = 0
+    frame_count = 0
     for i in range(0, len(frames), 2):
         frame_roll = list(map(int, frames[i:i+2]))
         
