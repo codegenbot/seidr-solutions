@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(const std::vector<int>& numbers) {
@@ -5,5 +6,5 @@ int luhn(const std::vector<int>& numbers) {
 }
 
 int luhnHelper(const std::vector<int>& numbers, int pos) {
-    return (pos >= 0 ? ((numbers[pos] * 2) >= 10 ? numbers[pos] - 9 : numbers[pos] * 2) + luhnHelper(numbers, pos - 1) : 0);
+    return (pos >= 0 ? ((pos % 2 != 0 ? (numbers[pos] * 2) >= 10 ? numbers[pos] - 9 : numbers[pos] * 2) : numbers[pos]) + luhnHelper(numbers, pos - 1) : 0);
 }
