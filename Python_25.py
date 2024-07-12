@@ -1,7 +1,9 @@
 ```
-def factorize(n: int) -> list:
+from typing import List
+
+def factorize(n: int) -> List[int]:
     if n < 1:
-        return ["Invalid input: Please enter a positive integer."]
+        return [str(n)]
     factors = []
     i = 2
     while i * i <= n:
