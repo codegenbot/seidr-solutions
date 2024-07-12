@@ -37,19 +37,23 @@ std::vector<int> sort_third(std::vector<int> l) {
 }
 
 int main() {
+    std::vector<int> l;
     int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::vector<int> nums;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
+    for(int i=0; i<n; i++) {
+        int x;
+        std::cout << "Enter element "<<i+1<<":";
+        std::cin >> x;
+        l.push_back(x);
     }
-    std::cout << "[";
-    for (int num : sort_third(nums)) {
-        std::cout << num << " ";
+    std::vector<int> result = sort_third(l);
+    if(result.size() > 0) {
+        for(int i=0; i<result.size(); i++) {
+            std::cout << "Element "<<i+1<<": " << result[i] <<std::endl;
+        }
+    } else {
+        std::cout<<"The array is empty."<<std::endl;
     }
-    std::cout << "]" << std::endl;
-    
     return 0;
 }
