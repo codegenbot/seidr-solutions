@@ -1,19 +1,17 @@
-#include <algorithm>
-#include <sstream>
-
-string anti_shuffle(string s) {
+string anti_shuffle(string s){
     string result = "";
-    istringstream iss(s);
-    string word;
-    
-    while (iss >> word) {
-        string new_word = "";
-        for (char c : word) {
-            new_word += c;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
+            result += ' ';
+            continue;
         }
-        sort(new_word.begin(), new_word.end());
-        result += new_word + " ";
+        string word = "";
+        for(int j=i; j<s.length() && s[j] != ' '; j++){
+            word += s[j];
+        }
+        sort(word.begin(), word.end());
+        result += word;
+        i = j - 1;
     }
-    
-    return result.substr(0, result.length() - 1);
+    return result;
 }
