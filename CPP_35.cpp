@@ -1,5 +1,9 @@
 #include <algorithm>
-int findMax(int arr[], int n) {
-    std::vector<int> l(arr, arr + n);
-    auto maxVal = *std::max_element(l.begin(), l.end());
-    return maxVal;
+#include <vector>
+#include <initializer_list>
+
+int main() {
+    std::vector<int> my_vector = {}; 
+    int max_val = *std::max_element(my_vector.begin(), my_vector.end());
+    return std::abs(max_val);
+}
