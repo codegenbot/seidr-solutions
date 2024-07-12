@@ -1,20 +1,19 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
 string decipher(string cipherText, string key) {
     string decrypted = "";
     for (int i = 0; i < cipherText.length(); i++) {
-        int j = 0;
-        while(j < key.length()) {
+        for (int j = 0; j < key.length(); j++) {
             if (key[j] == cipherText[i]) {
-                decrypted += i % key.length();
+                int pos = j % key.length();
+                decrypted += key[pos];
                 break;
             }
-            j++;
         }
     }
     return decrypted;
