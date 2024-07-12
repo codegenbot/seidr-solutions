@@ -9,11 +9,13 @@ int compare(const std::pair<std::string, std::string>& a, const std::pair<std::s
 }
 
 std::string Strongest_Extension(std::string type, const std::vector<std::string>& strong) {
-    auto max_str = *std::max_element(strong.begin(), strong.end(),
-        [](const std::string& s1, const std::string& s2) {
-            return std::make_pair(s1, s1), (s1 + "." + s1));
-    extensions.push_back({type, max_str});
-    return type + "." + max_str;
+    if (strong.empty()) {
+        return "";
+    }
+    
+    std::sort(strong.begin(), strong.end(), compare);
+    extensions.push_back({type, *std::rbegin(strong)});
+    return extensions.back().first + "." + extensions.back().second;
 }
 
 int main() {
