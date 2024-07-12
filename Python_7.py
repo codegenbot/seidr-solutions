@@ -1,6 +1,4 @@
 ```
-action = input("Enter 'search' to search for a substring or 'quit' to exit: ").lower()
-
 strings = input("Enter space separated strings: ").lower().split()
 substring = input("Enter a substring to search: ").lower()
 
