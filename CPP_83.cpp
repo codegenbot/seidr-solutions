@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 int starts_one_ends(int n); // Forward declaration of the function
 
@@ -17,10 +16,15 @@ int main() {
     return 0;
 }
 
-int starts_one Ends(int n) {
+int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
-        std::string str = std::to_string(i);
+        std::string str;
+        if (i == 1 || i == 11 || i == 111) {
+            str = "1";
+        } else {
+            str = std::to_string(i);
+        }
         if ((str[0] == '1' && str != "11") || str == "11" || str == "111") {
             count++;
         }
