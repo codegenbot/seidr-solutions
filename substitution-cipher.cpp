@@ -10,8 +10,9 @@ string decipher(string cipherText, string key) {
     for (int i = 0; i < cipherText.length(); i++) {
         for (int j = 0; j < key.length(); j++) {
             if (key[j] == cipherText[i]) {
-                int pos = j % key.length();
-                decrypted += key[pos];
+                int idx = j;
+                while (idx >= key.length()) idx -= key.length();
+                decrypted += key[idx];
                 break;
             }
         }
