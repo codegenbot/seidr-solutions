@@ -11,7 +11,7 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_str = input()
+input_str = input("Enter the string: ")
 encoded = encode_cyclic(input_str)
 decoded = decode_cyclic(input_str)
 
