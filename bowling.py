@@ -1,4 +1,3 @@
-```Python
 def calculate_score(frames):
     frames = [int(x) for x in str(frames)]
     score = 0
