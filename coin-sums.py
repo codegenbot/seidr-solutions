@@ -17,8 +17,8 @@ def coin_sums(cents):
     for c in combinations:
         if len(c) == 4 and c[0] > 0:
             quarters = c[0]
-            nickles = c[1]
-            dimes = c[2]
+            nickles = (c[1]*10) // 5
+            dimes = (c[2]*10) // 10
             pennies = c[3]
             break
             
