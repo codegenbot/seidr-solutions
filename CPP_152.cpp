@@ -1,6 +1,6 @@
+```c++
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 bool issame(int a, int b) {
@@ -32,7 +32,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
     return res;
 }
 
-void testGame() {
+int main() {
     int n;
     cin >> n;
     vector<int> game(n), guess(n);
@@ -47,12 +47,18 @@ void testGame() {
         cout << endl; 
     }
     
-    int testResult = compare(1,2);
-    assert(testResult == -1);
-    return;
-}
-
-int main() {
-    testGame();
+    vector<int> testGame = {1,2,3,5};
+    vector<int> testGuess = {-1,2,3,4};
+    int result = compare(testGame[0],testGuess[0]);
+    for(int i = 1; i < testGame.size();i++){
+        if(issame(testGame[i],testGuess[i]))
+            continue;
+        else if(result == 1)
+            assert(compare(testGame[i],testGuess[i]) == -1);
+        else
+            assert(result == compare(testGame[i],testGuess[i]));
+    }
+    
+    assert(issame(compare(1,2),0) && issame(compare(2,2),0) && issame(compare(3,3),0) && issame(compare(5,4),-1));
     return 0;
 }
