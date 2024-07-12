@@ -21,6 +21,6 @@ int main(){
     double solution;
     solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
-    
+
     return 0;
 }
