@@ -12,8 +12,7 @@ def find_closest_number():
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
 
-
 if __name__ == '__main__':
     while True:
         closest_integer, difference = find_closest_number()
-        print(f"Closest integer: {closest_integer}, Difference: {difference}")
+        print("Closest integer: {}, Difference: {}".format(closest_integer, difference))
