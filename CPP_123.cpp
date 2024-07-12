@@ -4,15 +4,7 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(int) {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n; 
-
-    if (n <= 0) { 
-        return vector<int>(); 
-    }
-
+vector<int> get_odd_collatz(int n) {
     vector<int> result;  
     while (n != 1) {
         if (n % 2 == 0) {
@@ -33,7 +25,7 @@ vector<int> get_odd_collatz(int) {
     return result;
 }
 
-void mainSequence() {
+int main() {
     int input;
     cout << "Enter a positive integer: ";
     cin >> input; 
@@ -43,9 +35,5 @@ void mainSequence() {
         cout << num << " ";
     }
     cout << endl;
-}
-
-int main() {
-    mainSequence();
     return 0;
 }
