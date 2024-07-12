@@ -18,14 +18,11 @@ vector<int> parse_music(string music_string) {
             beats.push_back(4);
             i += 2;
         } else if (music_string[i] == 'o') {
-            beats.push_back(3);
+            beats.push_back(2);
             i++;
         } else if (music_string[i] == '.' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
-            beats.push_back(2);
-            i += 2;
-        } else if (music_string[i] == '.') {
             beats.push_back(1);
-            i++;
+            i += 2;
         }
     }
     return beats;
