@@ -18,7 +18,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif stack:
             current_group += char
 
-    # Add the last valid group to the result list
     if current_group:
         result.append(current_group)
 
