@@ -1,3 +1,4 @@
+```
 def double_the_difference(lst):
     even_sum = sum(i for i in lst if i % 2 == 0)
     odd_sum = sum(i for i in lst if i % 2 != 0)
@@ -8,6 +9,8 @@ def double_the_difference(lst):
     )
     return difference * 2
 
+def check(input_list):
+    return double_the_difference(sorted(input_list))
 
-def check(lst):
-    return double_the_difference(sorted(lst))
+input_list = [1, 2, 3]
+print(check(input_list))
