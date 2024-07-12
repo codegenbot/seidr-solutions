@@ -1,24 +1,28 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
-            result.push_back(num);
+    for (int i = 0; i < a.size(); ++i) {
+        if (find(b.begin(), b.end(), a[i]) == b.end()) {
+            return false;
         }
     }
-    return result;
+    return true;
+}
+
+vector<int> removeDuplicates(vector<int> numbers) {
+    unordered_set<int> uniqueNumbers(numbers.begin(), numbers.end());
+    return vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
+}
+
+int main() {
+    assert(isSame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>{1, 4, 5}));
+    return 0;
 }
