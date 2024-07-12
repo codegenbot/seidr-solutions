@@ -8,7 +8,7 @@ int main() {
     std::vector<float> discounts(n);
     
     for (int i = 0; i < n; ++i) {
-        std::cin >> prices[i] >> discounts[i]; 
+        std::cin >> prices[i] >> discounts[i];
     }
 
     float total_price = 0.0;
