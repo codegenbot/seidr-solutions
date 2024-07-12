@@ -1,3 +1,2 @@
-def check(func, input_list):
-    output = func(input_list)
-    return output
+def check(input_list): 
+    print(double_the_difference(input_list))
