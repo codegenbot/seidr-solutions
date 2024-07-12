@@ -1,4 +1,3 @@
-"""
+```
 def sort_array(arr):
-    return sorted(map(int, arr.split(',')))
-"""
+    return sorted(map(int, arr), reverse=True)
