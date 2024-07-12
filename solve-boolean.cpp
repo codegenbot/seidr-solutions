@@ -4,7 +4,7 @@
 using namespace std;
 
 bool solveBoolean(string expression) {
-    stack<char> s; 
+    stack<char> s;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -18,5 +18,5 @@ bool solveBoolean(string expression) {
             s.push(expression[i]);
         }
     }
-    return s.top() == 'T'; 
+    return s.top() == 'T';
 }
