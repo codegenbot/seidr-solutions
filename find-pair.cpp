@@ -12,7 +12,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (mp.find(complement) != mp.end()) {
-            cout << complement << endl << nums[i];
+            cout << complement << endl;
+            cout << nums[i] << endl;
             break;
         }
         mp[nums[i]] = i;
