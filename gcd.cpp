@@ -1,10 +1,7 @@
-Here is the modified code with the requested modification:
-
 ```cpp
 #include <vector>
+#include <string> // include this line at the top of your code
 using namespace std;
-
-#include <string>
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
