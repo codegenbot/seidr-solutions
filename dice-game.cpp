@@ -7,10 +7,8 @@ int main() {
 
     double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j < m; ++j) {
-            if (i > j) {
-                probability += double(i) / n * double(j) / m;
-            }
+        for (int j = 1; j <= m; ++j) {
+            probability += double(i) * double(m - j) / (n * m);
         }
     }
 
