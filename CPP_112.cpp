@@ -1,9 +1,6 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::string result = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> res;
+    string result = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -16,7 +13,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             result += ch;
         }
     }
-    std::string rev = result;
-    std::reverse(rev.begin(), rev.end());
-    return {result, (result == rev ? "True" : "False")};
+    res.push_back(result);
+    string rev = result;
+    reverse(rev.begin(), rev.end());
+    if (result == rev) {
+        res.push_back("True");
+    } else {
+        res.push_back("False");
+    }
+    return res;
 }
