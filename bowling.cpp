@@ -1,34 +1,44 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-int score(string s) {
-    int total = 0;
-    int frame = 0;
-    int rolls[21] = {0};
-
-    for (char c : s) {
-        if (c == 'X') {
-            rolls[frame++] = 10;
-            rolls[frame++] = 0;
-        } else if (c == '/') {
-            rolls[frame - 1] = 10 - rolls[frame - 2];
-        } else if (c == '-') {
-            rolls[frame++] = 0;
+int bowlingScore(string s) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0') + (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0'));
+                ball += 2;
+            } else {
+                ball += 2;
+            }
+            frame++;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            score += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
+            ball++;
+            frame++;
+        } else if (s[i] == '-') {
+            ball++;
         } else {
-            rolls[frame++] = c - '0';
+            score += s[i] - '0';
+            if (frame < 10) {
+                if (ball % 2 == 1 && s[i - 1] != '/') {
+                    score += (s[i - 1] == 'X' ? 10 : s[i - 1] - '0');
+                }
+                ball++;
+            }
         }
     }
+    return score;
+}
 
-    for (int i = 0; i < 10; ++i) {
-        if (rolls[i * 2] == 10) {
-            total += 10 + rolls[i * 2 + 2] + rolls[i * 2 + 3];
-            if (rolls[i * 2 + 2] == 10) total += rolls[i * 2 + 4];
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            total += 10 + rolls[i * 2 + 2];
-        } else {
-            total += rolls[i * 2] + rolls[i * 2 + 1];
-        }
-    }
-
-    return total;
+int main() {
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
+    return 0;
 }
