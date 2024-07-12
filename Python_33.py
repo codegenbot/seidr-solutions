@@ -1,5 +1,8 @@
+```Python
+import re
+
 try:
-    user_input = [int(i.strip()) for i in input("Enter a list of numbers separated by comma: ").split(",")]
+    user_input = [int(i) for i in re.split(',\s*', input("Enter a list of numbers separated by comma: "))]
 except ValueError:
     print("Invalid input. Please enter numbers separated by commas.")
 else:
