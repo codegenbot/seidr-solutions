@@ -1,30 +1,27 @@
-#include <string>
-
-bool solveBoolean(string expression) {
+```c
+bool solveBoolean(std::string expression) {
     stack<char> s;
+    bool prev = true;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return false;
-            }
+        if (expression[i] == 'F') {
+            prev = false;
+        } else if (expression[i] == 'T') {
+            prev = true;
         } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
+            s.push((prev) ? 1 : 0);
+            prev = -1;
+        } else if (expression[i] == '&') {
+            if (prev != -1) {
+                s.push(prev);
+                prev = -1;
             }
-            if (s.empty()) {
-                return true;
-            }
-        } else if (expression[i] != 'T' && expression[i] != 'F') {
-            return false;
-        } else {
-            s.push(expression[i]);
         }
     }
+    s.push(prev);
     while (!s.empty()) {
+        prev = s.top();
         s.pop();
+        if (prev == 0) return false;
     }
-    return static_cast<char>(s.top()) == 'T';
+    return true;
 }
