@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string change_base(int x, int base) {
     string res = "";
     while (x > 0) {
@@ -5,7 +10,7 @@ string change_base(int x, int base) {
         if (rem < 10)
             res = to_string(rem) + res;
         else
-            res = 'A' + rem - 10 + res;
+            res = (char)(rem - 10 + 'A') + res;
         x /= base;
     }
     return res;
