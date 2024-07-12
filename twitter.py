@@ -1,4 +1,6 @@
+```
 def validate_tweet(tweet):
+    import re
     if len(re.sub(r'\W+', '', tweet)) == 0:
         return "You didn't type anything"
     elif len(re.sub(r'\W+', '', tweet)) > 140:
