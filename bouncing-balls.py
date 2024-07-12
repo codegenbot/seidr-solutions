@@ -1,14 +1,7 @@
-def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
-    bounciness_index = first_bounce_height / starting_height
-    total_distance = starting_height
-    for _ in range(num_bounces):
-        total_distance += 2 * first_bounce_height
-        first_bounce_height *= bounciness_index
-    return total_distance
-
-starting_height = float(input())
-first_bounce_height = float(input())
-num_bounces = int(input())
-
-result = calculate_total_distance(starting_height, first_bounce_height, num_bounces)
-print("{:.14f}".format(result))
+inputs = input("Enter starting height, first bounce height, and number of bounces separated by commas: ").split(",")  
+if len(inputs) < 3:  
+    print("Please provide all the required inputs.")  
+else:  
+    starting_height = float(inputs[0])  
+    first_bounce_height = float(inputs[1])  
+    num_bounces = int(inputs[2])  
