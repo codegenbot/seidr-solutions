@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <assert.h>
 
 int solve(int N) {
     int sum = 0;
