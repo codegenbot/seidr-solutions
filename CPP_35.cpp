@@ -1,11 +1,7 @@
-```cpp
 #include <algorithm>
-#include <iostream>
-using namespace std;
 #include <cmath>
 
-int main() {
-    int l[] = {10,20,-30};
-    vector<int> v(l,l+3);
-    return abs(*std::max_element(v.begin(),v.end()));
+int absoluteMax(int arr[], int n) {
+    vector<int> l(arr, arr + n);
+    return abs(*max_element(l.begin(), l.end()));
 }
