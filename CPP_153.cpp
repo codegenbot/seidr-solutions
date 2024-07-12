@@ -28,10 +28,10 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
 }
 
 int main() {
-    std::vector<std::string> extensions = {"test1", "Test2", "test3", "TEST4"};
-    std::string className = "MyClass";
-    
-    int res = Strongest_Extension(className, extensions);
-    std::cout << "The strongest extension for class " << className << " is: " << res << "\n";
+    std::string class_name = "My";
+    std::vector<std::string> extensions = {"cpp", "Java", "Py", "c++"};
+
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+
     return 0;
 }
