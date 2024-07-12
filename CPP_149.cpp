@@ -5,11 +5,7 @@
 #include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -29,6 +25,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> result = sorted_list_sum(lst);
-    
-    assert(issame(result, {"cc", "dd", "aaaa", "bbbb"}));
+    bool same = issame(result, {"cc", "dd", "aaaa", "bbbb"});
+    assert(same);
+    std::cout << "Result: ";
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
 }
