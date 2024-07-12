@@ -1,4 +1,5 @@
 #include <vector>
+
 bool below_zero(const vector<int>& operations) {
     int balance = 0;
     for (int op : operations) {
