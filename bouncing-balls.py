@@ -1,11 +1,8 @@
-inputs = input(
-    "Enter starting height, first bounce height, and number of bounces separated by commas: "
-).split(",")
-starting_height = float(inputs[0])
-first_bounce_height = float(inputs[1])
-num_bounces = float(inputs[2])
-bounciness_index = first_bounce_height / starting_height
-total_distance = starting_height + (starting_height + first_bounce_height) * (
-    bounciness_index**num_bounces
-)
-print(total_distance)
+inputs = input("Enter starting height, first bounce height, and number of bounces separated by commas: ").split(",")
+if len(inputs) >= 3:
+    starting_height = float(inputs[0])
+    first_bounce_height = float(inputs[1])
+    num_bounces = float(inputs[2])
+    # Continue with your calculations here
+else:
+    print("Please provide all three values separated by commas.")
