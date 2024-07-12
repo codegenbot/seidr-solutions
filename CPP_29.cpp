@@ -1,9 +1,8 @@
+```c++
 #include <vector>
 #include <string>
 #include <initializer_list>
-
-bool isSame(vector<string>, vector<string>);
-vector<string> filter_by_prefix(vector<string>, string);
+#include <iostream>
 
 bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -28,7 +27,6 @@ int main() {
     vector<string> a;
     cout << "Enter strings (stop when empty):" << endl;
     string s;
-    cin >> s; // input string
     while (getline(cin, s)) {
         if (s.empty()) break;
         a.push_back(s);
@@ -36,11 +34,12 @@ int main() {
 
     bool same = isSame(a, a);
 
-    cout << "Enter prefix:" << endl;
     string prefix;
-    cin >> prefix;
+    cout << "Enter prefix:" << endl;
+    getline(cin, prefix);
+    vector<string> result;
 
-    vector<string> result = filter_by_prefix(a, prefix);
+    result = filter_by_prefix(a, prefix);
 
     if (!same) 
         cout << "Strings are not the same." << endl;
