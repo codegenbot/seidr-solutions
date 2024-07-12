@@ -1,4 +1,2 @@
-import sys
-
-string1 = sys.stdin.readline().strip()
-string2 = sys.stdin.readline().strip()
+string1 = input("Input string 1: ")
+string2 = input("Input string 2: ")
