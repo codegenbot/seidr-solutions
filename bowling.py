@@ -1,34 +1,40 @@
 ```
 def bowling_score(frames):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            if i < 8:
-                next_frames = frames[i+2:i+10]
-                if 'X' in next_frames or '/' in next_frames:
-                    score += 10 + 10
-                else:
-                    first_next_frame = list(map(int, next_frames[:2]))
-                    if sum(first_next_frame) == 10:
-                        score += 10 + sum(first_next_frame)
-                    else:
-                        score += 10 + sum(first_next_frame) + 10
-            elif i == 8 and frames[i+1] != 'X':
-                first_two_frames = list(map(int, frames[i-8:i]))
-                if sum(first_two_frames) < 10:
-                    score += 10 + sum(first_two_frames)
-                else:
-                    score += 20
-        elif frames[i] == '/':
-            roll = list(map(int, frames[i+1].split()))
-            if sum(roll) == 10:
-                score += sum(roll)
-            else:
-                score += sum(roll) + 10
+    for frame in frames.split('/'):
+        if len(frame) == 2 and frame[1] == 'X':
+            strike = True
+            spare = False
+        elif '-' in frame:
+            roll1, roll2 = map(int, frame.split('-'))
+            score += roll1 + roll2
+            strike = False
+            spare = False
+        elif int(frame) == 10:
+            roll = [int(frame)]
+            score += 10
+            strike = True
+            spare = False
         else:
-            frame = list(map(int, frames[i:i+2]))
-            if sum(frame) == 10:
-                score += sum(frame)
+            roll = list(map(int, frame))
+            if sum(roll) < 10:
+                score += sum(roll)
+                strike = False
+                spare = False
+            elif len(roll) == 2:
+                score += 10
+                strike = True
+                spare = False
             else:
-                score += sum(frame) + 10
+                score += 10 + roll[1]
+                strike = False
+                spare = True
+        if strike:
+            while len(roll) < 2 and frame != 'X':
+                extra_roll = int(input(f"After the {score}th strike, what did you knock down? '))
+                roll.append(extra_roll)
+                score += extra_roll
+        elif spare:
+            extra_roll = int(input(f"After the {score}th spare, what did you knock down?' ))
+            score += extra_roll
     return score
