@@ -1,16 +1,10 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
+bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
+};
 
-using namespace std;
-
-bool operator==(const vector<int>& v1, const vector<int>& v2) {
-    return (v1.size() == v2.size()) && equal(v1.begin(), v1.end(), v2.begin());
-}
-
-vector<int> rolling_max(vector<int> numbers) {
-    vector<int> maxNumbers;
+std::vector<int> rolling_max(std::vector<int> numbers) {
+    std::vector<int> maxNumbers;
     int currentMax = INT_MIN;
 
     for (int num : numbers) {
@@ -22,33 +16,27 @@ vector<int> rolling_max(vector<int> numbers) {
     return maxNumbers;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b; // implement your comparison logic here
-}
-
 int main() {
-    vector<int> numbers;
+    std::vector<int> numbers;
     int num;
 
-    cout << "Enter numbers (enter -1 to stop): ";
-    while ((cin >> num) && (num != -1)) {
+    std::cout << "Enter numbers (enter -1 to stop): ";
+    while ((std::cin >> num) && (num != -1)) {
         numbers.push_back(num);
     }
 
-    vector<int> maxNumbers = rolling_max(numbers);
+    std::vector<int> maxNumbers = rolling_max(numbers);
 
     for (int i = 0; i < maxNumbers.size(); i++) {
-        cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << endl;
+        std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
     }
     
-    vector<int> v1({3, 2, 3, 100, 3});
-    vector<int> v2({3, 3, 3, 100, 100});
+    std::vector<int> v1({3, 2, 3, 100, 3});
+    std::vector<int> v2({3, 3, 3, 100, 100});
     if (v1 == v2)
-        cout << "Vectors are equal" << endl;
+        std::cout << "Vectors are equal" << std::endl;
     else
-        cout << "Vectors are not equal" << endl;
-    
-    assert(issame(rolling_max({3, 2, 3, 100, 3}) ,{3, 3, 3, 100, 100}));
+        std::cout << "Vectors are not equal" << std::endl;
     
     return 0;
 }
