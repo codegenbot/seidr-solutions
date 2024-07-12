@@ -11,7 +11,7 @@ int main() {
         output += std::to_string(num * num);
     }
 
-    std::cout << output << std::endl;
+    std::cout << output;
 
     return 0;
 }
