@@ -1,9 +1,10 @@
-def process_numbers():
+def find_max_min_sum(numbers):
     try:
-        numbers = [int(x) for x in input("Enter numbers separated by commas:").strip().split(",")]
-        return numbers
+        numbers = [int(x) for x in numbers.strip().split(",")]
+        return max(numbers), min(numbers), sum(numbers)
     except ValueError:
-        print("Input error. Please enter numbers separated by commas.")
+        return "Invalid input. Please enter numbers separated by commas."
 
-result = process_numbers()
+numbers = input("Enter numbers separated by commas:").strip()
+result = find_max_min_sum(numbers)
 print(result)
