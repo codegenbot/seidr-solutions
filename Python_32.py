@@ -1,4 +1,8 @@
-Here is the solution:
+Here is the completed code:
 
 def find_zero(xs: list):
-    return round(-xs[0]/xs[-1], 2) if len(xs) > 1 else None
+    if len(xs) % 2 != 0:
+        return None
+    n = (len(xs) - 1) // 2
+    x = -xs[n-1] / xs[-1]
+    return round(x, 10)
