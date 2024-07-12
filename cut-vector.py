@@ -9,14 +9,14 @@ cut_index = -1
 
 for i in range(n):
     left_sum += arr[i]
-    right_sum = total_sum - left_sum
+    right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
-        cut_index = i + 1
+        cut_index = i
 
-subvector1 = arr[:cut_index]
-subvector2 = arr[cut_index:]
+subvector1 = arr[:cut_index+1]
+subvector2 = arr[cut_index+1:]
 
 print(*subvector1)
 print(*subvector2)
