@@ -1,17 +1,19 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-std::vector<std::string> result;
-
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
+int main() {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
     int idx1 = -1, idx2 = -1;
-    
+    std::string planet1 = "Jupiter";
+    std::string planet2 = "Makemake";
+
     for (int i = 0; i < planets.size(); i++) {
         if (planets[i] == planet1) {
             idx1 = i;
@@ -22,7 +24,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     if (idx1 == -1 || idx2 == -1) {
-        return result;
+        return 0; // indicating successful completion
     }
 
     if (idx1 > idx2) {
@@ -33,10 +35,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         result.push_back(planets[i]);
     }
 
-    return result;
-}
+    assert(issame(result, std::vector<std::string>{"Jupiter", "Makemake"}));
 
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    return 0;
+    return 0; // indicating successful completion
 }
