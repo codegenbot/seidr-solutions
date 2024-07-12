@@ -1,6 +1,10 @@
-Here is the completed code:
-
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not numbers:
-        return 0, 1
-    return sum(numbers), math.prod(numbers)
+    total_sum = 0
+    total_product = 1
+    for num in numbers:
+        total_sum += num
+        total_product *= num
+    return (
+        total_sum if len(numbers) > 0 else 0,
+        total_product if len(numbers) > 0 else 1,
+    )
