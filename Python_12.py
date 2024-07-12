@@ -1,3 +1,4 @@
+```
 from typing import Optional
 
 
@@ -13,7 +14,7 @@ def longest_common_substring(str1: str, str2: str) -> Optional[str]:
                 if m[x][y] > longest:
                     longest = m[x][y]
                     x_longest = x
-    return str1[x_longest - longest : x_longest]
+    return str1[x_longest - longest: x_longest]
 
 
 while True:
