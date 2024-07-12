@@ -1,47 +1,36 @@
 #include <boost/any.hpp>
-#include <iostream>
-#include <list>
-#include <type_traits>
 #include <vector>
+#include <list>
 
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    list<boost::any> values = {3, 3, 3};
-    vector<int> result = filter_integers(values);
-    
-    for (const auto& value : result) {
-        cout << value << " ";
-    }
-    cout << endl;
-
-    if (issame({1, 2, 3}, {1, 2, 3})) {
-        cout << "The two lists are the same." << endl;
-    } else {
-        cout << "The two lists are different." << endl;
-    }
-
-    return 0;
 }
 
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<bool>(std::any_cast<boost::any>(value)).type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
+        if(boost::holds_alternative<int>(value)) {
+            result.push_back(boost::get<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    list<boost::any> values = {3, 3, 3};
+    vector<int> filtered_values = filter_integers(values);
+    
+    if(issame({1}, filtered_values)) {
+        cout << "True";
+    } else {
+        cout << "False";
+    }
+    
+    return 0;
 }
