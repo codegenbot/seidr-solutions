@@ -1,17 +1,14 @@
-```cpp
 #include <iostream>
 #include <string>
 
-std::string encrypt(std::string s) {
-    for (char &c : s) {
+std::string encrypt(const std::string& s) {
+    std::string result = "";
+    for (char c : s) {
         if (c == 'a') c = 'e';
         else if (c == 'A') c = 'E';
+        result += c;
     }
-    return s;
+    return result;
 }
 
-int main() {
-    std::string s;
-    std::getline(std::cin, s);
-    std::cout << encrypt(s) << std::endl;
-}
+std::cout << encrypt(std::string(input)) << std::endl;
