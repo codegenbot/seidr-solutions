@@ -13,7 +13,6 @@ int main() {
     cout << quarters << endl;
     cout << nickles << endl;
     cout << pennies << endl;
-    cout << 0 << endl;
 
     return 0;
 }
