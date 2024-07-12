@@ -1,40 +1,50 @@
-Here is the completed code:
-
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <boost/any.hpp>
-
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
 using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a > (int)b ? a : ((int)a == (int)b) ? boost::any("None") : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return (double)a > (double)b ? a : ((double)a == (double)b) ? boost::any("None") : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return a.convert<string>().compare(b.convert<string>()) > 0 ? a : (a.convert<string>() == b.convert<string>()) ? boost::any("None") : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (double)a > b ? a : ((double)a == b) ? boost::any("None") : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (string)b.find_first_not_of("0123456789-.") != string::npos ? b : a;
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        try {
-            double bdouble = stod(b.convert<string>());
-            return (double)a > bdouble ? a : ((double)a == bdouble) ? boost::any("None") : boost::any(b);
-        } catch (...) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        if (get<int>(a) > get<float>(b))
             return a;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return (string)a.find_first_not_of("0123456789-.") != string::npos ? a : boost::any((int)b);
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        try {
-            double bdouble = stod(b.convert<string>());
-            return (string)a.find_first_not_of("0123456789-.") != string::npos ? a : boost::any((double)b);
-        } catch (...) {
+        else if (get<float>(b) > get<int>(a))
+            return b;
+        else
+            return boost::any("None");
+    } 
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        if (get<int>(a) > stod(get<string>(b)))
             return a;
-        }
+        else if (stod(get<string>(b)) > get<int>(a))
+            return b;
+        else
+            return boost::any("None");
+    } 
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        if (get<float>(a) > stod(get<string>(b)))
+            return a;
+        else if (stod(get<string>(b)) > get<float>(a))
+            return b;
+        else
+            return boost::any("None");
+    } 
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        if (stod(get<string>(a)) > get<int>(b))
+            return a;
+        else if (get<int>(b) > stod(get<string>(a)))
+            return b;
+        else
+            return boost::any("None");
+    } 
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        if (stod(get<string>(a)) > get<float>(b))
+            return a;
+        else if (get<float>(b) > stod(get<string>(a)))
+            return b;
+        else
+            return boost::any("None");
+    } 
+    else {
+        return boost::any("None");
     }
-
-    return a;
 }
