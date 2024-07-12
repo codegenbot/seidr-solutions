@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <list>
 #include <boost/any.hpp>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
