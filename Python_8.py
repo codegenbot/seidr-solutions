@@ -1,4 +1,3 @@
-```
 def sum_product() -> tuple:
     total_sum = 0
     product = 1
@@ -12,14 +11,17 @@ def sum_product() -> tuple:
         if user_input.lower() == "stop":
             break
         elif user_input.isdigit():
-            user_input = int(user_input)  
-            total_sum += user_input
-            product *= user_input
+            num = int(user_input)
+            total_sum += num
+            product *= num
             count += 1
         else:
             print("Invalid input. Please enter a digit or type 'stop' to finish.")
 
-    return total_sum, product, total_sum / count if count > 0 else 0
+    if count > 0:
+        return total_sum, product, total_sum / count
+    else:
+        return total_sum, product, 0
 
 result = sum_product()
 print("Sum: ", result[0])
