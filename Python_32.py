@@ -1,10 +1,9 @@
-Here is the solution:
+Here is the completed code:
 
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 == 1:
+    if len(xs) % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
-    c = xs[0]
-    for i in range(1, n // 2 + 1):
-        c -= xs[i] / float(math.factorial(i))
-    return -c
+    max_coeff = max(abs(x) for x in xs)
+    if max_coeff == 0:
+        return None
+    return -sum([coeff / i for i, coeff in enumerate(xs) if i > 1]) / sum([coeff for i, coeff in enumerate(xs) if i % 2 == 0])
