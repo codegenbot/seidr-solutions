@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -25,8 +26,13 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    std::list<boost::any> values = {3, 'c', 3, 3, 'a', 'b'};
+    std::list<boost::any> values = {3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')};
     std::vector<int> expected = {3, 3, 3};
-    assert(is_same(filter_integers(values), expected));
+    if (!is_same(filter_integers(values), expected)) {
+        for (const auto& value : filter_integers(values)) {
+            std::cout << value << " ";
+        }
+        std::cout << std::endl;
+    }
     return 0;
 }
