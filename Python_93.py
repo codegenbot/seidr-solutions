@@ -5,16 +5,16 @@ def encode(message):
             if char.lower() == 'y':
                 result += 'y' if char.islower() else 'Y'
             elif char.lower() in 'aeiou':
-                if char.lower() == 'o':
-                    if char.isupper():
+                if char.islower():
+                    if char.lower() == 'o':
                         result += 'O'
                     else:
-                        result += 'o'
-                else:
-                    if char.isupper():
                         result += chr((ord('A') + ((ord(char) - ord('a')) + 2) % 26))
+                else:
+                    if char.lower() == 'o':
+                        result += 'O'
                     else:
-                        result += chr((ord('a') + ((ord(char) - ord('a')) + 2) % 26))
+                        result += chr((ord('A') + ((ord(char) - ord('a')) + 2) % 26))
             else:
                 if char.isupper():
                     result += chr((ord('A') + ((ord(char) - ord('A')) + 3) % 26))
