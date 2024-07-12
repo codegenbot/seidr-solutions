@@ -39,6 +39,7 @@ int main() {
     
     vector<int> common_elements = common(v1, v2);
     for (int i : common_elements) {
-        cout << i << " ";
+        std::cout << i << " "; // Use std::cout instead of cout
     }
     return 0;
+}
