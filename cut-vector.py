@@ -1,14 +1,14 @@
 arr = list(map(int, input().split()))
-
 n = len(arr)
 total_sum = sum(arr)
 prefix_sum = 0
 min_diff = float("inf")
 cut_position = -1
 
-for i in range(n):
+for i in range(1, n):
     prefix_sum += arr[i]
-    diff = abs(total_sum - 2 * prefix_sum)
+    next_prefix_sum = total_sum - prefix_sum
+    diff = abs(prefix_sum - next_prefix_sum)
     if diff < min_diff:
         min_diff = diff
         cut_position = i
