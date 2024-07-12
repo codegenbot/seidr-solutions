@@ -3,27 +3,13 @@
 
 int main() {
     std::vector<int> nums;
-    int count = 0;
-
-    // Read input from user
     int n;
+    cout << "Enter the number of elements: ";
     cin >> n;
-
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> nums.push_back(i);
     }
-
-    // Count the numbers that satisfy the condition
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
-            count++;
-        }
-    }
-
-    // Print the output
-    cout << "Count: " << count << endl;
-
+    cout << "The count is: " << specialFilter(nums) << endl;
     return 0;
 }
