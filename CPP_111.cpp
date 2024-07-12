@@ -3,6 +3,7 @@
 #include <string>
 #include <set>
 #include <initializer_list>
+#include <cassert>
 
 using namespace std;
 
@@ -15,8 +16,8 @@ bool issameInt(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
     return true;
 }
 
-map<pair<char,int>, int> histogram(string test) {
-    map<pair<char,int>, int> result;
+map<char, int> histogram(string test) {
+    map<char, int> result;
     if (test.empty()) return result;
 
     set<char> letters(test);
@@ -25,17 +26,14 @@ map<pair<char,int>, int> histogram(string test) {
         for (char letter : test) {
             if (letter == c) count++;
         }
-        for(int i=0; i<count; i++) {
-            pair<char,int> p = make_pair(c, i);
-            result[p] = i;
-        }
+        result[c] = count;
     }
 
     return result;
 }
 
 int main() {
-    map<pair<char,int>, int> test = histogram("a");
-    assert(issameInt(histogram({"a"}), {make_pair('a', 0)}));
+    map<char, int> test = histogram("a");
+    assert(issameInt(histogram("a"), {{'a', 0}, {'a', 1}}));
     return 0;
 }
