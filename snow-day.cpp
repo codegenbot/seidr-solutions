@@ -18,18 +18,18 @@ int main() {
     cin >> hours;
 
     float initialSnow;
-    cout << "Enter the initial amount of snow on the ground (in meters): ";
+    cout << "Enter the initial snow on the ground (in feet): ";
     cin >> initialSnow;
 
     float snowFallRate;
-    cout << "Enter the rate of snow fall (in meters per hour): ";
+    cout << "Enter the rate at which snow is falling (in feet per hour): ";
     cin >> snowFallRate;
 
     float meltPerHour;
-    cout << "Enter the proportion of snow melting per hour: ";
+    cout << "Enter the proportion of snow that melts per hour: ";
     cin >> meltPerHour;
 
     double result = snowDay(hours, initialSnow, snowFallRate, meltPerHour);
-    cout << "Result: " << result << " meters" << endl;
+    cout << "Result: " << result << std::endl;
     return 0;
 }
