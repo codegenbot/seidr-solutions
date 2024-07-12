@@ -1,5 +1,5 @@
+```
 from typing import Optional
-
 
 def longest_common_substring(str1: str, str2: str) -> Optional[str]:
     m = [[0] * (1 + len(str2)) for _ in range(1 + len(str1))]
@@ -11,16 +11,10 @@ def longest_common_substring(str1: str, str2: str) -> Optional[str]:
                 if m[x][y] > longest:
                     longest = m[x][y]
                     x_longest = x
-    return str1[x_longest - longest : x_longest]
+    return str1[x_longest - longest: x_longest]
 
-
-while True:
-    try:
-        str1 = input("Enter the first string: ")
-        str2 = input("Enter the second string: ")
-        break
-    except ValueError:
-        print("Invalid input. Please enter a valid string.")
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
 
 result = longest_common_substring(str1, str2)
 print(f"The longest common substring is: {result}")
