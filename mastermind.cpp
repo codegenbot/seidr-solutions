@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,7 +18,7 @@ int mastermind(std::string code, std::string guess) {
             if(code[j] == (char)(i + 'A')) countCode++;
             if(guess[j] == (char)(i + 'A')) countGuess++;
         }
-        white += std::min(countCode, countGuess);
+        white += min(countCode, countGuess);
     }
 
     return black + white;
