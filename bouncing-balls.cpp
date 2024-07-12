@@ -7,7 +7,7 @@ int main() {
     std::cin >> start_height >> first_bounce_height >> num_bounces;
 
     bounciness_index = first_bounce_height / start_height;
-    total_distance = start_height + first_bounce_height;
+    total_distance = start_height + first_bounce_height * 2;
 
     for (int i = 2; i <= num_bounces; ++i) {
         first_bounce_height *= bounciness_index;
