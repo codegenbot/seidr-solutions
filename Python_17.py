@@ -40,12 +40,10 @@ def parse_music(music_string: str) -> list:
     return music_list
 
 
-while True:
-    try:
-        input_str = input("Enter a music string: ")
-        if not isinstance(input_str, str):
-            raise Exception
-        break
-    except Exception:
-        print("Invalid input. Please enter a string.")
-print(parse_music(input_str))
+main = True
+while main:
+    input_str = input("Enter a music string (or 'q' to quit): ")
+    if input_str.lower() == 'q':
+        main = False
+    else:
+        print(parse_music(input_str))
