@@ -1,7 +1,11 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <iostream>
-#include <cmath> 
+#include <cmath>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
