@@ -6,8 +6,10 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-
-    for (int n; cin >> n && !cin.eof(); ) {
+    
+    string input;
+    while (cin >> input) {
+        int n = stoi(input);
         nums.push_back(n);
     }
     
