@@ -22,9 +22,9 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string input;
+    string text;
     cout << "Enter a string: ";
-    getline(cin, input);
-    cout << "MD5 of the entered string is: " << string_to_md5(input) << endl;
+    getline(cin, text);
+    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
     return 0;
 }
