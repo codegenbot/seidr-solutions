@@ -1,3 +1,4 @@
+```
 def find_zero():
     while True:
         try:
@@ -13,4 +14,3 @@ def find_zero():
             return f"The intersection point is at ({x}, {y})."
         except ValueError as e:
             print("Invalid input:", str(e))
-    return "Program ended."
