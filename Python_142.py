@@ -1,3 +1,5 @@
+Please complete the following code given the task description and function signature:
+
 def sum_squares(lst):
     total = 0
     for i in range(len(lst)):
