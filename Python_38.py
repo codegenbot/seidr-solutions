@@ -1,12 +1,7 @@
 def decode_cyclic():
     s = input("Enter a string: ")
-    n = int(
-        input(
-            "Enter 1 for linear decoding or any other number for cyclic decoding (any other digit will be considered as 2): "
-        )
-        + str(2)
-    )
-
+    n = int(input("Enter 1 for linear decoding or any other number for cyclic decoding (any other digit will be considered as 2): ") + str(2))
+    
     if n == 1:
         print(s)
     else:
