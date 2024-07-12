@@ -1,3 +1,5 @@
+Here is the modified code:
+
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -6,12 +8,8 @@ def gcd(a, b):
 def indices_of_substring(text, target):
     result = []
     for i in range(len(text)):
-        if text[i : i + len(target)] == target:
-            result.append(i)
+        pos = text.find(target)
+        if pos == -1:
+            break
+        result.append(i + 1)  
     return result
-
-a, b = map(int, input().split())
-print(gcd(a, b))
-
-text, target = input().split()
-print(indices_of_substring(text, target))
