@@ -1,9 +1,7 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <algorithm>
-#include <cstddef>
-
-using namespace std;
+#include <iostream>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -14,15 +12,13 @@ bool isPrime(int n) {
 }
 
 int main() {
-    #pragma GCC cxx11
-    vector<int> lst;
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    lst.resize(n);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> lst(n);
     for(int i = 0; i < n; i++){
-        cout << "Enter element " << i+1 << ": ";
-        cin >> lst[i];
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
     }
     int maxPrime = 0;
     for(int i : lst){
@@ -34,6 +30,6 @@ int main() {
         sum += maxPrime % 10;
         maxPrime /= 10;
     }
-    cout << "The sum of the digits of the maximum prime number is: " << sum << endl;
+    std::cout << "The sum of the digits of the maximum prime number is: " << sum << std::endl;
     return 0;
 }
