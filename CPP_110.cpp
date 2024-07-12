@@ -20,8 +20,8 @@ int main() {
         std::cin >> temp;
         lst1.push_back(temp);
     }
-    std::cout << "Enter the number of elements to fill lst2: ";
     while (true) {
+        std::cout << "Enter the number of elements to fill lst2: ";
         std::cin >> m1;
         if(m1 >= 0)
             break;
