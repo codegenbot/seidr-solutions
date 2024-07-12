@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 bool checkEquality(std::string& s) {
     return s == "True";
@@ -31,6 +29,10 @@ std::string reverse_delete(std::string& s, std::string& c) {
     return rev;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 int main() {
     std::string s1 = reverse_delete("mamma", "mia");
     std::string s2 = "mama";
@@ -55,10 +57,18 @@ int main() {
         }
     } else {
         if (!s1.empty() && !s2.empty()) {
-            std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
+            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         } else if (s1.empty() || s2.empty()) {
             std::cout << (s1.empty() ? "empty" : s1) << " and " << (s2.empty() ? "empty" : s2) << " are not the same." << std::endl;
         }
     }
+    
+    assert(checkEquality(s2));
+    if (checkEquality(s2)) {
+        std::cout << "True is equal to itself." << std::endl;
+    } else {
+        std::cout << "True is not equal to itself." << std::endl;
+    }
+    
     return 0;
 }
