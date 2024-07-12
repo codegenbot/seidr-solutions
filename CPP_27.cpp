@@ -1,5 +1,5 @@
 #include <string>
-#include <cassert> // include `cassert` header
+#include <cassert> 
 string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
@@ -12,6 +12,6 @@ string flip_case(string str){
 }
 
 int main(){
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"); // correct function name 'flip_case'
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
