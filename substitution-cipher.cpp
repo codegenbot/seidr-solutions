@@ -1,13 +1,22 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int main() {
-    string s1, s2, s3;
-    cin >> s1 >> s2 >> s3;
-    for (char c : s3) {
-        for (int i = 0; i < s1.size(); ++i) {
-            if (s1[i] == c) {
-                cout << s2[i];
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+
+    for (char &c : message) {
+        for (size_t i = 0; i < cipher1.size(); ++i) {
+            if (c == cipher1[i]) {
+                c = cipher2[i];
                 break;
             }
         }
     }
+
+    cout << message << endl;
+
     return 0;
 }

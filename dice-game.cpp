@@ -14,8 +14,7 @@ int main() {
         }
     }
 
-    std::cout << std::fixed << std::setprecision(9);
-    std::cout << probability << std::endl;
+    std::cout << std::fixed << std::setprecision(9) << probability << std::endl;
 
     return 0;
 }
