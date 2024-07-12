@@ -6,6 +6,6 @@ def solve(text):
 
 
 text = """Enter your name or title: """
-print(text)
+print(text)  
 user_input = input()
 print(solve(user_input))
