@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -20,3 +21,5 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     }
     return result;
 }
+
+```
