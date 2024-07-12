@@ -1,2 +1,1 @@
-string1 = input("Enter first string: ")
-string2 = input("Enter second string: ")
+string1, string2 = input("Enter two strings separated by a space: ").split()
