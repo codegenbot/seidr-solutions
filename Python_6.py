@@ -4,12 +4,11 @@ def parse_nested_parens(paren_string: str) -> list:
     level = 0
     for char in paren_string:
         if char == "(":
-            stack.append(char)
             level += 1
+            stack.append(level)
         elif char == ")":
-            if stack:
-                stack.pop()
-                level -= 1
-            else:
-                result.append(level + 1)
-    return result
+            level -= 1
+            if not stack or level < stack[-1]:
+                break
+            stack.pop()
+    return [level + 1]
