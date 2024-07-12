@@ -1,5 +1,4 @@
 #include <cassert>
-#include <map>
 
 int findMaxFreq(int arr[], int n) {
     std::map<int, int> freqMap;
@@ -22,12 +21,9 @@ int findMaxFreq(int arr[], int n) {
     return maxFreqNum;
 }
 
-int originalMain() {
+int main() {
     int numbers[] = {3, 10, 10, 9, 2};
     int size = sizeof(numbers)/sizeof(numbers[0]);
     assert(findMaxFreq(numbers, size) == -1);
     return 0;
-}
-int main() {
-    return originalMain();
 }
