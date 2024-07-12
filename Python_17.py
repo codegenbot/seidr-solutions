@@ -1,6 +1,12 @@
+```Python
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
+
+    music_string = music_string.replace(" ", "")
+
+    if len(music_string) < 3 or not set(music_string[:3]).issubset({"o", "|", "."}):
+        return ["Invalid input"]
 
     music_string = music_string.replace(" ", "")
 
