@@ -1,6 +1,5 @@
-from typing import List
+def solve_problem():
+    n = int(input())
+    strings = [input() for _ in range(n)]
 
-def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
-        return None
-    return max(strings, key=lambda x: (len(x), strings.index(x)))
+    return max(strings, key=lambda x: (len(x), x))
