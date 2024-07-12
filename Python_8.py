@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -8,4 +7,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     for num in numbers:
         total_sum += num
         product *= num
-    return total_sum, product if product != 0 else 1
+    return total_sum, product
