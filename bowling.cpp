@@ -1,40 +1,22 @@
 int score(string s) {
-    int total = 0;
-    int frame = 0;
-    int rolls[21] = {0};
-
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            rolls[frame] = 10;
-            frame++;
-        } else if (s[i] == '/') {
-            rolls[frame] = 10 - rolls[frame - 1];
-            frame++;
-        } else if (s[i] == '-') {
-            rolls[frame] = 0;
-            frame++;
+    int frames = 10, score = 0, frameIndex = 0;
+    for (int i = 0; i < frames; i++) {
+        if (s[frameIndex] == 'X') {
+            score += 10 + (s[frameIndex + 1] == 'X' ? 10 : (isdigit(s[frameIndex + 1]) ? s[frameIndex + 1] - '0' : 10));
+            if (s[frameIndex + 1] == 'X' && s[frameIndex + 2] == 'X')
+                score += 10;
+            else if (s[frameIndex + 1] == 'X')
+                score += (isdigit(s[frameIndex + 2]) ? s[frameIndex + 2] - '0' : 10);
+            frameIndex++;
+        } else if (s[frameIndex + 1] == '/') {
+            score += 10 + (s[frameIndex + 2] == 'X' ? 10 : (isdigit(s[frameIndex + 2]) ? s[frameIndex + 2] - '0' : 10));
+            frameIndex += 2;
         } else {
-            rolls[frame] = s[i] - '0';
-            if (frame % 2 == 1) {
-                if (rolls[frame] + rolls[frame - 1] == 10) {
-                    total += rolls[frame + 1];
-                }
-            }
-            frame++;
+            score += (isdigit(s[frameIndex]) ? s[frameIndex] - '0' : 0) + (isdigit(s[frameIndex + 1]) ? s[frameIndex + 1] - '0' : 0);
+            frameIndex += 2;
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            total += 10 + rolls[i * 2 + 1] + rolls[i * 2 + 2];
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            total += 10 + rolls[i * 2 + 2];
-        } else {
-            total += rolls[i * 2] + rolls[i * 2 + 1];
-        }
-    }
-
-    return total;
+    return score;
 }
 
 int main() {
