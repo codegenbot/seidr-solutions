@@ -1,7 +1,8 @@
-def find_max(lst):
-    maximum = input("Enter a list of numbers separated by space: ").split()
-    max_val = int(maximum[0])
-    for i in range(len(maximum)):
-        if int(maximum[i]) > max_val:
-            max_val = int(maximum[i])
-    print("The maximum value is: ", max_val)
+def sum_squares(n):
+    total_sum = 0
+    for i in range(1,n+1):
+        if i % 3 == 0 and i % 4 != 0:
+            total_sum += i ** 2
+        elif i % 4 == 0 and i % 3 != 0:
+            total_sum += i ** 3
+    return total_sum
