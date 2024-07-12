@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
@@ -7,5 +10,19 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    if(result.empty()) {
+        string temp = s;
+        std::reverse(temp.begin(), temp.end());
+        return temp;
+    } else {
+        return result;
+    }
+}
+
+int mainTest() {
+    assert (solve("#ccc") == "#CCC");
+    {  
+        std::cout << "This is an example output." << std::endl;
+    }
+    return 0;
 }
