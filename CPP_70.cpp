@@ -1,15 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
+```cpp
+bool issame(std::vector<std::int32_t> a, std::vector<std::int32_t> b) {
+    return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+std::vector<std::int32_t> strange_sort_list(std::vector<std::int32_t> lst) {
+    std::vector<std::int32_t> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         int max_val = *std::max_element(lst.begin(), lst.end());
