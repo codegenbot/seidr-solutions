@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -9,9 +10,8 @@ bool checkSame(vector<string> a) {
     if (a.size() != 2) {
         return false;
     }
-    vector<string> b = {"E", "D-" };
     for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i] != "E" && a[i] != "D-") {
             return false;
         }
     }
@@ -51,7 +51,7 @@ vector<string> numerical_letter_grade(initializer_list<float> grades) {
 
 int main() {
     vector<float> grades = {0.0, 0.7};
-    vector<string> result = numerical_letter_grade({grades.begin(), grades.end()});
+    vector<string> result = numerical_letter_grade({grades});
     assert(checkSame(vector<string>(result.begin(), result.end())) == true);
     return 0;
 }
