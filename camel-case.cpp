@@ -1,20 +1,23 @@
-```c
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string camelCase(std::string s) {
+    std::stringstream words(s, ' ');
     std::string result;
     bool capitalize = true;
 
-    for (char c : s) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize && c != '-') {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
-        }
+    if (!words.str().empty()) {
+        result = words.str();
+        words >> ws; // skip the first word
+    }
+
+    while (words >> word) {
+        if (capitalize)
+            result += toupper(word[0]) + tolower(word.substr(1));
+        else
+            result += word;
+        capitalize = true;
     }
 
     return result;
