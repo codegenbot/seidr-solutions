@@ -11,14 +11,16 @@ int main() {
         std::cin >> vec1[i];
     }
 
+    std::cin >> n;
     std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
-    float result = 0.0;
+    double result = 0.0;
     for (int i = 0; i < n; ++i) {
-        result += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        float diff = vec1[i] - vec2[i];
+        result += diff * diff;
     }
 
     result = std::sqrt(result);
