@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -14,9 +13,18 @@ vector<vector<int>> cutVector(vector<int> v) {
         for(int j=i+1; j<v.size(); j++) 
             rightSum += v[j];
         
-        if(abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            cutIndex = i;
+        int leftSum = 0, rightSum = 0;
+
+        for(int j=0; j<i; j++) 
+            leftSum += v[j];
+        for(int j=i+1; j<v.size(); j++) 
+            rightSum += v[j];
+
+        if(abs(leftSum - rightSum) <= minDiff || cutIndex == -1) {
+            if(cutIndex != -1 && abs(leftSum - rightSum) > 0) {
+                minDiff = abs(leftSum - rightSum);
+                cutIndex = i;
+            }
         }
     }
     
@@ -29,23 +37,4 @@ vector<vector<int>> cutVector(vector<int> v) {
         result[1].push_back(v[i]);
     
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(auto &x : v) 
-        cin >> x;
-    vector<vector<int>> res = cutVector(v);
-    cout << "[";
-    for(int i=0; i<res[0].size(); i++) 
-        cout << res[0][i] << " ";
-    cout << "]" << endl;
-    cout << "[";
-    for(int i=0; i<res[1].size(); i++) 
-        cout << res[1][i] << " ";
-    cout << "]" << endl;
-    
-    return 0;
 }
