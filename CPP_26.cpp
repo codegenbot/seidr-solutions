@@ -1,21 +1,14 @@
-```cpp
-#!/usr/bin/env g++-7 -std=c++17
-
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& vec) {
-    std::vector<int> result;
-    for (int i : vec) {
-        if (std::find(result.begin(), result.end(), i) == result.end()) {
-            result.push_back(i);
-        }
-    }
-    return result;
+    std::set<int> result(vec.begin(), vec.end());
+    return std::vector<int>(result.begin(), result.end());
 }
 
 int main() {
