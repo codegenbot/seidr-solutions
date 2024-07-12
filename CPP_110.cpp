@@ -20,8 +20,13 @@ int main() {
         std::cin >> temp;
         lst1.push_back(temp);
     }
-    std::vector<int> lst2;
-    for (int i = 0; i < m2; i++) {
+    std::cout << "Enter the number of elements in lst2: ";
+    std::cin >> m1;
+    std::cout << "Enter the number of elements to fill lst2: ";
+    int m;
+    std::cin >> m;
+    std::vector<int> lst2(m); // Initialize with correct size
+    for (int i = 0; i < m; i++) {
         int temp;
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
