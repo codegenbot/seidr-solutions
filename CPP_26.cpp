@@ -1,17 +1,18 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::initializer_list<int> a, std::initializer_list<int> b) {
     return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result = {};
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> result = {};
     for (int num : numbers) {
         bool duplicate = false;
         for (int i = 0; i < result.size(); ++i) {
-            if (result[i] == num) {
+            if (issame({num}, {result[i]})) {
                 duplicate = true;
                 break;
             }
@@ -24,11 +25,11 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
-    vector<int> no_duplicates = remove_duplicates(numbers);
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<int> no_duplicates = remove_duplicates(numbers);
     for (int num : no_duplicates) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
+    std::cout << endl;
     return 0;
 }
