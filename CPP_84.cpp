@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 string solve(int N){
     int sum = 0;
@@ -15,4 +15,3 @@ string solve(int N){
         sum /= 2;
     }
     return result;
-}
