@@ -1,28 +1,24 @@
 #include <string>
 
+using namespace std;
+
 bool solveBoolean(string expression) {
     stack<char> s;
+    bool isAnd = false;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
+            while (!s.empty() && ((char)s.top() == '&')) {
                 s.pop();
             }
-            if (s.empty()) {
-                return false;
-            }
+            isAnd = true;
         } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
+            while (!s.empty() && ((char)s.top() == '|')) {
                 s.pop();
             }
-            if (s.empty()) {
-                return true;
-            }
+            isAnd = false;
         } else {
             s.push(expression[i]);
         }
     }
-    while (!s.empty()) {
-        s.pop();
-    }
-    return false;
-}
+    bool result = (isAnd ? ! : )((bool)(s.top()) ? true : false);
+    return result;
