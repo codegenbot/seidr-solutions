@@ -1,6 +1,6 @@
-def check(func, args):
+def check(func, lst):
     try:
-        result = func(*args)
+        result = func(lst)
         print(result)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: {str(e)}")
