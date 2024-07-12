@@ -1,5 +1,5 @@
-numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-threshold = int(input("Enter threshold: "))
+numbers = list(map(int, input().split()))
+threshold = int(input())
 
 def check_numbers(numbers, threshold):
     numbers.sort()
