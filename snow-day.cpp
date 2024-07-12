@@ -8,7 +8,6 @@ double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHo
         }
     }
     return totalSnow;
-
 }
 
 int main() {
