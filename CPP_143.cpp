@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -38,5 +39,4 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, input);
     cout << words_in_sentence(input) << endl;
-    return 0;
 }
