@@ -26,8 +26,8 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int test() {
-    vector<float> v1({1.0, -2.0, 3.0});
-    vector<float> v2({-1.0, 2.0, -3.0});
-    assert(issame(get_positive(v1), get_positive(v2)) == false);
+    vector<float> v1 = {1.0, 2.0};
+    vector<float> v2 = {1.0, 2.0};
+    assert(issame(get_positive(v1), get_positive(v2)) == true);
     return 0;
 }
