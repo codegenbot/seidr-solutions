@@ -25,7 +25,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame({0}, make_a_pile(make_a_pile_result.size())));
+    assert(issame({0}, {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
