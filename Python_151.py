@@ -1,6 +1,7 @@
-def check(func, lst):
-    try:
-        result = func(lst)
-        print(f"The sum of the squares of all even numbers in {lst} is {result}.")
-    except TypeError as e:
-        print("Error: Only integers are allowed. Try again!")
+def check():
+    numbers = [int(x) for x in input("Enter space-separated integers: ").split()]
+    print(double_the_difference(numbers))
+
+
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
