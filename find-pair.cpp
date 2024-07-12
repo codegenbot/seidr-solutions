@@ -3,16 +3,16 @@
 #include <map>
 
 int main() {
-    long long n;
+    int n;
     std::cin >> n;
 
     long long target;
     std::cin >> target;
 
-    std::vector<long long> nums(n);
-    std::map<long long, long long> numIndex;
+    std::vector<int> nums(n);
+    std::map<long long, int> numIndex;
 
-    for (long long i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
         if (numIndex.find(target - nums[i]) != numIndex.end()) {
             std::cout << target - nums[i] << " " << nums[i] << std::endl;
