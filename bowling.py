@@ -20,9 +20,9 @@ def bowling_score(bowls):
     for i in range(10):
         frame = frames[i]
         if frame[0] == 10:
-            score += 10 + sum(frames[i + 1][:2]) if i + 1 < len(frames) else 0
-        elif sum(frame) == 10 and i + 1 < len(frames):
-            score += 10 + frames[i + 1][0]
+            score += 10 + sum(frames[i + 1][:2]) if i + 1 < len(frames) else 10
+        elif sum(frame) == 10:
+            score += 10 + frames[i + 1][0] if i + 1 < len(frames) else 10
         else:
             score += sum(frame)
 
