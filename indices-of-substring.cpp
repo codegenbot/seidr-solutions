@@ -1,13 +1,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 int main() {
     std::string text, target;
   
-    std::getline(std::cin, text, '\n');
-    std::getline(std::cin, target, '\n');
+    std::cin >> text >> target;
 
     if (text.size() < target.size()) {
         std::cout << "0";
@@ -17,7 +15,7 @@ int main() {
     std::vector<int> indices;
 
     for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
-        if (text.substr(i, target.size()) == target) {
+        if (text.substr(i, target.size()).compare(target) == 0) {
             indices.push_back(static_cast<int>(i));
         }
     }
