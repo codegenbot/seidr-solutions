@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -17,6 +18,5 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive(vector<float>{}), {})); 
-    return 0;
+    assert(issame(get_positive({}), {}));
 }
