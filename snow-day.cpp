@@ -11,7 +11,7 @@ int main() {
         snow = snow + rate - snowmelt;
     }
 
-    std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << std::fixed << snow << std::endl;
 
     return 0;
 }
