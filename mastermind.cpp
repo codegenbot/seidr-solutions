@@ -1,9 +1,11 @@
 #include <iostream>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
     
     int blackPegs = 0, whitePegs = 0;
     int codeCount[6] = {0}, guessCount[6] = {0};
@@ -23,7 +25,7 @@ int main() {
     
     whitePegs -= blackPegs;
     
-    std::cout << whitePegs << "\n" << blackPegs << "\n";
+    cout << whitePegs << "\n" << blackPegs << "\n";
     
     return 0;
 }
