@@ -3,8 +3,10 @@
 #include <map>
 
 int main() {
-    int target, n;
-    std::cin >> target >> n;
+    int n;
+    int target;
+    std::cin >> n >> target;
+
     std::vector<int> nums(n);
     std::map<int, int> numIndex;
 
