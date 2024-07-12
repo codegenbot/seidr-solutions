@@ -1,13 +1,5 @@
+```Python
 import hashlib
-
-
-def string_to_md5(s):
-    try:
-        return hashlib.md5(s.encode()).hexdigest()
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
-        return None
-
 
 print("Please enter some text (alphanumeric characters only): ", end="")
 while True:
@@ -16,10 +8,9 @@ while True:
         if not s.isalnum():
             print("Invalid input. Please enter alphanumeric characters only.")
         else:
-            output = string_to_md5(s)
-            if output is not None:
+            output = hashlib.md5(s.encode()).hexdigest()
+            if output:
                 print(f"Output: {output}")
-                input("Press Enter to continue...")
-            break
+                break
     except Exception as e:
         print(f"An error occurred: {str(e)}")
