@@ -3,7 +3,7 @@ from typing import List
 
 def factorize(n: int) -> List[int]:
     if n < 1:
-        return ["Invalid input: Please enter a positive integer."]
+        return [f"Invalid input: Please enter a positive integer."]
     factors = []
     i = 2
     while i * i <= n:
