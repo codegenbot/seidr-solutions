@@ -1,5 +1,5 @@
-```
 car_race_collision = int(input("Enter car race collision: "))
+
 def check():
     if car_race_collision > 5:
         print("Collision is severe")
@@ -7,4 +7,5 @@ def check():
         print("Collision is moderate")
     else:
         print("No collision")
+
 check()
