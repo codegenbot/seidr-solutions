@@ -1,14 +1,7 @@
 def factorize(n: int) -> List[int]:
     factors = []
-    d = 2
-    while d * d <= n:
-        if n % d == 0:
-            count = 0
-            while n % d == 0:
-                n //= d
-                count += 1
-            factors += [d] * count
-        d += 1
-    if n > 1:
-        factors.append(n)
+    for i in range(2, n + 1):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
     return factors
