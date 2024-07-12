@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -13,5 +13,8 @@ while True:
         break
     strings_list.append(user_input.strip())
 
-result = concatenate(strings_list)
-print(result)
+if strings_list:
+    result = concatenate(strings_list)
+    print(result)
+else:
+    print("No strings were provided.")
