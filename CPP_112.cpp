@@ -36,8 +36,11 @@ int main() {
     std::string s2 = "mama";
     
     if(checkEquality(reverse_delete("mamma", "mia"), "True")) {
-        if(s1.size() == s2.size()) {
-            for(int i=0; i<s1.size(); i++) {
+        s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
+        s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
+        
+        if(s1.length() == s2.length()) {
+            for(int i=0; i<s1.length(); i++) {
                 if(s1[i] != s2[i]) {
                     std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
                     return 0;
