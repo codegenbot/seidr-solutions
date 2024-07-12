@@ -1,41 +1,34 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <cstdlib>
-
-using namespace std;
-
 int main() {
-    vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    int totalSum = 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
+        totalSum += vec[i];
     }
-    
-    int n = nums.size();
+    int halfSum = totalSum / 2;
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int idx = -1;
+    for (int i = 0; i < n; ++i) {
+        sum += vec[i];
+        if (sum >= halfSum) {
+            idx = i;
+            break;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << "\n";
+    if (abs(2*sum - totalSum) < abs(2*(sum-vec[idx]) - totalSum)) {
+        cout << idx + 1 << endl;
+        for (int i = 0; i <= idx; ++i) {
+            cout << vec[i] << endl;
+        }
+        cout << totalSum - sum << endl;
+    } else {
+        cout << idx + 2 << endl;
+        for (int i = 0; i <= idx; ++i) {
+            cout << vec[i] << endl;
+        }
+        cout << vec[idx + 1] << endl;
     }
-    cout << 0 << "\n";
-    
     return 0;
 }
