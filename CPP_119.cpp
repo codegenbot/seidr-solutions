@@ -7,7 +7,7 @@ std::string match_parens(std::vector<std::string> lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
-            } else if (c == ')') {
+            } else {
                 if (cnt == 0) {
                     return "No";
                 }
@@ -15,5 +15,8 @@ std::string match_parens(std::vector<std::string> lst) {
             }
         }
     }
-    return cnt == 0 ? "Yes" : "No";
+    if (cnt != 0) {
+        return "No";
+    }
+    return "Yes";
 }
