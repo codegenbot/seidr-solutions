@@ -1,4 +1,6 @@
-```
+print("Enter your name:")
+name = input()
+
 print("Enter digits (or 'stop' to finish).")
 def process_digits():
     digits = []
@@ -14,4 +16,4 @@ def process_digits():
     return sum(digits) if len(digits) > 0 else None
 
 result = process_digits()
-print(result)
+print(f"{name}, the sum of your entered digits is {result}.")
