@@ -3,15 +3,15 @@
 
 int main() {
     int hours;
-    long double snow, rate, melt;
+    double snow, rate, melt;
     std::cin >> hours >> snow >> rate >> melt;
 
     for (int i = 0; i < hours; ++i) {
-        long double snowmelt = melt * snow;
-        snow = snow + static_cast<long double>(rate) - snowmelt;
+        double snowmelt = melt * snow;
+        snow = snow + static_cast<double>(rate) - snowmelt;
     }
 
-    std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << std::setprecision(14) << snow << std::endl;
 
     return 0;
 }
