@@ -1,4 +1,6 @@
 #include <vector>
+#include <string>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b);
@@ -26,4 +28,11 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     return result;
 }
 
-assert(parse_nested_parens("(() (()) ())") == std::vector<int>{4});
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(parse_nested_parens("( ( ) )") == std::vector<int>{4});
+    return 0;
+}
