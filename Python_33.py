@@ -1,6 +1,6 @@
 def unique_and_sorted(): 
     while True: 
-        try: 
+        try:
             user_input = [int(i.strip()) for i in input("Enter a list of numbers separated by comma: ").split(",")] 
             if not user_input: 
                 print("No numbers entered.") 
@@ -10,12 +10,7 @@ def unique_and_sorted():
                 continue 
             print("Success! Your numbers are:", sorted(user_input)) 
             break 
-        except ValueError: 
-            print("Invalid input. Please enter numbers separated by commas.")
-        except Exception as e:
-            if str(e).startswith("Expected input"):
-                print("Please enter a list of numbers separated by commas, like 1,2,3.")
-            else:
-                raise
+        except (ValueError, KeyError):
+            print("Invalid input. Please enter numbers separated by commas.") 
 
 unique_and_sorted()
