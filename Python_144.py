@@ -1,3 +1,4 @@
+```
 def simplify(x, n):
     x_num, x_denom = map(int, [i for i in x.split('/')])
     n_num, n_denom = map(int, [i for i in n.split('/')])
@@ -9,7 +10,6 @@ def simplify(x, n):
     x_gcd = gcd(x_num, x_denom)
     n_gcd = gcd(n_num, n_denom)
 
-    new_x_num, new_x_denom = x_num//x_gcd, x_denom//x_gcd
-    new_n_num, new_n_denom = n_num//n_gcd, n_denom//n_gcd
-
-    return str(new_x_num) + "/" + str(new_x_denom) == str(new_n_num) + "/" + str(new_n_denom)
+    simplified_x = (x_num//common_divisor, x_denom//common_divisor)
+    simplified_n = (n_num//common_divisor, n_denom//common_divisor)
+    return simplified_x == simplified_n
