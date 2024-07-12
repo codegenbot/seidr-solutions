@@ -30,5 +30,3 @@ vector<string> separate_paren_groups(string paren_string) {
 
     return result;
 }
-
-bool issame(vector<string>, vector<string>);
