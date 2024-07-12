@@ -1,7 +1,9 @@
 #include <algorithm>
-using namespace std;
+#include <string>
 
-string anti_shuffle(string s) {
+using std::string;
+
+std::string anti_shuffle(string s) {
     string result = "";
     string word;
     for (char c : s) {
