@@ -3,6 +3,6 @@ def rolling_max(numbers):
     window_size = 3
     for i in range(len(numbers) - window_size + 1):
         result.append(max(numbers[i : i + window_size]))
-    return result
+    return result + [max(numbers[-window_size:]) for _ in range(len(numbers) - window_size + 1]
 
-print(rolling_max([3, 2, 3, 100, 3]))  # Output: [3, 3, 100, 100]
+print(rolling_max([3, 2, 3, 100, 3]))  # Output: [3, 3, 3, 100, 100]
