@@ -11,3 +11,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth -= 1
         levels.append(max_depth)
     return levels
+
+input_string = input("Enter the string of nested parentheses: ")
+output = parse_nested_parens(input_string)
+print(output)
