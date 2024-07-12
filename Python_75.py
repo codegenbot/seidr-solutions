@@ -22,11 +22,12 @@ def is_prime(num):
 def main():
     while True:
         try:
-            n = int(input("Enter a number: "))
-            if is_multiply_prime(n):
-                print(f"{n} is a product of two prime numbers.")
+            num = int(input("Enter a number: "))
+            result = is_multiply_prime(num)
+            if result:
+                print(f"{num} is a product of two prime numbers.")
             else:
-                print(f"{n} is not a product of two prime numbers.")
+                print(f"{num} is not a product of two prime numbers.")
             cont = input("Do you want to continue? (y/n): ")
             if cont.lower() != "y":
                 break
