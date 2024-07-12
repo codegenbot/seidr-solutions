@@ -1,23 +1,22 @@
 n = int(input())
-nums = []
-for _ in range(n):
-    nums.append(int(input()))
+arr = [int(input()) for _ in range(n)]
 
-total_sum = sum(nums)
+total_sum = sum(arr)
 left_sum = 0
+right_sum = total_sum
 min_diff = total_sum
-index = 0
+cut_index = -1
 
 for i in range(n):
-    left_sum += nums[i]
-    right_sum = total_sum - left_sum
+    left_sum += arr[i]
+    right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
-        index = i
+        cut_index = i
 
-subvector1 = nums[: index + 1]
-subvector2 = nums[index + 1 :]
+output1 = arr[: cut_index + 1]
+output2 = arr[cut_index + 1 :]
 
-print(*subvector1)
-print(*subvector2)
+print(*output1)
+print(*output2)
