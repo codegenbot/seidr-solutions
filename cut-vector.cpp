@@ -35,7 +35,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (n > 1 && (diff < minDiff || (diff == minDiff && abs(2 * prefixSum - sum) < abs(2 * (prefixSum - nums[i]) - sum))) {
+        if (diff < minDiff || (diff == minDiff && abs(2 * prefixSum - sum) <= abs(2 * (prefixSum - nums[i]) - sum))) {
             minDiff = diff;
             cutIndex = i;
         }
