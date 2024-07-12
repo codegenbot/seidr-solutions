@@ -1,5 +1,7 @@
-```cpp
 #include <vector>
+#include <iostream>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<bool>> dp(n, vector<bool>(n));
@@ -20,10 +22,9 @@ int smallest_change(vector<int> arr) {
     }
     return ans;
 }
-int main(){
-    // example usage
-    vector<int> coins = {2,4,10};
-    int result = smallest_change(coins);
-    cout << "The minimum number of coins needed to make all possible values is: "<<result<<endl;
 
+int main() {
+    vector<int> arr = {1, 2, 3};
+    cout << smallest_change(arr) << endl;
+    return 0;
 }
