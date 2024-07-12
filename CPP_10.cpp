@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include<string>
+#include <string>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -9,11 +8,8 @@ bool is_palindrome(string str){
 
 string make_palindrome(string str){
     int i=str.length()-1;
-    while(i>=0 && str[i]==str[0]){
+    while(i>=0 && str[i]==str[0])
         i--;
-    }
-    string prefix=str.substr(0,i+1);
-    string suffix=str.substr(i+1);
-    reverse(suffix.begin(),suffix.end());
-    return prefix+suffix+prefix;
+    string palin= str.substr(0,i+1);
+    return palin + reverse(str.substr(i+1)).substr(0);
 }
