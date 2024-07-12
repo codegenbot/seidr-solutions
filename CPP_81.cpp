@@ -1,56 +1,34 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool checkSame(vector<string> a) {
-    if (a.size() != 2) {
-        return false;
-    }
-    vector<string> b = {"F", "D+"};
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool same(vector<string> a,vector<string> b){
+    return a == b;
 }
 
-vector<string> numerical_letter_grade(initializer_list<float> grades) {
-    vector<string> result;
-    for (auto&& grade : grades) {
-        if (grade >= 4.0)
-            result.push_back("A+");
-        else if (grade > 3.7)
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
+    for (float grade : grades) {
+        if (grade >= 0.9)
             result.push_back("A");
-        else if (grade > 3.3)
-            result.push_back("A-");
-        else if (grade > 3.0)
-            result.push_back("B+");
-        else if (grade > 2.7)
+        else if (grade >= 0.8)
             result.push_back("B");
-        else if (grade > 2.3)
-            result.push_back("B-");
-        else if (grade > 2.0)
+        else if (grade >= 0.7)
             result.push_back("C+");
-        else if (grade > 1.7)
+        else if (grade >= 0.6)
             result.push_back("C");
-        else if (grade > 1.3)
-            result.push_back("C-");
-        else if (grade > 1.0)
+        else if (grade >= 0.5)
             result.push_back("D+");
-        else if (grade > 0.7)
+        else if (grade >= 0.4)
             result.push_back("D");
         else
-            result.push_back("F");
+            result.push_back("E");
     }
     return result;
 }
 
 int main() {
-    vector<float> grades(2);
-    grades[0] = 0.0; grades[1] = 0.7;
-    vector<string> result = numerical_letter_grade({grades.begin(), grades.end()});
-    assert(checkSame(vector<string>(result.begin(), result.end())) == true);
+    std::vector<float> grades = {0.0, 0.7};
+    std::vector<std::string> result = numerical_letter_grade({0.0, 0.7});
+    assert(same(result, {"E", "C+"}));
     return 0;
 }
