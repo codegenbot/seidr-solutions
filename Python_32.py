@@ -1,17 +1,11 @@
 def main():
-    while True:
-        try:
-            xs = list(
-                map(float, input("Enter a space-separated list of floats: ").split())
-            )
-            break
-        except ValueError:
-            print("Invalid input. Please enter floats separated by spaces.")
+    xs = list(map(float, input().split()))
+
+    if len(xs) < 2:
+        print("Input list must have at least 2 elements")
+        return
 
     def find_zero(xs: list):
-        if len(xs) < 2:
-            raise ValueError("Input list must have at least 2 elements")
-
         a = xs[-1]
         b = xs[-2]
 
@@ -23,9 +17,8 @@ def main():
     try:
         result = find_zero(xs)
         print(result)
-    except (ValueError, ZeroDivisionError) as e:
+    except ZeroDivisionError as e:
         print(str(e))
-
 
 # Call the main function
 main()
