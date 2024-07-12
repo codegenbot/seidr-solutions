@@ -1,5 +1,5 @@
 int main() {
-    size_t n; // Change data type from int to size_t
+    size_t n;
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
 
@@ -7,12 +7,12 @@ int main() {
     std::vector<double> vec2(n);
 
     std::cout << "Enter the elements of the first vector: ";
-    for (size_t i = 0; i < n; ++i) { // Change loop index data type to size_t
+    for (size_t i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
     std::cout << "Enter the elements of the second vector: ";
-    for (size_t i = 0; i < n; ++i) { // Change loop index data type to size_t
+    for (size_t i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
