@@ -1,8 +1,11 @@
+```
 def solve():
-    try:
-        N = int(input("Please provide a binary number: "), 2)
-    except ValueError:
-        return "Invalid Input. Please provide a binary number."
+    while True:
+        try:
+            N = int(input("Please provide a binary number: "), 2)
+            break
+        except ValueError:
+            print("Invalid Input. Please provide a binary number.")
     if N == 0:
         return str(0)
     elif N == 1:
