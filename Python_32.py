@@ -1,25 +1,24 @@
-```
-if __name__ == "__main__":
+def calculate_quadratic_roots():
     try:
-        xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
-        n = len(xs)
-        
-        if any(x < 0 for x in xs):
-            raise ValueError("xs must have non-negative coefficients")
-        
-        if n != 4:
-            print("Error: Please enter exactly four coefficients.")
+        coefficients = list(
+            map(float, input("Enter coefficients (space-separated): ").split())
+        )
+        a, b, c = coefficients
+
+        if a == 0:
+            print("Error: The coefficient 'a' cannot be zero.")
         else:
-            a, b, c, d = xs
             discriminant = b**2 - 4 * a * c
             if discriminant < 0:
-                print("Complex roots!")
+                print("The equation has no real roots.")
             elif discriminant == 0:
-                x = (-b) / (2 * a)
-                print(round(x, 2))
+                root = -b / (2 * a)
+                print(f"The equation has one root: {round(root, 2)}")
             else:
-                x1 = (-b + math.sqrt(discriminant)) / (2 * a)
-                x2 = (-b - math.sqrt(discriminant)) / (2 * a)
-                print(f"Roots: {round(x1, 2)} and {round(x2, 2)}")
+                root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+                root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+                print(
+                    f"The equation has two roots: {round(root1, 2)} and {round(root2, 2)}"
+                )
     except ValueError as e:
         print(f"Error: {e}")
