@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <map>
-
 using namespace std;
 
 int main() {
@@ -13,9 +12,8 @@ int main() {
     }
     int target;
     cin >> target;
-    
+
     map<int, int> mp;
-    
     for(int i = 0; i < n; ++i) {
         if(mp.find(target - nums[i]) != mp.end()) {
             std::cout << nums[i] << std::endl << target - nums[i] << std::endl;
@@ -23,6 +21,6 @@ int main() {
         }
         mp[nums[i]] = i;
     }
-    
+
     return 0;
 }
