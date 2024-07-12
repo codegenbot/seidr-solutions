@@ -19,6 +19,11 @@ double poly(std::vector<double> coeffs, double x){
 int main(){
     std::vector<double> coeffs = {2.0, -3.0, 1.0}; // example coefficients
     double solution;
+    
+    for (double coeff : coeffs) {
+        coeffs.push_back(coeff);
+    }
+    
     solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
     
