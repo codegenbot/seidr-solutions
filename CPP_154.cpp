@@ -8,8 +8,8 @@ bool cycpattern_check(const string& a, const string& b) {
 
 int main() {
     // Test cases
-    cout << cycpattern_check("abcabc", "abc") << endl; // Should output 1
-    cout << cycpattern_check("abcabc", "bca") << endl; // Should output 0
+    cout << cycpattern_check("abc", "bca") << endl;  // Output: 1 (true)
+    cout << cycpattern_check("hello", "world") << endl;  // Output: 0 (false)
 
     return 0;
 }
