@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool assertSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -26,12 +27,15 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     return result;
 }
 
-std::cout << "Enter the first grade: ";
-float grade1; std::cin >> grade1;
-std::cout << "Enter the second grade: ";
-float grade2; std::cin >> grade2;
-std::vector<float> grades = {grade1, grade2};
-std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
-if (!same(result, {"E", "C+"})) {
-    assert(false);
+int main() {
+    std::cout << "Enter the first grade: ";
+    float grade1; std::cin >> grade1;
+    std::cout << "Enter the second grade: ";
+    float grade2; std::cin >> grade2;
+    std::vector<float> grades = {grade1, grade2};
+    std::vector<std::string> result = numerical_letter_grade({grade1, grade2});
+    if (!assertSame(result, {"E", "C+"})) {
+        assert(false);
+    }
+    return 0;
 }
