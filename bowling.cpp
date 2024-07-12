@@ -1,17 +1,14 @@
-#include <vector>
 #include <string>
+#include <vector>
+using namespace std;
 
-string input;
-vector<int> frameScores(10, 0);
-
-int scoreBowlingRound() {
+int scoreBowlingRound(const string& input) {
     int score = 0;
     int frame = 0;
     int rolls = 0;
+    vector<int> frameScores(10, 0);
 
-    for (int i = 0; i < input.size(); ++i) {
-        char c = input[i];
-        
+    for (char c : input) {
         if (c == 'X') {
             score += 10;
             frameScores[frame++] = 10;
