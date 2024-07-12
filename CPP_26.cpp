@@ -1,14 +1,14 @@
 ```c++
 #include <vector>
 #include <algorithm>
-#include <unordered_set>
+#include <set>
 
 bool issame(const std::vector<int>& a, const std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& vec) {
-    std::unordered_set<int> result(vec.begin(), vec.end());
+    std::set<int> result(vec.begin(), vec.end());
     return std::vector<int>(result.begin(), result.end());
 }
 
