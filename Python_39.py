@@ -13,6 +13,7 @@ def prime_fib():
                 return False
         return True
 
+    print("Enter the value of n:")
     n = int(input())
     count = 0
     i = 0
