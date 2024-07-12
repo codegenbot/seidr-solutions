@@ -28,7 +28,6 @@ def main():
             print("Invalid input. Please enter an item or 'stop'.")
 
     if items:
-        result = calculate_total_cost(items)
-        print(f"The total cost is: {result}")
+        print(f"The total cost is: {calculate_total_cost(items)}")
     else:
         print("No items were provided.")
