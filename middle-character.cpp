@@ -5,7 +5,7 @@ int main() {
     string s;
     cout << "Enter a string: ";
     cin >> s;
-
+    
     int len = s.length();
     if (len % 2 == 0) {
         string mid1 = s.substr(len / 2 - 1, 1);
