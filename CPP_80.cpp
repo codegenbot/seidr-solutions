@@ -1,16 +1,14 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
 
 bool is_happy(const std::string& s) {
-    std::unordered_map<char, int> count;
+    std::unordered_map<char, int>(256);
     for (char c : s) {
-        if (count.find(c) == count.end()) {
+        if (count.find(c) == count.end())
             count[c] = 1;
-        } else {
+        else
             count[c]++;
-        }
     }
     for (auto it = count.begin(); it != count.end(); ++it) {
         if (it->second > 1)
