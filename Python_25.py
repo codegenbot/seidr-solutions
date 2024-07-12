@@ -1,3 +1,4 @@
+```
 def factorize(n: int) -> List[int]:
     if not isinstance(n, int):
         return [n]
