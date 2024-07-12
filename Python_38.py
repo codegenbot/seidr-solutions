@@ -1,5 +1,10 @@
 def decode_cyclic():
-    s = input("Enter a string: ")
+    while True:
+        s = input("Enter an encoded string (or 'quit' to finish): ")
+        if s.lower() == "quit":
+            break
+    print()
+
     while True:
         n = input(
             "Enter 1 for linear decoding and any other number for cyclic decoding: "
