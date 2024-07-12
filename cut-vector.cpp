@@ -26,6 +26,7 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
     std::cout << std::endl;
+    // Update the second for loop
     for (int i = cut_index; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
