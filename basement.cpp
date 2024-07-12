@@ -13,16 +13,8 @@ int basement(std::vector<int> vec) {
 }
 
 int main() {
-    int size;
-    std::cin >> size;
-    
-    std::vector<int> vec(size);
-    for (int i = 0; i < size; ++i) {
-        std::cin >> vec[i];
-    }
-    
+    std::vector<int> vec{2, -3, 5, -8, 4};
     int result = basement(vec);
-    std::cout << result << std::endl;
-    
+    std::cout << "First index where sum becomes negative: " << result << std::endl;
     return 0;
 }
