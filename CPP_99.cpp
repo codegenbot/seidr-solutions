@@ -1,9 +1,12 @@
-Here is the solution:
+Here is the completed code:
 
+```cpp
 #include <string>
-#include <cmath>
+
+using namespace std;
 
 int closest_integer(string value) {
     double num = stod(value);
-    return (num > 0)? ceil(num): floor(num);
+    int integerPart = (int)num;
+    return abs(num - integerPart) < 0.5 ? integerPart : (num > 0) ? integerPart + 1 : integerPart - 1;
 }
