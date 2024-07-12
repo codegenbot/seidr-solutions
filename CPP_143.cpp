@@ -1,11 +1,10 @@
-```cpp
-#include <iostream>
+#include <c++/11>
 #include <sstream>
 #include <cassert>
 using namespace std;
 
 string words_in_sentence(string sentence) {
-    istringstream ss(sentence);
+    stringstream ss(sentence);
     string word;
     int count = 0;
     while (getline(ss, word, ' ')) {
@@ -18,8 +17,6 @@ string words_in_sentence(string sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+    string result = words_in_sentence("Hello world");
+    cout << result << endl;
     return 0;
-}
