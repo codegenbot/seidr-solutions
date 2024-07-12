@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
