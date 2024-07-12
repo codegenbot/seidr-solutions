@@ -1,13 +1,10 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool std::equal(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size())
-        return false;
-    for (size_t i = 0; i < vec1.size(); ++i)
-        if (vec1[i] != vec2[i])
-            return false;
+bool std::equal(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    for (size_t i = 0; i < v1.size() && i < v2.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
+    }
     return true;
 }
 
