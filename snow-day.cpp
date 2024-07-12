@@ -8,12 +8,12 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         float snow_fallen = snow_fall_rate;
-        float snow_melted = snow_on_ground * (snow_melt_rate / 100);
+        float snow_melted = snow_on_ground * snow_melt_rate;
         
         snow_on_ground += snow_fallen - snow_melted;
     }
 
-    cout << snow_on_ground << '\n';
+    cout << fixed << snow_on_ground << endl;
 
     return 0;
 }
