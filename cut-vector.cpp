@@ -15,11 +15,15 @@ int main() {
     }
     
     int min_diff = INT_MAX;
-    int cut_index = min_element(input.begin() + 1, input.end(), [&input](int i, int j) {
-        int sum1 = accumulate(input.begin(), input.begin() + i, 0);
-        int sum2 = accumulate(input.begin() + i, input.end(), 0);
-        return abs(sum1 - sum2) < abs(accumulate(input.begin(), input.begin() + j, 0) - accumulate(input.begin() + j, input.end(), 0));
-    }) - input.begin();
+    int cut_index = 0;
+    
+    for (int i = 1; i < input.size(); ++i) {
+        int diff = abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
+        }
+    }
     
     for (int i = 0; i < cut_index; ++i) {
         cout << input[i] << endl;
