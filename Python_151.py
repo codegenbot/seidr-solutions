@@ -1,6 +1,6 @@
-def double_the_difference():
-    input_lst = list(
-        map(int, input("Enter a list of numbers separated by space: ").split())
-    )
-    result = sum(i**2 for i in input_lst if isinstance(i, int) and i % 2 != 0)
-    return str(result * 2)
+```python
+def double_the_difference(lst):
+    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
+    return (sum(map(int, lst)) - odd_sum) * 2
+
+check(double_the_difference([input("Enter elements of the list: ").split(",")]))
