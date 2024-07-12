@@ -1,12 +1,19 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
-int next_smallest(vector<int> lst) {
-    // your implementation
+int nextSmallest(int lst[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (lst[i] != lst[i+1]) {
+            return lst[i];
+        }
+    }
+    return -1;
 }
 
-int main() {
+int main(){
     vector<int> lst;
     int n;
     cout << "Enter number of elements: ";
@@ -17,15 +24,10 @@ int main() {
         cin >> x;
         lst.push_back(x);
     }
-    if(lst.size() < 2) cout << "-1";
+    if(lst.size() < 2) 
+        cout << "-1";
     else {
         sort(lst.begin(), lst.end());
-        for(int i = 0; i < lst.size() - 1; i++){
-            if(lst[i] != lst[i+1]) {
-                cout << lst[i];
-                break;
-            }
-        }
-        else if (lst.empty()) cout << "-1";
+        cout << nextSmallest(&lst[0], lst.size());
     }
 }
