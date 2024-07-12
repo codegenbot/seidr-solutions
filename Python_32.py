@@ -4,6 +4,5 @@ def find_zero(xs: list):
     return -xs[0] / xs[1]
 
 input_list = list(map(float, input("Enter two numbers separated by space: ").split()))
-
 result = find_zero(input_list)
 print(result)
