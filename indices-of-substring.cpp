@@ -1,18 +1,22 @@
 int main() {
     string text, target;
     cin >> text >> target;
-
+    
     vector<int> indices;
-
-    size_t pos = text.find(target, 0);
-    while (pos != string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    if (target.empty()) {
+        cout << "0";
+        return 0;
     }
-
-    for (int index : indices) {
-        cout << index << " ";
+    
+    for (int i = 0; i <= (int)text.size() - (int)target.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i);
+        }
     }
-
+    
+    for (int i = 0; i < (int)indices.size(); ++i) {
+        cout << indices[i] << " ";
+    }
+    
     return 0;
 }
