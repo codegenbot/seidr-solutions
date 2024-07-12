@@ -1,7 +1,6 @@
-#include <initializer_list>
-
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a) {
     return (a.size() > 0);
