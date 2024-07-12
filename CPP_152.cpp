@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -35,8 +34,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
 int main() {
     int n;
     cin >> n;
-    vector<int> game(n);
-    vector<int> guess(n);
+    vector<int> game(n),guess(n);
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
     }
