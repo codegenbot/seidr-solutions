@@ -1,3 +1,6 @@
-int custom_strlen(string str){
+```cpp
+#include <string>
+
+int strLength(string str) {
     return str.length();
 }
