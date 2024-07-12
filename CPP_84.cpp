@@ -16,6 +16,6 @@ int main() {
     int N = std::stoi(input);
     std::cout << solve(N) << std::endl;
 
-    assert(solve(963) == std::stoi("483")); 
+    assert(solve(963) == 486); 
     return 0;
 }
