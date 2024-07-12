@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,13 +14,28 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         int max_val = *std::max_element(lst.begin(), lst.end());
         if (min_val < max_val) {
             result.push_back(min_val);
-            auto it = std::remove(lst.begin(), lst.end(), min_val);
-            lst.erase(it, lst.end());
+            lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end() - 1);
         } else {
             result.push_back(max_val);
-            auto it = std::remove(lst.begin(), lst.end(), max_val);
-            lst.erase(it, lst.end());
+            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end() - 1);
         }
     }
     return result;
+}
+
+int main() {
+    int n, temp;
+    std::vector<int> v;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> temp;
+        v.push_back(temp);
+    }
+    std::vector<int> sortedList = strange_sort_list(v);
+    std::cout << "Sorted List: ";
+    for(int i : sortedList)
+        std::cout << i << " ";
+    return 0;
 }
