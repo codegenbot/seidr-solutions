@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```python
+```
 from typing import List
 
 
@@ -18,7 +16,9 @@ while True:
             break
         elif not isinstance(user_input, str):
             raise ValueError("Invalid input. Please enter a string or 'stop'.")
-        strings_list.append(user_input.strip())
+        if not user_input.strip():
+            raise ValueError("String cannot be empty.")
+        strings_list.append(user_input)
     except ValueError:
         print("Invalid input. Please enter a string or 'stop'.")
 
