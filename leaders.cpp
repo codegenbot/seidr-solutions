@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,7 +15,8 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    return vector<int>(leaders.rbegin(), leaders.rend());
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
 }
 
 int main() {
