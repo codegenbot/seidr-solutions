@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -20,11 +19,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
         right--;
     }
     return result;
-}
-
-int main() {
-    std::vector<int> input = {111111};
-    std::vector<int> sorted = strange_sort_list(input);
-    assert(issame(sorted, {111111}));
-    return 0;
 }
