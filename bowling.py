@@ -11,8 +11,8 @@ for _ in range(10):
         score += 10
         index += 2
     else:
-        if bowls[index] != "-":
-            score += int(bowls[index]) + (int(bowls[index + 1]) if bowls[index + 1] != "-" else 0)
+        if bowls[index].isdigit() and bowls[index + 1].isdigit():
+            score += int(bowls[index]) + int(bowls[index + 1])
         index += 2
 
 print(score)
