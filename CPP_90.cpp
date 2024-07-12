@@ -1,16 +1,12 @@
 int main 
 { 
-    #include <iostream>
-    #include <vector>
-    #include <algorithm>
+    std::vector<int> lst; 
+    int n; 
 
-    std::vector<int> lst;
-    int n;
-
-    std::cout << "Enter number of elements: ";
+    std::cout << "Enter number of elements: "; 
     std::cin >> n;
 
-    if (n > 0) {
+    if (n > 0) { 
         std::cout << "Enter " << n << " integers: ";
         for(int i = 0; i < n; i++){
             int x;
@@ -31,7 +27,6 @@ int main
             if(same) std::cout << "-1";
         } else std::cout << "-1";
 
-    } else std::cout << "-1";
+    } else std::cout << "-1"; 
 
     return 0;
-}
