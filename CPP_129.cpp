@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -46,7 +45,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                     int nj = pos.second + j;
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                        Cell cell = {grid[ni][j], {ni, nj}};
+                        Cell cell = {grid[ni][nj], {ni, nj}};
                         pq.push(cell);
                         visited[ni][nj] = true;
                     }
