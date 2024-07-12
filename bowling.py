@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     frame_count = 0
@@ -12,7 +13,7 @@ def bowling_score(frames):
             else:
                 score += 10 + max(frame_roll)
         else:
-            frame_rolls = list(map(int, [frames[i], frames[i+1]]))
+            frame_rolls = list(map(int, frames[i:i+2]))
             score += sum(frame_rolls) + (frame_count < 9 and 1 or 0)
         frame_count += 1
     return score
