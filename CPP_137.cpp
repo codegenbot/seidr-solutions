@@ -20,10 +20,10 @@ int main() {
     std::cin >> b;
 
     if (a.size() > 0 && b.size() > 0) {
-        int x = compare_one(a, 1);
-        int y = compare_one(b, 2);
+        std::string s1 = std::to_string(compare_one(a, 1));
+        std::string s2 = std::to_string(compare_one(b, 2));
 
-        return (x < y) ? -1 : ((y < x) ? 1 : 0); 
+        return (s1 < s2) ? -1 : ((s2 < s1) ? 1 : 0); 
     } else
         return 0;
 }
