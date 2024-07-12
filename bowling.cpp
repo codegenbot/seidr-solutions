@@ -10,7 +10,8 @@ int calculateScore(string input) {
             if (input[i + 2] == 'X') {
                 score += 10 + (input[i + 4] == 'X' ? 10 : input[i + 4] - '0');
             } else {
-                score += (input[i + 2] == '/' ? 10 : input[i + 2] - '0') + (input[i + 3] == '/' ? 10 : input[i + 3] - '0');
+                score += (input[i + 2] == '/' ? 10 : input[i + 2] - '0') +
+                         (input[i + 3] == '/' ? 10 : input[i + 3] - '0');
             }
             frame++;
         } else if (input[i] == '/') {
