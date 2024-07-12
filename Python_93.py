@@ -1,7 +1,8 @@
+```
 def encode(message):
     if message is None or len(message) == 0:
         return ""
-
+    
     result = ""
     for char in message:
         if char.isalpha():
