@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <numeric>
 #include <cmath>
-#include <string>
+#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -12,11 +11,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = std::accumulate(std::to_string(std::abs(a)).begin(), std::to_string(std::abs(a)).end(), 0, 
+        int sumA = std::accumulate(std::to_string(std::abs(a)).begin(), std::to_string(std::abs(a)).end(), 0,
         [](int sum, char c) {
             return sum + (c - '0');
         });
-        int sumB = std::accumulate(std::to_string(std::abs(b)).begin(), std::to_string(std::abs(b)).end(), 0, 
+        int sumB = std::accumulate(std::to_string(std::abs(b)).begin(), std::to_string(std::abs(b)).end(), 0,
         [](int sum, char c) {
             return sum + (c - '0');
         });
