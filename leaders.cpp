@@ -10,12 +10,9 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     
     for (int i = nums.size() - 2; i >= 0; i--) {
         if (nums[i] >= maxLeader) {
-            maxLeader = nums[i];
-            leaders.push_back(maxLeader);
+            leaders.push_back(nums[i]);
         }
     }
-    
-    std::reverse(leaders.begin(), leaders.end()); // Reverse the order of leaders
     
     return leaders;
 }
