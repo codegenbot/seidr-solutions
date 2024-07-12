@@ -6,28 +6,35 @@ using namespace std;
 int main() {
     string input;
     cin >> input;
-    
+
     bool result = true;
-    
+    char operation = '|'; // default operation
+
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == 'T') {
-            result = result && true;
+            if (operation == '&') {
+                result = result && true;
+            } else { // '|'
+                result = result || true;
+            }
         } else if (input[i] == 'F') {
-            result = result && false;
+            if (operation == '&') {
+                result = result && false;
+            } else { // '|'
+                result = result || false;
+            }
         } else if (input[i] == '|') {
-            // OR operation
-            // do nothing for now
+            operation = '|';
         } else if (input[i] == '&') {
-            // AND operation
-            result = true;
+            operation = '&';
         }
     }
-    
+
     if (result) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-    
+
     return 0;
 }
