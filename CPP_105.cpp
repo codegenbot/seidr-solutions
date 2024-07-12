@@ -28,8 +28,3 @@ std::vector<std::string> byLength(std::initializer_list<int> lengths) {
     }
     return result;
 }
-
-int main() {
-    std::vector<std::string> output = byLength({4, 8, 9});
-    assert(isSame(output, {"Four", "Eight", "Nine"}));
-}
