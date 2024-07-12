@@ -1,9 +1,13 @@
+#include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i]!=b[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
+std::vector<int> solve(const std::vector<int>& l) {
+    std::vector<int> result = l;
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    return result;
 }
