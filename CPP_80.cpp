@@ -1,15 +1,16 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <unordered_map>
+#include <algorithm>
 
 bool is_happy(const std::string& s) {
-    std::unordered_map<char, int> count;
-    for (char c : s) {
-        count[c]++;
-    }
-    for (auto it = count.begin(); it != count.end(); ++it) {
-        if (it->second > 1)
+    for (int i = 0; i < s.length() - 1; i++) {
+        size_t count = 0;
+        for (char c : s) {
+            if (c == s[i])
+                count++;
+        }
+        if (count > 1)
             return false;
     }
     return true;
@@ -18,8 +19,7 @@ bool is_happy(const std::string& s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    std::cin >> input;
-    if (input == "exit")
+    if (std::cin >> input && input == "exit")
         return 0;
     std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     return 0;
