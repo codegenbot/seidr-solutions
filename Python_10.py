@@ -1,4 +1,3 @@
-```
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
         return string
@@ -7,7 +6,7 @@ def make_palindrome(string: str) -> str:
     palindrome = ""
     while True:
         i_max = n-1
-        while not is_palindrome(new_string):
+        while not is_palindle(new_string):
             new_string = new_string[:i_max+1] + "#"
             if i_max == 0:  
                 break
