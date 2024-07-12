@@ -1,25 +1,27 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 int main() {
     std::string text, target;
     
     std::getline(std::cin, text);
-    std::cin.ignore();
     std::getline(std::cin, target);
     
-    std::vector<int> indices;
+    target.erase(std::remove_if(target.begin(), target.end(), ::isspace), target.end());
+    std::size_t targetSize = target.size();
     
-    for (size_t i = 0; i < text.size(); ++i) {
-        if (text.substr(i, target.size()) == target) {
+    std::vector<std::size_t> indices;
+    
+    for (std::size_t i = 0; i < text.size() - targetSize + 1; ++i) {
+        if (text.substr(i, targetSize) == target) {
             indices.push_back(i);
-            i += target.size() - 1;
         }
     }
     
-    for (int i : indices) {
-        std::cout << i << " ";
+    for (std::size_t i = 0; i < indices.size(); ++i) {
+        std::cout << indices[i] << " ";
     }
 
     return 0;
