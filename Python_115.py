@@ -17,4 +17,4 @@ def max_fill(grid, capacity):
         if not water_added:
             break
 
-    return max_water
+    return grid
