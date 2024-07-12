@@ -11,23 +11,15 @@ bool isSame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile(n+1); 
-    for (int i = 1; i <= n; ++i) {
-        pile[i] = i; 
-    }
-    return pile;
-}
-
 int main() {
     int n;
     cin >> n;
-    vector<int> a(n+1); 
+    vector<int> a(n+1, 0); 
     sort(a.begin(), a.end());
     cout << "Enter the number of cards in your hand: ";
     int m;
     cin >> m;
-    vector<int> b(m);
+    vector<int> b(m, 0);
     sort(b.begin(), b.end());
     
     if (isSame(a, b)) {
