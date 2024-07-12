@@ -11,9 +11,3 @@ bool simplify(const string& x, const string& n) {
 
     return (num1 * num2) % (den1 * den2) == 0;
 }
-
-int main() {
-    assert(simplify("1/5", "1/5") == false);
-    
-    return 0;
-}
