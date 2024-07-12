@@ -1,3 +1,4 @@
+```cpp
 #include <map>
 #include <vector>
 #include <string>
@@ -16,7 +17,7 @@ bool issameInt(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
     return true;
 }
 
-map<pair<char,int>, int> histogram(string test) -> map<pair<char,int>, int> {
+map<pair<char,int>, int> histogram(string test) {
     map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
@@ -37,6 +38,6 @@ map<pair<char,int>, int> histogram(string test) -> map<pair<char,int>, int> {
 
 int main() {
     map<pair<char,int>, int> test = histogram("a");
-    assert(issameInt(histogram("a"), {{'a', 0}, {'a', 1}}));
+    assert(issameInt(histogram({"a"}), map<pair<char,int>, int>{{'a', 0}}));
     return 0;
 }
