@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool compare(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -20,6 +20,6 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 }
 
 int main() {
-    assert(compare(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(areEqual(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
