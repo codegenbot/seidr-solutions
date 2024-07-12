@@ -9,9 +9,11 @@ int main() {
     cin >> start_height >> first_bounce_height >> num_bounces;
 
     bounciness_index = first_bounce_height / start_height;
+    total_distance = start_height;
 
-    // Calculate total distance using the formula for the sum of a geometric series
-    total_distance = start_height * ((1 - pow(2, num_bounces)) / (1 - 2));
+    for (int i = 1; i <= num_bounces; ++i) {
+        total_distance += first_bounce_height * 2 * pow(bounciness_index, i);
+    }
 
     cout << fixed << total_distance << endl;
 
