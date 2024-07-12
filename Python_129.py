@@ -5,17 +5,17 @@ def minPath(grid, k):
     visited = set()
     path = []
 
-    def dfs(i, j, p, total_cost):
-        if total_cost == k:
+    def dfs(i, j, p, c=0):
+        if c == k:
             return [p]
-        if (i, j) in visited or total_cost > k:
+        if (i, j) in visited or len(p) > k:
             return []
         visited.add((i, j))
         res = []
         for x, y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                res += dfs(ni, nj, p + [grid[ni][nj]], total_cost + grid[ni][nj])
+                res += dfs(ni, nj, p + [grid[ni][nj]], c + grid[ni][nj])
         return res
 
     for i, j in m:
