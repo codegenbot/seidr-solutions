@@ -1,30 +1,32 @@
 #include <vector>
-#include <algorithm>
-#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::unordered_set<int> seen;
-    std::vector<int> result;
-    
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result = {};
     for (int num : numbers) {
-        if (!seen.count(num)) {
-            seen.insert(num);
+        bool duplicate = false;
+        for (int i = 0; i < result.size(); ++i) {
+            if (result[i] == num) {
+                duplicate = true;
+                break;
+            }
+        }
+        if (!duplicate) {
             result.push_back(num);
         }
     }
-    
     return result;
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 1};
-    std::vector<int> output = remove_duplicates(numbers);
-    for (auto num : output) {
-        std::cout << num << " ";
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> no_duplicates = remove_duplicates(numbers);
+    for (int num : no_duplicates) {
+        cout << num << " ";
     }
+    cout << endl;
     return 0;
 }
