@@ -1,4 +1,2 @@
 def rolling_max(numbers):
-    return [max(numbers[i : i + 3]) for i in range(len(numbers) - 2 + 1)] 
-
-print(rolling_max([3, 2, 3, 100, 3]))
+    return [max(numbers[max(0, i - 1):min(i + 2, len(numbers))] for i in range(len(numbers))]
