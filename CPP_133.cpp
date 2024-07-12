@@ -12,11 +12,6 @@ void checkNumber(int n) {
 
 int main() {
     int n;
-    cin >> ws; 
     cin >> n; 
-    if (!(cin)) {
-        cerr << "Invalid input. Please enter an integer." << endl;
-    } else {
-        checkNumber(n); 
-    }
+    checkNumber(n); 
 }
