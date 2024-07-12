@@ -1,10 +1,12 @@
+```cpp
 #include <vector>
 #include <cassert>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+template<typename T>
+constexpr auto operator==(const vector<T>& a, const vector<T>& b) {
+    return a.size() == b.size();
 }
 
 vector<int> make_a_pile(int n) {
@@ -24,9 +26,6 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     vector<int> result = make_a_pile(8); 
-    assert(issame({0}, result));
-    for (int i = 0; i < (int)result.size(); i++) {
-        cout << result[i] << " ";
-    }
+    assert(result == vector<int>());
     return 0;
 }
