@@ -2,7 +2,7 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     combinations = []
-
+    
     for i in range(len(coins)+1):
         for c in combinations:
             for j in range(i+1):
@@ -13,7 +13,7 @@ def coin_sums(cents):
                     combinations.append(c+[j])
                     
     quarters, nickles, dimes, pennies = 0,0,0,0
-
+    
     for c in combinations:
         if len(c) == 4 and c[0] > 0:
             quarters = c[0]
