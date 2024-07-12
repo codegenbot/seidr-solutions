@@ -1,8 +1,6 @@
 #include <iostream>
-#include <sstream>
 #include <string>
-#include "md5.h"
-
+#include "digest.h"
 using namespace std;
 
 string string_to_md5(string text) {
