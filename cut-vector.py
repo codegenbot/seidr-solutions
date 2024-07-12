@@ -7,9 +7,9 @@ right_sum = total_sum
 min_diff = float('inf')
 cut_index = -1
 
-for i in range(n):
-    left_sum += arr[i]
-    right_sum -= arr[i]
+for i in range(1, n-1):
+    left_sum += arr[i-1]
+    right_sum -= arr[i-1]
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
@@ -18,5 +18,7 @@ for i in range(n):
 subvector1 = arr[:cut_index+1]
 subvector2 = arr[cut_index+1:]
 
+print(len(subvector1))
 print(*subvector1)
+print(len(subvector2))
 print(*subvector2)
