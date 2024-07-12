@@ -12,3 +12,4 @@ double vectorDistance() {
         sum += pow(val2 - val1, 2);
     }
     return sqrt(sum);
+}
