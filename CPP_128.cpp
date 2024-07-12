@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <cmath>
 
-using namespace std;
-
-int prod_signs(const vector<int>& arr) {
+int prod_signs(const std::vector<int>& arr) {
     if (arr.empty()) {
         return -32768;
     }
@@ -20,7 +19,7 @@ int prod_signs(const vector<int>& arr) {
             product *= 0;
         }
 
-        sum += abs(num);
+        sum += std::abs(num);
     }
 
     return product * sum;
