@@ -1,4 +1,3 @@
-```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
@@ -8,7 +7,10 @@ def encode(message):
                 index = ord(vowels[vowels.index(char.lower())]) - 97
                 new_char = chr((index + 2) % 26 + 97)
             else:
-                new_char = 'T' if char.upper() == 't' else 't'
+                if char.isupper():
+                    new_char = 'T'
+                else:
+                    new_char = 't'
             result += new_char
         else:
             result += char
