@@ -1,13 +1,5 @@
-```
-def check_sum(x: str, y: str):
-    try:
-        x = int(x)
-        y = int(y)
-        if type(x) is not int or type(y) is not int:
-            return "Error: Please enter valid integers"
-        elif x + y <= 10:
-            return f"The sum of {x} and {y} is {x+y}. The result is less than or equal to 10."
-        else:
-            return f"The sum of {x} and {y} is {x+y}. The result is greater than 10."
-    except ValueError:
-        return "Error: Please enter valid integers"
+def calculate_area_and_perimeter():
+    radius = int(input("Enter the radius of the circle: "))
+    area = 3.14159 * (radius ** 2)
+    perimeter = 2 * 3.14159 * radius
+    return f"Area is {area}, Perimeter is {perimeter}"
