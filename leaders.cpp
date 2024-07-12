@@ -14,7 +14,7 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     }
     leaders.push_back(maxLeader);
     
-    std::reverse(leaders.begin(), leaders.end()); // Reverse leaders vector to maintain the order
+    std::reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
