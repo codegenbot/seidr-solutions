@@ -11,13 +11,15 @@ def decode_shift():
             break
         else:
             print("Invalid input. Please try again.")
-    
+
     result = ""
     for ch in s:
         if ch.isalpha():
-            ascii_offset = ord('a') if ch.islower() else ord('A')
-            offset = ord('a') - ascii_offset  
-            result += chr((ord(ch) - ascii_offset - (shift % 26)) % 26 + ascii_offset)
+            char_code = ord(ch.lower())
+            result += chr((char_code - ord('a') - shift) % 26 + ord('a')) if 'a' <= ch <= 'z' else \
+                       chr((ord(ch.upper()) - ord('A') - shift) % 26 + ord('A'))
         else:
             result += ch
     return result
+
+print(decode_shift())
