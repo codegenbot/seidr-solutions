@@ -7,6 +7,7 @@ def file_name_check(file_name):
     parts = file_name.split('.')
     if not parts[0][0].isalpha():
         return 'No'
-    if parts[1] not in ['txt', 'exe', 'dll']:
+    extensions = ['txt', 'exe', 'dll']
+    if parts[-1] not in extensions:
         return 'No'
     return 'Yes'
