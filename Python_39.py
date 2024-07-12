@@ -7,14 +7,10 @@ def is_prime(num):
     return True
 
 def prime_fib(n: int):
-    if n == 1:
-        return 2
-    if n == 2:
-        return 3
-    fib_sequence = [1, 1]
-    while len(fib_sequence) < n:
-        next_num = fib_sequence[-1] + fib_sequence[-2]
-        fib_sequence.append(next_num)
-        if is_prime(next_num):
-            n -= 1
-    return fib_sequence[-1]
+    a, b = 1, 1
+    count = 0
+    while count < n:
+        a, b = b, a + b
+        if is_prime(a):
+            count += 1
+    return a
