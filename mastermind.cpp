@@ -14,21 +14,16 @@ int main() {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        }
-    }
-    
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
+            codeFreq[code[i] - 'A']--;
+        } else {
             codeFreq[code[i] - 'A']++;
             guessFreq[guess[i] - 'A']++;
         }
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += min(codeFreq[i], guessFreq[i]);
+        white += min(codeFreq[i], guessFreq[i]) + 1;
     }
-    
-    black -= white;
 
     cout << white << endl << black << endl;
     
