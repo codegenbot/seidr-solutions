@@ -1,13 +1,13 @@
-```cpp
 string decipher(string cipherText, string key) {
+    int k = 0;
     string decrypted = "";
-    for (int i = 0; i < cipherText.length(); i++) {
-        for (int j = 0; j < key.length(); j++) {
-            if (cipherText[i] == key[j]) {
-                decrypted += key[(j - i) % key.length()];
+    for (char c : cipherText) {
+        for(char tk : key) {
+            if(c == tk) {
+                decrypted += tk; 
                 break;
             }
+            k++;
         }
     }
-    return decrypted;
 }
