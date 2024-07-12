@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>  
-#include <cstring>  
-
+#include <cassert>
+#include <cstring>
 using namespace std;
 
 bool is_prime(int n) {
