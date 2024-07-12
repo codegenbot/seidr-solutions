@@ -1,23 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main() {
-    int n;
+    int n, target;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    int target;
     cin >> target;
-
-    map<int, int> m;
+    
+    map<int, int> mp;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (m.find(complement) != m.end()) {
-            cout << complement << endl;
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << target - nums[i] << endl;
             cout << nums[i] << endl;
             break;
         }
-        m[nums[i]] = i;
+        mp[nums[i]] = i;
     }
-
+    
     return 0;
 }
