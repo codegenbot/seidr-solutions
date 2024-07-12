@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-std::string int_to_mini_roman(int number){
+std::string int_to_mini_roman_k(int number){
     std::string roman = "";
     std::vector<std::pair<int, std::string>> roman_numerals = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
@@ -22,9 +22,9 @@ std::string int_to_mini_roman(int number){
 }
 
 int main(){
-    assert(int_to_mini_roman(1000) == "m");
-    assert(int_to_mini_roman(3999) == "mmmcmxcix");
-    assert(int_to_mini_roman(44) == "xliv");
-  
+    assert(int_to_mini_roman_k(1000) == "m");
+    assert(int_to_mini_roman_k(3999) == "mmmcmxcix");
+    assert(int_to_mini_roman_k(44) == "xliv");
+
     return 0;
 }
