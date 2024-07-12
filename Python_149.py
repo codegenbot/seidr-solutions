@@ -1,3 +1,4 @@
+```
 def check(s):
     if int(s) % 2 == 0:
         return "EVEN"
