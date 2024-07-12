@@ -12,6 +12,11 @@ int main() {
     }
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
+        if (discounts[i] < 0) {
+            discounts[i] = 0;
+        } else if (discounts[i] > 100) {
+            discounts[i] = 100;
+        }
     }
 
     float total_price = 0.0;
