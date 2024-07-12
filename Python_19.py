@@ -1,2 +1,3 @@
+```
 def sort_numbers(numbers: str) -> str:
-    return " ".join(map(str, [int(num) for num in numbers.replace(" ", "").split(",")]))
+    return " ".join(map(str, [int(num) for num in numbers.split()]))
