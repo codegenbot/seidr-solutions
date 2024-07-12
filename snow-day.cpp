@@ -2,12 +2,11 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHour) {
-    double totalSnow = static_cast<double>(initialSnow);
+    double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow += static_cast<double>(snowFallRate);
-        if (totalSnow > 0) {
-            totalSnow -= static_cast<double>(meltPerHour);
-        }
+        if(totalSnow > 0)
+            totalSnow -= meltPerHour;
+        totalSnow += snowFallRate;
     }
     return totalSnow;
 }
