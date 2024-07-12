@@ -7,4 +7,5 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 text = input("Enter a string: ")
-print(string_to_md5(text))
+result = string_to_md5(text)
+print(f"MD5 hash of the entered string is {result}")
