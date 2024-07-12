@@ -1,20 +1,7 @@
-int main() {
-    vector<int> vec;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        int new_num = num / 3 - 2;
-        vec.push_back(new_num);
-    }
-    
+int fuelCost(const vector<int>& costs) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
+    for (int cost : costs) {
+        sum += max(cost / 3 - 2, 0);
     }
-    
-    cout << sum;
-    
-    return 0;
+    return sum;
 }
