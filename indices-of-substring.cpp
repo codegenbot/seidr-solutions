@@ -11,13 +11,12 @@ int main() {
 
     vector<size_t> indices;
 
-    size_t found = 0;
+    bool found = false;
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         indices.push_back(pos);
         ++pos;
-        found = 1;
-        pos = pos + 1; // Reset pos to pos+1 for overlapping occurrences
+        found = true;
     }
     
     cout << indices.size() << endl;
