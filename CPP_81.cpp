@@ -1,7 +1,6 @@
-```cpp
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -51,6 +50,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     vector<float> grades = {0, 0.7};
-    assert(checkSame(vector<string>(numerical_letter_grade(grades).begin(), numerical_letter_grade(grades).end())) == vector<string>{"E", "D-" });
+    assert(checkSame({numerical_letter_grade(grades)}) == vector<string>({"E", "D-" }));
     return 0;
 }
