@@ -1,23 +1,18 @@
-def cut_vector(arr):
-    total_sum = sum(arr)
-    half_sum = total_sum // 2
-    curr_sum = 0
-    idx = 0
-    for i, num in enumerate(arr):
-        curr_sum += num
-        if curr_sum >= half_sum:
-            idx = i
-            break
-    if abs(total_sum - 2 * curr_sum) < abs(total_sum - 2 * (curr_sum - arr[idx])):
-        return arr[: idx + 1], arr[idx + 1 :]
-    else:
-        return arr[:idx], arr[idx:]
+n = int(input())
+nums = [int(input()) for _ in range(n)]
 
+total_sum = sum(nums)
+half_sum = total_sum // 2
+closest_sum = 0
+idx = 0
 
-# Read input vector
-arr = list(map(int, input().strip().split()))
+for i in range(n):
+    if closest_sum <= half_sum:
+        closest_sum += nums[i]
+        idx = i
 
-# Call the function and print the output
-subvector1, subvector2 = cut_vector(arr)
+subvector1 = nums[: idx + 1]
+subvector2 = nums[idx + 1 :]
+
 print(*subvector1)
 print(*subvector2)
