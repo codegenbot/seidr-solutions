@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 int main() {
     int hours;
@@ -8,8 +9,7 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         float snowmelt = melt * snow;
-        snow = snow + rate - snowmelt;
-        snow = int(snow * 1e9 + 0.5) / 1e9;
+        snow = std::abs(snow + rate - snowmelt) < std::numeric_limits<float>::epsilon() ? 0 : snow + rate - snowmelt;
     }
 
     std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
