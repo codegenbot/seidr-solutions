@@ -1,15 +1,23 @@
-int i = 0, j = 0;
-while (j < text.size()) {
-    if (text[j] == ' ') {
-        if (i > 0 && text[i-1] == ' ' && text[i] == ' ') {
-            while (j < text.size() && text[j] == ' ')
-                j++;
-            text[i++] = '-';
-        } else {
-            text[i++] = '_';
+int i = 0;
+while(i < text.length()){
+    if(text[i] == ' '){
+        if(i+1 < text.length() && text[i+1] == ' '){
+            if(i+2 >= text.length() || text[i+2] != ' '){
+                replace(text.begin(), text.begin()+i+1, '_', 1);
+                i++;
+                while(i+1 < text.length() && text[i+1] == ' '){
+                    text.replace(i+1, 1, "-");
+                    i++;
+                }
+            }else{
+                i++;
+            }
+        }else{
+            text.replace(i, 1, "_");
+            i++;
         }
-    } else {
-        text[i++] = text[j++];
+    }else{
+        i++;
     }
 }
-return text.substr(0, i);
+return text;
