@@ -11,6 +11,6 @@ int main() {
     } else {
         cout << x << endl;
     }
-
+    
     return 0;
 }
