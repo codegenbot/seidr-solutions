@@ -1,9 +1,7 @@
-Here is the solution to the problem:
-
-```python
 def max_fill(grid, capacity):
+    n = len(grid)
+    m = len(grid[0])
     total_water = sum(sum(row) for row in grid)
-    full_buckets = math.floor(total_water / float(capacity))
-    remaining_water = total_water % capacity if total_water % capacity != 0 else capacity - 1
-
-    return full_buckets + (total_water > capacity * (full_buckets + 1))
+    water_per_cycle = min(m, capacity)
+    cycles = math.ceil(total_water / water_per_cycle)
+    return int(cycles * (m + 1))
