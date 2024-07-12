@@ -1,19 +1,21 @@
+Here is the completed code:
+
+```cpp
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
 string anti_shuffle(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            result += ' ';
-            continue;
+    size_t prev = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || isspace(s[i])) {
+            string word = s.substr(prev, i - prev);
+            sort(word.begin(), word.end());
+            result += word + (i < s.size() ? " " : "");
+            prev = i;
         }
-        string temp = "";
-        bool firstChar = true;
-        for (int j = i; j <= s.length(); j++) {
-            temp += s[j];
-            i = j - 1;
-            break;
-        }
-        sort(temp.begin(), temp.end());
-        result += temp;
     }
     return result;
 }
