@@ -21,6 +21,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    cout << basement(nums) << endl;
+    cout << basement(nums) << "\n";
     return 0;
 }
