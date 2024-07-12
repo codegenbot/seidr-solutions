@@ -1,23 +1,20 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a) {
-    if (a.size() != 1) {
+bool issame(std::vector<std::string> a) {
+    if (a.size() != 2) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        vector<string> b = {numerical_letter_grade({a[i]})};
-        for (int j = 0; j < a.size(); j++) {
-            if (i != j && a[j] != b[0]) {
-                return false;
-            }
+        if (a[i] != "E" && a[i] != "D-") {
+            return false;
         }
     }
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");
@@ -49,7 +46,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {0, 0.7};
-    vector<string> output = numerical_letter_grade(grades);
-    assert(issame({output[0], output[1]}) == {output[0], output[1]});
+    assert(issame({numerical_letter_grade(grades)}) == std::vector<std::string>({"E", "D-" }));
     return 0;
 }
