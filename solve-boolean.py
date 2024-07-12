@@ -1,3 +1,3 @@
 expression = input()
-result = eval(expression.replace("t", "True").replace("f", "False"))
+result = eval(expression.replace("T", "True").replace("F", "False"))
 print(result)
