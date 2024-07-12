@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -19,12 +20,22 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 }
 
-int test() {
-    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    const std::string prefix = "xxx";
-    std::vector<std::string> output = filter_by_prefix(input, prefix);
-    if (!areEqual(output, {{"xxx"}, {"xxxAAA"}, {"xxx"}})) {
-        return 1;
+int main(int argc) {
+    int n;
+    std::cin >> n;
+    std::vector<std::string> strings(n);
+    for (auto &s : strings) {
+        std::cin >> s;
     }
+
+    std::string prefix;
+    std::cin >> prefix;
+
+    if (areEqual(strings, filter_by_prefix(strings, prefix))) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
+    
     return 0;
 }
