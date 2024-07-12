@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-#include <cctype> // Add the missing header for islower function
+#include <cctype>
 
 std::vector<std::string> split_words(std::string txt);
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
@@ -35,7 +35,7 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Fix the function signature
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
