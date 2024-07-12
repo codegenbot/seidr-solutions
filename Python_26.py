@@ -1,10 +1,5 @@
-def remove_duplicates():
+def remove_duplicates(numbers):
     input_numbers = []
-    
-    if input_numbers is not None:
-        return list(dict.fromkeys(input_numbers))
-
-    numbers = set()
     
     while True:
         user_num = int(input("Enter an integer (or 'q' to quit): "))
@@ -12,6 +7,7 @@ def remove_duplicates():
         if str(user_num).lower() == 'q':
             break
         
-        numbers.add(user_num)
+        numbers = list(dict.fromkeys([user_num]))
+        input_numbers.extend(numbers)
     
-    return list(numbers)
+    return input_numbers
