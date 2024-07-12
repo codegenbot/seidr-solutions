@@ -1,5 +1,7 @@
-```cpp
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <initializer_list>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
