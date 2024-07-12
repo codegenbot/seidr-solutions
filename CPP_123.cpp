@@ -1,30 +1,33 @@
 #include <vector>
 #include <algorithm>
 
+vector<int> get_odd_collatz(int n);
+
+bool issame(vector<int>& a, vector<int>& b);
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = get_odd_collatz(n);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
-        result.push_back(n);
+        if (n % 2 == 1) {
+            result.push_back(n);
+        }
         if (n % 2 == 0) {
-            n /= 2;
+            n = n / 2;
         } else {
             n = 3 * n + 1;
         }
     }
     result.push_back(1);
-    
-    vector<int> odd_numbers;
-    for (int num : result) {
-        if (num % 2 != 0) {
-            odd_numbers.push_back(num);
-        }
-    }
-    
-    sort(odd_numbers.begin(), odd_numbers.end());
-    
-    return odd_numbers;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    sort(result.begin(), result.end());
+    return result;
 }
