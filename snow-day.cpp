@@ -6,11 +6,11 @@ int main() {
 
     float total_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
-        total_snow -= snow_melt_rate; 
-        total_snow += snow_fall_rate; 
+        total_snow -= snow_melt_rate; // Melt existing snow
+        total_snow += snow_fall_rate; // Add newly fallen snow
     }
 
     std::cout << total_snow << std::endl;
 
-    return 0;
+return 0;
 }
