@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string>
 
-int flip_case(const std::string& input) {
-    std::string output = "";
+std::string flip_case(const std::string& input) {
+    std::string output;
     for (char c : input) {
         if (isupper(c)) {
             output += tolower(c);
@@ -13,7 +13,7 @@ int flip_case(const std::string& input) {
             output += c;
         }
     }
-    return 0;
+    return output;
 }
 
 int main() {
