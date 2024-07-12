@@ -3,10 +3,17 @@
 
 int main() {
     std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> b;
     std::vector<std::string> result = by_length(arr);
-    assert(issame(result, std::vector<std::string>{ "Nine", "Eight", "Four" }));
+    bool b = issame(result, std::vector<std::string>{ "Nine", "Eight", "Four" });
     return 0;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -50,12 +57,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
 }
