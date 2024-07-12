@@ -22,3 +22,4 @@ else:
     else:
         print(v[:idx])
         print(v[idx:])
+print(0)
