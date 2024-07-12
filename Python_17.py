@@ -1,17 +1,15 @@
+```
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
 
-    for char in music_string:
-        if not (char.isalnum() or char == '|'):
-            return []
-
+    music_string = music_string.replace(" ", "")
     music_list = []
     i = 0
     while i < len(music_string):
-        if not music_string[i:i+2].isalnum() or not music_string[i+1:i+2] == '|':
+        if not music_string[i:i+1].isalnum():
             return []
-        
+
         if music_string[i:i+2] == 'o|':
             music_list.append(2)
             i += 2
