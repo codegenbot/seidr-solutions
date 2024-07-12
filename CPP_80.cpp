@@ -4,13 +4,14 @@
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
-    for (int i = 0; i < s.length() - 2; i++) {
-        std::string sub = s.substr(i, 3);
+    for (int i = 0; i <= s.length() - 2; i++) {
+        char start = i;
+        std::string sub = s.substr(start, 2);
         bool unique = true;
-        for (size_t j = 0; j < sub.size(); j++) { 
+        for (char a : sub) { 
             size_t count = 0;
-            for (size_t k = 0; k < sub.size(); k++) {
-                if (sub[k] == sub[j])
+            for (char b : sub) {
+                if (b == a)
                     ++count;
             }
             if (count > 1) {
