@@ -1,3 +1,7 @@
+```
+#include <stack>
+#include <string>
+
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -24,10 +28,5 @@ bool solveBoolean(string expression) {
     while (!s.empty()) {
         s.pop();
     }
-    stack<char> temp = s;
-    string result = "";
-    while (!temp.empty()) {
-        result += temp.top() == '&' ? 'T' : 'F';
-        temp.pop();
-    }
-    return result[0] == 'F';
+    return false;
+}
