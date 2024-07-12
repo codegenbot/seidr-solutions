@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 string encrypt(string s){
     string result = "";
