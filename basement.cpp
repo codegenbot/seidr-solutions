@@ -10,4 +10,3 @@ int firstNegative(std::vector<int>& nums) {
         }
     }
     return -1;
-}
