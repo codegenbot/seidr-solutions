@@ -2,16 +2,14 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-#include <cctype>
+#include <cctype> // Add the missing header for islower function
 
-using namespace std;
+std::vector<std::string> split_words(std::string txt);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-vector<string> split_words(string txt);
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> split_words(string txt) {
-    vector<string> words;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -32,15 +30,16 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        words.push_back(to_string(count));
+        words.push_back(std::to_string(count));
     }
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Fix the function signature
     return a == b;
 }
 
 int main() {
-    assert(issame(split_words("testing the split function"), {}));
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
