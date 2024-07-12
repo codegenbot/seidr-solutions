@@ -1,31 +1,19 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    combinations = []
-    
-    for i in range(len(coins)+1):
-        for c in combinations:
-            for j in range(i+1):
-                if c[j] + j*coins[i] > cents:
-                    break
-            else:
-                if sum(c) + j*coins[i] == cents:
-                    combinations.append(c+[j])
-                    
-    quarters, nickles, dimes, pennies = 0,0,0,0
-    
-    for c in combinations:
-        if len(c) == 4 and c[0] > 0:
-            quarters = c[0]
-            nickles = (c[1]*10) // 5
-            dimes = (c[2]*10) // 10
-            pennies = c[3]
-            break
-            
-    return quarters, nickles, dimes, pennies
+    quarter_count = cents // 25
+    remaining_cents = cents % 25
+    nickel_count = remaining_cents // 5
+    remaining_cents %= 5
+    dime_count = remaining_cents // 10
+    remaining_cents %= 10
+    penny_count = remaining_cents
+
+    return quarter_count, nickel_count, dime_count, penny_count
 
 cents = int(input())
 quarters, nickles, dimes, pennies = coin_sums(cents)
+
 print(quarters)
 print(nickles)
 print(dimes)
