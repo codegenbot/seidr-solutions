@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 
@@ -9,15 +10,15 @@ bool isPrime(int n) {
     return true;
 }
 
-int start() {
-    vector<int> lst;
+int main() {
+    std::vector<int> lst;
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
     lst.resize(n);
     for(int i = 0; i < n; i++){
-        cout << "Enter element " << i+1 << ": ";
-        cin >> lst[i];
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
     }
     int maxPrime = 0;
     for(int i : lst){
@@ -29,10 +30,5 @@ int start() {
         sum += maxPrime % 10;
         maxPrime /= 10;
     }
-    cout << "The sum of the digits of the maximum prime number is: " << sum << endl;
-}
-
-int main() {
-    start();
-    return 0;
+    std::cout << "The sum of the digits of the maximum prime number is: " << sum << std::endl;
 }
