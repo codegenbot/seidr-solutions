@@ -19,3 +19,18 @@ int smallest_change(vector<int> arr) {
     }
     return ans;
 }
+
+int main() {
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
+        arr.push_back(x);
+    }
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
+    return 0;
+}
