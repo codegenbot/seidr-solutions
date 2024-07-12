@@ -1,3 +1,2 @@
 x, y = map(int, input("Enter two integers separated by a space: ").strip().split())
-result = x * y
-print(result)
+print(x * y) if type(x) == int and type(y) == int else print("Invalid input. Please enter two integers separated by a space.")
