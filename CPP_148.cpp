@@ -23,7 +23,7 @@ int main() {
     }
 
     if (idx1 == -1 || idx2 == -1) {
-        return 0; // indicating successful completion
+        return 0;
     }
 
     if (idx1 > idx2) {
@@ -34,5 +34,5 @@ int main() {
         result.push_back(planets[i]);
     }
 
-    return 0; // indicating successful completion
+    return 0;
 }
