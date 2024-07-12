@@ -15,7 +15,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size(), 0.0);
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> even_indices(l.size(), 0.0); // Initialize with initial capacity
+            std::vector<float> even_indices(l.size(), 0.0); 
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     even_indices.push_back(l[j]);
