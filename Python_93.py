@@ -4,12 +4,11 @@ def encode(message):
     for char in message:
         if char.isalpha():
             char_code = ord(char)
-            vowels = "aeiou"
-            increment = vowels.index(char.lower()) + 1 if char.lower() in vowels else 2
+            increment = 1 if char.lower() not in "aeiou" else 2
             new_code = (char_code - ord('a' if char.islower() else 'A') + increment) % 26 + ord('a' if char.islower() else 'A')
                 
             encoded_message += chr(new_code)
         else:
             encoded_message += char
 
-    return encoded_message
+    return encoded_message.lower()
