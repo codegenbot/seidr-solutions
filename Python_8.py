@@ -1,5 +1,4 @@
-```python
-from typing import List, Tuple
+# Calculate the sum and product of all numbers within a given list of integers.
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not numbers:
