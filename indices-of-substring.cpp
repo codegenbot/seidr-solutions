@@ -6,6 +6,7 @@ using namespace std;
 
 int main() {
     string text, target;
+    
     getline(cin, text);
     getline(cin, target);
     
