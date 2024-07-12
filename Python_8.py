@@ -1,6 +1,7 @@
-from typing import List
+```
+from typing import Tuple
 
-def sum_product() -> List[int]:
+def sum_product() -> Tuple[int, int]:
     total_sum = 0
     product = 1
     numbers = []
@@ -18,7 +19,7 @@ def sum_product() -> List[int]:
         else:
             print("Invalid input. Please enter a digit or type 'stop' to finish.")
 
-    return [total_sum, product]
+    return total_sum, product
 
 result = sum_product()
 print("Sum: ", result[0])
