@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
+#include <string>
 
-bool is_prime(long long n) {
-    if (n <= 1) return false;
+bool is_prime(int n) {
     bool is_divisible = false;
-    for (long long i = 2; i * i <= n && !is_divisible; ++i) {
+    for (int i = 2; i * i <= n && !is_divisible; ++i) {
         if (n % i == 0) {
             is_divisible = true;
         }
@@ -12,5 +13,7 @@ bool is_prime(long long n) {
 }
 
 int main() {
-    std::cout << (is_prime(13441 * 19) ? "false" : "true") << std::endl; 
+    int num;
+    std::cin >> num;
+    std::cout << std::to_string(is_prime(num)); 
 }
