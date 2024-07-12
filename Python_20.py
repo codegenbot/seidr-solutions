@@ -10,3 +10,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+numbers = tuple(float(x) for x in input("Enter two numbers separated by space: ").split())
+output1, output2 = find_closest_elements(numbers)
+print(output1, output2)
