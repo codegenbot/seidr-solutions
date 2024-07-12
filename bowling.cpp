@@ -1,35 +1,45 @@
-int bowlingScore(const string& s) {
-    int score = 0, frame = 0, ball = 0;
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10;
-            if (frame < 8) {
-                score += (s[ball + 1] == 'X' ? 10 : (isdigit(s[ball + 1]) ? s[ball + 1] - '0' : 10));
-                score += (s[ball + 2] == 'X' ? 10 : (s[ball + 2] == '/' ? 10 - (s[ball + 1] - '0') : (isdigit(s[ball + 2]) ? s[ball + 2] - '0' : 10)));
+int score(string s) {
+    int total = 0;
+    int frame = 1;
+    int i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (s[i+2] == 'X') {
+                total += 10;
+                if (s[i+4] == 'X') {
+                    total += 10;
+                } else if (s[i+4] == '/') {
+                    total += 10 - (s[i+3] - '0');
+                } else {
+                    total += s[i+4] - '0';
+                }
+            } else if (s[i+3] == '/') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0' + s[i+3] - '0';
             }
-            ++frame;
-            ball += 1;
-        } else if (c == '/') {
-            score += 10 - (s[ball - 1] - '0');
-            score += (s[ball + 1] == 'X' ? 10 : (isdigit(s[ball + 1]) ? s[ball + 1] - '0' : 10));
-            ++frame;
-            ball += 1;
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (frame < 9 && c == '9' && s[ball + 1] == '/') {
-                score += 10 - (s[ball] - '0');
+            i++;
+        } else if (s[i+1] == '/') {
+            total += 10;
+            if (s[i+2] == 'X') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0';
             }
-            ++ball;
-            if ((ball - frame * 2) % 2 == 0) {
-                ++frame;
-            }
+            i += 2;
+        } else {
+            total += s[i] - '0' + s[i+1] - '0';
+            i += 2;
         }
+        frame++;
     }
-    return score;
+    return total;
 }
+
 int main() {
     string s;
     cin >> s;
-    cout << bowlingScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
