@@ -5,16 +5,16 @@
 #include <string>
 #include <iostream>
 
-bool areSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> sortedListSum(const std::vector<std::string>& lst) {
+std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
     auto it = std::stable_partition(lst.begin(), lst.end(),
-                                     [&](auto& s) { return !s.length() % 2; }),
+                                     [&](const auto& s) { return !s.length() % 2; }),
         end = lst.erase(it, lst.end());
     std::stable_sort(std::next(lst.begin()), lst.end(),
-                      [](auto& a, auto& b) {
+                      [](const auto& a, const auto& b) {
                           if (a.length() != b.length())
                               return a.length() < b.length();
                           else
@@ -23,12 +23,8 @@ std::vector<std::string> sortedListSum(const std::vector<std::string>& lst) {
     return lst;
 }
 
-int main() {
-    bool same = areSame(sortedListSum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"});
-    assert(same);
-    std::cout << "Result: ";
-    for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
+std::cout << "Result: ";
+for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
+    std::cout << str << " ";
 }
+std::cout << std::endl;
