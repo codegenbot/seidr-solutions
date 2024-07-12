@@ -4,7 +4,6 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
-
 # Read input from the user
 values = list(map(float, input().split()))
 
