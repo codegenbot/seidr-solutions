@@ -6,5 +6,5 @@ while True:
         result = x * y
         print(result)
         break
-    except ValueError as e:
+    except ValueError:
         print("Invalid input. Please enter two integers separated by a space.")
