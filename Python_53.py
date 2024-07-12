@@ -1,7 +1,10 @@
-def add(x: int, y: int):
+def calculate_average_grades(grades):
+    total = sum(map(int, input("Enter grades separated by space: ").split()))
+    count = len(input("Enter the number of students: "))
+    
     try:
-        if not isinstance(x, int) or not isinstance(y, int):
-            return "Error: Please enter valid integers"
-        return x + y
-    except TypeError as e:
-        return str(e)
+        average_grade = total / count
+    except ZeroDivisionError:
+        return "Error: You can't divide by zero"
+    return f"Average grade is {average_grade:.2f}"
+```
