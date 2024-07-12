@@ -1,4 +1,3 @@
-```python
 import re
 
 def solve(text):
