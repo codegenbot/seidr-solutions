@@ -1,20 +1,19 @@
+```cpp
+#include <vector>
+using namespace std;
+
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    vector<int> total_water(n);
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < grid[i].size(); j++) {
-            if (grid[i][j] == 1) {
-                total_water[i]++;
-            }
+    int total_water = 0;
+    for (const auto& row : grid) {
+        for (int water : row) {
+            total_water += water;
         }
     }
 
-    int ans = 0;
-    for (int i = 0; i < n; i++) {
-        while (total_water[i] > capacity && capacity != 0) {
-            total_water[i] -= capacity;
-            ans++;
-        }
+    int buckets_needed = total_water / capacity;
+    if (total_water % capacity != 0) {
+        buckets_needed++;
     }
-    return ans;
+
+    return buckets_needed;
 }
