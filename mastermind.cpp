@@ -1,6 +1,9 @@
+#include <iostream>
+#include <algorithm>
+
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
     
     int blackPegs = 0, whitePegs = 0;
     int codeCount[6] = {0}, guessCount[6] = {0};
@@ -15,12 +18,12 @@ int main() {
     }
     
     for (int i = 0; i < 6; ++i) {
-        whitePegs += min(codeCount[i], guessCount[i]);
+        whitePegs += std::min(codeCount[i], guessCount[i]);
     }
     
     whitePegs -= blackPegs;
     
-    cout << whitePegs << "\n" << blackPegs << "\n";
+    std::cout << whitePegs << "\n" << blackPegs << "\n";
     
     return 0;
 }
