@@ -2,7 +2,7 @@ import sys
 from typing import List, Tuple
 
 def get_user_input() -> List[int]:
-    return list(map(int, sys.stdin.readline().strip().split()))
+    return list(map(int, sys.stdin.readline().split()))
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (
