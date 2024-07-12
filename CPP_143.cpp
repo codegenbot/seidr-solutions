@@ -23,7 +23,8 @@ vector<string> split(const string& str, const char* delim) {
             str.erase(0, pos + 1);
         }
     }
-    tokens.push_back(str);
+    if (!str.empty())
+        tokens.push_back(str); 
     return tokens;
 }
 
