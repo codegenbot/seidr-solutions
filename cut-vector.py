@@ -1,18 +1,18 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+numbers = [int(input()) for _ in range(n)]
 
-total_sum = sum(nums)
-half_sum = total_sum // 2
-closest_sum = 0
-idx = 0
+total_sum = sum(numbers)
+left_sum = 0
+right_sum = total_sum
 
 for i in range(n):
-    if closest_sum <= half_sum:
-        closest_sum += nums[i]
-        idx = i
+    left_sum += numbers[i]
+    right_sum -= numbers[i]
+    if left_sum >= right_sum:
+        break
 
-subvector1 = nums[: idx + 1]
-subvector2 = nums[idx + 1 :]
+subvector1 = numbers[: i + 1]
+subvector2 = numbers[i + 1 :]
 
-print(*subvector1)
-print(*subvector2)
+print(*subvector1, sep="\n")
+print(*subvector2, sep="\n")
