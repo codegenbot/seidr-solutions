@@ -1,8 +1,5 @@
 def calculate_decimal_part(number):
-    if isinstance(number, float):
-        return abs(number) % 1.0
-    else:
-        return 0.0
+    return abs(number) % 1.0
 
 while True:
     try:
