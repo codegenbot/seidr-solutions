@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
 
 int calculateScore(int values[], int n) {
     int score = 0;
@@ -19,6 +19,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cout << "Value at index " << i << ": " << myValues[i] << std::endl;
     }
-    std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
+    int score = calculateScore(myValues, n);
+    std::cout << "The score is: " << score << std::endl;
     return 0;
 }
