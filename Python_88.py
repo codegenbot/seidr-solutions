@@ -1,3 +1,4 @@
+```
 while True:
     try:
         array = list(map(int, input("Enter an array: ").split()))
@@ -9,7 +10,8 @@ def sort_array(array):
     if len(array) == 0:
         return array
     total = sum(array)
+    print(f"Original Array: {array}")
     if total % 2 != 0:
-        print(sorted(array))
+        print(f"Sorted in ascending order: {sorted(array)}")
     else:
-        print(sorted(array, reverse=True))
+        print(f"Sorted in descending order: {sorted(array, reverse=True)}")
