@@ -1,57 +1,32 @@
 #include <string>
+#include <stack>
 
-string solveBoolean(string s) {
-    bool result = false;
+bool solveBoolean(string s) {
+    stack<char> st;
+    bool current = false;
+    bool prev = false;
+
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
-            result = true;
+            current = true;
         } else if (s[i] == 'F') {
-            return "False";
-        } else if (s[i] == '|') {
-            if (result) {
-                for (int j = i + 1; j < s.length(); j++) {
-                    if (s[j] == 'T') {
-                        result = true;
-                        break;
-                    } else if (s[j] == 'F') {
-                        return "False";
-                    }
-                }
-            } else {
-                for (int j = i + 1; j < s.length(); j++) {
-                    if (s[j] == 'T') {
-                        return "True";
-                    } else if (s[j] == 'F') {
-                        result = true;
-                        break;
-                    }
-                }
-            }
+            current = false;
         } else if (s[i] == '&') {
-            if (!result) {
-                for (int j = i + 1; j < s.length(); j++) {
-                    if (s[j] == 'T') {
-                        result = true;
-                        break;
-                    } else if (s[j] == 'F') {
-                        return "False";
-                    }
-                }
-            } else {
-                for (int j = i + 1; j < s.length(); j++) {
-                    if (s[j] == 'T') {
-                        continue;
-                    } else if (s[j] == 'F') {
-                        return "False";
-                    }
-                }
-                result = true;
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
+            prev = current;
+            current = false;
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            prev = current;
+            current = true;
+        } else {
+            st.push(s[i]);
         }
     }
-    if (result) {
-        return "True";
-    } else {
-        return "False";
-    }
+
+    return current;
 }
