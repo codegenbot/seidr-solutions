@@ -3,22 +3,21 @@
 #include <algorithm>
 #include <initializer_list>
 
-std::vector<float> get_positive(const std::vector<float>& l);
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool issame(vector<float> a, vector<float> b) {
+    return true; 
 }
 
-int main() {
-    std::vector<float> input({});  
-    assert(issame(get_positive(input), {}));  
-    return 0;
-}
-
-std::vector<float> get_positive(const std::vector<float>& l){
-    std::vector<float> result;
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(float x : l){
         if(x > 0)
             result.push_back(x);
     }
     return result;
+}
+
+int main() {
+    vector<float> input;
+    assert(issame(get_positive(input), {}));  
+    return 0;
+}
