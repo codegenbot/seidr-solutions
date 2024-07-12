@@ -1,4 +1,4 @@
-import itertools
+from itertools import groupby
 
 
 def sort_third(lst):
@@ -6,5 +6,5 @@ def sort_third(lst):
     grouped.sort()
     return [
         min(group[1:]) if group[0] % 3 != 0 else max(group[1:])
-        for group in itertools.groupby(grouped, key=lambda x: (x[0]))
+        for key, group in groupby(grouped, key=lambda x: (x[0]))
     ]
