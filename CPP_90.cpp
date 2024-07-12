@@ -3,6 +3,17 @@
 #include <vector>
 #include <algorithm>
 
+int next_smallest(int x) {
+    int n = x;
+    if (n <= 1) return -1;
+    int res = -1;
+    while (n > 0) {
+        n /= 10;
+        if (res == -1 || res > n) res = n;
+    }
+    return res;
+}
+
 int main() {
     std::vector<int> lst;
     int n;
@@ -23,7 +34,8 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << lst[i];
+                    if(next_smallest(lst[i]) == -1) std::cout << "-1";
+                    else std::cout << lst[i];
                     same = false;
                     break;
                 }
