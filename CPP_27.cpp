@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,7 +5,7 @@ std::string filp_case(std::string str) {
     std::string result = "";
     for(int i=0; i<str.length(); i++) {
         if(str[i] >= 'a' && str[i] <= 'z') {
-            result += (char)(str[i] - 32);
+            result += (char)(str[i] | 32);
         } else {
             result += str[i];
         }
