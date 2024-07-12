@@ -1,27 +1,18 @@
+```cpp
 #include <iostream>
-#include <sstream>
+#include <string>
 
-std::string solve(int N){
+int solve(int N) {
     int sum = 0;
-    while(N > 0) {
-        sum += (N & 1);
-        N >>= 1;
+    for (int i = 1; i <= N; i++) {
+        if (i % 2 == 0)
+            sum += i;
     }
-    std::string result = "";
-    while(sum > 0) {
-        if(sum % 2 == 0)
-            result = "0" + result;
-        else
-            result = "1" + result;
-        sum /= 2;
-    }
-    return result;
+    return sum;
 }
 
 int main() {
     int N;
-    std::cout << "Enter a number: ";
     std::cin >> N;
     std::cout << solve(N) << std::endl;
-    return 0;
 }
