@@ -8,8 +8,7 @@ int main() {
 
     float finalSnow = snow;
     for (int i = 0; i < hours; ++i) {
-        finalSnow += rate;
-        finalSnow -= melt * snow;
+        finalSnow = finalSnow + rate - (melt * finalSnow);
     }
 
     cout << finalSnow << endl;
