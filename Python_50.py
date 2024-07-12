@@ -28,11 +28,7 @@ def decode_shift():
                 char_code = ord('A')
             else:
                 char_code = ord('a')
-            result += (
-                chr((ord(ch) - char_code - shift) % 26 + char_code)
-                if "a" <= ch <= "z"
-                else chr((ord(ch) - char_code - shift) % 26 + char_code)
-            )
+            result += chr((ord(ch) - char_code - shift) % 26 + char_code)
         else:
             result += ch
 
