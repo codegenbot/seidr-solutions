@@ -1,8 +1,3 @@
-```
-"""
-Add triple quotes around the problem description to separate it from your actual Python code.
-"""
-
 import hashlib
 
 def string_to_md5(text):
