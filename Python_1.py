@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -25,4 +26,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if temp:
         result.append(temp)
 
-    return [group + (")(" if opening else "") for group, opening in ((temp, False), *zip(*[iter(stack)] * 2)))]
+    return [temp + x * (stack.count("(") - 1) for x in (")" if i % 2 == 0 else "(" for i in range(sum(stack)))]
