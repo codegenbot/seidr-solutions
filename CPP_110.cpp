@@ -6,7 +6,7 @@ std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2)
 
 int main() {
     int n1;
-    int m1;
+    int m1 = 0;
     int n2;
     int m2;
     std::cout << "Enter the number of elements in lst1: ";
@@ -27,14 +27,18 @@ int main() {
             break;
         else{
             std::cout << "Please enter a positive integer: ";
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
+            while(std::cin.fail()) { 
+                std::cout << "Invalid input. Please enter a positive integer: ";
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
+                std::cin >> m1;
+            }
         }
     }
-    int n;
-    n = m2; // Store the value in n
+    int m;
+    m = m2; // Store the value in m
     std::vector<int> lst2;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < m; i++) {
         int temp;
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
