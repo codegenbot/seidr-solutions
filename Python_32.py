@@ -1,4 +1,4 @@
-def main():
+def main(input=input):
     xs = list(map(float, input("Enter a list of floats separated by spaces:").strip().split()))
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
