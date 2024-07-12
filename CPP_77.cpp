@@ -1,5 +1,8 @@
 bool iscuber(int a){
-    int c = round(cbrt(a));
-    if (c*c*c == a) return true;
-    else return false;
+    int i = 1;
+    while (true) {
+        if (pow(i, 3) == a) return true;
+        if (i * i > a) return false;
+        i++;
+    }
 }
