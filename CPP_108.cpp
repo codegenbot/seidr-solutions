@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cstdlib>
 
@@ -28,7 +27,6 @@ int count_nums(char** nums, int size) {
 
 }
 
-char* numbers[] = {"1"};
 int main() {
-    assert(count_nums(numbers, 1) == 1);
+    assert(count_nums((char**){{"1"}}, 1) == 1);
 }
