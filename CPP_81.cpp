@@ -1,5 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
+
+#include <initializer_list>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
@@ -13,31 +18,31 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
-    for(int i=0; i<grades.size(); i++) { 
+    for(float g : grades) { 
         string letterGrade;
-        if(grades[i] >= 4.0) {
+        if(g >= 4.0) {
             letterGrade = "A+";
-        } else if(grades[i] > 3.7) {
+        } else if(g > 3.7) {
             letterGrade = "A";
-        } else if(grades[i] > 3.3) {
+        } else if(g > 3.3) {
             letterGrade = "A-";
-        } else if(grades[i] > 3.0) {
+        } else if(g > 3.0) {
             letterGrade = "B+";
-        } else if(grades[i] > 2.7) {
+        } else if(g > 2.7) {
             letterGrade = "B";
-        } else if(grades[i] > 2.3) {
+        } else if(g > 2.3) {
             letterGrade = "B-";
-        } else if(grades[i] > 2.0) {
+        } else if(g > 2.0) {
             letterGrade = "C+";
-        } else if(grades[i] > 1.7) {
+        } else if(g > 1.7) {
             letterGrade = "C";
-        } else if(grades[i] > 1.3) {
+        } else if(g > 1.3) {
             letterGrade = "C-";
-        } else if(grades[i] > 1.0) {
+        } else if(g > 1.0) {
             letterGrade = "D+";
-        } else if(grades[i] > 0.7) {
+        } else if(g > 0.7) {
             letterGrade = "D";
-        } else if(grades[i] > 0.0) {
+        } else if(g > 0.0) {
             letterGrade = "D-";
         } else {
             letterGrade = "F";
