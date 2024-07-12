@@ -1,24 +1,26 @@
-import sys
+import re
 
-def separate_paren_groups():
-    paren_string = sys.stdin.readline().rstrip()
-    separated_groups = []
-    current_group = ""
-    open_count = 0
+paren_string = raw_input("Enter the string of parentheses: ")
+if re.match("^[()]*$", paren_string) is None:
+    raise ValueError("Invalid input: Please enter only parentheses")
 
-    for char in paren_string:
-        if char == "(":
-            open_count += 1
-        elif char == ")":
-            open_count -= 1
+separated_groups = []
+current_group = ""
+open_count = 0
 
-        current_group += char
+for char in paren_string:
+    if char == "(":
+        open_count += 1
+    elif char == ")":
+        open_count -= 1
 
-        if open_count < 0:
-            raise ValueError("Invalid input: Unbalanced parentheses")
+    current_group += char
 
-        if open_count == 0:
-            separated_groups.append(current_group)
-            current_group = ""
+    if open_count < 0:
+        raise ValueError("Invalid input: Unbalanced parentheses")
 
-    return separated_groups
+    if open_count == 0:
+        separated_groups.append(current_group)
+        current_group = ""
+
+separated_groups
