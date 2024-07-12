@@ -1,32 +1,37 @@
-#include <vector>
+#include <boost/any.hpp>
+#include <iostream>
 #include <list>
-#include <typeinfo>
+#include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-int main() {
-    std::list<boost::any> values = {3, 3, 3};
-    std::vector<int> result = filter_integers(values);
-    if (issame({1, 2, 3}, result)) {
-        std::cout << "Success!" << std::endl;
-    } else {
-        std::cout << "Failure!" << std::endl;
-    }
-    return 0;
-}
-
-std::vector<int> filter_integers(std::list<boost::any>& values) {
-    std::vector<int> result;
+vector<int> filter_integers(list< boost::any > values) {
+    vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    list< boost::any > values = {3, 3, 3};
+    vector<int> filtered_values = filter_integers(values);
+    
+    if (issame({1, 2, 3}, filtered_values)) {
+        cout << "Values are the same." << endl;
+    } else {
+        cout << "Values are not the same." << endl;
+    }
+    
+    return 0;
 }
