@@ -1,8 +1,14 @@
-#include <iostream>
-#include <string>
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0)
+            return false;
+    return true;
+}
 
-std::string words_in_sentence(std::string sentence) {
-    std::string result;
+string words_in_sentence(string sentence){
+    string result;
     size_t strLen = sentence.size();
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
@@ -10,9 +16,4 @@ std::string words_in_sentence(std::string sentence) {
         }
     }
     return result.substr(0, result.size() - 1);
-}
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    return 0;
 }
