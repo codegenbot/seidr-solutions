@@ -1,5 +1,6 @@
-```
-def sort_even_odd(l: list):
-    evens = sorted([i for i in l if i % 2 == 0])
-    odds = sorted([i for i in l if i % 2 != 0], key=lambda x: -x) 
+def sort_even_odd():
+    evens = sorted([i for i in input().split() if int(i) % 2 == 0])
+    odds = sorted(
+        [i for i in input().split() if int(i) % 2 != 0], key=lambda x: -int(x)
+    )
     return sorted(evens + odds)
