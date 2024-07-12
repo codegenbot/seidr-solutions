@@ -1,33 +1,11 @@
 ```cpp
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result;
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result;
     for (int num : numbers) {
-        bool isSame = false;
-        for (auto& v : result) {
-            if (issame({num}, {v})) {
-                isSame = true;
-                break;
-            }
-        }
-        if (!isSame) {
+        if (std::find(result.begin(), result.end(), num) == result.end()) {
             result.push_back(num);
         }
     }
     return result;
 }
-
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 1};
-    std::vector<int> output = remove_duplicates(numbers);
-    for (auto num : output) {
-        std::cout << num << " ";
-    }
-    return 0;
-}
+bool issame(const vector<int>& a, const vector<int>& b) { return std::equal(a.begin(), a.end(), b.begin()); }
