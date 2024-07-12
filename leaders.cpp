@@ -17,9 +17,12 @@ vector<int> findLeaders(vector<int> nums) {
 
 int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        cout << num << " ";
+    vector<int> leaders = findLeaders(nums);
+
+    cout << "Leaders: ";
+    for (int leader : leaders) {
+        cout << leader << " ";
     }
+
     return 0;
 }
