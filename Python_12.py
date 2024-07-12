@@ -1,5 +1,5 @@
-```
 from typing import Optional
+
 
 def longest_common_substring(str1: str, str2: str) -> Optional[str]:
     m = [[0] * (1 + len(str2)) for _ in range(1 + len(str1))]
@@ -12,6 +12,7 @@ def longest_common_substring(str1: str, str2: str) -> Optional[str]:
                     longest = m[x][y]
                     x_longest = x
     return str1[x_longest - longest : x_longest]
+
 
 while True:
     try:
