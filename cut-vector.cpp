@@ -48,9 +48,9 @@ int main() {
     
     cout << "1" << endl;
     
-    for (int i = cutIndex + 1; i <= n-1; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i];
-        if (i != n-1) {
+        if (i != n - 1) {
             cout << " ";
         }
     }
