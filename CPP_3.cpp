@@ -1,4 +1,7 @@
-bool below_zero(const vector<int>& operations) {
+#include <vector>
+#include <cassert>
+
+bool below_zero(std::vector<int> operations) {
     int balance = 0;
     for (int op : operations) {
         balance += op;
