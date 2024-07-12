@@ -1,10 +1,9 @@
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
-    max_coeff = max(xs, key=abs)
-    if max_coeff == 0:
-        return None
-    for i in range(len(xs) - 1):
-        if xs[i] == max_coeff:
-            break
-    return -xs[-1] / xs[i]
+    return -xs[0] / xs[1]
