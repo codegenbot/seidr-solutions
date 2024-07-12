@@ -1,7 +1,6 @@
 #include <iostream>
 #include <sstream>
 #include <cassert>
-
 using namespace std;
 
 string words_in_sentence(string sentence) {
@@ -18,5 +17,7 @@ string words_in_sentence(string sentence) {
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    cout << words_in_sentence("Hello world") << endl;
+    string result = words_in_sentence("Hello world");
+    cout << result << endl;
     return 0;
+}
