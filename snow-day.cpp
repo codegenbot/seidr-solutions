@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHour) {
