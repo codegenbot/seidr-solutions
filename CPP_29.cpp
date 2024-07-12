@@ -1,3 +1,5 @@
+#include <vector>
+#include <string>
 #include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -20,3 +22,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
