@@ -4,9 +4,6 @@ from typing import List
 def all_prefixes(string: str) -> List[str]:
     result = [""]
     for char in string:
-        temp_result = result.copy()
-        temp_result.append("")
-        for prefix in result:
-            temp_result.append(prefix + char)
+        temp_result = [""] + [prefix + char for prefix in result]
         result = temp_result
     return sorted(result)
