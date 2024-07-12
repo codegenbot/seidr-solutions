@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(int n) {
+vector<int> get_collatz(int n) {
     vector<int> result;  
     while (n != 1) {
         if (n % 2 == 0) {
@@ -29,9 +29,9 @@ int main() {
     int input;
     cout << "Enter a positive integer: ";
     cin >> input; 
-    vector<int> odd_collatz = get_odd_collatz(input);
+    vector<int> collatz = get_collatz(input);
     cout << "The sequence of Collatz Conjecture for the given number is: ";
-    for (int num : odd_collatz) {
+    for (int num : collatz) {
         cout << num << " ";
     }
     cout << endl;
