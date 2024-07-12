@@ -2,9 +2,9 @@ def indices_of_substring():
     text = input().strip().lower()
     target = input().strip().lower()
 
-    indices = [i for i in range(len(text) - len(target) + 1) if text[i:i + len(target)].lower() == target.lower()]
+    indices = [i for i in range(len(text) - len(target) + 1) if text[i:i + len(target)] == target]
 
     for index in indices:
-        print(index)  # Print the index as an integer without casting
+        print(index)
 
 indices_of_substring()
