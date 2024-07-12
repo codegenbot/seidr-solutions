@@ -6,11 +6,15 @@ def encode(message):
     for char in message:
         if char.isalpha():
             char_code = ord(char)
-            new_code = char_code + 2 if char in vowels else char_code - 2
+            if char not in vowels:
+                new_code = ord(char) + 2
+            else:
+                new_code = ord(char) - 2
 
-            encoded_message += chr(
-                new_code if 97 <= new_code <= 122 else 97 + (new_code % 122) - 1 if new_code > 122 else new_code
-            )
+            if new_code > 122:
+                new_code -= 26
+
+            encoded_message += chr(new_code)
         else:
             encoded_message += char
 
