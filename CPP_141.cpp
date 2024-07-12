@@ -1,35 +1,26 @@
-int countDigits(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            count++;
-        }
-    }
-    return count;
-}
+Here is the completed code:
 
-string file_name_check(string file_name) {
-    int digitCount = countDigits(file_name);
-    int dotCount = 0;
-    bool validStart = false;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
+    string before_dot;
 
-    for (int i = 0; i < file_name.length(); i++) {
-        if (file_name[i] == '.') {
-            dotCount++;
-            if (dotCount > 1) {
-                return "No";
-            }
-        } else if (!validStart && isalpha(file_name[i])) {
-            validStart = true;
-        } else if (i > 0 && !isalpha(file_name[i]) && !isdigit(file_name[i]) && file_name[i] != '.') {
-            return "No";
+    for(int i = 0; i < file_name.size(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        } else if(file_name[i] == '.'){
+            has_dot = true;
+            break;
+        } else {
+            before_dot += file_name[i];
         }
     }
 
-    string extension = file_name.substr(file_name.find('.') + 1);
-    if (extension == "txt" || extension == "exe" || extension == "dll") {
-        return digitCount <= 3 ? "Yes" : "No";
-    } else {
-        return "No";
-    }
+    if(!has_dot) return "No";
+
+    string after_dot = file_name.substr(before_dot.size() + 1);
+    if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
+
+    return "Yes";
 }
