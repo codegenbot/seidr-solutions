@@ -1,3 +1,2 @@
-n = int(input("Enter a number: "))
-result = n * (n + 1) // 2
+result = sum(range(int(input()) + 1))
 print(result)
