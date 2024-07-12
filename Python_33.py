@@ -6,5 +6,5 @@ def flatten_list(list_of_lists):
     else:
         return [list_of_lists]
 
-input_list = ast.literal_eval(input("Enter a list of lists: "))
+input_list = eval(input("Enter a list of lists: "))
 print(flatten_list(input_list))
