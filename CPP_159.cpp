@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> eat(int x, int y, int z) {
-    return {y, z};
+std::vector<int> eat(int a, int b, int c) {
+    return {b, c};
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
