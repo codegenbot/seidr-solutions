@@ -6,6 +6,6 @@ def decode_shift(s):
         ]
     )
 
-input_string = input("Enter a string consisting only of lowercase alphabets: ").strip()
+input_string = input().strip()
 decoded_string = decode_shift(input_string)
 print(decoded_string)
