@@ -23,7 +23,7 @@ int main() {
 
     double result = 0.0;
     for (int i = 0; i < n; ++i) {
-        result += std::pow(vec1[i] - vec2[i], 2);
+        result += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
     result = std::sqrt(result);
