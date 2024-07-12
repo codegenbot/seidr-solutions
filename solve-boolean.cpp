@@ -1,19 +1,28 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-int main() {
-    std::string expression = "T|F&F";
+bool evaluateBooleanExpression(const std::string& expression) {
+    bool result = false;
 
-    std::vector<char> operands;
-
-    // Code to parse the expression and store operands goes here
-
-    if (operands.size() < 2) {
-        return 1; // or throw an exception for invalid expression
+    for (char c : expression) {
+        if (c == 'T') result = true;
+        else if (c == 'F') result = false;
+        else if (c == '&') {
+            result = result && true;
+        } else if (c == '|') {
+            result = result || false;
+        }
     }
 
-    // Code to evaluate the boolean expression and return the output goes here
+    return result;
+}
+
+int main() {
+    std::string expression;
+    std::cin >> expression;
+
+    std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
 
     return 0;
 }
