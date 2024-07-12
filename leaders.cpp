@@ -4,15 +4,19 @@
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
-    int maxRight = nums[0];
-    leaders.push_back(maxRight);
-    for (int i = 1; i < n; i++) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-            leaders.push_back(maxRight);
+    for (int i = 0; i < n; i++) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (nums[i] < nums[j]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if (isLeader) {
+            leaders.push_back(nums[i]);
         }
     }
-    return std::vector<int>(leaders.rbegin(), leaders.rend());
+    return leaders;
 }
 
 int main() {
