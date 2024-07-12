@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <set>
+#include <initializer_list>
+#include <cassert>
 
 using namespace std;
 
@@ -35,6 +37,6 @@ map<pair<char,int>, int> histogram(string test) {
 
 int main() {
     map<pair<char,int>, int> test = histogram("a");
-    assert(issameInt(test, {{'a', 0}, {'a', 1}}));
+    assert(issameInt(histogram("a"), {{'a', 0}, {'a', 1}}));
     return 0;
 }
