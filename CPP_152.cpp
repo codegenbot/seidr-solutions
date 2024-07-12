@@ -1,9 +1,9 @@
-\#include <vector>
-\#include <algorithm>
-\#include <numeric>
+#include <vector>
+#include <algorithm>
+#include <numeric>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+    return a == b;
 }
 
 std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
