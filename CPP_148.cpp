@@ -7,12 +7,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-int main() {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
     std::vector<std::string> result;
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int idx1 = -1, idx2 = -1;
-    std::string planet1 = "Jupiter";
-    std::string planet2 = "Makemake";
 
     for (int i = 0; i < planets.size(); i++) {
         if (planets[i] == planet1) {
@@ -24,7 +22,7 @@ int main() {
     }
 
     if (idx1 == -1 || idx2 == -1) {
-        return 0; // indicating successful completion
+        return {};
     }
 
     if (idx1 > idx2) {
@@ -35,7 +33,10 @@ int main() {
         result.push_back(planets[i]);
     }
 
-    assert(issame(result, std::vector<std::string>{"Jupiter", "Makemake"}));
+    return result;
+}
 
-    return 0; // indicating successful completion
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    return 0;
 }
