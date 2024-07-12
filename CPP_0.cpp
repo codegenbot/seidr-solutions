@@ -1,10 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <algorithm> // for sort
 #include <cmath>     // for fabs
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     std::sort(numbers.begin(), numbers.end());
-    for (int i = 1; i < numbers.size(); ++i) {
+    for (size_t i = 1; i < numbers.size(); ++i) {
         if (std::fabs(numbers[i] - numbers[i - 1]) < threshold) {
             return true;
         }
@@ -13,11 +14,14 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-  
-    // Example call to the function
-    float threshold = 1.0;
-    bool result = has_close_elements(a, threshold);
-  
+    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2}; // Modify this line according to the requirement of the contest
+    float threshold = 0.5;
+
+    if (has_close_elements(a, threshold)) {
+        std::cout << "Close elements found within the threshold." << std::endl; // Modify this line according to the requirement of the contest
+    } else {
+        std::cout << "No close elements found within the threshold." << std::endl; // Modify this line according to the requirement of the contest
+    }
+
     return 0;
 }
