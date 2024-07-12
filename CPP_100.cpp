@@ -1,4 +1,12 @@
-vector<int> make_a_pile(int n) {
+#include <vector>
+
+namespace {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
+    }
+}
+
+std::vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = n;
     for (int i = 0; i < n; i++) {
