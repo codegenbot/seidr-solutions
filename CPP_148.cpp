@@ -17,6 +17,10 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     if (index1 == -1 || index2 == -1)
         return {};
     
+    if(index2 - index1 > planets.size()) {
+        return {};
+    }
+    
     std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
         if (i > index1 && i < index2) {
@@ -35,10 +39,8 @@ int main() {
     std::string planet2;
     std::cin >> planet2;
 
-    // Create a list of planets
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    // Call the bf function with the planets and planets to find the result
     std::vector<std::string> result = bf(planets, planet1, planet2);
     
     for (const auto& planet : result) {
