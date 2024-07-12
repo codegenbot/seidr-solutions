@@ -1,11 +1,11 @@
 int main() {
-    string input;
-    cin >> input;
-    string output = "";
-    for (char c : input) {
+    string num;
+    cin >> num;
+    string result = "";
+    for (char c : num) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        result += to_string(digit * digit);
     }
-    cout << output << endl;
+    cout << result << endl;
     return 0;
 }
