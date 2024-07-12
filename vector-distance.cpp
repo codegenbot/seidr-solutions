@@ -1,1 +1,3 @@
-double result = calculateEuclideanDistance(vec1, vec2);
+3
+1.0 2.0 3.0
+4.0 5.0 6.0
