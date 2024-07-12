@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <iostream>
+#include<algorithm>
+#include<cmath>
 
 using namespace std;
 
