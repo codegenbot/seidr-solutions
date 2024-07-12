@@ -1,21 +1,25 @@
-def bowling_score(frames):
+```
+def bowling_score(gutter_balls):
     score = 0
-    frames = frames.split('/')
-    for frame in frames:
-        if len(frame) == 1:
+    frame = 1
+    for i in range(0, len(gutter_balls), 2):
+        if gutter_balls[i:i+2] == 'X':
             score += 10
-        elif len(frame) == 2:
-            rolls = list(map(int, frame))
-            if sum(rolls) == 10:
-                score += 10
-            else:
-                score += sum(rolls)
+            if frame < 10:
+                score += int(next((x for x in gutter_balls[i+2:] if x != '/'), '').replace('X', '')) * 10
+            frame += 1
+        elif gutter_balls[i:i+2] == '--' or gutter_balls[i:i+2] == '//':
+            score += 10
+            if frame < 9:
+                score += int(next((x for x in gutter_balls[i+2:] if x != '/'), '').replace('/', '')) * 10
+            frame += 1
         else:
-            rolls = list(map(int, frame))
-            if rolls[0] + rolls[1] == 10:
-                score += 10 + rolls[2]
-            elif rolls[1] + rolls[2] == 10:
-                score += 10 + rolls[0]
-            else:
-                score += sum(rolls)
+            first_roll = int(gutter_balls[i:i+1])
+            second_roll = int(gutter_balls[i+1:i+2].replace('/','0'))
+            score += first_roll + second_roll
+            if frame < 9 and gutter_balls[i+1] == '/':
+                score += int(next((x for x in gutter_balls[i+2:] if x != '/'), '').replace('/', '')) * 10
+            elif frame < 10:
+                score += int(next((x for x in gutter_balls[i+2:] if x != 'X'), '').replace('X', '')) * 10
+            frame += 1
     return score
