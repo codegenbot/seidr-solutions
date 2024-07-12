@@ -12,11 +12,12 @@ void checkNumber(int n) {
 
 int main() {
     int n;
-    cin.ignore(std::numeric_limits<int>::max(), '\n'); 
     cin >> n; 
-    if (!(cin)) {
+    while (!(cin)) {
         cerr << "Invalid input. Please enter an integer." << endl;
-    } else {
-        checkNumber(n); 
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> n; 
     }
+    checkNumber(n); 
 }
