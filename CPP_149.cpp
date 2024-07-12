@@ -1,17 +1,12 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <iostream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+};
 
 std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
     auto it = std::stable_partition(lst.begin(), lst.end(),
@@ -25,14 +20,11 @@ std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
                               return a < b;
                       });
     return lst;
-}
+};
 
-int main() {
-    bool same = issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
-    assert(same);
-    std::cout << "Result: ";
-    for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
+std::cout << "Result: ";
+for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
+    std::cout << str << " ";
 }
+std::cout << std::endl;
+assert(issame(sortedListSum({{"aaaa", "bbbb", "dd", "cc"}}), {{"cc","dd","aaaa","bbbb"}}));

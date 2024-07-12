@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
+std::vector<std::string> bf(std::vector<std::string>& planets, std::string planet1, std::string planet2) {
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -54,12 +54,10 @@ int main() {
 
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-    std::vector<std::string> input = {planet1, planet2};
+    if (!bf(planets, planet1, planet2).empty())
+        std::cout << "Output: ";
+    else
+        std::cout << "No Output";
     
-    std::vector<std::string> result = bf(input, planet1, planet2);
-    
-    for (const auto& planet : result) {
-        std::cout << planet << " ";
-    }
     return 0;
 }
