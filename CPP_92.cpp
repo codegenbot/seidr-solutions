@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -11,7 +11,7 @@ bool any_int(float a, float b, float c) {
     return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
 }
 
-int main 
+int main
 {
     float a, b, c;
     cout << "Enter three numbers: ";
