@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```c++
+```cpp
 #include <string>
 #include <iomanip>
 #include <sstream>
