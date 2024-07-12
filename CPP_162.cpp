@@ -1,22 +1,30 @@
-#include <string>
-#include <iomanip>
+#include <iostream>
 #include <sstream>
-#include <openssl/md5.h>
+#include <iomanip>
+#include "md5.h"
 
-using namespace std;
-
-string string_to_md5(string text) {
-    MD5_CTX md5ctx;
-    unsigned char result[16];
-    stringstream ss;
-    const char* cstr = text.c_str();
-    MD5_Init(&md5ctx);
-    MD5_Update(&md5ctx, cstr, text.length());
-    MD5_Final(&md5ctx, result);
-
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+std::string string_to_md5(std::string text) {
+    if (text.empty()) return "";
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char *cstr = text.c_str();
+    MD5_Update(&ctx, cstr, text.size());
+    MD5_Final(md5, &ctx);
+    std::string result;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", md5[i]);
+        result.append(buf);
     }
+    return result;
+}
 
-    return ss.str();
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::string output = string_to_md5(input);
+    std::cout << "MD5 of the input string is: " << output << std::endl;
+    return 0;
 }
