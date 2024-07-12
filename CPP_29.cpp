@@ -1,22 +1,19 @@
-vector<vector<string>> isEqual(vector<vector<string>> a, vector<vector<string>> b){
-    bool result = true;
-    if (a.size() != b.size()) {
-        result = false;
-    } else {
-        for (int i = 0; i < a.size(); i++) {
-            if (a[i].size() != b[i].size()) {
-                result = false;
-                break;
-            }
-            bool found = false;
-            for (const auto& str : a[i]) {
-                if (std::find(b[i].begin(), b[i].end(), str) != b[i].end()) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) result = false;
+```cpp
+bool issame(vector<string> a,vector<string> b){
+    return a == b;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for (const auto& str : strings) {
+        if (str.find(prefix) == 0) {
+            result.push_back(str);
         }
     }
-    return {std::vector<string>{(result)? "True": "False"}};
+    return result;
+}
+
+int main() {
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , vector<string>({"xxx","xxxAAA","xxx"})) );
+    return 0;
 }
