@@ -7,8 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame(make_a_pile(8), make_a_pile_result));
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
 
