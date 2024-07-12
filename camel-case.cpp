@@ -35,3 +35,4 @@ int main() {
         cout << "The camelCase is: " << camelCase(str) << endl;
     }
     return 0;
+}
