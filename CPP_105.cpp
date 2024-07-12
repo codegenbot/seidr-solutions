@@ -1,59 +1,41 @@
-#include <vector>
+```
 #include <string>
-#include <initializer_list>
+#include <vector>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
-    vector<string> result;
-    for (int i : temp) {
-        string s = "";
-        switch (i) {
-            case 1:
-                s = "One";
-                break;
-            case 2:
-                s = "Two";
-                break;
-            case 3:
-                s = "Three";
-                break;
-            case 4:
-                s = "Four";
-                break;
-            case 5:
-                s = "Five";
-                break;
-            case 6:
-                s = "Six";
-                break;
-            case 7:
-                s = "Seven";
-                break;
-            case 8:
-                s = "Eight";
-                break;
-            case 9:
-                s = "Nine";
-                break;
-        }
-        result.push_back(s);
-    }
-    return result;
+    return true;
 }
 
 int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    int n;
+    std::cin >> n;
+    vector<string> words(n);
+    for (int i = 0; i < n; i++) {
+        cin >> words[i];
+    }
+    string longest_word = *max_element(words.begin(), words.end(),
+                                          [](const string& a, const string& b) {
+                                              return a.size() < b.size();
+                                          });
+    vector<string> same_words;
+    for (int i = 0; i < n; i++) {
+        if (issame({longest_word}, {words[i]})) {
+            same_words.push_back(words[i]);
+        }
+    }
+    cout << "Longest word: " << longest_word << endl;
+    cout << "Same words: ";
+    for (int i = 0; i < same_words.size(); i++) {
+        cout << same_words[i] << " ";
+    }
+    cout << endl;
     return 0;
+}
