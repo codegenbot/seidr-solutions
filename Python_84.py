@@ -1,3 +1,4 @@
+```
 def solve(N):
     try:
         N = int(bin(int(input("Please provide a binary number: "), 2))[2:])
