@@ -23,10 +23,6 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-    if (!cin || nums.empty()) {
-        cout << "No input provided." << endl;
-        return 0;
-    }
 
     vector<int> result = findLeaders(nums);
 
