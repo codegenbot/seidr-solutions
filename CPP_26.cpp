@@ -13,7 +13,8 @@ std::vector<int> remove_duplicates(const std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> test1({1, 2, 3, 2, 4, 3, 5});
+    int arr[] = {1, 2, 3, 2, 4, 3, 5};
+    std::vector<int> test1(arr, arr + sizeof(arr) / sizeof(arr[0]));
     std::vector<int> test2 = remove_duplicates(test1);
     if (issame(test1, test2)) {
         for (int i : test2) {
