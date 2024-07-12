@@ -1,12 +1,7 @@
-```
 def hex_key(num):
-    primes = {2: True, 3: True, 5: True, 7: True, 11: True, 13: True}
+    prime_hex = ["2", "3", "5", "7", "B", "D"]
     count = 0
     for digit in num:
-        if digit.isdigit():
-            num = int(digit)
-        else:
-            num = ord(digit.upper()) - 55
-        if primes.get(num):
+        if digit.upper() in prime_hex:
             count += 1
     return count
