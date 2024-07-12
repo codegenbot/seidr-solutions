@@ -1,4 +1,5 @@
 ```
+import math
 if __name__ == "__main__":
     try:
         xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
