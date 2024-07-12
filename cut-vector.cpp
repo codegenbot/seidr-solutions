@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
 using namespace std;
 
 int main() {
@@ -34,13 +33,11 @@ int main() {
     for (int i = 0; i < cutIdx; ++i) {
         cout << vec[i] << endl;
     }
-    cout << "0" << endl;
+    cout << 0 << endl;
     for (int i = cutIdx; i < n; ++i) {
         cout << vec[i] << endl; 
     }
-    if(cutIdx < n) {
-        cout << "0" << endl;
-    }
-
+    cout << 0 << endl;
+    
     return 0;
 }
