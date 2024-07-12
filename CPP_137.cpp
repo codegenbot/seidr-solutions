@@ -1,7 +1,9 @@
-```
-#include <algorithm>
+```cpp
+#include <boost/any.hpp>
 #include <string>
-#include <any>
+
+std::any a;
+std::any b;
 
 if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
     std::string x = std::any_cast<std::string>(a);
