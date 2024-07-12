@@ -3,25 +3,7 @@
 #include <cassert>
 
 std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> notes;
-    int count = 0;
-
-    for (char c : music_string) {
-        if (c == 'o') {
-            count++;
-        } else if (c == '|') {
-            notes.push_back(count);
-            count = 0;
-        } else if (c == '.') {
-            notes.push_back(1);
-        }
-    }
-
-    if (count > 0) {
-        notes.push_back(count);
-    }
-
-    return notes;
+    // Add implementation here
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
