@@ -1,29 +1,47 @@
-int score(string s) {
-    int total = 0;
-    int frame = 0;
-    int i = 0;
-    while (frame < 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i + 1] == 'X') ? 10 : (s[i + 2] == '/') ? 10 : (s[i + 2] - '0');
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10;
-            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
-            i += 2;
+int bowlingScore(string frames) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    int remaining_pins = 10;
+    bool first_try = true;
+    
+    for (char c : frames) {
+        if (c == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (frames[ball + 1] == 'X') ? 10 : (frames[ball + 1] - '0');
+                score += (frames[ball + 2] == 'X') ? 10 : (frames[ball + 2] == '/' ? 10 - (frames[ball + 1] - '0') : (frames[ball + 2] - '0'));
+            }
+            frame++;
+            ball++;
+        } else if (c == '/') {
+            score += 10 - (frames[ball - 1] - '0');
+            score += (frames[ball + 1] == 'X') ? 10 : (frames[ball + 1] - '0');
+            frame++;
+            ball += 2;
         } else {
-            total += (s[i] == '-') ? 0 : (s[i] - '0');
-            total += (s[i + 1] == '-') ? 0 : (s[i + 1] - '0');
-            i += 2;
+            score += (c == '-') ? 0 : (c - '0');
+            if (first_try) {
+                remaining_pins -= (c == '-') ? 0 : (c - '0');
+                if (c != '-') first_try = false;
+            } else {
+                remaining_pins -= (c == '/') ? remaining_pins : (c - '0');
+                if (frame < 10 && remaining_pins == 0) {
+                    first_try = true;
+                    remaining_pins = 10;
+                    frame++;
+                }
+            }
+            ball++;
         }
-        frame++;
     }
-    return total;
+    
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string frames;
+    cin >> frames;
+    cout << bowlingScore(frames) << endl;
     return 0;
 }
