@@ -10,7 +10,13 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).rbegin()->reverse().s : result;
+    if(result.empty()) {
+        string temp = s;
+        std::reverse(temp.begin(), temp.end());
+        return temp;
+    } else {
+        return result;
+    }
 }
 
 int main() {
