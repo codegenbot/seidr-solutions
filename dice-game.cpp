@@ -1,4 +1,16 @@
-for(int i = 1; i < n; ++i) {
-    probability += 1.0 / n * (m - i) / m;
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+
+    double probability = 0.0;
+    for(int i = 1; i < n; ++i) {
+        probability += (double)(i * (m - 1)) / (n * m);
+    }
+
+    std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
+
+    return 0;
 }
-probability += 1.0 / n;  // Add probability of rolling highest number
