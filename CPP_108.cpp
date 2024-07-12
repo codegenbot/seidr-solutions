@@ -34,7 +34,9 @@ int main() {
 
     int* nums = new int[size];
     for (int i = 0; i < size; i++) {
-        std::cout << "Enter integer # " << i + 1 << ": ";
+        std::cout << "Enter integer # ";
+        std::cout << i + 1;
+        std::cout << ": ";
         std::cin >> nums[i];
     }
 
