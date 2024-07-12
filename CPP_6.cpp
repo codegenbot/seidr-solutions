@@ -1,8 +1,5 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
-
-using namespace std;
 
 std::vector<int> parse_nested_parens(std::string paren_string);
 
