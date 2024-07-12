@@ -1,12 +1,18 @@
+```
+from typing import List
+import math
+
+
 def factorize(n: int) -> List[int]:
     if not isinstance(n, int):
-        return [n]
+        return ["Invalid input: Please enter an integer"]
     factors = []
     i = 2
     while i * i <= n:
         if n % i:
             i += 1
         else:
+            n //= i
             count = 0
             while n % i == 0:
                 n //= i
