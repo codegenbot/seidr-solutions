@@ -1,36 +1,52 @@
-
 #include <iostream>
-#include <sstream>
 #include <map>
-#include <vector>
 #include <algorithm>
+#include <string>
+#include <cassert>
 
-std::string sort_numbers(const std::string& numbers) {
-    std::map<std::string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-    std::map<int, std::string> reverse_map;
+using namespace std;
 
-    for (const auto& pair : number_map) {
-        reverse_map[pair.second] = pair.first;
+string sort_numbers(string numbers) {
+    map<string, int> num_map = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
+
+    vector<string> split_numbers;
+    string temp;
+    for (char c : numbers) {
+        if (c != ' ')
+            temp += c;
+        else {
+            split_numbers.push_back(temp);
+            temp.clear();
+        }
     }
+    split_numbers.push_back(temp);
 
-    std::vector<int> sorted_numbers;
-    std::istringstream iss(numbers);
-    std::string token;
-    while (iss >> token) {
-        sorted_numbers.push_back(number_map[token]);
+    sort(split_numbers.begin(), split_numbers.end(), [&](const string &a, const string &b) {
+        return num_map[a] < num_map[b];
+    });
+
+    string sorted_str;
+    for (const string &num : split_numbers) {
+        sorted_str += num + " ";
     }
+    sorted_str.pop_back(); // remove extra space at the end
 
-    std::sort(sorted_numbers.begin(), sorted_numbers.end());
-
-    std::string result;
-    for (int num : sorted_numbers) {
-        result += reverse_map[num] + " ";
-    }
-
-    return result;
+    return sorted_str;
 }
 
 int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
     return 0;
 }
