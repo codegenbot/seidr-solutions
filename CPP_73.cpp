@@ -1,7 +1,4 @@
 #include <vector>
-#include <iostream>
-using namespace std;
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<bool>> dp(n, vector<bool>(n));
@@ -21,10 +18,4 @@ int smallest_change(vector<int> arr) {
         }
     }
     return ans;
-}
-
-int main() {
-    vector<int> arr = {1, 2, 3};
-    cout << smallest_change(arr) << endl;
-    return 0;
 }
