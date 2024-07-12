@@ -1,11 +1,5 @@
 def find_zero():
-    xs = []
-    while True:
-        try:
-            line = input()
-            xs.extend(map(float, line.split()))
-        except EOFError:
-            break
+    xs = map(float, iter(input, ""))
     a, b = xs[-2:]
     return -b / a
 
