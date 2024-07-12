@@ -9,9 +9,9 @@ std::string file_name_check(std::string file_name) {
     int dotIndex = -1;
     for(int i = 0; i < file_name.size(); i++) {
         if (std::isdigit(file_name[i])) {
-            digitCount++;
-            if (digitCount > 3)
+            if (digitCount >= 3)
                 return "No";
+            digitCount++;
         } else if (file_name[i] == '.') {
             dotCount++;
             dotIndex = i;
@@ -28,6 +28,4 @@ std::string file_name_check(std::string file_name) {
         return "No";
     
     return "Yes";
-    
-    return "No";  // Add the missing 'return "No"'
 }
