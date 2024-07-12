@@ -1,24 +1,10 @@
-#include <algorithm>
-#include <cctype>
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        std::cout << "Error: Vectors of different sizes.\n";
-        return false;
-    }
-    std::sort(a.begin(), a.end(), [](const std::pair<int, std::string>& a) {
-        return a.second.size();
-    });
-    std::sort(b.begin(), b.end());
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::tolower(a[i]) != std::tolower(b[i])) {
-            std::cout << "Error: Vectors contain different strings.\n";
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    std::vector<std::string> c = b;
+    return a == c;
 }
 
 int main() {
@@ -26,10 +12,7 @@ int main() {
     std::vector<int> arr;
     std::vector<std::string> result;
 
-    if (!(std::cin >> num1 >> num2)) {
-        std::cout << "Error: Invalid input.\n";
-        return -1;
-    }
+    std::cin >> num1 >> num2;
 
     for(int i = num1; i <= num2; i++) {
         if(i >= 1 && i <= 9) {
@@ -63,6 +46,21 @@ int main() {
                     break;
             }
         }
+    }
+
+    bool by_length = true;
+
+    for(int i = 0; i < result.size(); i++) {
+        if(result[i].size() != (num2 - num1 + 1)) {
+            by_length = false;
+            break;
+        }
+    }
+
+    if(by_length) {
+        std::cout << "By length" << std::endl;
+    } else {
+        std::cout << "Not by length" << std::endl;
     }
 
     return 0;
