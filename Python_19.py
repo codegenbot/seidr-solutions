@@ -4,8 +4,10 @@ def sort_numbers():
         try:
             sorted_numbers = " ".join(map(str, sorted([int(num) for num in numbers.split()])))
             print(sorted_numbers)
-            break
+            cont = input("Sort again? (y/n): ")
+            if cont.lower() != 'y':
+                break
         except ValueError:
-            print("Invalid input. Please enter space-separated numbers.")
+            print("Invalid input. Please enter valid numbers separated by spaces.")
 
 sort_numbers()
