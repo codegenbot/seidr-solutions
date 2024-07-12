@@ -5,17 +5,13 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 vector<int> order_by_points(const vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         auto sumDigits = [](int num) {
             return accumulate(to_string(abs(num)).begin(), to_string(abs(num)).end(), 0,
-                  [](int sum, char c) {
-                      return sum + (c - '0');
-                  });
+                               [](int sum, char c) {
+                                   return sum + (c - '0');
+                               });
         };
         int sumA = sumDigits(a);
         int sumB = sumDigits(b);
