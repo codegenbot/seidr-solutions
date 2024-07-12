@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -91,4 +90,3 @@ int main() {
     std::reverse(result.begin(), result.end());
     
     return 0;
-}
