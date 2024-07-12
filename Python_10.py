@@ -8,4 +8,4 @@ def make_palindrome(string: str) -> str:
     for i in range(len(string)):
         if string[i:] == string[i:][::-1]:
             return string[:i] + string[i:][::-1]
-    return string + "".join(reversed(string))
+    return "".join(reversed(string[:1] + string))
