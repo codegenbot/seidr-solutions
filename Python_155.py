@@ -1,0 +1,2 @@
+def even_odd_count(num):
+    return ((str(abs(num)).count('2') + str(abs(num)).count('4') + str(abs(num)).count('6') + str(abs(num)).count('8')) , len(str(abs(num))) - ((str(abs(num)).count('1') + str(abs(num)).count('3') + str(abs(num)).count('5') + str(abs(num)).count('7') + str(abs(num)).count('9')))
