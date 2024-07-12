@@ -1,8 +1,7 @@
 def car_race_collision(n: int):
     collisions = 0
-    for i in range(1, n):
-        for j in range(i):
-            if j > i // 2:
-                break
-            collisions += 1
+    for i in range(n):
+        for j in range(i + 1, n):
+            if (i + 2) <= (j - 1):
+                collisions += 1
     return collisions
