@@ -6,26 +6,48 @@ string solveBoolean(string s) {
         if (s[i] == 't') {
             result = true;
         } else if (s[i] == 'f') {
-            return result ? "True" : "False";
+            return (result) ? "True" : "False";
         } else if (s[i] == '|') {
-            bool temp = false;
-            for (; i < s.length() && s[i] != '&'; i++) {
-                if (s[i] == 't') {
-                    temp = true;
-                } else if (s[i] == 'f') {
-                    return temp ? "True" : "False";
+            if (result) {
+                for (int j = i + 1; j < s.length(); j++) {
+                    if (s[j] == 't') {
+                        result = true;
+                        break;
+                    } else if (s[j] == 'f') {
+                        return "False";
+                    }
+                }
+            } else {
+                for (int j = i + 1; j < s.length(); j++) {
+                    if (s[j] == 't') {
+                        return "True";
+                    } else if (s[j] == 'f') {
+                        result = true;
+                        break;
+                    }
                 }
             }
         } else if (s[i] == '&') {
-            bool temp = true;
-            for (; i < s.length() && s[i] != '|'; i++) {
-                if (s[i] == 't') {
-                    temp &= true;
-                } else if (s[i] == 'f') {
-                    return "False";
+            if (!result) {
+                for (int j = i + 1; j < s.length(); j++) {
+                    if (s[j] == 't') {
+                        result = true;
+                        break;
+                    } else if (s[j] == 'f') {
+                        return "False";
+                    }
                 }
+            } else {
+                for (int j = i + 1; j < s.length(); j++) {
+                    if (s[j] == 't') {
+                        continue;
+                    } else if (s[j] == 'f') {
+                        return "False";
+                    }
+                }
+                result = true;
             }
-            result &= temp;
         }
     }
-    return result ? "True" : "False";
+    return (result) ? "True" : "False";
+}
