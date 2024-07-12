@@ -1,4 +1,4 @@
-```
+```Python
 def sort_numbers(input_str: str) -> str:
     import re
     numbers = re.findall(r"\d+", input_str)
