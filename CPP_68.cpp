@@ -2,14 +2,16 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> pluck(std::vector<int> v) {
-    std::vector<int> result;
-    for (int i = 0; i < v.size(); i += 2) {
-        result.push_back(v[i]);
+namespace task {
+    std::vector<int> pluck(std::vector<int> v) {
+        std::vector<int> result;
+        for (int i = 0; i < v.size(); i += 2) {
+            result.push_back(v[i]);
+        }
+        return result;
     }
-    return result;
-}
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    bool issame(std::vector<int> a, std::vector<int> b) {
+        return a == b;
+    }
 }
