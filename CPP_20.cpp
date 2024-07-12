@@ -24,7 +24,6 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 }
 
 int main() {
-    // Sample usage
     vector<float> numbers = {3.5, 1.2, 4.8, 2.7, 6.1, 2.9};
     pair<float, float> closest_elements = find_closest_elements(numbers);
     cout << "Closest elements are: " << closest_elements.first << " and " << closest_elements.second << endl;
