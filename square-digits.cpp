@@ -1,16 +1,10 @@
 ```cpp
-#include <string>
-using namespace std;
-
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
+string squareDigits(int n) {
+    string str = to_string(n);
+    string result;
+    for (char c : str) {
         int digit = c - '0';
-        int squared = digit * digit;
-        if(output.length() > 0)
-            output += to_string(squared);
-        else
-            output = to_string(squared);
+        result += to_string(digit * digit);
     }
-    return output;
+    return result;
 }
