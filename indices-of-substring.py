@@ -1,4 +1,7 @@
-text = input().strip()
-target = input().strip()
+text = input()
+target = input()
+
 indices = [i for i in range(len(text)) if text.startswith(target, i)]
-print(*indices)
+
+for idx in indices:
+    print(idx, end=" ")
