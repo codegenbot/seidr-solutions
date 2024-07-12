@@ -12,8 +12,3 @@ bool is_palindrome(const std::string& text) {
     }
     return true;
 }
-
-int main() {
-    // Main function code (if needed)
-    return 0;
-}
