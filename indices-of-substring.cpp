@@ -15,9 +15,9 @@ vector<int> indicesOfSubstring(string text, string target) {
             while (j < m && i + j < n && text.substr(i, j) == target.substr(0, j)) {
                 j++;
             }
-            if (j == m) { 
+            if (j == m) { // we've found the full target
                 result.push_back(i);
-            } else { 
+            } else { // not a full match, try next position
                 i += j;
             }
         }
