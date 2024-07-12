@@ -1,16 +1,9 @@
-def remove_duplicates():
-    input_numbers = []
+```
+def remove_duplicates(input_numbers):
     unique_numbers = []
 
-    while True:
-        user_num = int(input("Enter an integer (or 'q' to quit): "))
+    for num in input_numbers:
+        if num not in unique_numbers:
+            unique_numbers.append(num)
 
-        if str(user_num).lower() == 'q':
-            break
-
-        if user_num not in unique_numbers:
-            unique_numbers.append(user_num)
-
-    return list(unique_numbers)
-
-remove_duplicates()
+    return list(set(unique_numbers))
