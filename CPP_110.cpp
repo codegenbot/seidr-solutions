@@ -17,26 +17,24 @@ int main() {
     for (int i = 0; i < n1; i++) {
         int temp;
         std::cout << "Enter element of lst1: ";
-        std::cin >> temp;
+        while (!(std::cin >> temp)) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> temp;
+        }
         lst1.push_back(temp);
     }
     while(true) {
         std::cout << "Enter the number of elements to fill lst2: ";
-        std::cin >> m1;
-        while(m1 < 0) { 
-            std::cout << "Please enter a positive integer: ";
-            while(std::cin.fail()) { 
-                std::cout << "Invalid input. Please enter a positive integer: ";
-                std::cin.clear();
-                std::cin.ignore(10000, '\n');
-                std::cin >> m1;
-            }
+        while (!(std::cin >> m1)) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> m1;
         }
         if (m2 < m1) {
-            // Handle the case when user input is less than expected
             std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
-        } else if(m1 > m2) {
-            break;
         } else {
             break;
         }
@@ -46,12 +44,15 @@ int main() {
     std::vector<int> lst2;
     for (int i = 0; i < m; i++) {
         int temp;
-        std::cout << "Enter element of lst2: ";
-        std::cin >> temp;
+        while (!(std::cin >> temp)) {
+            std::cout << "Invalid input. Please enter an integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> temp;
+        }
         lst2.push_back(temp);
     }
     if(lst2.size() != m) {
-        // Handle the case when user input is less than expected
         std::cout << "You need to enter " << m - lst2.size() << " more elements.\n";
     } else {
         std::string result = exchange(lst1, lst2);
