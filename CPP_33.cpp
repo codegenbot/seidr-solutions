@@ -1,33 +1,61 @@
-```cpp
+#include <iostream>
 #include <algorithm>
 #include <vector>
 
-std::size_type count_sameness(const std::vector<std::vector<int>>& vec) {
-    std::size_type total_count = 0;
+std::size_type sort_third(const std::vector<std::vector<int>>& vec) {
+    for (auto& v : vec) {
+        if (v.size() >= 3) {
+            std::sort(v.begin(), v.end());
+            auto it = std::unique_copy(v.begin(), v.end(), v.begin());
+            v.erase(it, v.end());
+        }
+    }
+    return 0;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter number of vectors: ";
+    std::cin >> n;
+
+    std::vector<std::vector<int>> vec(n);
+
+    for (auto& v : vec) {
+        int m;
+        std::cout << "Enter size of vector: ";
+        std::cin >> m;
+        v.resize(m);
+        for (int i = 0; i < m; ++i) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            std::cin >> v[i];
+        }
+    }
+
+    sort_third(vec);
+
     for (const auto& v : vec) {
-        bool is_same = false;
-        for (const auto& w : vec) {
-            if (issame(v, w)) {
-                is_same = true;
+        bool is_duplicate = false;
+        for (int i = 0; i < v.size() - 2; ++i) {
+            if (issame({v[i], v[i + 1], v[i + 2]}, {v[0], v[1], v[2]})) {
+                is_duplicate = true;
                 break;
             }
         }
-        if (!is_same) {
-            sort_third(v);
-            total_count++;
+        std::cout << "Vector is duplicate: ";
+        if (is_duplicate) {
+            std::cout << "true" << std::endl;
+        } else {
+            std::cout << "false" << std::endl;
         }
     }
-    return total_count;
+
+    return 0;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<int> sort_third(std::vector<int> v) {
-    std::sort(v.begin(), v.end());
-    for (int i = 1; i < v.size(); i += 2) {
-        std::swap(v[i - 1], v[i]);
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
-    return v;
+    return true;
 }
