@@ -1,9 +1,4 @@
-```
-a = int(input("Enter value of a: "))
-n = int(input("Enter value of n: "))
-p = int(input("Enter value of p: "))
-
-def power_mod(a, n, p):
+def power_mod(a: int, n: int, p: int):
     if n < 0:
         a = pow(a, -1, p)
     elif n > 1:
@@ -12,4 +7,11 @@ def power_mod(a, n, p):
         a = a % p
     return a
 
-print(power_mod(a, n, p))
+
+print(
+    power_mod(
+        int(input("Enter value of a: ")),
+        int(input("Enter value of n: ")),
+        int(input("Enter value of p: ")),
+    )
+)
