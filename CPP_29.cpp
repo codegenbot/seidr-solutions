@@ -1,30 +1,25 @@
-```
+```cpp
 #include <iostream>
-using namespace std;
+#include <vector>
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) { 
     std::vector<std::string> result; 
     for(auto s : strings){ 
-        if(s.find(prefix) == 0) 
+        if (!s.empty() && s.find(prefix) == 0) 
             result.push_back(s); 
     } 
     return result;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<string> strings;
-    for(int i = 0; i < n; i++){
-        string s;
-        cin >> s;
-        strings.push_back(s);
+int main(){
+    std::vector<std::string> strings = {"hello", "hi", "hey"};
+    std::string prefix = "h";
+    
+    std::vector<std::string> filteredStrings = filter_by_prefix(strings, prefix);
+
+    for(auto s : filteredStrings){
+        std::cout << s << "\n";
     }
-    string prefix;
-    cin >> prefix;
-    vector<string> result = filter_by_prefix(strings, prefix);
-    for(auto s : result){
-        cout << s << endl;
-    }
+
     return 0;
 }
