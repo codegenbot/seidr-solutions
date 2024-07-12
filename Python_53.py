@@ -1,6 +1,12 @@
-```
+    num1 = 0
+    num2 = 0
+
+num1 = 0
+num2 = 0
+
 def add(x: int, y: int):
     return x + y
+
 
 def main():
     while True:
