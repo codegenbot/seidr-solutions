@@ -1,9 +1,16 @@
+```
 def decode_cyclic():
-    n = int(input("Enter a number: "))
-    s = input(f"Enter a string of {3*n} characters: ")
+    s = input("Enter a string: ")
     result = []
     i = 0
     while i < len(s):
+        if len(s) - i < 3:
+            group = s[i:]
+            if len(group) == 1:
+                result.append(group[0])
+            else:
+                result.extend(list(group))
+            break
         group = s[i : i + 3]
         if len(group) == 1:
             result.append(group[0])
