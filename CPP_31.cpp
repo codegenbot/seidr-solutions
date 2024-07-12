@@ -13,7 +13,8 @@ bool is_prime(int num) {
 }
 
 int main() {
-    int num;
-    cin >> num;
+    string str_num;
+    cin >> str_num;
+    int num = stoi(str_num);
     cout << (is_prime(num) ? "True" : "False") << endl;
 }
