@@ -1,4 +1,3 @@
-float truncate_number(float number){
-    int integerPart = (int)number;
-    return number - (float)integerPart;
-}
+Here is the solution:
+
+return fmod(number, 1);
