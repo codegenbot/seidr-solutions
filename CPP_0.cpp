@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
-#include <cassert>
+#include <cmath>
 
 bool has_close_elements(const std::vector<float>& vec, float epsilon) {
-    for (int i = 0; i < vec.size() - 1; i++) {
-        if (std::abs(vec[i] - vec[i + 1]) <= epsilon) {
+    for (size_t i = 0; i < vec.size() - 1; ++i) {
+        if (std::abs(vec[i] - vec[i+1]) <= epsilon) {
             return true;
         }
     }
