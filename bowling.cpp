@@ -25,7 +25,6 @@ int main() {
             }
         } else if (s[i] == '/') {
             score += (10 - (s[i - 1] - '0'));
-            score += (s[i + 1] - '0');
         } else if (s[i] >= '0' && s[i] <= '9') {
             score += (s[i] - '0');
         }
