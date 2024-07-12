@@ -18,11 +18,7 @@ def process_paths():
                 "Please enter a valid path (e.g., 1-2) or multiple paths separated by commas."
             )
 
-    minPath = float('inf')  
-
+    minPath = min(min(path) for path in paths)
     for path in paths:
         print(f"Path is: {path}")
-        if len(path) < minPath:
-            minPath = len(path)
-
-    print(f"The shortest path has {minPath} nodes.")
+    return minPath
