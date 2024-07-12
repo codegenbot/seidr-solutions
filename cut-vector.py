@@ -4,21 +4,19 @@ arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = 0
 right_sum = total_sum
-min_diff = float('inf')
+min_diff = float("inf")
 cut_index = -1
 
 for i in range(1, n-1):
-    left_sum += arr[i-1]
-    right_sum -= arr[i-1]
+    left_sum += arr[i - 1]
+    right_sum -= arr[i - 1]
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
         cut_index = i
 
-subvector1 = arr[:cut_index+1]
-subvector2 = arr[cut_index+1:]
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 
-print(len(subvector1))
 print(*subvector1)
-print(len(subvector2))
 print(*subvector2)
