@@ -19,7 +19,6 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    // Remove the leading space
     if (!result.empty()) {
         result.erase(0, 1);
     }
@@ -31,13 +30,12 @@ int main() {
     std::string input;
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
-        std::cin >> input;  
-        if(std::cin.fail()){  
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-            continue;
+        std::getline(std::cin, input);
+
+        if (!input.empty()) { 
+            std::string output = camelCase(input);
+            std::cout << "Camel Case: " << output << std::endl; 
         }
-        std::cout << "Camel Case: " << camelCase(input) << std::endl; 
     }
     return 0;
 }
