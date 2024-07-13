@@ -6,29 +6,42 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res;
     
-    long long min_diff = LLONG_MAX;
-    for (int i = 1; i < n; i++) {
-        long long sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; j++) {
-            sum1 += v[j];
-        }
-        for (int j = i; j < n; j++) {
-            sum2 += v[j];
-        }
-        
-        long long diff = abs(sum1 - v[i]);
-        if (abs(sum1 - sum2) <= min_diff || i == 0) {
-            min_diff = abs(sum1 - sum2);
-            res.push_back(vector<int>(v.begin(), v.begin() + i));
-            res.push_back(vector<int>(v.begin() + i, v.end()));
-            return res;
-        }
+    long long sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += v[i];
     }
     
-    vector<int> left = v;
-    vector<int> right = v;
-    res.push_back(left);
-    res.push_back(right); // default case
+    long long leftSum = 0, rightSum = 0;
+    int left = 0, right = n - 1;
+    int leftMin = INT_MAX, rightMin = INT_MAX;
+
+    for (int i = 0; i < n; i++) {
+        leftSum += v[i];
+        
+        if (abs(leftSum - (sum - leftSum)) < leftMin) {
+            leftMin = abs(leftSum - (sum - leftSum));
+        }
+    }
+
+    for (int i = n - 1; i >= 0; i--) {
+        rightSum += v[i];
+        
+        if (abs(rightSum - (sum - rightSum)) < rightMin) {
+            rightMin = abs(rightSum - (sum - rightSum));
+        }
+    }
+
+    int cutIndex;
+    
+    if (leftMin > rightMin) {
+        cutIndex = right;
+    } else {
+        cutIndex = left;
+    }
+    
+    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
+    res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
+    
     return res;
 }
 
