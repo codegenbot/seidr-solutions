@@ -1,14 +1,19 @@
+#include <iostream>
+
 int main() {
     int n, m;
-    cin >> n >> m;
-    double res = 0.0;
-    for(int i=1; i<=n; i++) {
-        for(int j=1; j<=m; j++) {
-            if(i > j) {
-                res += 1.0/(n*m);
-            }
-        }
+    std::cin >> n >> m;
+    
+    double total_ways = static_cast<double>(n) * m;
+    double count = 0.0;
+    
+    for (int i = 1; i <= n; ++i) {
+        count += static_cast<double>(i - 1) * m;
     }
-    cout << fixed << setprecision(2) << res << endl;
+
+    double probability = count / total_ways;
+    
+    std::cout << probability << std::endl;
+    
     return 0;
 }
