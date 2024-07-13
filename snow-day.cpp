@@ -1,18 +1,24 @@
 #include <iostream>
 using namespace std;
 
-float snowDay(int hours, float groundSnow, float rate, float melt) {
-    return round((groundSnow + (rate * hours)) - ((melt * hours) > 0 ? (melt * hours) : 0));
+double snowDay(int hours, float initialSnow, float rateOfFall, float proportionMelting) {
+    double totalSnow = 0;
+    
+    for (int i = 0; i < hours; i++) {
+        totalSnow += rateOfFall;
+        totalSnow *= (1 - proportionMelting);
+    }
+    
+    return initialSnow + totalSnow;
 }
 
 int main() {
-    int h;
-    cin >> h;
-    float g, r, m;
-    cin >> g >> r >> m;
+    int hours;
+    float initialSnow, rateOfFall, proportionMelting;
 
-    cout << fixed << setprecision(6);
-    cout << snowDay(h, g, r, m) << endl;
+    cin >> hours >> initialSnow >> rateOfFall >> proportionMelting;
+
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfFall, proportionMelting);
 
     return 0;
 }
