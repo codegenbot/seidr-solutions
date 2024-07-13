@@ -1,3 +1,5 @@
+```
+```python
 import math
 
 
@@ -24,3 +26,7 @@ def main():
         except ValueError:
             print("Invalid input. Please enter an integer.")
     input("Press Enter when ready...")
+
+
+main()
+```
