@@ -1,8 +1,5 @@
-#include <openssl/ssl.h>
-#include <openssl/sha.h>
 #include <string>
-
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
     unsigned char md[MD5_DIGEST_LENGTH];
