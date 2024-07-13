@@ -1,27 +1,28 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
 std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> words;
-    std::stringstream ss(s);
-    std::string word;
-
-    while (getline(ss, word, '-')) {
-        if (!word.empty()) {
-            words.push_back(word);
-        }
-    }
-
-    for (int i = 0; i < words.size(); ++i) {
-        if (i > 0) {
-            result += " ";
-        }
-        for (char& c : words[i]) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
-                break;
+    std::stringstream ss;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == '-' || s[i] == ' ') {
+            while (i < s.size() && (s[i] == '-' || s[i] == ' ')) {
+                ++i;
             }
+            if (i < s.size()) {
+                ss << toupper(s[i]);
+            }
+        } else {
+            ss << tolower(s[i]);
         }
-        result += words[i];
     }
+    return ss.str();
+}
 
-    return result;
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
+    return 0;
 }
