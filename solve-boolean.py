@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
@@ -10,13 +11,12 @@ def solve_boolean(expression):
                     stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
                 stack.pop()
             else:
-                stack.append(True if char == 'T' else False)
+                stack.append('T' if char == 'T' else 'F')
         elif char in ops:
             while stack and (char == ')' or stack[-1] in ops):
                 if stack[-1] == '(':
                     break
                 stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
-            while stack:
-                if stack[-1] in '()':
-                    break
-                stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
+            stack.append(char)
+
+    return reduce(lambda x, y: ops[y](x, stack.pop()), [op for op in ops if op in stack], stack[-1])
