@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <vector>
 #include <iostream>
 #include <string>
@@ -34,6 +32,6 @@ int main() {
     vector<int> result = mastermind(code, guess);
     
     cout << "Black pegs: " << result[0] << endl;
-    cout << "White pegs: " << result[1] - black << endl;
+    cout << "White pegs: " << result[1] << endl;
     
     return 0;
