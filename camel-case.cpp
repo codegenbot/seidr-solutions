@@ -6,18 +6,26 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == '-') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+    for (int i = 0; i < s.size(); i++) {
+        if (i == 0 || s[i] == '-') {
+            if (s[i + 1] != ' ') {
+                if (!result.empty()) {
+                    result[0] = toupper(result[0]);
+                }
+                string word = s.substr(i + 1);
+                result += word;
+            } else {
+                int j = i + 1;
+                while (j < s.size() && s[j] == ' ') {
+                    j++;
+                }
+                if (!result.empty()) {
+                    result[0] = toupper(result[0]);
+                }
+                string word = s.substr(i + 1, j - i - 1);
+                result += word;
+                i = j;
             }
-            string word = s.substr(i + 1);
-            result += word;
-        } else if (s[i] == ' ') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += s[i];
         } else {
             result += s[i];
         }
@@ -26,7 +34,7 @@ string camelCase(string s) {
 }
 
 int main() {
-    string str = "";
+    string str;
     while (true) {
         cout << "Enter a string in kebab-case: ";
         getline(cin, str);
