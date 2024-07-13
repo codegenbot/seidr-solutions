@@ -1,6 +1,6 @@
 def make_palindrome(string: str) -> str:
     if not string:
-        return "a"  
+        return "a"
     prefix = string
     while not is_palindrome(prefix):
         prefix += "a"
