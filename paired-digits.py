@@ -1,2 +1,3 @@
+```
 def paired_digits(s):
-    return sum(int(digit) for digit in s if s[s.index(digit) + 1] == digit)
+    return sum(int(x) for i, x in enumerate(s) if (i + 1 < len(s) and s[i+1] == x))
