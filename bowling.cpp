@@ -1,23 +1,15 @@
-int bowling(string s) {
+int bowlingScore(string bowls) {
     int score = 0;
-    int prev_frame_score = 0;
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == 'X') {
-            score += 10 + prev_frame_score;
-            prev_frame_score = 10;
-        } else if(s[i] == '/') {
-            int rest = 10 - s[i+1] - s[i+2];
-            score += s[i-1] - '0' + prev_frame_score;
-            prev_frame_score = rest;
-            i++; // skip the '/'
+    bool firstBallInTurn = true;
+
+    for (char& bowl : bowls) {
+        if (bowl == '/') {
+            score += (firstBallInTurn ? 10 : 0);
+            firstBallInTurn = false;
         } else {
-            int this_frame_score = s[i] - '0';
-            if(prev_frame_score > 0) {
-                this_frame_score += prev_frame_score;
-                score += this_frame_score;
-                prev_frame_score = 0;
-            }
+            score += (int)bowl - 48; // convert char to int
         }
     }
+
     return score;
 }
