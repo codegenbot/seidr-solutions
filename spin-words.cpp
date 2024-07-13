@@ -1,42 +1,30 @@
-#include <iostream>
-#include <string>
-using namespace std;
+Here is the solution:
 
 string spinWords(string str) {
     string result = "";
-    string temp = "";
-    
-    for(int i=0; i<str.length(); i++) {
-        char c = str[i];
-        
-        if(c == ' ') {
-            if(temp.length() >= 5) {
-                reverse(temp.begin(), temp.end());
-                result += temp + " ";
-                temp = "";
-            } else {
-                result += temp + " ";
-                temp = "";
-            }
-        } else {
-            temp += c;
-        }
+    for (const auto &word : split(str, " ")) {
+        if (word.length() >= 5)
+            result += word.substr(word.length() - 1) + word.substr(0, word.length() - 1) + " ";
+        else
+            result += word + " ";
     }
-    
-    if(temp.length() >= 5) {
-        reverse(temp.begin(), temp.end());
-        result += temp;
-    } else {
-        result += temp;
-    }
-    
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+string split(const string &str, const string &delimiter) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(delimiter)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + delimiter.length());
+    }
+    tokens.push_back(str);
+    return join(tokens, " ");
+}
+
+string join(const vector<string> &strs, const string &delimiter) {
+    string result;
+    for (const auto &str : strs)
+        result += str + delimiter;
+    return result.substr(0, result.length() - delimiter.length());
 }
