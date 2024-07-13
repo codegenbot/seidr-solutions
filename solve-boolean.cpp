@@ -31,10 +31,8 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
     while (!operatorStack.empty()) {
-        char top = operatorStack.top();
-        operatorStack.pop();
-        if (top == '&') return false;
-        else if (top == '|') return true;
+        if (expression[0] == '&') return false;
+        else if (expression[0] == '|') return true;
     }
     return true; 
 }
