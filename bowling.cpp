@@ -1,12 +1,12 @@
-```
-#include <string>
-
-int bowlingScore(std::string s) {
+int bowlingScore(const char* s) {
+    if (!s[0]) {
+        return 0;
+    }
     int score = 0;
     int prevRoll = 0;
     bool isStrike = false;
 
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < strlen(s); i++) {
         if (s[i] == 'X') {
             score += 30;
             isStrike = true;
