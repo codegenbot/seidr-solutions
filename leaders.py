@@ -1,7 +1,2 @@
-```python
 def leaders(arr):
-    leader = [arr[-1]]
-    for i in range(len(arr)-2, -1, -1):
-        if arr[i] >= arr[i+1]:
-            leader.append(arr[i])
-    return reversed(leader)
+    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(arr[j] <= arr[i] for j in range(i+1, len(arr)))]
