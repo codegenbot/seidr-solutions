@@ -1,6 +1,6 @@
 def middle_character(s):
     length = len([c for c in s if c.isalnum()])
     if length % 2 == 0:
-        return s[length // 2 - 1 : length // 2 + 1].replace(" ", "$")
+        return s[length // 2 - 1 : length // 2 + 1].replace(" ", "")
     else:
-        return s[length // 2].replace(" ", "$")
+        return s[length // 2].replace(" ", "")
