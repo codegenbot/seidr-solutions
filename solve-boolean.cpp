@@ -1,8 +1,4 @@
-```cpp
-#include <stack>
-#include <string>
-
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool result = true;
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
