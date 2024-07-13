@@ -1,13 +1,11 @@
 #include <iostream>
 #include <cmath>
+#include <cstddef>
 
 int main() {
-    double startHeight, actualStartHeight;
-
-    // Get the input values from user
+    double startHeight, actualStartHeight, actualBouncinessIndex;
     std::cin >> startHeight >> actualStartHeight;
-    
-    double actualBouncinessIndex = (actualStartHeight / startHeight);
+    actualBouncinessIndex = (actualStartHeight / startHeight);
 
     double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
 
