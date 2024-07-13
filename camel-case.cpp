@@ -3,17 +3,14 @@ std::string camelCase(const std::string& str) {
     bool capitalize = true;
 
     for (char c : str) {
-        if (c == '-' && str.length() > 1 && str[0] != '-') { 
-            result += ' '; 
-            capitalize = true; 
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+        if (c == '-') {
+            result += ' ';
+            capitalize = true; // Capitalize the next character
         } else {
-            result += tolower(c);
+            result += (capitalize ? toupper(c) : tolower(c));
+            capitalize = false;
         }
     }
 
-    result.erase(0, result.find_first_of(' ') + 1); 
     return result;
 }
