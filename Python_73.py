@@ -1,6 +1,5 @@
-Here is the completed code:
-
-def arrayManipulation(arr):
+```
+def array_change(arr):
     n = len(arr)
     try:
         arr = list(map(int, ' '.join(map(str, arr)).split()))
