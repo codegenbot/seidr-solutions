@@ -1,6 +1,8 @@
-def check(numbers):
-    seen = set()
-    return [num for num in numbers if not (num in seen or seen.add(num)) and True][::-1]
+from collections import OrderedDict
 
-input_numbers = list(map(int, input().split()))
-print(check(input_numbers))
+def remove_duplicates(numbers):
+    return sorted(list(OrderedDict.fromkeys(map(int, numbers))))
+
+input_string = input("Enter the list of numbers separated by space: ")
+numbers = list(map(int, input_string.split()))
+print(remove_duplicates(numbers))
