@@ -5,22 +5,19 @@
 #include <algorithm>
 
 std::string spinWords(const std::string& input) {
-    std::vector<std::string> words;
     std::istringstream ss(input);
     std::string word;
 
-    while (ss >> word) {
+    std::string result;
+    
+    while (getline(ss, word, ' ')) {
         if (word.length() >= 5) {
             std::reverse(word.rbegin(), word.rend());
         }
-        words.push_back(word);
+        result += word + " ";
     }
 
-    std::stringstream result;
-    for (const auto& w : words) {
-        result << w << " ";
-    }
-    return result.str();
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
