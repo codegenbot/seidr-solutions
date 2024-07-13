@@ -1,6 +1,6 @@
 def search(lst):
     max_num = 0
     for num in lst:
-        if num > max_num and num > 0:
+        if num > max_num:
             max_num = num
-    return max_num or 0
+    return -1 if not max_num else max_num
