@@ -30,5 +30,4 @@ def find_closest_elements():
 
     return "Closest pair is: ({}, {}) with a difference of {}".format(*closest_pair, min_diff)
 
-
 print(find_closest_elements())
