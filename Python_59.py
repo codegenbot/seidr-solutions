@@ -11,13 +11,16 @@ def largest_prime_factor(n):
         i -= 1
     return n
 
-while True:
-    try:
-        num = input("Enter a number: ")
-        if not num.replace('.', '', 1).isdigit():
+
+def main():
+    while True:
+        num = input("Enter a number: ") or None
+        if not num.replace(".", "", 1).isdigit():
             print("Invalid input. Please enter an integer.")
             continue
         n = int(num)
         print(largest_prime_factor(n))
-    except (ValueError, EOFError):
-        print("Invalid input. Please enter an integer.")
+
+
+if __name__ == "__main__":
+    main()
