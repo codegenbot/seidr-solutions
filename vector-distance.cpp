@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 int main() {
     size_t n;
@@ -18,7 +19,7 @@ int main() {
     }
 
     float sum = 0.0;
-    for (size_t i = 0; i < std::min(n, m); ++i) {
+    for (size_t i = 0; i < std::max(n, m); ++i) {
         float diff = vec1[i] - vec2[i];
         sum += diff * diff;
     }
