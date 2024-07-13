@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -11,14 +10,14 @@ int main() {
     cin >> m;
 
     double sum = 0.0;
-    for(int i = 1; i < m; i++) {
-        double prob = (n-i) / (double)n - ((m-i+1) / (double)m);
+    ostringstream oss; 
+    oss << fixed;
+    for(int i = 1; i < n && i <= m; i++) {
+        double prob = (n - i) / (double)n - (m - i + 1) / (double)m;
         sum += prob;
-        cout << fixed;
-        cout << setprecision(10);
-        cout << prob << " "; 
+        oss << setprecision(10) << prob << " "; 
     }
-    cout << endl;
+    cout << oss.str() << endl;
 
     return 0;
 }
