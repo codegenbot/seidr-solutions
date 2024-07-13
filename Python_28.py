@@ -1,6 +1,8 @@
 from typing import List
 
-def concatenate(*args) -> str:
+def concatenate(*args: str) -> str:
+    if not args:
+        return "No input provided"
     result = ", ".join(args)
     return result
 
