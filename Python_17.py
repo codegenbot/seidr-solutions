@@ -1,7 +1,8 @@
-def parse_music(s):
+```
+def process_music(s):
     s = s.lower()
     words = s.split()
-    processed_words = [word.replace("-", " ") for word in words]
+    processed_words = [word.replace("-", " ").replace("o", "oh") for word in words]
     output = ' '.join(processed_words)
     return output
-print(parse_music("Hello o-o World!"))
+print(process_music("Hello o-o World!"))
