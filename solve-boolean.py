@@ -1,13 +1,32 @@
-def solve_boolean(input_str):
-    if input_str == "t":
+def solve_boolean(expression):
+    if expression == "t":
         return True
-    elif input_str == "f":
+    elif expression == "f":
         return False
-    elif "&" in input_str and "|" in input_str:
-        raise ValueError("Invalid expression")
-    elif "&" in input_str:
-        a, b = input_str.split("&")
-        return not (bool(a) and bool(b))
-    elif "|" in input_str:
-        a, b = input_str.split("|")
-        return bool(a) or bool(b)
+    else:
+        stack = []
+        operators = []
+        for char in expression:
+            if char in ["&", "|"]:
+                while operators and operators[-1] != "(":
+                    op = operators.pop()
+                    val2 = stack.pop()
+                    val1 = stack.pop()
+                    if op == "&":
+                        stack.append(val1 and val2)
+                    else:
+                        stack.append(val1 or val2)
+                operators.append(char)
+            elif char == "(":
+                operators.append(char)
+            elif char in ["t", "f"]:
+                stack.append(eval(char.lower() == 't'))
+        while operators:
+            op = operators.pop()
+            val2 = stack.pop()
+            val1 = stack.pop()
+            if op == "&":
+                stack.append(val1 and val2)
+            else:
+                stack.append(val1 or val2)
+        return stack[0]
