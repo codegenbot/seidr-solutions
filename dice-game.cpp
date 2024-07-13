@@ -5,11 +5,14 @@ double diceGame(int n, int m) {
     double total = 0;
     
     // Calculate probability where Peter's roll equals Colin's
-    for (int i = min(m, n - 1) + 1; i <= n; i++) {
-        total += (double)(i - min(m, n - 1)) / (n * m);
-    }
+    double equalRollsProbability = min(m, n - 1) / (n * m);
+
+    // Calculate probability where Colin's roll is strictly lower than Peter's
+    double higherThanEqualRollsProbability = (double)(n - 1) / n;
+
+    total += equalRollsProbability;
     
-    return 1.0 - total;
+    return 1.0 - total; 
 }
 
 int main() {
