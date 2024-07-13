@@ -1,11 +1,15 @@
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = std::floor((double)i / 3);
-        if (temp >= 2) {
-            temp -= 2;
-        }
-        sum += temp;
+        double temp = std::floor((double)i / 3);
+        sum += temp >= 3 ? temp - 2 : 0;
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> v = {9998, 5167};
+    int result = fuelCost(v);
+    std::cout << "The total cost is: " << result << std::endl;
+    return 0;
 }
