@@ -1,8 +1,3 @@
-#include <string>
-#include <vector>
-
-using namespace std;
-
 int mastermind(string code, string guess) {
     vector<char> chars = {'0', '1', '2', '3', '4', '5'};
     
@@ -29,11 +24,11 @@ int mastermind(string code, string guess) {
         for(int j = 0; j < 6; j++) {
             if(code[j] == guess[i]) {
                 count++;
-                codeCount[distance(chars.begin(), find(chars.begin(), chars.end(), code[i]))]--;
+                codeCount[static_cast<int>(std::distance(std::begin(chars), std::find(std::begin(chars), std::end(chars), code[0])))]--;
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)codeCount[distance(chars.begin(), find(chars.begin(), chars.end(), code[i]))]);
+        white += min(count, static_cast<int>(std::distance(std::begin(chars), std::find(std::begin(chars), std::end(chars), code[0]))));
     }
 
     return black + white;
