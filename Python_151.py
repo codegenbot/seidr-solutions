@@ -1,16 +1,16 @@
 ```
 def double_the_difference(lst):
-    if len(lst) > 0:
+    if len(lst) > 1:
         return (max(lst) - min(lst)) * 2
     else:
-        return "No numbers entered. Please enter at least one number."
+        return "No numbers entered. Please enter at least two numbers."
 
 def check():
     while True:
-        a, b = input("Enter first and second set of numbers (space-separated): ").split()
-        numbers = list(map(int, [a] + b.split()))
-        break
-
-    print(double_the_difference(numbers))
-
-check()
+        input_str = input("Enter first and second set of numbers (space-separated): ")
+        try:
+            numbers = list(map(int, input_str.split()))
+            print(double_the_difference(numbers))
+            break
+        except ValueError:
+            print("Invalid input. Please enter space-separated numbers.")
