@@ -11,7 +11,7 @@ def bowling_score(game):
             frame_score = sum(int(x) for x in reversed([c for c in game[i:i+3][::-1] if c.isdigit()]))
             score += frame_score
         else:
-            first_roll = int(game[i])
+            first_roll = int(game[i]) if game[i].isdigit() else 0
             if i < len(game) - 1 and game[i + 1].isdigit():
                 second_roll = int(game[i + 1])
             else:
