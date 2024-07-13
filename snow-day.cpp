@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int hours;
@@ -11,7 +12,7 @@ int main() {
         snow_on_ground += snow_added - snow_melted; // update snow on the ground
     }
 
-    std::cout << snow_on_ground << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << snow_on_ground << std::endl;
 
     return 0;
 }
