@@ -12,7 +12,7 @@ vector<int> cutVector(vector<int> v) {
         }
     }
     
-    return {vector<int>(v.begin(), v.begin()+cutIndex), vector<int>(v.begin()+cutIndex, v.end())};
+    return {{v.begin(), v.begin()+cutIndex}, {v.begin()+cutIndex, v.end()}};
 }
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
     cin >> n;
     vector<int> v(n);
     for (auto &x : v) cin >> x;
-    vector<int> res = cutVector(v);
+    vector<pair<vector<int>, vector<int>>> res = cutVector(v);
     for (const auto &x : res[0]) cout << x << " ";
     cout << endl;
     for (auto it = res[1].begin(); it != res[1].end(); ++it) {
