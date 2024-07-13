@@ -1,20 +1,26 @@
 #include <iostream>
-#include <iomanip>
 
-double diceGame(int n, int m) {
-    double sum = 0.0;
-    for (int i = 1; i <= n && i < m; i++) {
-        sum += 1.0 / m;
+double probability(int n, int m) {
+    double total = (double)n * m;
+    double p = 0.0;
+
+    for (int i = 1; i < n; i++) {
+        p += (double)i / total;
     }
-    for (int i = m + 1; i <= n; i++) {
-        sum += 1.0 / n;
-    }
-    return sum;
+
+    return p;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
+    std::cin >> n >> m;
+    
+    double result = probability(n, m);
+    for(int i = 1; i <= m; i++){
+        if(i < n)result+= (double)(n-i)/(double)n/m;
+        else break;
+    }
+    std::cout << "The probability is: " << result << std::endl;
+    
     return 0;
 }
