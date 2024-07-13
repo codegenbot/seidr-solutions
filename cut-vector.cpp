@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
         return {{}, {}};
