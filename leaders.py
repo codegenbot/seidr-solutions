@@ -1,9 +1,11 @@
 def leaders(arr):
     n = len(arr)
-    leaders = [arr[n - 1]]
-    max_so_far = arr[n - 1]
+    max_seen = arr[n - 1]
+    leaders = [max_seen]
     for i in range(n-2, -1, -1):
-        if arr[i] >= max_so_far:
+        if arr[i] >= max_seen:
+            while not (arr[i] >= leaders[-1]):
+                leaders.pop()
             leaders.append(arr[i])
-            max_so_far = arr[i]
-    return list(reversed(leaders))
+            max_seen = arr[i]
+    return leaders[::-1]
