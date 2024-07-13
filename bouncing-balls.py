@@ -1,13 +1,18 @@
-bounciness_index = lambda s, f: (f / s)
+def bouncing_balls():
+    start_height = float(input())
+    first_bounce_height = float(input())
+    num_bounces = int(input())
+
+    bounciness_index = first_bounce_height / start_height
+
+    total_distance = 0
+    for _ in range(num_bounces):
+        total_distance += math.log(start_height) + math.log(bounciness_index)
+        start_height *= bounciness_index
+        if start_height < 0.001:
+            break
+
+    return f"{total_distance:.4f}"
 
 
-def calculate_total_distance(s, f, n):
-    bi = bounciness_index(s, f)
-    return round((1 - math.pow(bi, -n)) * s / (bi**2), 4)
-
-
-s = float(input())
-f = float(input())
-n = int(input())
-
-print(calculate_total_distance(s, f, n))
+print(bouncing_balls())
