@@ -1,18 +1,24 @@
 string anti_shuffle(string s){
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += ' ';
-        }else{
-            string temp = "";
-            for(int j=i; j<s.length() && s[j] != ' '; j++){
-                temp += s[j];
-            }
-            for(char c : temp){
-                result += (char)tolower(c);
-            }
-            i += temp.length() - 1;
+    size_t pos = 0;
+    while((pos = s.find(' ')) != string::npos){
+        string word = s.substr(0, pos);
+        string new_word = "";
+        for(char c : word) {
+            new_word += (char)tolower(c);
         }
+        result += new_word + " ";
+        s.erase(0, pos+1);
+    }
+    if(s.length() > 0) {
+        string last_word = s;
+        string new_last_word = "";
+        for(char c : last_word) {
+            new_last_word += (char)tolower(c);
+        }
+        result += new_last_word;
+    } else {
+        result = s;
     }
     return result;
 }
