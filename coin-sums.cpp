@@ -5,27 +5,32 @@ int main() {
     int cents;
     cin >> cents;
     
-    int coins25 = cents / 25; 
+    int coins25 = cents / 25; // quarters
     cents %= 25;
     
-    int coins10 = cents / 10; 
+    int coins10 = cents / 10; // dimes
     cents %= 10;
     
-    int coins5 = cents / 5; 
+    int coins5 = cents / 5; // nickels
     cents %= 5;
     
-    int coins1 = cents; 
-
-    cout << "Coins: " << coins25 << " quarters" << endl;
-    if(coins25 > 0) cout << coins25 << " remaining\n";
+    int coins1 = cents; // pennies
     
-    cout << "Dimes: " << coins10 << endl;
-    if(coins10 > 0) cout << coins10 << " remaining\n";
+    cout << "Quarters: " << coins25 << endl;
+    if (coins10 > 0)
+        cout << "Dimes: " << coins10 << endl;
+    else 
+        cout << "Dimes: 0" << endl;
     
-    cout << "Nickels: " << coins5 << endl;
-    if(coins5 > 0) cout << coins5 << " remaining\n";
-    
-    cout << "Pennies: " << coins1 << endl;
+    if (coins5 > 0)
+        cout << "Nickles: " << coins5 << endl;
+    else
+        cout << "Nickles: 0" << endl;
+        
+    if (coins1 > 0)
+        cout << "Pennies: " << coins1 << endl;
+    else
+        cout << "Pennies: 0" << endl;
     
     return 0;
 }
