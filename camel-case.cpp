@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,16 +23,17 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 }
 
 std::string camelCase(const std::string& str) {
+    std::vector<std::string> segments = split(str, '-');
     std::string result;
-    bool capitalize = true;
 
-    for (const auto& segment : split(str, '-')) {
-        if (!segment.empty()) {
-            if (capitalize)
-                result += toupper(segment[0]);
-            else
-                result += segment.substr(1);
-            capitalize = !capitalize;
+    for (int i = 0; i < segments.size(); i++) {
+        if (!result.empty()) {
+            result += toupper(segments[i][0]);
+        } else {
+            result += segments[i];
+        }
+        if (i < segments.size() - 1) {
+            result += segments[i].substr(1);
         }
     }
 
