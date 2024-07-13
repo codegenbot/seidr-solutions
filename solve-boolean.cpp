@@ -1,9 +1,9 @@
 #include <stack>
 #include <string>
 
-bool solveBoolean(string expression) {
-    stack<char> opStack;
-    stack<bool> valStack;
+bool solveBoolean(std::string expression) {
+    std::stack<char> opStack;
+    std::stack<bool> valStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -18,10 +18,6 @@ bool solveBoolean(string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                valStack.pop();
-            }
             valStack.pop();
         }
     }
@@ -29,8 +25,7 @@ bool solveBoolean(string expression) {
     while (!opStack.empty()) {
         switch(opStack.top()) {
             case '|': 
-                valStack.push(valStack.top());
-                valStack.pop();
+                valStack.pop();  
                 break;
             case '&':
                 valStack.pop() &&= valStack.pop();
