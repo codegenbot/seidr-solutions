@@ -24,9 +24,4 @@ int luhn(vector<int> digits) {
     return sum;
 }
 
-int main() { 
-    vector<int> digits = {4,3,2,1,8,7,6,5};
-    int result = luhn(digits);
-    cout << "The credit card number is valid with a Luhn check if the sum is 0. The sum of the new digits is: " << result;
-    return 0;
-}
+int main() { return luhn({4,2,8,6,1,7,5,3,9,8,4,2,8,3,7,1}); }
