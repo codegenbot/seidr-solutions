@@ -1,7 +1,4 @@
 ```
-#include <stack>
-using namespace std;
-
 bool evaluateBooleanExpression(string expression) {
     stack<char> ops;
     stack<bool> values;
