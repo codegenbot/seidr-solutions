@@ -1,47 +1,41 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<vector<int>> res;
+vector<vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    for (int i = 1; i < n; i++) {
-        if ((vec[i] - vec[0]) == (vec[n-1] - vec[i-1])) {
-            res.push_back({vec.begin(), vec.end()});
-            return {{}, {}};
+    for(int i=1; i<v.size(); i++) {
+        int diff = abs(v[i-1] - v[i]);
+        if(diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    int min_diff = INT_MAX;
-    int cut_idx = 0;
+    vector<vector<int>> result(2);
+    result[0].resize(cutIndex);
+    result[1].resize(v.size() - cutIndex);
     
-    for (int i = 1; i < n; i++) {
-        int diff = abs(vec[i] - vec[0]) - abs(vec[n-1] - vec[i-1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
-        }
-    }
+    copy(v.begin(), v.begin() + cutIndex, result[0].begin());
+    copy(v.begin() + cutIndex, v.end(), result[1].begin());
     
-    res.push_back({vec.begin(), vec.begin() + cut_idx});
-    res.push_back({vec.begin() + cut_idx, vec.end()});
-    
-    return res;
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+    vector<int> v(n);
+    for(int i=0; i<n; i++) {
+        cin >> v[i];
     }
     
-    vector<vector<int>> result = cutVector(vec);
+    vector<vector<int>> res = cutVector(v);
     
-    for (auto v : result) {
-        for (int num : v) {
-            cout << num << " ";
+    for(auto &v : res) {
+        for(int x : v) {
+            cout << x << " ";
         }
         cout << endl;
     }
