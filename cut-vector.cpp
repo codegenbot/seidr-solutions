@@ -1,36 +1,32 @@
 int main() {
-    vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    vector<int> vec;
+    int n, sum = 0, half;
+    cin >> n;
+    vec.resize(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
+        sum += vec[i];
     }
-    
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = 0;
-    int rightSum = totalSum;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < nums.size(); ++i) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff || (diff == minDiff && cutIndex == -1)) {
-            minDiff = diff;
-            cutIndex = i;
+    half = sum / 2;
+    int currSum = 0, idx = -1;
+    for (int i = 0; i < n; ++i) {
+        currSum += vec[i];
+        if (currSum >= half) {
+            idx = i;
+            break;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; ++i) {
-        cout << nums[i] << endl;
+    if (abs(sum - 2 * currSum) < abs(sum - 2 * (currSum - vec[idx]))) {
+        for (int i = 0; i <= idx; ++i) {
+            cout << vec[i] << endl;
+        }
+        cout << sum - currSum << endl;
+    } else {
+        for (int i = 0; i < idx; ++i) {
+            cout << vec[i] << endl;
+        }
+        cout << sum - (currSum - vec[idx]) << endl;
     }
-    cout << 0 << endl;
-    for (int i = cutIndex + 1; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
-    }
-    cout << 0 << endl;
     
     return 0;
 }
