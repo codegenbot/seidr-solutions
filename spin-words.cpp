@@ -17,11 +17,8 @@ std::string spinWords(const std::string& input) {
     }
 
     std::stringstream result;
-    for (std::vector<std::string>::iterator it = words.begin(); it != words.end(); ++it) {
-        result << *it;
-        if (it + 1 != words.end()) {
-            result << " ";
-        }
+    for (const auto& word : words) {
+        result << word << " ";
     }
 
     return result.str();
