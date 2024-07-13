@@ -1,4 +1,4 @@
-```
+```Python
 def has_close_elements():
     numbers = input("Enter space-separated floating point numbers: ")
     threshold = float(input("Enter a threshold value: "))
@@ -14,13 +14,13 @@ def has_close_elements():
             print("At least two numbers are required to check for close elements.")
             return False
 
-        for i in range(len(nums)-1):
-            for j in range(i+1, len(nums)):
-                if abs(nums[i] - nums[j]) <= threshold:
-                    return True
+        for i in range(1, len(nums)):
+            if abs(nums[i] - nums[i-1]) <= threshold:
+                return True
         return False
     except ValueError as e:
         print(f"Invalid input: {e}. Please enter valid space-separated floating point numbers.")
         return False
 
-print(has_close_elements())
+if __name__ == "__main__":
+    has_close_elements()
