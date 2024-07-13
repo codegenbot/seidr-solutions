@@ -4,7 +4,7 @@ int main() {
     int num_bounces;
 
     std::cin >> start_height >> first_bounce_height >> num_bounces;
-
+    
     bounciness_index = first_bounce_height / start_height;
     total_distance = start_height + first_bounce_height;
 
