@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 using namespace std;
 
-string intToMiniRoman(int n) {
+std::string intToMiniRoman(int n) {
     if (n <= 0)
         return "";
     else if (n >= 1000) {
@@ -68,6 +69,10 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    cout << intToMiniRoman(n) << endl;
+    if(n<1) {
+        cout << "Error: Please enter a positive integer." << endl;
+    } else {
+        cout << intToMiniRoman(n) << endl;
+    }
     return 0;
 }

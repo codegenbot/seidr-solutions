@@ -27,7 +27,8 @@ int mainFunction() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
-    if (!issame({{"aaaa", "bbbb", "dd", "cc"}}, {{"cc","dd","aaaa","bbbb"}}))
+
+    if (!issame(std::vector<std::string>({"aaaa", "bbbb", "dd", "cc"}), {{"cc","dd","aaaa","bbbb"}}))
         return 1;
     return 0;
 }
