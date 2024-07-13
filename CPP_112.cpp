@@ -1,16 +1,12 @@
 #include <vector>
 #include <algorithm>
-using namespace std;
+#include <string>
 
-bool issame(vector<string> v1, vector<string> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
-vector<string> reverse_delete(string s, string c) {
+std::vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (int i = 0; i < s.length(); i++) {
