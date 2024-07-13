@@ -1,3 +1,4 @@
+```
 from math import sqrt
 import sys
 
@@ -29,13 +30,12 @@ def main():
                     break
                 else:
                     print("Invalid input. Please enter 'y' or 'n'.")
-                    cont = input("Please try again: ")
+                    print("Please try again.")
+                input()
+                sys.stdin.readline()
             if cont.lower() != "y":
                 break
         except ValueError:
             print("Invalid input. Please enter an integer value.")
     print("Program ended.")
-
-
-if __name__ == "__main__":
-    main()
+    input("Press any key to exit...")
