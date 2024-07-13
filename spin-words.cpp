@@ -1,4 +1,3 @@
-```cpp
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -8,14 +7,16 @@ string spinWords(string str) {
             if (wordLength >= 5) {
                 string reversedWord = "";
                 for(int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += str[wordLength-1-j];
+                    reversedWord += str[i + j];
                 }
                 result.append(reversedWord).append(" ");
-            } else
+                i += wordLength + 1;
+            } else {
                 result.append(str.substr(i - wordLength, wordLength)).append(" ");
-            i++;
+                i++;
+            }
         } else 
             i++;
     }
-    return result;
+    return result.trim();
 }
