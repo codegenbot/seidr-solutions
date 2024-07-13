@@ -5,8 +5,15 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
-text = input("Enter your text: ").strip()
-if ' ' in text:
-    print(fix_spaces(text))
-else:
-    print(text)
+def main():
+    while True:
+        text = input("Enter your text (or 'q' to quit): ").strip()
+        if text.lower() == 'q':
+            break
+        if ' ' in text:
+            print(fix_spaces(text))
+        else:
+            print(text)
+
+if __name__ == "__main__":
+    main()
