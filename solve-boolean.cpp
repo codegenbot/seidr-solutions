@@ -18,12 +18,20 @@ bool solveBoolean(string s) {
             continue;
         }
         if (s[i] == '(') {
-            int j = i + 1;
-            while (j < s.length() && s[j] != ')')
-                j++;
-            bool temp = solveBoolean(s.substr(i+1, j - i - 1));
-            res = (s[i-1] == '&') ? (res & temp) : (res | temp);
-            i = j;
+            i++;
+            bool temp = solveBoolean(s.substr(i));
+            i += temp ? s.find(')') : s.find('&', i);
+        } else if (s[i] == ')') {
+            return res;
+        } else if (s[i] == '&') {
+            res &= solveBoolean(s.substr(i+1));
+            i = s.find(')', i);
+        } else if (s[i] == '|') {
+            bool temp = solveBoolean(s.substr(i+1));
+            if (!temp) {
+                return false;
+            }
+            i = s.find(')', i);
         }
     }
     return res;
