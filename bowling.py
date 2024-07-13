@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     frame_num = 1
@@ -30,4 +29,4 @@ def bowling_score(frames):
     return score
 
 frames = input("Enter the frames (e.g., 'X', '/'): ")
-print(bowling_score(frames))
+print(bowling_score(f"{frames}"))
