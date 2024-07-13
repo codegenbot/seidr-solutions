@@ -1,3 +1,4 @@
+```cpp
 std::string camelCase(std::string str) {
     std::string result = "";
     bool isNextUpper = false;
