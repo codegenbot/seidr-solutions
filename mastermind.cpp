@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int mastermind(string code, string guess) {
@@ -19,7 +20,7 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if(count > 0) white += count - 1;
+        if(count > 1) white += count - 1;
     }
 
     return black + white;
