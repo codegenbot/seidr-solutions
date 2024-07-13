@@ -1,8 +1,12 @@
-string squareDigits(string n) {
-    string res = "";
-    for(int i=0; i<n.length(); i++) {
-        int digit = (n[i] - '0');
-        res += to_string(digit * digit);
+#include <string>
+using namespace std;
+
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
+        int digit = c - '0';
+        long long squared = (long long)digit * digit;
+        output += to_string(squared);
     }
-    return res;
+    return output;
 }
