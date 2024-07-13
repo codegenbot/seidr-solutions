@@ -1,7 +1,20 @@
-Here is the completed code:
+#include <bits/stdc++.h>
+using namespace std;
+
+bool issame(string s1, string s2)
+{
+    if(s1.length() != s2.length())
+        return false;
+    for(int i = 0; i < s1.length(); i++)
+    {
+        if(s1[i] != s2[i])
+            return false;
+    }
+    return true;
+}
 
 vector<string> reverse_delete(string s, string c) {
-    vector<char> v;
+    string temp = "";
     for (char x : s) {
         bool flag = false;
         for (char y : c) {
@@ -10,19 +23,18 @@ vector<string> reverse_delete(string s, string c) {
                 break;
             }
         }
-        if (!flag)
-            v.push_back(x);
+        if (!flag) {
+            temp += x;
+        }
     }
-    string result = "";
-    for (char x : v) {
-        result += x;
-    }
-    
-    string temp = result;
-    reverse(temp.begin(), temp.end());
-    if (result == temp) {
-        return {result, "True"};
-    } else {
-        return {result, "False"};
-    }
+    vector<string> result;
+    string str1 = temp;
+    reverse(str1.begin(), str1.end());
+    string str2 = temp;
+    if (issame(str1, str2))
+        result.push_back("True");
+    else
+        result.push_back("False");
+    result.push_back(temp);
+    return result;
 }
