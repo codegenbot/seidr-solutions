@@ -5,4 +5,4 @@ def snow_day(hours, initial_snow, rate_of_snowfall, melt_rate):
         new_snow = current_snow + rate_of_snowfall - (current_snow * melt_rate)
         total_snow += new_snow
         current_snow = new_snow
-    return round(total_snow, 2)
+    return round(total_snow, 10)
