@@ -1,8 +1,5 @@
-#include <string>
-#include <stack>
-
-bool solveBoolean(string expression) {
-    stack<char> s;
+bool solveBoolean(std::string expression) {
+    std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             while (!s.empty() && s.top() != '&') {
@@ -23,4 +20,8 @@ bool solveBoolean(string expression) {
             return false;
         }
     }
+    while (!s.empty()) {
+        s.pop();
+    }
     return true;
+}
