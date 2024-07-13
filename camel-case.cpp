@@ -2,28 +2,30 @@
 #include <string>
 
 std::string camelCase(std::string str) {
-    str.erase(0, str.find_first_not_of(' ')); // Remove leading space(s)
-    str.erase(0, str.find('-')); // Remove leading hyphen(s)
+    // Remove leading space(s)
+    str.erase(0, str.find_first_not_of(' '));
 
     std::string result = "";
     bool isNextUpper = false;
     for (char c : str) {
-        if (c == '-' || c == ' ') {
-            if (!isNextUpper && c != '-') {
-                result += std::toupper(c);
-                isNextUpper = true;
-            } else if (c == '-') {
-                continue;
+        if (c == '-') {
+            continue; 
+        } else if (c == ' ') {
+            if (!isNextUpper) { 
+                result += ' ';
             }
-            if (c == ' ') {
-                if (result.back() != ' ') { // Add space only if not already present
-                    result += ' ';
-                }
-                isNextUpper = false;
-            }
+            isNextUpper = false;
         } else {
-            result += c; 
-            isNextUpper = (c >= 'A' && c <= 'Z'); 
+            if (!isNextUpper) {
+                if (result.empty()) { 
+                    result += std::toupper(c);
+                } else {
+                    result += c;
+                }
+                isNextUpper = true;
+            } else {
+                result += std::tolower(c);
+            }
         }
     }
     return result;
