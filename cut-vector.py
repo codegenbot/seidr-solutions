@@ -1,21 +1,19 @@
 n = int(input())
-numbers = []
-for _ in range(n):
-    numbers.append(int(input()))
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(numbers)
+total_sum = sum(nums)
 half_sum = total_sum // 2
-left_sum = 0
-cut_index = 0
-
-for i in range(n):
-    left_sum += numbers[i]
-    if left_sum >= half_sum:
-        cut_index = i
+curr_sum = 0
+index = 0
+for i, num in enumerate(nums):
+    curr_sum += num
+    if curr_sum >= half_sum:
+        index = i
         break
 
-left_subvector = numbers[: cut_index + 1]
-right_subvector = numbers[cut_index + 1 :]
-
-print(*left_subvector)
-print(*right_subvector)
+if curr_sum - half_sum < half_sum - (curr_sum - num):
+    print(nums[: index + 1])
+    print(nums[index + 1 :])
+else:
+    print(nums[:index])
+    print(nums[index:])
