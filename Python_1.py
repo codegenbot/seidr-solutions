@@ -1,24 +1,21 @@
-```
-from typing import List
+def separate_paren_groups(paren_string: str) -> list[str]:
+    def find_group(s):
+        stack = []
+        groups = []
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            elif c == ')':
+                if stack:
+                    stack.pop()
+                else:
+                    group = ''
+                    while stack:
+                        group += ')'
+                        stack.pop()
+                    groups.append(group + '(' + c)
+        return groups
 
-def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
-    stack = []
-    temp = ''
-    
-    for char in paren_string:
-        if char == ' ':
-            continue
-        if char == '(':
-            stack.append(char)
-            temp += char
-        elif char == ')':
-            if stack and stack[-1] == '(':
-                stack.pop()
-                temp += char
-                result.append(temp)
-                temp = ''
-    
-    return result
-
-print(separate_paren_groups(input("Enter string of parentheses: ")))
+    s = paren_string.replace(" ", "")
+    groups = find_group(s)
+    return groups
