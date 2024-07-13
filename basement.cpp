@@ -6,5 +6,5 @@ int basement(const vector<int>& nums) {
             return i;
         }
     }
-    return 0;
+    return -1;
 }
