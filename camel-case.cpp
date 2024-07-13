@@ -1,10 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
-    str.erase(0, str.find_first_not_of(' ')); // Remove leading space(s)
-    str.erase(0, str.find('-')); // Remove leading hyphen(s)
-
     std::string result = "";
     bool isNextUpper = false;
     for (char c : str) {
@@ -16,9 +14,7 @@ std::string camelCase(std::string str) {
                 continue;
             }
             if (c == ' ') {
-                if (result.back() != ' ') { // Add space only if not already present
-                    result += ' ';
-                }
+                result += ' ';
                 isNextUpper = false;
             }
         } else {
@@ -34,9 +30,9 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string input;
+    std::string userString;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
+    std::getline(std::cin, userString);
+    std::cout << camelCase(userString) << std::endl;
     return 0;
 }
