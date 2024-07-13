@@ -7,6 +7,7 @@ def sum_squares(lst):
     return total_sum
 
 while True:
+    print("Please enter a list of integers, separated by spaces.")
     user_input = input()
     try:
         lst = list(map(int, user_input.split()))
