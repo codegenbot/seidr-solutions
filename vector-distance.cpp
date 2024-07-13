@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <iomanip>
 
 int main() {
     size_t n;
@@ -19,13 +20,13 @@ int main() {
     }
 
     float sum = 0.0;
-    for (size_t i = 0; i < std::max(n, m); ++i) {
+    for (size_t i = 0; i < std::min(n, m); ++i) {
         float diff = vec1[i] - vec2[i];
         sum += diff * diff;
     }
 
     float result = std::sqrt(sum);
-    std::cout << std::fixed << result << std::endl;
+    std::cout << std::setprecision(12) << result << std::endl;
 
     return 0;
 }
