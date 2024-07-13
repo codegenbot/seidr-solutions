@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
@@ -6,7 +8,8 @@ int calculateFuelCost(vector<int> numbers) {
     for (int num : numbers) {
         int result = (num / 3);
         if (result > 0) {
-            total += --result;
+            --result;
+            total += result;
         }
     }
     return total;
