@@ -1,26 +1,29 @@
 int score(string s) {
-    int res = 0, frame = 0, i = 0;
-    while (frame < 10) {
+    int totalScore = 0;
+    int rolls = 0;
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
-            res += 10 + (s[i + 1] == 'X' ? 10 + (s[i + 2] == 'X' ? 10 : (s[i + 2] - '0')) : (s[i + 1] == '/' ? 10 : (s[i + 1] - '0') + (s[i + 2] == '/' ? 10 : (s[i + 2] - '0'))));
-            i++;
-        } else if (s[i + 1] == '/') {
-            res += 10;
-            res += s[i + 2] == 'X' ? 10 : (s[i + 2] - '0');
-            i += 2;
+            totalScore += 10;
+            totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - (s[i + 1] - '0') : s[i + 1] - '0' + s[i + 2] - '0';
+            rolls++;
+        } else if (s[i] == '/') {
+            totalScore += 10 - (s[i - 1] - '0');
+            totalScore += (s[i + 1] == 'X') ? 10 : s[i + 1] - '0';
+            rolls += 2;
+        } else if (s[i] == '-') {
+            totalScore += 0;
         } else {
-            res += s[i] == '-' ? 0 : (s[i] - '0');
-            res += s[i + 1] == '-' ? 0 : (s[i + 1] - '0');
-            i += 2;
+            totalScore += s[i] - '0';
+            rolls++;
         }
-        frame++;
+        if (rolls == 20) break;
     }
-    return res;
+    return totalScore;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << score(s);
+    cout << score(s) << endl;
     return 0;
 }
