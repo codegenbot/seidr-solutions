@@ -8,6 +8,6 @@ def fizz_buzz(n: int):
         elif i % 5 == 0:
             output = "Buzz"
         else:
-            output
-        output += str(i)
-    return output
+            output = str(i)
+        print(output)  
+    return
