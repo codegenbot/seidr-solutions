@@ -1,3 +1,5 @@
+```
+#include <stack>
 #include <string>
 
 using namespace std;
@@ -30,7 +32,7 @@ bool solveBoolean(string expression) {
         valStack.pop();
         bool left = valStack.top();
         valStack.pop();
-        
+
         if (op == '|') valStack.push(left || right);
         else valStack.push(left && right);
     }
