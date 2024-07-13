@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -12,7 +14,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    res.push_back({{v.begin()}, {v.end()}}); // default case
+    res.push_back({{v.begin()}, {v.end()}}); 
     return res;
 }
 
