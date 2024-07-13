@@ -1,13 +1,3 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
-}
-
 int blackPegs(string code, string guess) {
     int white = whitePegs(code, guess);
     int black = 0;
@@ -28,10 +18,3 @@ int blackPegs(string code, string guess) {
     }
     return black - white;
 }
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
-    return 0;
