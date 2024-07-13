@@ -10,14 +10,20 @@ string camelCase(string s) {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            string word = s.substr(i + 1);
-            result += word;
+            if (s[i] != '-') {
+                result += s.substr(i + 1);
+                break;
+            } else {
+                i++;
+            }
         } else if (s[i] == ' ') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += s.substr(0, i+1) + s.substr(i+1);
-            i++;
+            string word = s.substr(0, i);
+            result += word;
+            result += s.substr(i + 1);
+            break;
         } else {
             result += s[i];
         }
