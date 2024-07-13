@@ -1,16 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
-    int maxLeader = nums.front();
-    leaders.push_back(maxLeader);
-
-    for (int i = 1; i < nums.size(); i++) {
+    
+    int maxLeader = INT_MIN; // set initial maxLeader to the smallest possible integer
+    
+    for (int i = nums.size() - 1; i >= 0; i--) {
         if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
-            leaders.push_back(maxLeader);
+            leaders.insert(leaders.begin(), maxLeader);
         }
     }
 
