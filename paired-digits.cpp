@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <cstddef>
-
 int pairedDigits(const std::string& s) {
     int sum = 0;
     size_t i; 
@@ -11,13 +7,4 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::string s;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> s;
-    int result = pairedDigits(s);
-    std::cout << "The sum of the paired digits is: " << result << std::endl;
-    return 0;
 }
