@@ -1,29 +1,27 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<bool>> dp(n, vector<bool>(n));
+    vector<vector<int>> dp(n, vector<int>(n, 0));
     
     for (int i = 0; i < n; i++) {
-        dp[i][i] = true;
+        dp[i][i] = 0;
     }
     
-    for (int length = 2; length <= n; length++) {
-        for (int start = 0; start < n - length + 1; start++) {
-            int end = start + length - 1;
+    for (int len = 2; len <= n; len++) {
+        for (int i = 0; i <= n - len; i++) {
+            int j = i + len - 1;
             
-            if (arr[start] == arr[end]) {
-                dp[start][end] = dp[start + 1][end - 1];
+            if (arr[i] == arr[j]) {
+                dp[i][j] = dp[i+1][j-1];
             } else {
-                dp[start][end] = false;
+                dp[i][j] = 1 + min({dp[i+1][j], dp[i][j-1], dp[i+1][j-1]});
             }
         }
     }
     
-    int changes = 0;
-    for (int i = 0; i < n; i++) {
-        if (!dp[0][i]) {
-            changes++;
-        }
-    }
-    
-    return changes;
+    return dp[0][n-1];
 }
