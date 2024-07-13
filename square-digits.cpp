@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-std::string squareDigits(int n) {
+std::string squareDigits(long long n) {
     std::string result = "";
     while (n > 0) {
         int digit = n % 10;
@@ -12,7 +12,7 @@ std::string squareDigits(int n) {
 }
 
 int main() {
-    int n;
+    long long n;
     std::cin >> n;
     std::cout << squareDigits(n) << std::endl;
     return 0;
