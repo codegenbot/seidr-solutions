@@ -1,45 +1,31 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int split_index = 0;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            split_index = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || v[i] - v[0] > v[n-i-1] - v.back()) {
+            res[0].clear(); res[0].push_back(v[0]);
+            for (int j = 1; j <= i; j++) {
+                if (v[j] - v[0] >= v[i-j] - v.back()) break;
+                res[0].push_back(v[j]);
+            }
+            res[1].clear(); res[1].push_back(v.back());
+            for (int j = n-2; j >= i; j--) {
+                if (v[n-j-1] - v.back() >= v[i-j] - v[0]) break;
+                res[1].push_back(v[j]);
+            }
+        } else {
+            res[0].clear(); res[0].push_back(v[0]);
+            for (int j = 1; j < i; j++) {
+                res[0].push_back(v[j]);
+            }
+            res[1].clear(); res[1].push_back(v[i]);
+            for (int j = i+1; j < n; j++) {
+                res[1].push_back(v[j]);
+            }
         }
     }
-    
-    vector<int> left(v.begin(), v.begin() + split_index);
-    vector<int> right(v.begin() + split_index, v.end());
-    
-    return {left, right};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "Left: ";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    return res;
 }
