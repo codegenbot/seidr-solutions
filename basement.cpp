@@ -5,5 +5,5 @@ int basement(vector<int>& arr) {
         if (sum < 0)
             return i;
     }
-    return -1;
+    return -1; // or any other value to indicate no such index
 }
