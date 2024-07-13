@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
         throw std::invalid_argument("No input provided");
@@ -12,16 +13,20 @@ int bowlingScore(const std::string& input) {
             isStrike = true;
         } else if (input[i] == '/') {
             int roll1, roll2;
-            char nextChar = i + 1 < input.length() ? input[i + 1] : ' ';
-            if(nextChar != ' ') {
+            char nextChar = input[i + 1];
+            if (!std::isdigit(nextChar)) {
+                i++; // Move to the next character
+            } else {
                 roll1 = nextChar - '0';
                 score += roll1;
-            }
-            i++; // Move to the next character
+                i++; // Move to the next character
         } else if (input[i] == ' ') {
             int roll1, roll2;
-            char prevChar = i > 0 ? input[i - 1] : ' '; 
+            char prevChar = input[i - 1];
             if(i > 0) {
+                if (!std::isdigit(prevChar)) {
+                    throw std::invalid_argument("Invalid input");
+                }
                 roll1 = prevChar - '0';
                 if(isStrike) {
                     score += roll1 + prevRoll * 2;
@@ -46,11 +51,12 @@ int bowlingScore(const std::string& input) {
     // Check for spare at the end of each frame
     if(input[input.length() - 1] == '/') {
         int roll1, roll2;
-        char nextChar = input.length() > 2 ? input[input.length() - 2] : ' ';
-        if(nextChar != ' ') {
-            roll1 = nextChar - '0';
-            score += roll1 + prevRoll;
+        char nextChar = input[input.length() - 2];
+        if (!std::isdigit(nextChar)) {
+            throw std::invalid_argument("Invalid input");
         }
+        int roll1 = nextChar - '0';
+        score += roll1 + prevRoll;
     }
 
     return score;

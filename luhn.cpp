@@ -1,25 +1,24 @@
 #include <iostream>
+#include <vector>
 
-int luhn(int cardNumber) {
+int luhn(std::vector<int> cardNumber) {
     int sum = 0;
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < cardNumber.size(); i++) {
         if ((i % 2 != 0)) {
-            int temp = (cardNumber % 10) * 2;
+            int temp = cardNumber[i] * 2;
             if (temp > 9) {
                 temp -= 9;
             }
             sum += temp;
-            cardNumber /= 10;
         } else {
-            sum += cardNumber % 10;
-            cardNumber /= 10;
+            sum += cardNumber[i];
         }
     }
     return sum;
 }
 
 int main() {
-    int cardNumber = 4532015295970004; 
+    std::vector<int> cardNumber = {4, 5, 3, 2, 0, 1, 5, 2, 9, 7, 0, 0, 0, 4};
     std::cout << "Luhn's checksum is: " << luhn(cardNumber) << std::endl;
     return 0;
 }
