@@ -4,10 +4,19 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
+    if(v.size() <= 1) {
+        return {{}, {}};
+    }
+    
     int n = v.size();
     long long sum = 0;
     for (int i = 0; i < n; i++) {
         sum += v[i];
+    }
+    
+    if(sum / n == v[0]) {
+        res.push_back(vector<int>(v.begin(), v.end()));
+        return {res, {}};
     }
     
     if(sum != (long long)v[0] * n) {
@@ -19,23 +28,17 @@ vector<vector<int>> cutVector(vector<int> v) {
 
     for (int i = 1; i < n - 1; i++) {
         if (rightSum == leftSum) break;
-        rightSum -= v[i];
+        leftSum += v[i];
         
         long long diff = abs(leftSum - rightSum);
         if (diff <= minDiff || (diff == minDiff && leftSum >= rightSum)) {
             minDiff = diff;
-            cutIndex = i + 1; 
+            cutIndex = i; 
         }
-        
-        leftSum += v[i];
     }
     
     vector<vector<int>> res;
-    if(cutIndex < n) {
-        res[0] = vector<int>(v.begin(), v.begin() + cutIndex);
-    } else {
-        res[0] = vector<int>();
-    }
+    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
     }
