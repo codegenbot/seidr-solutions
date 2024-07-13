@@ -1,3 +1,3 @@
 ```
 def dice_game(n, m):
-    return sum(1 for _ in range(m-1)) / (n * m)
+    return (n - 1) / m if n > m else (m - 1) / n
