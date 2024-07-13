@@ -1,4 +1,4 @@
-def prime_factors(n: int) -> List[int]:
+def factorize(n: int) -> List[int]:
     factors = []
     i = 2
     while i * i <= n:
