@@ -1,12 +1,23 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    if(input == "t") {
-        cout << "True" << endl;
+bool evaluateBooleanExpression(const string& expr) {
+    if (expr == "t") {
+        return true;
+    } else if (expr == "f") {
+        return false;
     } else {
-        cout << "False" << endl;
+        char op = expr[1];
+        bool left = (expr[0] == 't');
+        bool right = (expr[2] == 't');
+        if (op == '&') {
+            return left && right;
+        } else if (op == '|') {
+            return left || right;
+        }
     }
-    
+}
+
+int main() {
+    string expr;
+    cin >> expr;
+    cout << (evaluateBooleanExpression(expr) ? "True" : "False") << endl;
     return 0;
 }
