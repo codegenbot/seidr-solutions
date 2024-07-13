@@ -1,4 +1,10 @@
 def encrypt(s):
+    while True:
+        s = input("Enter text to be encrypted: ")
+        if all(c.isalpha() for c in s):
+            break
+        else:
+            print("Invalid input. Please enter a string containing only alphabets.")
     shift = int(input("Enter shift value (0-25): "))
     while True:
         try:
@@ -19,3 +25,6 @@ def encrypt(s):
         else:  
             result += char
     return result
+
+text_to_encrypt = encrypt(input("Please enter the text to be encrypted: "))
+print(f"Encrypted Text: {text_to_encrypt}")
