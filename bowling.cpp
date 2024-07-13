@@ -1,3 +1,4 @@
+#include <sstream>
 #include <string>
 
 int bowlingScore(string s) {
