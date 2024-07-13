@@ -18,7 +18,7 @@ def decode_cyclic():
                 print("Invalid input. Please enter a number between 1 and", len(s), "inclusive.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
+            
     decoded = ""
     for i in range(pos - 1, len(s) * 2):
         if i % len(s) < (pos - 1) % len(s):
