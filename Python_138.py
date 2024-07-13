@@ -1,12 +1,9 @@
 ```
 def is_equal_to_sum_even(n):
     for i in range(2, n+1, 2):
-        remaining = n - i
-        if remaining % 2 != 0:
-            continue
-        for j in range(i+2, remaining+1, 2):
-            if j > remaining // 2:
-                break
-            if remaining - j == i:
+        for j in range(i+1, n+1, 2):
+            if i + j == n:
                 return True
+            elif i + j > n:
+                break
     return False
