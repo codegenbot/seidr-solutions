@@ -1,4 +1,6 @@
-```
+Here is the complete code:
+
+```python
 def valid_date(date):
     mmddyyyy = date.replace('-', '')
     if len(mmddyyyy) != 8:
