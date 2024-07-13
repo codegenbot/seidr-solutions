@@ -9,18 +9,20 @@ std::string spinWords(std::string str) {
     
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+            if (!word.empty()) {
+                if (word.length() >= 5) {
+                    std::reverse(word.begin(), word.end());
+                }
+                
+                result += word + " ";
+                word.clear();
             }
-            
-            result += word + " ";
-            word.clear();
         } else {
             word += str[i];
         }
     }
     
-    return result.empty() ? "" : result.substr(1);
+    return !str.empty() ? result : str;
 }
 
 int main() {
