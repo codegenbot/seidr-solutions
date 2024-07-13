@@ -1,32 +1,30 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
 int main() {
     string input;
-    double startHeight, bouncinessIndexInput, firstBounce, bouncinessIndex;
-    int numBounces;
-    
     cout << "Enter start height: ";
     getline(cin, input);
-    startHeight = stod(input);
+    double startHeight = stod(input);
 
     cout << "Enter bounciness index: ";
     getline(cin, input);
-    bouncinessIndexInput = stod(input);
+    double bouncinessIndexInput = stod(input);
 
     cout << "Enter number of bounces: ";
     getline(cin, input);
-    numBounces = stoi(input);
+    int numBounces = stoi(input);
 
-    firstBounce = startHeight * bouncinessIndexInput;
-    bouncinessIndex = pow(2, -log2(firstBounce / startHeight));
+    double firstBounce = startHeight;
+    double bouncinessIndex = bouncinessIndexInput / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        double startHeightTemp = firstBounce * pow(2, -bouncinessIndex);
+        double startHeightTemp = startHeight * pow(2, -bouncinessIndex);
         totalDistance += startHeightTemp;
         firstBounce *= bouncinessIndex;
     }
