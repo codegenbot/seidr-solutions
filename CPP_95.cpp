@@ -9,10 +9,10 @@ bool check_dict_case(map<string, string> dict) {
             allLower = false;
             allUpper = false;
             break;
-        } else if (islower(pair.first[0])) {
-            allUpper = false;
-        } else {
+        } else if ((allLower && isupper(pair.first[0])) || (allUpper && islower(pair.first[0]))) {
             allLower = false;
+            allUpper = false;
+            break;
         }
     }
 
