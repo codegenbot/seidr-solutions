@@ -4,9 +4,9 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = 0;
     
-    for (int i = 1; i <= min(m, n); i++) {
-        if (i < m) {
-            total += (double)(n - i + 1) / (n * m);
+    for (int i = 1; i <= n - 1; i++) {
+        if (i > (m - (n - i))) {
+            total += (double)(i) / (n * m);
         }
     }
     
@@ -35,6 +35,6 @@ int main() {
     }
 
     double result = diceGame(n, m);
-    cout << "Probability that Peter rolls strictly higher than Colin is: " << result << endl; 
+    cout << "Probability that Peter rolls strictly higher than Colin is: " << 1.0 - result << endl; 
     return 0;
 }
