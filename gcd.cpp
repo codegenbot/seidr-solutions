@@ -1,25 +1,33 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int start = 0;
-    while (start < text.length()) {
-        size_t pos = text.find(target, start);
-        if (pos != string::npos) {
-            indices.push_back(pos);
-            start = pos + 1;
-        } else {
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+    
+    for(int i = 0; ; i++) {
+        if(i + m > n)
             break;
-        }
+        
+        int j = 0;
+        while(j < m && text[i+j] == target[j])
+            j++;
+        
+        if(j == m) 
+            result.push_back(i);
+        
+        i += (j == 0)? 1 : j;
     }
-    return indices;
+    
+    return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
+    if(b == 0)
         return a;
-    return gcd(b, a % b);
+    else
+        return gcd(b, a%b);
 }
 
 int main() {
@@ -29,8 +37,8 @@ int main() {
 
     string text, target;
     cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (int i : result)
+    vector<int> indices = indicesOfSubstring(text, target);
+    for(int i : indices)
         cout << i << " ";
     return 0;
 }
