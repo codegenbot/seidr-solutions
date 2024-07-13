@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -16,5 +15,5 @@ int bowlingScore(std::string s) {
             currentRoll += c - '0';
         }
     }
-    return score; 
+    return score;
 }
