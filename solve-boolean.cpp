@@ -1,6 +1,7 @@
-#include <string>
+```c
+bool solveBoolean(const std::string& s) {
+    if (s.empty()) return false;
 
-bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
@@ -18,3 +19,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return result;
+}
