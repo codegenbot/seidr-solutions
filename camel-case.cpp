@@ -1,7 +1,3 @@
-#include <cctype>
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string str) {
     std::string result = "";
     bool isNextUpper = false;
@@ -21,16 +17,15 @@ std::string camelCase(std::string str) {
             isNextUpper = true;
         } else {
             isNextUpper = false;
-            result += !isNextUpper ? std::toupper(c) : c;
+            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
+
+            // Check if the last character was uppercase
+            if (result.size() > 0 && isupper(result.back())) {
+                result.push_back(std::tolower(c));
+            } else {
+                result += c;
+            }
         }
     }
     return result;
-}
-
-int main() {
-    std::string str;
-    while (std::getline(std::cin, str)) {
-        std::cout << camelCase(str) << std::endl;
-    }
-    return 0;
 }
