@@ -1,9 +1,17 @@
-Here is the solution:
+double probability(int n, int m) {
+    double total = (double)n * m;
+    double higher = 0;
 
-double diceGame(int n, int m) {
-    double total = 1.0;
     for (int i = 1; i < n; i++) {
-        total += pow(m, i);
+        higher += (double)(n - i) / total;
     }
-    return total / pow(n + m - 2, m - 1);
+
+    return higher;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(10) << probability(n, m) << endl;
+    return 0;
 }
