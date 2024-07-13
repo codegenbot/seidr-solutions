@@ -1,18 +1,16 @@
 ```cpp
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight;
-    cin.ignore();
+    cin >> startHeight; 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin >> firstBounce;
-    cin.ignore();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin >> numBounces;
-    cin.ignore();
 
     double bouncinessIndex = firstBounce / startHeight;
 
