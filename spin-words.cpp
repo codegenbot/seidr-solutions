@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <sstream>
 
-std::string spinWords(const char* str) {
+auto spinWords(const char* str) -> std::string {
     std::string s(str);
     std::stringstream ss(s);
     std::string word;
@@ -16,4 +16,3 @@ std::string spinWords(const char* str) {
     }
 
     return result;
-}
