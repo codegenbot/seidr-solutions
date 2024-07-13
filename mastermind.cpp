@@ -2,24 +2,21 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (code[i] == c && code[i] != guess[i]) {
-                white++;
-                count++;
-            }
-        }
-        if (count > 1) {
-            black += count - 1;
+    set<char> codeSet(code.begin(), code.end());
+    set<char> guessSet(guess.begin(), guess.end());
+
+    for(auto c : guess) {
+        if(codeSet.find(c) != codeSet.end()) {
+            white++;
+            codeSet.erase(c);
         }
     }
 
-    return white + black;
+    return black + white;
 }
