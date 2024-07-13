@@ -25,4 +25,5 @@ vector<size_t> indicesOfSubstring(string text, string target) {
             i += m; // Increment by the length of the target substring
         }
     }
-} // <--- Add this
+    return result;
+}
