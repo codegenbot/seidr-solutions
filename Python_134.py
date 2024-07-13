@@ -5,4 +5,4 @@ def check_palindrome(input_string):
     else:
         return input_string == input_string[::-1]
 
-check_palindrome("A man a plan a canal Panama")
+print(check_palindrome("A man a plan a canal Panama"))
