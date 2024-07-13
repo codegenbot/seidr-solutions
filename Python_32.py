@@ -1,7 +1,7 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients must be even")
-    if xs[n] == 0:
-        raise ValueError("Largest non-zero coefficient must be non-zero")
-    return -xs[0] / xs[1]
+    a = xs[0]
+    b = xs[1]
+    c = xs[2]
+    d = xs[3]
+    return round((-b + math.sqrt(b**2 - 3 * a * c)) / (3 * a), 2)
