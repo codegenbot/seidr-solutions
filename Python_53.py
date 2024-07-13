@@ -1,13 +1,10 @@
 def add():
     while True:
         try:
-            choice = input("Do you want to continue (Y/N)? ")
-            if choice.upper() != 'Y' and choice.upper() != 'N':
-                raise ValueError('Invalid choice. Please enter Y or N.')
-            if choice.upper() == 'N':
-                return
-            x = int(input("Enter the first number: "))
-            y = int(input("Enter the second number: "))
-            print(x + y)
+            if input("Do you want to continue (Y/N)? ").upper() != 'N':
+                x = int(input("Enter the first number: "))
+                y = int(input("Enter the second number: "))
+                name = input("Enter your name (First and Last): ")
+                print(f"Your name is {name} and the sum of numbers is {x + y}")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
