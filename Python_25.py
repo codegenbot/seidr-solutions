@@ -1,8 +1,9 @@
+```
 def sum_of_digits():
     total = 0
     while True:
         try:
-            n = int(input("Enter a number: ") or 123456)
+            n = int(input("Enter a number: "))
             break
         except ValueError:
             print("Invalid input. Please enter a whole number.")
