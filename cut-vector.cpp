@@ -1,39 +1,27 @@
 int main() {
-    vector<int> vec;
     int n;
-    while (cin >> n) {
-        vec.push_back(n);
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
     }
-
-    int sum = 0;
-    for (int i = 0; i < vec.size(); ++i) {
-        sum += vec[i];
-    }
-
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = -1;
-    for (int i = 0; i < vec.size(); ++i) {
-        prefixSum += vec[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
+    
+    int min_diff = INT_MAX;
+    int cut_idx = 0;
+    for (int i = 1; i < n; ++i) {
+        if (abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0)) < min_diff) {
+            min_diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
+            cut_idx = i;
         }
     }
-
-    if (prefixSum - target < target - (prefixSum - vec[idx])) {
-        cout << idx + 1 << endl;
-        for (int i = 0; i <= idx; ++i) {
-            cout << vec[i] << endl;
-        }
-        cout << sum - prefixSum << endl;
-    } else {
-        cout << idx << endl;
-        for (int i = 0; i < idx; ++i) {
-            cout << vec[i] << endl;
-        }
-        cout << prefixSum << endl;
+    
+    for (int i = 0; i < cut_idx; ++i) {
+        cout << vec[i] << endl;
     }
-
+    cout << endl;
+    for (int i = cut_idx; i < n; ++i) {
+        cout << vec[i] << endl;
+    }
+    
     return 0;
 }
