@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     result = []
     for s in lst:
@@ -12,5 +13,7 @@ def match_parens(lst):
                     break
                 else:
                     stack -= 1
+        if stack > 0: 
+            match = "No"  
         result.append(match)
     return result
