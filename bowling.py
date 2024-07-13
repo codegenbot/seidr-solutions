@@ -1,13 +1,12 @@
-```
 def bowling_score(frames):
     score = 0
     rolls = list(map(int, frames.replace('/', '')))
     i = 0
     while i < len(rolls):
-        if rolls[i] == 10: 
+        if rolls[i] == 10: # strike
             score += 10 + (frames[i].index('X') * 2 + frames[i+1:i+6].count('/'))
             i += 3
-        elif i + 1 < len(rolls) and rolls[i] + rolls[i+1] == 10: 
+        elif i + 1 < len(rolls) and rolls[i] + rolls[i+1] == 10: # spare
             score += 10 + rolls[i+2]
             i += 3
         else:
