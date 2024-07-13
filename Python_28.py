@@ -1,14 +1,21 @@
-```Python
+```
 from typing import List
 
-def concatenate() -> str:
+def concatenate(input_list: List[str]) -> str:
     while True:
         try:
-            input_list = input("Please enter a list of strings (space-separated): ").split()
-            if not all(isinstance(string, str) for string in input_list):
-                print("Error: All elements in the list must be strings. Please try again.")
-            else:
-                result = ' '.join(input_list)
-                return result.strip()
+            input_list = [input(f"Enter string ({i+1}/n): ") for i in range(int(input("How many strings do you want to enter? "))]
+            break
         except ValueError as e:
-            print(f"Error: {str(e)}")
+            print(e)
+
+    if not isinstance(input_list, list):
+        raise ValueError("Input must be a list")
+    for string in input_list:
+        if not isinstance(string, str):
+            raise ValueError("All elements in the list must be strings")
+
+    result = ''
+    for string in input_list:
+        result += string + ' '
+    return result.strip()
