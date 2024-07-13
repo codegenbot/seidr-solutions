@@ -1,32 +1,42 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string camelCase(std::string str) {
+    str.erase(0, str.find_first_not_of(' ')); // Remove leading space(s)
+    str.erase(0, str.find('-')); // Remove leading hyphen(s)
+
     std::string result = "";
-    bool isNextUpper = !str.empty();
-    for (const auto& c : str) {
+    bool isNextUpper = false;
+    for (char c : str) {
         if (c == '-' || c == ' ') {
-            if (!isNextUpper) {
-                if (c == '-') {
-                    if (!result.empty()) {
-                        result += std::toupper(c);
-                    }
-                } else {
-                    if (!result.empty() && !isNextUpper) {
-                        result += ' ';
-                    }
-                }
+            if (!isNextUpper && c != '-') {
+                result += std::toupper(c);
+                isNextUpper = true;
+            } else if (c == '-') {
+                continue;
             }
-            isNextUpper = true;
+            if (c == ' ') {
+                if (result.back() != ' ') { // Add space only if not already present
+                    result += ' ';
+                }
+                isNextUpper = false;
+            }
         } else {
-            isNextUpper = false;
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
+            if (!isNextUpper) {
+                result += c;
+                isNextUpper = true;
+            } else {
+                result += std::tolower(c);
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::cout << camelCase("camel-case example-test-string") << std::endl;
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
