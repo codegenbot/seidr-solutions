@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 int main() {
     int n;
@@ -18,7 +19,7 @@ int main() {
 
     float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (1.0 - discounts[i] / 100.0);
+        total_price += std::round(prices[i] * (1.0 - discounts[i] / 100.0) * 100) / 100;
     }
 
     std::cout << "Total price after discounts: " << total_price << std::endl;
