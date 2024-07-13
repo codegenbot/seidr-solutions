@@ -1,12 +1,11 @@
-```
-lst = []
-while True:
-    inp = input("Enter a list of integers (space-separated) or 'stop' to finish: ")
-    if inp.lower() == "stop":
-        break
-    lst += [int(x) for x in inp.split() if x.isdigit()]
-
-def filter_integers(lst):
+def filter_integers():
+    lst = []
+    while True:
+        inp = input("Enter a list of integers (space-separated) or 'stop' to finish: ")
+        if inp.lower() == "stop":
+            break
+        lst += [int(x) for x in inp.split() if x.isdigit()]
+    
     while True:
         cont = input("Do you want to filter integers again? (yes/no): ")
         while cont.lower() not in ["yes", "no"]:
