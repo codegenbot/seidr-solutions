@@ -8,25 +8,25 @@ string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
-            if (result.size()) {
-                result += std::toupper(s[i + 1]);
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
             }
-            else
-                result += s.substr(i + 1);
+            string word = s.substr(i + 1);
+            result += word;
             break;
         } else if (s[i] == ' ') {
-            if (i > 0) {
-                result[0] = std::tolower(s[i]);
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
             }
-            result += s.substr(0, i);
-            result += std::toupper(s[i]) + s.substr(i + 1).substr(1);
+            result += std::tolower(s[i]) + s.substr(i + 1).substr(0, 1);
+            result += toupper(s.substr(i + 1).substr(1)[0]) + s.substr(i + 1).substr(1);
             break;
         } else {
-            if (result.size() && !std::isupper(result.back())) {
+            if (result.empty()) {
+                result += s[i];
+            } else {
                 result += std::toupper(s[i]);
             }
-            else
-                result += s[i];
         }
     }
     return result;
