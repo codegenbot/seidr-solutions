@@ -1,12 +1,6 @@
-Here is the solution to the problem:
-
-def snow_day(hours, ground_snow, rate_of_snowfall, proportion_of_melting):
-    return round(ground_snow + (rate_of_snowfall * hours) - (proportion_of_melting * hours), 9)
-
-# Read input from user
-hours = int(input())
-ground_snow = float(input())
-rate_of_snowfall = float(input())
-proportion_of_melting = float(input())
-
-print(snow_day(hours, ground_snow, rate_of_snowfall, proportion_of_melting))
+def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
+    total_snow = initial_snow + rate_of_fall
+    for _ in range(hours-1):  
+        total_snow += rate_of_fall
+        total_snow -= melting_rate * total_snow
+    return round(total_snow, 6)
