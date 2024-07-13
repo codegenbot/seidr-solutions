@@ -1,33 +1,20 @@
-#include <vector>
-#include <algorithm>
-
-string words_in_sentence(string sentence) {
-    vector<string> words;
-    string word;
-    for (char c : sentence) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
+string words_in_sentence(string sentence){
+    string result = "";
+    for(int i=0; i<sentence.size(); i++){
+        int word_len = 0;
+        while(i < sentence.size() && sentence[i] != ' ')
+            i++, word_len++;
+        if(word_len > 0 && isPrime(word_len))
+            result += sentence.substr(i - word_len + 1, word_len) + " ";
     }
-    words.push_back(word);
+    return result;
+}
 
-    string result;
-    for (string w : words) {
-        int len = w.length();
-        bool isPrime = true;
-        for (int i = 2; i * i <= len; i++) {
-            if (len % i == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime) {
-            result += w + " ";
-        }
-    }
-
-    return result.substr(0, result.length() - 1);
+bool isPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i=2; i*i<=n; i++)
+        if(n%i == 0)
+            return false;
+    return true;
 }
