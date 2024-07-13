@@ -5,10 +5,10 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-def find_indices(text, target):
+def indices_of_substring(text, target):
     indices = []
     start = 0
-    while start < len(text):
+    while True:
         pos = text.find(target, start)
         if pos == -1:
             break
