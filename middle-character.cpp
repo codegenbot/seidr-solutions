@@ -1,10 +1,10 @@
-Here is the completed code:
+Here is the C++ code for the problem:
 
 string middleCharacter(string str) {
     int len = str.length();
     if (len % 2 == 0) {
         return str.substr(len / 2 - 1, 2);
     } else {
-        return string(1, str[len / 2]);
+        return str.substr(len / 2, 1);
     }
 }
