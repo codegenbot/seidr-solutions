@@ -1,34 +1,38 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
     bool isNextUpper = false;
-    for (const auto& c : str) {
+    for (char c : str) {
         if (c == '-' || c == ' ') {
-            if (!isNextUpper) {
-                if (c == '-') {
-                    if (!result.empty()) {
-                        result += std::toupper(c);
-                    }
-                } else {
-                    if (!result.empty() && !isNextUpper) {
-                        result += ' ';
-                    }
-                }
+            if (!isNextUpper && c != '-') {
+                result += std::toupper(c);
+                isNextUpper = true;
+            } else if (c == '-') {
+                continue;
             }
-            isNextUpper = true;
+            if (c == ' ') {
+                result += ' ';
+                isNextUpper = false;
+            }
         } else {
-            isNextUpper = false;
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
+            if (!isNextUpper) {
+                result += c;
+                isNextUpper = true;
+            } else {
+                result += std::tolower(c);
+            }
         }
     }
     return result;
 }
 
 int main() {
-    while (std::getline(std::cin, str)) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
