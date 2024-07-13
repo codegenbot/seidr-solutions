@@ -2,7 +2,6 @@
 #include <cstddef>
 #include <vector>
 #include <string>
-#include <utility>
 
 using std::size_t;
 
@@ -16,6 +15,10 @@ int gcd(int a, int b) {
 }
 
 std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target) {
+    if(target.empty()) {
+        throw std::runtime_error("Target string is empty");
+    }
+
     std::vector<std::size_t> result;
     size_t n = text.length();
     size_t m = target.length();
