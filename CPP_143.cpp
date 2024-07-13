@@ -12,9 +12,3 @@ size_t count_words(const std::string& sentence) {
     }
 
     return word_count;
-}
-
-int main() {
-    assert(count_words("here is") == 2);
-    return 0;
-}
