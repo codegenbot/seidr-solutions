@@ -6,13 +6,17 @@ def bowling_score(frames):
             score += 10 + int(frames[2*i+1].split('/')[0]) if frame_num < 9 else int(frames[2*i+1].split('/')[0])
             score += int(frames[2*i+1].split('/')[1]) if frame_num < 10 else 0
         elif frames[i] == '/':
-            score += 10 - int(frames[i+1].split('/')[0])
-            score += int(frames[i+1].split('/')[1])
-        try:
-            score += int(frames[i]) + int(frames[i+1])
-        except ValueError:
-            print("Invalid input. Please enter valid frames (e.g., 'X', '/').")
-            return 0
+            score += 10 - int(frames[i-1].split('/')[1])
+        else:
+            frame_points = int(frames[i]) + int(frames[i+1])
+            if frame_points > 10:  
+                score += 10
+                if frame_num < 9:
+                    score += int(frames[2*i+3].split('/')[0]) + int(frames[2*i+3].split('/')[1])
+                else:
+                    score += int(frames[2*i+3].split('/')[0]) + int(frames[2*i+3].split('/')[1])
+            else:  
+                score += frame_points
         frame_num += 1
     return score
 
