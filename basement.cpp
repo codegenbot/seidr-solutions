@@ -1,20 +1,16 @@
-```cpp
-#include <iostream>
-#include <vector>
-
 int basement(std::vector<int>& nums) {
     int sum = 0;
+    bool became_negative = false;
+
     for (auto it = nums.begin(); it != nums.end(); ++it) {
         sum += *it;
-        if (sum < 0)
+        if (sum < 0 && !became_negative) {
             return std::distance(nums.begin(), it);
+        } else if (sum >= 0) {
+            became_negative = false;
+        }
     }
+
     return -1;
 
 }
-
-int main() {
-    std::vector<int> nums({-2,1,-3,4,-1,2,1,-5,4});
-    int result = basement(nums);
-    std::cout << "Result: " << result << std::endl;
-    return 0; }
