@@ -1,3 +1,5 @@
-import re
+```
 def words_string(s):
-    return [re.sub(r'^\W+|\W+$','',word).capitalize() for word in s.split()]
+    if s is None or not isinstance(s, str) or len(s.strip()) == 0:
+        return []
+    return [word.strip().capitalize() for word in re.split(r'\W+', s)]
