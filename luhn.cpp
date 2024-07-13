@@ -27,20 +27,27 @@ int main() {
     int cardNumber;
 
     while (true) {
-        cout << "Enter a credit card number (or 0 to finish): ";
+        cout << "Enter a 16-digit credit card number: ";
         cin >> cardNumber;
 
-        if (cardNumber == 0)
+        if (cardNumber >= 1000000000000000 && cardNumber < 1999999999999999) {
             break;
-
-        while (cardNumber != 0) {
-            input.push_back(cardNumber % 10);
-            cardNumber /= 10;
+        } else {
+            cout << "Invalid input. Please enter a 16-digit credit card number." << endl;
         }
+    }
 
-        int result = luhn(input);
-        cout << "Luhn check: " << (result % 10 ? "Invalid" : "Valid") << endl;
-        input.clear();
+    while (cardNumber != 0) {
+        input.push_back(cardNumber % 10);
+        cardNumber /= 10;
+    }
+
+    int result = luhn(input);
+
+    if (result % 10 == 0) {
+        cout << "The credit card number is valid." << endl;
+    } else {
+        cout << "The credit card number is not valid." << endl;
     }
 
     return 0;
