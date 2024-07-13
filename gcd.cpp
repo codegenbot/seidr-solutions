@@ -1,22 +1,4 @@
-```cpp
 #include <vector>
-#include <string>
-
-using namespace std;
-
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int index = 0;
-    while (index <= text.length() - target.length()) {
-        if (text.substr(index, target.length()).compare(target) == 0) {
-            indices.push_back(index);
-            index += target.length();
-        } else {
-            index++;
-        }
-    }
-    return indices;
-}
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -26,3 +8,14 @@ int gcd(int a, int b) {
     }
     return a;
 }
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length(), m = target.length();
+    
+    for(int i=0; i<=n-m;i++){
+        if(text.substr(i,m).compare(target)==0){
+            result.push_back(i);
+        }
+    }
+    return result;
