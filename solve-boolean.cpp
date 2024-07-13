@@ -44,6 +44,7 @@ int main() {
     std::string expression;
     std::cout << "Enter the Boolean expression: ";
     std::getline(std::cin, expression);
+    std::cin.ignore();
     bool result = solveBoolean(expression);
     if (result) {
         std::cout << "Result: TRUE" << std::endl;
@@ -51,3 +52,4 @@ int main() {
         std::cout << "Result: FALSE" << std::endl;
     }
     return 0;
+}
