@@ -1,7 +1,8 @@
 ```cpp
-#include <iostream>
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 #include <sstream>
 
 std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
@@ -28,15 +29,9 @@ int main() {
     int sum_even = 0, sum_odd = 0;
 
     while (iss >> num) {
-        if (num % 2 == 0)
-            sum_even += num;
-        else
-            sum_odd += num;
+        auto pair = double_the_difference({num});
+        std::cout << "The average of even numbers is: " << pair.first << std::endl;
+        std::cout << "The average of odd numbers is: " << pair.second << std::endl;
     }
-    
-    auto [a, b] = double_the_difference({sum_even, sum_odd});
-    std::cout << "The average of even numbers is: " << a << std::endl;
-    std::cout << "The average of odd numbers is: " << b << std::endl;
-
     return 0;
 }
