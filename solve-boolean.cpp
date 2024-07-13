@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -19,13 +20,8 @@ bool solveBoolean(string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            valStack.pop();
+            valStack.push(false);
         }
-    }
-
-    while (!opStack.empty()) {
-        opStack.pop();
-        valStack.pop();
     }
 
     return valStack.top();
