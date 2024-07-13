@@ -30,6 +30,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    // your code here
+    // Your code here
     return 0;
 }
