@@ -1,19 +1,31 @@
-```
-frames = input("Enter the frames (e.g., 'X', '/'): ")
+```python
 def bowling_score(frames):
     score = 0
-    frame_count = 1
-    for char in frames:
-        if char == 'X':
-            score += 10 + (10 - int(input(f"Enter the number of pins knocked down in frame {frame_count}: ")))
-            frame_count += 1
-        elif char == '/':
-            first_roll = int(input(f"Enter the number of pins knocked down in the first roll of frame {frame_count}: "))
-            second_roll = 10 - first_roll
-            score += first_roll + second_roll
-            frame_count += 1
+    index = 0
+    while index < len(frames):
+        if frames[index] == 'X':
+            score += 30
+            index += 1
+        elif frames[index] == '/':
+            frame_score = 10 + int(frames[index - 1])
+            if index + 1 < len(frames) and frames[index+1].isdigit():
+                frame_score += int(frames[index+1])
+            score += frame_score
+            index += 2
         else:
-            score += int(char)
-            frame_count += 1
-    print(score)
-print(bowling_score(frames))
+            if frames[index] == 'X' or frames[index:index+2].endswith('X'):
+                score += 30
+                index += 1
+            elif frames[index] == '/':
+                frame_score = 10 + int(frames[index - 1])
+                score += frame_score
+                index += 2
+            else:
+                roll1 = int(frames[index])
+                roll2 = int(frames[index+1])
+                if roll1 + roll2 == 10:
+                    score += 10
+                else:
+                    score += roll1 + roll2
+                index += 2
+    return score
