@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -14,7 +11,7 @@ int main() {
     int dimes = cents % 25;
     cents /= 25;
 
-    int quarters = cents; // Should be last
+    int quarters = cents; 
 
     cout << quarters << endl;
     cout << nickles << endl;
