@@ -30,7 +30,7 @@ int mastermind(string code, string guess) {
             if(code[j] == guess[i]) {
                 count++;
                 for(int k = 0; k < 6; k++) {
-                    if(chars[k] == code[j]) {
+                    if(code[k] == code[j]) {
                         codeCount[k]--;
                         break;
                     }
@@ -38,7 +38,7 @@ int mastermind(string code, string guess) {
                 if(count > 1) break;
             }
         }
-        white += min(count, codeCount[std::find.chars.end(), code[0]) - chars.begin()]];
+        white += min(count, (int)codeCount[std::find(chars.begin(), chars.end(), code[0]) - chars.begin()]);
     }
 
     return black + white;
