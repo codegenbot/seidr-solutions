@@ -19,11 +19,11 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 
 int main() {
     std::vector<int> nums;
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
     int num;
-    while (std::cin >> num) {
-        if (std::cin.fail()) {
-            break;
-        }
+    while (iss >> num) {
         nums.push_back(num);
     }
 
