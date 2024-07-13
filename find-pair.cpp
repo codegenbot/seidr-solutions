@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -9,7 +8,9 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            return {(complement < nums[i]) ? complement : nums[i]}, (complement > nums[i]) ? complement : nums[i]};
+            int smaller = min(complement, nums[i]);
+            int larger = max(complement, nums[i]);
+            return {smaller, larger};
         }
         numIndex[nums[i]] = i;
     }
