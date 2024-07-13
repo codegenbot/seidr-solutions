@@ -1,6 +1,6 @@
 #include <string>
 
-string middleCharacter(string input) {
+std::string middleCharacter(std::string input) {
     int len = input.length();
     if(len % 2 == 0){
         return input.substr(len/2-1, 2);
