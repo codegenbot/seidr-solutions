@@ -34,21 +34,30 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
 }
 
 int main() {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> inputPlanets;
     
-    std::cout << "Enter the first planet: ";
-    std::string planet1;
-    std::cin >> planet1;
-    std::cout << "Enter the second planet: ";
-    std::string planet2;
-    std::cin >> planet2;
-
-    std::vector<std::string> result = bf(planets, planet1, planet2);
+    int n;
+    std::cout << "Enter the number of planets: ";
+    std::cin >> n;
     
-    if (!result.empty())
-        std::cout << "Output: ";
-    else
+    for(int i = 0; i < n; i++) {
+        std::string planet;
+        std::cout << "Enter the name of the " << (i+1) << "th planet: ";
+        std::cin >> planet;
+        inputPlanets.push_back(planet);
+    }
+    
+    if(!inputPlanets.empty()) {
+        std::vector<std::string> result = bf(inputPlanets, "Jupiter", "Makemake");
+        
+        if (!result.empty())
+            std::cout << "Output: ";
+        else
+            std::cout << "No Output";
+        
+    } else {
         std::cout << "No Output";
+    }
     
     return 0;
 }
