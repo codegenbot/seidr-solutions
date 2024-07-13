@@ -1,3 +1,5 @@
-def sort_third(l: list):
-    l = [l[i : i + 3] for i in range(0, len(l), 2)]
-    return [sorted(sublist) if sublist else [] for sublist in l]
+def sort_third(lst: list):
+    return sorted(
+        [x for i, x in enumerate(lst) if (i + 1) % 3 != 0]
+        or [lst[i - 1] for i in range(1, len(lst), 3)]
+    )

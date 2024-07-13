@@ -7,7 +7,7 @@ def parse_music(music_string: str) -> List[int]:
 
     for note in music_string.split():
         if note not in music_notes:
-            return [f"Invalid input {music_string}"]
+            return "Invalid input"
         if note[-1] == "|":
             beats_per_note.append(music_notes[note[:-1]])
         else:
