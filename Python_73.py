@@ -1,3 +1,4 @@
+```
 def array_change(lst):
     max_diff = 0
     for i in range(1, len(lst)):
@@ -6,5 +7,14 @@ def array_change(lst):
             max_diff = diff
     return max_diff
 
-lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
+while True:
+    try:
+        lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
+        if len(lst) < 2:
+            print("List should contain at least two numbers. Please enter again.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter a space-separated list of numbers.")
+
 print(array_change(lst))
