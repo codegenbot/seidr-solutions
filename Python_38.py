@@ -1,11 +1,11 @@
-```
-def decode_cyclic(s: str):
-    result = ''
+def decode_cyclic(s: str): 
+    result = ""
     i = 0
     while i < len(s):
-        if (i + 3) <= len(s):
-            result += s[i:i+3][::-1]
+        if i + 3 <= len(s):
+            group = s[i:i+3]
         else:
-            result += [s[i+3:]][::-1][0]
+            group = s[i:]
+        result += group[1] + (group[0] if i+2 < len(s) else '')
         i += 3
     return result
