@@ -22,20 +22,3 @@ vector<int> sort_third(vector<int> l) {
     }
     return result;
 }
-
-int main() {
-    vector<int> l = {1, 2, 3};
-    vector<int> result = sort_third(l);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    l = {5, 6, 3, 4, 8, 9, 2};
-    result = sort_third(l);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
-}
