@@ -1,8 +1,9 @@
 n = int(input())
 m = int(input())
-if n > m:
-    print(round((n - 1) / n, 2))
-elif m > n:
-    print(round(n / m, 2))
-else:
-    print(0.5)
+prob = 0
+for i in range(1, n + 1):
+    for j in range(1, m):
+        if i > j:
+            prob += 1
+prob /= n * m
+print(round(prob, 2))
