@@ -1,15 +1,15 @@
-```cpp
-#include <string>
-
 int bowlingScoreHelper(std::string s) {
     int score = 0;
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
             score += 30;
-        } else if (c == '/') {
-            score += 10;
+        } else if (s[i] == '/') {
+            int roll1 = s[i - 1] - '0';
+            int roll2 = s[i + 1] - '0';
+            score += roll1 + roll2;
         } else {
-            score += (c - '0');
+            int roll = s[i] - '0';
+            score += roll;
         }
     }
     return score;
@@ -28,7 +28,7 @@ int bowlingScore(std::string s) {
                 score += prevRoll * 2;
                 isStrike = false;
             } else {
-                int roll = bowlingScoreHelper(s.substr(0, i));
+                int roll = bowlingScoreHelper(s.substr(i, s.length() - i));
                 score += roll + 10;
             }
         } else if (s[i] == ' ') {
