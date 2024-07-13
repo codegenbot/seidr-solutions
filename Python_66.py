@@ -1,6 +1,3 @@
-```
-def digitSum(s):
-    sum = 0
-    for c in s:
-        sum += int(c)
-    return sum
+def check(digit_sum):
+    n = int(input("Enter a number: "))
+    print(f"The sum of digits in {n} is {digit_sum(n)}")
