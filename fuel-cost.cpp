@@ -1,8 +1,7 @@
-int calculateFuelCost(vector<int> &v) {
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int x : v) {
-        int y = (x / 3) - 2;
-        sum += y;
+    for (int i : vec) {
+        sum += (i / 3 - 2);
     }
     return sum;
 }
