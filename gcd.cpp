@@ -1,38 +1,38 @@
 #include <vector>
+#include <string>
+#include <iostream> 
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> findIndices(string text, string target) {
     vector<int> result;
-    int textLen = text.length();
-    int targetLen = target.length();
-
-    for (int i = 0; i <= textLen - targetLen; i++) {
-        if (text.substr(i, targetLen) == target) {
-            result.push_back(i);
-            // If the target string overlaps itself in the text
-            // Add all overlapping indices including the current index
-            while (i + targetLen < textLen && text.substr(i, targetLen) == target) {
-                i += targetLen;
-                result.push_back(i);
-            }
-        }
+    int index = 0;
+    while (index <= text.length() - target.length()) {
+        index = text.find(target, index);
+        if (index == string::npos)
+            break;
+        result.push_back(index);
+        index += 1; 
     }
-
     return result;
 }
 
 int main() {
-    int m, n;
-    cin >> m >> n;
+    int num1, num2;
+    cin >> num1 >> num2;
+    
+    // Calculate GCD of two numbers
+    int gcd = __gcd(num1, num2);
 
-    cout << gcd(m, n) << endl;
-}
+    cout << gcd << endl;
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+    string text, target;
+    cin >> text >> target;
+
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices) {
+        cout << i << " ";
     }
-    return a;
+    cout << endl;
+
+    return 0;
 }
