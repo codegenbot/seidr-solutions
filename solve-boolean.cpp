@@ -17,6 +17,14 @@ bool solveBoolean(string s) {
             i++;
             continue;
         }
+        if (s[i] == '(') {
+            int j = i + 1;
+            while (j < s.length() && s[j] != ')')
+                j++;
+            bool temp = solveBoolean(s.substr(i+1, j - i - 1));
+            res = (s[i-1] == '&') ? (res & temp) : (res | temp);
+            i = j;
+        }
     }
     return res;
 }
