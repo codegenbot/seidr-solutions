@@ -1,10 +1,11 @@
 def fizz_buzz(x):
-    result = ""
-    if x % 3 == 0:
-        result += "Fizz"
-    if x % 5 == 0:
-        if not result:  
-            result = "Buzz"
-        elif not result.startswith("Fizz"):
-            result += "Buzz"
-    return str(x) if not result else result
+    result = []
+    for i in range(1,x+1):
+        if i % 3 == 0:
+            s = "Fizz"
+        elif i % 5 == 0:
+            s = "Buzz"
+        else:
+            s = str(i)
+        result.append(s)
+    return ''.join(result)
