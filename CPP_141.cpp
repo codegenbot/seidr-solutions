@@ -1,8 +1,7 @@
-```cpp
 #include <cstddef>
 #include <string>
 
-std::string file_name_check(std::string file_name) {
+int file_name_check(const std::string& file_name) {
     int digit_count = 0;
     bool has_dot = false;
     size_t dot_pos = std::string::npos;
@@ -15,20 +14,24 @@ std::string file_name_check(std::string file_name) {
             dot_pos = file_name.find(c);
         } else if (!has_dot) {
             if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
-                return "No";
+                return 0;
             }
         } else {
             std::string ext = file_name.substr(dot_pos + 1);
             if (ext != "txt" && ext != "exe" && ext != "dll") {
-                return "No";
+                return 0;
             }
         }
     }
 
-    return digit_count <= 3 && has_dot ? "Yes" : "No";
+    if (!has_dot) {
+        return 0;
+    }
+
+    return digit_count <= 3 ? 1 : 0;
 }
 
 int main() {
-    assert(file_name_check("s.") == "No");
-    // Your code here
+    assert(file_name_check("s.") == 0);
+    // ...
 }
