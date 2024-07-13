@@ -1,3 +1,4 @@
+```
 def dice_game(n, m):
     total_outcomes = n * m
     strictly_higher_outcomes = 0
