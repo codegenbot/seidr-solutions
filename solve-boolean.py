@@ -1,3 +1,4 @@
+```
 def solve(input_str):
     def evaluate(expression):
         if expression == "T":
