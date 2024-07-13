@@ -1,4 +1,3 @@
-```
 def sum_of_digits():
     total = 0
     while True:
