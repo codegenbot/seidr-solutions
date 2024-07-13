@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -18,4 +18,4 @@ int luhn(vector<int> digits) {
     return sum;
 }
 
-int main() { cout << luhn({4,7,8,3,1,6,7,1,6,9,5,9,8,0,2,0}); return 0; }
+int main() { cout << luhn({4, 5, 2, 7, 1, 3, 9, 0, 2, 6, 8, 0, 1, 1, 4, 3}); return 0; }
