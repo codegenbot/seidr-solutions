@@ -1,4 +1,3 @@
-```cpp
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
