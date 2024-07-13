@@ -26,4 +26,3 @@ int main() {
     string result = spinWords(input);
     cout << "Resulting string: " << result << endl;
     return 0;
-}
