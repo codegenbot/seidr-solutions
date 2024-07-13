@@ -1,30 +1,21 @@
-int bowlingScore(string bowls) {
+int bowling(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (isdigit(bowls[i])) {
-            score += stoi(string(1, bowls[i]));
-        } else if (bowls[i] == '/') {
-            if (i < 8) {
-                int nextFrame = 10 -stoi(string(1, bowls[i + 1])) - stoi(string(1, bowls[i + 2]));
-                score += 10 + nextFrame;
-                i++;
-            }
+    int prev_frame_score = 0;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'X') {
+            score += 10 + prev_frame_score;
+            prev_frame_score = 10;
+        } else if(s[i] == '/') {
+            int rest = 10 - s[i+1] - s[i+2];
+            score += s[i-1] - '0' + prev_frame_score;
+            prev_frame_score = rest;
+            i++; // skip the '/'
         } else {
-            int firstBall = stoi(string(1, bowls[i]) == 'X' ? 10 : string(1, bowls[i]).digits());
-            if (i < 9) {
-                if (bowls[i + 1] != '/') {
-                    score += firstBall + stoi(string(1, bowls[i + 1]));
-                    i++;
-                } else {
-                    int secondBall = stoi(string(1, bowls[i + 1]) == 'X' ? 10 : string(1, bowls[i + 1]).digits();
-                    if (secondBall == 10) {
-                        score += firstBall + 10;
-                    } else {
-                        score += firstBall + secondBall;
-                    }
-                }
-            } else {
-                score += firstBall;
+            int this_frame_score = s[i] - '0';
+            if(prev_frame_score > 0) {
+                this_frame_score += prev_frame_score;
+                score += this_frame_score;
+                prev_frame_score = 0;
             }
         }
     }
