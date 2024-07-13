@@ -16,7 +16,7 @@ std::string spinWords(std::string str) {
                 if (i < str.length()) {
                     result += " ";
                 } else {
-                    result = "";
+                    result += "";
                 }
                 word.clear();
             }
@@ -31,6 +31,9 @@ std::string spinWords(std::string str) {
         }
         result += " ";
         result += word;
-    } 
+    } else {
+        result = str; 
+    }
+    
     return result;
 }
