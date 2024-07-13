@@ -18,9 +18,9 @@ int main() {
     int nickels = remainingCents / 5;
     remainingCents %= 5;
 
-    int pennies = remainingCents;
-
     cout << nickels << endl; 
+
+    int pennies = remainingCents;
     cout << pennies << endl; 
 
     return 0;
