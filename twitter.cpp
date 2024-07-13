@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -6,10 +7,10 @@ using namespace std;
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
-    } else if (tweet.length() > 140 || tweet.find_first_not_of(" \t") == string::npos) {
+    } else if (tweet.length() > 140) {
         return "Too many characters";
     } else {
-        return "Your tweet has " + to_string(tweet.erase(0, tweet.find_first_not_of(" \t")).length()) + " characters";
+        return "Your tweet has " + to_string(tweet.length()) + " characters";
     }
 }
 
