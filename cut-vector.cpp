@@ -26,4 +26,3 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     return result;
-}
