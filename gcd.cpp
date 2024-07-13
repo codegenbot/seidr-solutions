@@ -3,17 +3,11 @@
 #include <iostream> 
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> result;
-    int index = 0;
-    while (index <= text.length() - target.length()) {
-        index = text.find(target, index);
-        if (index == string::npos)
-            break;
-        result.push_back(index);
-        index += 1; 
-    }
-    return result;
+long long gcd(long long a, long long b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
@@ -21,9 +15,7 @@ int main() {
     cin >> num1 >> num2;
     
     // Calculate GCD of two numbers
-    int gcd = __gcd(num1, num2);
-
-    cout << gcd << endl;
+    cout << gcd(num1, num2) << endl;
 
     string text, target;
     cin >> text >> target;
@@ -35,4 +27,17 @@ int main() {
     cout << endl;
 
     return 0;
+}
+
+vector<int> findIndices(string text, string target) {
+    vector<int> result;
+    int index = 0;
+    while (index <= text.length() - target.length()) {
+        index = text.find(target, index);
+        if (index == string::npos)
+            break;
+        result.push_back(index);
+        index += 1; // start searching from the next character
+    }
+    return result;
 }
