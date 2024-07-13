@@ -1,16 +1,13 @@
-```cpp
-#include <iostream>
-#include <string>
-
 int main() {
-    int pennies = 0;
-    int nickles = 0;
-    int dimes = 0;
     int quarters = 0;
+    int dimes = 0;
+    int nickles = 0;
+    int pennies = 0;
 
     std::cout << "Enter the number of cents: ";
-    int cents;
-    std::cin >> cents;
+    std::string input;
+    std::getline(std::cin, input);
+    int cents = std::stoi(input);
 
     quarters = cents / 25;
     cents %= 25;
@@ -21,12 +18,12 @@ int main() {
     nickles = cents / 5;
     cents %= 5;
 
-    pennies = cents;
+    pennies = cents; // this is the remaining amount in pennies
 
-    std::cout << "Quarters: " << std::to_string(quarters) << std::endl;
-    std::cout << "Dimes: " << std::to_string(dimes) << std::endl;
-    std::cout << "Nickles: " << std::to_string(nickles) << std::endl;
-    std::cout << "Pennies: " << std::to_string(pennies) << std::endl;
+    std::cout << "Quarters: " << quarters << std::endl;
+    std::cout << "Dimes: " << dimes << std::endl;
+    std::cout << "Nickles: " << nickles << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
