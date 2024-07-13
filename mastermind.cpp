@@ -23,7 +23,7 @@ int main() {
         white += std::min(it.second, guessCount[it.first]);
     }
     
-    std::cout << white << std::endl << black << std::endl;
+    std::cout << white << "\n" << black << "\n";
     
     return 0;
 }
