@@ -5,4 +5,6 @@ def vowels_count(s):
     for char in s:
         if char == 'a' or char == 'e' or char == 'i' or char == 'o' or char == 'u':
             count += 1
+        elif char == 'y' and s.index(char) == len(s) - 1:
+            count += 1
     return count
