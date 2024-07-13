@@ -5,7 +5,7 @@ def has_close_elements(numbers=None, threshold=None):
     if threshold is None:
         threshold = float(input("Enter a threshold value: "))
 
-    if not numbers:
+    if isinstance(numbers, str) and not numbers.strip().replace(" ", ""):  
         print("Invalid input. Please enter valid space-separated floating point numbers.")
         return False
 
