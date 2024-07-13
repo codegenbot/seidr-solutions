@@ -1,13 +1,11 @@
-def solve_boolean(input_str):
-    if input_str == 't':
+Here is the Python solution for the problem:
+
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif input_str == 'f':
+    elif expression == 'F':
         return False
-    elif '&' in input_str:
-        left, right = input_str.split('&')
-        return not (bool(solve_boolean(left)) and bool(solve_boolean(right)))
-    elif '|' in input_str:
-        left, right = input_str.split('|')
-        return bool(solve_boolean(left)) or bool(solve_boolean(right))
-    else:
-        raise ValueError("Invalid input")
+    elif '&' in expression:
+        return all(x == 'T' for x in expression.split('&'))
+    elif '|' in expression:
+        return any(x == 'T' for x in expression.split('|'))
