@@ -15,4 +15,4 @@ def decode_shift():
         else:
             decoded_message += char
     
-    return "Decoded message: " + decoded_message
+    return decoded_message
