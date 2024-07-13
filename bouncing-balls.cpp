@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath> // Include cmath for pow function
 #include <iomanip> // Include iomanip for setprecision
