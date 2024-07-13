@@ -8,18 +8,23 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool isNextUpper = false;
     for (char c : str) {
-        if (c == '-' || c == ' ') {
-            if (!isNextUpper && c != '-') {
-                if (!result.empty()) {
-                    result.back() ? (result += std::tolower(result.back())) : (result += std::toupper(result.back()));
-                }
-                result += c;
+        if (!isNextUpper && (c == '-' || c == ' ')) {
+            if (result.back() != ' ') { // Add space only if not already present
+                result += ' ';
+            }
+            isNextUpper = false;
+        } else if (c != '-' && c != ' ') {
+            if (!isNextUpper) {
+                result += std::toupper(c);
+                isNextUpper = true;
             } else {
-                continue;
+                result += std::tolower(c);
             }
         } else {
-            result += isNextUpper ? std::tolower(c) : std::toupper(c);
-            isNextUpper = !isNextUpper;
+            if (result.back() != '-') { // Add hyphen only if not already present
+                result += '-';
+            }
+            isNextUpper = false;
         }
     }
     return result;
