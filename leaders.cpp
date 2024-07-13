@@ -21,6 +21,9 @@ int main() {
     std::vector<int> nums;
     int num;
     while (std::cin >> num) {
+        if (std::cin.fail()) {
+            break;
+        }
         nums.push_back(num);
     }
 
