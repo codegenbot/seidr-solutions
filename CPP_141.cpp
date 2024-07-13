@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -28,14 +29,10 @@ std::string file_name_check(std::string file_name){
     }
 }
 
-int main() {
-    // Get the file name from user
+int main(){
     std::string file_name;
     std::cout << "Enter a file name: ";
     std::cin >> file_name;
-
-    // Check the file name and print the result
-    std::cout << "Is this a valid file name? " << file_name_check(file_name) << std::endl;
-
+    std::cout << file_name_check(file_name) << std::endl;
     return 0;
 }
