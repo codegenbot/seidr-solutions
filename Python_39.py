@@ -1,10 +1,7 @@
-def process_input(input_str):
+while True:
     try:
-        n = int(input_str)
-        return n
+        n = int(input("Enter an integer: "))
+        print("Integer entered:", n)
+        break
     except ValueError:
-        return "Invalid input. Please enter a valid integer."
-
-user_input = input("Enter an integer: ")
-result = process_input(user_input)
-print(result)
+        print("Invalid input. Please enter a valid integer.")
