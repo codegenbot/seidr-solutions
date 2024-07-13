@@ -1,4 +1,4 @@
-```
+```Python
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -18,8 +18,4 @@ def mastermind(code, guess):
     return str(black) + "\n" + str(white)
 
 
-print(mastermind("RRRR", "RRRR"))
-print(mastermind("BOYG", "GYOB"))
-print(mastermind("WYYW", "BBOG"))
-print(mastermind("GGGB", "BGGG"))
-print(mastermind("BBBB", "OOOO"))
+print(mastermind("YOGO", "OGRW"))
