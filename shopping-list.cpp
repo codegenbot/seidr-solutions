@@ -7,3 +7,16 @@ float calculateTotalPrice(const std::vector<float>& prices, const std::vector<fl
     }
     return total_price;
 }
+
+int main() {
+    // Example usage
+    std::vector<float> prices = {10.0, 20.0, 30.0};
+    std::vector<float> discounts = {5.0, 10.0, 15.0};
+
+    float total_price = calculateTotalPrice(prices, discounts);
+
+    // Print the total price after discounts
+    std::cout << "Total Price after discount: " << total_price << std::endl;
+
+    return 0;
+}
