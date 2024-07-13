@@ -1,4 +1,5 @@
 def encrypt(s):
+    """def encrypt(s):
     result = ""
     for char in s:
         if char.isalpha():
@@ -6,4 +7,4 @@ def encrypt(s):
             result += chr((ord(char) - ascii_offset + 2 * 26) % 26 + ascii_offset)
         else:
             result += char
-    return result
+    return result"""
