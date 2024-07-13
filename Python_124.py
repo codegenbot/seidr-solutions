@@ -1,12 +1,10 @@
-```
 def valid_date(date):
-    parts = date.split('-')
-    if len(parts) != 3:
+    if len(date) != 8: 
         return False
-    day, month, year = parts
+    day, month, year = date.split('-')
     if len(day) == 1:
         day = '0' + day
-    if len(month) == 1 and not int(month) in [1,3,5,7,8,10,12]:
+    if len(month) == 1:
         month = '0' + month
     if int(month) < 1 or int(month) > 12:
         return False
