@@ -1,12 +1,13 @@
-int main() {
-    string input;
-    cin >> input;
-    
-    if (input == "t") {
-        cout << "True" << endl;
+char solveBoolean(string expr) {
+    if (expr == "t") {
+        return 'T';
     } else {
-        cout << "False" << endl;
+        return 'F';
     }
-    
+}
+int main() {
+    string expr;
+    cin >> expr;
+    cout << (solveBoolean(expr) == 'T' ? "True" : "False") << endl;
     return 0;
 }
