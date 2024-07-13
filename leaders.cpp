@@ -1,3 +1,4 @@
+```cpp
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int lastLeader = arr.back();
