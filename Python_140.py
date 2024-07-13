@@ -3,3 +3,9 @@ def fix_spaces(text):
     while "__" in text:
         text = text.replace("__", "_-")
     return text
+
+text = input("Enter your text: ")
+if ' ' in text:
+    print(fix_spaces(text))
+else:
+    print(text)
