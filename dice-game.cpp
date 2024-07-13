@@ -1,5 +1,5 @@
 double probability(int n, int m) {
-    if (n < 1 || m < 1) return -1; 
+    if (n < 1 || m < 1) return -1; // invalid input
     double total = static_cast<double>(n + m);
     double p = 0;
     for (int i = 1; i <= n && i < m; ++i) {
