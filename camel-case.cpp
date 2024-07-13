@@ -21,7 +21,7 @@ std::string camelCase(const std::string& input) {
         result += ' ';
     }
     
-    return result.substr(0, result.size() - 1); // Remove trailing space
+    return result.substr(0, result.size() - 1); 
 }
 
 int main() {
