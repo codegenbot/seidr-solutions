@@ -13,7 +13,7 @@ std::vector<std::pair<int, int>> findPair(std::vector<int>& nums, int target) {
         numMap[nums[i]] = i;
     }
     
-    return {{-1, -1}}; 
+    return {std::make_pair(-1, -1)};
 }
 
 int main() {
