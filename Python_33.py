@@ -1,6 +1,9 @@
 def sort_third(l: list):
     return [
-        val if i % 3 != 0 else min([x for x in l if (i - 1) // 3 * 3 + j == i])
-        for i, val in enumerate(l)
-        for j in range(3)
+        (
+            x
+            if i % 3 != 0
+            else sorted([y for j, y in enumerate(l) if (j + 1) % 3 == 0])[i % 3 - 1]
+        )
+        for i, x in enumerate(l)
     ]
