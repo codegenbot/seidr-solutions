@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,12 +11,10 @@ string string_to_md5(const string& input) {
         if(i < 2)
             output += to_string(c);
         else
-            output += setfill('0') << hex << setprecision(1) << (int)c;
+            output.push_back(((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) ? char(c + ('a' - 'f')) : char(c));
     }
     return output;
 }
 
-int main() {
-    cout << fixed << string_to_md5("password") << endl;
-    return 0;
-}
+cout << fixed << setprecision(0) << string_to_md5("password") << endl;
+return 0;
