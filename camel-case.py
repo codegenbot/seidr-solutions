@@ -1,6 +1,4 @@
-Here is a possible solution:
+Here is the Python solution:
 
 def camel_case(s):
     return ''.join(word.capitalize() for word in s.split())
-
-print(camel_case(input()))
