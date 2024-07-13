@@ -6,8 +6,7 @@ float calculateSnow(float hours, float initialSnow, float snowFallRate, float me
     float totalSnow = initialSnow;
     
     for(int i=0; i<hours; i++) {
-        totalSnow += snowFallRate;
-        totalSnow -= meltingRate;
+        totalSnow += snowFallRate - meltingRate;
     }
     
     return totalSnow;
@@ -22,3 +21,4 @@ int main() {
     cout << fixed << setprecision(10) << calculateSnow(hours, initialSnow, snowFallRate, meltingRate) << endl;
     
     return 0;
+}
