@@ -1,4 +1,3 @@
-```''
 def largest_prime_factor(n):
     i = n
     while i > 1:
@@ -11,6 +10,7 @@ def largest_prime_factor(n):
         i -= 1
     return n
 
+
 def main():
     while True:
         num = input("Enter a number: ") or None
@@ -20,6 +20,6 @@ def main():
         n = int(num)
         print(largest_prime_factor(n))
 
+
 if __name__ == "__main__":
     main()
-''
