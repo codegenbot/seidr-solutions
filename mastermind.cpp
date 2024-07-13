@@ -4,28 +4,31 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
+    // Count the occurrences of each character in the guess string
+    vector<int> guessCount(6, 0);
+    for(int i = 0; i < 4; i++) {
+        guessCount[guess[i] - '0']++;
+    }
 
-    unordered_map<char, int> count_map;
-
+    // Calculate the number of black pegs (correct color, correct place)
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
+            code[i] = 'x';
+            guess[i] = 'x';
             black++;
         }
     }
 
+    // Calculate the number of white pegs (correct color, wrong place)
     for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 6; j++) {
-            if(guess[i] == possible_chars[j][0]) {
-                count_map[guess[i]]++;
+        if(code[i] != guess[i]) {
+            for(int j = 0; j < 6; j++) {
+                if(guessCount[j] > 0 && code[i] == '0' + j) {
+                    white++;
+                    guessCount[j]--;
+                    break;
+                }
             }
-        }
-    }
-
-    for(int i = 0; i < 4; i++) {
-        if(count_map[code[i]] > 0) {
-            white--;
-            count_map[code[i]]--;
         }
     }
 
