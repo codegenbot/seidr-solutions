@@ -19,9 +19,9 @@ def decode_cyclic():
             print("Invalid input. Please enter an integer."
             
     decoded = ""
-    for i in range(pos - 1, len(s) * 2):
-        if i % len(s) < (pos - 1) % len(s):
+    for i in range(len(s) * 2):
+        if i < (pos - 1) // 2:
             decoded += s[i % len(s)]
         else:
-            decoded += s[(i - pos + 1) % len(s)]
+            decoded += s[(i - 1) % len(s)]
     return decoded
