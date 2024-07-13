@@ -22,15 +22,19 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return result;
+    return !str.empty() ? result : str;
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    
-    std::cout << "Enter a string: " << spinWords(str) << std::endl;
+    str.erase(0, 1); 
+    if (!str.empty()) {
+        std::cout << "Spin words: " << spinWords(str) << std::endl;
+    } else {
+        std::cout << "No input provided." << std::endl;
+    }
     
     return 0;
 }
