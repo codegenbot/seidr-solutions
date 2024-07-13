@@ -28,7 +28,7 @@ try:
     target = input()
 
     if len(target) > len(text):
-        print("Target string cannot be longer than the text.")
+        print("Target string is longer than the text.")
     else:
         print(indices_of_substring(text, target))
 except ValueError as e:
