@@ -1,24 +1,24 @@
-def shift_encrypt(text):
+def encrypt(s):
     result = ""
-
-    for char in text:
-        if char.isalpha():
-            ascii_offset = ord("a") if char.islower() else ord("A")
-            result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
+    for i in range(len(s)):
+        char = s[i]
+        shift = 3
+        if char.isupper():
+            result += chr((ord(char) - 65 + shift) % 26 + 65)
         else:
-            result += char
-
+            result += chr((ord(char) - 97 + shift) % 26 + 97)
     return result
 
 
 def main():
-    s = input("Please enter the text to be encrypted: ")
     while True:
+        s = input("Please enter the text to be encrypted: ")
         if all(c.isalpha() for c in s):
             break
         else:
             print("Invalid input. Please enter a string containing only alphabets.")
-    print(f"Encrypted Text: {shift_encrypt(s)}")
+
+    print(f"Encrypted Text: {encrypt(s)}")
 
 
 main()
