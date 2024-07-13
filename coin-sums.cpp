@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 
 int main() {
@@ -7,15 +6,21 @@ int main() {
     std::cin >> cents;
 
     int quarters = cents / 25;
-    int remainder = cents % 25; 
+    cents %= 25; 
+    quarters = (quarters + (cents >= 25)) ? quarters + 1 : quarters;
+    cents -= 25 * ((cents >= 25) ? 1 : 0);
 
-    int dimes = remainder / 10;
-    remainder %= 10; 
+    int dimes = cents / 10;
+    cents %= 10; 
+    dimes = (dimes + (cents >= 10)) ? dimes + 1 : dimes;
+    cents -= 10 * ((cents >= 10) ? 1 : 0);
 
-    int nickles = remainder / 5;
-    remainder %= 5; 
+    int nickles = cents / 5;
+    cents %= 5; 
+    nickles = (nickles + (cents >= 5)) ? nickles + 1 : nickles;
+    cents -= 5 * ((cents >= 5) ? 1 : 0);
 
-    int pennies = remainder;
+    int pennies = cents;
 
     std::cout << "Quarters: " << quarters << std::endl;
     std::cout << "Dimes: " << dimes << std::endl;
