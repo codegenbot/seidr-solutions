@@ -1,34 +1,31 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
-    int maxLeader = nums.back();
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
+
+    int n = nums.size();
+    int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
-    for (int i = nums.size() - 2; i >= 0; i--) {
+
+    for (int i = n - 2; i >= 0; i--) {
         if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
             leaders.push_back(maxLeader);
         }
     }
-    return vector<int>(leaders.rbegin(), leaders.rend());
+
+    std::reverse(leaders.begin(), leaders.end());
+    return leaders;
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements in the vector: ";
-    cin >> n;
+    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
+    std::vector<int> result = findLeaders(nums);
 
-    vector<int> nums(n);
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    for (int leader : result) {
+        std::cout << leader << " ";
     }
 
-    vector<int> leaders = findLeaders(nums);
-    for (int leader : leaders) {
-        cout << leader << " ";
-    }
     return 0;
 }
