@@ -1,8 +1,7 @@
-def fuel_cost():
-    total = 0
-    for i in range(int(input())):
-        total += max(0, int(input()) // 3 - 2)
-    print(total)
+n = int(input())
+total = 0
+for _ in range(n):
+    x = int(input())
+    total += max(x // 3 - 2, 0)
 
-
-fuel_cost()
+print(total)
