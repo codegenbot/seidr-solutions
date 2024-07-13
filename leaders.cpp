@@ -20,20 +20,6 @@ vector<int> leaders(vector<int>& arr) {
     return res;
 }
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> res;
-    int max_right = arr[n-1];
-    for(int i=n-1; i>=0; i--) {
-        if(arr[i] >= max_right) {
-            res.push_back(arr[i]);
-            max_right = arr[i];
-        }
-    }
-    
-    return res;
-}
-
 int main() {
     vector<int> testArray = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(testArray);
