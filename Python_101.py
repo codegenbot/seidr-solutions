@@ -1,6 +1,6 @@
 ```
 words = input("Enter a string: ").strip()
-print(check(input("Enter a string: ").strip()))
+print(check(words))
 
 def check(sentence):
     if len(sentence.split()) > 1:
