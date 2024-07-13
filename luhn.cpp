@@ -1,16 +1,18 @@
 #include <vector>
 using namespace std;
 
-int luhnCheck(const vector<int>& creditCardNumber) {
+int luhn(vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
     
-    for (int i = creditCardNumber.size() - 1; i >= 0; --i) {
-        int digit = creditCardNumber[i];
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
         
         if (doubleNext) {
             digit *= 2;
-            if (digit > 9) digit -= 9;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
         
         sum += digit;
