@@ -1,14 +1,7 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
-double getProbability(int n, int m) {
-    double total = (double)(n+m);
-    return (double)m/total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(1) << getProbability(n, m) << endl;
-    return 0;
+double diceGame(int n, int m) {
+    double total = (n + m);
+    return (1.0 * n / total) * (m - 1.0) / (total - 1.0);
 }
