@@ -12,3 +12,4 @@ int main() {
     std::cin >> a >> b;
     std::cout << "GCD is: " << gcd(a, b) << std::endl;
     return 0;
+}
