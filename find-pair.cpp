@@ -11,7 +11,7 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
             return {complement, num};
         }
         if(map.find(num) != map.end()) {
-            return {num, num};
+            return {num, target - num};
         }
         map[num] = 1;
     }
