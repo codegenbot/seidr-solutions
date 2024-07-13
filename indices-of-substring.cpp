@@ -31,7 +31,7 @@ int main() {
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (std::tolower(lowercaseText[i + j]) != lowercaseTarget[j]) {
+            if (lowercaseText[i + j] != std::tolower(lowercaseTarget[j])) {
                 found = false;
                 break;
             }
