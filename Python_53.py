@@ -1,4 +1,4 @@
-def add():
+def add(x, y):
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
         if cont == "N":
@@ -14,5 +14,3 @@ def add():
                 break
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
-
-add()
