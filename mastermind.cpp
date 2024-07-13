@@ -12,17 +12,20 @@ int mastermind(const string& code, const string& guess) {
 
     // Count correct colors (white pegs)
     int code_counts[6] = {false};
+    int correct_colors = 0;
     for (int i = 0; i < 4; ++i) {
         if (!code_counts[code[i] - 'A']) {
             code_counts[code[i] - 'A'] = true;
             for (int j = 0; j < 4; ++j) {
                 if (code[j] == guess[3-j] && !code_counts[code[j] - 'A']) {
-                    white++;
+                    correct_colors++;
                     code_counts[code[j] - 'A'] = true;
                     break;
                 }
             }
         }
     }
+
+    white = correct_colors;
 
     return black + white;
