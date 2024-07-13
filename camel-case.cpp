@@ -6,11 +6,7 @@ std::string camelCase(std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if(capitalize){
-                result += toupper(str[str.find(c)+1]);
-                capitalize = false;
-            }
-            result += ' ';
+            capitalize = true; // Capitalize the next character
         } else {
             if(capitalize){
                 result += toupper(c);
@@ -21,5 +17,5 @@ std::string camelCase(std::string& str) {
         }
     }
 
-    return result.substr(0, result.find(' '));
+    return result;
 }
