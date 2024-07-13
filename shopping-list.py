@@ -10,5 +10,6 @@ for _ in range(n):
         prices_discounts.append([line[0], max(0, min(line[1], 100))])
     else:
         prices_discounts.append([line[0]])
+
 total_price = sum(price * (1 - discount / 100.0) for price, discount in prices_discounts)
 print(format(total_price, ".2f"))
