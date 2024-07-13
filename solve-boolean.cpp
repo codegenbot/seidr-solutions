@@ -1,28 +1,25 @@
-```cpp
-#include <iostream>
-#include <stack>
 #include <string>
 
-bool solveBoolean(string expression) {
-    stack<char> opStack;
-    stack<bool> valStack;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                valStack.pop();
+string solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            if (!opStack.empty()) opStack.push('&');
-        } else if (expression[i] == '|') {
-            opStack.push('|');
-            valStack.push(false);
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            valStack.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            valStack.push(false);
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-
-    return valStack.top();
-}
+    string res = "";
+    while (!st.empty()) {
+        res += st.top();
+        st.pop();
+    }
+    return (res == "T") ? "True" : ((res == "F") ? "False" : "");
