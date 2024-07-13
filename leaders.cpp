@@ -4,11 +4,13 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     if(n == 0) return res;
     
-    res.push_back(arr.back()); // rightmost element is always a leader
+    int maxSoFar = arr[n-1];
+    res.push_back(maxSoFar);
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= res.back()) {
-            res.push_front(arr[i]); 
+        if(arr[i] >= maxSoFar) {
+            maxSoFar = arr[i];
+            res.push_back(maxSoFar);
         }
     }
     
