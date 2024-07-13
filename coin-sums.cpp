@@ -1,11 +1,9 @@
 int main() {
-    int n;
-    cin >> n;
-    
-    cout << n % 25 << endl;
-    cout << (n % 25) / 10 << endl;
-    cout << ((n % 25) % 10) / 5 << endl;
-    cout << ((n % 25) % 10) % 5 << endl;
-    
+    int cents;
+    cin >> cents;
+    cout << cents % 5 << endl;
+    cout << cents / 5 << endl;
+    cout << 0 << endl;
+    cout << 0 << endl;
     return 0;
 }
