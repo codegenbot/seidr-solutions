@@ -7,4 +7,8 @@ def coin_sums(cents):
             cents -= coins[i]
             result[i] += 1
 
-    return " ".join(map(str, result))
+    return result
+
+
+cents = int(input())
+print(*coin_sums(cents))
