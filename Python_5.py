@@ -1,4 +1,3 @@
-```
 def intersperse(lst):
     return ''.join([item for pair in zip([lst[0]], lst, [lst[-1]]) for item in pair])
 
