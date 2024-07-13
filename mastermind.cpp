@@ -1,4 +1,6 @@
-```cpp
+#include <string>
+#include <iostream>
+
 int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
     int white = 0;
@@ -11,17 +13,10 @@ int mastermind(const std::string& code, const std::string& guess) {
     }
 
     // Count correct colors (white pegs)
-    int code_counts[6] = {false};
+    int code_counts[6] = {0}; 
     for (int i = 0; i < 4; ++i) {
-        if (!code_counts[code[i] - 'A']) {
-            code_counts[code[i] - 'A'] = true;
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == guess[3-j] && !code_counts[code[j] - 'A']) {
-                    white++;
-                    code_counts[code[j] - 'A'] = true;
-                    break;
-                }
-            }
+        if (++code_counts[code[i] - 'A'] == 1) {
+            white++;
         }
     }
 
