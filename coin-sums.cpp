@@ -1,14 +1,16 @@
-```
+```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int cents;
+    std::cout << "Enter the number of cents: ";
+    std::cin >> cents;
+
     int pennies = 0;
     int nickels = 0;
     int dimes = 0;
     int quarters = 0;
-
-    std::cin >> cents;
 
     while (cents >= 25) {
         cents -= 25;
@@ -25,15 +27,15 @@ int main() {
         nickels++;
     }
 
-    while (cents >= 1) {
-        cents -= 1;
-        pennies++;
-    }
+    pennies = cents;
 
     std::cout << "Quarters: " << quarters << std::endl;
-    std::cout << "Dimes: " << dimes << std::endl;
-    std::cout << "Nickels: " << nickels << std::endl;
-    std::cout << "Pennies: " << pennies << std::endl;
 
+    std::cout << "Dimes: " << dimes << std::endl;
+
+    std::cout << "Nickels: " << nickels << std::endl;
+
+    std::cout << "Pennies: " << pennies << std::endl;
+    
     return 0;
 }
