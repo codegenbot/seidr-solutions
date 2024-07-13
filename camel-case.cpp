@@ -11,38 +11,24 @@ string camelCase(string s) {
             if (result.size() > 0) {
                 result[0] = toupper(result[0]);
             }
-            string word = s.substr(i + 1);
-            if (!word.empty()) {
-                result += word;
+            if (i < s.size()) {
+                result += s.substr(i + 1);
             }
             break;
         } else if (s[i] == ' ') {
             if (i > 0) {
-                if (result.size() > 0) {
-                    result[0] = toupper(result[0]);
-                }
+                result += toupper(s[i-1]);
             }
             string word = s.substr(0, i);
             result += word;
-            word = s.substr(i + 1);
-            if (!word.empty()) {
-                result += capitalize(word);
-            }
+            result += s.substr(i + 1);
             break;
         } else {
-            result += s[i];
-        }
-    }
-    return result;
-}
-
-string capitalize(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (i > 0) {
-            result += tolower(s[i]);
-        } else {
-            result += toupper(s[i]);
+            if (result.size() == 0) {
+                result += s[i];
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
     return result;
