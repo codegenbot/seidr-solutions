@@ -1,10 +1,18 @@
-```
 def check():
-    prefix = input("Enter a prefix (e.g., 'abc'): ")
-    if not isinstance(prefix, str):
-        print("Program did not receive expected input")
-    elif len(prefix) > 5:
+    prefix = input("Enter a prefix: ")
+    words = []
+    while True:
+        user_word = input("Enter a word (or 'stop' to finish): ")
+        if user_word.lower() == "stop":
+            break
+        words.append(user_word)
+
+    if len(prefix) > 5:
         print("Prefix is too long")
     else:
-        print("Prefix is fine")
+        for word in words:
+            if word.startswith(prefix):
+                print(f"Found match: {word}")
+
+
 check()
