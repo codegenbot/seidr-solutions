@@ -1,8 +1,3 @@
-```c++
-#include <string>
-#include <stdexcept>
-#include <iostream>
-
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
         throw std::invalid_argument("No input provided");
@@ -52,14 +47,15 @@ int bowlingScore(const std::string& input) {
         }
     }
 
-    return score;
-}
+    // Handle the last frame
+    if(input.length() > i) {
+        if(input.at(i) == 'X') {
+            score += 10;
+        } else if(input.at(i) == '/') {
+            int prevRoll = input.at(i-1) - '0';
+            score += prevRoll + 10;
+        }
+    }
 
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores (X for strike, / for spare): ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
+    return score;
 }
