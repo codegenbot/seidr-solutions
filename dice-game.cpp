@@ -1,3 +1,5 @@
+#include <iostream>
+
 double probability(int n, int m) {
     double total = (double)(n * m);
     double p = 0;
@@ -9,4 +11,6 @@ double probability(int n, int m) {
     return p;
 }
 
-int main() { return 0; }
+int main(int argc, char** argv) { 
+    std::cout << probability(2,3);
+}
