@@ -1,14 +1,6 @@
+```cpp
 #include <vector>
 using namespace std;
-
-int main() {
-    vector<int> nums = {5, 2, 3, 4}; 
-    vector<int> res = leaders(nums);
-    for (int num : res) {
-        cout << num << " ";
-    }
-    return 0;
-}
 
 vector<int> leaders(vector<int>& nums) {
     vector<int> res;
@@ -19,6 +11,14 @@ vector<int> leaders(vector<int>& nums) {
             rightmost = nums[i];
         }
     }
-    res.push_back(nums.back()); // Rightmost element is always a leader.
     return res;
+}
+
+int main() {
+    vector<int> nums = {16, 17, 4, 3, 5, 2};
+    vector<int> leadersInNums = leaders(nums);
+    for (int leader : leadersInNums) {
+        cout << leader << " ";
+    }
+    return 0;
 }
