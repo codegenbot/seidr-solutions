@@ -1,14 +1,11 @@
-def solve_boolean(s):
-    def evaluate(expression):
-        if expression == "T":
-            return True
-        elif expression == "F":
-            return False
-        elif "&" in expression:
-            a, b = expression.split("&")
-            return evaluate(a) and evaluate(b)
-        else:
-            a, b = expression.split("|")
-            return evaluate(a) or evaluate(b)
-
-    return evaluate(s)
+def solve_boolean(expression):
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return bool(eval(left) and eval(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(eval(left) or eval(right))
