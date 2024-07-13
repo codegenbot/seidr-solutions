@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -7,6 +8,8 @@ long long minSubArraySum(std::vector<long long> nums) {
         sum += nums[i];
         if (sum < min_sum)
             min_sum = sum;
+        else if (sum > 0)
+            sum = 0;
     }
     return min_sum;
 }
