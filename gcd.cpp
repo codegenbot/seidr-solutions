@@ -1,10 +1,4 @@
 ```cpp
-#include <cstddef>
-#include <vector>
-#include <string>
-
-using std::size_t;
-
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = a;
@@ -14,7 +8,7 @@ int gcd(int a, int b) {
     return a;
 }
 
-std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target) {
+std::vector<std::size_t> indicesOfSubstring(std::string& text, std::string& target) {
     std::vector<std::size_t> result;
     size_t n = text.length();
     size_t m = target.length();
