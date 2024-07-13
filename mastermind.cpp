@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int mastermind(const string& code, const string& guess) {
+int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -35,9 +35,9 @@ int mastermind(const string& code, const string& guess) {
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
-    cin >> code;
+    getline(cin, code);
     cout << "Enter your guess: ";
-    cin >> guess;
+    getline(cin, guess);
     int result = mastermind(code, guess);
     cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
     return 0;
