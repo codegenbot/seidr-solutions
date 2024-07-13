@@ -20,6 +20,6 @@ int main() {
     for (float &x : v1) cin >> x;
     for (float &x : v2) cin >> x;
     
-    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
+    cout << fixed << std::setprecision(10) << vectorDistance(v1, v2) << endl;
     
     return 0;
