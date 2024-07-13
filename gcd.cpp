@@ -1,4 +1,4 @@
-```cpp
+cpp
 std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target) {
     std::vector<std::size_t> result;
     size_t n = text.length();
