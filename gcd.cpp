@@ -1,17 +1,18 @@
 ```cpp
 #include <iostream>
+#include <cmath>
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+std::string gcd(std::string a, std::string b) {
+    while (b != "0") {
+        int temp = stoi(b);
+        b = to_string(stoi(a) % temp);
+        a = to_string(temp);
     }
-    return std::abs(a);
+    return a;
 }
 
 int main() {
-    int a, b;
+    std::string a, b;
     std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
     return 0;
