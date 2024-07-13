@@ -12,7 +12,10 @@ string squareDigits(string input) {
 }
 
 int main() {
-    string input = "123";
-    cout << squareDigits(input) << endl;
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    string result = squareDigits(input);
+    cout << "Squared digits: " << result << endl;
     return 0;
 }
