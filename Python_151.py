@@ -4,11 +4,13 @@ def double_the_difference(lst):
     else:
         return None
 
+
 def check():
     while True:
         numbers = list(map(int, input("Enter space-separated numbers: ").split()))
         if all(isinstance(x, int) for x in numbers):
             break
     print(double_the_difference(numbers))
+
 
 check()
