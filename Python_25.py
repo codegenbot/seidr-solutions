@@ -2,8 +2,8 @@ from typing import List
 
 
 def factorize(n: int) -> List[int]:
-    i = 2
     factors = []
+    i = 2
     while i * i <= n:
         if n % i:
             i += 1
@@ -16,4 +16,4 @@ def factorize(n: int) -> List[int]:
             factors.append([i] * count)
     if n > 1:
         factors.append([n])
-    return sum(factors, [])
+    return [factor for factor in factors]
