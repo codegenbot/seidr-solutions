@@ -1,9 +1,9 @@
 #include <string>
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
+    // Count correct colors in wrong places
     map<char, int> codeCount, guessCount;
     for (char c : code) codeCount[c]++;
     for (char c : guess) guessCount[c]++;
@@ -13,5 +13,5 @@ int mastermind(string code, string guess) {
         else if (guessCount[code[i]] > 0) white++;
     }
 
-    return black;
+    return max(0, white - black);
 }
