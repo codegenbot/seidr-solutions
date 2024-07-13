@@ -1,29 +1,23 @@
-bool evaluateBooleanExpression(string expression) {
-    bool result = false;
-    stack<char> ops;
-    stack<bool> values;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-            values.push(b1 && b2);
-            ops.push('&');
-        } else if (expression[i] == '|') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-            values.push(b1 || b2);
-            ops.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            values.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            values.push(false);
+```cpp
+string solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return "False";
+            else st.pop();
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) return "True";
+            else st.pop();
+        } else {
+            st.push(s[i]);
         }
     }
-
-    return values.top();
+    if (st.size() > 1) return "False";
+    return st.size() ? "True" : "False";
 }
