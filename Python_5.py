@@ -1,23 +1,5 @@
 ```
-def find_max_min_average(numbers):
-    if not isinstance(numbers, list):
-        return "Error: Input is not a list."
-    if len(numbers) == 0:
-        return "Error: Empty list. Please enter non-empty list."
-    if not all(isinstance(i, int) for i in numbers):
-        return "Error: All elements must be integers."
+def intersperse(lst):
+    return ' '.join(map(str, lst))
 
-    max_num = max(numbers)
-    min_num = min(numbers)
-    average = sum(numbers) / len(numbers)
-
-    return f"Max: {max_num}, Min: {min_num}, Average: {average}"
-
-while True:
-    try:
-        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-        break
-    except ValueError:
-        print("Error: Please enter numeric values separated by spaces.")
-
-print(find_max_min_average(numbers))
+print(intersperse(input("Enter a list of strings (space separated): ").split()))
