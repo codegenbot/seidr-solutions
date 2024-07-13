@@ -1,4 +1,3 @@
-```
 def search(lst):
     max_num = float('-inf')
     for num in lst:
@@ -11,12 +10,10 @@ while True:
     user_input = input("Enter a number (or 'stop' to finish): ")
     if user_input.lower() == 'stop':
         break
-    try:
-        numbers.append(int(user_input))
-    except ValueError:
-        print("Invalid input. Please enter a valid integer or 'stop'.")
-        if numbers:  
-            print(f"The maximum number in the list is {search(numbers)}")
+    while True:
+        try:
+            numbers.append(int(user_input))
             break
-
-print(f"The maximum number in the list is {search(numbers)}")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer or 'stop'.")
+            user_input = input("Enter a number (or 'stop' to finish): ")
