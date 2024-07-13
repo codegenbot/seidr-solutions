@@ -1,4 +1,4 @@
-def find_closest_elements():
+def find_closest_elements(numbers):
     while True:
         input_str = input("Enter numbers separated by space: ")
         
@@ -26,4 +26,4 @@ def find_closest_elements():
 
     return closest_pair
 
-print("Closest pair is: ", find_closest_elements())
+print("Closest pair is: ", find_closest_elements(input("Enter numbers separated by space: ").split()))
