@@ -8,17 +8,11 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    cout << "You entered: " << n << " and " << m << endl;
+    double numerator = (n - 1) * m;
+    double denominator = (double)(n*m);
 
-    double probability = 0.0;
-    for(int i=1; i<=n; i++) {
-        for(int j=1; j<i; j++) {
-            probability += 1.0;
-        }
-    }
-
-    cout << "The probability that Peter rolls strictly higher than Colin is: "
-         << (probability / (double)(n*m)) << endl;
+    double probability = (double)numerator / denominator;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
 
     return 0;
 }
