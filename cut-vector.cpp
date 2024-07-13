@@ -22,14 +22,8 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
         }
     }
-    res.push_back(vector<int>()); 
-    res.push_back(vector<int>());
-    for (int i = 0; i < split_index; i++) {
-        res[0].push_back(v[i]);
-    }
-    for (int i = split_index; i < v.size(); i++) {
-        res[1].push_back(v[i]);
-    }
+    res.push_back(vector<int>(vector<int>::size_type(0), v.begin(), v.begin() + split_index));
+    res.push_back(vector<int>(v.begin() + split_index, v.end()));
     return res;
 }
 
