@@ -1,12 +1,12 @@
 #include <string>
 #include <map>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count correct colors in wrong places
-    std::map<char, int> codeCount, guessCount;
+    map<char, int> codeCount, guessCount;
     for (char c : code) codeCount[c]++;
     for (char c : guess) guessCount[c]++;
 
