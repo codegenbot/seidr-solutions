@@ -5,8 +5,8 @@ import ast
 def filter_integers() -> None:
     while True:
         try:
-            user_input = input("Enter a list: ")
-            if user_input.strip() != "" and user_input.lower() not in ["yes", "no"]:
+            user_input = input("Enter a Python expression: ")
+            if user_input.strip() != "":
                 values = ast.literal_eval(user_input)
                 if isinstance(values, list):
                     result = [value for value in values if isinstance(value, int)]
@@ -16,10 +16,11 @@ def filter_integers() -> None:
                         break
                 else:
                     print(
-                        f"Invalid input. Please enter a valid Python expression representing a list."
+                        f"Invalid input. Please enter a valid Python expression."
                     )
             else:
                 print("Please provide some input.")
         except (ValueError, SyntaxError):
             print(f"Invalid input. Please enter a valid Python expression.")
-        filter_integers()
+
+filter_integers()
