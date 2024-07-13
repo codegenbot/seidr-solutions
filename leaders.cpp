@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -5,10 +6,9 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
 
     int n = nums.size();
-    int maxLeader = nums[n - 1];
-    leaders.push_back(maxLeader);
+    int maxLeader = INT_MIN;
 
-    for (int i = n - 2; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
             leaders.push_back(maxLeader);
