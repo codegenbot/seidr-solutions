@@ -7,13 +7,13 @@ string decimal_to_binary(int decimal){
             binary += '1';
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    return binary;
 }
 
 int main(){
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "Binary representation is: " << decimal_to_binary(num) << endl;
+    int decimal;
+    cout << "Enter a decimal number: ";
+    cin >> decimal;
+    cout << "The binary representation is: " << decimal_to_binary(decimal) << endl;
     return 0;
 }
