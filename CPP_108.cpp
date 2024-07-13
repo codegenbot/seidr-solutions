@@ -10,7 +10,7 @@ int count_nums(std::vector<int> v) {
                 sum += num % 10;
                 num /= 10;
             }
-            if (sum != 0)
+            if (sum > 1)
                 ++count;
         } else {
             num = -num; 
@@ -23,7 +23,7 @@ int count_nums(std::vector<int> v) {
                 num /= 10;
                 is_negative = !is_negative;
             }
-            if (sum != 0)
+            if (sum > 1)
                 ++count;
         }
     }
