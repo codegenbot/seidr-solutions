@@ -7,8 +7,8 @@ int main() {
     double remaining_snow = initial_snow_on_ground;
 
     for (double i = 0.0; i < hours; i += 1.0) {
-        remaining_snow = remaining_snow + snow_fall_rate - snow_melt_rate * initial_snow_on_ground;
-        if (remaining_snow < 0.0) {
+        remaining_snow = remaining_snow + snow_fall_rate - snow_melt_rate * remaining_snow;
+        if (remaining_snow <= 0.0) {
             remaining_snow = 0.0;
             break;
         }
