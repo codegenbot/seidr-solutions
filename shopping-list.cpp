@@ -1,3 +1,5 @@
+#include <iostream>
+#include <iomanip>
 #include <vector>
 using namespace std;
 
@@ -11,9 +13,6 @@ double shoppingList(vector<float>& prices, vector<float>& discounts) {
     return total;
 }
 
-#include <iostream>
-#include <iomanip>
-
 int main() {
     int n;
     cin >> n;
@@ -25,6 +24,6 @@ int main() {
     for (auto& discount : discounts) {
         cin >> discount;
     }
-    cout << std::fixed << std::setprecision(1) << shoppingList(prices, discounts) << std::endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
