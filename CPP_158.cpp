@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 std::string find_max(std::vector<std::string> words);
 
