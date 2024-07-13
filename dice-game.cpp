@@ -11,10 +11,11 @@ int main() {
 
     double sum = 0.0; 
     for(int i = 1; i < n; i++) {
-        sum += (n - i) / (double)(n*m); 
+        sum += (double)(n - i);
     }
+    double probability = (double)sum / (n*m);
     
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << sum << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
 
     return 0;
 }
