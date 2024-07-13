@@ -1,16 +1,23 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+
+    std::unordered_map<char, char> mapping;
+    for (size_t i = 0; i < cipher1.size(); ++i) {
+        mapping[cipher1[i]] = cipher2[i];
+    }
 
     for (char& c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
-        } else if (c == cipher2[0]) {
-            c = cipher1[0];
+        if (mapping.find(c) != mapping.end()) {
+            c = mapping[c];
         }
     }
 
-    cout << message << endl;
+    std::cout << message << std::endl;
 
     return 0;
 }
