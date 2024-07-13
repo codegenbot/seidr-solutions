@@ -3,7 +3,7 @@ def match_parens(lst):
     result = []
     for s in lst:
         if not s:  
-            result.append('No')
+            result.append("No")
         else:
             count = 0
             has_opening = False
@@ -15,12 +15,14 @@ def match_parens(lst):
                     if count > 0:
                         count -= 1
                     else:
-                        result.append('No')
+                        result.append("No")
                         break
             if count > 0:
-                result.append('No')
+                result.append("No")
             elif not has_opening and s == "":
-                result.append('Yes')
+                result.append("Yes")
             else:
-                result.append('Yes' if (count == 0) else 'No')
-    return [i for i in result]
+                result.append("Yes" if (count == 0) else "No")
+    return result
+
+print(match_parens(["()","(())",")(","((()))"]))

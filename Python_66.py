@@ -1,7 +1,6 @@
 ```
 def digitSum(s):
     sum = 0
-    for c in s.lower():
-        if c.isdigit():
-            sum += int(c)
+    for c in s:
+        sum += int(c)
     return sum
