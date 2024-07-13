@@ -1,12 +1,15 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
-    bool balanced = true;
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            balanced = false;
-            break;
-        }
+    int sum = 0;
+    for(int i:q){
+        sum+=i;
     }
-    return balanced &&accumulate(q.begin(), q.end(), 0) <= w;
+    return sum <= w && (q == vector<int>(q.begin(), q.end()));
+}
+
+int main() {
+    assert(will_it_fly({5}, 5) == true);
 }
