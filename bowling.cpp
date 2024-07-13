@@ -14,11 +14,7 @@ int bowlingScore(string s) {
                     break;
                 }
             }
-            if (count == 1) {
-                score += (s[i] - '0') * 10;
-            } else {
-                score += count * (s[i] - '0');
-            }
+            score += count * (s[i] - '0');
         } else if (s[i] == '/') {
             int firstCount = s[i-1] - '0';
             int secondCount = s[i+1] - '0';
@@ -27,4 +23,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
