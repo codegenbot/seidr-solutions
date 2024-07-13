@@ -1,12 +1,15 @@
-def filter_integers(lst):
+def filter_integers():
     while True:
-        result = [value for value in input("Enter integers (space-separated): ").split() if isinstance(int(value.strip()), int)]
-        print(f"Integers found: {result}")
-        
-        cont = input("Do you want to filter integers again? (yes/no): ")
-        while cont.lower() not in ["yes", "no"]:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-            cont = input("Do you want to filter again? (yes/no): ")
+        try:
+            lst = list(map(int, input("Enter integers (space-separated): ").split()))
+            print(f"Integers found: {lst}")
             
-        if cont.lower() == "no":
-            break
+            cont = input("Do you want to filter integers again? (yes/no): ")
+            while cont.lower() not in ["yes", "no"]:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+                cont = input("Do you want to filter again? (yes/no): ")
+                
+            if cont.lower() == "no":
+                break
+        except ValueError:
+            print("Invalid input. Please enter space-separated integers.")
