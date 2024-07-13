@@ -1,3 +1,3 @@
-```
 def remove_duplicates(numbers):
-    return sorted(list(set(numbers)), reverse=True)
+    seen = set()
+    return [num for num in numbers if not (num in seen or num in seen)][::-1]
