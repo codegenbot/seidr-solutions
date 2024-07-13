@@ -1,5 +1,4 @@
 #include <iostream>
-
 double diceGame(int n, int m) {
     double total = 0.0;
     for (int i = 1; i <= n; i++) { 
@@ -21,3 +20,4 @@ int main() {
     double result = diceGame(n, m);
     std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
     return 0;
+}
