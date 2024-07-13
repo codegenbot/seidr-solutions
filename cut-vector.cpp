@@ -1,6 +1,6 @@
+#include <climits>
 #include <vector>
 #include <iostream>
-#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -12,33 +12,26 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
-    long long leftSum = 0, rightSum = 0;
-    int left = 0, right = n - 1;
-    int leftMin = INT_MAX, rightMin = INT_MAX;
+    long long leftSum = 0, rightSum = sum;
+    int minDiff = INT_MAX, cutIndex = -1;
 
-    for (int i = 0; i < n; i++) {
-        leftSum += v[i];
-        
-        if (abs(leftSum - (sum - leftSum)) < leftMin) {
-            leftMin = abs(leftSum - (sum - leftSum));
+    for (int i = 0; i <= n; i++) {
+        if (i == n) {
+            rightSum = sum;
+        } else {
+            rightSum -= v[i];
         }
-    }
-
-    rightMin = INT_MAX;
-    for (int i = n - 1; i >= 0; i--) {
-        rightSum += v[i];
         
-        if (abs(rightSum - (sum - rightSum)) < rightMin) {
-            rightMin = abs(rightSum - (sum - rightSum));
+        long long diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
-    }
-
-    int cutIndex;
-    
-    if (leftMin > rightMin) {
-        cutIndex = right;
-    } else {
-        cutIndex = left;
+        
+        if (i < n) {
+            leftSum += v[i];
+        }
     }
     
     res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
