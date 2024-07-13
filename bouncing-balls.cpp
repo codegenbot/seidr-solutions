@@ -1,12 +1,11 @@
-```cpp
-#include <iostream>
-using namespace std;
+Here is the corrected code:
 
+```cpp
 int main() {
     double startHeight, actualStartHeight;
-    
+
     // Get the input values from user
-    cin >> startHeight >> actualStartHeight;
+    std::cin >> startHeight >> actualStartHeight;
     
     double actualBouncinessIndex = (actualStartHeight / startHeight);
 
@@ -18,7 +17,5 @@ int main() {
         totalDistance += startHeight; 
     }
 
-    cout << "The total distance the ball travels is: " << totalDistance << endl;
-    
     return 0;
 }
