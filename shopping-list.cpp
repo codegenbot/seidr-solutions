@@ -7,8 +7,7 @@ double shoppingTrip(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for(int i = 0; i < prices.size(); i++) {
         double price = prices[i];
-        double discount = price * (discounts[i] / 100.0);
-        total += price - (price * (discounts[i] / 100.0));
+        total += price * (1 - discounts[i] / 100.0);
     }
     return total;
 }

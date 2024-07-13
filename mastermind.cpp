@@ -1,7 +1,3 @@
-#include <iostream>
-#include <map>
-#include <string>
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -13,20 +9,12 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    map<char, int> codeMap, guessMap;
-    for (int i = 0; i < 4; ++i++) {
-        if (code[i] == guess[i]) {
-            codeMap[code[i]]--;
-            guessMap[guess[i]]--;
-        } else {
-            codeMap[code[i]]++;
-            guessMap[guess[i]]++;
-        }
-    }
     int blackPegs = 0;
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             blackPegs++;
+            code.replace(i, 1, "");
+            guess.replace(i, 1, "");
         }
     }
     return blackPegs;
