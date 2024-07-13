@@ -6,13 +6,12 @@
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::string buffer;
-    std::vector<std::string> arr;
-    int i = 0;
+    std::vector<std::string> result;
 
     for (char c : str) {
         if (c == ' ') {
             if (!buffer.empty()) {
-                arr.push_back(buffer);
+                result.push_back(buffer);
                 buffer = ""; 
             }
         } else if (c != delimiter) {
@@ -21,7 +20,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 
         if (c == delimiter || c == '\0') {
             if (!buffer.empty()) {
-                arr.push_back(buffer);
+                result.push_back(buffer);
                 buffer = ""; 
             }
         }
@@ -29,16 +28,16 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 
     // Added to handle empty strings
     if (!buffer.empty()) {
-        arr.push_back(buffer);
+        result.push_back(buffer);
     }
-    if (arr.size() > 1 && arr[0].empty()) {
-        for(int j=0; j<arr.size(); j++){
-            arr[j] = arr[j+1];
+    if (result.size() > 1 && result[0].empty()) {
+        for(int j=0; j<result.size(); j++){
+            result[j] = result[j+1];
         }
-        arr.erase(arr.begin()+j);
+        result.erase(result.begin());
     }
 
-    return arr;
+    return result;
 }
 
 std::string camelCase(const std::string& str) {
