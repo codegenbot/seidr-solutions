@@ -4,9 +4,6 @@ def is_multiply_prime(n=None):
         a = int(input("Enter a number: "))
         b = int(input("Enter another number: "))
 
-        product = a * b
-        return is_prime(product)
-    else:
         def is_prime(m):
             if m < 2:
                 return False
@@ -15,4 +12,19 @@ def is_multiply_prime(n=None):
                     return False
             return True
 
-        return is_prime(n)
+        product = a * b
+        return is_prime(product)
+    else:
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                factors = [i]
+                j = n // i
+                while j > 1 and i <= j:
+                    if not is_prime(j):
+                        return False
+                    i = j
+                    j = n // i
+                return True
+        return True
