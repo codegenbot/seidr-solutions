@@ -1,4 +1,3 @@
-```python
 def get_max_triples(n):
     return n * (n + 1) // 2 * 2
 
