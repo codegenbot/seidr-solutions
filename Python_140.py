@@ -1,16 +1,13 @@
-Here is the modified code:
-
 ```
 import re
 
 
 def fix_spaces():
-    text = ""
     while True:
+        text = input("Enter a string (or 'stop' to finish): ").strip().lower()
         if text.lower() == "stop":
             break
-        text = input(f"Enter a string ({text} or 'stop' to finish): ").strip().lower()
-        if not re.match("^[a-z_]+$", text):
+        elif not re.match("^[a-z_]+$", text):
             print("Please enter alphabetic characters and/or underscores. Try again.")
         else:
             text_list = text.split()
@@ -19,4 +16,4 @@ def fix_spaces():
                 new_text = new_text.replace("--", "-")
             while "_-_" in new_text or "_--" in new_text:
                 new_text = new_text.replace("_--", "_-").replace("_-_", "_-")
-            print(f"{new_text.upper() if new_text.isalpha() else new_text.capitalize()}")
+            print(f"{new_text.upper() if re.match("^[a-zA-Z_]+$", new_text) else new_text.capitalize()}"
