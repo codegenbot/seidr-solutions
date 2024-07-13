@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 int pairedDigits(string s) {
@@ -9,10 +11,4 @@ int pairedDigits(string s) {
         }
     }
     return sum;
-}
-
-int main() {
-    string input = "your_input_string"; 
-    cout << pairedDigits(input) << endl;
-    return 0;
 }
