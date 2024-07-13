@@ -1,9 +1,9 @@
+```
 def add():
-    operation = input("Do you want to do addition (Y/N)? ").upper()
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
         if cont == "N":
-            return None
+            break
         if cont not in ["Y", "N"]:
             print("Invalid input. Please enter Y or N.")
             continue
@@ -15,6 +15,12 @@ def add():
                 cont_again = input("Do you want to add again (Y/N)? ").upper()
                 if cont_again != "N":
                     continue
-                return 0
+                break
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
+
+def main():
+    add()
+
+if __name__ == "__main__":
+    main()
