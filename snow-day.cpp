@@ -12,10 +12,12 @@ int main() {
     for (int i = 0; i < hours; ++i) {
         double snow_fallen = std::min(snow_fall_rate, remaining_snow);
         double snow_melted = remaining_snow * snow_melt_rate;
-        remaining_snow = std::max(0.0, remaining_snow + snow_fallen - snow_melted);
+        remaining_snow = std::max(0.0, remaining_snow + snow_fallen - std::min(snow_melted, remaining_snow));
     }
 
-    std::cout << std::fixed << remaining_snow << std::endl;
+    std::cout << std::fixed;
+    std::cout.precision(15);
+    std::cout << remaining_snow << std::endl;
     
     return 0;
 }
