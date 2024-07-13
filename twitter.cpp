@@ -4,13 +4,19 @@
 using namespace std;
 
 string validateTweet(string tweet) {
-    if (tweet.empty()) {
+    int asciiCount = 0;
+    for(char c : tweet) {
+        if(c <= 126) { 
+            asciiCount++;
+        }
+    }
+    if(tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.size() > 140) {
+    if(asciiCount > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.size()) + " characters";
+    return "Your tweet has " + to_string(asciiCount) + " ASCII characters";
 }
 
 int main() {
