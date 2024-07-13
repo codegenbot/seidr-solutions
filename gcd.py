@@ -4,6 +4,20 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
+text = input("Enter text: ")
+target = input("Enter target: ")
+
+while True:
+    try:
+        a = int(input("Enter first integer: "))
+        b = int(input("Enter second integer: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(find_indices(text, target))
+print(gcd(a, b))
+
 def find_indices(text, target):
     indices = []
     start = 0
@@ -15,12 +29,3 @@ def find_indices(text, target):
         else:
             break
     return indices
-
-text = input("Enter text: ")
-target = input("Enter target: ")
-
-a = int(input("Enter first integer: "))
-b = int(input("Enter second integer: "))
-
-print(find_indices(text, target))
-print(gcd(int(a), int(b)))
