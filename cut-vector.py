@@ -1,23 +1,17 @@
 n = int(input())
-numbers = []
-for _ in range(n):
-    numbers.append(int(input()))
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(numbers)
-half_sum = total_sum // 2
-left_sum = 0
-idx = 0
-for i, num in enumerate(numbers):
-    left_sum += num
-    if left_sum >= half_sum:
-        idx = i
-        break
+total_sum = sum(v)
+current_sum = 0
+cut_point = 0
+min_diff = float("inf")
 
-if abs(left_sum - (total_sum - left_sum)) < abs(
-    left_sum - (total_sum - left_sum - numbers[idx])
-):
-    print(numbers[: idx + 1])
-    print(numbers[idx + 1 :])
-else:
-    print(numbers[:idx])
-    print(numbers[idx:])
+for i in range(n):
+    current_sum += v[i]
+    diff = abs(total_sum - 2 * current_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_point = i
+
+print(*v[: cut_point + 1])
+print(*v[cut_point + 1 :])
