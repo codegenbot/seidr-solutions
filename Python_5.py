@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def find_max_min_average(numbers):
     if not isinstance(numbers, list):
@@ -11,5 +13,5 @@ def find_max_min_average(numbers):
 
     return f"Max: {max_num}, Min: {min_num}, Average: {average}"
 
-numbers = list(map(int, input().split(',')))
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
 print(find_max_min_average(numbers))
