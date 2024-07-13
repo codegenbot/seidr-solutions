@@ -1,3 +1,4 @@
+```
 def largest_prime_factor(n):
     i = n
     while i > 1:
