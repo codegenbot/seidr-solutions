@@ -1,7 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,7 +24,7 @@ int main() {
         cin >> v1[i] >> v2[i];
     }
 
-    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
+    cout << std::fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
 
     return 0;
 }
