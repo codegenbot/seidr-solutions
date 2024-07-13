@@ -1,10 +1,9 @@
 #include <iostream>
-#include <string>
 
 int main() {
     int quarters = 0;
-    int nickles = 0;
     int dimes = 0;
+    int nickles = 0;
     int pennies = 0;
 
     std::cout << "Enter the number of cents: ";
@@ -15,11 +14,11 @@ int main() {
     quarters = cents / 25;
     cents %= 25;
 
-    nickles = cents / 5;
-    cents %= 5;
-
     dimes = cents / 10;
     cents %= 10;
+
+    nickles = cents / 5;
+    cents %= 5;
 
     pennies = cents; // this is the remaining amount in pennies
 
