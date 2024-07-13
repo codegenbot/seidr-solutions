@@ -7,21 +7,15 @@ bool evaluateBooleanExpression(string expression) {
     stack<char> operatorStack;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&' || expression[i] == '|') {
-            while (!operatorStack.empty() && expression[i-1] != '(' && (expression[i-1] == '&' || expression[i-1] == '|')) {
-                if (expression[i-1] == '&') {
-                    operatorStack.pop();
-                    i--;
-                    break;
-                }
-                else if (expression[i-1] == '|') {
-                    operatorStack.pop();
-                    i--;
-                    break;
-                }
+            while (!operatorStack.empty() && ((expression[i-1] == '&' && expression[i] != '(') || (expression[i-1] == '|' && expression[i] != '('))) {
+                operatorStack.pop();
+                i--;
+                if (operatorStack.empty()) break;
             }
             operatorStack.push(expression[i]);
         }
         else if (expression[i] == 'T' || expression[i] == 'F') {
+            // Check for parentheses
             int j = i + 1;
             while (j < expression.length() && (expression[j] == '&' || expression[j] == '|')) {
                 j++;
