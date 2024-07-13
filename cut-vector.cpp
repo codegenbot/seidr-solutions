@@ -1,7 +1,7 @@
-#include <vector>
-
+template<typename>
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
+    std::vector<int> left, right;
     long long diff = numeric_limits<long long>::max();
 
     for (int i = 0; i < n; i++) {
@@ -18,12 +18,14 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         }
 
         if (abs(leftSum - rightSum) == diff) {
-            return {{v.begin(), v.begin() + i + 1}, {v.begin() + i + 1, v.end()}};
+            left.assign(v.begin(), v.begin() + i + 1);
+            right = std::vector<int>(v.begin() + i + 1, v.end());
         } else if (abs(leftSum - rightSum) < diff) {
             diff = abs(leftSum - rightSum);
+            left.assign(v.begin(), v.begin() + i + 1);
+            right = std::vector<int>(v.begin() + i + 1, v.end());
         }
     }
 
-    // If no cut found, return the original vector as both parts
-    return {{v.begin(), v.end()}, {v.begin(), v.end()}};
+    return {left, right};
 }
