@@ -9,8 +9,8 @@ def match_parens(lst):
                 if len(stack) > 0 and stack.pop() == '(':
                     continue
                 else:
-                    return 'No'
+                    return False
     if len(stack) == 0:
-        return 'Yes'
+        return True
     else:
-        return 'No'
+        return False
