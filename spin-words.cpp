@@ -1,15 +1,24 @@
-int main() {
-    string input;
-    getline(cin, input);
+#include <iostream>
+#include <sstream>
+#include <string>
 
-    istringstream iss(input);
-    string word;
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::istringstream iss(input);
+    std::string word;
     bool first = true;
+
     while (iss >> word) {
         if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+            std::reverse(word.begin(), word.end());
         }
-        cout << (first ? "" : " ") << word;
+
+        if (!first) {
+            std::cout << " ";
+        }
+        std::cout << word;
         first = false;
     }
 
