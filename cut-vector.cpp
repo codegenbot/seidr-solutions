@@ -44,6 +44,7 @@ int main() {
         if (num == -1) {
             break;
         }
+        cin.ignore(INT_MAX, '\n');
         nums.push_back(num);
     }
 
