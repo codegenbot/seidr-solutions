@@ -1,14 +1,9 @@
+```
 def cut_vector(vector):
-    total_sum = sum(vector)
-    
-    min_diff = float("inf")
-    split_index = 0
-    
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i+1])
+    left_sum = 0
+    for i, num in enumerate(vector):
+        left_sum += num
         
-        if abs(left_sum - (total_sum - left_sum)) < min_diff:
-            min_diff = abs(left_sum - (total_sum - left_sum))
-            split_index = i
-
-    return tuple(vector[:split_index]), tuple(vector[split_index:])
+        if abs(left_sum - sum(vector[i+1:])) < abs(sum(vector[:i]) - sum(vector[i:])):
+            return tuple(vector[:i]), tuple(vector[i:])
+    return tuple([num]), tuple(vector[1:])
