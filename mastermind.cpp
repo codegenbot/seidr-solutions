@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -27,9 +30,10 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "ABDE";
-    int result = mastermind(code, guess);
-    std::cout << "Number of black pegs: " << (result - 0) << ", Number of white pegs: " << 0 << std::endl;
+    // Example usage
+    std::string code = "AAAA";
+    std::string guess1 = "AABB";
+    std::cout << mastermind(code, guess1) << std::endl;
+
     return 0;
 }
