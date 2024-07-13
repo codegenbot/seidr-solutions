@@ -1,8 +1,11 @@
 def fix_spaces(text):
-    text = text.strip().replace(" ", "_")
-    while "__" in text:
-        text = text.replace("__", "_-")
-    return text
+    if text is not None and isinstance(text, str):
+        text = text.strip().replace(" ", "_")
+        while "__" in text:
+            text = text.replace("__", "_-")
+        return text
+    else:
+        return "Error: Invalid input type. Please enter a string."
 
 
 def main():
