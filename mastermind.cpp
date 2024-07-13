@@ -1,7 +1,4 @@
-#include <iostream>
-#include <map>
-using namespace std;
-
+```cpp
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -13,22 +10,23 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeMap;
-    for (int i = 0; i < 4; ++i) {
+    map<char, int> codeMap, guessMap;
+    for (int i = 0; i < 4; ++i++) {
         if (code[i] == guess[i]) {
-            count++;
+            codeMap[code[i]]--;
+            guessMap[guess[i]]--;
         } else {
             codeMap[code[i]]++;
-            codeMap[guess[i]]++;
+            guessMap[guess[i]]++;
         }
     }
+    int blackPegs = 0;
     for (auto& pair : codeMap) {
         if (pair.second == 1) {
-            count++;
+            blackPegs++;
         }
     }
-    return count;
+    return blackPegs;
 }
 
 int main() {
