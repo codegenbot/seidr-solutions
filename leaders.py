@@ -1,9 +1,10 @@
-def leaders(a):
-    n = len(a)
-    leaders_list = [a[n - 1]]
+def leaders(input_vector):
+    leaders_list = []
+    max_right = input_vector[-1]
 
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i + 1]:
-            leaders_list.append(a[i])
+    for i in range(len(input_vector) - 1, -1, -1):
+        if input_vector[i] >= max_right:
+            leaders_list.append(input_vector[i])
+            max_right = input_vector[i]
 
     return reversed(leaders_list)
