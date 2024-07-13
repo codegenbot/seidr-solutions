@@ -1,11 +1,10 @@
-```
 def parse_music(s):
     s = s.lower()
-    words = s.replace("|", " ").split()
-    word_counts = {}
-    for word in words:
-        if word in word_counts:
-            word_counts[word] += 1
+    beats = s.replace("|", " ").split()
+    beat_counts = {}
+    for i in range(1, len(beats) + 1):
+        if str(i) in beat_counts:
+            beat_counts[str(i)] += 1
         else:
-            word_counts[word] = 1
-    return [word_counts.get(word, 0) for word in set(s.lower().replace("|", " ").split())]
+            beat_counts[str(i)] = 1
+    return [beat_counts.get(str(i), 0) for i in range(1, len(beats) + 1)]
