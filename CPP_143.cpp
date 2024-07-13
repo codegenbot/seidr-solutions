@@ -1,23 +1,17 @@
-#include <vector>
-#include <algorithm>
-
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-
-    for (const auto& word : words) {
+string words_in_sentence(string sentence){
+    string result = "";
+    for (const auto& word : split(sentence, ' ')) {
         if (is_prime(word.length())) {
             result += word + " ";
         }
     }
-
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.length() - 1);
 }
 
-vector<string> split(const string& str, char c) {
+vector<string> split(const string& str, char ch) {
     vector<string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(c)) != string::npos) {
+    while ((pos = str.find(ch)) != stdstring::npos) {
         tokens.push_back(str.substr(0, pos));
         str.erase(0, pos + 1);
     }
