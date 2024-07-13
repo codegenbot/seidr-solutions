@@ -1,19 +1,23 @@
 string solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+    stack<char> st;
+    for(int i = 0; i < expression.length(); i++) {
+        if(expression[i] == '&') {
+            while(!st.empty() && st.top() == '&') {
+                st.pop();
             }
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+            if(!st.empty()) {
+                st.push('&');
             }
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            s.push('1');
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            s.push('0');
+        } else if(expression[i] == '|') {
+            while(!st.empty() && (st.top() == '&' || st.top() == '|')) {
+                st.pop();
+            }
+            if(!st.empty()) {
+                st.push('|');
+            }
+        } else {
+            st.push(expression[i]);
         }
     }
-    return s.top() == '1'? "True": "False";
+    return st.top() == 'T' ? "True" : "False";
 }
