@@ -1,11 +1,10 @@
-```
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string + string
     else:
-        new_string = ""
+        palindrome = ""
         for i in range(len(string)):
-            new_string += string[i]
-            if i != len(string) - i - 1:
-                new_string += string[i]
-        return new_string
+            palindrome += string[i]
+            if i > 0:
+                palindrome = string[0] + palindrome + string[0]
+        return palindrome
