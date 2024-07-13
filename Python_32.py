@@ -1,4 +1,4 @@
-Here is the modified code:
+Here's the corrected code:
 
 ```python
 import math
@@ -13,7 +13,7 @@ def find_zero(xs):
     b = xs[1]
     c = xs[2] if n > 2 else 0
     d = xs[3] if n > 3 else 0
-    x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
+    x = (-b + math.sqrt(b**2 - 4 * a * (c-a*x))) / (2 * a)
     return round(x, 2)
 
 while True:
