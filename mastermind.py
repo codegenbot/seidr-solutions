@@ -1,4 +1,5 @@
-code, guess = input("Enter 4-character code and guess (consisting of possible characters): ").strip().upper().split(' ')
+code = input("Enter 4-character code: ").strip().upper()
+guess = input("Enter 4-character guess: ").strip().upper()
 white_pegs = sum(min(code.count(char), guess.count(char)) for char in set(guess))
 black_pegs = sum(a == b for a, b in zip(code, guess))
 print(white_pegs, black_pegs)
