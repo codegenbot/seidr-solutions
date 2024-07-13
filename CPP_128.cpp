@@ -1,9 +1,6 @@
+```cpp
 #include <vector>
-#include <cassert>
-
-using namespace std;
-
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) -> int {
     if (arr.empty()) return -32768;
     int product = 1;
     for (int num : arr) {
@@ -11,12 +8,7 @@ int prod_signs(vector<int> arr) {
     }
     int sum = 0;
     for (int num : arr) {
-        sum += abs(num);
+        sum += std::abs(num);
     }
     return product * sum;
-}
-
-int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    return 0;
 }
