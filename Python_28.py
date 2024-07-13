@@ -1,7 +1,5 @@
-def get_max_min_average(numbers: List[int]) -> str:
-    if len(numbers) == 0:
-        return "No numbers provided"
-    max_num = max(numbers)
-    min_num = min(numbers)
-    average = sum(numbers) / len(numbers)
-    return f"Max: {max_num}, Min: {min_num}, Average: {average}"
+def total_expenses(expenses: List[List[int]]) -> int:
+    total = 0
+    for expense in expenses:
+        total += sum(expense)
+    return total
