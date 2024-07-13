@@ -1,28 +1,35 @@
-int mastermind(string code, string guess) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
-    
-    // Count the number of correct colors in wrong positions
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             black++;
-            code[i] = 'x';
-            guess[i] = 'x';
         }
     }
-    
-    // Count the number of correct colors in correct positions
-    for(int i = 0; i < 4; i++) {
-        int j = 0;
-        while(j < 4) {
-            if(code[j] == guess[i]) {
-                white++;
-                code[j] = 'x';
-                break;
+
+    for (char c : guess) {
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
             }
-            j++;
+        }
+        if (count > 1 && c != code[0] && c != code[1] && c != code[2] && c != code[3]) {
+            white += count - 1;
+        } else if (count == 1) {
+            for (int i = 0; i < 4; ++i) {
+                if (c == code[i]) {
+                    black++;
+                    break;
+                }
+            }
         }
     }
-    
-    return black, white;
+
+    return black + white;
 }
