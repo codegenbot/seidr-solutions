@@ -1,10 +1,6 @@
+```
 #include <vector>
 using namespace std;
-
-int main() {
-    cout << luhn({4, 5, 2, 7, 1, 3, 9, 0, 8, 6, 7, 3, 1, 6, 4, 3}) << endl;
-    return 0;
-}
 
 int luhn(vector<int> digits) {
     int sum = 0;
@@ -20,3 +16,5 @@ int luhn(vector<int> digits) {
     }
     return sum;
 }
+
+int main() { cout << luhn({4,7,8,0,3,6,1,5,9,2,8,0,8,4,5,3}); return 0; }
