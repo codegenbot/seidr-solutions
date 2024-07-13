@@ -10,5 +10,5 @@ def decode_cyclic(s: str):
         prefix = s[:half_len]
 
     for i in range(n):
-        decoded += s[i] if i < half_len or s[i-half_len] == prefix[0] else prefix[0]
+        decoded += s[i] if i < half_len or s[(i % len(s))] != prefix[0] else prefix[0]
     return decoded
