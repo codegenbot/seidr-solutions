@@ -11,7 +11,6 @@ def sort_even(l: list):
             result.append(odd_nums[j])
             j += 1
     result.extend(even_nums[i:])
-    while j < len(odd_nums):
-        result.append(odd_nums[j])
-        j += 1
+    if j < len(odd_nums):
+        result.extend(odd_nums[j:])
     return result
