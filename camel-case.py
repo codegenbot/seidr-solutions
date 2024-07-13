@@ -6,4 +6,4 @@ def camel_case(s):
         result += word[0].upper() + word[1:].lower()
     return result
 
-print("""{}""".format(camel_case(input())))
+print(camel_case(input()))
