@@ -25,7 +25,8 @@ int main() {
     }
     
     cout << fixed;
-    cout << setprecision(10) << shoppingList(&prices[0], &discounts[0], n) << endl;
+    cout.precision(10);
+    cout << shoppingList(&prices[0], &discounts[0], n) << endl;
 
     return 0;
 }
