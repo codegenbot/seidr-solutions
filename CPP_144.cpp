@@ -9,17 +9,18 @@ bool simplify(string x, string n) {
     s1 >> a >> '/' >> b;
     s2 >> c >> '/' >> d;
     
-    int gcd = min(a, b);
-    while (gcd > 0 && a % gcd == 0 && b % gcd == 0) {
-        a /= gcd;
-        b /= gcd;
-        gcd = min(c, d);
-        while (gcd > 0 && c % gcd == 0 && d % gcd == 0) {
-            c /= gcd;
-            d /= gcd;
-            gcd = std::min(a*d, b*c);
-        }
-    }
+    long long lcm = (long long)a * d;
+    long long commonDivisor = gcd(lcm, b);
+    lcm /= commonDivisor;
+    commonDivisor = gcd(lcm, d);
+    lcm /= commonDivisor;
 
-    return a * d == c * b;
+    return a * c / commonDivisor == b * d / commonDivisor;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }

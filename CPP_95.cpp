@@ -1,5 +1,6 @@
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
+    if (dict.empty())
+        return false;
 
     bool allLower = true;
     bool allUpper = true;
