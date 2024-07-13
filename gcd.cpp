@@ -3,7 +3,7 @@
 #include <iostream> 
 using namespace std;
 
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     if (b == 0)
         return a;
     else
@@ -24,11 +24,11 @@ vector<int> findIndices(string text, string target) {
 }
 
 int main() {
-    int num1, num2;
+    long long num1, num2;
     cin >> num1 >> num2;
     
     // Calculate GCD of two numbers
-    int gcd = gcd(num1, num2);
+    long long gcd = gcd(num1, num2);
 
     cout << gcd << endl;
 
