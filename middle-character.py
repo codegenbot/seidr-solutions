@@ -1,4 +1,3 @@
-```
 import math
 
 def middle_character(s):
