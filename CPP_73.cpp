@@ -1,16 +1,24 @@
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     string str = "";
-    for (int i = 0; i < n; i++) {
-        str += to_string(arr[i]);
+    for (int i : arr) {
+        str += to_string(i);
     }
-    string rev_str = str;
-    reverse(rev_str.begin(), rev_str.end());
+    int left = 0, right = str.size() - 1;
     int changes = 0;
-    for (int i = 0; i < n; i++) {
-        if (str[i] != rev_str[i]) {
+    while (left < right) {
+        if (str[left] != str[right]) {
             changes++;
-        }
+            if (left == 0)
+                right--;
+            else if (right == str.size() - 1)
+                left++;
+            else {
+                left++;
+                right--;
+            }
+        } else
+            left++, right--;
     }
     return changes;
 }
