@@ -1,9 +1,9 @@
 #include <vector>
-#include <cmath> 
+#include <cmath>
 #include <climits>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int> &nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
     
