@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -16,6 +15,5 @@ def mastermind(code, guess):
             white += 1
 
     return str(black) + "\n" + str(white)
-
 
 print(mastermind("YOGO", "OGRW"))
