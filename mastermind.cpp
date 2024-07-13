@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -35,4 +38,3 @@ int main() {
     cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
     return 0;
-}
