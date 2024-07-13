@@ -1,15 +1,18 @@
+#include <iostream>
+#include <string>
+
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
-    // Count correct positions (black pegs)
+    // Count correct positions
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         }
     }
 
-    // Count correct colors (white pegs)
+    // Count correct colors, but wrong position
     int code_counts[6] = {0};
     int guess_counts[6] = {0};
     for (char c : code) {
@@ -20,9 +23,19 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (int i = 0; i < 6; ++i) {
-        int min_count = std::min(code_counts[i], guess_counts[i]);
-        white += min_count;
+        white += std::min(code_counts[i], guess_counts[i]);
     }
 
+    // Subtract the correct positions from the total count of correct colors
+    white -= black;
+
     return black + white;
+}
+
+int main() {
+    std::string code = "ABOW";
+    std::string guess = "BRYW";
+    int result = mastermind(code, guess);
+    std::cout << "Number of black pegs: " << result - 0 << ", Number of white pegs: " << result - (result - 0) << std::endl;
+    return 0;
 }

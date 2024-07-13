@@ -1,10 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
-
-#define _SILENT_STANDARD_NAMESPACE_DEPRECATION_WARNING
-#include <c++17>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -28,4 +24,3 @@ int main() {
     int result = fuelCost(v);
     std::cout << "The total cost is: " << result << std::endl;
     return 0;
-}

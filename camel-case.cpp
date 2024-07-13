@@ -1,45 +1,29 @@
 #include <string>
 #include <cctype>
 #include <iostream>
+#include <vector>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
-        size_t pos = str.find(" ");
-        if (pos == std::string::npos) {
-            pos = str.find("-");
-        }
-        if (!result.empty()) {
-            result += tolower(str[0]); 
-            str.erase(0, 1);
-        } else {
-            result += toupper(str[0]); 
-            str.erase(0, 1);
-        }
+    std::vector<std::string> words;
+    size_t pos = 0;
+
+    // Split input string by "-"
+    while ((pos = str.find("-")) != std::string::npos) {
+        words.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
     }
 
     if (!str.empty()) {
-        if (isalpha(str[0])) {
-            if (!result.empty()) {
-                result += tolower(str[0]); 
-                str.erase(0, 1);
-            } else {
-                result += toupper(str[0]); 
-                str.erase(0, 1);
-            }
-        } else {
-            result += str[0];
-            str.erase(0, 1);
-        }
+        words.push_back(str);
     }
 
-    while (!str.empty()) {
-        size_t pos = str.find(" ");
-        if (pos == std::string::npos) {
-            pos = str.length();
+    for (const auto& word : words) {
+        if (result.empty()) {
+            result = toupper(word);
+        } else {
+            result += " (" + tolower(word.substr(0, 1)) + toupper(word.substr(1)) + ")";
         }
-        result += str.substr(0, pos);
-        str.erase(0, pos);
     }
 
     return result;
