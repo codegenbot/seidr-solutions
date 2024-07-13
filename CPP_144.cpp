@@ -9,14 +9,5 @@ bool simplify(string x, string n) {
     s1 >> a >> '/' >> b;
     s2 >> c >> '/' >> d;
     
-    long long numerator = (long long)a * d;
-    long long denominator = (long long)b * d;
-
-    if(denominator == 0) return false; // check for division by zero
-
-    int gcd = __gcd(abs(numerator), abs(denominator));
-    numerator /= gcd;
-    denominator /= gcd;
-
-    return numerator == c * b;
+    return (a*d == b*c);
 }
