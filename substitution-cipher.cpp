@@ -8,7 +8,7 @@ int main() {
         }
     }
 
-    cout << message;
+    cout << message << endl;
 
     return 0;
 }
