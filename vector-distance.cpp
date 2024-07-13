@@ -18,14 +18,13 @@ int main() {
     }
 
     float sum = 0.0;
-    size_t limit = std::min(n, m);
-    for (size_t i = 0; i < limit; ++i) {
-        float diff = vec1[i] - vec2[i];
+    for (size_t i = 0; i < std::max(n, m); ++i) {
+        float diff = (i < n ? vec1[i] : 0) - (i < m ? vec2[i] : 0);
         sum += diff * diff;
     }
 
     float result = std::sqrt(sum);
-    std::cout << result << std::endl;
+    std::cout << std::fixed << result << std::endl;
 
     return 0;
 }
