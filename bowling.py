@@ -6,7 +6,8 @@ def calculate_score(frames):
 
     while len(frames) > 0:
         if "-" in frames:
-            first, second = map(int, frames.split("-") if "-" in frames else ["", ""])
+            parts = map(int, frames.split("-"))
+            first, second = parts[0], parts[1]
             if frame_num < 10 and sum([int(x) for x in str(first)]) + int(second) > 10:
                 score += 10
                 frame_num += 1
