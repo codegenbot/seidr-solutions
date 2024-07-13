@@ -2,29 +2,43 @@
 def bowling_score(s):
     score = 0
     roll = 0
-    for i in range(0, len(s), 2):
-        frame = s[i:i+2]
-        if frame == "X ": 
-            score += 30
-            roll += 1
-            if i < len(s) - 1 and s[i+2].isdigit():
-                score += int(s[i+2])
-                roll += 1
-            if i < len(s) - 2 and s[i+3].isdigit():
-                score += int(s[i+3])
-                roll += 1
-        elif frame == "//":
-            score += 20
-            roll += 2
-            if i < len(s) - 2:
-                if s[i+3].isdigit():
-                    score += int(s[i+3])
+    for i, frame in enumerate(s.split('/')):
+        if len(frame) == 2 and frame[1].isdigit():
+            strike = int(frame[1])
+            score += 10 + (10 - i)
+            while roll < 9:
+                if i+1 < len(s) and s[i+1] == "X":
+                    score += 10
                     roll += 1
+                    break
+                elif i+1 < len(s):
+                    score += int(s[i+1].split()[0])
+                    roll += 1
+                    break
+        elif frame == "X":
+            score += 10 + (10 - i)
+            roll += 1
+            while roll < 9:
+                if s[roll*2:].count("X") >= 2:
+                    score += 30
+                    roll += 2
+                    break
+                else:
+                    score += int(s[roll*2:])
+                    roll += 1
+        elif len(frame) == 3 and frame[0] != "X":
+            spare = int(frame[2])
+            score += 10 + spare
+            if i < 8:
+                while roll < 9:
+                    if s[roll*2:].count("X") >= 2:
+                        score += 30
+                        roll += 2
+                        break
+                    else:
+                        score += int(s[roll*2:])
+                        roll += 1
         else:
-            if frame[0] == "/":
-                score += 10 + int(frame[1])
-                roll += 2
-            else:
-                score += sum(int(d) for d in frame)
-                roll += 1
+            score += sum(map(int, frame.split()))
+            roll += 1
     return score
