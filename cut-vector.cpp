@@ -5,7 +5,7 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res({vector<int>(), vector<int>()});
+    vector<vector<int>> res(2);
     int min_diff = INT_MAX;
     int split_index = -1;
     for (int i = 1; i < n; i++) {
