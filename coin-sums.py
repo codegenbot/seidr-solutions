@@ -1,9 +1,8 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     names = ['quarters', 'dimes', 'nickles', 'pennies']
     result = []
-
+    
     for i in range(len(coins)):
         count = cents // coins[i]
         if count > 0:
@@ -11,3 +10,5 @@ def coin_sums(cents):
             cents %= coins[i]
 
     print(*['{} {}'.format(count, name if count == 1 else f"{count} {name}s") for count, name in result], sep='\n')
+
+coin_sums(int(input("Enter the number of cents: ")))
