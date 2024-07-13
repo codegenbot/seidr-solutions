@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -18,7 +17,6 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 7, 2, 1, 3}; // your input vector
+    vector<int> digits = {3,4,5,9,7,8,6,0,0,1,2};
     int result = luhn(digits);
     return 0;
-}
