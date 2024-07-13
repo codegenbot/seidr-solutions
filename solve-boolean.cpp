@@ -1,5 +1,7 @@
-```c
-bool solveBoolean(const std::string& s) {
+```cpp
+#include <string>
+
+bool solveBoolean(std::string s) {
     if (s.empty()) return false;
 
     bool result = true;
