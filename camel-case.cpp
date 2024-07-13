@@ -1,17 +1,16 @@
-#include <cctype>
-#include <iostream>
-#include <string>
-
+```
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool isNextUpper = false;
+    bool isNextUpper = !str.empty();
     for (const auto& c : str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
                 if (c == '-') {
-                    result += char(toupper(c));
-                } else {
                     if (!result.empty()) {
+                        result += std::toupper(c);
+                    }
+                } else {
+                    if (!result.empty() && !isNextUpper) {
                         result += ' ';
                     }
                 }
@@ -19,23 +18,8 @@ std::string camelCase(std::string str) {
             isNextUpper = true;
         } else {
             isNextUpper = false;
-            if (!result.empty() && c >= 'a' && c <= 'z') {
-                result += char(toupper(c));
-            } else {
-                result += c;
-            }
+            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
         }
     }
     return result;
-}
-
-int main() {
-    std::string str;
-    while (std::getline(std::cin, str)) {
-        str.erase(0, str.find_first_not_of(' ')); // trim leading whitespace
-        if (!str.empty()) { 
-            std::cout << camelCase(str) << std::endl;
-        }
-    }
-    return 0;
 }
