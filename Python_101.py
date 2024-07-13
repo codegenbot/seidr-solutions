@@ -1,9 +1,9 @@
 ```
-words = input("Enter a string: ").strip()
-print(check(words))
-
-def check(sentence):
-    if len(sentence.split()) > 1:
-        return "I know or quickly said the same."
+def check(input_string):
+    if "hello" in input_string.lower():
+        print("Hello is present")
     else:
-        return "All good!"
+        print("Hello is not present")
+
+input_string = input("Enter a string: ")
+check(input_string)
