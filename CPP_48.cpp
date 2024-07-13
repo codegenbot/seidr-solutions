@@ -1,6 +1,5 @@
-Here's the completed code:
+Here is the completed code:
 
-```cpp
 bool is_palindrome(string text) {
     int start = 0;
     int end = text.length() - 1;
