@@ -1,20 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool issame(char a, char b) {
-    if ((a == 'R' && b == 'r') || (a == 'r' && b == 'R'))
-        return true;
-    else
+bool issame(string s1, string s2)
+{
+    if(s1.length() != s2.length())
         return false;
+    for(int i = 0; i < s1.length(); i++)
+    {
+        if(s1[i] != s2[i])
+            return false;
+    }
+    return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    string temp = "";
     for (char x : s) {
         bool flag = false;
         for (char y : c) {
-            if (x == y && !issame(x, y)) {
+            if (x == y) {
                 flag = true;
                 break;
             }
@@ -23,11 +27,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += x;
         }
     }
-    std::vector<std::string> result;
-    std::string str1 = temp;
-    std::reverse(str1.begin(), str1.end());
-    std::string str2 = temp;
-    if (str1 == str2)
+    vector<string> result;
+    string str1 = temp;
+    reverse(str1.begin(), str1.end());
+    string str2 = temp;
+    if (issame(str1, str2))
         result.push_back("True");
     else
         result.push_back("False");
