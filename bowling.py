@@ -2,29 +2,20 @@
 def bowling_score(game):
     score = 0
     roll = 0
-    for frame in game.split('/'):
-        if len(frame) == 1:
-            score += int(frame)
-        elif len(frame) == 2:
-            if frame[0] == 'X':
-                score += 10
-                if len(game.replace('/', '')) > 2:
-                    roll = int(game.replace('/', '').split('X')[1][0])
-                    score += roll
-            else:
-                score += sum(map(int, frame))
+    frames = game.split('/')
+    for i in range(len(frames)):
+        if len(frames[i]) == 1:
+            score += 10
+        elif len(frames[i]) == 2:
+            rolls = list(map(int, frames[i]))
+            score += sum(rolls)
         else:
-            if frame[0] == 'X':
-                score += 10
-                if len(game.replace('/', '')) > 3:
-                    roll = int(game.replace('/', '').split('X')[1][:2])
-                    score += sum(map(int, list(roll)))
+            rolls = list(map(int, frames[i].replace('X', '0').split('X')))
+            if rolls[0] == 10: # strike
+                roll = rolls[1]
+                score += 10 + roll
+            elif len(frames) > i + 1 and int(frames[i+1]) != 0:
+                score += 10 + sum(rolls)
             else:
-                first_roll = int(frame[0])
-                second_roll = int(frame[1])
-                if first_roll + second_roll == 10:
-                    score += first_roll + second_roll
-                else:
-                    score += max(first_roll, second_roll)
-                    roll = min(first_roll, second_roll)
+                score += 10 + max(rolls)
     return score
