@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int count_nums(std::vector<int> n) {
@@ -28,16 +27,7 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    std::vector<int> n;
-    int num;
-    
-    while(std::cin >> num){
-        n.push_back(num);
-    }
-
-    int result = count_nums(n);
-
-    std::cout << "The number of numbers with a sum greater than 0 is: " << result << std::endl;
-
+    std::vector<int> n = {1};
+    assert(count_nums(n) == 1);
     return 0;
 }
