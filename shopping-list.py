@@ -1,4 +1,3 @@
-```
 def shopping_list():
     num_trips = int(input())
     total_price = 0
