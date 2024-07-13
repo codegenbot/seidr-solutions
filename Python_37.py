@@ -1,2 +1,5 @@
+```
 def sort_even(l: list):
-    return [x if i % 2 != 0 else min([y for y in l if y % 2 == 0]) for i, x in enumerate(l)]
+    evens = [x for x in l if x % 2 == 0]
+    odds = [x for x in l if x % 2 != 0]
+    return [min(evens) if i < len(evens) else next(iter(odds)) for i, _ in enumerate(l)]
