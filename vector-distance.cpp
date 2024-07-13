@@ -1,8 +1,5 @@
-```cpp
-#include <vector>
-#include <initializer_list>
 #include <iostream>
-#include <iomanip>
+#include <cmath>
 
 using namespace std;
 

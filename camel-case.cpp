@@ -7,14 +7,13 @@ std::string camelCase(const std::string& input) {
     std::string word;
     std::string result;
 
-    while (getline(iss, word, '-')) { 
+    while (iss >> word && !word.empty()) { 
         if (!result.empty())
-            result += std::toupper(word[0]);
+            result += char(std::toupper(word[0]));
         else
-            tmpWord = word.substr(1);
-        result += tmpWord;
+            result = word;
         for (int i = 1; i < word.size(); ++i)
-            result += std::tolower(word[i]);
+            result += char(std::tolower(word[i]));
     }
     
     return result;
