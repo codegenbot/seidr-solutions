@@ -2,10 +2,10 @@
 def car_race_collision(n):
     if n < 3:
         return "No collision"
-    elif n % 3 == 0:
-        return f"Collision at {n//3}th lap"
+    elif n % 2 == 0:
+        return "Collision"
     else:
-        return f"No collision, last safe lap was at {n-1}"
+        return "No collision"
 
 while True:
     try:
