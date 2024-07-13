@@ -1,3 +1,4 @@
+```
 def sort_third(lst):
     result = []
     for item in lst:
