@@ -1,24 +1,36 @@
-```
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_pos = string::npos;
+Here is the completed code:
 
-for (char c : file_name) {
-    if (c >= '0' && c <= '9') {
-        digit_count++;
-    } else if (c == '.') {
-        has_dot = true;
-        dot_pos = file_name.find(c);
-    } else if (!has_dot) {
-        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
-            return "No";
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
+    bool valid_prefix = true;
+    bool valid_suffix = false;
+
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(isdigit(c)){
+            digit_count++;
+            if(digit_count > 3) return "No";
         }
-    } else {
-        string ext = file_name.substr(dot_pos + 1);
-        if (ext != "txt" && ext != "exe" && ext != "dll") {
-            return "No";
+        else if(c == '.'){
+            has_dot = true;
+        }
+        else if(has_dot){
+            string suffix = file_name.substr(i);
+            if(suffix == "txt" || suffix == "exe" || suffix == "dll"){
+                valid_suffix = true;
+                break;
+            }
+            else return "No";
+        }
+        else{
+            if(!isalpha(c) && c != '_') return "No";
+            if(!valid_prefix) return "No";
         }
     }
-}
 
-return digit_count <= 3 && has_dot ? "Yes" : "No";
+    if(!has_dot) return "No";
+
+    if(valid_prefix && valid_suffix) return "Yes";
+    else return "No";
+}
