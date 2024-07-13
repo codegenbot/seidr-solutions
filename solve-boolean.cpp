@@ -12,10 +12,11 @@ bool solveBoolean(string s) {
             res = res && (s[i+1] == 'T');
             i += 2;
         }
-        else if(s[i] != 'T' && s[i] != 'F') {
-            return false; // invalid input
+        else{
+            if(s[i] == 'T')
+                res = s[i] == 'T';
+            else
+                i++;
         }
-        i++;
     }
     return res;
-}
