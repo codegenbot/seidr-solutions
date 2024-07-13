@@ -1,9 +1,7 @@
 ```
 while True:
     try:
-        num = input("Enter a number (or 'q' to quit): ")
-        if num.lower() == 'q':
-            break
+        num = input("Enter a number: ")
         n = int(num)
         if isinstance(n, int) and n > 0:
             print(car_race_collision(n))
