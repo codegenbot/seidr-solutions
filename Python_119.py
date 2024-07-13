@@ -1,5 +1,5 @@
 ```
-lst = []
+lst = input("Enter a string of parentheses: ").split()
 def match_parens(lst):
     open_count = 0
     close_count = 0
