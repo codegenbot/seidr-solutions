@@ -1,12 +1,14 @@
-h0 = float(input())
-h1 = float(input())
-n = int(input())
+def calculate_distance(starting_height, bounce_height, num_bounces):
+    bounciness_index = bounce_height / starting_height
+    total_distance = starting_height + (
+        2 * bounce_height * (1 - bounciness_index**num_bounces)
+    ) / (1 - bounciness_index)
+    return total_distance
 
-bounciness_index = h1 / h0
-distance = h0 + h1
 
-for _ in range(2, n + 1):
-    distance += 2 * h1
-    h1 *= bounciness_index
+starting_height = float(input())
+bounce_height = float(input())
+num_bounces = int(input())
 
-print(distance)
+result = calculate_distance(starting_height, bounce_height, num_bounces)
+print(result)
