@@ -1,16 +1,21 @@
-int luhn(vector<int>& creditCardNumber) {
+#include <vector>
+
+int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = creditCardNumber.size() - 1; i >= 0; --i) {
-        int digit = creditCardNumber[i];
+    for (int i = 0; i < digits.size(); i++) {
         if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+            int doubled = digits[i] * 2;
+            if (doubled > 9) {
+                sum += (doubled % 10) + 1;
+            } else {
+                sum += doubled;
             }
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
+
         doubleNext = !doubleNext;
     }
 
