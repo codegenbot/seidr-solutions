@@ -1,5 +1,9 @@
 ```cpp
-std::string camelCase(std::string str) {
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string camelCase(const std::string& str) {
     std::string result = "";
     while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
         size_t pos = str.find(" ");
@@ -18,13 +22,8 @@ std::string camelCase(std::string str) {
 
     if (!str.empty()) {
         if (isalpha(str[0])) {
-            if (!result.empty()) {
-                result += toupper(str[0]);
-                str.erase(0, 1);
-            } else {
-                result += tolower(str[0]);
-                str.erase(0, 1);
-            }
+            result += toupper(str[0]);
+            str.erase(0, 1);
         } else {
             result += str[0];
             str.erase(0, 1);
@@ -41,4 +40,12 @@ std::string camelCase(std::string str) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
