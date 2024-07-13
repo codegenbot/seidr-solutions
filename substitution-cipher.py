@@ -1,13 +1,10 @@
-```
-def substitution_cipher(input1, input2, input3):
-    cipher = {}
-    for char1, char2 in zip(input1, input2):
-        if char1 != char2:
-            cipher[char1] = char2
-    output = ''
-    for char in input3:
-        if char in cipher:
-            output += cipher[char]
-        else:
-            output += char
-    return output
+def substitution_cipher():
+    cipher_key = input().strip()
+    message = input().strip()
+    deciphered_message = "".join(
+        [char for pair in zip(cipher_key, message) for char in pair]
+    )
+    return deciphered_message
+
+
+print(substitution_cipher())
