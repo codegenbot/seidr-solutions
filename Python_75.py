@@ -12,7 +12,7 @@ def is_multiply_prime(n=None):
             return True
 
         product = a * b
-        return is_prime(product)
+        return all(is_prime(i) and is_prime(b) for i in (a, b)) and is_prime(product)
     else:
         if n < 2:
             return False
