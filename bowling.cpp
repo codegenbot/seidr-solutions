@@ -1,24 +1,26 @@
 #include <string>
+#include <sstream>
 
 int bowlingScore(std::string s) {
     int score = 0;
     std::stringstream ss(s);
     char c;
-    int temp = 0;
-    bool spare = false;
+    bool strike = false;
     while (ss >> c) {
         if (c == 'X') {
             score += 30;
+            strike = true;
         } else if (c == '/') {
-            score += 10 + temp;
-            spare = true;
+            if (!strike) {
+                score += 10 + (score / 10 - 1);
+            }
         } else {
-            temp = c - '0';
-            if (!spare) {
-                score += temp;
+            int temp = c - '0';
+            if (strike) {
+                score += temp * 2;
+                strike = false;
             } else {
                 score += temp;
-                spare = false;
             }
         }
     }
