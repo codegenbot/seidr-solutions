@@ -17,3 +17,4 @@ int main() {
     getline(cin, input); 
     cout << "Sum of paired digits is: " << pairedDigits(input) << endl;
     return 0;
+}
