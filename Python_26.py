@@ -1,4 +1,3 @@
-```
 from collections import OrderedDict
 
 def remove_duplicates(numbers):
