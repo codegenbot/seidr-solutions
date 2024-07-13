@@ -3,15 +3,12 @@
 using namespace std;
 
 int main() {
-    double startHeight, actualStartHeight;
+    double startHeight;
     
-    string startHeightStr = to_string(startHeight);
-    string actualStartHeightStr = to_string(actualStartHeight);
-    cout << "Enter the starting height and first bounce height: " << startHeightStr << ", " << actualStartHeightStr << endl;
-
-    cin >> startHeight >> actualStartHeight;
+    cin >> startHeight;
     
-    double actualBouncinessIndex = (actualStartHeight / startHeight);
+    double firstBounce = startHeight / (startHeight * 0.5);
+    double bouncinessIndex = firstBounce;
 
     double totalDistance = 0.0; 
     int bounces = 8; 
@@ -21,8 +18,7 @@ int main() {
         totalDistance += startHeight; 
     }
 
-    string totalDistanceStr = to_string(totalDistance);
-    cout << "The total distance the ball travels is: " << totalDistanceStr << endl;
+    cout << "The total distance the ball travels is: " << totalDistance << endl;
     
     return 0;
 }
