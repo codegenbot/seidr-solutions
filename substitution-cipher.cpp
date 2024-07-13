@@ -7,8 +7,8 @@ int main() {
 
     for (char& c : message) {
         for (size_t i = 0; i < cipher1.size(); ++i) {
-            if (c == cipher2[i]) {
-                c = cipher1[i];
+            if (c == cipher1[i]) {
+                c = cipher2[i];
                 break;
             }
         }
