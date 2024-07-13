@@ -1,11 +1,20 @@
-int basement(vector<int>& nums) {
-    if(nums.empty()) return -1; 
+#include <iostream>
+#include <vector>
+
+int basement(std::vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+    for (auto it = nums.begin(); it != nums.end(); ++it) {
+        sum += *it;
         if (sum < 0)
-            return i;
+            return std::distance(nums.begin(), it);
     }
     return -1;
 
 }
+
+int main() {
+    #include <vector>
+    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+    int result = basement(nums);
+    std::cout << "Result: " << result << std::endl;
+    return 0; }
