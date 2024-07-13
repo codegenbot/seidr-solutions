@@ -1,6 +1,13 @@
 def mastermind(code, guess):
-    white_pegs = sum(1 for a, b in zip(guess, code) if a == b)
-    black_pegs = len(
-        [a for i, (a, b) in enumerate(zip(guess, code)) if a == b and a != ""]
-    )
+    code_set = set(code)
+    guess_set = set(guess)
+    black_pegs = 0
+    white_pegs = 0
+
+    for c in code:
+        if c in guess and guess.index(c) == guess.find(c):
+            black_pegs += 1
+        elif c in guess:
+            white_pegs += 1
+
     return str(black_pegs), str(white_pegs)
