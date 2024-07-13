@@ -1,5 +1,7 @@
-Here is the solution:
+Here is the completed code:
 
 def find_zero(xs: list):
-    n = len(xs) // 2
-    return (-xs[n-1] / xs[n]) ** (1/float(n))
+    n = len(xs)
+    assert n % 2 == 0, "Input must have an even number of coefficients"
+    x = -xs[1] / xs[3]
+    return round(x, 2)
