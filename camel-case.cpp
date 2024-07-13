@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
@@ -13,7 +14,7 @@ std::string camelCase(const std::string& input) {
         if (!result.empty())
             result += toupper(word[0]);
         else
-            result = word;
+            result = tolower(word);
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
     }
