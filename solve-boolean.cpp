@@ -1,3 +1,4 @@
+```cpp
 bool solveBoolean(std::string expression) {
     stack<char> opStack;
     stack<bool> valStack;
