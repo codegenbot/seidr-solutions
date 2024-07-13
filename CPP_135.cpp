@@ -11,22 +11,24 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    int n;
+    int n, temp;
+    std::vector<int> arr;
+
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> arr(n);
-    std::cout << "Enter the elements: ";
     for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> temp;
+        arr.push_back(temp);
     }
 
     int result = can_arrange(arr);
 
     if (result == -1) {
-        std::cout << "The array is already arranged.\n";
+        std::cout << "The array is already arranged in ascending order." << std::endl;
     } else {
-        std::cout << "The first element that cannot be arranged is at index " << result << ".\n";
+        std::cout << "The first element that is not in the correct order is at index " << result << "." << std::endl;
     }
 
     return 0;
