@@ -1,4 +1,4 @@
-```
+```python
 def sum_of_digits(n):
     return sum(int(digit) for digit in str(n))
 
@@ -14,5 +14,3 @@ def check():
                 print("Invalid input. Please enter a three-digit integer.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
-check()
