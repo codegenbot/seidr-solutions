@@ -5,22 +5,13 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int m = text.length();
-    int n = target.length();
-    
-    for (int i = 0; i <= m - n; ++i) {
-        bool found = true;
-        for (int j = 0; j < n; ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
+    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
+        if (text.substr(i, target.length()) == target) {
+            for (size_t j = 0; j < target.length(); ++j) {
+                indices.push_back(i + j);
             }
         }
-        if (found) {
-            indices.push_back(i);
-        }
     }
-    
     return indices;
 }
 
@@ -32,8 +23,8 @@ int main() {
     string text, target;
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << " ";
+    for (int idx : result) {
+        cout << idx << " ";
     }
     cout << endl;
 
