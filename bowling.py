@@ -8,7 +8,6 @@ def bowling_score(bowls):
             bowl_index += 1
         elif bowls[bowl_index] == "/":
             score += 10 - int(bowls[bowl_index - 1]) + bonus(bowls, bowl_index + 1, 1)
-            bowl_index += 1
         else:
             score += int(bowls[bowl_index])
         bowl_index += 1
