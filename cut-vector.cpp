@@ -5,7 +5,7 @@
 #include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> findCutIndex(vector<int>& nums) {
+void findCutIndex(vector<int>& nums) {
     int n = nums.size();
     int totalSum = accumulate(nums.begin(), nums.end(), 0);
     int leftSum = 0;
@@ -16,16 +16,23 @@ pair<vector<int>, vector<int>> findCutIndex(vector<int>& nums) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+    cout << "Subvector 1: ";
+    for (int i = 0; i <= cutIndex; i++) {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
 
-    return {subvector1, subvector2};
+    cout << "Subvector 2: ";
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
 }
 
 int main() {
@@ -39,19 +46,7 @@ int main() {
         cin >> nums[i];
     }
 
-    auto result = findCutIndex(nums);
+    findCutIndex(nums);
     
-    cout << "Subvector 1: ";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    cout << "Subvector 2: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
-
     return 0;
 }
