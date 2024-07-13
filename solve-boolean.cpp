@@ -37,5 +37,4 @@ bool getBooleanValue(char c) {
     } else {
         throw runtime_error("Invalid input");
     }
-    return false; // added this line
 }
