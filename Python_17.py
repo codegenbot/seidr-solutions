@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 def parse_music(s):
     s = s.lower()
     words = s.replace("|", " ").split()
@@ -10,4 +8,5 @@ def parse_music(s):
         else:
             word_counts[word] = 1
     return [word_counts[word] for word in set(words)]
-print(parse_music("o| .| o| .| o o| o o|"))
+
+print(parse_music("o| .| o| .| o o| | o o|"))
