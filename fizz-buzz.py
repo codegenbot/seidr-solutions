@@ -7,4 +7,4 @@ def fizz_buzz(x):
             result = "Buzz"
         else:
             result += "Buzz"
-    return result or str(x)
+    return str(result) if not result else str(x)
