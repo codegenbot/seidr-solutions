@@ -1,24 +1,27 @@
+```cpp
 #include <vector>
-#include <limits>
-
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
-    if (arr.empty()) {
-        return result;
+bool issame(vector<int> a,vector<int> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
-    
-    pair<int, int> smallest = make_pair(INT_MAX, -1);
-    
+    return true;
+}
+
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}) , {}));
+}
+
+vector<int> pluck(vector<int> arr) {
+    vector<pair<int, int>> evens;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest.first) {
-            smallest = make_pair(arr[i], i);
+        if (arr[i] % 2 == 0) {
+            evens.emplace_back(arr[i], i);
         }
     }
-    
-    result.push_back(smallest);
-    
-    return result;
+    if (evens.empty()) return {};
+    sort(evens.begin(), evens.end());
+    return {evens[0].first, evens[0].second};
 }
