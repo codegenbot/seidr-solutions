@@ -6,10 +6,10 @@ using namespace std;
 
 int main() {
     string startHeightStr, firstBounceStr;
-    double numBounces;
+    int numBounces;
 
-    getline(cin, startHeightStr);
-    getline(cin, firstBounceStr);
+    cin >> ws; getline(cin, startHeightStr);
+    cin >> ws; getline(cin, firstBounceStr);
     cin >> numBounces;
 
     double startHeight = stod(startHeightStr), firstBounce = stod(firstBounceStr);
