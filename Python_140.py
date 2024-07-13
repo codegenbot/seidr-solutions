@@ -1,7 +1,8 @@
 def fix_spaces(text):
     text = text.replace(" ", "_")
-    while True:
-        text = text.replace("___", "-_-")
-        if text.count("_") < 2:
-            break
+    while "_" in text and "--" not in text:
+        text = text.replace("___", "-")
+        text = text.replace("_  ", "_-")
+        text = text.replace(" _ ", "_-")
+        text = text.replace("_   ", "_--")
     return text
