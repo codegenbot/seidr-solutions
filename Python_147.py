@@ -1,17 +1,10 @@
-```
 print("Enter the number up to which you want to find max triples: ", end="")
 n = int(input())
-
 
 def get_max_triples(n):
     if n < 1:
         return None
-    max_sum = 0
-    for i in range(3, n // 3 + 1): 
-        triple_sum = sum(i * 3 - 2 + j for j in range(3))
-        if triple_sum > max_sum:
-            max_sum = triple_sum
-    return max_sum
-
+    avg_value = (n + 2) // 3  
+    return avg_value * 3
 
 print(get_max_triples(n))
