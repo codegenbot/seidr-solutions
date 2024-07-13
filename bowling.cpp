@@ -1,5 +1,6 @@
 ```cpp
-#include <bits/stdc++.h>
+#include <vector>
+#include <string>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
