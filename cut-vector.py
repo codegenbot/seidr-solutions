@@ -1,9 +1,10 @@
-```
 def cut_vector(vector):
+    if len(vector) <= 1:
+        return (vector,), ()
     min_diff = float("inf")
     split_index = 0
 
-    for i in range(len(vector)):
+    for i in range(1, len(vector)):
         if vector[i - 1] >= vector[i]:
             return vector[:i], vector[i:]
 
