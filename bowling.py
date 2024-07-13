@@ -7,12 +7,8 @@ def bowling_score(game):
             score += 10 + int(bowling_score(game[i+1:]) if i < len(game)-1 else 0)
         elif game[i] == '-':
             if i < len(game) - 2 and game[i+2].isdigit():
-                digit_str = [c for c in game[i-1:i+3][::-1] if c.isdigit()][::-1]
-                if len(digit_str) <= 2:
-                    first_roll, second_roll = map(int, digit_str)
-                    score += first_roll + second_roll
-                else:
-                    score += 10
+                rolls = [int(x) for x in reversed([c for c in game[i-1:i+3][::-1] if c.isdigit()])]
+                score += sum(rolls)
             else:
                 score += 10
         else:
