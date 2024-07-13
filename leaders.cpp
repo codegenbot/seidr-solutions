@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-std::vector<int> findLeaders(const std::vector<int>& nums) {
+std::vector<int> findLeaders(const std::vector<int> &nums) {
     std::vector<int> leaders;
     int n = nums.size();
     int maxRight = nums[n - 1];
@@ -19,10 +20,14 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 
 int main() {
     std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
+    std::string input;
+    do {
+        getline(std::cin, input);
+        if (input.empty()) {
+            break;
+        }
+        nums.push_back(std::stoi(input));
+    } while (true);
 
     if (nums.empty()) {
         std::cout << "No numbers entered." << std::endl;
