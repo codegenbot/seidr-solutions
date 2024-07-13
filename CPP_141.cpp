@@ -4,33 +4,32 @@ string file_name_check(string file_name){
     int digit_count = 0;
     bool has_dot = false;
     bool valid_prefix = true;
-    bool valid_suffix = false;
+    string prefix;
 
     for(int i=0; i<file_name.length(); i++){
         char c = file_name[i];
-        if(isdigit(c)){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(c == '.'){
+        if(c == '.'){
             has_dot = true;
-        }
-        else if(has_dot){
-            string suffix = file_name.substr(i);
-            if(suffix == "txt" || suffix == "exe" || suffix == "dll"){
-                valid_suffix = true;
-                break;
-            }
-            else return "No";
-        }
-        else{
-            if(!isalpha(c) && c != '_') return "No";
-            if(!valid_prefix) return "No";
+        } else if(isdigit(c)){
+            digit_count++;
+        } else {
+            prefix += c;
         }
     }
 
-    if(!has_dot) return "No";
+    if(digit_count > 3 || !has_dot) return "No";
+    if(prefix.empty()) return "No";
 
-    if(valid_prefix && valid_suffix) return "Yes";
-    else return "No";
+    for(int i=0; i<prefix.length(); i++){
+        char c = tolower(prefix[i]);
+        if(c < 'a' || c > 'z') valid_prefix = false;
+        break;
+    }
+
+    if(!valid_prefix) return "No";
+
+    string suffix = file_name.substr(file_name.find('.')+1);
+    if(suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
+
+    return "Yes";
 }
