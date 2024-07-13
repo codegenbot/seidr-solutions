@@ -3,8 +3,8 @@ def find_zero(coefficients):
     a = coefficients[0]
     b = coefficients[1]
     c = coefficients[2]
-    
-    zero = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
+
+    zero = (-b + (b**2 - 4*a*c)**(1/2)) / (2*a)
     
     return round(zero, 2)
 
