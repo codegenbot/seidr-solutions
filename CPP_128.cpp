@@ -21,9 +21,8 @@ int main() {
         return sign_product * sum_of_magnitudes;
     }
 
-    vector<int> arr = {1, -2, 3, 4};
-    int result = prod_signs(arr);
-    std::cout << "The product of signs is: " << result << endl;
+    vector<int> arr = {1, 2, -3, 4};
+    cout << prod_signs(arr) << endl;
 
     return 0;
 }
