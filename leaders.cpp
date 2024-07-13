@@ -1,3 +1,4 @@
+```cpp
 int main() {
     vector<int> leaders(vector<int>& arr) {
         vector<int> result;
