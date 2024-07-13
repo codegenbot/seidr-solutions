@@ -13,7 +13,6 @@ double vectorDistance(int n) {
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
-    
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
