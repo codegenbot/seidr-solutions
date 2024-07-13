@@ -1,4 +1,14 @@
+```c++
 #include <vector>
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<int> leaders = leaders(arr);
+    for(int i: leaders) {
+        std::cout << i << " ";
+    }
+    return 0;
+}
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -17,8 +27,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     
     return res;
-}
-
-int main() {
-    return 0;
 }
