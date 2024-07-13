@@ -1,4 +1,3 @@
-````
 def match_parens(lst):
     result = []
     for s in lst:
@@ -26,4 +25,3 @@ def match_parens(lst):
     return result
 
 print(match_parens(["()","(())",")(","((()))"]))
-```
