@@ -1,5 +1,3 @@
-Here is the solution:
-
 string solve(int N){
     int sum = 0;
     while(N > 0){
@@ -7,12 +5,11 @@ string solve(int N){
         sum += remainder;
         N /= 2;
     }
-    string result = "";
+    string output = "";
     while(sum > 0){
-        int digit = sum % 2;
-        if(digit == 1) result = "1" + result;
-        else result = "0" + result;
+        int temp = sum % 2;
+        output = to_string(temp) + output;
         sum /= 2;
     }
-    return result;
+    return output;
 }
