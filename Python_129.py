@@ -1,3 +1,6 @@
+```
+k = int(input("Enter an integer k: "))
+print(findMinFibonacciNumbers(k))
 def findMinFibonacciNumbers(k: int) -> list:
     fib = [0, 1]
     while True:
@@ -14,5 +17,3 @@ def findMinFibonacciNumbers(k: int) -> list:
             break
     
     return result
-
-minPath = findMinFibonacciNumbers(10)
