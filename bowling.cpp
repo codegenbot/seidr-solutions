@@ -1,27 +1,38 @@
 #include <string>
-
 int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < 10) {
-        if (s[i] == 'X') {
-            score += 10;
-            i++;
-            if (i < 10 && s[i] == '/') {
-                i++;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            string firstPart = s.substr(0, i);
+            string secondPart = s.substr(i + 1);
+            int firstScore = 0;
+            int j = 0;
+            while (j < firstPart.length()) {
+                if (firstPart[j] != 'X') {
+                    firstScore += (firstPart[j] - '0');
+                }
+                else
+                    firstScore += 10;
+                j++;
             }
-        } else if (s[i] == '/') {
-            int firstScore = (s[i - 1] - '0') * 2 + (s[i] - '0');
-            score += firstScore;
-            i++;
-        } else {
-            int framescore = (s[i] - '0') + (s[i + 1] - '0');
-            if (framescore == 10) {
-                score += framescore;
-                i += 2;
-            } else {
-                score += framescore;
-                i += 2;
+            int secondScore = 0;
+            j = 0;
+            while (j < secondPart.length()) {
+                if (secondPart[j] != 'X') {
+                    secondScore += (secondPart[j] - '0');
+                }
+                else
+                    secondScore += 10;
+                j++;
+            }
+            score += firstScore + secondScore;
+        } 
+        else {
+            if (s[i] == 'X') {
+                score += 10;
+            } 
+            else {
+                score += (s[i] - '0') * 2;
             }
         }
     }
