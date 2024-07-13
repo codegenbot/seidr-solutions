@@ -1,6 +1,5 @@
 #include <vector>
-#include <iostream> 
-#include <ostream>
+#include <iostream>
 
 int basement(std::vector<int>& nums) 
 {
