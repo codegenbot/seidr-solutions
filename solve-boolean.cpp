@@ -1,6 +1,7 @@
-```cpp
 #include <cstddef>
 #include <string>
+#include <iostream>
+#include <ostream>
 
 bool solveBoolean(std::string expression) {
     bool result = true;
@@ -42,7 +43,7 @@ bool solveBoolean(std::string expression) {
 int main() {
     std::string expression;
     std::cout << "Enter the Boolean expression: ";
-    getline(std::cin, expression);
+    std::getline(std::cin, expression);
     bool result = solveBoolean(expression);
     if (result) {
         std::cout << "Result: TRUE" << std::endl;
@@ -50,4 +51,3 @@ int main() {
         std::cout << "Result: FALSE" << std::endl;
     }
     return 0;
-}
