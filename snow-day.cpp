@@ -1,7 +1,6 @@
 ```cpp
 #include <cmath>
 #include <iostream>
-#include <iomanip>
 
 double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
     double totalSnow = groundSnow;
@@ -22,8 +21,7 @@ int main() {
     
     double result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
     
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::endl;
-    std::cout << result << std::endl;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
     
     return 0;
 }
