@@ -1,8 +1,12 @@
+```cpp
 #include <vector>
+#include <iostream>
+#include <limits>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int cutIndex = -1;
     
     for(int i=0; i<v.size()-1; i++) {
@@ -20,10 +24,10 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     vector<vector<int>> result(2);
-    result[0].resize(cutIndex+1);
+    result[0].reserve(cutIndex+1);
     for(int i=0; i<=cutIndex; i++) 
         result[0].push_back(v[i]);
-    result[1].resize(v.size()-cutIndex-1);
+    result[1].reserve(v.size()-cutIndex-1);
     for(int i=cutIndex+1; i<v.size(); i++) 
         result[1].push_back(v[i]);
     
