@@ -1,4 +1,3 @@
-```
 def indices_of_substring(text, target):
     if not target: 
         result = [i for i in range(len(text)) if text.startswith(target)]
