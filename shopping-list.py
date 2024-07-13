@@ -1,3 +1,4 @@
+```
 def shopping_list(prices, discounts):
     total_price = 0
     for i in range(len(prices)):
