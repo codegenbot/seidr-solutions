@@ -1,4 +1,3 @@
-```
 def filter_integers(lst):
     while True:
         try:
