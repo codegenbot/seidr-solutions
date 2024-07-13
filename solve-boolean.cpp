@@ -11,11 +11,9 @@ bool solveBoolean(string s) {
         else if(s[i] == '&') {
             res = res && (s[i+1] == 'T');
             i += 2;
+        } 
+        else {
+            i++;
         }
-        else if(s[i] != 'T' && s[i] != 'F') {
-            return false; // invalid input
-        }
-        i++;
     }
     return res;
-}
