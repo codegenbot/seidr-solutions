@@ -1,3 +1,2 @@
-def sorted_list_sum():
-    lst = input("Enter a list of words separated by space: ").split()
-    return "".join(sorted([word for word in lst], key=lambda x: (len(x), x)))
+def sorted_list_sum(lst):
+    return sum(sorted([int(i) for i in str(lst)]))
