@@ -15,16 +15,16 @@ std::string kebabToCamel(const std::string& s) {
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += c;
+                result += std::toupper(c);
             }
             first = true;
         } else {
             if (first) {
-                result += std::toupper(c);
-                first = false;
-            } else {
                 result += std::tolower(c);
+            } else {
+                result += std::toupper(c);
             }
+            first = false;
         }
     }
 
