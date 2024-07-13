@@ -23,17 +23,18 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     int result = greatestCommonDivisor(num1, num2);
     std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
 
-    std::string mainString, target;
+    std::string mainString;
     std::cout << "Enter the main string: ";
-    std::cin >> std::ws; // add this line
     std::getline(std::cin, mainString);
-    std::cout << "Enter the target string: ";
-    std::cin >> std::ws; // add this line
-    std::getline(std::cin, target);
 
+    std::string target;
+    std::cout << "Enter the target string: ";
+    std::getline(std::cin, target);
+    
     std::vector<int> indices = findIndices(mainString, target);
     for (int i : indices) {
         std::cout << "Index found at position: " << i << std::endl;
