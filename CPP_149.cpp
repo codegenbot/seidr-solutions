@@ -1,11 +1,14 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-        [](const string& a, const string& b) { return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1); });
-    lst.erase(unique(it, lst.end()), lst.end());
-    sort(lst.begin(), lst.end(),
+    auto it = unique(lst.begin(), lst.end());
+    lst.erase(it, lst.end());
+
+    sort(lst.begin(), lst.end(), 
         [](const string& a, const string& b) {
-            if (a.size() != b.size()) return a.size() < b.size();
-            else return a < b;
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() < b.length();
         });
+
     return lst;
 }
