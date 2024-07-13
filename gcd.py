@@ -1,5 +1,3 @@
-import math
-
 def gcd(a, b):
     return abs(math.gcd(a, b))
 
