@@ -1,12 +1,6 @@
-Here is the Python code to solve the problem:
+Here is a Python solution for the problem:
 
-def fuel_cost(vector):
-    return sum((i // 3) - 2 for i in vector)
+def fuel_cost(n):
+    return sum((i // 3) - 2 for i in map(int, input().split()))
 
-# Example usage:
-print(fuel_cost([1]))  # Output: 0
-print(fuel_cost([6]))  # Output: 0
-print(fuel_cost([7]))  # Output: 0
-print(fuel_cost([8]))  # Output: 0
-print(fuel_cost([9]))  # Output: 1
-print(fuel_cost([10]))  # Output: 1
+print(fuel_cost(input()))
