@@ -1,4 +1,5 @@
-vector<float> lst;
+int main() {
+    vector<float> lst;
     cout << "Enter a list of numbers (space-separated): ";
     string str;
     cin >> str;
