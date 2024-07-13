@@ -1,36 +1,35 @@
-```c++
 #include <iostream>
 #include <string>
 #include <cctype>
 
 std::string camelCase(std::string& str) {
-    std::vector<std::string> words;
-    for (char c : str) {
-        if (c == '-' || c == ' ') {
-            if (!str.empty() && str[str.find(c) - 1] != '-') {
-                words.push_back(str.substr(0, str.find(c)));
-                str.erase(0, str.find(c) + 1);
-            }
+    std::string result = "";
+    while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
+        size_t pos = str.find(" ");
+        if (pos == std::string::npos) {
+            pos = str.find("-");
         }
-    }
-
-    if (!str.empty()) {
-        words.push_back(str);
-    }
-
-    std::string result;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += toupper(words[i][0]);
+        if (result.empty()) {
+            result += toupper(str[0]);
+            str.erase(0, 1);
         } else {
-            result += words[i];
+            result += towlower(str[0]);
+            str.erase(0, 1);
         }
-        for (char &c : words[i].substr(1)) {
-            result += tolower(c);
+    }
+
+    if (str.length() > 0) {
+        result += towupper(str[0]);
+        str.erase(0, 1);
+    }
+
+    while (!str.empty()) {
+        size_t pos = str.find(" ");
+        if (pos == std::string::npos) {
+            pos = str.length();
         }
-        if (i < words.size() - 1) {
-            result += " ";
-        }
+        result += str.substr(0, pos);
+        str.erase(0, pos);
     }
 
     return result;
