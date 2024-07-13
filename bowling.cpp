@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 #include <sstream>
 
 int bowlingScore(string s) {
@@ -16,4 +16,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
