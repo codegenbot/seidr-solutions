@@ -32,7 +32,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
     return res;
 }
 
-int main() {
+void testGame() {
     int n;
     cin >> n;
     vector<int> game(n), guess(n);
@@ -47,7 +47,11 @@ int main() {
         cout << endl; 
     }
     
-    int testResult = compare(1,2);
-    assert(testResult == -1);
+    vector<int> testResult = {1,0};
+    assert(compare(1,0) == -1);
+}
+
+int main() {
+    testGame();
     return 0;
 }
