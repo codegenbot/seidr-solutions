@@ -1,8 +1,4 @@
-def leaders(arr):
-    leaders = []
-    max_right = arr[-1]
-    for i in range(len(arr) - 1, -1, -1):
-        if arr[i] >= max_right:
-            leaders.append(arr[i])
-            max_right = arr[i]
-    return leaders[::-1]
+Here is the Python solution for the problem:
+
+def leaders(nums):
+    return [num for i, num in reversed(list(enumerate(nums))) if all(num >= nums[j] for j in range(i+1, len(nums)))]
