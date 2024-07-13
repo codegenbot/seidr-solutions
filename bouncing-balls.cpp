@@ -7,7 +7,7 @@ int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> cin.ignore(1,' ') >> getline(cin, boost::format("%lf") % firstBounce);        
+    cin >> startHeight >> firstBounce;        
     cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
