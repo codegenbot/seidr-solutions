@@ -1,30 +1,25 @@
+```cpp
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (s[i] == '/') {
-            string firstPart = s.substr(0, i);
-            string secondPart = s.substr(i + 1);
+            std::string firstPart = s.substr(0, i);
+            std::string secondPart = s.substr(i + 1);
             int firstScore = 0;
             int j = 0;
-            while (j < firstPart.length()) {
+            while (j < firstPart.size()) {
                 if (firstPart[j] != 'X') {
                     firstScore += (firstPart[j] - '0');
-                } else {
-                    firstScore += 10;
-                    break;
                 }
                 j++;
             }
             int secondScore = 0;
             j = 0;
-            while (j < secondPart.length()) {
+            while (j < secondPart.size()) {
                 if (secondPart[j] != 'X') {
                     secondScore += (secondPart[j] - '0');
-                } else {
-                    secondScore += 10;
-                    break;
                 }
                 j++;
             }
@@ -38,3 +33,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
