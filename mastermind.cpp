@@ -1,3 +1,6 @@
+Here's the updated code:
+
+```cpp
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -34,7 +37,8 @@ int mastermind(string code, string guess) {
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)std::find(chars.begin(), chars.end(), code[i]) - chars.begin());
+        white += min(count, (int)std::distance(chars.begin(), std::find_first_of(chars.begin(), chars.end(), code[i])) - chars.begin());
     }
 
     return black + white;
+}
