@@ -1,4 +1,9 @@
 ```
 def sorted_list_sum(lst):
-    alpha_chars = [i for i in lst if isinstance(i, str) and i.isalpha()]
-    return [''.join(sorted(alpha_chars))]
+    result = []
+    for item in lst:
+        if isinstance(item, str) and item.isalpha():
+            result.append(str(sorted([char for char in item if not char.isdigit()])))
+        elif isinstance(item, int):
+            result.append(str(item))
+    return [str(digit) for digit in sorted(int(''.join(result)))]
