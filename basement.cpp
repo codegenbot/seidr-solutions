@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int firstNegative(std::vector<int>& nums) {
