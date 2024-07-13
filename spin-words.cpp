@@ -1,3 +1,4 @@
+```c
 #include <string>
 #include <algorithm>
 #include <iostream>
@@ -10,7 +11,7 @@ std::string spinWords(std::string str) {
         if (i == str.length() || str[i] == ' ') {
             if (!word.empty()) {
                 if (word.length() >= 5) {
-                    result += " " + (std::string(word.rbegin(), word.rend()));
+                    result += " " + std::string(word.rbegin(), word.rend());
                 } else {
                     result += " " + word;
                 }
@@ -24,7 +25,7 @@ std::string spinWords(std::string str) {
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            result += " " + (std::string(word.rbegin(), word.rend()));
+            result += " " + std::string(word.rbegin(), word.rend());
         } else {
             result += " " + word;
         } 
@@ -36,6 +37,7 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "Spinned String: " << spinWords(input) << std::endl;
+    std::string output = spinWords(input); // Store result in a variable
+    std::cout << "Spinned String: " << output << std::endl;
     return 0;
 }
