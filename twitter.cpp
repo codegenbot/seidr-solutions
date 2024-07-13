@@ -1,6 +1,4 @@
-```cpp
 #include <string>
-#include <iostream>
 
 int main() {
     std::string tweet;
@@ -9,7 +7,6 @@ int main() {
     tweet = "Hello World";
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
-}
 
 std::string validateTweet(std::string tweet) {
     if(tweet.empty()) return "You didn't type anything";
