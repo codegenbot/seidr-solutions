@@ -16,7 +16,10 @@ def has_close_elements(numbers=None, threshold=None):
             print("At least two numbers are required to check for close elements.")
             return False
 
-        return any(abs(a - b) <= threshold for a, b in zip(nums, nums[1:]))
+        for i in range(1, len(nums)):
+            if abs(nums[i] - nums[i-1]) <= threshold:
+                return True
+        return False
     except ValueError as e:
         if "not enough values" in str(e):
             print("Invalid input. Please enter valid space-separated floating point numbers.")
