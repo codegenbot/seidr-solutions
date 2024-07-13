@@ -1,6 +1,5 @@
 ```
 from typing import List, Tuple
-import math
 
 
 def find_closest_elements() -> Tuple[float, float]:
