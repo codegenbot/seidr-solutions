@@ -1,8 +1,7 @@
-```cpp
-#include <stack>
 #include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
+bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<bool> valStack;
 
@@ -19,20 +18,7 @@ bool solveBoolean(std::string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            while (!opStack.empty()) {
-                char op = opStack.top();
-                opStack.pop();
-                bool rightVal = valStack.top();
-                valStack.pop();
-                bool leftVal = valStack.top();
-                valStack.pop();
-
-                if (op == '&') {
-                    valStack.push(leftVal && rightVal);
-                } else if (op == '|') {
-                    valStack.push(leftVal || rightVal);
-                }
-            }
+            valStack.pop();
         }
     }
 

@@ -1,20 +1,22 @@
-```
 #include <iostream>
 #include <string>
-#include <cstring>
 
 using namespace std;
 
 string validateTweet(string tweet) {
-    if (tweet.empty()) return "You didn't type anything";
-    if (strlen(tweet.c_str()) > 140) return "Too many characters";
-    return "Your tweet has " + to_string(strlen(tweet.c_str())) + " characters";
+    if (tweet.empty()) {
+        return "You didn't type anything";
+    } else if (tweet.length() > 140 || tweet.find_first_not_of(" \t") == string::npos) {
+        return "Too many characters";
+    } else {
+        return "Your tweet has " + to_string(tweet.erase(0, tweet.find_first_not_of(" \t")).length()) + " characters";
+    }
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet);
+    getline(cin, tweet).erase(0, tweet.find_first_not_of(" \t"));
     cout << validateTweet(tweet) << endl;
     return 0;
 }
