@@ -6,9 +6,9 @@ int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
+    vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
 
-    std::unordered_map<char, int> count_map;
+    unordered_map<char, int> count_map;
 
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
