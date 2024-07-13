@@ -11,7 +11,8 @@ def is_multiply_prime(n=None):
                     return False
             return True
 
-        return is_prime(a * b)
+        product = a * b
+        return is_prime(product)
     else:
         product = n
 
