@@ -14,8 +14,8 @@ int gcd(int a, int b) {
     return a;
 }
 
-vector<unsigned long int> indicesOfSubstring(string text, string target) {
-    vector<unsigned long int> result;
+vector<unsigned long> indicesOfSubstring(string text, string target) {
+    vector<unsigned long> result;
     size_t n = text.length();
     size_t m = target.length();
 
