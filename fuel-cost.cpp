@@ -18,13 +18,13 @@ int calculateFuelCost(vector<int> numbers) {
 int main() {
     int n, num;
     vector<int> numbers;
-    
+
     cin >> n;
     for(int i=0; i<n; i++){
         cin >> num;
         numbers.push_back(num);
     }
-    
+
     cout << calculateFuelCost(numbers) << endl;
 
     return 0;
