@@ -1,15 +1,16 @@
-```cpp
-int main() {
-    string code;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
+Here is the modified code:
 
-    string guess;
-    cout << "Enter your guess: ";
-    cin >> guess;
+```c++
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
 
-    int black = 0;
+using namespace std;
+
+int mastermind(string code, string guess) {
     int white = 0;
+    int black = 0;
     
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -18,9 +19,22 @@ int main() {
             white++;
         }
     }
+    
+    return black + white;
+}
 
-    cout << "Black pegs: " << black << endl;
-    cout << "White pegs: " << white - black << endl;
-
+int main() {
+    string code;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    
+    string guess;
+    cout << "Enter your guess: ";
+    cin >> guess;
+    
+    int mastermindResult = mastermind(code, guess);
+    
+    cout << "Black pegs: " << mastermindResult << endl;
+    cout << "White pegs: " << mastermindResult - 0 << endl; 
     return 0;
 }
