@@ -1,10 +1,28 @@
 #include <vector>
+#include <iostream>
+using namespace std;
 
-int calculateFuelCost(vector<int> &numbers) {
-    int sum = 0;
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
     for (int num : numbers) {
-        double result = (double)num / 3.0;
-        sum += int(result) - 2;
+        int result = static_cast<int>(num / 3.0);
+        if (result > 0) {
+            result--;
+            total += result;
+        }
     }
-    return sum;
+    return total;
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int temp;
+        cin >> temp;
+        input.push_back(temp);
+    }
+    cout << calculateFuelCost(input) << endl;
+    return 0;
 }
