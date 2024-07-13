@@ -1,6 +1,6 @@
 ```
 def search(lst):
-    max_num = float("-inf")
+    max_num = lst[0]
     for num in lst:
         if num > max_num:
             max_num = num

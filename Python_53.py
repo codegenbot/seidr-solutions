@@ -14,7 +14,3 @@ def add():
                 break
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
-
-input("Press Enter to start calculating sums...")
-
-add()
