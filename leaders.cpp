@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
     int n = nums.size();
@@ -22,7 +18,6 @@ int main() {
     int num;
     while (std::cin >> num) {
         nums.push_back(num);
-        if (std::cin.eof()) break;
     }
 
     if (nums.empty()) {
