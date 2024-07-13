@@ -1,10 +1,11 @@
-int basementIndex(vector<int> numbers) {
-    for (int i = 0; i < numbers.size(); ++i) {
-        int sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            sum += numbers[j];
-        }
+#include <vector>
+using namespace std;
+
+int basementIndex(const vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
         if (sum < 0) return i;
     }
-    return -1; // or some other value to indicate no such index exists
+    return -1; // or some other value to indicate not found
 }
