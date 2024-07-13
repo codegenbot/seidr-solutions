@@ -1,3 +1,5 @@
 def sort_third(l: list):
-    l = [[x for i, x in enumerate(y) if i % 3 in [0, 1)] for y in zip(*[iter(l)]*3)]
-    return [sorted(x) if i % 3 == 2 else x for i, x in enumerate(l)]
+    return [
+        tuple(sorted([x for x in y if (l.index(x) % 3 == 0 or l.index(x) % 3 == 1)]))
+        for i, y in enumerate([l[i : i + 3] for i in range(0, len(l), 3)])
+    ]
