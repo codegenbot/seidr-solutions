@@ -1,34 +1,41 @@
-int score(string s) {
-    int total = 0, frame = 0, ball = 0;
-    vector<int> scores(22, 0);
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball++] = 10;
-            scores[ball++] = 0;
-        } else if (c == '/') {
-            scores[ball++] = 10 - scores[ball - 1];
-        } else if (c == '-') {
-            scores[ball++] = 0;
+int getScore(const string& bowls) {
+    int score = 0;
+    int frame = 0;
+    int ball = 0;
+    vector<int> points(22, 0);
+    for (char ch : bowls) {
+        if (ch == 'X') {
+            points[frame] = 10;
+            points[frame + 1] = 10;
+            points[frame + 2] = 10;
+            frame += 2;
+        } else if (ch == '/') {
+            points[frame] = 10 - points[frame - 1];
+        } else if (ch == '-') {
+            points[frame] = 0;
         } else {
-            scores[ball++] = c - '0';
+            points[frame] = ch - '0';
+        }
+        frame++;
+    }
+    for (int i = 0; i < 10; i++) {
+        if (points[ball] == 10) {
+            score += 10 + points[ball + 1] + points[ball + 2];
+            ball++;
+        } else if (points[ball] + points[ball + 1] == 10) {
+            score += 10 + points[ball + 2];
+            ball += 2;
+        } else {
+            score += points[ball] + points[ball + 1];
+            ball += 2;
         }
     }
-    for (int i = 0; frame < 10; i += 2, frame++) {
-        if (scores[i] == 10) {
-            total += 10 + scores[i + 2] + scores[i + 4];
-            i--;
-        } else if (scores[i] + scores[i + 1] == 10) {
-            total += 10 + scores[i + 2];
-        } else {
-            total += scores[i] + scores[i + 1];
-        }
-    }
-    return total;
+    return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << getScore(bowls) << endl;
     return 0;
 }
