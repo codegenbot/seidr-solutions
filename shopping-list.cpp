@@ -27,7 +27,7 @@ int main() {
         cin >> discount;
     }
     
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
 
     return 0;
 }
