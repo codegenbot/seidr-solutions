@@ -1,26 +1,24 @@
 ```
-import math
-
-xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
-
-def find_zero(xs):
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    a = xs[0]
-    b = xs[1]
-    c = xs[2] if n > 2 else 0
-    d = xs[3] if n > 3 else 0
-    x = (-b + math.sqrt(b**2 - 4 * a * (c-a*x))) / (2 * a)
-    return round(x, 2)
+def find_zero(coefficients):
+    a = coefficients[0]
+    b = coefficients[1]
+    c = coefficients[2]
+    
+    zero = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
+    
+    return round(zero, 2)
 
 while True:
     try:
-        xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
-        if len(xs) > 4:
-            print("You can only enter up to four coefficients. Please try again.")
-        else:
-            print(find_zero(xs))
+        input_str = input("Enter the coefficients (space separated): ")
+        
+        coefficients = [int(x) for x in input_str.split()]
+        
+        if len(coefficients) < 3 or any(len(str(c)) % 2 != 0 for c in coefficients[:3]):
+            print("Please provide at least three even-numbered coefficients.")
+            continue
+        
+        print(find_zero(coefficients))
     except ValueError as e:
         print(f"Error: {e}")
         exit()
