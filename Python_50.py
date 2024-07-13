@@ -1,2 +1,3 @@
+```Python
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.islower() else chr(((ord(ch.upper()) - 5 - ord("A")) % 26) + ord("A")) for ch in s])
+    return "".join([chr(((ord(ch) - ord("a")) % 26) + ord("a") - 5) or ch for ch in s])
