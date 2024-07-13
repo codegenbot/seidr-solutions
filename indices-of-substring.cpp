@@ -4,7 +4,7 @@
 
 int main() {
     using namespace std;
-
+    
     string text, target;
     cin >> text >> target;
 
