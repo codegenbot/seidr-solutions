@@ -1,11 +1,14 @@
+#include <string>
+using namespace std;
+
 bool cycpattern_check(string a, string b) {
-    for (int i = 0; i < b.length(); i++) {
-        string temp = b;
-        for (int j = 0; j <= b.length() - i; j++) {
-            if (a.find(temp) != string::npos)
-                return true;
-            rotate(temp.begin(), temp.end());
-        }
+    int n = a.length();
+    int m = b.length();
+
+    for(int i=0; i<n-m+1; i++) {
+        if(a.substr(i,m).compare(b) == 0 || a.substr(0,m-i).compare(b) == 0)
+            return true;
     }
+
     return false;
 }
