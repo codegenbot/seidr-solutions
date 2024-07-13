@@ -22,6 +22,9 @@ int main() {
     int num;
     while (std::cin >> num) {
         nums.push_back(num);
+        if (std::cin.peek() == '\n') {
+            break;
+        }
     }
 
     if (nums.empty()) {
