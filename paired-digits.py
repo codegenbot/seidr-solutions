@@ -5,6 +5,6 @@ def paired_digits(s):
             total += int(s[i]) * 2
         else:
             total += int(s[i])
-    if s[-1] == s[0]:  
-        total += int(s[-1]) * 2
+    if s[0] == s[-1]:  
+        total += int(s[0]) * 2
     return total
