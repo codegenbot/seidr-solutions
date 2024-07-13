@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -9,8 +15,8 @@ int main() {
         if (code[i] == guess[i]) {
             black_pegs++;
         } else {
-            code_freq[code[i] - 'A']++;
-            guess_freq[guess[i] - 'A']++;
+            code_freq[code[i] - '1']++;
+            guess_freq[guess[i] - '1']++;
         }
     }
 
