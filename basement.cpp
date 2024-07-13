@@ -8,3 +8,4 @@ int basement(std::vector<int>& v) {
             return i;
     }
     return -1;
+}
