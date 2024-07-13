@@ -1,17 +1,13 @@
-#include <string>
-
-using namespace std;
+#include <algorithm>
 
 string flip_case(string str){
     string result = "";
-    for(int i=0; i<str.length(); i++){
-        char c = str[i];
-        if(c >= 'a' && c <= 'z'){
-            c -= 32;
-        }else if(c >= 'A' && c <= 'Z'){
-            c += 32;
+    for(char c : str){
+        if(isupper(c)){
+            result += tolower(c);
+        }else{
+            result += toupper(c);
         }
-        result += c;
     }
     return result;
 }
