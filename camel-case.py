@@ -3,5 +3,8 @@ def camel_case(s):
     words = s.split()
     result = ""
     for i, word in enumerate(words):
-        result += " " + word.capitalize() if i > 0 else word.lower()
-    return result.strip().replace("  ", " ").strip()
+        if i == 0:
+            result += word.lower() + ""
+        else:
+            result += " " + word.capitalize()
+    return result
