@@ -14,8 +14,8 @@ int main() {
         }
     }
     
-    for (auto& it : codeFreq) {
-        white += min(it.second, guessFreq[it.first]);
+    for (auto &p : codeFreq) {
+        white += min(p.second, guessFreq[p.first]);
     }
     
     cout << white << endl << black << endl;
