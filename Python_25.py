@@ -1,6 +1,5 @@
-```Python
 def sum_of_digits():
-    (n) = map(int, input().split())
+    n = int(input())
     total = 0
     while n:
         total += n % 10
