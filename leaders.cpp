@@ -1,16 +1,16 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 
 int main() {
     std::vector<int> arr = {1, 3, 4, 2};
-    auto res = leaders(arr);
+    auto res = leaders({0} + arr);
     for (int x : res) {
         std::cout << x << " ";
     }
     return 0;
 }
 
-std::vector<int> leaders(std::vector<int>& arr) {
+std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
 
