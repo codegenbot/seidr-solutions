@@ -1,16 +1,15 @@
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 
 double vectorDistance(int n) {
-    float v1[n], v2[n];
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
+        int a, b;
+        cin >> a >> b;
+        sum += pow(a - b, 2);
     }
-    double distance = 0.0;
-    for (int i = 0; i < n; i++) {
-        distance += pow((v2[i] - v1[i]), 2);
-    }
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {

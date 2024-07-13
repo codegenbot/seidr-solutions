@@ -16,3 +16,4 @@ std::string spinWords(const char* str) {
     }
 
     return result;
+}

@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -18,11 +19,14 @@ int main() {
         }
         else if (cents >= 5) {
             nickles++;
-            cents -= 5;
+            while(cents >= 5) {
+                cents -= 5;
+                nickles++;
+            }
         }
         else {
             pennies = cents;
-            cents = 0; // exit the loop
+            break;
         }
     }
 
