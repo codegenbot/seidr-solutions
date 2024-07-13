@@ -1,18 +1,20 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-    string cipher1, cipher2, text;
-    cin >> cipher1 >> cipher2 >> text;
+    std::string cipher1, cipher2, text;
+    std::cin >> cipher1 >> cipher2 >> text;
     
     for (char &c : text) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
+        for (size_t i = 0; i < cipher1.size(); ++i) {
+            if (c == cipher1[i]) {
+                c = cipher2[i];
+                break;
+            }
         }
     }
     
-    cout << text << '\n';
+    std::cout << text << std::endl;
     
     return 0;
 }
