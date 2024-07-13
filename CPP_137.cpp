@@ -1,16 +1,12 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 
-using namespace boost;
-
-int compare_one(const std::string& s, int i) {
-    if (i == 1)
-        return std::stoi(s) - 10;
-    else if (i == 2)
-        return std::stoi(s);
-    else if (i == 3)
-        return std::stoi(s) + 10;
+int compare_one(const std::string& s) {
+    int val = std::stoi(s);
+    if (val == 10)
+        return -1;
+    else if (val > 10)
+        return 1;
     else 
         return 0;
 }
@@ -22,8 +18,8 @@ int main() {
     std::cout << "Enter the second number: ";
     std::cin >> b;
 
-    int s1 = compare_one(a, 1);
-    int s2 = compare_one(b, 3);
+    int s1 = compare_one(a);
+    int s2 = compare_one(b);
 
     if (s1 < s2) {
         return -1;
