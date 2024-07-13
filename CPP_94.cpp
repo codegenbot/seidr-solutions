@@ -1,8 +1,8 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
+#include <cassert>
 
-int findMaxPrimeAndSumOfDigits(vector<int> lst) {
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for (int i : lst) {
         if (isPrime(i)) {
@@ -20,11 +20,13 @@ int findMaxPrimeAndSumOfDigits(vector<int> lst) {
 }
 
 bool isPrime(int n) {
-    if (n <= 1)
+    if (n <= 1) {
         return false;
+    }
     for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
+        if (n % i == 0) {
             return false;
+        }
     }
     return true;
 }
