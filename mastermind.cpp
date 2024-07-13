@@ -1,25 +1,30 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <string>
 
-    // Count correct colors in wrong positions
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
-            guess[i] = '#'; // mark this position as used
+int mastermind(string code, string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+
+    vector<char> codeArray(code.begin(), code.end());
+    vector<char> guessArray(guess.begin(), guess.end());
+
+    for(int i = 0; i < 4; i++) {
+        if(codeArray[i] == guessArray[i]) {
+            blackPegs++;
+            codeArray[i] = '\0';
+            guessArray[i] = '\0';
         }
     }
 
-    // Count correct colors in right positions
-    for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[i] == guess[j] && guess[j] != '#') {
-                count++;
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 4; j++) {
+            if(codeArray[j] == guessArray[i]) {
+                whitePegs++;
+                codeArray[j] = '\0';
+                break;
             }
         }
-        white += min(count, 1);
     }
 
-    return make_pair(white, black).second;
+    return blackPegs << 2 | whitePegs;
 }
