@@ -8,3 +8,8 @@ std::string squareDigits(std::string input) {
     }
     return output;
 }
+
+int main() {
+    std::cout << squareDigits("34");  // Output: "25"
+    return 0;
+}
