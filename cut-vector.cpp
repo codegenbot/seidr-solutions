@@ -15,7 +15,8 @@ vector<vector<int>> cutVector(vector<int> v) {
             sum2 += v[j];
         }
         
-        if (abs(sum1 - sum2) <= abs(sum1 - v[i])) {
+        int diff = abs(sum1 - sum2);
+        if (diff <= abs((sum1 + sum2) / 2.0 - v[i])) {
             res.push_back(vector<int>(v.begin(), v.begin() + i));
             res.push_back(vector<int>(v.begin() + i, v.end()));
             return res;
