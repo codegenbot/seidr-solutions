@@ -24,13 +24,6 @@ int main() {
         sum += diff * diff;
     }
 
-    for (size_t i = std::min(n, m); i < n; ++i) {
-        sum += vec1[i] * vec1[i];
-    }
-    for (size_t i = std::min(n, m); i < m; ++i) {
-        sum += vec2[i] * vec2[i];
-    }
-
     float result = std::sqrt(sum);
     std::cout << std::fixed << result << std::endl;
 
