@@ -10,6 +10,7 @@ vector<vector<int>> cutVector(vector<int> &nums) {
     
     for (int i = 0; i < n - 1; i++) {
         int diff = abs(nums[i] - nums[i + 1]);
+        
         if ((i == 0 || nums[0] == nums[i]) && (n - 2 == i || nums[n - 1] == nums[i])) {
             res[0].clear();
             for (int j = 0; j <= i; j++) {
