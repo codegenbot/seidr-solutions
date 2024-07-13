@@ -6,8 +6,8 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-lst = list(map(int, input("Enter the list elements (space-separated): ").split()))
-if not lst: 
-    print("Invalid input. Please enter a valid list of integers.")
-else:
+lst = list(map(int, input().split()))
+if len(lst) > 0:
     print(sum_squares(lst))
+else:
+    print("Invalid input. Please enter a valid list of integers.")
