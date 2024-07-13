@@ -16,7 +16,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         numMap[nums[i]] = i;
     }
     
-    return result.empty() ? pair<int, int>(-1, -1) : result[0];
+    return result.empty() ? pair<int, int>(-1, -1) : result.front();
 }
 
 int main() {
