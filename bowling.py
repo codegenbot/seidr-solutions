@@ -1,19 +1,17 @@
-def bowling_score(frames):
+Here is a possible solution in Python:
+
+```
+def bowling_score(score_string):
     score = 0
-    frame_count = 1
-    for i in range(0, len(frames), 2):
-        if frames[i].isdigit():
-            if len(frames[i : i + 2]) == 3:
-                score += 10
-                frame_count -= 1
-            else:
-                score += int(frames[i])
-        elif frames[i] == "/":
-            first_roll = int(frames[:i].endswith("/"))
-            second_roll = 10 - first_roll
-            if frame_count == 9 and first_roll + second_roll > 10:
-                score += 2 * (first_roll or 10)
-            else:
-                score += first_roll + second_roll
-            frame_count -= 1
+    frame_scores = score_string.split('/')
+    for i in range(10):
+        if len(frame_scores[i]) == 1:
+            score += int(frame_scores[i])
+        elif len(frame_scores[i]) == 2:
+            strike = int(frame_scores[i][0]) + int(frame_scores[i][1])
+            score += strike
+        else:
+            strike = int(frame_scores[i][0])
+            spare = int(frame_scores[i][1:]) + strike
+            score += strike + spare // 10
     return score
