@@ -1,4 +1,5 @@
-code, guess = input().split(' ')
+code = input()[:4]
+guess = input()[:4]
 
 import collections
 
