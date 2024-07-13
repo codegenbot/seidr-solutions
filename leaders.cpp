@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2}; 
+    vector<int> arr = {1, 3, 4, 2}; // example input
     vector<int> result = leaders(arr);
     for (int i : result) cout << i << endl;
     return 0;
