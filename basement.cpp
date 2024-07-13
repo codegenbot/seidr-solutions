@@ -1,24 +1,22 @@
 #include <vector>
 using namespace std;
 
-int basementIndex(vector<int>& arr) {
+int findFirstNegativeIndex(vector<int> nums) {
     int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
         if (sum < 0) return i;
     }
-    return -1; // return -1 if no such index is found
+    return -1;
 }
 
 int main() {
-    vector<int> arr;
     int n;
     cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        arr.push_back(x);
+        cin >> nums[i];
     }
-    cout << basementIndex(arr) << endl;
+    cout << findFirstNegativeIndex(nums) << endl;
     return 0;
 }
