@@ -1,3 +1,3 @@
-```
 def sorted_list_sum(lst):
-    return sum(sorted(map(str, lst)))
+    lst = list(map(int, lst.split()))
+    return sum(sorted(lst))

@@ -33,6 +33,7 @@ def main():
                 break
         except ValueError:
             print("Invalid input. Please enter an integer value.")
+    print("Program ended.")
 
 
 if __name__ == "__main__":
