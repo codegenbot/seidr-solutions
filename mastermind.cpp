@@ -1,32 +1,38 @@
 int whitePegs(string code, string guess) {
-    int common = 0;
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            common++;
+            count++;
         }
     }
-    return 4 - common;
+    return count - 1; // subtract the number of correct colors in both strings
 }
 
 int blackPegs(string code, string guess) {
-    map<char, int> codeMap;
-    map<char, int> guessMap;
-    
+    int count = 0;
+    map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            codeMap[code[i]]++;
-            guessMap[guess[i]]++;
+            count++;
         } else {
             codeMap[code[i]]++;
             guessMap[guess[i]]++;
         }
     }
-    
-    int black = 0;
-    for (auto& pair : codeMap) {
-        if (pair.second == 1 && guessMap[pair.first] == 1) {
-            black++;
+    for (auto& codePair : codeMap) {
+        for (auto& guessPair : guessMap) {
+            if (codePair.second == 1 && guessPair.second == 1) {
+                count++;
+            }
         }
     }
-    return black;
+    return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    return 0;
 }
