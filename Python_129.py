@@ -1,3 +1,4 @@
+```
 def shortestPaths(grid, k):
     if len(grid) == 0 or k <= 0:
         return []
@@ -6,5 +7,5 @@ def shortestPaths(grid, k):
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             dfs(i, j, [], set(), k, [i * len(grid) + j], result)
-
-    return min(result) if result else []
+    
+    return min(result, key=len) if result else []
