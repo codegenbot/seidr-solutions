@@ -25,7 +25,7 @@ int main() {
         }
     }
 
-    if (indices.size() == 0) {
+    if (indices.empty()) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
