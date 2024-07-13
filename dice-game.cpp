@@ -4,15 +4,12 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = 0;
     
-    for (int i = 1; i <= min(n, m); i++) {
-        if(i < m) {
-            total += 1.0 / (n * m);
-        }
-    } 
-
-    total += 1 - (n == m ? 0 : 1.0 / (n * m));
-
-    return total;
+    // Calculate probability where Peter's roll equals Colin's
+    for (int i = min(m, n - 1) + 1; i <= n; i++) {
+        total += (double)(i - min(m, n - 1)) / (n * m);
+    }
+    
+    return 1.0 - total;
 }
 
 int main() {
