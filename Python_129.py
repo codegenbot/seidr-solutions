@@ -1,7 +1,8 @@
+```
 def minPath(grid, k):
     N = len(grid)
     visited = set()
-    queue = [(0, 0, [])]  # (row, col, path)
+    queue = [(0, 0, [])]  
     result = None
     while queue:
         row, col, path = queue.pop(0)
