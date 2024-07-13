@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string camelCase(string s) {
     string result = "";
     int i;
@@ -27,4 +32,14 @@ string camelCase(string s) {
         result[0] = toupper(result[0]);
     }
     return result;
+}
+
+int main() {
+    string str;
+    while (true) {
+        cout << "Enter a string in kebab-case: ";
+        getline(cin, str);
+        cout << "The camelCase is: " << camelCase(str) << endl;
+    }
+    return 0;
 }
