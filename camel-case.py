@@ -1,9 +1,6 @@
-Here is the Python code to solve the problem:
+Here's the solution:
 
-def camel_case(input_string):
-    return ''.join(word.capitalize() for word in input_string.split()) if ' ' in input_string else input_string.replace('-', '').capitalize()
+def camel_case(s):
+    return ''.join(word.capitalize() for word in s.split()) if '-' not in s else ' '.join((word[0].upper() + word[1:] for word in s.split('-')))
 
-print(camel_case("nospaceordash"))
-print(camel_case("two-words"))
-print(camel_case("two words"))
-print(camel_case("all separate words"))
+print(camel_case(input()))
