@@ -10,7 +10,7 @@ int prod_signs(std::vector<int> arr) {
             return -32768; // empty array or contains zero
         }
         sign_product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += std::abs(num);
+        sum += abs(num);
     }
 
     return sign_product * sum;
