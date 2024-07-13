@@ -1,3 +1,4 @@
+```cpp
 int pairedDigits(const std::string& s) {
     int sum = 0;
     size_t i = 0;
@@ -9,3 +10,4 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
+}
