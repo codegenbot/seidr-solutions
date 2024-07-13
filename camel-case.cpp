@@ -1,19 +1,47 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
+#include <vector>
 
 std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
-    for (char c : str) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
+    for (const auto& word : split(str, '-')) {
+        if (!capitalize) {
+            result += ' ';
         }
+        for (char c : word) {
+            if (capitalize) {
+                result += toupper(c);
+                capitalize = false;
+            } else {
+                result += tolower(c);
+            }
+        }
+        capitalize = true;
+    }
+
+    return result;
+}
+
+std::vector<std::string> split(const std::string& str, char delimeter) {
+    std::vector<std::string> result;
+    std::string temp;
+
+    for (char c : str) {
+        if (c == delimeter) {
+            if (!temp.empty()) {
+                result.push_back(temp);
+                temp = "";
+            }
+        } else {
+            temp += c;
+        }
+    }
+
+    if (!temp.empty()) {
+        result.push_back(temp);
     }
 
     return result;
