@@ -26,7 +26,7 @@ int main() {
         }
     }
 
-    pennies = cents; 
+    pennies = cents; // Add this line!
 
     cout << quarters << endl; 
     cout << dimes << endl;   
