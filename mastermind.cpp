@@ -1,7 +1,7 @@
 #include <string>
-#include <algorithm>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -10,22 +10,9 @@ int mastermind(std::string code, std::string guess) {
         if(code[i] == guess[i]) {
             black++;
         }
-        else if(std::count(guess.begin(), guess.end(), code[i]) > 0) {
+        else if(count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
-    }
-
-    // Count the number of correct colors in correct places (black pegs)
-    for(int i=0; i<4; i++) {
-        bool found = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                code.erase(j, 1);
-                found = true;
-                break;
-            }
-        }
-        if(found) black++;
     }
 
     return black + white;
