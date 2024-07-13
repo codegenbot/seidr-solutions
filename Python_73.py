@@ -1,20 +1,11 @@
 ```
-def array_change(arr):
-    arr = list(map(int, input("Enter a space-separated list of numbers: ").split()))
-    arr.sort()
+def array_change(lst):
+    lst = [int(i) for i in lst]
+    if len(set(lst)) == 1:
+        return "All elements are the same"
+    elif max(lst) - min(lst) <= 1:
+        return "The difference between the maximum and minimum values is 1 or less"
+    else:
+        return "Neither condition is met"
 
-    changes = 0
-    if len(set(arr)) > 1:
-        return -1
-
-    for i in range(1, len(arr)):
-        while arr[i] != arr[0]:
-            if min(arr) == max(arr):
-                return -1
-            arr[i], arr[0] = arr[0], arr[i]
-            changes += 1
-
-    return changes
-
-
-print(array_change([int(x) for x in input("Enter a space-separated list of numbers: ").split()]))
+print(array_change(input("Enter a space-separated list of numbers: ").split()))
