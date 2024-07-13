@@ -1,35 +1,33 @@
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    int totalSum = 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+        totalSum += nums[i];
     }
-    
-    int n = nums.size();
-    int mid = n / 2;
-    
-    int sum1 = 0, sum2 = 0;
-    for (int i = 0; i < mid; ++i) {
-        sum1 += nums[i];
-    }
-    for (int i = mid; i < n; ++i) {
-        sum2 += nums[i];
-    }
-    
-    if (sum1 == sum2 || abs(sum1 - sum2) <= nums[mid]) {
-        for (int i = 0; i < mid; ++i) {
-            cout << nums[i] << endl;
+    int halfSum = totalSum / 2;
+    int leftSum = 0;
+    int i;
+    for (i = 0; i < n; ++i) {
+        leftSum += nums[i];
+        if (leftSum >= halfSum) {
+            break;
         }
-        cout << nums[mid] << endl;
-        for (int i = mid + 1; i < n; ++i) {
-            cout << nums[i] << endl;
+    }
+    if (abs(totalSum - 2 * leftSum) < abs(totalSum - 2 * (leftSum - nums[i]))) {
+        cout << i + 1 << endl;
+        for (int j = 0; j <= i; ++j) {
+            cout << nums[j] << endl;
         }
         cout << 0 << endl;
     } else {
-        cout << nums[0] << endl;
-        cout << sum1 << endl;
-        cout << sum2 << endl;
+        cout << i << endl;
+        for (int j = 0; j < i; ++j) {
+            cout << nums[j] << endl;
+        }
+        cout << nums[i] << endl;
     }
-    
     return 0;
 }
