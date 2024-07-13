@@ -16,4 +16,3 @@ int bowlingScore(string s) {
         score += max(1, currentRoll);
     }
     return score;
-}
