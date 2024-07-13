@@ -1,6 +1,6 @@
 def leaders(arr):
-    return [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if i == len(arr) - 1 or all(x <= arr[i] for x in arr[i + 1:])
-    ]
+    leaders_list = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            leaders_list.append(arr[i])
+    return reversed(leaders_list)
