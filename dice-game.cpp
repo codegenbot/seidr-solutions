@@ -1,6 +1,6 @@
 Here is the solution:
 
-double probability(int n, int m) {
-    double total = (n + m - 1);
-    return (m * 1.0) / total;
+double diceGame(int n, int m) {
+    double total = pow(n + m, 2);
+    return (n * m - min(n, m)) / total;
 }
