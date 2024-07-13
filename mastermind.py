@@ -1,8 +1,7 @@
-import sys
 from collections import Counter
 
-code = sys.stdin.readline().strip()
-guess = sys.stdin.readline().strip()
+code = input()
+guess = input()
 
 if (
     len(code) != 4
