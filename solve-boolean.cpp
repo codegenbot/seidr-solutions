@@ -1,3 +1,4 @@
+```
 bool evaluateBooleanExpression(string expression) {
     bool result = false;
     stack<char> ops;
@@ -25,10 +26,5 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
 
-    while (!values.empty()) {
-        result = values.top();
-        values.pop();
-    }
-
-    return result;
+    return values.top();
 }
