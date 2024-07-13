@@ -1,3 +1,4 @@
+```
 from typing import List, Optional
 
 def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
@@ -25,4 +26,4 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest(strings))
+print(longest([s for s in strings if s is not None]))
