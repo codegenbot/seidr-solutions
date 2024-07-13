@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -8,9 +9,8 @@ int main() {
     int quarters = 0;
 
     std::cout << "Enter the number of cents: ";
-    std::string input;
-    std::getline(std::cin, input);
-    int cents = std::stoi(input);
+    int cents;
+    std::cin >> cents;
 
     quarters = cents / 25;
     cents %= 25;
@@ -23,10 +23,10 @@ int main() {
 
     pennies = cents;
 
-    std::cout << "Quarters: " << quarters << std::endl;
-    std::cout << "Dimes: " << dimes << std::endl;
-    std::cout << "Nickles: " << nickles << std::endl;
-    std::cout << "Pennies: " << pennies << std::endl;
+    std::cout << "Quarters: " << std::to_string(quarters) << std::endl;
+    std::cout << "Dimes: " << std::to_string(dimes) << std::endl;
+    std::cout << "Nickles: " << std::to_string(nickles) << std::endl;
+    std::cout << "Pennies: " << std::to_string(pennies) << std::endl;
 
     return 0;
 }
