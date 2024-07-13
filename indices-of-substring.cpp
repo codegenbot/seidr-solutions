@@ -3,17 +3,16 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
-            // check if the target appears at other positions in the text
-            int j = i + target.size();
-            while (j < text.size()) {
-                if (text.substr(j, target.size()) == target) {
-                    result.push_back(j);
-                }
-                ++j;
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        bool match = true;
+        for (int j = 0; j < target.size(); j++) {
+            if (text[i + j] != target[j]) {
+                match = false;
+                break;
             }
+        }
+        if (match) {
+            result.push_back(i);
         }
     }
     return result;
@@ -21,16 +20,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    cout << "Enter the text: ";
-    cin >> text;
-    string target;
-    cout << "Enter the target: ";
-    cin >> target;
-
-    vector<int> res = indicesOfSubstring(text, target);
-
-    for (int i : res) {
+    int n;
+    cin >> text >> n;
+    vector<int> res = indicesOfSubstring(text, string(n, 'h'));
+    for (auto i : res)
         cout << i << " ";
-    }
     return 0;
 }
