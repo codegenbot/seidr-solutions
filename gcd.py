@@ -16,12 +16,14 @@ def find_indices(text, target):
             break
     return indices
 
-a = int(input())
-b = int(input())
+try:
+    a = int(input("Enter first integer: "))
+    b = int(input("Enter second integer: "))
+    print(gcd(a, b))
+except ValueError:
+    print("Program did not receive expected input")
 
-print(gcd(a, b))
-
-text = input()
-target = input()
+text = input("Enter text: ")
+target = input("Enter target: ")
 
 print(find_indices(text, target))
