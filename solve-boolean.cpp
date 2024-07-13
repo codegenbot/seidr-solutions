@@ -19,3 +19,4 @@ string solveBoolean(string s) {
     }
     if (st.size() > 1) return "False";
     return st.size() ? "True" : "False";
+}
