@@ -2,6 +2,9 @@
 #include <vector>
 #include <cmath>
 using namespace std;
+using std::cout;
+using std::endl;
+using std::sqrt;
 
 int main() {
     int n;
@@ -22,7 +25,7 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    cout << std::sqrt(sum) << std::endl;
+    cout << sqrt(sum) << endl;
 
     return 0;
 }
