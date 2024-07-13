@@ -10,23 +10,18 @@ int main() {
 
     cout << quarters << endl; 
 
-    if (remainingCents >= 10) {
-        int dimes = remainingCents / 10;
-        remainingCents %= 10;
-        cout << dimes << endl; 
-    } else {
-        cout << 0 << endl; 
-    }
+    int dimes = remainingCents / 10;
+    remainingCents %= 10;
 
-    if (remainingCents >= 5) {
-        int nickels = remainingCents / 5;
-        remainingCents %= 5;
-        cout << nickels << endl; 
-    } else {
-        cout << 0 << endl; 
-    }
+    cout << dimes << endl; 
 
-    cout << remainingCents << endl; 
+    int nickels = remainingCents / 5;
+    remainingCents %= 5;
+
+    int pennies = remainingCents;
+
+    cout << nickels << endl; 
+    cout << pennies << endl; 
 
     return 0;
 }
