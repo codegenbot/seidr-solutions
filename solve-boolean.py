@@ -1,19 +1,11 @@
-def solve_boolean(expression):
-    if expression == "T":
+def solve_boolean(s):
+    if s == "t":
         return True
-    elif expression == "F":
+    elif s == "f":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid Expression")
-    elif "&" in expression:
-        terms = expression.split("&")
-        for term in terms:
-            if term != "F":
-                return False
-        return True
-    elif "|" in expression:
-        terms = expression.split("|")
-        for term in terms:
-            if term != "F":
-                return True
-        return False
+    elif "&" in s:
+        a, b = s.split("&")
+        return bool(int(a) and int(b))
+    elif "|" in s:
+        a, b = s.split("|")
+        return bool(int(a) or int(b))
