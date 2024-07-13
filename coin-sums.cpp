@@ -9,12 +9,12 @@ int main() {
     cents %= 25;
 
     while (cents >= 10) {
-        dimes = cents / 10;
+        dimes += cents / 10;
         cents %= 10;
     }
 
     while (cents >= 5) {
-        nickles = cents / 5;
+        nickles += cents / 5;
         cents %= 5;
     }
 
