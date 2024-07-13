@@ -1,14 +1,23 @@
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> nums = {17, 28, 4}; // Replace with your input
+    vector<int> leadersResult = leaders(nums);
+    for (int leader : leadersResult) {
+        cout << leader << endl;
+    }
+    return 0;
+}
+
+vector<int> leaders(vector<int>& nums) {
     vector<int> result;
-    
-    int maxRightSoFar = arr[n-1];  // initialize with rightmost element
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= maxRightSoFar) {  // check if current element is a leader
-            result.push_back(arr[i]);
-            maxRightSoFar = arr[i];  // update the maximum right so far
+    int rightmost = nums.back();
+    for (int i = nums.size() - 2; i >= 0; --i) {
+        if (nums[i] >= rightmost) {
+            rightmost = nums[i];
+            result.push_back(rightmost);
         }
     }
-    
     return result;
 }
