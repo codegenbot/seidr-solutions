@@ -1,11 +1,12 @@
 int main() {
-    int n, num;
+    int n;
     cin >> n;
+    vector<int> v(n);
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        cin >> num;
-        sum += max(0, num / 3 - 2);
+        cin >> v[i];
+        sum += max(0, v[i] / 3 - 2);
     }
-    cout << sum;
+    cout << sum << endl;
     return 0;
 }
