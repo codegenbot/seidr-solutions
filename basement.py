@@ -1,9 +1,7 @@
-Here is the Python code for the problem:
+Here is the solution:
 
-def basement(arr):
-    total = 0
-    for i in range(len(arr)):
-        total += arr[i]
+def basement(lst):
+    for i in range(len(lst)):
+        total = sum(lst[:i+1])
         if total < 0:
             return i
-    return -1
