@@ -1,12 +1,10 @@
-def rescale_to_unit(input_str):
-    inputs = list(map(float, input_str.split()))
-    
+def rescale_to_unit(*inputs, inputs_str=""):
     if not inputs:
         return []
 
     if isinstance(inputs[0], list):
         inputs = [
-            list(map(float, input_str.split())) for input_str in input_str.split(" ")
+            list(map(float, input_str.split())) for input_str in inputs_str.split(" ")
         ]
 
         rescaled_numbers = [
