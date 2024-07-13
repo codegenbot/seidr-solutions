@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 
 double vectorDistance(int n) {
     double sum = 0.0;
