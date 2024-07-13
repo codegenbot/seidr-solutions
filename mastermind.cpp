@@ -2,25 +2,37 @@ int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
     
-    // Count correct positions
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
+    // Calculate the count of correct colors
+    for (char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+        int c_count = 0, g_count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == code[i]) c_count++;
+            if (c == guess[i]) g_count++;
+        }
+        
+        // Check the correct colors
+        for (int i = 0; i < 4; ++i) {
+            if (code[i] == guess[i] && c_count > 0 && g_count > 0) {
+                black++;
+                c_count--;
+                g_count--;
+            } else if ((c_count > 0 || g_count > 0) && c != code[i] && c != guess[i]) {
+                white += std::min(c_count, g_count);
+                c_count = 0;
+                g_count = 0;
+            }
         }
     }
     
-    // Count correct colors, but wrong position
-    std::array<int, 6> code_counts({0});
-    std::array<int, 6> guess_counts({0});
-    for (char c : code) {
-        ++code_counts[c - 'A'];
-    }
-    for (char g : guess) {
-        ++guess_counts[g - 'A'];
-    }
-    
-    for (int i = 0; i < 6; ++i) {
-        white += std::min(code_counts[i], guess_counts[i]);
+    // Calculate the remaining white pegs
+    for (int i = 0; i < 4; ++i) {
+        int c_count = 0, g_count = 0;
+        for (char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+            if (c == code[i]) c_count++;
+            if (c == guess[i]) g_count++;
+        }
+        
+        white += std::min(c_count, g_count);
     }
     
     return black + white;
