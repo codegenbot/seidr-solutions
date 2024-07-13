@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -20,22 +21,9 @@ int luhn(const std::vector<int>& cardNumber) {
 }
 
 int main() {
-    std::vector<int> cardNumber;
-
-    int digit;
-    for (int i = 0; i < 16; ++i) {
-        std::cout << "Enter the " << (i+1) << "th digit of your credit card number: ";
-        std::cin >> digit;
-        cardNumber.push_back(digit);
-    }
-
-    int result = luhn(cardNumber); 
-
-    if (result == 0) {
-        std::cout << "Valid credit card number." << std::endl;
-    } else {
-        std::cout << "Invalid credit card number." << std::endl;
-    }
-    
-    return 0; 
+    // Example usage: test the Luhn algorithm with a sample credit card number
+    std::vector<int> cardNumber = {3, 4, 9, 2, 7, 8, 6, 1, 6, 5, 3, 9, 2, 5, 7, 0};
+    int result = luhn(cardNumber);
+    std::cout << "Luhn check result: " << (result == 0 ? "Valid" : "Invalid") << std::endl;
+    return 0;
 }
