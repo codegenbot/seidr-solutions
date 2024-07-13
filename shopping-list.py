@@ -1,5 +1,9 @@
 ```
 n = int(input())
+if len(input().split()) != n:
+    print("Invalid input. Expected {} lines, got {}".format(n, len(input().split())))
+    exit()
+
 prices_discounts = []
 for _ in range(n):
     line = list(map(float, input().split()))
