@@ -12,9 +12,9 @@ int main() {
         cin >> vec2[i];
     }
 
-    float sum = 0.0;
+    float sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += pow(vec2[i] - vec1[i], 2);
     }
 
     float result = sqrt(sum);
