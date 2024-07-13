@@ -10,9 +10,9 @@ string spinWords(string sentence) {
             wordLength = i - result.length();
             if (wordLength >= 5) {
                 for (int j = wordLength - 1; j >= 0; j--)
-                    result += sentence.substr(i - 1, j + 1)[j];
+                    result += sentence.substr(i - wordLength, 1);
             } else
-                result += sentence.substr(i - wordLength, wordLength);
+                result += sentence.substr(result.length(), wordLength);
             if (i != sentence.length())
                 result += " ";
         }
