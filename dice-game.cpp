@@ -12,21 +12,13 @@ double probability(int n, int m) {
 }
 
 int main() {
+    // Read input from user
     int n, m;
     std::cin >> n >> m;
     
+    // Calculate and print the result
     double result = probability(n, m);
-    if (n > m) {
-        for (int i = 1; i < m; i++) {
-            result += (double)i / ((double)n * m);
-        }
-    } else {
-        for (int i = 1; i <= n; i++) {
-            result -= (double)i / ((double)n * m);
-        }
-    }
-
-    std::cout << "The probability is: " << result << std::endl;
+    std::cout << "The probability is: " << 1.0 - result << std::endl;
     
     return 0;
 }

@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,12 +27,13 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
 
-    std::string text, target;
-    std::vector<int> result;
+    string text, target;
+    vector<int> result;
 
-    cin >> text >> target;
+    cout << gcd(a, b) << endl;
+
+    cin >> text >> target; 
     result = indicesOfSubstring(text, target);
     for (int i : result)
         cout << i << " ";
