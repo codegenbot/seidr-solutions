@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
+using std::vector;
+using std::cout;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
@@ -15,14 +17,16 @@ vector<int> leaders(vector<int>& arr) {
         if(arr[i] >= arr[i+1]) res.push_back(arr[i]);
     }
     
-    reverse(res.begin(), res.end());
+    std::sort(res.begin(), res.end());
     
     return res;
 }
 
 int main() {
-    vector<int> arr = {7,3,4,6};
+    vector<int> arr = {17, 11, 13, 2, 23, 19};
     vector<int> result = leaders(arr);
-    for(int i : result) cout << i << " ";
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
