@@ -1,3 +1,4 @@
+```
 def encrypt(s):
     while True:
         s = input("Enter text to be encrypted: ")
@@ -26,5 +27,4 @@ def encrypt(s):
             result += char
     return result
 
-encrypted_text = encrypt(input("Enter text to be encrypted: "))
-print(f"Encrypted Text: {encrypted_text}")
+print(f"Encrypted Text: {encrypt(input('Enter text to be encrypted: '))}")
