@@ -1,4 +1,5 @@
-```cpp
+#include <initializer_list>
+
 #include <cassert>
 #include <vector>
 #include <string>
@@ -18,17 +19,7 @@ std::string Strongest_Extension(const std::string& type, const std::vector<std::
 }
 
 int main() {
-    std::string type;
-    std::vector<std::string> strong;
-
-    std::cout << "Enter the type: ";
-    std::cin >> type;
-
-    std::cout << "Enter the extensions (space separated): ";
-    for(std::string s; std::getline(std::cin, s);) {
-        strong.push_back(s);
-    }
-
+    std::string type = "Sp";
+    std::vector<std::string> strong = {"671235", "Bb"};
     std::cout << Strongest_Extension(type, strong) << std::endl;
     return 0;
-}
