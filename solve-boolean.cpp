@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 bool evaluateBooleanExpression(string expression) {
     bool result = false;
     stack<char> ops;
@@ -5,8 +8,6 @@ bool evaluateBooleanExpression(string expression) {
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!ops.empty() && ops.top() == '|')
-                ops.pop(), values.push(result = !result);
             bool b1 = values.top();
             values.pop();
             bool b2 = values.top();
@@ -14,8 +15,6 @@ bool evaluateBooleanExpression(string expression) {
             values.push(b1 && b2);
             ops.push('&');
         } else if (expression[i] == '|') {
-            while (!ops.empty() && ops.top() == '&')
-                ops.pop(), values.push(result = !result);
             bool b1 = values.top();
             values.pop();
             bool b2 = values.top();
@@ -29,8 +28,19 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
 
-    while (!ops.empty()) 
-        ops.pop(), values.push(result = !result);
+    while (!ops.empty()) {
+        char op = ops.top();
+        ops.pop();
+        bool b1 = values.top();
+        values.pop();
+        bool b2 = values.top();
+        values.pop();
+        if (op == '&') {
+            values.push(b1 && b2);
+        } else if (op == '|') {
+            values.push(b1 || b2);
+        }
+    }
 
     return values.top();
 }
