@@ -1,4 +1,3 @@
-```cpp
 string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
@@ -20,4 +19,3 @@ string solveBoolean(string s) {
     }
     if (st.size() > 1) return "False";
     return st.size() ? "True" : "False";
-}
