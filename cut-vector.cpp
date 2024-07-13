@@ -1,33 +1,38 @@
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    int totalSum = 0;
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-        totalSum += nums[i];
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
-    int halfSum = totalSum / 2;
-    int leftSum = 0;
-    int i;
-    for (i = 0; i < n; ++i) {
-        leftSum += nums[i];
-        if (leftSum >= halfSum) {
-            break;
-        }
-    }
-    if (abs(totalSum - 2 * leftSum) < abs(totalSum - 2 * (leftSum - nums[i]))) {
-        cout << i + 1 << endl;
-        for (int j = 0; j <= i; ++j) {
-            cout << nums[j] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        cout << i << endl;
+    
+    int n = nums.size();
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; ++j) {
-            cout << nums[j] << endl;
+            leftSum += nums[j];
         }
+        for (int j = i; j < n; ++j) {
+            rightSum += nums[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
+    }
+    
+    for (int i = 0; i < cutIndex; ++i) {
         cout << nums[i] << endl;
     }
+    cout << 0 << endl;
+    for (int i = cutIndex; i < n; ++i) {
+        cout << nums[i] << endl;
+    }
+    cout << 0 << endl;
+
     return 0;
 }
