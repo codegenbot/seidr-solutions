@@ -1,4 +1,4 @@
-'''
+```python
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -11,5 +11,9 @@ def indices_of_substring(text, target):
             result.append(i)
     return result
 
-print(gcd(12, 15))
-print(indices_of_substring("Hello World", "World"))
+def find_gcd():
+    a = int(input("Enter first integer: "))
+    b = int(input("Enter second integer: "))
+    print(f"GCD of {a} and {b} is {gcd(a, b)}")
+
+find_gcd()
