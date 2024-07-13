@@ -1,35 +1,38 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++count;
-        }
-    }
-    return count;
-}
+#include <iostream>
+#include <string>
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeMap;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++count;
-        } else {
-            codeMap[guess[i]]++;
+int solve(const std::string& code, const std::string& guess) {
+    int white = 0;
+    int black = 0;
+
+    for (char c : guess) {
+        bool foundInCode = false;
+        for (char d : code) {
+            if (c == d && !foundInCode) {
+                foundInCode = true;
+                if ((code.find(d) + 1) > (guess.find(c) + 1)) {
+                    black++;
+                } else {
+                    white++;
+                }
+            }
         }
     }
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && codeMap[guess[i]] > 0) {
-            --codeMap[guess[i]];
-        }
-    }
-    return count;
+
+    return std::make_pair(white, black).second; // Return the number of black pegs
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << blackPegs(code, guess) << '\n';
-    cout << whitePegs(code, guess) << '\n';
+    std::string code;
+    std::cout << "Enter Mastermind code: ";
+    std::cin >> code;
+
+    std::string guess;
+    std::cout << "Enter Mastermind guess: ";
+    std::cin >> guess;
+
+    int result = solve(code, guess);
+    std::cout << "Black pegs: " << result << std::endl;
+
     return 0;
 }
