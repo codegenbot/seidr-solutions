@@ -9,7 +9,7 @@ string string_to_md5(const string& input) {
     for (int i = 0; i < 32; i++) {
         char c = ((input[i % input.size()] + i) * i) % 256;
         if(i < 2)
-            output += setfill<char>('0') << setw(2) << static_cast<int>(c);
+            output += std::setfill<char>('0') << std::setw(2) << static_cast<int>(c);
         else
             output += std::setfill<char>('0') << std::setw(2) << std::hex << setprecision(0) << static_cast<int>(c);
     }
