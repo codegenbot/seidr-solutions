@@ -1,4 +1,3 @@
-```
 #include <string>
 
 std::string validateTweet(std::string tweet) {
