@@ -1,6 +1,6 @@
 def leaders(arr):
-    leaders_list = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[i + 1]:
-            leaders_list.append(arr[i])
-    return leaders_list
+    leaders = [arr[0]]
+    for i in range(1, len(arr)):
+        if arr[i] >= leaders[-1]:
+            leaders.append(arr[i])
+    return leaders
