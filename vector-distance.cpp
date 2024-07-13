@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <iomanip>
 
 int main() {
     size_t n;
@@ -18,14 +19,14 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    float sum = 0.0f;
     for (size_t i = 0; i < std::min(n, m); ++i) {
         float diff = vec1[i] - vec2[i];
         sum += diff * diff;
     }
 
-    double result = std::sqrt(sum);
-    std::cout << std::fixed << result << std::endl;
+    float result = std::sqrt(sum);
+    std::cout << std::fixed << std::setprecision(10) << result << std::endl;
 
     return 0;
 }
