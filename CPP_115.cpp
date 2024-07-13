@@ -18,7 +18,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     while (total_water > 0) {
         for (int i = 0; i < n; i++) {
             if (grid[i].size() > bucket_fullness && total_water > 0) {
-                int water_to_extract = min(capacity, grid[i].size() - bucket_fullness);
+                int water_to_extract = std::min(capacity, grid[i].size() - bucket_fullness);
                 total_water -= water_to_extract;
                 bucket_fullness += water_to_extract;
             }
