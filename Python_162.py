@@ -1,16 +1,12 @@
 import hashlib
 
-
-def string_to_md5():
-    text = input("Enter a string: ")
+def string_to_md5(text):
     if not text.isalnum():
-        print("Invalid input. Please enter only alphanumeric characters.")
-        return None
+        return "Invalid input. Please enter only alphanumeric characters."
     return hashlib.md5(text.encode()).hexdigest()
-
 
 if __name__ == "__main__":
     while True:
-        result = string_to_md5()
-        if result is not None:
-            print(result)
+        text = input("Enter a string: ")
+        result = string_to_md5(text)
+        print(result)
