@@ -5,19 +5,18 @@ def bowling_score(frames):
         if '/' in frames[i*2:i*2+2]:
             frame = list(map(int, frames[i*2:i*2+2].split('/')))
             if sum(frame) == 10:
-                score += 10
+                if len(frame) > 1:
+                    score += 10
+                else:
+                    score += 10 + int(frames[i*2+1])
             else:
                 score += sum(frame)
         elif 'X' == frames[i*2]:
             if i < 8:
-                next_frame = frames[(i + 1) * 2:(i + 2) * 2]
-                if '/' in next_frame:
-                    next_frame = list(map(int, next_frame.split('/')))
-                    score += 10 + sum(next_frame)
-                else:
-                    score += 10 + int(next_frame[0])
-            else:
                 score += 10
+            else:
+                frame2 = list(map(int, frames[i*2+1:i*2+3].split('/')))
+                score += 10 + sum(frame2)
         else:
-            score += int(frames[i*2]) + (int(frames[(i*2)+1]) if i < 9 else 0)
+            score += int(frames[i*2])
     return score
