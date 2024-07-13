@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     result = []
     for s in lst:
@@ -15,7 +16,7 @@ def match_parens(lst):
                     break
         if count > 0:
             result.append("No")
-        elif not has_opening and s == "":
+        elif not has_opening:
             result.append("Yes")
         else:
             result.append("Yes" if (count == 0) else "No")
