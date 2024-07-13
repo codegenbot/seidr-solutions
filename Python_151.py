@@ -1,7 +1,7 @@
 ```
-def double_the_difference(lst):
-    if len(lst) > 1:
-        return (max(lst) - min(lst)) * 2
+def double_the_difference(numbers):
+    if len(numbers) > 1:
+        return (max(numbers) - min(numbers)) * 2
     else:
         return "No numbers entered. Please enter at least two numbers."
 
