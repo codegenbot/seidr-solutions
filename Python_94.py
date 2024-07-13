@@ -1,5 +1,4 @@
-def skjkasdkd():
-    num = int(input())
+def skjkasdkd(num):
     def is_prime(n):
         if n < 2:
             return False
