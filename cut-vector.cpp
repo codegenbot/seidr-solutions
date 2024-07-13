@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <limits>
 #include <cmath>
@@ -67,6 +66,6 @@ vector<vector<int>> cutVector(vector<int> &nums) {
             }
         }
     }
-
+    
     return res;
 }
