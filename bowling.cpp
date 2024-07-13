@@ -1,43 +1,34 @@
 int score(string s) {
     int total = 0;
-    int frame = 0;
-    vector<int> frames(10, 0);
+    int frame = 1;
+    int i = 0;
     
-    for (int i = 0; i < s.size(); ++i) {
+    while (frame <= 10) {
         if (s[i] == 'X') {
-            frames[frame] = 10;
-            frame++;
-        } else if (s[i] == '/') {
-            frames[frame] = 10 - frames[frame-1];
-            frame++;
-        } else if (s[i] == '-') {
-            frames[frame] = 0;
-            frame++;
+            total += 10;
+            if (s[i+2] == 'X') {
+                total += 10;
+                if (s[i+4] == 'X') {
+                    total += 10;
+                } else {
+                    total += (s[i+4] - '0');
+                }
+            } else if (s[i+3] == '/') {
+                total += 10;
+            } else {
+                total += (s[i+2] - '0') + (s[i+3] - '0');
+            }
+            i++;
+        } else if (s[i+1] == '/') {
+            total += 10;
+            total += (s[i+2] - '0');
+            i += 2;
         } else {
-            frames[frame] = s[i] - '0';
-            if (frame % 2 == 1) {
-                if (frames[frame-1] + frames[frame] == 10) {
-                    frames[frame] = 10 - frames[frame-1];
-                }
-                frame++;
-            }
+            total += (s[i] - '0') + (s[i+1] - '0');
+            i += 2;
         }
-    }
-    
-    for (int i = 0; i < 10; ++i) {
-        total += frames[i];
-        if (frames[i] == 10) {
-            if (i < 9) {
-                total += frames[i+1];
-                if (frames[i+1] == 10) {
-                    total += frames[i+2];
-                }
-            }
-        } else if (frames[i-1] + frames[i] == 10) {
-            if (i < 9) {
-                total += frames[i+1];
-            }
-        }
+        
+        frame++;
     }
     
     return total;
@@ -47,5 +38,6 @@ int main() {
     string s;
     cin >> s;
     cout << score(s) << endl;
+    
     return 0;
 }
