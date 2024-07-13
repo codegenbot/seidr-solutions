@@ -11,13 +11,9 @@ string fix_spaces(string text){
             for(int j=0; j<count-2; j++){
                 result += ' ';
             }
-            if(count > 2) {
-                result += '-';
-            } else {
-                result += '_';
-            }
+            if(count > 2)result += '-';
             i+=count-1;
-        } else{
+        } else {
             result += text[i];
         }
     }
