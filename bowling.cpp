@@ -1,4 +1,6 @@
 #include <string>
+#include <sstream>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;

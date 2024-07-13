@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -14,7 +15,8 @@ std::string fizzBuzz(int x) {
 
 int main() {
     int x;
-    cout << "Enter an integer: ";
-    cin >> x;
-    cout << fizzBuzz(x) << endl;
-    return 0; }
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
+    return 0;
+}
