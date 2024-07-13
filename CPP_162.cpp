@@ -1,23 +1,22 @@
-#include <iostream>
-#include <digest.h>
-
-using namespace std;
+#include <openssl/md5.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* cstr = text.c_str();
-    MD5_Update(&ctx, cstr, text.length());
-    MD5_Final(md, &ctx);
-
-    string result;
-    for (int i = 0; i < 16; ++i) {
-        char buff[3];
-        sprintf(buff, "%02x", md[i]);
-        result += buff;
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5_CTX mdContext;
+    MD5_Init(&mdContext);
+    const char* ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&mdContext, ptr, 1);
+        ptr++;
     }
-    return result;
+    MD5_Final(result, &mdContext);
+
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << hex << setfill('0') << fixed << setw(2) << (int)result[i];
+    }
+
+    return ss.str();
 }
