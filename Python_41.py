@@ -1,6 +1,3 @@
 ```
-def car_race_collision(n: int):
-    if n < 2:
-        return 0
-    else:
-        return (n - 1) * 2
+def car_race_collision(num_cars: int):
+    return num_cars * (num_cars - 1) // 2
