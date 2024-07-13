@@ -4,8 +4,9 @@
 
 float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
-        groundSnow += rateOfSnowFall / 60.0f; // accumulate snow within this hour
-        groundSnow = std::max(0.0f, groundSnow - proportionMeltingPerHour); // melt snow at most per hour
+        float snowThisHour = rateOfSnowFall * (1 - pow(1 - proportionMeltingPerHour, 1.0 / 60.0));
+        groundSnow += snowThisHour;
+        groundSnow = std::max(0.0f, groundSnow - proportionMeltingPerHour);
     }
     return groundSnow;
 }
