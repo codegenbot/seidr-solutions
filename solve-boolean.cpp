@@ -9,14 +9,15 @@ bool solveBoolean(string s) {
         if (s[i] == 'T') return true;
         if (s[i] == 'F') return false;
         if (s[i] == '|') {
-            while(i+1<s.length() && (s[i+1]=='|' || s[i+1]=='&')) i++;
-            res = false;
-        }
-        else if (s[i] == '&') {
-            while(i+1<s.length() && (s[i+1]=='|' || s[i+1]=='&')) i++;
             res = true;
+            i++;
+            continue;
         }
-        else i++;
+        if (s[i] == '&') {
+            res = true;
+            i++;
+            continue;
+        }
     }
     return res;
 }
