@@ -1,4 +1,3 @@
 ```
 def make_palindrome(string: str) -> str:
-    cleaned_string = ''.join(char for char in string if char.isalnum()).lower()
-    return cleaned_string + cleaned_string[::-1]
+    return "".join([char for pair in zip(reversed(string), string) for char in pair])
