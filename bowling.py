@@ -1,11 +1,12 @@
-def bowling_score(game):
+```
+def bowling_score(frames):
     score = 0
-    rolls = game.replace("/", "").split("X")
-    for i in range(len(rolls)):
-        if rolls[i] == "":
-            score += 10 - (len(rolls) - 1 - i)
-        elif rolls[i] == "X":
+    roll = [int(x) for x in frames.replace('/', '')]
+    for i in range(0, len(roll), 2):
+        if roll[i] == 10:
+            score += 10 + (10 if i+1 < len(roll) and roll[i+1] != 0 else 0)
+        elif roll[i] + roll[i+1] > 10:
             score += 10
         else:
-            score += int(rolls[i])
+            score += roll[i] + roll[i+1]
     return score
