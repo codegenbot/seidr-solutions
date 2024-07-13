@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -25,6 +26,6 @@ int main() {
     for (auto& discount : discounts) {
         cin >> discount;
     }
-    cout << setprecision(1) << fixed << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
