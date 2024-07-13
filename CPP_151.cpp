@@ -1,8 +1,6 @@
-int main() {
-    vector<float> lst = {1.0f, 2.5f, 3.0f};
-    long long odd_sum = 0;
-    assert(double_the_difference(lst) == odd_sum);
-}
+vector<float> lst = {1, 2, 3};
+float odd_sum = 0;
+assert(double_the_difference(lst) == odd_sum);
 
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
