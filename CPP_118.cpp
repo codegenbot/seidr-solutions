@@ -4,14 +4,21 @@
 using namespace std;
 
 string get_closest_vowel(string word) {
-    string res = "";
-    for (int i = word.size() - 1; i > 0; i--) {
-        if (ispunct(word[i])) continue;
-        if (!isalpha(word[i])) break;
-        if ("aeiouAEIOU".find( tolower(word[i])) != string::npos) {
-            res = word[i];
-            break;
+    int i = word.length() - 1;
+    while (i > 0 && !isVowel(word[i])) {
+        i--;
+    }
+    if (i == 0) return "";
+    for (; i >= 0; i--) {
+        if (isVowel(word[i])) {
+            return string(1, topper(word[i]));
         }
     }
-    return res;
+    return "";
+
+}
+
+bool isVowel(char c) {
+    c = topper(c);
+    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
