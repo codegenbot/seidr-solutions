@@ -1,14 +1,17 @@
+#include <iostream>
 #include <string>
 #include <sstream>
-#include <iostream>
 
 using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
+    bool strike = false;
+    if (s.empty()) {
+        return score; 
+    }
     istringstream ss(s);
     char c;
-    bool strike = false;
     while (ss >> c) {
         if (c == 'X') {
             score += 30;
@@ -31,6 +34,8 @@ int bowlingScore(string s) {
     return score;
 }
 
+using namespace std;
+
 int main() {
     string input;
     cout << "Enter bowling scores: ";
@@ -38,3 +43,4 @@ int main() {
     int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
+}

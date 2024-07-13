@@ -27,10 +27,13 @@ int main() {
     std::cout << "Enter your string (in kebab-case): ";
     std::getline(std::cin, input);
 
-    while(std::cin.peek() == '\n') { // check if there's a newline left
-        std::cin.ignore();
+    while(std::cin.peek() == '\n' || std::cin.peek() == ' ') {
+        if (std::cin.peek() == '\n') {
+            std::cin.ignore();
+        } else {
+            std::cin.ignore(1); // consume the space
+        }
     }
-    std::cin.ignore(); 
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
 }
