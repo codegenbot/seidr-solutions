@@ -34,10 +34,10 @@ vector<vector<int>> cutVector(vector<int> v) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     vector<int> v(n);
     for(auto &x : v) 
-        std::cin >> x;
+        cin >> x;
     vector<vector<int>> res = cutVector(v);
     cout << "[";
     for(int i=0; i<res[0].size(); i++) 
