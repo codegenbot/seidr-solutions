@@ -22,7 +22,8 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num) {
+    while (cin.peek() != '\n' && cin.peek() != EOF) {
+        cin >> num;
         nums.push_back(num);
     }
 
@@ -30,5 +31,6 @@ int main() {
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
+
     return 0;
 }
