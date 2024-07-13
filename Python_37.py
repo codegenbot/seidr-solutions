@@ -12,8 +12,9 @@ def sort_even(l: list):
             result.append(odd_nums[j])
             j += 1
     result.extend(even_nums[i:])
-    result.extend(odd_nums[j:])
+    result.extend(odd_nums)
     return result
+
 
 if __name__ == "__main__":
     print(sort_even([5, 3, 2, 7, 11, 1, 4]))
