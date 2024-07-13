@@ -1,3 +1,4 @@
+```
 import re
 
 
@@ -12,7 +13,8 @@ def check(s):
     return words
 
 
-def words_string(s):
+def words_string():
+    s = input("Enter a string: ")
     if type(s) != str:
         return "Error: Input must be a string"
     if s is None or not isinstance(s, str) or len(s.strip()) == 0:
@@ -23,4 +25,4 @@ def words_string(s):
     return words
 
 
-print(check(words_string(input("Enter a string: "))))
+print(check(words_string()))
