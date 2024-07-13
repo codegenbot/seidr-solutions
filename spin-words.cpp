@@ -1,4 +1,3 @@
-```cpp
 string spinWords(string str) {
     vector<string> words;
     
