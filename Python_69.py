@@ -1,3 +1,4 @@
+```
 def find_max_min(lst):
     if not lst:
         return None, None
@@ -8,3 +9,8 @@ def find_max_min(lst):
         elif num < min_num:
             min_num = num
     return max_num, min_num
+
+user_input = input("Enter a list of numbers (space separated): ")
+numbers = [int(num) for num in user_input.split()]
+max_value, min_value = find_max_min(numbers)
+print(f"The maximum value is {max_value} and the minimum value is {min_value}.")
