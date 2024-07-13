@@ -1,10 +1,3 @@
-words = input().split()
-result = ""
-for i, word in enumerate(words):
-    if "-" in word:
-        result += word.replace("-", "").capitalize()
-    else:
-        result += word
-    if i != len(words) - 1:
-        result += " "
+words = input().split("-")
+result = words[0] + "".join(word.capitalize() for word in words[1:])
 print(result)
