@@ -9,10 +9,3 @@ int specialFilter(std::vector<int> nums) {
     }
     return count;
 }
-
-int main() {
-    std::vector<int> nums = {1, 11, 21, 31};
-    int result = specialFilter(nums);
-    std::cout << "The number of special numbers is: " << result << std::endl;
-    return 0;
-}
