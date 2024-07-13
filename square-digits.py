@@ -1,3 +1,3 @@
-```
+```python
 def square_digits(n):
-    return "".join(str(int(i) ** 2) for i in n)
+    return "".join(map(lambda x: str(int(x) ** 2), str(n)))
