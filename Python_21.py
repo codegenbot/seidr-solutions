@@ -1,3 +1,4 @@
+```
 def rescale_to_unit(*inputs):
     inputs_str = (
         " ".join(map(str, inputs))
@@ -18,7 +19,7 @@ def rescale_to_unit(*inputs):
         ]
         inputs = [list(map(float, input_str.split())) for input_str in input_strs]
 
-        rescaled_numbers = [[(x - min(sublst)) / max(abs(x - min(sublst)), 1e-9) for x in sublst] 
+        rescaled_numbers = [[((x - min(x)) / max(abs(x-min(x)), 1e-9)) for x in sublst] 
                              if sublst else [] for sublst in inputs]
     else:
         inputs = list(map(float, inputs_str.split()))
