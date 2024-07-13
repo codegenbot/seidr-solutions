@@ -9,10 +9,7 @@ std::string spinWords(std::string str) {
         if (i == str.length() || str[i] == ' ') {
             if (!word.empty()) {
                 if (word.length() >= 5) {
-                    std::string reversedWord;
-                    for (char c : word) {
-                        reversedWord += c;
-                    }
+                    std::string reversedWord = word; // copy the string
                     std::reverse(reversedWord.begin(), reversedWord.end());
                     result += reversedWord;
                 } else {
@@ -33,10 +30,7 @@ std::string spinWords(std::string str) {
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            std::string reversedWord;
-            for (char c : word) {
-                reversedWord += c;
-            }
+            std::string reversedWord = word; // copy the string
             std::reverse(reversedWord.begin(), reversedWord.end());
             result += " ";
             result += reversedWord;
