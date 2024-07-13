@@ -21,3 +21,18 @@ int luhn(vector<int> digits) {
     
     return sum;
 }
+
+int main() {
+    vector<int> digits;
+    int cardNumber;
+    
+    cout << "Enter a credit card number (16 digits): ";
+    for(int i = 0; i < 16; ++i) {
+        cin >> cardNumber;
+        digits.push_back(cardNumber);
+    }
+    
+    cout << "Luhn checksum: " << luhn(digits) << endl;
+    
+    return 0;
+}
