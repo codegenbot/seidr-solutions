@@ -4,21 +4,18 @@ using namespace std;
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int num = (i / 3);
-        num = num - 2;
-        sum += num;
+        int temp = i / 3 - 2;
+        sum += temp;
     }
     return sum;
 }
 
 int main() {
-    vector<int> v;
     int n;
     cin >> n;
-    while(n--) {
-        int x; 
-        cin >> x;
-        v.push_back(x);
+    vector<int> v(n);
+    for (int &i : v) {
+        cin >> i;
     }
     cout << fuelCost(v) << endl;
     return 0;
