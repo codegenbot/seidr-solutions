@@ -1,9 +1,9 @@
-string middleCharacter(const string& s) {
-    int n = s.size();
-    if (n % 2 == 1) {
-        return string(1, s[n / 2]);
+string middleCharacter(string s) {
+    int len = s.length();
+    if (len % 2 == 0) {
+        return s.substr(len/2 - 1, 2);
     } else {
-        return s.substr(n / 2 - 1, 2);
+        return string(1, s[len/2]);
     }
 }
 
