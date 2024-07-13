@@ -1,4 +1,3 @@
-```
 def prod_signs(arr):
     if len(arr) == 0:
         return None
