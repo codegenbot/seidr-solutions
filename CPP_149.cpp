@@ -11,11 +11,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             return accumulate(a.begin(), a.end(), 0) <
-                    accumulate(b.begin(), b.end(), 0) ? -1 :
-                    accumulate(a.begin(), a.end(), 0) > 
-                    accumulate(b.begin(), b.end(), 0) ? 1 : 
-                    a < b ? -1 : a > b;
+             return std::stoi(a) + std::stoi(b) ? a < b : a.length() < b.length();
          });
     return result;
 }
