@@ -1,16 +1,16 @@
-#include <algorithm>
-using namespace std;
+#include <string>
 
-string solve(string s){
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
+    for(int i = 0; i < s.length(); i++){
         if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
-            result += c;
-        } else {
-            result += s[i];
+            if(islower(s[i]))
+                result += toupper(s[i]);
+            else
+                result += tolower(s[i]);
         }
+        else
+            result += s[i];
     }
-    reverse(result.begin(), result.end());
     return result;
 }
