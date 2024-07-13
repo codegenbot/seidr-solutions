@@ -1,21 +1,22 @@
-def bowling_score(bowling_string):
+def bowling_game(s):
     score = 0
-    frames = [
-        int(x) if x.isdigit() else 10
-        for x in re.sub("[^X0123456789/]", "", bowling_string)
-    ]
-    for i in range(len(frames)):
-        if frames[i] == 10:
-            score += frames[i]
-            if i < len(frames) - 1 and frames[i + 1] == "X":
-                score += frames[i + 2]
-            elif i < len(frames) - 1 and frames[i + 1].isdigit():
-                score += frames[i + 1]
+    roll = 0
+    for frame in s.split("/"):
+        if len(frame) == 1:
+            score += int(frame)
+            roll += 1
+        elif len(frame) == 2:
+            score += int(frame[0]) + 10
+            roll += 1
         else:
-            score += frames[i]
-            if i < len(frames) - 1:
-                if frames[i] + int(frames[i + 1]) == 10:
-                    score += frames[i + 1]
-                elif frames[i] + int(frames[i + 1].split("/")[0]) <= 10:
-                    score += int(frames[i + 1].split("/")[0])
+            strike = int(frame[0])
+            score += strike + 10
+            if roll < 9:
+                next_roll = int(frame[1:])
+                if next_roll == 10:
+                    score += 15
+                    roll += 2
+                else:
+                    score += next_roll
+                    roll += 2
     return score
