@@ -4,11 +4,16 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = 0;
     
-    for (int i = 1; i < m; i++) {
-        total += (double)(n - i) / (n * m);
+    for (int i = 1; i <= n - 1; i++) { 
+        for (int j = 1; j <= m && j < i; j++) { 
+            total += (double)(i) / (n * m);
+        }
+        for (int k = i; k <= m; k++) { 
+            total -= (double)i / (n * m); // subtract the probability when Peter's roll is i
+        }
     }
     
-    return total;
+    return 1 - total;
 }
 
 int main() {
@@ -33,6 +38,6 @@ int main() {
     }
 
     double result = diceGame(n, m);
-    cout << "Probability that Peter rolls strictly higher than Colin is: " << 1.0 - result << endl; 
+    cout << "Probability that Peter rolls strictly higher than Colin is: " << result << endl; 
     return 0;
 }
