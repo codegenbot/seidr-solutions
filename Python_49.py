@@ -1,5 +1,14 @@
+```
 def modp(n: int, p: int):
     return pow(n, mod_inverse(p, n)) % n
+
+def gcd(a: int, b: int):
+    if a == 0:
+        return b
+    elif b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
 
 def mod_inverse(a: int, m: int):
     if gcd(a, m) != 1:
