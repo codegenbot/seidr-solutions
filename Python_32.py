@@ -1,12 +1,7 @@
+Here is the completed code:
+
 def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0, "xs should have even number of coefficients"
-    max_coeff = max(abs(x) for x in xs)
-    assert max_coeff != 0, "largest non zero coefficient is required"
-
-    def poly_derivative(xs: list):
-        return [i * coeff for i, coeff in enumerate(xs[:-1])]
-
-    derivative_xs = poly_derivative(xs)
-    x = -xs[-1] / (2 * xs[-2])
-    return round(x, 2)
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have an even number of coefficients")
+    coefficient_sum = sum([coeff for i, coeff in enumerate(xs) if i % 2 == 1])
+    return -coefficient_sum / xs[0]
