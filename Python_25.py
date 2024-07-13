@@ -6,3 +6,5 @@ def sum_of_digits():
         total += n % 10
         n //= 10
     return total
+
+print(sum_of_digits())
