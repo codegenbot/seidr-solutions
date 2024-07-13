@@ -1,4 +1,4 @@
-"""
+```
 import hashlib
 
 def string_to_md5():
@@ -11,4 +11,3 @@ def string_to_md5():
 if __name__ == "__main__":
     while True:
         print(string_to_md5())
-"""
