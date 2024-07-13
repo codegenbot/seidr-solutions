@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     string result = ""; 
     int wordLength;
