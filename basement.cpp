@@ -1,9 +1,11 @@
-int basement(vector<int>& nums) {
-    int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+int basementIndex(vector<int> arr) {
+    for (int i = 0; i < arr.size(); ++i) {
+        int sum = 0;
+        for (int j = 0; j <= i; ++j) {
+            sum += arr[j];
+        }
         if (sum < 0)
             return i;
     }
-    return -1;
+    return -1; // or throw an exception
 }
