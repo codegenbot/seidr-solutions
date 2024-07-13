@@ -1,7 +1,22 @@
-```
-def encrypt(s, shift):
+def encrypt(s):
+    while True:
+        s = input("Enter text to be encrypted: ")
+        if all(c.isalpha() for c in s):
+            break
+        else:
+            print("Invalid input. Please enter a string containing only alphabets.")
+    shift = int(input("Enter shift value (0-25): "))
+    while True:
+        try:
+            if 0 <= shift <= 25:
+                break
+            else:
+                print("Invalid input. Please enter a number between 0 and 25.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    text = s
     result = ""
-    for char in s:
+    for char in text:
         if char.isalpha():
             if char.isupper():
                 result += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
@@ -11,12 +26,6 @@ def encrypt(s, shift):
             result += char
     return result
 
-text = input("Please enter the text to be encrypted: ")
-while True:
-    shift = int(input("Enter shift value (0-25): "))
-    if 0 <= shift <= 25:
-        break
-    else:
-        print("Invalid input. Please enter a number between 0 and 25.")
-encrypted_text = encrypt(text, shift)
+user_input = input("Please enter the text to be encrypted: ")
+encrypted_text = encrypt(user_input)
 print(f"Encrypted Text: {encrypted_text}")
