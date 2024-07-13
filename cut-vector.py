@@ -3,18 +3,15 @@ arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
 half_sum = total_sum // 2
-min_diff = float("inf")
-cut_index = -1
+prefix_sum = 0
+min_diff = total_sum
+cut_index = 0
 
-for i in range(1, n):
-    prefix_sum = sum(arr[:i])
-    diff = abs(total_sum - 2 * prefix_sum)
-    if diff < min_diff:
-        min_diff = diff
+for i in range(n):
+    prefix_sum += arr[i]
+    if abs(total_sum - 2 * prefix_sum) < min_diff:
+        min_diff = abs(total_sum - 2 * prefix_sum)
         cut_index = i
 
-subvector1 = arr[:cut_index]
-subvector2 = arr[cut_index:]
-
-print(*subvector1)
-print(*subvector2)
+print(arr[: cut_index + 1])
+print(arr[cut_index + 1 :])
