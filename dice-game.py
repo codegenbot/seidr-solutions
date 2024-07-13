@@ -1,6 +1,13 @@
+```
 def dice_game(n, m):
+    """
+    This function calculates the probability that Peter rolls strictly higher than Colin.
+    """
     total = n * m
-    prob = 0
-    for i in range(1, m+1):
-        prob += (m - i + 1) / total
-    return prob
+    if n == m:
+        return 0.5 
+    else:
+        sum1 = 0
+        for i in range(1, min(n,m)+1):
+            sum1 += max(0, n-i) * (m-i+1)
+        return sum1 / total
