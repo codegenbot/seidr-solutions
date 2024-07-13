@@ -1,8 +1,5 @@
+```
 def make_palindrome(string: str) -> str:
     cleaned_string = "".join(char for char in string if char.isalnum()).lower()
-    while len(cleaned_string) != len(cleaned_string[::-1]):
-        if cleaned_string == cleaned_string[::-1]:
-            break
-        else:
-            cleaned_string += cleaned_string[-1]
-    return cleaned_string + cleaned_string[::-1]
+    half = cleaned_string[:len(cleaned_string)//2]
+    return (half + half[::-1]).center(len(cleaned_string) * 2, '#')[1:-1].replace('#', '').upper()
