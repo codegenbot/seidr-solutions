@@ -1,8 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -20,11 +16,10 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            int j = i + m;
-            while (j <= n && text.substr(j - m, m) == target) {
-                j += m;
+            // Check for overlapping occurrences
+            while (i + m < n && text.substr(i, m) == target) {
+                i++;
             }
-            i = j - 1;
         }
     }
 
