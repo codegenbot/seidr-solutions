@@ -1,7 +1,6 @@
-```
 bool solveBoolean(std::string expression) {
-    std::stack<char> opStack;
-    std::stack<bool> valStack;
+    stack<char> opStack;
+    stack<bool> valStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -26,4 +25,3 @@ bool solveBoolean(std::string expression) {
     }
 
     return valStack.top();
-}
