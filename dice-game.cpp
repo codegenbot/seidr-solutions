@@ -1,13 +1,10 @@
 ```cpp
-#include <iostream>
-#include <cmath>
-
-double diceGame(int n, int m) {
-    double total = (n * m);
-    double win = (n - m) * (n > m ? 1 : 0) + ((n == m) ? 0.5 : 0);
-    return win / total;
+int diceGame(int n, int m) {
+    double probability = 0;
+    for (int i = m + 1; i <= n; i++) {
+        probability += 1.0 / n;
+    }
+    return static_cast<int>(probability);
 }
 
-int main() { 
-    return diceGame(6, 6); 
-}
+int main() { return diceGame(6, 6); }
