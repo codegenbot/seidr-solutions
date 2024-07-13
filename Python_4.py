@@ -1,6 +1,5 @@
-def mean_absolute_deviation():
+def mean_absolute_deviation(input_str):
     while True:
-        input_str = input("Enter some numbers (space-separated): ")
         if not input_str:
             print("Please enter at least one number.")
             continue
