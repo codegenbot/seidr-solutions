@@ -12,15 +12,16 @@ int main() {
     std::getline(std::cin, input);
     int cents = std::stoi(input);
 
+    quarters = cents / 25;
+    cents %= 25;
+
+    dimes = cents / 10;
+    cents %= 10;
+
+    nickles = cents / 5;
+    cents %= 5;
+
     pennies = cents;
-    quarters = pennies / 25;  
-    pennies %= 25;
-
-    nickles = pennies / 5;
-    pennies %= 5;
-
-    dimes = pennies / 10;
-    pennies %= 10;
 
     std::cout << "Quarters: " << quarters << std::endl;
     std::cout << "Dimes: " << dimes << std::endl;
