@@ -1,6 +1,7 @@
+```c++
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool isNextUpper = (str.empty()) ? false : true;
+    bool isNextUpper = false;
     for (const auto& c : str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
@@ -17,16 +18,8 @@ std::string camelCase(std::string str) {
             isNextUpper = true;
         } else {
             isNextUpper = false;
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
+            result += !isNextUpper ? std::toupper(c) : c;
         }
     }
     return result;
-}
-
-int main() {
-    std::string str;
-    while (std::getline(std::cin, str)) {
-        std::cout << camelCase(str) << std::endl;
-    }
-    return 0;
 }
