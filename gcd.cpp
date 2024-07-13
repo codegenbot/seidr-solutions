@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -21,10 +20,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            // Check for overlapping occurrences
-            while (i + m <= n && text.substr(i, m) == target) {
-                i++;
-            }
         }
     }
 
