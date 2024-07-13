@@ -1,17 +1,11 @@
-```cpp
-#include <cmath>
 #include <iostream>
-#include <iomanip>
 
 double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
-    double totalSnow = groundSnow;
-    
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall; 
-        totalSnow -= totalSnow * proportionMeltingPerHour; 
+        groundSnow += rateOfSnowFall;
+        groundSnow -= proportionMeltingPerHour;
     }
-    
-    return totalSnow;
+    return groundSnow;
 }
 
 int main() {
@@ -22,7 +16,6 @@ int main() {
     
     double result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
     
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::fixed << std::setprecision(2) << result << " inches" << std::endl;
-    
+    std::cout << std::fixed << std::setprecision(6) << result << "\n";
     return 0;
 }
