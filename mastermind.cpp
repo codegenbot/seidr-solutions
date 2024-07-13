@@ -1,3 +1,4 @@
+```cpp
 int mastermind(string code, string guess) {
     vector<char> chars = {'0', '1', '2', '3', '4', '5'};
     
@@ -28,7 +29,7 @@ int mastermind(string code, string guess) {
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)(std::find(std::vector<char>(chars.begin(), chars.end()), code[0]) != std::vector<char>(chars.begin(), chars.end()).end()));
+        white += min(count, (int)(std::distance(std::equal_range(chars.begin(), chars.end(), code[i])->first, std::equal_range(chars.begin(), chars.end(), code[i])->second) - chars.begin()));
     }
 
     return black + white;
