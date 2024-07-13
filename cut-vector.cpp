@@ -1,42 +1,41 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int min_diff = INT_MAX;
-    pair<int, int> cuts;
-    for (int i = 1; i <= v.size(); ++i) {
-        long long sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; ++j)
-            sum1 += v[j];
-        for (int j = i; j < v.size(); ++j)
-            sum2 += v[j];
-        int diff = abs(sum1 - sum2);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cuts = {i, 0};
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    int minDiff = INT_MAX;
+    int idx;
+    for (int i = 0; i < n; i++) {
+        if (v[i] == v[0]) {
+            return {{v[0]}, {v.begin() + i, v.end()}};
+        }
+        int diff = abs(v[i] - v[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            idx = i;
         }
     }
-    return {{v.begin(), v.end() - cuts.second}, {v.begin() + cuts.first, v.end()}};
+    vector<int> left(v.begin(), v.begin() + idx);
+    vector<int> right({v[idx]}, v.end());
+    return {left, right};
 }
 
 int main() {
-    vector<int> v;
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        cout << "Enter element: ";
-        cin >> num;
-        v.push_back(num);
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Cut Vector:\n";
-    for (const auto& vec : {result.first, result.second}) {
-        for (int x : vec) {
-            cout << x << " ";
-        }
-        cout << "\n";
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
+    for (int x : res.first) {
+        cout << x << " ";
     }
+    cout << "] [";
+    for (int x : res.second) {
+        cout << x << " ";
+    }
+    cout << "]" << endl;
     return 0;
 }
