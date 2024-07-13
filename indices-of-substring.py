@@ -1,4 +1,4 @@
-Here is the modified code:
+Here's the modified code:
 
 ```
 def indices_of_substring(text):
