@@ -1,35 +1,49 @@
-int main() {
-    vector<int> nums;
+int main()
+{
+    vector<int> numbers;
     int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    
+    while (cin >> num)
+    {
+        numbers.push_back(num);
     }
     
-    int diff = INT_MAX;
-    int idx = 0;
+    int sum = 0;
+    for (int i = 0; i < numbers.size(); ++i)
+    {
+        sum += numbers[i];
+    }
     
-    for (int i = 0; i < nums.size() - 1; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            left_sum += nums[j];
-        }
-        for (int j = i + 1; j < nums.size(); ++j) {
-            right_sum += nums[j];
-        }
+    int firstHalfSum = 0;
+    int closestDiff = INT_MAX;
+    int cutIndex;
+    
+    for (int i = 0; i < numbers.size(); ++i)
+    {
+        firstHalfSum += numbers[i];
+        int secondHalfSum = sum - firstHalfSum;
+        int currentDiff = abs(firstHalfSum - secondHalfSum);
         
-        if (abs(left_sum - right_sum) < diff) {
-            diff = abs(left_sum - right_sum);
-            idx = i;
+        if (currentDiff < closestDiff)
+        {
+            closestDiff = currentDiff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i <= idx; ++i) {
-        cout << nums[i] << "\n";
+    for (int i = 0; i <= cutIndex; ++i)
+    {
+        cout << numbers[i] << endl;
     }
-    cout << "\n";
-    for (int i = idx + 1; i < nums.size(); ++i) {
-        cout << nums[i] << "\n";
+    
+    cout << 0 << endl;
+    
+    for (int i = cutIndex + 1; i < numbers.size(); ++i)
+    {
+        cout << numbers[i] << endl;
     }
-
+    
+    cout << 0 << endl;
+    
     return 0;
 }
