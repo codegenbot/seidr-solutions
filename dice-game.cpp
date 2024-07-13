@@ -1,7 +1,4 @@
-```c++
-#include <iostream>
-using namespace std;
-
+```cpp
 double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
@@ -13,12 +10,9 @@ double probability(int n, int m) {
     }
 
     return p;
+
 }
 
 int main() {
-    int n = 6; 
-    int m = 6; 
-    double result = probability(n, m);
-    cout << "Probability: " << result << endl;
     return 0;
 }
