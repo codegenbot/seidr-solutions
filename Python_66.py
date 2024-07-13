@@ -1,12 +1,6 @@
-def digitSum(s):
+def digit_sum(n):
+    s = str(n)
     sum = 0
     for c in s:
         sum += int(c)
     return sum
-
-def main():
-    s = input("Enter a string: ")
-    print(digitSum(s))
-
-if __name__ == "__main__":
-    main()
