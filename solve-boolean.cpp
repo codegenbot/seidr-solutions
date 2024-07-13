@@ -2,16 +2,33 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'f') {
-            res = false;
+    bool result = false;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 't') {
+            result = true;
+            break;
+        } else if (s[i] == 'f') {
             break;
         } else if (s[i] == '&') {
-            res &= true;
+            i++;
+            bool left = false;
+            while (i < s.length() && s[i] != '&') {
+                if (s[i] == 't')
+                    left = true;
+                i++;
+            }
+            result &= left;
         } else if (s[i] == '|') {
-            res |= true;
+            i++;
+            bool left = false;
+            while (i < s.length() && s[i] != '|') {
+                if (s[i] == 't')
+                    left = true;
+                i++;
+            }
+            result = result || left;
         }
     }
-    return res;
+    return result;
 }
