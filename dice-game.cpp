@@ -10,8 +10,10 @@ int main() {
     cin >> m;
 
     cout << "The probability that Peter rolls strictly higher than Colin is: ";
+    double sum = 0.0;
     for(int i = 1; i < n; i++) {
-        double prob = (n - i) / (double)(n*m); 
+        double prob = 1.0 - (double)i / m - (n-i) / (double)(n*m); 
+        sum += prob;
         cout << fixed << setprecision(10) << prob << " "; 
     }
     cout << endl;
