@@ -23,4 +23,5 @@ int main() {
     } else {
         std::cout << "Pair found: (" << result.first << ", " << result.second << ")" << std::endl;
     }
-}.
+    return 0;
+}
