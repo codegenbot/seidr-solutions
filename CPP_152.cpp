@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 bool issame(int a, int b) {
@@ -47,8 +46,7 @@ void testGame() {
         cout << endl; 
     }
     
-    assert(issame(compare(1,0),-1));
-    return;
+    assert(compare(0,1) == -1);
 }
 
 int main() {
