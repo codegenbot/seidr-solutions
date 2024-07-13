@@ -7,11 +7,9 @@ long long minSubArraySum(vector<long long> nums) {
         current_sum += nums[i];
         if (current_sum < min_sum)
             min_sum = current_sum;
-        if (current_sum > 0) {
-            while (current_sum > min_sum && i < nums.size() - 1) {
-                current_sum -= nums[i];
-                i++;
-            }
+        while (current_sum > 0 && i < nums.size() - 1) {
+            current_sum -= nums[i];
+            i++;
         }
     }
     return min_sum;
