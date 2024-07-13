@@ -2,9 +2,7 @@
 import math
 
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
+    return math.gcd(a, b)
 
 def indices_of_substring(text, target):
     result = []
