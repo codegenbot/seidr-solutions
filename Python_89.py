@@ -10,7 +10,7 @@ def encrypt(s):
                 print("Invalid input. Please enter a number between 0 and 25.")
         except ValueError:
             print("Invalid input. Please enter a number.")
-    text = input("Enter the string to encrypt: ")
+    text = s
     for char in text:
         if char.isalpha():
             if char.isupper():
@@ -20,7 +20,3 @@ def encrypt(s):
         else:  
             result += char
     return result
-
-if __name__ == "__main__":
-    s = "Hello World"
-    print(encrypt(s))
