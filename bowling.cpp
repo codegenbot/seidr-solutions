@@ -1,5 +1,12 @@
+```cpp
 #include <string>
 #include <stdexcept>
+
+int main() {
+    std::string input = "X X X X X X X X X X"; // provide the input string here
+    int score = bowlingScore(input);
+    return 0;
+}
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
@@ -51,13 +58,4 @@ int bowlingScore(const std::string& input) {
     }
 
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores (X for strike, / for spare): ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
 }
