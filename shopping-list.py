@@ -1,4 +1,3 @@
-```
 n = int(input("Enter the number of goods: "))
 if n < 1:
     print("Error: Number of goods should be greater than zero.")
