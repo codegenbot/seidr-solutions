@@ -1,30 +1,44 @@
-```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
 std::string kebabToCamel(const std::string& s) {
     if (s.empty()) return s;
 
-    std::string result;
-    bool first = true;
-
+    std::vector<std::string> words;
     for (char c : s) {
         if (c == '-') {
-            if (!first) {
-                result += c;
-            }
-            first = false;
+            words.push_back("");
         } else if (c == ' ') {
-            if (!first) {
-                result += c;
-            }
-            first = true;
+            continue; // ignore spaces
         } else {
-            if (first) {
-                result += std::toupper(c);
-            } else {
-                result += std::tolower(c);
-            }
-            first = false;
+            string word = (words.back() == "") ? "" : "";
+            words.back() += c;
+        }
+    }
+
+    std::string result;
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result += std::toupper(word[0]);
+            result += word.substr(1).tolower();
+        } else {
+            result = word;
         }
     }
 
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; ++i) {
+        string s;
+        cin >> s;
+        cout << kebabToCamel(s) << '\n';
+    }
+
+    return 0;
 }
