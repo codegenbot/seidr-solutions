@@ -1,3 +1,3 @@
 ```
-s = input("Enter a comma-separated string of words: ")
-print(words_string(s))
+def words_string(s):
+    return [",".join(word.strip().title() for word in s.replace(",", " ").split()) for _ in s.split(",") if s]

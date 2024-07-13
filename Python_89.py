@@ -1,15 +1,14 @@
-def encrypt(s): 
+def encrypt(s):
     result = ""
-    for char in s: 
-        if char.isalpha(): 
-            offset = 65 if char.isupper() else 97
-            shift = 3 if not char.isupper() else 0
+    for char in s:
+        if char.isalpha():
+            if char.isupper():
+                shift = 3
+                offset = ord('A')
+            else:
+                shift = 3
+                offset = ord('a')
             result += chr((ord(char) - offset + shift) % 26 + offset)
         else:  
-            if char.isdigit():  
-                result += char
-            elif char in '/.:!?,";\'-_:':
-                result += char
-            else:
-                result += char  
+            result += char
     return result
