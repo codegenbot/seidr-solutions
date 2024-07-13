@@ -35,7 +35,7 @@ int main() {
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (tolower(lowercaseText[i + j]) != lowercaseTarget[j]) {
+            if (toLower(lowercaseText[i + j]) != toLower(lowercaseTarget[j])) {
                 found = false;
                 break;
             }
@@ -45,7 +45,7 @@ int main() {
         }
     }
 
-    if (indices.empty()) {
+    if (indices.size() == 0) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
