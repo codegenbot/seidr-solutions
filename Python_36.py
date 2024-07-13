@@ -1,10 +1,11 @@
-```
 def fizz_buzz(n: int):
     count = 0
-    for i in range(11, n, 11):
-        if str(i).count('7') > 0:
+    result = 0
+    for i in range(1, n+1):
+        if i % 3 == 0 and i % 5 == 0:
             count += 1
-    for i in range(13, n, 13):
-        if str(i).count('7') > 0:
-            count += 1
-    return count
+        elif i % 3 == 0:
+            result += 1
+        elif i % 5 == 0:
+            result += 1
+    return count, result
