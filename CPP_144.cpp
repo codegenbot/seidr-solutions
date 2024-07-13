@@ -9,18 +9,21 @@ bool simplify(string x, string n) {
     s1 >> a >> '/' >> b;
     s2 >> c >> '/' >> d;
     
-    long long lcm = (long long)a * d;
-    long long commonDivisor = gcd(lcm, b);
-    lcm /= commonDivisor;
-    commonDivisor = gcd(lcm, d);
-    lcm /= commonDivisor;
+    long long numerator = (long long)a * d;
+    long long denominator = (long long)b * d;
 
-    return a * c / commonDivisor == b * d / commonDivisor;
+    if(denominator == 0) return false; // check for zero denominator
+
+    int gcd = __gcd(abs(numerator), abs(denominator));
+    numerator /= gcd;
+    denominator /= gcd;
+
+    return numerator == denominator;
 }
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+int main() {
+    cout << simplify("1/5", "5/1") << endl;
+    cout << simplify("1/6", "2/1") << endl;
+    cout << simplify("7/10", "10/2") << endl;
+    return 0;
 }
