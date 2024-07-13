@@ -9,13 +9,12 @@ def decode_shift():
     for char in message:
         if char.isalpha():
             if char.isupper():
-                decoded_char = chr((ord(char) - ord('A') + int(password)) % 26 + ord('A'))
+                shift = ord(password[0]) - ord('A')
+                decoded_message += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
             else:
-                decoded_char = chr((ord(char) - ord('a') + int(password)) % 26 + ord('a'))
-            if decoded_char != char:
-                return "Invalid input. The message is not a valid Caesar Cipher encryption."
+                shift = ord(password[0]) - ord('A')
+                decoded_message += chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
         else:
             decoded_message += char
-        decoded_message += decoded_char
     
-    return decoded_message
+    print(decoded_message)
