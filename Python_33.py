@@ -1,3 +1,3 @@
-def sort_third(l):
-    l.sort(key=lambda x: (x % 3, -x))
-    return l
+def sort_third(lst):
+    lst.sort(key=lambda x: (x % 3, -x))
+    return lst
