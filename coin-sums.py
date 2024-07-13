@@ -1,13 +1,13 @@
-```
-def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    result = []
-    for coin in sorted(coins, reverse=True):
-        count = cents // coin
-        if count > 0:
-            result.append((count, 'quarter' if coin == 25 else 'dime' if coin == 10 else 'nickle' if coin == 5 else 'penny'))
-            cents %= coin
-    return ['{} {}'.format(count, name) for count, name in result]
+count_pennies = cents // 1
+cents %= 1
 
-cents = int(input("Enter the number of cents: "))
-print(coin_sums(cents))
+count_nickels = cents // 5
+cents %= 5
+
+count_dimes = cents // 10
+cents %= 10
+
+count_quarters = cents // 25
+cents %= 25
+
+print(*['{} {}'.format(count, name if count == 1 else f"{count} {name}s") for count, name in [(count_pennies, 'pennies'), (count_nickels, 'nickles'), (count_dimes, 'dimes'), (count_quarters, 'quarters')] + [(['0', 'quarters'][cents > 24], 'pennies') if cents else []], sep='\n')
