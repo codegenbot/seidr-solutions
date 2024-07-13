@@ -15,24 +15,12 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    // Count the number of correct colors in correct places (black pegs)
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
-        }
-    }
-
-    return {white, black};
+    return black;
 }
 
 int main() {
-    std::string code = "XXXX"; 
-    std::string guess = "XXXX"; 
-
-    int result[] = mastermind(code, guess);
-
-    printf("White pegs: %d\n", result[0]);
-    printf("Black pegs: %d\n", result[1]);
-
+    std::string code, guess;
+    // Read input from user and call mastermind function here
+    // ...
     return 0;
 }
