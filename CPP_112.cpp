@@ -1,10 +1,18 @@
-```
-#include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<char> v;
+vector<string> reverse(string s) {
+    string temp = s;
+    reverse(temp.begin(), temp.end());
+    if (s == temp)
+        return {"True"};
+    else
+        return {"False"};
+}
+
+vector<string> issame(string s, string c) {
+    vector<char> v;
     for (char x : s) {
         bool flag = false;
         for (char y : c) {
@@ -16,17 +24,17 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         if (!flag)
             v.push_back(x);
     }
-    std::string result = "";
+    string result = "";
     for (char x : v) {
         result += x;
     }
     
-    std::string temp = result;
-    std::reverse(temp.begin(), temp.end());
+    string temp = result;
+    reverse(temp.begin(), temp.end());
     if (result == temp) {
-        return {std::to_string(result), "True"};
+        return {result, "True"};
     } else {
-        return {std::to_string(result), "False"};
+        return {result, "False"};
     }
 }
 
