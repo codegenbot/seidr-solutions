@@ -8,7 +8,6 @@ bool solveBoolean(string s) {
             if (st.empty()) {
                 return false;
             }
-            st.pop();
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
@@ -16,10 +15,9 @@ bool solveBoolean(string s) {
             if (st.empty()) {
                 return true;
             }
-            st.pop();
         } else {
             st.push(s[i]);
         }
     }
-    return !st.empty();
+    return st.top() == 'T';
 }
