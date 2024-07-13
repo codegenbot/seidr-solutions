@@ -5,7 +5,7 @@ def main():
             print(sorted(set(numbers)))
             break
         except ValueError:
-            print("Invalid input! Please enter integers separated by spaces.")
+            pass
 
 
 if __name__ == "__main__":
