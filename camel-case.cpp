@@ -32,7 +32,16 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string s;
-    s = "camel-case example-test-string";
-    std::cout << camelCase(s) << std::endl;
+    while (std::cin >> s) {
+        s = s.replace(0, 1, toupper(s[0]));
+        size_t pos = 0;
+        while ((pos = s.find("-")) != std::string::npos) {
+            s.erase(pos, 1);
+            if (pos > 0) {
+                s.insert(pos, toupper(s[pos]));
+            }
+        }
+        std::cout << s << std::endl;
+    }
     return 0;
 }
