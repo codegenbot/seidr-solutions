@@ -1,4 +1,3 @@
-```
 def double_the_difference(numbers):
     if len(numbers) > 1:
         return (max(numbers) - min(numbers)) * 2
