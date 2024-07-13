@@ -7,14 +7,18 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += " ";
         } else {
-            char temp = s[i];
-            while (i + 1 < s.length() && s[i + 1] <= temp) {
+            string word;
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
                 i++;
             }
-            for (; i >= 0 && s[i] <= temp; i--) {
-                result += s[i];
+            for (int j = 0; j < word.length(); j++) {
+                int k = j;
+                while (k < word.length() && word[k] <= word[0]) {
+                    k++;
+                }
+                result += word[k - 1];
             }
-            i--;
         }
     }
     return result;
