@@ -1,5 +1,16 @@
 Here is the solution:
 
-double getProbability(int n, int m) {
-    return 1.0 * (n - 1) / (double)(n * m);
+double probability(int n, int m) {
+    double totalPossibilities = n * m;
+    double peterWins = 0;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < m; j++) {
+            if (i > j) {
+                peterWins++;
+            }
+        }
+    }
+
+    return peterWins / totalPossibilities;
 }
