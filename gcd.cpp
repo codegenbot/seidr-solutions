@@ -23,7 +23,7 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
-    std::cin.ignore(std::streamsize::max(), '\n');
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     int result = greatestCommonDivisor(num1, num2);
     std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
 
@@ -41,3 +41,4 @@ int main() {
     }
     
     return 0;
+}
