@@ -21,7 +21,6 @@ bool evaluateBooleanExpression(string expression) {
             operatorStack.push(expression[i]);
         }
         else if (expression[i] == 'T' || expression[i] == 'F') {
-            // Check for parentheses
             int j = i + 1;
             while (j < expression.length() && (expression[j] == '&' || expression[j] == '|')) {
                 j++;
