@@ -17,11 +17,13 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     std::size_t n = text.length();
     std::size_t m = target.length();
 
-    for (std::size_t i = 0; i <= n - m; i++) {
+    for (std::size_t i = 0; i <= n - m; ) {
         auto pos = text.find(target, i);
         if (pos != std::string::npos) { 
-            result.push_back(pos); 
-            i += m; // Increment by the length of the target substring
+            result.push_back(i); 
+            i = pos + m;
+        } else {
+            break;
         }
     }
 
