@@ -9,7 +9,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
         totalSnow += rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour;
     }
     
-    return totalSnow;
+    return static_cast<long double>(totalSnow + rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour);
 }
 
 int main() {

@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
         throw std::invalid_argument("No input provided");
@@ -7,21 +8,25 @@ int bowlingScore(const std::string& input) {
     bool isStrike = false;
 
     for (int i = 0; i < input.length(); i++) {
-        if (input.substr(i, 1) == "X") {
+        if (input[i] == 'X') {
             score += 30;
             isStrike = true;
-        } else if (input.substr(i, 1) == "/") {
+        } else if (input[i] == '/') {
             int roll1, roll2;
-            char nextChar = input.substr(i + 1, 1);
-            if(nextChar != " ") {
+            char nextChar = input[i + 1];
+            if (!std::isdigit(nextChar)) {
+                i++; // Move to the next character
+            } else {
                 roll1 = nextChar - '0';
                 score += roll1;
-            }
-            i++; // Move to the next character
-        } else if (input.substr(i, 1) == " ") {
+                i++; // Move to the next character
+        } else if (input[i] == ' ') {
             int roll1, roll2;
-            char prevChar = input.substr(i - 1, 1);
+            char prevChar = input[i - 1];
             if(i > 0) {
+                if (!std::isdigit(prevChar)) {
+                    throw std::invalid_argument("Invalid input");
+                }
                 roll1 = prevChar - '0';
                 if(isStrike) {
                     score += roll1 + prevRoll * 2;
@@ -32,7 +37,7 @@ int bowlingScore(const std::string& input) {
                 prevRoll = roll1;
             }
         } else {
-            int roll = input.substr(i, 1) - '0';
+            int roll = input[i] - '0';
             if (isStrike) {
                 score += roll + prevRoll * 2;
                 isStrike = false;
@@ -44,13 +49,14 @@ int bowlingScore(const std::string& input) {
     }
 
     // Check for spare at the end of each frame
-    if(input.substr(input.length() - 1, 1) == "/") {
+    if(input[input.length() - 1] == '/') {
         int roll1, roll2;
-        char nextChar = input.substr(input.length() - 2, 1);
-        if(nextChar != " ") {
-            roll1 = nextChar - '0';
-            score += roll1 + prevRoll;
+        char nextChar = input[input.length() - 2];
+        if (!std::isdigit(nextChar)) {
+            throw std::invalid_argument("Invalid input");
         }
+        int roll1 = nextChar - '0';
+        score += roll1 + prevRoll;
     }
 
     return score;

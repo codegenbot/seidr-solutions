@@ -1,11 +1,14 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int basement(std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
+        if (sum > 0) {
+            sum = 0;
+        }
         sum += nums[i];
-        if (sum < 0) return i + 1;
+        if (sum < 0) return i;
     }
     return -1;
 
@@ -20,3 +23,4 @@ int main() {
         std::cout << "No basement found.\n";
     }
     return 0;
+}
