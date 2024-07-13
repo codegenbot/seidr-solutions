@@ -11,6 +11,7 @@ def longest(strings: List[Optional[str]]) -> Optional[str]:
     return result
 
 strings = []
+
 while True:
     user_input = input("Enter a string (or 'stop' to finish): ")
     if user_input.lower() == 'stop':
