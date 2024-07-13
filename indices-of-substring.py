@@ -1,10 +1,5 @@
-Here is the solution:
-
+```
 def indices_of_substring(text):
-    result = []
-    for i in range(len(text)):
-        if text[i:].startswith(input()):
-            while text[i:].startswith(input()):
-                i += len(input())
-            result.append(i)
-    return result
+    return [i for i in range(len(text)) if text.startswith(input(), i)]
+
+print(indices_of_substring(input()))
