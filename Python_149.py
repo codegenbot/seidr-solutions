@@ -1,3 +1,3 @@
 ```
 def sorted_list_sum(lst):
-    return sum(sorted(map(lambda x: int(''.join(x.split())), lst)))
+    return sum(map(str, [i for sublist in (sorted(map(int, x.split())) for x in lst) for i in sublist]))
