@@ -1,37 +1,38 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int solve(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else {
-            bool found = false;
-            for (int j = 0; j < 4; ++j) {
-                if (guess[j] == code[i] && j != i) {
-                    found = true;
-                    break;
+    for (char c : guess) {
+        bool foundInCode = false;
+        for (char d : code) {
+            if (c == d && !foundInCode) {
+                foundInCode = true;
+                if ((code.find(d) + 1) > (guess.find(c) + 1)) {
+                    black++;
+                } else {
+                    white++;
                 }
             }
-            if (!found) white++;
         }
     }
 
-    return black + white - black;
+    return std::make_pair(white, black).second; // Return the number of black pegs
 }
 
 int main() {
-    std::string code, guess;
-    std::cout << "Enter the Mastermind code: ";
+    std::string code;
+    std::cout << "Enter Mastermind code: ";
     std::cin >> code;
-    std::cout << "Enter a guess: ";
+
+    std::string guess;
+    std::cout << "Enter Mastermind guess: ";
     std::cin >> guess;
 
-    int result = mastermind(code, guess);
-    std::cout << result << '\n';
+    int result = solve(code, guess);
+    std::cout << "Black pegs: " << result << std::endl;
+
     return 0;
 }
