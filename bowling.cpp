@@ -1,31 +1,39 @@
 int score(string s) {
-    int total = 0, frame = 0, ball = 0;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (frame < 9) {
-                total += s[i+1] == 'X' ? 10 : isdigit(s[i+1]) ? s[i+1]-'0' : 10;
-                total += s[i+2] == 'X' ? 10 : isdigit(s[i+2]) ? s[i+2]-'0' : 10;
-                ball += 2;
-            } else {
-                total += s[i+1] == 'X' ? 10 : isdigit(s[i+1]) ? s[i+1]-'0' : 10;
-                total += s[i+2] == 'X' ? 10 : s[i+2] == '/' ? 10-s[i+1]+'0' : isdigit(s[i+2]) ? s[i+2]-'0' : 10;
+    int total = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> scores(21, 0);
+
+    for (char c : s) {
+        if (c == 'X') {
+            scores[ball] = 10;
+            if (frame < 10) {
+                scores[ball + 1] = -1; // Mark as strike
             }
+            ball += 2;
+        } else if (c == '/') {
+            scores[ball] = 10 - scores[ball - 1];
+            if (frame < 10) {
+                scores[ball + 1] = -2; // Mark as spare
+            }
+            ball += 2;
+        } else if (c == '-') {
+            scores[ball] = 0;
             ball++;
-        } else if (isdigit(s[i])) {
-            total += s[i]-'0';
-            ball++;
-            if (s[i] == '/')
-                total += 10-s[i-1]+'0';
-        } else if (s[i] == '/') {
-            total += 10-s[i-1]+'0';
+        } else {
+            scores[ball] = c - '0';
             ball++;
         }
-        if (ball == 2 || s[i] == 'X' || s[i] == '/') {
+        if (frame < 10 && (scores[ball - 2] == 10 || scores[ball - 2] + scores[ball - 1] == 10)) {
+            total += scores[ball - 2] + scores[ball - 1] + scores[ball];
+        } else if (frame < 10) {
+            total += scores[ball - 2] + scores[ball - 1];
+        }
+        if (scores[ball - 2] == 10 || scores[ball - 1] == -1 || scores[ball - 1] == -2) {
             frame++;
-            ball = 0;
         }
     }
+
     return total;
 }
 
