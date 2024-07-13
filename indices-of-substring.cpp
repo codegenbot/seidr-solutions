@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -13,7 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.find(target) != string::npos)
             result.push_back(i);
         else
-            break;
+            i = n - m + 1;
     }
 
     return result;
