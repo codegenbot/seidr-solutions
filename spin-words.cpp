@@ -1,6 +1,3 @@
-```cpp
-#include <string>
-
 std::string spinWords(std::string str) {
     std::string word;
     std::string result = ""; 
@@ -9,7 +6,7 @@ std::string spinWords(std::string str) {
         if (i == str.length() || str[i] == ' ') {
             if (!word.empty()) {
                 if (word.length() >= 5) {
-                    result += " " + (std::string(word.rbegin(), word.rend()));
+                    result += " " + std::string(word.rbegin(), word.rend());
                 } else {
                     result += " " + word;
                 }
@@ -19,16 +16,15 @@ std::string spinWords(std::string str) {
         } else {
             word += str[i];
         }
-   }
+    }
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            result += " " + (std::string(word.rbegin(), word.rend()));
+            result += " " + std::string(word.rbegin(), word.rend());
         } else {
             result += " " + word;
         } 
     } 
     std::string output = result; // copy the result
-    output.pop_back(); // remove the extra space
+    if(result.back() == ' ') output.pop_back(); // remove the extra space
     return output;
-}
