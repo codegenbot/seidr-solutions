@@ -1,9 +1,11 @@
-def filter_integers(values) -> None:
+```
+def filter_integers(input_data=None) -> None:
     while True:
         cont = input("Do you want to filter integers again? (yes/no): ")
         if cont.lower() not in ["yes", "no"]:
+            user_input = input("Enter a list: ")
             try:
-                values = ast.literal_eval(input("Enter a list: "))
+                values = ast.literal_eval(user_input)
                 if isinstance(values, list):
                     result = [value for value in values if isinstance(value, int)]
                     print(f"Integers found: {result}")
