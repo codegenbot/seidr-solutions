@@ -1,6 +1,6 @@
-#include <climits>
 #include <iostream>
 #include <vector>
+#include <climits>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
@@ -14,7 +14,8 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     long long leftSum = 0, rightSum = sum;
-    int minDiff = INT_MAX, cutIndex = -1;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
 
     std::vector<std::vector<int>> res;
     res.push_back(std::vector<int>());
