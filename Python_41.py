@@ -2,10 +2,10 @@
 def car_race_collision(n):
     if n < 3:
         return "No collision"
-    elif n % 3 == 0:
-        return f"Collision at {n//3}th lap"
+    elif n % 2 == 0:
+        return "Collision"
     else:
-        return f"Collision at {(n-1)//3+1}th lap"
+        return "No collision"
 
 while True:
     try:
@@ -14,7 +14,11 @@ while True:
             break
         n = int(num)
         if isinstance(n, int) and n > 0:
-            print(car_race_collision(n))
+            result = car_race_collision(n)
+            while True:
+                cont = input(f"Continue? ({result}) (y/n): ")
+                if cont.lower() == 'n':
+                    break
             break
         else:
             print("Please enter a positive integer.")
