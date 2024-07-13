@@ -1,7 +1,4 @@
-```c++
-#include <iostream>
 #include <vector>
-#include <cmath>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -13,11 +10,3 @@ int fuelCost(std::vector<int> v) {
         sum += temp;
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> v = {1, 2, 3};
-    int result = fuelCost(v);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
-}
