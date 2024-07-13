@@ -22,4 +22,3 @@ int mastermind(string code, string guess) {
     }
 
     return blackPegs;
-}
