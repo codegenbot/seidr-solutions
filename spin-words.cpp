@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     string result = ""; 
     int wordLength;
@@ -13,7 +11,7 @@ string spinWords(string str) {
                     reversedWord += str.substr(i-1-j, 1);
                 result.append(reversedWord).append(" ");
             } else
-                result.append(str.substr(i-1, wordLength - i + 2)).append(" ");
+                result.append(str.substr(i-1, wordLength - i + 1)).append(" ");
         }
     }
     return result.substr(0, result.length() - 1);
