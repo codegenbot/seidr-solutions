@@ -1,4 +1,3 @@
-```
 def calculate():
     while True:
         try:
@@ -21,13 +20,22 @@ def calculate():
             print("Please enter valid integers separated by spaces.")
 
     for i, level in enumerate(map(int, water_levels)):
-        if 0 <= int(level) <= max_fill:
-            total_water = min(total_water + int(level), max_fill)
-        else:
-            print(
-                f"Water level at day {i+1} cannot be less than zero or exceed the maximum fill. Please try again."
-            )
-            return
+        while True:
+            try:
+                if 0 <= int(level) <= max_fill:
+                    total_water += int(level)
+                    break
+                else:
+                    print(
+                        f"Water level at day {i+1} cannot be less than zero or exceed the maximum fill. Please try again."
+                    )
+                    while True:
+                        level = input(f"Enter water level for day {i+1}: ")
+                        if 0 <= int(level) <= max_fill:
+                            total_water += int(level)
+                            break
+            except ValueError:
+                print("Please enter a valid integer.")
 
     average_water = total_water / max_fill if max_fill != 0 else 0
     print(f"The average water level is {average_water}.")
