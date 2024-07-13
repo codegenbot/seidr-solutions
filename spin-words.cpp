@@ -16,6 +16,10 @@ string spinWords(string str) {
         } else
             temp += str[i];
     }
+    if (temp.length() >= 5)
+        result += string(temp.rbegin(), temp.rend());
+    else
+        result += temp;
     return result;
 }
 
