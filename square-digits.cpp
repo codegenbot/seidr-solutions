@@ -1,11 +1,8 @@
 ```cpp
-#include <string>
-using namespace std;
-
 string squareDigits(string input) {
-    string output = "";
+    string output;
     for (char c : input) {
-        int digit =stoi(string(1, c)); 
+        int digit = c - '0';
         output += to_string(digit * digit);
     }
     return output;
