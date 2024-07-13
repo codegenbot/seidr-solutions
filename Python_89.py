@@ -8,7 +8,7 @@ def encrypt(s):
         else:  
             if char.isdigit():  
                 result += char
-            elif char in '/.:!?,";\'-_':
+            elif char in '/.:!?,";\'-_:':
                 result += char
             else:
                 result += char  
