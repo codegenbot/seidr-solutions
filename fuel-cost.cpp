@@ -1,12 +1,9 @@
-Here is the solution:
-
-int calculateFuelCost(const vector<int>& costs) {
-    int total = 0;
-    for (int cost : costs) {
-        int fuel = static_cast<int>(cost / 3.0);
-        if (fuel >= 1) {
-            total += fuel - 2;
-        }
+int fuelCost(vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
+        int x = i / 3; // divide each by 3
+        x = std::floor(x); // round down to the nearest integer
+        sum += x - 2; // subtract 2 and add to sum
     }
-    return total;
+    return sum;
 }
