@@ -17,8 +17,8 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    float result = sqrt(sum);
-    cout << result << endl;
+    float distance = sqrt(sum);
+    cout << distance << endl;
 
     return 0;
 }
