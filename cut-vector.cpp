@@ -3,40 +3,28 @@ int main() {
     cin >> n;
     
     vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
     
-    int totalSum = 0;
-    for (int num : nums) {
-        totalSum += num;
-    }
-    
-    int halfSum = totalSum / 2;
-    int leftSum = 0;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < n; i++) {
-        leftSum += nums[i];
-        if (leftSum >= halfSum) {
-            cutIndex = i;
-            break;
+    int min_diff = INT_MAX;
+    int cut_idx = 0;
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
     
-    if (cutIndex == -1) {
-        cout << n << "\n";
-        for (int i = 0; i < n; i++) {
-            cout << nums[i] << "\n";
-        }
-        cout << "0\n";
-    } else {
-        cout << cutIndex + 1 << "\n";
-        for (int i = 0; i <= cutIndex; i++) {
-            cout << nums[i] << "\n";
-        }
-        cout << "0\n";
+    for (int i = 0; i < cut_idx; ++i) {
+        cout << nums[i] << endl;
     }
+    cout << 0 << endl;
+    for (int i = cut_idx; i < n; ++i) {
+        cout << nums[i] << endl;
+    }
+    cout << 0 << endl;
     
     return 0;
 }
