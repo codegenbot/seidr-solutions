@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cctype>
+#include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> result;
