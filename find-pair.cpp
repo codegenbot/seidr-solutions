@@ -1,14 +1,30 @@
+Here is the solution:
+
 #include <vector>
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
-    unordered_map<int, int> numToIndex;
-    for (int i = 0; i < nums.size(); i++) {
+    unordered_map<int, int> numMap;
+    for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
-        if (numToIndex.count(complement)) {
+        if (numMap.count(complement)) {
             return {complement, nums[i]};
         }
-        numToIndex[nums[i]] = i;
+        numMap[nums[i]] = i;
     }
-    return {};
+    vector<int> result;
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int x;
+        cin >> x;
+        int y;
+        cin >> y;
+        cout << x << " " << y << endl;
+    }
+    return 0;
 }
