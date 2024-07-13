@@ -1,5 +1,4 @@
-```
 double diceGame(int n, int m) {
-    double total = (n + m - 1);
-    return (m-1.0)/total;
+    double total = (n * m - min(n,m));
+    return (double)(min(m-1,n-m))/total;
 }
