@@ -20,16 +20,12 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    char nextChar;
     while (std::cin >> num) {
         nums.push_back(num);
-        if (!(std::cin.get(nextChar)) || !isdigit(nextChar)) {
-            break;
-        }
     }
 
-    if (nums.size() == 0) {
-        std::cout << "Please provide at least one number." << std::endl;
+    if (nums.empty()) {
+        std::cout << "No numbers entered." << std::endl;
         return 1;
     }
 
