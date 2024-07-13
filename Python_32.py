@@ -1,4 +1,6 @@
 ```
+import math
+
 def find_zero(xs: list):
     """
     This function calculates the zero of a quadratic equation given its coefficients.
