@@ -1,4 +1,7 @@
 ```cpp
+#include <stack>
+#include <string>
+
 bool solveBoolean(string s) {
     bool result = true;
     stack<char> st;

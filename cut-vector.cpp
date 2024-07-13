@@ -1,32 +1,25 @@
 #include <vector>
-#include <limits> 
-#include <numeric>
-#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
-std::vector<std::vector<int>> cutVector(std::vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    std::vector<std::vector<int>> res(2);
-    
+    vector<vector<int>> res(2);
+
     long long minDiff = numeric_limits<long long>::max();
-    for (int i = 0; i < n; i++) {
-        long long leftSum = std::accumulate(v.begin(), v.begin() + i, 0LL);
-        long long rightSum = std::accumulate(v.begin() + i, v.end(), 0LL);
-        
-        if (leftSum == rightSum) {
-            res[0] = vector<int>(v.begin(), v.begin() + i);
-            res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
-        }
-        
-        long long diff = std::abs(leftSum - rightSum);
+    for (int i = 1; i < n; i++) { 
+        long long leftSum = accumulate(v.begin(), v.begin() + i, 0LL);
+        long long rightSum = accumulate(v.begin() + i, v.end(), 0LL);
+
+        long long diff = abs(leftSum - rightSum); 
+
         if (diff < minDiff) {
             minDiff = diff;
             res[0] = vector<int>(v.begin(), v.begin() + i);
             res[1] = vector<int>(v.begin() + i, v.end());
         }
     }
-    
+
     return res;
 }
