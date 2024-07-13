@@ -1,4 +1,3 @@
-```
 def sort_numbers(user_input=None):
     while True:
         if user_input: 
