@@ -1,6 +1,3 @@
-```
+import math
 def dice_game(n, m):
-    if m < n:
-        return (m-1) / (n * m)
-    else:
-        return 0
+    return (m - 1) / n + sum((n - i) * (i + 1) / (n * m) for i in range(2, min(m, n)))
