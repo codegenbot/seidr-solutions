@@ -1,35 +1,26 @@
-```c++
-#include <string>
+```cpp
+int mastermind(std::string code, std::string guess) {
+    int black = 0;
+    int white = 0;
+    for (int i = 0; i < 4; ++i) {
+        int c_count = 0, g_count = 0;
+        for (char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+            if (c == code[i]) c_count++;
+            if (c == guess[i]) g_count++;
+        }
+        if (code[i] == guess[i]) {
+            black++;
+        } else if (c_count > 0 && g_count > 0) {
+            white += std::min(c_count, g_count);
+        }
+    }
+    return black + white;
+}
 
 int main() {
-    int mastermind(std::string code, std::string guess) {
-        int black = 0;
-        int white = 0;
-        int code_counts[6] = {0};
-        for (char c : code) {
-            code_counts[c - 'A']++;
-        }
-
-        for (int i = 0; i < 4; ++i) {
-            if (code[i] == guess[i]) {
-                black++; 
-            } else {
-                int count = code_counts[guess[i] - 'A'];
-                white += --count;
-                if (count > 0) {
-                    code_counts[guess[i] - 'A']--; 
-                }
-            }
-        }
-
-        return black + white;
-    }
-
-    std::string code = "ABCD";
-    std::string guess = "BCDE";
+    std::string code = "XXXX";  
+    std::string guess = "XXXX";  
     int result = mastermind(code, guess);
-    printf("Black pegs: %d\n", result / 2);
-    printf("White pegs: %d\n", result - (result / 2) * 2);
-
+    std::cout << result << std::endl;
     return 0;
 }

@@ -3,16 +3,16 @@
 #include <iostream>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
-    std::unordered_map<int, int> numMap;
-    
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+    std::unordered_map<int, int> map;
+
+    for (int num : nums) {
+        int complement = target - num;
+        if (map.find(complement) != map.end()) {
+            return {complement, num};
         }
-        numMap[nums[i]] = i;
+        map[num] = 1;
     }
-    
+
     return {-1, -1};
 }
 
