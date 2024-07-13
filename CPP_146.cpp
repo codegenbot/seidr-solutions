@@ -11,7 +11,7 @@ int specialFilter(vector<int> nums){
 }
 
 int main() {
+    // call the function
     int result = specialFilter({1, 11, 21, 31});
-    cout << "The number of filtered numbers is: " << result << endl;
     return 0;
 }
