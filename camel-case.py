@@ -1,10 +1,10 @@
 def camel_case(s):
     s = s.replace("-", " ")
     words = s.split()
-    result = ""
+    result = """
     for i, word in enumerate(words):
         if i == 0:
-            result += word.capitalize()
+            result += word.lower()
         else:
-            result += word[1:].capitalize() + word[0].upper()
-    return result
+            result += word[0].upper() + word[1:].lower()
+    return result.capitalize()
