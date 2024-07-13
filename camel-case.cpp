@@ -15,14 +15,19 @@ std::string camelCase(std::string str) {
             str.erase(0, 1);
         } else {
             size_t endPos = pos > 0 ? pos : str.find("-");
-            result += towlower(str.substr(0, endPos).erase(0, 1));
+            result += tolower(str.substr(0, endPos).erase(0, 1));
             str.erase(0, endPos);
         }
     }
 
-    if (str.length() > 0) {
-        result += toupper(str[0]);
-        str.erase(0, 1);
+    if (!str.empty()) {
+        if (isalpha(str[0])) {
+            result += toupper(str[0]);
+            str.erase(0, 1);
+        } else {
+            result += str[0];
+            str.erase(0, 1);
+        }
     }
 
     while (!str.empty()) {
@@ -41,7 +46,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::string output = camelCase(input);
-    std::cout << output << std::endl;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
