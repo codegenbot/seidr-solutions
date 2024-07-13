@@ -1,4 +1,7 @@
-bool solveBoolean(std::string expression) {
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<bool> valStack;
 
@@ -15,10 +18,6 @@ bool solveBoolean(std::string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            while (!opStack.empty()) {
-                if (opStack.top() == '|') opStack.pop();
-                else break;
-            }
             valStack.pop();
         }
     }
