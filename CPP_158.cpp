@@ -1,16 +1,15 @@
-string find_max(vector<string> words) {
-    string result = words[0];
-    for (int i = 1; i < words.size(); i++) {
-        if (words[i].size() > result.size()) {
-            result = words[i];
-        } else if (words[i].size() == result.size()) {
-            for (char c : words[i]) {
-                if (result.find(c) == string::npos) {
-                    result = words[i];
-                    break;
-                }
-            }
+string find_max(vector<string> words){
+    string max_word = *words.begin();
+    int max_unique_chars = 0;
+
+    for(auto& word : words){
+        int unique_chars = 0;
+        set<char> s(word.begin(), word.end());
+        if(s.size() > max_unique_chars){
+            max_unique_chars = s.size();
+            max_word = word;
         }
     }
-    return result;
+
+    return max_word;
 }
