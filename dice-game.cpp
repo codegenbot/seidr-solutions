@@ -1,13 +1,12 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0;
 
     for (int i = 1; i < n; i++) {
-        p += (double)(n - i) / total;
+        p += (double)1 / total;
     } 
     return p;
 }
@@ -34,6 +33,7 @@ int main() {
 
     double result = diceGame(n, m);
     std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl; 
+    std::cout << "The answer is: " << result << std::endl;
 
     return 0;
 }
