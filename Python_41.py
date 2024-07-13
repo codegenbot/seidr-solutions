@@ -1,4 +1,3 @@
-```
 while True:
     try:
         num = input("Enter a number (or 'q' to quit): ")
