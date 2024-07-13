@@ -2,27 +2,42 @@
 #include <iostream>
 #include <string>
 
-int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
-
-    // Count the number of correct colors (white pegs)
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            bool found = false;
-            for(int j = 0; j < 4; j++) {
-                if(guess[j] == code[i] && !found) {
-                    found = true;
-                    whitePegs++;
-                }
-            }
+int whitePegs(const std::string& code, const std::string& guess) {
+    int count = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    // Subtract the correct colors (black pegs)
-    blackPegs -= whitePegs;
+int blackPegs(const std::string& code, const std::string& guess) {
+    int count = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code.find(guess[i]) != std::string::npos && code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
 
-    return {whitePegs, blackPegs};
+std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+    return std::make_pair(4 - white, black);
+}
+
+int main() {
+    std::cout << "Enter Mastermind code: ";
+    std::string code;
+    std::cin >> code;
+
+    std::cout << "Enter guess: ";
+    std::string guess;
+    std::cin >> guess;
+
+    auto [white, black] = mastermind(code, guess);
+    std::cout << white << "\n" << black << "\n";
+    return 0;
 }
