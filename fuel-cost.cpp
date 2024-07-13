@@ -1,10 +1,11 @@
 ```cpp
 #include <vector>
+#include <cmath>
 using namespace std;
 
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int>& v) {
     int sum = 0;
-    for (auto i : v) { 
+    for (int i : v) {
         int temp = i / 3;
         temp = floor(temp - 2);
         if (temp < 0) {
@@ -13,4 +14,3 @@ int fuelCost(vector<int> v) {
         sum += temp;
     }
     return sum;
-}
