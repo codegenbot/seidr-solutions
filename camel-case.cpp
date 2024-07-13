@@ -1,12 +1,16 @@
+```cpp
 std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
     for (char c : str) {
-        if (c == '-' && str.length() > 1 && str[0] != '-') { 
-            result += ' '; 
-            capitalize = true; 
+        if (c == '-') {
+            // Add nothing before the next word
+            capitalize = true; // Capitalize the next character
         } else if (capitalize) {
+            if (!result.empty()) {
+                result += ' '; // Add a space if it's not the first word
+            }
             result += toupper(c);
             capitalize = false;
         } else {
@@ -14,6 +18,5 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    result.erase(0, result.find_first_of(' ') + 1); 
     return result;
 }
