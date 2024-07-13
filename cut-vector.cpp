@@ -3,17 +3,20 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    int min_diff = INT_MAX;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(v[i] - v[0]);
+    long long total = accumulate(v.begin(), v.end(), 0LL);
+    int min_diff = INT_MAX, best_i = 0;
+    long long cum_sum = 0;
+    for (int i = 0; i < v.size(); i++) {
+        cum_sum += v[i];
+        long long diff = abs(cum_sum - (total - cum_sum));
         if (diff < min_diff) {
             min_diff = diff;
-            res[0] = vector<int>(v.begin(), v.begin() + i);
-            res[1] = vector<int>(v.begin() + i, v.end());
+            best_i = i;
         }
     }
+    vector<vector<int>> res(2);
+    res[0] = vector<int>(v.begin(), v.begin() + best_i);
+    res[1] = vector<int>(v.begin() + best_i, v.end());
     return res;
 }
 
