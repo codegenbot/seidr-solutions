@@ -1,11 +1,7 @@
 from typing import List
 
-def concatenate() -> str:
-    user_input = input("Enter words separated by space: ")
-    if not user_input.strip():
-        return ""
-    words = user_input.split()
+def concatenate(words: List[str] = []) -> 'str':
     result = ', '.join(words)
     return result
 
-print(concatenate())
+print(concatenate(input("Enter words separated by space: ").split()))
