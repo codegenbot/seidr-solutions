@@ -24,3 +24,5 @@ def match_parens(lst):
             else:
                 result.append("Yes" if (count == 0) else "No")
     return result
+
+print(match_parens(["()","(())",")(","((()))"]))
