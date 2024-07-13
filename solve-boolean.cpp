@@ -1,6 +1,6 @@
 #include <string>
 
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     bool res = (s[0] == 'T');
     for(int i = 1; i < s.size(); ++i) {
         if(s[i] == '|') {
@@ -13,4 +13,3 @@ bool solveBoolean(std::string s) {
         }
     }
     return res;
-}
