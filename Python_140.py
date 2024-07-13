@@ -1,7 +1,12 @@
 import re
 
+
 def fix_spaces(text):
-    text = input("Enter a string: ").strip().lower()
+    text = input("Enter a string: ")
+    if not text:
+        return ""
+
+    text = text.strip().lower()
     text = re.sub(r"\s+", "_", text)
     while "--" in text:
         text = text.replace("--", "-")
