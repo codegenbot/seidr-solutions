@@ -2,10 +2,10 @@
 #include <vector>
 #include <cmath>
 
-double calculateDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
-    double sum = 0.0;
+float calculateDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
+    float sum = 0.0f;
     for (size_t i = 0; i < vec1.size(); ++i) {
-        sum += std::pow((vec1[i] - vec2[i]), 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
     return std::sqrt(sum);
 }
@@ -14,14 +14,14 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vec1(n);
+    std::vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
         double num;
         std::cin >> num;
         vec1[i] = num;
     }
 
-    std::vector<double> vec2(n);
+    std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         double num;
         std::cin >> num;
