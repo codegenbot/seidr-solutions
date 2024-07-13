@@ -1,34 +1,47 @@
+Here is the completed code:
+
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    for (int i = 0; i < n - 1; ++i) {
-        if (vec[i] == vec[i + 1]) {
-            return {vector<int>(vec.begin(), vec.begin() + i + 1), vector<int>(vec.begin() + i, vec.end())};
+vector<vector<int>> cutVector(vector<int>& vec) {
+    int min_diff = INT_MAX;
+    int split_index = -1;
+    
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i+1]);
+        
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_index = i;
+        }
     }
-    for (int i = 0; i < n - 1; ++i) {
-        if (abs(vec[i] - vec[i + 1]) <= abs((n - i - 1) * (vec[i] - vec[i + 1])) / 2) {
-            return {vector<int>(vec.begin(), vec.begin() + i + 1), vector<int>(vec.begin() + i, vec.end())};
+    
+    vector<vector<int>> result(2);
+    result[0].resize(split_index + 1);
+    result[1].resize(vec.size() - split_index - 1);
+    
+    for (int i = 0; i <= split_index; i++) {
+        result[0][i] = vec[i];
     }
-    return {vector<int>(vec.begin()), vector<int>(vec.begin() + 1, vec.end())};
+    
+    for (int i = 0; i < vec.size() - split_index - 1; i++) {
+        result[1][i] = vec[split_index + 1 + i];
+    }
+    
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+    // Test the function
+    vector<int> vec = {1, 0};
+    vector<vector<int>> result = cutVector(vec);
+    
+    for (auto& v : result) {
+        for (int num : v) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    for (const auto& num : res.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    for (const auto& num : res.second) {
-        cout << num << " ";
-    }
-    cout << endl;
+    
     return 0;
 }
