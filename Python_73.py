@@ -9,13 +9,14 @@ def smallest_change(arr):
             for i in range(left + 1, right):
                 if arr[i] == arr[right]:
                     arr[i], arr[left] = arr[left], arr[i]
+                    left += 1
                     changes += 1
                     break
             else:
-                changes += (right - left)
-            break
-        
-        left += 1
-        right -= 1
+                arr[left], arr[right] = arr[right], arr[left]
+                changes += 1
+        else:
+            left += 1
+            right -= 1
     
     return changes
