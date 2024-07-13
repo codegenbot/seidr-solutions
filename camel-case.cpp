@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -8,18 +7,18 @@ string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
-            if (result.size()) {
+            if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
             string word = s.substr(i + 1);
-            result += word;
+            if (!word.empty())
+                result += word;
             break;
         } else if (s[i] == ' ') {
-            if (i > 0) {
+            if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += s.substr(0, i);
-            result += s.substr(i + 1);
+            result += s.substr(0, i) + s.substr(i + 1);
             break;
         } else {
             result += s[i];
@@ -37,7 +36,8 @@ int main() {
         char response;
         cout << "Continue? (y/n): ";
         cin >> response;
-        if (response == 'n') break;
+        if (response == 'n')
+            break;
     }
     return 0;
 }
