@@ -1,7 +1,5 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
-    n = len(xs)
-    a = xs[n//2]
-    b = -xs[0] / a
-    return round(-b / (2*a), 2)
+    n = len(xs) // 2
+    return round(-xs[n-1] / xs[-1], 2) if xs[-1] != 0 else None
