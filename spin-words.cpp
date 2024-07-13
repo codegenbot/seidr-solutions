@@ -3,7 +3,7 @@ int main() {
     getline(cin, input);
     
     string word;
-    string result = "";
+    string result;
     
     istringstream iss(input);
     while (iss >> word) {
