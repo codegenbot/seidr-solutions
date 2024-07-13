@@ -15,7 +15,7 @@ string solveBoolean(string s) {
             if (st.empty()) return "True";
             else st.pop();
         } 
-        else if (s[i] == 'T' || s[i] == 'F') {
+        else {
             st.push(s[i]);
         }
     }
