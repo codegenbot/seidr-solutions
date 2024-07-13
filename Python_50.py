@@ -1,4 +1,4 @@
-```
+```python
 def decode_shift():
     while True:
         password = input("Enter the password: ")
