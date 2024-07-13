@@ -7,4 +7,5 @@ int basement(std::vector<int>& nums) {
         sum += nums[i];
         if (sum < 0) return i+1;
     }
+    return -1;
 }
