@@ -5,21 +5,18 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
-    
-    int m;
-    cin >> m;
-    vector<float> discounts(m);
-    for (int i = 0; i < m; ++i) {
+
+    vector<float> discounts(n);
+    for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
-    
-    float total = 0.0;
+
+    float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        float discounted_price = prices[i] - (prices[i] * discounts[i] / 100);
-        total += discounted_price;
+        total_price += prices[i] * (1 - discounts[i] / 100);
     }
-    
-    cout << total << endl;
-    
+
+    cout << total_price << endl;
+
     return 0;
 }
