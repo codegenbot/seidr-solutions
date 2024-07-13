@@ -1,4 +1,10 @@
 ```
 def find_max(words):
-    max_word = max((word for word in words), key=lambda w: len(set(w)))
-    return max((w for w in set(words) if len(set(w)) == len(set(max_word))), default=max_word)
+    max_word = ''
+    for word in words:
+        if len(set(word)) > len(set(max_word)):
+            max_word = word
+        elif len(set(word)) == len(set(max_word)):
+            if word < max_word:
+                max_word = word
+    return max_word
