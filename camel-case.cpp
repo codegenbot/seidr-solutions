@@ -28,4 +28,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
-}
