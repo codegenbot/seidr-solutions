@@ -1,15 +1,12 @@
 ```cpp
-#include <iostream>
-#include <string>
-
-std::string spinWords(std::string str) {
-    std::string result = "";
+string spinWords(string str) {
+    string result = "";
     int i = 0;
     while(i <= str.length()) {
         if (i == str.length() || str[i] == ' ') {
             int wordLength = i - result.length();
             if (wordLength >= 5) {
-                std::string reversedWord = "";
+                string reversedWord = "";
                 for(int j = wordLength - 1; j >= 0; j--) {
                     reversedWord += str[wordLength-1-j];
                 }
@@ -21,9 +18,4 @@ std::string spinWords(std::string str) {
             i++;
     }
     return result;
-}
-
-int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    return 0;
 }
