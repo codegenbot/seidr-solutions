@@ -43,7 +43,9 @@ int main() {
     std::string planet2;
     std::cin >> planet2;
 
-    if (!bf(planets, planet1, planet2).empty())
+    std::vector<std::string> result = bf(planets, planet1, planet2);
+    
+    if (!result.empty())
         std::cout << "Output: ";
     else
         std::cout << "No Output";
