@@ -6,11 +6,12 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
+    int wordLength;
+    string word;
 
     for (int i = 0; i <= str.length() - 1; i++) {
         if (str[i] == ' ') {
-            result += str.substr(i - wordLength + 1, wordLength) + " ";
+            result += str.substr(i - (i - wordLength + 1) + 1, i - wordLength + 1) + " ";
             wordLength = 0;
         } else {
             wordLength++;
@@ -23,20 +24,16 @@ string spinWords(string str) {
         if(result[i] == ' ') {
             string temp = result.substr(i + 1);
             for(long long j = temp.length() - 1; j >= 0; j--) {
-                if(temp[j].isalnum() && temp.length() > 4) {
-                    result.replace(i, temp.length(), temp.substr(j));
-                    i += temp.length();
-                    break;
-                }
+                result.replace(i, temp.length(), temp.substr(j));
+                i += temp.length();
+                break;
             }
         } else if(result[i+1] == ' ') {
             string temp = result.substr(i + 1);
             for(long long j = temp.length() - 1; j >= 0; j--) {
-                if(temp[j].isalnum() && temp.length() > 4) {
-                    result.replace(i + 1, temp.length(), temp.substr(j));
-                    i += temp.length();
-                    break;
-                }
+                result.replace(i + 1, temp.length(), temp.substr(j));
+                i += temp.length();
+                break;
             }
         }
     }
