@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -8,7 +9,7 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    return count;
+    return 4 - count;
 }
 
 int blackPegs(string code, string guess) {
@@ -19,12 +20,12 @@ int blackPegs(string code, string guess) {
             count++;
         } else {
             codeMap[code[i]]++;
-            codeMap[guess[i]]++;
         }
     }
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] != code[i] && codeMap.find(guess[i]) != codeMap.end()) {
             count++;
+            codeMap[guess[i]]--;
         }
     }
     return count;
