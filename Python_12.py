@@ -1,8 +1,11 @@
-def longest(strings: list[str]) -> Optional[List[str]]:
+```
+from typing import Optional, List
+
+def longest(strings: list[Optional[str]]) -> Optional[List[str]]:
     max_len = 0
     result = []
     for s in strings:
-        if isinstance(s, str):
+        if s is not None and isinstance(s, str):
             if len(s) > max_len:
                 max_len = len(s)
                 result = [s]
@@ -22,4 +25,4 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest([string for string in strings if string]))
+print(longest(list(filter(None, strings))))
