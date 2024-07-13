@@ -2,43 +2,36 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for(int i=1; i<v.size(); i++) {
-        int diff = abs(v[i-1] - v[i]);
-        if(diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 1; i < n; i++) {
+        if (abs(v[i] - v[0]) <= abs(v[i] - v[i-1])) {
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
+            break;
+        } else if (i == n - 1) {
+            res[0].insert(res[0].end(), v.begin(), v.end());
         }
     }
-    
-    vector<vector<int>> result(2);
-    result[0].resize(cutIndex);
-    result[1].resize(v.size() - cutIndex);
-    
-    copy(v.begin(), v.begin() + cutIndex, result[0].begin());
-    copy(v.begin() + cutIndex, v.end(), result[1].begin());
-    
-    return result;
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for(int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    
     vector<vector<int>> res = cutVector(v);
-    
-    for(auto &v : res) {
-        for(int x : v) {
-            cout << x << " ";
-        }
-        cout << endl;
+    cout << "[";
+    for (int i = 0; i < res[0].size(); i++) {
+        cout << res[0][i] << " ";
     }
-    
+    cout << "] [" << res[1][0];
+    for (int i = 1; i < res[1].size(); i++) {
+        cout << " " << res[1][i];
+    }
+    cout << "]" << endl;
     return 0;
 }
