@@ -1,31 +1,30 @@
+Here is the solution:
+
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
-    int last_index = -1;
-    
-    while (last_index != std::string::npos) {
-        last_index = text.find(target);
-        
-        if(last_index == std::string::npos)
-            break;
-
-        result.push_back(last_index);
-        
-        if (!target.empty() && target[0] == text[last_index + target.length()])
-            continue;
-        
-        while (last_index > 0 && text[last_index - 1] == target[0])
-            last_index--;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        int j = 0;
+        while (j < target.size()) {
+            if (text[i + j] != target[j]) {
+                break;
+            }
+            j++;
+        }
+        if (j == target.size()) {
+            result.push_back(i);
+        }
     }
-    
     return result;
 }
 
-int greatestCommonDivisor(int a, int b) {
-    if(b == 0)
-        return a;
-    else
-        return greatestCommonDivisor(b, a % b);
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
