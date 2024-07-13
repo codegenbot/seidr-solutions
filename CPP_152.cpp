@@ -1,37 +1,3 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-bool isSame(int a, int b) {
-    if(a == b)
-        return true;
-    else
-        return false;
-}
-
-int compare(int a, int b) {
-    if(a > b)
-        return 1;
-    else if(a < b)
-        return -1;
-    else
-        return 0;
-}
-
-vector<int> getResult(vector<int> game, vector<int> guess) {
-    vector<int> res;
-    for(int i = 0; i < game.size();i++){
-        if(isSame(game[i],guess[i]))
-            res.push_back(2);
-        else if(compare(game[i],guess[i]) == 1)
-            res.push_back(1);
-        else
-            res.push_back(0);
-    }
-    return res;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -39,10 +5,11 @@ int main() {
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
     }
-    vector<int> res = getResult(game,guess);
-    if(res.size() != n) {
+    
+    if(compare(game[0],guess[0]) != 0) {
         cout << "Error: Invalid input. Please check your input again." << endl;
     } else {
+        vector<int> res = getResult(game,guess);
         for(auto x:res)cout << x << " ";
         cout << endl; 
     }
