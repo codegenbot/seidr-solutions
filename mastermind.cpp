@@ -1,6 +1,7 @@
 ```cpp
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
@@ -13,11 +14,16 @@ int mastermind(const std::string& code, const std::string& guess) {
         }
     }
 
+    std::unordered_map<char, int> code_counts;
+    for (int i = 0; i < 4; ++i++) {
+        code_counts[guess[i]]++;
+    }
+
     // Count correct colors (white pegs)
     for (int i = 0; i < 4; ++i) {
-        int pos = guess.find(code[i]);
-        if (pos != std::string::npos) {
+        if (code_counts[code[i]] > 0) {
             white++;
+            code_counts[code[i]]--;
         }
     }
 
