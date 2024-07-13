@@ -1,4 +1,4 @@
-#include <cstddef>
+```cpp
 #include <vector>
 #include <string>
 
@@ -26,3 +26,4 @@ vector<size_t> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
