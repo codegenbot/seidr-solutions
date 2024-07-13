@@ -1,9 +1,10 @@
+```cpp
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string s) {
-    bool result = true;
     stack<char> st;
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
