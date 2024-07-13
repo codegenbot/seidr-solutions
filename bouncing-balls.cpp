@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-#include <iosfwd>
 
 int main() {
     int startHeight, firstBounce;
@@ -19,6 +18,6 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
-    std::cout << std::fixed << std::setprecision(2) << totalDistance << "\n";
+    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::ios_base::fixed) << totalDistance << "\n";
     return 0;
 }
