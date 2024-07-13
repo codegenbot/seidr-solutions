@@ -7,12 +7,10 @@ bool is_sorted(vector<int> lst){
         }
     }
     vector<int>::iterator it;
-    bool has_duplicates = false;
     for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
-        if(std::distance(it, lst.end()) > 1){
-            has_duplicates = true;
-            break;
+        if(std::count(lst.begin(), it, *it) > 1){
+            return false;
         }
     }
-    return !has_duplicates && (lst.size() == 1 || lst[0] < lst[1]);
+    return true;
 }
