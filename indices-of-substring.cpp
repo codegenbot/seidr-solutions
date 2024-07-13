@@ -1,7 +1,9 @@
-```cpp
+```c
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -24,7 +26,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text, target;
     cin >> text >> target;
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     vector<int> res = indicesOfSubstring(text, target);
     for (auto i : res) {
         cout << i << " ";
