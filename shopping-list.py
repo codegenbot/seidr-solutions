@@ -1,6 +1,7 @@
-def shopping_list(): 
-    n = int(input()) 
-    prices = list(map(float, input().split())) 
+```
+def shopping_list():
+    n = int(input())
+    prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
     total_price = 0.0
     for i in range(n):
