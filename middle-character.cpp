@@ -1,10 +1,10 @@
 #include <string>
 
-std::string getMiddleCharacterHelper(std::string inputStr) {
-    int len = inputStr.length();
+std::string getMiddleCharacterHelper(std::string str) {
+    int len = str.length();
     if(len % 2 == 0){
-        return inputStr.substr(len/2-1, 2);
+        return str.substr(len/2-1, 2);
     } else{
-        return std::string(1, inputStr[len/2]);
+        return std::string(1, str[len/2]);
     }
 }
