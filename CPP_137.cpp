@@ -1,27 +1,37 @@
-```cpp
-#include <boost/any_cast.hpp>
+Here is the completed code:
+
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (!boost::any_cast<int>(&a) && !boost::any_cast<int>(&b)) {
-        double da = 0, db = 0;
-        if (boost::any_cast<string>(&a))
-            std::istringstream(a.to_string()) >> da;
-        if (boost::any_cast<string>(&b))
-            std::istringstream(b.to_string()) >> db;
-        if (da > db)
-            return a;
-        else if (db > da)
-            return b;
-        else
-            return boost::any("None");
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int x = boost::any_cast<int>(a);
+        float y = boost::any_cast<float>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int x = boost::any_cast<int>(a);
+        string y = boost::any_cast<string>(b);
+        return (stoi(y) > x) ? b : ((x > stoi(y)) ? a : boost::any("None"));
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float x = boost::any_cast<float>(a);
+        int y = boost::any_cast<int>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string x = boost::any_cast<string>(a);
+        float y = boost::any_cast<float>(b);
+        return (stof(x) > y) ? a : ((y > stof(x)) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string x = boost::any_cast<string>(a);
+        int y = boost::any_cast<int>(b);
+        return (stof(x) > y) ? a : ((y > stof(x)) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        return (stof(x) > stof(y)) ? a : ((stof(y) > stof(x)) ? b : boost::any("None"));
     } else {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        if (ai > bi)
-            return a;
-        else if (bi > ai)
-            return b;
-        else
-            return boost::any("None");
+        return boost::any("None");
     }
 }
