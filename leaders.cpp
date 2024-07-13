@@ -7,9 +7,6 @@ using namespace std;
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
-    if (n == 0) {
-        return leaders;
-    }
     int maxRight = nums[n - 1];
     leaders.push_back(maxRight);
     for (int i = n - 2; i >= 0; i--) {
@@ -25,7 +22,7 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num && num != -1) {
+    while (cin >> num && num > 0) {
         nums.push_back(num);
     }
 
