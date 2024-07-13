@@ -10,7 +10,6 @@ int basement(std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {-3,2,-3,4,5,1,-12,6,-21};
-    int result = basement(nums);
-    return 0;
+    std::vector<int> nums = {1, -2, 3, -5};
+    return basement(nums);
 }
