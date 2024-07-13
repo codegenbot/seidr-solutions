@@ -8,7 +8,7 @@ string squareDigits(string input) {
     string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        output += to_string(digit * digit) + " ";
     }
     return output;
 }
@@ -16,6 +16,6 @@ string squareDigits(string input) {
 int main() {
     string input;
     cout << "Enter a positive integer: ";
-    getline(cin, input);
+    cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
