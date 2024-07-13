@@ -12,6 +12,9 @@ def modp(n: int, p: int) -> int:
                 if p % (j * i) == 0:
                     phi_val -= math.gcd(i, p // i)
                 j += 1
+    for i in range(int(math.sqrt(p)) + 1, p):
+        if math.gcd(i, p) == 1:
+            phi_val -= 1
     return phi_val if pow(n, phi_val, p) == 1 else -1
 
 
