@@ -5,7 +5,7 @@
 using namespace std;
 
 string spinWords(string str) {
-    string result = "";
+    string temp = "";
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (temp.length() >= 5)
