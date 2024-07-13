@@ -18,7 +18,7 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
-    std::vector<long long> nums = {2,3,4};
-    std::cout << "Minimum subarray sum: " << minSubArraySum(nums) << std::endl;
+    std::vector<long long> nums = {2,3,-1,5,-7,2,3};
+    std::cout << "The minimum sum of a subarray is: " << minSubArraySum(nums) << std::endl;
     return 0;
 }
