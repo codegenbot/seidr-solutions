@@ -8,7 +8,7 @@ def double_the_difference(lst):
 def check():
     while True:
         numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-        if all(isinstance(x, int) for x in numbers):
+        if len(set(numbers)) == 2:
             break
     print(double_the_difference(numbers))
 
