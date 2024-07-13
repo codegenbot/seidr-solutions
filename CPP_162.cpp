@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -11,11 +11,7 @@ string string_to_md5(const string& input) {
         if(i < 2)
             output += to_string(c);
         else
-        {
-            ostringstream oss;
-            oss << setfill('0') << hex << setw(2) << (int)c;
-            output += oss.str();
-        }
+            output += setfill('0') << hex << setw(2) << (int)c;
     }
     return output;
 }
