@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath> 
-#include <iomanip> 
+#include <cmath> // Include cmath for pow function
+#include <iomanip> // Include iomanip for setprecision
 
 using namespace std;
 
