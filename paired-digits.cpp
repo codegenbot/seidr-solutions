@@ -1,4 +1,13 @@
+```c++
 #include <cstring>
+#include <iostream>
+
+int main() {
+    const char* s = "12321112"; 
+    int result = pairedDigits(s);
+    std::cout << result; 
+    return 0;
+}
 
 int pairedDigits(const char* s) {
     int sum = 0;
@@ -12,11 +21,4 @@ int pairedDigits(const char* s) {
         }
     }
     return sum;
-}
-
-int main() {
-    const char* s = "123455"; 
-    int result = pairedDigits(s);
-    std::cout << "Sum of the digits whose following digit is the same: " << result << std::endl;
-    return 0;
 }
