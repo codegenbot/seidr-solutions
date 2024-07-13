@@ -1,4 +1,9 @@
 ```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
@@ -11,7 +16,7 @@ string camelCase(string s) {
             break;
         } else if (s[i] == ' ') {
             if (i > 0) {
-                result[0] = std::toupper(result[0]);
+                result[0] = toupper(result[0]);
             }
             result += s.substr(0, i);
             result += std::tolower(s.substr(i + 1).substr(0, 1)) + s.substr(i + 1).substr(1);
@@ -21,4 +26,14 @@ string camelCase(string s) {
         }
     }
     return result;
+}
+
+int main() {
+    string str;
+    while (true) {
+        cout << "Enter a string in kebab-case: ";
+        getline(cin, str);
+        cout << "The camelCase is: " << camelCase(str) << endl;
+    }
+    return 0;
 }
