@@ -1,34 +1,37 @@
 Here is the completed code:
 
 string file_name_check(string file_name){
-    int count_digits = 0;
-    bool found_dot = false;
+    int digit_count = 0;
+    bool has_dot = false;
+    bool valid_prefix = true;
+    bool valid_suffix = false;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            count_digits++;
-        }else if(file_name[i] == '.'){
-            found_dot = true;
+    for(int i=0; i<file_name.size(); i++){
+        char c = file_name[i];
+        if(c >= '0' && c <= '9'){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }
+        else if(c == '.'){
+            has_dot = true;
+        }
+        else if(has_dot){
+            string suffix = file_name.substr(i);
+            if(suffix == "txt" || suffix == "exe" || suffix == "dll"){
+                valid_suffix = true;
+                break;
+            }
+            return "No";
+        }
+        else{
+            if(!valid_prefix) return "No";
+            if(c < 'a' || c > 'z' && c < 'A' || c > 'Z') valid_prefix = false;
         }
     }
 
-    if(count_digits > 3 || !found_dot) return "No";
-    
-    string before_dot = "";
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.') break;
-        before_dot += file_name[i];
-    }
-
-    if(before_dot.empty() || !isalpha(before_dot[0])) return "No";
-
-    string after_dot = "";
-    for(int i=file_name.length()-1; i>=0; i--){
-        if(file_name[i] == '.') break;
-        after_dot = file_name[i]+after_dot;
-    }
-
-    if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
+    if(!has_dot) return "No";
+    if(!valid_suffix) return "No";
+    if(digit_count > 3) return "No";
 
     return "Yes";
 }
