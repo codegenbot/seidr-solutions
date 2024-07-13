@@ -1,38 +1,48 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
+    pair<vector<int>, vector<int>> res;
+    
     for (int i = 0; i < n; i++) {
-        if (i == 0 || i == n - 1) {
-            res[0].push_back(v[i]);
-            res[1].clear();
-        } else {
-            int leftSum = 0, rightSum = 0;
-            for (int j = 0; j < i; j++) {
-                leftSum += v[j];
-            }
-            for (int j = i; j < n; j++) {
-                rightSum += v[j];
-            }
-            if (leftSum == rightSum) {
-                res[0].push_back(v[i]);
-                res[1] = v;
-                break;
-            } else {
-                int minDiff = abs(leftSum - rightSum);
-                for (int j = i; j < n; j++) {
-                    int newLeftSum = leftSum + v[j];
-                    int newRightSum = rightSum - v[j];
-                    if (abs(newLeftSum - newRightSum) < minDiff) {
-                        res[0].push_back(v[i]);
-                        res[1] = v;
-                        break;
-                    }
-                }
-            }
+        vector<int> left, right;
+        for (int j = 0; j <= i; j++) {
+            left.push_back(v[j]);
+        }
+        for (int j = i + 1; j < n; j++) {
+            right.push_back(v[j]);
+        }
+        
+        int diff = abs((int)accumulate(left.begin(), left.end(), 0) - (int)accumulate(right.begin(), right.end(), 0));
+        if (diff == 0 || (i > 0 && diff <= abs((int)accumulate(v.begin() + i, v.end(), 0) - (int)accumulate(v.begin(), v.end(), 0)))) {
+            res = {left, right};
+            break;
         }
     }
+    
     return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "Left: ";
+    for (int x : res.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << "Right: ";
+    for (int x : res.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
