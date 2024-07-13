@@ -21,7 +21,7 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
         auto pos = text.find(target, i);
         if (pos != std::string::npos) { 
             result.push_back(i); 
-            i++;
+            i = pos + m;
         }
     }
 
