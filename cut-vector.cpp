@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+#include <ostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
