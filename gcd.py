@@ -1,7 +1,8 @@
+```Python
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
-    return a
+    return abs(a)
 
 def find_gcd():
     a = int(input("Enter first integer: "))
