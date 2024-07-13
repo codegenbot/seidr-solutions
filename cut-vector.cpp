@@ -7,30 +7,29 @@ int main() {
         cin >> nums[i];
     }
     
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int half_sum = sum / 2;
-    
-    int cur_sum = 0;
-    int idx = -1;
-    for (int i = 0; i < n; ++i) {
-        cur_sum += nums[i];
-        if (cur_sum >= half_sum) {
+    int diff = INT_MAX;
+    int idx = 0;
+    for (int i = 1; i < n; ++i) {
+        int left_sum = 0;
+        int right_sum = 0;
+        for (int j = 0; j < i; ++j) {
+            left_sum += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            right_sum += nums[j];
+        }
+        if (abs(left_sum - right_sum) < diff) {
+            diff = abs(left_sum - right_sum);
             idx = i;
-            break;
         }
     }
     
-    if (abs(sum - 2 * cur_sum) < abs(sum - 2 * (cur_sum - nums[idx]))) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i < idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << nums[idx] << endl;
-        cout << 0 << endl;
+    for (int i = 0; i < idx; ++i) {
+        cout << nums[i] << endl;
+    }
+    cout << endl;
+    for (int i = idx; i < n; ++i) {
+        cout << nums[i] << endl;
     }
     
     return 0;
