@@ -1,6 +1,5 @@
 ```
 #include <vector>
-#include <algorithm>
 
 int luhn(std::vector<int>& digits) {
     int sum = 0;
