@@ -1,6 +1,5 @@
-def leaders(a):
-    return [
-        a[i]
-        for i in range(len(a) - 1, -1, -1)
-        if all(x <= a[i] for x in a[i + 1 :]) or i == len(a) - 1
-    ]
+Here is the Python solution for the problem:
+
+def leaders(arr):
+    leaders_list = [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+    return leaders_list
