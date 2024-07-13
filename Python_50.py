@@ -16,3 +16,5 @@ def decode_shift():
             decoded_message += char
     
     return f"Decoded message: {decoded_message}"
+
+print(decode_shift())
