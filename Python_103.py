@@ -2,4 +2,4 @@ def rounded_avg(n, m):
     if n > m:
         return -1
     avg = (n + m) // 2
-    return format(round(avg), 'b')
+    return bin(int(str(round(avg)))).replace("0b", "")
