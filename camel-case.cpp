@@ -12,7 +12,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         if (c == ' ') {
             if (!buffer.empty()) {
                 result.push_back(buffer);
-                buffer = ""; // Changed this line
+                buffer = ""; 
             }
         } else if (c != delimiter) {
             buffer += c;
@@ -21,13 +21,17 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         if (c == delimiter || c == '\0') {
             if (!buffer.empty()) {
                 result.push_back(buffer);
-                buffer = ""; // Changed this line
+                buffer = ""; 
             }
         }
     }
 
+    // Added to handle empty strings
     if (!buffer.empty()) {
         result.push_back(buffer);
+    }
+    if (result.size() > 1 && result[0].empty()) {
+        result.erase(result.begin());
     }
 
     return result;
