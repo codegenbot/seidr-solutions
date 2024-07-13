@@ -1,17 +1,17 @@
 #include <vector>
 using namespace std;
 
-int luhn(vector<int> digits) {
+int luhn(vector<int> &num) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2) == 1) {
-            int temp = digits[i] * 2;
-            if (temp > 9) {
+    for(int i = num.size() - 1; i >= 0; --i) {
+        if(i % 2 == 1) {
+            int temp = num[i] * 2;
+            if(temp > 9) {
                 temp -= 9;
             }
             sum += temp;
         } else {
-            sum += digits[i];
+            sum += num[i];
         }
     }
     return sum;
@@ -20,10 +20,10 @@ int luhn(vector<int> digits) {
 int main() {
     int n;
     cin >> n;
-    vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
-        cin >> digits[i];
+    vector<int> num(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> num[i];
     }
-    cout << luhn(digits) << endl;
+    cout << luhn(num) << endl;
     return 0;
 }
