@@ -1,4 +1,5 @@
 #include <string>
+
 using namespace std;
 
 int bowlingScore(string s) {
@@ -7,7 +8,10 @@ int bowlingScore(string s) {
         if (s[i] == 'X') {
             score += 30;
         } else if (s[i] == '/') {
-            score += 10 + (i > 0 ? bowlingScoreHelper(s.substr(i, s.length() - i)) : 10);
+            if (i > 0) {
+                score += bowlingScoreHelper(s.substr(0, i));
+            }
+            score += 10;
         } else if (s[i] == ' ') {
             int prevRoll = s[i - 1] - '0';
             int currentRoll = s[i + 1] - '0';
