@@ -1,15 +1,27 @@
-int main() {
-    vector<float> lst;
-    cout << "Enter a list of numbers (space-separated): ";
-    string str;
-    cin >> str;
-    istringstream iss(str);
-    float num;
-    while (iss >> num) {
-        lst.push_back(num);
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+long long double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
+            sum += pow(num, 2);
+        }
     }
+    return sum;
+}
 
-    long long odd_sum = double_the_difference(lst);
-
+int main() {
+    std::vector<float> inputVector;
+    float num;
+    std::cout << "Enter numbers (enter -1 to stop): ";
+    while (true) {
+        std::cin >> num;
+        if (num == -1) break;
+        inputVector.push_back(num);
+    }
+    long long result = double_the_difference(inputVector);
+    std::cout << "The sum of squares is: " << result << std::endl;
     return 0;
 }
