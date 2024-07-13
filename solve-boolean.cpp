@@ -1,4 +1,5 @@
-#include <stack>
+using namespace std;
+
 #include <string>
 
 bool solveBoolean(string s) {
