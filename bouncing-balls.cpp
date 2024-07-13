@@ -1,18 +1,24 @@
+```cpp
+#include <iostream>
+using namespace std;
+
 int main() {
-    double startHeight;
-
-    // Get the input values from user
-    std::cin >> startHeight;
+    double startHeight, actualStartHeight;
     
-    double actualStartHeight = (startHeight / 2);
-
+    // Get the input values from user
+    cin >> startHeight >> actualStartHeight;
+    
     double actualBouncinessIndex = (actualStartHeight / startHeight);
-    int numBounces;
 
-    // Get the number of bounces from the user
-    std::cin >> numBounces;
+    double totalDistance = 0.0; 
+    int bounces = 8; 
 
-    double totalDistance = actualStartHeight * ((pow(2, numBounces) - 1) / (1 - pow(0.5, numBounces)));
+    for (int i = 1; i <= bounces; ++i) {
+        startHeight *= 0.5; 
+        totalDistance += startHeight; 
+    }
 
+    cout << "The total distance the ball travels is: " << totalDistance << endl;
+    
     return 0;
 }
