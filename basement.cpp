@@ -4,10 +4,10 @@
 
 int basement(std::vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+    for (auto it = nums.begin(); it != nums.end(); ++it) {
+        sum += *it;
         if (sum < 0)
-            return i;
+            return std::distance(nums.begin(), it);
     }
     return -1;
 
