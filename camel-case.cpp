@@ -4,19 +4,21 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
+    bool isNextUpper = false;
     for (const auto& c : str) {
         if (c == '-' || c == ' ') {
-            if (!result.empty()) {
-                result += std::toupper(result.back());
+            if (!isNextUpper) {
+                if (c == '-') {
+                    result += char(toupper(c));
+                } else {
+                    result += char(toupper(c));  // Remove the check
+                }
             }
-            if (c == '-') {
-                result.push_back('-');
-            } else {
-                result.push_back(' ');
-            }
+            isNextUpper = true;
         } else {
-            if (!result.empty() && !std::isupper(c)) {
-                result.insert(0, 1, std::tolower(c));
+            isNextUpper = false;
+            if (!result.empty() && c >= 'a' && c <= 'z') {
+                result += char(toupper(c));
             } else {
                 result += c;
             }
