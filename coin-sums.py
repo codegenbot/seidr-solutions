@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [4, 20, 2, 1]
     results = []
