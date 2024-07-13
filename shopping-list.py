@@ -1,6 +1,6 @@
+```
 n = int(input())
-total_price = 0
-for _ in range(n):
-    price, discount = map(float, input().split())
-    total_price += price * (1 - discount / 100)
+prices, discounts = zip(*[list(map(float, input().split())) for _ in range(n)])
+prices_discounts = list(zip(prices, map(int, discounts)))
+total_price = sum((price * (1 - d / 100.0)) if 1 <= i and i <= 99 else price for price, (d, i) in zip(prices, discounts))
 print(format(total_price, ".2f"))
