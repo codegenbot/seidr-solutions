@@ -1,10 +1,10 @@
+#include <initializer_list>
+
 #include <vector>
 
 #include <utility>
 
 #include <unordered_map>
-
-#include <initializer_list>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numIndex;
