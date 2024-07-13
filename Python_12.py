@@ -12,7 +12,7 @@ def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
             elif len(s) == max_len:
                 result.append(s)
 
-    return None if not result else result
+    return list(sorted(result)) if result else None
 
 
 strings = []
@@ -26,4 +26,4 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest([s for s in strings if s is not None]))
+print(longest(strings))
