@@ -18,3 +18,6 @@ def bowling_score(frames):
                 score += 10 + int(frames[2*i+1])
             frame_num += 1
     return score
+
+frames = input("Enter the frames (e.g., 'X', '/'): ")
+print(bowling_score(frames))
