@@ -1,31 +1,30 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::string result = "";
-    for (int i = 0; i < message.size(); i++) {
-        if (i < cipher1.size()) {
-            int index = cipher1.find(message[i]);
-            if (index != std::string::npos) {
-                result += cipher2[index];
-            } else {
-                result += message[i];
-            }
+std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+    string result = "";
+    for (int i = 0; i < message.length(); i++) {
+        if (cipher_map1[i] == cipher_map2[i]) {
+            result += cipher_map2[i];
         } else {
-            result += message[i];
+            int j = 0;
+            while (j < cipher_map1.length() && cipher_map1[j] != cipher_map2[i]) {
+                j++;
+            }
+            if (j < cipher_map1.length()) {
+                result += cipher_map2[j];
+            } else {
+                result += cipher_map2[cipher_map2.length()-1];
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cout << "Enter the first string of the cipher: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second string of the cipher: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
+    string cipher_map1, cipher_map2, message;
+    cin >> cipher_map1 >> cipher_map2 >> message;
+    cout << decipher(cipher_map1, cipher_map2, message) << endl;
     return 0;
 }
