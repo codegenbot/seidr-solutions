@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     vector.sort()
     min_diff = float("inf")
