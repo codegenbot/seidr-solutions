@@ -1,21 +1,21 @@
 ```
-def sum_squares(lst):
+def sum_squares(n):
     total_sum = 0
-    for num in lst:
-        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
-            total_sum += num ** 2
+    for i in range(1, n+1):
+        if i % 3 == 0 or i % 4 == 0:
+            total_sum += i ** 2
     return total_sum
 
 while True:
-    print("Please enter a list of integers separated by spaces: ")
+    print("Please enter a positive integer: ")
     user_input = input()
     
     try:
-        lst = list(map(int, user_input.split()))
-        if len(lst) > 0:
-            print(sum_squares(lst))
+        n = int(user_input)
+        if n > 0:
+            print(sum_squares(n))
         else:
-            print("Invalid input. Please enter a valid list of integers.")
+            print("Invalid input. Please enter a positive integer.")
         break
     except ValueError:
-        print("Invalid input. Please separate numbers with spaces and re-enter.")
+        print("Invalid input. Please enter a valid positive integer.")
