@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```Python
+```
 from typing import List
 from collections import deque
 
