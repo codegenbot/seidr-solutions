@@ -9,6 +9,10 @@ def smallest_change(arr):
         return str(e)
 
     changes = 0
+    if len(set(arr)) > 1: 
+        return -1
+
+    changes = 0
     for i in range(1, n):
         if arr[i] != arr[0]:
             break
