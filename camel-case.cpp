@@ -1,17 +1,39 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <vector>
+#include <algorithm>
 
 std::string kebabToCamel(const std::string& s) {
-    std::stringstream ss(s);
+    std::vector<std::string> words;
     std::string word;
+
+    for (char c : s) {
+        if (c == '-' || c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += c;
+        }
+    }
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
     std::string result;
 
-    while (ss >> word) {
-        if (!result.empty()) {
-            result += word.substr(0, 1).toupper() + word.substr(1).tolower();
-        } else {
-            result = word.substr(0, 1).toupper() + word.substr(1).tolower();
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            result += "";
+        }
+        for (char c : words[i]) {
+            if (i == 0) {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
         }
     }
 
