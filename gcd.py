@@ -22,4 +22,5 @@ print(gcd(a, b))
 
 text = input("Enter text: ")
 target = input("Enter target: ")
+
 print(find_indices(text, target))
