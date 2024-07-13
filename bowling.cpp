@@ -1,5 +1,4 @@
-```c++
-int bowlingScore(const std::string& s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int prevRoll = 0;
     bool isStrike = false;
@@ -39,4 +38,3 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
-}
