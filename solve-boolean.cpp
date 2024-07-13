@@ -7,13 +7,15 @@ string solveBoolean(string s) {
             }
             if (st.empty()) return "False";
             else st.pop();
-        } else if (s[i] == '|') {
+        } 
+        else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) return "True";
             else st.pop();
-        } else {
+        } 
+        else {
             st.push(s[i]);
         }
     }
