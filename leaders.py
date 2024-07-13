@@ -1,6 +1,8 @@
-def leaders(integers):
-    leaders = [integers[-1]]
-    for i in range(len(integers) - 2, -1, -1):
-        if integers[i] >= integers[i + 1]:
-            leaders.append(integers[i])
-    return list(reversed(leaders))
+def leaders(input):
+    output = []
+    max_right = input[-1]
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= max_right:
+            output.append(input[i])
+            max_right = input[i]
+    return list(reversed(output))
