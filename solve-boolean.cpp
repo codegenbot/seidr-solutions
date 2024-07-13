@@ -1,7 +1,5 @@
-```cpp
 bool solveBoolean(std::string expression) {
     std::stack<char> s;
-    bool temp = false;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             while (!s.empty() && s.top() != '&') {
@@ -14,7 +12,7 @@ bool solveBoolean(std::string expression) {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            if (s.empty()) temp = true;
+            if (s.empty()) return true;
         } else if (expression[i] == 'F') {
             while (!s.empty()) {
                 s.pop();
@@ -22,5 +20,5 @@ bool solveBoolean(std::string expression) {
             return false;
         }
     }
-    return temp;
+    return !s.empty();
 }
