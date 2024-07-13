@@ -3,26 +3,20 @@ using namespace std;
 
 int main() {
     string startHeightStr, firstBounceStr;
-    cin >> startHeightStr >> firstBounceStr >> numBounces;
+    int numBounces; 
 
-    double startHeight = stod(startHeightStr);
-    double firstBounce = stod(firstBounceStr);
+    cin >> startHeightStr >> firstBounceStr >> numBounces; 
 
-    if (!(cin && (cin.peek() == EOF))) {
-        cout << "Invalid input. Please enter valid inputs." << endl;
-        return 1;
-    }
-
-    double bouncinessIndex = (firstBounce / startHeight);
-    startHeight = firstBounce; // update start height for next bounce
-
+    double bouncinessIndex = (stod(firstBounceStr) / stod(startHeightStr));
+    
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += (startHeight * bouncinessIndex); 
-        startHeight *= 0.5; 
+        totalDistance += (stod(startHeightStr) * bouncinessIndex); 
+        startHeightStr = to_string(stod(startHeightStr) / 2);
     }
 
-    std::cout << std::fixed << std::setprecision(10);
+    std::cout << std::fixed;
+    std::cout.precision(10);
     std::cout << totalDistance << endl;
 
     return 0;
