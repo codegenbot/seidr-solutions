@@ -1,7 +1,8 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
 
@@ -33,7 +34,7 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code, guess;
+    string code, guess;
     std::cin >> code >> guess;
     std::cout << mastermind(code, guess) << "\n";
     return 0;
