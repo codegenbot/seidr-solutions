@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -15,7 +14,10 @@ def bowling_score(frames):
                 score += int(frames[i+1])
             i += 2
         else:
-            frame_score = sum(int(x) for x in frames[i:i+2]) or 10
+            frame_score = 0
+            for x in frames[i:i+2]:
+                if x.isdigit():
+                    frame_score += int(x)
             score += frame_score
         i += 2
     return score
