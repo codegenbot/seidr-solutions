@@ -1,38 +1,43 @@
 #include <vector>
-#include <iostream>
-#include <string>
-
 using namespace std;
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos);
-        pos += 1; // increment position to find next occurrence
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        bool match = true;
+        for (int j = 0; j < target.size(); j++) {
+            if (text[i + j] != target[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            result.push_back(i);
+            // Check if the target string overlaps with itself
+            while (i + target.size() <= text.size()) {
+                i++;
+                bool continueMatching = true;
+                for (int j = 0; j < target.size(); j++) {
+                    if (text[i + j] != target[j]) {
+                        continueMatching = false;
+                        break;
+                    }
+                }
+                if (continueMatching) {
+                    result.push_back(i);
+                } else {
+                    break;
+                }
+            }
+        }
     }
     return result;
 }
 
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << __gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
