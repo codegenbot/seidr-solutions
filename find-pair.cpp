@@ -16,14 +16,12 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
 }
 
 int main() {
-    int n = 0;
-    vector<int> nums(0);
+    int n = 0, target;
     cin >> n;
-    nums.resize(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
     cout << result.first << " " << result.second << endl;
