@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     if not arr:
         return []
@@ -10,4 +11,4 @@ def leaders(arr):
             max_right = arr[i]
             leaders.append(max_right)
             
-    return leaders
+    return leaders[::-1]
