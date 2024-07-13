@@ -10,11 +10,12 @@ bool solveBoolean(const std::string& s) {
         } else if (s[i] == '|') {
             bool temp = result;
             result = !result;
-            while (i + 1 < s.size() && s.substr(i+1, 1) == "|") i++;
+            while (i + 1 < s.size() && s.substr(i+1, 1)[0] == '|') i++;
         } else if (s[i] == '&') {
             bool temp = result;
-            while (i + 1 < s.size() && s.substr(i+1, 1) == "&") i++;
+            while (i + 1 < s.size() && s.substr(i+1, 1)[0] == '&') i++;
             result &= temp;
         }
     }
     return result;
+}
