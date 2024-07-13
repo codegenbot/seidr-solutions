@@ -1,2 +1,4 @@
+```
 def sorted_list_sum(lst):
-    return sum(len(word) for word in sorted(set(lst)))
+    lst = list(map(int, ''.join(str(x) for x in lst).split()))
+    return sum(sorted(lst))
