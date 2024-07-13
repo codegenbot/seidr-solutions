@@ -9,7 +9,7 @@ std::string spinWords(const std::string& input) {
     std::istringstream ss(input);
     std::string word;
 
-    while (getline(ss, word, ' ')) {
+    while (ss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.rbegin(), word.rend());
         }
