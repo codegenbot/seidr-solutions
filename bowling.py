@@ -1,22 +1,24 @@
 def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if "/" in frames[i * 2 : i * 2 + 2]:
-            strike = False
-            spare = False
-            if frames[i * 2 : i * 2 + 1] == "X":
-                strike = True
-            elif frames[i * 2 : i * 2 + 2].count("/"):
-                spare = True
+    frame = 0
+    for i in range(len(frames)):
+        if frames[i].isdigit():
+            if len(frames[i]) == 1:
+                score += int(frames[i])
             else:
-                score += 10
+                if int(frames[i][0]) + int(frames[i][1]) <= 10:
+                    score += int(frames[i][0]) + int(frames[i][1])
+                elif int(frames[i][0]) == 10:
+                    score += 10
+                    frame += 1
+                else:
+                    score += 10 - int(frames[i][0])
         else:
-            if frames[i * 2 : i * 2 + 2].count("/"):
-                score += 10 - int(frames[i * 2])
+            if frames[i] == "X":
+                score += 10
+                frame += 1
+            elif frames[i] == "-":
+                continue
             else:
-                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
-        if strike:
-            score += 10 + sum(map(int, frames[2 * i + 2 :]))
-        elif spare:
-            score += 10 + int(frames[2 * (i + 1)])
+                score += int(frames[i].split("/")[0])
     return score
