@@ -1,25 +1,10 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> issame(string s, string c) {
-    vector<string> result;
-    if (s.length() != c.length()) {
-        return {{"False", ""}};
-    }
-    for (int i = 0; i < s.length(); i++) {
-        bool flag = false;
-        for (char x : c) {
-            if (s[i] == x) {
-                flag = true;
-                break;
-            }
-        }
-        if (!flag)
-            result.push_back(s.substr(i, 1));
-    }
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<char> v;
     for (char x : s) {
         bool flag = false;
         for (char y : c) {
@@ -29,11 +14,22 @@ std::vector<std::string> issame(string s, string c) {
             }
         }
         if (!flag)
-            temp += x;
+            v.push_back(x);
+    }
+    std::string result = "";
+    for (char x : v) {
+        result += x;
     }
     
-    reverse(temp.begin(), temp.end());
-    if (temp == s) {
-        return {{"True", temp}};
+    std::string temp = result;
+    std::reverse(temp.begin(), temp.end());
+    if (result == temp) {
+        return {std::to_string(result), "True"};
     } else {
-        return {{"False", temp}};
+        return {std::to_string(result), "False"};
+    }
+}
+
+int main() {
+    // Your code here
+}
