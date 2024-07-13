@@ -22,10 +22,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << "Quarters: " << quarters << endl; 
-    cout << "Dimes: " << dimes << endl;   
-    cout << "Nickels: " << nickles << endl;      
-    cout << "Pennies: " << pennies << endl;     
+    cout << quarters << endl; 
+    cout << dimes << endl;   
+    cout << nickles << endl;      
+    cout << pennies << endl;     
 
     return 0;
 }
