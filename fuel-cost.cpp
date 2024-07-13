@@ -5,7 +5,10 @@ using namespace std;
 int calculateFuelCost(vector<int> nums) {
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2 + (num % 3 > 0);
+        sum += (num / 3) - 2;
+        if (num % 3 > 0) {
+            sum--;
+        }
     }
     return sum;
 }
