@@ -12,7 +12,7 @@ def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
             elif len(s) == max_len:
                 result.append(s)
 
-    return result
+    return None if not result else result
 
 
 strings = []
