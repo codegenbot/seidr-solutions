@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int count_nums(std::vector<int> n) {
     int count = 0;
@@ -28,8 +28,16 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    std::vector<int> n = {1};
+    std::vector<int> n;
+    int num;
+    
+    while(std::cin >> num){
+        n.push_back(num);
+    }
+
     int result = count_nums(n);
-    std::cout << "The number of positive sums is: " << result << std::endl;
+
+    std::cout << "The number of numbers with a sum greater than 0 is: " << result << std::endl;
+
     return 0;
 }
