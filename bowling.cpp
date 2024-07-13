@@ -1,12 +1,10 @@
 #include <string>
 
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
 
-    istringstream ss(s);
+    std::istringstream ss(s);
     char c;
     while (ss >> c) {
         if (c == 'X') {
