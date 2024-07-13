@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -15,11 +18,10 @@ int main() {
     int nickels = remainingCents / 5;
     remainingCents %= 5;
 
-    while (remainingCents > 0) {
-        int pennies = remainingCents;
-        cout << pennies << endl; 
-        remainingCents = 0;
-    }
+    int pennies = remainingCents;
+
+    cout << nickels << endl; 
+    cout << pennies << endl; 
 
     return 0;
 }
