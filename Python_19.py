@@ -1,4 +1,3 @@
-```
 def sort_numbers():
     while True:
         while True:
@@ -18,6 +17,6 @@ def sort_numbers():
                     else:
                         break
                 if cont == "n":
-                    return
+                    break  # <--- Add this line
             except ValueError as e:
                 print(f"Invalid input. {e}. Please enter valid numbers separated by spaces.")
