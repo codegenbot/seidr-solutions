@@ -1,15 +1,16 @@
+#include <iostream>
+#include <string>
+
 std::string camelCase(std::string s) {
     std::string result;
     bool capitalizeNext = true;
 
     for (char c : s) {
-        if (c == '-') {
-            if (!result.empty()) {
-                if (capitalizeNext) {
-                    result.push_back(toupper(result[0]));
-                    capitalizeNext = false;
-                }
-            }
+        if (c == ' ') {
+            result += c;
+            capitalizeNext = true;
+        } else if (c == '-') {
+            result += c;
             capitalizeNext = true;
         } else {
             if (capitalizeNext) {
@@ -18,13 +19,6 @@ std::string camelCase(std::string s) {
             } else {
                 result += tolower(c);
             }
-        }
-    }
-
-    // Capitalize the first character of the last group
-    if (!result.empty()) {
-        if (capitalizeNext) {
-            result[0] = toupper(result[0]);
         }
     }
 
