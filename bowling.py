@@ -1,15 +1,35 @@
 ```
 def bowling_score(frames):
     score = 0
-    for frame in frames.split('\n'):
+    for i, frame in enumerate(frames):
         if '/' in frame:
-            first_roll, second_roll = map(int, frame.split('/'))
-            if 'X' in frame.upper():
-                score += 10 + (10 - first_roll)
+            first_roll = int(frame.split('/')[0])
+            second_roll = 10 - first_roll
+            if 'X' in frame or 'x' in frame:
+                if i < 9:
+                    next_frame = frames[i+1]
+                    if '/' not in next_frame:
+                        score += 10 + second_roll
+                    else:
+                        score += 10 + 10
+                else:
+                    score += 10 + 10
             else:
                 score += first_roll + second_roll
-        elif 'X' in frame.upper() or 'x' in frame:
-            score += 10
+        elif 'X' in frame or 'x' in frame:
+            if i < 9:
+                next_frame = frames[i+1]
+                if '/' not in next_frame:
+                    score += 10
+                else:
+                    score += 10 + 10
+            else:
+                score += 10
         else:
-            score += sum(map(int, frame))
+            for char in frame:
+                if char == 'X' or char == 'x':
+                    score += 10
+                    break
+                else:
+                    score += int(char)
     return score
