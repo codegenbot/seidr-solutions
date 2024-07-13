@@ -7,7 +7,7 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
     
     for (char& c : message) {
-        for (int i = 0; i < cipher1.length(); ++i) {
+        for (int i = 0; i < cipher1.size(); ++i) {
             if (c == cipher1[i]) {
                 c = cipher2[i];
                 break;
