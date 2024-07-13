@@ -4,8 +4,10 @@ def sort_even(l: list):
     even_list.sort()
     return even_list
 
+
 def check():
     numbers = [int(i) for i in input("Enter space-separated numbers: ").split()]
     print(sort_even(numbers))
+
 
 check()
