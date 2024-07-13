@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -58,4 +59,6 @@ int main() {
     } else {
         std::cout << "Result: FALSE" << std::endl;
     }
-    return 0;
+}
+
+return 0;
