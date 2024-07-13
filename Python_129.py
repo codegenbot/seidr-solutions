@@ -1,10 +1,10 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]
-    dp = [[float('inf')] * (n + 1) for _ in range(n + 1)]
 
-    visited = set()
+    dp = [[float("inf")] * (n + 1) for _ in range(n + 1)]
+    dp[0][0] = m[0][0]
+
     queue = [(0, [m[0][0]], 1)]
     result = []
 
@@ -12,9 +12,8 @@ def minPath(grid, k):
         cell, path, length = queue.pop(0)
 
         if length == k:
-            if not visited:
-                result = sorted(path)
-                visited.add(tuple(result))
+            if not any(dp[i][j] < float("inf") for i in range(n) for j in range(n)):
+                return sorted(path)
             continue
 
         for x, y in [
@@ -23,8 +22,8 @@ def minPath(grid, k):
             (cell, cell - 1),
             (cell, cell + 1),
         ]:
-            if 0 <= x < n and 0 <= y < n and (x, y) not in visited:
-                dp[x][y] = min(dp[x][y], sum(path))
-                queue.append((y, path + [m[x][y]], length + 1))
+            if 0 <= x < n and 0 <= y < n:
+                queue.append((y, [j for j in path] + [m[x][y]], length + 1))
+                dp[x][y] = min(dp[x][y], dp[cell][cell] + m[x][y])
 
-    return result
+    return []
