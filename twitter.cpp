@@ -6,9 +6,9 @@
 std::string validateTweet(std::string);
 
 int main() {
-    std::string tweet;
     std::cout << "Enter your tweet: ";
-    std::cin >> std::getline(std::cin, tweet);
+    std::string tweet;
+    std::cin >> std::getline(std::cin, tweet); // remove spaces and all other characters
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
