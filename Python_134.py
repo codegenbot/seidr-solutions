@@ -5,3 +5,5 @@ def check_palindrome(input_string):
         return "Error: The file is empty."
     else:
         return input_string == input_string[::-1]
+
+print(check_palindrome("A man a plan a canal Panama"))
