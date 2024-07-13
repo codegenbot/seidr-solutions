@@ -1,5 +1,2 @@
-import math
 def dice_game(n, m):
-    prob_highest = (m - 1) / n
-    prob_lower = sum((n - i) * (i + 1) / (n * m) for i in range(2, min(m, n)))
-    return 1 - prob_highest - prob_lower
+    return sum(1 for i in range(m+1) for j in range(1, min(i,m)+1) if i > j) / (n * m)

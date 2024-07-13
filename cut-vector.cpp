@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -5,30 +6,27 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
+    long long totalSum = 0;
+    for (int i : v) {
+        totalSum += i;
+    }
     
     for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
+        long long leftSum = 0, rightSum = totalSum - v[i];
         
-        for (int j = 0; j <= i; j++) {
-            leftSum += v[j];
-        }
-        
-        for (int j = i + 1; j < n; j++) {
-            rightSum += v[j];
-        }
-        
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            cutIndex = i;
+        while (leftSum <= rightSum && i < n - 1) {
+            if (leftSum == rightSum) {
+                i--;
+                break;
+            }
+            leftSum += v[i + 1];
+            rightSum -= v[i + 1];
+            i++;
         }
     }
     
-    res[0] = vector<int>(v.begin(), v.begin() + cutIndex + 1);
-    res[1] = vector<int>(v.begin() + cutIndex, v.end());
-    
+    res[0] = vector<int>(v.begin(), v.begin() + i);
+    res[1] = vector<int>(v.begin() + i, v.end());
     return res;
 }
 

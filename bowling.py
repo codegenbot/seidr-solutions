@@ -1,35 +1,22 @@
-```
 def bowling_score(game):
-    frames = game.split('/')
-    total_score = 0
-    frame_number = 1
-    for i in range(len(frames)):
-        frame = frames[i]
-        if len(frame) == 1:
-            total_score += 10
-        elif 'X' in frame:
-            if frame_number < 9 and frames[i+1][0] != 'X':
-                if frames[i+1][0] == 'X':
-                    total_score += 10 + int(frame.replace('X', '', 1))
-                else:
-                    total_score += 10 + int(frames[i+1].replace('X', '')) + int(frame.replace('X', '', 1))
-            else:
-                total_score += 10
-        elif '-' in frame:
-            first_roll, second_roll = map(int, frame.split('-'))
-            if first_roll == 10:
-                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
-            else:
-                total_score += first_roll + second_roll
+    score = 0
+    game += ' '
+    for i in range(0, len(game), 2):
+        if game[i] == 'X':
+            score += 10 + int(bowling_score(game[i+1:]) if i < len(game)-1 else 0)
+        elif game[i] == '-':
+            first_roll, second_roll = map(int, game[i-1:i+2])
+            score += first_roll + second_roll
         else:
-            first_roll, second_roll = map(int, frame.split())
-            if first_roll == 10:
-                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
-            elif second_roll == 10:
-                total_score += 10 + first_roll + second_roll
-            else:
-                total_score += first_roll + second_roll
-        frame_number += 1
-    return total_score
+            while game[i].isdigit() == False and game[i] not in ['X', '-']:
+                i += 1
+            if i >= len(game) - 1:
+                break
+            first_roll = int(game[i])
+            if i < len(game)-2 and game[i+1].isdigit() and game[i+2] in ['X', '/']:
+                continue
+            second_roll = int(game[i+1]) if i < len(game)-2 else 0
+            score += first_roll + second_roll
+    return score
 
 print(bowling_score("X1-1681357-0/XX7/4"))
