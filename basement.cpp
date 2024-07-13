@@ -1,23 +1,22 @@
 #include <vector>
 using namespace std;
 
-int findFirstNegativeIndex(vector<int> numbers) {
+int findFirstNegativeIndex(vector<int>& vec) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        sum += numbers[i];
+    for (int i = 0; i < vec.size(); i++) {
+        sum += vec[i];
         if (sum < 0)
             return i;
     }
-    return -1; // not found
+    return -1; // return -1 if the sum is never negative
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
-    }
-    cout << findFirstNegativeIndex(numbers) << endl;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++)
+        cin >> vec[i];
+    cout << findFirstNegativeIndex(vec) << endl;
     return 0;
 }
