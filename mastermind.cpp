@@ -24,7 +24,7 @@ int mastermind(string code, string guess) {
         for(int j = 0; j < 6; j++) {
             if(code[j] == guess[i]) {
                 count++;
-                codeCount[static_cast<int>(std::distance(std::begin(chars), std::find(std::begin(chars), std::end(chars), code[0])))]--;
+                codeCount[static_cast<int>(std::distance(std::begin(chars), std::find(std::begin(chars), std::end(chars), code[j]))) ]--;
                 if(count > 1) break;
             }
         }
