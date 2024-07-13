@@ -20,22 +20,31 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         
         int minDiff = INT_MAX;
-        int idx = 0;
-        while (leftSum <= rightSum && i < n) {
-            leftSum += v[i + 1];
-            rightSum -= v[i + 1];
+        int iMin = -1;
+
+        for (int i = 0; i < n; i++) {
+            long long leftSum = 0;
+            
+            for (int j = 0; j <= i; j++) {
+                leftSum += v[j];
+            }
+            
+            long long rightSum = 0;
+            for (int k = i + 1; k < n; k++) {
+                rightSum += v[k];
+            }
+            
             int newDiff = abs(leftSum - rightSum);
             
             if(newDiff <= minDiff) {
                 minDiff = newDiff;
-                idx = i;
+                iMin = i;
             }
-            i++;
         }
+
+        res[0] = vector<int>(v.begin(), v.begin() + iMin);
+        res[1] = vector<int>(v.begin() + iMin, v.end());
     }
-    
-    res[0] = vector<int>(v.begin(), v.begin() + idx + 1);
-    res[1] = vector<int>(v.begin() + idx, v.end());
     
     return res;
 }
