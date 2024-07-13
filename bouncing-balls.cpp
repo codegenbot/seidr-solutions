@@ -6,11 +6,11 @@ using namespace std;
 
 int main() {
     string startHeightStr, firstBounceStr;
-    double numBounces;
+    int numBounces;
 
-    getline(cin, startHeightStr);
-    getline(cin, firstBounceStr);
-    cin >> numBounces;
+    getline(cin, startHeightStr); 
+    getline(cin, firstBounceStr); 
+    cin >> numBounces; 
 
     double startHeight = stod(startHeightStr), firstBounce = stod(firstBounceStr);
 
