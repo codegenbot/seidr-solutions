@@ -1,38 +1,35 @@
-```cpp
 #include <iostream>
+using namespace std;
 
-int main() {
-    int cents;
+int cents;
+int pennies = 0;
+int nickels = 0;
+int dimes = 0;
+int quarters = 0;
 
-    std::cout << "Enter the number of cents: ";
-    std::cin >> cents; 
+cin >> cents;
 
-    int pennies = 0;
-    int nickels = 0;
-    int dimes = 0;
-    int quarters = 0;
-
-    while (cents >= 25) {
-        cents -= 25;
-        quarters++;
-    }
-
-    while (cents >= 10) {
-        cents -= 10;
-        dimes++;
-    }
-
-    while (cents >= 5) {
-        cents -= 5;
-        nickels++;
-    }
-
-    pennies = cents;
-
-    std::cout << "Quarters: " << quarters << (quarters > 1 ? "s" : "") << std::endl;
-    std::cout << "Dimes: " << dimes << (dimes > 1 ? "s" : "") << std::endl;
-    std::cout << "Nickels: " << nickels << (nickels > 1 ? "s" : "") << std::endl;
-    std::cout << "Pennies: " << pennies << (pennies > 1 ? "s" : "") << std::endl;
-
-    return 0;
+while (cents >= 25) {
+    cents -= 25;
+    quarters++;
 }
+
+while (cents >= 10) {
+    cents -= 10;
+    dimes++;
+}
+
+while (cents >= 5) {
+    cents -= 5;
+    nickels++;
+}
+
+while (cents >= 1) {
+    cents -= 1;
+    pennies++;
+}
+
+cout << "Quarters: " << quarters << endl;
+cout << "Dimes: " << dimes << endl;
+cout << "Nickels: " << nickels << endl;
+cout << "Pennies: " << pennies << endl;
