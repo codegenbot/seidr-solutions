@@ -6,7 +6,8 @@ def bowling_score(frames):
             score += 10
             if index + 1 >= len(frames) or frames[index + 1] in ['/']:
                 continue
-            score += 10
+            left_pin = int(frames[index + 1].split('/')[0])
+            score += left_pin
             index += 2
         elif frames[index] in ['/']:
             left_pins = int(frames[index - 1][0])
@@ -20,10 +21,12 @@ def bowling_score(frames):
         else:
             left_pin = int(frames[index][0])
             right_pin = int(frames[index][1])
-            if left_pin == 'X' and frames[index + 1] in ['/']:
-                score += 10 + 10
-            elif left_pin == 'X':
-                score += 10 + right_pin
+            if left_pin == 'X':
+                score += 10 + (int(frames[index + 1].split('/')[0]) if index + 1 < len(frames) and frames[index + 1] in ['/'] else 0)
+                index += 2
+            elif right_pin == '/':
+                frame_score = int(left_pin) + 10
+                score += frame_score
             else:
                 frame_score = left_pin + right_pin
                 score += frame_score
