@@ -1,8 +1,10 @@
 ```
 def cut_vector(vector):
-    total_sum = sum(vector)
-    left_sum = 0
-    for i, x in enumerate(vector):
-        left_sum += x
-        if (left_sum > total_sum // 2) or ((total_sum - left_sum) > total_sum // 2 and left_sum >= total_sum // 2):
-            return [vector[:i], vector[i:]]
+    min_diff = float('inf')
+    split_index = 0
+    for i in range(1, len(vector)):
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            split_index = i
+    return [vector[:split_index], vector[split_index:]]
