@@ -1,4 +1,3 @@
-```
 def sort_even(l: list):
     even_nums = sorted([x for x in l if x % 2 == 0])
     odd_nums = [x for x in l if x % 2 != 0]
@@ -14,3 +13,7 @@ def sort_even(l: list):
     result.extend(even_nums[i:])
     result.extend(odd_nums[j:])
     return result
+
+
+if __name__ == "__main__":
+    print(sort_even([5, 3, 2, 7, 11, 1, 4]))
