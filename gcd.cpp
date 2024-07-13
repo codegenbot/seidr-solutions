@@ -4,21 +4,23 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
-    int n = text.length();
-    int m = target.length();
+    int textLen = text.length();
+    int targetLen = target.length();
     
-    for (int i = 0; i <= n - m; ++i) {
+    for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
-        for (int j = 0; j < m; ++j) {
+        for (int j = 0; j < targetLen; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
         if (found) {
-            indices.push_back(i);
+            for (int k = 0; k < targetLen; ++k) {
+                indices.push_back(i + k);
+            }
         }
     }
     
