@@ -3,7 +3,7 @@ input_str = (
     .strip()
     .upper()
 )
-if " " not in input_str or len(input_str.replace(" ", "")) != 9:
+if len(input_str) != 9:
     print("Invalid input. Please enter 4-character code and 4-character guess.")
     exit(1)
 code, guess = input_str.split()
