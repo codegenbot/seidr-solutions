@@ -1,4 +1,3 @@
-```
 def check():
     numbers = list(map(int, input("Enter space-separated numbers: ").split()))
     print(double_the_difference(numbers))
