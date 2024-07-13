@@ -1,42 +1,42 @@
-Here is the completed code:
-
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word = "";
 
-string spinWords(string str) {
-    string result = "";
-    int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
             if (word.length() >= 5) {
-                result += reverse(word) + " ";
+                std::reverse(word.begin(), word.end());
+                result += word + " ";
+                word = "";
             } else {
                 result += word + " ";
+                word = "";
             }
-            start = i + 1;
+        } else {
+            word += str[i];
         }
     }
-    return result.substr(0, result.length() - 1); // remove the extra space at the end
-}
 
-string reverse(string str) {
-    string rev = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        rev += str[i];
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+        result += word;
+    } else {
+        result += word;
     }
-    return rev;
+
+    return result;
 }
 
 int main() {
-    string str;
+    std::string input;
     while (true) {
-        cout << "Enter a sentence (or 'q' to quit): ";
-        cin >> str;
-        if (str == "q") break;
-        cout << spinWords(str) << endl;
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, input);
+        if (input == "exit") break;
+        std::cout << "Spin words: " << spinWords(input) << std::endl;
     }
     return 0;
 }
