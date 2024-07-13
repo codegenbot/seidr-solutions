@@ -1,27 +1,19 @@
+```
+frames = input("Enter the frames (e.g., 'X', '/'): ")
 def bowling_score(frames):
     score = 0
-    frame_num = 1
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            score += 10 + int(frames[2*i+1].split('/')[0]) if frame_num < 9 else int(frames[2*i+1].split('/')[0])
-            score += int(frames[2*i+1].split('/')[1]) if frame_num < 10 else 0
-        elif frames[i] == '/':
-            if frames[2*i-1] == 'X':
-                score += 10
-            else:
-                score += 10 - int(frames[2*i-1].split('/')[1])
+    frame_count = 1
+    for char in frames:
+        if char == 'X':
+            score += 10 + (10 - int(input(f"Enter the number of pins knocked down in frame {frame_count}: ")))
+            frame_count += 1
+        elif char == '/':
+            first_roll = int(input(f"Enter the number of pins knocked down in the first roll of frame {frame_count}: "))
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            frame_count += 1
         else:
-            frame_points = int(frames[i]) + int(frames[i+1])
-            if frame_points > 10:  
-                score += 10
-                if frame_num < 9:
-                    score += int(frames[2*i+3].split('/')[0]) + int(frames[2*i+3].split('/')[1])
-                else:
-                    score += int(frames[2*i+3].split('/')[0]) + int(frames[2*i+3].split('/')[1])
-            else:  
-                score += frame_points
-        frame_num += 1
-    return score
-
-frames = input("Enter the frames (e.g., 'X', '/'): ")
-print(bowling_score(f"{frames}"))
+            score += int(char)
+            frame_count += 1
+    print(score)
+print(bowling_score(frames))

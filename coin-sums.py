@@ -21,6 +21,5 @@ def coin_sums(cents):
 
     return result
 
-if __name__ == "__main__":
-    cents = int(input("Enter the number of cents: "))
-    print(coin_sums(cents))
+cents = int(input("Enter the number of cents: "))
+print(coin_sums(cents))
