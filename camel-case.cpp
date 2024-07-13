@@ -9,13 +9,13 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result.push_back(' ');
-            capitalize = true; // Capitalize next letter
+            result += ' '; 
+            capitalize = true; 
         } else if (capitalize) { 
-            result.push_back(toupper(c));
+            result += toupper(c);
             capitalize = false; 
         } else {
-            result.push_back(tolower(c)); 
+            result += tolower(c); 
         }
     }
 
@@ -26,6 +26,7 @@ int main() {
     std::string input;
     std::cout << "Enter your string (in kebab-case): ";
     std::getline(std::cin, input);
-    std::cout << "Camel Case: " << camelCase(input) << std::endl;
+    std::cout << "Camel Case: " << camelCase(input).substr(0, 1).toUpperCase() << 
+               camelCase(input).substr(1) + std::endl;
     return 0;
 }
