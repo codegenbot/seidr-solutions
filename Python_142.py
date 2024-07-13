@@ -1,6 +1,3 @@
-Here is the Python function to solve this problem:
-
-```
 def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
