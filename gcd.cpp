@@ -12,7 +12,7 @@ vector<int> findIndices(string text, string target) {
         if (index == string::npos)
             break;
         result.push_back(index);
-        index += target.length(); // start searching from the end of current match
+        index += 1; // start searching from the next character
     }
     return result;
 }
