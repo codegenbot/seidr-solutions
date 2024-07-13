@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
 
 using namespace std;
 
-vector<int> nums;
-
 int main() {
+    vector<int> nums;
     int num;
     while (cin >> num) {
         nums.push_back(num);
@@ -36,13 +34,13 @@ int main() {
     }
     
     for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << "\n";
+        cout << nums[i] << endl;
     }
     
-    cout << "\n";
+    cout << endl;
     
     for (int i = cut_index; i < nums.size(); ++i) {
-        cout << nums[i] << "\n";
+        cout << nums[i] << endl;
     }
     
     return 0;
