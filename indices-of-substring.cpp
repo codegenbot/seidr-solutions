@@ -28,10 +28,10 @@ int main() {
     int textLen = strlen(text);
     int targetLen = strlen(target);
     
-    for (int i = 0; i <= textLen - targetLen; ++i) {
+    for (int i = 0; i <= textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (std::tolower(lowercaseText[i + j]) != std::tolower(lowercaseTarget[j])) {
+            if (std::tolower(lowercaseText[i + j]) != lowercaseTarget[j]) {
                 found = false;
                 break;
             }
