@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 using namespace std;
 
@@ -11,7 +10,7 @@ int prime_fib(int n) {
         a = b;
         b = fib;
         bool isPrime = true;
-        for (int j = 2; j <= sqrt(fib); j++) {
+        for (int j = 2; j * j <= fib; j++) {
             if (fib % j == 0) {
                 isPrime = false;
                 break;
