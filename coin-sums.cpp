@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 int main() {
     int quarters = 0;
@@ -11,24 +12,16 @@ int main() {
     std::getline(std::cin, input);
     int cents = std::stoi(input);
 
-    while (cents >= 25) {
-        quarters++;
-        cents -= 25;
-    }
+    quarters = cents / 25;
+    cents %= 25;
 
-    int dimeCents = 0;
-    while (cents >= 10) {
-        dimes++;
-        cents -= 10;
-    }
+    dimes = cents / 10;
+    cents %= 10;
 
-    int nickelCents = 0;
-    while (cents >= 5) {
-        nickles++;
-        cents -= 5;
-    }
+    nickles = cents / 5;
+    cents %= 5;
 
-    pennies = cents; // update remaining pennies
+    pennies = cents; // this is the remaining amount in pennies
 
     std::cout << "Quarters: " << quarters << std::endl;
     std::cout << "Dimes: " << dimes << std::endl;

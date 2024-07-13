@@ -46,15 +46,12 @@ vector<int> indicesOfSubstring(string text, string target) {
                 }
                 else {
                     i += len;
-                    break;
+                    len = 0;
                 }
             }
 
             if (j == m)
-                for (; j > 0; ) {
-                    result.push_back(i - len + 1);
-                    j = lps[j-1];
-                }
+                result.push_back(i);
 
             i = i + 1; // move to the next character
         }
