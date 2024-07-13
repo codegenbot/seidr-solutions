@@ -1,28 +1,26 @@
-Here is the solution:
+bool solveBoolean(string boolean) {
+    stack<char> operation;
+    stack<bool> value;
 
-string solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    stack<bool> valueStack;
-
-    for (char c : booleanExpression) {
-        if (c == 'T' || c == 't') {
-            valueStack.push(true);
-        } else if (c == 'F' || c == 'f') {
-            valueStack.push(false);
-        } else if (c == '|') {
-            bool b = valueStack.top();
-            valueStack.pop();
-            bool a = valueStack.top();
-            valueStack.pop();
-            valueStack.push(b || a);
-        } else if (c == '&') {
-            bool b = valueStack.top();
-            valueStack.pop();
-            bool a = valueStack.top();
-            valueStack.pop();
-            valueStack.push(a && b);
+    for (int i = 0; i < boolean.length(); i++) {
+        if (boolean[i] == '&') {
+            bool b = value.top();
+            value.pop();
+            bool a = value.top();
+            value.pop();
+            value.push(a & b);
+        } else if (boolean[i] == '|') {
+            bool b = value.top();
+            value.pop();
+            bool a = value.top();
+            value.pop();
+            value.push(a | b);
+        } else if (boolean[i] == 't' || boolean[i] == 'T') {
+            value.push(true);
+        } else if (boolean[i] == 'f' || boolean[i] == 'F') {
+            value.push(false);
         }
     }
 
-    return (valueStack.top()) ? "True" : "False";
+    return value.top();
 }
