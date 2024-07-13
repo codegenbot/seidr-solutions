@@ -23,7 +23,11 @@ int main() {
         ++nickels;
     }
 
-    int pennies = cents;
+    int pennies = 0;
+    while (cents > 4) {
+        cents -= 5;
+        ++pennies;
+    }
 
     cout << quarters << endl; 
     cout << dimes << endl; 
