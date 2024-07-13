@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <numeric>  // Add this header for accumulate function
-#include <climits>  // Add this header for INT_MAX constant
+#include <numeric>
+#include <climits>
 
 using namespace std;
 
