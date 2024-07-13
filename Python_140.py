@@ -1,6 +1,8 @@
+import re
+
 def fix_spaces(text):
     text = text.strip().lower()
-    text = text.replace(r'\s+', '_')
+    text = re.sub(r'\s+', '_', text)
     while "--" in text:
         text = text.replace("--", "-")
     while "_-_" in text or "_--" in text:
