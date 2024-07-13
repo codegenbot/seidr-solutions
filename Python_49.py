@@ -1,3 +1,4 @@
+```
 import math
 
 def modp(n: int, p: int) -> int:
@@ -17,11 +18,7 @@ def main():
             if a < 0 or b < 0:
                 print("Please enter positive numbers.")
             else:
-                result = modp(a, b)
-                if result == -1:
-                    print("Not coprime")
-                else:
-                    print(f"The order of {a} modulo {b} is {result}")
+                print(modp(a, b))
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
