@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
-    
+
     int pennies = 0;
     while (cents >= 1) {
         cents -= 1;
@@ -32,18 +32,15 @@ int main() {
     cout << "Pennies: " << pennies << endl;
     if(pennies > 1) cout << "s ";
     cout << pennies << " remaining;\n";
-
     cout << "Nickels: " << nickels << endl;
     if(nickels > 1) cout << "s ";
     cout << nickels << " remaining;\n";
-
     cout << "Dimes: " << dimes << endl;
     if(dimes > 1) cout << "s ";
     cout << dimes << " remaining;\n";
-
     cout << "Quarters: " << quarters << endl;
     if(quarters > 1) cout << "s ";
     cout << quarters << " remaining;\n";
-    
+
     return 0;
 }
