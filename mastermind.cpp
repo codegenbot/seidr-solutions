@@ -1,5 +1,3 @@
-#include <string>
-
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -10,12 +8,12 @@ int mastermind(std::string code, std::string guess) {
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            black++; 
         } else {
             int count = code_counts[guess[i] - 'A'];
             white += --count;
             if (count > 0) {
-                code_counts[guess[i] - 'A']--;
+                code_counts[guess[i] - 'A']--; 
             }
         }
     }
