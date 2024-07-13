@@ -1,5 +1,6 @@
 from typing import List
 
+
 def concatenate(input_list: List[str]) -> str:
     if not isinstance(input_list, list):
         raise ValueError("Input must be a list")
@@ -8,10 +9,17 @@ def concatenate(input_list: List[str]) -> str:
             raise ValueError("All elements in the list must be strings")
 
     if len(input_list) == 0:
-        user_input = input("Please provide some input (strings separated by commas): ")
-        return concatenate([i.strip() for i in user_input.split(',')])
+        while True:
+            user_input = input("Please provide some input (separated by commas): ")
+            try:
+                input_list = [s.strip() for s in user_input.split(",")]
+                break
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a list of strings separated by commas."
+                )
 
-    result = ''
+    result = ""
     for string in input_list:
-        result += string + ' '
+        result += string + " "
     return result.strip()
