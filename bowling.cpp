@@ -1,24 +1,17 @@
-int bowlingScore(string s) {
+int bowlingScore(string str) {
     int score = 0;
+    bool strike = false;
     bool spare = false;
-    for (char c : s) {
+    for (char c : str) {
         if (c == 'X') {
-            score += 10 + ((spare) ? 10 : 0);
-            spare = true;
+            score += 10;
+            strike = true;
         } else if (c == '/') {
-            score += 10 - to_int(s.substr(1, 1));
-            spare = false;
-        } else if (isdigit(c)) {
-            int num = to_int(string(1, c));
-            score += num;
-            if (spare) {
-                spare = false;
-            }
+            score += 10 - 5;
+            spare = true;
+        } else if (!strike && !spare) {
+            score += c - '0';
         }
     }
     return score;
-}
-
-int to_int(const string& s) {
-    return stoi(s);
 }
