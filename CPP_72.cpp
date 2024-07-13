@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -7,7 +8,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != std::string(str.rbegin(), str.rend()).s) {
+    if (str != std::string(str.rbegin(), str.rend())) {
         return false;
     }
     int sum = 0;
