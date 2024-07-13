@@ -1,7 +1,6 @@
 #include <vector>
 #include <initializer_list>
 #include <iostream>
-
 using namespace std;
 
 int basement(vector<int>& nums) {
@@ -16,4 +15,4 @@ int basement(vector<int>& nums) {
 int main() {
     vector<int> nums = {1, -3, 2, 5, -4};
     cout << basement(nums) << endl;
-    return 0;
+    return 0;}
