@@ -1,31 +1,29 @@
-```
 bool evaluateBooleanExpression(string expression) {
-    bool result = true;
-    int i = 0;
+    bool result = false;
+    stack<char> ops;
+    stack<bool> values;
 
-    while (i < expression.length()) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            i++;
-            bool b1 = (expression[i] == 'T' || expression[i] == 't');
-            i++;
-            bool b2 = (expression[i] == 'T' || expression[i] == 't');
-            i++;
-            result = result && (b1 || b2);
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 && b2);
+            ops.push('&');
         } else if (expression[i] == '|') {
-            i++;
-            bool b1 = (expression[i] == 'T' || expression[i] == 't');
-            i++;
-            bool b2 = (expression[i] == 'T' || expression[i] == 't');
-            i++;
-            result = result && !(b1 ^ b2);
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 || b2);
+            ops.push('|');
         } else if (expression[i] == 'T' || expression[i] == 't') {
-            i++;
-            result = true;
+            values.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            i++;
-            result = false;
+            values.push(false);
         }
     }
 
-    return result;
+    return values.top();
 }
