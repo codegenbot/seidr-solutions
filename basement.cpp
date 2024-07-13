@@ -1,5 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
+
+int basement(std::vector<int>& nums);  
 
 int main() {
     std::vector<int> nums = {-1,-2,-3,-4,-5};
