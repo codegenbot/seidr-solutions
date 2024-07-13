@@ -17,17 +17,15 @@ vector<vector<int>> cutVector(vector<int> v) {
     long long leftSum = 0, rightSum = sum;
     int minDiff = INT_MAX, cutIndex = -1;
 
-    for (int i = 1; i < n - 1; i++) {
-        if (rightSum == leftSum) break;
-        rightSum -= v[i];
-        
+    for (int i = 0; i < n - 1; i++) {
+        minDiff = INT_MAX, cutIndex = -1;
         long long diff = abs(leftSum - rightSum);
         if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i + 1; 
         }
-        
         leftSum += v[i];
+        rightSum -= v[i];
     }
     
     vector<vector<int>> res;
@@ -54,16 +52,30 @@ int main() {
     }
     
     vector<vector<int>> result = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << " ";
+    if(result[0].size() == 0) { 
+        cout << "[";
+        for (int i = 0; i < v.size(); i++) {
+            cout << v[i] << " ";
+        }
+        cout << "]" << endl;
+        cout << "[";
+        vector<int> empty;
+        for(int i = 0; i < v.size(); i++) {
+            empty.push_back(v[i]);
+        }
+        cout << "]";
+    } else {
+        cout << "[";
+        for (int i = 0; i < result[1].size(); i++) {
+            cout << result[1][i] << " ";
+        }
+        cout << "]" << endl;
+        cout << "[";
+        for (int i = 0; i < result[0].size(); i++) {
+            cout << result[0][i] << " ";
+        }
+        cout << "]" << endl;
     }
-    cout << "]" << endl;
-    cout << "[";
-    for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << " ";
-    }
-    cout << "]" << endl;
     
     return 0;
 }
