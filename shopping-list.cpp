@@ -17,14 +17,16 @@ int main() {
     cin >> n;
     
     vector<float> prices(n);
-    vector<float> discounts(n);
-    
     for(int i = 0; i < n; i++) {
         cin >> prices[i];
+    }
+    
+    vector<float> discounts(n);
+    for(int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
     
-    cout << std::fixed << std::setprecision(1) << shoppingTrip(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingTrip(prices, discounts) << endl;
     
     return 0;
 }
