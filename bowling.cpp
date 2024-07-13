@@ -1,21 +1,24 @@
-int bowlingScore(string input) {
-    int frames = 0;
-    int currentRolls = 0;
-    int totalScore = 0;
-
-    for (char c : input) {
-        if (c == '/') {
-            totalScore += min(10 - currentRolls, currentRolls);
-            currentRolls = 0;
-            frames++;
-        } else {
-            currentRolls++;
+int bowlingScore(string s) {
+    int score = 0;
+    bool spare = false;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10 + ((spare) ? 10 : 0);
+            spare = true;
+        } else if (c == '/') {
+            score += 10 - to_int(s.substr(1, 1));
+            spare = false;
+        } else if (isdigit(c)) {
+            int num = to_int(string(1, c));
+            score += num;
+            if (spare) {
+                spare = false;
+            }
         }
     }
+    return score;
+}
 
-    if (currentRolls > 0) {
-        totalScore += min(10, currentRolls);
-    }
-
-    return totalScore;
+int to_int(const string& s) {
+    return stoi(s);
 }
