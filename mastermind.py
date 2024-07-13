@@ -1,13 +1,10 @@
+Here is the solution:
+
 def mastermind(code, guess):
-    black_pegs = 0
-    white_pegs = 0
-    code_list = [char for char in code]
-    guess_list = [char for char in guess]
-
+    code_count = [0, 0]
     for i in range(4):
-        if code_list[i] == guess_list[i]:
-            black_pegs += 1
-        elif str(code_list[i]) in str(guess_list):
-            white_pegs += 1
-
-    return str(black_pegs) + "\n" + str(white_pegs)
+        if code[i] == guess[i]:
+            code_count[1] += 1
+        elif str(guess[i]).count(str(code[i])) > 0:
+            code_count[0] += 1
+    return code_count
