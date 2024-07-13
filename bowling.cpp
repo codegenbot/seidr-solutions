@@ -1,42 +1,30 @@
 int main() {
     string input;
     cin >> input;
-
-    int score = 0;
-    int frame = 0;
-    int balls = 0;
-    vector<int> frames(10, 0);
-
+    int score = 0, frame = 0, ball = 0;
     for (char c : input) {
         if (c == 'X') {
-            frames[frame] = 10;
-            frame++;
-        } else if (c == '/') {
-            frames[frame] = 10 - frames[frame - 1];
-            frame++;
-            balls = 0;
-        } else if (c == '-') {
-            balls = 0;
-            frame++;
-        } else {
-            if (balls == 0) {
-                frames[frame] += c - '0';
-            } else {
-                frames[frame] += c - '0';
-                if (frames[frame] == 10) {
-                    frames[frame] += frames[frame - 1];
-                }
-                frame++;
+            score += 10;
+            if (frame < 9) {
+                score += (input[ball + 1] == 'X' ? 10 : (isdigit(input[ball + 1]) ? input[ball + 1] - '0' : 10));
+                score += (input[ball + 2] == 'X' ? 10 : (input[ball + 2] == '/' ? 10 - (input[ball + 1] - '0') : (isdigit(input[ball + 2]) ? input[ball + 2] - '0' : 10)));
             }
-            balls++;
+            ball++;
+        } else if (c == '/') {
+            score += 10 - (input[ball - 1] - '0');
+            score += (input[ball + 1] == 'X' ? 10 : (isdigit(input[ball + 1]) ? input[ball + 1] - '0' : 10));
+            ball += 2;
+        } else if (isdigit(c)) {
+            score += c - '0';
+            ball++;
+        }
+        if (c == 'X' || ball % 2 == 0) {
+            frame++;
+        }
+        if (frame == 10) {
+            break;
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-    }
-
     cout << score << endl;
-
     return 0;
 }
