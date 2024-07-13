@@ -1,6 +1,6 @@
-#include <vector>
+```cpp
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 std::vector<int> leaders(std::vector<int>& arr) {
