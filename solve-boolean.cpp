@@ -3,7 +3,7 @@ bool solveBoolean(const std::string& s) {
 
     bool result = true;
     int i = 0;
-    while (i < s.length()) {
+    while (i < s.length()) { 
         if (s[i] == 'T') {
             result = true;
             i++;
@@ -13,11 +13,15 @@ bool solveBoolean(const std::string& s) {
         } else if (s[i] == '|') {
             bool temp = result;
             result = !result;
-            while (i < s.length() && s[i] == '|') i++;
+            while (i < s.length() && s[i] != '|') { 
+                i++;
+            }
         } else if (s[i] == '&') {
             bool temp = true;  
-            while (i < s.length() && s[i] == '&') i++;
-            result &= temp;  
+            while (i < s.length() && s[i] != '&') { 
+                i++;
+            }
+            result &= true;  // Assuming you want to keep the current state of `result`
         }
     }
     return result;
