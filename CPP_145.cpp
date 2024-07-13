@@ -1,7 +1,5 @@
 ```cpp
-#include <algorithm>
-#include <vector>
-
+#include <initializer_list>
 using namespace std;
 
 int getAscendingOrder(const vector<int>& nums) {
@@ -34,7 +32,7 @@ bool isIdentical(const vector<int>& a, const vector<int>& b) {
     return isMonotonic(a) && isMonotonic(b);
 }
 
-int order_by_points(const vector<int>& nums) {
+int order_by_points(const initializer_list<int> &nums) {
     int points = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] > nums[i - 1]) {
@@ -54,6 +52,6 @@ int main() {
     assert(isSame(vec1,vec2) == true);
     int result = getAscendingOrder({0,6,6,-76,-21,23,4});
     cout << "order_by_points: " << result << endl;
-    assert(isSame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    assert(isSame(vector<int>({0,6,6,-76,-21,23,4}), vector<int>({-76, -21, 0, 4, 23, 6, 6})) == true);
     return 0;
 }
