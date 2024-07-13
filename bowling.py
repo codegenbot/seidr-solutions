@@ -1,4 +1,3 @@
-```Python
 def bowling_score(frames):
     score = 0
     rolls = list(map(int, frames.replace('/', '')))
