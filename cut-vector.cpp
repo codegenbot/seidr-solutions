@@ -4,24 +4,30 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int leftSum = 0;
-    for (int i = 0; i < v.size(); i++) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    
+    long long leftSum = 0;
+    for (int i = 0; i < n; i++) {
         leftSum += v[i];
-    }
-
-    int rightSum = 0;
-    for (int i = v.size() - 1; i >= 0; i--) {
-        rightSum += v[i];
-
-        if(abs(leftSum - rightSum) <= 1) {
-            vector<vector<int>> res(2);
+        
+        long long rightSum = 0;
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if(diff <= INT_MAX) {
             res[0] = vector<int>(v.begin(), v.begin() + i+1);
             res[1] = vector<int>(v.begin() + i+1, v.end());
             return res;
         }
     }
     
-    return {{}, {}};
+    res[0] = vector<int>(v.begin(), v.end());
+    res[1].clear();
+    return res;
 }
 
 int main() {
