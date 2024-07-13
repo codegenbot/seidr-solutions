@@ -1,4 +1,4 @@
-```
+```Python
 def words_in_sentence(sentence):
     prime_words = []
     for word in sentence.split():
@@ -13,3 +13,6 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
+sentence = input("Enter your sentence: ")
+print(words_in_sentence(sentence))
