@@ -1,14 +1,5 @@
-Problem: Caesar Cipher Encryption
-
-Function Signature:
 ```
-def encode(message):
-```
-
-Code:
-
-```python
-def encode(message):
+def shift_ciphertext(message):
     result = ""
     for char in message:
         if char.isalpha():
