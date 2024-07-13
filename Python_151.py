@@ -1,3 +1,4 @@
 def check(func):
-    lst = input("Enter numbers separated by space: ").split()
-    print(func(lst))
+    lst = [int(i) for i in input("Enter numbers separated by space: ").split()]
+    result = func(lst)
+    print(f"Double the difference is {result}")
