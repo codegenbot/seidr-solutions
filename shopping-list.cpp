@@ -1,4 +1,5 @@
-```int main() {
+```
+int main() {
     int n;
     cin >> n;
     vector<float> prices(n);
@@ -12,3 +13,4 @@
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
+}
