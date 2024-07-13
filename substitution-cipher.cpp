@@ -2,27 +2,32 @@
 #include <iostream>
 #include <string>
 
-std::string applySubstitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string decipheredMessage;
+std::string applySubstitutionCipher(std::string key1, std::string key2, std::string message) {
+    std::string result = "";
+    
     for (char c : message) {
-        int index = c - 'a'; // Assuming all characters are lowercase letters
-        if (index >= 0 && index < cipher1.length()) {
-            decipheredMessage += cipher2[index];
+        if (c != '\0') {
+            int index = key1.find(c);
+            if (index != -1) {
+                result += key2[index];
+            } else {
+                result += c;
+            }
         } else {
-            decipheredMessage += c; // If the character is not in the alphabet, keep it as it is
+            result += ' ';
         }
     }
-    return decipheredMessage;
+
+    return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cout << "Enter the first cipher: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second cipher: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to be deciphered: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << applySubstitutionCipher(cipher1, cipher2, message) << std::endl;
+    std::string key1, key2, message;
+    
+    // Read input from user
+    cin >> key1 >> key2 >> message;
+
+    std::cout << applySubstitutionCipher(key1, key2, message) << endl;
+
     return 0;
 }
