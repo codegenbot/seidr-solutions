@@ -3,19 +3,21 @@ int main() {
     getline(cin, input);
     
     string word;
-    bool firstWord = true;
-    for (int i = 0; i <= input.size(); ++i) {
-        if (i == input.size() || input[i] == ' ') {
+    string result;
+    
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == ' ' || i == input.size() - 1) {
             if (word.size() >= 5) {
                 reverse(word.begin(), word.end());
             }
-            cout << (firstWord ? "" : " ") << word;
+            result += word + " ";
             word = "";
-            firstWord = false;
         } else {
             word += input[i];
         }
     }
+    
+    cout << result << endl;
     
     return 0;
 }
