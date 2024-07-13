@@ -1,47 +1,38 @@
 int score(string s) {
     int total = 0;
-    int frame = 0;
-    int rolls[21] = {0};
+    int frame = 1;
+    int roll = 0;
+    vector<int> points;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            rolls[frame] = 10;
-            frame++;
-        } else if (s[i] == '/') {
-            rolls[frame] = 10 - rolls[frame-1];
-            frame++;
-        } else if (s[i] == '-') {
-            rolls[frame] = 0;
-            frame++;
-        } else {
-            rolls[frame] = s[i] - '0';
-            if (frame % 2 == 1) {
-                if (rolls[frame] + rolls[frame-1] == 10) {
-                    total += 10 + rolls[frame+1];
-                } else {
-                    total += rolls[frame] + rolls[frame-1];
-                }
+    for (char c : s) {
+        if (c == 'X') {
+            points.push_back(10);
+            if (frame < 10) {
+                points.push_back(0);
             }
             frame++;
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        if (s[i*2] == 'X') {
-            total += 10 + rolls[i+1] + rolls[i+2];
-        } else if (s[i*2+1] == '/') {
-            total += 10 + rolls[i+1];
+        } else if (c == '/') {
+            points.push_back(10 - points.back());
+        } else if (c == '-') {
+            points.push_back(0);
         } else {
-            total += rolls[i*2] + rolls[i*2+1];
+            points.push_back(c - '0');
+        }
+
+        if (frame > 10) {
+            break;
+        }
+
+        if (roll % 2 == 1 || c == 'X' || c == '/') {
+            int i = points.size() - 1;
+            while (roll < 2 && i >= 0) {
+                total += points[i];
+                i--;
+                roll++;
+            }
+            roll = 0;
         }
     }
 
     return total;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
 }
