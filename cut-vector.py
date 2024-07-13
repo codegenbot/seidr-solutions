@@ -1,18 +1,12 @@
 def cut_vector(vector):
-    if len(vector) == 1:
-        return [vector], []
-
+    n = len(vector)
     min_diff = float("inf")
-    split_idx = -1
+    split_point = 0
 
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-
-        diff = abs(left_sum - right_sum)
-
+    for i in range(1, n):
+        diff = abs(np.sum(vector[:i]) - np.sum(vector[i:]))
         if diff < min_diff:
             min_diff = diff
-            split_idx = i
+            split_point = i
 
-    return vector[: split_idx + 1], vector[split_idx:]
+    return vector[:split_point], vector[split_point:]
