@@ -1,18 +1,14 @@
-#include <algorithm>
+Here is the completed code:
 
-vector<string> vector_sort(vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     auto it = unique(lst.begin(), lst.end(), 
-        [](const string& s1, const string& s2){return s1.length() % 2 == 0 && s2.length() % 2 != 0 || s1.length() % 2 != 0 && s2.length() % 2 == 0;});
+        [](const string& a, const string& b) { return a.length() % 2 == 1; });
     lst.erase(it, lst.end());
-
     sort(lst.begin(), lst.end(),
-        [](const string& s1, const string& s2){
-            if (s1.length() == s2.length()) {
-                return s1 < s2;
-            } else {
-                return s1.length() < s2.length();
-            }
+        [](const string& a, const string& b) {
+            if (a.length() != b.length())
+                return a.length() < b.length();
+            return a < b;
         });
-
     return lst;
 }
