@@ -13,25 +13,23 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
             if (!buffer.empty()) {
                 result.push_back(buffer);
                 buffer = ""; 
+                buffer += " "; // Changed this line
             }
         } else if (c != delimiter) {
             buffer += c;
         }
 
         if (c == delimiter || c == '\0') {
-            if (!buffer.empty()) {
+            if (!buffer.empty() && buffer != " ") { // Changed this condition
                 result.push_back(buffer);
                 buffer = ""; 
+                buffer += delimiter; // Changed this line
             }
         }
     }
 
-    // Added to handle empty strings
-    if (!buffer.empty()) {
+    if (!buffer.empty() && buffer != " ") { // Changed this condition
         result.push_back(buffer);
-    }
-    if (result.size() > 1 && result[0].empty()) {
-        result.erase(result.begin());
     }
 
     return result;
