@@ -28,4 +28,3 @@ vector<int> indicesOfSubstring(string text, string target) {
         i++;
     }
     return result;
-}
