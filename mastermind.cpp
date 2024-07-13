@@ -1,8 +1,4 @@
 ```cpp
-#include <string>
-#include <iostream>
-#include <unordered_map>
-
 int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
     int white = 0;
@@ -14,30 +10,14 @@ int mastermind(const std::string& code, const std::string& guess) {
         }
     }
 
-    std::unordered_map<char, int> code_counts;
-    for (int i = 0; i < 4; ++i) {
-        code_counts[guess[i]]++;
-    }
-
     // Count correct colors (white pegs)
+    int code_counts[6] = {0};
     for (int i = 0; i < 4; ++i) {
-        if (code_counts[code[i]] == 1) {
-            white++;
-            code_counts[code[i]]--;
-        }
+        code_counts[code[i] - 'A']++;
+    }
+    for (int i = 0; i < 6; ++i) {
+        white += std::min(code_counts[i], std::count(guess.begin(), guess.end(), 'A' + i));
     }
 
     return black + white;
-}
-
-int main() {
-    std::string code, guess;
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
-    int result = mastermind(code, guess);
-    std::cout << "Black pegs: " << (result - (result > 0)) << "\n";
-    std::cout << "White pegs: " << result - (result - (result > 0)) << "\n";
-    return 0;
 }
