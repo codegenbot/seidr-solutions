@@ -1,5 +1,5 @@
-code = raw_input("Enter 4-character code (consisting of possible characters): ").strip().upper()
-guess = raw_input("Enter 4-character guess (consisting of possible characters): ").strip().upper()
+code = input("Enter 4-character code (consisting of possible characters A, B, C, D, E, F): ").strip().upper()
+guess = input("Enter 4-character guess (consisting of possible characters A, B, C, D, E, F): ").strip().upper()
 
 import collections
 
