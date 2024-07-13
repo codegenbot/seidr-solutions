@@ -1,35 +1,25 @@
-int score(string s) {
+int score(const string& s) {
     int total = 0;
     int frame = 0;
-    int rolls = 0;
-    vector<int> scores(21, 0);
-    for (char c : s) {
-        if (c == 'X') {
-            scores[rolls] = 10;
-            rolls++;
-        } else if (c == '/') {
-            scores[rolls - 1] = 10 - scores[rolls - 1];
-        } else if (c == '-') {
-            scores[rolls] = 0;
-            rolls++;
+    int throwIndex = 0;
+
+    while (frame < 10) {
+        if (s[throwIndex] == 'X') {
+            total += 10;
+            total += (s[throwIndex + 2] == 'X') ? 10 : (s[throwIndex + 2] == '/') ? 10 - s[throwIndex + 1] + 10 : s[throwIndex + 1] - '0' + s[throwIndex + 2] - '0';
+            throwIndex++;
+        } else if (s[throwIndex + 1] == '/') {
+            total += 10;
+            total += (s[throwIndex + 2] == 'X') ? 10 : s[throwIndex + 2] - '0';
+            throwIndex += 2;
         } else {
-            scores[rolls] = c - '0';
-            rolls++;
+            total += (s[throwIndex] == '-') ? 0 : s[throwIndex] - '0';
+            total += (s[throwIndex + 1] == '-') ? 0 : s[throwIndex + 1] - '0';
+            throwIndex += 2;
         }
+        frame++;
     }
-    for (int i = 0; frame < 10; i += 2) {
-        if (scores[i] == 10) {
-            total += 10 + scores[i + 1] + scores[i + 2];
-            frame++;
-        } else if (scores[i] + scores[i + 1] == 10) {
-            total += 10 + scores[i + 2];
-            i++;
-            frame++;
-        } else {
-            total += scores[i] + scores[i + 1];
-            frame++;
-        }
-    }
+
     return total;
 }
 
