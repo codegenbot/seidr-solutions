@@ -19,3 +19,4 @@ int luhn(std::string cardNumber) {
         }
     }
     return sum % 10;
+}
