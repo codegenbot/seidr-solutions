@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
 
 double calculateDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
     double sum = 0.0;
@@ -13,33 +12,19 @@ double calculateDistance(const std::vector<float>& vec1, const std::vector<float
 
 int main() {
     std::vector<float> vec1(20);
-    std::string input;
-    std::getline(std::cin, input);
-    std::istringstream iss(input);
+    std::cout << "Enter 20 values for vector 1: ";
     for (int i = 0; i < 20; ++i) {
         float val;
-        if (!(iss >> val)) {
-            std::cerr << "Invalid input format for vector 1" << std::endl;
-            return 1;
-        }
+        std::cin >> val;
         vec1[i] = val;
     }
 
     std::vector<float> vec2(20);
-    std::getline(std::cin, input);
-    std::istringstream iss2(input);
+    std::cout << "Enter 20 values for vector 2: ";
     for (int i = 0; i < 20; ++i) {
         float val;
-        if (!(iss2 >> val)) {
-            std::cerr << "Invalid input format for vector 2" << std::endl;
-            return 1;
-        }
+        std::cin >> val;
         vec2[i] = val;
-    }
-
-    if (!iss.eof() || !iss2.eof()) {
-        std::cerr << "Incorrect number of elements provided" << std::endl;
-        return 1;
     }
 
     std::cout << std::fixed << calculateDistance(vec1, vec2) << std::endl;
