@@ -19,7 +19,22 @@ std::string Strongest_Extension(const std::string& type, const std::vector<std::
 }
 
 int main() {
-    std::string type = "Sp";
-    std::vector<std::string> strong = {"671235", "Bb"};
+    std::string type;
+    std::cout << "Enter the type: ";
+    std::cin >> type;
+
+    std::vector<std::string> strong;
+    std::cout << "Enter the number of extensions (0 to finish): ";
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        std::string s;
+        std::cout << "Enter extension: ";
+        std::cin >> s;
+        strong.push_back(s);
+    }
+
     std::cout << Strongest_Extension(type, strong) << std::endl;
+
     return 0;
+}
