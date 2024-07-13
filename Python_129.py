@@ -16,4 +16,4 @@ def findMinFibonacciNumbers(k: int) -> list:
     
     return result
 
-print(findMinFibonacciNumbers(10))
+minPath = findMinFibonacciNumbers(10)
