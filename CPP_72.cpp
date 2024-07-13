@@ -6,4 +6,4 @@ bool will_it_fly(vector<int> q, int w) {
             break;
         }
     }
-    return balanced &&accumulate(q.begin(), q.end(), 0) <= w;
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
