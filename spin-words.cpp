@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int wordStart = 0; 
+int wordStart = 0; // Declare and initialize wordStart
 string spinWords(string str) {
     string result = "";
     
