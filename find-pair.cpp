@@ -1,3 +1,6 @@
+#include <vector>
+#include <unordered_map>
+
 pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, vector<int>> numMap;
     for (int i = 0; i < nums.size(); i++) {
@@ -10,4 +13,3 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         numMap[nums[i]].push_back(i);
     }
     return {-1, -1};
-}
