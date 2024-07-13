@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -5,26 +6,28 @@
 using namespace std;
 
 int main() {
-    string input;
     cout << "Enter start height: ";
-    getline(cin, input);
+    string input;
+    cin >> input;
     double startHeight = stod(input);
 
     cout << "Enter bounciness index: ";
-    getline(cin, input);
+    input.clear();  // clear the previous input
+    cin >> input;
     double bouncinessIndexInput = stod(input);
+    double firstBounce = bouncinessIndexInput;
 
     cout << "Enter number of bounces: ";
-    getline(cin, input);
+    input.clear();
+    cin >> input;
     int numBounces = stoi(input);
 
-    double firstBounce = bouncinessIndexInput;
     double bouncinessIndex = firstBounce / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        double startHeightTemp = firstBounce * pow(2, -bouncinessIndex);
-        totalDistance += startHeightTemp;
+        startHeight = firstBounce * pow(2, -bouncinessIndex);
+        totalDistance += startHeight;
         firstBounce *= bouncinessIndex;
     }
 
