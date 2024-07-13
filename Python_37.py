@@ -1,4 +1,11 @@
-Here is the completed code:
-
 def sort_even(l: list):
-    return [x if i % 2 != 0 else sorted([y for y in l if (i//2)*2==l.index(y)])[0] for i,x in enumerate(l)]
+    return [
+        (
+            x
+            if i % 2
+            else sorted([y for y in l[: len(l) // 2] + l[len(l) // 2 + 1 :] if y <= x])[
+                0
+            ]
+        )
+        for i, x in enumerate(l)
+    ]
