@@ -1,16 +1,9 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
@@ -20,7 +13,7 @@ vector<int> findIndices(string text, string target) {
         if (index == string::npos)
             break;
         result.push_back(index);
-        index += target.length(); // start searching from the next character
+        index += 1; // start searching from the next character
     }
     return result;
 }
@@ -29,9 +22,10 @@ int main() {
     int num1, num2;
     cin >> num1 >> num2;
 
-    int gcdValue = gcd(num1, num2);
+    // Calculate GCD of two numbers
+    int gcd = __gcd(num1, num2);
 
-    cout << gcdValue << endl;
+    cout << gcd << endl;
 
     string text, target;
     cin >> text >> target;
