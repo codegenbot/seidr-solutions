@@ -1,15 +1,21 @@
-```
+```cpp
+#include <string>
+
 auto spinWords(const char* str) -> std::string {
-    std::stringstream s((char*)str);
-    std::string word;
-    std::string result;
-
-    while (s >> word) {
-        if(word.length() >= 5)
+    std::vector<std::string> words;
+    
+    std::stringstream ss(str);
+    std::string word = "";
+    
+    std::string result = "";
+    
+    while (ss >> word) {
+        if(word.length() >= 5) {
             std::reverse(word.begin(), word.end());
+        }
         
-        result += (result.empty()) ? word : " " + word;
+        result += (word.empty() ? "" : " ") + word;
     }
-
+    
     return result;
 }
