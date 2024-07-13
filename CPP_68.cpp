@@ -1,20 +1,34 @@
+#include <iostream>
 #include <vector>
-#include <climits>
-using namespace std;
+#include <algorithm>
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
+
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
-    
-    int smallest = INT_MAX;
+
+    int minEven = INT_MAX;
     int index = -1;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
             index = i;
         }
     }
-    
-    result.push_back({smallest, index});
+
+    if (minEven != INT_MAX) {
+        result.push_back(minEven);
+        result.push_back(index);
+    }
+
     return result;
+}
+
+int main() {
+    std::vector<int> input;
+    // add your code here
+    return 0;
 }
