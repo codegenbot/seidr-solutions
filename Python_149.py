@@ -1,11 +1,8 @@
 def sorted_list_sum(lst):
     numbers = [
-        "".join(filter(str.isdigit, s)) for s in lst if any(c.isdigit() for c in s)
+        "".join(g).lstrip("0") or "0"
+        for _, g in groupby(map(str, filter(str.isdigit, s)), str.isdigit)
+        for s in lst
     ]
-    numbers = [int(n) for n in numbers]
-    return "".join(
-        map(
-            lambda x: str(x).zfill(len(max(map(str, numbers), key=len)))
-            for _ in range(len(numbers))
-        )
-    )
+    numbers = sorted([int(x) for x in numbers])
+    return "".join(str(i).zfill(len(max(map(str, numbers), key=len))) for i in numbers)
