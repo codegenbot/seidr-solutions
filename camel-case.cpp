@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,6 +25,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         }
     }
 
+    // Added to handle empty strings
     if (!buffer.empty()) {
         result.push_back(buffer);
     }
