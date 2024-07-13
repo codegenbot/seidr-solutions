@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
