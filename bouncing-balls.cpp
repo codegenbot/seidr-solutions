@@ -1,10 +1,6 @@
 ```cpp
 #include <iostream>
-#include <iomanip>; 
 using namespace std;
-
-using std::fixed;
-using std::setprecision;
 
 int main() {
     double startHeight, firstBounce;
@@ -27,8 +23,8 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    cout << fixed << setprecision(10);
-    cout << totalDistance << endl;
+    std::cout << std::fixed << std::setprecision(10);
+    std::cout << totalDistance << endl;
 
     return 0;
 }
