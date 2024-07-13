@@ -17,30 +17,17 @@ bool solveBoolean(string s) {
             i++;
             continue;
         }
-        if (s[i] == '(') {
+        if (s[i] == 'T' && s[i+1] == '&') {
+            i += 2;
+            while(i < s.length() && s[i] != '|') i++;
+            if(i >= s.length()) return false;
             i++;
-            bool temp = solveBoolean(s.substr(i));
-            i += s.find(')');
-            if (!temp) return false;
-        } else if (s[i] == ')') i++;
-        else {
-            int j = i + 1;
-            while (j < s.length() && s[j] != 'T' && s[j] != 'F' && s[j] != '&' && s[j] != '|')
-                j++;
-            string temp = s.substr(i, j - i);
-            if (temp == "T") {
-                res = true;
-                i = j;
-            } else if (temp == "F") {
-                res = false;
-                i = j;
-            } else if (temp[0] == '&') {
-                res &= solveBoolean(temp.substr(1));
-                i = j;
-            } else if (temp[0] == '|') {
-                res |= solveBoolean(temp.substr(1));
-                i = j;
-            }
+        }
+        else if (s[i] == 'F' && s[i+1] == '|') {
+            i += 2;
+            while(i < s.length() && s[i] != '&') i++;
+            if(i >= s.length()) return true;
+            i++;
         }
     }
     return res;
