@@ -1,11 +1,11 @@
-#include <cstring>
 #include <iostream>
+#include <string>
 
-int pairedDigits(const char* s) {
+int pairedDigits(const std::string& s) {
     int sum = 0;
-    for (int i = 0; i < strlen(s); ) {
-        if (i + 1 < strlen(s) && (int)s[i] == (int)s[i + 1]) {
-            sum += ((int)s[i] - 48) * 2;
+    for (int i = 0; i < s.length() - 1; ) {
+        if ((int)s[i] == (int)s[i + 1]) {
+            sum += (int)s[i] - 48 * 2;
             i += 2; 
         } else {
             sum += (int)s[i] - 48;
@@ -16,7 +16,7 @@ int pairedDigits(const char* s) {
 }
 
 int main() {
-    const char* s = "123455"; 
+    std::string s = "123455"; 
     int result = pairedDigits(s);
     std::cout << "Sum of the digits whose following digit is the same: " << result << std::endl;
     return 0;
