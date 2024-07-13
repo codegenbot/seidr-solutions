@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
-#include <cctype>
 
 int main() {
     char text[100], target[100];
     std::cin.getline(text, 100);
-    std::cin.getline(target, 100);
+    std::cin >> target;
 
     std::vector<int> indices;
     int textLen = strlen(text);
@@ -15,7 +14,7 @@ int main() {
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (tolower(text[i + j]) != tolower(target[j])) {
+            if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
