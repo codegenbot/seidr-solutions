@@ -3,17 +3,26 @@
 #include <string>
 
 std::string camelCase(const std::string& str) {
-    std::string result = "";
-    for (const auto& c : str) {
+    std::string result;
+    bool first = true;
+
+    for (char c : str) {
         if (c == '-') {
-            result.clear();
-        } else if (!result.empty() && !std::isalpha(c)) {
-            result[0] = std::toupper(result[0]);
-            result += c;
+            first = true;
+        } else if (!first) {
+            if (!std::isalpha(c)) {
+                if (!result.empty()) {
+                    result[0] = toupper(result[0]);
+                }
+                result += tolower(c);
+            } else {
+                result += c;
+            }
         } else {
             result += tolower(c);
         }
     }
+
     return result;
 }
 
