@@ -6,4 +6,4 @@ def make_palindrome(string: str) -> str:
         for i in range(len(string)):
             new_string += string[i]
             new_string += string[len(string) - i - 1]
-        return new_string + "".join(reversed(string))
+        return new_string
