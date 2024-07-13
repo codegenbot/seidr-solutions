@@ -5,18 +5,13 @@ def bowling_score(game):
     for i in range(0, len(game), 2):
         if game[i] == "X":
             score += 10
-            if i < len(game) - 1 and game[i + 1].isdigit():
-                score += int(game[i + 1])
         elif game[i] == "-":
-            first_roll = int(game[i+1]) if game[i+1].isdigit() else 0
-            second_roll = int(game[i+2]) if i+2 < len(game) and game[i+2].isdigit() else 0
-            score += first_roll + second_roll
+            frame_score = sum(int(x) for x in reversed([c for c in game[i:i+3][::-1] if c.isdigit()]))
+            if frame_score < 10:
+                score += int(game[i + 2]) if i + 2 < len(game) and game[i + 2].isdigit() else 0
         else:
             first_roll = int(game[i]) if game[i].isdigit() else 0
-            if i < len(game) - 1 and game[i + 1].isdigit():
-                second_roll = int(game[i + 1])
-            else:
-                second_roll = 0
+            second_roll = int(game[i + 1]) if i + 1 < len(game) and game[i + 1].isdigit() else 0
             rolls.extend([first_roll, second_roll])
             score += sum(rolls[-2:])
 
