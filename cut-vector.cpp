@@ -1,25 +1,37 @@
 #include <vector>
 #include <iostream>
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    long long sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += v[i];
-    }
-    
-    long long leftSum = 0, rightSum = sum;
-    for (int i = 0; i < n; i++) {
-        if (leftSum <= rightSum - leftSum) {
-            res[0] = vector<int>(v.begin(), v.begin() + i + 1);
-            res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
+        long long leftSum = 0;
+        
+        for (int j = 0; j <= i; j++) {
+            leftSum += v[j];
         }
-        leftSum += v[i];
-        rightSum -= v[i];
+        
+        long long rightSum = 0;
+        for (int k = i + 1; k < n; k++) {
+            rightSum += v[k];
+        }
+        
+        int minDiff = INT_MAX;
+        while (leftSum <= rightSum && i < n) {
+            leftSum += v[i + 1];
+            rightSum -= v[i + 1];
+            int newDiff = abs(leftSum - rightSum);
+            
+            if(newDiff <= minDiff) {
+                minDiff = newDiff;
+                res[0] = vector<int>(v.begin(), v.begin() + i + 1);
+                res[1] = vector<int>(v.begin() + i, v.end());
+            }
+            i++;
+        }
     }
     
     return res;
