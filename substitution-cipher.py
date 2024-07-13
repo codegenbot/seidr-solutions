@@ -1,21 +1,20 @@
 ```
-def substitution_cipher(cipher1, cipher2, message):
-    cipher_map = cipher1 + cipher2
+def substitution_cipher(cipher_map, message):
     result = ""
     for char in message:
         if char.isalpha():
             index = ord(char.lower()) - 97
             result += (
-                cipher_map[index % len(cipher_map)].lower()
+                cipher_map[index].lower()
                 if char.islower()
-                else cipher_map[index % len(cipher_map)].upper()
+                else cipher_map[index].upper()
             )
         else:
             result += char
     return result
 
-cipher_map1 = input().strip()
-cipher_map2 = input().strip()
-message = input().strip()
 
-print(substitution_cipher(cipher_map1, cipher_map2, message))
+char1, char2 = zip(*[list(input().strip()), list(input().strip())])
+cipher_map = ''.join(''.join(map(str, x)) for x in [char1, char2])
+
+print(substitution_cipher(cipher_map, input().strip()))
