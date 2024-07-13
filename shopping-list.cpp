@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -18,8 +17,8 @@ int main() {
         total_price += prices[i] * (1 - discounts[i]/100.0);
     }
 
-    std::cout << std::fixed << std::setprecision(2) 
-              << "Total price after discount: $" << total_price << std::endl;
+    std::cout << "Total price after discount: $" 
+              << std::fixed << std::setiosflags(std::ios_base::fixed) << std::setprecision(2) << total_price << std::endl;
 
     return 0;
 }
