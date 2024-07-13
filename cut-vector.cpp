@@ -2,62 +2,40 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for (int i = 1; i <= v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        if (i < v.size()) {
-            for (int j = 0; j < i; j++) {
-                left_sum += v[j];
-            }
-            for (int j = i; j < v.size(); j++) {
-                right_sum += v[j];
-            }
-        } else {
-            left_sum = accumulate(v.begin(), v.end(), 0);
-            right_sum = 0;
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    vector<int> left, right;
+    vector<int> left = {v[0]};
+    vector<int> right = v;
+    right.erase(right.begin() + splitIndex);
     
-    for (int i = 0; i < cut_index; i++) {
-        left.push_back(v[i]);
-    }
-    
-    for (int i = cut_index; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-    
-    return {left, right};
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
+    vector<int> v(n+1);
+    for (int i = 1; i <= n; i++) {
         cin >> v[i];
     }
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left: ";
-    for (int x : result.first) {
-        cout << x << " ";
+    cout << "[";
+    for (int num : result.first) {
+        cout << num << " ";
     }
-    cout << endl;
-    cout << "Right: ";
-    for (int x : result.second) {
-        cout << x << " ";
+    cout << "] [";
+    for (int num : result.second) {
+        cout << num << " ";
     }
-    cout << endl;
+    cout << "]" << endl;
     return 0;
 }
