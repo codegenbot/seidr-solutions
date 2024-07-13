@@ -1,22 +1,22 @@
-if (a.type() == boost::any::type::void_) {
-    if (b.type() == boost::any::type::void_) return "None";
-    a = b;
-} else if (b.type() == boost::any::type::void_) return boost::any_cast<boost::any>(a);
-boost::any max;
-if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) max = a;
-else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) max = b;
-else {
-    int a_int = boost::any_cast<int>(a);
-    float a_float = boost::any_cast<float>(a);
-    string a_str = boost::any_cast<string>(a);
-    
-    if (a_int > boost::any_cast<int>(b) && a_int > boost::any_cast<float>(b) && a_int > stof(to_string(boost::any_cast<string>(b))))
-        max = a;
-    else if (a_float > boost::any_cast<int>(b) && a_float > boost::any_cast<float>(b) && a_float > stof(to_string(boost::any_cast<string>(b))))
-        max = a;
-    else if (stof(to_string(a_str)) > boost::any_cast<int>(b) && stof(to_string(a_str)) > boost::any_cast<float>(b) && stof(to_string(a_str)) > boost::any_cast<float>(b))
-        max = a;
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    return boost::any((*(int*)(&a) > *(int*)(&b)) ? &a : &b);
+} else if ((a.type() == typeid(float) || a.type() == typeid(double) ||
+            a.type() == typeid(long double) || a.type() == typeid(string)) &&
+           (b.type() == typeid(float) || b.type() == typeid(double) ||
+            b.type() == typeid(long double))) {
+    if (*(float*)&a > *(float*)&b)
+        return &a;
+    else if (*((float*)&a) < *((float*)&b))
+        return &b;
     else
-        max = b;
+        return boost::any("None");
+} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    if (*((string*)&a) > *((string*)&b))
+        return &a;
+    else if (*((string*)&a) < *((string*)&b))
+        return &b;
+    else
+        return boost::any("None");
+} else {
+    return boost::any("None");
 }
-return max;
