@@ -1,63 +1,33 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
-    stack<string> operandStack;
+bool solveBoolean(string expression) {
+    stack<char> ops;
+    bool result = false;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&' || expression[i] == '|') {
-            while (!operatorStack.empty() && operatorStack.top() != '(') {
-                char op = operatorStack.top();
-                operatorStack.pop();
-                string rightOperand = operandStack.top();
-                operandStack.pop();
-                string leftOperand = "";
-                if (!operandStack.empty()) {
-                    leftOperand = operandStack.top();
-                    operandStack.pop();
-                }
-                if (op == '&') {
-                    operandStack.push(to_string((leftOperand == "True" && rightOperand == "True") ? "True" : "False"));
-                } else {
-                    operandStack.push(to_string((leftOperand == "True" || rightOperand == "True") ? "True" : "False"));
-                }
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == 'T') {
+            result = true;
+        } else if (expression[i] == 'F') {
+            result = false;
+        } else if (expression[i] == '&') {
+            while (!ops.empty() && ops.top() == '&') {
+                ops.pop();
             }
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == '(') {
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == ')') {
-            while (!operatorStack.empty() && operatorStack.top() != '&') {
-                char op = operatorStack.top();
-                operatorStack.pop();
-                string rightOperand = operandStack.top();
-                operandStack.pop();
-                string leftOperand = "";
-                if (!operandStack.empty()) {
-                    leftOperand = operandStack.top();
-                    operandStack.pop();
-                }
-                if (op == '|') {
-                    operandStack.push(to_string((leftOperand == "True" || rightOperand == "True") ? "True" : "False"));
-                } else {
-                    operandStack.push(to_string((leftOperand == "True" && rightOperand == "True") ? "True" : "False"));
-                }
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            while (!ops.empty() && ops.top() == '&') {
+                ops.pop();
             }
-            operatorStack.pop();
-        } else {
-            string operand = "";
-            while (i < expression.length() && expression[i] != '&' && expression[i] != '|') {
-                operand += expression[i];
-                i++;
-            }
-            if (operand == "t") {
-                operandStack.push("True");
-            } else if (operand == "f") {
-                operandStack.push("False");
-            }
+            ops.push('|');
         }
     }
 
-    return operandStack.top() == "True";
+    while (!ops.empty()) {
+        char op = ops.top(); ops.pop();
+        bool b1 = result;
+        result = (op == '&') ? (b1 && false) : (b1 || false);
+    }
+
+    return result;
 }
