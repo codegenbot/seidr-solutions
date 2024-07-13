@@ -1,3 +1,12 @@
+```
+def car_race_collision(n):
+    if n < 3:
+        return "No collision"
+    elif n % 3 == 0:
+        return f"Collision at {n//3}th lap"
+    else:
+        return f"No collision, last safe lap was at {n-1}"
+
 while True:
     try:
         num = input("Enter a number (or 'q' to quit): ")
