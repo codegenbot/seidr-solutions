@@ -1,6 +1,7 @@
-#include <string>
-#include <cctype>
+#include <iostream>
 #include <sstream>
+#include <cctype>
+#include <string>
 
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
@@ -18,8 +19,8 @@ std::string camelCase(const std::string& input) {
             result = tolower(word);
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
-        if (iss >> word) {
-            result += ' ';
+        if (!word.empty() && iss >> word) {
+            result += word.insert(0, " ");
         }
     }
     
