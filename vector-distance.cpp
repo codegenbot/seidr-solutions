@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
 using namespace std;
 
@@ -10,7 +9,7 @@ double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     for (int i = 0; i < v1.size(); ++i) {
         sum += pow(v1[i] - v2[i], 2);
     }
-    return std::hypot(0.0, sqrt(sum));
+    return std::sqrt(sum);
 }
 
 int main() {
