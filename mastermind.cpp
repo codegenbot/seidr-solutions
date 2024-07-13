@@ -1,23 +1,39 @@
 int whitePegs(string code, string guess) {
-    int correct = 0;
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            correct++;
+            count++;
         }
     }
-    return 4 - correct;
+    // count the correct colors but wrong position
+    int codeOnly = 0, guessOnly = 0;
+    map<char, bool> codeMap;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i]) {
+            codeMap[code[i]] = true;
+            guessOnly++;
+        }
+    }
+    count -= codeOnly + guessOnly;
+    return count;
 }
 
 int blackPegs(string code, string guess) {
+    int count = 0;
     map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; ++i) {
-        codeMap[code[i]]++;
-        guessMap[guess[i]]++;
-    }
-    int black = 0;
-    for (int i = 0; i < 6; ++i) {
-        if (codeMap.count((char)(i + 'A')) && guessMap[(char)(i + 'A')] == 1) {
-            black++;
+        if (code[i] == guess[i]) {
+            count++;
+        } else {
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
         }
     }
-    return black;
+    // count the correct colors and positions
+    for (auto& pair : codeMap) {
+        if (pair.second == 1 && guessMap.count(pair.first)) {
+            count++;
+        }
+    }
+    return count;
+}
