@@ -13,22 +13,24 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeMap;
+    int blackPegs = 0;
+    map<char, int> codeMap, guessMap;
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            if (--codeMap[code[i]] == 0 && --guessMap[guess[i]] == 0) {
+                blackPegs++;
+            } else {
+                codeMap[code[i]]++;
+                guessMap[guess[i]]++;
+            }
         } else {
             codeMap[code[i]]++;
-            codeMap[guess[i]]++;
+            guessMap[guess[i]]++;
         }
     }
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
-            count++;
-        }
-    }
-    return count;
+
+    return blackPegs;
 }
 
 int main() {
