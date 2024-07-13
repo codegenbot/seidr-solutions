@@ -3,24 +3,23 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <numeric>
 
 std::string spinWords(const std::string& input) {
     std::vector<std::string> words;
-    std::istringstream ss(input);
+    std::stringstream ss(input);
     std::string word;
 
     while (ss >> word) {
         if (word.length() >= 5) {
-            std::reverse(word.rbegin(), word.rend());
+            std::reverse(word.begin(), word.end());
         }
         words.push_back(word);
     }
 
-    std::stringstream result;
-    for (const auto& w : words) {
-        result << w << " ";
-    }
-    return result.str();
+    return std::accumulate(words.begin(), words.end(),
+                             std::string{},
+                             [](const std::string& a, const std::string& b) { return a + " " + b; });
 }
 
 int main() {
