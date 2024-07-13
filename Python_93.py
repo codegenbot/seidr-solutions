@@ -1,16 +1,4 @@
-```
-def shift_encode(message):
-    """
-    This function shifts each letter in the input message by two positions in the alphabet.
-    If the character is not a letter (i.e., it's a digit, punctuation mark, or whitespace), 
-    it leaves the character unchanged.
-
-    Parameters:
-    message (str): The input string to be encoded.
-
-    Returns:
-    str: The encoded string with each letter shifted by two positions in the alphabet.
-    """
+def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
