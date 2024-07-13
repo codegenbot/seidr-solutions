@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 #include <vector>
@@ -42,17 +42,13 @@ std::string camelCase(const std::string& str) {
     std::string result;
 
     for (int i = 0; i < segments.size(); i++) {
-        if (!result.empty()) {
+        if (i > 0) { 
             result += toupper(segments[i][0]);
-        } else {
+        } else { 
             result = segments[i];
         }
         if (i < segments.size() - 1) {
-            if (segments[i].size() > 1) {
-                result += segments[i].substr(1);
-            } else {
-                result += segments[i + 1].substr(0, 1);
-            }
+            result += segments[i].substr(1);
         }
     }
 
