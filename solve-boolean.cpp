@@ -1,32 +1,30 @@
-```cpp
 #include <iostream>
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    bool result = true;
-    int i = 0;
+    bool res = false;
+    std::stack<bool> s;
 
-    while (i < expression.length()) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == 'T') {
-            result = true;
-            i++;
+            res = true;
         } else if (expression[i] == 'F') {
-            result = false;
-            i++;
+            res = false;
         } else if (expression[i] == '|') {
-            if (!result) return false;
-            i++;
+            if (s.empty() || s.top()) {
+                res = true;
+                s.pop();
+            }
         } else if (expression[i] == '&') {
-            result = true;
-            i++;
+            s.push(res);
         }
     }
 
-    return result;
+    return res;
 }
 
 int main() {
-    std::cout << solveBoolean("T&F|F") << std::endl;
+    std::cout << solveBoolean("TF&|F") << std::endl;
     return 0;
 }
