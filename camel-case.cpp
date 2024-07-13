@@ -10,21 +10,16 @@ std::string camelCase(const std::string& input) {
     std::string word;
     std::string result;
 
-    bool isFirstWord = true;
-
     while (iss >> word) { 
-        if (!isFirstWord)
-            result += towupper(word[0]);
+        if (!result.empty())
+            result += toupper(word[0]);
         else
-            result += tolower(word[0]);
-
+            result = tolower(word);
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
-        
-        if (isFirstWord)
-            isFirstWord = false;
-        else
-            result += " ";
+        if (iss >> word && !word.empty()) {
+            result += word;
+        }
     }
     
     return result;
