@@ -12,7 +12,7 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
     }
@@ -29,10 +29,10 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     
-    vector<int> result = mastermind(code, guess);
+    int result = mastermind(code, guess);
     
-    cout << "Black pegs: " << result[0] << endl;
-    cout << "White pegs: " << result[1] << endl;
+    cout << "Black pegs: " << (result - white) << endl;
+    cout << "White pegs: " << result - black << endl;
     
     return 0;
 }
