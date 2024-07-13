@@ -1,16 +1,19 @@
 ```
+lst = input("Enter a string of parentheses: ").split()
 def match_parens(lst):
-    s1, s2 = lst
-    stack = []
-    for char in s1 + s2:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            if len(stack) > 0 and stack.pop() == '(':
-                continue
-            else:
-                return 'No'
-    if len(stack) == 0:
-        return 'Yes'
-    else:
+    open_count = 0
+    close_count = 0
+    
+    for s in lst:
+        if s == '(':
+            open_count += 1
+        elif s == ')':
+            close_count += 1
+            
+        if close_count > open_count:
+            return 'No'
+    
+    if close_count != open_count:
         return 'No'
+    
+    return 'Yes'
