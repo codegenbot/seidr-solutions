@@ -1,14 +1,12 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
+    std::string cipher1, cipher2, text;
+    std::cin >> cipher1 >> cipher2 >> text;
     
-    for (char &c : message) {
-        for (int i = 0; i < cipher1.size(); ++i) {
+    for (char &c : text) {
+        for (size_t i = 0; i < cipher1.size(); ++i) {
             if (c == cipher1[i]) {
                 c = cipher2[i];
                 break;
@@ -16,7 +14,7 @@ int main() {
         }
     }
     
-    cout << message << endl;
+    std::cout << text << std::endl;
     
     return 0;
 }
