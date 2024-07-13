@@ -1,17 +1,17 @@
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 int main() {
-    double startHeight, firstBounceHeight;
-    cin >> startHeight >> firstBounceHeight;
-    
-    double bouncinessIndex = firstBounceHeight / startHeight;
-    
+    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
+
+    std::cin >> startingHeight >> firstBounceHeight;
+    bouncinessIndex = firstBounceHeight / startingHeight;
+
     int numBounces;
-    cin >> numBounces;
-    
-    double totalDistance = 0.5 * (1 - pow(2, -bouncinessIndex)) * (startHeight + firstBounceHeight) * numBounces;
-    
-    cout << fixed << setprecision(5) << totalDistance << endl;
+    std::cin >> numBounces;
+
+    totalDistance = (1 + 2 * bouncinessIndex) * (1 - pow(bouncinessIndex, 2)) * numBounces;
+
+    std::cout << std::fixed << std::setiosflags(std::ios::floatfield, std::ios::fixed) << std::setprecision(5) << totalDistance << "\n";
     return 0;
 }
