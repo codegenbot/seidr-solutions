@@ -29,3 +29,4 @@ auto spinWords(std::string str) -> std::string {
     }
     
     return result;
+}
