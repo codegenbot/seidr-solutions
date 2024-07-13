@@ -1,4 +1,3 @@
-```
 import re
 
 
@@ -16,4 +15,6 @@ def fix_spaces():
                 new_text = new_text.replace("--", "-")
             while "_-_" in new_text or "_--" in new_text:
                 new_text = new_text.replace("_--", "_-").replace("_-_", "_-")
-            print(f"{new_text.upper() if re.match("^[a-zA-Z_]+$", new_text) else new_text.capitalize()}")
+            print(
+                f"{new_text.upper() if re.match("^[a-zA-Z_]+$", new_text) else new_text.capitalize()}"
+            )
