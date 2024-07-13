@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -6,42 +7,31 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
-    for (int i = n - 1; i >= 0; i--) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    int maxRight = arr[n - 1];
+    leaders.push_back(maxRight);
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= maxRight) {
+            maxRight = arr[i];
+            leaders.push_back(maxRight);
         }
-        if (leader) leaders.push_back(arr[i]);
     }
+    reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
 int main() {
-    vector<int> arr;
-    int num;
-    
-    cout << "Enter the numbers (enter -1 to stop):" << endl;
-    
-    while (true) {
-        cin >> num;
-        if (num == -1) break;
-        arr.push_back(num);
+    int n, temp;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> arr[i];
     }
-    
-    vector<int> leadersArr = leaders(arr);
-    
-    if (!leadersArr.empty()) {
-        cout << "Leaders: ";
-        for (int leader : leadersArr) {
-            cout << leader << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "No leaders found." << endl;
+    vector<int> leadersVector = leaders(arr);
+    cout << "The leaders are: ";
+    for (int i = 0; i < leadersVector.size(); i++) {
+        cout << leadersVector[i] << " ";
     }
-    
     return 0;
 }
