@@ -1,10 +1,9 @@
-```
 from typing import List, Optional
 
 
 def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
     max_len = 0
-    result = []
+    result = None
     for s in strings:
         if s is not None and isinstance(s, str):
             if len(s) > max_len:
@@ -27,4 +26,7 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest(strings))
+if not result:
+    print("No strings were entered.")
+else:
+    print(result)
