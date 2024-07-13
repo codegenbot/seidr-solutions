@@ -1,3 +1,4 @@
+```
 def mean_absolute_deviation():
     while True:
         input_str = input("Enter some numbers (space-separated): ")
@@ -21,7 +22,4 @@ def mean_absolute_deviation():
         if response != "yes":
             break
 
-    while True:
-        response = input("Do you want to calculate again? (yes/no): ").lower()
-        if response != "yes":
-            mean_absolute_deviation = None 
+    mean_absolute_deviation()
