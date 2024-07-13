@@ -1,3 +1,4 @@
+```python
 def findMinFibonacciNumbers(k: int) -> list:
     fib = [0, 1]
     while True:
