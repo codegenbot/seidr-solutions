@@ -6,6 +6,6 @@ def encode(message):
             idx = vowels.index(char)
             new_char = vowels[(idx + 2) % len(vowels)] if char.islower() else vowels[(idx + 2) % len(vowels)].upper()
         else:
-            new_char = char.swapcase()
+            new_char = chr(ord(char) ^ 0x20)
         result += new_char
     return result
