@@ -1,3 +1,5 @@
+Here is the modified code:
+
 #include <cassert>
 #include <vector>
 #include <string>
@@ -21,4 +23,3 @@ int main() {
     std::vector<std::string> strong = {"671235", "Bb"};
     std::cout << Strongest_Extension(type, strong) << std::endl;
     return 0;
-}
