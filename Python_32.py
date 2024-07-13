@@ -1,7 +1,12 @@
+```
 def find_zero(coefficients):
     a = coefficients[0]
     b = coefficients[1]
     c = coefficients[2]
+
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return "This equation has no real solution."
 
     zero = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
 
