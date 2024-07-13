@@ -1,9 +1,8 @@
-```
 def has_close_elements():
     numbers = input("Enter space-separated floating point numbers: ")
     threshold = float(input("Enter a threshold value: "))
 
-    if not numbers:
+    if not numbers or len(numbers.split()) == 0:
         print("Invalid input. Please enter valid space-separated floating point numbers.")
         return False
 
@@ -24,3 +23,5 @@ def has_close_elements():
             return False
         else:
             raise e
+
+print(has_close_elements())
