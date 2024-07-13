@@ -1,43 +1,26 @@
-```cpp
-int bowlingScore(const std::string& input) {
+int bowlingScore(std::string s) {
     int score = 0;
-    int currentRoll = 0;
-    int frame = 1;
-
-    for (char c : input) {
+    std::string frame;
+    for (char c : s) {
+        if (c == '/') {
+            frame += '/';
+            continue;
+        }
+        frame += c;
         if (c == 'X') {
-            score += 10 + (currentRoll > 0 ? currentRoll : 10);
-            currentRoll = 0;
-            frame++;
-        } else if (c == '/') {
-            score += 10 - currentRoll;
-            currentRoll = 0;
-            frame++;
-        } else if (c >= '0' && c <= '9') {
-            int roll = c - '0';
-            if (currentRoll > 0) {
-                score += roll;
-            } else {
-                currentRoll = roll;
-            }
-        } else if (c == '-') {
-            currentRoll = 0;
-            frame++;
-        } else if (c == 'T') {
-            int roll = 10;
-            while (roll-- > 0) {
-                c = input[input.find('/') + 1];
-                if (c >= '0' && c <= '9') {
-                    roll -= c - '0';
-                } else if (c == '/') {
-                    break;
-                }
-            }
             score += 10;
-            frame++;
+        } else if (c == '-') {
+            score += 10 - (frame.length() - 1);
+        } else if (isdigit(c)) {
+            int points = 0;
+            for (; isdigit(s.find(c) + 1); s.erase(s.find(c) + 1, 1)) {
+                points = points * 10 + (s[s.find(c) + 1] - '0');
+            }
+            score += points;
+        } else if (c == 'T') {
+            score += 10 + (s[s.find(c) + 1] - '0' + s[s.find(c) + 2] - '0');
         }
     }
-
     return score;
 }
 
