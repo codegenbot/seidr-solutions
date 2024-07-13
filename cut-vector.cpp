@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -28,8 +27,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v = {1, 2, 3, 4, 5};
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(v);
-    // process the result...
+    std::vector<int> inputVector = {1, 2, 3, 4, 5}; 
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(inputVector);
     return 0;
 }
