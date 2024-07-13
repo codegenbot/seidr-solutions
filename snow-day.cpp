@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <iomanip>
 
 int main() {
     int hours;
@@ -16,7 +15,7 @@ int main() {
         snow_on_ground = std::max(0.0, snow_on_ground);
     }
 
-    std::cout << std::fixed << std::setprecision(15) << snow_on_ground; // Set precision to required decimal places
+    std::cout << snow_on_ground;
     
     return 0;
 }
