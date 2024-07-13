@@ -1,4 +1,9 @@
-string intToMiniRoman(int n) {
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+std::string intToMiniRoman(int n) {
     if (n <= 0)
         return "";
     else if (n >= 1000) {
@@ -14,7 +19,7 @@ string intToMiniRoman(int n) {
         return "CD" + intToMiniRoman(n - 400);
     } 
     else if (n >= 100) {
-        string roman = "";
+        std::string roman = "";
         while (n >= 100) {
             roman += "C";
             n -= 100;
@@ -47,12 +52,12 @@ string intToMiniRoman(int n) {
             roman += "I";
             n--;
         }
-        return roman; // Return by value
+        return roman;
     } else if (n >= 4) {
         return "IV";
     } 
     else if (n >= 1) {
-        string roman = ""; // Return by value
+        std::string roman = "";
         for (int i = 0; i < n; i++) {
             roman += "I";
         }
