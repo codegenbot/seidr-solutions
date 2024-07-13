@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -6,14 +7,23 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     for (char c : s) {
         if (c == '/') {
-            score += max(1, currentRoll);
+            if (currentRoll >= 10) {
+                score += 10 + max(1, currentRoll - 10);
+            } else {
+                score += currentRoll;
+            }
             currentRoll = 0;
         } else if (isdigit(c)) {
-            currentRoll *= 10 + (c - '0');
+            currentRoll *= 10;
+            currentRoll += c - '0';
         }
     }
     if (currentRoll > 0) {
-        score += max(1, currentRoll);
+        if (currentRoll >= 10) {
+            score += 10;
+        } else {
+            score += currentRoll;
+        }
     }
     return score;
 }
