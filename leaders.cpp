@@ -20,12 +20,8 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (std::cin >> num || !std::cin.eof() || !std::cin.fail()) {
         nums.push_back(num);
-        char c = std::cin.get();
-        if (c == '\n') {
-            break;
-        }
     }
 
     if (nums.empty()) {
