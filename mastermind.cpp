@@ -1,5 +1,4 @@
 #include <string>
-#include <map>
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -11,8 +10,8 @@ int mastermind(string code, string guess) {
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) black++;
-        else if (codeCount[guess[i]] > 0) white++;
+        else if (guessCount[code[i]] > 0) white++;
     }
 
-    return max(0, white - black);
+    return black;
 }
