@@ -11,7 +11,7 @@ string spinWords(string str) {
 
     for (int i = 0; i <= str.length() - 1; i++) {
         if (str[i] == ' ') {
-            result += str.substr(i - (i - wordLength + 1) + 1, i - wordLength + 1) + " ";
+            result += str.substr(i - wordLength + 1, i - i + 1) + " ";
             wordLength = 0;
         } else {
             wordLength++;
