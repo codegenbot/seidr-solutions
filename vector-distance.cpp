@@ -2,22 +2,23 @@
 #include <vector>
 #include <cmath>
 
-double calculateDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
-    double sum = 0.0;
+long double calculateDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
+    long double sum = 0.0;
     for (size_t i = 0; i < vec1.size(); ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        sum = std::fma(vec1[i] - vec2[i], vec1[i] - vec2[i], sum);
     }
     return std::sqrt(sum);
 }
 
 int main() {
-    int n = 20;
+    int n;
+    std::cin >> n;
 
-    std::vector<float> vec1(n);
+    std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i)
         std::cin >> vec1[i];
 
-    std::vector<float> vec2(n);
+    std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i)
         std::cin >> vec2[i];
 
