@@ -3,12 +3,12 @@
 
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
+vector<int> findIndices(std::string text, std::string target) {
     vector<int> indices;
     int start = 0;
     while (start + target.length() <= text.length()) {
         size_t pos = text.find(target, start);
-        if (pos != std::string::npos) {
+        if (pos != string::npos) {
             indices.push_back(pos);
             start = pos + 1;
         } else {
