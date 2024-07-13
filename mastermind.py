@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     white = 0
     black = 0
@@ -15,4 +16,4 @@ def mastermind(code, guess):
             white += 1
             code_chars.remove(char)
 
-    return str(white) + "\n" + str(black)
+    return str(white) + " " + str(black)
