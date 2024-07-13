@@ -1,3 +1,5 @@
+#include <string>
+
 int pairedDigits(std::string s) {
     int sum = 0;
     size_t i; 
@@ -7,4 +9,3 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
-}

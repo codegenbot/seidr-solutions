@@ -16,4 +16,4 @@ int luhn(const std::vector<int>& cardNumber) {
         }
         alternate = !alternate; 
     }
-    return sum % 10; }
+    return sum % 10;
