@@ -1,33 +1,45 @@
-int score(string s) {
-    int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (frame < 9) {
-                total += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
-                total += (s[i + 2] == 'X') ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
+int score(string frames) {
+    int totalScore = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> scores;
+    for (char c : frames) {
+        if (c == 'X') {
+            scores.push_back(10);
+            if (frame < 10) {
+                scores.push_back(0);
             }
-            frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (isdigit(s[i - 1]) ? s[i - 1] - '0' : 0);
-            total += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
-            frame++;
-        } else if (isdigit(s[i])) {
-            total += s[i] - '0';
-            if (isdigit(s[i + 1])) {
-                total += s[i + 1] - '0';
-                i++;
-            }
-            frame++;
+        } else if (c == '/') {
+            scores.push_back(10 - scores.back());
+        } else if (c == '-') {
+            scores.push_back(0);
+        } else {
+            scores.push_back(c - '0');
         }
     }
-    return total;
+    for (int i = 0; i < scores.size(); ++i) {
+        totalScore += scores[i];
+        if (frame < 10 && (scores[i] == 10 || ball == 1)) {
+            totalScore += scores[i+1];
+            if (scores[i] == 10 && scores[i+2] != 10) {
+                totalScore += scores[i+2];
+            }
+            if (scores[i] == 10) {
+                ball = 0;
+            } else {
+                ball = 1;
+            }
+            frame++;
+        } else {
+            ball = (ball + 1) % 2;
+        }
+    }
+    return totalScore;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string frames;
+    cin >> frames;
+    cout << score(frames) << endl;
     return 0;
 }
