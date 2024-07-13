@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -19,16 +20,19 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 
 int main() {
     std::vector<int> nums;
-    std::string line;
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
     int num;
-    while (iss >> num) {
-        nums.push_back(num);
+    while (std::cin >> num) {
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter a valid integer." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        } else {
+            nums.push_back(num);
+        }
     }
 
-    if (nums.empty()) {
-        std::cout << "No numbers entered." << std::endl;
+    if (nums.size() == 0) {
+        std::cout << "Please provide at least one number." << std::endl;
         return 1;
     }
 
