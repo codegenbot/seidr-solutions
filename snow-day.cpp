@@ -1,10 +1,10 @@
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
 
 int main() {
     int hours;
-    float snow_on_ground, snow_fall_rate, snow_melt_rate;
-    double snow_added, snow_melted;
+    double snow_on_ground, snow_fall_rate, snow_melt_rate, snow_added, snow_melted;
 
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
@@ -13,10 +13,10 @@ int main() {
         snow_melted = snow_on_ground * snow_melt_rate;
         
         snow_on_ground = (snow_on_ground + snow_added - snow_melted);
-        snow_on_ground = std::max(0.0f, snow_on_ground);
+        snow_on_ground = std::max(0.0, snow_on_ground);
     }
 
-    std::cout << snow_on_ground;
+    std::cout << std::fixed << std::setprecision(15) << snow_on_ground; // Set precision to required decimal places
     
     return 0;
 }
