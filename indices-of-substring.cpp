@@ -11,7 +11,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m; // Reset i here
+            i += m; // Reset i to the next possible position
         } else {
             i++; 
         }
