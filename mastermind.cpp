@@ -6,16 +6,18 @@ int mastermind(std::string code, std::string guess) {
         if(code[i] == guess[i]) {
             black++;
         }
-        else {
-            bool found = false;
-            for(int j=0; j<4; j++) {
-                if(code[j] == guess[i] && !found) {
-                    found = true;
-                }
-                else if(code[j] == guess[i] && found) {
-                    white++;
-                }
+    }
+
+    // Calculate white pegs
+    for(char c : guess) {
+        auto it = code.begin();
+        while(it != code.end()) {
+            if(*it++ == c) {
+                break;
             }
+        }
+        if(it == code.end()) {
+            white++;
         }
     }
 
