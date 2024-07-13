@@ -16,17 +16,35 @@ int bowlingScore(const std::string& s) {
                 score += prevRoll * 2;
                 isStrike = false;
             } else {
-                int roll1 = s[i - 1] - '0';
-                int roll2 = s[i + 1] - '0';
+                int roll1, roll2;
+                if (i - 1 >= 0) {
+                    roll1 = s[i - 1] - '0';
+                } else {
+                    roll1 = 0;
+                }
+                if (i + 1 < s.length()) {
+                    roll2 = s[i + 1] - '0';
+                } else {
+                    roll2 = 0;
+                }
                 score += (roll1 + roll2);
             }
         } else if (s[i] == ' ') {
-            int roll1 = s[i - 1] - '0';
-            int roll2 = s[i + 1] - '0';
+            int roll1, roll2;
+            if (i - 1 >= 0) {
+                roll1 = s[i - 1] - '0';
+            } else {
+                roll1 = 0;
+            }
             if (isStrike) {
                 score += roll1 + prevRoll * 2;
                 isStrike = false;
             } else {
+                if (i + 1 < s.length()) {
+                    roll2 = s[i + 1] - '0';
+                } else {
+                    roll2 = 0;
+                }
                 score += roll1 + roll2;
             }
         } else {
@@ -42,3 +60,4 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
+}
