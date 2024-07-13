@@ -1,12 +1,31 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-int solve(vector<int>& v) {
-    int sum = 0;
-    for (int i : v) {
-        int temp = (i / 3); // divide each by 3
-        temp = floor(temp); // round the result down to the nearest integer
-        temp -= 2; // subtract 2
-        sum += temp; // add all new integers in the vector
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int result = (num / 3);
+        if (result < 1) {
+            result = 0;
+        } else {
+            result = (int)(result - 2);
+        }
+        total += result;
     }
-    return sum;
+    return total;
+}
+
+int main() {
+    int n, num;
+    vector<int> numbers;
+
+    cin >> n;
+    for(int i=0; i<n; i++){
+        cin >> num;
+        numbers.push_back(num);
+    }
+
+    cout << calculateFuelCost(numbers) << endl;
+
+    return 0;
 }
