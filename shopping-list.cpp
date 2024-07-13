@@ -10,12 +10,12 @@ double calculateTotalPrice(const std::vector<double>& prices, const std::vector<
 }
 
 int main() {
-    std::vector<double> prices = {10.0, 20.0, 30.0};
-    std::vector<double> discounts = {10.0, 5.0, 8.0};
-    
+    std::vector<double> prices = {10.0, 20.0, 30.0}; // Example prices
+    std::vector<double> discounts = {10.0, 5.0, 15.0}; // Example discounts
+
     double total_price = calculateTotalPrice(prices, discounts);
     
-    std::cout << "Total price after applying discounts: " << total_price << std::endl;
-    
+    std::cout << "Total price after discount: " << total_price << std::endl;
+
     return 0;
 }
