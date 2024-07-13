@@ -5,10 +5,8 @@ vector<string> by_length(vector<int> arr) {
             temp.push_back(i);
         }
     }
-
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-
     vector<string> result;
     for (int i : temp) {
         switch (i) {
@@ -41,6 +39,5 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
     }
-
     return result;
 }
