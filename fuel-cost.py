@@ -1,6 +1,2 @@
-n = int(input())
-total = 0
-for _ in range(n):
-    x = int(input())
-    total += max(x // 3 - 2, 0)
-print(total)
+v = [int(input()) for _ in range(int(input()))]
+print(sum([max(0, x // 3 - 2) for x in v]))
