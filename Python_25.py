@@ -1,4 +1,3 @@
-```
 def sum_of_digits():
     n = int(input())
     total = 0
