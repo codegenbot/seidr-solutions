@@ -1,6 +1,3 @@
-#include <iostream>
-#include <iomanip>
-
 int main() {
     float prices[100];
     float discounts[100];
@@ -14,12 +11,11 @@ int main() {
 
     float total_price = 0;
     for(int i = 0; i < n; i++) {
-        total_price += prices[i] * (1 - discounts[i]/100.0);
+        total_price += prices[i] * (1 - discounts[i]/100.0) - (prices[i] * (discounts[i]/100));
     }
 
-    std::cout << "Total price after discount: $";
-    std::cout << std::fixed << std::setprecision(2) << total_price;
-    std::cout << std::endl;
+    std::cout << "Total price after discount: $" 
+              << std::fixed << std::setiosflags(std::ios_base::fixed) << std::setprecision(2) << total_price << std::endl;
 
     return 0;
 }
