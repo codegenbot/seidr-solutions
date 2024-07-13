@@ -1,7 +1,3 @@
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
-}
-
 vector<int> common(vector<int> l1,vector<int> l2){
     vector<int> result;
     set<int> s1(l1.begin(),l1.end());
@@ -17,4 +13,8 @@ vector<int> common(vector<int> l1,vector<int> l2){
 
     sort(result.begin(),result.end());
     return result;
+}
+
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
