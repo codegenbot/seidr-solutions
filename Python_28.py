@@ -7,9 +7,8 @@ def concatenate():
     words = input("Enter words separated by space: ").split()
     if not words:
         print("No words entered.")
+    result = ', '.join(map(str.lower, words))
+    if result == expected:
+        print(result)
     else:
-        result = ', '.join(map(str.lower, words))
-        if result == expected:
-            print(result)
-        else:
-            print(f"Expected {expected}, got {result} instead.")
+        print(f"Expected {expected}, got {result} instead.")
