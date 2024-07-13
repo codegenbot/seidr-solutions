@@ -1,5 +1,7 @@
+#include <vector>
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double shoppingTrip(vector<float> prices, vector<float> discounts) {
@@ -26,7 +28,7 @@ int main() {
         cin >> discounts[i];
     }
     
-    cout << std::fixed << std::setprecision(1) << shoppingTrip(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingTrip(prices, discounts) << endl;
     
     return 0;
 }
