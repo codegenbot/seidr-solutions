@@ -1,5 +1,17 @@
+```c++
+#include <iostream>
+double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
+    double totalSnow = initialSnow;
+
+    for (int i = 0; i < hours; i++) {
+        totalSnow += rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour;
+    }
+
+    return totalSnow;
+}
+
 int main() {
-    double result = snowDay(5, 10.0f, 2.0f, 0.1f);
-    printf("%f\n", result); 
+    std::cout << "Total snow after " << snowDay(3, 10.0f, 0.5f, 0.2f) << " hours: ";
+    std::cout << std::endl;
     return 0;
 }
