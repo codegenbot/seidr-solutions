@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -25,14 +24,30 @@ int luhn(vector<int> digits) {
 
 int main() {
     vector<int> input;
-    int cardNumber;
+    int cardNumber; 
 
-    while (cardNumber != 0) {
-        input.push_back(cardNumber % 10);
-        cardNumber /= 10;
+    while (true) {
+        cout << "Enter a credit card number: ";
+        cin >> cardNumber;
+
+        if(cardNumber == 0)
+            break;
+
+        while (cardNumber != 0) {
+            input.push_back(cardNumber % 10);
+            cardNumber /= 10;
+        }
+
+        int result = luhn(input);
+        cout << "The credit card number is: ";
+        if(result % 10 == 0)
+            cout << "valid";
+        else
+            cout << "invalid";
+        cout << endl;
+
+        input.clear();
     }
-
-    luhn(input);
 
     return 0;
 }
