@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 double probability(int n, int m) {
     double total = (double)(n * m);
@@ -15,8 +15,11 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cout << "Enter Peter's die size: ";
+    std::cin >> n;
+    std::cout << "Enter Colin's die size: ";
+    std::cin >> m;
     double result = probability(n, m);
-    cout << result << endl;
+    std::cout << "Probability: " << result << std::endl;
     return 0;
 }
