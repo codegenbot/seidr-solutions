@@ -1,51 +1,41 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> operatorStack;
-    stack<string> operandStack;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < booleanExpression.size(); i++) {
-        if (booleanExpression[i] == '&') {
-            while (!operatorStack.empty() && operatorStack.top() == '|') {
-                operatorStack.pop();
-                string op2 = operandStack.top();
-                operandStack.pop();
-                string op1 = operandStack.top();
-                operandStack.pop();
-                operandStack.push((op1 == "T" && op2 == "T") ? "T" : (op1 == "F" || op2 == "F") ? "F" : "T");
+bool evaluateBooleanExpression(string expression) {
+    bool result = false;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == 'T')
+            return true;
+        else if (expression[i] == 'F')
+            return false;
+        else if (expression[i] == '|') {
+            int j = i + 1;
+            while (j < expression.length() && expression[j] != '&') {
+                j++;
             }
-            operatorStack.push('&');
-        } else if (booleanExpression[i] == '|') {
-            while (!operatorStack.empty() && operatorStack.top() == '&') {
-                operatorStack.pop();
-                string op2 = operandStack.top();
-                operandStack.pop();
-                string op1 = operandStack.top();
-                operandStack.pop();
-                operandStack.push((op1 == "T" && op2 == "T") ? "T" : (op1 == "F" || op2 == "F") ? "F" : "T");
+            string left = expression.substr(i, j - i);
+            string right = expression.substr(j + 1);
+            return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
+        } else if (expression[i] == '&') {
+            int j = i + 1;
+            while (j < expression.length() && expression[j] != '|') {
+                j++;
             }
-            operatorStack.push('|');
-        } else {
-            string operand = "";
-            while (i < booleanExpression.size() && booleanExpression[i] != '&' && booleanExpression[i] != '|') {
-                operand += booleanExpression[i];
-                i++;
-            }
-            i--;
-            if (operand == "t") {
-                operand = "T";
-            } else if (operand == "f") {
-                operand = "F";
-            }
-            operandStack.push(operand);
+            string left = expression.substr(i, j - i);
+            string right = expression.substr(j + 1);
+            return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
         }
     }
+    return result;
+}
 
-    while (!operatorStack.empty()) {
-        string op2 = operandStack.top();
-        operandStack.pop();
-        string op1 = operandStack.top();
-        operandStack.pop();
-        operandStack.push((op1 == "T" && op2 == "T") ? "T" : (op1 == "F" || op2 == "F") ? "F" : "T");
-    }
+int main() {
+    // Test cases
+    cout << (evaluateBooleanExpression("t") ? "True" : "False") << endl; // True
+    cout << (evaluateBooleanExpression("f") ? "True" : "False") << endl; // False
+    cout << (evaluateBooleanExpression("f&f")) << endl; // False
+    cout << (evaluateBooleanExpression("f&t")) << endl; // False
+    cout << (evaluateBooleanExpression("t&f")) << endl; // False
 
-    return operandStack.top();
+    return 0;
 }
