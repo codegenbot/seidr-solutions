@@ -1,10 +1,8 @@
-```
 def mastermind(code, guess):
-    white = 0
-    black = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        elif str(guess[i]) in code:
-            white += 1
-    return black, white
+    code_set = set(code)
+    guess_set = set(guess)
+
+    black_pegs = sum(1 for c in guess if c == code[i] and i < 4)
+    white_pegs = 4 - black_pegs
+
+    return str(black_pegs) + "\n" + str(white_pegs)
