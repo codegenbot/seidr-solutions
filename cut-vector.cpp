@@ -1,56 +1,31 @@
-#include <iostream>
 #include <vector>
+#include <climits>
+#include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            left_sum += v[j];
-        }
-        
-        for (int k = i; k < v.size(); k++) {
-            right_sum += v[k];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
-        }
-    }
-    
-    vector<int> left_v = vector<int>(v.begin(), v.begin() + cut_index);
-    vector<int> right_v = vector<int>(v.begin() + cut_index, v.end());
-    
-    return make_pair(left_v, right_v);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        if (i == 0 || i == n - 1) {
+            res[0].push_back(v[i]);
+            res[1].push_back(v[i]);
+        } else {
+            int minDiff = INT_MAX;
+            int cutIndex = -1;
+            for (int j = 0; j < i; j++) {
+                int diff = abs(v[j] - v[i]);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    cutIndex = j;
+                }
+            }
+            res[0].insert(res[0].begin(), v.begin(), v.begin() + cutIndex);
+            res[1].push_back(v[i]);
+            for (int j = i; j < n; j++) {
+                res[1].push_back(v[j]);
+            }
+        }
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "Left: ";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    return res;
+}
