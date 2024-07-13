@@ -1,5 +1,5 @@
-code = input("Enter code: ").upper()
-guess = input("Enter guess: ").upper()
+code = input("Enter code: ").strip()
+guess = input("Enter guess: ").strip()
 
 import collections
 
