@@ -11,36 +11,26 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
+    long long avg = static_cast<long long>(sum / double(n));
+    
+    if (n * avg - sum > 0) {
+        avg++;
+    }
+    
     long long leftSum = 0, rightSum = 0;
-    int left = 0, right = n - 1;
-    int leftMin = INT_MAX, rightMin = INT_MAX;
-
-    for (int i = 0; i < n; i++) {
-        leftSum += v[i];
-        
-        if (abs(leftSum - (sum - leftSum)) < leftMin) {
-            leftMin = abs(leftSum - (sum - leftSum));
+    int i = 0;
+    while (i < n) {
+        if (abs(leftSum - avg * (i + 1)) <= abs(rightSum - avg * (n - i))) {
+            res.push_back(vector<int>(v.begin(), v.begin() + i + 1));
+            leftSum += v[i];
+            rightSum = sum - leftSum;
+            i++;
+        } else {
+            res.push_back(vector<int>(v.begin(), v.begin() + i));
+            res.push_back(vector<int>(v.begin() + i, v.end()));
+            break;
         }
     }
-
-    for (int i = n - 1; i >= 0; i--) {
-        rightSum += v[i];
-        
-        if (abs(rightSum - (sum - rightSum)) < rightMin) {
-            rightMin = abs(rightSum - (sum - rightSum));
-        }
-    }
-
-    int cutIndex;
-    
-    if (leftMin > rightMin) {
-        cutIndex = right;
-    } else {
-        cutIndex = left;
-    }
-    
-    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
-    res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
     
     return res;
 }
