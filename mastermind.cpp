@@ -1,22 +1,31 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
-    for(int i=0; i<4; i++){
-        if(code[i] == guess[i]){
-            black++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    vector<char> codeCopy(code.begin(), code.end());
-    for(int i=0; i<4; i++){
-        for(int j=0; j<4; j++){
-            if(code[j] == guess[i] && code[j] != codeCopy[i]){
-                white++;
-                codeCopy[i] = '-';
-            }
+int blackPegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeMap, guessMap;
+    
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
         }
     }
-
-    return black + white;
+    
+    for(int i=0; i<6; i++) {
+        if(codeMap.count((char)(i+65)) && codeMap[(char)(i+65)] > 0 && guessMap[(char)(i+65)] > 0) {
+            count++;
+            codeMap[(char)(i+65)]--;
+            guessMap[(char)(i+65)]--;
+        }
+    }
+    
+    return 4 - count;
 }
