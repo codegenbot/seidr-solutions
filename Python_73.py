@@ -1,5 +1,4 @@
-```
-def max_diff():
+def smallest_change():
     while True:
         try:
             lst = [int(x) for x in input("Enter the array (space separated numbers): ").split()]
@@ -13,4 +12,6 @@ def max_diff():
         if diff > max_diff:
             max_diff = diff
 
-    return max_diff
+    print(max_diff)
+
+smallest_change()
