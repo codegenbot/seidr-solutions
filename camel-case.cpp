@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,21 +12,13 @@ string camelCase(string s) {
             }
             string word = s.substr(i + 1);
             result += word;
-            break;
         } else if (s[i] == ' ') {
-            if (i > 0) {
-                result[0] = toupper(result[0]);
-            }
-            result += s.substr(0, i);
-            result += s.substr(i + 1).substr(0, 1);
-            for(int j = 1; j < s.substr(i + 1).size(); j++) {
-                result += tolower(s.substr(i + 1)[j]);
-            }
-            break;
-        } else {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
+            result += s.substr(0, i+1) + s.substr(i+1);
+            i++;
+        } else {
             result += s[i];
         }
     }
