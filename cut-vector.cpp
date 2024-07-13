@@ -1,20 +1,38 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int min_diff = INT_MAX;
-    int split_idx = -1;
-    for (int i = 0; i < n; i++) {
-        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
-        int diff = abs(left_sum - right_sum);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            split_idx = i;
+    int cut_index = -1;
+
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j) left_sum += vec[j];
+        for (int j = i + 1; j < vec.size(); ++j) right_sum += vec[j];
+
+        if (left_sum == right_sum || abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            cut_index = i;
         }
     }
-    vector<int> left_nums(nums.begin(), nums.begin() + split_idx);
-    vector<int> right_nums(nums.begin() + split_idx, nums.end());
-    return {left_nums, right_nums};
+
+    return {{vec.begin(), vec.begin() + cut_index}}, {vec.begin() + cut_index, vec.end()}};
+}
+
+int main() {
+    std::vector<int> vec;
+    int n;
+    std::cin >> n;
+    vec.resize(n);
+    for (int i = 0; i < n; ++i) std::cin >> vec[i];
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+
+    std::cout << "[";
+    for (int x : result.first) std::cout << x << " ";
+    std::cout << "]\n[";
+    for (int x : result.second) std::cout << x << " ";
+    std::cout << "]\n";
+
+    return 0;
 }
