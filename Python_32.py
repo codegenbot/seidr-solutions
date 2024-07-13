@@ -1,9 +1,8 @@
-# Python/32: Find Zero
-
 def find_zero(coefficients):
     a, b, c = coefficients
-    x = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
-    return f"The zero point is {x:.2f}."
+    x1 = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
+    x2 = (-b - (b**2 - 4*a*c)**0.5) / (2*a)
+    return f"The zero points are {x1:.2f} and {x2:.2f}."
 
 while True:
     try:
