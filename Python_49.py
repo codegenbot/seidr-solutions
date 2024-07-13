@@ -4,7 +4,7 @@ def modp(n: int, p: int) -> object:
     if math.gcd(n, p) != 1:
         return None
     for i in range(2, p):
-        if (i * i % p == n % p):
+        if math.gcd(i, p) == 1 and (i * n) % p == n % p:
             return i
     return None
 
