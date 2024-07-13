@@ -8,12 +8,15 @@ def bowling_score(game):
             score += sum(map(int, frame))
         else:
             strike = True
-            first_roll = int(frame[0])
-            second_roll = int(frame[-1])
             for i in range(2):
                 if frame[i] != 'X':
-                    roll = first_roll + second_roll
-                    break
+                    first_roll = int(frame[i])
+                    second_roll = int(frame[1 - i])
+                    if i == 0:
+                        roll = first_roll + second_roll
+                    score += max(first_roll, second_roll)
+                    strike = False
             if strike:
                 score += 10 + roll
         roll = 0
+    return score
