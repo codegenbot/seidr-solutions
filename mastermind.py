@@ -1,15 +1,4 @@
 def mastermind(code, guess):
-    color_count = {}
-    for c in "abcdefghijklmnopqrstuvwxyz":
-        color_count[c] = 0
-
-    code_color_count = {c: code.count(c) for c in set(code)}
-    guess_color_count = {c: guess.count(c) for c in set(guess)}
-
-    black_pegs = sum(
-        min(code_color_count[c], guess_color_count[c])
-        for c in "abcdefghijklmnopqrstuvwxyz"
-    )
-    white_pegs = 4 - black_pegs
-
-    return str(white_pegs) + "\n" + str(black_pegs)
+    correct_positions = sum(c1 == c2 for c1, c2 in zip(code, guess))
+    correct_colors = sum(min(c1.count(c) for c1 in (code, guess)) for c in set(guess))
+    return str(correct_positions), str(4 - correct_positions + correct_colors)
