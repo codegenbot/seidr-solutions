@@ -23,6 +23,8 @@ int main() {
         total_price += prices[i] * (1.0 - discounts[i]);
     }
 
+    total_price = round(total_price * 100) / 100; // Round to two decimal places
+
     std::cout << std::fixed << std::setprecision(2) << total_price << "\n";
 
     return 0;
