@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == "t":
         return True
@@ -25,7 +24,7 @@ def solve_boolean(expression):
         while operators:
             op = operators.pop()
             if op == "(":
-                return solve_boolean(expression[expression.index(op)+1:])
+                return solve_boolean(''.join(stack)+operators[-1]+"".join(operators[operators.index(op)+1:]))
             val2 = stack.pop()
             val1 = stack.pop()
             if op == "&":
