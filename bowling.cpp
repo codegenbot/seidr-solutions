@@ -1,7 +1,8 @@
 ```cpp
-#include <string>
-
-int bowlingScore(std::string s) {
+int bowlingScore(const std::string& s) {
+    if (s.empty()) {
+        throw std::invalid_argument("No input provided");
+    }
     int score = 0;
     int prevRoll = 0;
     bool isStrike = false;
