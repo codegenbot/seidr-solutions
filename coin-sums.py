@@ -1,13 +1,21 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
-
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            result[i] += 1
-
-    return result
+    return min(
+        [
+            list(
+                map(
+                    int,
+                    [
+                        cents // coin + (cents % coin > 0),
+                        cents % coin // coin,
+                        cents % coin % coin,
+                    ],
+                )
+            )
+            for coin in coins
+        ],
+        key=lambda x: sum(x),
+    )
 
 
 cents = int(input())
