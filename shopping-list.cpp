@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -18,8 +18,8 @@ int main() {
         total_price += prices[i] * (1 - discounts[i]/100.0);
     }
 
-    std::cout << "Total price after discount: $" << std::fixed 
-              << std::setprecision(2) << total_price << std::endl;
+    std::cout << std::fixed << std::setprecision(2) 
+              << "Total price after discount: $" << total_price << std::endl;
 
     return 0;
 }
