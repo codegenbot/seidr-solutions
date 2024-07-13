@@ -11,6 +11,6 @@ int main() {
         int d = digit - '0';
         result += to_string(d * d);
     }
-    cout << result;
+    cout << result << endl;
     return 0;
 }
