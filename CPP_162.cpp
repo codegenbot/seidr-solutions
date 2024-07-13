@@ -1,24 +1,35 @@
-#include <string>
-#include <openssl/evp.h>
+#include<string>
+#include<openssl/ssl.h>
+#include<openssl/x509v3.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
+    MD5_CTX md5Context;
+    unsigned char hashBytes[16];
+    string result;
 
-    unsigned char result[16];
-    MD5_CTX md5;
-    MD5_Init(&md5);
-    const char *ptr = text.c_str();
-    size_t len = text.size();
-    MD5_Update(&md5, ptr, len);
-    MD5_Final(result, &md5);
-
-    string hashValue;
-    for (int i = 0; i < 16; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", result[i]);
-        hashValue += buff;
+    // Check if input string is empty
+    if (text.empty()) {
+        return "";
     }
-    return hashValue;
+
+    // Initialize the MD5 context
+    MD5_Init(&md5Context);
+
+    // Update the MD5 context with the input string
+    const char* cstr = text.c_str();
+    MD5_Update(&md5Context, cstr, text.length());
+
+    // Get the hash value
+    MD5_Final(hashBytes, &md5Context);
+
+    // Convert the hash bytes to a hexadecimal string
+    for (int i = 0; i < 16; i++) {
+        char buffer[3];
+        sprintf(buffer, "%02x", hashBytes[i]);
+        result.append(buffer);
+    }
+
+    return result;
 }
