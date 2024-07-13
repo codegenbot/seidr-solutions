@@ -1,14 +1,34 @@
-def find_closest_elements(list1, list2):
+```
+def find_closest_elements():
+    while True:
+        try:
+            x1 = list(map(int, input("Enter first set of x-coordinates separated by space: ").split()))
+            if len(x1) >= 2:
+                break
+            print("Please enter at least two integers.")
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
+
+    while True:
+        try:
+            y1 = list(map(int, input("Enter first set of y-coordinates separated by space: ").split()))
+            if len(y1) >= 2 and len(set(y1)) == len(y1):
+                break
+            print("Please enter at least two distinct integers.")
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
+
     min_diff = float('inf')
-    for num1 in list1:
-        for num2 in list2:
-            diff = abs(num1 - num2)
+    closest_pair = None
+
+    for x in x1:
+        for y in y1:
+            diff = abs(x - y)
             if diff < min_diff:
                 min_diff = diff
+                closest_pair = (x, y)
 
-    return str(min_diff)
+    return "Closest pair is: ({}, {}) with a difference of {}".format(*closest_pair, min_diff)
 
-list1 = list(map(int, input("Enter first set of numbers separated by space: ").split()))
-list2 = list(map(int, input("Enter second set of numbers separated by space: ").split()))
 
-print("Closest pair is: ", find_closest_elements(list1, list2))
+print(find_closest_elements())
