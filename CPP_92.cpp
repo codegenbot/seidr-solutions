@@ -1,6 +1,9 @@
-bool any_int(float a, float b, float c){
-    if (round(a) == a && round(b) == b && round(c) == c) {
-        return (a == b + c || a == c + b || b == c + a);
-    }
-    return false;
+Here is the completed code:
+
+bool any_int(float a, float b, float c) {
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+
+    return a == bi + ci || b == ai + ci || c == ai + bi;
 }
