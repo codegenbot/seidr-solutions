@@ -1,2 +1,2 @@
 def sort_third(l: list):
-    return [list(g) for g in zip(*[sorted([int(x) for x in i]) for i in [l[i::3] for i in range(0, len(l), 3)]])]
+    return [sorted([i for i in l if (i % 3 == 0 and idx != 2) or (i % 3 == 2)], reverse=True) for idx, _ in enumerate(l)]
