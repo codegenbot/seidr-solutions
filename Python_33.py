@@ -1,4 +1,4 @@
-```
+```Python
 def sort_third(l):
-    l_copy = sorted(l, key=lambda x: (x % 3, -x))
-    return l_copy
+    l.sort(key=lambda x: (x % 3, -abs(x)))
+    return [i for i in l]
