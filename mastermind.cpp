@@ -1,11 +1,14 @@
 ```cpp
+#include <string>
+#include <iostream>
+
 int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
     int white = 0;
 
     // Count correct positions (black pegs)
     for (int i = 0; i < 4; ++i) {
-        if (code.substr(i, 1) == guess.substr(i, 1)) {
+        if (code[i] == guess[i]) {
             black++;
         }
     }
@@ -13,13 +16,16 @@ int mastermind(const std::string& code, const std::string& guess) {
     // Count correct colors (white pegs)
     int code_counts[6] = {false};
     for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (char c : code) {
-            if (c == guess[3-i]) {
-                count++;
+        if (!code_counts[code[i] - 'A']) {
+            code_counts[code[i] - 'A'] = true;
+            for (int j = 0; j < 4; ++j) {
+                if (code[j] == guess[3-j] && !code_counts[code[j] - 'A']) {
+                    white++;
+                    code_counts[code[j] - 'A'] = true;
+                    break;
+                }
             }
         }
-        white += count - 1;
     }
 
     return black + white;
