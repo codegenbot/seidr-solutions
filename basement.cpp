@@ -1,8 +1,14 @@
-```
 #include <vector>
+#include <iostream>
 
 int main() {
-    int result = basement({-1,-2,-3,-4,-5});
+    std::vector<int> nums = {-1,-2,-3,-4,-5};
+    int result = basement(nums);
+    if(result == -1) {
+        std::cout << "No such index exists." << std::endl;
+    } else {
+        std::cout << "The first index where the sum is negative is: " << result << std::endl;
+    }
     return 0;
 }
 
