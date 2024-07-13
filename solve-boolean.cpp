@@ -1,4 +1,7 @@
-bool solveBoolean(std::string expression) {
+#include <string>
+#include <stack>
+
+bool solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
@@ -21,3 +24,4 @@ bool solveBoolean(std::string expression) {
         }
     }
     return true;
+}
