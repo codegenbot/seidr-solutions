@@ -1,2 +1,5 @@
 hours = int(input())
-snow_on_ground, snow_fall_rate, snow_melt_rate = map(float, input().split())
+snow_data = input().split()
+snow_on_ground = float(snow_data[0])
+snow_fall_rate = float(snow_data[1])
+snow_melt_rate = float(snow_data[2])
