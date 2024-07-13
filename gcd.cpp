@@ -7,8 +7,8 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int n = text.size();
-    int m = target.size();
+    int n = text.length();
+    int m = target.length();
     
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
