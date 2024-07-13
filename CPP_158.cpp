@@ -1,19 +1,15 @@
-Here is the solution:
+Here is the completed code:
 
 string find_max(vector<string> words){
-    string result = *min_element(words.begin(), words.end(), 
+    string result = *minmax_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() > b.length();
-        });
+            return tuple_size<tuple<char>>{} * hash<string>{}(b) > 
+                   tuple_size<tuple<char>>{} * hash<string>{}(a);
+        }).first;
     for (string s : words) {
-        int count = 0;
-        set<char> unique_chars(s.begin(), s.end());
-        if ((int)unique_chars.size() > (int)s.find_first_of(unique_chars.c_str()) + 1) {
-            result = s;
-            break;
-        }
+        if (s.size() != result.size()) continue;
+        if (count(s.begin(), s.end(), unique_copy(s.begin(), s.end())) == 1)
+            return s;
     }
     return result;
+}
