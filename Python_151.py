@@ -1,6 +1,12 @@
 def double_the_difference(lst):
     if len(lst) > 0:
-        return (max(lst) - min(lst)) * 2
+        if len(set(lst)) > 1:
+            elif len(lst) <= 1 or (len(set(lst)) == 1 and any(i % 2 != 0 for i in lst)):
+                return "Program did not receive expected input"
+            else:
+                return (max(lst) - min(lst)) * 2
+        else:
+            return None
 
 
 def check():
