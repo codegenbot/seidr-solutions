@@ -1,7 +1,22 @@
+bool evaluateBooleanExpression(string expr) {
+    if (expr == "t") {
+        return true;
+    } else if (expr == "f") {
+        return false;
+    } else {
+        char op = expr[1];
+        if (op == '&') {
+            return (expr[0] == 't' && expr[2] == 't');
+        } else if (op == '|') {
+            return (expr[0] == 't' || expr[2] == 't');
+        }
+    }
+}
+
 int main() {
-    string expression;
-    cin >> expression;
-    if (expression == "t") {
+    string expr;
+    cin >> expr;
+    if (evaluateBooleanExpression(expr)) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
