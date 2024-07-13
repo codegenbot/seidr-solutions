@@ -21,7 +21,7 @@ int luhnCheck(const vector<int>& creditCardNumber) {
 }
 
 int main() {
-    vector<int> card = {4, 5, 2, 8, 6, 1, 6, 7, 3, 1, 7, 1, 9, 4};
+    vector<int> card = {4, 5, 2, 8, 6, 1, 6, 7, 3, 1, 7, 1, 9, 0, 2, 8};
     cout << "Luhn check result: " << luhnCheck(card) << endl;
     return 0;
 }
