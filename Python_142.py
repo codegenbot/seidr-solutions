@@ -5,8 +5,7 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
-user_input = input()
-lst = list(map(int, user_input.split()))
+lst = list(map(int, input().split()))
 if len(lst) > 0:
     print(sum_squares(lst))
 else:
