@@ -1,3 +1,11 @@
 ```
 def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[:i+1])]
+    max_seen = arr[-1]
+    leaders = [max_seen]
+
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= max_seen:
+            max_seen = arr[i]
+            leaders.insert(0, max_seen)
+
+    return leaders

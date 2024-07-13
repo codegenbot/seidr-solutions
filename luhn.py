@@ -12,3 +12,6 @@ def luhn(card):
         else:
             new_card.append(digit)
     return sum(new_card)
+
+card_number = input("Enter a credit card number: ")
+print(luhn(card_number))
