@@ -1,24 +1,21 @@
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
+Here is the solution:
+
+```cpp
+#include<string>
+#include<openssl/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if(text.empty()) return "";
+    if (text.empty()) return "";
 
-    unsigned char md[16];
-    const EVP_MD* e = EVP_md5();
-    EVP_MD_CTX ctx;
-    unsigned char result[EVP_MAX_BLOCK_LENGTH];
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5(text.c_str(), text.length(), digest);
 
-    EVP_DigestInit_ex(&ctx, e, NULL);
-    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&ctx, md, &result);
-
-    string output = "";
-    for (int i = 0; i < 16; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", md[i]);
-        output += buff;
+    stringstream ss;
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)digest[i];
     }
 
-    return output;
+    return ss.str();
 }
