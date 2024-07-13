@@ -1,5 +1,4 @@
 ```cpp
-#include <stack>
 #include <string>
 #include <stdexcept>
 
@@ -25,9 +24,9 @@ bool solveBoolean(string booleanExpression) {
 
 char boolToChar(bool value) {
     if(value) {
-        return 'T';
+        return 't';
     } else {
-        return 'F';
+        return 'f';
     }
 }
 
