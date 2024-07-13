@@ -11,16 +11,13 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : guess) {
+    for (char c : unique_copy(string(guess).begin(), string(guess).end())) {
         int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (code[i] == c && code[i] != guess[i]) {
+        for (int j = 0; j < 4; ++j) {
+            if (code[j] == c && code[j] != guess[j]) {
                 white++;
                 count++;
             }
-        }
-        if (count > 1) {
-            black += count - 1;
         }
     }
 
