@@ -1,18 +1,11 @@
-from typing import List
-
-
 def filter_by_prefix() -> None:
-    strings = []
+    string_list: List[str] = []
     while True:
-        s = input("Enter a string (or '%%' to finish): ")
-        if s == "%%":
+        s = input("Enter a list of strings (one per line), separate them with '%%': ")
+        if s.lower() == "%%":
             break
-        strings.append(s)
-
+        string_list.append(s)
     prefix = input("Enter the prefix: ")
 
-    try:
-        result = [s for s in strings if s.startswith(prefix)]
-        print(result)
-    except ValueError:
-        print("Invalid input. Please provide a list of strings and a valid prefix.")
+    result = [s for s in string_list if s.startswith(prefix)]
+    print(result)
