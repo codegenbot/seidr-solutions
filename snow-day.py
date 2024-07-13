@@ -1,6 +1,13 @@
 hours = int(input())
-input_values = input().split()
+snow_on_ground = float(input())
+snow_fall_rate = float(input())
+snow_melt_rate = float(input())
 
-snow_on_ground = float(input_values[0])
-snow_fall_rate = float(input_values[1])
-snow_melt_rate = float(input_values[2])
+for _ in range(hours):
+    melted_snow = snow_on_ground * snow_melt_rate
+    melted_snow = min(melted_snow, snow_on_ground)
+    snow_on_ground += snow_fall_rate
+    snow_on_ground -= melted_snow
+
+snow_on_ground = round(snow_on_ground, 15)
+print(snow_on_ground)
