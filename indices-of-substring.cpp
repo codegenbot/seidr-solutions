@@ -25,11 +25,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     std::string text;
-    std::getline(std::cin, text);
-    std::cin.ignore();
+    getline(cin, text);
     std::string target;
-    std::getline(std::cin, target);
-    std::cin.ignore();
+    getline(cin, target);
 
     std::vector<int> indices = indicesOfSubstring(text, target);
 
