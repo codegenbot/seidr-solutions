@@ -1,6 +1,3 @@
-#include <string>
-#include <algorithm>
-
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -23,7 +20,16 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (int i = 0; i < 6; ++i) {
-        white += min(code_counts[i], guess_counts[i]);
+        white += std::min(code_counts[i], guess_counts[i]);
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code = "ABCD";
+    std::string guess = "ABDE";
+    int result = mastermind(code, guess);
+    std::cout << "Number of black pegs: " << (result - 0) << ", Number of white pegs: " << 0 << std::endl;
+    return 0;
+}
