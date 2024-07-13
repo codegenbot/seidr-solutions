@@ -1,54 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <set>
-
-using namespace std;
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
+}
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
-    set<char> c_set(c.begin(), c.end());
-    
     string temp = "";
-    
-    for (char ch : s) {
-        if (c_set.find(ch) == c_set.end()) {
-            temp += ch;
+    for (int i = 0; i < s.length(); i++) {
+        if (find(c.begin(), c.end(), s[i]) == c.end()) {
+            temp += s[i];
         }
     }
-    
-    bool is_palindrome = true;
-    int left = 0, right = temp.length() - 1;
-    
-    while (left < right) {
-        if (temp[left] != temp[right]) {
-            is_palindrome = false;
-            break;
-        }
-        left++;
-        right--;
+    bool is_palindrome = false;
+    string temp2 = temp;
+    reverse(temp2.begin(), temp2.end());
+    if (temp == temp2) {
+        is_palindrome = true;
     }
-    
     result.push_back(temp);
-    result.push_back((is_palindrome ? "True" : "False"));
-    
+    if (is_palindrome)
+        result.push_back("True");
+    else
+        result.push_back("False");
     return result;
-}
-
-int main() {
-    string s, c;
-    cout << "Enter the first string: ";
-    cin >> s;
-    cout << "Enter the second string: ";
-    cin >> c;
-    
-    vector<string> res = reverse_delete(s, c);
-    
-    for (string str : res) {
-        cout << str << endl;
-    }
-    
-    return 0;
 }
