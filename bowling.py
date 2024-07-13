@@ -1,17 +1,31 @@
-Here is a possible solution in Python:
-
-```
-def bowling_score(score_string):
+def bowling_score(frames):
     score = 0
-    frame_scores = score_string.split('/')
-    for i in range(10):
-        if len(frame_scores[i]) == 1:
-            score += int(frame_scores[i])
-        elif len(frame_scores[i]) == 2:
-            strike = int(frame_scores[i][0]) + int(frame_scores[i][1])
-            score += strike
+    frame = 0
+    while frame < len(frames):
+        if frames[frame].isdigit():
+            strike = False
+            for i in range(1, 4):
+                if frame + i >= len(frames) or not frames[frame + i].isdigit():
+                    break
+                score += int(frames[frame : i + 1])
+                if i == 2:
+                    strike = True
+            if strike:
+                frame += 3
+            else:
+                frame += 3
+        elif frames[frame] == "X":
+            score += 30
+            frame += 1
         else:
-            strike = int(frame_scores[i][0])
-            spare = int(frame_scores[i][1:]) + strike
-            score += strike + spare // 10
+            if frames[frame] == "/":
+                first_roll, second_roll = map(
+                    int, frames[frame - 1 : frame + 2].replace("/", "-").split("-")
+                )
+                score += max(first_roll, second_roll)
+                frame += 3
+            else:
+                first_roll = int(frames[frame])
+                score += first_roll
+                frame += 1
     return score
