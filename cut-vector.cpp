@@ -1,28 +1,33 @@
-```cpp
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int> v) {
+vector<int> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for (int i = 1; i <= v.size(); i++) {
-        if (i == v.size() || abs(v[i] - v[i-1]) < minDiff) {
-            minDiff = abs(v[i] - v[i-1]);
-            cutIndex = i;
+    int idx = 0;
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            idx = i;
         }
     }
-    
-    return {vector<int>(v.begin(), v.begin()+cutIndex), vector<int>(v.begin()+cutIndex, v.end())};
+    return {nums.begin(), nums.begin() + idx} ,{nums.begin() + idx, nums.end()};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
-    vector<int> res = cutVector(v);
-    for (const auto &x : res[0]) cout << x << " ";
+    vector<int> nums(n);
+    for (auto& num : nums) {
+        cin >> num;
+    }
+    auto result = cutVector(nums);
+    for (auto num : result[0]) {
+        cout << num << " ";
+    }
     cout << endl;
-    for (const auto &x : res[1]) cout << x << " ";
+    int i = 0;
+    for (; i < result[1].size(); i++) {
+        cout << result[1][i] << " ";
+    }
 }
