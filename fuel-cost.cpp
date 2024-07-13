@@ -1,10 +1,16 @@
 int main() {
-    int n, val, sum = 0;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> val;
-        sum += (val / 3 - 2);
+    vector<int> nums;
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    cout << sum;
+    
+    int total = 0;
+    for (int num : nums) {
+        total += max(num / 3 - 2, 0);
+    }
+    
+    cout << total << endl;
+    
     return 0;
 }
