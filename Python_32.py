@@ -1,16 +1,16 @@
 ```
 def find_zero():
-    xs = []
-    while True:
-        try:
-            x = float(input("Enter a coefficient (or 'stop' to finish): "))
-            if x == 'stop':
-                break
-            xs.append(x)
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    x = -xs[1] / xs[3]
-    return round(x, 2)
+    xs = input("Enter coefficients of quadratic equation (a b c): ")
+    a, b, c = map(float, xs.split())
+    if abs(a) < 1e-10:
+        return "The equation is not quadratic"
+    d = b**2 - 4*a*c
+    if d < 0:
+        return "No real solutions exist"
+    if d == 0:
+        x = -b / (2 * a)
+        return f"The zero is {x}"
+    else:
+        x1 = (-b + d**0.5) / (2 * a)
+        x2 = (-b - d**0.5) / (2 * a)
+        return f"The zeros are {x1} and {x2}"
