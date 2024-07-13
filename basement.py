@@ -1,9 +1,8 @@
 def basement(nums):
-    running_sum = 0
-    min_index = -1
+    total_sum = 0
+    first_negative_index = float('inf')
     for i, num in enumerate(nums):
-        running_sum += num
-        if running_sum < 0:
-            if min_index == -1: 
-                min_index = i
-    return min_index + 1
+        total_sum += num
+        if total_sum < 0:
+            first_negative_index = i + 1
+    return first_negative_index if first_negative_index != float('inf') else -1
