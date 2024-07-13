@@ -1,7 +1,7 @@
+```
 def leaders(arr):
     n = len(arr)
-    leaders = [arr[n - 1]]
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= leaders[-1]:
-            leaders.insert(0, arr[i])
+    leaders = []
+    for i in range(n):
+        leaders.append(arr[i]) if i == n - 1 or arr[i] >= max(arr[i+1:]) else None
     return leaders
