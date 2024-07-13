@@ -9,7 +9,7 @@ int main() {
     
     while (cin >> num) {
         nums.push_back(num);
-        if (cin.peek() == '\n' || cin.peek() == EOF) {
+        if (cin.peek() == '\n' || cin.peek() == EOF || cin.eof()) {
             break;
         }
     }
@@ -41,11 +41,11 @@ int main() {
     
     cout << endl;
     
-    for (int i = cutIndex + 1; i < n; i++) {
+    for (int i = cutIndex+1; i < n; i++) {
         cout << nums[i] << " ";
     }
     
     cout << endl;
-    
+
     return 0;
 }
