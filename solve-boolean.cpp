@@ -1,9 +1,9 @@
-```cpp
+```c++
 #include <cstddef>
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    bool result = true;
+    bool result = false;
     size_t i = 0;
 
     while (i < expression.length()) {
@@ -15,39 +15,57 @@ bool solveBoolean(std::string expression) {
             break;
         } else if (expression[i] == '|') {
             i++;
-            bool temp = !result;
+            bool temp1 = false, temp2 = false;
+
             while (i < expression.length() && expression[i] != '&') {
+                if (expression[i] == 'T')
+                    temp1 = true;
+                else
+                    temp1 = false;
                 i++;
             }
-            if (i < expression.length()) {
+            i++;
+
+            while (i < expression.length()) {
+                if (expression[i] == 'T')
+                    temp2 = true;
+                else
+                    temp2 = false;
                 i++;
             }
-            result = temp;
+
+            result = temp1 || temp2;
         } else if (expression[i] == '&') {
             i++;
-            bool temp = result;
+            bool temp1 = false, temp2 = false;
+
             while (i < expression.length() && expression[i] != '|') {
+                if (expression[i] == 'T')
+                    temp1 = true;
+                else
+                    temp1 = false;
                 i++;
             }
-            if (i < expression.length()) {
+            i++;
+
+            while (i < expression.length()) {
+                if (expression[i] == 'T')
+                    temp2 = true;
+                else
+                    temp2 = false;
                 i++;
             }
-            result &= temp;
+
+            result = temp1 && temp2;
         }
+        i++;
     }
 
     return result;
 }
 
 int main() {
-    std::string expression;
-    std::cout << "Enter the Boolean expression: ";
-    std::getline(std::cin, expression);
+    std::string expression = "T|F";
     bool result = solveBoolean(expression);
-    if (result) {
-        std::cout << "Result: TRUE" << std::endl;
-    } else {
-        std::cout << "Result: FALSE" << std::endl;
-    }
     return 0;
 }
