@@ -9,18 +9,5 @@ bool simplify(string x, string n) {
     s1 >> a >> '/' >> b;
     s2 >> c >> '/' >> d;
     
-    long long lcm = (long long)a * d;
-    long long commonDivisor = gcd(lcm, b);
-    lcm /= commonDivisor;
-    commonDivisor = gcd(lcm, d);
-    lcm /= commonDivisor;
-
-    return a * c / commonDivisor == b * d / commonDivisor;
-}
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    return (a*d == b*c);
 }
