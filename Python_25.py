@@ -4,17 +4,10 @@ import math
 
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            count = 0
-            while n % i == 0:
-                count += 1
-                n //= i
-            factors.append(i) * count
-            i = 2
+    for i in range(2, math.isqrt(n) + 1):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
     if n > 1:
         factors.append(n)
-    return [int(factor) for factor in set(map(int, factors))]
+    return [factor ** (factors.count(factor)) for factor in set(factors)]
