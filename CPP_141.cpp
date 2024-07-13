@@ -1,14 +1,3 @@
-```cpp
-#include <iostream>
-using namespace std;
-
-string file_name_check(string file_name);
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
-}
-
 string file_name_check(string file_name){
     int count = 0;
     bool foundDot = false;
