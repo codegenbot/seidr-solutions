@@ -1,56 +1,18 @@
-#include <boost/convert.hpp>
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::get<double>(b);
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if ((boost::lexical_cast<double>(a.get<string>()) > boost::lexical_cast<double>(b.get<string>()))) {
-            return a;
-        }
-        else if ((boost::lexical_cast<double>(a.get<string>()) < boost::lexical_cast<double>(b.get<string>()))) {
-            return b;
-        }
-        else {
-            return "None";
-        }
-    }
-    else if (a.type() == typeid(string) && b.type() != typeid(string)) {
-        double a_val = boost::lexical_cast<double>(a.get<string>());
-        if ((a_val > boost::get<double>(b))) {
-            return a;
-        }
-        else if ((a_val < boost::get<double>(b))) {
-            return b;
-        }
-        else {
-            return "None";
-        }
-    }
-    else if (a.type() != typeid(string) && b.type() == typeid(string)) {
-        double b_val = boost::lexical_cast<double>(b.get<string>());
-        if ((boost::get<double>(a) > b_val)) {
-            return a;
-        }
-        else if ((boost::get<double>(a) < b_val)) {
-            return b;
-        }
-        else {
-            return "None";
-        }
-    }
-    else {
-        if (boost::get<double>(a) > boost::get<double>(b)) {
-            return a;
-        }
-        else if (boost::get<double>(a) < boost::get<double>(b)) {
-            return b;
-        }
-        else {
-            return "None";
-        }
-    }
+if (a.type() == boost::any::typeclass<int> &&
+    b.type() == boost::any::typeclass<int>) {
+    if (get<int>(a) > get<int>(b)) return a;
+    else if (get<int>(a) < get<int>(b)) return b;
+    else return "None";
+} else if (a.type() == boost::any::typeclass<float> &&
+           b.type() == boost::any::typeclass<float>) {
+    if (get<float>(a) > get<float>(b)) return a;
+    else if (get<float>(a) < get<float>(b)) return b;
+    else return "None";
+} else if (a.type() == boost::any::typeclass<std::string> &&
+           b.type() == boost::any::typeclass<std::string>) {
+    if (get<std::string>(a) > get<std::string>(b)) return a;
+    else if (get<std::string>(a) < get<std::string>(b)) return b;
+    else return "None";
+} else {
+    return "Invalid type";
 }
