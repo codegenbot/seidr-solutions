@@ -5,6 +5,6 @@ std::string getMiddleCharacterHelper(std::string str) {
     if(len % 2 == 0){
         return str.substr(len/2-1, 2);
     } else{
-        return std::string(1, str[len/2]);
+        return str.substr(len/2, 1);
     }
 }
