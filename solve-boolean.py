@@ -7,22 +7,22 @@ def solve_boolean(expression):
             while stack[-1] != '(':
                 last_operator = stack.pop()
                 if last_operator == '&':
-                    a, b = stack.pop(), stack.pop()
-                    stack.append(bool(int(a)) and bool(int(b)))
+                    a, b = int(stack.pop()), int(stack.pop())
+                    stack.append(a and b)
                 elif last_operator == '|':
-                    a, b = stack.pop(), stack.pop()
-                    stack.append(bool(int(a)) or bool(int(b)))
+                    a, b = int(stack.pop()), int(stack.pop())
+                    stack.append(a or b)
             stack.pop()  # Remove the '('
         else:
             if char in ['&', '|']:
                 while stack and stack[-1] in ['&', '|']:
                     last_operator = stack.pop()
                     if last_operator == '&':
-                        a, b = stack.pop(), stack.pop()
-                        stack.append(bool(int(a)) and bool(int(b)))
+                        a, b = int(stack.pop()), int(stack.pop())
+                        stack.append(a and b)
                     elif last_operator == '|':
-                        a, b = stack.pop(), stack.pop()
-                        stack.append(bool(int(a)) or bool(int(b)))
+                        a, b = int(stack.pop()), int(stack.pop())
+                        stack.append(a or b)
                 stack.append(char)
             else:
                 stack.append(char)
