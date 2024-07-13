@@ -6,6 +6,7 @@ def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
         snow = round(snow, 15)  # Round to 15 decimal places
     return snow
 
+
 hours = int(input())
 snow_on_ground = float(input())
 snow_fall_rate = float(input())
