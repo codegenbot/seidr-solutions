@@ -1,39 +1,45 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
 int whitePegs(string code, string guess) {
     int count = 0;
+    map<char, int> codeMap;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            // Check if the color is already counted
+            if (!codeMap.count(code[i])) {
+                count++;
+                codeMap[code[i]] = 1;
+            }
         }
     }
-    // count the correct colors but wrong position
-    int codeOnly = 0, guessOnly = 0;
-    map<char, bool> codeMap;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
-            codeMap[code[i]] = true;
-            guessOnly++;
-        }
-    }
-    count -= codeOnly + guessOnly;
     return count;
 }
 
 int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeMap, guessMap;
+    int count = whitePegs(code, guess); // Use the corrected whitePegs
+    map<char, int> codeCount(0), guessCount(0);
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            count++; // Correct position, increment black pegs
         } else {
-            codeMap[code[i]]++;
-            guessMap[guess[i]]++;
+            codeCount[code[i]]++;
+            guessCount[guess[i]]++;
         }
     }
-    // count the correct colors and positions
-    for (auto& pair : codeMap) {
-        if (pair.second == 1 && guessMap.count(pair.first)) {
-            count++;
+    for (auto& pair : codeCount) {
+        if (pair.second > 0 && codeMap.count(pair.first)) {
+            count--; // Subtract white pegs
         }
     }
     return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    return 0;
 }

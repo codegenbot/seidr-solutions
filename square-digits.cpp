@@ -1,4 +1,7 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string squareDigits(string input) {
@@ -9,3 +12,10 @@ string squareDigits(string input) {
     }
     return output;
 }
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    getline(cin, input);
+    cout << squareDigits(input) << endl;
+    return 0;
