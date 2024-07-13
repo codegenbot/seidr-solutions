@@ -8,3 +8,5 @@ std::string middleCharacter(std::string s) {
         return s.substr(len/2, 1);
     }
 }
+
+int main() { return 0; }
