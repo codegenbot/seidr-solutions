@@ -1,10 +1,6 @@
 ```
-def check(word):
-    if len(word) < 3:
-        return "Too short"
-    elif word[0].lower() == word[-1].lower():
-        return "Good"
-    else:
-        return "Bad"
+words = input("Enter a string: ").strip()
+print(check(words))
 
-print(check(input("Enter a string: ").strip()))
+def check(words):
+    return "I know or quickly said the same." if len(words.split()) > 1 else "All good!"
