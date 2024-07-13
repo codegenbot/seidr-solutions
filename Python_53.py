@@ -1,3 +1,4 @@
+```
 def add():
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
@@ -13,5 +14,6 @@ def add():
                     break
                 except ValueError:
                     print("Invalid input. Please enter a valid integer.")
+            continue
         else:
-            return
+            break
