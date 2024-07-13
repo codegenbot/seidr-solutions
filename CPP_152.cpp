@@ -12,16 +12,6 @@ bool compare(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> getResult(vector<int> game, vector<int> guess) {
-    vector<int> res;
-    for(int i = 0; i < game.size();i++){
-        if(game[i] == guess[i])res.push_back(10);
-        else if(find(guess.begin(),guess.end(),game[i]) != guess.end())res.push_back(5);
-        else res.push_back(0);
-    }
-    return res;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -30,9 +20,10 @@ int main() {
         cin >> game[i] >> guess[i];
     }
     
-    if(!compare(game[0],guess[0])) {
+    if(!compare({game[0],guess[0]}, {2,0,0,1})) {
         cout << "Error: Invalid input. Please check your input again." << endl;
     } else {
+        // implement your getResult function here
         vector<int> res = getResult(game,guess);
         for(auto x:res)cout << x << " ";
         cout << endl; 
