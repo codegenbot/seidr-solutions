@@ -31,7 +31,6 @@ int main() {
     std::cout << "Enter your guess: ";
     std::cin >> guess;
     int result = mastermind(code, guess);
-    std::cout << "Black pegs: " << (result - (result > 0)) << "\n";
-    std::cout << "White pegs: " << result - (result - (result > 0)) << "\n";
+    std::cout << "Number of black pegs: " << result - (code == guess) << std::endl;
     return 0;
 }
