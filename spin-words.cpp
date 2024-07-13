@@ -1,31 +1,32 @@
-Here is the solution:
-
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    size_t start = 0;
+string spinWords(string sentence) {
+    string result = "";
+    string word;
     
-    for (size_t i = 0; i <= sentence.size(); ++i) {
-        if (i == sentence.size() || (sentence[i] != ' ' && i < sentence.size())) {
-            string word = sentence.substr(start, i - start);
-            
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            
-            result += word;
-            start = i + 1;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            result += word + " ";
+            word = "";
+        } else {
+            word += sentence[i];
+        }
+    }
+    
+    result += word;
+    
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ') {
+            int j = i+1;
+            while(j < result.length() && result[j] != ' ')
+                j++;
+            string temp = result.substr(i+1,j-i-1);
+            reverse(temp.begin(),temp.end());
+            result.replace(i+1, j-i, temp);
+            i = j;
         }
     }
     
     return result;
-}
-
-int main() {
-    std::cout << spinWords("this is a test") << std::endl; // "this is a tset"
-    std::cout << spinWords("hi") << std::endl; // "hi"
-    std::cout << spinWords("a b c d e f g h i j k l m n o p q r s t u v w x y z") << std::endl;
-    return 0;
 }
