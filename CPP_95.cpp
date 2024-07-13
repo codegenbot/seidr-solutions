@@ -1,18 +1,14 @@
 bool check_dict_case(map<string, string> dict) {
-    bool allUpper = true;
-    bool allLower = true;
+    if (dict.empty()) return false;
 
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (!allUpper && !allLower)
-            return false;  // keys are mixed case
+    bool all_upper = true;
+    bool all_lower = true;
 
-        std::string key = it->first;
-        allUpper &= std::all_of(key.begin(), key.end(), ::isupper);
-        allLower &= std::all_of(key.begin(), key.end(), ::islower);
+    for (auto& pair : dict) {
+        string key = pair.first;
+        if (!isupper(key[0])) all_upper = false;
+        if (!islower(key[0])) all_lower = false;
     }
 
-    if (dict.empty())
-        return false;  // empty map is invalid
-
-    return allUpper || allLower;
+    return (all_upper && !all_lower) || (all_lower && !all_upper);
 }
