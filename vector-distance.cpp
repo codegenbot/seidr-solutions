@@ -19,12 +19,15 @@ int main() {
     }
 
     double sum = 0.0;
+    double distance = 0.0;
+
     for (int i = 0; i < n; ++i) {
-        sum += (vec2[i] - vec1[i]) * (vec2[i] - vec1[i]);
+        double diff = vec2[i] - vec1[i];
+        sum += diff * diff;
     }
 
-    double distance = sqrt(sum);
-    cout << fixed << setprecision(15) << distance << endl;
+    distance = sqrt(sum);
+    cout << fixed << setprecision(14) << distance << endl;
 
     return 0;
 }
