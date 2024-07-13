@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
 
 int main() {
     int prod_signs(vector<int> arr) {
@@ -20,4 +20,10 @@ int main() {
 
         return sign_product * sum_of_magnitudes;
     }
+
+    vector<int> arr = {1, -2, 3, 4};
+    int result = prod_signs(arr);
+    std::cout << "The product of signs is: " << result << endl;
+
+    return 0;
 }
