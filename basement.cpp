@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 
@@ -9,15 +8,16 @@ int basement(std::vector<int>& nums) {
         if (sum < 0) return i;
     }
     return -1;
+
 }
 
 int main() {
-    std::vector<int> nums = {1,-2,3,10,6,-4,-5};
-    int result = basement(nums);
-    if (result == -1) {
-        std::cout << "No such index found.\n";
+    std::vector<int> nums = {2, -3, 4};
+    int index = basement(nums);
+    if (index != -1) {
+        std::cout << "The first basement is at index " << index << ".\n";
     } else {
-        std::cout << "The first index is: " << result << ".\n";
+        std::cout << "No basement found.\n";
     }
     return 0;
 }
