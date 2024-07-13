@@ -2,26 +2,22 @@
 using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
-    int sum = 0;
+    int total = 0;
     for (int num : numbers) {
         int result = (num / 3);
-        if (result > 0) {
-            result--;
-        }
-        sum += result - 2;
+        result = min(result, (int)(result - 1));
+        result -= 2;
+        total += result;
     }
-    return sum;
+    return total;
 }
 
 int main() {
-    vector<int> numbers;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        numbers.push_back(num);
+    vector<int> input;
+    int num;
+    while (cin >> num) {
+        input.push_back(num);
     }
-    cout << calculateFuelCost(numbers) << endl;
+    cout << calculateFuelCost(input) << endl;
     return 0;
 }
