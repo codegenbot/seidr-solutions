@@ -1,6 +1,4 @@
-#include <iostream>
-#include <cmath>
-
+```cpp
 int main() {
     double startHeight, actualStartHeight;
 
@@ -9,7 +7,13 @@ int main() {
     
     double actualBouncinessIndex = (actualStartHeight / startHeight);
 
-    double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
+    double totalDistance = 0.0; 
+    int bounces = 8; 
+
+    for (int i = 1; i <= bounces; ++i) {
+        startHeight *= 0.5; 
+        totalDistance += startHeight; 
+    }
 
     return 0;
 }

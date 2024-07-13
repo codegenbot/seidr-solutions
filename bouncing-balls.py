@@ -1,4 +1,4 @@
-```
+````
 import math
 
 start_height = float(input("Enter the starting height: "))
@@ -12,3 +12,4 @@ for i in range(num_bounces):
     total_distance += total_distance * math.pow(2, -0.5) * math.pow(bounciness_index, i+1)
 
 print(total_distance)
+```
