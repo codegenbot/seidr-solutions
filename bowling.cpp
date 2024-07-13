@@ -1,30 +1,35 @@
+Here is the solution:
+
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.size()) {
         if (s[i] == '/') {
-            if (i + 2 < s.length() && s[i+1] != 'X') {
-                score += (10 - (s[i-1] - '0')) + (10 - (s[i+1] - '0'));
-            } else {
-                score += 10;
+            int j = i + 1;
+            while (j < s.size() && s[j] != '/') {
+                j++;
             }
-            frame++;
+            score += min(stoi(s.substr(i+1, j-i-1)), 10);
+            i = j;
         } else if (s[i] == 'X') {
-            score += 10;
-            frame++;
+            score += 10 + bowlingScore(s.substr(i+1));
+            return score;
         } else {
-            int roll = s[i] - '0';
-            if (frame == 9 && s[i+1] != 'X' && s[i+1] != '/') {
-                score += 10 + roll;
-            } else {
-                score += roll;
-            }
-            if (i < s.length() - 1) {
-                if (s[i+1] == 'X') {
-                    frame++;
-                } else if (s[i+1] == '/') {
+            int count = 0;
+            while (i < s.size() && s[i] != '/') {
+                if (s[i] == 'X') {
+                    score += 10;
                     i++;
+                    break;
                 }
+                count++;
+                i++;
+            }
+            if (count > 1) {
+                score += count * 10;
+            } else if (count == 1) {
+                score += count * 10 + bowlingScore(s.substr(i));
+                return score;
             }
         }
     }
