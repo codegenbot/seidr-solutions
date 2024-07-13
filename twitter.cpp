@@ -1,8 +1,5 @@
 #include <iostream>
-#include <sstream>
 #include <string>
-
-std::string validateTweet(std::string);
 
 int main() {
     std::string tweet;
