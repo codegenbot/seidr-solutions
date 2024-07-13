@@ -1,3 +1,4 @@
+```
 def shopping_list():
     total_price = 0
     while True:
@@ -5,7 +6,7 @@ def shopping_list():
             price = float(input())
             discount = float(input())
             total_price += price - (price * (discount / 100))
-        except EOFError:
+        except ValueError:
             break
     return round(total_price, 2)
 
