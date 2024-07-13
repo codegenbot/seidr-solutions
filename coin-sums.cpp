@@ -20,11 +20,7 @@ int main() {
 
     cout << nickles << endl; 
 
-    int pennies = 0;
-    while (remainingCents > 0) {
-        pennies++;
-        remainingCents--;
-    }
+    int pennies = remainingCents;
     cout << pennies << endl; 
 
     return 0;
