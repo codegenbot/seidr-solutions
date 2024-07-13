@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
+
     std::cout << "Enter the number of cents: ";
-    std::cin >> cents;
+    std::cin >> cents; 
 
     int pennies = 0;
     int nickels = 0;
@@ -28,21 +29,10 @@ int main() {
 
     pennies = cents;
 
-    std::cout << "Quarters: ";
-    if(quarters > 1) std::cout << "s ";
-    std::cout << quarters << std::endl;
+    std::cout << "Quarters: " << quarters << (quarters > 1 ? "s" : "") << std::endl;
+    std::cout << "Dimes: " << dimes << (dimes > 1 ? "s" : "") << std::endl;
+    std::cout << "Nickels: " << nickels << (nickels > 1 ? "s" : "") << std::endl;
+    std::cout << "Pennies: " << pennies << (pennies > 1 ? "s" : "") << std::endl;
 
-    std::cout << "Dimes: ";
-    if(dimes > 1) std::cout << "s ";
-    std::cout << dimes << std::endl;
-
-    std::cout << "Nickels: ";
-    if(nickels > 1) std::cout << "s ";
-    std::cout << nickels << std::endl;
-
-    std::cout << "Pennies: ";
-    if(pennies > 1) std::cout << "s ";
-    std::cout << pennies << std::endl;
-    
     return 0;
 }
