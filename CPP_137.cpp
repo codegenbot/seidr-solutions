@@ -1,36 +1,23 @@
-#include <boost/lexical_cast.hpp>
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any((int)std::max(get<int>(a), get<int>(b)));
-    }
-    else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
-             (b.type() == typeid(float) || b.type() == typeid(double))) {
-        return boost::any(std::max(get<float>(a), get<float>(b)));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::lexical_cast<string>(get<string>(a));
-        string str2 = boost::lexical_cast<string>(get<string>(b));
-
-        istringstream iss1(str1);
-        double num1;
-        iss1 >> num1;
-
-        istringstream iss2(str2);
-        double num2;
-        iss2 >> num2;
-
-        if (num1 > num2) {
-            return a;
-        }
-        else if (num1 < num2) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else {
-        return boost::any("None");
+        return max(a.convert_to<int>(), b.convert_to<int>());
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return max(a.convert_to<double>(), b.convert_to<double>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (max(a.convert_to<string>(), b.convert_to<string())) == "None" ? boost::any("None") : max(a, b);
+    } else if ((a.type() == typeid(int) && b.type() == typeid(double)) ||
+               (a.type() == typeid(double) && b.type() == typeid(int))) {
+        return max(a.convert_to<int>(), floor(b.convert_to<double()))) ? boost::any(to_string(max(a, b))) : boost::any("None");
+    } else if ((a.type() == typeid(string) && b.type() == typeid(double)) ||
+               (a.type() == typeid(double) && b.type() == typeid(string))) {
+        return max(a.convert_to<string>(), to_string(b.convert_to<double()))) ? boost::any(to_string(max(a, b))) : boost::any("None");
+    } else {
+        return "None";
     }
 }
