@@ -1,50 +1,36 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    size_t textSize = text.length(), targetSize = target.length();
-    
-    for (size_t i = 0; i <= textSize - targetSize; ++i) {
-        if (text.substr(i, targetSize) == target) {
-            result.push_back(static_cast<int>(i));
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int textSize = text.size();
+    int targetSize = target.size();
+
+    for(int i=0; i <= textSize - targetSize; i++) {
+        if(text.substr(i, targetSize) == target) {
+            indices.push_back(i);
         }
     }
-    
-    return result;
+
+    return indices;
 }
 
 int main() {
-    // Test cases
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("a", "a")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
+    // Read input
+    string text;
+    cin >> text;
 
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("! !", " !")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
+    // Read the target string
+    string target;
+    cin >> target;
 
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("r nm,xcnwqnd@#$fwkdjn3", "r")) {
-        std::cout << idx << " ";
+    // Print the result
+    vector<int> result = findIndices(text, target);
+    cout << "[" << (result.empty() ? "0" : to_string(result[0]));
+    for(int i=1; i < result.size(); i++) {
+        cout << ", " << result[i];
     }
-    std::cout << "]" << std::endl;
+    cout << "]" << endl;
 
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("hihihihihihihihihihi", "hi")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
-
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("############", "#")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
-    
     return 0;
 }
