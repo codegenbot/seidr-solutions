@@ -1,5 +1,6 @@
+```c++
+#include <iostream>
 #include <algorithm>
-#include <cstdio>
 
 float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
@@ -11,13 +12,7 @@ float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportio
 }
 
 int main() {
-    int hours = 5; 
-    float groundSnow = 10.0f;
-    float rateOfSnowFall = 2.0f;
-    float proportionMeltingPerHour = 0.1f;
-
-    float result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
-    printf("Amount of snow on the ground after %d hours: %.2f\n", hours, result);
-
+    double result = snowDay(4, 10.0f, 2.0f, 0.05f);
+    std::cout << "Snow on the ground after 4 hours: " << static_cast<double>(result) << std::endl;
     return 0;
 }
