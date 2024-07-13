@@ -1,3 +1,4 @@
+```
 def check():
     while True:
         try:
@@ -12,10 +13,7 @@ def sum_of_digits(n):
     total = 0
     while n:
         digit = n % 10
-        if digit == 1 and (n // 10) % 10 == 3:
-            total += digit
-        else:
-            total += digit
+        total += digit
         n //= 10
     return total
 
