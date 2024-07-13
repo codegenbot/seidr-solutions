@@ -8,4 +8,4 @@ def largest_prime_factor(n: int):
                 j -= 1
             return i
         i -= 1
-    return 2
+    return None
