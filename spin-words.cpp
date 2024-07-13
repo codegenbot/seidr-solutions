@@ -1,24 +1,14 @@
-```cpp
-#include <string>
-using namespace std;
-
 string spinWords(string str) {
-    string result = ""; 
+    string result = "";
     int wordLength;
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
-            wordLength = i - result.length() - 1;
+            wordLength = i > str.length() ? str.length() : i;
             if (wordLength >= 5) {
-                string reversedWord = "";
-                for (int j = wordLength - 1; j >= 0; j--)
-                    reversedWord += str[i-1-j];
-                result.append(reversedWord).append(" ");
+                result.append(string(str.substr(i-1-wordLength, wordLength)) + " ");
             } else
-                result.append(str.substr(i-1-wordLength, wordLength + 1)).append(" ");
+                result.append(str.substr(result.length(), wordLength)).append(" ");
         }
     }
     return result.substr(0, result.length() - 1);
-}
-
-int main() {
 }
