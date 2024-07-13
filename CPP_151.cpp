@@ -26,7 +26,7 @@ int main() {
     std::istringstream iss(input);
 
     int num;
-    std::initializer_list<int> lst;
+    auto lst = std::initializer_list<int>();
     while (iss >> num) {
         lst = {num};
     }
