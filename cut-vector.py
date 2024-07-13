@@ -1,7 +1,9 @@
 n = int(input())
 arr = [int(input()) for _ in range(n)]
+
 total_sum = sum(arr)
 half_sum = total_sum // 2
+
 prefix_sum = 0
 for i, num in enumerate(arr):
     prefix_sum += num
