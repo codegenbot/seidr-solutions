@@ -1,11 +1,11 @@
 string change_base(int x, int base) {
     string res = "";
     while (x > 0) {
-        int remainder = x % base;
-        if (remainder < 10)
-            res = to_string(remainder) + res;
+        int rem = x % base;
+        if (rem < 10)
+            res = to_string(rem) + res;
         else
-            res = "A" + res; // for bases greater than 9
+            res = 'A' + rem - 10 + res;
         x /= base;
     }
     return res;
