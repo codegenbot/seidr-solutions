@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
@@ -9,9 +8,9 @@ vector<int> findLeaders(vector<int> nums) {
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] > maxLeader) {
+        if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
-            leaders.push_back(maxLeader);
+            leaders.insert(leaders.begin(), maxLeader); // Insert at the beginning instead of the end
         }
     }
     return leaders;
