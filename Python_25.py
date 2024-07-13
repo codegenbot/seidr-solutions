@@ -1,6 +1,7 @@
+```
 from typing import List
 
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> str:
     factors = []
     i = 2
     while i * i <= n:
@@ -14,4 +15,13 @@ def factorize(n: int) -> List[int]:
             factors.append((i, count))
     if n > 1:  
         factors.append((n, 1))
-    return [i for i, _ in factors]
+    
+    result = set()
+    for f, c in sorted(factors):
+        if c > 0:
+            result.add(str(f) + '**' + str(c) if c > 1 else str(f))
+
+    return ', '.join(result)
+
+n = int(input("Enter a number: "))
+print(factorize(n))
