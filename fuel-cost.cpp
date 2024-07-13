@@ -5,7 +5,7 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    while (std::cin >> num && !std::cin.fail() && !std::cin.eof() && num > 0) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
