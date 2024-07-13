@@ -46,5 +46,10 @@ void testGame() {
         cout << endl; 
     }
     
-    assert(0 < 1);
+}
+
+int main() {
+    testGame();
+    assert(compare(0,1) == -1);
+    return 0;
 }
