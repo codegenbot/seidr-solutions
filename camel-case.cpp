@@ -1,6 +1,8 @@
+```cpp
 #include <cctype>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::string camelCase(std::string str) {
     std::string result = "";
@@ -24,7 +26,9 @@ std::string camelCase(std::string str) {
                 result += static_cast<char>(std::toupper(c));
             else
                 result += static_cast<char>(std::tolower(c));
-            result += word.substr(1).toupper();
+            std::transform(word.begin() + 1, word.end(), word.begin() + 1,
+                           std::toupper);
+            result += word;
         }
     }
 

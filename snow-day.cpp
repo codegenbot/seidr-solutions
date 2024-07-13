@@ -8,7 +8,7 @@ double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proport
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall; 
-        totalSnow -= round(totalSnow * proportionMeltingPerHour); 
+        totalSnow -= totalSnow * proportionMeltingPerHour; 
     }
     
     return totalSnow;
@@ -22,8 +22,7 @@ int main() {
     
     double result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
     
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::endl;
-    std::cout << result << std::endl;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
     
     return 0;
 }
