@@ -1,8 +1,3 @@
-```c
-#include <string>
-#include <algorithm>
-#include <iostream>
-
 std::string spinWords(std::string str) {
     std::string word;
     std::string result = ""; 
@@ -11,7 +6,7 @@ std::string spinWords(std::string str) {
         if (i == str.length() || str[i] == ' ') {
             if (!word.empty()) {
                 if (word.length() >= 5) {
-                    result += " " + std::string(word.rbegin(), word.rend());
+                    result += " " + (std::string(word.rbegin(), word.rend()));
                 } else {
                     result += " " + word;
                 }
@@ -25,19 +20,12 @@ std::string spinWords(std::string str) {
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            result += " " + std::string(word.rbegin(), word.rend());
+            result += " " + (std::string(word.rbegin(), word.rend()));
         } else {
             result += " " + word;
         } 
     } 
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::string output = spinWords(input); // Store result in a variable
-    std::cout << "Spinned String: " << output << std::endl;
-    return 0;
+    std::string output = result; // copy the result
+    output.pop_back(); // remove the extra space
+    return output;
 }
