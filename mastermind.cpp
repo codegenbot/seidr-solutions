@@ -38,3 +38,4 @@ int main() {
     std::cin >> code >> guess;
     std::cout << mastermind(code, guess) << "\n";
     return 0;
+}
