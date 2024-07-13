@@ -8,7 +8,7 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            return {min({complement, nums[i]}), max({component, nums[i]})};
+            return {min({complement, nums[i]}), max({complement, nums[i]})};
         }
         numIndex[nums[i]] = i;
     }
@@ -18,9 +18,11 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> nums;
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
     int target;
     cin >> target;
