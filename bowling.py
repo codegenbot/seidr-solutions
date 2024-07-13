@@ -1,20 +1,15 @@
-```
-def bowling_score(s):
+def bowling_score(gutter_balls):
     score = 0
     roll = 0
-    for char in s:
-        if char.isdigit():
-            roll += int(char)
-        elif char == 'X':
-            score += 10 + roll
-            roll = 0
-        elif char == '/':
-            score += 10 + roll
-            roll = 0
+    for frame in gutter_balls.split("/"):
+        if len(frame) == 1:
+            roll += 10
         else:
-            if roll > 1:
-                score += 10 + roll
-            elif roll == 1:
-                score += 10
-            roll = 0
-    return score
+            first_roll, second_roll = map(int, frame)
+            if second_roll == 10:
+                roll += first_roll + second_roll
+            elif first_roll + second_roll == 10:
+                roll += first_roll + 10
+            else:
+                roll += first_roll + second_roll
+    return score + roll
