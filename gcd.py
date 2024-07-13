@@ -1,3 +1,4 @@
+```
 import math
 
 def gcd(a, b):
