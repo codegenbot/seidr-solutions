@@ -1,18 +1,6 @@
 def search(lst):
-    max_num = -1
+    max_num = 0
     for num in lst:
-        if num > max_num:
+        if num > max_num and num > 0:
             max_num = num
-    return max_num
-
-
-def main():
-    while True:
-        lst = list(map(int, input("Enter the numbers separated by space: ").split()))
-        if all(isinstance(x, int) for x in lst):
-            break
-    print(search(lst))
-
-
-if __name__ == "__main__":
-    main()
+    return max_num if max_num else -1
