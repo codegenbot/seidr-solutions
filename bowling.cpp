@@ -5,19 +5,19 @@
 int bowlingScore(string s) {
     int score = 0;
     std::stringstream ss(s);
-    char c;
+    string line;
     bool strike = false;
-    while (ss >> c) {
-        if (c == 'X') {
+    while (std::getline(ss, line)) {
+        if (line == "X") {
             score += 30;
             strike = true;
-        } else if (c == '/') {
+        } else if (line == "/") {
             if (!strike) {
                 score += 10 + (score / 10 - 1);
             }
             strike = false;
         } else {
-            int temp = c - '0';
+            int temp = line[0] - '0';
             if (strike) {
                 score += temp * 2;
                 strike = false;
