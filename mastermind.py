@@ -5,5 +5,5 @@ def mastermind(code, guess):
         if code[i] == guess[i]:
             black += 1
         elif code[i] in guess:
-            white += 1 - (guess.count(code[i]) - 1)
+            white += 1
     return str(black) + "\n" + str(white)
