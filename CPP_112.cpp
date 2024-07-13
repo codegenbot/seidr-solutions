@@ -1,34 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (find(c.begin(), c.end(), s[i]) == c.end()) {
-            temp += s[i];
+bool issame(char a, char b) {
+    if ((a == 'R' && b == 'r') || (a == 'r' && b == 'R'))
+        return true;
+    else
+        return false;
+}
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::string temp = "";
+    for (char x : s) {
+        bool flag = false;
+        for (char y : c) {
+            if (x == y && !issame(x, y)) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            temp += x;
         }
     }
-    bool is_palindrome = false;
-    string temp2 = temp;
-    reverse(temp2.begin(), temp2.end());
-    if (temp == temp2) {
-        is_palindrome = true;
-    }
-    result.push_back(temp);
-    if (is_palindrome)
+    std::vector<std::string> result;
+    std::string str1 = temp;
+    std::reverse(str1.begin(), str1.end());
+    std::string str2 = temp;
+    if (str1 == str2)
         result.push_back("True");
     else
         result.push_back("False");
+    result.push_back(temp);
     return result;
-}
-
-int main() {
-    vector<string> output = reverse_delete("mamma", "mia");
-    for(auto str : output) {
-        cout << str << endl;
-    }
-    return 0;
 }
