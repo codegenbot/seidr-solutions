@@ -1,3 +1,4 @@
+```
 def calculate():
     while True:
         try:
@@ -11,33 +12,30 @@ def calculate():
     total_water = 0
     while True:
         try:
-            water_levels = input(
-                f"Enter water levels for days 1 to {max_fill} (space-separated): "
-            ).split()
-            if len(water_levels) == max_fill:
-                break
-        except ValueError:
-            print("Please enter valid integers separated by spaces.")
+            while True:
+                try:
+                    water_levels = list(map(int, input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()))
+                    if len(water_levels) == max_fill:
+                        break
+                except ValueError:
+                    print("Please enter valid integers separated by spaces.")
+        break
 
-    for i, level in enumerate(map(int, water_levels)):
+    for i, level in enumerate(water_levels):
         while True:
             try:
-                if 0 <= int(level) <= max_fill:
-                    total_water += int(level)
+                level = int(input(f"Enter water level for day {i+1}: "))
+                if 0 <= level <= max_fill:
+                    total_water += level
                     break
                 else:
                     print(
-                        f"Water level at day {i+1} cannot be less than zero or exceed the maximum fill. Please try again."
+                        "Water level cannot be less than zero or exceed the maximum fill. Please try again."
                     )
-                    while True:
-                        level = input(f"Enter water level for day {i+1}: ")
-                        if 0 <= int(level) <= max_fill:
-                            total_water += int(level)
-                            break
             except ValueError:
                 print("Please enter a valid integer.")
 
-    average_water = total_water / max_fill if max_fill != 0 else 0
+    average_water = total_water / max_fill if max_fill != 0 else float("nan")
     print(f"The average water level is {average_water}.")
 
 
