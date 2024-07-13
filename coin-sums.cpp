@@ -25,7 +25,7 @@ int main() {
     
     int pennies = cents;
 
-    cout << "Coins: " << quarters << " quarters";
+    cout << "Coins: " << quarters << " quarter" << ((quarters > 1)? "s ":"") << endl;
     if(quarters > 1) cout << "s ";
     cout << quarters << " remaining;\n";
     
