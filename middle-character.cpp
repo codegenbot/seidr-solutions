@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string middleCharacter(string s) {
     int n = s.size();
     if (n % 2 == 0) {
@@ -9,7 +14,7 @@ string middleCharacter(string s) {
 
 int main() {
     string s;
-    cin >> s;
-    cout << middleCharacter(s) << endl;
+    getline(cin, s);
+    cout << middleCharacter(s) << '\n';
     return 0;
 }
