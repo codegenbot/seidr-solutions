@@ -1,10 +1,15 @@
-double startHeight;
-double actualBouncinessIndex;
+#include <iostream>
+#include <cmath>
 
-cin >> startHeight >> actualBouncinessIndex;
+int main() {
+    double startHeight, actualStartHeight;
 
-actualBouncinessIndex /= startHeight;
+    // Get the input values from user
+    std::cin >> startHeight >> actualStartHeight;
+    
+    double actualBouncinessIndex = (actualStartHeight / startHeight);
 
-double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
+    double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
 
-cout << fixed << setprecision(2) << totalDistance;
+    return 0;
+}
