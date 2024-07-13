@@ -5,7 +5,7 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     for (size_t i = 0; i <= text.length() - target.length(); ++i) {
         if (text.substr(i, target.length()) == target) {
