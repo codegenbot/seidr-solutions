@@ -7,10 +7,13 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             int wordLength = i - result.length();
             if (wordLength >= 5)
-                result.append(string(str.substr(i - wordLength, wordLength)).resize(wordLength).reverse()).append(" ");
+                result.append(string(wordLength > 0 ? &str[i-wordLength] : "") + " ");
             else
-                result.append(str.substr(result.length(), wordLength + 1)).append(" ");
+                result.append(str.substr(result.length(), wordLength) + " ");
         }
     }
-    return result.substr(0, result.length() - 1);
+    return result;
+}
+
+int main() {
 }
