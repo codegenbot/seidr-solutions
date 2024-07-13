@@ -1,22 +1,21 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& v) {
-    int n = v.size();
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
     vector<int> res;
     
-    // Rightmost element is always a leader.
-    res.push_back(v.back());
-    
-    // Iterate from right to left. If an element is greater than the previous leader, it's a new leader.
-    for (int i = n - 2; i >= 0; i--) {
-        if (v[i] >= v.back()) {
-            res.push_back(v[i]);
-            v.pop_back();
+    for(int i=n-1; i>=0; i--) {
+        bool flag = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                flag = false;
+                break;
+            }
         }
+        if(flag) res.push_back(arr[i]);
     }
     
     reverse(res.begin(), res.end());
-    
     return res;
 }
