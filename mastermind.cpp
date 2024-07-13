@@ -1,3 +1,8 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     vector<char> chars = {'0', '1', '2', '3', '4', '5'};
     
@@ -27,12 +32,7 @@ int mastermind(string code, string guess) {
             idx++;
         }
         while(idx < 6 && chars[idx] != guess[i]) idx++;
-        for(int j = 0; j <= idx; j++) {
-            if(code[j] == guess[i]) {
-                count++;
-                codeCount[j]--;
-            }
-        }
+        
         white += min(count, codeCount[idx]);
     }
 
