@@ -1,39 +1,25 @@
 ```
-def bowling_score(bowling_game):
-    score = 0
-    roll = 0
-    for frame in range(10):
-        if bowling_game[roll:roll+2] in ['XX', 'X/']:
-            score += 30
-            roll += 1
-        elif bowling_game[roll].isdigit() and len(bowling_game[roll:]) >= 3:
-            strike = True
-            for i in range(3):
-                if bowling_game[roll+i].isdigit():
-                    if strike:
-                        score += int(bowling_game[roll+i])
-                    else:
-                        if i == 0:
-                            score += int(bowling_game[roll+i]) * 2
-                        elif i == 1 and frame < 9:
-                            score += int(bowling_game[roll+i]) + score // 10
-                    roll += i + 1
-                    break
-                else:
-                    if strike:
-                        score += 10
-                        roll += 3
-                        break
-            if strike:
-                continue
-        elif bowling_game[roll].isdigit() and len(bowling_game[roll:]) >= 2:
-            spare = True
-            for i in range(2):
-                if bowling_game[roll+i].isdigit():
-                    if spare:
-                        score += int(bowling_game[roll+i]) + score // 10
-                    else:
-                        score += int(bowling_game[roll+i])
-                    roll += i + 1
-                    break
-        return score
+def bowling(score):
+    score = score.replace('/', '-')
+    frames = [int(x) for x in score.split('-')]
+    total_score = 0
+    frame_number = 1
+    
+    while len(frames) > 0:
+        if frame_number < 10:
+            if frames[0] == 10: 
+                total_score += 10 + 10
+                frames.pop(0)
+            elif sum(frames[:2]) >= 10:
+                total_score += 10
+                frames = frames[1:]
+            else:
+                total_score += frames[0]
+                frames.pop(0)
+        else:
+            if len(frames) > 0: 
+                total_score += frames[0] + (10 - frames[0])
+                frames.pop(0)
+        
+        frame_number += 1
+    return total_score
