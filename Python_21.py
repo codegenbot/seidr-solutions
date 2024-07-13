@@ -1,5 +1,4 @@
-```python
-"""rescale_to_unit:
+def rescale_to_unit():
     inputs = input("Enter numbers separated by space: ")
     inputs = list(map(float, inputs.split()))
     
@@ -11,4 +10,3 @@
     rescaled_numbers = [(x - min_val) / (max_val - min_val) for x in inputs]
 
     print([str(x) for x in rescaled_numbers])
-"""
