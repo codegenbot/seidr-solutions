@@ -1,41 +1,27 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
             if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
+                result += reversed(word) + " ";
             } else {
-                result += word;
+                result += word + " ";
             }
-            word = "";
-        } else {
-            word += str[i];
+            start = i + 1;
         }
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
-        }
-    } else {
-        result += word;
-    }
-
     return result;
 }
 
-int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
-
-    return 0;
+string reversed(string s) {
+    string rev = "";
+    for (int i = s.length() - 1; i >= 0; i--) {
+        rev += s[i];
+    }
+    return rev;
 }
