@@ -11,15 +11,11 @@ string spinWords(string str) {
             if (wordLength >= 5) {
                 string reversedWord = "";
                 for (int j = wordLength - 1; j >= 0; j--)
-                    reversedWord += str[i-1-j];
+                    reversedWord += str.substr(i-1-j, 1);
                 result.append(reversedWord).append(" ");
             } else
                 result.append(str.substr(result.length(), wordLength + 1)).append(" ");
         }
     }
     return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    
 }
