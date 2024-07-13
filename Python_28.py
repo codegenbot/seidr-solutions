@@ -1,6 +1,7 @@
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    return ''.join(input("Enter a list of strings separated by commas: ").split(","))
+    return "".join(strings)
 
-print(concatenate([]))
+strings = input("Enter your strings separated by space: ").split()
+print(concatenate(strings))
