@@ -1,6 +1,6 @@
 #include <vector>
 
-int sumOfLastDigit(vector<int> lst) {
+int largest_prime_sum(vector<int> lst) {
     int max_prime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -27,5 +27,3 @@ bool isPrime(int n) {
         }
     }
     return true;
-
-}
