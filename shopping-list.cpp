@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -5,7 +6,7 @@ using namespace std;
 vector<float> prices;
 vector<float> discounts;
 
-double shoppingTrip() {
+double shoppingTrip(vector<float>, vector<float>) {
     double total = 0;
     for(int i = 0; i < prices.size(); i++) {
         double price = prices[i];
@@ -19,7 +20,7 @@ int main() {
     int n;
     cin >> n;
     
-    prices.resize(n);
+    prices.resize(n); // Declare and resize the prices vector
     for(int i = 0; i < n; i++) {
         cin >> prices[i];
     }
@@ -29,7 +30,7 @@ int main() {
         cin >> discounts[i];
     }
     
-    cout << fixed << setprecision(1) << shoppingTrip() << endl;
+    cout << fixed << setprecision(1) << shoppingTrip(prices, discounts) << endl;
     
     return 0;
 }
