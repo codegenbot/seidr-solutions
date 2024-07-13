@@ -1,20 +1,22 @@
+```
 def fizz_buzz(x):
     num_to_word = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
                    6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten'}
+    teens = {11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
+             15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen',
+             19: 'nineteen'}
+    tens = {20: 'twenty', 30: 'thirty', 40: 'forty', 50: 'fifty',
+            60: 'sixty', 70: 'seventy', 80: 'eighty', 90: 'ninety'}
 
     def int_to_word(n):
         if n < 11:
             return num_to_word[n]
+        elif 10 <= n < 20:
+            return teens[n]
         else:
-            words = ['']
-            for digit in str(n)[1:]:
-                words[0] += {'eleven': 'eleven', 'twelve': 'twelve', 'thirteen': 'thirteen',
-                             'fourteen': 'fourteen', 'fifteen': 'fifteen', 'sixteen': 'sixteen',
-                             'seventeen': 'seventeen', 'eighteen': 'eighteen', 'nineteen': 'nineteen'}.get(digit + 'ten', 
-                                                                                                             {'twenty': 'twenty', 'thirty': 'thirty', 'forty': 'forty', 'fifty': 'fifty',
-                                                                                                              'sixty': 'sixty', 'seventy': 'seventy', 'eighty': 'eighty', 'ninety'}.get('nineteen') if 
-                             int(digit) == 1 else {'zero': 'zero'}.get(digit, num_to_word[int(digit)])][0]
-            return words[0]
+            tens_part = tens[n - (n % 10) * 10]
+            ones_part = num_to_word[n % 10]
+            return f'{tens_part} {ones_part}'
 
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
