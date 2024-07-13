@@ -1,3 +1,4 @@
+```
 def calculate():
     while True:
         try:
@@ -11,14 +12,7 @@ def calculate():
     total_water = 0
     while True:
         try:
-            water_levels = list(
-                map(
-                    int,
-                    input(
-                        f"Enter water levels for days 1 to {max_fill} (space-separated): "
-                    ).split(),
-                )
-            )
+            water_levels = list(map(int, input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()))
             if len(water_levels) == max_fill:
                 break
         except ValueError:
