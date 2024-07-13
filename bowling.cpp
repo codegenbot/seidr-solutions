@@ -1,3 +1,4 @@
+#include <string>
 using namespace std;
 
 int bowlingScore(string s) {
@@ -35,5 +36,3 @@ int bowlingScoreHelper(string s) {
         }
     }
     return score;
-
-#include <string>
