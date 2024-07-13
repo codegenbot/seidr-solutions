@@ -4,19 +4,18 @@ string spinWords(string str) {
     int i = 0;
     while(i <= str.length()) {
         if (i == str.length() || str[i] == ' ') {
-            int wordLength = i - result.length();
+            int wordLength = i - (result.length());
             if (wordLength >= 5) {
                 string reversedWord = "";
                 for(int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += str[i-1-j];
+                    reversedWord += str.substr(i - 1 - j, 1);
                 }
                 result.append(reversedWord).append(" ");
-                i++;
             } else
-                result.append(str.substr(i-wordLength, wordLength+1)).append(" ");
+                result.append(str.substr(i - wordLength, wordLength)).append(" ");
             i++;
         } else 
             i++;
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
