@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
@@ -25,10 +25,10 @@ std::vector<int> leaders(const std::vector<int>& arr) {
 int main() {
     std::vector<int> arr = {1, 3, 4, 1, 5, 9};
     auto result = leaders(arr);
-    // Print the result
     for (auto num : result) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+    
     return 0;
 }

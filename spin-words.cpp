@@ -1,27 +1,19 @@
-#include <iostream>
 #include <string>
+#include <sstream>
 
-std::string spinWords(const std::string& input) {
-    std::vector<std::string> words;
-    std::stringstream ss(input);
+std::string spinWords(std::string str) {
+    std::stringstream ss(str);
     std::string word;
+    std::stringstream result;
 
     while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        words.push_back(word);
+        if (word.length() >= 5)
+            for (int i = word.length() - 1; i >= 0; --i)
+                result << word[i];
+        else
+            result << word;
+        result << ' ';
     }
 
-    return std::accumulate(words.begin(), words.end(),
-                             std::string{},
-                             [](const std::string& a, const std::string& b) { return a + " " + b; });
-}
-
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    return 0;
+    return result.str();
 }
