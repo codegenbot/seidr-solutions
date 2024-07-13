@@ -1,4 +1,4 @@
-```
+```Python
 def get_max_triples(n):
     max_sum = 0
     for i in range(1, n+1):

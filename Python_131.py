@@ -1,4 +1,3 @@
-```
 def check():
     n = int(input("Enter a number: "))
     if 100 <= n <= 999:
@@ -7,6 +6,7 @@ def check():
     else:
         print("Invalid input. Please enter a three-digit integer.")
 
+
 def sum_of_digits(n):
     total = 0
     while n:
@@ -14,5 +14,6 @@ def sum_of_digits(n):
         total += digit
         n //= 10
     return total
+
 
 check()
