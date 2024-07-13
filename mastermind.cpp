@@ -1,31 +1,49 @@
 #include <vector>
-#include <iostream>
 #include <string>
 
-int getWhitePegs(const std::string& code, const std::string& guess) {
-    int whitePegs = 0;
-    for (char c : code) {
-        if (std::count(guess.begin(), guess.end(), c) > 0) {
-            whitePegs++;
-        }
-    }
-    return whitePegs - std::count(code.begin(), code.end(), guess[0]);
-}
-
-int getBlackPegs(const std::string& code, const std::string& guess) {
+int countBlackPegs(string code, string guess) {
     int blackPegs = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            ++blackPegs;
         }
     }
     return blackPegs;
 }
 
+int countWhitePegs(string code, string guess) {
+    int whitePegs = 0;
+    vector<char> codeArray(code.begin(), code.end());
+    for (int i = 0; i < 4; ++i) {
+        bool found = false;
+        for (int j = 0; j < 4; ++j) {
+            if (codeArray[j] == guess[i] && codeArray[j] != code[i]) {
+                codeArray[j] = '\0';
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            ++whitePegs;
+        }
+    }
+    return whitePegs;
+}
+
+int mastermind(string code, string guess) {
+    int blackPegs = countBlackPegs(code, guess);
+    int whitePegs = 4 - blackPegs;
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] != code[i]) {
+            --whitePegs;
+        }
+    }
+    return blackPegs + whitePegs;
+}
+
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    std::cout << getWhitePegs(code, guess) << "\n";
-    std::cout << getBlackPegs(code, guess) << "\n";
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
     return 0;
 }
