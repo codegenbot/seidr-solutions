@@ -1,4 +1,3 @@
-```
 def car_race_collision(n: int):
     return n * (n - 1)
 
@@ -12,3 +11,6 @@ while True:
             print("Please enter a positive integer.")
     except ValueError:
         print("Invalid input. Please enter a whole number.")
+    else:
+        if not isinstance(n, int):
+            print("Invalid input. Please enter a whole number.")
