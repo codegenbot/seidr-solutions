@@ -23,4 +23,3 @@ bool solveBoolean(string s) {
         }
     }
     return st.top() == 'T';
-}
