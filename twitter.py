@@ -1,4 +1,4 @@
-tweet = input("Enter your tweet: ")
+```
 def validate_tweet(tweet):
     tweet = tweet.strip()
     if not tweet:
@@ -7,5 +7,3 @@ def validate_tweet(tweet):
         return "Too many characters"
     else:
         return f"Your tweet has {len(tweet)} characters"
-
-print(validate_tweet(tweet))
