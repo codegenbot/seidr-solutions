@@ -1,6 +1,4 @@
-```cpp
-#include <cstdint>
-#include <vector>
+#include <pair>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
