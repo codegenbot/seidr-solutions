@@ -1,46 +1,52 @@
 #include <vector>
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int getMastermindPegs(string code, string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
+    vector<int> codeCount(6);
+    vector<int> guessCount(6);
 
-    vector<int> codeCount(6, 0);
+    // count the occurrences of each character in both strings
     for (char c : code) {
         codeCount[c - 'A']++;
     }
-
-    vector<int> guessCount(6, 0);
     for (char c : guess) {
         guessCount[c - 'A']++;
     }
 
+    // count the correct positions
+    int blackCount = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
-            codeCount[guess[i] - 'A']--;
+            codeCount[code[i] - 'A']--;
             guessCount[guess[i] - 'A']--;
+            blackCount++;
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        if (codeCount[guess[i] - 'A'] > 0) {
-            white++;
-            codeCount[guess[i] - 'A']--;
-        }
+    // count the correct colors in wrong positions
+    for (int i = 0; i < 6; i++) {
+        int count = min(codeCount[i], guessCount[i]);
+        white += count;
+        codeCount[i] -= count;
+        guessCount[i] -= count;
     }
 
-    return to_string(white) + "\n" + to_string(black);
+    black = blackCount;
+    white = accumulate(codeCount.begin(), codeCount.end(), 0) + accumulate(guessCount.begin(), guessCount.end(), 0) - black;
+
+    return {black, white};
 }
 
 int main() {
     string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter a guess: ";
-    cin >> guess;
-    cout << getMastermindPegs(code, guess) << endl;
-
+    cin >> code >> guess;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.second << endl;
+    cout << result.first << endl;
     return 0;
 }
