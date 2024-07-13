@@ -3,9 +3,6 @@
 #include <cmath>
 #include <iostream>
 
-#define _SILENT_STANDARD_NAMESPACE_DEPRECATION_WARNING
-#include <c++17>
-
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
