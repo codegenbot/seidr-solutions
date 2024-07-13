@@ -1,7 +1,5 @@
 def match_parens(lst):
     for s in lst:
-        if any(char not in '() ' for char in s):
-            return "No"
         count = 0
         has_opening = False
         for char in s:
@@ -12,8 +10,8 @@ def match_parens(lst):
                 if not has_opening:
                     return "No"
                 count -= 1
-                if count == 0:
+                if count < 0:
                     has_opening = False
-        if count > 0 or (has_opening and s != "("):
+        if count > 0 or has_opening:
             return "No"
     return "Yes"
