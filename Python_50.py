@@ -1,4 +1,4 @@
-```
+```python
 def decode_shift():
     password = input("Please enter the password: ")
     if len(password) != 1 or not password.isupper():
@@ -15,6 +15,4 @@ def decode_shift():
         else:
             decoded_message += char
     
-    return f"Decoded message: {decoded_message}"
-
-print(decode_shift())
+    return decoded_message
