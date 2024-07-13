@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int white = 0; // Initialize white peg count to 0
     int black = 0; // Initialize black peg count to 0
@@ -24,18 +20,4 @@ std::pair<int, int> mastermind(const std::string& code, const std::string& guess
     }
 
     return std::make_pair(4 - white, black);
-}
-
-int main() {
-    std::cout << "Enter Mastermind code: ";
-    std::string code;
-    std::cin >> code;
-
-    std::cout << "Enter guess: ";
-    std::string guess;
-    std::cin >> guess;
-
-    auto [white, black] = mastermind(code, guess);
-    std::cout << white << "\n" << black << "\n";
-    return 0;
 }
