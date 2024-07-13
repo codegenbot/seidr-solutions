@@ -14,12 +14,18 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
+        }
+    }
+
     return black;
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "ABDC";
+    std::string code = "XXXX";
+    std::string guess = "XXXX";  
     int result = mastermind(code, guess);
     return 0;
 }
