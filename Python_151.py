@@ -1,4 +1,3 @@
-```
 def double_the_difference(lst):
     if len(lst) > 0:
         return (max(lst) - min(lst)) * 2
@@ -14,6 +13,6 @@ def check():
         except ValueError:
             print("Invalid input. Please enter space-separated numbers.")
 
-    print("{}{}".format("The difference between the maximum and minimum values is: ", double_the_difference(numbers)))
+    print(double_the_difference(numbers))
 
 check()
