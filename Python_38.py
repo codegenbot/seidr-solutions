@@ -1,10 +1,10 @@
+```
 def decode_cyclic():
-    s = input("Enter the cyclic string: ")
-    n = len(s)
+    s = """{}""".format(input("Enter the cyclic string: "))
     decoded = ""
-    for i in range(n):
-        if i % 2 == 0:
-            decoded += s[i]
+    for i in range(len(s)):
+        if 2*i < len(s):
+            decoded += s[2*i]
         else:
-            decoded += s[(i+1)%n]
+            decoded += s[-(i+1)%len(s)]
     return decoded
