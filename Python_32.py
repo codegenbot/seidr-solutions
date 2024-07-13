@@ -4,10 +4,6 @@ def find_zero(coefficients):
     b = coefficients[1]
     c = coefficients[2]
 
-    discriminant = b**2 - 4*a*c
-    if discriminant < 0:
-        return "This equation has no real solution."
-
     zero = (-b + (b**2 - 4 * a * c) ** 0.5) / (2 * a)
 
     return round(zero, 2)
@@ -23,7 +19,10 @@ while True:
             print("Please provide at least three even-numbered coefficients.")
             continue
 
-        print(find_zero(coefficients))
+        if len(coefficients) >= 3:
+            print(find_zero(coefficients))
+        else:
+            print("Please provide at least three coefficients.")
     except ValueError as e:
         print(f"Error: {e}")
         exit()
