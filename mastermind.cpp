@@ -33,12 +33,8 @@ int mastermind(string code, string guess) {
 }
 
 int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter your guess: ";
-    cin >> guess;
+    string code = "ABCDA";
+    string guess = "ABDAD";
     int result = mastermind(code, guess);
-    cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
-    return 0;
+    return result;
 }
