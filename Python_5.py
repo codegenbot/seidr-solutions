@@ -1,4 +1,8 @@
+```
 def intersperse(lst):
+    if len(lst) < 2 or lst[0] == lst[-1]:
+        print('Program did not receive expected input')
+        return
     result = [lst[0]]
     for item in lst[1:]:
         result.append(' ' + item)
@@ -7,5 +11,4 @@ def intersperse(lst):
     result.append(lst[-1])
     return ''.join(result)
 
-input_str = input("Enter a list of strings (space separated): ")
-print(intersperse(input_str.split()))
+print(intersperse(input("Enter a list of strings (space separated): ").split()))
