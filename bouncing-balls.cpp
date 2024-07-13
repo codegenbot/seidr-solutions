@@ -5,7 +5,10 @@ using namespace std;
 int main() {
     double startHeight, actualStartHeight;
     
-    // Get the input values from user
+    string startHeightStr = to_string(startHeight);
+    string actualStartHeightStr = to_string(actualStartHeight);
+    cout << "Enter the starting height and first bounce height: " << startHeightStr << ", " << actualStartHeightStr << endl;
+
     cin >> startHeight >> actualStartHeight;
     
     double actualBouncinessIndex = (actualStartHeight / startHeight);
@@ -18,7 +21,8 @@ int main() {
         totalDistance += startHeight; 
     }
 
-    cout << "The total distance the ball travels is: " << totalDistance << endl;
+    string totalDistanceStr = to_string(totalDistance);
+    cout << "The total distance the ball travels is: " << totalDistanceStr << endl;
     
     return 0;
 }
