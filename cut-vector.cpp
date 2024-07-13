@@ -1,35 +1,42 @@
 #include <vector>
 #include <iostream>
-#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    long long totalSum = 0;
-    for (int i = 0; i < n; i++) {
-        totalSum += v[i];
-    }
-    
     long long leftSum = 0;
-    long long minDiff = INT_MAX;
-    int cutPos = -1;
-
     for (int i = 0; i < n; i++) {
         leftSum += v[i];
         
-        long long rightSum = totalSum - leftSum;
+        long long rightSum = 0;
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
+        }
         
-        if(abs(leftSum - rightSum) <= minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            cutPos = i;
+        int diff = abs(leftSum - rightSum);
+        
+        if(i == 0 || diff < abs(leftSum - (long long)accumulate(v.begin(), v.end(), 0))) {
+            res[0] = vector<int>(v.begin(), v.end());
+            res[1].clear();
+            return res;
         }
     }
-
-    res[0] = vector<int>(v.begin(), v.begin() + cutPos+1);
-    res[1] = vector<int>(v.begin() + cutPos, v.end());
     
+    long long totalSum = accumulate(v.begin(), v.end(), 0);
+    int left = 0, right = 0;
+    for(int i = 0; i < n; i++) {
+        totalSum -= v[i];
+        if(totalSum == 0) {
+            res[0] = vector<int>(v.begin(), v.begin() + i+1);
+            res[1] = vector<int>(v.begin() + i+1, v.end());
+            return res;
+        }
+    }
+    
+    res[0] = vector<int>(v.begin(), v.end());
+    res[1].clear();
     return res;
 }
 
