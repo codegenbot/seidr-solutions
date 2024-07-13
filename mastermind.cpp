@@ -11,7 +11,7 @@ int mastermind(string code, string guess) {
     for (char c : guess) {
         int count = 0;
         for (char d : code) {
-            if (c == d && d != ' ') {
+            if (c == d) {
                 count++;
             }
         }
