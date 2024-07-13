@@ -1,5 +1,4 @@
-#include <stdio.h>
-
+#include <iostream>
 using namespace std;
 
 int prime_fib(int n) {
@@ -22,10 +21,9 @@ int prime_fib(int n) {
 }
 
 int main() {
-    printf("%d\n", prime_fib(1));
-    printf("%d\n", prime_fib(2));
-    printf("%d\n", prime_fib(3));
-    printf("%d\n", prime_fib(4));
-    printf("%d\n", prime_fib(5));
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
     return 0;
 }
