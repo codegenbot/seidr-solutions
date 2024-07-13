@@ -1,23 +1,12 @@
 int main() {
-    int n;
+    int n, num1, num2, target;
     cin >> n;
-    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    int target;
-    cin >> target;
-    
-    map<int, int> seen;
-    for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (seen.find(complement) != seen.end()) {
-            cout << complement << endl;
-            cout << nums[i] << endl;
+        cin >> num1 >> num2 >> target;
+        if (num1 + num2 == target) {
+            cout << num1 << endl << num2 << endl;
             break;
         }
-        seen[nums[i]] = i;
     }
-    
     return 0;
 }
