@@ -6,11 +6,5 @@ def array_change(lst):
             max_diff = diff
     return max_diff
 
-while True:
-    try:
-        lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
-        break
-    except ValueError:
-        print("Invalid input. Please enter a space-separated list of numbers.")
-
+lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
 print(array_change(lst))
