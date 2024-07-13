@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 auto spinWords(const char* str) -> std::string {
