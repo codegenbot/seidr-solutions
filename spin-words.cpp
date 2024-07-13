@@ -1,25 +1,20 @@
 int main() {
-    string input;
+    string input, word;
+    vector<string> words;
     getline(cin, input);
-    
-    string word;
-    for (int i = 0; i < input.size(); ++i) {
-        if (input[i] == ' ' || i == input.size() - 1) {
-            if (word.size() >= 5) {
-                for (int j = word.size() - 1; j >= 0; --j) {
-                    cout << word[j];
-                }
-            } else {
-                cout << word;
-            }
-            if (i != input.size() - 1) {
-                cout << ' ';
-            }
-            word = "";
-        } else {
-            word += input[i];
+
+    stringstream ss(input);
+    while (ss >> word) {
+        if (word.size() >= 5) {
+            reverse(word.begin(), word.end());
         }
+        words.push_back(word);
     }
-    
+
+    for (int i = 0; i < words.size(); ++i) {
+        cout << words[i];
+        if (i < words.size() - 1) cout << " ";
+    }
+
     return 0;
 }
