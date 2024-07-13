@@ -7,4 +7,8 @@ def coin_sums(cents):
             cents -= coins[i]
             result[i] += 1
 
-    return tuple(result)
+    return result
+
+
+c = int(input())
+print(*coin_sums(c))
