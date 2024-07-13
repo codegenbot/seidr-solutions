@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -11,7 +12,7 @@ int main() {
     cout << "The probability that Peter rolls strictly higher than Colin is: ";
     for(int i = 1; i < n; i++) {
         double prob = (n - i) / (double)(n*m); 
-        cout << fixed << setprecision(10) << std::to_string(prob) << " "; 
+        cout << fixed << setprecision(10) << prob << " "; 
     }
     cout << endl;
 
