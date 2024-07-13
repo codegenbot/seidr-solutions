@@ -1,1 +1,2 @@
+```
 print(fuel_cost(input_vector))
