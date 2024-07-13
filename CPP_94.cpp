@@ -1,18 +1,25 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
 int skjkasdkd(vector<int> lst) {
-    int max_prime = 0;
+    int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
-            if (num > max_prime) {
-                max_prime = num;
+            if (num > maxPrime) {
+                maxPrime = num;
             }
         }
     }
-    int sum_digits = 0;
-    while (max_prime > 0) {
-        sum_digits += max_prime % 10;
-        max_prime /= 10;
+
+    int sumOfDigits = 0;
+    while (maxPrime > 0) {
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
     }
-    return sum_digits;
+
+    return sumOfDigits;
 }
 
 bool isPrime(int n) {
