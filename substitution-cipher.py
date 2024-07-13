@@ -1,9 +1,19 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
-    mapping = {c: d for c, d in zip(cipher1, cipher2)}
+    cipher = {}
+    for i in range(len(cipher1)):
+        cipher[cipher2[i]] = cipher1[i]
+    
     result = ""
     for char in message:
-        if char in mapping:
-            result += mapping[char]
+        if char in cipher:
+            result += cipher[char]
         else:
             result += char
     return result
+
+
+cipher1 = input()
+cipher2 = input()
+message = input()
+print(substitution_cipher(cipher1, cipher2, message))
