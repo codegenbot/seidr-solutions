@@ -1,8 +1,8 @@
 ```cpp
 #include <string>
-#include <unordered_map>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -14,20 +14,31 @@ int mastermind(std::string code, std::string guess) {
     }
 
     // Count correct colors (white pegs)
-    std::unordered_map<char, bool> code_counts;
+    bool code_counts[6] = {false};
     for (char c : code) {
-        code_counts[c] = true;
+        code_counts[c - 'A'] = true;
     }
 
     int white_count = 0;
     for (int i = 0; i < 4; ++i) {
-        if (code_counts.find(guess[i]) != code_counts.end() && !code_counts[guess[i]]) {
+        if (code_counts[guess[i] - 'A']) {
             white_count++;
-            code_counts[guess[i]] = false;
+            code_counts[guess[i] - 'A'] = false;
         }
     }
 
     white = white_count;
 
     return black + white;
+}
+
+int main() {
+    string code, guess;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter your guess: ";
+    cin >> guess;
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
+    return 0;
 }
