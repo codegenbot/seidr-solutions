@@ -27,5 +27,4 @@ def find_closest_elements():
 
     return str(min_diff)
 
-
 print("Closest pair is: ", find_closest_elements())
