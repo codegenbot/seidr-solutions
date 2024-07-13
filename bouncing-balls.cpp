@@ -19,9 +19,14 @@ int main() {
     getline(cin, input);
     int numBounces = stoi(input);
 
-    double actualBouncinessIndex = bouncinessIndex;
+    double actualBouncinessIndex = bouncinessIndex / startHeight;
 
-    double totalDistance = startHeight * ((pow(2, actualBouncinessIndex)) - 1) * (actualBouncinessIndex - 0.5);
+    double totalDistance = 0.0;
+    for (int i = 1; i <= numBounces; ++i) {
+        double height = startHeight * pow(2, -actualBouncinessIndex);
+        totalDistance += height * ((pow(2, actualBouncinessIndex)) - 1);
+        startHeight *= actualBouncinessIndex;
+    }
 
     cout << fixed;
     cout << setprecision(5) << totalDistance << endl;
