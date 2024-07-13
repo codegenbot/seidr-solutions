@@ -5,36 +5,31 @@ int main() {
     int cents;
     cin >> cents;
 
-    int coins[4] = {0, 0, 0, 0};
+    int quarters = 0, dimes = 0, nickles = 0, pennies = 0;
 
-    for(int i = 0; i <= 3; i++) {
-        if(i == 0) {
-            while(cents >= 5) {
-                cents -= 5;
-                coins[i]++;
-            }
-        } else if(i == 1) {
-            while(cents >= 10) {
-                cents -= 10;
-                coins[i]++;
-            }
-        } else if(i == 2) {
-            while(cents >= 25) {
-                cents -= 25;
-                coins[i]++;
-            }
-        } else {
-            while(cents > 0) {
-                coins[i]++;
-                cents--;
-            }
+    while(cents > 0) {
+        if (cents >= 25) {
+            quarters++;
+            cents -= 25;
+        }
+        else if (cents >= 10) {
+            dimes++;
+            cents -= 10;
+        }
+        else if (cents >= 5) {
+            nickles++;
+            cents -= 5;
+        } 
+        else {
+            pennies = cents;
+            break;
         }
     }
 
-    cout << coins[3] << endl; 
-    cout << coins[2] << endl;   
-    cout << coins[1] << endl;      
-    cout << coins[0] << endl;     
+    cout << quarters << endl; 
+    cout << dimes << endl;   
+    cout << nickles << endl;      
+    cout << pennies << endl;     
 
     return 0;
 }
