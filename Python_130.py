@@ -9,7 +9,5 @@ def tri(n):
             if i % 2 == 0:
                 sequence.append(1 + i // 2)
             else:
-                sequence.append(
-                    sequence[i - 1] + sequence[i - 2] + sequence[i - 3]
-                )  # Fix index for the last term
+                sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])  # Fix index for the last term
         return sequence
