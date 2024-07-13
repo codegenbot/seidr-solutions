@@ -1,30 +1,17 @@
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
-
-    bool all_lower = true;
     bool all_upper = true;
+    bool all_lower = true;
 
-    for (auto& pair : dict) {
-        if (!all_lower && !all_upper) break;
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!all_upper && !all_lower)
+            return false; // Not all uppercase or lowercase
 
-        if (!all_lower) all_lower = all_to_lower(pair.first);
-
-        if (!all_upper) all_upper = all_to_upper(pair.first);
+        if (isupper(it->first[0])) { // Uppercase
+            all_lower = false;
+        } else { // Lowercase
+            all_upper = false;
+        }
     }
 
-    return all_lower || all_upper;
-}
-
-bool all_to_lower(const string& str) {
-    for (char& c : str) {
-        c = tolower(c);
-    }
-    return true;
-}
-
-bool all_to_upper(const string& str) {
-    for (char& c : str) {
-        c = toupper(c);
-    }
-    return true;
+    return all_upper || all_lower; // Return true if all are same case, false otherwise
 }
