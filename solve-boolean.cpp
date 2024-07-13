@@ -49,4 +49,3 @@ int main() {
         std::cout << "Result: FALSE" << std::endl;
     }
     return 0;
-}
