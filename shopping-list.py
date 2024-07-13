@@ -1,9 +1,12 @@
-n = int(input("Enter the number of goods: "))
+```
+n = int(input())
 total_price = 0
+prices = []
+discounts = []
 for _ in range(n):
-    prices_discounts = [float(x) for x in input().split()]
-    if len(prices_discounts) != 2*n:
-        print("Error: Invalid input. Each line should contain 'price discount' pairs.")
-        exit()
-    total_price += sum([p - (p * d / 100) for p, d in zip(prices_discounts[::2], prices_discounts[1::2])])
+    line = list(map(float, input().split()))
+    prices.append(line[0])
+    discounts.append(line[1]/100)
+for price, discount in zip(prices, discounts):
+    total_price += price - (price * discount)
 print(f"{total_price:.2f}")
