@@ -1,4 +1,4 @@
-```python
+```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -11,13 +11,13 @@ def bowling_score(game):
             strike = True
             first_roll = int(frame[0])
             second_roll = int(frame[-1])
-            for i in range(2):
-                if frame[i] != 'X':
-                    roll = first_roll + second_roll
-                    break
+            if first_roll != 'X':
+                roll = first_roll + second_roll
             if strike:
-                score += 10 + roll
+                score += 10
             else:
-                score += max(first_roll, second_roll) + (max(first_roll, second_roll) if i == 0 else roll)
-        roll = 0
+                score += max(first_roll, second_roll)
+        if len(frame) == 2 and frame[0] == 'X' and frame[1] == 'X':
+            score += 10 + roll
+            roll = 0
     return score
