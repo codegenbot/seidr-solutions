@@ -5,6 +5,7 @@ def process_input(input_str):
     except ValueError:
         return "Invalid input. Please enter a valid integer."
 
+
 user_input = input("Enter an integer: ").strip()
 result = process_input(user_input)
 print(result)
