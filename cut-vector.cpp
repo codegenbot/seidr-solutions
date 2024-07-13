@@ -12,26 +12,34 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
-    long long leftSum = 0, rightSum = sum;
-    int minDiff = INT_MAX, cutIndex = -1;
+    long long leftSum = 0, rightSum = 0;
+    int left = 0, right = n - 1;
+    int leftMin = INT_MAX, rightMin = INT_MAX;
 
-    for (int i = 0; i <= n; i++) {
-        if (i == n) {
-            rightSum = sum;
-        } else {
-            rightSum -= v[i];
-        }
+    for (int i = 0; i < n; i++) {
+        leftSum += v[i];
         
-        long long diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        if (abs(leftSum - (sum - leftSum)) < leftMin) {
+            leftMin = abs(leftSum - (sum - leftSum));
         }
+    }
+
+    for (int i = n - 1; i >= 0; i--) {
+        rightSum += v[i];
         
-        if (i < n) {
-            leftSum += v[i];
+        if (abs(rightSum - (sum - rightSum)) < rightMin) {
+            rightMin = abs(rightSum - (sum - rightSum));
         }
+    }
+
+    long long diffLeft = abs(leftSum - sum / 2);
+    long long diffRight = abs(rightSum - sum / 2);
+
+    int cutIndex;
+    if (diffLeft <= diffRight) {
+        cutIndex = left;
+    } else {
+        cutIndex = right;
     }
     
     res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
