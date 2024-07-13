@@ -25,4 +25,4 @@ def decode_cyclic():
             decoded += s[i % len(s)]
         else:
             decoded += s[(i - pos + 1) % len(s)]
-    return decoded
+    print(decoded)
