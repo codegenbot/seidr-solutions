@@ -1,4 +1,14 @@
-def decipher_cipher(cipher_text1, cipher_text2, message):
-    cipher_dict = {k: v for k, v in zip(cipher_text1, cipher_text2)}
-    deciphered_message = "".join([cipher_dict.get(char, char) for char in message])
-    return deciphered_message
+def substitution_cipher(cipher_map, message):
+    result = ""
+    for char in message:
+        if char in cipher_map[0]:
+            index = cipher_map[0].index(char)
+            result += cipher_map[1][index]
+        else:
+            result += char
+    return result
+
+
+cipher_map = [input(), input()]
+message = input()
+print(substitution_cipher(cipher_map, message))
