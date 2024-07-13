@@ -6,19 +6,18 @@ int main() {
     std::vector<float> lst;
     long long odd_sum = 0;
 
-    // Read input from user
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
+
+    for (int i = 0; i < n; i++) {
         float num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         lst.push_back(num);
     }
 
-    // Calculate the sum of squares of odd positive integers
+    long long double_the_difference = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
             if (fmod(num, 2.0) != 0.0) { 
@@ -27,8 +26,7 @@ int main() {
         }
     }
 
-    // Print the result
-    std::cout << "The sum of squares of odd positive integers is: " << odd_sum << std::endl;
+    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
 
     return 0;
 }
