@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -44,12 +43,12 @@ int main() {
 
     while (true) {
         std::cout << "Enter the Boolean expression: ";
-        getline(std::cin, expression);
+        std::getline(std::cin, expression);
 
-        if (expression.empty()) {
-            std::cout << "Invalid input. Please try again." << std::endl;
-        } else {
+        if (!expression.empty()) {
             break; 
+        } else {
+            std::cout << "Invalid input. Please try again." << std::endl;
         }
     }
 
@@ -60,4 +59,3 @@ int main() {
         std::cout << "Result: FALSE" << std::endl;
     }
     return 0;
-}
