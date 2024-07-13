@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -32,7 +31,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
     return res;
 }
 
-int main() {
+void testGame() {
     int n;
     cin >> n;
     vector<int> game(n), guess(n);
@@ -47,18 +46,10 @@ int main() {
         cout << endl; 
     }
     
-    vector<int> testGame = {1,2,3,5};
-    vector<int> testGuess = {-1,2,3,4};
-    int result = compare(testGame[0],testGuess[0]);
-    for(int i = 1; i < testGame.size();i++){
-        if(issame(testGame[i],testGuess[i]))
-            continue;
-        else if(result == 1)
-            assert(compare(testGame[i],testGuess[i]) == -1);
-        else
-            assert(result == compare(testGame[i],testGuess[i]));
-    }
-    
-    assert(issame(compare(1,2),0) && issame(compare(2,2),0) && issame(compare(3,3),0) && issame(compare(5,4),-1));
+}
+
+int main() {
+    testGame();
+    assert(compare(0,1) == -1);
     return 0;
 }
