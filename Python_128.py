@@ -10,6 +10,6 @@ def prod_signs(arr):
         elif num > 0:
             sign_product *= 1
         else:
-            continue
+            sign_product *= 0
         magnitude_sum += abs(num)
     return sign_product * magnitude_sum
