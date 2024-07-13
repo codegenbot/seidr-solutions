@@ -1,4 +1,8 @@
+```cpp
+#include <iostream>
+#include <numeric>
 #include <vector>
+#include <limits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
