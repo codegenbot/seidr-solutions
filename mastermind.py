@@ -1,8 +1,18 @@
 def mastermind(code, guess):
-    count = [0, 0]
+    white = 0
+    black = 0
+    code_set = set(code)
     for i in range(4):
         if code[i] == guess[i]:
-            count[1] += 1
-        elif str(guess[i]) in str(code):
-            count[0] += 1
-    return tuple(count)
+            black += 1
+        elif guess[i] in code_set:
+            white += 1
+    return str(black) + "\n" + str(white)
+
+
+# Test cases
+print(mastermind("RRRR", "RRRR"))
+print(mastermind("BOYG", "GYOB"))
+print(mastermind("WYYW", "BBOG"))
+print(mastermind("GGGB", "BGGG"))
+print(mastermind("BBBB", "OOOO"))
