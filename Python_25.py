@@ -1,23 +1,9 @@
 ```
-from typing import List
-
-def factorize(n: int) -> List[int]:
-    factors = []
-    i = 2
-    if n > 1:
-        while i * i <= n:
-            if n % i:
-                i += 1
-            else:
-                count = 0
-                while n % i == 0:
-                    count += 1
-                    n //= i
-                factors.append(i ** count)
-        if n > 1:  
-            factors.append(n)
-
-    return factors
+def sum_of_squares(n):
+    total = 0
+    for i in range(1, n+1):
+        total += i ** 2
+    return total
 
 while True:
     try:
@@ -27,6 +13,6 @@ while True:
         else:
             break
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please enter an integer. Try again!")
 
-print(factorize(num))
+print(f"The sum of squares from 1 to {num} is {sum_of_squares(num)}")
