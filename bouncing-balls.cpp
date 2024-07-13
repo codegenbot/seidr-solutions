@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -24,8 +25,7 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    cout << fixed;
-    cout << setprecision(10);
+    cout << std::fixed << setprecision(10);
     cout << totalDistance << endl;
 
     return 0;
