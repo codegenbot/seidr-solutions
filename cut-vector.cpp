@@ -39,19 +39,7 @@ int main() {
     vector<int> nums;
     int num;
     cout << "Enter positive integers to form a vector (enter -1 to stop): ";
-    while (true) {
-        cin >> num;
-        if (num == -1) {
-            if (nums.size() < 2) {
-                cout << "Please enter at least two positive integers before terminating with -1." << endl;
-                continue;
-            }
-            break;
-        }
-        if (num <= 0) {
-            cout << "Please enter a positive integer." << endl;
-            continue;
-        }
+    while (cin >> num && num != -1) {
         nums.push_back(num);
     }
 
