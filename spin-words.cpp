@@ -1,6 +1,6 @@
 #include <string>
 
-auto spinWords(std::string str) -> std::string {
+auto spinWords(std::string str) {
     std::vector<std::string> words;
     
     std::string word = "";
