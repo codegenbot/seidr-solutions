@@ -21,4 +21,3 @@ int main() {
         cout << leader << " ";
     }
     return 0;
-}
