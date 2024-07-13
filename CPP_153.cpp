@@ -6,9 +6,21 @@ int main() {
     string class_name;
     vector<string> extensions;
 
-    // Your input logic here...
+    // Read input from user
+    cin >> class_name;
+    int n;
+    cin >> n;
+    extensions.resize(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> extensions[i];
+    }
 
-    cout << Strongest_Extension(class_name, extensions) << endl;
+    // Return output corresponding to the task description
+    string strongest = Strongest_Extension(class_name, extensions);
+
+    cout << "Strongest Extension: " << strongest << endl;
+
+    return 0;
 }
 
 int Strongest_Extension(string class_name,vector<string> extensions){
