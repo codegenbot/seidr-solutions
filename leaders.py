@@ -1,4 +1,6 @@
-def leaders(input):
+def leaders(integers):
     return [
-        x for x in reversed(input) if all(x >= y for y in input[input.index(x) + 1 :])
+        integer
+        for integer in reversed(integers)
+        if all(x <= integer for x in integers[integers.index(integer) + 1 :])
     ]
