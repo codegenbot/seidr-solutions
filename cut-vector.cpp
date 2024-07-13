@@ -1,25 +1,32 @@
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
-        sum += v[i];
+    vector<int> numbers;
+    int num;
+    
+    while (cin >> num) {
+        numbers.push_back(num);
     }
-    int prefix_sum = 0;
-    for (int i = 0; i < n; ++i) {
-        prefix_sum += v[i];
-        if (prefix_sum * 2 >= sum) {
-            cout << i + 1 << endl;
-            for (int j = 0; j <= i; ++j) {
-                cout << v[j] << endl;
-            }
-            for (int j = i + 1; j < n; ++j) {
-                cout << 0 << endl;
-            }
-            break;
+    
+    int min_diff = INT_MAX;
+    int cut_index = 0;
+    
+    for (int i = 1; i < numbers.size(); i++) {
+        int diff = abs(accumulate(numbers.begin(), numbers.begin() + i, 0) - accumulate(numbers.begin() + i, numbers.end(), 0));
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
+    
+    for (int i = 0; i < cut_index; i++) {
+        cout << numbers[i] << endl;
+    }
+    
+    cout << endl;
+    
+    for (int i = cut_index; i < numbers.size(); i++) {
+        cout << numbers[i] << endl;
+    }
+    
     return 0;
 }
