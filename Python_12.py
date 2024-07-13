@@ -1,6 +1,3 @@
-from typing import List, Optional
-
-
 def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
     max_len = 0
     result = []
@@ -21,9 +18,9 @@ while True:
     user_input = input("Enter a string (or 'stop' to finish): ")
     if user_input.lower() == "stop":
         break
-    elif not isinstance(user_input, str) or user_input.strip() == "":
+    elif not isinstance(user_input, str) or len(user_input.strip()) == 0:
         print("Invalid input. Please enter a non-empty string.")
     else:
         strings.append(user_input)
 
-print(longest([s for s in strings if s is not None]))
+print(longest(list(filter(None, strings))))
