@@ -9,16 +9,16 @@ int bowlingScore(const std::string& input) {
     int prevRoll1 = 0;
     int prevRoll2 = 0;
 
-    std::vector<int> rolls = {0};
+    std::vector<int> rolls(10, 0);
     for (int i = 0; i < 10; i++) {
         if (input[i] == 'X') {
-            rolls.push_back(10);
+            rolls[i] = 10;
         } else if (input[i+1] != ' ') {
             int roll = input[i] - '0' + (input[i+1] - '0');
-            rolls.push_back(roll);
+            rolls[i] = roll;
             i++;
         } else {
-            rolls.push_back(input[i] - '0');
+            rolls[i] = input[i] - '0';
         }
     }
 
