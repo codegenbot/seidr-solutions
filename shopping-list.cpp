@@ -1,11 +1,10 @@
 #include <iostream>
 #include <iomanip>
-#include <vector>
 
 double calculateTotalPrice(const std::vector<float>& prices, const std::vector<double>& discounts) {
     double total_price = 0.0;
     for (std::size_t i = 0; i < prices.size(); i++) {
-        total_price += prices[i] * (100.0 - discounts[i]) / 100.0;
+        total_price += prices[i] * (100.0 - discounts[i]) / 100.0; // Apply discount correctly
     }
     return total_price;
 }
