@@ -14,7 +14,7 @@ def minPath(grid, k):
                 min_path = path
             continue
 
-        for dx, dy in sorted(directions, key=lambda d: grid[x+d[0]][y+d[1]]):
+        for dx, dy in sorted(directions, key=lambda d: grid[x+d[0]][x+d[1]]):
             nx, ny = x + dx, y + dy
 
             if (nx, ny) not in visited and 0 <= nx < n and 0 <= ny < n:
