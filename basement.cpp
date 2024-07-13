@@ -1,23 +1,20 @@
+```c++
 #include <vector>
 #include <iostream>
 
 int main() {
-    std::vector<int> nums = {-1,-2,-3,-4,-5};
-    int result = basement(nums);
-    if(result == -1) {
-        std::cout << "No such index exists." << std::endl;
-    } else {
-        std::cout << "The first index where the sum is negative is: " << result << std::endl;
-    }
+    int nums[] = {-1,-2,-3,-4,-5};
+    int result = basement(nums, sizeof(nums) / sizeof(nums[0]));
+    std::cout << "The first index where the sum is negative is: " << result << std::endl;
     return 0;
 }
 
-int basement(std::vector<int>& nums) {
+int basement(int* nums, int n) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < n; ++i) {
         sum += nums[i];
         if (sum < 0) 
-            return i + 1;
+            return i;
         else if (sum == 0)
             sum = 0;
     }
