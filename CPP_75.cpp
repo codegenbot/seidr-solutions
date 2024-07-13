@@ -3,22 +3,24 @@ bool is_multiply_prime(int a){
         for(int j=i; j<=100; j++){
             for(int k=j; k<=100; k++){
                 if(i*j*k==a){
-                    int prime = 1;
-                    for(int l=2; l*l<=k; l++){
-                        if(k%l==0) prime = 0;
+                    bool prime1 = true;
+                    bool prime2 = true;
+                    bool prime3 = true;
+
+                    for(int p=2; p*p<=i; p++){
+                        if(i%p==0) prime1=false;
                     }
-                    if(prime && is_prime(j) && is_prime(i)) return true;
+                    for(int p=2; p*p<=j; p++){
+                        if(j%p==0) prime2=false;
+                    }
+                    for(int p=2; p*p<=k; p++){
+                        if(k%p==0) prime3=false;
+                    }
+
+                    return prime1 && prime2 && prime3;
                 }
             }
         }
     }
     return false;
-}
-
-bool is_prime(int a){
-    int prime = 1;
-    for(int i=2; i*i<=a; i++){
-        if(a%i==0) prime = 0;
-    }
-    return prime;
 }
