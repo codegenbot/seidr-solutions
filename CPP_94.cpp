@@ -1,6 +1,6 @@
 #include <vector>
 
-int myFunction(vector<int> lst) {
+int sum_of_digits_of_largest_prime(vector<int> lst) {
     int max_prime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -27,4 +27,3 @@ bool isPrime(int n) {
         }
     }
     return true;
-}
