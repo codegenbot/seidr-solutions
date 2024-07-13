@@ -1,4 +1,3 @@
-```
 def check():
     while True:
         try:
@@ -12,6 +11,7 @@ def check():
     total = sum_of_digits(n)
     print(f"The sum of digits is {total}")
 
+
 def sum_of_digits(n):
     total = 0
     while n:
@@ -19,5 +19,6 @@ def sum_of_digits(n):
         total += digit
         n //= 10
     return total
+
 
 check()
