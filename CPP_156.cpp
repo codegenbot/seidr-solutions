@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
-const char* romanToInt(int n) {
+std::string romanToInt(int n) {
     if (n <= 0)
         return "";
     else if (n >= 1000) {
@@ -18,7 +17,7 @@ const char* romanToInt(int n) {
         return "CD" + romanToInt(n - 400);
     } 
     else if (n >= 100) {
-        string roman = "";
+        std::string roman = "";
         while (n >= 100) {
             roman += "C";
             n -= 100;
@@ -51,24 +50,23 @@ const char* romanToInt(int n) {
             roman += "I";
             n--;
         }
-        return roman.c_str(); // Return by value
+        return roman; // Return by value
     } else if (n >= 4) {
         return "IV";
     } 
     else if (n >= 1) {
-        string roman = ""; // Return by value
+        std::string roman = ""; // Return by value
         for (int i = 0; i < n; i++) {
             roman += "I";
         }
-        return roman.c_str();
+        return roman;
     }
     return "";
 }
 
 int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << endl;
-    cout << romanToInt(n) << endl;
-}
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::cout << std::endl;
+    std::cout << romanToInt(n) << std::endl;
