@@ -47,8 +47,8 @@ void testGame() {
         cout << endl; 
     }
     
-    vector<int> testResult = {1,0};
-    assert(compare(1,0) == -1);
+    assert(issame(compare(1,0),-1));
+    return;
 }
 
 int main() {
