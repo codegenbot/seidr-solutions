@@ -1,46 +1,32 @@
-int calculateBowlingScore(const string& bowls) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    int rolls[21];
-    
-    for (char c : bowls) {
-        if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) {
-                rolls[ball++] = 0;
+int score(string s) {
+    int sum = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size() && frame < 10; ++i) {
+        if (s[i] == 'X') {
+            sum += 10;
+            if (s[i + 2] == 'X') {
+                sum += 10 + (s[i + 4] == 'X' ? 10 : (s[i + 4] - '0'));
+            } else {
+                sum += (s[i + 2] == '/' ? 10 : (s[i + 2] - '0') + (s[i + 3] == '/' ? 10 : (s[i + 3] - '0')));
             }
-        } else if (c == '/') {
-            rolls[ball-1] = 10 - rolls[ball-2];
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
-        } else if (c == '-') {
-            rolls[ball++] = 0;
+            frame++;
+        } else if (s[i] == '/') {
+            sum += 10 - (s[i - 1] - '0');
         } else {
-            rolls[ball++] = c - '0';
+            sum += s[i] - '0';
+            if (s[i + 1] == '/') {
+                sum += 10 - (s[i] - '0');
+            }
+            i++;
+            frame++;
         }
     }
-    
-    for (int i = 0; i < 10; ++i) {
-        if (rolls[i*2] == 10) {
-            score += 10 + rolls[i*2+2] + rolls[i*2+3];
-            if (rolls[i*2+2] == 10) {
-                score += rolls[i*2+4];
-            }
-        } else if (rolls[i*2] + rolls[i*2+1] == 10) {
-            score += 10 + rolls[i*2+2];
-        } else {
-            score += rolls[i*2] + rolls[i*2+1];
-        }
-    }
-    
-    return score;
+    return sum;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
