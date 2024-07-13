@@ -7,6 +7,7 @@ def validate_tweet(tweet):
     else:
         return f"Your tweet has {len(tweet)} characters"
 
+# Testing the function
 print(validate_tweet("")) 
 print(validate_tweet("1")) 
 print(validate_tweet("max length tweet that just contains letters and spaces even SOME CAPITAL LETTERS just to MAKE it INTERESTING now repeeeeeeeeeEEEEEEEeeeat it")) 
