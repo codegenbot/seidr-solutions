@@ -1,12 +1,9 @@
 int main() {
-    double h0, h1;
+    double h, b;
     int n;
-    cin >> h0 >> h1 >> n;
-    
-    double bounciness = h1 / h0;
-    double total_distance = h0 * (1 - pow(bounciness, n)) / (1 - bounciness);
-
+    cin >> h >> b >> n;
+    double ratio = b / h;
+    double total_distance = h + (h * ratio) * (pow(ratio, n) - 1) / (ratio - 1);
     cout << total_distance << endl;
-
     return 0;
 }
