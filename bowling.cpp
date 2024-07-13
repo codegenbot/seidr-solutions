@@ -1,4 +1,5 @@
 #include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
@@ -7,34 +8,33 @@ int bowlingScore(string s) {
             string secondPart = s.substr(i + 1);
             int firstScore = 0;
             int j = 0;
-            while (j < firstPart.length()) {
+            while (j < firstPart.size()) {
                 if (firstPart[j] != 'X') {
                     firstScore += (firstPart[j] - '0');
-                }
-                else
+                } else {
                     firstScore += 10;
+                    break;
+                }
                 j++;
             }
             int secondScore = 0;
             j = 0;
-            while (j < secondPart.length()) {
+            while (j < secondPart.size()) {
                 if (secondPart[j] != 'X') {
                     secondScore += (secondPart[j] - '0');
-                }
-                else
+                } else {
                     secondScore += 10;
+                    break;
+                }
                 j++;
             }
             score += firstScore + secondScore;
-        } 
-        else {
+        } else {
             if (s[i] == 'X') {
                 score += 10;
-            } 
-            else {
+            } else {
                 score += (s[i] - '0') * 2;
             }
         }
     }
     return score;
-}
