@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -12,24 +11,23 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
+    std::vector<int> arr(n);
+    std::cout << "Enter the elements: ";
     for (int i = 0; i < n; i++) {
-        int val;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        arr.push_back(val);
+        std::cin >> arr[i];
     }
-    
+
     int result = can_arrange(arr);
-    if (result != -1) {
-        std::cout << "The first pair of elements that are out of order is at index " << result << ".\n";
+
+    if (result == -1) {
+        std::cout << "The array is already arranged.\n";
     } else {
-        std::cout << "The array is already sorted.\n";
+        std::cout << "The first element that cannot be arranged is at index " << result << ".\n";
     }
-    
+
     return 0;
 }
