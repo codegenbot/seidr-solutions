@@ -2,23 +2,39 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+    // Convert strings to arrays of characters for easier manipulation
+    char codeArray[5], guessArray[5];
+    strcpy(codeArray, code.c_str());
+    strcpy(guessArray, guess.c_str());
+
+    // Count the number of correct colors in wrong positions
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] == guessArray[i]) {
             black++;
-            code[i] = 'X';
-            guess[i] = 'Y';
+            codeArray[i] = 'x';
+            guessArray[i] = 'x';
         }
     }
 
-    for(int i = 0; i < 4; i++) {
+    // Count the number of correct colors in correct positions
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] == guessArray[i]) {
+            white++;
+            codeArray[i] = 'x';
+            guessArray[i] = 'x';
+        }
+    }
+
+    // Count the number of correct colors in wrong positions
+    for (int i = 0; i < 4; i++) {
         int count = 0;
-        for(int j = 0; j < 4; j++) {
-            if(code[j] == guess[i]) {
+        for (int j = 0; j < 4; j++) {
+            if (codeArray[j] == guessArray[i]) {
                 count++;
             }
         }
-        if(count > 0) white += count - 1;
+        white += count - 1;
     }
 
-    return black + white;
+    return black, white;
 }
