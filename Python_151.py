@@ -1,6 +1,8 @@
 def double_the_difference(lst):
     if len(lst) > 0:
         return (max(lst) - min(lst)) * 2
+    else:
+        return "No numbers entered. Please enter at least one number."
 
 
 def check():
