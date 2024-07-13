@@ -7,20 +7,24 @@ int bowlingScore(string s) {
             string firstPart = s.substr(0, i);
             string secondPart = s.substr(i + 1);
             int firstScore = 0;
-            if (firstPart == "X") {
-                firstScore = 10;
-            } else if (firstPart.size() > 1) {
-                firstScore = 10 - (10 - (firstPart[0] - '0') * 2);
-            } else {
-                firstScore = firstPart[0] - '0';
+            int j = 0;
+            while (j < firstPart.length()) {
+                if (firstPart[j] != 'X') {
+                    firstScore += (firstPart[j] - '0');
+                }
+                else
+                    firstScore += 10;
+                j++;
             }
             int secondScore = 0;
-            if (secondPart == "X") {
-                secondScore = 10;
-            } else if (secondPart.size() > 1) {
-                secondScore = 10 - (10 - (secondPart[0] - '0') * 2);
-            } else {
-                secondScore = secondPart[0] - '0';
+            j = 0;
+            while (j < secondPart.length()) {
+                if (secondPart[j] != 'X') {
+                    secondScore += (secondPart[j] - '0');
+                }
+                else
+                    secondScore += 10;
+                j++;
             }
             score += firstScore + secondScore;
         } else {
