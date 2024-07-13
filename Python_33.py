@@ -1,9 +1,2 @@
 def sort_third(l: list):
-    result = []
-    for i in range(len(l)):
-        if i % 3 != 0:
-            result.append(l[i])
-        elif i % 3 == 0:
-            sorted_group = sorted([l[j] for j in range(i, len(l), 3)])
-            result.extend(sorted_group)
-    return result
+    return [i if i % 3 != 0 else sorted([j for j in l if j % 3 == 0])[-1] for i in l]
