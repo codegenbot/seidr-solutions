@@ -1,3 +1,3 @@
 n = int(input())
 m = int(input())
-print("{:.2f}".format((n - 1) / (n * m)))
+print(round(sum(1 / (n * m) * (n - i) / n for i in range(1, n)), 2))
