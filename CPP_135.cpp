@@ -16,17 +16,17 @@ int main() {
     std::cin >> n;
 
     std::vector<int> arr(n);
-    std::cout << "Enter the elements: ";
+    std::cout << "Enter " << n << " integers: ";
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }
 
     int result = can_arrange(arr);
 
-    if (result == -1) {
-        std::cout << "The array is already arranged.\n";
+    if (result != -1) {
+        std::cout << "The first element that is not in order is at index " << result << ".\n";
     } else {
-        std::cout << "The first element that cannot be arranged is at index " << result << ".\n";
+        std::cout << "The array is already sorted.\n";
     }
 
     return 0;
