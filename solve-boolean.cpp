@@ -1,58 +1,26 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
-    for (char c : expression) {
-        if (c == '&' || c == '|') {
-            while (!operatorStack.empty() && operatorStack.top() != '(') {
-                if (operatorStack.top() == '&') {
-                    operatorStack.pop();
-                    cout << "True" << endl;
-                    return true;
-                } else if (operatorStack.top() == '|') {
-                    operatorStack.pop();
-                    cout << "True" << endl;
-                    return true;
-                }
+bool solveBoolean(string expr) {
+    if (expr == "T") return true;
+    if (expr == "F") return false;
+    
+    bool result = true;
+    int i = 0;
+    while (i < expr.length()) {
+        if (expr[i] == '|') {
+            for (int j = i; j > 0 && expr[j-1] != '('; j--) {}
+            int end = i + 1;
+            while (end < expr.length() && expr[end] != ')') {
+                end++;
             }
-            operatorStack.push(c);
-        } else if (c == '(') {
-            operatorStack.push(c);
-        } else if (c == ')') {
-            while (!operatorStack.empty() && operatorStack.top() != '(') {
-                operatorStack.pop();
+            string sub = expr.substr(j, end - j);
+            if (sub == "T") result &= true;
+            else if (sub == "F") result &= false;
+            else {
+                bool temp = solveBoolean(sub);
+                if (temp) result |= true; else result |= false;
             }
-            operatorStack.pop();
-        }
+        } 
+        i++;
     }
-
-    while (!operatorStack.empty()) {
-        if (operatorStack.top() == '&') {
-            operatorStack.pop();
-            cout << "True" << endl;
-            return true;
-        } else if (operatorStack.top() == '|') {
-            operatorStack.pop();
-            cout << "True" << endl;
-            return true;
-        }
-    }
-
-    return false;
-}
-
-int main() {
-    string expression;
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
+    
+    return result;
 }
