@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 
 using namespace std;
@@ -26,8 +25,9 @@ int main() {
         cin >> discounts[i];
     }
     
+    cout.precision(10); 
     cout << fixed;
-    cout << setprecision(2) << shoppingList(&prices[0], &discounts[0], n) << endl;
+    cout << shoppingList(&prices[0], &discounts[0], n) << endl;
 
     return 0;
 }
