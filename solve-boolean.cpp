@@ -12,13 +12,12 @@ bool solveBoolean(std::string s) {
             result = false;
         } else if (s[i] == '|') {
             bool temp = result;
-            result = !result;
-            while (i + 1 < s.length() && s[i+1] == '|') i++;
+            while (s[i+1] == '|') i++; 
+            result = !temp;
         } else if (s[i] == '&') {
             bool temp = result;
-            while (i + 1 < s.length() && s[i+1] == '&') i++;
+            while (s[i+1] == '&') i++; 
             result &= temp;
         }
     }
     return result;
-}
