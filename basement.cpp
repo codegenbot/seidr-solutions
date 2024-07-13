@@ -1,11 +1,10 @@
 #include <vector>
+using namespace std;
 
-int findFirstNegativeIndex(const std::vector<int>& vec) {
-    for (int i = 0; i <= vec.size() - 1; i++) {
-        int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += vec[j];
-        }
+int findFirstNegativeIndex(vector<int> &nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        sum += nums[i];
         if (sum < 0)
             return i;
     }
@@ -13,21 +12,14 @@ int findFirstNegativeIndex(const std::vector<int>& vec) {
 }
 
 int main() {
-    // Read input from user
+    vector<int> numbers;
     int n;
-    std::cin >> n;
-    
-    std::vector<int> vec(n);
-    for (auto& x : vec) {
-        std::cin >> x;
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int num;
+        cin >> num;
+        numbers.push_back(num);
     }
-
-    // Call the function and print the result
-    int index = findFirstNegativeIndex(vec);
-    if (index == -1)
-        std::cout << "No negative sum found" << std::endl;
-    else
-        std::cout << index << std::endl;
-
+    cout << findFirstNegativeIndex(numbers) << endl;
     return 0;
 }
