@@ -1,13 +1,10 @@
-int calculateFuelCost(vector<int> numbers) {
-    int totalFuel = 0;
-    for (int num : numbers) {
-        int newNum = (num / 3);
-        if (newNum < 1) {
-            newNum = 0;
-        } else {
-            newNum -= 2;
-        }
-        totalFuel += newNum;
+int fuelCost(vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
+        int result = (i / 3);
+        result = floor(result);
+        result -= 2;
+        sum += result;
     }
-    return totalFuel;
+    return sum;
 }

@@ -1,47 +1,53 @@
-#include <vector>
-#include <iostream>
+Here is the completed code:
 
+#include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> vec) {
     int minDiff = INT_MAX;
-    int pos = 0;
-
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff <= minDiff) {
+    int splitPoint = 0;
+    
+    for (int i = 1; i < vec.size(); i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            leftSum += vec[j];
+        }
+        
+        for (int j = i; j < vec.size(); j++) {
+            rightSum += vec[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
             minDiff = diff;
-            pos = i;
+            splitPoint = i;
         }
     }
-
-    vector<int> left(v.begin(), v.begin() + pos);
-    vector<int> right(v.begin() + pos, v.end());
-
-    return {left, right};
+    
+    return {{vec.begin(), vec.begin() + splitPoint}, {vec.begin() + splitPoint, vec.end()}};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        cin >> vec[i];
     }
-
-    pair<vector<int>, vector<int>> result = cutVector(v);
-
-    cout << "Left: ";
-    for (int x : result.first) {
-        cout << x << " ";
+    
+    vector<vector<int>> result = cutVector(vec);
+    
+    cout << "({";
+    for (int num : result[0]) {
+        cout << num << ", ";
     }
-    cout << endl;
-
-    cout << "Right: ";
-    for (int x : result.second) {
-        cout << x << " ";
+    cout << "}) (" << " {";
+    for (int num : result[1]) {
+        cout << num << ", ";
     }
-    cout << endl;
-
+    cout << "0)" << endl;
+    
     return 0;
 }
