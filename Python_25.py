@@ -1,4 +1,6 @@
-def sum_of_digits(n):
+```
+def sum_of_digits():
+    n = int(input())
     total = 0
     while n:
         total += n % 10
