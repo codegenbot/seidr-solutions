@@ -5,20 +5,24 @@ def sort_numbers():
         if cont != "y":
             break
         while True:
-            numbers = input("Enter space-separated numbers: ")
-            try:
-                nums = [int(num) for num in numbers.split()]
-                sorted_numbers = " ".join(map(str, sorted(nums)))
-                print(sorted_numbers)
-                cont = input("Sort again? (y/n): ")
-                if cont.lower() != "y":
+            while True:
+                try:
+                    numbers = input("Enter space-separated numbers: ")
+                    nums = [int(num) for num in numbers.split()]
+                    sorted_numbers = " ".join(map(str, sorted(nums)))
+                    print(sorted_numbers)
+                    cont = input("Sort again? (y/n): ")
+                    if cont.lower() != "y":
+                        break
                     break
-            except ValueError as e:
-                print(
-                    f"Invalid input. {e}. Please enter valid numbers separated by spaces."
-                )
-            except Exception as e:
-                print(f"An unexpected error occurred: {e}")
+                except ValueError as e:
+                    print(
+                        f"Invalid input. {e}. Please enter valid numbers separated by spaces."
+                    )
+            if cont.lower() != "y":
+                break
+        break
 
 
-sort_numbers()
+if __name__ == "__main__":
+    sort_numbers()
