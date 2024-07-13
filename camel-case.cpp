@@ -1,20 +1,32 @@
-```cpp
-#include <string>
+#include <iostream>
 #include <sstream>
+#include <string>
+
+char charUpper(char c) {
+    return (c >= 'a' && c <= 'z') ? (char)(c + ('A' - 'a')) : c;
+}
 
 std::string camelCase(const std::string& input) {
-    std::stringstream ss(input);
+    std::istringstream iss(input);
     std::string word;
     std::string result;
 
-    while (ss >> word) {
-        if (!result.empty())
-            result += char(std::toupper(word[0]));
-        else
-            result = std::move(word).substr(1);
-        for (int i = 1; i < word.size(); ++i)
-            result += char(std::tolower(word[i]));
-    }
+    bool capitalize = true;
     
+    while (iss >> word) {
+        if (capitalize) {
+            result += charUpper(word[0]);
+            result += word.substr(1);
+            capitalize = false;
+        } else {
+            result += word;
+        }
+        
+        if (iss.get() != -1 && iss.peek() == '-') {
+            iss.ignore();
+            capitalize = true;
+        }
+    }
+
     return result;
 }
