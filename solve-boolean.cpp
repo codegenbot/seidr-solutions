@@ -1,19 +1,13 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string expression;
-    cin >> expression;
-
-    bool result = true;
-    if (expression == "f") {
-        result = false;
-    } else if (expression == "f&f" || expression == "f&t" || expression == "t&f") {
-        result = false;
-    }
-
-    if (result) {
-        cout << "True" << endl;
+    std::string s;
+    std::cin >> s;
+    if (s == "T") {
+        std::cout << "True" << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << "False" << std::endl;
     }
-
     return 0;
 }
