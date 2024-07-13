@@ -3,13 +3,15 @@
 int main() {
     int n, m;
     std::cin >> n >> m;
-
+    
     double probability = 0.0;
-    for (int i = 1; i <= n; ++i) {
-        probability += (double) (n - i) / n * (double) m / (n + m);
+    if (n > m) {
+        probability = 1.0;
+    } else if (n < m) {
+        probability = (double)(m - 1) / m;
     }
-
+    
     std::cout << probability << std::endl;
-
+    
     return 0;
 }
