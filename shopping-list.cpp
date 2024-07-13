@@ -1,5 +1,7 @@
+#include <vector>
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 float shoppingList(float totalPrice, int n, vector<float> prices, vector<float> discounts) {
