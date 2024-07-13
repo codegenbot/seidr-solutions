@@ -1,28 +1,41 @@
+```cpp
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string>) {
+    return (a.size() == 2 && a[0].empty() && a[1] == "True");
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    return 0;
+}
+
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
+    vector<char> v;
+    for (char x : s) {
+        bool flag = false;
+        for (char y : c) {
+            if (x == y) {
+                flag = true;
                 break;
             }
         }
-        if (!found) {
-            temp += ch;
-        }
+        if (!flag)
+            v.push_back(x);
+    }
+    string result = "";
+    for (char x : v) {
+        result += x;
     }
     
-    string palindromeCheck = temp;
-    reverse_copy(palindromeCheck.begin(), palindromeCheck.end(), temp.begin());
-    
-    result.push_back(temp);
-    if (palindromeCheck == temp) {
-        result.push_back("True");
+    string temp = result;
+    reverse(temp.begin(), temp.end());
+    if (result == temp) {
+        return {result, "True"};
     } else {
-        result.push_back("False");
+        return {result, "False"};
     }
-    
-    return result;
 }
