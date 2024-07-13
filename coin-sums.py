@@ -5,17 +5,9 @@ def coin_sums(cents):
     for coin in sorted(coins, reverse=True):
         count = cents // coin
         if count > 0:
-            result.append(count)
+            result.append((coin // 25) * 'quarter' + (coin % 25 // 5) * 'nickle' + (coin % 5 // 1) * 'dime' + (coin % 1) * 'penny')
             cents %= coin
-    for i, num in enumerate(result):
-        if i == 0:
-            print(f"quarters: {num}")
-        elif i == 1:
-            print(f"dimes: {num}")
-        elif i == 2:
-            print(f"nickels: {num}")
-        else:
-            print(f"pennies: {num}")
+    return result
 
 cents = int(input("Enter the number of cents: "))
-coin_sums(cents)
+print(coin_sums(cents))
