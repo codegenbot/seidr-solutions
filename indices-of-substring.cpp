@@ -13,10 +13,11 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
                 j++;
                 if (j == m) {
                     result.push_back(i);
-                    i = i + j - m; // Move the index forward so that the next search starts after the previous match.
-                    j = 0;
+                } else if (text[i+j] != target[j]) {
+                    break;
                 }
             }
+            i += j; // Move the index forward so that the next search starts after the previous match.
         }
     }
 

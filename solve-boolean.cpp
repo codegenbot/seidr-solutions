@@ -1,16 +1,22 @@
-bool solveBoolean() {
+bool solveBoolean(const std::string& s) {
+    if (s.empty()) return false;
+
     bool result = true;
-    for (char c : "") {
-        if (c == 'T') {
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == 'T') {
             result = true;
-        } else if (c == 'F') {
+            i++;
+        } else if (s[i] == 'F') {
             result = false;
-        } else if (c == '|') {
+            i++;
+        } else if (s[i] == '|') {
             bool temp = result;
             result = !result;
-        } else if (c == '&') {
+            while (i + 1 < s.size() && s[i+1] == '|') i++;
+        } else if (s[i] == '&') {
             bool temp = result;
-            while (std::cin.peek() == '&') std::cin.get();
+            while (i + 1 < s.size() && s[i+1] == '&') i++;
             result &= temp;
         }
     }

@@ -1,4 +1,13 @@
+```c++
 #include <cstring>
+#include <iostream>
+
+int main() {
+    const char* s = "12321112"; 
+    int result = pairedDigits(s);
+    std::cout << result; 
+    return 0;
+}
 
 int pairedDigits(const char* s) {
     int sum = 0;

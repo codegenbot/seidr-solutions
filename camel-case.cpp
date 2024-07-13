@@ -20,9 +20,9 @@ std::string camelCase(std::string str) {
 
     for (const auto& word : words) {
         if (result.empty()) {
-            result = std::toupper(word);
+            result = std::toupper(word[0]) + std::string(word.substr(1));
         } else {
-            result += " " + static_cast<char>(std::tolower(word[0])) + std::toupper(word.substr(1));
+            result += " " + tolower(word[0]) + std::toupper(word.substr(1));
         }
     }
 
