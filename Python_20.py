@@ -21,11 +21,14 @@ def find_closest_elements():
     min_diff = float('inf')
     closest_pair = None
 
-    for i in range(len(x1)):
-        for j in range(i+1, len(x1)):
-            diff = abs((x1[i] - x1[j])**2 + (y1[i] - y1[j])**2)**0.5
+    for x in x1:
+        for y in y1:
+            diff = abs(x - y)
             if diff < min_diff:
                 min_diff = diff
-                closest_pair = ((x1[i], y1[i]), (x1[j], y1[j]))
+                closest_pair = (x, y)
 
-    return "Closest pair is: ({}, {}) and ({}, {}) with a difference of {}".format(*closest_pair[0], *closest_pair[1], min_diff)
+    return "Closest pair is: ({}, {}) with a difference of {}".format(*closest_pair, min_diff)
+
+
+print(find_closest_elements())
