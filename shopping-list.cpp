@@ -14,12 +14,12 @@ float shoppingList(vector<float>& prices, vector<float>& discounts) {
 int main() {
     int n;
     cin >> n;
-    vector<float> prices(n, 0.0f); // initialize all elements to 0.0f
+    vector<float> prices(n, 0.0f); 
     for (float& price : prices) {
         cin >> price;
     }
     cin >> n;
-    vector<float> discounts(n, 0.0f); // initialize all elements to 0.0f
+    vector<float> discounts(n, 0.0f);
     for (float& discount : discounts) {
         cin >> discount;
     }
