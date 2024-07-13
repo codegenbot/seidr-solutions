@@ -1,27 +1,22 @@
-#include <string>
+#include <iostream>
+#include <digest.h>
 
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char buffer[16];
-    MD5_CTX md5;
-    MD5_Init(&md5);
-    const char* ptr = text.c_str();
-    size_t len = text.length();
-    while(len > 0) {
-        MD5_Update(&md5, ptr, min(len, (size_t)64));
-        len -= 64;
-        ptr += 64;
+std::string string_to_md5(std::string text) {
+    if (text.empty()) {
+        return "";
     }
-    MD5_Final(buffer, &md5);
 
-    string result;
-    for(size_t i = 0; i < 16; ++i) {
-        char buf[3];
-        sprintf(buf, "%02x", buffer[i]);
-        result.append(buf);
+    unsigned char md5[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* cstr = text.c_str();
+    MD5_Update(&ctx, cstr, text.size());
+    MD5_Final(md5, &ctx);
+
+    std::string result;
+    for (int i = 0; i < 16; ++i) {
+        sprintf(buffer, "%02x", md5[i]);
+        result += buffer;
     }
 
     return result;
