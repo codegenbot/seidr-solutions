@@ -1,4 +1,6 @@
 ```
+import math
+
 try:
     xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
 except ValueError as e:
