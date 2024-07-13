@@ -1,20 +1,20 @@
+Here is the completed code:
+
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& nums) {
-    vector<int> result;
-    for(int i = 0; i < nums.size();){
-        int count = 1;
-        for(int j = i + 1; j < nums.size(); j++){
-            if(nums[j] >= nums[i]){
-                count++;
+vector<int> leaders(vector<int>& v) {
+    vector<int> res;
+    int n = v.size();
+    for (int i = 0; i < n; i++) {
+        bool is_leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (v[j] >= v[i]) {
+                is_leader = false;
                 break;
             }
         }
-        if(count > 0){
-            result.push_back(nums[i]);
-        }
-        i += count - 1;
+        if (is_leader) res.push_back(v[i]);
     }
-    return result;
+    return res;
 }
