@@ -1,5 +1,4 @@
-#include <string>
-using namespace std;
+Here is the completed code:
 
 string middleCharacter(string s) {
     int length = s.length();
