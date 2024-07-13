@@ -1,4 +1,3 @@
-```
 import hashlib
 
 
@@ -16,4 +15,4 @@ if __name__ == "__main__":
         input("Press Enter when ready: ")
         result = string_to_md5()
         if result is not None:
-            print("""{}""".format(result))
+            print(result)
