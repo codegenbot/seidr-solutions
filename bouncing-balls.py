@@ -1,4 +1,3 @@
-```
 def bouncing_balls():
     start_height = float(input())
     first_bounce_height = float(input())
@@ -7,11 +6,13 @@ def bouncing_balls():
     bounciness_index = first_bounce_height / start_height
 
     total_distance = 0
-    for i in range(num_bounces):
-        new_height = 2 * (bounciness_index ** i) * first_bounce_height
-        total_distance += abs(new_height)
-        max_height = abs(new_height)
+    height = start_height
+    for _ in range(num_bounces):
+        total_distance += abs(height)
+        bounciness_index = height / start_height
+        height /= 2
 
     return str(bounciness_index) + "\n" + str(total_distance)
+
 
 print(bouncing_balls())
