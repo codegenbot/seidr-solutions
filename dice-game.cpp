@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -10,7 +11,9 @@ int main() {
 
     cout << "The probability that Peter rolls strictly higher than Colin is: ";
     for(int i = 1; i < n; i++) {
-        cout << (n - i) / (double)(n*m) << " "; 
+        double prob = (n - i) / (double)(n*m); 
+        std::string str = std::to_string(prob);
+        cout << str << " "; 
     }
     cout << endl;
 
