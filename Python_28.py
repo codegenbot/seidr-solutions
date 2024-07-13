@@ -1,6 +1,6 @@
 from typing import List
 
-def concatenate(words: List[str] = []) -> 'str':
+def concatenate(words: List[str] = []) -> str:
     result = ', '.join(words)
     return result
 
