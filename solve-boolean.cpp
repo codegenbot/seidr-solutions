@@ -7,7 +7,7 @@ int main() {
 
     if (input == "T") {
         std::cout << "True" << std::endl;
-    } else if (input == "F") {
+    } else {
         std::cout << "False" << std::endl;
     }
 
