@@ -10,10 +10,10 @@ def array_change(lst):
 while True:
     try:
         lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
-        if len(lst) < 2 or any(x <= 0 for x in lst):
-            print("List should contain at least two positive integers. Please enter again.")
-        else:
-            break
+        while len(lst) < 2:
+            print("List should contain at least two numbers. Please enter again.")
+            lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
+        break
     except ValueError:
         print("Invalid input. Please enter a space-separated list of numbers.")
 
