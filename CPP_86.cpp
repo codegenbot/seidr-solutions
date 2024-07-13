@@ -5,16 +5,16 @@ string anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
-            result += ' ';
+            result += " ";
         } else {
-            string word = "";
-            while (i < s.length() && s[i] != ' ') {
-                word += s[i];
+            char temp = s[i];
+            while (i + 1 < s.length() && s[i + 1] <= temp) {
                 i++;
             }
-            for (int j = 0; j < word.length(); j++) {
-                result += word[j];
+            for (; i >= 0 && s[i] <= temp; i--) {
+                result += s[i];
             }
+            i--;
         }
     }
     return result;
