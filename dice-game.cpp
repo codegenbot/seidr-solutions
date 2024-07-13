@@ -1,11 +1,25 @@
+#include <iostream>
+using namespace std;
+
 double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
 
-    // Count all cases where Peter's die roll is greater than or equal to Colin's
-    for (int i = m; i <= n; i++) {
-        p += (i > 1.0 / total) ? 1.0 : 0.0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= min(m, i - 1); j++) {
+            if(i > j){
+                p += 1.0 / total;
+            }
+        }
     }
 
     return p;
+}
+
+int main() {
+    int n = 6; 
+    int m = 6; 
+    double result = probability(n, m);
+    cout << "Probability: " << result << endl;
+    return 0;
 }
