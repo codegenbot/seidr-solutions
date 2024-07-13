@@ -1,20 +1,19 @@
-#include <string>
 #include <map>
-#include <unordered_map>
+#include <string>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
     // Count correct colors in wrong places
-    std::unordered_map<char, int> codeCount, guessCount;
+    map<char, int> codeCount, guessCount;
     for (char c : code) codeCount[c]++;
     for (char c : guess) guessCount[c]++;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) black++;
-        else if (codeCount[guess[i]] > 0) white++;
+        else if (guessCount[code[i]] > 0) white++;
     }
 
-    return max(0, white - black);
+    return min(black, white);
 }
