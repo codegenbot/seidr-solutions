@@ -1,32 +1,34 @@
-int bowlingScore(string bowls) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (isdigit(bowls[i])) {
-            score += stoi(string(1, bowls[i]));
-        } else if (bowls[i] == '/') {
-            if (i < 8) {
-                int nextFrame = 10 -stoi(string(1, bowls[i + 1])) - stoi(string(1, bowls[i + 2]));
-                score += 10 + nextFrame;
-                i++;
-            }
-        } else {
-            int firstBall = stoi(string(1, bowls[i]) == 'X' ? 10 : string(1, bowls[i]).digits());
-            if (i < 9) {
-                if (bowls[i + 1] != '/') {
-                    score += firstBall + stoi(string(1, bowls[i + 1]));
-                    i++;
+    bool firstRollInFrame = true;
+
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '/') {
+            if (firstRollInFrame) {
+                if (s[i-1] != 'X') {
+                    int roll = (s[i-1] - '0');
+                    score += roll;
                 } else {
-                    int secondBall = stoi(string(1, bowls[i + 1]) == 'X' ? 10 : string(1, bowls[i + 1]).digits();
-                    if (secondBall == 10) {
-                        score += firstBall + 10;
-                    } else {
-                        score += firstBall + secondBall;
-                    }
+                    score += 10;
                 }
+                firstRollInFrame = false;
             } else {
-                score += firstBall;
+                int roll = 0;
+                for (; i < s.length() && (s[i] != '/' || s[i-1] == 'X'); i++) {
+                    if (s[i] - '0' > 9) {
+                        roll += 10;
+                        break;
+                    }
+                    roll += s[i] - '0';
+                }
+                score += roll;
             }
         }
     }
+
     return score;
 }
