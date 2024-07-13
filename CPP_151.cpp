@@ -4,10 +4,6 @@
 #include <algorithm>
 #include <sstream>
 
-std::pair<double, double> double_the_difference(int sum_even, int sum_odd) {
-    return {(double)sum_even / 2, (double)sum_odd / 2};
-}
-
 int main() {
     std::cout << "Enter numbers separated by spaces: ";
     std::string input;
@@ -24,9 +20,24 @@ int main() {
             sum_odd += num;
     }
     
-    auto [a, b] = double_the_difference(sum_even, sum_odd);
-    std::cout << "The average of even numbers is: " << a << std::endl;
-    std::cout << "The average of odd numbers is: " << b << std::endl;
+    double averageEven = static_cast<double>(sum_even) / ((input_vector.size() > 0 ? input_vector.size() : 1));
+    double averageOdd = static_cast<double>(sum_odd) / ((input_vector.size() + sum_odd > 0 ? sum_odd : 1));
+    std::cout << "The average of even numbers is: " << averageEven << std::endl;
+    std::cout << "The average of odd numbers is: " << averageOdd << std::endl;
 
     return 0;
+}
+
+std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
+    std::vector<int> input_vector(lst);
+    int sum_even = 0, sum_odd = 0;
+
+    for (int num : input_vector) {
+        if (num % 2 == 0)
+            sum_even += num;
+        else
+            sum_odd += num;
+    }
+
+    return {(double)sum_even / input_vector.size(), (double)sum_odd / input_vector.size()};
 }
