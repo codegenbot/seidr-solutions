@@ -4,18 +4,27 @@
 #include <cctype>
 
 int main() {
-    char text[100], target[100];
-    std::cin.getline(text, 100);
-    std::cin.getline(target, 100);
+    std::string text, target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
+
+    for (int i = 0; target[i] != '\0'; ++i) {
+        target[i] = std::tolower(target[i]);
+    }
+
+    if (target.empty()) {
+        std::cout << "0";
+        return 0;
+    }
 
     std::vector<int> indices;
-    int textLen = strlen(text);
-    int targetLen = strlen(target);
+    int textLen = text.length();
+    int targetLen = target.length();
     
     for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (text[i + j] != target[j]) {
+            if (std::tolower(text[i + j]) != target[j]) {
                 found = false;
                 break;
             }
