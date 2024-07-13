@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <initializer_list>
+#include <iostream>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -34,4 +34,3 @@ int main() {
         cout << res << endl;
     }
     return 0;
-}
