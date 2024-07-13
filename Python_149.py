@@ -1,3 +1,4 @@
+```
 def sorted_list_sum(lst):
-    s = "".join(sorted(set("".join(map(str, filter(lambda x: str(x).isalpha(), lst)))))).replace(" ", "")
-    return list(s)
+    alpha_chars = [int("".join(filter(str.isdigit, str(i)))) for i in lst]
+    return sum(sorted(alpha_chars))
