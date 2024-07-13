@@ -9,13 +9,13 @@ bool solveBoolean(string s) {
         if (s[i] == 'T') return true;
         if (s[i] == 'F') return false;
         if (s[i] == '|') {
-            res = true;
-            i++;
+            if (res) res = solveBoolean(s.substr(i+1));
+            else i++;
             continue;
         }
         if (s[i] == '&') {
-            res = true;
-            i++;
+            if (!res) res = solveBoolean(s.substr(i+1));
+            else i++;
             continue;
         }
     }
