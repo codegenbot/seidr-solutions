@@ -1,20 +1,15 @@
 int main() {
-    string input;
-    getline(cin, input);
+    string str;
+    getline(cin, str);
     bool toUpper = false;
-    
-    for (int i = 0; i < input.length(); ++i) {
-        if (input[i] == '-') {
+    for (char &c : str) {
+        if (c == '-') {
             toUpper = true;
-        } else if (input[i] != ' ') {
-            if (toUpper) {
-                cout << (char)toupper(input[i]);
-                toUpper = false;
-            } else {
-                cout << input[i];
-            }
+        } else if (toUpper) {
+            c = toupper(c);
+            toUpper = false;
         }
     }
-    
+    cout << str;
     return 0;
 }
