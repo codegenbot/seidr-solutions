@@ -18,8 +18,6 @@ std::string spinWords(std::string str) {
                 
                 if (i < str.length()) {
                     result += " ";
-                } else {
-                    result = "";
                 }
                 word.clear();
             }
@@ -28,15 +26,10 @@ std::string spinWords(std::string str) {
         }
     }
     
-    if (!word.empty()) {
-        if (word.length() >= 5) {
-            std::string reversedWord(word.rbegin(), word.rend());
-            result += " ";
-            result += reversedWord;
-        } else {
-            result += " ";
-            result += word;
-        } 
+    if (!word.empty() && word.length() >= 5) {
+        std::string reversedWord(word.rbegin(), word.rend());
+        result += " ";
+        result += reversedWord;
     } 
     return result;
 }
