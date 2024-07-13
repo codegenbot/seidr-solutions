@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits> // Include this header file
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
