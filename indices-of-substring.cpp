@@ -8,6 +8,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     // Preprocess the target string to build the lps array
     std::vector<int> lps(m);
+    for (int i = 0; i < m; i++) {
+        lps[i] = 0;
+    }
     int k = 0;
 
     for (int i = 1; i < m; ) {
@@ -27,7 +30,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     while (i < n) {
         if (text[i] == target[j]) {
-            i = i + j;
+            i++;
             j++;
         } else {
             if (j != 0) {
@@ -38,8 +41,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
 
         if (j == m) {
-            result.push_back(i - m);
-            j = lps[j - 1];
+            result.push_back(i - j);
+            i -= j;
+            j = 0;
         }
     }
 
