@@ -1,4 +1,6 @@
 #include <string>
+#include <cctype>
+#include <sstream>
 
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
@@ -9,23 +11,15 @@ std::string camelCase(const std::string& input) {
     std::string word;
     std::string result;
 
-    bool capitalize = true;
-
     while (iss >> word) { 
-        if (capitalize)
+        if (!result.empty())
             result += toupper(word[0]);
         else
-            result += tolower(word[0]);
-
+            result = tolower(word);
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
-
-        capitalize = false;
-        if (!word.empty() && iss.peek() != -1) {
-            if (iss.peek() == '-')
-                iss.ignore();
-            else
-                capitalize = true;
+        if (iss >> word) {
+            result += ' ';
         }
     }
     
