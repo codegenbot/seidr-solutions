@@ -1,4 +1,4 @@
-````
+```
 prefix = input("Enter a prefix: ")
 words = []
 
