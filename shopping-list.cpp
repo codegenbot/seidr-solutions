@@ -27,7 +27,7 @@ int main() {
         cin >> discounts[i];
     }
     
-    cout << std::fixed << std::setprecision(1) << shoppingTrip(prices, discounts) << endl;
+    cout << std::fixed << std::setprecision(2) << shoppingTrip(prices, discounts) << endl;
     
     return 0;
 }
