@@ -1,4 +1,3 @@
-```
 def dice_game(n, m):
     total_probability = 0
     for i in range(1, min(n, m)):
