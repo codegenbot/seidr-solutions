@@ -1,43 +1,32 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 0;
+    bool lastRoll = false;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 30;
-            frame++;
-        } else if (s[i] == '/') {
-            int strike = s.find('/', i);
-            int spare = s.find('X', i) - i;
-
-            if (strike != string::npos && spare != string::npos) {
-                if (strike < i + 2) {
-                    score += 10;
-                    for (int j = i; j <= i + 1; j++) {
-                        if (s[j] == 'X') {
-                            score += 30;
-                        } else if (s[j] == '/') {
-                            int pos = s.find('/', j);
-                            score += pos - j;
-                        }
-                    }
-                } else if (spare < i + 2) {
-                    score += 10 + s[i + spare];
-                }
+    for (int frame = 1; frame <= 10; ++frame) {
+        if (s[2*frame-1] == '/') {
+            int rollsInFrame = 2;
+            if (s[2*frame-2] != 'X') {
+                rollsInFrame = 3;
             }
-
-            i = strike > 0 ? strike : i;
+            lastRoll = true;
         } else {
-            int pos = s.find('/', i);
-            int value = s[i] - '0';
-            if (pos == string::npos) {
-                score += value * 2;
-            } else {
-                score += value + s[pos - 1] - '0';
-            }
+            lastRoll = false;
         }
 
-        frame++;
+        if (rollsInFrame == 1) {
+            score += 10;
+        } else if (rollsInFrame == 2) {
+            int roll1, roll2;
+            roll1 = s[2*frame-2] - '0';
+            roll2 = s[2*frame-1] - '0';
+            score += roll1 + roll2;
+        } else {
+            int roll1, roll2, roll3;
+            roll1 = s[2*frame-3] - '0';
+            roll2 = s[2*frame-2] - '0';
+            roll3 = s[2*frame-1] - '0';
+            score += 10 + roll3;
+        }
     }
 
     return score;
