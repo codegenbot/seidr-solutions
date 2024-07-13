@@ -3,9 +3,14 @@
 
 using namespace std;
 
-double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
-    double sum = 0;
-    for (int i = 0; i < n; ++i) {
+double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
+    if (v1.size() != v2.size()) {
+        cout << "Vectors must be of the same size." << endl;
+        return -1.0; // or some other error value
+    }
+
+    double sum = 0.0;
+    for (int i = 0; i < v1.size(); ++i) {
         sum += pow(v1[i] - v2[i], 2);
     }
     return sqrt(sum);
@@ -15,19 +20,14 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n);
-    for (float& val : v1) {
-        cin >> val;
+    vector<float> v1(n), v2(n);
+
+    for (int i = 0; i < n; ++i) {
+        cin >> v1[i] >> v2[i];
     }
 
-    vector<float> v2(n);
-    for (float& val : v2) {
-        cin >> val;
-    }
-
-    double result = vectorDistance(n, v1, v2);
-
-    cout << fixed << setprecision(10) << result << endl;
+    double distance = vectorDistance(v1, v2);
+    cout << fixed << setprecision(10) << distance << endl;
 
     return 0;
 }

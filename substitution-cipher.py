@@ -1,4 +1,8 @@
-def substitution_cipher(cipher_map, message):
+def substitution_cipher():
+    char1, char2 = zip(*[list(input().strip()), list(input().strip())])
+    cipher_map = ''.join(''.join(map(str, x)) for x in [char1, char2])
+    message = input().strip()
+    
     result = ""
     for char in message:
         if char.isalpha():
@@ -10,10 +14,4 @@ def substitution_cipher(cipher_map, message):
             )
         else:
             result += char
-    return result
-
-
-char1, char2 = zip(*[list(input().strip()), list(input().strip())])
-cipher_map = "".join("".join(map(str, x)) for x in [char1, char2])
-
-print(substitution_cipher(cipher_map, input().strip()))
+    print(result)
