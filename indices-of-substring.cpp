@@ -13,7 +13,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
             j++;
             if (j == m) {
                 result.push_back(i);
-                i++; // Only move 'i' one position forward
+                i += 1; // Move 'i' to the next potential match
             }
         }
     }
