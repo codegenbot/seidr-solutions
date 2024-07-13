@@ -1,4 +1,3 @@
-```
 def is_multiply_prime():
     a = int(input("Enter a number: "))
     def is_prime(n):
@@ -18,3 +17,5 @@ def is_multiply_prime():
                 break
     prime_factors = [f for f in set(factors) if is_prime(f)]
     return len(prime_factors) >= 3
+
+print(is_multiply_prime())
