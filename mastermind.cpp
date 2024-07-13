@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -32,11 +33,14 @@ int mastermind(const string& code, const string& guess) {
 }
 
 int main() {
-    string code, guess;
+    char code[5], guess[5];
     cout << "Enter the Mastermind code: ";
-    getline(cin, code);
+    cin >> code;
+    code[4] = '\0';  // to make it a C-style string
     cout << "Enter your guess: ";
-    getline(cin, guess);
+    cin >> guess;
+    guess[4] = '\0';
     int result = mastermind(code, guess);
     cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
     return 0;
+}
