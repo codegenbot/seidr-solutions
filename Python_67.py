@@ -1,7 +1,7 @@
-Here is the completed code:
-
-def fruit_distribution(s,n):
-    words = s.split()
-    apples = int(''.join(filter(str.isdigit, [word for word in words if 'apples' in word])) or 0)
-    oranges = n - apples
-    return oranges
+def fruit_distribution(s, n):
+    s = s.replace(" apples", " 0 apples").replace(" oranges", " 0 oranges")
+    return (
+        n
+        - sum(int(i) for i in s.split() if i.isdigit())
+        - 2 * (s.count("apples") + s.count("oranges"))
+    )
