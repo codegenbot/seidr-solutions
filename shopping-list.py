@@ -7,7 +7,4 @@ def shopping_list():
         price - (price * discount / 100) for price, discount in zip(prices, discounts)
     )
 
-    return format(total_price, ".1f")
-
-
-print(shopping_list())
+    return total_price
