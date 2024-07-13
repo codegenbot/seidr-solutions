@@ -1,9 +1,16 @@
-def fizz_buzz(n):
-    if n % 3 == 0 and n % 5 == 0:
-        return "FizzBuzz"
-    elif n % 3 == 0:
-        return "Fizz"
-    elif n % 5 == 0:
-        return "Buzz"
+def fizz_buzz(x):
+    if not isinstance(x, int):
+        return "Invalid input"
+    elif x % 3 == 0:
+        result = "Fizz"
+        if x % 5 == 0:
+            result = "FizzBuzz"
     else:
-        return str(n)
+        result = ""
+        for i in range(1, 6):
+            if x % (5 ** i) == 0:
+                result += "Buzz" if i * 2 - 1 == 0 or not result else "Buzz "
+        for i in range(1, 4):
+            if x % (3 ** i) == 0:
+                result = "Fizz" + ("Buzz " if i * 2 - 1 != 0 and "Buzz " in result else "") + result
+    return str(x) if not result else result
