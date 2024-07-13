@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     cipher_map = cipher1 + cipher2
     result = ""
@@ -13,6 +12,7 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             result += char
     return result
+
 
 cipher_map1 = input().strip()
 cipher_map2 = input().strip()
