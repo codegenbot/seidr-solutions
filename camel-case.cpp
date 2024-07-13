@@ -1,9 +1,10 @@
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool isNextUpper = !str.empty();
-    for (const auto& c : str) {
+    bool isNextUpper = false;
+    for (char c : str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
                 if (c == '-') {
@@ -19,8 +20,7 @@ std::string camelCase(std::string str) {
             isNextUpper = true;
         } else {
             isNextUpper = false;
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
+            result += std::isupper(c) ? (char)(std::tolower(c)) : c;
         }
     }
     return result;
-}
