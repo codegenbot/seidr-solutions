@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 using namespace std;
 
 int main() {
@@ -11,13 +10,13 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    ostringstream oss;
+    string output = "";
     for(int i = 1; i < n; i++) {
         double prob = (n - i) / (double)(n*m); 
-        oss << to_string(prob) + " "; // convert double to string and concatenate
+        output += to_string(prob) + " "; // convert double to string and concatenate
     }
     
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << oss.str() << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << output << endl;
 
     return 0;
 }
