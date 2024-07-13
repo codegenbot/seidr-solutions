@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 int luhn(const std::vector<int>& card) {
     int sum = 0;
@@ -18,8 +17,7 @@ int luhn(const std::vector<int>& card) {
 }
 
 int main() {
-    std::vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 0, 2, 8, 3};
+    std::vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 7, 2, 3, 9};
     int result = luhn(card);
-    std::cout << "Result: " << result << std::endl;
     return 0;
 }
