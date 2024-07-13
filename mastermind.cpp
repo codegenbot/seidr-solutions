@@ -37,7 +37,7 @@ int mastermind(string code, string guess) {
                 if(count > 1) break;
             }
         }
-        white += min(count, codeCount[find(chars.begin(), chars.end(), code[0]) - chars.begin()]);
+        white += min(count, (int)codeCount[std::distance(chars.begin(), find(chars.begin(), chars.end(), code[0]))-chars.begin()]);
     }
 
     return black + white;
