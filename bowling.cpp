@@ -1,36 +1,25 @@
-```
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            std::string firstPart = s.substr(0, i);
-            std::string secondPart = s.substr(i + 1);
-            int firstScore = 0;
-            int j = 0;
-            while (j < firstPart.size()) {
-                if (firstPart[j] != 'X') {
-                    firstScore += (firstPart[j] - '0');
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (isdigit(s[i])) {
+            int count = 1;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (isdigit(s[j])) {
+                    count++;
+                } else {
+                    break;
                 }
-                j++;
             }
-            int secondScore = 0;
-            j = 0;
-            while (j < secondPart.size()) {
-                if (secondPart[j] != 'X') {
-                    secondScore += (secondPart[j] - '0');
-                }
-                j++;
-            }
-            score += firstScore + secondScore;
-        } else {
-            if (s[i] == 'X') {
-                score += 10;
-            } else {
-                score += (s[i] - '0') * 2;
-            }
+            score += count * (s[i] - '0');
+        } else if (s[i] == '/') {
+            int firstCount = s[i-1] - '0';
+            int secondCount = s[i+1] - '0';
+            score += 10 + firstCount + secondCount;
+            i++;
         }
     }
     return score;
-}
