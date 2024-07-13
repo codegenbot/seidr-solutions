@@ -1,13 +1,11 @@
-int stack_size = 0;
-for(int i=0; i<brackets.length(); i++){
-    if(brackets[i] == '<'){
-        stack_size++;
+```cpp
+int i = 0, j = 0;
+while(i < brackets.length()) {
+    if(brackets[i] == '<') j++;
+    else if(brackets[i] == '>') {
+        if(j <= 0) return false;
+        j--;
     }
-    else if(brackets[i] == '>'){
-        if(stack_size <= 0){
-            return false;
-        }
-        stack_size--;
-    }
+    i++;
 }
-return stack_size == 0;
+return j == 0;
