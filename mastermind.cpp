@@ -2,24 +2,24 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (char c : guess) {
+    for(int i = 0; i < 6; i++) {
         int count = 0;
-        for (char d : code) {
-            if (c == d) {
+        for(int j = 0; j < 4; j++) {
+            if(code[j] == (char)(i + 'A') && guess[j] == (char)(i + 'A')) {
                 count++;
             }
+            else if(code[j] == (char)(i + 'A')) {
+                white += 1;
+            }
         }
-        if (count > 1 || count == 1 && black > 0) {
-            continue;
-        }
-        white += count - (black > 0);
+        black -= count;
     }
 
-    return white + black;
+    return black;
 }
