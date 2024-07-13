@@ -1,4 +1,3 @@
-```
 def filter_by_prefix() -> None:
     string_list = []
     while True:
