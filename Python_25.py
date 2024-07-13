@@ -1,14 +1,8 @@
 ```
-from math import sqrt
-
-def factorize(n):
-    factors = []
-    for i in range(2, int(sqrt(n)) + 1):
-        while n % i == 0:
-            factors.append(i)
-            n //= i
-    if n > 1:
-        factors.append(n)
-    return factors
-
-check(factorize)
+def sum_of_digits():
+    n = int(input())
+    total = 0
+    while n:
+        total += n % 10
+        n //= 10
+    return total
