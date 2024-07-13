@@ -29,7 +29,7 @@ def solve_boolean(expression):
                         stack.append(val1 and val2)
                     else:
                         stack.append(val1 or val2)
-                operators.pop()  # Discard the opening parenthesis
+                operators.pop()  
             elif char in ["t", "f"]:
                 stack.append(eval(char.lower() == 't'))
         while operators:
