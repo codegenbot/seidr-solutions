@@ -1,4 +1,2 @@
-Here is the Python solution for the given problem:
-
-def fuel_cost(arr):
-    return sum((i//3)-2 for i in arr)
+def fuel_cost(nums):
+    return sum((n // 3 - 2) for n in nums)
