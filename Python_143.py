@@ -1,4 +1,3 @@
-```
 def words_in_sentence(sentence):
     prime_words = []
     for word in sentence.split():
