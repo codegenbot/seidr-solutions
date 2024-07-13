@@ -1,17 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <algorithm>
 #include <iomanip>
 
 int main() {
-    double n, m;
+    size_t n;
     std::cin >> n;
     std::vector<double> vec1(n);
     for (size_t i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
+    size_t m;
     std::cin >> m;
     std::vector<double> vec2(m);
     for (size_t i = 0; i < m; ++i) {
@@ -25,7 +25,7 @@ int main() {
     }
 
     double result = std::sqrt(sum);
-    std::cout << std::fixed << std::setprecision(10) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
 }
