@@ -23,7 +23,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
     return result;
 }
 
-int mainFunc() {
+int main() {
     vector<int> test1 = {1, 2, 3, 4};
     vector<int> test2 = {5, 5, 5, 5};
     vector<int> test3 = {};
