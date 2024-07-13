@@ -11,4 +11,4 @@ def search(lst):
     for key, value in freq_dict.items():
         if key >= value and key > 0 and key > max_num:
             max_num = key
-    return max_num if max_num != -1 else -1
+    return max_num
