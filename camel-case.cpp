@@ -8,20 +8,16 @@ string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
-            if (!result.empty()) {
+            if (result.size()) {
                 result[0] = toupper(result[0]);
             }
             if (i < s.size()) {
                 string word = s.substr(i + 1);
-                if (result.empty()) {
-                    result += word;
-                } else {
-                    result += toupper(word[0]) + word.substr(1);
-                }
+                result += toupper(word[0]) + word.substr(1);
             }
             break;
         } else if (s[i] == ' ') {
-            if (!result.empty()) {
+            if (i > 0) {
                 result[0] = toupper(result[0]);
             }
             string left = s.substr(0, i);
