@@ -9,7 +9,10 @@ def bouncing_balls():
     for _ in range(num_bounces):
         height = start_height * (bounciness_index ** (_ + 1))
         if _ == 0:
-            total_distance += 4 * abs(height - start_height)
+            total_distance += 2 * abs(height - start_height)
         else:
-            total_distance += 8 * abs(height) + 2 * abs(start_height - height)
+            total_distance += 4 * abs(height - start_height) + 2 * abs(height + start_height - 2*height)
     print("The total distance traveled is: ", round(total_distance, 2))
+
+if __name__ == "__main__":
+    bouncing_balls()
