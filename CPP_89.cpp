@@ -1,11 +1,14 @@
+Here is the solution:
+
 string encrypt(string s) {
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            result += (((c - base + 2 * 2) % 26) + base);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] >= 'a' && s[i] <= 'm') {
+            result += (char)(s[i] - 'a' + 2);
+        } else if (s[i] >= 'n' && s[i] <= 'z') {
+            result += (char)(s[i] - 'n' + 10);
         } else {
-            result += c;
+            result += s[i];
         }
     }
     return result;
