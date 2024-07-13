@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
         return "";
@@ -31,9 +26,4 @@ std::vector<std::string> split(const std::string& input, char c) {
         tokens.push_back(token);
     }
     return tokens;
-}
-
-int main() {
-    std::cout << camelCase("camel-case example-test-string") << std::endl;
-    return 0;
 }
