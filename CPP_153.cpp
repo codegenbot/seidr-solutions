@@ -1,26 +1,15 @@
 int Strongest_Extension(string class_name,vector<string> extensions){
-    int max_strength = 0;
-    string strongest_extension;
-
-    for (const auto &extension : extensions) {
+    int max_strength = -1, best_idx = -1;
+    for(int i=0; i<extensions.size(); i++){
         int cap = 0, sm = 0;
-
-        for (char c : extension) {
-            if (::isupper(c)) cap++;
-            else if (::islower(c)) sm++;
+        for(char c : extensions[i]){
+            if(isupper(c)) cap++;
+            else if(islower(c)) sm++;
         }
-
-        int strength = cap - sm;
-
-        if (strength > max_strength) {
-            max_strength = strength;
-            strongest_extension = extension;
-        } else if (strength == max_strength) {
-            if (std::distance(extensions.begin(), std::find(&extension, &extensions[0], &extension)) <
-                std::distance(extensions.begin(), std::find(&strongest_extension, &extensions[0], &strongest_extension)))
-                strongest_extension = extension;
+        if(cap-sm > max_strength){
+            max_strength = cap-sm;
+            best_idx = i;
         }
     }
-
-    return class_name + "." + strongest_extension;
+    return class_name + "." + extensions[best_idx];
 }
