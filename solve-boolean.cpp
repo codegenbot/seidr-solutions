@@ -1,20 +1,21 @@
 int main() {
-    string expression;
-    cin >> expression;
+    string exp;
+    cin >> exp;
 
-    if (expression == "t") {
-        cout << "True" << endl;
-    } else if (expression == "f") {
-        cout << "False" << endl;
-    } else {
-        bool result = true;
-        for (int i = 0; i < expression.size(); i += 2) {
-            if (expression[i] == 'f' || expression[i + 1] == 'f') {
-                result = false;
-                break;
-            }
+    bool result = (exp[0] == 't');
+
+    for (int i = 1; i < exp.size(); i += 2) {
+        if (exp[i] == '|') {
+            result = result || (exp[i + 1] == 't');
+        } else {
+            result = result && (exp[i + 1] == 't');
         }
-        cout << (result ? "True" : "False") << endl;
+    }
+
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
 
     return 0;
