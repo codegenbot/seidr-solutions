@@ -1,3 +1,6 @@
+```cpp
+#include <iostream>
+#include <stack>
 #include <string>
 
 bool solveBoolean(string expression) {
@@ -17,21 +20,9 @@ bool solveBoolean(string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            valStack.pop();
+            valStack.push(false);
         }
     }
-
-    while (!opStack.empty()) {
-        switch(opStack.top()) {
-            case '|': 
-                valStack.pop();  
-                break;
-            case '&':
-                valStack.pop() &&= valStack.pop();
-                break;  
-        }  
-        opStack.pop();  
-    }  
 
     return valStack.top();
 }

@@ -1,7 +1,4 @@
-#include <vector>
-using namespace std;
-
-int luhn(vector<int>& digits) {
+int luhn(std::vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
 
@@ -18,10 +15,3 @@ int luhn(vector<int>& digits) {
     }
 
     return sum;
-}
-
-int main() {
-    vector<int> digits = {3, 4, 5, 1, 3, 6, 7, 8, 9, 1, 0, 2, 9, 8, 5, 0};
-    cout << luhn(digits) << endl;
-    return 0;
-}
