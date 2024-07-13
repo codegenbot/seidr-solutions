@@ -1,3 +1,6 @@
+```
+n = int(input("Enter the number up to which you want to find max triples: "))
+
 def get_max_triples(n):
     if n < 1:
         return None
@@ -7,8 +10,5 @@ def get_max_triples(n):
         if triple_sum > max_sum:
             max_sum = triple_sum
     return max_sum
-
-print("Enter the number up to which you want to find max triples: ", end="")
-n = int(input())
 
 print(get_max_triples(n))
