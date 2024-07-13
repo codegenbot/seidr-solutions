@@ -6,6 +6,9 @@ while True:
         break
     lst += [int(x) for x in inp.split() if x.isdigit()]
 
+    
+[]
+
 def filter_integers(lst):
     while True:
         cont = input("Do you want to filter integers again? (yes/no): ")

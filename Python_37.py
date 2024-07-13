@@ -14,6 +14,5 @@ def sort_even(l: list):
     result.extend(odd_nums[j:])
     return result
 
-
 if __name__ == "__main__":
-    print(sort_even([5, 8, -12, 4, 23, 2, 3, 11, 12, -10]))
+    print(tuple(sort_even([5, 8, -12, 4, 23, 2, 3, 11, 12, -10])))
