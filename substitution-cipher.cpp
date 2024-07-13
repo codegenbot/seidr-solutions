@@ -1,20 +1,28 @@
-#include <vector>
-#include <iostream>
 #include <string>
+#include <iostream>
+using namespace std;
 
-std::string substituteCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string decipheredMessage;
-    for (char c : message) {
-        char lowerC = tolower(c); // Convert to lowercase
-        int index = std::distance(cipher1.begin(), std::equal_range(cipher1.begin(), cipher1.end(), lowerC)) - cipher1.begin();
-        decipheredMessage += (index < cipher2.length()) ? cipher2[index] : c;
+string decipher(string cipher1, string cipher2, string message) {
+    string result = "";
+    for (int i = 0; i < message.length(); i++) {
+        bool found = false;
+        for (int j = 0; j < cipher1.length(); j++) {
+            if (message[i] == cipher1[j]) {
+                result += cipher2[j];
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result += message[i];
+        }
     }
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substituteCipher(cipher1, cipher2, message) << std::endl;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << decipher(cipher1, cipher2, message) << endl;
     return 0;
 }
