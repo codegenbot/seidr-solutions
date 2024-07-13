@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int pennies = 0;
@@ -22,10 +23,10 @@ int main() {
 
     pennies = cents;
 
-    std::cout << "Quarters: " << quarters << std::endl;
-    std::cout << "Dimes: " << dimes << std::endl;
-    std::cout << "Nickles: " << nickles << std::endl;
-    std::cout << "Pennies: " << pennies << std::endl;
+    std::cout << "Quarters: " << std::to_string(quarters) << std::endl;
+    std::cout << "Dimes: " << std::to_string(dimes) << std::endl;
+    std::cout << "Nickles: " << std::to_string(nickles) << std::endl;
+    std::cout << "Pennies: " << std::to_string(pennies) << std::endl;
 
     return 0;
 }
