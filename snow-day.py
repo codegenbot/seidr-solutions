@@ -9,6 +9,5 @@ for _ in range(hours):
     snow_on_ground += snow_fall_rate
     snow_on_ground -= melted_snow
 
-snow_on_ground = round(snow_on_ground, 15)
-
+snow_on_ground = round(snow_on_ground, 14)
 print(snow_on_ground)
