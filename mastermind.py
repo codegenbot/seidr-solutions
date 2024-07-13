@@ -1,11 +1,8 @@
 def mastermind(code, guess):
-    white_pegs = 0
-    black_pegs = 0
-
+    count = [0, 0]
     for i in range(4):
         if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess.count(guess[i]) > 0:
-            white_pegs += 1
-
-    return str(black_pegs) + "\n" + str(white_pegs)
+            count[1] += 1
+        elif str(guess[i]) in str(code):
+            count[0] += 1
+    return tuple(count)
