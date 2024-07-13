@@ -1,35 +1,36 @@
-int score(string s) {
+int score(string input) {
     int totalScore = 0;
     int frame = 1;
     int ball = 0;
     vector<int> scores(22, 0);
 
-    for (char c : s) {
+    for (char c : input) {
         if (c == 'X') {
             scores[ball] = 10;
-            scores[ball + 1] = 10;
-            scores[ball + 2] = 10;
+            scores[ball + 1] = 0;
             ball += 2;
         } else if (c == '/') {
             scores[ball] = 10 - scores[ball - 1];
+            ball++;
         } else if (c == '-') {
             scores[ball] = 0;
+            ball++;
         } else {
             scores[ball] = c - '0';
+            ball++;
         }
-        ball++;
     }
 
-    for (int i = 0; i < 10; i++) {
-        if (scores[frame] == 10) {
-            totalScore += 10 + scores[frame + 1] + scores[frame + 2];
+    for (int i = 0; frame <= 10; i += 2) {
+        if (scores[i] == 10) {
+            totalScore += 10 + scores[i + 2] + scores[i + 4];
             frame++;
-        } else if (scores[frame] + scores[frame + 1] == 10) {
-            totalScore += 10 + scores[frame + 2];
-            frame += 2;
+        } else if (scores[i] + scores[i + 1] == 10) {
+            totalScore += 10 + scores[i + 2];
+            frame++;
         } else {
-            totalScore += scores[frame] + scores[frame + 1];
-            frame += 2;
+            totalScore += scores[i] + scores[i + 1];
+            frame++;
         }
     }
 
@@ -37,8 +38,8 @@ int score(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
