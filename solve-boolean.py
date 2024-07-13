@@ -48,7 +48,7 @@ def solveBoolean(expression):
         elif left.strip() == "F":
             return False
 
-    result = solveBoolean(left.strip())
+    result = solveBoolean(left)
     if expression != "":
         return result or solveBoolean(expression)
     return result or True
