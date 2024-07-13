@@ -1,5 +1,6 @@
-```cpp
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 int main() {
@@ -10,13 +11,14 @@ int main() {
     cin >> m;
 
     double numerator = 0.0; 
+    string result;
     for(int i = 1; i < n; i++) {
-        numerator += (n - i) * 1;
+        result += to_string(n - i) + "+";
     }
     double denominator = (double)(n*m);
     
-    double probability = (double)numerator / denominator;
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    double probability = stod(result.substr(0, result.length()-1)) / denominator;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << fixed << setprecision(6) << probability << endl;
 
     return 0;
 }

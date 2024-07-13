@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -13,15 +14,15 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
-    size_t n = text.length();
-    size_t m = target.length();
+    std::vector<int> result(std::vector<int>::size_type(-1));
+    int n = text.length();
+    int m = target.length();
 
-    for (size_t i = 0; i <= n - m; i++) {
+    for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back((int)i);
+            result.push_back(i);
             while (i + m < n && text.substr(i, m) == target) {
-                i++;
+                i += m;
             }
         }
     }

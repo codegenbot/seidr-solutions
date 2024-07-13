@@ -6,4 +6,4 @@ def fizz_buzz(x):
         result += "Fizz"
     elif x % 5 == 0:
         result += "Buzz"
-    return str(x) if not result else result
+    return str(result) + str(x) if result else str(x)
