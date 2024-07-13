@@ -15,6 +15,6 @@ int main() {
     std::cout << "Enter a string of digits: ";
     std::cin >> str;
     int result = pairedDigits(str);
-    std::cout << "Sum of the digits whose following digit is the same is: " << result << std::endl;
+    std::cout << "Sum of the paired digits is: " << result << std::endl;
     return 0;
 }
