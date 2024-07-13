@@ -1,9 +1,13 @@
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& s1, const string& s2){
-            if (s1.length() != s2.length())
-                return s1.length() > s2.length();
-            return s1 < s2;
+    string res = *max_element(words.begin(), words.end(), 
+        [&res](const string& a, const string& b) {
+            int ca = a.length(), cb = b.length();
+            if (ca != cb) return ca > cb;
+            vector<char> ac(a.begin(), a.end()), bc(b.begin(), b.end());
+            sort(ac.begin(), ac.end());
+            sort(bc.begin(), bc.end());
+            return std::equal(ac.begin(), ac.end(), bc.begin()) 
+                ? a < b : count(ac.begin(), ac.end(), '*') > count(bc.begin(), bc.end(), '*');
         });
-    return max_word;
+    return res;
 }
