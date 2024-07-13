@@ -1,17 +1,36 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    string t = "T", f = "F";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            return (s.substr(0, i).compare(t) == 0 || s.substr(0, i).compare(f) == 0) ||
-                   (s.substr(i + 1).compare(t) == 0);
-        }
-        else if (s[i] == '&') {
-            return (s.substr(0, i).compare(t) == 0 && s.substr(i + 1).compare(t) == 0) ||
-                   (s.substr(0, i).compare(f) == 0 && s.substr(i + 1).compare(f) == 0);
+bool solveBoolean(const std::string& expression) {
+    bool result = true;
+    int i = 0;
+    
+    while (i < expression.size()) {
+        if (expression[i] == 'T') {
+            return true;   
+        } else if (expression[i] == 'F') {
+            return false;
+        } else if (expression[i] == '|') {
+            i++; // Skip the '|' character
+        } else if (expression[i] == '&') {
+            i++; // Skip the '&' character
         }
     }
-    return s.compare(t) == 0;
+    
+    return result; 
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a boolean expression (T, F, |, &): ";
+    std::cin >> expression;
+    bool result = solveBoolean(expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    
+    return 0;
 }
