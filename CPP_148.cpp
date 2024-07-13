@@ -2,17 +2,13 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    return vec1 == vec2;
-}
-
-std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
+std::vector<std::string> bf(const std::vector<std::string>& planets, const std::vector<std::string>& planet1, const std::vector<std::string>& planet2) {
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i][0] == planet1[0]) {
+        if (planets[i][0] == planet1[0][0]) {
             index1 = i;
-        } else if (planets[i][0] == planet2[0]) {
+        } else if (planets[i][0] == planet2[0][0]) {
             index2 = i;
         }
     }
@@ -52,17 +48,13 @@ int main() {
     }
     
     if(!inputPlanets.empty()) {
-        std::vector<std::string> result = bf(inputPlanets, "Mars", "Neptune");
+        std::vector<std::string> result = bf(inputPlanets, std::vector<std::string>({"Mars"}), std::vector<std::string>({"Neptune"}));
         
         if (!result.empty())
             std::cout << "Output: ";
         else
             std::cout << "No Output";
         
-        for (const auto& planet : result) {
-            std::cout << planet << " ";
-        }
-        std::cout << std::endl;
     } else {
         std::cout << "No Output";
     }
