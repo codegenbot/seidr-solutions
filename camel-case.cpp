@@ -1,4 +1,3 @@
-#include <string>
 #include <cctype>
 #include <iostream>
 #include <vector>
@@ -21,9 +20,14 @@ std::string camelCase(std::string str) {
     for (const auto& word : words) {
         if (!word.empty()) {
             if (result.empty())
-                result = std::toupper(word[0]);
+                result = "";
             else
-                result += " " + std::tolower(word[0]) + std::toupper(std::string(1, word.substr(1)));
+                result += " ";
+            if (result.empty())
+                result = std::string(1, word[0]).toupper();
+            else
+                result += std::string(1, word[0]).tolower();
+            result += std::string(1, word.substr(1)).toupper();
         }
     }
 

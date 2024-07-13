@@ -1,3 +1,5 @@
+#include <string>
+
 int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
@@ -10,19 +12,19 @@ int mastermind(string code, string guess) {
     }
 
     // Count correct colors (white pegs)
-    int code_counts[6] = {0};
-    int guess_counts[6] = {0};
+    bool code_counts[6] = {false};
     for (char c : code) {
-        code_counts[c - 'A']++;
-    }
-    for (char g : guess) {
-        guess_counts[g - 'A']++;
+        code_counts[c - 'A'] = true;
     }
 
-    for (int i = 0; i < 6; ++i) {
-        int count = std::min(code_counts[i], guess_counts[i]);
-        white += count;
+    int white_count = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code_counts[guess[i] - 'A']) {
+            white_count++;
+            code_counts[guess[i] - 'A'] = false;
+        }
     }
+
+    white = white_count;
 
     return black + white;
-}
