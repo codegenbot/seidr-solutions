@@ -1,9 +1,6 @@
 ```cpp
-#include <stack>
-#include <string>
-
 bool solveBoolean(std::string s) {
-    std::stack<char> st; 
+    stack<char> st;
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -26,11 +23,5 @@ bool solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    if (st.empty()) {
-        return false;
-    }
-    if (st.top() == 'F') {
-        return false;
-    }
-    return true;
+    return s.back() == 'T';
 }
