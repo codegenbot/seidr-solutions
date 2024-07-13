@@ -15,4 +15,6 @@ def decode_shift():
         else:
             decoded_message += char
     
-    return "Decoded message: " + decoded_message
+    return f"Decoded message: {decoded_message}"
+
+print(decode_shift())
