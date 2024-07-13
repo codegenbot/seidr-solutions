@@ -1,16 +1,11 @@
 def find_zero():
-    coefficients = []
-    while True:
-        try:
-            coefficient = float(input("Enter a coefficient (or 'q' to quit): "))
-            if coefficient == "q":
-                break
-            coefficients.append(coefficient)
-        except ValueError:
-            print("Invalid input. Please enter a number or 'q' to quit.")
+    a = float(input("Enter coefficient a: "))
+    b = float(input("Enter coefficient b: "))
+    c = float(input("Enter coefficient c: "))
+    d = float(input("Enter coefficient d: "))
 
-    if len(coefficients) % 2 != 0:
-        raise ValueError("The number of coefficients must be even")
-
-    x = -coefficients[1] / coefficients[3]
-    return round(x, 2)
+    if (b * d) - (a * c) == 0:
+        return "No real solution exists."
+    else:
+        x = (-b + ((b**2) - 4 * a * c) ** 0.5) / (2 * a)
+        return f"The zero is {x:.2f}"
