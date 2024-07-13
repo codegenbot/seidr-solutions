@@ -1,3 +1,4 @@
+```
 #include <vector>
 
 int count_nums(vector<int> n) {
@@ -24,3 +25,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
