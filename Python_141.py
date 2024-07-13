@@ -1,12 +1,7 @@
 ```
 def file_name_check(file_name):
-    if not file_name or '.' not in file_name:
+    if len([c for c in file_name if c.isdigit()]) > 3:
         return 'No'
-    name, extension = file_name.split('.')
-    if len(name) > 0 and name[0].isalpha():
-        for char in name[1:]:
-            if char.isdigit() and char not in ['0', '1', '2']:
-                return 'No'
-        if extension.lower() in ['txt', 'exe', 'dll']:
-            return 'Yes'
-    return 'No'
+    if '.' not in file_name or file_name.split('.')[0].lstrip().startswith(('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')) or file_name.split('.')[1].lower() not in ['txt', 'exe', 'dll']:
+        return 'No'
+    return 'Yes'
