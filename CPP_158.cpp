@@ -1,9 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
 
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
+std::string find_max(std::vector<std::string> words) {
+    std::string max_word = *max_element(words.begin(), words.end(),
+        [](const std::string& a, const std::string& b) {
             return count(a.begin(), a.end(), unique_copy(a.begin(), a.end())) <
                    count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
     });
@@ -11,8 +14,18 @@ string find_max(vector<string> words){
 }
 
 int main() {
-    vector<string> words = {};
-    // your code here
-    cout << find_max(words) << endl;
+    int n;
+    std::cout << "Enter the number of words: ";
+    std::cin >> n;
+    
+    std::vector<std::string> words(n);
+    
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter word " << i + 1 << ": ";
+        std::cin >> words[i];
+    }
+    
+    std::cout << "The maximum length word is: " << find_max(words) << std::endl;
+    
     return 0;
 }
