@@ -1,9 +1,8 @@
 ```cpp
 #include <iostream>
+using namespace std;
 #include <cmath>
 #include <iomanip>
-
-using namespace std;
 
 int main() {
     double startHeight, firstBounce;
