@@ -16,8 +16,9 @@ int main() {
         for (int j = i; j < n; ++j) {
             rightSum += nums[j];
         }
-        if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
             cutIndex = i;
         }
     }
