@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <iostream>
 
 int count_nums(std::vector<int> n) {
     int count = 0;
@@ -27,7 +29,12 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    std::vector<int> n = {1};
-    assert(count_nums(n) == 1);
+    std::vector<int> n;
+    int input;
+    std::cout << "Enter numbers separated by space: ";
+    while(std::cin >> input) {
+        n.push_back(input);
+    }
+    std::cout << "Count of nums: " << count_nums(n) << std::endl;
     return 0;
 }
