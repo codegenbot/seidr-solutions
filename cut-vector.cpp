@@ -1,18 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
+    int min_diff = numeric_limits<int>::max();
     for (int i = 1; i < n; i++) {
-        if ((v[i] >= v[i-1]) && (i == n - 1 || v[i+1] <= v[i])) {
+        int diff = abs(v[i] - v[i-1]);
+        if (diff == 0 || (diff < min_diff)) {
+            min_diff = diff;
             res[0] = vector<int>(v.begin(), v.begin() + i);
             res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
         }
     }
-    return {{}, {}};
+    return res;
 }
 
 int main() {
