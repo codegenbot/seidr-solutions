@@ -1,6 +1,7 @@
 def luhn(card_number):
-    card_number = list(map(int, card_number[2:]))
-    result = int(card_number[0])  # Add the first digit
+    card_number = list(map(int, card_number[1:]))
+    result = 0
+    result += card_number[0]
     for i in range(1, len(card_number), 2):
         doubled = card_number[i] * 2
         if doubled > 9:
