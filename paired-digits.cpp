@@ -1,4 +1,4 @@
-```
+```c++
 int pairedDigits(std::string s) {
     int sum = 0;
     size_t i; 
@@ -7,4 +7,5 @@ int pairedDigits(std::string s) {
             sum += (s[i] - '0') * 2;
         }
     }
+    return sum;
 }
