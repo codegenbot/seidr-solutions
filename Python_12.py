@@ -1,14 +1,11 @@
-```
-from typing import List, Optional
-
-
+```Python
 def longest(strings: List[Optional[str]]) -> Optional[str]:
     if not strings:
         return None
     max_len = 0
     result = None
     for s in strings:
-        if s is not None and len(s) > max_len:
+        if isinstance(s, str) and len(s) > max_len:
             max_len = len(s)
             result = s
     return result
