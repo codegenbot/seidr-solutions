@@ -41,11 +41,11 @@ int main() {
     
     cout << endl;
     
-    for (int i = cutIndex+1; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
     
     cout << endl;
-
+    
     return 0;
 }
