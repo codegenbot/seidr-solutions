@@ -1,53 +1,46 @@
-Here is the completed code:
-
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int splitPoint = 0;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    int min_diff = INT_MAX;
+    int idx = 0;
     
-    for (int i = 1; i < vec.size(); i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            leftSum += vec[j];
-        }
-        
-        for (int j = i; j < vec.size(); j++) {
-            rightSum += vec[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitPoint = i;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
         }
     }
     
-    return {{vec.begin(), vec.begin() + splitPoint}, {vec.begin() + splitPoint, vec.end()}};
+    vector<vector<int>> result(2);
+    result[0].reserve(n - idx);
+    for (int i = 1; i <= idx; i++) {
+        result[0].push_back(v[i]);
+    }
+    result[1] = v.erase(v.begin(), v.begin() + idx + 1);
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> v[i];
     }
     
-    vector<vector<int>> result = cutVector(vec);
+    vector<vector<int>> res = cutVector(v);
     
-    cout << "({";
-    for (int num : result[0]) {
-        cout << num << ", ";
+    for (const auto& subvec : res) {
+        cout << "[";
+        for (int num : subvec) {
+            cout << num << " ";
+        }
+        cout << "]" << endl;
     }
-    cout << "}) (" << " {";
-    for (int num : result[1]) {
-        cout << num << ", ";
-    }
-    cout << "0)" << endl;
     
     return 0;
 }
