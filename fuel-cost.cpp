@@ -3,10 +3,12 @@ using namespace std;
 
 int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int num : v) {
-        int divided = num / 3;
-        int result = floor(divided) - 2;
-        sum += result;
+    for (int i : v) {
+        int temp = i / 3;
+        temp = temp - 2;
+        if (temp < 0)
+            temp = 0;
+        sum += temp;
     }
     return sum;
 }
@@ -15,8 +17,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (auto &x : v) {
-        cin >> x;
+    for (int &i : v) {
+        cin >> i;
     }
     cout << fuelCost(v) << endl;
     return 0;
