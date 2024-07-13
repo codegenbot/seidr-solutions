@@ -1,4 +1,5 @@
-def check(double_the_difference, lst):
-    return double_the_difference(lst)
+def double_the_difference(lst):
+    return sum(x**2 for x in lst if x > 0 and x % 2 != 0 and type(x) == int) * 2
 
-check(double_the_difference, lst)
+result = double_the_difference([1, 2, 3, 4])
+print(result)
