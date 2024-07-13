@@ -1,3 +1,4 @@
+```
 def fizz_buzz(x):
     if not isinstance(x, int) or x > 30:
         return "Invalid input"
