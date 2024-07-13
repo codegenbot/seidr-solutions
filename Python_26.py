@@ -1,1 +1,1 @@
-return sorted(list(OrderedDict.fromkeys(map(int, numbers.split(","))))
+return sorted(list(OrderedDict.fromkeys(map(int, numbers.split(","))))))
