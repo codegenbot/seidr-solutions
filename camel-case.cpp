@@ -1,22 +1,17 @@
 int main() {
     string input;
     getline(cin, input);
-    
-    bool capitalize = true;
-    for (char &c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (c != ' ') {
-            if (capitalize) {
-                c = toupper(c);
-                capitalize = false;
-            } else {
-                c = tolower(c);
-            }
+    bool hyphen = false;
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == '-') {
+            hyphen = true;
+            continue;
+        }
+        if (hyphen) {
+            input[i] = toupper(input[i]);
+            hyphen = false;
         }
     }
-    
-    cout << input << endl;
-    
+    cout << input;
     return 0;
 }
