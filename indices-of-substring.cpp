@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,18 +5,18 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int start = 0, end = text.length();
-    
-    while (start < end) {
-        int pos = text.find(target, start);
-        
-        if (pos == string::npos)
-            break;
-        
-        result.push_back(pos);
-        start = pos + 1;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        bool found = true;
+        for (int j = 0; j < target.length(); j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
+        }
     }
-    
     return result;
 }
 
@@ -30,4 +29,3 @@ int main() {
     }
     cout << endl;
     return 0;
-}
