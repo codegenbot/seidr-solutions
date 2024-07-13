@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <cctype>
 
 int main() {
     char text[100], target[100];
@@ -31,7 +32,7 @@ int main() {
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (lowercaseText[i + j] != lowercaseTarget[j % targetLen]) {
+            if (std::tolower(lowercaseText[i + j]) != std::tolower(lowercaseTarget[j])) {
                 found = false;
                 break;
             }
