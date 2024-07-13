@@ -3,18 +3,19 @@
 #include <sstream>
 
 std::string kebabToCamel(const std::string& s) {
-    std::stringstream words(s);
-    std::string result;
+    std::stringstream ss(s);
     std::string word;
+    std::string result;
 
-    while (words >> word) {
+    while (ss >> word) {
         if (!result.empty()) {
-            result += ' ';
+            result += word;
+        } else {
+            for (char & c : word) {
+                c = toupper(c);
+            }
+            result = word;
         }
-        for (char &c : word) {
-            c = (word[0] == '-') ? toupper(c) : tolower(c);
-        }
-        result += word;
     }
 
     return result;
