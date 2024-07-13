@@ -1,19 +1,27 @@
-```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
+    std::vector<int> code_counts(6, 0);
+    for (char c : code) {
+        code_counts[c - 'A']++;
+    }
+
     for (int i = 0; i < 4; ++i) {
-        int c_count = 0, g_count = 0;
-        for (char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
-            if (c == code[i]) c_count++;
-            if (c == guess[i]) g_count++;
-        }
         if (code[i] == guess[i]) {
-            black++;
-        } else if (c_count > 0 && g_count > 0) {
-            white += std::min(c_count, g_count);
+            black++; 
+        } else {
+            int count = code_counts[guess[i] - 'A'];
+            white += --count;
+            if (count > 0) {
+                code_counts[guess[i] - 'A']--; 
+            }
         }
     }
+
     return black + white;
 }
 
