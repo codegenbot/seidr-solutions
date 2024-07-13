@@ -1,20 +1,31 @@
 #include <vector>
+#include <climits>
+#include <cmath>
+
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-
-    for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[0]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
+    
+    for (int i = 1; i <= v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); j++) {
+            right_sum += v[j];
+        }
+        
+        if (left_sum == right_sum) {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+        } else if (std::abs(left_sum - right_sum) < min_diff) {
+            min_diff = std::abs(left_sum - right_sum);
+            result = {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
-
-    vector<int> left(nums.begin(), nums.begin() + cutIndex);
-    vector<int> right(nums.begin() + cutIndex, nums.end());
-    return {left, right};
+    
+    return result;
 }
