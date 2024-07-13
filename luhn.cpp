@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 int luhnCheck(const vector<int>& creditCardNumber) {
@@ -21,7 +22,7 @@ int luhnCheck(const vector<int>& creditCardNumber) {
 }
 
 int main() {
-    vector<int> card = {4, 7, 8, 1, 3, 2, 1, 6, 5, 9, 8, 4, 0, 6, 7, 1};
+    vector<int> card = {4, 5, 2, 8, 6, 1, 1, 7, 3, 4, 9, 0, 2, 8, 6, 7};
     cout << "Luhn check result: " << luhnCheck(card) << endl;
     return 0;
 }
