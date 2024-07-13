@@ -22,7 +22,7 @@ def main():
             print(largest_prime_factor(n))
             break
         except ValueError:
-            print("Invalid input. Please enter an integer value.")
+            print("Invalid input. Please enter an integer.")
 
 
 if __name__ == "__main__":
