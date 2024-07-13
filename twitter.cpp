@@ -1,14 +1,10 @@
-```cpp
+```c++
 #include <sstream>
 #include <string>
-#include <iostream>
 
 int main() {
-    std::string tweet;
-    std::cout << "Enter a tweet: ";
-    std::getline(std::cin, tweet);
-    std::string result = validateTweet(tweet);
-    std::cout << result << std::endl;
+    std::string tweet = "Your tweet here"; // or take input from user
+    std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
 
