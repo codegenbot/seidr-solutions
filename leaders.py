@@ -1,3 +1,4 @@
+```
 def leaders(input_vector):
     max_right = input_vector[-1]
     leaders = [max_right]
