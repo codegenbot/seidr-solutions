@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -22,18 +21,18 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return !str.empty() ? result : str;
+    return result;
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    str.erase(0, 1); 
+    
     if (!str.empty()) {
-        std::cout << "Spin words: " << spinWords(str) << std::endl;
+        std::cout << "Enter a string: " << spinWords(str) << std::endl;
     } else {
-        std::cout << "No input provided." << std::endl;
+        std::cout << "Enter a string: No input provided." << std::endl;
     }
     
     return 0;
