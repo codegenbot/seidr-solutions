@@ -13,9 +13,9 @@ while True:
         lst = list(map(int, user_input.split()))
         break
     except ValueError:
-        print("Invalid input. Please enter a valid list of integers.")
+        print("Invalid input. Please separate numbers with spaces and re-enter.")
 
 if len(lst) > 0:
     print(sum_squares(lst))
 else:
-    print("No numbers entered. Please enter a valid list of integers.")
+    print("Invalid input. Please enter a valid list of integers.")
