@@ -1,36 +1,21 @@
 #include <vector>
-#include <climits>
+#include <numeric>
 
-using namespace std;
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+    long long leftSum = 0;
+    for (int i = 0; i < v.size(); i++) {
+        leftSum += v[i];
+    }
+    long long rightSum = leftSum;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    long long diff = LLONG_MAX;
-
-    for (int i = 0; i < n; i++) {
-        long long leftSum = 0, rightSum = 0;
-
-        for (size_t j = 0; j <= i; j++) {
-            leftSum += v[j];
-        }
-
-        for (size_t j = i + 1; j < n; j++) {
-            rightSum += v[j];
-        }
-
-        if (abs(leftSum - rightSum) == diff) {
-            return {{v.begin(), v.begin() + i + 1}, {v.begin() + i + 1, v.end()}};
-        } else if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
+    long long diff = std::numeric_limits<long long>::max();
+    int pos = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        rightSum -= v[i];
+        if (std::abs(leftSum - rightSum) <= diff) {
+            diff = std::abs(leftSum - rightSum);
+            pos = i;
         }
     }
-
-    return {{v.begin(), v.end()}, {v.begin(), v.end()}};
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    // process the result...
-    return 0;
+    return {{v.begin(), v.begin() + pos + 1}, {v.begin() + pos + 1, v.end()}};
 }
