@@ -1,5 +1,8 @@
 using namespace std;
 
+#include <stack>
+#include <string>
+
 bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<bool> valStack;
