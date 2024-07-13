@@ -1,13 +1,19 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-int squareDigits(int n) {
-    string str = to_string(n);
-    string result;
-    
-    for (char c : str) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
+        int num = c - '0';
+        output += to_string(num * num);
     }
-    
-    return stoi(result);
+    return output;
+}
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << "Square digits of " << input << ": " << squareDigits(input) << endl;
+    return 0;
 }
