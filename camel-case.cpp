@@ -28,8 +28,8 @@ int main() {
     std::getline(std::cin, input);
 
     while(std::cin.peek() == '\n') { 
-        std::cin.ignore(); 
     }
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
+    std::cout << std::endl; 
     return 0;
 }

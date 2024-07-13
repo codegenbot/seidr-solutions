@@ -33,7 +33,5 @@ int main() {
 
     double result = diceGame(n, m);
     std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl; 
-    std::cout << "The answer is: " << result << std::endl;
-
     return 0;
 }
