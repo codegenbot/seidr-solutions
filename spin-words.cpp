@@ -1,10 +1,9 @@
 auto spinWords(const char* str) -> std::string {
-    std::string s(str);
-    std::stringstream ss(s);
+    std::stringstream s((char*)str);
     std::string word;
     std::string result;
 
-    while (ss >> word) {
+    while (s >> word) {
         if(word.length() >= 5)
             std::reverse(word.begin(), word.end());
         
