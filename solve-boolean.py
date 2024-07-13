@@ -17,8 +17,6 @@ def solve_boolean(expression):
                         stack.append(val1 and val2)
                     else:
                         stack.append(val1 or val2)
-                if operators and operators[-1] == "(":
-                    return solve_boolean(operators.pop() + ")") + stack
                 operators.append(char)
             elif char == "(":
                 operators.append(char)
@@ -26,6 +24,8 @@ def solve_boolean(expression):
                 stack.append(eval(char.lower() == 't'))
         while operators:
             op = operators.pop()
+            if op == "(":
+                return solve_boolean(expression[expression.index(op)+1:])
             val2 = stack.pop()
             val1 = stack.pop()
             if op == "&":
