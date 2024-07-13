@@ -1,11 +1,19 @@
+def process_input(input_str):
+    try:
+        n = int(input_str)
+        return n
+    except ValueError:
+        return "Invalid input. Please enter a valid integer."
+
 while True:
     user_input = input("Enter an integer: ").strip()
     if not user_input:
-        raise EOFError("No input provided.")
-
-    try:
-        result = int(user_input)
+        print("No input provided. Please try again.")
+        continue
+        
+    result = process_input(user_input)
+    if isinstance(result, int):
         print(result)
         break
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+    else:
+        print(result)
