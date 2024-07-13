@@ -4,12 +4,12 @@
 int main() {
     std::vector<int> nums;
     int num;
-    
-    while (!std::cin.eof()) {
-        std::cin >> num;
+
+    while (std::cin >> num) {
         nums.push_back(num);
+        if (std::cin.peek() == '\n') break;
     }
-    
+
     int sum = 0;
     for (int num : nums) {
         sum += (num / 3) - 2;
