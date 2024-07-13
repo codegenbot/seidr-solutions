@@ -1,3 +1,6 @@
+#include <cassert>
+#include <string>
+
 size_t count_words(const std::string& sentence) {
     size_t word_count = 0;
     bool in_word = false;
@@ -12,3 +15,9 @@ size_t count_words(const std::string& sentence) {
     }
 
     return word_count;
+}
+
+int main_func() {
+    assert(count_words("here is") == 2);
+    return 0;
+}
