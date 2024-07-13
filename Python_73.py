@@ -1,4 +1,3 @@
-```
 def array_change(lst):
     max_diff = 0
     for i in range(1, len(lst)):
@@ -8,5 +7,4 @@ def array_change(lst):
 
     return max_diff
 
-result = array_change(input("Enter the array: ").split())  
-check(result)
+result = array_change(input("Enter the array: ").split())
