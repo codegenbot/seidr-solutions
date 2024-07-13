@@ -1,9 +1,10 @@
-int fuelCost(vector<int> numbers) {
+int solve(const vector<int>& v) {
     int sum = 0;
-    for (int num : numbers) {
-        int val = (num / 3);
-        val = (val > 0) ? val - 2 : 0;
-        sum += val;
+    for (int num : v) {
+        if (num % 3 == 0) {
+            int result = (num / 3) - 2;
+            sum += result;
+        }
     }
     return sum;
 }
