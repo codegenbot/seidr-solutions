@@ -23,7 +23,7 @@ void findCutIndex(vector<int>& nums) {
     }
 
     cout << "Subvector 1: ";
-    for (int i = 0; i <= cutIndex; i++) {
+    for (int i = 0; i < cutIndex + 1; i++) {
         cout << nums[i] << " ";
     }
     cout << endl;
