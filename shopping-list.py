@@ -3,10 +3,11 @@ def shopping_list():
     total_price = 0
     while True:
         try:
-            prices_discounts = input().split()  
-            price, discount = map(float, prices_discounts)  
+            inputs = input().split()
+            price = float(inputs[0])
+            discount = float(inputs[1])
             total_price += price - (price * (discount / 100))
-        except ValueError:
+        except EOFError:
             break
     return round(total_price, 2)
 
