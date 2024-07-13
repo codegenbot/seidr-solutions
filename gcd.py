@@ -5,17 +5,15 @@ try:
 except ValueError:
     print("Invalid input. Please enter integers.")
 
-print(gcd(a, b))
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
+print(gcd(a, b))
+
 text = input()
 target = input()
-
-print(indices_of_substring(text, target))
 
 def indices_of_substring(text, target):
     result = []
@@ -28,3 +26,5 @@ def indices_of_substring(text, target):
         else:
             break
     return result
+
+print(indices_of_substring(text, target))
