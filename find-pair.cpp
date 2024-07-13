@@ -11,5 +11,5 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return make_pair(0, 0); // or throw an exception
+    return make_pair(0, 0); 
 }
