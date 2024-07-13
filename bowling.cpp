@@ -1,41 +1,34 @@
+int score(string input) {
+    int totalScore = 0;
+    int frame = 1;
+    int ball = 0;
+    map<char, int> value = { {'X', 10}, {'/', 10}, {'-', 0} };
+
+    for (char c : input) {
+        if (isdigit(c)) {
+            totalScore += c - '0';
+            ball++;
+        } else {
+            totalScore += value[c];
+            if (c == 'X' || ball == 2) {
+                ball = 0;
+                frame++;
+            } else {
+                ball++;
+            }
+        }
+
+        if (frame > 10) {
+            break;
+        }
+    }
+
+    return totalScore;
+}
+
 int main() {
     string input;
     cin >> input;
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> frames(10, 0);
-
-    for (char c : input) {
-        if (c == 'X') {
-            frames[frame - 1] = 10;
-            frame++;
-        } else if (c == '/') {
-            frames[frame - 1] = 10 - frames[frame - 1 - 1];
-            frame++;
-            ball = 0;
-        } else if (c == '-') {
-            ball++;
-        } else {
-            frames[frame - 1] += c - '0';
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
-            }
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-        if (i >= 2 && frames[i - 2] == 10 && frames[i - 1] == 10) {
-            score += frames[i];
-        } else if (i >= 1 && frames[i - 1] == 10) {
-            score += frames[i];
-        }
-    }
-
-    cout << score << endl;
-
+    cout << score(input) << endl;
     return 0;
 }
