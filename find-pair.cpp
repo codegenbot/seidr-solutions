@@ -18,9 +18,11 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> nums;
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
     int target;
     cin >> target;
