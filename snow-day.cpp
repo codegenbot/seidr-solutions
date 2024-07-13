@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -20,7 +19,7 @@ int main() {
 
     double result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::cout << std::fixed << std::setprecision(10) << std::setw(10) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(10) << result << std::endl;
 
     return 0;
 }
