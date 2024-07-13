@@ -31,10 +31,12 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
     while (!operatorStack.empty()) {
-        if (expression[0] == '&') return false;
-        else if (expression[0] == '|') return true;
+        char top = operatorStack.top();
+        operatorStack.pop();
+        if (top == '&') return false;
+        else if (top == '|') return true;
     }
-    return true; // Default value
+    return true; 
 }
 
 int main() {
