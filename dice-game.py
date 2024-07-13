@@ -1,5 +1,2 @@
-```
 def dice_game(n, m):
-    if n <= m:
-        return 0
-    return (n - m) / n
+    return (n - 1) / n * sum(range(m)) / m
