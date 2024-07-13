@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -28,3 +29,4 @@ vector<int> indicesOfSubstring(string text, string target) {
         i++;
     }
     return result;
+}
