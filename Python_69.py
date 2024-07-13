@@ -1,8 +1,8 @@
 ```
 def search(lst):
-    max_num = -1
+    max_num = lst[0]
     for num in lst:
-        if (max_num == -1 or num > max_num):
+        if num > max_num:
             max_num = num
     return max_num
 
