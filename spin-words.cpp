@@ -1,9 +1,8 @@
-```cpp
 #include <string>
 using namespace std;
 
 string spinWords(string str) {
-    string result = ""; 
+    string result = "";
     int wordLength;
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
