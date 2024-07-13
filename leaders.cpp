@@ -14,9 +14,8 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     leaders.push_back(maxRight);
 
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
-            maxRight = nums[i];
-        }
+        maxRight = std::max(maxRight, nums[i]);
+        leaders.push_back(maxRight);
     }
 
     std::reverse(leaders.begin(), leaders.end());
