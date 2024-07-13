@@ -1,10 +1,12 @@
 ```cpp
+#include <algorithm>
+
 double diceGame(int n, int m) {
     double total = 0.0;
-    for (int i = 1; i <= n; i++) { 
-        for (int j = 1; j < i; j++) { 
-            total += 1.0 / (n * m);
-        }
+    for (int i = 1; i < n; i++) { 
+        total += std::min(i, n)*std::min(m-i-1, 0)/static_cast<double>(n*m);
     }
     return total;
 }
+
+int main() { return 0; }
