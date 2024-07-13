@@ -1,47 +1,33 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int currentRolls = 0;
-    int currentFrame = 1;
+    int roll1, roll2, prevRolls = 0;
 
-    for (char c : s) {
-        if (c != '/') {
-            if (c == 'X') {
-                score += 10 + 10;
-                currentRolls = 2;
-            } else if (c >= '1' && c <= '9') {
-                int rolls = c - '0';
-                score += rolls * 10;
-                currentRolls = rolls;
-            } else {
+    for (char c : input) {
+        if (c == '/') {
+            if (roll1 + roll2 >= 10)
                 score += 10;
-                currentRolls = 2;
-            }
-        } else {
-            if (currentFrame < 10) {
-                currentFrame++;
+            else
+                score += roll1 + roll2;
+            roll1 = 0;
+            roll2 = 0;
+        } else if (isdigit(c)) {
+            int val = c - '0';
+            if (roll1 == 0) {
+                roll1 = val;
+            } else {
+                roll2 = val;
             }
         }
+    }
 
-        if (currentRolls == 0) continue;
-
-        if (currentRolls == 1) {
-            if (c == 'X') score += 10 + nextRoll(s, currentFrame);
-            else if (c >= '1' && c <= '9') score += c - '0' + nextRoll(s, currentFrame);
-            else score += 10;
-        } else {
-            score += c - '0';
-        }
-
-        currentRolls--;
+    // handle last frame
+    if (prevRolls < 10) {
+        score += prevRolls + max(roll1, roll2);
+    } else if (roll1 + roll2 >= 10) {
+        score += 10;
+    } else {
+        score += roll1 + roll2;
     }
 
     return score;
-}
-
-int nextRoll(string s, int frame) {
-    for (char c : s) {
-        if (c == '/') break;
-        if (frame > c - '1') return c - '0';
-    }
-    return 10;
 }
