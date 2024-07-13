@@ -1,3 +1,4 @@
+```
 from typing import List
 from collections import deque
 
@@ -16,7 +17,7 @@ def shortestPaths(grid: List[List[int]], k: int) -> list:
     while queue:
         x, y, dist = queue.popleft()
 
-        if (x, y) not in visited:
+        if (x, y) not in visited and dist <= k: 
             visited.add((x, y))
 
             for dx, dy in directions:
