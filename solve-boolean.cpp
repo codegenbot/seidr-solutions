@@ -1,37 +1,13 @@
 #include <string>
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    if (expression == "t") return true;
-    if (expression == "f") return false;
-    
-    int i = 0;
-    while (i < expression.size()) {
-        if (expression[i] == '&') {
-            i++;
-            bool left = (expression[i] == 't');
-            i++;
-            bool right = (expression[i] == 't');
-            return left && right;
-        } else if (expression[i] == '|') {
-            i++;
-            bool left = (expression[i] == 't');
-            i++;
-            bool right = (expression[i] == 't');
-            return left || right;
-        }
+bool solveBoolean(string s) {
+    bool res = false;
+    for (char c : s) {
+        if (c == 't') res = true;
+        else if (c == 'f') return false;
+        else if (c == '&') return res;
+        else if (c == '|') res ^= true;
     }
-    
-    return false; // default value
-}
-
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    if (evaluateBooleanExpression(expression))
-        cout << "True";
-    else
-        cout << "False";
-    return 0;
+    return res;
 }
