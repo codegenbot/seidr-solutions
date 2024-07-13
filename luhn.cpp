@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <iostream>
 
 int luhn(std::vector<int>& digits) {
     int sum = 0;
@@ -23,5 +24,6 @@ int luhn(std::vector<int>& digits) {
 int main() {
     std::vector<int> creditCardNumber = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
     int result = luhn(creditCardNumber);
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
