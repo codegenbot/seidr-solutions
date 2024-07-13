@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cmath>
 
 int gcd(int a, int b) {
     while (b != 0) {
