@@ -8,8 +8,8 @@ def solve(input_str):
         elif "&" in expression:
             left, right = expression.split("&")
             return evaluate(left) and evaluate(right)
-        else:
+        else:  # |
             left, right = expression.split("|")
             return evaluate(left) or evaluate(right)
 
-    return bool(evaluate(input_str))
+    return evaluate(input_str)
