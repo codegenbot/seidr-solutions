@@ -1,35 +1,35 @@
 #include <string>
+using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the occurrences of each character in the guess string
-    vector<int> guessCount(6, 0);
-    for(int i = 0; i < 4; i++) {
-        guessCount[guess[i] - '0']++;
+    vector<char> possibleChars(6);
+
+    for(int i = 0; i < 6; i++) {
+        possibleChars[i] = '0' + i;
     }
 
-    // Calculate the number of black pegs (correct color, correct place)
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
-            code[i] = 'x';
-            guess[i] = 'x';
             black++;
         }
     }
 
-    // Calculate the number of white pegs (correct color, wrong place)
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
+
     for(int i = 0; i < 4; i++) {
-        if(code[i] != guess[i]) {
-            for(int j = 0; j < 6; j++) {
-                if(guessCount[j] > 0 && code[i] == '0' + j) {
-                    white++;
-                    guessCount[j]--;
-                    break;
-                }
-            }
-        }
+        codeCount[int(possibleChars.find(guess[i]))]++;
+    }
+
+    for(int i = 0; i < 4; i++) {
+        guessCount[int(possibleChars.find(code[i]))]++;
+    }
+
+    for(int i = 0; i < 6; i++) {
+        white += min(codeCount[i], guessCount[i]) - (code[i] == guess[i]);
     }
 
     return black + white;
