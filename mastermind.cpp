@@ -1,51 +1,31 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```cpp
 int mastermind(const string& code, const string& guess) {
     int black = 0;
     int white = 0;
 
     // Count correct positions (black pegs)
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+        if (code.substr(i, 1) == guess.substr(i, 1)) {
             black++;
         }
     }
 
-    bool code_counts[6] = {false};
-    for (char c : code) {
-        code_counts[c - 'A'] = true;
-    }
-
-    bool guess_counts[6] = {false};
-    for (char c : guess) {
-        guess_counts[c - 'A'] = true;
-    }
-
     // Count correct colors (white pegs)
-    int white_count = 0;
+    int code_counts[6] = {false};
+    int correct_colors = 0;
     for (int i = 0; i < 4; ++i) {
-        if (code_counts[guess[i] - 'A'] && !black) { 
-            white_count++;
-            code_counts[guess[i] - 'A'] = false;
-            guess_counts[guess[i] - 'A'] = false;
+        if (!code_counts[code[i] - 'A']) {
+            code_counts[code[i] - 'A'] = true;
+            for (int j = 0; j < 4; ++j) {
+                if (code[j] == guess[3-j] && !code_counts[code[j] - 'A']) {
+                    correct_colors++;
+                    code_counts[code[j] - 'A'] = true;
+                    break;
+                }
+            }
         }
     }
 
-    white = white_count;
+    white = correct_colors;
 
     return black + white;
-}
-
-int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    getline(cin, code);
-    cout << "Enter your guess: ";
-    getline(cin, guess);
-    int result = mastermind(code, guess);
-    cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
-    return 0;
-}
