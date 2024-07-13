@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <cmath>
 
 int findMaxPrimeAndSumOfDigits(vector<int> lst) {
     int maxPrime = 0;
