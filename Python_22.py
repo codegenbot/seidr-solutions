@@ -1,3 +1,4 @@
+```
 def filter_integers(lst):
     while True:
         result = [int(value) for value in input("Enter integers (space-separated): ").split() if value.isdigit()]
@@ -10,3 +11,4 @@ def filter_integers(lst):
             
         if cont.lower() == "no":
             return result
+            break
