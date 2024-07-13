@@ -10,7 +10,7 @@ int main() {
         snow_on_ground -= snow_on_ground * melting_rate;
     }
 
-    std::cout << snow_on_ground << '\n';
+    std::cout << snow_on_ground << std::endl;
 
     return 0;
 }
