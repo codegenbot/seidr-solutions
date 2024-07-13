@@ -1,25 +1,29 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-std::string find_max(const std::vector<std::string>& words) {
-    std::string max_word = *std::max_element(words.begin(), words.end(),
+std::string find_max(std::vector<std::string> words) {
+    std::string max_word = *max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
-            return std::count(a.begin(), a.end(), std::unique_copy(a.begin(), a.end())) <
-                   std::count(b.begin(), b.end(), std::unique_copy(b.begin(), b.end()));
+            return count(a.begin(), a.end(), unique_copy(a.begin(), a.end())) <
+                   count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
     });
     return max_word;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<std::string> words(n);
-    for (auto& word : words) {
-        std::cin >> word;
+    int num_words;
+    std::cout << "Enter the number of words: ";
+    std::cin >> num_words;
+
+    std::vector<std::string> words(num_words);
+    for (int i = 0; i < num_words; i++) {
+        std::cout << "Enter word " << (i + 1) << ": ";
+        std::cin >> words[i];
     }
-    std::cout << find_max(words) << std::endl;
+
+    std::cout << "The maximum word is: " << find_max(words) << std::endl;
+
     return 0;
 }
