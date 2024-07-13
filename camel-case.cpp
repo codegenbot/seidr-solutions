@@ -1,23 +1,27 @@
+#include <string>
+
 std::string camelCase(std::string str) {
     std::string result = "";
     bool isNextUpper = false;
-    for (const auto& c : str) {
+    for (char c : str) {
         if (c == '-' || c == ' ') {
-            if (!isNextUpper) {
-                if (c == '-') {
-                    if (!result.empty()) {
-                        result += std::toupper(c);
-                    }
-                } else {
-                    if (c != ' ' && !isNextUpper) {
-                        result += ' ';
-                    }
-                }
+            if (!isNextUpper && c != '-') {
+                result += std::toupper(c);
+                isNextUpper = true;
+            } else if (c == '-') {
+                continue;
             }
-            isNextUpper = true;
+            if (c == ' ') {
+                result += ' ';
+                isNextUpper = false;
+            }
         } else {
-            isNextUpper = false;
-            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
+            if (!isNextUpper) {
+                result += c;
+                isNextUpper = true;
+            } else {
+                result += std::tolower(c);
+            }
         }
     }
     return result;
