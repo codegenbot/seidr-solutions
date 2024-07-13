@@ -13,7 +13,7 @@ int main() {
     
     int pennies = cents / 5;
     cents %= 5;
-    
+
     int dimes = cents / 10;
     cents %= 10;
     
