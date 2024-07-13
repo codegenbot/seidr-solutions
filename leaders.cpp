@@ -6,19 +6,24 @@ std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
-    for(int i = 0; i < n; i++) {
-        int maxRightSoFar = arr[n-i-1]; 
-        if(i == n - 1 || arr[i] >= maxRightSoFar) { 
-            res.push_back(arr[i]);
-            maxRightSoFar = arr[i];
+    if(n == 0) return res;
+    
+    for(int i=n-1; i>=0; i--) {
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[i] <= arr[j]) {
+                isLeader = false;
+                break;
+            }
         }
+        if(isLeader) res.push_back(arr[i]);
     }
     
     return res;
 }
 
 int main() {
-    std::vector<int> arr = {1, 3, 4, 2};
+    std::vector<int> arr = {7};
     std::vector<int> result = leaders(arr);
     
     for (int i : result) {
