@@ -10,24 +10,20 @@ std::string kebabToCamel(const std::string& s) {
                 ++i;
             }
             if (i < s.size()) {
-                result += toupper(s[i]);
-            }
-        } else if (i > 0 && s[i] == '-') {
-            if (!result.empty()) {
-                result.push_back(' ');
-            }
-            ++i;
-            while (i < s.size() && s[i] == '-') {
-                ++i;
-            }
-            if (i < s.size()) {
+                if (!result.empty()) {
+                    result.push_back(' ');
+                }
                 result += toupper(s[i]);
             }
         } else if (!result.empty() && islower(s[i])) {
             result.push_back(tolower(s[i]));
             result[0] = toupper(result[0]);
         } else {
-            result += s[i];
+            if (i == 0 || s[i - 1] == '-') {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
     return result;
