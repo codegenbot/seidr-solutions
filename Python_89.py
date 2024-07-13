@@ -11,5 +11,5 @@ def encrypt(s):
             elif char in '/.:!?,";\'-_':
                 result += char
             else:
-                result += char  
+                result += '#'
     return result
