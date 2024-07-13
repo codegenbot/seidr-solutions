@@ -1,7 +1,4 @@
-````
-#include <iostream>
-#include <string>
-
+```
 using namespace std;
 
 std::string middleCharacter(std::string input) {
