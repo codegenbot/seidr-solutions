@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) return false;
@@ -33,17 +31,13 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 4};
+    std::vector<int> input = {1, 2, 3};
     std::vector<int> output = pluck(input);
 
-    if (!issame({4}, output)) {
-        for (auto i : output) {
-            std::cout << i << " ";
-        }
-        std::cout << "\n";
-    } else {
-        std::cout << "Output is same as expected.\n";
+    for (int i : output) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
