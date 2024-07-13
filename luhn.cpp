@@ -1,4 +1,4 @@
-#include <vector>
+using namespace std;
 
 int luhn(vector<int> card) {
     int sum = 0;
@@ -14,3 +14,4 @@ int luhn(vector<int> card) {
         sum += card[i];
     }
     return sum;
+}
