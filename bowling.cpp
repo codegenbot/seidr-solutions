@@ -17,9 +17,6 @@ int bowlingScore(string s) {
                 }
                 j++;
             }
-            if (!firstPart.empty() && firstPart.back() == 'X') {
-                firstScore += 10;
-            }
             int secondScore = 0;
             j = 0;
             while (j < secondPart.length()) {
