@@ -1,5 +1,6 @@
-#include <iostream>
+Here is the modified code:
 
+```cpp
 int main() {
     int cents;
     std::cout << "Enter the number of cents: ";
@@ -9,8 +10,12 @@ int main() {
     int remainder = cents % 25; 
 
     int dimes = remainder / 10;
-    int nickles = (remainder % 10) / 5;
-    int pennies = remainder % 5;
+    remainder %= 10; 
+
+    int nickles = remainder / 5;
+    remainder %= 5; 
+
+    int pennies = remainder;
 
     std::cout << "Quarters: " << quarters << std::endl;
     std::cout << "Dimes: " << dimes << std::endl;
