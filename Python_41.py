@@ -1,8 +1,14 @@
 ```Python
 def car_race_collision(n: int):
-    if n <= 1:
-        return 0
     return n * (n - 1)
 
-n = int(input("Enter the number of cars: "))
-print(car_race_collision(n))
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        if n > 0:
+            print(car_race_collision(n))
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Invalid input. Please enter a whole number.")
