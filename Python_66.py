@@ -1,5 +1,3 @@
-```
-import itertools
-
 def digitSum(s):
-    return sum(int(''.join(group)) for key, group in itertools.groupby(sorted(s.lower()), str.isdigit)) or 0
+    s = str(s)  
+    return sum(int(c) for c in s if c.isdigit())
