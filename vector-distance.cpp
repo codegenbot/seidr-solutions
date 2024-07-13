@@ -12,13 +12,13 @@ int main() {
         cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    double sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double distance = sqrt(sum);
-    cout << distance << endl;
+    double result = sqrt(sum);
+    cout << result << endl;
 
     return 0;
 }
