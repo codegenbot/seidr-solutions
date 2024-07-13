@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <numeric>
 #include <vector>
@@ -33,16 +34,14 @@ vector<vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> input = {1, 2, 3, 4};
+    vector<int> input = {1, 2, 3, 4, 5};
     vector<vector<int>> result = cutVector(input);
-    cout << "The first part of the vector is: ";
-    for(int i : result[0]) {
-        cout << i << " ";
-    }
-    cout << endl;
-    cout << "The second part of the vector is: ";
-    for(int i : result[1]) {
-        cout << i << " ";
+    for (auto &sub : result) {
+        cout << "[";
+        for (int num : sub) {
+            cout << num << " ";
+        }
+        cout << "]" << endl;
     }
     return 0;
 }
