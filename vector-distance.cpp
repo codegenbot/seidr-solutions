@@ -1,8 +1,7 @@
-````
-#include <vector>
 #include <iostream>
-#include <cmath>
-#include <iomanip>
+#include <vector>
+#include <iomanip> 
+#include <cmath>   
 
 using namespace std;
 
@@ -33,4 +32,3 @@ int main() {
 
     return 0;
 }
-```
