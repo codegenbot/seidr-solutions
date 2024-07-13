@@ -1,4 +1,4 @@
-def separate_paren_groups(paren_string: str) -> list[str]:
+def separate_paren_groups(paren_string: str) -> List[str]:
     def find_group(s):
         stack = []
         groups = []
@@ -18,4 +18,4 @@ def separate_paren_groups(paren_string: str) -> list[str]:
 
     s = paren_string.replace(" ", "")
     groups = find_group(s)
-    return groups
+    return ['(' + g for g in groups]
