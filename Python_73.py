@@ -1,1 +1,1 @@
-print(array_change([int(x) for x in input('Enter a space-separated list of numbers: ').split()]))
+print(array_change(input("Enter a space-separated list of numbers: ").split()))
