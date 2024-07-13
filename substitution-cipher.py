@@ -1,9 +1,6 @@
-def substitution_cipher(s1, s2, s3):
-    cipher_dict = {char: s2[i] for i, char in enumerate(s1)}
+def substitution_cipher(cipher1, cipher2, message):
+    ciphers = {char: substitute for char, substitute in cipher1 if char else char for substitute in cipher2}
     result = ""
-    for char in s3:
-        if char in cipher_dict:
-            result += cipher_dict[char]
-        else:
-            result += char
+    for char in message:
+        result += ciphers.get(char, char)
     return result
