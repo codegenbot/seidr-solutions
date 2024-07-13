@@ -1,28 +1,28 @@
-Here is the solution in Python:
-
+```
 def minPath(grid, k):
-    N = len(grid)
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    visited = [[False]*N for _ in range(N)]
-    
-    def dfs(i, j, path, count):
-        if count == k:
-            return path
-        for di, dj in directions:
-            ni, nj = i + di, j + dj
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
-                visited[ni][nj] = True
-                new_path = dfs(ni, nj, path + [grid[ni][nj]], count + 1)
-                if new_path:
-                    return new_path
-                visited[ni][nj] = False
-        return None
-
-    min_path = []
-    for i in range(N):
-        for j in range(N):
-            if not visited[i][j]:
-                path = dfs(i, j, [grid[i][j]], 1)
-                if path and (not min_path or path < min_path):
-                    min_path = path
-    return min_path
+    n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+    res = []
+    visited = set()
+    def dfs(i, j, path):
+        nonlocal res
+        if len(path) == k:
+            res = sorted(path)
+            return True
+        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited and m[ni][nj] not in path:
+                visited.add((ni, nj))
+                path.append(m[ni][nj])
+                dfs(ni, nj, path)
+                visited.remove((ni, nj))
+                if len(path) == k:
+                    res = sorted(path)
+                    return True
+    for i in range(n):
+        for j in range(n):
+            visited = set()
+            dfs(i, j, [m[i][j]])
+            if res:
+                break
+    return res
