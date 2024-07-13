@@ -7,7 +7,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
             result.push_back(i);
         }
     }
@@ -18,11 +25,15 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text;
     cin >> text;
-    cout << "[";
-    for (char c : indicesOfSubstring(text, to_string(getline(cin, text)))[0]) {
-        cout << c << " ";
+    string target;
+    cin >> target;
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int index : indices) {
+        cout << index << " ";
     }
-    cout << "]" << endl;
+    cout << endl;
 
     return 0;
 }
