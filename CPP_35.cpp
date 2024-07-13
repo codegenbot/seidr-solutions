@@ -1,2 +1,1 @@
-vector<float>::iterator it = max_element(l.begin(), l.end());
-return *it;
+return *max_element(l.begin(), l.end());
