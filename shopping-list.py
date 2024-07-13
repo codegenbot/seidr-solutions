@@ -1,2 +1,5 @@
-def total_price(prices, discounts):
-    return sum(p - (p * d / 100) for p, d in zip(prices, discounts))
+def shopping_list(price, discount):
+    return sum(
+        i - i * (j / 100)
+        for i, j in zip(map(float, price.split()), map(float, discount.split()))
+    )
