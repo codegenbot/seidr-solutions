@@ -1,5 +1,4 @@
-```c
-bool solveBoolean(const std::string& s) {
+bool solveBoolean(std::string& s) {
     if (s.empty()) return false;
 
     bool result = true;
@@ -19,4 +18,3 @@ bool solveBoolean(const std::string& s) {
         }
     }
     return result;
-}
