@@ -5,12 +5,11 @@ num_bounces = int(input("Enter the number of bounces: "))
 bounciness_index = (first_bounce_height / start_height)
 
 total_distance = 0
-prev_height = start_height
-for _ in range(num_bounces):
-    height = prev_height * bounciness_index
-    up_distance = abs((height - prev_height))
-    down_distance = up_distance
+height = start_height
+for _ in range(num_bounces): 
+    up_distance = abs(height - start_height)
+    down_distance = up_distance * 2
     total_distance += up_distance + down_distance
-    prev_height = max(height, 0.01)
+    height *= bounciness_index
 
 print("The total distance traveled is: ", round(total_distance, 2))
