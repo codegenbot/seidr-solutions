@@ -11,24 +11,22 @@ int main() {
     getline(cin, input);
     double startHeight = stod(input);
 
-    cout << "Enter bounciness index: ";
+    cout << "Enter first bounce height / start height: ";
     getline(cin, input);
-    double bouncinessIndexInput = stod(input);
+    double bouncinessIndex = stod(input);
 
     cout << "Enter number of bounces: ";
     getline(cin, input);
     int numBounces = stoi(input);
 
     double firstBounce = startHeight;
-    double bouncinessIndex;
+    double actualBouncinessIndex = bouncinessIndex;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        double startHeightTemp = startHeight * pow(2, -bouncinessIndexInput / startHeight);
-        totalDistance += startHeightTemp;
-        bouncinessIndex = firstBounce / startHeight;
-        startHeight = firstBounce;
-        firstBounce *= bouncinessIndex;
+        double height = startHeight * pow(2, -actualBouncinessIndex);
+        totalDistance += height * ((pow(2, actualBouncinessIndex)) - 1);
+        firstBounce *= actualBouncinessIndex;
     }
 
     cout << fixed;
