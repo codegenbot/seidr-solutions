@@ -8,3 +8,7 @@ def sort_even(l: list):
 def check():
     numbers = [int(i) for i in input("Enter space-separated numbers: ").split()]
     print(sort_even(numbers))
+
+
+if __name__ == "__main__":
+    check()
