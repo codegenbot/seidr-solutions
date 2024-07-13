@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-bool sortedListSum(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -27,7 +27,7 @@ int mainFunction() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
-    if (!sortedListSum({{"aaaa", "bbbb", "dd", "cc"}}) == {{"cc","dd","aaaa","bbbb"}})
+    if (!issame(sortedListSum({{"aaaa", "bbbb", "dd", "cc"}}), {{"cc","dd","aaaa","bbbb"}}))
         return 1;
     return 0;
 }
