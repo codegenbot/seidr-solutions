@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
+
 using namespace std;
 
 int whitePegs(string code, string guess) {
