@@ -1,11 +1,11 @@
 int main() {
-    string input;
-    cin >> input;
+    string s;
+    cin >> s;
 
-    if (input == "t") {
-        cout << "True";
+    if (s == "t") {
+        cout << "True" << endl;
     } else {
-        cout << "False";
+        cout << "False" << endl;
     }
 
     return 0;
