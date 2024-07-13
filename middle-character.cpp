@@ -1,15 +1,15 @@
-string get_middle_character(const string& s) {
-    if (s.size() % 2 == 0) {
-        return s.substr(s.size() / 2 - 1, 2);
+string middleCharacter(string s) {
+    int n = s.length();
+    if (n % 2 == 0) {
+        return string(1, s[n/2 - 1]) + s[n/2];
     } else {
-        return s.substr(s.size() / 2, 1);
+        return string(1, s[n/2]);
     }
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << get_middle_character(s) << endl;
-    
+    cout << middleCharacter(s) << endl;
     return 0;
 }
