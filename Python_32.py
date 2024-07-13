@@ -1,7 +1,7 @@
 def find_zero():
     while True:
         try:
-            coefficients = [float(i) for i in input("Enter the coefficients a, b, and c (space separated): ").split()]
+            coefficients = [float(i) for i in input().split()]
             if len(coefficients) != 3:
                 raise ValueError
             a, b, c = coefficients
