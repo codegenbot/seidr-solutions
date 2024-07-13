@@ -34,7 +34,7 @@ int mastermind(string code, string guess) {
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)(find(chars.begin(), chars.end(), code[i]) - chars.begin()));
+        white += min(count, (int)(std::find(chars.begin(), chars.end(), code[i]) - chars.begin()));
     }
 
     return black + white;
