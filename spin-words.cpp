@@ -12,7 +12,7 @@ string spinWords(string sentence) {
                 for (int j = wordLength - 1; j >= 0; j--)
                     result += sentence.substr(i - wordLength, 1);
             } else
-                result += sentence.substr(i - wordLength, wordLength);
+                result += sentence.substr(result.length(), wordLength);
             if (i != sentence.length())
                 result += " ";
         }
