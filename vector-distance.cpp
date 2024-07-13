@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -33,4 +32,3 @@ int main() {
     cout << fixed << setprecision(10) << result << endl;
 
     return 0;
-}
