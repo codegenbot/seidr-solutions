@@ -1,4 +1,3 @@
-```
 def dice_game(n, m):
     if n > m:
         favorable = sum(range(m+1, n+1))  
