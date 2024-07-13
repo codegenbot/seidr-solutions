@@ -1,21 +1,13 @@
-```
 from typing import List
 
 
-def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
-    return [s for s in strings if s.startswith(prefix)]
+def filter_by_prefix() -> None:
+    strings = input("Enter a list of strings (space separated): ")
+    prefix = input("Enter the prefix: ")
 
-
-def main():
-    while True:
-        try:
-            prefix = input("Enter the prefix: ")
-            strings = input("Enter the list of strings (space-separated): ").split()
-            result = filter_by_prefix(strings, prefix)
-            print(result)
-            break
-        except Exception as e:
-            print(f"An error occurred: {str(e)}")
-
-if __name__ == "__main__":
-    main()
+    try:
+        string_list = [s.strip() for s in strings.split()]
+        result = [s for s in string_list if s.startswith(prefix)]
+        print(result)
+    except ValueError:
+        print("Invalid input. Please provide a list of strings and a valid prefix.")
