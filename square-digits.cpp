@@ -1,16 +1,15 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
-    string num;
-    cin >> num;
-    string result;
-    for (char digit : num) {
-        int d = digit - '0';
-        result += to_string(d * d);
+    string input;
+    cin >> input;
+    string output = "";
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-    cout << result;
+    cout << output << endl;
     return 0;
 }
