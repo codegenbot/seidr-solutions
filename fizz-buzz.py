@@ -1,2 +1,9 @@
 def fizz_buzz(x):
-    return "FizzBuzz" if str(x).endswith('03') or str(x).endswith('05') else ("Buzz" if x % 5 == 0 else ("Fizz" if x % 3 == 0 else str(x)))
+    if x % 15 == 0:
+        return "FizzBuzz"
+    elif x % 3 == 0:
+        return "Fizz"
+    elif x % 5 == 0:
+        return "Buzz"
+    else:
+        return str(x)
