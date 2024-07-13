@@ -20,6 +20,6 @@ int main() {
     if (word.length() >= 5) {
         reverse(word.begin(), word.end());
     }
-    cout << word << endl;
+    cout << word << " " << endl;
     return 0;
 }
