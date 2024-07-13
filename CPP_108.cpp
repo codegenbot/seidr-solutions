@@ -10,7 +10,7 @@ int main() {
         nums.push_back(n);
     }
     int count = count_nums(nums);
-    std::cout << "The number of positive numbers is: " << count << std::endl;
+    std::cout << "Count of positive sums: " << count << std::endl;
     return 0;
 }
 
