@@ -1,21 +1,5 @@
 ```
 def mastermind(code, guess):
-    black = 0
-    white = 0
-    code_count = [0] * 6
-
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-            code_count[ord(code[i]) - ord('A')] += 1
-        elif code_count[ord(code[i]) - ord('A')] < 1:
-            code_count[ord(code[i]) - ord('A')] += 1
-
-    for i in range(4):
-        if guess[i] in code and code[i] != guess[i]:
-            white += 1
-
-    return str(black) + "\n" + str(white)
-
-
-print(mastermind("YOGO", "OGRW"))
+    black = sum(1 for ((i1, c1), (i2, c2)) in zip(enumerate(code), enumerate(guess)) if c1 == c2)
+    white = len([c for c in guess if c in code and c != code[guess.index(c)]])
+    return str(black) + "\n" + str(len(code) - black - white)
