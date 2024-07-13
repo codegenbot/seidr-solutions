@@ -1,14 +1,19 @@
-Here is the Python solution for the problem:
-
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        return expression.replace('&', ' and ') == 'False and False'
-    elif '|' in expression:
-        return expression.replace('|', ' or ') != 'True or False'
-
-expression = input()
-print(solve_boolean(expression))
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        for char in expression:
+            if char == "&":
+                result &= (
+                    True if expression[expression.index(char) + 1] == "T" else False
+                )
+            elif char == "|":
+                result |= (
+                    True if expression[expression.index(char) + 1] == "T" else False
+                )
+        return result
