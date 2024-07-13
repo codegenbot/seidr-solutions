@@ -1,49 +1,47 @@
 #include <iostream>
 #include <numeric>
 #include <vector>
-#include <algorithm> 
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
-
-    long long totalSum = accumulate(v.begin(), v.end(), 0LL);
-    long long leftSum = 0;
-    long long minDiff = numeric_limits<long long>::max();
+    vector<int> left, right;
+    long long diff = numeric_limits<long long>::max();
 
     for (int i = 0; i < n; i++) {
-        if (leftSum + v[i] == totalSum - leftSum) {
-            res[0].resize(i + 1);
-            copy(v.begin(), v.begin() + i + 1, back_inserter(res[0]));
-            res[1].resize(n - i - 1);
-            copy(v.begin() + i + 1, v.end(), back_inserter(res[1]));
-            return res;
+        long long leftSum = 0, rightSum = 0;
+
+        // sum of elements on the left side
+        for (int j = 0; j <= i; j++) {
+            leftSum += v[j];
         }
-        long long diff = abs(leftSum - (totalSum - leftSum));
-        if (diff <= minDiff) {
-            minDiff = diff;
-            res[0].resize(i + 1);
-            copy(v.begin(), v.begin() + i + 1, back_inserter(res[0]));
-            res[1].resize(n - i - 1);
-            copy(v.begin() + i + 1, v.end(), back_inserter(res[1]));
+
+        // sum of elements on the right side
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
         }
-        leftSum += v[i];
+
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
+            left.assign(v.begin(), v.begin() + i + 1);
+            right = vector<int>(v.begin() + i + 1, v.end());
+        }
     }
 
-    return res;
+    return {left, right};
 }
 
 int main() {
-    vector<int> input = {964, 6793, 4803};
-    vector<vector<int>> result = cutVector(input);
+    vector<int> input = {3, 964, 6793, 4803};
+    pair<vector<int>, vector<int>> result = cutVector(input);
     cout << "The first part of the vector is: ";
-    for(int i : result[0]) {
+    for(int i : result.first) {
         cout << i << " ";
     }
     cout << endl;
     cout << "The second part of the vector is: ";
-    for(int i : result[1]) {
+    for(int i : result.second) {
         cout << i << " ";
     }
     return 0;
