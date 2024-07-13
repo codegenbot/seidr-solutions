@@ -6,6 +6,7 @@ using namespace std;
 int bowlingScore(string s) {
     int score = 0;
     bool strike = false;
+    int strikeCount = 0;
     if (s.empty()) {
         return score; 
     }
@@ -15,6 +16,7 @@ int bowlingScore(string s) {
         if (c == 'X') {
             score += 30;
             strike = true;
+            strikeCount++;
         } else if (c == '/') {
             if (!strike) {
                 score += 10 + (score / 10 - 1);
@@ -30,6 +32,8 @@ int bowlingScore(string s) {
             }
         }
     }
+    // Update the total score for multiple strikes
+    score += strikeCount * 10;
     return score;
 }
 
@@ -40,3 +44,4 @@ int main() {
     int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
+}
