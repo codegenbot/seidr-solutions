@@ -1,7 +1,7 @@
 def basement(nums):
-    running_sum = nums[0]
-    for i, num in enumerate(nums[1:], 1):
-        running_sum += num
-        if running_sum < 0:
-            return i
+    previous_sum = 0
+    for i, num in enumerate(nums):
+        previous_sum += num
+        if previous_sum < 0:
+            return i + 1
     return len(nums) + 1
