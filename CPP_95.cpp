@@ -5,9 +5,16 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (!allLower && !allUpper) break;
-        if (allLower && !islower(it->first[0])) allLower = false;
-        if (allUpper && !isupper(it->first[0])) allUpper = false;
+        if (!islower(it->first[0]) && !isupper(it->first[0])) {
+            allLower = false;
+            allUpper = false;
+            break;
+        }
+        if ((allLower && isupper(it->first[0])) || (allUpper && islower(it->first[0]))) {
+            allLower = false;
+            allUpper = false;
+            break;
+        }
     }
 
     return allLower || allUpper;
