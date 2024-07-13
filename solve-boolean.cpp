@@ -1,31 +1,27 @@
-using namespace std;
+#include <iostream>
+#include <stack>
+#include <string>
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(std::string expression) {
+    std::stack<char> s;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() != '&') {
+                s.pop();
             }
-            if (st.empty()) {
-                return false;
+            if (s.empty()) return true;
+        } else if (expression[i] == '&') {
+            s.push('&');
+        } else if (expression[i] == 'T') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            if (s.empty()) return true;
+        } else if (expression[i] == 'F') {
+            while (!s.empty()) {
+                s.pop();
             }
-            if (st.empty()) {
-                return true;
-            }
-        } else {
-            st.push(s[i]);
+            return false;
         }
     }
-    if (st.top() == '&') {
-        return false;
-    } else if (st.top() == '|') {
-        return true;
-    } else {
-        return st.top() == 'T';
-    }
-}
+    return true;
