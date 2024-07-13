@@ -1,18 +1,29 @@
-if (a.type() == boost::any::typeclass<int> &&
-    b.type() == boost::any::typeclass<int>) {
-    if (get<int>(a) > get<int>(b)) return a;
-    else if (get<int>(a) < get<int>(b)) return b;
-    else return "None";
-} else if (a.type() == boost::any::typeclass<float> &&
-           b.type() == boost::any::typeclass<float>) {
-    if (get<float>(a) > get<float>(b)) return a;
-    else if (get<float>(a) < get<float>(b)) return b;
-    else return "None";
-} else if (a.type() == boost::any::typeclass<std::string> &&
-           b.type() == boost::any::typeclass<std::string>) {
-    if (get<std::string>(a) > get<std::string>(b)) return a;
-    else if (get<std::string>(a) < get<std::string>(b)) return b;
-    else return "None";
-} else {
-    return "Invalid type";
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any((int)a.convert_to<int>() > (int)b.convert_to<int>()
+            ? boost::any(b)
+            : boost::any(a));
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return boost::any((float)a.convert_to<float>() > (float)b.convert_to<float()>
+            ? a
+            : boost::any(b));
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(std::string)) &&
+             (b.type() == typeid(string) || b.type() == typeid(std::string))) {
+        return boost::any((string)a.convert_to<string>() > (string)b.convert_to<string()>
+            ? a
+            : boost::any(b));
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(std::string)) &&
+             (b.type() == typeid(int) || b.type() == typeid(float))) {
+        return boost::any("None");
+    }
+    else if ((b.type() == typeid(string) || b.type() == typeid(std::string)) &&
+             (a.type() == typeid(int) || a.type() == typeid(float))) {
+        return boost::any("None");
+    }
+    else {
+        return boost::any("None");
+    }
 }
