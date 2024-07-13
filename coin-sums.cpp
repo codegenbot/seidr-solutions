@@ -1,35 +1,32 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    int quarters = 0;
-    int dimes = 0;
-    int nickles = 0;
-    int pennies = 0;
+    int remainingCents = 0;
+    cout << "Enter the number of cents: ";
+    string input;
+    getline(cin, input);
+    int totalCents = stoi(input);
 
-    std::cout << "Enter the number of cents: ";
-    std::string input;
-    std::getline(std::cin, input);
-    int cents = std::stoi(input);
+    // Calculate quarters
+    int quarters = totalCents / 25;
+    remainingCents %= 25;
 
-    int quarterCents = 0;
-    while (cents >= 25) {
-        quarters++;
-        quarterCents += 25;
-        cents -= 25;
-    }
+    // Calculate dimes
+    int dimes = remainingCents / 10;
+    remainingCents %= 10;
 
-    dimes = cents / 10;
-    cents %= 10;
+    // Calculate nickles
+    int nickles = remainingCents / 5;
+    remainingCents %= 5;
 
-    nickles = cents / 5;
-    cents %= 5;
+    // Remaining amount is in pennies
+    int pennies = remainingCents;
 
-    pennies = cents; // this is the remaining amount in pennies
-
-    std::cout << "Quarters: " << quarters << std::endl;
-    std::cout << "Dimes: " << dimes << std::endl;
-    std::cout << "Nickles: " << nickles << std::endl;
-    std::cout << "Pennies: " << pennies << std::endl;
+    cout << "Quarters: " << quarters << endl;
+    cout << "Dimes: " << dimes << endl;
+    cout << "Nickles: " << nickles << endl;
+    cout << "Pennies: " << pennies << endl;
 
     return 0;
 }
