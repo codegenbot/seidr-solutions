@@ -11,7 +11,7 @@ vector<int> cutVector(vector<int>& nums) {
             idx = i;
         }
     }
-    return {nums.begin(), nums.begin() + idx} ,{nums.begin() + idx, nums.end()};
+    return {{nums.begin(), nums.begin() + idx}, {nums.begin() + idx, nums.end()}};
 }
 
 int main() {
@@ -26,8 +26,8 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    int i = 0;
-    for (; i < result[1].size(); i++) {
-        cout << result[1][i] << " ";
+    for (auto num : result[1]) {
+        cout << num << " ";
     }
+    return 0;
 }
