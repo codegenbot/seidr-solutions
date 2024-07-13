@@ -1,4 +1,3 @@
-```
 def encrypt(s):
     while True:
         s = input("Enter text to be encrypted: ")
