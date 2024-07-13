@@ -1,32 +1,31 @@
-#include <string>
-using namespace std;
-
+```
 bool evaluateBooleanExpression(string expression) {
     bool result = true;
-    stack<char> ops;
-    stack<bool> values;
+    int i = 0;
 
-    for (int i = 0; i < expression.length(); i++) {
+    while (i < expression.length()) {
         if (expression[i] == '&') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-            values.push(b1 && b2);
-            ops.push('&');
+            i++;
+            bool b1 = (expression[i] == 'T' || expression[i] == 't');
+            i++;
+            bool b2 = (expression[i] == 'T' || expression[i] == 't');
+            i++;
+            result = result && (b1 || b2);
         } else if (expression[i] == '|') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-            values.push(b1 || b2);
-            ops.push('|');
+            i++;
+            bool b1 = (expression[i] == 'T' || expression[i] == 't');
+            i++;
+            bool b2 = (expression[i] == 'T' || expression[i] == 't');
+            i++;
+            result = result && !(b1 ^ b2);
         } else if (expression[i] == 'T' || expression[i] == 't') {
-            values.push(true);
+            i++;
+            result = true;
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            values.push(false);
+            i++;
+            result = false;
         }
     }
 
-    return values.top();
+    return result;
 }
