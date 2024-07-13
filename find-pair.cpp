@@ -7,4 +7,3 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         }
         numMap[num] = 1;
     }
-}
