@@ -1,71 +1,60 @@
 #include <vector>
-#include <limits>
-#include <cmath>
+#include <iostream>
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> &nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    for (int i = 0; i < n - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
-        if ((i == 0 || nums[0] == nums[i]) && (n - 2 == i || nums[n - 1] == nums[i])) {
-            res[0].clear();
-            for (int j = 0; j <= i; j++) {
-                res[0].push_back(nums[j]);
-            }
-            res[1].clear();
-            for (int j = i + 1; j < n; j++) {
-                res[1].push_back(nums[j]);
-            }
-        } else if (diff == 0) {
-            res[0].clear();
-            for (int j = 0; j <= i; j++) {
-                res[0].push_back(nums[j]);
-            }
-            res[1].clear();
-            for (int j = i + 1; j < n; j++) {
-                res[1].push_back(nums[j]);
-            }
-        } else if ((i == 0 || nums[0] - nums[i] <= diff) && (n - 2 == i || nums[n - 1] - nums[i] <= diff)) {
-            res[0].clear();
-            for (int j = 0; j <= i; j++) {
-                res[0].push_back(nums[j]);
-            }
-            res[1].clear();
-            for (int j = i + 1; j < n; j++) {
-                res[1].push_back(nums[j]);
-            }
-        } else if ((i == 0 || nums[i] - nums[0] <= diff) && (n - 2 == i || nums[n - 1] - nums[i] <= diff)) {
-            res[0].clear();
-            for (int j = 0; j < i; j++) {
-                res[0].push_back(nums[j]);
-            }
-            res[1].clear();
-            for (int j = i; j < n; j++) {
-                res[1].push_back(nums[j]);
-            }
-        } else {
-            int minDiff = numeric_limits<int>::max();
-            int pos = -1;
-            for (int i2 = 0; i2 < n - 1; i2++) {
-                int diff2 = abs(nums[i2] - nums[i2 + 1]);
-                if (diff2 < minDiff) {
-                    minDiff = diff2;
-                    pos = i2;
-                }
-            }
-            res[0].clear();
-            for (int j = 0; j <= pos; j++) {
-                res[0].push_back(nums[j]);
-            }
-            res[1].clear();
-            for (int j = pos + 1; j < n; j++) {
-                res[1].push_back(nums[j]);
-            }
+    for(int i = 0; i < v.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for(int j = 0; j <= i; j++) {
+            leftSum += v[j];
+        }
+        
+        for(int j = i + 1; j < v.size(); j++) {
+            rightSum += v[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if(diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    return res;
+    vector<int> leftVec, rightVec;
+    
+    for(int i = 0; i <= cutIndex; i++) {
+        leftVec.push_back(v[i]);
+    }
+    
+    for(int i = cutIndex + 1; i < v.size(); i++) {
+        rightVec.push_back(v[i]);
+    }
+    
+    return {leftVec, rightVec};
 }
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(auto &x : v) {
+        cin >> x;
+    }
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left: ";
+    for(auto x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << "Right: ";
+    for(auto x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
