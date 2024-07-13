@@ -1,28 +1,18 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
+    bool valid = true;
     int digit_count = 0;
-    bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
+    for(int i = 0; i < file_name.length(); i++){
+        if(isdigit(file_name[i])){
             digit_count++;
-            if(digit_count > 3)
-                return "No";
+            if(digit_count > 3) return "No";
         }
-        else if(c == '.')
-            found_dot = true;
-        else if(!found_dot && !isalpha(c))
-            return "No";
+        else if(file_name[i] == '.'){
+            string extension = file_name.substr(i+1);
+            if(extension != "txt" && extension != "exe" && extension != "dll") valid = false;
+        }
     }
-    if(found_dot){
-        int dot_index = file_name.find('.');
-        string before_dot = file_name.substr(0, dot_index);
-        string after_dot = file_name.substr(dot_index+1);
-        if(before_dot.empty() || after_dot.empty())
-            return "No";
-        if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll")
-            return "No";
-    }
-    else
-        return "No";
-    return "Yes";
+    if(!valid || file_name.find('.') == string::npos) return "No";
+    return (file_name[0] >= 'a' && file_name[0] <= 'z') || (file_name[0] >= 'A' && file_name[0] <= 'Z') ? "Yes" : "No";
 }
