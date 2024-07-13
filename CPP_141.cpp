@@ -3,30 +3,26 @@ Here is the completed code:
 string file_name_check(string file_name){
     int digit_count = 0;
     bool has_dot = false;
-    bool valid_start = true;
-    string start_substr;
-    string end_substr;
+    string before_dot;
 
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
+    for(char c : file_name){
+        if(isdigit(c)){
             digit_count++;
-            if(digit_count > 3)
-                return "No";
-        }
-        else if(c == '.')
+        }else if(c == '.'){
             has_dot = true;
-        else if(i < file_name.find('.'))
-            start_substr += c;
-        else
-            end_substr += c;
-
+        }else if(!has_dot){
+            before_dot += c;
+        }
     }
 
-    if(!has_dot || start_substr.empty() || !isalpha(start_substr[0]))
+    if(digit_count > 3 || !has_dot || before_dot.empty() || !isalpha(before_dot[0])){
         return "No";
-    if(end_substr != "txt" && end_substr != "exe" && end_substr != "dll")
-        return "No";
-
-    return "Yes";
+    }else{
+        string after_dot = file_name.substr(file_name.find('.') + 1);
+        if(after_dot == "txt" || after_dot == "exe" || after_dot == "dll"){
+            return "Yes";
+        }else{
+            return "No";
+        }
+    }
 }
