@@ -12,8 +12,8 @@ int main() {
             }
         }
     }
-    
+
     std::cout << probability << std::endl;
-    
+
     return 0;
 }
