@@ -1,30 +1,36 @@
-int bowlingScore(string s) {
+int calculateBowlingScore(string bowls) {
     int score = 0;
-    int frame = 1;
+    int frame = 0;
     int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
+    
+    while (frame < 10) {
+        if (bowls[i] == 'X') {
             score += 10;
-            score += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
-            score += (isdigit(s[i + 2]) ? s[i + 2] - '0' : (s[i + 2] == 'X') ? 10 : 10);
+            if (bowls[i + 2] == 'X') {
+                score += 10 + (bowls[i + 4] == '/' ? 10 : bowls[i + 4] - '0');
+            } else if (bowls[i + 3] == '/') {
+                score += 10;
+            } else {
+                score += (bowls[i + 2] == '/' ? 10 : bowls[i + 2] - '0') + (bowls[i + 3] == '/' ? 10 : bowls[i + 3] - '0');
+            }
             i++;
-        } else if (isdigit(s[i])) {
-            score += s[i] - '0';
-            score += (s[i + 1] == '/') ? 10 - (s[i] - '0') : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
+        } else if (bowls[i + 1] == '/') {
+            score += 10;
+            score += (bowls[i + 2] == 'X' ? 10 : bowls[i + 2] - '0');
             i += 2;
-        } else if (s[i] == '/') {
-            score += 10 - (s[i - 1] - '0');
-            score += (isdigit(s[i + 1]) ? s[i + 1] - '0' : (s[i + 1] == 'X') ? 10 : 0);
+        } else {
+            score += (bowls[i] == '-' ? 0 : bowls[i] - '0') + (bowls[i + 1] == '-' ? 0 : bowls[i + 1] - '0');
             i += 2;
         }
         frame++;
     }
+    
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << calculateBowlingScore(bowls) << endl;
     return 0;
 }
