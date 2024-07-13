@@ -1,8 +1,18 @@
 int main() {
-    string input;
-    cin >> input;
+    string exp;
+    cin >> exp;
 
-    if (input == "t") {
+    bool result = (exp[0] == 't');
+
+    for (int i = 1; i < exp.size(); i += 2) {
+        if (exp[i] == '|') {
+            result = result || (exp[i + 1] == 't');
+        } else {
+            result = result && (exp[i + 1] == 't');
+        }
+    }
+
+    if (result) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
