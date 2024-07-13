@@ -1,5 +1,5 @@
+#include <iostream>
 #include <string>
-#include <cctype>
 
 bool prime_length(std::string str) {
     int len = str.length();
@@ -9,12 +9,11 @@ bool prime_length(std::string str) {
         while(len % (i+2) == 0 && i+2 <= len) len /= i+2;
     }
     return true;
+
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    assert(prime_length(input) == true); 
+    assert(prime_length("0") == false);
+    // Your test cases here
+    std::cout << "All tests passed." << std::endl;
     return 0;
-}
