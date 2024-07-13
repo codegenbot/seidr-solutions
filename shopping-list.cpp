@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -12,13 +13,13 @@ float shoppingList(vector<float>& prices, vector<float>& discounts) {
 }
 
 int main() {
-    int n1, n2;
-    cin >> n1 >> n2;
-    vector<float> prices(n1);
+    int n;
+    cin >> n;
+    vector<float> prices(n);
     for (float& price : prices) {
         cin >> price;
     }
-    vector<float> discounts(n2);
+    vector<float> discounts(n);  
     for (float& discount : discounts) {
         cin >> discount;
     }
