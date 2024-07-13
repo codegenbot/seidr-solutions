@@ -2,7 +2,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         cin >> digits[i];
     }
     
@@ -17,6 +17,6 @@ int main() {
     }
     
     cout << sum << endl;
-
+    
     return 0;
 }
