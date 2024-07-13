@@ -1,4 +1,7 @@
-def is_valid_date(date):
+Here is the modified code:
+
+```
+def valid_date(date):
     mmddyyyy = date.replace('-', '')
     if len(mmddyyyy) != 8:
         return False
