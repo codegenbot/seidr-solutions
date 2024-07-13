@@ -1,7 +1,24 @@
-string find_max(vector<string> words){
-    string res = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            return count(a.begin(), a.end(), a[0]) > count(b.begin(), b.end(), b[0]);
-        });
-    return res;
+Here is the completed code:
+
+string find_max(vector<string> words) {
+    string result;
+    int max_unique = 0;
+    
+    for (const auto& word : words) {
+        int unique_count = 0;
+        set<char> seen;
+        
+        for (char c : word) {
+            if (seen.insert(c).second) {
+                unique_count++;
+            }
+        }
+        
+        if (unique_count > max_unique || (!result.empty() && unique_count == max_unique)) {
+            result = word;
+            max_unique = unique_count;
+        }
+    }
+    
+    return result;
 }
