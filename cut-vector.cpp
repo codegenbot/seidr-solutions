@@ -9,28 +9,22 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
 
     long long minDiff = numeric_limits<long long>::max();
-    long long leftSum = 0;
-    long long rightSum = accumulate(v.begin(), v.end(), 0LL);
+    int cutIndex = -1;
 
     for (int i = 0; i < n; i++) {
-        leftSum += v[i];
-        rightSum -= v[i];
-
-        if (leftSum == rightSum) {
-            res[0].resize(i + 1);
-            copy(v.begin(), v.begin() + i + 1, back_inserter(res[0]));
-            res[1] = vector<int>(v.begin() + i + 1, v.end());
-            return res;
-        }
+        long long leftSum = accumulate(v.begin(), v.begin() + i, 0LL);
+        long long rightSum = accumulate(v.begin() + i, v.end(), 0LL);
 
         long long diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
-            res[0].resize(i + 1);
-            copy(v.begin(), v.begin() + i + 1, back_inserter(res[0]));
-            res[1] = vector<int>(v.begin() + i + 1, v.end());
+            cutIndex = i;
         }
     }
+
+    res[0].resize(cutIndex);
+    copy(v.begin(), v.begin() + cutIndex, back_inserter(res[0]));
+    res[1] = vector<int>(v.begin() + cutIndex, v.end());
 
     return res;
 }
