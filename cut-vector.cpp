@@ -11,7 +11,7 @@ vector<int> cutVector(vector<int>& nums) {
             idx = i;
         }
     }
-    return {{nums.begin(), nums.begin() + idx}, {nums.begin() + idx, nums.end()}};
+    return {nums.begin(), nums.begin() + idx} |{result[0].begin(), result[1].end()};
 }
 
 int main() {
