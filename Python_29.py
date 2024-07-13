@@ -1,4 +1,3 @@
-```
 prefix = input("Enter a prefix: ")
 words = []
 
@@ -8,7 +7,9 @@ while True:
         break
     words.append(user_word)
 
-expected_word = input(f"Enter an expected word for the prefix {prefix} (or 'stop' to finish): ")
+expected_word = input(
+    f"Enter an expected word for the prefix {prefix} (or 'stop' to finish): "
+)
 while True:
     if expected_word.lower() == "stop":
         break
