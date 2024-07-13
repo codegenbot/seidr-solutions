@@ -1,9 +1,10 @@
+```c++
 #include <vector>
 #include <string>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
-        throw std::invalid_argument("No input provided");
+        throw std::runtime_error("No input provided");
     }
     int score = 0;
     int prevRoll1 = 0;
