@@ -11,15 +11,24 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : unique_copy(string(guess).begin(), string(guess).end())) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == c && code[j] != guess[j]) {
-                white++;
-                count++;
-            }
+    map<char, int> countCode, countGuess;
+
+    for (char c : code) {
+        countCode[c]++;
+    }
+    for (char c : guess) {
+        countGuess[c]++;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            continue;
+        }
+        if (countGuess[guess[i]] > 0 && countCode[guess[i]] > 0) {
+            white++;
+            countGuess[guess[i]]--;
+            countCode[guess[i]]--;
         }
     }
 
     return white + black;
-}
