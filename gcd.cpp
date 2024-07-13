@@ -5,17 +5,18 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
+vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
-        if (text.substr(i, target.length()) == target) {
-            for (size_t j = i; j < i + target.length(); ++j) {
-                indices.push_back(j);
+    for (int i = 0; i <= int(text.size()) - int(target.size()); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            for (int j = 0; j < int(target.size()); ++j) {
+                indices.push_back(i + j);
             }
         }
     }
     return indices;
 }
+
 int main() {
     int a, b;
     cin >> a >> b;
@@ -23,9 +24,11 @@ int main() {
 
     string text, target;
     cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
+    vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         cout << i << " ";
     }
+    cout << endl;
+
     return 0;
 }
