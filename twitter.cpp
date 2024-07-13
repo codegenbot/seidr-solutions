@@ -7,10 +7,7 @@ std::string validateTweet(std::string);
 int main() {
     std::cout << "Enter your tweet: ";
     std::string tweet;
-    char c;
-    while ((c = getchar()) != '\n') {
-        tweet += c;
-    }
+    std::getline(std::cin, tweet);
     std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
