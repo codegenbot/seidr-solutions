@@ -1,5 +1,6 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
+    card_number.reverse()  
     new_card_number = []
     for i, num in enumerate(card_number):
         if i % 2 == 0:
@@ -9,4 +10,4 @@ def luhn(card_number):
             if new_num > 9:
                 new_num -= 9
         new_card_number.append(new_num)
-    return sum(new_card_number) + card_number[0]
+    return sum(new_card_number)
