@@ -11,22 +11,36 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
-    long long avg = sum / n;
-    
     long long leftSum = 0, rightSum = 0;
-    int i = 0;
-    while (i < n) {
-        if (leftSum <= rightSum) {
-            leftSum += v[i];
-            i++;
-        } else {
-            rightSum += v[n - i - 1];
-            i++;
+    int left = 0, right = n - 1;
+    int leftMin = INT_MAX, rightMin = INT_MAX;
+
+    for (int i = 0; i < n; i++) {
+        leftSum += v[i];
+        
+        if (abs(leftSum - (sum - leftSum)) < leftMin) {
+            leftMin = abs(leftSum - (sum - leftSum));
         }
     }
+
+    for (int i = n - 1; i >= 0; i--) {
+        rightSum += v[i];
+        
+        if (abs(rightSum - (sum - rightSum)) < rightMin) {
+            rightMin = abs(rightSum - (sum - rightSum));
+        }
+    }
+
+    int cutIndex;
     
-    res.push_back(vector<int>(v.begin(), v.begin() + i));
-    res.push_back(vector<int>(v.begin() + i, v.end()));
+    if (leftMin > rightMin) {
+        cutIndex = right;
+    } else {
+        cutIndex = left;
+    }
+    
+    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
+    res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
     
     return res;
 }
