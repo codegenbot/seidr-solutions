@@ -16,3 +16,9 @@ int luhn(int cardNumber) {
     }
     return sum;
 }
+
+int main() {
+    int cardNumber = 4532015295970004; 
+    std::cout << "Luhn's checksum is: " << luhn(cardNumber) << std::endl;
+    return 0;
+}
