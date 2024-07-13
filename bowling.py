@@ -18,12 +18,16 @@ def bowling_score(bowls):
 
 
 def get_strike_bonus(bowls, index):
+    bonus = 0
     if bowls[index + 2] == "X":
-        return 10
-    elif bowls[index + 3] == "/":
-        return 10
+        bonus += 10
     else:
-        return int(bowls[index + 2]) + int(bowls[index + 3])
+        bonus += int(bowls[index + 2])
+    if bowls[index + 3] == "X":
+        bonus += 10
+    else:
+        bonus += int(bowls[index + 3])
+    return bonus
 
 
 bowls = input()
