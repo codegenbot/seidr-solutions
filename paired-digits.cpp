@@ -1,21 +1,20 @@
-```cpp
+#include <iostream>
 #include <string>
-using namespace std;
 
-int pairedDigits(string s) {
+int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i+1]) {
-            sum += s[i] - '0';
+            sum += (s[i] - '0');
         }
     }
     return sum;
+
 }
 
 int main() {
-    string input;
-    cout << "Enter a string of digits: ";
-    getline(cin, input);
-    cout << "Sum of paired digits is: " << pairedDigits(input) << endl;
+    std::string input;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> input;
+    std::cout << "Sum of paired digits is: " << pairedDigits(input) << std::endl;
     return 0;
-}
