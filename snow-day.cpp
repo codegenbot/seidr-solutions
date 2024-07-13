@@ -9,6 +9,6 @@ int main() {
     }
 
     cout << snow << endl;
-
+    
     return 0;
 }
