@@ -1,6 +1,10 @@
-return tuple(
-    sorted(
-        [(item if isinstance(item, tuple) else (item,)) for item in result],
-        key=lambda x: (x[1] or 0, x[2]),
-    )
-)
+```
+def sort_third(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, (list, tuple)):
+            if len(item) > 2:
+                result.append((item[0], item[1], item[2]))
+        else:
+            result.append((item, None, None))
+    return tuple(sorted(result, key=lambda x: x[2] if x[2] is not None else 0))
