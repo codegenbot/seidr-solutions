@@ -1,8 +1,1 @@
-from typing import List
-
-def remove_duplicates():
-    numbers = input("Enter some numbers (separated by space): ").split()
-    unique_numbers = set(map(int, numbers))
-    print(unique_numbers)
-
-remove_duplicates()
+return [num for num in numbers if not (num in seen or seen.add(num)) and True][::-1]
