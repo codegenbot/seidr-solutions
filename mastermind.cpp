@@ -1,49 +1,46 @@
 #include <vector>
-#include <string>
+#include <iostream>
+using namespace std;
 
-int countBlackPegs(string code, string guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
+int getMastermindPegs(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    vector<int> codeCount(6, 0);
+    for (char c : code) {
+        codeCount[c - 'A']++;
+    }
+
+    vector<int> guessCount(6, 0);
+    for (char c : guess) {
+        guessCount[c - 'A']++;
+    }
+
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
+            black++;
+            codeCount[guess[i] - 'A']--;
+            guessCount[guess[i] - 'A']--;
         }
     }
-    return blackPegs;
-}
 
-int countWhitePegs(string code, string guess) {
-    int whitePegs = 0;
-    vector<char> codeArray(code.begin(), code.end());
-    for (int i = 0; i < 4; ++i) {
-        bool found = false;
-        for (int j = 0; j < 4; ++j) {
-            if (codeArray[j] == guess[i] && codeArray[j] != code[i]) {
-                codeArray[j] = '\0';
-                found = true;
-                break;
-            }
-        }
-        if (found) {
-            ++whitePegs;
+    for (int i = 0; i < 4; i++) {
+        if (codeCount[guess[i] - 'A'] > 0) {
+            white++;
+            codeCount[guess[i] - 'A']--;
         }
     }
-    return whitePegs;
-}
 
-int mastermind(string code, string guess) {
-    int blackPegs = countBlackPegs(code, guess);
-    int whitePegs = 4 - blackPegs;
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != code[i]) {
-            --whitePegs;
-        }
-    }
-    return blackPegs + whitePegs;
+    return to_string(white) + "\n" + to_string(black);
 }
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-    cout << mastermind(code, guess) << endl;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter a guess: ";
+    cin >> guess;
+    cout << getMastermindPegs(code, guess) << endl;
+
     return 0;
 }
