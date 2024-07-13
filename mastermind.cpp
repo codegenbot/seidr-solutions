@@ -21,11 +21,11 @@ int mastermind(string code, string guess) {
     int guessCount[6] = {0};
 
     for(int i = 0; i < 4; i++) {
-        codeCount[int(possibleChars.find(guess[i]))]++;
+        codeCount[int(possibleChars.find(code[i]))]++;
     }
 
     for(int i = 0; i < 4; i++) {
-        guessCount[int(possibleChars.find(code[i]))]++;
+        guessCount[int(possibleChars.find(guess[i]))]++;
     }
 
     for(int i = 0; i < 6; i++) {
