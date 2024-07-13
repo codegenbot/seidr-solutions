@@ -1,13 +1,17 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    odd_sum = 0
-    even_sum = 0
+    card_number = card_number[::-1]
+    sum = 0
+    is_double = False
     for i in range(len(card_number)):
-        if i % 2 == 0:
-            even_sum += card_number[i]
+        digit = card_number[i]
+        if is_double:
+            if digit > 9:
+                digit -= 9
         else:
-            temp = card_number[i] * 2
-            if temp > 9:
-                temp -= 9
-            odd_sum += temp
-    return odd_sum + even_sum
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        sum += digit
+        is_double = not is_double
+    return sum
