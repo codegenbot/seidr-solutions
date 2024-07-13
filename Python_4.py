@@ -1,7 +1,8 @@
+```
 def mean_absolute_deviation(numbers) -> float:
     while True:
         input_str = input("Enter some numbers (space-separated): ")
-        if not input_str:  
+        if not input_str:
             print("Please enter at least one number.")
             continue
 
@@ -11,9 +12,5 @@ def mean_absolute_deviation(numbers) -> float:
         except ValueError:
             print("Invalid input. Please enter numbers only.")
 
-    if len(numbers) < 2:
-        return sum(numbers) / len(numbers)
-    else:
-        mean = sum(numbers) / len(numbers)
-        mad = round(sum(abs(num - mean) for num in numbers) / len(numbers), 2)
-        return mad
+    mean = sum(numbers) / len(numbers)
+    return sum(abs(x - mean) for x in numbers) / len(numbers)
