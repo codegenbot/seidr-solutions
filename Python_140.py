@@ -1,3 +1,4 @@
+```Python
 import re
 
 
@@ -6,8 +7,8 @@ def fix_spaces():
         text = input("Enter a string (or 'stop' to finish): ").strip().lower()
         if text.lower() == "stop":
             break
-        elif not text.replace("-", "").isalpha():
-            print("Please enter alphabetic characters only. Try again.")
+        elif not re.match("^[a-z_]+$", text):
+            print("Please enter alphabetic characters and/or underscores. Try again.")
         else:
             text_list = text.split()
             new_text = "_".join(text_list)
