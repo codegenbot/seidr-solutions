@@ -20,18 +20,8 @@ bool solveBoolean(std::string expression) {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
             while (!opStack.empty()) {
-                char op = opStack.top();
-                opStack.pop();
-                bool rightVal = valStack.top();
-                valStack.pop();
-                bool leftVal = valStack.top();
-                valStack.pop();
-
-                if (op == '&') {
-                    valStack.push(leftVal && rightVal);
-                } else if (op == '|') {
-                    valStack.push(leftVal || rightVal);
-                }
+                if (opStack.top() == '|') opStack.pop(), valStack.pop();
+                else break;
             }
         }
     }
