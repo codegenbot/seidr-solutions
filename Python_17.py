@@ -1,4 +1,5 @@
-```
+Here is the corrected code:
+
 def parse_music(s):
     s = s.lower()
     words = s.replace("|", " ").split()
