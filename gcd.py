@@ -18,10 +18,7 @@ def indices_of_substring(text, target):
 
 a = int(input())
 b = int(input())
+text = input()
 
 print(gcd(a, b))
-
-text = input()
-target = input()
-
-print(indices_of_substring(text, target))
+print(indices_of_substring(text, text))
