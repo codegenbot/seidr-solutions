@@ -1,3 +1,5 @@
+Here's the modified code:
+
 def encrypt(s):
     result = ""
     shift = int(input("Enter shift value: "))
