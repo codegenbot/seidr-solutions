@@ -1,5 +1,3 @@
-from collections import Counter
-
 code, guess = input().split()
 
 if len(code) != 4 or len(guess) != 4 or not all(c in '123456' for c in code) or not all(c in '123456' for c in guess):
