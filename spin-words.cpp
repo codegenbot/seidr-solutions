@@ -1,4 +1,4 @@
-Here's the solution:
+Here is the completed code:
 
 #include <vector>
 #include <iostream>
@@ -8,15 +8,27 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) != string::npos) {
+            int spaceIndex = str.find(" ", i);
+            if (spaceIndex - i >= 5) {
+                for (int j = spaceIndex + 1; j > i; --j)
+                    result += str[j] + " ";
+                i = spaceIndex;
+            } else {
+                result += str.substr(i, spaceIndex - i) + " ";
+                i = spaceIndex + 1;
             }
-            result += word + " ";
-            start = i + 1;
+        } else if (i < str.length()) {
+            if (str.length() - i >= 5) {
+                for (int j = str.length() - 1; j > i; --j)
+                    result += str[j] + " ";
+                break;
+            } else {
+                result += str.substr(i, str.length() - i) + " ";
+                break;
+            }
         }
     }
     return result;
@@ -25,7 +37,7 @@ string spinWords(string str) {
 int main() {
     string str;
     while (true) {
-        cout << "Enter a sentence: ";
+        cout << "Enter a string: ";
         cin >> str;
         cout << spinWords(str) << endl;
     }
