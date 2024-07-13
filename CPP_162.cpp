@@ -17,7 +17,7 @@ string string_to_md5(string text) {
 
     ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        oss << setfill('0') << std::setw(2) << hex << (int)md[i];
+        oss << std::setfill('0') << std::setw(2) << hex << (int)md[i];
     }
 
     return oss.str();
