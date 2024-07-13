@@ -1,8 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool solveBoolean(std::string expression) {
+    if (expression.empty()) return false; // base case: empty string is FALSE
+
     bool result = true;
     size_t i = 0;
 
@@ -13,45 +14,49 @@ bool solveBoolean(std::string expression) {
         } else if (expression[i] == 'F') {
             result = false;
             break;
-        } else if (expression[i] == '|') {
-            i++;
-            bool temp = !result;
+        }
+
+        // handle operators
+        if (expression[i] == '|') {
+            i++; // skip '|'
+            bool temp = solveBoolean(getNextBooleanExpression(expression, i));
             while (i < expression.length() && expression[i] != '&') {
                 i++;
             }
             if (i < expression.length()) {
-                i++;
+                i++; // skip '&'
             }
-            result = temp;
+            result |= temp;
         } else if (expression[i] == '&') {
-            i++;
-            bool temp = result;
+            i++; // skip '&'
+            bool temp = solveBoolean(getNextBooleanExpression(expression, i));
             while (i < expression.length() && expression[i] != '|') {
-                i++;
-            }
-            if (i < expression.length()) {
                 i++;
             }
             result &= temp;
         }
+
+        i++;
     }
 
     return result;
 }
 
+std::string getNextBooleanExpression(const std::string& expression, size_t start) {
+    size_t end = expression.find_first_of("TF|&", start);
+    if (end == std::string::npos) end = expression.length();
+    return expression.substr(start, end - start);
+}
+
 int main() {
     std::string expression;
-    std::string temp;
     while (true) {
         std::cout << "Enter the Boolean expression: ";
-        while (std::getline(std::cin, temp) && temp.find_first_not_of("TF|& ") != std::string::npos) {
-            expression += temp + " ";
+        std::getline(std::cin, expression);
+        if (!expression.find_first_of("TF|&")) { 
+            break; 
         }
-        if (!expression.empty()) {
-            break; // exit loop
-        } else {
-            std::cout << "Invalid input. Please try again." << std::endl;
-        }
+        std::cout << "Invalid input. Please try again." << std::endl;
     }
 
     bool result = solveBoolean(expression);
