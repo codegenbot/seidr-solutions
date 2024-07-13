@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <limits>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -12,6 +13,9 @@ double diceGame(int n, int m) {
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cout.rdbuf();
+
     int n, m;
     std::cout << "Enter value of n: ";
     if (!(std::cin >> n)) {
