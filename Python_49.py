@@ -1,5 +1,7 @@
-import math
+```
+# Empty line for readability
 
+import math
 
 def modp(n: int, p: int) -> int:
     if math.gcd(n, p) != 1:
@@ -9,7 +11,6 @@ def modp(n: int, p: int) -> int:
         i += 1
         if pow(n, i, p) == 1:
             return i
-
 
 def main():
     while True:
