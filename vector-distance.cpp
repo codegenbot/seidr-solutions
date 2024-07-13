@@ -1,40 +1,32 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
-double vectorDistance(int n) {
-    float vec1[n];
-    float vec2[n];
-
-    // Read input for first vector
-    cout << "Enter " << n << " values for the first vector: ";
-    for (int i = 0; i < n; i++) {
-        cin >> vec1[i];
+double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
+    if (v1.size() != v2.size()) {
+        return -1.0; // invalid input
     }
-
-    // Read input for second vector
-    cout << "\nEnter " << n << " values for the second vector: ";
-    for (int i = 0; i < n; i++) {
-        cin >> vec2[i];
+    double sum = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        sum += pow(v1[i] - v2[i], 2);
     }
-
-    double sum = 0.0;
-    for (int i = 0; i < n; i++) {
-        sum += pow(vec1[i] - vec2[i], 2);
-    }
-
     return sqrt(sum);
 }
 
 int main() {
     int n;
-    cout << "Enter the number of dimensions: ";
     cin >> n;
-
-    double result = vectorDistance(n);
-
-    cout << "\nThe Euclidean distance between the two vectors is: " << result << endl;
-
+    vector<float> v1(n);
+    for (float& x : v1) {
+        cin >> x;
+    }
+    cin >> n;
+    vector<float> v2(n);
+    for (float& x : v2) {
+        cin >> x;
+    }
+    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
     return 0;
 }
