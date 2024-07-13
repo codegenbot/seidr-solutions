@@ -24,10 +24,9 @@ int main() {
     cin >> target;
     pair<int, int> result = findPair(nums, target);
     if (!result.empty()) {
-        cout << result.first << endl;
-        cout << result.second << endl;
+        cout << result.first << "\n" << result.second << endl;
     } else {
-        cout << "No such pair" << endl;
+        cout << "No such pair exists." << endl;
     }
     return 0;
 }
