@@ -3,23 +3,21 @@ int main() {
     cin >> cents;
 
     int quarters = cents / 25; 
-    int remainingCents = cents % 25;
+    cents %= 25;
 
     cout << quarters << endl; 
 
-    int dimes = remainingCents / 10;
-    remainingCents %= 10;
+    int dimes = cents / 10;
+    cents %= 10;
 
     cout << dimes << endl; 
 
-    int nickels = remainingCents / 5;
-    remainingCents %= 5;
+    int nickels = cents / 5;
+    cents %= 5;
 
-    while (remainingCents > 0) {
-        int pennies = remainingCents;
-        cout << pennies << endl; 
-        remainingCents = 0;
-    }
+    cout << nickels << endl; 
+
+    cout << cents << endl; // pennies
 
     return 0;
 }
