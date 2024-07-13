@@ -12,13 +12,12 @@ int main() {
         cin >> v2[i];
     }
 
-    double result = 0.0;
+    double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        result += pow(v1[i] - v2[i], 2);
+        sum += pow(v1[i] - v2[i], 2);
     }
 
-    result = sqrt(result);
-    cout << result << endl;
+    cout << sqrt(sum) << endl;
 
     return 0;
 }
