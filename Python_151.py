@@ -7,10 +7,17 @@ def double_the_difference(lst):
 
 def check():
     while True:
-        a, b = input("Enter first and second set of numbers (space-separated): ").split()
-        numbers = list(map(int, [a] + b.split()))
-        break
+        try:
+            input_str = input("Enter first and second set of numbers (space-separated): ")
+            a, b = input_str.split()
+            numbers = list(map(int, [a] + b.split()))
+            break
+        except ValueError:
+            print("Invalid input. Please enter space-separated numbers.")
 
-    print(double_the_difference(numbers))
+    if len(numbers) == 2:
+        return double_the_difference(numbers)
+    else:
+        return "Please provide exactly two sets of numbers."
 
-check()
+print(check())
