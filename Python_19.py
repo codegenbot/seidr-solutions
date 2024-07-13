@@ -1,13 +1,12 @@
 def sort_numbers():
-    cont = "y"
-    while cont.lower() == "y":
-        print("Sort numbers? (y/n): ")
-        cont = input().lower()
-        if cont not in ["y", "n"]:
-            print("Invalid input. Please enter y or n.")
-            continue
-        if cont != "y":
-            break
+    while True:
+        cont = "n"
+        while cont.lower() != "y":
+            print("Sort numbers? (y/n): ")
+            cont = input().lower()
+            if cont not in ["y", "n"]:
+                print("Invalid input. Please enter y or n.")
+                continue
         while True:
             while True:
                 try:
@@ -19,18 +18,15 @@ def sort_numbers():
                     if cont.lower() not in ["y", "n"]:
                         print("Invalid input. Please enter y or n.")
                         continue
-                    if cont.lower() != "y":
-                        break
                     break
                 except ValueError as e:
                     print(
                         f"Invalid input. {e}. Please enter valid numbers separated by spaces."
                     )
-                    print("Exiting program...")
-                    exit()
             if cont.lower() != "y":
                 break
-        break
+        if cont.lower() != "y":
+            break
 
 
 if __name__ == "__main__":
