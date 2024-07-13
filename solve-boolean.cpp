@@ -1,4 +1,4 @@
-Here is the modified code:
+#include <string>
 
 bool solveBoolean(std::string s) {
     bool result = true;
