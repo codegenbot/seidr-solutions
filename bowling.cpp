@@ -4,16 +4,17 @@ int bowlingScore(string s) {
     for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
-                score += 10 - (10 - roll);
+                score += 10 - (5 - (roll == 1));
             }
             roll = 0;
-        } else if (c == 'X') {
-            score += 30;
-            roll = 0;
         } else if (isdigit(c)) {
-            int points = c - '0';
             roll++;
-            score += points;
+            int val = c - '0';
+            if (roll == 1) {
+                score += val;
+            } else {
+                score += val * 2;
+            }
         }
     }
     return score;
