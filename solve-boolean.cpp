@@ -1,22 +1,37 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
-    bool res = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'T') return true;
-        if (s[i] == 'F') return false;
-        if (s[i] == '|') {
-            res = true;
-            i++;
-            continue;
-        }
-        if (s[i] == '&') {
-            res = true;
-            i++;
-            continue;
+bool solveBoolean(string booleanExpression) {
+    stack<char> expression;
+    
+    for(int i = 0; i < booleanExpression.length(); i++) {
+        if(booleanExpression[i] == '&') {
+            while(expression.size() && expression.top() == '&') {
+                expression.pop();
+            }
+        } else if(booleanExpression[i] == '|') {
+            while(expression.size() && expression.top() == '|') {
+                expression.pop();
+            }
+        } else {
+            expression.push(boolToChar(getBooleanValue(booleanExpression[i])));
         }
     }
-    return res;
+    
+    return expression.top() == 'T';
+}
+
+char boolToChar(bool value) {
+    if(value) {
+        return 'T';
+    } else {
+        return 'F';
+    }
+}
+
+bool getBooleanValue(char c) {
+    if(c == 't' || c == 'T') {
+        return true;
+    } else if(c == 'f' || c == 'F') {
+        return false;
+    } else {
+        throw runtime_error("Invalid input");
+    }
 }
