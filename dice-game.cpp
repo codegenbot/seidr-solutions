@@ -1,19 +1,22 @@
+```cpp
 #include <iostream>
+using namespace std;
 
 double probability(int n, int m) {
     double total = (double)(n * m);
     double p = 0;
 
-    for (int i = 1; i <= n && i < m; i++) {
-        if (i == 1)
-            p += (m - 1) / total;
-        else
-            p += (m - i + 1) / total;
+    for (int i = 1; i <= m; i++) {
+        p += (double)(n - i + 1) / total;
     }
 
     return p;
 }
 
-int main(int argc, char** argv) { 
-    std::cout << probability(51,92);
+int main() {
+    int n, m;
+    cin >> n >> m;
+    double result = probability(n, m);
+    cout << result << endl;
+    return 0;
 }
