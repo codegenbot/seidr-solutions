@@ -5,22 +5,24 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res;
-    
     long long sum = 0;
     for (int i = 0; i < n; i++) {
         sum += v[i];
     }
     
+    if(sum > vector<int>::max_size()) {
+        return {{}, {}};
+    }
+    
     long long leftSum = 0, rightSum = sum;
-    int minDiff = 0, cutIndex = -1;
+    int minDiff = INT_MAX, cutIndex = -1;
 
     for (int i = 1; i < n - 1; i++) {
         if (rightSum == leftSum) break;
         rightSum -= v[i];
         
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff || (diff == minDiff && leftSum >= rightSum)) {
+        long long diff = abs(leftSum - rightSum);
+        if (diff <= minDiff || (diff == minDiff && leftSum >= rightSum)) {
             minDiff = diff;
             cutIndex = i + 1; 
         }
@@ -28,8 +30,12 @@ vector<vector<int>> cutVector(vector<int> v) {
         leftSum += v[i];
     }
     
+    vector<vector<int>> res;
     res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
-    res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
+    for(int i = cutIndex; i < v.size(); i++) {
+        res[1].push_back(v[i]);
+    }
+    res[0] = vector<int>(v.begin(), v.begin() + cutIndex);
     
     return res;
 }
