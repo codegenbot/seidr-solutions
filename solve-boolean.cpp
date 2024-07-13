@@ -5,7 +5,7 @@ int main() {
     std::string expr;
     std::cin >> expr;
     
-    if (expr == "t") {
+    if (expr == "T" || expr == "t") {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
