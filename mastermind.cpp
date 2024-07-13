@@ -29,11 +29,11 @@ int mastermind(string code, string guess) {
         for(int j = 0; j < 6; j++) {
             if(code[j] == guess[i]) {
                 count++;
-                codeCount[distance(chars.begin(), std::find(chars.begin(), chars.end(), code[i]))]--;
+                codeCount[distance(chars.begin(), find(chars.begin(), chars.end(), code[j]))]--;
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)codeCount[distance(chars.begin(), std::find(chars.begin(), chars.end(), code[i]))]);
+        white += min(count, (int)codeCount[distance(chars.begin(), find(chars.begin(), chars.end(), code[i]))]);
     }
 
     return black + white;
