@@ -1,13 +1,11 @@
 Here is the completed code:
 
 int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // None
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
-        }
+    if (lst.empty()) return -1; // Return None or -1 for empty vector
+    sort(lst.begin(), lst.end());
+    auto it = prev(lst.begin()); // Get the previous element in sorted order
+    if (it != lst.begin()) { // Check if there is a 2nd smallest element
+        return *it;
     }
-    return -1; // None
+    return -1; // Return None or -1 for vector with one unique element
 }
