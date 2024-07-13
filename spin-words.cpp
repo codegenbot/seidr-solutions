@@ -6,7 +6,7 @@ std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
     
-    for (int i = 0; i < str.length(); i++) {
+    for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
             if (!word.empty()) {
                 if (word.length() >= 5) {
@@ -24,15 +24,6 @@ std::string spinWords(std::string str) {
         } else {
             word.push_back(str[i]);
         }
-    }
-    
-    // Add this check
-    if (!word.empty()) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        
-        result += word;
     }
     
     return result;
