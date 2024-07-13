@@ -4,9 +4,8 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    n = len(string)
-    prefix = ""
-    while not is_palindrome(prefix + string):
-        prefix += string[0]
-        string = string[1:]
-    return prefix + string + prefix[::-1]
+    prefix = string
+    while not is_palindrome(prefix):
+        prefix += "a"
+    suffix = prefix[::-1]
+    return prefix + suffix
