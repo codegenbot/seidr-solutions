@@ -1,8 +1,12 @@
 ```cpp
 double diceGame(int n, int m) {
     double total = 0.0;
-    for (int i = 1; i <= min(n-1, m); i++) { 
-        total += static_cast<double>(min(n-i, m+1))/static_cast<double>(n*m);
+    for (int i = 1; i <= n; i++) { 
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                total += 1.0/static_cast<double>(n*m);
+            }
+        }
     }
     return total;
 }
