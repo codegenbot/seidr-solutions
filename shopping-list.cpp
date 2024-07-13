@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
+#include <cmath>
 
 int main() {
     int n;
@@ -22,7 +22,8 @@ int main() {
         total_price += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
-    std::cout << std::fixed << std::setprecision(2) << "Total price after discounts: " << total_price << std::endl;
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Total price after discounts: " << total_price << std::endl;
 
     return 0;
 }
