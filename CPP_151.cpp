@@ -8,8 +8,3 @@ long long double_the_difference(vector<float> lst) {
     }
     return sum;
 }
-
-int main() {
-    float odd_sum = 0; 
-    assert(double_the_difference(lst) == odd_sum);
-}
