@@ -11,9 +11,8 @@ int main() {
 
     double sum = 0.0;
     for(int i = 1; i < n; i++) {
-        double prob = (double)i / m - ((n-i+1) / (double)n);
-        sum += prob;
-        cout << fixed << setprecision(10) << prob << " "; 
+        sum += (double)(n-i) / (n*m);
+        cout << fixed << setprecision(10) << (double)(n-i) / (n*m) << " "; 
     }
     cout << endl;
 

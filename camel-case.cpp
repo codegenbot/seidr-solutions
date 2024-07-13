@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 #include <iostream>
@@ -20,9 +21,9 @@ std::string camelCase(std::string str) {
 
     for (const auto& word : words) {
         if (result.empty()) {
-            result = std::toupper(word);
+            result = std::string{1, std::toupper(word[0])} + word.substr(1);
         } else {
-            result += " " + static_cast<char>(std::tolower(word[0])) + std::toupper(word.substr(1));
+            result += " " + std::string{1, std::tolower(word[0])} + std::string{word.begin() + 1, word.end()}.toupper();
         }
     }
 
@@ -30,7 +31,14 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string input = "camel-case example-test-string";
+    if (std::cin.fail()) {
+        std::cerr << "Error: Invalid input." << std::endl;
+        return 1;
+    }
+
+    std::string input;
+    std::getline(std::cin, input);
     std::cout << camelCase(input) << std::endl;
+
     return 0;
 }
