@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -12,16 +13,11 @@ std::string camelCase(const std::string& s) {
                 result += char(toupper(c));
             }
             first = false;
-        } else if (c == ' ') {
-            if (!first) {
-                result += char(toupper(c));
-            }
-            first = false;
-        } else {
+        } else if (c != ' ') {
             if (first) {
-                result += c;
-            } else {
                 result += tolower(c);
+            } else {
+                result += toupper(c);
             }
             first = false;
         }
@@ -32,6 +28,9 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
+    }
     s = "camel-case example-test-string";
     std::cout << camelCase(s) << std::endl;
     return 0;
