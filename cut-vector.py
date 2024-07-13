@@ -1,17 +1,12 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
+total_sum = (n * (n + 1)) // 2
+half_sum = total_sum // 2
+running_sum = 0
+idx = 0
 
-total_sum = sum(v)
-current_sum = 0
-cut_point = 0
-min_diff = float("inf")
+while running_sum + idx + 1 <= half_sum:
+    idx += 1
+    running_sum += idx
 
-for i in range(n):
-    current_sum += v[i]
-    diff = abs(total_sum - 2 * current_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_point = i
-
-print(*v[: cut_point + 1])
-print(*v[cut_point + 1 :])
+print(list(range(1, idx + 1)))
+print(list(range(idx + 1, n + 1)))
