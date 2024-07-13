@@ -1,31 +1,46 @@
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+    vector<int> input;
+    int num;
+    
+    while (cin >> num) {
+        input.push_back(num);
     }
-    int diff = INT_MAX, index = -1;
-    for (int i = 0; i < n - 1; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            left_sum += vec[j];
+    
+    int n = input.size();
+    int idx = 0;
+    int minDiff = INT_MAX;
+    
+    for (int i = 1; i < n; ++i) {
+        int sum1 = 0, sum2 = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            sum1 += input[j];
         }
-        for (int j = i + 1; j < n; ++j) {
-            right_sum += vec[j];
+        
+        for (int j = i; j < n; ++j) {
+            sum2 += input[j];
         }
-        int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff) {
-            diff = current_diff;
-            index = i;
+        
+        int diff = abs(sum2 - sum1);
+        if (diff < minDiff) {
+            minDiff = diff;
+            idx = i;
+        }
+        
+        if (diff == 0) {
+            break;
         }
     }
-    for (int i = 0; i <= index; ++i) {
-        cout << vec[i] << endl;
+    
+    for (int i = 0; i < idx; ++i) {
+        cout << input[i] << endl;
     }
-    for (int i = index + 1; i < n; ++i) {
-        cout << vec[i] << endl;
+    
+    cout << endl;
+    
+    for (int i = idx; i < n; ++i) {
+        cout << input[i] << endl;
     }
-    cout << diff;
+    
     return 0;
 }
