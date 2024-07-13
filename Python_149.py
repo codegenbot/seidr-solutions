@@ -1,3 +1,6 @@
-```
 def sorted_list_sum(lst):
-    return sorted([sum(int(c) for c in s if c.isdigit()) for s in lst])
+    strings = [s for s in lst if isinstance(s, str)]
+    numbers = [int(c) for s in strings for c in s if c.isdigit()]
+    return sorted(list(set(strings))) + sorted(
+        set(str(x) for x in set(map(int, map(str, str(numbers)))))
+    )
