@@ -1,34 +1,35 @@
-#include <iostream>
+Here is the solution:
+
 #include <string>
+using namespace std;
 
-std::string spinWords(const std::string& input) {
-    std::string output;
-    size_t start = 0;
-
-    for (size_t i = 0; i <= input.size(); ++i) {
-        if (i == input.size() || input[i] == ' ') {
-            size_t length = i - start;
-            if (length >= 5) {
-                std::string word = input.substr(start, length);
-                output += std::string(word.rbegin(), word.rend());
-            } else {
-                output += input.substr(start, length);
-            }
-            if (i < input.size()) {
-                output += ' ';
-            }
-            start = i + 1;
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+    
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5)
+                result += newWord(word);
+            else
+                result += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
     }
-
-    return output;
+    
+    if (word.length() >= 5)
+        result += newWord(word);
+    else
+        result += word;
+    
+    return result;
 }
 
-int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
-
-    return 0;
+string newWord(string str) {
+    string result = "";
+    for(int i=str.length()-1; i>=0; i--)
+        result += str[i];
+    return result;
 }
