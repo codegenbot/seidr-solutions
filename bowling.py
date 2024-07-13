@@ -1,22 +1,21 @@
-def bowling_game(s):
+```
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in s.split("/"):
-        if len(frame) == 1:
-            score += int(frame)
-            roll += 1
-        elif len(frame) == 2:
-            score += int(frame[0]) + 10
-            roll += 1
+    frame = 1
+    for char in frames:
+        if char == 'X':
+            score += 30
+            frame += 1
+        elif char == '/':
+            first_roll = int(frames[:frames.index('/')].count('X')) * 10 + int(frames[frames.index('/')+1:frames.index('/', frames.index('/')+1)].count('X')) * 10
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            frame += 1
         else:
-            strike = int(frame[0])
-            score += strike + 10
-            if roll < 9:
-                next_roll = int(frame[1:])
-                if next_roll == 10:
-                    score += 15
-                    roll += 2
-                else:
-                    score += next_roll
-                    roll += 2
+            if char == '5':
+                score += 5
+                frame += 1
+            elif int(char) > 0:
+                score += int(char)
+                frame += 1
     return score
