@@ -1,7 +1,13 @@
+Here is the completed code:
+
 def basement(arr):
-    total_sum = 0
     for i in range(len(arr)):
-        total_sum += arr[i]
-        if total_sum < 0:
+        total = sum(arr[:i+1])
+        if total < 0:
             return i
-    return -1
+
+print(basement([1, -1])) 
+print(basement([1, -100])) 
+print(basement([2, -1, 100]))
+print(basement([2, -95, 100]))
+print(basement([2, -30, 5]))
