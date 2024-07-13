@@ -1,3 +1,6 @@
+#include <stack>
+#include <string>
+
 bool solveBoolean(std::string s) {
     bool result = true;
     stack<char> st;
@@ -23,3 +26,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return st.top() == 'T';
+}
