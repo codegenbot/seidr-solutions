@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```
 def cut_vector(vector):
     vector.sort()
     
