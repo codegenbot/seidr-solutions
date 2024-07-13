@@ -5,13 +5,11 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
+    vector<vector<int>> res;
+    
     long long sum = 0;
     for (int i = 0; i < n; i++) {
         sum += v[i];
-    }
-    
-    if(sum > vector<int>::max_size()) {
-        return {{}, {}};
     }
     
     long long leftSum = 0, rightSum = sum;
@@ -26,11 +24,8 @@ vector<vector<int>> cutVector(vector<int> v) {
             minDiff = diff;
             cutIndex = i + 1; 
         }
-        
-        leftSum += v[i];
     }
     
-    vector<vector<int>> res;
     res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
