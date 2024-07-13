@@ -7,7 +7,7 @@ def shopping_list():
             price = float(inputs[0])
             discount = float(inputs[1])
             total_price += price - (price * (discount / 100))
-        except ValueError:
+        except EOFError:
             break
     return round(total_price, 2)
 
