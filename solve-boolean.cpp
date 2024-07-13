@@ -1,6 +1,4 @@
-```c++
 bool solveBoolean(string s) {
-    bool result = true;
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -16,7 +14,7 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) {
-                result = true;
+                return true;
             }
             st.pop();
         } else {
@@ -24,4 +22,3 @@ bool solveBoolean(string s) {
         }
     }
     return st.top() == 'T';
-}
