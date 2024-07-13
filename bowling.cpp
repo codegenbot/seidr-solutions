@@ -1,31 +1,29 @@
 int score(string s) {
-    int total = 0;
-    int frame = 0;
-    vector<int> frames(10, 0);
-    for (int i = 0; i < s.size(); i++) {
+    int result = 0;
+    int frame = 1;
+    int i = 0;
+    
+    while (frame <= 10 && i < s.length()) {
         if (s[i] == 'X') {
-            frames[frame] = 10;
-            frame++;
-        } else if (s[i] == '/') {
-            frames[frame] = 10 - frames[frame-1];
-            frame++;
-        } else if (s[i] == '-') {
-            frames[frame] = 0;
-            frame++;
-        } else {
-            frames[frame] = s[i] - '0';
-            if (frame % 2 == 1) {
-                if (frames[frame-1] + frames[frame] == 10) {
-                    frames[frame] = 10;
-                }
+            result += 10;
+            if (s[i+2] == 'X') {
+                result += 10 + (s[i+4] == 'X' ? 10 : (s[i+4] - '0'));
+            } else {
+                result += (s[i+2] == '/' ? 10 : (s[i+2] - '0') + (s[i+4] == '/' ? 10 : (s[i+4] - '0')));
             }
-            frame++;
+            i += 2;
+        } else if (s[i+1] == '/') {
+            result += 10;
+            result += (s[i+2] == 'X' ? 10 : (s[i+2] - '0'));
+            i += 3;
+        } else {
+            result += (s[i] == '-' ? 0 : (s[i] - '0')) + (s[i+1] == '-' ? 0 : (s[i+1] - '0'));
+            i += 2;
         }
+        frame++;
     }
-    for (int i = 0; i < 10; i++) {
-        total += frames[i];
-    }
-    return total;
+    
+    return result;
 }
 
 int main() {
