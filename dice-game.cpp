@@ -10,11 +10,15 @@ int main() {
     cin >> m;
 
     double sum = 0.0;
-    // Calculate probability where Peter rolls strictly higher than Colin
-    for(int i = 1; i < m; i++) { 
-        sum += (1.0 - (1.0 / (double)m)) * ((n-m) / (double)n); 
+    
+    // Calculate probability where Colin rolls 1 to m-1
+    for(int i = 1; i < m; i++) {
+        for(int j = i + 1; j <= n; j++) {
+            sum += (1.0 / (double)m) * (1.0 / (double)n);
+        }
     }
-    cout << fixed << setprecision(10) << sum << endl;
+
+    cout << fixed << setprecision(10) << sum / ((double)(m-1) * (n-m)) << endl;
 
     return 0;
 }

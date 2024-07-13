@@ -26,14 +26,14 @@ int main() {
     int result = greatestCommonDivisor(num1, num2);
     std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
 
-    std::string mainString;
+    std::string mainString, target;
     std::cout << "Enter the main string: ";
+    std::cin >> std::ws; // add this line
     std::getline(std::cin, mainString);
-
-    std::string target;
     std::cout << "Enter the target string: ";
+    std::cin >> std::ws; // add this line
     std::getline(std::cin, target);
-    
+
     std::vector<int> indices = findIndices(mainString, target);
     for (int i : indices) {
         std::cout << "Index found at position: " << i << std::endl;
