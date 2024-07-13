@@ -1,30 +1,20 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int MastermindCode(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+    map<char,int> code_count, guess_count;
 
     for(int i=0; i<4; i++) {
-        char c = code[i];
-        if(guess[i] == c) {
-            blackPegs++;
-        }
+        code_count[code[i]]++;
+        guess_count[guess[i]]++;
     }
 
     for(int i=0; i<6; i++) {
-        char c = code[i%4];
-        if(c != guess[0]) {
-            int j;
-            for(j=1; j<4; j++) {
-                if(guess[j] == c) {
-                    whitePegs++;
-                    break;
-                }
-            }
+        if(code_count['A'+i] > 0 && guess_count['A'+i] > 0) {
+            black += min(code_count['A'+i], guess_count['A'+i]);
         }
     }
 
-    return blackPegs + whitePegs;
+    white = max(0,4 - black);
+
+    return make_pair(white,black).second;
 }
