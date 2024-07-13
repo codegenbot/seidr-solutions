@@ -1,21 +1,14 @@
-```
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 
 double vectorDistance(int n) {
-    double x1[n], x2[n];
-    
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> x1[i] >> x2[i];
+        int a, b;
+        cin >> a >> b;
+        sum += pow(a - b, 2);
     }
-
-    double sum = 0.0;
-
-    for (int i = 0; i < n; i++) {
-        sum += pow(x2[i] - x1[i], 2);
-    }
-    
     return sqrt(sum);
 }
 
