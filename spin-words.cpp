@@ -19,3 +19,6 @@ string spinWords(string str) {
     }
     return result.substr(0, result.length() - 1);
 }
+
+int main() {
+}
