@@ -1,11 +1,8 @@
-#include <iostream>
-#include <string>
-
+```c++
 int main() {
-    std::string str;
+    int x;
     std::cout << "Enter an integer: ";
-    std::cin >> std::ws; 
-    std::getline(std::cin, str); 
-    int x = stoi(str);
+    while (std::cin.get() != '\n') { std::cin.ignore(); }
+    std::cin >> x;
     std::cout << (x % 3 == 0 && x % 5 == 0 ? "FizzBuzz" : x % 3 == 0 ? "Fizz" : x % 5 == 0 ? "Buzz" : std::to_string(x)) << std::endl;
 }
