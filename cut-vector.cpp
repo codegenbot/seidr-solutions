@@ -1,36 +1,42 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <climits>  
+#include <cmath>  
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> result;
+vector<vector<int>> cutVector(vector<int> nums) {
+    int min_diff = INT_MAX;
+    int split_idx = -1;
     
-    for (int i = 1; i <= n; i++) {
-        if (i == n || abs(nums[i] - nums[0]) > abs(nums[i-1] - nums[0])) {
-            result.push_back({nums.begin(), nums.begin() + i});
-            nums.erase(nums.begin());
-            break;
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j <= i; j++) {
+            left_sum += nums[j];
+        }
+        
+        for (int j = i + 1; j < nums.size(); j++) {
+            right_sum += nums[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            split_idx = i;
         }
     }
     
-    result.push_back({nums.begin(), nums.end()});
+    vector<vector<int>> result(2);
+    
+    for (int i = 0; i <= split_idx; i++) {
+        result[0].push_back(nums[i]);
+    }
+    
+    for (int i = split_idx + 1; i < nums.size(); i++) {
+        result[1].push_back(nums[i]);
+    }
     
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    vector<vector<int>> res = cutVector(nums);
-    for (auto& v : res) {
-        for (int x : v) cout << x << " ";
-        cout << endl;
-    }
-    
-    return 0;
 }
