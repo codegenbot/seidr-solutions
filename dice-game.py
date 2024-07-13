@@ -1,9 +1,7 @@
-n, m = map(int, input().split())
-total_outcomes = n * m
-favorable_outcomes = 0
+n = int(input())
+m = int(input())
 
-for i in range(1, n+1):
-    favorable_outcomes += min(m, i-1)
-
-probability = favorable_outcomes / total_outcomes
-print(probability)
+if n < m:
+    print(round((m - n) / (n * m), 2))
+else:
+    print(round((n - m + 1) / (n * m), 2))
