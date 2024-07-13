@@ -1,10 +1,11 @@
+```
 def bowling_score(frames):
     score = 0
     frame_num = 1
     for i in range(0, len(frames), 2):
         if frames[i] == 'X':
             if frame_num < 10:
-                score += 10 + int(frames[2*i+2])
+                score += 10 + int(frames[2*i+1])
             else:
                 score += 10 + max(int(frames[2*i+1]), 10)
             frame_num += 1
