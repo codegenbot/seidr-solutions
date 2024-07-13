@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def valid_date(date):
     mmddyyyy = date.replace('-', '')
