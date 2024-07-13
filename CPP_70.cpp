@@ -10,18 +10,21 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     while (!lst.empty()) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            std::sort(lst.begin(), lst.end());
+            sort(lst.begin(), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    // Your code here
+    std::vector<int> test = {5, 2, 8, 1, 9};
+    for (int i : strange_sort_list(test)) {
+        std::cout << i << " ";
+    }
     return 0;
 }
