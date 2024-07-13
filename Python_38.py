@@ -9,19 +9,19 @@ def decode_cyclic():
             
     print("Please enter the position at which you want to decode (1-indexed):")
     while True:
-        pos = int(input())
-        if 1 <= pos <= len(s):
-            break
-        else:
-            print("Invalid input. Please enter a number between 1 and", len(s), "inclusive.")
+        try:
+            pos = int(input())
+            if 1 <= pos <= len(s):
+                break
+            else:
+                print("Invalid input. Please enter a number between 1 and", len(s), "inclusive.")
+        except ValueError:
+            print("Invalid input. Please enter an integer."
             
     decoded = ""
-    while True:        
-        for i in range(len(s) * 2):
-            if i < (pos - 1) // 2:
-                decoded += s[i % len(s)]
-            else:
-                decoded += s[(i - 1) % len(s)]
-        cont = str(input("Do you want to decode again? (yes/no): "))
-        if cont.lower() == 'no':
-            return decoded
+    for i in range(pos - 1, len(s) * 2):
+        if i % len(s) < (pos - 1) % len(s):
+            decoded += s[i % len(s)]
+        else:
+            decoded += s[(i - pos + 1) % len(s)]
+    return decoded
