@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -10,11 +10,12 @@ int main() {
     cin >> m;
 
     cout << "The probability that Peter rolls strictly higher than Colin is: ";
-    double total = 0.0;
     for(int i = 1; i < n; i++) {
-        total += (n - i) / (double)(n*m); 
+        double prob = (n - i) / (double)(n*m); 
+        std::string str = std::to_string(prob);
+        cout << str << " "; 
     }
-    cout << std::fixed << std::setprecision(10) << total << endl;
+    cout << endl;
 
     return 0;
 }

@@ -1,26 +1,27 @@
-```cpp
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
+    
+    // Count correct positions
     for (int i = 0; i < 4; ++i) {
-        int c_count = 0, g_count = 0;
-        for (char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
-            if (c == code[i]) c_count++;
-            if (c == guess[i]) g_count++;
-        }
         if (code[i] == guess[i]) {
             black++;
-        } else if (c_count > 0 && g_count > 0) {
-            white += std::min(c_count, g_count);
         }
     }
+    
+    // Count correct colors, but wrong position
+    std::array<int, 6> code_counts({0});
+    std::array<int, 6> guess_counts({0});
+    for (char c : code) {
+        ++code_counts[c - 'A'];
+    }
+    for (char g : guess) {
+        ++guess_counts[g - 'A'];
+    }
+    
+    for (int i = 0; i < 6; ++i) {
+        white += std::min(code_counts[i], guess_counts[i]);
+    }
+    
     return black + white;
-}
-
-int main() {
-    std::string code = "XXXX";  
-    std::string guess = "XXXX";  
-    int result = mastermind(code, guess);
-    std::cout << result << std::endl;
-    return 0;
 }
