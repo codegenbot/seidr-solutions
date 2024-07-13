@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -27,3 +28,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
