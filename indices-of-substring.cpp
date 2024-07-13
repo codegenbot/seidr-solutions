@@ -8,12 +8,14 @@ int main() {
     std::cin.getline(text, 100);
     std::cin.getline(target, 100);
 
+    char lowercaseText[100];
     for (int i = 0; text[i] != '\0'; ++i) {
-        text[i] = std::tolower(text[i]);
+        lowercaseText[i] = std::tolower(text[i]);
     }
 
+    char lowercaseTarget[100];
     for (int i = 0; i < strlen(target); ++i) {
-        target[i] = std::tolower(target[i]);
+        lowercaseTarget[i] = std::tolower(target[i]);
     }
 
     if (strlen(target) == 0) {
@@ -28,7 +30,7 @@ int main() {
     for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (std::tolower(text[i + j]) != std::tolower(target[j])) {
+            if (lowercaseText[i + j] != lowercaseTarget[j]) {
                 found = false;
                 break;
             }
