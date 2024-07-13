@@ -1,4 +1,11 @@
-Here is the Python solution for the problem:
+def fuel_cost():
+    n = int(input())
+    total_fuel = 0
+    for _ in range(n):
+        num = int(input())
+        new_num = (num // 3) - 2
+        total_fuel += new_num
+    print(total_fuel)
 
-def fuel_cost(fuel_integers):
-    return sum((i//3)-2 for i in fuel_integers)
+
+fuel_cost()
