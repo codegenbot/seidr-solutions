@@ -1,5 +1,9 @@
-Here is the solution:
-
-def substitution_cipher(input1, input2, input3):
-    cipher = str.maketrans(input1, input2)
-    return str(input3).translate(cipher)
+def substitution_cipher(cipher1, cipher2, text):
+    result = ""
+    for char in text:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
+        else:
+            result += char
+    return result
