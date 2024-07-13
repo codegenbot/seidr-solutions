@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-auto spinWords(std::string str) -> std::string {
+std::string spinWords(const std::string& str) {
     std::vector<std::string> words;
     
     std::string word = "";
@@ -29,3 +29,4 @@ auto spinWords(std::string str) -> std::string {
     }
     
     return result;
+}
