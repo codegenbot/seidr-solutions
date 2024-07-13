@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <limits>
 #include <cmath>
@@ -7,7 +8,7 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> &nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
-
+    
     for (int i = 0; i < n - 1; i++) {
         int diff = abs(nums[i] - nums[i + 1]);
         if ((i == 0 || nums[0] == nums[i]) && (n - 2 == i || nums[n - 1] == nums[i])) {
