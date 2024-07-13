@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -11,7 +12,6 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    int count = specialFilter({1, 11, 12, 21, 22, 31, 32, 41, 42});
-    std::cout << "The number of special numbers is: " << count << std::endl;
+    assert(specialFilter({}) == 0);
     return 0;
 }
