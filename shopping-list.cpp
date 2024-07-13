@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -12,11 +11,9 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices = {1.0f, 2.0f, 3.0f};
-    std::vector<float> discounts = {0.05f, 0.10f, 0.15f};
-    
-    double total = shoppingList(prices, discounts);
-    std::cout << "Total price: " << total << std::endl;
-    
+    std::vector<float> prices = {10.99, 5.00, 2.50};
+    std::vector<float> discounts = {0.05, 0.10, 0.15};
+    double result = shoppingList(prices, discounts);
+    std::cout << "Total price after discount: $" << result << std::endl;
     return 0;
 }
