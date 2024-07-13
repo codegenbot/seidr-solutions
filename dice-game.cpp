@@ -1,20 +1,9 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double getProbability(int n, int m) {
-    double total = (double)n * m;
-    double p = 0;
-    
-    for(int i = 1; i <= min(n, m); i++) {
-        p += ((n - i) / (double)n) * (m - i) / (double)m;
+double probability(int n, int m) {
+    double sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += 1.0 / n;
     }
-    
-    return p / total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << setprecision(2) << getProbability(n, m) << endl;
-    return 0;
+    return (n - m) * (1.0 / m) + sum;
 }
