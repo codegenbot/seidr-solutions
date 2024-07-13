@@ -1,12 +1,13 @@
+```c++
 #include <vector>
 
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> leaders;
     
-    for (int i = 0; i < n; ++i) {
+    for (int i = n - 1; i >= 0; --i) {
         bool is_leader = true;
-        for (int j = i + 1; j <= i; ++j) {
+        for (int j = i + 1; j < n; ++j) {
             if (arr[i] < arr[j]) {
                 is_leader = false;
                 break;
@@ -19,6 +20,7 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     }
     
     return leaders;
+
 }
 
 int main() {
