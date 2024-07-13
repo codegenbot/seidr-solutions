@@ -27,5 +27,7 @@ def mean_absolute_deviation():
         if response == "no":
             break
 
+    input("Press Enter to continue...")
+
 if __name__ == "__main__":
     mean_absolute_deviation()
