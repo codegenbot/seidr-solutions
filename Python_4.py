@@ -1,7 +1,7 @@
 ```
 if __name__ == "__main__":
+    numbers = []
     def mean_absolute_deviation():
-        numbers = []
         while True:
             if not numbers:
                 input_str = input("Enter some numbers (space-separated): ")
