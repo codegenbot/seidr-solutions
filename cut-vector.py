@@ -2,21 +2,19 @@ n = int(input())
 arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
-left_sum = 0
-right_sum = total_sum
-min_diff = total_sum
+half_sum = total_sum // 2
+min_diff = float("inf")
 cut_index = -1
 
-for i in range(n):
-    left_sum += arr[i]
-    right_sum -= arr[i]
-    diff = abs(left_sum - right_sum)
+for i in range(1, n):
+    prefix_sum = sum(arr[:i])
+    diff = abs(total_sum - 2 * prefix_sum)
     if diff < min_diff:
         min_diff = diff
         cut_index = i
 
-output1 = arr[: cut_index + 1]
-output2 = arr[cut_index + 1 :]
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 
-print(*output1)
-print(*output2)
+print(*subvector1)
+print(*subvector2)
