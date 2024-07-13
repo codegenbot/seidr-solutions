@@ -28,17 +28,17 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input;
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
-        std::getline(std::cin, input);
-
-        if (!input.empty()) { 
-            std::cout << "Camel Case: " << camelCase(input) << std::endl;
-        }
-
+        std::string input;
         char c;
-        while((c = std::cin.get()) != '\n' && c != EOF);
+        while((c = std::cin.get()) != '\n' && c != EOF)
+            input += c;
+
+        if(c == '\n' || c == EOF)
+            break;
+
+        std::cout << "Camel Case: " << camelCase(input) << std::endl;
     }
     return 0;
 }
