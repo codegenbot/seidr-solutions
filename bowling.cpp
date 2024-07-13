@@ -1,40 +1,35 @@
-int score(const string& bowls) {
-    int totalScore = 0;
+int score(string input) {
+    int total_score = 0;
     int frame = 0;
-    for (int i = 0; i < bowls.size() && frame < 10; ++i) {
-        if (bowls[i] == 'X') {
-            totalScore += 10;
-            if (i + 2 < bowls.size()) {
-                if (bowls[i + 2] == 'X') {
-                    totalScore += 10;
-                } else {
-                    if (bowls[i + 1] == '/') {
-                        totalScore += 10;
-                    } else {
-                        totalScore += bowls[i + 1] - '0';
-                    }
-                }
+    for (int i = 0; i < input.size() && frame < 10; i++) {
+        if (input[i] == 'X') {
+            total_score += 10;
+            if (input[i + 2] == 'X') {
+                total_score += 10 + (input[i + 4] == 'X' ? 10 : (input[i + 4] == '-' ? 0 : input[i + 4] - '0'));
+            } else {
+                total_score += (input[i + 2] == '/' ? 10 : (input[i + 2] == '-' ? 0 : input[i + 2] - '0'));
+                total_score += (input[i + 4] == '/' ? 10 : (input[i + 4] == '-' ? 0 : input[i + 4] - '0'));
             }
             frame++;
-        } else if (bowls[i] == '/') {
-            totalScore += 10 - (bowls[i - 1] - '0');
-            if (i + 1 < bowls.size()) {
-                totalScore += bowls[i + 1] - '0';
-            }
+            i += 2;
+        } else if (input[i + 1] == '/') {
+            total_score += 10;
+            total_score += (input[i + 2] == 'X' ? 10 : (input[i + 2] == '-' ? 0 : input[i + 2] - '0'));
             frame++;
-        } else if (bowls[i] == '-') {
-            // Do nothing for a miss
+            i += 2;
         } else {
-            totalScore += bowls[i] - '0';
+            total_score += (input[i] == '-' ? 0 : input[i] - '0');
+            total_score += (input[i + 1] == '-' ? 0 : input[i + 1] - '0');
+            i += 1;
             frame++;
         }
     }
-    return totalScore;
+    return total_score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << score(bowls) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
