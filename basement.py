@@ -1,7 +1,9 @@
+import numpy as np
+
+
 def basement(input_vector):
-    total, i = 0, 0
-    while True:
-        total += input_vector[i]
-        if total < 0:
-            return i + 1
-        i += 1
+    return (
+        len(np.where(np.cumsum(input_vector) < 0)[0])
+        if any(np.cumsum(input_vector) < 0)
+        else -1
+    )
