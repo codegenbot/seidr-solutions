@@ -1,11 +1,12 @@
 from typing import List
 
 def concatenate():
-    while True:
-        words = input("Enter words separated by space: ").split()
-        if words:
-            break
+    expected = input("Enter expected output: ")
+    words = input("Enter words separated by space: ").split()
+    if not words:
+        print("No words entered.")
     result = ', '.join(map(str.lower, words))
-    print(result)
-
-concatenate()
+    if result == expected:
+        print(result)
+    else:
+        print(f"Expected {expected}, got {result} instead.")
