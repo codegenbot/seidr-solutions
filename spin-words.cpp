@@ -1,15 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
+    
     std::size_t pos = 0;
     
     while ((pos = str.find(' ')) != std::string::npos) {
-        std::size_t wordLength = pos;
-        
         if (str.length() - pos > 4) {
             std::reverse(str.substr(pos).begin(), str.substr(pos).end());
         }
