@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
-using namespace std;
 
-int firstNegative(vector<int>& nums) {
+int firstNegative(std::vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         for (int j = 0; j <= i; j++) {
