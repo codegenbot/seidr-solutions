@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int pennies = 0;
@@ -8,8 +8,9 @@ int main() {
     int quarters = 0;
 
     std::cout << "Enter the number of cents: ";
-    int cents;
-    std::cin >> cents;
+    std::string input;
+    std::getline(std::cin, input);
+    int cents = std::stoi(input);
 
     quarters = cents / 25;
     cents %= 25;
