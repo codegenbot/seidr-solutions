@@ -3,7 +3,8 @@
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
-    int code_counts[6] = {0};
+    int code_counts[6] = {0, 0, 0, 0, 0, 0};
+    
     for (char c : code) {
         code_counts[c - 'A']++;
     }
@@ -21,4 +22,3 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-}
