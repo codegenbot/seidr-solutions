@@ -2,11 +2,11 @@
 #include <string>
 
 int main() {
-    string cipher1, cipher2, text;
-    cin >> cipher1 >> cipher2 >> text;
+    std::string cipher1, cipher2, text;
+    std::cin >> cipher1 >> cipher2 >> text;
     
     for (char &c : text) {
-        for (int i = 0; i < cipher1.size(); ++i) {
+        for (size_t i = 0; i < cipher1.size(); ++i) {
             if (c == cipher1[i]) {
                 c = cipher2[i];
                 break;
@@ -14,7 +14,7 @@ int main() {
         }
     }
     
-    cout << text << endl;
+    std::cout << text << std::endl;
     
     return 0;
 }
