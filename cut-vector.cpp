@@ -7,30 +7,32 @@ int main() {
     }
     
     int n = nums.size();
-    int diff = INT_MAX;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
+    
+    int halfSum = sum / 2;
+    int prefixSum = 0;
     int cutIndex = -1;
     
-    for (int i = 1; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            rightSum += nums[j];
-        }
-        
-        if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
+    for (int i = 0; i < n; i++) {
+        prefixSum += nums[i];
+        if (prefixSum >= halfSum) {
             cutIndex = i;
+            break;
         }
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subvector1(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> subvector2(nums.begin() + cutIndex + 1, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
     }
-    cout << endl;
-    for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+    
+    for (int num : subvector2) {
+        cout << num << endl;
     }
     
     return 0;
