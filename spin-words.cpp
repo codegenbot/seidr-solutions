@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -10,7 +9,7 @@ string spinWords(string sentence) {
             wordLength = i - result.length();
             if (wordLength >= 5) {
                 for (int j = wordLength - 1; j >= 0; j--)
-                    result += sentence.substr(i - wordLength, 1);
+                    result += sentence[result.length() + j];
             } else
                 result += sentence.substr(result.length(), wordLength);
             if (i != sentence.length())
@@ -24,6 +23,7 @@ int main() {
     string input;
     cout << "Enter a sentence: ";
     getline(cin, input);
-    cout << spinWords(input) << endl;
+    string result = spinWords(input);
+    cout << "Resulting string: " << result << endl;
     return 0;
 }
