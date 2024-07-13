@@ -5,10 +5,8 @@
 char toLower(char c) {
     if (c >= 'A' && c <= 'Z') {
         return c - 'A' + 'a';
-    } else if (c >= 'a' && c <= 'z') {
-        return c;
     }
-    return ' '; // Return a space for non-alphabetic characters
+    return c;
 }
 
 int main() {
