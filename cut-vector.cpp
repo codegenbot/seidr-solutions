@@ -1,50 +1,49 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<vector<int>> res;
-    
-    for (int i = 1; i < n; i++) {
-        if ((vec[i] - vec[0]) == (vec[n-1] - vec[i-1])) {
-            res.push_back({vec.begin(), vec.end()});
-            return {{}, {}};
-        }
-    }
-    
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_idx = 0;
-    
-    for (int i = 1; i < n; i++) {
-        int diff = abs(vec[i] - vec[0]) - abs(vec[n-1] - vec[i-1]);
-        if (diff < min_diff) {
+    int cut_index = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= min_diff) {
             min_diff = diff;
-            cut_idx = i;
+            cut_index = i;
         }
     }
-    
-    res.push_back({vec.begin(), vec.begin() + cut_idx});
-    res.push_back({vec.begin() + cut_idx, vec.end()});
-    
-    return res;
+    vector<int> left = {v[0]};
+    for (int i = 0; i < cut_index; i++) {
+        left.push_back(v[i + 1]);
+    }
+    vector<int> right = {v[cut_index + 1]};
+    for (int i = cut_index + 1; i < v.size(); i++) {
+        right.push_back(v[i]);
+    }
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> v[i];
     }
-    
-    vector<vector<int>> result = cutVector(vec);
-    
-    for (auto v : result) {
-        for (int num : v) {
-            cout << num << " ";
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        if (i > 0) {
+            cout << ", ";
         }
-        cout << endl;
+        cout << result.first[i];
     }
-    
+    cout << "], [";
+    for (int i = 0; i < result.second.size(); i++) {
+        if (i > 0) {
+            cout << ", ";
+        }
+        cout << result.second[i];
+    }
+    cout << "]" << endl;
     return 0;
 }
