@@ -1,7 +1,9 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    coefficient_sum = sum([coeff for i, coeff in enumerate(xs) if i % 2 == 1])
-    return -coefficient_sum / xs[0]
+        raise ValueError("The polynomial must have an even number of coefficients")
+    a = xs[-1]
+    b = -sum(c for c in xs[:-1])
+    x = -b / (2 * a)
+    return round(x, 2)
