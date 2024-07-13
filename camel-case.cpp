@@ -3,29 +3,29 @@
 
 std::string camelCase(std::string str) {
     str.erase(0, str.find_first_not_of(' ')); // Remove leading space(s)
-    str.erase(0, str.find('-')); // Remove leading hyphen(s)
+    while (str.find('-') == 0) {
+        str.erase(0, 1);
+    }
 
     std::string result = "";
-    bool isNextUpper = false;
+    bool isNextUpper = true;
     for (char c : str) {
-        if (c == '-') {
-            continue; // Skip hyphens
-        } else if (c == ' ') {
-            if (!isNextUpper) { // Add space only if not already present
-                result += ' ';
-            }
-            isNextUpper = false;
-        } else {
-            if (!isNextUpper) {
-                if (result.empty()) { // Check for first character
-                    result += std::toupper(c);
-                } else {
-                    result += c;
+        if (c == '-' || c == ' ') {
+            // New word
+            if (!result.empty()) {
+                if (!isNextUpper && result.back() != '-') {
+                    result.back() ? (result += std::tolower(result.back())) : (result += std::toupper(result.back()));
                 }
-                isNextUpper = true;
             } else {
-                result += std::tolower(c);
+                isNextUpper = true;
             }
+        } else {
+            // Part of current word
+            if (c == ' ') {
+                continue;
+            }
+            result += isNextUpper ? std::toupper(c) : std::tolower(c);
+            isNextUpper = !isNextUpper;
         }
     }
     return result;
