@@ -1,18 +1,15 @@
 #include <algorithm>
 using namespace std;
 
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = tolower(c);
-            if (c == 'z' || c == 'Z') {
-                c = isupper(c) ? 'a' : 'Z';
-            } else {
-                c = toupper(c);
-            }
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+            result += c;
+        } else {
+            result += s[i];
         }
-        result += c;
     }
     reverse(result.begin(), result.end());
     return result;
