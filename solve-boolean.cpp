@@ -1,4 +1,3 @@
-```cpp
 #include <cstddef>
 #include <string>
 #include <iostream>
@@ -11,19 +10,15 @@ bool solveBoolean(std::string expression) {
     while (i < expression.length()) {
         if (expression[i] == 'T') {
             result = true;
-            break;
         } else if (expression[i] == 'F') {
             result = false;
-            break;
         } else if (expression[i] == '|') {
             i++;
             bool temp = !result;
             while (i < expression.length() && expression[i] != '&') {
                 i++;
             }
-            if (i < expression.length()) {
-                i++;
-            }
+            i++; // Advance to the next character
             result = temp;
         } else if (expression[i] == '&') {
             i++;
@@ -31,9 +26,7 @@ bool solveBoolean(std::string expression) {
             while (i < expression.length() && expression[i] != '|') {
                 i++;
             }
-            if (i < expression.length()) {
-                i++;
-            }
+            i++; // Advance to the next character
             result &= temp;
         }
     }
@@ -43,15 +36,9 @@ bool solveBoolean(std::string expression) {
 
 int main() {
     std::string expression;
-    while (true) {
-        std::cout << "Enter the Boolean expression: ";
-        std::getline(std::cin, expression);
-        if (expression.find_first_of("TF|&") == std::string::npos) {
-            break; // valid input
-        }
-        std::cout << "Invalid input. Please try again." << std::endl;
-    }
-
+    std::cout << "Enter the Boolean expression: ";
+    std::getline(std::cin, expression);
+    std::cin.ignore();
     bool result = solveBoolean(expression);
     if (result) {
         std::cout << "Result: TRUE" << std::endl;
