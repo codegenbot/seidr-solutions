@@ -1,4 +1,3 @@
-```
 tweet = input("Enter your tweet: ")
 def validate_tweet(tweet):
     tweet = tweet.strip()
