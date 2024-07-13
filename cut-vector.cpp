@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+#pragma GCC target "cxx11"
+
 vector<vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int cutIndex = -1;
@@ -21,12 +23,12 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     vector<vector<int>> result(2);
-    result[0].resize(cutIndex+1);
+    result[0].reserve(cutIndex+1);
     for(int i=0; i<=cutIndex; i++) 
-        result[0][i] = v[i];
-    result[1].resize(v.size()-cutIndex-1);
+        result[0].push_back(v[i]);
+    result[1].reserve(v.size()-cutIndex-1);
     for(int i=cutIndex+1; i<v.size(); i++) 
-        result[1][i-cutIndex-1] = v[i];
+        result[1].push_back(v[i]);
     
     return result;
 }
