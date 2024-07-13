@@ -41,21 +41,16 @@ bool solveBoolean(std::string expression) {
 
 int main() {
     std::string expression;
+
     while (true) {
         std::cout << "Enter the Boolean expression: ";
-        std::string temp;
-        while (std::getline(std::cin, temp)) {
-            for (char c : temp) {
-                if (c != 'T' && c != 'F' && c != '|' && c != '&') {
-                    std::cout << "Invalid input. Please try again." << std::endl;
-                    return 0; 
-                }
-            }
-        expression += temp;
+        getline(std::cin, expression);
+
         if (!expression.empty()) {
             break; 
         } else {
             std::cout << "Invalid input. Please try again." << std::endl;
+            expression.clear();  
         }
     }
 
