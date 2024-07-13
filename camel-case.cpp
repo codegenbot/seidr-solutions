@@ -1,30 +1,31 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string camelCase(std::string str) {
-    std::istringstream iss(str);
-    std::string word;
+    str.erase(0, str.find_first_not_of(' ')); // Remove leading space(s)
+    str.erase(0, str.find('-')); // Remove leading hyphen(s)
 
     std::string result = "";
-    bool capitalizeNext = false;
-
-    while (getline(iss, word, ' ')) {
-        if (!word.empty()) {
-            if (capitalizeNext) {
-                result += std::toupper(word[0]);
-                for (int i = 1; i < word.length(); i++) {
-                    result += std::tolower((char)(word[i]));
-                }
-            } else {
-                result += word;
+    bool isNextUpper = false;
+    for (char c : str) {
+        if (c == '-' || c == ' ') {
+            if (!isNextUpper && c != '-') {
+                result += std::toupper(c);
+                isNextUpper = true;
+            } else if (c == '-') {
+                continue;
             }
-            capitalizeNext = !word.empty() && word[0] == '-';
-        } else if (!capitalizeNext) {
-            capitalizeNext = true;
+            if (c == ' ') {
+                if (result.back() != ' ') { // Add space only if not already present
+                    result += ' ';
+                }
+                isNextUpper = false;
+            }
+        } else {
+            result += c; 
+            isNextUpper = (c >= 'A' && c <= 'Z'); 
         }
     }
-
     return result;
 }
 
