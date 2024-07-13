@@ -1,4 +1,6 @@
-bool solveBoolean(std::string expression) {
+using namespace std;
+
+bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<bool> valStack;
 
