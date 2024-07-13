@@ -29,17 +29,17 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         if (text[i] == target[j]) {
             i++;
             j++;
-        } else {
-            if (j != 0) {
-                j = lps[j - 1];
-            } else {
-                i++;
-            }
         }
 
         if (j == m) {
             result.push_back(i - j);
             j = lps[j - 1];
+        } else if (i < n && text[i] != target[j]) {
+            if (j != 0) {
+                j = lps[j - 1];
+            } else {
+                i++;
+            }
         }
     }
 
