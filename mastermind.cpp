@@ -1,8 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <utility>
-
+```c++
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -25,4 +21,4 @@ int mastermind(string code, string guess) {
     // Subtract the correct colors (black pegs)
     blackPegs -= whitePegs;
 
-    return std::make_pair(whitePegs, blackPegs);
+    return blackPegs;
