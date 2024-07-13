@@ -1,4 +1,3 @@
-````
 bool solveBoolean(std::string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
