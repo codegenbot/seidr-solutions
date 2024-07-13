@@ -1,8 +1,9 @@
 #include <iostream>
+using namespace std;
 
 int main() {
     int cents;
-    std::cin >> cents;
+    cin >> cents;
 
     int quarters = cents / 25;
     cents %= 25;
@@ -15,10 +16,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << "\n";
-    std::cout << nickles << "\n";
-    std::cout << dimes << "\n";
-    std::cout << pennies << "\n";
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
 
     return 0;
 }
