@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     decoded = ""
     n = len(s)
@@ -7,7 +6,7 @@ def decode_cyclic(s: str):
         prefix = s[:half_len]
     else:
         half_len = (n + 1) // 2
-        prefix = s[:half_len]
+        prefix = s[n//2:]
 
     decoded = prefix + s[half_len:]
     
