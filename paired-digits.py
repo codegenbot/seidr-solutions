@@ -1,3 +1,5 @@
 ```
+import itertools
 def paired_digits(s):
-    return sum(int(x) for x in s if x == s[i+1] or i == len(s)-1)
+    s = str(s)
+    return sum(int(digit) * 2 for _, digit in itertools.groupby(s))
