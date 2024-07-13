@@ -1,37 +1,34 @@
-int bowlingScore(string input) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+int bowlingScore(string s) {
     int score = 0;
-    bool firstBallInFrame = true;
-    int frame = 1;
-    
-    for (char c : input) {
-        if (c == '/') {
-            if (firstBallInFrame) {
-                score += 10 - ('X' - '0');
-            } else {
-                score += min(10 - ('X' - '0'), stoi(string() + c));
-            }
-            firstBallInFrame = true;
-        } else if (c == 'X') {
-            score += 10;
-            frame++;
-            firstBallInFrame = true;
-        } else {
-            int ball =stoi(string() + c);
-            if (firstBallInFrame) {
-                score += ball;
-                firstBallInFrame = false;
-            } else {
-                if (ball == 10) {
-                    score += 10;
-                    frame++;
-                    firstBallInFrame = true;
+    bool firstRollInFrame = true;
+
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '/') {
+            if (firstRollInFrame) {
+                if (s[i-1] != 'X') {
+                    int roll = (s[i-1] - '0');
+                    score += roll;
                 } else {
-                    score += min(10, ball);
-                    firstBallInFrame = false;
+                    score += 10;
                 }
+                firstRollInFrame = false;
+            } else {
+                int roll = 0;
+                for (; i < s.length() && (s[i] != '/' || s[i-1] == 'X'); i++) {
+                    if (s[i] - '0' > 9) {
+                        roll += 10;
+                        break;
+                    }
+                    roll += s[i] - '0';
+                }
+                score += roll;
             }
         }
     }
-    
+
     return score;
 }
