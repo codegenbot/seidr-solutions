@@ -5,10 +5,6 @@
 
 using namespace std;
 
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
