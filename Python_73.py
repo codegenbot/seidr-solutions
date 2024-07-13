@@ -8,17 +8,5 @@ def array_change(lst):
 
     return max_diff
 
-
-print("Welcome to the Array Change Problem!")
-
-while True:
-    try:
-        lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
-        if len(lst) < 2 or any(x <= 0 for x in lst):
-            print("List should contain at least two positive integers. Please enter again.")
-        else:
-            break
-    except ValueError:
-        print("Invalid input. Please enter a space-separated list of numbers.")
-
-print(array_change(lst))
+result = array_change(input("Enter the array: ").split())  
+check(result)
