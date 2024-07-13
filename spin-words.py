@@ -1,9 +1,8 @@
-def spin_words(text):
-    words = text.split()
-    result = []
-    for word in words:
-        if len(word) >= 5:
-            result.append(word[::-1])
-        else:
-            result.append(word)
-    return " ".join(result)
+Here is the Python solution:
+
+def spin_words(input_str):
+    words = input_str.split()
+    for i in range(len(words)):
+        if len(words[i]) >= 5:
+            words[i] = words[i][::-1]
+    return ' '.join(words)
