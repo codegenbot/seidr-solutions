@@ -1,22 +1,35 @@
-def solve_boolean():
-    expression = input()
+```
+def solve_boolean(expression):
     ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
     
     for char in expression:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
-            stack.pop()
-        elif char in 'TF':
-            stack.append(char == 'T')
-        elif char in ops:
-            while stack and (char == ')' or stack[-1] in ops):
-                if stack[-1] == '(':
-                    break
-                stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
-            stack.append(char)
-
-    return reduce(lambda x, y: ops[y](x, stack.pop()), [op for op in ops if op in stack], stack[-1])
+        if char != ' ':
+            if char in 'TF':
+                stack.append('T' if char == 'T' else 'F')
+            elif char == '(':
+                stack.append(char)
+            elif char == ')':
+                while stack and stack[-1] != '(':
+                    right = stack.pop()
+                    op = stack.pop()
+                    left = stack.pop()
+                    stack.append(ops[op](left, right))
+                stack.pop()  # Remove the (
+            elif char in ops:
+                while (stack and stack[-1] in ops) or (stack and stack[-1] == '('):
+                    if stack and stack[-1] == '(':
+                        break
+                    right = stack.pop()
+                    op = stack.pop()
+                    left = stack.pop()
+                    stack.append(ops[op](left, right))
+                stack.append(char)
+    
+    while len(stack) > 1:
+        right = stack.pop()
+        op = stack.pop()
+        left = stack.pop()
+        stack.append(ops[op](left, right))
+    
+    return stack[0] if stack else 'T'
