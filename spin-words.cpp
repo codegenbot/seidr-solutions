@@ -1,5 +1,6 @@
 #include <string>
 #include <algorithm>
+#include <iostream>
 
 std::string spinWords(std::string str) {
     std::string word;
@@ -9,8 +10,7 @@ std::string spinWords(std::string str) {
         if (i == str.length() || str[i] == ' ') {
             if (!word.empty()) {
                 if (word.length() >= 5) {
-                    std::string reversedWord = word; // copy the string
-                    std::reverse(reversedWord.begin(), reversedWord.end());
+                    std::string reversedWord(word.rbegin(), word.rend());
                     result += reversedWord;
                 } else {
                     result += word;
@@ -30,8 +30,7 @@ std::string spinWords(std::string str) {
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            std::string reversedWord = word; // copy the string
-            std::reverse(reversedWord.begin(), reversedWord.end());
+            std::string reversedWord(word.rbegin(), word.rend());
             result += " ";
             result += reversedWord;
         } else {
