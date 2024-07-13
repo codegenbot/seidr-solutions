@@ -5,32 +5,36 @@
 
 using namespace std;
 
-void cutVector(const vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(const vector<int>& nums) {
     int n = nums.size();
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = 0;
+    int diff = INT_MAX;
     int cutIndex = 0;
-    int minDiff = INT_MAX;
 
-    for (int i = 0; i < n - 1; i++) {
-        leftSum += nums[i];
-        int rightSum = totalSum - leftSum;
-        int currentDiff = abs(leftSum - rightSum);
-        
-        if (currentDiff < minDiff) {
-            minDiff = currentDiff;
+    for (int i = 1; i < n; i++) {
+        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
+
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
             cutIndex = i;
         }
     }
 
-    for (int i = 0; i <= cutIndex; i++) cout << nums[i] << " ";
-    cout << endl;
-    for (int i = cutIndex + 1; i < n; i++) cout << nums[i] << " ";
-    cout << endl;
+    vector<int> firstSubvector(nums.begin(), nums.begin() + cutIndex);
+    vector<int> secondSubvector(nums.begin() + cutIndex, nums.end());
+
+    return make_pair(firstSubvector, secondSubvector);
 }
 
 int main() {
     vector<int> nums = {6310, 2545, 5656, 5646};
-    cutVector(nums);
+    auto result = cutVector(nums);
+
+    for (int num : result.first) cout << num << " ";
+    cout << endl;
+
+    for (int num : result.second) cout << num << " ";
+    cout << endl;
+
     return 0;
 }
