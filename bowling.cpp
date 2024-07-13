@@ -34,7 +34,7 @@ int getBowlingScore(string s) {
 
 int main() {
     string s;
-    std::cin >> s;
-    std::cout << getBowlingScore(s) << std::endl;
+    cin >> s;
+    cout << getBowlingScore(s) << endl;
     return 0;
 }
