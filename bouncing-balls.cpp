@@ -8,9 +8,7 @@ int main() {
     int numBounces;
 
     cin >> startHeight;
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin >> firstBounce;
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
