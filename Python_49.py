@@ -1,15 +1,14 @@
-```
-import math
-
-
-def modp(n: int, p: int) -> int:
+def modp(n: int, p: int) -> int | None:
     if math.gcd(n, p) != 1:
-        return -1
-    i = 0
-    while True:
-        i += 1
-        if (n * i) % p == 1:
-            return i
-
-
-print(modp(3, 5))
+        return None
+    a, b = 0, 1
+    q = n // p
+    r = n % p
+    while r != 0:
+        t = r
+        r = q % r * p
+        q, r = t, q
+    if q == 1:
+        return a
+    else:
+        return None
