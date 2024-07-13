@@ -1,6 +1,6 @@
+```c++
 #include <vector>
-#include <iostream>
-
+#include <iostream> 
 using namespace std;
 
 int luhn(vector<int> digits) {
