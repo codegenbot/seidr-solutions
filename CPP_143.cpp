@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <string>
 
 std::string words_in_sentence(std::string sentence) {
-    std::istringstream ss(sentence);
+    std::istringstream ss(sentence.c_str());
     std::string word;
     int count = 0;
     while (std::getline(ss, word, ' ')) {
@@ -18,12 +19,6 @@ int main() {
     assert(words_in_sentence("here is") == "is");
     std::string sentence;
     std::getline(std::cin, sentence);
-    
-    if (sentence.empty()) {
-        std::cerr << "Error: Invalid input. Please enter a valid sentence." << std::endl;
-        return 1; 
-    }
-    
     try {
         std::cout << words_in_sentence(sentence) << std::endl;
     } catch (...) {
