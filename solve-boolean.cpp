@@ -1,10 +1,9 @@
-```cpp
-#include <string>
 #include <stack>
+#include <string>
 
 bool solveBoolean(std::string expression) {
-    stack<char> opStack;
-    stack<bool> valStack;
+    std::stack<char> opStack;
+    std::stack<bool> valStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
