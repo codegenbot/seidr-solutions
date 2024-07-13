@@ -8,7 +8,11 @@ int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;
+    cin >> startHeight;
+    double bouncinessIndexInput;
+    cin >> bouncinessIndexInput;
+    firstBounce = bouncinessIndexInput;
+    cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
