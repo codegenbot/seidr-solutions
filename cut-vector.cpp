@@ -21,10 +21,8 @@ int main() {
     vector<int> v(n);
     for (auto &x : v) cin >> x;
     vector<int> res = cutVector(v);
-    cout << "First part: ";
     for (const auto &x : res[0]) cout << x << " ";
     cout << endl;
-    cout << "Second part: ";
     for (auto it = res[1].begin(); it != res[1].end(); ++it) {
         cout << *it << " ";
     }
