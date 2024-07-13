@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -10,9 +9,9 @@ string string_to_md5(const string& input) {
     for (int i = 0; i < 32; i++) {
         char c = ((input[i % input.size()] + i) * i) % 256;
         if(i < 2)
-            output += to_string(c);
+            cout << setw(2) << setfill('0') << static_cast<int>(c);
         else
-            output += hex << setfill('0') << setw(2) << static_cast<int>(c);
+            cout << std::setw(2) << std::setfill('0') << hex << setprecision(0) << static_cast<int>(c);
     }
     return output;
 }
