@@ -1,13 +1,9 @@
+```Python
 import math
 
 def gcd(a, b):
-    while b:
+    while b != 0:
         a, b = b, a % b
     return a
 
-def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-    return result
+print(gcd(661344,15686))  # prints: 2
