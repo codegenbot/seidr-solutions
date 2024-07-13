@@ -1,8 +1,7 @@
 int luhn(vector<int> digits) {
     int sum = 0;
-    bool isDouble = false;
-    for (int i = digits.size() - 1; i >= 0; i--) {
-        if (isDouble) {
+    for (int i = 0; i < digits.size(); i++) {
+        if ((i % 2 != 0)) {
             int temp = digits[i] * 2;
             if (temp > 9) {
                 temp -= 9;
@@ -11,7 +10,6 @@ int luhn(vector<int> digits) {
         } else {
             sum += digits[i];
         }
-        isDouble = !isDouble;
     }
     return sum;
 }
