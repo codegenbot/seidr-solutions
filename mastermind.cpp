@@ -1,6 +1,7 @@
 #include <string>
+#include <algorithm>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
@@ -12,8 +13,8 @@ int mastermind(string code, string guess) {
     }
 
     // Count correct colors, but wrong position
-    array<int, 6> code_counts = {0};
-    array<int, 6> guess_counts = {0};
+    int code_counts[6] = {0};
+    int guess_counts[6] = {0};
     for (char c : code) {
         ++code_counts[c - 'A'];
     }
@@ -22,7 +23,7 @@ int mastermind(string code, string guess) {
     }
 
     for (int i = 0; i < 6; ++i) {
-        white += min(code_counts[i], guess_counts[i]);
+        white += std::min(code_counts[i], guess_counts[i]);
     }
 
     return black + white;
