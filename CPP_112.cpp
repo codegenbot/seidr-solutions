@@ -1,16 +1,12 @@
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1 == v2;
 }
 
-vector<string> reverse_delete(string s, string c) {
+std::vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (int i = 0; i < s.length(); i++) {
@@ -26,7 +22,7 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     string palindromCheck = temp;
-    reverse(palindromCheck.begin(), palindromCheck.end());
+    std::reverse(palindromCheck.begin(), palindromCheck.end());
     result.push_back(temp);
     if (temp == palindromCheck) {
         result.push_back("True");
