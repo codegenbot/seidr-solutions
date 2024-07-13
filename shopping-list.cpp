@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <iomanip>
+#include <vector>
 using namespace std;
 
 float totalShoppingPrice(vector<float> prices, vector<float> discounts) {
@@ -26,3 +28,4 @@ int main() {
     }
     std::cout << std::fixed << std::setprecision(1) << totalShoppingPrice(prices, discounts) << std::endl;
     return 0;
+}
