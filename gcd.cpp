@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ vector<int> findIndices(string text, string target) {
         if (index == string::npos)
             break;
         result.push_back(index);
-        index += 1; // start searching from the next character
+        index += target.length(); // start searching from the next character
     }
     return result;
 }
