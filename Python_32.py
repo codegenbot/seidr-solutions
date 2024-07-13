@@ -1,6 +1,4 @@
-Here's the corrected code:
-
-```python
+```
 import math
 
 xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
