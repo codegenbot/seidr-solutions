@@ -1,3 +1,4 @@
+```
 #include <string>
 using namespace std;
 
@@ -42,6 +43,4 @@ bool solveBoolean(string s) {
     return (t1 == "T" && t2 == "T") || (t1 == "F" && t2 == "F");
 }
 
-int main() {
-    return solveBoolean("T|F"); // Change this to your desired input string
-}
+int main() { return solveBoolean("T|F"); }
