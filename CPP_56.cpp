@@ -1,10 +1,9 @@
 int stack_size = 0;
-for(int i=0; i<brackets.size(); i++){
-    if(brackets[i] == '<'){
+for (char bracket : brackets) {
+    if (bracket == '<') {
         stack_size++;
-    }
-    else if(brackets[i] == '>'){
-        if(stack_size <= 0) return false;
+    } else if (bracket == '>') {
+        if (stack_size <= 0) return false;
         stack_size--;
     }
 }
