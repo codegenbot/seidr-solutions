@@ -1,1 +1,6 @@
-print(sum((i//3)-2 for i in [int(x) for x in input("Enter space-separated numbers: ").split()]))
+```
+def fuel_cost(vector):
+    return sum((i//3-2) for i in vector)
+
+vector = [int(i) for i in input().split()]
+print(fuel_cost(vector))
