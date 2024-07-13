@@ -1,17 +1,17 @@
-code = input().strip()[:4]
-guess = input().strip()[:4]
+code = input("Enter code: ")
+guess = input("Enter guess: ")
 
 import collections
 
-black_pegs = sum(c == g for c, g in zip(code, guess))
+black_pegs = sum(c == g for c, g in zip(code[:4], guess[:4]))
 
-code_freq = collections.Counter(code)
-guess_freq = collections.Counter(guess)
+code_freq = collections.Counter(code[:4])
+guess_freq = collections.Counter(guess[:4])
 
 white_pegs = (
     sum(
         min(code_freq[c], guess_freq[c])
-        for c in code
+        for c in code[:4]
         if code_freq[c] > 0 and guess_freq[c] > 0
     )
     - black_pegs
