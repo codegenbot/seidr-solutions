@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def array_change(lst):
     max_diff = 0
     for i in range(1, len(lst)):

@@ -1,1 +1,3 @@
-check(double_the_difference, [-1, 2, 3, 4])
+```
+def double_the_difference(input_list):
+    return (max(input_list) - min(input_list)) * 2
