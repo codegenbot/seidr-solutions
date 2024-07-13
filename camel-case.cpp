@@ -7,15 +7,15 @@ std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
-    for (auto c : str) {
+    for (char c : str) {
         if (c == '-') {
             result += ' '; 
             capitalize = true; 
         } else if (capitalize) { 
-            result += _toupper(c);
+            result += toupper(c);
             capitalize = false; 
         } else {
-            result += _tolower(c); 
+            result += tolower(c); 
         }
     }
 
