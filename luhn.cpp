@@ -26,8 +26,16 @@ int main() {
     vector<int> input;
     int cardNumber;
 
-    cout << "Enter a credit card number: ";
-    cin >> cardNumber; // assume you have a way to read from user
+    while (true) {
+        cout << "Enter a 16-digit credit card number: ";
+        cin >> cardNumber;
+
+        if (cardNumber >= 1000000000000000 && cardNumber < 1999999999999999) {
+            break;
+        } else {
+            cout << "Invalid input. Please enter a 16-digit credit card number." << endl;
+        }
+    }
 
     while (cardNumber != 0) {
         input.push_back(cardNumber % 10);
@@ -36,7 +44,11 @@ int main() {
 
     int result = luhn(input);
 
-    cout << "The Luhn check result is: " << result << endl;
+    if (result % 10 == 0) {
+        cout << "The credit card number is valid." << endl;
+    } else {
+        cout << "The credit card number is not valid." << endl;
+    }
 
     return 0;
 }
