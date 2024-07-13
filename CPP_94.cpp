@@ -1,19 +1,12 @@
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
-int skjkasdkd(vector<int> lst) {
+int findMaxPrime(std::vector<int> lst) {
     int maxPrime = 0;
-    for (int num : lst) {
-        if (num > 1) {
-            bool isPrime = true;
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            if (isPrime && num > maxPrime) {
-                maxPrime = num;
+    for (int i : lst) {
+        if (isPrime(i)) {
+            if (i > maxPrime) {
+                maxPrime = i;
             }
         }
     }
@@ -23,4 +16,18 @@ int skjkasdkd(vector<int> lst) {
         maxPrime /= 10;
     }
     return sumOfDigits;
+}
+
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+
+int main() {
+    assert(findMaxPrime({127, 97, 8192}) == 10);
+    return 0;
 }
