@@ -22,7 +22,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text >> target;
+    getline(cin, text); 
+    cin >> target;
     vector<int> res = indicesOfSubstring(text, target);
     for (auto i : res) {
         cout << i << " ";
