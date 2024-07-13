@@ -1,14 +1,24 @@
-def bowling_score(s):
+```
+def bowling_score(frames):
     score = 0
     roll = 0
-    for frame in s:
-        if frame == "X":
-            score += 30
-            roll += 1
-        elif frame == "/":
-            score += 10 + int(frame[1])
-            roll += 2
+    for frame in frames:
+        if '/' in frame:
+            first_roll = int(frame.split('/')[0])
+            second_roll = 10 - first_roll
+            if 'X' in frame or 'x' in frame:
+                score += 10 + (10 - first_roll)
+                roll = 1
+            else:
+                score += first_roll + second_roll
+        elif 'X' in frame or 'x' in frame:
+            score += 10
+            roll = 2
         else:
-            score += int(frame)
-            roll += 1
+            for i, char in enumerate(frame):
+                if char == 'X' or char == 'x':
+                    score += 10
+                    break
+                else:
+                    score += int(char)
     return score
