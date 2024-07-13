@@ -1,8 +1,6 @@
-```cpp
-#include <vector>
 #include <initializer_list>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -31,5 +29,5 @@ int main() {
     cin >> n;
 
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
-
-    return 0; }
+    return 0;
+}

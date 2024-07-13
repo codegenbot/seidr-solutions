@@ -1,4 +1,3 @@
-```
 def validate_tweet(tweet):
     tweet = tweet.strip()
     if not tweet:

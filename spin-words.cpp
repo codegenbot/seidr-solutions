@@ -1,7 +1,8 @@
-string spinWords(string str) {
-    vector<string> words;
+```
+auto spinWords(std::string str) {
+    std::vector<std::string> words;
     
-    string word = "";
+    std::string word = "";
     
     for(int i=0; i<str.length(); i++) {
         if(str[i] == ' ') {
@@ -14,15 +15,15 @@ string spinWords(string str) {
     
     words.push_back(word);
     
-    string result = "";
+    std::string result = "";
     
     for(auto w : words) {
         if(w.length() >= 5) {
-            reverse(w.begin(), w.end());
+            std::reverse(w.begin(), w.end());
         }
         
-        result += w + " ";
+        result += w.empty() ? "" : " " + w;
     }
     
-    return result.substr(0, result.length() - 1);
+    return result;
 }
