@@ -9,4 +9,4 @@ def mastermind(code, guess):
             white_peg += 1
             guess = guess.replace(str(guess[i]), '', 1)
 
-    return str(black_peg) + ', ' + str(white_peg)
+    return (str(black_peg), str(white_peg))
