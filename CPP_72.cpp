@@ -13,5 +13,15 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         sum += i;
     }
-    return sum <= w;
+    return is_palindrome(q) && sum <= w;
+}
+
+bool is_palindrome(vector<int> v) {
+    string str = "";
+    for (int i : v) {
+        str += to_string(i);
+    }
+    string rev = str;
+    reverse(rev.begin(), rev.end());
+    return str == rev;
 }
