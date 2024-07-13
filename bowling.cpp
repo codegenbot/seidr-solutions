@@ -1,3 +1,4 @@
+```
 int bowlingScore(const std::string& s) {
     if (s.empty()) {
         throw std::invalid_argument("No input provided");
@@ -6,44 +7,37 @@ int bowlingScore(const std::string& s) {
     int prevRoll = 0;
     bool isStrike = false;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s.at(i) == 'X') {
             score += 30;
             isStrike = true;
-        } else if (s[i] == '/') {
+        } else if (s.at(i) == '/') {
             if (isStrike) {
                 score += prevRoll * 2;
                 isStrike = false;
             } else {
                 int roll1, roll2;
-                if (i - 1 >= 0) {
-                    roll1 = s[i - 1] - '0';
-                } else {
-                    roll1 = 0;
-                }
-                if (i + 1 < s.size()) {
-                    int temp = s.substr(i + 1, 1)[0] - '0';
-                    score += (roll1 + temp);
+                char nextChar = s.at(i + 1);
+                if(nextChar != ' ') {
+                    roll1 = nextChar - '0';
+                    score += roll1;
                 }
             }
-        } else if (s[i] == ' ') {
+        } else if (s.at(i) == ' ') {
             int roll1, roll2;
-            if (i - 1 >= 0) {
-                roll1 = s[i - 1] - '0';
-            } else {
-                roll1 = 0;
-            }
-            if (isStrike) {
-                score += roll1 + prevRoll * 2;
-                isStrike = false;
-            } else {
-                if (i + 1 < s.size()) {
-                    int temp = s.substr(i + 1, 1)[0] - '0';
-                    score += (roll1 + temp);
+            char prevChar = s.at(i - 1);
+            if(i > 0) {
+                roll1 = prevChar - '0';
+                if(isStrike) {
+                    score += roll1 + prevRoll * 2;
+                    isStrike = false;
+                } else {
+                    score += roll1;
                 }
+                prevRoll = roll1;
             }
         } else {
-            int roll = s[i] - '0';
+            int roll = s.at(i) - '0';
             if (isStrike) {
                 score += roll + prevRoll * 2;
                 isStrike = false;
