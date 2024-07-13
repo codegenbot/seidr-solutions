@@ -1,12 +1,13 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (string s : lst) {
-        if (stoi(s) % 2 == 0) {
-            result.push_back(to_string(stoi(s) + 1));
-        } else {
-            result.push_back(s);
-        }
-    }
-    sort(result.begin(), result.end());
+    auto it = unique(lst.begin(), lst.end(),
+        [](const string& a, const string& b) { return (stoi(a) + stoi(b)) % 2 == 1; });
+    vector<string> result(it, lst.end());
+    sort(result.begin(), result.end(),
+        [](const string& a, const string& b) {
+            if (stoi(a) != stoi(b))
+                return stoi(a) < stoi(b);
+            else
+                return a < b;
+        });
     return result;
 }
