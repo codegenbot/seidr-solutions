@@ -6,35 +6,43 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength;
-    string word;
-
-    for (int i = 0; i <= str.length() - 1; i++) {
-        if (str[i] == ' ') {
-            result += str.substr(i - wordLength + 1, i - i + 1) + " ";
-            wordLength = 0;
+    int i = 0;
+    
+    while(i <= str.length() - 1) {
+        if(str[i] == ' ') {
+            result += str.substr(i - (i - i + 1), i - i + 1) + " ";
+            i++;
         } else {
-            wordLength++;
+            i++;
         }
     }
-
-    result += str.substr(str.length() - wordLength);
     
-    for(int i = 0; i < result.length(); i++) {
-        if(result[i] == ' ') {
-            string temp = result.substr(i + 1);
-            for(long long j = temp.length() - 1; j >= 0; j--) {
-                result.replace(i, temp.length(), temp.substr(j));
-                i += temp.length();
+    result += str.substr(i - (i - i));
+    
+    for(int j = 0; j < result.length(); j++) {
+        if(result[j] == ' ') {
+            string temp = result.substr(j + 1);
+            for(long long k = temp.length() - 1; k >= 0; k--) {
+                result.replace(j, temp.length(), temp.substr(k));
+                j += temp.length();
                 break;
             }
-        } else if(result[i+1] == ' ') {
-            string temp = result.substr(i + 1);
-            for(long long j = temp.length() - 1; j >= 0; j--) {
-                result.replace(i + 1, temp.length(), temp.substr(j));
-                i += temp.length();
+        } else if(result[j+1] == ' ') {
+            string temp = result.substr(j + 1);
+            for(long long k = temp.length() - 1; k >= 0; k--) {
+                result.replace(j + 1, temp.length(), temp.substr(k));
+                j += temp.length();
                 break;
             }
+        } else if(result[j+4] == ' ') {
+            string temp = result.substr(j + 1);
+            for(long long k = temp.length() - 1; k >= 0; k--) {
+                result.replace(j + 1, temp.length(), temp.substr(k));
+                j += temp.length();
+                break;
+            }
+        } else {
+            i++;
         }
     }
 
