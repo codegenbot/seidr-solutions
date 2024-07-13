@@ -1,22 +1,18 @@
 n = int(input())
-array = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(array)
-left_sum = 0
-right_sum = total_sum
+total_sum = sum(nums)
+half_sum = total_sum // 2
+prefix_sum = 0
 min_diff = float("inf")
-cut_index = -1
+cut_index = 0
 
-for i in range(n):
-    left_sum += array[i]
-    right_sum -= array[i]
-    diff = abs(left_sum - right_sum)
+for i, num in enumerate(nums):
+    prefix_sum += num
+    diff = abs(prefix_sum - (total_sum - prefix_sum))
     if diff < min_diff:
         min_diff = diff
         cut_index = i
 
-subvector1 = array[: cut_index + 1]
-subvector2 = array[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(*nums[: cut_index + 1])
+print(*nums[cut_index + 1 :])
