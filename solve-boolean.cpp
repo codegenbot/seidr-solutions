@@ -1,8 +1,5 @@
-#include <string>
-using namespace std;
-
+```
 bool evaluateBooleanExpression(string expression) {
-    bool result = false;
     stack<char> ops;
     stack<bool> values;
 
@@ -25,20 +22,6 @@ bool evaluateBooleanExpression(string expression) {
             values.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
             values.push(false);
-        }
-    }
-
-    while (!ops.empty()) {
-        char op = ops.top();
-        ops.pop();
-        bool b1 = values.top();
-        values.pop();
-        bool b2 = values.top();
-        values.pop();
-        if (op == '&') {
-            values.push(b1 && b2);
-        } else if (op == '|') {
-            values.push(b1 || b2);
         }
     }
 
