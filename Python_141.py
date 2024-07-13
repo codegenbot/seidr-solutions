@@ -1,12 +1,12 @@
 ```
 def file_name_check(file_name):
-    if len(file_name) > 0:
-        before_dot = file_name.rsplit('.', 1)[0]
-        after_dot = file_name.rsplit('.', 1)[1].lower()
-        
-        if (before_dot and before_dot[0].isalpha() and 
-            sum(c.isdigit() for c in before_dot) <= 3 and 
-            len(file_name.split('.')) == 2 and 
-            after_dot in ['txt', 'exe', 'dll']):
-            return 'Yes'
-    return 'No'
+    if len([c for c in file_name if c.isdigit()]) > 3:
+        return 'No'
+    if file_name.count('.') != 1:
+        return 'No'
+    name, extension = file_name.rsplit('.', 1)
+    if not name or not name[0].isalpha():
+        return 'No'
+    if extension.lower() not in ['txt', 'exe', 'dll']:
+        return 'No'
+    return 'Yes'
