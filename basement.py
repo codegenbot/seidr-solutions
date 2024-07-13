@@ -1,7 +1,8 @@
 def basement(nums):
-    total = float('-inf')
     for i, num in enumerate(nums):
-        total += num
+        total = 0
+        for j in range(i+1):
+            total += nums[j]
         if total < 0:
             return i + 1
-    return -1 if total >= 0 else 0
+    return -1
