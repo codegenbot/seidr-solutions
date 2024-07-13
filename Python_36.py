@@ -1,4 +1,10 @@
 def fizz_buzz(n: int):
+    """
+    Count FizzBuzz multiples up to n.
+    
+    :param n: The upper limit for counting FizzBuzz.
+    :return: The count of FizzBuzz numbers.
+    """
     count = 0
     for i in range(1, n + 1):
         if i % 15 == 0:
