@@ -1,29 +1,30 @@
 #include <vector>
 using namespace std;
 
-#include <climits>
-#include <cmath>
-
-vector<vector<int>> cutVector(vector<int> v) {
+vector<int> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    vector<vector<int>> result;
+    int cutIndex = 0;
     
-    for(int i=1; i<v.size(); i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for(int j=0; j<i; j++) {
-            leftSum += v[j];
-        }
-        
-        for(int j=i; j<v.size(); j++) {
-            rightSum += v[j];
-        }
-        
-        if(abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            result = {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+    for (int i = 1; i <= v.size(); i++) {
+        if (i == v.size() || abs(v[i] - v[i-1]) < minDiff) {
+            minDiff = abs(v[i] - v[i-1]);
+            cutIndex = i;
         }
     }
     
-    return result;
+    return {vector<int>(v.begin(), v.begin()+cutIndex), vector<int>(v.begin()+cutIndex, v.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) cin >> x;
+    vector<int> res = cutVector(v);
+    for (const auto &x : res[0]) cout << x << " ";
+    cout << endl;
+    for (auto it = res[1].begin(); it != res[1].end(); ++it) {
+        cout << *it << " ";
+    }
+    return 0;
 }
