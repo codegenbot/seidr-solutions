@@ -1,5 +1,3 @@
-````
-#include <iostream>
 #include <string>
 
 using namespace std;
@@ -23,4 +21,3 @@ int main() {
     cout << validateTweet(tweet) << endl;
     return 0;
 }
-```
