@@ -8,15 +8,14 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-
     vector<double> vec1(n), vec2(n);
-    char comma;
 
     for (int i = 0; i < n; ++i) {
-        cin >> vec1[i] >> comma; // Read comma as delimiter
+        cin >> vec1[i];
     }
+
     for (int i = 0; i < n; ++i) {
-        cin >> vec2[i] >> comma; // Read comma as delimiter
+        cin >> vec2[i];
     }
 
     double sum = 0.0;
