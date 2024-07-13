@@ -1,6 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 int main() {
@@ -10,15 +9,12 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    double numerator = 0.0; 
-    string result;
+    double sum = 0.0; 
     for(int i = 1; i < n; i++) {
-        result += to_string(n - i) + "+";
+        sum += (n - i) / (double)(n*m); 
     }
-    double denominator = (double)(n*m);
     
-    double probability = stod(result.substr(0, result.length()-1)) / denominator;
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << fixed << setprecision(6) << probability << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << sum << endl;
 
     return 0;
 }
