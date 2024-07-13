@@ -4,7 +4,7 @@
 #include <string>
 
 std::string words_in_sentence(std::string sentence) {
-    std::stringstream ss(sentence);
+    std::stringstream ss(sentence); // instead of std::stringstream ss(sentence);
     std::string word;
     int count = 0;
     while (std::getline(ss, word, ' ')) {
@@ -16,7 +16,8 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    std::string sentence; // Remove initialization
+    assert(words_in_sentence("here is") == "is");
+    std::string sentence;
     std::getline(std::cin, sentence);
     try {
         std::cout << words_in_sentence(sentence) << std::endl;
