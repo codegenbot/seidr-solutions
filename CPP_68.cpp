@@ -2,11 +2,14 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    // implement your comparison logic here
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == vector<int>());
+    assert(pluck({7, 9, 7, 1}) == {});
     return 0;
 }
