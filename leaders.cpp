@@ -1,3 +1,5 @@
+#include <vector>
+
 std::vector<int> findLeaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> leaders_result;
@@ -12,3 +14,4 @@ std::vector<int> findLeaders(const std::vector<int>& arr) {
         if (leader) leaders_result.push_back(arr[i]);
     }
     return leaders_result;
+}
