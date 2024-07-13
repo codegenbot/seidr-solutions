@@ -7,12 +7,10 @@ def check(input_string):
 
 while True:
     try:
-        user_input = input("Enter a string (or 'quit' to exit): ")
-        if user_input.lower() != 'quit':
-            check(user_input)
+        input_string = input("Enter a string: ")
+        if input_string.strip():  
+            check(input_string)
             break
-        else:
-            print("Goodbye!")
-            exit()
+        print("Please enter a non-empty string.")
     except:
         print("Invalid input. Please enter a string.")
