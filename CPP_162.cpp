@@ -1,34 +1,25 @@
-#include <openssl/ssl.h>
-#include <openssl/mem.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char buffer[1024];
-    SSL_CTX *ctx = SSL_CTX_new(TLS_client_method());
-    SSL *ssl = SSL_new(ctx);
-    BIO *bio = BIO_new_mem_buf((void *)text.c_str(), text.length());
-    BIO_set_ttl(bio, 0);
-    BIO_set_read_buffer(bio, "read", buffer, 1024);
-
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx_md5;
-    MD5_Init(&ctx_md5);
-    while (BIO_read(bio, &buffer, 1) > 0) {
-        MD5_Update(&ctx_md5, buffer, 1);
+    if (text.empty()) {
+        return "";
     }
-    MD5_Final(md, &ctx_md5);
 
-    string result;
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* str = text.c_str();
+    size_t len = text.length();
+    MD5_Update(&ctx, str, len);
+    MD5_Final(md5, &ctx);
+
+    stringstream ss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", md[i]);
-        result += buff;
+        ss << setfill(2) << setw(2) << hex << uppercase << (int)md5[i];
     }
 
-    BIO_free_all(bio);
-    SSL_free(ssl);
-    SSL_CTX_free(ctx);
-
-    return result;
+    return ss.str();
 }
