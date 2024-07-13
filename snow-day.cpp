@@ -1,4 +1,4 @@
-#include <cmath>
+#include <algorithm>
 
 float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
