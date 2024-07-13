@@ -1,14 +1,31 @@
+#include <vector>
+#include <string>
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-    
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
+
+    for (char c : code) {
+        codeCount[c - 'A']++;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        char c = guess[i];
+        if (c == code[i]) {
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
+            codeCount[c - 'A]--;
+            guessCount[c - 'A]--;
+        } else {
+            guessCount[c - 'A']--;
         }
     }
-    
-    return black + white;
+
+    for (int i = 0; i < 6; i++) {
+        white += min(codeCount[i], guessCount[i]);
+    }
+
+    return black << 1 | white;
 }
