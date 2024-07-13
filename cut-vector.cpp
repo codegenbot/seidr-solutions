@@ -6,18 +6,16 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     int min_diff = INT_MAX;
-    int split_index = -1;
+    int cut_index = 0;
     for (int i = 1; i < n; i++) {
         int diff = abs(v[i] - v[i-1]);
-        if ((v[i] >= v[i-1]) && (i == n - 1 || v[i+1] <= v[i])) {
-            if (diff < min_diff) {
-                min_diff = diff;
-                split_index = i;
-            }
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    res[0] = vector<int>(v.begin(), v.begin() + split_index);
-    res[1] = vector<int>(v.begin() + split_index, v.end());
+    res[0] = vector<int>(v.begin(), v.begin() + cut_index);
+    res[1] = vector<int>(v.begin() + cut_index, v.end());
     return res;
 }
 
