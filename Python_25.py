@@ -17,4 +17,4 @@ def factorize(n: int) -> List[int]:
     return [int(f) for f in set(map(str, factors))]
 
 n = int(input("Enter a number: "))
-factorize(n)
+print(factorize(n))
