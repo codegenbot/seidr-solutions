@@ -1,36 +1,41 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+using namespace std;
 
-bool compare(int a, int b) {
-    return a == b;
+// Function to compare two vectors
+bool compare(vector<int> a, vector<int> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
 
-std::vector<int> getResult(const std::vector<int>& game, const std::vector<int>& guess) {
-    std::vector<int> result;
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            result.push_back(1);
-        } else {
-            result.push_back(0);
-        }
+vector<int> getResult(vector<int> game, vector<int> guess) {
+    vector<int> res;
+    for(int i = 0; i < game.size();i++){
+        if(game[i] == guess[i])res.push_back(10);
+        else if(find(guess.begin(),guess.end(),game[i]) != guess.end())res.push_back(5);
+        else res.push_back(0);
     }
-    return result;
+    return res;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> game(n), guess(n);
+    cin >> n;
+    vector<int> game(n), guess(n);
     for(int i = 0; i < n;i++){
-        std::cin >> game[i] >> guess[i];
+        cin >> game[i] >> guess[i];
     }
     
-    if(compare(game[0],guess[0]) != 0) {
-        std::cout << "Error: Invalid input. Please check your input again." << std::endl;
+    if(!compare(game[0],guess[0])) {
+        cout << "Error: Invalid input. Please check your input again." << endl;
     } else {
-        std::vector<int> res = getResult(game,guess);
-        for(auto x:res)std::cout << x << " ";
-        std::cout << endl; 
+        vector<int> res = getResult(game,guess);
+        for(auto x:res)cout << x << " ";
+        cout << endl; 
     }
     
     return 0;
