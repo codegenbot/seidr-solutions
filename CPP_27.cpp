@@ -1,7 +1,10 @@
-for(int i=0; i<str.length(); i++){
-    if(str[i] >= 'a' && str[i] <= 'z')
-        str[i] = (char)(str[i]-32);
-    else if(str[i] >= 'A' && str[i] <= 'Z')
-        str[i] = (char)(str[i]+32);
+string flip_case(string str){
+    string result = "";
+    for(char c : str){
+        if(islower(c))
+            result += toupper(c);
+        else 
+            result += tolower(c);
+    }
+    return result;
 }
-return str;
