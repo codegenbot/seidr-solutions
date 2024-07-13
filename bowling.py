@@ -8,10 +8,9 @@ def bowling_score(game):
             if i < len(game) - 1 and game[i + 1].isdigit():
                 score += int(game[i + 1])
         elif game[i] == "-":
-            frame_score = sum(int(x) for x in reversed([c for c in game[i:i+3][::-1] if c.isdigit()]))
-            score += frame_score
-            if frame_score < 10:  
-                score += int(game[i + 2]) if i + 2 < len(game) and game[i + 2].isdigit() else 0
+            first_roll = int(game[i+1]) if game[i+1].isdigit() else 0
+            second_roll = int(game[i+2]) if i+2 < len(game) and game[i+2].isdigit() else 0
+            score += first_roll + second_roll
         else:
             first_roll = int(game[i]) if game[i].isdigit() else 0
             if i < len(game) - 1 and game[i + 1].isdigit():
