@@ -26,8 +26,7 @@ std::string camelCase(std::string str) {
             else
                 result += static_cast<char>(std::tolower(c));
             std::string upperWord = word.substr(1);
-            std::copy(upperWord.begin(), upperWord.end(), upperWord.begin());
-            std::for_each(upperWord.begin(), upperWord.end(), ::std::toupper);
+            std::transform(upperWord.begin(), upperWord.end(), upperWord.begin(), ::toupper);
             result += upperWord;
         }
     }
