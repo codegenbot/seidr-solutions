@@ -12,3 +12,4 @@ vector<int> leaders(vector<int>& arr) {
     }
     std::reverse(result.begin(), result.end());
     return result;
+}
