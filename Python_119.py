@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     result = []
     for s in lst:
@@ -19,4 +20,4 @@ def match_parens(lst):
             result.append("Yes")
         else:
             result.append("Yes" if (count == 0) else "No")
-    return result
+    return [result[0]]
