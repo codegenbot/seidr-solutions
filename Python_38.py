@@ -1,6 +1,6 @@
 ```
 def decode_cyclic():
-    s = """{}""".format(input("Enter the cyclic string: "))
+    s = input("Enter the cyclic string: ")
     decoded = ""
     for i in range(len(s)):
         if 2*i < len(s):
