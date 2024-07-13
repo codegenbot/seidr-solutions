@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -29,11 +28,11 @@ int mastermind(string code, string guess) {
         for(int j = 0; j < 6; j++) {
             if(code[j] == guess[i]) {
                 count++;
-                codeCount[std::find(chars.begin(), chars.end(), code[j]) - chars.begin()]--;
+                (code.find(guess[i]))--;
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)codeCount[std::find(chars.begin(), chars.end(), guess[i]) - chars.begin()]);
+        white += min(count, codeCount[std::find(chars.begin(), chars.end(), guess[i]) - chars.begin()]);
     }
 
     return black + white;
