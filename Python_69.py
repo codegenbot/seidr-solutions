@@ -8,7 +8,3 @@ def find_max_min(lst):
         elif num < min_num:
             min_num = num
     return max_num, min_num
-
-
-search = [int(i) for i in input("Enter the numbers (space-separated): ").split()]
-check(search)
