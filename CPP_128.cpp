@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 
 int prod_signs(std::vector<int> arr) {
     int sign_product = 1;
@@ -10,15 +10,8 @@ int prod_signs(std::vector<int> arr) {
             return -32768; // empty array or contains zero
         }
         sign_product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += abs(num);
+        sum += std::abs(num);
     }
 
     return sign_product * sum;
-}
-
-int main() {
-    std::vector<int> input = {-1, 1, 1, 0};
-    int output = prod_signs(input);
-    std::cout << "Output: " << output << std::endl;
-    return 0;
 }
