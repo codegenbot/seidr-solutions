@@ -1,22 +1,28 @@
-```cpp
+```c++
+#include <string>
+#include <cctype>
+
 std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
     for (char c : str) {
         if (c == '-') {
-            // Add nothing before the next word
+            result += ' ';
             capitalize = true; // Capitalize the next character
-        } else if (capitalize) {
-            if (!result.empty()) {
-                result += ' '; // Add a space if it's not the first word
-            }
-            result += toupper(c);
-            capitalize = false;
         } else {
-            result += tolower(c);
+            result += (capitalize ? toupper(c) : tolower(c));
+            capitalize = false;
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << '\n';
+    return 0;
 }
