@@ -26,6 +26,10 @@ int main() {
     std::string input;
     std::cout << "Enter your string (in kebab-case): ";
     std::getline(std::cin, input);
-    std::cout << "Camel Case: " << camelCase(input) << std::endl;
+    std::cout << "Camel Case: ";
+    for (char c : camelCase(input)) {
+        std::cout << c;
+    }
+    std::cout << std::endl;
     return 0;
 }
