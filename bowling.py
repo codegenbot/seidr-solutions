@@ -1,23 +1,25 @@
 ```
 def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            if frame < 10:
-                if frames[i+1].count('X') == 2:
-                    score += 30
-                else:
-                    score += int(frames[i+1].replace('X', '10')) + 10
-            else:
-                score += 10
-        elif '/' in frames[i:i+2]:
-            frame_score = list(map(int, frames[i:i+2].split('/')))
-            if sum(frame_score) == 10:
-                score += 10
-            else:
-                score += sum(frame_score)
+    frame_count = 1
+    for i in range(len(frames)):
+        if frames[i] == "X":
+            score += strike_frame()
+        elif frames[i] == "/":
+            score += spare_frame(int(frames[i-1]))
         else:
-            score += int(frames[i]) + (0 if frame < 9 else 0)
-        frame += 1
+            score += normal_frame(int(frames[i]), int(frames[i+1]) if i < len(frames)-1 else 0)
+        frame_count -= 1
     return score
+
+def strike_frame():
+    return 30
+
+def spare_frame(pins):
+    return 10 + pins
+
+def normal_frame(pins1, pins2=0):
+    if pins1 == 10:
+        return 10 + 10 + pins2
+    else:
+        return pins1 + pins2
