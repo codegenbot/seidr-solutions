@@ -1,8 +1,5 @@
 def find_closest_elements():
-    while True:
-        nums = list(map(int, input("Enter numbers separated by space: ").split()))
-        if len(nums) > 1 and all(isinstance(num, int) for num in nums):
-            break
+    nums = list(map(int, input("Enter numbers separated by space: ").split()))
     nums.sort()
     closest_pair = float('inf')
     for i in range(len(nums) - 1):
