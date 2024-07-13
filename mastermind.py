@@ -1,9 +1,5 @@
+```
 def mastermind(code, guess):
-    blacks = 0
-    whites = 0
-    for c, g in zip(code, guess):
-        if c == g: 
-            blacks += 1
-        elif g in code:
-            whites += 1
+    blacks = sum(1 for c, g in zip(code, guess) if c == g)
+    whites = sum(min(1, code.count(g)) for g in guess)
     return str(blacks) + ' ' + str(whites)
