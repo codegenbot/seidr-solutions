@@ -7,10 +7,16 @@ long long minSubArraySum(vector<long long> nums) {
         current_sum += nums[i];
         if (current_sum < min_sum)
             min_sum = current_sum;
-        while (current_sum > 0 && i < nums.size() - 1) {
-            current_sum -= nums[i];
-            i++;
+        if (current_sum > 0) {
+            while (current_sum > min_sum && i < nums.size() - 1) {
+                current_sum -= nums[i];
+                i++;
+            }
         }
     }
     return min_sum;
+}
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
 }
