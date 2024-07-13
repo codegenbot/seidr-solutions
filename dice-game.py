@@ -1,9 +1,6 @@
 n = int(input())
 m = int(input())
-prob = 0
-for i in range(1, n + 1):
-    for j in range(1, m):
-        if i > j:
-            prob += 1
-prob /= n * m
-print(round(prob, 2))
+total_outcomes = n * m
+favorable_outcomes = sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j)
+probability = favorable_outcomes / total_outcomes
+print(round(probability, 2))
