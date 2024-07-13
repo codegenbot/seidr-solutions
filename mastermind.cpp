@@ -1,28 +1,22 @@
-#include <vector>
-#include <string>
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    for(int i=0; i<4; i++){
+        if(code[i] == guess[i]){
             black++;
         }
     }
 
-    for(char c : code) {
-        int count = 0;
-        for(char d : guess) {
-            if(c == d) {
-                count++;
+    vector<char> codeCopy(code.begin(), code.end());
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            if(code[j] == guess[i] && code[j] != codeCopy[i]){
+                white++;
+                codeCopy[i] = '-';
             }
         }
-        if(count > 1 || (count == 1 && code.find(d) != string::npos)) {
-            continue;
-        }
-        white += min(count, 4 - black);
     }
 
-    return {white, black}[0];
+    return black + white;
 }
