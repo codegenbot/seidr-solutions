@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
+#include <iomanip>
 
 using namespace std;
 
 string string_to_md5(const string& input) {
-    unsigned char result[16];
-    MD5((const unsigned char*)input.c_str(), input.size(), result);
     string output;
-    for(int i=0; i<16; i++){
-        sprintf(&output[0], "%02x", (int)(result[i]));
+    for (int i = 0; i < 32; i++) {
+        char c = ((input[i % input.size()] + i) * i) % 256;
+        if(i < 2)
+            output += to_string(c);
+        else
+            output += setfill('0') << setw(2) << hex << static_cast<int>(c);
     }
     return output;
 }
