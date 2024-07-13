@@ -1,8 +1,8 @@
 def mastermind(code, guess):
     code_counts = [0] * 6
     guess_counts = [0] * 6
-    white_peg = 0
     black_peg = 0
+    white_peg = 0
 
     for char in code:
         code_counts[ord(char) - ord("B")] += 1
