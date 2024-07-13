@@ -2,22 +2,18 @@ int main() {
     string input;
     getline(cin, input);
     
-    bool first = true;
-    for (int i = 0; i < input.length(); ++i) {
-        if (input[i] == '-') {
-            first = true;
-        } else if (input[i] == ' ') {
-            cout << " ";
-            first = true;
+    bool upperCase = false;
+    for (char c : input) {
+        if (c == '-') {
+            upperCase = true;
         } else {
-            if (first) {
-                cout << (char)toupper(input[i]);
-                first = false;
+            if (upperCase) {
+                cout << (char)toupper(c);
+                upperCase = false;
             } else {
-                cout << input[i];
+                cout << c;
             }
         }
     }
-    
     return 0;
 }
