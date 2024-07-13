@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <sstream>
 
 std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
-    std::vector<int> input_vector(std::vector<int>(lst));
+    std::vector<int> input_vector(lst);
     int sum_even = 0, sum_odd = 0;
 
     for (int num : input_vector) {
@@ -33,7 +34,7 @@ int main() {
             sum_odd += num;
     }
     
-    auto [a, b] = double_the_difference({sum_even, sum_odd});
+    auto [a, b] = double_the_difference({sum_even, sum_odd / 2});
     std::cout << "The average of even numbers is: " << a << std::endl;
     std::cout << "The average of odd numbers is: " << b << std::endl;
 
