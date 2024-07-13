@@ -1,31 +1,18 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            while (!s.empty() && s.top() != '&') {
-                s.pop();
-            }
-            if (s.empty()) return true;
-        } else if (expression[i] == '&') {
-            s.push('&');
-        } else if (expression[i] == 't') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (s.empty()) return true;
-            else return false;
-        } else if (expression[i] == 'f') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (s.empty()) return false;
+bool solveBoolean(string s) {
+    bool result = false;
+    for (char c : s) {
+        if (c == 't') {
+            result = true;
+        } else if (c == 'f') {
+            return false;
+        } else if (c == '&') {
+            result &= true;
+        } else if (c == '|') {
+            result |= true;
         }
     }
-    while (!s.empty()) {
-        s.pop();
-    }
-    return true;
+    return result;
 }
