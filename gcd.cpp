@@ -3,6 +3,15 @@
 
 using namespace std;
 
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int i = 0;
@@ -19,13 +28,4 @@ vector<int> indicesOfSubstring(string text, string target) {
         i++;
     }
     return result;
-}
-
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
 }
