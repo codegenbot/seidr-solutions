@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
-#include <iostream>
+using namespace std;
 
-int luhn(std::vector<int>& digits) {
+int luhn(vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
 
@@ -22,8 +21,7 @@ int luhn(std::vector<int>& digits) {
 }
 
 int main() {
-    std::vector<int> creditCardNumber = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-    int result = luhn(creditCardNumber);
-    std::cout << "The result is: " << result << std::endl;
+    vector<int> digits = {3, 4, 5, 1, 3, 6, 7, 8, 9, 1, 0, 2, 9, 8, 5, 0};
+    cout << luhn(digits) << endl;
     return 0;
 }
