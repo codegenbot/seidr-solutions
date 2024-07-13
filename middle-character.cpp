@@ -1,4 +1,4 @@
-```
+``` 
 using namespace std;
 
 std::string middleCharacter(std::string input) {
