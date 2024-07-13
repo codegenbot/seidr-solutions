@@ -1,3 +1,4 @@
+```
 from typing import List, Optional
 
 
@@ -15,6 +16,9 @@ while True:
     user_input = input("Enter a string (or 'stop' to finish): ")
     if user_input.lower() == 'stop':
         break
-    strings.append(user_input)
+    elif not isinstance(user_input, str) or len(user_input.strip()) == 0:
+        print("Invalid input. Please enter a non-empty string.")
+    else:
+        strings.append(user_input)
 
 print(longest(strings))
