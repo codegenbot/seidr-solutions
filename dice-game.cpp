@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -8,7 +7,7 @@ double diceGame(int n, int m) {
     for (int i = 1; i <= m; i++) {
         p += 1.0 / n;
     }
-    return 1.0 - p;
+    return 1 - p;
 }
 
 int main() {
