@@ -1,28 +1,25 @@
-```
 def match_parens(lst):
     result = []
     for s in lst:
-        if not s:  
+        count = 0
+        has_opening = False
+        for char in s:
+            if char == "(":
+                count += 1
+                has_opening = True
+            elif char == ")":
+                if count > 0:
+                    count -= 1
+                else:
+                    result.append("No")
+                    break
+        if count > 0:
+            result.append("No")
+        elif not has_opening and count == 0:
             result.append("No")
         else:
-            count = 0
-            has_opening = False
-            for char in s:
-                if char == '(':
-                    count += 1
-                    has_opening = True
-                elif char == ')':
-                    if count > 0:
-                        count -= 1
-                    else:
-                        result.append("No")
-                        break
-            if count > 0:
-                result.append("No")
-            elif not has_opening and s == "":
-                result.append("Yes")
-            else:
-                result.append("Yes" if (count == 0) else "No")
+            result.append("Yes" if (count == 0) else "No")
     return result
 
-print(match_parens(["()","(())",")(","((()))"]))
+
+print(match_parens(["()", "(())", ")(", "((()))"]))
