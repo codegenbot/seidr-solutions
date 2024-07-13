@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <stack>
+#include <string>
+
 bool solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
