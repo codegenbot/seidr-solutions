@@ -6,20 +6,14 @@ using namespace std;
 int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
-    
+
     for (char &c : message) {
-        size_t idx = cipher1.find(c);
-        if (idx != string::npos) {
-            c = cipher2[idx];
-        } else {
-            idx = cipher2.find(c);
-            if (idx != string::npos) {
-                c = cipher1[idx];
-            }
+        if (c == cipher1[0]) {
+            c = cipher2[0];
         }
     }
-    
-    cout << message << endl;
-    
+
+    cout << message;
+
     return 0;
 }
