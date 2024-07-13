@@ -1,9 +1,7 @@
-```
 def modp(n: int, p: int) -> int:
     if math.gcd(n, p) != 1:
         return -1
-    phi_val = math.lcm(n, p)
-    if pow(n, phi_val, p) == 1:
-        return phi_val
-    else:
+    if pow(n, ((p - 1) // 2), p) == 1 or pow(n, (p - 1), p) == 1:
         return -1
+    else:
+        return min(((p - 1) // 2) + 1, p)
