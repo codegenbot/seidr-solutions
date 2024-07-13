@@ -15,18 +15,12 @@ int main() {
     std::cin >> n;
 
     std::vector<float> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        float num;
-        std::cin >> num;
-        vec1[i] = num;
-    }
+    for (int i = 0; i < n; ++i)
+        std::cin >> vec1[i];
 
     std::vector<float> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        float num;
-        std::cin >> num;
-        vec2[i] = num;
-    }
+    for (int i = 0; i < n; ++i)
+        std::cin >> vec2[i];
 
     std::cout << std::fixed << calculateDistance(vec1, vec2) << std::endl;
 
