@@ -1,5 +1,5 @@
-```
 import math
+
 
 def modp(n: int, p: int) -> int:
     if math.gcd(n, p) != 1:
@@ -14,4 +14,5 @@ def modp(n: int, p: int) -> int:
                 j += 1
     return phi_val if pow(n, phi_val, p) == 1 else -1
 
-print(modp(5,7))
+
+print(modp(5, 7))
