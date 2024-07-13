@@ -1,9 +1,11 @@
-def substitution_cipher(cipher1, cipher2, message):
-    result = ""
-    for char in message:
-        if char in cipher1:
-            index = cipher1.index(char)
-            result += cipher2[index]
-        else:
-            result += char
-    return result
+def substitution_cipher(encode_str, decode_str, message):
+    cipher = str.maketrans(encode_str, decode_str)
+    return message.translate(cipher)
+
+
+# Read input from user
+encode_str = input()
+decode_str = input()
+message = input()
+
+print(substitution_cipher(encode_str, decode_str, message))
