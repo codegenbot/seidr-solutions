@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     total_sum = sum(vector)
     
@@ -11,6 +12,6 @@ def cut_vector(vector):
             min_diff = abs(left_sum - (total_sum - left_sum))
             split_index = i
         elif abs(left_sum - (total_sum - left_sum)) == 0:
-            return tuple(vector[:i]), tuple(vector[i:])
+            return (tuple(vector[:i]), tuple(vector[i:]))
 
-    return tuple(vector[:split_index]), tuple(vector[split_index:])
+    return (tuple(vector[:split_index]), tuple(vector[split_index:]))
