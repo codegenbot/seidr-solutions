@@ -3,22 +3,9 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u':
-                if char.lower() == 'a':
-                    result += 'c'
-                elif char.lower() == 'e':
-                    result += 'g'
-                elif char.lower() == 'i':
-                    result += 'k'
-                elif char.lower() == 'o':
-                    result += 'q'
-                elif char.lower() == 'u':
-                    result += 'y'
+            if char.isupper():
+                char = chr((ord(char) - ord('A') + 7) % 26 + ord('A'))
             else:
-                if char.isupper():
-                    result += chr((ord(char) + 13) % 26).upper()
-                else:
-                    result += chr((ord(char) + 13) % 26)
-        else:
-            result += char
-    return result
+                char = chr((ord(char) - ord('a') + 7) % 26 + ord('a'))
+        result += char
+    return result.replace('a', 'c').replace('e', 'g').replace('i', 'k').replace('o', 'q').replace('u', 'w')
