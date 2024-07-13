@@ -1,21 +1,41 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
-    for (int i = 0; i < 10; i++) {
-        if (frames[i] == '/') {
-            roll1 = frames[i-1]-'0';
-            roll2 = 10 - roll1;
-        } else if (frames[i] == 'X') {
-            score += 10 + (i > 0 ? bowlingScore(frames.substr(0, i)) : 0);
-            continue;
+    int frame = 0;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == 'X' || (s[i] == '/' && s[i+1] == 'X')){
+            score += 10 + ((frame < 9) ? getExtraPin(frame, &s, i) : 0);
+            frame++;
+            i++; // skip the '/' or 'X'
         }
-        roll1 = frames[i] - '0';
-        if (i < 8 && frames[i+1] != '/') {
-            roll2 = frames[i+1]-'0';
-        } else if (frames[i+1] == '/') {
-            roll2 = 10 - roll1;
+        else if(s[i] == '/'){
+            int pins = s[i-1] - '0' + s[i+1] - '0';
+            score += (pins > 10) ? 10 : pins;
+            frame++;
         }
-        score += roll1 + (roll2 > 0 ? roll2 : 0);
+        else{
+            int pins = s[i] - '0';
+            if(frame < 9 && s[i+1] == 'X'){
+                score += (frame == 9) ? 10 + getExtraPin(8, &s, i) : pins + 10;
+                frame++;
+                i++; // skip the 'X'
+            }
+            else{
+                score += pins;
+                frame++;
+            }
+        }
     }
     return score;
+}
+
+int getExtraPin(int index, string* s, int* i){
+    for(; *i < s->length(); (*i)++){
+        if((*s)[*i] == 'X' || (*s)[*i] == '/'){
+            return 10 - (index == 8) ? 5 : 0;
+        }
+        else{
+            return (*s)[*i] - '0';
+        }
+    }
+    return 0;
 }
