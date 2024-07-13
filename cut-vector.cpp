@@ -5,36 +5,32 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
-    int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-    }
-
-    int target = sum / 2;
-    int prefixSum = 0;
+    
+    int totalSum = accumulate(nums.begin(), nums.end(), 0);
+    int leftSum = 0;
+    int rightSum = totalSum;
     int minDiff = INT_MAX;
-    int cutIndex = 0;
-
+    int cutIndex = -1;
+    
     for (int i = 0; i < nums.size(); ++i) {
-        prefixSum += nums[i];
-        int diff = abs(prefixSum - target);
-        if (diff < minDiff) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff || (diff == minDiff && cutIndex == -1)) {
             minDiff = diff;
             cutIndex = i;
         }
     }
-
-    vector<int> subVector1(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> subVector2(nums.begin() + cutIndex + 1, nums.end());
-
-    for (int num : subVector1) {
-        cout << num << endl;
+    
+    for (int i = 0; i <= cutIndex; ++i) {
+        cout << nums[i] << endl;
     }
-
-    for (int num : subVector2) {
-        cout << num << endl;
+    cout << 0 << endl;
+    for (int i = cutIndex + 1; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
     }
-
+    cout << 0 << endl;
+    
     return 0;
 }
