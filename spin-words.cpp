@@ -1,24 +1,20 @@
 int main() {
-    string input;
-    getline(cin, input);
+    string line;
+    getline(cin, line);
     
+    istringstream iss(line);
     string word;
-    vector<string> words;
-    stringstream ss(input);
+    bool first = true;
     
-    while (ss >> word) {
+    while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
         }
-        words.push_back(word);
+        cout << (first ? "" : " ") << word;
+        first = false;
     }
     
-    for (int i = 0; i < words.size(); i++) {
-        cout << words[i];
-        if (i != words.size() - 1) {
-            cout << " ";
-        }
-    }
+    cout << endl;
     
     return 0;
 }
