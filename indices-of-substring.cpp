@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,9 +9,6 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     // Preprocess the target string to build the lps array
     std::vector<int> lps(m);
-    for (int i = 0; i < m; i++) {
-        lps[i] = 0;
-    }
     int k = 0;
 
     for (int i = 1; i < m; ) {
@@ -51,11 +49,14 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 }
 
 int main() {
-    std::string text, target;
+    std::string text;
     std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
+    getline(cin, text);
+    
+    std::string target;
     std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
+    getline(cin, target);
+
     std::vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         std::cout << i << " ";
