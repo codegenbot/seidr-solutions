@@ -1,4 +1,6 @@
 def fizz_buzz(x):
+    if not isinstance(x, int):
+        return "Invalid input"
     result = ""
     if x % 3 == 0:
         result += "Fizz"
@@ -7,4 +9,4 @@ def fizz_buzz(x):
             result = "Buzz"
         else:
             result += "Buzz"
-    return str(result) if not result else str(result)
+    return result or str(x)
