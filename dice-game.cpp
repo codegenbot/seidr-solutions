@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -11,7 +12,7 @@ int main() {
     cout << "The probability that Peter rolls strictly higher than Colin is: ";
     for(int i = 1; i < n; i++) {
         double prob = (n - i) / (double)(n*m); 
-        cout << std::fixed << setprecision(10) << (prob == 0. ? "0" : to_string(prob)) << " "; 
+        cout << std::fixed << std::setiosflags(std::ios::floatfield | std::ios::fixed) << std::setw(10) << prob << " "; 
     }
     cout << endl;
 
