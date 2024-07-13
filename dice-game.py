@@ -2,5 +2,5 @@ def dice_game(n, m):
     if n <= m:
         return 0
     total_outcomes = n * m
-    peters_win = sum(list(range(m+1, n+1)))
+    peters_win = sum(range(m+1, n+1)) + sum(range(1, m))
     return peters_win / total_outcomes
