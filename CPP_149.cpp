@@ -21,7 +21,7 @@ std::vector<std::string> sortedListSum(std::vector<std::string> lst) {
     return lst;
 }
 
-int mainFunction() {
+int main() {
     std::cout << "Result: ";
     for (const auto& str : sortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
         std::cout << str << " ";
