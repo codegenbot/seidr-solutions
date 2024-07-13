@@ -3,10 +3,8 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -27,14 +25,19 @@ int gcd(int a, int b) {
 }
 
 int main() {
+    string text;
+    string target;
+    vector<int> result;
+
+    cin >> text >> target;
+    result = indicesOfSubstring(text, target);
+
+    for (int i : result)
+        cout << i << " ";
+    
     int a, b;
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result)
-        cout << i << " ";
     return 0;
 }
