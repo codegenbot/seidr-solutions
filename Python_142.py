@@ -7,5 +7,11 @@ def sum_squares(lst):
             total_sum += lst[i] ** 3
     return total_sum
 
-lst = list(map(int, input("Enter the list elements (space-separated): ").split()))
+while True:
+    try:
+        lst = list(map(int, input("Enter the list elements (space-separated): ").split()))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers separated by spaces.")
+
 print(sum_squares(lst))
