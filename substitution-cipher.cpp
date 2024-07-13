@@ -1,4 +1,3 @@
-#include<string>
 using namespace std;
 
 string substitutionCipher(string &cipher1, string &cipher2, string &message) {
