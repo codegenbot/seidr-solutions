@@ -1,5 +1,7 @@
 ```
-def longest(strings: list[Optional[str]]) -> Optional[List[str]]:
+from typing import List, Optional
+
+def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
     max_len = 0
     result = []
     for s in strings:
