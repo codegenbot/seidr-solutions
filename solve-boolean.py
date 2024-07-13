@@ -4,8 +4,14 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression:
-        a, b = expression.split("&")
-        return bool(int(a)) and bool(int(b))
+        terms = expression.split("&")
+        for term in terms:
+            if term != "F":
+                return False
+        return True
     elif "|" in expression:
-        a, b = expression.split("|")
-        return bool(int(a)) or bool(int(b))
+        terms = expression.split("|")
+        for term in terms:
+            if term != "F":
+                return True
+        return False
