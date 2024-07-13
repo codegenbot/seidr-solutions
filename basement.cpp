@@ -1,11 +1,13 @@
-#include <vector>
+Here is the solution:
 
-int basementIndex(const std::vector<int>& arr) {
-    int total = 0;
-    for (int i = 0; ; ++i) {
-        if (total < 0) return i;
-        if (i >= arr.size()) break;
-        total += arr[i];
+#include <vector>
+using namespace std;
+
+int basement(vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) return i;
     }
     return -1;
 }
