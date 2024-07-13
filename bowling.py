@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     rolls = list(map(int, frames.replace('/', '')))
@@ -15,5 +16,5 @@ def bowling_score(frames):
                 while rolls[i:i+frame_score] != list(range(frame_score,0,-1)):
                     score += rolls.pop(0)
             i += 2
-        frame_count += 1
+        frame_count = min(i//2 + 1, 10)
     return score
