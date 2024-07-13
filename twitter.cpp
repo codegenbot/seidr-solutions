@@ -9,7 +9,7 @@ int main() {
 
     tweet.erase(remove_if(tweet.begin(), tweet.end(), ::isspace), tweet.end()); // Remove whitespaces
 
-    if (tweet.empty() || count_if(tweet.begin(), tweet.end(), ::isalnum) == 0) {
+    if (tweet.length() == 0) {
         cout << "You didn't type anything" << endl;
     } else if (tweet.size() > 140) {
         cout << "Too many characters" << endl;
