@@ -1,6 +1,11 @@
-```python
+```
 def car_race_collision(n: int) -> int:
-    return n * (n - 1)
+    if n < 2:
+        return 0
+    total_collisions = 0
+    for i in range(1, n):
+        total_collisions += i
+    return total_collisions
 
 while True:
     try:
