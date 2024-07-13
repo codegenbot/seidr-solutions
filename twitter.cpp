@@ -7,10 +7,12 @@ int main() {
         else if(tweet.length() > 140) return "Too many characters";
         else return "Your tweet has " + to_string(tweet.length()) + " characters";
     }
-    string input;
-    cout << "Enter your tweet: ";
-    getline(cin, input);
-    string result = validateTweet(input);
-    cout << result << endl;
-    return 0;
+    
+    cout << validateTweet(input());
+}
+
+string input() {
+    string tweet;
+    cin >> tweet;
+    return tweet;
 }
