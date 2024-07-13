@@ -1,4 +1,4 @@
-int mastermind(const string& code, const string& guess) {
+int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
     int white = 0;
 
@@ -10,15 +10,18 @@ int mastermind(const string& code, const string& guess) {
     }
 
     // Count correct colors (white pegs)
-    bool code_counts[6] = {false};
-    int correct_colors = 0;
-    for (char c : code) {
-        code_counts[c - 'A'] = true;
-        if (c == guess[3-c]) continue; 
-        correct_colors++;
+    int code_counts[6] = {0};
+    for (int i = 0; i < 4; ++i) {
+        code_counts[code[i] - 'A']++;
     }
 
-    white = correct_colors;
+    int temp_counts[6] = {0};
+    for (int i = 0; i < 4; ++i) {
+        temp_counts[guess[i] - 'A']++;
+    }
 
+    for (int i = 0; i < 6; ++i) {
+        white -= (code_counts[i] - temp_counts[i]);
+    }
     return black + white;
 }

@@ -1,18 +1,20 @@
-```cpp
 #include <iostream>
-
-int greatestCommonDivisor(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return greatestCommonDivisor(b, a % b);
-}
+#include <string>
 
 int main() {
-    int num1, num2;
-    std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-    int result = greatestCommonDivisor(num1, num2);
-    std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
+    std::string text, target;
+    std::cout << "Enter two strings: ";
+    std::cin >> text >> target;
+
+    int indices = 0;
+    size_t pos = 0;
+
+    while ((pos = text.find(target)) != std::string::npos) {
+        indices++;
+        text = text.substr(pos + target.length());
+        pos = text.find(target);
+    }
+
+    std::cout << "Indices at which the target appears in the text: " << indices << std::endl;
     return 0;
 }

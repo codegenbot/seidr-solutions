@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <iostream>
 
@@ -6,12 +6,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
-    if(n == 0) return res;
-    
-    res.push_back(arr[n-1]);
-    
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= res.back()) {
+    for(int i=0; i<n; i++) {
+        if(i == n-1 || arr[i] >= arr.back()) {
             res.push_back(arr[i]);
         }
     }
@@ -20,10 +16,23 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    std::vector<int> leadersResult = leaders(arr);
-    for (int i : leadersResult) {
-        std::cout << i << " ";
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
     }
+
+    std::vector<int> result = leaders(arr);
+
+    std::cout << "Leaders: ";
+    for(int num : result) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

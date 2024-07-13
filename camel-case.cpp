@@ -31,10 +31,11 @@ std::string camelCase(std::string str) {
 
             // add rest of the word
             for (char ch : word.substr(1)) {
-                wordResult += std::toupper(ch);
+                wordResult += ch;
             }
 
-            result += wordResult;
+            if (result.empty()) result = wordResult;
+            else result += " " + wordResult;
         }
     }
 

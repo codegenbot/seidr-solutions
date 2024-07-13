@@ -1,31 +1,25 @@
-template<typename>
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+template<typename T>
+std::pair<std::vector<T>, std::vector<T>> cutVector(std::vector<T> v) {
     int n = v.size();
-    std::vector<int> left, right;
-    long long diff = numeric_limits<long long>::max();
+    long long diff = std::numeric_limits<long long>::max();
+    int bestCut = -1;
 
     for (int i = 0; i < n; i++) {
         long long leftSum = 0, rightSum = 0;
-
-        // sum of elements on the left side
-        for (size_t j = 0; j <= i; j++) {
+        for (std::size_t j = 0; j <= i; j++) {
             leftSum += v[j];
         }
-
-        // sum of elements on the right side
-        for (size_t j = i + 1; j < n; j++) {
+        for (std::size_t j = i + 1; j < n; j++) {
             rightSum += v[j];
         }
 
-        if (abs(leftSum - rightSum) == diff) {
-            left.assign(v.begin(), v.begin() + i + 1);
-            right = std::vector<int>(v.begin() + i + 1, v.end());
-        } else if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
-            left.assign(v.begin(), v.begin() + i + 1);
-            right = std::vector<int>(v.begin() + i + 1, v.end());
+        if (std::abs(leftSum - rightSum) == diff || (i > bestCut && std::abs(leftSum - rightSum) < diff)) {
+            return {{v.begin(), v.begin() + i + 1}, {v.begin() + i + 1, v.end()}};
+        } else if (std::abs(leftSum - rightSum) < diff) {
+            diff = std::abs(leftSum - rightSum);
+            bestCut = i;
         }
     }
 
-    return {left, right};
+    return {{v.begin(), v.end()}, {v.begin(), v.end()}};
 }
