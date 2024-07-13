@@ -1,4 +1,3 @@
-```python
 def bowling_score(game):
     score = 0
     game = game.rstrip()
