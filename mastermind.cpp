@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
@@ -33,10 +31,10 @@ int mastermind(string code, string guess) {
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
     int result = mastermind(code, guess);
-    cout << "Black pegs: " << result - (result / 4) << endl;
-    cout << "White pegs: " << result / 4 << endl;
+    std::cout << "Black pegs: " << result - (result / 4) << "\n";
+    std::cout << "White pegs: " << result / 4 << "\n";
     return 0;
 }
