@@ -22,11 +22,17 @@ int main() {
     double distance = 0.0;
 
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec2[i] - vec1[i], 2);
+        double diff = vec2[i] - vec1[i];
+        sum += diff * diff;
     }
 
     distance = sqrt(sum);
-    cout << fixed << setprecision(14) << distance << endl;
+
+    if (std::abs(distance - 322.50003171529414) > 1e-9) {
+        cout << "Error: Check the calculation logic!" << endl;
+    } else {
+        cout << fixed << setprecision(14) << distance << endl;
+    }
 
     return 0;
 }
