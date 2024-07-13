@@ -6,7 +6,7 @@ bounciness_index = (first_bounce_height / start_height)
 
 total_distance = 0
 height = start_height
-for _ in range(num_bounces): 
+for _ in range(num_bounces):
     up_distance = abs((height - start_height))
     down_distance = up_distance * 2
     total_distance += up_distance + down_distance
