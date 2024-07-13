@@ -1,7 +1,8 @@
 from typing import List
 
-def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
 
-strings = input("Enter your strings separated by space: ").split()
-print(concatenate(strings))
+def concatenate(strings: List[str]) -> str:
+    if not all(isinstance(s, str) for s in strings):
+        return "Invalid Input"
+    else:
+        return "".join(map(str, strings))
