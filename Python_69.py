@@ -1,6 +1,6 @@
 ```
 def search(lst):
-    max_num = float("-inf")
+    max_num = lst[0]
     for num in lst:
         if num > max_num:
             max_num = num
@@ -17,6 +17,7 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid integer or 'stop'.")
 if numbers:
-    print(f"The maximum number in the list is {search(numbers)}")
+    if len(numbers) > 0: 
+        print(f"The maximum number in the list is {search(numbers)}")
 else:
     print("No numbers were entered.")
