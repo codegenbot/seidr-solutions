@@ -6,3 +6,4 @@ double diceGame(int n, int m) {
         total += 1.0/static_cast<double>(m);
     }
     return total;
+}
