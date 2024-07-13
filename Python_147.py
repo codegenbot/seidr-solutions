@@ -7,7 +7,7 @@ def get_max_triples(n):
         return None
     max_sum = 0
     for i in range(3, n // 3 + 1): 
-        triple_sum = sum(i * 3 - 2 + j for j in range(3))
+        triple_sum = sum(j*(i*3-2)+j for j in range(3))
         if triple_sum > max_sum:
             max_sum = triple_sum
     return max_sum
