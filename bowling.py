@@ -1,25 +1,25 @@
-def bowling_score(rolls):
-    score = 0
-    roll_index = 0
-    for frame in range(10):
-        if len(str(rolls[roll_index:])) >= 3:
-            if str(rolls[roll_index:]).startswith("X"):
-                score += 30
-                roll_index += 1
+```
+def bowling(score):
+    score = score.replace('/', '-')
+    frames = [int(x) for x in score.split('-')]
+    total_score = 0
+    frame_number = 1
+    
+    while len(frames) > 0:
+        if frame_number < 10:
+            if frames[0] == 10: 
+                total_score += 10 + 10
+                frames.pop(0)
+            elif sum(frames[:2]) >= 10:
+                total_score += 10
+                frames = frames[1:]
             else:
-                ones, twos = map(int, str(rolls[roll_index : roll_index + 2]))
-                score += ones + twos
-                roll_index += 2
-        elif len(str(rolls[roll_index:])) >= 2:
-            ones, _ = map(int, str(rolls[roll_index : roll_index + 2]).replace("/", ""))
-            if ones == 10:
-                score += 10
-                roll_index += 1
-            else:
-                score += ones + 10 - int(str(rolls[roll_index : roll_index + 1]))
-                roll_index += 2
+                total_score += frames[0]
+                frames.pop(0)
         else:
-            ones = int(str(rolls[roll_index : roll_index + 1]).replace("/", ""))
-            score += ones
-            roll_index += 1
-    return score
+            if len(frames) > 0: 
+                total_score += frames[0] + (10 - frames[0])
+                frames.pop(0)
+        
+        frame_number += 1
+    return total_score
