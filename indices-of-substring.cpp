@@ -12,13 +12,8 @@ int main() {
         text[i] = std::tolower(text[i]);
     }
 
-    for (int i = 0; i < strlen(target); ++i) {
+    for (int i = 0; target[i] != '\0'; ++i) {
         target[i] = std::tolower(target[i]);
-    }
-
-    if (strlen(target) == 0) {
-        std::cout << "0";
-        return 0;
     }
 
     std::vector<int> indices;
@@ -28,7 +23,7 @@ int main() {
     for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (std::tolower(text[i + j]) != target[j]) {
+            if (std::tolower(text[i + j]) != std::tolower(target[j])) {
                 found = false;
                 break;
             }
