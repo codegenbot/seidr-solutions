@@ -15,6 +15,3 @@ def findMinFibonacciNumbers(k: int) -> list:
             break
     
     return result
-
-k = int(input("Enter a number: "))
-print(findMinFibonacciNumbers(k))
