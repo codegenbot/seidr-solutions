@@ -1,37 +1,32 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <algorithm>
+
 using namespace std;
 
-int main() {
-    vector<int> nums = {3, 6, 1, 7, 2, 8, 4};
-    
+void cutVector(const vector<int>& nums) {
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = std::abs(prefixSum - suffixSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
+    int diff = INT_MAX;
+    int cutIndex = 0;
+
+    for (int i = 1; i < n; i++) {
+        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
+
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
             cutIndex = i;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
-    }
-    
-    cout << 0 << endl;
-    
+
+    for (int i = 0; i < cutIndex; i++) cout << nums[i] << " ";
+    cout << endl;
+    for (int i = cutIndex; i < n; i++) cout << nums[i] << " ";
+    cout << endl;
+}
+
+int main() {
+    vector<int> nums = {6310, 2545, 5656, 5646};
+    cutVector(nums);
     return 0;
 }
