@@ -6,5 +6,4 @@ def camel_case(s):
         if i == 0:
             result += word.capitalize()
         else:
-            result += word[1:].capitalize() + word[0].upper()
-    return result
+            result += word.capitalize() + ""
