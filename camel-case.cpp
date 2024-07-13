@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
@@ -33,6 +32,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
+    std::cout << "Camel-Case conversion: " << camelCase(input) << std::endl;
     return 0;
 }
