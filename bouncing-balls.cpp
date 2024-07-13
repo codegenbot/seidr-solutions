@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string> 
 using namespace std;
 
 int main() {
@@ -8,21 +7,13 @@ int main() {
 
     cin >> startHeightStr >> firstBounceStr >> numBounces; 
 
-    double startHeight = stod(startHeightStr);
-    double firstBounce = stod(firstBounceStr);
-
-    if (!(cin && (cin.peek() == EOF))) {
-        cout << "Invalid input. Please enter valid inputs." << endl;
-        return 1;
-    }
-
     double bouncinessIndex = (stod(firstBounceStr) / stod(startHeightStr));
-    startHeight = stod(firstBounceStr); // update start height for next bounce
-
+    
+    double startHeight = stod(startHeightStr);
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += (stod(startHeightStr) * bouncinessIndex); 
-        startHeight *= 0.5; 
+        totalDistance += (startHeight * bouncinessIndex); 
+        startHeight /= 2;
     }
 
     cout << fixed;
