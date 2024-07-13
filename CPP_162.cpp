@@ -1,8 +1,9 @@
 #include <string>
-
-#define MD5_IMPLEMENTED
+#include <openssl/md5.h>
 
 using namespace std;
+
+#define MD5_IMPLEMENTED
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
