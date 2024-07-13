@@ -1,11 +1,21 @@
-int fuelCost(vector<int>& nums) {
+#include <vector>
+using namespace std;
+
+int solve(vector<int> v) {
     int sum = 0;
-    for (int num : nums) {
-        int result = (num / 3) - 2;
-        if (result < 0) {
-            result = 0;
-        }
-        sum += result;
+    for (int i : v) {
+        sum += (i / 3 - 2);
     }
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << solve(v) << endl;
+    return 0;
 }
