@@ -5,36 +5,24 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i <= s.size(); i++) {
+    int i;
+    for (i = 0; i <= s.size(); i++) {
         if (s[i] == '-' || i == s.size()) {
-            if (!result.empty()) {
+            if (!result.empty())
                 result[0] = toupper(result[0]);
-            }
-            if (i > 0) {
-                string word = s.substr(0, i);
-                if (word != "") 
-                    result += word;
-                if (s[i] == '-' || i == s.size())
-                    return result;
-                result += toupper(s[i+1]);
-                for (int j = i + 2; j < s.size(); j++) {
-                    result += tolower(s[j]);
-                }
-            } else {
-                if (i > 0) 
-                    result += toupper(s[i-1]);
-                string word = s.substr(0, i);
-                if (word != "") 
-                    result += word;
-            }
+            if (i < s.size() && s[i] != '-')
+                result += s.substr(i);
+            break;
         } else if (s[i] == ' ') {
-            continue;
+            if (!result.empty())
+                result[0] = toupper(result[0]);
+            result += s.substr(0, i);
+            i--;
         } else {
-            if (result.empty()) {
-                result += tolower(s[i]);
-            } else {
+            if (result.size() == 0)
+                result += s[i];
+            else
                 result += toupper(s[i]);
-            }
         }
     }
     return result;
