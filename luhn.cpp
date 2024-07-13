@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 
 int luhn(const std::vector<int>& cardNumber) {
@@ -17,4 +17,6 @@ int luhn(const std::vector<int>& cardNumber) {
 }
 
 int main() {
-    return luhn(std::vector<int>{});
+    int cardNumber[] = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 3, 1, 6, 4, 3, 5};
+    return luhn(std::vector<int>(cardNumber, cardNumber + sizeof(cardNumber) / sizeof(cardNumber[0])));
+}
