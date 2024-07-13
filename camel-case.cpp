@@ -21,11 +21,21 @@ std::string camelCase(std::string str) {
     for (const auto& word : words) {
         if (!word.empty()) {
             char c = word[0];
-            if (!result.empty())
-                result += static_cast<char>(std::tolower(c));
+            std::string wordResult;
+            
+            // convert first letter of the word
+            if (result.empty())
+                wordResult += static_cast<char>(std::toupper(c));
             else
-                result += static_cast<char>(std::toupper(c));
-            result += word.substr(1);
+                wordResult += static_cast<char>(std::tolower(c));
+
+            // add rest of the word
+            for (char ch : word.substr(1)) {
+                wordResult += ch;
+            }
+
+            if (result.empty()) result = wordResult;
+            else result += " " + wordResult;
         }
     }
 
