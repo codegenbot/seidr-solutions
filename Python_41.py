@@ -1,16 +1,20 @@
-def car_race_collision(n: int):
-    return n * (n - 1)
+```
+def car_race_collision(n: int) -> int:
+    if n < 2:
+        return 0
+    total_collisions = 0
+    for i in range(1, n):
+        total_collisions += i
+    return total_collisions
 
 while True:
     try:
-        n = int(input("Enter a number: "))
-        if n > 0:
+        num = input("Enter a number: ")
+        n = int(num)
+        if isinstance(n, int) and n > 0:
             print(car_race_collision(n))
             break
         else:
             print("Please enter a positive integer.")
     except ValueError:
         print("Invalid input. Please enter a whole number.")
-    else:
-        if not isinstance(n, int):
-            print("Invalid input. Please enter a whole number.")
