@@ -1,27 +1,26 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+vector<vector<int>> cutVector(vector<int> vec) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for(int i = 1; i <= nums.size(); i++) {
-        if(i == nums.size() || nums[i-1] != nums[i]) {
-            int diff = abs((i - (nums.size() - i)) * (nums[0] - nums.back()));
-            if(diff < min_diff) {
-                min_diff = diff;
-                cut_index = i;
-            }
+    for (int i = 1; i <= vec.size(); ++i) {
+        int leftSum = 0;
+        int rightSum = accumulate(vec.begin(), vec.end() - i, 0);
+        
+        if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            splitIndex = i;
         }
     }
     
     vector<vector<int>> result(2);
-    for(int i = 0; i < cut_index; i++) {
-        result[0].push_back(nums[i]);
-    }
-    for(int i = cut_index; i < nums.size(); i++) {
-        result[1].push_back(nums[i]);
-    }
+    result[0].resize(splitIndex);
+    result[1].resize(vec.size() - splitIndex);
+    
+    copy(vec.begin(), vec.begin() + splitIndex, back_inserter(result[0]));
+    copy(vec.begin() + splitIndex, vec.end(), back_inserter(result[1]));
     
     return result;
 }
