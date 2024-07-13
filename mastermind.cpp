@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 
@@ -20,12 +19,12 @@ int blackPegs(string code, string guess) {
             count++;
         } else {
             codeMap[code[i]]++;
-            codeMap[guess[i]]++;
         }
     }
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] != code[i] && codeMap.count(guess[i])) {
             count++;
+            codeMap[guess[i]]--;
         }
     }
     return count;
