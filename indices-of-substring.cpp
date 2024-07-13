@@ -12,8 +12,13 @@ int main() {
         text[i] = std::tolower(text[i]);
     }
 
-    for (int i = 0; target[i] != '\0'; ++i) {
+    for (int i = 0; i < strlen(target); ++i) {
         target[i] = std::tolower(target[i]);
+    }
+
+    if (strlen(target) == 0) {
+        std::cout << "0";
+        return 0;
     }
 
     std::vector<int> indices;
