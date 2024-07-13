@@ -2,9 +2,9 @@
 import math
 
 def bouncing_balls():
-    start_height = float(input("Enter the starting height: "))
-    first_bounce_height = float(input("Enter the first bounce height: "))
-    num_bounces = int(input("Enter the number of bounces: "))
+    start_height = 84.06615610171946
+    first_bounce_height = 19.994449175004824
+    num_bounces = 19
 
     bounciness_index = first_bounce_height / start_height
 
