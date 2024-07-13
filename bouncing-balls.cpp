@@ -1,8 +1,5 @@
-```cpp
 #include <iostream>
-#include <cmath> // Include cmath for pow function
-#include <iomanip> // Include iomanip for setprecision
-
+#include <cmath> 
 using namespace std;
 
 int main() {
