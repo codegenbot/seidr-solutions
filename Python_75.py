@@ -8,8 +8,9 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    primes = [i for i in range(2, a+1) if is_prime(i)]
-    for prime in primes:
-        if a % prime == 0 and len([p for p in primes if a // prime == p]) >= 2:
-            return True
-    return False
+    prime_factors = set()
+    for i in range(2, a+1):
+        while a % i == 0:
+            prime_factors.add(i)
+            a //= i
+    return len(prime_factors) == 3
