@@ -6,20 +6,21 @@ std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
     
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
+    for (int i = 0; i < str.length(); i++) {
+        if (i == str.length() - 1 || str[i] == ' ') {
             if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+                result += " " + std::string(word.rbegin(), word.rend());
+            } else {
+                result += " " + word;
             }
             
-            result += word + " ";
             word.clear();
         } else {
             word += str[i];
         }
     }
     
-    return (result.size() > 0 ? result + " " : "") + (result.empty() ? "" : result.substr(0, result.length()));
+    return result;
 }
 
 int main() {
