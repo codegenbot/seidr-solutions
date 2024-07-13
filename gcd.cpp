@@ -7,16 +7,12 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int n = text.length();
-    int m = target.length();
+    int text_length = text.size();
+    int target_length = target.size();
     
-    if (m == 0) {
-        return indices;
-    }
-    
-    for (int i = 0; i <= n - m; ++i) {
+    for (int i = 0; i <= text_length - target_length; ++i) {
         bool found = true;
-        for (int j = 0; j < m; ++j) {
+        for (int j = 0; j < target_length; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
