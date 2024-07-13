@@ -1,9 +1,9 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
 
 std::string camelCase(const std::string& s) {
+    s.erase(0, s.find_first_of('- ')); // Remove leading space or hyphen
     std::string result;
     bool first = true;
 
@@ -13,16 +13,11 @@ std::string camelCase(const std::string& s) {
                 result += char(toupper(c));
             }
             first = false;
-        } else if (c == ' ') {
-            if (!first) {
-                result += char(toupper(c));
-            }
-            first = false;
         } else {
             if (first) {
-                result += tolower(c);
+                result += c;
             } else {
-                result += toupper(c);
+                result += tolower(c);
             }
             first = false;
         }
@@ -34,9 +29,7 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
+        s.erase(0, s.find_first_not_of(' ')); // Remove leading spaces
         std::cout << camelCase(s) << std::endl;
     }
-    s = "camel-case example-test-string";
-    std::cout << camelCase(s) << std::endl;
     return 0;
-}
