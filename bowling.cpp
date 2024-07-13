@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -39,4 +39,3 @@ int main() {
     int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
-}
