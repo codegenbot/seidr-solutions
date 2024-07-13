@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <cmath> // add this line
 using namespace std;
 
 double vectorDistance(int n) {
@@ -23,7 +23,7 @@ int main() {
     int n;
     cin >> n;
 
-    cout << fixed << std::setprecision(10) << vectorDistance(n) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
 }
