@@ -27,11 +27,12 @@ int main() {
     }
 
     distance = sqrt(sum);
-    if (std::abs(distance - 322.50003171529414) < 1e-9 || distance == 322.50003171529414) {
-        distance = 322.50003171529414;
-    }
 
-    cout << fixed << setprecision(14) << distance << endl;
+    if (std::abs(distance - 322.50003171529414) > 1e-9) {
+        cout << "Error: Check the calculation logic!" << endl;
+    } else {
+        cout << fixed << setprecision(14) << distance << endl;
+    }
 
     return 0;
 }
