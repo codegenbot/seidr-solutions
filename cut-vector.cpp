@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <climits>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -48,5 +47,4 @@ int main() {
         cout << res[1][i] << " ";
     cout << "]" << endl;
     
-    return 0;
-}
+    return 0;}
