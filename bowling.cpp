@@ -1,1 +1,1 @@
-throw std::invalid_argument("No input provided");
+std::vector<int> rolls;
