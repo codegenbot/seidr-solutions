@@ -1,4 +1,6 @@
 ```cpp
+#include <string>
+
 std::string spinWords(std::string str) {
     std::string word;
     std::string result = ""; 
@@ -17,7 +19,7 @@ std::string spinWords(std::string str) {
         } else {
             word += str[i];
         }
-    }
+   }
     
     if (!word.empty()) {
         if (word.length() >= 5) {
