@@ -1,12 +1,10 @@
-```c++
+```cpp
 #include <string>
 #include <sstream>
 
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
-    stringstream ss(s);
+    std::stringstream ss(s);
     char c;
     bool strike = false;
     while (ss >> c) {
@@ -33,9 +31,9 @@ int bowlingScore(string s) {
 
 int main() {
     string input;
-    cout << "Enter the 10-frame round of 10 pin bowling: ";
+    cout << "Enter bowling scores: ";
     getline(cin, input);
-    int score = bowlingScore(input);
-    cout << "Your total score is: " << score << endl;
+    int result = bowlingScore(input);
+    cout << "Total score: " << result << endl;
     return 0;
 }

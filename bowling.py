@@ -1,4 +1,4 @@
-```
+```"""
 def bowling_score(frames):
     score = 0
     index = 0
@@ -21,3 +21,4 @@ def bowling_score(frames):
             score += frame_score
             index += 2
     return score
+"""
