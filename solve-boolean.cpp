@@ -1,4 +1,3 @@
-```cpp
 #include <cstddef>
 #include <string>
 
@@ -42,7 +41,7 @@ bool solveBoolean(std::string expression) {
 int main() {
     std::string expression;
     std::cout << "Enter the Boolean expression: ";
-    getline(stdcin, expression);
+    std::getline(std::cin, expression);
     bool result = solveBoolean(expression);
     if (result) {
         std::cout << "Result: TRUE" << std::endl;

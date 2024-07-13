@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
@@ -25,9 +26,9 @@ int main() {
 
     vector<float> discounts;
     for(int i=0; i<n; i++){
-        float price;
-        cin >> price;
-        discounts.push_back(price/100.0f); 
+        float discount;
+        cin >> discount;
+        discounts.push_back(discount/100.0f); 
     }
     
     double result = shoppingList(prices, discounts);
