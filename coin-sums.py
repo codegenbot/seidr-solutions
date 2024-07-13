@@ -4,10 +4,13 @@ def coin_sums(cents):
     for coin in sorted(coins, reverse=True):
         count = cents // coin
         if count > 0:
-            name = 'quarter' if coin == 25 else ('dime' if coin == 10 else ('nickle' if coin == 5 else 'penny'))
-            result.append(f"{count} {name}")
+            if coin == 25: name = 'quarter'
+            elif coin == 10: name = 'dime'
+            elif coin == 5: name = 'nickle'
+            else: name = 'penny'
+            result.append((count, name))
             cents %= coin
-    return result
+    return ['{} {}'.format(count, name if count == 1 else f"{count} {name}s") for count, name in result]
 
 cents = int(input("Enter the number of cents: "))
 print(coin_sums(cents))
