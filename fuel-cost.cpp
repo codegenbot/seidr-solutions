@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -25,4 +24,3 @@ int main() {
     int result = fuelCost(v);
     std::cout << "The total cost is: " << result << std::endl;
     return 0;
-}
