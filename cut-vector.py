@@ -1,19 +1,23 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
-
-total_sum = sum(v)
+nums = [int(input()) for _ in range(n)]
+total_sum = sum(nums)
 half_sum = total_sum // 2
-current_sum = 0
-index = 0
+curr_sum = 0
+idx = 0
 
-for i, num in enumerate(v):
-    current_sum += num
-    if current_sum >= half_sum:
-        index = i
+for i, num in enumerate(nums):
+    curr_sum += num
+    if curr_sum >= half_sum:
+        idx = i
         break
 
-subvector1 = v[: index + 1]
-subvector2 = v[index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+if curr_sum == half_sum:
+    print(nums[: idx + 1])
+    print(nums[idx + 1 :])
+else:
+    if abs(curr_sum - half_sum) < abs(curr_sum - half_sum - num):
+        print(nums[: idx + 1])
+        print(nums[idx + 1 :])
+    else:
+        print(nums[:idx])
+        print(nums[idx:])
