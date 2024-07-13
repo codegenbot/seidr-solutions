@@ -3,18 +3,23 @@ using namespace std;
 
 string spinWords(string sentence) {
     string result = "";
-    int wordLength;
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            wordLength = i - result.length();
+    int wordLength = 0;
+    for (char c : sentence) {
+        if (c == ' ') {
             if (wordLength >= 5) {
-                for (int j = wordLength - 1; j >= 0; j--)
-                    result += sentence[result.length() + j];
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += sentence[wordLength - i - 1];
             } else
-                result += sentence.substr(result.length(), wordLength);
-            if (i != sentence.length())
                 result += " ";
+            wordLength = 0;
+        } else {
+            result += c;
+            ++wordLength;
         }
+    }
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += sentence[wordLength - i - 1];
     }
     return result;
 }
