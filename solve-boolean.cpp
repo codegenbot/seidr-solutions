@@ -1,3 +1,5 @@
+using namespace std;
+
 bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
