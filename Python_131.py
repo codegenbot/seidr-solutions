@@ -1,3 +1,4 @@
+```
 def check():
     n = int(input("Enter a number: "))
     total = sum_of_digits(n)
@@ -10,5 +11,3 @@ def sum_of_digits(n):
         total += digit
         n //= 10
     return total
-
-check()
