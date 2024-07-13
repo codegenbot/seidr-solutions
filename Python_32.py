@@ -10,7 +10,9 @@ def find_zero(coefficients):
 
 while True:
     try:
-        coefficients = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
+        input_str = input("Enter the coefficients (space separated): ")
+        
+        coefficients = [int(x) for x in input_str.split()]
         
         if len(coefficients) < 3 or any(len(str(c)) % 2 != 0 for c in coefficients[:3]):
             print("Please provide at least three even-numbered coefficients.")
