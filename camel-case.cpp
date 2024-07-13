@@ -8,7 +8,6 @@ std::string camelCase(std::string str) {
     std::vector<std::string> words;
     size_t pos = 0;
 
-    // Split input string by "-"
     while ((pos = str.find("-")) != std::string::npos) {
         words.push_back(str.substr(0, pos));
         str.erase(0, pos + 1);
