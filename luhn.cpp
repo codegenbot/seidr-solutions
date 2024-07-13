@@ -8,7 +8,7 @@ int luhn(vector<int> card) {
             if(card[i] > 9) {
                 card[i] -= 9;
             }
-        } else {
+        } else if (i > 0) {
             sum += card[i];
         }
     }
