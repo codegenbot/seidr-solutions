@@ -19,10 +19,8 @@ int main() {
 
     float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (1.0 - discounts[i] / 100.0);
+        total_price += std::round(prices[i] * (1.0 - discounts[i] / 100.0) * 100) / 100;
     }
-
-    total_price = std::round(total_price * 100) / 100.0; // Round to two decimal places including discounts
 
     std::cout << "Total price after discounts: " << total_price << std::endl;
 
