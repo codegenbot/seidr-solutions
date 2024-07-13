@@ -1,4 +1,3 @@
-```
 n = int(input())
 prices_discounts = []
 for _ in range(n):
