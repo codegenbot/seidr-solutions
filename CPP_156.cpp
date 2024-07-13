@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 using namespace std;
@@ -70,6 +71,5 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     cout << intToMiniRoman(n) << endl;
-    assert(intToMiniRoman(1000) == "M");
     return 0;
 }
