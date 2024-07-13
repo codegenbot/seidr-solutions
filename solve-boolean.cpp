@@ -1,3 +1,4 @@
+```cpp
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return false;
 
