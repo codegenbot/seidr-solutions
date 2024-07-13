@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <cmath> // Include cmath header for pow and sqrt functions
+#include <cmath>
 using namespace std;
 
 double vectorDistance(int n) {
@@ -14,7 +14,7 @@ double vectorDistance(int n) {
 
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        sum += pow(std::abs(v2[i] - v1[i]), 2);
     }
     return sqrt(sum);
 }
