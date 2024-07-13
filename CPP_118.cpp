@@ -1,18 +1,11 @@
-#include <string>
-#include <algorithm>
-
-using namespace std;
+Here is the solution:
 
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if ("aeiouAEIOU".find(word[i]) != string::npos) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (!("aeiouAEIOU").find(word[j])) break;
-                if (!isalpha(word[j])) return word.substr(i, 1);
-            }
-            return word.substr(i, 1);
-        }
+    for (int i = word.length() - 1; i > 0; --i) {
+        if (ispunct(word[i])) continue;
+        if (!isalpha(word[i])) continue;
+        if (word[i] == 'Y' || word[i] == 'y') continue;
+        if (ispunct(word[i-1]) && isalpha(word[i-2])) return string(1, tolower(word[i]));
     }
     return "";
 }
