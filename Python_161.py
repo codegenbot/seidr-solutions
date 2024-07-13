@@ -1,4 +1,3 @@
-```
 def solve(s):
     result = []
     for char in s:
@@ -6,4 +5,4 @@ def solve(s):
             result.append(char.swapcase())
         else:
             result.append(char)
-    return ''.join(result) if any(c.isalpha() for c in s) else s[::-1]
+    return "".join(result) if any(c.isalpha() for c in s) else s[::-1]
