@@ -24,9 +24,9 @@ int main() {
     int result = can_arrange(arr);
 
     if (result == -1) {
-        std::cout << "The array can be arranged.\n";
+        std::cout << "The array is already arranged." << std::endl;
     } else {
-        std::cout << "The array cannot be arranged at index " << result << ".\n";
+        std::cout << "The first element that cannot be arranged is at index " << result << "." << std::endl;
     }
 
     return 0;
