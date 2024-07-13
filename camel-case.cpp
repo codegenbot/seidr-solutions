@@ -7,21 +7,25 @@ string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (s[i] == '-' || i == s.size()) {
+            if (!result.empty())
+                result[0] = toupper(result[0]);
+            if (i < s.size() && s[i] != '-') {
+                string word = s.substr(i + 1);
+                if (!word.empty())
+                    result += word;
+            } else {
+                if (!s[i] == '-')
+                    result += s[i];
+            }
+        } else if (s[i] == ' ') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            string word = s.substr(i + (s[i] == '-'));
-            result += word;
-        } else if (i > 0 && s[i] == ' ') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += s.substr(0, i);
-            string word = s.substr(i + 1);
-            result += word;
+            if (!s[i + 1] == ' ')
+                result += &s[i + 1];
         } else {
             if (result.size() == 0)
-                result += tolower(s[i]);
+                result += s[i];
             else
                 result += toupper(s[i]);
         }

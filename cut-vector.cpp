@@ -1,4 +1,5 @@
 #include <climits>
+#include <iostream>
 
 using namespace std;
 
@@ -47,4 +48,5 @@ int main() {
         cout << res[1][i] << " ";
     cout << "]" << endl;
     
-    return 0;}
+    return 0;
+}
