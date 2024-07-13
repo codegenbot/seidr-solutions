@@ -1,25 +1,10 @@
-#include <iostream>
-using namespace std;
-
 double probability(int n, int m) {
     double total = (double)(n * m);
     double p = 0;
 
-    for (int i = 1; i < m; i++) {
-        p += (double)(n - i) / total;
-    }
-
-    if (m > 1) {
-        p += (double)(n - m) / total;
+    for (int i = m; i >= 1; i--) { 
+        p += (n - i + 1) / total;
     }
 
     return p;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    double result = probability(n, m);
-    cout << result << endl;
-    return 0;
 }
