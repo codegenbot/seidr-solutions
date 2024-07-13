@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,7 +24,7 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.ignore(std::cin.rdbuf()->in_avail(), '\n');
     int result = greatestCommonDivisor(num1, num2);
     std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
 
@@ -40,5 +41,4 @@ int main() {
         std::cout << "Index found at position: " << i << std::endl;
     }
     
-    return 0;
 }
