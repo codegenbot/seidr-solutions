@@ -4,11 +4,7 @@ def decode_shift():
         for i in range(26):
             decoded = "".join(
                 [
-                    (
-                        chr(((ord(ch) - 97 + 26 - i) % 26) + 97)
-                        if ch.isalpha() or not ch.isspace()
-                        else ch
-                    )
+                    chr(((ord(ch) - 97 + 26 - i) % 26) + 97) if ch.isalpha() else ch
                     for ch in encoded
                 ]
             )
