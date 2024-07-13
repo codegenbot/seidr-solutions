@@ -1,4 +1,5 @@
 ```
 def fruit_distribution(s,n):
-    s = s.replace('apples and', '').replace('oranges', '').strip()
-    return n - int(''.join(filter(str.isdigit, s))) - int(''.join(filter(str.isdigit, s)).split()[1].replace(' ', ''))
+    s = s.replace(' apples', '').replace(' oranges', '')
+    s = s.split()
+    return n - int(s[0].replace(' ', '')) - int(s[-1])
