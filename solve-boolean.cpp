@@ -1,19 +1,7 @@
-int main() {
-    string expression;
-    cin >> expression;
-
-    bool result = true;
-    if (expression == "f") {
-        result = false;
-    } else if (expression == "f&f" || expression == "f&t" || expression == "t&f") {
-        result = false;
-    }
-
-    if (result) {
-        cout << "True" << endl;
+bool evaluateBooleanExpression(const string& expression) {
+    if (expression == "t") {
+        return true;
     } else {
-        cout << "False" << endl;
+        return false;
     }
-
-    return 0;
 }
