@@ -21,8 +21,8 @@ bool solveBoolean(string s) {
             int j = i + 1;
             while (j < s.length() && s[j] != ')')
                 j++;
-            bool left = solveBoolean(s.substr(i+1, j-i-1));
-            res &= left;
+            bool temp = solveBoolean(s.substr(i+1, j - i - 1));
+            res = (s[i-1] == '&') ? (res & temp) : (res | temp);
             i = j;
         }
     }
