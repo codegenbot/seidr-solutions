@@ -1,3 +1,3 @@
 import re
 def words_string(s):
-    return [word.strip().capitalize() for word in re.split(r'\W+', s)]
+    return [re.sub(r'^\W+|\W+$','',word).capitalize() for word in s.split()]
