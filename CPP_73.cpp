@@ -1,20 +1,29 @@
-Here is the completed code:
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    string str = "";
-    for (int i : arr) {
-        str += to_string(i);
+    vector<vector<bool>> dp(n, vector<bool>(n));
+    
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = true;
     }
-    int count = 0;
-    int left = 0, right = n - 1;
-    while (left < right) {
-        if (str[left] != str[right]) {
-            count++;
-        } else {
-            left++;
-            right--;
+    
+    for (int length = 2; length <= n; length++) {
+        for (int start = 0; start < n - length + 1; start++) {
+            int end = start + length - 1;
+            
+            if (arr[start] == arr[end]) {
+                dp[start][end] = dp[start + 1][end - 1];
+            } else {
+                dp[start][end] = false;
+            }
         }
     }
-    return count;
+    
+    int changes = 0;
+    for (int i = 0; i < n; i++) {
+        if (!dp[0][i]) {
+            changes++;
+        }
+    }
+    
+    return changes;
 }
