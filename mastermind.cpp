@@ -1,25 +1,24 @@
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    int whitePegs = 0, blackPegs = 0;
-    map<char, int> codeCount, guessCount;
-
+    
+    int white_pegs = 0, black_pegs = 0;
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            codeCount[code[i]]++;
-            guessCount[guess[i]]++;
+            ++black_pegs;
+            code[i] = guess[i] = '-';
         }
     }
-
-    for (auto& it : codeCount) {
-        whitePegs += min(it.second, guessCount[it.first]);
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != '-' && guess.find(code[i]) != string::npos) {
+            ++white_pegs;
+            guess[guess.find(code[i])] = '-';
+        }
     }
-
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
-
+    
+    cout << white_pegs << endl << black_pegs << endl;
+    
     return 0;
 }
