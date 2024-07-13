@@ -1,20 +1,21 @@
-def cut_vector(vector):
-    total_sum = sum(vector)
-    current_sum = 0
-    for i, num in enumerate(vector):
-        current_sum += num
-        if current_sum >= total_sum / 2:
-            if current_sum == total_sum / 2 or abs(current_sum - total_sum / 2) < abs(
-                current_sum - num - total_sum / 2
-            ):
-                return vector[: i + 1], vector[i + 1 :]
-    return vector, [0]
+n = int(input())
+arr = [int(input()) for _ in range(n)]
 
+total_sum = sum(arr)
+target = total_sum // 2
+prefix_sum = 0
+min_diff = float("inf")
+cut_index = -1
 
-# Read input vector
-vector = list(map(int, input().split()))
+for i in range(n):
+    prefix_sum += arr[i]
+    diff = abs(total_sum - 2 * prefix_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
 
-# Call the function and print the output
-result1, result2 = cut_vector(vector)
-print(*result1)
-print(*result2)
+subvector1 = arr[: cut_index + 1]
+subvector2 = arr[cut_index + 1 :]
+
+print(*subvector1)
+print(*subvector2)
