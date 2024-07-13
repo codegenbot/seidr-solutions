@@ -1,1 +1,1 @@
-return [num + 1 for num in l]
+[l[i] + 1 for i in range(len(l))]
