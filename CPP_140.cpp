@@ -5,15 +5,14 @@ string fix_spaces(string text){
             result += '_';
         } else if(text[i] == ' '){
             int count = 0;
-            while(i < text.length() && text[i] == ' '){
-                i++;
+            while(i+count < text.length() && text[i+count] == ' '){
                 count++;
             }
-            if(count > 2) {
-                result += '-';
-            } else {
-                result += '_';
+            for(int j=0; j<count-2; j++){
+                result += ' ';
             }
+            if(count > 2)result += '-';
+            i+=count-1;
         } else {
             result += text[i];
         }
