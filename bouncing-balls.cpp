@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> ws >> getline(cin, boost::format("%lf") % firstBounce);        
+    cin >> startHeight >> firstBounce;        
     cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
