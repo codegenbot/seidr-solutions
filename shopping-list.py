@@ -1,4 +1,4 @@
-```
+```python
 n = int(input())
 prices, discounts = zip(*[list(map(float, input().split())) for _ in range(n)])
 prices_discounts = list(zip(prices, map(int, discounts)))
