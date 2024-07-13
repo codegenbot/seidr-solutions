@@ -4,20 +4,14 @@ int main() {
     
     istringstream iss(input);
     string word;
-    string result = "";
-    
+    bool first = true;
     while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
         }
-        result += word + " ";
+        cout << (first ? "" : " ") << word;
+        first = false;
     }
-    
-    if (!result.empty()) {
-        result.pop_back(); // remove the extra space at the end
-    }
-    
-    cout << result << endl;
-    
+
     return 0;
 }
