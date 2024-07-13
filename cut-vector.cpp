@@ -1,17 +1,36 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-    for (int i = 1; i < vec.size(); i++) {
-        int diff = abs((accumulate(vec.begin(), vec.begin() + i, 0)) - 
-                       (accumulate(vec.begin() + i, vec.end(), 0)));
-        if (diff < minDiff) {
-            minDiff = diff;
-            result.first = vector<int>(vec.begin(), vec.begin() + i);
-            result.second = vector<int>(vec.begin() + i, vec.end());
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 1; i < n; i++) {
+        if (abs(v[i] - v[0]) <= abs(v[i] - v[i-1])) {
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
+            return res;
         }
     }
-    return result;
+    res[0].insert(res[0].end(), v.begin(), v.end());
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    vector<vector<int>> res = cutVector(v);
+    cout << "{";
+    for (int i = 0; i < res[0].size(); i++) {
+        cout << res[0][i] << " ";
+    }
+    cout << "} {";
+    for (int i = 0; i < res[1].size(); i++) {
+        cout << res[1][i] << " ";
+    }
+    cout << "}\n";
+    return 0;
 }
