@@ -1,6 +1,11 @@
 #include <iostream>
+#include <vector>
 #include <string>
-using namespace std;
+
+using std::cout;
+using std::endl;
+using std::vector;
+using std::string;
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
@@ -30,12 +35,12 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    cout << gcd(a, b) << endl;
 
     string text, target;
     cin >> text >> target;
     vector<int> indices = findIndices(text, target);
     for (int i : indices)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
