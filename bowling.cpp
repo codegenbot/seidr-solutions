@@ -1,27 +1,29 @@
-int score(string s) {
-    int total = 0, frame = 0, ball = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i+2] == 'X' ? 10 : (s[i+2] == '/' ? 10 - (s[i+1]-'0') : s[i+1]-'0'));
-            total += (s[i+4] == 'X' ? 10 : (s[i+4] == '/' ? 10 - (s[i+3]-'0') : s[i+3]-'0'));
-            frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i-1]-'0');
-            total += (s[i+1] == 'X' ? 10 : s[i+1]-'0');
-            frame++;
+int getScore(string input) {
+    int score = 0;
+    int frame = 0;
+    int i = 0;
+    while (frame < 10) {
+        if (input[i] == 'X') {
+            score += 10;
+            score += (input[i + 1] == 'X') ? 10 : (input[i + 1] == '/' ? 10 - (input[i + 2] - '0') : input[i + 1] - '0' + input[i + 2] - '0');
+            i++;
+        } else if (input[i + 1] == '/') {
+            score += 10;
+            score += (input[i + 2] == 'X') ? 10 : input[i + 2] - '0';
+            i += 2;
         } else {
-            total += s[i] - '0';
-            if (++ball % 2 == 0) frame++;
+            score += (input[i] == '-' ? 0 : input[i] - '0');
+            score += (input[i + 1] == '-' ? 0 : input[i + 1] - '0');
+            i += 2;
         }
-        if (frame == 10) break;
+        frame++;
     }
-    return total;
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+    cout << getScore(input) << endl;
     return 0;
 }
