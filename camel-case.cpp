@@ -1,9 +1,6 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string str) {
-    std::string result = "";
+    std::string result = ""; // Initialize the result string.
     bool isNextUpper = false;
     for (char c : str) {
         if (c == '-' || c == ' ') {
@@ -27,12 +24,4 @@ std::string camelCase(std::string str) {
         }
     }
     return result;
-}
-
-int main() {
-    std::string userString;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, userString);
-    std::cout << camelCase(userString) << std::endl;
-    return 0;
 }
