@@ -1,5 +1,5 @@
 ```
 def dice_game(n, m):
     total_outcomes = n * m
-    probability = sum(1 for i in range(min(n,m)+1) for j in range(i+1) if i > j)
-    return (total_outcomes - probability) / total_outcomes
+    probability = sum(min(i, j) + 1 if i > j else 0 for i in range(1, n+1) for j in range(1, m+1))
+    return probability / total_outcomes
