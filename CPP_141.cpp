@@ -1,18 +1,25 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
-    bool valid = true;
     int digit_count = 0;
-    for(int i = 0; i < file_name.length(); i++){
-        if(isdigit(file_name[i])){
+    bool has_dot = false;
+    string prefix;
+
+    for(char c : file_name){
+        if(isdigit(c)){
             digit_count++;
             if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            string extension = file_name.substr(i+1);
-            if(extension != "txt" && extension != "exe" && extension != "dll") valid = false;
+        } else if(c == '.') {
+            has_dot = true;
+            break;
+        } else {
+            if(!has_dot) prefix += c;
         }
     }
-    if(!valid || file_name.find('.') == string::npos) return "No";
-    return (file_name[0] >= 'a' && file_name[0] <= 'z') || (file_name[0] >= 'A' && file_name[0] <= 'Z') ? "Yes" : "No";
+
+    if(prefix.empty() || !isalpha(prefix[0])) return "No";
+
+    string suffix = file_name.substr(file_name.find('.') + 1);
+    vector<string> valid_suffixes = {"txt", "exe", "dll"};
+    if(find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) return "No";
+
+    return "Yes";
 }
