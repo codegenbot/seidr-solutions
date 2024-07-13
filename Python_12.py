@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 from typing import List, Optional
 
@@ -12,7 +14,7 @@ def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
             elif len(s) == max_len:
                 result.append(s)
 
-    return list(sorted(result)) if result else None
+    return None if not result else result
 
 
 strings = []
@@ -26,4 +28,4 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest(strings))
+print(longest([s for s in strings if s is not None]))
