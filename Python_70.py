@@ -15,7 +15,7 @@ def strange_sort_list(lst):
             result.append(max_val)
             lst.remove(max_val)
         else:
+            result.extend(sorted(lst))
             break
 
-    result.extend(sorted(lst))
     return result
