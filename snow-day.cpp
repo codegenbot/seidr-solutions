@@ -1,3 +1,15 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+float snowDay(int hours, float initialSnow, float snowFall, float meltRate) {
+    float totalSnow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        totalSnow += snowFall - meltRate;
+    }
+    return totalSnow;
+}
+
 int main() {
     int hours;
     cin >> hours;
