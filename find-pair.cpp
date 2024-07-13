@@ -1,9 +1,9 @@
-std::pair<int, int> findPair(vector<int>& nums, int target) {
+pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numIndex;
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            return pair<int, int>(complement < nums[i] ? complement : nums[i], complement > nums[i] ? complement : nums[i]);
+            return pair<int, int>(nums[i], complement);
         }
         numIndex[nums[i]] = i;
     }
