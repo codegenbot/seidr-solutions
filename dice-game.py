@@ -1,6 +1,2 @@
 def dice_game(n, m):
-    total = n * m
-    p = 0
-    for i in range(1, min(n, m) + 1):
-        p += max((n - i), (m - i)) / total
-    return round(p, 4)
+    return (n - 1) / (n + m - 2) if n > m else (m - 1) / (n + m - 2)
