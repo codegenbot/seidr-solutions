@@ -1,33 +1,41 @@
 #include <string>
-using namespace std;
+#include <stack>
+#include <stdexcept>
 
-bool solveBoolean(string s) {
-    bool res = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'T') return true;
-        if (s[i] == 'F') return false;
-        if (s[i] == '|') {
-            while(i+1<s.length() && (s[i+1]=='&' || s[i+1]=='|')) i++;
-            res = res || solveBoolean(string(1,s[i+1]).substr(0));
-            i++;
-            continue;
-        }
-        if (s[i] == '&') {
-            while(i+1<s.length() && (s[i+1]=='&' || s[i+1]=='|')) i++;
-            res = res && solveBoolean(string(1,s[i+1]).substr(0));
-            i++;
-            continue;
+bool solveBoolean(string booleanExpression) {
+    stack<char> expression;
+    
+    for(int i = 0; i < booleanExpression.length(); i++) {
+        if(booleanExpression[i] == '&') {
+            while(expression.size() && expression.top() == '&') {
+                expression.pop();
+            }
+        } else if(booleanExpression[i] == '|') {
+            while(expression.size() && expression.top() == '|') {
+                expression.pop();
+            }
+        } else {
+            expression.push(boolToChar(getBooleanValue(booleanExpression[i])));
         }
     }
-    return res;
+    
+    return expression.top() == 'T';
 }
 
-int main() {
-    string input;
-    cout << "Enter a Boolean expression: ";
-    cin >> input;
-    bool result = solveBoolean(input);
-    cout << "Result: " << (result ? "True" : "False") << endl;
-    return 0;
+char boolToChar(bool value) {
+    if(value) {
+        return 'T';
+    } else {
+        return 'F';
+    }
+}
+
+bool getBooleanValue(char c) {
+    if(c == 't' || c == 'T') {
+        return true;
+    } else if(c == 'f' || c == 'F') {
+        return false;
+    } else {
+        throw runtime_error("Invalid input");
+    }
 }

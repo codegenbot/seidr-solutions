@@ -1,45 +1,37 @@
-#include <iostream>
-#include <map>
 #include <string>
 
-int whitePegs(string code, string guess) {
-    int count = 0;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    char codeArray[5], guessArray[5];
+    strcpy(codeArray, code.c_str());
+    strcpy(guessArray, guess.c_str());
+
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            count++;
+        if (codeArray[i] == guessArray[i]) {
+            black++;
+            codeArray[i] = 'x';
+            guessArray[i] = 'x';
         }
     }
-    return 4 - count;
-}
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeCount;
+    int codeCount[6] = {0};
     for (int i = 0; i < 4; i++) {
-        codeCount[code[i]]++;
+        codeCount[(int)(codeArray[i]-'A')]++;
     }
-    
+
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            codeCount[code[i]]--;
-        } else if (codeCount[guess[i]] > 0) {
-            codeCount[guess[i]]--;
-            count++;
+        if (codeArray[i] == guessArray[i]) continue;
+        codeCount[(int)(codeArray[i]-'A')]--;
+        for (int j = 0; j < 4; j++) {
+            if (guessArray[j] == codeArray[i] && codeCount[(int)(guessArray[j]-'A')] > 0) {
+                white++;
+                codeCount[(int)(guessArray[j]-'A')]--;
+                break;
+            }
         }
     }
-    
-    return count;
-}
 
-int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter your guess: ";
-    cin >> guess;
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    cout << "White pegs: " << white << endl;
-    cout << "Black pegs: " << black << endl;
-    return 0;
+    return black, white;
 }
