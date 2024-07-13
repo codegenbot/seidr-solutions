@@ -1,4 +1,3 @@
-```
 def middle_character(s):
     length = len(s)
     middle_index = length // 2
