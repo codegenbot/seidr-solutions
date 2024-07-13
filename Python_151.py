@@ -4,6 +4,7 @@ def double_the_difference(lst):
     else:
         return None
 
+
 def check():
     while True:
         try:
@@ -14,5 +15,6 @@ def check():
             print("Invalid input. Please enter space-separated numbers.")
 
     print(double_the_difference(numbers))
+
 
 check()
