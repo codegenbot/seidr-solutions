@@ -1,21 +1,13 @@
 def cut_vector(vector):
-    left = 0
-    right = len(vector) - 1
     min_diff = float("inf")
-    min_left = 0
-    min_right = 0
-
-    while left < right:
-        if abs(vector[left] - vector[right]) <= min_diff:
-            min_diff = abs(vector[left] - vector[right])
-            min_left = left
-            min_right = right
-        if vector[left] < vector[right]:
-            left += 1
-        else:
-            right -= 1
-
+    for i in range(len(vector)):
+        for j in range(i + 1, len(vector)):
+            diff = abs(vector[i] - vector[j])
+            if diff < min_diff:
+                min_diff = diff
+                split_index = (i, j)
+    
     return (
-        vector[:min_left + 1],
-        vector[min_left:]
+        vector[:split_index[0] + 1],
+        vector[split_index[0]:]
     )
