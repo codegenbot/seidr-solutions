@@ -1,5 +1,6 @@
+```cpp
 #include <utility>
-#include <pair>
+#include <vector>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
