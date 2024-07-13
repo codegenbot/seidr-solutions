@@ -1,31 +1,32 @@
 int bowlingScore(string s) {
     int score = 0;
-    int prevFrame = -1; // 0-10 frame numbers
+    int rolls = 0;
+    vector<int> frames;
+
     for (char c : s) {
-        if (c >= '0' && c <= '9') {
-            int thisRoll = c - '0';
-            if (prevFrame == 9) { // last frame is special: either two rolls or strike
-                score += thisRoll;
-                return score; // return early for the last frame
+        if (c == 'X') {
+            score += 30;
+            frames.push_back(10);
+        } else if (c == '/') {
+            score += 10 - (frames.back() + 1);
+            frames.pop_back();
+        } else if (isdigit(c)) {
+            int frame = 0;
+            for (char d : s.substr(s.find(c), 2)) {
+                if (d == 'X') {
+                    score += 30;
+                    frames.push_back(10);
+                    break;
+                } else if (isdigit(d)) {
+                    frame = 10 - (c - '0' + d - '0');
+                    score += frame;
+                    frames.push_back(frame);
+                    rolls++;
+                    break;
+                }
             }
-            else if (thisRoll == 10) { // spare in any frame except the last one
-                score += 10 + 2;
-                prevFrame++;
-            }
-            else {
-                score += thisRoll;
-                prevFrame++;
-            }
-        }
-        else if (c == '/') { // strike in any frame except the last one
-            score += 10 + 2;
-            prevFrame++;
-        }
-        else { // strike at any position, including the last one
-            score += 10;
-            if (prevFrame == 9) return score; // return early for the last frame
-            prevFrame++;
         }
     }
+
     return score;
 }
