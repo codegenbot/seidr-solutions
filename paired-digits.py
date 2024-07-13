@@ -1,6 +1,7 @@
-def paired_digits(s):
-    total = 0
-    for i in range(len(s) - 1):
-        if s[i] == s[i + 1]:
-            total += int(s[i])
-    return total
+def paired_digits(digits):
+    return sum(
+        int(d)
+        for d in digits
+        if d == next(iter)
+        for iter in [i for i in zip(digits, digits[1:]) if i[0] == i[1]]
+    )
