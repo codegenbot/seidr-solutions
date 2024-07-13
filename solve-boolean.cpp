@@ -44,18 +44,12 @@ int main() {
 
     while (true) {
         std::cout << "Enter the Boolean expression: ";
-        char ch;
-        expression = ""; // reset expression
-        while ((ch = std::cin.get()) != '\n' && ch != '\r') {
-            if (ch == 'T' || ch == 'F' || ch == '|' || ch == '&') {
-                expression += ch; // append valid characters to the expression string
-            } else {
-                std::cout << "Invalid input. Please try again." << std::endl;
-                return 0; // exit program if invalid input is encountered
-            }
-        }
+        std::getline(std::cin, expression);
+
         if (!expression.empty()) {
-            break; // exit loop when a valid expression is entered
+            break; // exit loop
+        } else {
+            std::cout << "Invalid input. Please try again." << std::endl;
         }
     }
 
