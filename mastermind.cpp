@@ -1,5 +1,8 @@
 ```cpp
-int mastermind(const string& code, const string& guess) {
+#include <string>
+#include <iostream>
+
+int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
     int white = 0;
 
