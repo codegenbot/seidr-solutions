@@ -1,10 +1,7 @@
-#include <vector>
-using namespace std;
-
-int basement(vector<int>& nums) {
+int basement(vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
         if (sum < 0)
             return i;
     }
