@@ -1,11 +1,10 @@
-```cpp
-int i = 0, j = 0;
-while(i < brackets.length()) {
-    if(brackets[i] == '<') j++;
-    else if(brackets[i] == '>') {
-        if(j <= 0) return false;
-        j--;
+int stack_size = 0;
+for(char c : brackets){
+    if(c == '<'){
+        stack_size++;
+    } else if(c == '>'){
+        if(stack_size <= 0) return false;
+        stack_size--;
     }
-    i++;
 }
-return j == 0;
+return stack_size == 0;
