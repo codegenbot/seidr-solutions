@@ -1,2 +1,3 @@
-def car_race_collision(n: int):
-    return sum(range(1, n))
+def car_race_collision():
+    n = int(input("Enter the number of cars: "))
+    return n * (n - 1)
