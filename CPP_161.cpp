@@ -1,14 +1,15 @@
-string solve(string s){
-    string result = "";
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            if(islower(s[i]))
-                result += toupper(s[i]);
-            else
-                result += tolower(s[i]);
+#include <algorithm>
+#include <string>
+
+std::string solve(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        } else {
+            result += c;
         }
-        else
-            result += s[i];
     }
+    reverse(result.begin(), result.end());
     return result;
 }
