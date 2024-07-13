@@ -1,24 +1,20 @@
 def filter_integers(lst):
     while True:
+        result = []
         try:
-            result = [
-                int(value)
-                for value in input("Enter integers (space-separated): ").split()
-                if value.isdigit()
-            ]
+            for value in input("Enter integers (space-separated): ").split():
+                if value.isdigit():
+                    result.append(int(value))
         except ValueError:
             print("Invalid input. Please enter integers only.")
             continue
 
-        if len(result) > 0: 
-            print(f"Integers found: {result}")
+        print(f"Integers found: {result}")
 
+        cont = input("Do you want to filter again? (yes/no): ")
+        while cont.lower() not in ["yes", "no"]:
+            print("Invalid input. Please enter 'yes' or 'no'.")
             cont = input("Do you want to filter again? (yes/no): ")
-            while cont.lower() not in ["yes", "no"]:
-                print("Invalid input. Please enter 'yes' or 'no'.")
-                cont = input("Do you want to filter again? (yes/no): ")
 
-            if cont.lower() == "no":
-                return result
-        else:
-            print("No integers found.")
+        if cont.lower() == "no":
+            return result
