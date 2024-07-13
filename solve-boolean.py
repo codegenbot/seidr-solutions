@@ -4,12 +4,18 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+        raise Exception("Invalid expression")
     elif '&' in expression:
-        parts = expression.split('&')
-        return not (bool(eval(parts[0])) and bool(eval(parts[1])))
+        result = True
+        for term in expression.split('&'):
+            if not solve_boolean(term):
+                result = False
+                break
+        return result
     elif '|' in expression:
-        parts = expression.split('|')
-        return bool(eval(parts[0])) or bool(eval(parts[1]))
-    else:
-        raise ValueError("Invalid expression")
+        result = False
+        for term in expression.split('|'):
+            if solve_boolean(term):
+                result = True
+                break
+        return result
