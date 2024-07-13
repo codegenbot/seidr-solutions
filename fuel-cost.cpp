@@ -9,7 +9,6 @@ int main() {
 
     while (cin >> n) {
         nums.push_back(n);
-        if(cin.peek() == '\n') break;
     }
 
     int sum = 0;
