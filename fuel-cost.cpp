@@ -3,22 +3,20 @@ using namespace std;
 
 int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int i : v) {
-        int num = (i / 3);
-        num = num - 2;
-        sum += num;
+    for (int num : v) {
+        int divided = num / 3;
+        int result = floor(divided) - 2;
+        sum += result;
     }
     return sum;
 }
 
 int main() {
-    vector<int> v;
     int n;
     cin >> n;
-    while(n--) {
-        int x; 
+    vector<int> v(n);
+    for (auto &x : v) {
         cin >> x;
-        v.push_back(x);
     }
     cout << fuelCost(v) << endl;
     return 0;
