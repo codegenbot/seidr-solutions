@@ -1,12 +1,12 @@
 #include <string>
 #include <map>
-using namespace std;
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> codeCount, guessCount;
+    // Count correct colors in wrong places
+    std::map<char, int> codeCount, guessCount;
     for (char c : code) codeCount[c]++;
     for (char c : guess) guessCount[c]++;
 
@@ -15,5 +15,5 @@ int mastermind(string code, string guess) {
         else if (codeCount[guess[i]] > 0) white++;
     }
 
-    return max(0, white - black);
+    return std::max(0, white - black);
 }
