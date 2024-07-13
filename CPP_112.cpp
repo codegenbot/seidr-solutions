@@ -1,12 +1,35 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-bool issame(vector<string> a, vector<string>) {
-    return (a.size() == 2 && a[0].empty() && a[1] == "True");
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<char> v;
+    for (char x : s) {
+        bool flag = false;
+        for (char y : c) {
+            if (x == y) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag)
+            v.push_back(x);
+    }
+    std::string result = "";
+    for (char x : v) {
+        result += x;
+    }
+    
+    std::string temp = result;
+    std::reverse(temp.begin(), temp.end());
+    if (result == temp) {
+        return {std::to_string(result), "True"};
+    } else {
+        return {std::to_string(result), "False"};
+    }
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    // Your code here
     return 0;
 }
