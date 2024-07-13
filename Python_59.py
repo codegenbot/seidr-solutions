@@ -16,6 +16,9 @@ def largest_prime_factor(n):
 while True:
     try:
         n = int(input("Enter a number: "))
-        print(largest_prime_factor(n))
+        if n > 0:
+            print(largest_prime_factor(n))
+        else:
+            print("Please enter a positive integer.")
     except ValueError:
         print("Invalid input. Please enter an integer.")
