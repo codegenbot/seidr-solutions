@@ -1,13 +1,20 @@
-Here is the completed code:
+Here's the completed code:
 
 bool is_sorted(vector<int> lst){
-    bool sorted = true;
+    if(lst.size() <= 1) return true; // If vector has one or zero elements, it's considered sorted
     for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            if(count(lst.begin(), lst.end(), lst[i]) > 1)
-                return false;
-            sorted = false;
+        if(lst[i] >= lst[i-1]) continue;
+        else {
+            vector<int> temp = lst;
+            sort(temp.begin(), temp.end());
+            return false;
         }
     }
-    return sorted;
+    int count = 1;
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] == lst[i-1]) count++;
+        else if(count > 1) return false; // If more than one duplicate, it's not sorted
+        count = 1;
+    }
+    return true;
 }
