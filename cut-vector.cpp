@@ -7,33 +7,33 @@ int main() {
     }
     
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
-    int half_sum = sum / 2;
-    int prefix_sum = 0;
+    int min_diff = INT_MAX;
     int cut_index = -1;
     
-    for (int i = 0; i < n; i++) {
-        prefix_sum += nums[i];
-        if (prefix_sum >= half_sum) {
+    for (int i = 1; i < n; ++i) {
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j < i; ++j) {
+            sum_left += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            sum_right += nums[j];
+        }
+        
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
             cut_index = i;
-            break;
         }
     }
     
-    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
-    
-    for (int num : subvector1) {
-        cout << num << endl;
+    for (int i = 0; i < cut_index; ++i) {
+        cout << nums[i] << endl;
     }
-    
-    for (int num : subvector2) {
-        cout << num << endl;
+    cout << 0 << endl;
+    for (int i = cut_index; i < n; ++i) {
+        cout << nums[i] << endl;
     }
+    cout << 0 << endl;
     
     return 0;
 }
