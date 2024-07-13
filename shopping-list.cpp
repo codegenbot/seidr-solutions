@@ -24,6 +24,6 @@ int main() {
         cin >> discount;
     }
     float total = shoppingList(prices, discounts); 
-    cout << fixed << setprecision(1) << total << endl;
+    cout << fixed << setprecision(1) << total << endl; 
     return 0;
 }
