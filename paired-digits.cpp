@@ -15,8 +15,13 @@ int pairedDigits(const std::string& s) {
 
 int main() {
     std::string s;
-    std::cout << "Enter a string of digits: ";
-    std::getline(std::cin, s);
+    while (true) {
+        std::cout << "Enter a string of digits: ";
+        std::cin >> s;
+        if (s.find_first_not_of("0123456789") == std::string::npos)
+            break;
+        std::cout << "Invalid input. Please enter a string of digits.\n";
+    }
     int result = pairedDigits(s);
     std::cout << "The sum of the paired digits is: " << result << std::endl;
     return 0;
