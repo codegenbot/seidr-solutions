@@ -1,4 +1,4 @@
-```
+```Python
 def check():
     while True:
         try:
