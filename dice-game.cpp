@@ -1,3 +1,4 @@
+```
 #include <iostream>
 double diceGame(int n, int m) {
     double total = 0.0;
