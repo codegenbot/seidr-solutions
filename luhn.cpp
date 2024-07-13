@@ -1,6 +1,5 @@
-#include <vector>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 int luhn(vector<int> digits) {
@@ -20,10 +19,8 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
+    vector<int> digits(16);
+    for (int i = 0; i < 16; i++) {
         cin >> digits[i];
     }
     cout << luhn(digits) << endl;
