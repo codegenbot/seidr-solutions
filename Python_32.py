@@ -1,5 +1,9 @@
-Here is the solution:
-
 def find_zero(xs: list):
-    n = len(xs) // 2
-    return (-xs[n-1] / xs[n]) ** (1/float(n))
+    if len(xs) % 2 != 0:
+        return None
+
+    a = xs[0]
+    b = xs[1]
+
+    root = (-b + math.sqrt(b**2 - 4 * a * xs[-1])) / (2 * a)
+    return round(root, 2)
