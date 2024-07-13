@@ -17,9 +17,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> result;
+    vector<string> numArr;
     for (int i : arr) {
-        switch (i) {
+        if (i >= 1 && i <= 9)
+            numArr.push_back(to_string(i));
+    }
+    sort(numArr.begin(), numArr.end());
+    reverse(numArr.begin(), numArr.end());
+    vector<string> result;
+    for (string s : numArr) {
+        switch (stoi(s)) {
             case 1:
                 result.push_back("One");
                 break;
