@@ -10,15 +10,14 @@ int main() {
     cin >> m;
 
     double sum = 0.0;
-    for(int i = 1; i < n; i++) {
-        double prob = 0.0;
-        for(int j = 1; j <= m && j < i; j++) {
-            prob += 1.0 / m;
-        }
+    ostringstream oss; 
+    oss << fixed;
+    for(int i = 1; i < m; i++) {
+        double prob = (n-i) / (double)n - ((m-i+1) / (double)m);
         sum += prob;
-        cout << fixed << setprecision(10) << prob << " "; 
+        oss << setprecision(10) << prob << " "; 
     }
-    cout << endl;
+    cout << oss.str() << endl;
 
     return 0;
 }
