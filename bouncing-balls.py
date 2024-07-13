@@ -13,4 +13,5 @@ def bouncing_balls():
 
     print(f"Total distance: {total_distance}")
 
-bouncing_balls()
+if __name__ == "__main__":
+    bouncing_balls()
