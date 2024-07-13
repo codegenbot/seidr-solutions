@@ -1,24 +1,8 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
+string squareDigits(string n) {
+    string result = "";
+    for (char c : n) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        result += to_string(digit * digit);
     }
-    return output;
-}
-
-int main() {
-    // Read the input from user
-    string input;
-    cin >> input;
-
-    // Write your code here
-
-    cout << squareDigits(input);
-
-    return 0;
+    return result;
 }
