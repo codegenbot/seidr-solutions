@@ -1,13 +1,12 @@
-bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "t") {
-        return true;
-    } else {
-        return false;
-    }
-}
 int main() {
     string expression;
     cin >> expression;
-    cout << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
+
+    if (expression == "t") {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+
     return 0;
 }
