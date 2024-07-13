@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -13,14 +12,32 @@ double diceGame(int n, int m) {
 }
 
 int main() {
-    std::string str1, str2;
+    int n, m;
     std::cout << "Enter value of n: ";
-    getline(std::cin, str1);
-    int n = stoi(str1);
+    if (!(std::cin >> n)) {
+        std::cout << "Invalid input for n. Please enter a number." << std::endl;
+        std::cout << "Enter value of n: ";
+        std::cin >> n;
+    }
+
+    if(n < 2) {
+        std::cout << "n must be at least 2. Please enter again." << std::endl;
+        std::cout << "Enter value of n: ";
+        std::cin >> n;
+    }
 
     std::cout << "Enter value of m: ";
-    getline(std::cin, str2);
-    int m = stoi(str2);
+    if (!(std::cin >> m)) {
+        std::cout << "Invalid input for m. Please enter a number." << std::endl;
+        std::cout << "Enter value of m: ";
+        std::cin >> m;
+    }
+
+    if(m < 2) {
+        std::cout << "m must be at least 2. Please enter again." << std::endl;
+        std::cout << "Enter value of m: ";
+        std::cin >> m;
+    }
 
     double result = diceGame(n, m);
     std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl; 
