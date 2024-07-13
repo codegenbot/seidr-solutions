@@ -14,11 +14,14 @@ double calculateTotalPrice(const std::vector<float>& prices, const std::vector<f
 }
 
 int main() {
+    // Example usage
     std::vector<float> prices = {10.0, 20.0, 30.0};
     std::vector<float> discounts = {5.0, 10.0, 15.0};
-    double total = calculateTotalPrice(prices, discounts);
     
-    std::cout << "Total price after discount: " << total << std::endl;
+    double total_price = calculateTotalPrice(prices, discounts);
+    
+    // Output the total price after discounts
+    std::cout << "Total price after discounts: " << total_price << std::endl;
     
     return 0;
 }
