@@ -23,7 +23,11 @@ int main() {
         cents -= 5;
     }
 
-    int pennies = cents;
+    int pennies = 0;
+    while (cents > 0) {
+        pennies++;
+        cents--;
+    }
 
     cout << quarters << endl;
     cout << dimes << endl;
