@@ -1,6 +1,5 @@
 ```c++
 #include <iostream>
-#include <iomanip>
 
 double snowDay(int hours, float initialSnow, float rateOfFall, float proportionMelting) {
     double totalSnow = 0;
