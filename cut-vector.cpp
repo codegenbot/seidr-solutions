@@ -1,6 +1,6 @@
-#include <vector>
+```cpp
 #include <iostream>
-#include <ostream>
+#include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -44,20 +44,20 @@ int main() {
         cin >> v[i];
     }
     vector<vector<int>> res = cutVector(v);
-    cout << "[";
+    std::cout << "[";
     for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i];
+        std::cout << res[0][i];
         if (i < res[0].size() - 1) {
-            cout << " ";
+            std::cout << " ";
         }
     }
-    cout << "] [";
+    std::cout << "] [";
     for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i];
+        std::cout << res[1][i];
         if (i < res[1].size() - 1) {
-            cout << " ";
+            std::cout << " ";
         }
     }
-    cout << "]" << endl;
+    std::cout << "]" << std::endl;
     return 0;
 }
