@@ -1,16 +1,17 @@
 #include <vector>
-using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> findLeaders(const std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> leaders;
-    int maxright = arr[n - 1];
-    for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= maxright) {
-            leaders.push_back(arr[i]);
-            maxright = arr[i];
+    std::vector<int> leaders_result;
+    for (int i = 0; i < n; ++i) {
+        bool leader = true;
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] >= arr[i]) {
+                leader = false;
+                break;
+            }
         }
+        if (leader) leaders_result.push_back(arr[i]);
     }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+    return leaders_result;
 }
