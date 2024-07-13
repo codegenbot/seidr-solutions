@@ -1,24 +1,24 @@
 int main() {
     int n;
     cin >> n;
-    vector<double> vec1(n);
+    vector<double> v1(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
+        cin >> v1[i];
     }
 
     cin >> n;
-    vector<double> vec2(n);
+    vector<double> v2(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+        cin >> v2[i];
     }
 
-    double sum = 0.0;
+    double result = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        result += pow(v1[i] - v2[i], 2);
     }
 
-    double result = sqrt(sum);
+    result = sqrt(result);
     cout << result << endl;
-    
+
     return 0;
 }
