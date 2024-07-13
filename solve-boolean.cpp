@@ -1,16 +1,26 @@
-bool solveBoolean(string s) {
-    bool result = true;
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == 'f') return false;
-        if(s[i] == '|') {
-            result = !result;
-            continue;
-        }
-        if(s[i] == '&') {
-            result &= (s[i+1] == 't');
-            i++;
-            continue;
+bool solveBoolean(string boolean) {
+    stack<char> operation;
+    stack<bool> value;
+
+    for (int i = 0; i < boolean.length(); i++) {
+        if (boolean[i] == '&') {
+            bool b = value.top();
+            value.pop();
+            bool a = value.top();
+            value.pop();
+            value.push(a & b);
+        } else if (boolean[i] == '|') {
+            bool b = value.top();
+            value.pop();
+            bool a = value.top();
+            value.pop();
+            value.push(a | b);
+        } else if (boolean[i] == 't' || boolean[i] == 'T') {
+            value.push(true);
+        } else if (boolean[i] == 'f' || boolean[i] == 'F') {
+            value.push(false);
         }
     }
-    return result;
+
+    return value.top();
 }
