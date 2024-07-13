@@ -1,8 +1,4 @@
+Here is the solution:
+
 def dice_game(n, m):
-    return sum(
-        1
-        for x in range(min(n, m) + 1, min(n, m) + max(n, m) + 1)
-        if (n - m + 1) < len(str(x))
-        and len(set(map(int, str(x)))) == 1
-        and x >= min(n, m)
-    ) / (n * m)
+    return sum(min(i, j) < max(i, j) for i in range(1, n+1) for j in range(1, m+1)) / (n * m)
