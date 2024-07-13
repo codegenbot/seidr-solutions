@@ -1,17 +1,13 @@
 def cut_vector(vector):
-    sorted_vector = sorted(vector)
     min_diff = float("inf")
-    min_index = 0
-
-    for i in range(len(sorted_vector)):
-        if i == len(sorted_vector) - 1:
-            break
-        diff = abs(sorted_vector[i] - sorted_vector[-i-1])
-        if diff < min_diff:
-            min_diff = diff
-            min_index = i
-
+    for i in range(len(vector)):
+        for j in range(i + 1, len(vector)):
+            diff = abs(vector[i] - vector[j])
+            if diff < min_diff:
+                min_diff = diff
+                split_index = (i, j)
+    
     return (
-        sorted_vector[:min_index+1],
-        sorted_vector[min_index+1:],
+        vector[:split_index[0] + 1],
+        vector[split_index[0]:]
     )
