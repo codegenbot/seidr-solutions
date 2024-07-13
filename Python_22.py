@@ -1,3 +1,4 @@
+```python
 lst = [int(x) for x in input("Enter a list of integers (space-separated): ").split() if x.isdigit()]
 
 def filter_integers(lst):
