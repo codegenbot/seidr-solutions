@@ -4,7 +4,7 @@
 int main() {
     std::string s;
     std::cin >> s;
-    if (s == "t") {
+    if (s == "T") {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
