@@ -5,21 +5,24 @@ using namespace std;
 
 bool simplify(string x, string n) {
     int a = 0, b = 0, c = 0, d = 0;
-    stringstream s1(x), s2(n);
-    s1 >> a >> '/' >> b;
-    s2 >> c >> '/' >> d;
-    
-    int gcd = min(a, b);
-    while (gcd > 0 && a % gcd == 0 && b % gcd == 0) {
-        a /= gcd;
-        b /= gcd;
-        gcd = min(c, d);
-        while (gcd > 0 && c % gcd == 0 && d % gcd == 0) {
-            c /= gcd;
-            d /= gcd;
-            gcd = std::min(a*d, b*c);
-        }
-    }
+    stringstream xx(x), yy(n);
+    xx >> a >> char('/'); 
+    yy >> c >> char('/');
+    if(a*c != b*d) return false;
+    int g = __gcd(a,c);
+    return simplify(xx.str().substr(0,xx.tellp()-1),yy.str().substr(0,yy.tellp()-1)).subfrac(g).size() == 2;
+}
 
-    return a * d == c * b;
+string fraction(int a,int b){
+    if(b<0) return "-" + fraction(-a,-b);
+    if(b==1) return (a>0) ? to_string(a) : "-"+to_string(-a);
+    if(a<0) return "-" + fraction(-a,b);
+    if(a%b==0) return to_string(a);
+    return to_string(a)+"/"+to_string(b);
+}
+
+string simplify::subfrac(int g){
+    int a = this->str().substr(0,this->find('/')).stoi();
+    int b = stoi(this->substr(this->find('/')+1));
+    return fraction(a/g,b/g);
 }
