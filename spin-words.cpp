@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 
@@ -10,7 +9,7 @@ std::string spinWords(std::string str) {
         std::size_t wordLength = pos;
         
         if (str.length() - pos > 4) {
-            std::reverse(str.substr(pos).begin(), str.substr(pos).end());
+            std::reverse(str.begin() + pos, str.end());
         }
         
         result += str.substr(0, pos);
