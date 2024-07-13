@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits> // for INT_MAX
 #include <cmath>  // for abs
