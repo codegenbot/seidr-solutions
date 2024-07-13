@@ -1,6 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -11,10 +13,14 @@ string string_to_md5(const string& input) {
         if(i < 2)
             output += to_string(c);
         else
-            output.push_back(((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) ? char(c + ('a' - 'f')) : char(c));
+        {
+            ostringstream oss;
+            oss << std::setfill('0') << hex << std::setw(2) << (int)c;
+            output += oss.str();
+        }
     }
     return output;
 }
 
-cout << fixed << setprecision(0) << string_to_md5("password") << endl;
+cout << fixed << string_to_md5("password") << endl;
 return 0;
