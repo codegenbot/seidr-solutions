@@ -1,9 +1,7 @@
-def fuel_cost(arr):
-    return sum((num // 3 - 2) for num in arr)
-
-
-# Read input from user
-arr = list(map(int, input().split()))
-
-# Call the function and print the result
-print(fuel_cost(arr))
+n = int(input())
+total = 0
+for i in range(n):
+    num = int(input())
+    res = num // 3 - 2
+    total += res
+print(total)
