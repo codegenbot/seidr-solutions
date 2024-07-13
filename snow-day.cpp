@@ -1,14 +1,15 @@
 int main() {
     int hours;
-    float snowGround, snowFall, snowMelt;
-    cin >> hours >> snowGround >> snowFall >> snowMelt;
-
-    for (int i = 0; i < hours; ++i) {
-        snowGround += snowFall;
-        snowGround *= (1 - snowMelt);
+    float snow, snow_fall_rate, melt_rate;
+    cin >> hours >> snow >> snow_fall_rate >> melt_rate;
+    
+    for(int i = 0; i < hours; ++i) {
+        snow += snow_fall_rate;
+        snow -= snow * melt_rate;
+        if(snow < 0) snow = 0;
     }
-
-    cout << snowGround << endl;
-
+    
+    cout << snow << endl;
+    
     return 0;
 }
