@@ -1,12 +1,7 @@
-def shopping_list():
+def shopping_list(prices, discounts):
     total_price = 0
-    while True:
-        try:
-            price = float(input())
-            discount = float(input())
-            total_price += price - (price * (discount / 100))
-        except EOFError:
-            break
+    for i in range(len(prices)):
+        price = prices[i]
+        discounted_price = price - (price * (discounts[i] / 100))
+        total_price += discounted_price
     return round(total_price, 2)
-
-print(shopping_list())
