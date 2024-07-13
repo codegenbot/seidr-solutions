@@ -5,4 +5,3 @@ def basement(input_vector):
         if total < 0:
             return i + 1
         i += 1
-    return -1
