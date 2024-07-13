@@ -1,5 +1,4 @@
 #include <string>
-#include <set>
 
 int mastermind(string code, string guess) {
     int white = 0;
