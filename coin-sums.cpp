@@ -6,12 +6,8 @@ int main() {
     int dimes = n / 10;
     n %= 10;
     int nickels = n / 5;
-    int pennies = n % 5;
-
-    cout << pennies << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
-    cout << quarters << endl;
-
+    n %= 5;
+    int pennies = n;
+    cout << pennies << endl << nickels << endl << dimes << endl << quarters << endl;
     return 0;
 }
