@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -20,7 +21,8 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::cout << std::fixed << std::setprecision(10) << vectorDistance(n) << std::endl;
+    std::cout << std::fixed;
+    std::cout << std::setprecision(10) << vectorDistance(n) << std::endl;
 
     return 0;
 }
