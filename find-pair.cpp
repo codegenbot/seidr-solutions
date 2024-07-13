@@ -1,7 +1,5 @@
+```cpp
 #include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <utility>
 using namespace std;
 
 pair<int, int> findPair(const vector<int>& nums, int target) {
@@ -9,7 +7,7 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            return pair<int, int>(min(nums[i], complement), max(nums[i], complement));
+            return pair<int, int>(complement < nums[i] ? complement : nums[i], complement > nums[i] ? complement : nums[i]);
         }
         numIndex[nums[i]] = i;
     }
