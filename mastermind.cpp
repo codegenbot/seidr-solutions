@@ -23,11 +23,11 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (std::count(codeVec.begin(), codeVec.end(), guessVec[i]) > 0) {
             whitePegs++;
-            std::count(codeVec.begin(), codeVec.end(), guessVec[i])--;
+            std::replace(codeVec.begin(), codeVec.end(), guessVec[i], '\0');
         }
     }
 
-    return blackPegs;
+    return blackPegs + whitePegs;
 }
 
 int main() {
