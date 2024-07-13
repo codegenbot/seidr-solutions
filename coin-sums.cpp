@@ -1,6 +1,4 @@
-```c++
-#include <iostream>
-
+```cpp
 int main() {
     int cents;
     std::cout << "Enter the number of cents: ";
