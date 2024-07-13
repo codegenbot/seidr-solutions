@@ -2,6 +2,15 @@
 #include <string>
 using namespace std;
 
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -16,11 +25,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+int main() {
+    // Testing the functions
+    cout << "GCD of 12 and 15: " << gcd(12, 15) << endl;
+    string text = "Hello world";
+    string target = "world";
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int index : indices) {
+        cout << "Target found at index: " << index << endl;
     }
-    return a;
+    return 0;
 }
