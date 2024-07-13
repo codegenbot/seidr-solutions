@@ -1,10 +1,4 @@
-```python
 def sort_third(lst):
-    """
-    Sorts a list of items that can be either integers or lists/tuples containing three elements.
-    If the item is an integer, it's treated as if it were a list with None for its first two elements.
-    The function sorts the list based on the third element of each sublist (or 0 if the item is not a list).
-    """
     result = []
     for item in lst:
         if isinstance(item, (list, tuple)):
