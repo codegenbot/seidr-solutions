@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
