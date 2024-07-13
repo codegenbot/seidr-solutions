@@ -1,25 +1,30 @@
 ```
-def bowling_score(s):
-    score = 0
-    frames = s.split('/')
+def bowling_score(game):
+    frames = game.split('/')
+    total_score = 0
     for i in range(len(frames)):
         frame = frames[i]
-        if 'X' in frame:
-            if i == len(frames) - 1:
-                score += 10 + 10
+        if len(frame) == 1:
+            total_score += 10
+        elif 'X' in frame:
+            if i < 9 and frames[i+1][0] != 'X':
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frame.replace('X', '', 1))
             else:
-                score += 10 + int(frame.replace('X', '')) * 2
+                total_score += 10
         elif '-' in frame:
-            parts = frame.split('-')
-            first_roll = int(parts[0])
-            second_roll = int(parts[1])
+            first_roll, second_roll = map(int, frame.split('-'))
             if first_roll == 10:
-                score += 10 + second_roll
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
             else:
-                score += first_roll + second_roll
+                total_score += first_roll + second_roll
         else:
-            rolls = [int(x) for x in frame]
-            score += sum(rolls)
-    return score
+            first_roll, second_roll = map(int, frame.split())
+            if first_roll == 10:
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
+            elif second_roll == 10:
+                total_score += 10 + first_roll + second_roll
+            else:
+                total_score += first_roll + second_roll
+    return total_score
 
 print(bowling_score("X1-1681357-0/XX7/4"))
