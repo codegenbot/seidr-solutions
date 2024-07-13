@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<int> findLeaders(const std::vector<int>& arr) {
