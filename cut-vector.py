@@ -1,15 +1,11 @@
 arr = list(map(int, input().split()))
 
-if not arr:
-    print("Input vector is empty.")
+if len(arr) < 2:
+    print("Input vector should contain at least two elements.")
 else:
     total_sum = sum(arr)
-    if len(arr) == 1:
-        print("Subvector 1:", arr)
-        print("Subvector 2: []")
-    else:
-        split_index = min(range(1, len(arr)), key=lambda x: abs(2 * sum(arr[:x]) - total_sum))
-        subvector1 = arr[:split_index]
-        subvector2 = arr[split_index:]
-        print("Subvector 1:", subvector1)
-        print("Subvector 2:", subvector2)
+    split_index = min(range(1, len(arr)), key=lambda x: abs(2 * sum(arr[:x]) - total_sum))
+    subvector1 = arr[:split_index]
+    subvector2 = arr[split_index:]
+    print("Subvector 1:", subvector1)
+    print("Subvector 2:", subvector2)
