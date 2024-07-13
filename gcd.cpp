@@ -21,7 +21,7 @@ vector<int> findIndices(string text, string target) {
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-
+    
     int gcd = __gcd(num1, num2);
 
     cout << gcd << endl;
