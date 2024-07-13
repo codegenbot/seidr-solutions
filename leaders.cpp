@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 #include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
@@ -28,4 +28,5 @@ int main() {
     for (int i : result) {
         std::cout << i << " ";
     }
+    std::cout << std::endl;
 }
