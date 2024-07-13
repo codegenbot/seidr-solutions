@@ -1,37 +1,42 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 
 std::string camelCase(std::string& str) {
     std::string result = "";
-    while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
-        size_t pos = str.find(" ");
-        if (pos == std::string::npos) {
-            pos = str.find("-");
+    while (!str.empty() && ((str[0] == '-') || (str[0] == ' '))) {
+        if (str[0] == '-') {
+            str.erase(0, 1);
+        } else {
+            str.erase(0, 1);
+            if (result.empty()) {
+                result += toupper(str[0]);
+                str.erase(0, 1);
+            } else {
+                result += towlower(str[0]);
+                str.erase(0, 1);
+            }
         }
+    }
+
+    while (!str.empty() && ((str[0] == '-') || (str[0] == ' '))) {
+        if (str[0] == '-') {
+            str.erase(0, 1);
+        } else {
+            str.erase(0, 1);
+            result += towlower(str[0]);
+            str.erase(0, 1);
+        }
+    }
+
+    if (!str.empty()) {
         if (result.empty()) {
             result += toupper(str[0]);
             str.erase(0, 1);
         } else {
-            size_t endPos = pos > 0 ? pos : str.find("-");
-            result += towlower(str.substr(0, endPos).erase(0, 1));
-            str.erase(0, endPos);
+            result += towupper(str[0]);
+            str.erase(0, 1);
         }
-    }
-
-    if (str.length() > 0) {
-        result += towupper(str[0]);
-        str.erase(0, 1);
-    }
-
-    while (!str.empty()) {
-        size_t pos = str.find(" ");
-        if (pos == std::string::npos) {
-            pos = str.length();
-        }
-        result += str.substr(0, pos);
-        str.erase(0, pos);
     }
 
     return result;
