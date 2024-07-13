@@ -7,10 +7,10 @@ int main() {
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            ++black;
         } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+            ++codeFreq[code[i]];
+            ++guessFreq[guess[i]];
         }
     }
     
