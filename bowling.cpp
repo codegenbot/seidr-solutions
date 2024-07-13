@@ -1,8 +1,4 @@
-```cpp
-#include <string>
-using namespace std;
-
-int bowlingScore(string input) {
+int bowlingScore(std::string input) {
     int score = 0;
     int currentRoll1 = 0, currentRoll2 = 0;
 
@@ -34,4 +30,3 @@ int bowlingScore(string input) {
     }
 
     return score;
-}
