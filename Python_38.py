@@ -1,10 +1,9 @@
+```
 def decode_cyclic():
     print("Please enter a string of alphabets only.")
     while True:
         s = str(input("Enter the cyclic string: "))
-        if set(s).issubset("abcdefghijklmnopqrstuvwxyz") or set(s).issubset(
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        ):
+        if set(s).issubset("abcdefghijklmnopqrstuvwxyz") or set(s).issubset("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
             break
         else:
             print("Invalid input. Please enter a string of alphabets only.")
@@ -16,11 +15,7 @@ def decode_cyclic():
             if 1 <= pos <= len(s):
                 break
             else:
-                print(
-                    "Invalid input. Please enter a number between 1 and",
-                    len(s),
-                    "inclusive.",
-                )
+                print(f"Invalid input. Please enter a number between 1 and {len(s)} inclusive.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
