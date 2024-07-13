@@ -15,3 +15,4 @@ int luhn(vector<int> card) {
         sum += card[i];
     }
     return sum;
+}
