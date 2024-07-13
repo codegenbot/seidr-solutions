@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <cmath> // Added header file
+#include <cmath> // Include cmath header for pow and sqrt functions
 using namespace std;
 
 double vectorDistance(int n) {
