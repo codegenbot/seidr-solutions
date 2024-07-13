@@ -1,11 +1,15 @@
+#include <vector>
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int maxLeft = arr.back();
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= maxLeft) {
+    for (int i = arr.size() - 1; i > 0; i--) {
+        int rightMax = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] <= rightMax)
+            j--;
+        if (j == -1) 
             result.push_back(arr[i]);
-            maxLeft = arr[i];
-        }
     }
     return result;
 }
