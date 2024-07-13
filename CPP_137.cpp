@@ -1,36 +1,36 @@
-#include <boost/lexical_cast.hpp>
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any((int)std::max(get<int>(a), get<int>(b)));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return b;
     }
-    else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
-             (b.type() == typeid(float) || b.type() == typeid(double))) {
-        return boost::any(std::max(get<float>(a), get<float>(b)));
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return boost::any_cast<string>(b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(double)) {
+        return boost::any_cast<float>(b) > boost::any_cast<float>(a) ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string s = boost::any_cast<string>(a);
+        double d = boost::any_cast<double>(b);
+        return d > stod(s.substr(1, s.length()-2)) ? b : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::lexical_cast<string>(get<string>(a));
-        string str2 = boost::lexical_cast<string>(get<string>(b));
-
-        istringstream iss1(str1);
-        double num1;
-        iss1 >> num1;
-
-        istringstream iss2(str2);
-        double num2;
-        iss2 >> num2;
-
-        if (num1 > num2) {
-            return a;
-        }
-        else if (num1 < num2) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
+        string s1 = boost::any_cast<string>(a);
+        string s2 = boost::any_cast<string>(b);
+        return s2 > s1 ? b : a;
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
