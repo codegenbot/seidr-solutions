@@ -1,9 +1,10 @@
 Here is the completed code:
 
 def find_zero(xs: list):
-    n = len(xs)
-    a = xs[0]
-    b = -xs[1]
-    c = xs[2] if n > 2 else 0
-    d = -(a + b) / (3*c) if c != 0 and len(xs) >= 4 else 0
-    return round(-b / (2 * c), 2)
+    if len(xs) % 2 != 0:
+        return "Input must have even number of coefficients"
+    root = xs[1] / xs[0]
+    for i in range(3, len(xs), 2):
+        if abs(math.pow(root, i)) > abs(root):
+            return round(root, 2)
+    return round(root, 2)
