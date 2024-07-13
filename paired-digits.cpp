@@ -12,6 +12,6 @@ int pairedDigits(const std::string& str) {
 }
 
 int main() {
-    std::cout << pairedDigits("1234321") << std::endl;
+    std::cout << pairedDigits("123456"); 
     return 0;
 }
