@@ -2,6 +2,7 @@
 def check_palindrome(s):
     return s == s[::-1]
 
+
 if __name__ == "__main__":
     while True:
         user_input = input("Enter a string: ")
@@ -11,7 +12,9 @@ if __name__ == "__main__":
             elif not user_input.isalnum():
                 print("Invalid input. Please enter alphanumeric characters only.")
             else:
-                break
+                if check_palindrome(user_input):
+                    print(f"'{user_input}' is a palindrome.")
+                else:
+                    print(f"'{user_input}' is not a palindrome.')
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
-        print(check_palindrome(user_input))
