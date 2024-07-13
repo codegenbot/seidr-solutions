@@ -1,7 +1,7 @@
-def add():
+def add(num1: int, num2: int) -> None:
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
-        if cont not in ['Y', N']:
+        if cont not in ['Y', 'N']:
             print("Invalid input. Please enter Y or N.")
             continue
         if cont != 'N':
