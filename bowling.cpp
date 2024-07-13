@@ -1,30 +1,28 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& bowls) {
     int score = 0;
-    int rolls = 0;
-    vector<int> frames;
+    int roll = 0;
+    bool firstRollInFrame = true;
 
-    for (char c : s) {
+    for (char c : bowls) {
         if (c == 'X') {
-            score += 30;
-            frames.push_back(10);
-        } else if (c == '/') {
-            score += 10 - (frames.back() + 1);
-            frames.pop_back();
+            score += 10 + (firstRollInFrame ? 10 : 0);
+            roll++;
+            firstRollInFrame = false;
         } else if (isdigit(c)) {
-            int frame = 0;
-            for (char d : s.substr(s.find(c), 2)) {
-                if (d == 'X') {
-                    score += 30;
-                    frames.push_back(10);
-                    break;
-                } else if (isdigit(d)) {
-                    frame = 10 - (c - '0' + d - '0');
-                    score += frame;
-                    frames.push_back(frame);
-                    rolls++;
-                    break;
-                }
+            int pins = c - '0';
+            if (pins == 10) {
+                score += 10;
+                roll += 2;
+            } else if (roll < 2) {
+                score += pins;
+            } else {
+                score += pins + (firstRollInFrame ? 10 : 0);
+                roll++;
+                firstRollInFrame = false;
             }
+        } else {
+            score += 10;
+            roll += 2;
         }
     }
 
