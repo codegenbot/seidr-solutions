@@ -1,41 +1,66 @@
-```
+#include <boost/any.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = a.cast<string>();
-        string strB = b.cast<string>();
-        if (strA != "None" && strB != "None") {
-            if (strA > strB) return boost::any(a);
-            else if (strA < strB) return boost::any(b);
-            else return boost::any("None");
-        } else if (strA == "None" && strB == "None") return boost::any("None");
-        else {
-            if (stof(strA) > stof(strB)) return boost::any(a);
-            else if (stof(strA) < stof(strB)) return boost::any(b);
-            else return boost::any("None");
-        }
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int numA = a.cast<int>();
-        int numB = b.cast<int>();
-        if (numA > numB) return boost::any(a);
-        else if (numA < numB) return boost::any(b);
-        else return boost::any("None");
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float numA = a.cast<float>();
-        int numB = b.cast<int>();
-        if (numA > numB) return boost::any(a);
-        else if (numA < numB) return boost::any(b);
-        else return boost::any("None");
-    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int numA = a.cast<int>();
-        float numB = b.cast<float>();
-        if (numA > numB) return boost::any(a);
-        else if (numA < numB) return boost::any(b);
-        else return boost::any("None");
-    } else {
-        return boost::any("None");
+        return (int)b > a.convert_to<int>() ? b : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)b > a.convert_to<int>() ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > b.convert_to<int>() ? boost::any(a) : "None";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > b.convert_to<int>() ? boost::any(a) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float fa = stof((string)a.to_pointer());
+        float fb = (float)b;
+        return fb > fa ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double da = stod((string)a.to_pointer());
+        double db = (double)b;
+        return db > da ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int ia = stoi((string)a.to_pointer());
+        int ib = (int)b;
+        return ib > ia ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = (string)a.to_pointer();
+        string s2 = (string)b.to_pointer();
+        double da1 = stod(s1);
+        double da2 = stod(s2);
+        return da2 > da1 ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = (string)a.to_pointer();
+        string s2 = (string)b.to_pointer();
+        int ia1 = stoi(s1);
+        int ia2 = stoi(s2);
+        return ia2 > ia1 ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = (string)b.to_pointer();
+        float fa = stof(s);
+        int ia = a.convert_to<int>();
+        return fa > ia ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        string s = (string)b.to_pointer();
+        double da = stod(s);
+        double db = a.convert_to<double>();
+        return da > db ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = (string)b.to_pointer();
+        int ia = stoi(s);
+        int ib = a.convert_to<int>();
+        return ia > ib ? boost::any(b) : "None";
+    }
+    else {
+        return "None";
     }
 }
