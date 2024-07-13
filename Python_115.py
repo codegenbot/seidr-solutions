@@ -12,16 +12,15 @@ def calculate():
     total_water = 0
     while True:
         try:
-            while True:
-                try:
-                    water_levels = list(map(int, input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()))
-                    if len(water_levels) == max_fill:
-                        break
-                except ValueError:
-                    print("Please enter valid integers separated by spaces.")
-        break
+            water_levels = input(
+                f"Enter water levels for days 1 to {max_fill} (space-separated): "
+            ).split()
+            if len(water_levels) == max_fill:
+                break
+        except ValueError:
+            print("Please enter valid integers separated by spaces.")
 
-    for i, level in enumerate(water_levels):
+    for i, level in enumerate(map(int, water_levels)):
         while True:
             try:
                 level = int(input(f"Enter water level for day {i+1}: "))
