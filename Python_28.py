@@ -1,4 +1,5 @@
-def find_longest_word(sentence: str) -> str:
-    words = sentence.split()
-    longest_word = max(words, key=len)
-    return longest_word
+def sum_of_squares(n: int) -> int:
+    total_sum = 0
+    for i in range(1, n + 1):
+        total_sum += i**2
+    return total_sum
