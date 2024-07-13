@@ -1,21 +1,18 @@
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
+    int white = 0, black = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            ++black;
         }
     }
-
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d && count++ > 0) break;
-            if (c == d) ++count;
+    for (char c : code) {
+        bool found = false;
+        for (int i = 0; i < 4; ++i) {
+            if (guess[i] == c && !found) {
+                ++white;
+                found = true;
+            }
         }
-        white += count - 1;
     }
-
-    return black + white;
+    return black + white - black;
 }
