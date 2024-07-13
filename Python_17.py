@@ -1,4 +1,6 @@
 ```
+import re
+
 def parse_music(s):
     if not isinstance(s, str) or not s.strip():
         return "Invalid input"
