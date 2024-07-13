@@ -9,10 +9,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            while (i + m < n && text.substr(i, m) == target) {
-                i++;
-                result.push_back(i);
-            }
         }
     }
 
@@ -20,26 +16,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
-int main() {
-    int n1, n2;
-    cin >> n1 >> n2;
-
-    cout << gcd(n1, n2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-
-    vector<int> res = indicesOfSubstring(text, target);
-
-    for (int i : res)
-        cout << i << " ";
-    cout << endl;
-
-    return 0;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
