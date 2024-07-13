@@ -1,7 +1,8 @@
-```
 from typing import List
 
 def concatenate() -> str:
-    def check():
-        pass
-    return "your_output_string"
+    words = input("Enter words separated by space: ").split()
+    result = ", ".join(words)
+    return result
+
+print(concatenate())
