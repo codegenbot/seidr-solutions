@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,14 +14,11 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         sum += i;
     }
-    return sum <= w && is_palindrome(to_string(sum));
+    return sum <= w && is_palindrome(str);
 }
 
 bool is_palindrome(string s) {
     string rev = s;
     reverse(rev.begin(), rev.end());
-    if (s == rev)
-        return true;
-    else
-        return false;
+    return s == rev;
 }
