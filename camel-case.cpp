@@ -1,3 +1,4 @@
+```cpp
 std::string kebabToCamel(const std::string& s) {
     if (s.empty()) return s;
 
@@ -12,16 +13,16 @@ std::string kebabToCamel(const std::string& s) {
             first = false;
         } else if (c == ' ') {
             if (!first) {
-                result += std::toupper(c);
+                result += c;
             }
             first = true;
         } else {
             if (first) {
-                result += std::tolower(c);
-                first = false;
+                result += std::toupper(c);
             } else {
-                result += c;
+                result += std::tolower(c);
             }
+            first = false;
         }
     }
 
