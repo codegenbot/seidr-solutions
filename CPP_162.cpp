@@ -1,24 +1,17 @@
-#include <iostream>
-#include <sstream>
-#include <iomanip>
+#include<string>
+#include<openssl/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    MD5_CTX ctx;
-    unsigned char hash[16];
+    if(text.empty()) return "";
 
-    // Convert text to bytes
-    std::vector<char> textBytes(text.begin(), text.end());
-    textBytes.push_back('\0');
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.size(), md5);
 
-    // Compute the MD5 hash of the input string.
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, &textBytes[0], textBytes.size());
-    MD5_Final(hash, &ctx);
-
-    // Convert the MD5 hash to a hexadecimal string
     stringstream ss;
-    for (int i = 0; i < 16; i++) {
-        ss << setfill('0') << setw(2) << hex << uppercase << (int)hash[i];
+    for(int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        ss << hex << setfill('0') << fixed << setw(2) << (int)md5[i];
     }
 
     return ss.str();
