@@ -35,7 +35,7 @@ int main() {
     for (int i : result)
         cout << i << " ";
     cout << endl;
-
+    
     int a, b;
     cin >> a >> b;
     cout << gcd(a, b) << endl;
