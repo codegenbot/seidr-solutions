@@ -1,7 +1,8 @@
+```
 from typing import List
 
 
-def filter_by_prefix() -> None:
+def filter_by_prefix(List[str]): List[str]) -> None:
     input_str = input("Enter a list of strings (one per line), separate them with '%%': ")
     prefix = input("Enter the prefix: ")
 
