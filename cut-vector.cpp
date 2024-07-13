@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -25,4 +24,5 @@ int main() {
     for (const auto &x : res[0]) cout << x << " ";
     cout << endl;
     for (const auto &x : res[1]) cout << x << " ";
+    return 0;
 }
