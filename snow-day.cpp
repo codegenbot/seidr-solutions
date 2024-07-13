@@ -1,3 +1,7 @@
 float snowDay(int hours, float initialSnow, float snowFall, float meltRate) {
-    return initialSnow + ((snowFall - meltRate) * hours);
+    float currentSnow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        currentSnow += snowFall - meltRate;
+    }
+    return currentSnow;
 }
