@@ -1,4 +1,3 @@
-```
 def luhn(card):
     card = [int(x) for x in card.replace(' ', '')]
     sum_of_digits = 0
