@@ -1,35 +1,36 @@
 #include <iostream>
 #include <vector>
+#include <numeric>
+#include <climits>
 #include <cmath>
+using namespace std;
 
-int main() {
-    std::vector<int> nums;
-    int n, cutIndex = 0;
-    
-    std::cin >> n;
+void findCutIndex(vector<int>& nums) {
+    int n = nums.size();
+    int totalSum = accumulate(nums.begin(), nums.end(), 0);
+    int leftSum = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+
     for (int i = 0; i < n; i++) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
-    }
-
-    int minDiff = std::abs(nums[0] - nums[n-1]);
-    for (int i = 1; i < n-1; i++) {
-        if (std::abs(nums[i] - nums[i-1]) <= minDiff) {
+        leftSum += nums[i];
+        int rightSum = totalSum - leftSum;
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
             cutIndex = i;
-            minDiff = std::abs(nums[i] - nums[i-1]);
         }
     }
 
+    cout << "Subvector 1: ";
     for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << " ";
+        cout << nums[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
+    cout << "Subvector 2: ";
     for (int i = cutIndex + 1; i < n; i++) {
-        std::cout << nums[i] << " ";
+        cout << nums[i] << " ";
     }
-    std::cout << std::endl;
-
-    return 0;
+    cout << endl;
 }
