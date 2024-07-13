@@ -1,8 +1,3 @@
-```c++
-#include <string>
-#include <stdexcept>
-#include <iostream>
-
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
         throw std::invalid_argument("No input provided");
@@ -16,17 +11,13 @@ int bowlingScore(const std::string& input) {
             score += 30;
             isStrike = true;
         } else if (input.at(i) == '/') {
-            if (isStrike) {
-                score += prevRoll * 2;
-                isStrike = false;
-            } else {
-                int roll1, roll2;
-                char nextChar = input.at(i + 1);
-                if(nextChar != ' ') {
-                    roll1 = nextChar - '0';
-                    score += roll1;
-                }
+            int roll1, roll2;
+            char nextChar = input.at(i + 1);
+            if(nextChar != ' ') {
+                roll1 = nextChar - '0';
+                score += roll1;
             }
+            i++; // Move to the next character
         } else if (input.at(i) == ' ') {
             int roll1, roll2;
             char prevChar = input.at(i - 1);
@@ -52,14 +43,15 @@ int bowlingScore(const std::string& input) {
         }
     }
 
-    return score;
-}
+    // Check for spare at the end of each frame
+    if(input.at(input.length() - 1) == '/') {
+        int roll1, roll2;
+        char nextChar = input.at(input.length() - 2);
+        if(nextChar != ' ') {
+            roll1 = nextChar - '0';
+            score += roll1 + prevRoll;
+        }
+    }
 
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores (X for strike, / for spare): ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
+    return score;
 }
