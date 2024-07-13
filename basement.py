@@ -1,5 +1,5 @@
 def basement(nums):
-    total = 0
+    total = -1
     for i, num in enumerate(nums):
         total += num
         if total < 0:
