@@ -10,11 +10,17 @@ int count_nums(vector<int> nums) {
             if (sum > 0)
                 count++;
         } else {
-            num = -num;
+            num = -num; // convert to positive
             int sum = 0;
+            bool is_negative = true;
             while (num > 0) {
-                sum += num % 10;
+                if (!is_negative) {
+                    sum += num % 10;
+                }
                 num /= 10;
+                if (num == 0 && !is_negative)
+                    break;
+                is_negative = false;
             }
             if (sum > 0)
                 count++;
