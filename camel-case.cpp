@@ -25,9 +25,9 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter your string (in kebab-case): ";
-    std::cin >> input;
-    while(input[input.size()-1] != '\0') {  // Check for '\0' instead of '\n'
-        getline(std::cin, input);
+    std::getline(std::cin, input);
+    while(std::cin.peek() == '\n') { // check if there's a newline left
+        std::cin.ignore();
     }
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
