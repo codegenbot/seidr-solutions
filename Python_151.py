@@ -1,4 +1,4 @@
-```
+```    
 def double_the_difference(lst):
     if len(lst) > 1:
         return (max(lst) - min(lst)) * 2
