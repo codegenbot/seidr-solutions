@@ -1,6 +1,7 @@
 Here is the completed code:
 
 bool is_simple_power(int x, int n) {
-    double log_val = log(x) / log(n);
-    return floor(log_val + 0.5) == log_val;
+    double log_x = log(x);
+    double log_n = log(n);
+    return (fmod(log_x, log_n) == 0);
 }
