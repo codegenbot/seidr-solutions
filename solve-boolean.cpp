@@ -44,15 +44,12 @@ int main() {
 
     while (true) {
         std::cout << "Enter the Boolean expression: ";
-        std::string temp;
-        while (true) {
-            std::getline(std::cin, temp);
-            if (!temp.empty()) {
-                expression = temp;
-                break;
-            } else {
-                std::cout << "Invalid input. Please try again." << std::endl;
-            }
+        getline(std::cin, expression);
+
+        if (expression.empty()) {
+            std::cout << "Invalid input. Please try again." << std::endl;
+        } else {
+            break; 
         }
     }
 
