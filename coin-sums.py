@@ -1,4 +1,3 @@
-```
 amount = int(input("Enter the number of cents: "))
 
 quarters, amount = divmod(amount, 25)

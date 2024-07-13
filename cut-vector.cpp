@@ -14,20 +14,27 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
+    if(sum / n == v[0]) {
+        res.push_back(vector<int>(v.begin(), v.end()));
+        return {res, {}};
+    }
+    
+    if(sum != (long long)v[0] * n) {
+        return {{}, {}};
+    }
+    
     long long leftSum = 0, rightSum = sum;
     int minDiff = INT_MAX, cutIndex = -1;
 
     for (int i = 1; i < n - 1; i++) {
         if (rightSum == leftSum) break;
-        rightSum -= v[i];
+        leftSum += v[i];
         
         long long diff = abs(leftSum - rightSum);
         if (diff <= minDiff || (diff == minDiff && leftSum >= rightSum)) {
             minDiff = diff;
-            cutIndex = i + 1; 
+            cutIndex = i; 
         }
-        
-        leftSum += v[i];
     }
     
     vector<vector<int>> res;
