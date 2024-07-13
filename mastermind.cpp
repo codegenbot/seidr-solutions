@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <map>
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; ++i) {
@@ -10,27 +5,28 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    return count;
+    return count - 1; // subtract the number of correct colors in both strings
 }
 
 int blackPegs(string code, string guess) {
+    int count = 0;
     map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            codeMap[code[i]]--;
-            guessMap[guess[i]]--;
+            count++;
         } else {
             codeMap[code[i]]++;
             guessMap[guess[i]]++;
         }
     }
-    int blackPegs = 0;
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
-            blackPegs++;
+    for (auto& codePair : codeMap) {
+        for (auto& guessPair : guessMap) {
+            if (codePair.second == 1 && guessPair.second == 1) {
+                count++;
+            }
         }
     }
-    return blackPegs;
+    return count;
 }
 
 int main() {
