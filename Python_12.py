@@ -26,4 +26,7 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest(strings))
+if not result:
+    print("No strings were entered.")
+else:
+    print(result)
