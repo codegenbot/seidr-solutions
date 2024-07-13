@@ -17,6 +17,9 @@ string string_to_md5(const string& input) {
 }
 
 int main() {
-    cout << fixed << setprecision(0) << string_to_md5("password") << endl;
+    string password;
+    cout << "Enter your password: ";
+    cin >> password;
+    cout << fixed << setprecision(0) << string_to_md5(password) << endl;
     return 0;
 }
