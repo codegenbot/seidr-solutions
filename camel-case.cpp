@@ -1,23 +1,19 @@
 int main() {
-    string input, word;
+    string input;
     getline(cin, input);
-    bool capitalize = false;
-
+    string output = "";
+    bool toUpper = false;
+    
     for (char c : input) {
         if (c == '-') {
-            capitalize = true;
-        } else if (c == ' ') {
-            cout << ' ';
-            capitalize = false;
-        } else {
-            if (capitalize) {
-                cout << (char)toupper(c);
-                capitalize = false;
-            } else {
-                cout << c;
-            }
+            toUpper = true;
+        } else if (c != ' ') {
+            output += (toUpper ? toupper(c) : c);
+            toUpper = false;
         }
     }
+    
+    cout << output << endl;
 
     return 0;
 }
