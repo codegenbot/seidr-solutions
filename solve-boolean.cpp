@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -43,7 +43,5 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    int result = solveBoolean("input_string");
-    cout << "Result: " << (result ? "TRUE" : "FALSE") << endl;
-    return 0;
+    return solveBoolean("T|F"); // Replace with your desired input string
 }
