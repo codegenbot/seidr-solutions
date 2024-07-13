@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -27,20 +26,27 @@ int main() {
     int pennies = cents;
 
     cout << "Coins: ";
-    if(quarters > 1) cout << quarters << " quarter" << 's' << endl;
-    else cout << quarters << " quarter" << endl;
+    if (quarters > 1) {
+        cout << quarters << " quarters" << endl;
+    } else {
+        cout << quarters << " quarter" << endl;
+    }
     
     cout << "Dimes: ";
-    if(dimes > 1) cout << dimes << " dime" << 's' << endl;
-    else cout << dimes << " dime" << endl;
+    if (dimes > 1) {
+        cout << dimes << " dimes" << endl;
+    } else {
+        cout << dimes << " dime" << endl;
+    }
     
     cout << "Nickels: ";
-    if(nickels > 1) cout << nickels << " nickel" << 's' << endl;
-    else cout << nickels << " nickel" << endl;
+    if (nickels > 1) {
+        cout << nickels << " nickels" << endl;
+    } else {
+        cout << nickels << " nickel" << endl;
+    }
     
-    cout << "Pennies: ";
-    if(pennies > 1) cout << pennies << " penny" << 's' << endl;
-    else cout << pennies << " penny" << endl;
-
+    cout << "Pennies: " << pennies << endl;
+    
     return 0;
 }
