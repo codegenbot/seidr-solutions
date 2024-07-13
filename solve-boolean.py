@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == "t":
         return True
@@ -20,7 +19,17 @@ def solve_boolean(expression):
                         stack.append(val1 or val2)
                 operators.append(char)
             elif char == "(":
-                operators.append(char)
+                stack.append(char)
+            elif char == ")":
+                while operators and operators[-1] != "(":
+                    op = operators.pop()
+                    val2 = stack.pop()
+                    val1 = stack.pop()
+                    if op == "&":
+                        stack.append(val1 and val2)
+                    else:
+                        stack.append(val1 or val2)
+                operators.pop()  # Discard the opening parenthesis
             elif char in ["t", "f"]:
                 stack.append(eval(char.lower() == 't'))
         while operators:
