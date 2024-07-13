@@ -28,9 +28,10 @@ bool solveBoolean(string expression) {
         valStack.pop();
         bool left = valStack.top();
         valStack.pop();
-
+        
         if (op == '|') valStack.push(left || right);
         else valStack.push(left && right);
     }
 
     return valStack.top();
+}
