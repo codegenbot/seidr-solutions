@@ -1,2 +1,2 @@
 def paired_digits(digits):
-    return sum(int(d) for d in digits if digits[i + 1] == d)
+    return sum(int(digit) for digit in digits if digit == next_digits)
