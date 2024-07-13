@@ -2,19 +2,7 @@
 #include <iostream>
 #include <vector>
 
-int main() {
-    int n;
-    std::cout << "Enter numbers: ";
-    std::vector<int> nums;
-    while (std::cin >> n) {
-        nums.push_back(n);
-    }
-    int count = count_nums(nums);
-    std::cout << "Count of positive sums: " << count << std::endl;
-    return 0;
-}
-
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
@@ -45,4 +33,16 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter numbers: ";
+    std::vector<int> nums;
+    while (std::cin >> n) {
+        nums.push_back(n);
+    }
+    int result = count_nums(nums);
+    std::cout << "Count of positive sums: " << result << std::endl;
+    return 0;
 }
