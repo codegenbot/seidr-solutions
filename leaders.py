@@ -1,4 +1,6 @@
 def leaders(arr):
-    return [arr[-1]] + [
-        x for i, x in enumerate(reversed(arr)) if all(x >= arr[j] for j in range(i + 1))
+    return [
+        arr[i]
+        for i in range(len(arr) - 1, -1, -1)
+        if i == len(arr) - 1 or all(x <= arr[i] for x in arr[i + 1:])
     ]
