@@ -11,7 +11,7 @@ string string_to_md5(const string& input) {
         if(i < 2)
             output += to_string(c);
         else
-            output += setfill('0').width(2).hex << (int)c;
+            output += setw(2) << setfill('0') << hex << (int)c;
     }
     return output;
 }
