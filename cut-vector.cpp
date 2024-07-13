@@ -1,32 +1,35 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
-using namespace std;
+int main() {
+    std::vector<int> nums;
+    int n, cutIndex = 0;
+    
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
+    }
 
-void cutVector(const vector<int>& nums) {
-    int n = nums.size();
-    int diff = INT_MAX;
-    int cutIndex = 0;
-
-    for (int i = 1; i < n; i++) {
-        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
-
-        if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
+    int minDiff = std::abs(nums[0] - nums[n-1]);
+    for (int i = 1; i < n-1; i++) {
+        if (std::abs(nums[i] - nums[i-1]) <= minDiff) {
             cutIndex = i;
+            minDiff = std::abs(nums[i] - nums[i-1]);
         }
     }
 
-    for (int i = 0; i < cutIndex; i++) cout << nums[i] << " ";
-    cout << endl;
-    for (int i = cutIndex; i < n; i++) cout << nums[i] << " ";
-    cout << endl;
-}
+    for (int i = 0; i <= cutIndex; i++) {
+        std::cout << nums[i] << " ";
+    }
+    std::cout << std::endl;
 
-int main() {
-    vector<int> nums = {6310, 2545, 5656, 5646};
-    cutVector(nums);
+    for (int i = cutIndex + 1; i < n; i++) {
+        std::cout << nums[i] << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
