@@ -1,6 +1,9 @@
-int bowlingScore(std::string s) {
+```cpp
+#include <string>
+
+int bowlingScore(string s) {
     int score = 0;
-    std::string frame;
+    string frame;
     for (char c : s) {
         if (c == '/') {
             frame += '/';
@@ -10,7 +13,7 @@ int bowlingScore(std::string s) {
         if (c == 'X') {
             score += 10;
         } else if (c == '-') {
-            score += 10 - (frame.length() - 1);
+            score += 10;
         } else if (isdigit(c)) {
             int points = 0;
             for (; isdigit(s.find(c) + 1); s.erase(s.find(c) + 1, 1)) {
