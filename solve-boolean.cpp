@@ -1,6 +1,19 @@
 bool solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
+        if (!s.empty() && s.top() == '&') {
+            if (expression[i] == '|') {
+                while (!s.empty()) {
+                    s.pop();
+                }
+                return true;
+            } else if (expression[i] == 'T') {
+                s.pop();
+                continue;
+            } else if (expression[i] == 'F') {
+                return false;
+            }
+        }
         if (expression[i] == '|') {
             while (!s.empty() && s.top() != '&') {
                 s.pop();
@@ -18,11 +31,7 @@ bool solveBoolean(std::string expression) {
                 s.pop();
             }
             return false;
-        } 
-        else if ((expression[i] == '|' || expression[i] == '&' || expression[i] == 'T' || expression[i] == 'F') && i == 0) {
-            return false; // Return false when '|', '&', 'T', or 'F' appear at the beginning of the string.
         }
     }
-    if (s.empty()) return true;
-    return false;
+    return !s.empty();
 }
