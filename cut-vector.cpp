@@ -27,7 +27,7 @@ int main() {
         cin >> nums[i];
     }
     vector<vector<int>> res = cutVector(nums);
-    for (auto &v : res) {
+    for (auto& v : res) {
         for (int x : v) cout << x << " ";
         cout << endl;
     }
