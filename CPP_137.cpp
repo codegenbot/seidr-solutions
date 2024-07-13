@@ -1,66 +1,73 @@
-#include <boost/any.hpp>
+```cpp
+#include <boost/any_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : "None";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)b > a.convert_to<int>() ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b.convert_to<int>() ? boost::any(a) : "None";
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > b.convert_to<int>() ? boost::any(a) : "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float fa = stof((string)a.to_pointer());
-        float fb = (float)b;
-        return fb > fa ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        double da = stod((string)a.to_pointer());
-        double db = (double)b;
-        return db > da ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int ia = stoi((string)a.to_pointer());
-        int ib = (int)b;
-        return ib > ia ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = (string)a.to_pointer();
-        string s2 = (string)b.to_pointer();
-        double da1 = stod(s1);
-        double da2 = stod(s2);
-        return da2 > da1 ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = (string)a.to_pointer();
-        string s2 = (string)b.to_pointer();
-        int ia1 = stoi(s1);
-        int ia2 = stoi(s2);
-        return ia2 > ia1 ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = (string)b.to_pointer();
-        float fa = stof(s);
-        int ia = a.convert_to<int>();
-        return fa > ia ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        string s = (string)b.to_pointer();
-        double da = stod(s);
-        double db = a.convert_to<double>();
-        return da > db ? boost::any(b) : "None";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = (string)b.to_pointer();
-        int ia = stoi(s);
-        int ib = a.convert_to<int>();
-        return ia > ib ? boost::any(b) : "None";
-    }
-    else {
+    int a_int = boost::any_cast<int>(a);
+    float a_float = boost::any_cast<float>(a);
+    std::string a_str = boost::any_cast<std::string>(a);
+
+    int b_int = boost::any_cast<int>(b);
+    float b_float = boost::any_cast<float>(b);
+    std::string b_str = boost::any_cast<std::string>(b);
+
+    if (a.is_none() || b.is_none()) {
         return "None";
+    }
+
+    if (a_str.length() > 0) {
+        if (b_str.length() > 0) {
+            if (a_str.compare(b_str) > 0)
+                return a;
+            else if (a_str.compare(b_str) < 0)
+                return b;
+            else
+                return boost::any("None");
+        } else {
+            return a_str;
+        }
+    }
+
+    if (!std::isfinite(a_float)) {
+        if (std::isnan(a_float)) {
+            if (std::isinf(b_float))
+                return b;
+            else
+                return "None";
+        } else {
+            if (b_float == 0)
+                return a;
+            else if (a_float > b_float)
+                return a;
+            else if (a_float < b_float)
+                return b;
+            else
+                return boost::any("None");
+        }
+    }
+
+    if (!std::isfinite(b_float)) {
+        if (std::isnan(b_float)) {
+            if (std::isinf(a_float))
+                return a;
+            else
+                return "None";
+        } else {
+            if (a_float == 0)
+                return b;
+            else if (a_float > b_float)
+                return a;
+            else if (a_float < b_float)
+                return b;
+            else
+                return boost::any("None");
+        }
+    }
+
+    if (a_int > b_int) {
+        return a;
+    } else if (a_int < b_int) {
+        return b;
+    } else {
+        return boost::any("None");
     }
 }
