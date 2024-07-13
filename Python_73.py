@@ -1,10 +1,10 @@
-```
 def array_change(lst):
-    smallest = int(lst[0])
-    total = 0
-    for num in lst:
-        if abs(int(num) - smallest) > 1:
-            return -1
-        smallest = int(num)
-        total += abs(int(num) - smallest)
-    return total
+    max_diff = 0
+    for i in range(1, len(lst)):
+        diff = abs(int(lst[i]) - int(lst[i-1]))
+        if diff > max_diff:
+            max_diff = diff
+
+    return max_diff
+
+result = array_change(input("Enter the array: ").split())
