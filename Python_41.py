@@ -19,7 +19,7 @@ while True:
                 cont = input(f"Continue? ({result}) (y/n): ")
                 if cont.lower() == 'n':
                     break
-                break
+            break
         else:
             print("Please enter a positive integer.")
     except ValueError:
