@@ -1,3 +1,4 @@
+```
 def paired_digits(s):
     total = 0
     i = 0
@@ -5,6 +6,4 @@ def paired_digits(s):
         if s[i] == s[i+1]:
             total += int(s[i]) * 2
         i += 1
-    if i < len(s) and s[i] == s[i+1]:
-        total += int(s[i]) * 2
     return total
