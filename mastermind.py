@@ -1,15 +1,20 @@
-def get_pegs(code, guess):
-    code_count = [0] * 6
-    for c in code:
-        code_count[ord(c) - ord("A")] += 1
+def get_clue(code, guess):
+    count_black = 0
+    count_white = 0
+    code_counts = [0] * 6
+    guess_counts = [0] * 6
 
-    white_pegs = 0
-    black_pegs = 0
     for i in range(4):
         if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess[i] in code:
-            white_pegs += 1
-            code_count[ord(guess[i]) - ord("A")] -= 1
+            count_black += 1
+        else:
+            code_counts[ord(code[i]) - ord("A")] += 1
+            guess_counts[ord(guess[i]) - ord("A")] += 1
 
-    return str(black_pegs) + "\n" + str(white_pegs)
+    for i in range(6):
+        black = min(code_counts[i], guess_counts[i])
+        count_white += black
+        code_counts[i] -= black
+        guess_counts[i] -= black
+
+    return str(count_black) + "\n" + str(count_white)
