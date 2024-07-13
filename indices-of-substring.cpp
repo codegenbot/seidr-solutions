@@ -11,16 +11,15 @@ int main() {
     int textLen = strlen(text);
     int targetLen = strlen(target);
     
-    for (int i = 0; i <= textLen - targetLen; ++i) {
+    for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
-        int j;
-        for (j = 0; j < targetLen && i + j < textLen; ++j) {
+        for (int j = 0; j < targetLen; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
-        if (found && j == targetLen) {
+        if (found) {
             indices.push_back(i);
         }
     }
