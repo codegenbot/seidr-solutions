@@ -2,24 +2,23 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int white = 0, black = 0;
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
+    int white_pegs = 0, black_pegs = 0;
+    vector<int> code_count(6, 0), guess_count(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++black;
+            black_pegs++;
         } else {
-            ++codeCount[code[i] - 'A'];
-            ++guessCount[guess[i] - 'A'];
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         }
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += min(codeCount[i], guessCount[i]);
+        white_pegs += min(code_count[i], guess_count[i]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white_pegs << endl << black_pegs << endl;
     
     return 0;
 }
