@@ -5,6 +5,7 @@ code = (
     if len(code) == 4 and all(c in "ABCDEF" for c in code)
     else ""
 )
+
 guess = (
     input("Enter 4-character guess (consisting of possible characters): ")
     .strip()
