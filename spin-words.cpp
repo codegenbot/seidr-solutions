@@ -1,10 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
     std::string word;
     
     for (int i = 0; i <= str.length(); i++) {
@@ -14,7 +12,11 @@ std::string spinWords(std::string str) {
                     std::reverse(word.begin(), word.end());
                 }
                 
-                result += word + " ";
+                if (i < str.length()) {
+                    result += " ";
+                } else {
+                    result = "";
+                }
                 word.clear();
             }
         } else {
@@ -26,15 +28,14 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::string str;
+    std::string str, result;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
     
-    std::string output = spinWords(str);
     if (!str.empty()) {
-        std::cout << output << std::endl;
+        std::cout << "Enter a string: " << spinWords(str) << std::endl;
     } else {
-        std::cout << "No input provided." << std::endl;
+        std::cout << "Enter a string: No input provided." << std::endl;
     }
     
     return 0;
