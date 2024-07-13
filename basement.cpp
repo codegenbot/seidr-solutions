@@ -1,9 +1,13 @@
-int basement(std::vector<int>& nums) {
+#include <vector>
+
+using namespace std;
+
+int basement(vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+        if(i == 0) sum = nums[i];
+        else sum += nums[i];
         if (sum < 0)
-            return i;
+            return i + 1;
     }
     return -1;
-}
