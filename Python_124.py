@@ -1,6 +1,6 @@
 ```
-def valid_date(date):
-    mmddyyyy = date.replace('-', '')
+def is_valid_date(input_date):
+    mmddyyyy = input_date.replace('-', '')
     if len(mmddyyyy) != 8:
         return False
     month, day, year = map(int, (mmddyyyy[:2], mmddyyyy[2:4], mmddyyyy[4:]))
