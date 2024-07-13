@@ -5,8 +5,8 @@ int main() {
     int sum = 0;
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
-        sum += (nums[i] / 3) - 2;
+        sum += nums[i] / 3 - 2;
     }
-    cout << sum;
+    cout << sum << endl;
     return 0;
 }
