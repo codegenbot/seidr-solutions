@@ -3,10 +3,12 @@ using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int number : numbers) {
-        int result = (number / 3);
-        result = result - 2;
-        sum += result;
+    for (int num : numbers) {
+        int result = (num / 3);
+        if (result > 0) {
+            result--;
+        }
+        sum += result - 2;
     }
     return sum;
 }
@@ -15,7 +17,7 @@ int main() {
     vector<int> numbers;
     int n;
     cin >> n;
-    for(int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         int num;
         cin >> num;
         numbers.push_back(num);
