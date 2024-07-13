@@ -1,10 +1,10 @@
-starting_height = float(input())
-bounce_height = float(input())
-num_bounces = int(input())
+s, h, n = map(float, input().split())
+b = h / s
+d = s + h
 
-bounciness_index = bounce_height / starting_height
-total_distance = starting_height + (
-    2 * bounciness_index * starting_height * ((1 - bounciness_index) ** num_bounces)
-)
+for i in range(n - 1):
+    h = b * s
+    d += 2 * h
+    b = h / s
 
-print(total_distance)
+print("{:.12f}".format(d))
