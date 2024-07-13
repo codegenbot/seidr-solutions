@@ -3,18 +3,21 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> leaders;
+    vector<int> result;
     
-    // Rightmost element is always a leader
-    leaders.push_back(arr[n-1]);
-    
-    for (int i = n - 2; i >= 0; --i) {
-        if (arr[i] >= arr[i+1]) {
-            leaders.push_back(arr[i]);
+    for(int i = 0; i < n; i++) {
+        bool isLeader = true;
+        for(int j = i + 1; j < n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        
+        if(isLeader) {
+            result.push_back(arr[i]);
         }
     }
     
-    reverse(leaders.begin(), leaders.end());
-    
-    return leaders;
+    return result;
 }
