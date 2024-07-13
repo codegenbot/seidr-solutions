@@ -19,3 +19,6 @@ def encrypt(s):
         else:  
             result += char
     return result
+
+encrypted_text = encrypt(input("Enter text to be encrypted: "))
+print(f"Encrypted Text: {encrypted_text}")
