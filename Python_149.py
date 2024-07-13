@@ -1,5 +1,3 @@
 def sorted_list_sum(lst):
-    alpha_chars = [
-        char for char in "".join(map(str, filter(str.isalpha, lst))) if char.isalpha()
-    ]
-    return sorted(alpha_chars)
+    s = "".join(sorted(set("".join(map(str, filter(lambda x: str(x).isalpha(), lst)))))).replace(" ", "")
+    return list(s)
