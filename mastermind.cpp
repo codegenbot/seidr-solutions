@@ -1,12 +1,12 @@
-struct MastermindResult {
-    int white;
-    int black;
-};
+```cpp
+#include <string>
+#include <algorithm>
 
-MastermindResult mastermind(std::string code, std::string guess) {
+std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
+    // Count the number of correct colors in wrong places (white pegs)
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             black++;
@@ -16,5 +16,5 @@ MastermindResult mastermind(std::string code, std::string guess) {
         }
     }
 
-    return {black, white};
+    return std::make_pair(black, white);
 }
