@@ -1,6 +1,7 @@
 def Strongest_Extension(class_name, extensions):
     def strength(extension):
-        return sum(1 for char in extension if char.isupper()) - sum(1 for char in extension if char.islower())
-
+        return extension.count('A') + extension.count('B') + extension.count('C') - extension.count('a') - extension.count('b') - extension.count('c')
+    
     strongest_extension = max(extensions, key=lambda x: (strength(x), extensions.index(x)))
+    
     return f"{class_name}.{strongest_extension}"
