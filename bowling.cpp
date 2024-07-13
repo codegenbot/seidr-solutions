@@ -1,38 +1,27 @@
-int bowling(string s) {
+int bowlingScore(string s) {
     int score = 0;
-    vector<int> frames;
+    int frame = 0;
     for (char c : s) {
         if (c == 'X') {
-            frames.push_back(10);
+            score += 30;
+            frame++;
         } else if (c == '/') {
-            frames.push_back(10 - stoi(s.substr(s.find('/') + 1, 1)));
+            score += 10 - (stoi(s.substr(frame*2, 2)) % 10);
+            frame++;
         } else {
-            int frame = 0;
-            for (; c != '/' && c != 'X'; c = s[s.find(c) + 1]) {
-                frame += c - '0';
-            }
-            frames.push_back(frame);
-        }
-    }
-
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 10) {
-            score += 10;
-            if (i < frames.size() - 1 && frames[i + 1] != 10) {
-                score += frames[i + 1];
-            }
-        } else {
-            score += frames[i];
-            if (i < frames.size() - 1) {
-                int next = frames[i + 1];
-                if (next == 10) {
-                    score += 10;
-                } else if (next > 0) {
-                    score += next;
+            int points = stoi(c + s.substr(frame*2+1, 1));
+            if (points < 10) {
+                score += points;
+                frame++;
+            } else {
+                if (s[frame*2+1] == 'X') {
+                    score += 10 + points;
+                } else {
+                    score += 10 + points - (stoi(s.substr(frame*2+1, 1)) % 10);
                 }
+                frame++;
             }
         }
     }
-
     return score;
 }
