@@ -27,4 +27,3 @@ int count_nums(std::vector<int> v) {
         }
     }
     return count;
-}
