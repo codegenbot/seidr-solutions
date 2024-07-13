@@ -1,8 +1,7 @@
-```cpp
-#include <string>
-#include <iostream>
+Here is the modified code:
 
-int mastermind(const std::string& code, const std::string& guess) {
+```cpp
+int mastermind(const string& code, const string& guess) {
     int black = 0;
     int white = 0;
 
@@ -29,3 +28,4 @@ int mastermind(const std::string& code, const std::string& guess) {
     }
 
     return black + white;
+}
