@@ -1,11 +1,9 @@
+```
 def paired_digits(s):
     total = 0
-    i = 0
-    while i < len(s) - 1:
-        if s[i] == s[i+1]:
-            total += int(s[i]) * 2
-        i += 1
-    if i < len(s):
-        if s[i] == s[i]:
-            total += int(s[i])
+    prev_digit = None
+    for char in s:
+        if char == prev_digit:
+            total += int(char)
+        prev_digit = char
     return total
