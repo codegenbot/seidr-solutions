@@ -1,7 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
-using namespace std;
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -12,14 +12,18 @@ int gcd(int a, int b) {
     return a;
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
+            // Check for overlapping occurrences
+            while (i + m <= n && text.substr(i, m) == target) {
+                i++;
+            }
         }
     }
 
@@ -27,12 +31,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    cout << "GCD of 12 and 15: " << gcd(12, 15) << endl;
-    string text = "Hello world";
-    string target = "world";
-    vector<int> indices = indicesOfSubstring(text, target);
+    std::cout << "GCD of 12 and 15: " << gcd(12, 15) << std::endl;
+    std::string text = "Hello world";
+    std::string target = "world";
+    std::vector<int> indices = indicesOfSubstring(text, target);
     for (int index : indices) {
-        cout << "Target found at index: " << index << endl;
+        std::cout << "Target found at index: " << index << std::endl;
     }
     return 0;
 }
