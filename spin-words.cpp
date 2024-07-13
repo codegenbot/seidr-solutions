@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,7 +8,7 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     vector<string> words;
-    
+
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             words.push_back(word);
@@ -19,14 +20,14 @@ string spinWords(string str) {
 
     words.push_back(word);
 
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            result += string(reverse(words[i])).append(" ");
+    for (auto &word : words) {
+        if (word.length() >= 5) {
+            result += string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += words[i] + " ";
+            result += word + " ";
         }
     }
-    
+
     return result.substr(0, result.size()-1);
 }
 
