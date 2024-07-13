@@ -1,14 +1,19 @@
-MD5_CTX ctx;
-MD5_Init(&ctx);
-unsigned char digest[16];
-MD5_Update(&ctx, text.c_str(), text.size());
-MD5_Final(digest, &ctx);
+#include <string>
+#include <iomanip>
+#include <sstream>
 
-string result = "";
-for (int i = 0; i < 16; i++) {
-    char buffer[3];
-    sprintf(buffer, "%02x", digest[i]);
-    result += string(buffer);
+using namespace std;
+
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+    
+    unsigned char result[16];
+    MD5((const unsigned char*)text.c_str(), text.length(), result);
+    
+    stringstream ss;
+    for(int i = 0; i < 16; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)result[i];
+    }
+    
+    return ss.str();
 }
-
-return result;
