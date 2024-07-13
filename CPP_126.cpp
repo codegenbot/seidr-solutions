@@ -1,8 +1,19 @@
+Here's the solution:
+
 bool is_sorted(vector<int> lst) {
-    for (int i = 0; i < lst.size() - 1; ++i) {
+    for (int i = 0; i < lst.size() - 1; i++) {
         if (lst[i] >= lst[i + 1]) {
             return false;
         }
+        int count = 0;
+        for (int j = 0; j < lst.size(); j++) {
+            if (lst[j] == lst[i]) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            return false;
+        }
     }
-    return !any_of(lst.begin(), lst.end(), [i](int x){return count(lst.begin(), lst.end(), x) > 1;});
+    return true;
 }
