@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -29,4 +30,11 @@ int mastermind(string code, string guess) {
     white = white_count;
 
     return black + white;
+}
+
+int main() {
+    string code = "ABCDA";
+    string guess = "ABDAD";
+    int result = mastermind(code, guess);
+    return result;
 }

@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 #include <iomanip>
@@ -7,7 +8,7 @@ double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proport
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall; 
-        totalSnow -= round(totalSnow * proportionMeltingPerHour); 
+        totalSnow -= totalSnow * proportionMeltingPerHour; 
     }
     
     return totalSnow;

@@ -1,4 +1,7 @@
-```
+```cpp
+#include <vector>
+#include <iostream>
+
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
