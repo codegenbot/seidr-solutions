@@ -1,4 +1,3 @@
-```
 def solve_boolean(input_str):
     if input_str == "t":
         return True
@@ -14,6 +13,6 @@ def solve_boolean(input_str):
         if "&" in a:
             a = solve_boolean(a)
             b = solve_boolean(b)
-            return a and b
+            return a & b
         else:
             return bool(a) or bool(b)
