@@ -1,4 +1,4 @@
-```
+```"""
 def cut_vector(vector):
     min_diff = float("inf")
     split_index = 0
@@ -14,3 +14,4 @@ def cut_vector(vector):
             split_index = i
 
     return vector[:split_index // 2], vector[split_index // 2:]
+"""
