@@ -4,6 +4,9 @@
 using namespace std;
 
 string validateTweet(string tweet) {
+    tweet.erase(0, tweet.find_first_not_of(" ") ); // Remove leading whitespace
+    tweet.erase(tweet.find_last_not_of(" ") + 1); // Remove trailing whitespace
+
     if (tweet.empty()) {
         return "You didn't type anything";
     }
@@ -11,7 +14,7 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     else {
-        return (tweet.length() > 1 ? "Your tweet has " : "Your tweet is ") + to_string(tweet.length()) + " character" + ((tweet.length() == 1) ? "" : "s");
+        return "Your tweet has " + to_string(tweet.length()) + " characters";
     }
 }
 
