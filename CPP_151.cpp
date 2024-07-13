@@ -2,16 +2,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 int main() {
-    std::cout << "Enter numbers separated by spaces: ";
-    int num;
-    std::vector<int> nums;
+    std::string input;
+    std::getline(std::cin, input);
+    const std::vector<int> nums = split(input, ' ');
 
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-    
     int sum_even = 0, sum_odd = 0;
 
     for (int num : nums) {
@@ -20,14 +17,23 @@ int main() {
         else
             sum_odd += num;
     }
-
-    double averageEven = static_cast<double>(sum_even) / (nums.size());
-    double averageOdd = static_cast<double>(sum_odd) / (nums.size());
-
+    
+    double averageEven = static_cast<double>(sum_even) / ((1.0 + sum_even > 0 ? sum_even : 1));
+    double averageOdd = static_cast<double>(sum_odd) / ((1.0 + sum_odd > 0 ? sum_odd : 1));
     std::cout << "The average of even numbers is: " << averageEven << std::endl;
     std::cout << "The average of odd numbers is: " << averageOdd << std::endl;
 
     return 0;
+}
+
+std::vector<int> split(const std::string& str, char delimiter) {
+    std::vector<int> tokens;
+    std::stringstream ss(str);
+    std::string token;
+    while (std::getline(ss, token, delimiter)) {
+        tokens.push_back(std::stoi(token));
+    }
+    return tokens;
 }
 
 std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
