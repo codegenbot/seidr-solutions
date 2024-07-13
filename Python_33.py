@@ -1,5 +1,2 @@
-```
-def sort_third(l):
-    nums_divisible_by_3 = sorted([i for i in l if i % 3 == 0], reverse=True)
-    other_nums = sorted([i for i in l if i % 3 != 0], reverse=True)
-    return [num for _ in l for num in (nums_divisible_by_3, other_nums)[l.index(i)//3]]
+def sort_third(l: list):
+    return [sorted([x if i % 3 in (0, 2) else (i, x) for i, x in enumerate(l)], reverse=True)]
