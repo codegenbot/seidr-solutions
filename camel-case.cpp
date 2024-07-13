@@ -1,3 +1,4 @@
+#include <sstream>
 #include <string>
 #include <cctype>
 
@@ -14,11 +15,11 @@ std::string camelCase(const std::string& input) {
         if (!result.empty())
             result += toupper(word[0]);
         else
-            result = tolower(word);
+            result = word;
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
-        if (iss >> word && !word.empty()) {
-            result += word;
+        if (result != input) {
+            result += " ";
         }
     }
     
