@@ -13,8 +13,8 @@ def mean_absolute_deviation():
                 print("Invalid input. Please enter numbers only.")
 
         response = input("Do you want to calculate again? (yes/no): ").lower()
-        while response.lower() != "no":
-            if numbers:
+        while response != "no":
+            if len(numbers):
                 mean = sum(numbers) / len(numbers)
                 mad = sum(abs(x - mean) for x in numbers) / len(numbers)
 
@@ -22,6 +22,7 @@ def mean_absolute_deviation():
             else:
                 print("Please enter at least one number.")
             response = input("Do you want to calculate again? (yes/no): ").lower()
+
 
 if __name__ == "__main__":
     mean_absolute_deviation()
