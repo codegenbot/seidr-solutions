@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 int main() {
     int cents;
     std::cout << "Enter the number of cents: ";

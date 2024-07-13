@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <cmath>
+#include <string>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
@@ -15,11 +15,7 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     std::cout << "Enter value of n: ";
-    if (!(std::cin >> n)) {
-        std::cout << "Invalid input for n. Please enter a number.\n";
-        std::cout << "Enter value of n: ";
-        std::cin >> n;
-    }
+    std::cin >> n;
 
     if(n < 2) {
         std::cout << "n must be at least 2. Please enter again.\n";
@@ -28,11 +24,7 @@ int main() {
     }
 
     std::cout << "\nEnter value of m: ";
-    if (!(std::cin >> m)) {
-        std::cout << "Invalid input for m. Please enter a number.\n";
-        std::cout << "Enter value of m: ";
-        std::cin >> m;
-    }
+    std::cin >> m;
 
     if(m < 2) {
         std::cout << "m must be at least 2. Please enter again.\n";
