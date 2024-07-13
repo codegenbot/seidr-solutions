@@ -1,3 +1,6 @@
-import math
+```
 def dice_game(n, m):
-    return ((m-1)) / (n * m)
+    if m < n:
+        return (m-1) / (n * m)
+    else:
+        return 0
