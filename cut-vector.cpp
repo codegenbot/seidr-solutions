@@ -1,4 +1,5 @@
-using namespace std;
+#include <iostream>
+#include <vector>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
@@ -19,7 +20,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     res.push_back(std::vector<int>());
 
     for (int i = 0; i < n; i++) {
-        long long diff = abs(leftSum - rightSum);
+        long long diff = std::abs(leftSum - rightSum);
         if (diff < minDiff) { 
             minDiff = diff;
             cutIndex = i;
