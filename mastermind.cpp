@@ -1,31 +1,37 @@
-int getHint(string guess, string answer) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    vector<char> guessArray(guess.begin(), guess.end());
-    vector<char> answerArray(answer.begin(), answer.end());
-
     for (int i = 0; i < 4; ++i) {
-        if (guessArray[i] == answerArray[i]) {
-            ++black;
-            guessArray[i] = '\0';
-            answerArray[i] = '\0';
-        }
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        if (!isalpha(guessArray[i])) continue;
-
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (guessArray[i] == answerArray[j]) {
-                ++count;
-                answerArray[j] = '\0';
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            bool found = false;
+            for (int j = 0; j < 4; ++j) {
+                if (guess[j] == code[i] && j != i) {
+                    found = true;
+                    break;
+                }
             }
+            if (!found) white++;
         }
-
-        white += count - black;
     }
 
-    return to_string(white).append("\n").append(to_string(black));
+    return black + white - black;
+}
+
+int main() {
+    std::string code, guess;
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter a guess: ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+    std::cout << result << '\n';
+    return 0;
 }
