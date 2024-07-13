@@ -1,6 +1,5 @@
-```python
 def cut_vector(vector):
-    min_diff = float('inf')
+    min_diff = float("inf")
     split_index = 0
     if len(vector) > 1:
         diff = abs(sum(vector[:1]) - sum(vector[1:]))
