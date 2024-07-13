@@ -1,5 +1,5 @@
-def skjkasdkd():
-    num = int(input())
+```
+def skjkasdkd(num):
     def is_prime(n):
         if n < 2:
             return False
@@ -8,5 +8,5 @@ def skjkasdkd():
                 return False
         return True
 
-    max_prime = max([i for i in range(num+1) if is_prime(i)])
+    max_prime = max([i for i in range((num+1)) if is_prime(i)])
     return sum(int(digit) for digit in str(max_prime))
