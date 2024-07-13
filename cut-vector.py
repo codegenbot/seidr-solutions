@@ -12,4 +12,9 @@ def cut_vector(vector):
             min_diff = abs(left_sum - right_sum)
             split_index = i
 
+    if min_diff == 1:
+        for j in range(split_index):
+            if sum(vector[:j+1]) + sum(vector[split_index:]) != sum(vector[:]):
+                return vector[:j], vector[j:], vector[j:]
+    
     return vector[:split_index], vector[split_index:]
