@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -8,12 +7,14 @@ def modp(n: int, p: int) -> int:
     i = 0
     while True:
         i += 1
-        if (n * i) % p == 1:
+        if (math.pow(n, i)) % p == 1:
             return i
 
 
-num = int(input("Enter the number: "))
-prime = int(input("Enter the prime number: "))
+def main():
+    a = int(input("Enter the first number: "))
+    b = int(input("Enter the second number: "))
+    print(modp(a, b))
 
-result = modp(num, prime)
-print(f"The result is {result}")
+
+main()
