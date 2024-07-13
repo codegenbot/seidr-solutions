@@ -6,30 +6,51 @@ Here is the solution:
 
 using namespace std;
 
-string camelCase(string s) {
+string toCamelCase(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    
+    while (i < s.length()) {
         if (s[i] == '-') {
-            if (i > 0 && s[i - 1] != ' ') {
-                result += toupper(s[i + 1]);
+            i++;
+            continue;
+        }
+        
+        if (s[i] == ' ') {
+            while (i < s.length() && s[i] == ' ')
+                i++;
+            result += s.substr(i, 1).toupper();
+            i++;
+            while (i < s.length() && s[i] != ' ' && s[i] != '-') {
+                result += s.substr(i, 1);
                 i++;
             }
-        } else if (s[i] == ' ') {
+        } else if (s[i] == '-') {
+            i++;
             continue;
         } else {
-            if (result.length() > 0) {
-                result[0] = tolower(s[i]);
-            } else {
-                result += s[i];
+            result += s.substr(i, 1).toupper();
+            i++;
+            while (i < s.length() && s[i] != ' ' && s[i] != '-') {
+                result += s.substr(i, 1);
+                i++;
             }
         }
     }
+    
     return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << camelCase(input) << endl;
+    int t;
+    cin >> t;
+    
+    for(int test_case = 0; test_case < t; test_case++) {
+        string str;
+        cin >> str;
+        
+        cout << toCamelCase(str) << endl;
+    }
+    
     return 0;
 }
