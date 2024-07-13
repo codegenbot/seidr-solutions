@@ -1,7 +1,7 @@
-#define _GLIBCXX_DEBUG 0
+```cpp
 #include <vector>
+#include <initializer_list>
 #include <iostream>
-#include <cmath>
 #include <iomanip>
 
 using namespace std;
@@ -14,6 +14,7 @@ double vectorDistance(int n) {
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
+    cin >> n;
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
@@ -31,5 +32,4 @@ int main() {
 
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
-    return 0;
-}
+    return 0; }
