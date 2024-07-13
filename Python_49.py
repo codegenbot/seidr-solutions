@@ -1,10 +1,12 @@
 ```
 import math
 
-def modp(n: int, p: int):
+def modp(n: int, p: int) -> object:
     if math.gcd(n, p) != 1:
         return None
-    result = pow(n, (p-1)//2, p)
-    if result * n % p == 1:
-        return result
+    for i in range(2, p):
+        if (i * i % p == n % p):
+            return i
     return None
+
+print(modp(3, 5))
