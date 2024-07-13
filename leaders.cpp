@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -20,11 +20,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
     return res;
 }
 
-int main() {
-    std::vector<int> arr = {1, 3, 4, 2};
-    std::vector<int> result = leaders(arr);
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    return 0;
+std::vector<int> result = leaders({1, 3, 4, 2});
+for (int i : result) {
+    std::cout << i << " ";
 }
+return 0;
