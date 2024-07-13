@@ -16,19 +16,13 @@ double vectorDistance(int n) {
     for (int i = 0; i < n; i++) {
         sum += pow(v2[i] - v1[i], 2);
     }
-    return sqrt(sum);
+    return sqrt(sum); 
 }
 
 int main() {
     int n;
     cin >> n;
 
-    float x1, y1;
-    for(int i = 0; i < n; i++) {
-        cin >> x1 >> y1;
-        v2[i] = y1; 
-   
-    
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
