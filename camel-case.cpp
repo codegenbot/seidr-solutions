@@ -8,28 +8,41 @@ string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
-            if (result.size()) {
-                result += toupper(s[i + 1]);
+            if (result.size() > 0) {
+                result[0] = toupper(result[0]);
             }
             string word = s.substr(i + 1);
-            if (i > 0) {
-                result += s[i];
+            if (!word.empty()) {
+                result += word;
             }
-            result += word;
             break;
         } else if (s[i] == ' ') {
-            if (result.size()) {
-                result += toupper(s[i + 1]);
-            } else {
-                result += s[i + 1];
+            if (i > 0) {
+                if (result.size() > 0) {
+                    result[0] = toupper(result[0]);
+                }
             }
-            string left = s.substr(0, i + 1);
-            string right = s.substr(i + 2);
-            result += left;
-            result += right;
+            string word = s.substr(0, i);
+            result += word;
+            word = s.substr(i + 1);
+            if (!word.empty()) {
+                result += capitalize(word);
+            }
             break;
         } else {
+            result += s[i];
+        }
+    }
+    return result;
+}
+
+string capitalize(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (i > 0) {
             result += tolower(s[i]);
+        } else {
+            result += toupper(s[i]);
         }
     }
     return result;
