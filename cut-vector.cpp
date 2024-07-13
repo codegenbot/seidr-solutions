@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <numeric>
-
+#include <climits>
+#include <cmath>
 using namespace std;
 
-int findCutIndex(vector<int>& nums) {
+void findCutIndex(vector<int>& nums) {
     int n = nums.size();
     int totalSum = accumulate(nums.begin(), nums.end(), 0);
     int leftSum = 0;
@@ -22,24 +22,32 @@ int findCutIndex(vector<int>& nums) {
         }
     }
 
-    return cutIndex;
-}
+    cout << "Subvector 1: ";
+    for (int i = 0; i <= cutIndex; i++) {
+        cout << nums[i] << " ";
+    }
+    cout << endl;
 
-void printSubvector(vector<int>& nums, int start, int end) {
-    for (int i = start; i <= end; i++) {
+    cout << "Subvector 2: ";
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
     cout << endl;
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    int cutIndex = findCutIndex(nums);
+    vector<int> nums;
+    int num;
+    cout << "Enter positive integers to form a vector (enter -1 to stop): ";
+    while (true) {
+        cin >> num;
+        if (num == -1) {
+            break;
+        }
+        nums.push_back(num);
+    }
 
-    cout << "Left subvector: ";
-    printSubvector(nums, 0, cutIndex);
-    cout << "Right subvector: ";
-    printSubvector(nums, cutIndex + 1, nums.size() - 1);
-
+    findCutIndex(nums);
+    
     return 0;
 }
