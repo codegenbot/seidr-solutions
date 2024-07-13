@@ -19,8 +19,18 @@ std::string camelCase(const std::string& str) {
         }
     }
 
+    // Check if the string is not empty and erase the first space
     if (!result.empty()) {
-        result.erase(0, 1);
+        size_t pos = 0;
+        for (size_t i = 0; i < result.size(); ++i) {
+            if (result[i] == ' ') {
+                pos = i;
+                break;
+            }
+        }
+        if (pos > 0) {
+            result.erase(0, pos);
+        }
     }
 
     return result;
@@ -33,8 +43,7 @@ int main() {
         std::getline(std::cin, input);
 
         if (!input.empty()) { 
-            std::string output = camelCase(input);
-            std::cout << "Camel Case: " << output << std::endl; 
+            std::cout << "Camel Case: " << camelCase(input) << std::endl; 
         }
     }
     return 0;
