@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int) -> int:
     if math.gcd(n, p) != 1:
         return -1
