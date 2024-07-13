@@ -18,6 +18,6 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
-    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::ios_base::fixed) << totalDistance << "\n";
+    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::ios_base::fixed) << std::to_string(totalDistance) << "\n";
     return 0;
 }

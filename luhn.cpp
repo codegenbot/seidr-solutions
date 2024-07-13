@@ -1,3 +1,4 @@
+```cpp
 int luhn(int cardNumber) {
     int sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -14,4 +15,10 @@ int luhn(int cardNumber) {
         }
     }
     return sum;
+}
+
+int main() {
+    int cardNumber = 4532015295970004; 
+    std::cout << "Luhn's checksum is: " << luhn(cardNumber) << std::endl;
+    return 0;
 }
