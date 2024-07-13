@@ -1,2 +1,2 @@
 def fix_spaces(text):
-    return ''.join('_' if c == ' ' else c if c != ' ' else '-' for c in text)
+    return '_'.join([word if len(word) < 3 else word.replace(' ', '-') for word in text.split()])
