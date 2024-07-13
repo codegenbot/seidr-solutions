@@ -11,25 +11,27 @@ int mastermind(string code, string guess) {
         possibleChars['0' + i] = 1;
     }
 
+    vector<char> codeVec(code);
+    vector<char> guessVec(guess);
+
     for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+        if(codeVec[i] == guessVec[i]) {
             black++;
+            codeVec[i] = '\0';
+            guessVec[i] = '\0';
         }
     }
 
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
-
     for(int i = 0; i < 4; i++) {
-        codeCount[int(possibleChars.find(code[i]))]++;
-    }
-
-    for(int i = 0; i < 4; i++) {
-        guessCount[int(possibleChars.find(guess[i]))]++;
-    }
-
-    for(int i = 0; i < 6; i++) {
-        white += min(codeCount[i], guessCount[i]) - (code[i] == guess[i]);
+        bool foundInCode = false;
+        for(int j = 0; j < 6; j++) {
+            if(codeVec[j] == guessVec[i]) {
+                foundInCode = true;
+                codeVec[j] = '\0';
+                break;
+            }
+        }
+        if(!foundInCode) white++;
     }
 
     return black + white;
