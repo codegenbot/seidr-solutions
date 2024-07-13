@@ -1,6 +1,16 @@
-def decode_shift(encoded):
-    for i in range(26):
-        result = "".join([chr(((ord(ch) - 97 + 26 - i) % 26) + 97) if ch.isalpha() else ch for ch in encoded])
-        if 'z' not in result and 'Z' not in result:
-            return result
-    return "No solution"
+def decode_shift():
+    while True:
+        encoded = input("Enter the encoded message: ")
+        for i in range(26):
+            decoded = "".join(
+                [
+                    chr(((ord(ch) - 97 + 26 - i) % 26) + 97) if ch.isalpha() else ch
+                    for ch in encoded
+                ]
+            )
+            if "z" not in decoded and "Z" not in decoded:
+                return decoded
+        print("Invalid input. Please try again.")
+
+
+decode_shift()
