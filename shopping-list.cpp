@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
-#include <iomanip>
-
+#include <iomanip> // for fixed and setprecision
 using namespace std;
 
 float shoppingList(vector<float> prices, vector<float> discounts) {
