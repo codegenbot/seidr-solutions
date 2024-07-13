@@ -1,30 +1,41 @@
-int score(string input) {
+int score(string s) {
+    int total = 0;
     int frame = 0;
-    int score = 0;
-    for (int i = 0; i < input.size(); ++i) {
-        if (frame == 10) break;
-        if (input[i] == 'X') {
-            score += 10;
-            if (input[i+2] == 'X') score += 10;
-            else if (input[i+2] == '/') score += 10 - (input[i+1] - '0');
-            else score += input[i+1] - '0' + input[i+2] - '0';
-            frame++;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i-1] - '0');
-        } else if (input[i] == '-') {
-            // do nothing
+    int roll = 0;
+    vector<int> pins(22);
+
+    for (char c : s) {
+        if (c == 'X') {
+            pins[roll++] = 10;
+            if (frame < 9) {
+                pins[roll++] = 0;
+            }
+        } else if (c == '/') {
+            pins[roll - 1] = 10 - pins[roll - 2];
+        } else if (c == '-') {
+            pins[roll++] = 0;
         } else {
-            score += input[i] - '0';
-            if (input[i+1] == '/') score += 10 - (input[i] - '0');
+            pins[roll++] = c - '0';
+        }
+
+        if (frame > 0 && (pins[2 * frame - 1] == 10 || pins[2 * frame] > 0)) {
+            total += pins[2 * frame - 1] + pins[2 * frame];
+            if (pins[2 * frame - 1] == 10) {
+                total += pins[2 * frame + 1];
+                if (pins[2 * frame + 1] == 10) {
+                    total += pins[2 * frame + 2];
+                }
+            }
             frame++;
         }
     }
-    return score;
+
+    return total;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
