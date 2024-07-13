@@ -1,4 +1,7 @@
-def camel_case(s):
-    return "".join(word.capitalize() for word in s.split() if word) + "".join(
-        word[0].upper() + word[1:] for word in s.split("-") if len(word) > 1
-    )
+Here is the Python code to solve the problem:
+
+def kebab_to_camel(s):
+    return ''.join(word.capitalize() for word in s.split('-')) + ' '.join(part.title() for part in s.split())
+
+s = input()
+print(kebab_to_camel(s))
