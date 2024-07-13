@@ -1,3 +1,4 @@
+```
 def luhn(card_num):
     total = 0
     for i, num in enumerate(map(int, card_num)):
@@ -6,4 +7,4 @@ def luhn(card_num):
             if num > 9:
                 num -= 9
         total += num
-    return str(total + int(card_num[-1]))
+    return str(total)
