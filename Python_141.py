@@ -4,8 +4,9 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    if file_name.split('.')[0][0].lower() not in 'abcdefghijklmnopqrstuvwxyz':
+    name, extension = file_name.rsplit('.', 1)
+    if not name or not set(name).issubset('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
         return 'No'
-    if not (file_name.lower().split('.')[1] in ['txt', 'exe', 'dll']):
+    if extension.lower() not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
