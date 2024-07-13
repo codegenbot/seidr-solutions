@@ -1,20 +1,15 @@
 int main() {
+    vector<int> input;
     int n, num;
-    vector<int> nums;
-
     cin >> n;
-
     for (int i = 0; i < n; ++i) {
         cin >> num;
-        nums.push_back((num / 3) - 2);
+        input.push_back((num / 3) - 2);
     }
-
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += nums[i];
+        sum += input[i];
     }
-
     cout << sum;
-
     return 0;
 }
