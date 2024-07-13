@@ -1,4 +1,10 @@
 #include <vector>
+#include <cassert>
+
+int main() {
+    assert(skkjasdkd({127, 97, 8192}) == 10);
+    return 0;
+}
 
 int skjkasdkd(vector<int> lst) {
     int max_prime = 0;
@@ -23,8 +29,4 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-
-int main() {
-    assert(skkjasdkd({127, 97, 8192}) == 10);
-    return 0;
 }
