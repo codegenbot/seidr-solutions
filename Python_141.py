@@ -4,10 +4,10 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    name, extension = file_name.rsplit('.', 1)
-    if not name or not name[0].isalpha():
+    pre_dot = file_name.split('.')[0]
+    post_dot = file_name.split('.')[1].lower()
+    if not pre_dot or not pre_dot[0].isalpha():
         return 'No'
-    allowed_extensions = ['txt', 'exe', 'dll']
-    if extension.lower() not in allowed_extensions:
+    if post_dot not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
