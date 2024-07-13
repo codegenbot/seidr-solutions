@@ -1,40 +1,24 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        char c = guess[i];
-        if (countFirst(c, code) && !isCorrectPlace(code, guess, i, c)) {
-            ++count;
-        }
-    }
-    return count;
-}
+int getClue(string code, string guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        char c = guess[i];
-        if (isCorrectPlace(code, guess, i, c)) {
-            ++count;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            bool found = false;
+            for(int j=0; j<4; j++) {
+                if(guess[j] == code[i] && j != i) {
+                    whitePegs++;
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                blackPegs++;
+            }
         }
     }
-    return count;
-}
 
-bool isCorrectPlace(string code, string guess, int index, char c) {
-    for (int i = 0; i < 4; ++i) {
-        if (i == index && code[i] == c) {
-            return true;
-        }
-    }
-    return false;
-}
-
-int countFirst(char c, string s) {
-    int count = 0;
-    for (char cc : s) {
-        if (cc == c) {
-            ++count;
-        }
-    }
-    return count;
+    return make_pair(blackPegs, 4 - blackPegs - whitePegs).second;
 }
