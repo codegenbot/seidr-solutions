@@ -8,7 +8,7 @@ def bowling_score(frames):
         elif frames[i] == "/":
             score += spare_frame(int(frames[i-1]))
         else:
-            score += normal_frame(int(frames[i]), int(frames[i+1]) if i < len(frames)-1 else 0)
+            score += normal_frame(int(frames[i]), int(frames[i+1]) if i < len(frames) - 1 else 0)
         frame_count -= 1
     return score
 
