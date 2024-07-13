@@ -3,6 +3,7 @@ def middle_character(s):
         return ""
     length = len(s)
     mid = length // 2
-    if not s[mid].isalnum() and not s[mid].isdigit():
+    if length % 2 != 0:  
         return s[mid]
-    return s[mid] if length % 2 != 0 else s[mid - 1:mid + 1]
+    else:  
+        return s[mid - 1:mid + 1]

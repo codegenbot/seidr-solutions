@@ -1,12 +1,7 @@
-#include <iostream>
-#include <vector>
-
-using std::vector;
-using std::cout;
-
-vector<int> leaders(vector<int>& arr) {
+```
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
+    std::vector<int> res;
     
     if(n == 0) return res;
     
@@ -16,16 +11,5 @@ vector<int> leaders(vector<int>& arr) {
         if(arr[i] >= arr[i+1]) res.push_back(arr[i]);
     }
     
-    std::reverse(res.begin(), res.end());
-    
     return res;
-}
-
-int main() {
-    vector<int> arr = {17, 11, 13, 2, 23, 19};
-    vector<int> result = leaders(arr);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    return 0;
 }
