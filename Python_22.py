@@ -1,6 +1,5 @@
+```
 lst = [int(x) for x in input("Enter a list of integers (space-separated): ").split()]
-
-
 def filter_integers(lst):
     while True:
         cont = input("Do you want to filter integers again? (yes/no): ")
