@@ -20,7 +20,8 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (std::cin.peek() != EOF) {
+        std::cin >> num;
         nums.push_back(num);
     }
 
