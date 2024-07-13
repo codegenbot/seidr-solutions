@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -12,7 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (index == string::npos) break;
         
         result.push_back(index);
-        index += 1; // to avoid duplicate indices
+        index += target.length(); // to avoid duplicate indices
     }
     
     return result;
