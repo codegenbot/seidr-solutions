@@ -1,24 +1,23 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
-std::string intToMiniRoman(int n) {
-    if (n <= 0)
-        return "0";
-    std::string roman = "";
-    const char* val[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    int num[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    for(int i = 12; i >= 0 && n > 0; --i) {
-        while(n >= num[i]) {
-            n -= num[i];
-            roman += val[i];
+int miniToRoman(int n) {
+    int val[] = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+    char sym[] = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+    int i=0;
+    roman = "";
+    while (n>0) {
+        if (n >= val[i]) {
+            n -= val[i];
+            roman += sym[i];
         }
+        else i++;
     }
     return roman;
 }
 
-int main() {
-    std::cout << intToMiniRoman(1999) << std::endl;
-    assert(intToMiniRoman(1000) == "M");
+int main_test() {
+    std::cout << miniToRoman(1999) << std::endl;
+    assert(miniToRoman(1000) == "M");
     return 0;
 }
