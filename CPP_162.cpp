@@ -1,25 +1,20 @@
-#include <string>
-#include <sstream>
-
-using namespace std;
+#include <openssl/ssl.h>
+#include <openssl/x509v3.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-
+    unsigned char md5[16];
     MD5_CTX ctx;
-    unsigned char mdBuffer[16];
-    stringstream ss;
-
     MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(mdBuffer, &ctx);
+    const char* cstr = text.c_str();
+    MD5_Update(&ctx, cstr, text.size());
+    MD5_Final(md5, &ctx);
 
+    string result;
     for (int i = 0; i < 16; ++i) {
-        sprintf("%02x", mdBuffer[i]);
-        ss << hex << uppercase;
-        ss << setfill('0') << setw(2);
-        ss << mdBuffer[i];
+        char buff[3];
+        sprintf(buff, "%02x", md5[i]);
+        result += buff;
     }
 
-    return ss.str();
+    return result;
 }
