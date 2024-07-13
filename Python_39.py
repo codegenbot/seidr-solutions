@@ -6,6 +6,6 @@ def process_input(input_str):
         return "Invalid input. Please enter a valid integer."
 
 
-user_input = input("Enter an integer: ")
-result = process_input(user_input)
+input_str = input("Enter an integer: ")
+result = process_input(input_str)
 print(result)
