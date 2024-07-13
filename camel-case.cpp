@@ -3,7 +3,7 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool isNextUpper = (str.empty()) ? false : true;
+    bool isNextUpper = false;
     for (const auto& c : str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
@@ -20,11 +20,7 @@ std::string camelCase(std::string str) {
             isNextUpper = true;
         } else {
             isNextUpper = false;
-            if (c >= 'a' && c <= 'z') {
-                result += std::toupper(c);
-            } else {
-                result += c;
-            }
+            result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
         }
     }
     return result;
