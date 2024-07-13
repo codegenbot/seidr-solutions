@@ -1,5 +1,5 @@
-```
 bool evaluateBooleanExpression(string expression) {
+    bool result = true;
     stack<char> ops;
     stack<bool> values;
 
@@ -25,5 +25,18 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
 
-    return values.top();
-}
+    while (!values.empty()) {
+        bool b1 = values.top();
+        values.pop();
+        char op = ops.top();
+        ops.pop();
+
+        if (op == '|') {
+            result = (result && b1) || values.top();
+            values.pop();
+        } else {
+            result = result && b1;
+        }
+    }
+
+    return result;
