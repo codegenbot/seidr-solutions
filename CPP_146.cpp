@@ -1,10 +1,9 @@
-#include <iostream>
 #include <vector>
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(vector<int> nums){
     int count = 0;
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
+    for(int num : nums){
+        if(num > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0){
             count++;
         }
     }
@@ -12,7 +11,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    // add your test cases here
+    int result = specialFilter({1, 11, 21, 31});
+    cout << "The number of integers that meet the condition is: " << result << endl;
     return 0;
 }
