@@ -1,11 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> sort_vector(vector<int> arr) {
-    vector<pair<int, int>> vec;
-    for (int i : arr) {
-        vec.push_back({__builtin_popcount(i), i});
-    }
-    sort(vec.begin(), vec.end());
-    return vector<int>(vec.begin(), vec.end());
+using namespace std;
+
+vector<int> sort_array(vector<int> arr) {
+    return vector<int>(arr.begin(), arr.end());
 }
