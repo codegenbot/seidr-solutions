@@ -1,7 +1,5 @@
-```
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -11,15 +9,15 @@ string string_to_md5(const string& input) {
         char c = ((input[i % input.size()] + i) * i) % 256;
         if(i < 2)
             output += to_string(c);
-        else
-        {
-            ostringstream oss;
-            oss << setfill('0') << hex << setw(2) << (int)c;
-            output += oss.str();
+        else {
+            static const char* hex_digits = "0123456789abcdef";
+            output += hex_digits[c / 16] + hex_digits[c % 16];
         }
     }
     return output;
 }
 
-cout << fixed << string_to_md5("password") << endl;
-return 0;
+int main() {
+    cout << fixed << string_to_md5("password") << endl;
+    return 0;
+}
