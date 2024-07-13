@@ -1,6 +1,6 @@
 #include <vector>
-#include <climits> 
-#include <cmath>  
+#include <climits> // for INT_MAX
+#include <cmath>  // for abs
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
