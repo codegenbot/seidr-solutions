@@ -13,11 +13,13 @@ def encrypt(s):
 
 def main():
     while True:
-        try:
-            s = input("Please enter the text to be encrypted: ")
+        s = input("Please enter the text to be encrypted: ")
+        s = ''.join(c for c in s if c.isalpha())
+        if s:
             break
-        except ValueError:
+        else:
             print("Invalid input. Please enter a string containing only alphabets.")
+
     print(f"Encrypted Text: {encrypt(s)}")
 
 
