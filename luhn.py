@@ -1,9 +1,12 @@
-digits = input().split()
-total = sum(
-    [
-        (int(digit) * 2 - 9) if int(digit) * 2 > 9 else int(digit) * 2
-        for index, digit in enumerate(digits)
-        if index % 2 != 0
-    ]
-)
+n = int(input())
+digits = list(map(int, input().split()))
+
+total = 0
+for i in range(n):
+    if i % 2 == 1:
+        digit = digits[i] * 2
+        if digit > 9:
+            digit -= 9
+        total += digit
+
 print(total)
