@@ -4,25 +4,24 @@ int count_nums(vector<int> v) {
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
-                sum += abs(num % 10);
+                sum += num % 10;
                 num /= 10;
             }
-            if (sum > 0) {
-                count++;
-            }
+            if (sum > 0)
+                ++count;
         } else {
-            int sum = 0, sign = -1;
-            bool foundNonZero = false;
-            while (num < 0) {
-                if (abs(num) % 10 != 0) {
-                    sum += abs(num % 10);
-                    foundNonZero = true;
+            num = -num; // convert to positive
+            int sum = 0;
+            bool is_negative = true;
+            while (num > 0) {
+                if (!is_negative) {
+                    sum += num % 10;
                 }
                 num /= 10;
+                is_negative = !is_negative;
             }
-            if (foundNonZero && sum > 0) {
-                count++;
-            }
+            if (sum > 0)
+                ++count;
         }
     }
     return count;
