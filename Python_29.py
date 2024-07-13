@@ -9,3 +9,7 @@ def filter_by_prefix() -> None:
 
     result = [s for s in string_list if s.startswith(prefix)]
     print(result)
+
+
+def check(function):
+    function()
