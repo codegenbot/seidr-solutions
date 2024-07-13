@@ -1,19 +1,8 @@
-a = int(input("Enter first integer: "))
-b = int(input("Enter second integer: "))
-
-
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
-
-
-print(gcd(a, b))
-
-
-text = input("Enter text: ")
-target = input("Enter target: ")
-
 
 def find_indices(text, target):
     indices = []
@@ -27,5 +16,16 @@ def find_indices(text, target):
             break
     return indices
 
-
-print(find_indices(text, target))
+while True:
+    try:
+        a = int(input("Enter first integer: "))
+        b = int(input("Enter second integer: "))
+        print(gcd(a, b))
+        
+        text = input("Enter text: ")
+        target = input("Enter target: ")
+        
+        print(find_indices(text, target))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers for the first two inputs and strings for the last two.")
