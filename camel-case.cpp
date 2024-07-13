@@ -1,15 +1,19 @@
 int main() {
-    string str;
-    getline(cin, str);
-    bool toUpper = false;
-    for (char &c : str) {
+    string input, output;
+    getline(cin, input);
+    bool capitalize = true;
+    for (char c : input) {
         if (c == '-') {
-            toUpper = true;
-        } else if (toUpper) {
-            c = toupper(c);
-            toUpper = false;
+            capitalize = true;
+        } else if (c != ' ') {
+            if (capitalize) {
+                output += toupper(c);
+                capitalize = false;
+            } else {
+                output += c;
+            }
         }
     }
-    cout << str;
+    cout << output << endl;
     return 0;
 }
