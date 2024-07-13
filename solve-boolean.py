@@ -19,8 +19,8 @@ def solve_boolean(expression):
                             stack.append(val1 or val2)
                     operators.append(char)
                 else: 
-                    expression = char + "".join(stack) 
-                    stack.clear() 
+                    expression = char + "".join(stack)  
+                    stack.clear()   
             elif char == "(":
                 operators.append(char)
             elif char in ["t", "f"]:
