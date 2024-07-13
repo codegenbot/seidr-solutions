@@ -1,16 +1,18 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
+    int frame = 1;
     for (char c : s) {
-        if (c == '/') {
-            score += max(1, currentRoll);
-            currentRoll = 0;
-        } else if (isdigit(c)) {
-            currentRoll *= 10 + (c - '0');
+        if (c == 'X') {
+            score += 30;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (frame < 10 ? stoi(string(1, c)) : 0);
+            frame++;
+        } else {
+            int pins = 10 - stoi(string(1, c));
+            score += pins;
+            frame++;
         }
-    }
-    if (currentRoll > 0) {
-        score += max(1, currentRoll);
     }
     return score;
 }
