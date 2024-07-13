@@ -6,8 +6,9 @@ for i in range(n):
     if i % 2 == 1:
         doubled_digit = digits[i] * 2
         if doubled_digit > 9:
-            doubled_digit -= 9
-        total += doubled_digit
+            total += doubled_digit - 9
+        else:
+            total += doubled_digit
     else:
         total += digits[i]
 
