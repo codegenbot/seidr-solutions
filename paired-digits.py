@@ -4,5 +4,7 @@ def paired_digits(s):
     while i < len(s) - 1:
         if s[i] == s[i+1]:
             total += int(s[i])
-        i += 1
+            i += 1
+        else:
+            i += 1
     return total
