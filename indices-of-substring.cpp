@@ -12,7 +12,6 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
                 result.push_back(i);
             }
         }
-        i++; // increment i outside the loop
     }
 
     return result;
