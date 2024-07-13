@@ -10,3 +10,5 @@ for char in paren_string:
             groups.append(")")
         else:
             groups.append(groups[-1] + ")")
+result = ["".join(group) for group in groups]
+return result
