@@ -1,7 +1,11 @@
-for(int i = 0; i < str.length(); i++){
-    if(str[i] >= 'a' && str[i] <= 'z')
-        str[i] -= ('a' - 'A');
-    else if(str[i] >= 'A' && str[i] <= 'Z')
-        str[i] += ('a' - 'A');
+string filp_case(string str){
+    string result = "";
+    for (char c : str) {
+        if (islower(c)) {
+            result += toupper(c);
+        } else if (isupper(c)) {
+            result += tolower(c);
+        }
+    }
+    return result;
 }
-return str;
