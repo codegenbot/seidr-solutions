@@ -26,6 +26,7 @@ std::string spinWords(std::string str) {
         }
     }
     
+    // handle the last word separately
     if (!word.empty()) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
@@ -41,10 +42,12 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
+    
     if (!str.empty()) {
         std::cout << spinWords(str) << std::endl;
     } else {
         std::cout << "No input provided." << std::endl;
     }
+    
     return 0;
 }
