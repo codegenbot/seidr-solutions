@@ -12,29 +12,28 @@ int main() {
         sum += nums[i];
     }
     
-    int left_sum = 0;
-    int right_sum = sum;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+    int prefixSum = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
     for (int i = 0; i < n; i++) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
+        prefixSum += nums[i];
+        int suffixSum = sum - prefixSum;
+        int diff = abs(prefixSum - suffixSum);
         
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i <= cut_index; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << endl;
     }
     
     cout << endl;
     
-    for (int i = cut_index + 1; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << endl;
     }
     
