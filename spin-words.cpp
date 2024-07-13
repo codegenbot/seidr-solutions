@@ -1,30 +1,32 @@
-Here is the solution:
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <algorithm>
 
-string spinWords(string str) {
-    string result = "";
-    for (const auto &word : split(str, " ")) {
-        if (word.length() >= 5)
-            result += word.substr(word.length() - 1) + word.substr(0, word.length() - 1) + " ";
-        else
-            result += word + " ";
+std::string spinWords(const std::string& input) {
+    std::vector<std::string> words;
+    std::istringstream ss(input);
+    std::string word;
+
+    while (ss >> word) {
+        if (word.length() >= 5) {
+            std::reverse(word.rbegin(), word.rend());
+        }
+        words.push_back(word);
     }
-    return result.substr(0, result.length() - 1);
+
+    std::stringstream result;
+    for (const auto& word : words) {
+        result << word << " ";
+    }
+    return result.str();
 }
 
-string split(const string &str, const string &delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(delimiter)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + delimiter.length());
-    }
-    tokens.push_back(str);
-    return join(tokens, " ");
-}
-
-string join(const vector<string> &strs, const string &delimiter) {
-    string result;
-    for (const auto &str : strs)
-        result += str + delimiter;
-    return result.substr(0, result.length() - delimiter.length());
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    return 0;
 }
