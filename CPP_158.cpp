@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,13 +15,22 @@ std::string find_max(std::vector<std::string> words) {
 
 int main() {
     int n;
+    std::cout << "Enter the number of words: ";
     std::cin >> n;
+
     std::vector<std::string> words(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter word " << i + 1 << ": ";
         std::cin >> words[i];
     }
-    
-    std::cout << find_max(words) << std::endl;
+
+    std::string max_word = find_max(words);
+
+    if (!max_word.empty()) {
+        std::cout << "The maximum word is: " << max_word << std::endl;
+    } else {
+        std::cout << "No words entered." << std::endl;
+    }
 
     return 0;
 }
