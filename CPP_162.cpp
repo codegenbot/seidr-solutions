@@ -1,28 +1,22 @@
-```cpp
-#include <iostream>
-#include <string>
+#include <sstream>
 
-std::string string_to_md5(const std::string& text) {
-    MD5_CTX md5context;
-    unsigned char result[16];
-    MD5Init(&md5context);
-    if(text.empty()) {
-        return "";
+using namespace std;
+
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* str = text.c_str();
+    size_t len = text.size();
+    MD5_Update(&ctx, str, len);
+    MD5_Final(&md[0], &ctx);
+
+    ostringstream oss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        oss << setfill('0') << setw(2) << hex << (int)md[i];
     }
-    MD5Update(&md5context, (const unsigned char*)text.c_str(), text.length());
-    MD5Final(result, &md5context);
 
-    std::string buffer = "";
-    for(int i = 0; i < 16; i++) {
-        sprintf(&buffer, "%02x", result[i]);
-    }
-    return buffer;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "MD5 sum is: " << string_to_md5(input) << std::endl;
-    return 0;
+    return oss.str();
 }
