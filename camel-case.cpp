@@ -20,10 +20,13 @@ std::string camelCase(const std::string& input) {
         for (int i = 1; i < word.size(); ++i)
             result += char(std::tolower(word[i]));
 
+        // Add this to handle subsequent words and spaces
         if (iss.peek() == ' ') {
             iss.ignore();
+            iss >> word;
         }
-    }    
+    }
+    
     return result;
 }
 
