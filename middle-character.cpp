@@ -6,10 +6,9 @@ string middleCharacter(string s) {
         return s.substr(n/2, 1);
     }
 }
-
 int main() {
-    string s;
-    cin >> s;
-    cout << middleCharacter(s) << endl;
+    string input;
+    getline(cin, input);
+    cout << middleCharacter(input) << endl;
     return 0;
 }
