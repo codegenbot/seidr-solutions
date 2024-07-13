@@ -3,12 +3,12 @@ string int_to_mini_roman(int number) {
                                          {400, "CD"}, {100, "C"}, {90, "XC"},
                                          {50, "L"}, {40, "XL"}, {10, "X"},
                                          {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    string result = "";
-    for (const auto& p : roman) {
-        while (number >= p.first) {
-            number -= p.first;
-            result += p.second;
+    string result;
+    for (const auto& roman_numeral : roman) {
+        while (number >= roman_numeral.first) {
+            number -= roman_numeral.first;
+            result += roman_numeral.second;
         }
     }
-    return result;
+    return tolower(result);
 }
