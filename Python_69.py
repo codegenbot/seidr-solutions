@@ -1,7 +1,10 @@
-def search(lst, target):
+```
+def search(lst):
+    max_num = float("-inf")
     for num in lst:
-        if num == target:
-            return num
+        if num > max_num:
+            max_num = num
+    return max_num
 
 
 numbers = []
@@ -14,5 +17,7 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid integer or 'stop'.")
 if numbers:
-    target_num = int(input("Enter the target number: "))
-    print(f"The first occurrence of {target_num} in the list is {search(numbers, target_num)}")
+    if len(numbers) > 0: 
+        print(f"The maximum number in the list is {search(numbers)}")
+else:
+    print("No numbers were entered.")
