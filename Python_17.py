@@ -1,3 +1,4 @@
+```
 def parse_music(s):
     s = s.lower()
     words = s.replace("|", " ").split()
@@ -7,4 +8,4 @@ def parse_music(s):
             word_counts[word] += 1
         else:
             word_counts[word] = 1
-    return [word_counts.get(word, 0) for word in set(words)]
+    return [word_counts.get(word, 0) for word in set(s.lower().replace("|", " ").split())]
