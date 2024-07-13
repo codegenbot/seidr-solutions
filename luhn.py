@@ -6,7 +6,7 @@ def luhn(card):
         if (i % 2 == 1):
             double_digit = digit * 2
             if double_digit >= 10:
-                new_card.append(double_digit % 9)
+                new_card.append(double_digit % 9 + 1)
             else:
                 new_card.append(double_digit)
         else:
