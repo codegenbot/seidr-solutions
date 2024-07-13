@@ -2,6 +2,10 @@
 #include <vector>
 #include <string>
 
+bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    return vec1 == vec2;
+}
+
 std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
     int index1 = -1, index2 = -1;
     
@@ -55,6 +59,10 @@ int main() {
         else
             std::cout << "No Output";
         
+        for (const auto& planet : result) {
+            std::cout << planet << " ";
+        }
+        std::cout << std::endl;
     } else {
         std::cout << "No Output";
     }
