@@ -1,9 +1,10 @@
 def encrypt(s):
     result = ""
-    for char in s:
+    for i, char in enumerate(s):
         if char.isalpha():
-            offset = 65 if char.isupper() else 97
-            result += chr((ord(char) - offset + 3) % 26 + offset)
+            ascii_offset = 65 if char.isupper() else 97
+            offset = (ord(char) - ascii_offset + 3) % 26
+            result += chr((offset - (1 if not char.isalpha() or i == 0 else 0)) + ascii_offset)
         else:
             result += char
     return result
