@@ -1,11 +1,11 @@
-```
 #include <vector>
+#include <iostream>
+#include <limits>
+
 using namespace std;
 
-#pragma GCC target "cxx11"
-
 vector<vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int cutIndex = -1;
     
     for(int i=0; i<v.size()-1; i++) {
