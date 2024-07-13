@@ -1,36 +1,37 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++;
-            while (i < str.length() && str[i] == ' ') {
-                i++;
-            }
-            if (result != "") {
-                result += std::toupper(str[i]);
-            } else {
-                result += tolower(str[i]);
-            }
-        } else if (str[i] == ' ') {
+std::string kebabToCamel(const std::string& str) {
+    std::string result;
+    bool nextWordIsUpper = false;
+
+    for (char c : str) {
+        if (c == '-') {
+            nextWordIsUpper = true;
+        } else if (c == ' ') {
             continue;
         } else {
-            if (result != "") {
-                result += std::toupper(str[i]);
+            if (nextWordIsUpper) {
+                result += std::toupper(c);
+                nextWordIsUpper = false;
             } else {
-                result += tolower(str[i]);
+                result += c;
             }
         }
     }
+
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    int t;
+    std::cin >> t;
+
+    while (t--) {
+        std::string str;
+        std::cin >> str;
+        std::cout << kebabToCamel(str) << std::endl;
     }
+
     return 0;
 }
