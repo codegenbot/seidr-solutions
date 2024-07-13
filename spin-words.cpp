@@ -15,4 +15,3 @@ auto spinWords(const char* str) -> std::string {
     }
 
     return result;
-}
