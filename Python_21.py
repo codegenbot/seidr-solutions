@@ -1,9 +1,6 @@
 def rescale_to_unit(input_str):
-    if isinstance(input_str, list): 
-        inputs = input_str
-    else:
-        inputs = list(map(float, input_str.split()))
-    
+    inputs = list(map(float, input_str.split()))
+
     if not inputs:
         return []
 
@@ -48,4 +45,4 @@ def rescale_to_unit(input_str):
             rescaled_numbers.append(rescaled_sublist)
         else:
             rescaled_numbers.append([])
-    print([str(x) for x in rescaled_numbers])
+    return [str(x) for x in rescaled_numbers]
