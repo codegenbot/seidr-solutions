@@ -1,19 +1,33 @@
-string solveBoolean(string s) {
-    int n = s.size();
-    for (int i = 0; i < n; i++) {
-        if (s[i] == '&') {
-            while (i + 1 < n && s[i + 1] == '&') i++;
-            bool left = s[i - 1] != 'F';
-            return left ? (!left) : "False";
-        }
-        else if (s[i] == '|') {
-            while (i + 1 < n && s[i + 1] == '|') i++;
-            bool left = s[i - 1] != 'F';
-            return left;
-        }
-        else {
-            s[i] == 'T' ? (void)(s.erase(i--, 1)) : void(s.erase(i, 1));
+#include <stack>
+#include <string>
+
+bool solveBoolean(string expression) {
+    stack<char> s;
+    
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            if (!s.empty() && s.top() == '|') {
+                s.pop();
+                return false;
+            } else if (!s.empty()) {
+                s.pop();
+                return true;
+            }
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+        } else {
+            s.push(expression[i]);
         }
     }
-    return s[0] == 'T';
+    
+    if (s.size() > 0) {
+        return s.top() == 'T';
+    } else {
+        return false;
+    }
 }
