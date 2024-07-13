@@ -1,5 +1,8 @@
-"""
+```
 def dice_game(n, m):
+    """
+    This function calculates the probability that Peter rolls strictly higher than Colin.
+    """
     total = n * m
     if n == m:
         return 0.5 
