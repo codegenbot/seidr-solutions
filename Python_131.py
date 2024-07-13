@@ -1,6 +1,13 @@
 ```
 def check():
-    n = int(input("Enter a number: "))
+    user_input = input("Enter a number: ")
+    
+    try:
+        n = int(user_input)
+    except ValueError:
+        print("Invalid input. Please enter a three-digit integer.")
+        return
+
     if 100 <= n <= 999:
         total = sum_of_digits(n)
         print(f"The sum of digits is {total}")
