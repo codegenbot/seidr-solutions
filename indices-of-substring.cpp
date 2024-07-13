@@ -7,13 +7,16 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     if (m > 0) {
-        int i = 0;
-        while (true) {
-            if ((n-i) < m) break; // Ensure we don't go out of bounds
-            if (text.substr(i, m) == target) {
-                result.push_back(i);
+        for (int i = 0; i + m <= n; i++) { 
+            int j = 0;
+            while (j < m && text[i+j] == target[j]) {
+                j++;
+                if (j == m) {
+                    result.push_back(i);
+                    i = i + j - m; // Move the index forward so that the next search starts after the previous match.
+                    j = 0;
+                }
             }
-            i++;
         }
     }
 
