@@ -7,9 +7,14 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     if (m > 0) {
-        for (int i = 0; i + m <= n; i++) { 
-            if (text.substr(i, m) == target) {
-                result.push_back(i);
+        for (int i = 0; i <= n - m; i++) { 
+            int j = 0;
+            while ((j < m) && (i + j < n) && (text[i+j] == target[j])) {
+                if (j == m-1) {
+                    result.push_back(i);
+                    i++; // or j++, as you're looking for overlapping targets
+                }
+                j++;
             }
         }
     }
