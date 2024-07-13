@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<int> findLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> leaders;
