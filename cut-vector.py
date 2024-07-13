@@ -1,16 +1,20 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
-
-total_sum = sum(vec)
+vector = [int(input()) for _ in range(n)]
+total_sum = sum(vector)
 half_sum = total_sum // 2
-
-curr_sum = 0
-for i, num in enumerate(vec):
-    curr_sum += num
-    if curr_sum >= half_sum:
-        if curr_sum == half_sum or abs(curr_sum - half_sum) < abs(
-            curr_sum - num - half_sum
+prefix_sum = 0
+for i, num in enumerate(vector):
+    prefix_sum += num
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(
+            prefix_sum - num - half_sum
         ):
-            print(*vec[: i + 1])
-            print(*vec[i + 1 :])
-            break
+            print(*vector[: i + 1])
+            print(*vector[i + 1 :])
+        else:
+            print(*vector[:i])
+            print(*vector[i:])
+        break
+else:
+    print(*vector)
+    print(0)
