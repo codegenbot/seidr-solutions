@@ -1,13 +1,15 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(),
-        [](const string& a, const string& b) { return a.length() % 2 == 1; });
+    auto it = unique(lst.begin(), lst.end(), 
+        [](const string& s1, const string& s2) { return s1.length() % 2 == 0 && s2.length() % 2 != 0; });
     lst.erase(it, lst.end());
+    
     sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() != b.length())
-                return a.length() < b.length();
+        [](const string& s1, const string& s2) {
+            if (s1.length() != s2.length()) 
+                return s1.length() < s2.length();
             else
-                return a < b;
+                return s1 < s2;
         });
+    
     return lst;
 }
