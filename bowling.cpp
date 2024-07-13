@@ -1,57 +1,40 @@
+```cpp
+#include <vector>
+#include <string>
+
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
         throw std::invalid_argument("No input provided");
     }
     int score = 0;
-    int prevRoll = 0;
-    bool isStrike = false;
+    int prevRoll1 = 0;
+    int prevRoll2 = 0;
 
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
+    std::vector<int> rolls = parseInput(input);
+
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i] == 10) {
             score += 30;
-            isStrike = true;
-        } else if (input[i] == '/') {
-            int roll1, roll2;
-            char nextChar = i + 1 < input.length() ? input[i + 1] : ' ';
-            if(nextChar != ' ') {
-                roll1 = nextChar - '0';
-                score += roll1;
-            }
-            i++; // Move to the next character
-        } else if (input[i] == ' ') {
-            int roll1, roll2;
-            char prevChar = i > 0 ? input[i - 1] : ' '; 
-            if(i > 0) {
-                roll1 = prevChar - '0';
-                if(isStrike) {
-                    score += roll1 + prevRoll * 2;
-                    isStrike = false;
-                } else {
-                    score += roll1;
-                }
-                prevRoll = roll1;
-            }
+        } else if (rolls[i] + rolls[i+1] >= 10) {
+            score += 10 + (i < 8 ? rolls[i+2] : prevRoll1 + prevRoll2);
+            i++;
         } else {
-            int roll = input[i] - '0';
-            if (isStrike) {
-                score += roll + prevRoll * 2;
-                isStrike = false;
-            } else {
-                score += roll;
-            }
-            prevRoll = roll;
-        }
-    }
-
-    // Check for spare at the end of each frame
-    if(input[input.length() - 1] == '/') {
-        int roll1, roll2;
-        char nextChar = input.length() > 2 ? input[input.length() - 2] : ' ';
-        if(nextChar != ' ') {
-            roll1 = nextChar - '0';
-            score += roll1 + prevRoll;
+            score += rolls[i] + rolls[i+1];
         }
     }
 
     return score;
+}
+
+std::vector<int> parseInput(const std::string& input) {
+    std::vector<int> rolls;
+    for (int i = 0; i < input.length(); i++) {
+        if (input.substr(i, 1) == "X") {
+            rolls.push_back(10);
+        } else if (input[i] != ' ') {
+            int roll = input[i] - '0';
+            rolls.push_back(roll);
+        }
+    }
+    return rolls;
 }

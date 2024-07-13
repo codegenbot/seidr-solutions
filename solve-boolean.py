@@ -7,23 +7,15 @@ def solve_boolean(expression):
                 stack.append(char)
             elif char == ')':
                 while stack[-1] != '(':
-                    while len(stack) >= 2 and (stack[-1] in ops or stack[-1] == '('):
-                        if stack[-1] == '(':
-                            break
-                        right = stack.pop()
-                        operator = stack.pop()
-                        left = stack.pop()
-                        if operator == '&':
-                            result = ops[operator](left, right)
-                        else:
-                            result = ops[operator](left, right)
-                        while stack and stack[-1] in ops:
-                            pass
-                        stack.append(result)
-                    stack.pop()
+                    stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
+                stack.pop()
             else:
-                stack.append(True if char == 'T' else False)
+                stack.append('T' if char == 'T' else 'F')
         elif char in ops:
+            while stack and (char == ')' or stack[-1] in ops):
+                if stack[-1] == '(':
+                    break
+                stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
             stack.append(char)
 
-    return stack.pop()
+    return reduce(lambda x, y: ops[y](x, stack.pop()), [op for op in ops if op in stack], stack[-1])

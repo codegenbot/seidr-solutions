@@ -1,4 +1,8 @@
+```
 n = int(input())
-prices_discounts = list(map(lambda x: [float(y) for y in x.split()], [input() for _ in range(n)]))
+prices_discounts = []
+for _ in range(n):
+    price, discount = map(float, input().split())
+    prices_discounts.append([price, discount])
 total_price = sum(price * (1 - discount / 100.0) for price, discount in prices_discounts)
 print(format(total_price, ".2f"))
