@@ -1,7 +1,6 @@
 ```cpp
-#include <cstddef>
-#include <string>
 #include <iostream>
+#include <string>
 
 bool solveBoolean(std::string expression) {
     bool result = true;
@@ -42,13 +41,17 @@ bool solveBoolean(std::string expression) {
 
 int main() {
     std::string expression;
+    std::string temp;
     while (true) {
         std::cout << "Enter the Boolean expression: ";
-        std::getline(std::cin, expression);
-        if (expression.find_first_of("TF|&") == std::string::npos) {
-            break; // valid input
+        while (std::getline(std::cin, temp) && temp.find_first_not_of("TF|& ") != std::string::npos) {
+            expression += temp + " ";
         }
-        std::cout << "Invalid input. Please try again." << std::endl;
+        if (!expression.empty()) {
+            break; // exit loop
+        } else {
+            std::cout << "Invalid input. Please try again." << std::endl;
+        }
     }
 
     bool result = solveBoolean(expression);
