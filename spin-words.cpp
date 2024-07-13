@@ -1,32 +1,15 @@
-#include <string>
-#include <vector>
-#include <algorithm>
+auto spinWords(const char* str) -> std::string {
+    std::string s(str);
+    std::stringstream ss(s);
+    std::string word;
+    std::string result;
 
-std::string spinWords(const std::string& str) {
-    std::vector<std::string> words;
-    
-    std::string word = "";
-    
-    for(int i=0; i<str.length(); i++) {
-        if(str[i] == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += str[i];
-        }
-    }
-    
-    words.push_back(word);
-    
-    std::string result = "";
-    
-    for(auto w : words) {
-        if(w.length() >= 5) {
-            std::reverse(w.begin(), w.end());
-        }
+    while (ss >> word) {
+        if(word.length() >= 5)
+            std::reverse(word.begin(), word.end());
         
-        result += w.empty() ? "" : " " + w;
+        result += (result.empty()) ? word : " " + word;
     }
-    
+
     return result;
 }
