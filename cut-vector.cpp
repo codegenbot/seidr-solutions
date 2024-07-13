@@ -1,6 +1,7 @@
 #include <vector>
 #include <climits>
-#include <cmath> // for abs()
+#include <cmath>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
