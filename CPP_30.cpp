@@ -1,14 +1,19 @@
 #include <vector>
+#include <algorithm>
 
 bool issame(float a, float b) {
-    return abs(a - b) < 1e-9;
+    if (abs(a - b) < 1e-9)
+        return true;
+    else
+        return false;
 }
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
-        if (issame(num, 0.0f)) continue;
-        result.push_back(num);
+        if (num > 0 || issame(num, 0)) {
+            result.push_back(num);
+        }
     }
     return result;
 }
