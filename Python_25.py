@@ -2,10 +2,13 @@ def sum_of_digits():
     total = 0
     while True:
         try:
-            n = int(input("Enter a whole number: "))
+            n = int(input("Enter a number: ") or input())
             break
         except ValueError:
             print("Invalid input. Please enter a whole number.")
-    return sum(int(digit) for digit in str(n))
+    while n:
+        total += n % 10
+        n //= 10
+    return total
 
 print(sum_of_digits())
