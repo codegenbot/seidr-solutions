@@ -1,5 +1,8 @@
+#include <string>
+using namespace std;
+
 bool evaluateBooleanExpression(string expression) {
-    bool result = false;
+    bool result = true;
     stack<char> ops;
     stack<bool> values;
 
@@ -25,10 +28,5 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
 
-    while (!values.empty()) {
-        result = values.top();
-        values.pop();
-    }
-
-    return result;
+    return values.top();
 }
