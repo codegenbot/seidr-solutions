@@ -8,9 +8,10 @@ int greatestCommonDivisor(int a, int b) {
 
 int main() {
     int num1, num2;
-    std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-    int result = greatestCommonDivisor(num1, num2);
-    std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
+    std::cout << "Enter the first number: ";
+    std::cin >> num1;
+    std::cout << "Enter the second number: ";
+    std::cin >> num2;
+    std::cout << "The greatest common divisor is: " << greatestCommonDivisor(num1, num2) << std::endl;
     return 0;
 }
