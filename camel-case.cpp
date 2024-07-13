@@ -1,4 +1,3 @@
-```cpp
 #include <cctype>
 #include <iostream>
 #include <vector>
@@ -26,9 +25,10 @@ std::string camelCase(std::string str) {
                 result += static_cast<char>(std::toupper(c));
             else
                 result += static_cast<char>(std::tolower(c));
-            std::transform(word.begin() + 1, word.end(), word.begin() + 1,
-                           std::toupper);
-            result += word;
+            std::string upperWord = word.substr(1);
+            std::copy(upperWord.begin(), upperWord.end(), upperWord.begin());
+            std::for_each(upperWord.begin(), upperWord.end(), ::std::toupper);
+            result += upperWord;
         }
     }
 

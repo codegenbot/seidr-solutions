@@ -26,10 +26,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 int main() {
     std::string text;
     std::cin >> text;
-    std::cin.ignore();
+    std::cin.ignore(); // Fix: handle newline character left over from reading the string
     std::string target;
     std::cin >> target;
-    std::cin.ignore();
 
     std::vector<int> indices = indicesOfSubstring(text, target);
 
