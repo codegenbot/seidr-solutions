@@ -1,6 +1,6 @@
-def parse_music(s):
+```def parse_music(s):
     s = s.lower()
-    words = s.replace("|", " ").split()
+    words = s.replace("|", "").split()
     word_counts = {}
     for word in words:
         if word in word_counts:
@@ -9,4 +9,4 @@ def parse_music(s):
             word_counts[word] = 1
     return [word_counts[word] for word in set(words)]
 
-print(parse_music("o| .| o| .| o o| | o o|"))
+print(parse_music("o| .| o| .| o o| | o o|"))```
