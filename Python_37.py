@@ -10,7 +10,7 @@ def sort_even(l: list):
         else:
             result.append(odd_nums[j])
             j += 1
-    if i < len(even_nums):
-        result.extend(even_nums[i:])
-    else:
+    result.extend(even_nums[i:])
+    if j < len(odd_nums):
         result.extend(odd_nums[j:])
+    return result
