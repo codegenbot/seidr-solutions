@@ -48,7 +48,7 @@ int main() {
     }
     
     if(!inputPlanets.empty()) {
-        std::vector<std::string> result = bf(inputPlanets, std::vector<std::string>({"Mars"}), std::vector<std::string>({"Neptune"}));
+        std::vector<std::string> result = bf(inputPlanets, {{inputPlanets[0]}}, {{"Neptune"}});
         
         if (!result.empty())
             std::cout << "Output: ";
