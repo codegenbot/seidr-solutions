@@ -1,5 +1,4 @@
-#include <cmath>
-
+```
 double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
     double totalSnow = groundSnow;
     
