@@ -4,4 +4,5 @@ def basement(nums):
         running_sum += num
         if running_sum < 0:
             return i + 1
-    return len(nums) + 1
+        elif running_sum == 0:
+            running_sum = 0
