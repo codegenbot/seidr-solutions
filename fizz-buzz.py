@@ -1,4 +1,3 @@
-```
 def fizz_buzz(x):
     if x % 15 == 0:
         return "FizzBuzz"
@@ -8,3 +7,6 @@ def fizz_buzz(x):
         return "Buzz"
     else:
         return str(x)
+
+print(fizz_buzz(30)) 
+print(fizz_buzz(4))
