@@ -1,3 +1,4 @@
+```
 auto spinWords(const char* str) -> std::string {
     std::stringstream s((char*)str);
     std::string word;
