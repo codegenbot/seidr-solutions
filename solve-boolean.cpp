@@ -1,3 +1,4 @@
+```cpp
 bool solveBoolean(std::string expression) {
     stack<char> operatorStack;
     for (int i = 0; i < expression.length(); i++) {
