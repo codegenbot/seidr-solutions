@@ -1,6 +1,10 @@
-int bowlingScore(std::string s) {
+#include <string>
+
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
-    std::stringstream ss(s);
+    stringstream ss(s);
     char c;
     bool strike = false;
     while (ss >> c) {
