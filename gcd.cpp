@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream> 
@@ -19,7 +18,7 @@ vector<int> findIndices(string text, string target) {
         if (index == string::npos)
             break;
         result.push_back(index);
-        index += target.length(); // start searching from the next character
+        index += 1; // start searching from the next character
     }
     return result;
 }
@@ -27,7 +26,7 @@ vector<int> findIndices(string text, string target) {
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-    
+
     // Calculate GCD of two numbers
     int gcd = gcd(num1, num2);
 
