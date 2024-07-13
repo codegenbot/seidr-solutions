@@ -14,7 +14,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {17, 28, 4, 2, 3};
+    vector<int> arr = {17, 11, 13, 2, 23, 19};
     vector<int> result = leaders(arr);
     for (int i : result) {
         cout << i << " ";
