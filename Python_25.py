@@ -1,32 +1,14 @@
 ```
-from typing import List
+from math import sqrt
 
-def factorize(n: int) -> List[int]:
+def factorize(n):
     factors = []
-    i = 2
+    for i in range(2, int(sqrt(n)) + 1):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
     if n > 1:
-        while i * i <= n:
-            if n % i:
-                i += 1
-            else:
-                count = 0
-                while n % i == 0:
-                    count += 1
-                    n //= i
-                factors.append(i ** count)
-        if n > 1:  
-            factors.append(n)
-
+        factors.append(n)
     return factors
 
-while True:
-    try:
-        num = int(input("Enter a number: "))
-        if num <= 0:
-            print("Please enter a positive integer.")
-        else:
-            break
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
-
-print(factorize(num))
+check(factorize)
