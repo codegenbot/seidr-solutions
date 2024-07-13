@@ -48,7 +48,7 @@ int main() {
     }
     
     if(!inputPlanets.empty()) {
-        std::vector<std::string> result = bf(inputPlanets, "Mars", "Neptune");
+        std::vector<std::string> result = bf(inputPlanets, "Earth", "Saturn");
         
         if (!result.empty())
             std::cout << "Output: ";
