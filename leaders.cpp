@@ -10,5 +10,6 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(arr[i]);
         }
     }
+    result.assign(result.rbegin(), result.rend());
     return result;
 }
