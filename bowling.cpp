@@ -1,51 +1,36 @@
-int main() {
-    string input;
-    cin >> input;
+int scoreOfBowlingRound(const string& bowls) {
     int score = 0;
     int frame = 0;
-    int balls = 0;
-    vector<int> points(12, 0);
+    int frameIndex = 0;
     
-    for (char c : input) {
-        if (c == 'X') {
-            points[frame] = 10;
-            frame++;
-        } else if (c == '/') {
-            points[frame] = 10 - points[frame - 1];
-            frame++;
-            balls = 0;
-        } else if (c == '-') {
-            points[frame] = 0;
-            balls++;
+    while (frame < 10) {
+        if (bowls[frameIndex] == 'X') {
+            score += 10;
+            score += (bowls[frameIndex + 1] == 'X') ? 10 : (bowls[frameIndex + 2] == '/') ? 10 : (bowls[frameIndex + 1] == '-') ? 0 : (bowls[frameIndex + 1] - '0');
+            score += (bowls[frameIndex + 2] == 'X') ? 10 : (bowls[frameIndex + 2] == '/') ? (10 - (bowls[frameIndex + 1] - '0')) : (bowls[frameIndex + 2] == '-') ? 0 : (bowls[frameIndex + 2] - '0');
+            frameIndex += 1;
+        } else if (bowls[frameIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[frameIndex + 2] == 'X') ? 10 : (bowls[frameIndex + 2] == '-') ? 0 : (bowls[frameIndex + 2] - '0');
+            frameIndex += 2;
         } else {
-            points[frame] += c - '0';
-            balls++;
-        }
-        
-        if ((c == 'X' && balls == 1) || balls == 2) {
-            frame++;
-            balls = 0;
-        }
-        
-        if (frame == 10) {
-            break;
-        }
-    }
-    
-    for (int i = 0; i < 10; i++) {
-        score += points[i];
-        if (points[i] == 10) {
-            if (points[i + 1] == 10) {
-                score += points[i + 1] + points[i + 2];
+            if (bowls[frameIndex + 1] != '-') {
+                score += (bowls[frameIndex] - '0') + (bowls[frameIndex + 1] - '0');
             } else {
-                score += points[i + 1];
+                score += (bowls[frameIndex] - '0');
             }
-        } else if (points[i] + points[i + 1] == 10) {
-            score += points[i + 2];
+            frameIndex += 2;
         }
+        frame++;
     }
     
-    cout << score << endl;
+    return score;
+}
+
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << scoreOfBowlingRound(bowls) << endl;
     
     return 0;
 }
