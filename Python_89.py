@@ -1,5 +1,4 @@
 def encrypt(s):
-    result = ""
     while True:
         try:
             shift = int(input("Enter shift value (0-25): "))
@@ -10,6 +9,7 @@ def encrypt(s):
         except ValueError:
             print("Invalid input. Please enter a number.")
     text = s
+    result = ""
     for char in text:
         if char.isalpha():
             if char.isupper():
@@ -19,3 +19,6 @@ def encrypt(s):
         else:  
             result += char
     return result
+
+encrypted_text = encrypt(input("Enter text to be encrypted: "))
+print(f"Encrypted Text: {encrypted_text}")
