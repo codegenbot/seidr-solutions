@@ -1,6 +1,11 @@
-Here is the Python solution:
+Here is the solution:
 
 def mastermind(code, guess):
-    white = sum(a == b for a, b in zip(guess, code))
-    black = sum(sum(1 for c in guess if c == d) for d in set(code)) - white
-    return str(black), str(white)
+    black_pegs = 0
+    white_pegs = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif str(guess[i]) in str(code):
+            white_pegs += 1
+    return black_pegs, white_pegs
