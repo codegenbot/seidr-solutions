@@ -1,14 +1,13 @@
 string find_max(vector<string> words){
-    string max_word;
+    string max_str = "";
     int max_count = 0;
-
-    for (const auto &word : words) {
-        int count = word.length();
-        if(count > max_count || (count == max_count && word < max_word)){
-            max_count = count;
-            max_word = word;
+    for(auto str : words){
+        int count = 0;
+        set<char> s(str.begin(), str.end());
+        if(s.size() > max_count){
+            max_count = s.size();
+            max_str = str;
         }
     }
-
-    return max_word;
+    return max_str;
 }
