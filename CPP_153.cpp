@@ -5,20 +5,16 @@
 int main() {
     string class_name;
     vector<string> extensions;
-    // Read input from user
+    // read input from user
     cin >> class_name;
-    int num_extensions;
-    cin >> num_extensions;
-    for(int i = 0; i < num_extensions; i++) {
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
         string extension;
         cin >> extension;
         extensions.push_back(extension);
     }
     
-    return Strongest_Extension(class_name, extensions);
-}
-
-int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest = 0;
     string strongest_extension;
     for(auto extension : extensions){
@@ -33,5 +29,8 @@ int Strongest_Extension(string class_name,vector<string> extensions){
             strongest_extension = extension;
         }
     }
-    return class_name + "." + strongest_extension;
+    
+    cout << class_name + "." + strongest_extension << endl;
+    
+    return 0;
 }
