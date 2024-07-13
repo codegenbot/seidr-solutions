@@ -1,10 +1,14 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int fuelCost(vector<int> prices) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (auto price : prices) {
-        int newPrice = floor((double)price / 3) - 2;
-        sum += newPrice;
+    for (int num : nums) {
+        int result = (num / 3) - 2;
+        if (result < 0) {
+            result = 0;
+        }
+        sum += result;
     }
     return sum;
 }
