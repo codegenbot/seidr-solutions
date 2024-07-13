@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -5,39 +6,27 @@ int main() {
     int cents;
     cin >> cents;
     
-    int quarters = 0;
-    while (cents >= 25) {
-        cents -= 25;
-        quarters++;
-    }
+    int quarters = cents / 25; 
+    cents %= 25;
     
-    int dimes = 0;
-    while (cents >= 10) {
-        cents -= 10;
-        dimes++;
-    }
+    int dimes = quarters + (cents / 10);
+    cents %= 10;
     
-    int nickels = 0;
-    while (cents >= 5) {
-        cents -= 5;
-        nickels++;
-    }
+    int nickels = dimes + (cents / 5);
+    cents %= 5;
     
     int pennies = cents;
 
     cout << "Coins: " << quarters << " quarters" << endl;
-    if(quarters > 1) cout << "s ";
-    if(quarters > 0) cout << quarters << "\n";
+    if(quarters > 0) cout << (quarters == 1 ? "" : "s ") << quarters << " remaining;\n";
     
-    cout << "Dimes: " << dimes << endl;
-    if(dimes > 1) cout << "s ";
-    if(dimes > 0) cout << dimes << "\n";
+    cout << "Dimes: " << dimes - quarters << endl;
+    if(dimes > 0) cout << (dimes == 1 ? "" : "s ") << dimes - quarters << " remaining;\n";
     
-    cout << "Nickels: " << nickels << endl;
-    if(nickels > 1) cout << "s ";
-    if(nickels > 0) cout << nickels << "\n";
+    cout << "Nickels: " << nickels - dimes << endl;
+    if(nickels > 0) cout << (nickels == 1 ? "" : "s ") << nickels - dimes << " remaining;\n";
     
-    cout << "Pennies: " << pennies << endl;
+    cout << "Pennies: " << pennies + nickles << endl;
     
     return 0;
 }
