@@ -26,7 +26,7 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return result;
+    return result + ' ';
 }
 
 int main() {
