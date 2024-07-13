@@ -15,6 +15,6 @@ if __name__ == "__main__":
                 if check_palindrome(user_input):
                     print(f"'{user_input}' is a palindrome.")
                 else:
-                    print(f"'{user_input}' is not a palindrome.')
+                    print(f"'{user_input}' is not a palindrome.")
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
