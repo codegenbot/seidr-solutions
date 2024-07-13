@@ -1,14 +1,19 @@
+#include <iostream>
+#include <string>
+#include <map>
+
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    
-    for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
-        }
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+
+    std::map<char, char> decryption_map;
+    for (size_t i = 0; i < cipher1.size(); ++i) {
+        decryption_map[cipher1[i]] = cipher2[i];
     }
-    
-    cout << message << endl;
-    
+
+    for (char c : message) {
+        std::cout << decryption_map[c];
+    }
+
     return 0;
 }
