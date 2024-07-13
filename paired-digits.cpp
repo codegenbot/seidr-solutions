@@ -17,4 +17,3 @@ int main() {
     cin >> input;
     cout << "Sum of paired digits is: " << pairedDigits(input) << endl;
     return 0;
-}
