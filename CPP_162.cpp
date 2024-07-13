@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -9,17 +10,14 @@ string string_to_md5(const string& input) {
     for (int i = 0; i < 32; i++) {
         char c = ((input[i % input.size()] + i) * i) % 256;
         if(i < 2)
-            cout << setw(2) << setfill('0') << static_cast<int>(c);
+            output += to_string(c);
         else
-            cout << std::setw(2) << std::setfill('0') << hex << setprecision(0) << static_cast<int>(c);
+            output += hex << setfill('0') << setw(2) << static_cast<int>(c);
     }
     return output;
 }
 
 int main() {
-    string password;
-    cout << "Enter a password: ";
-    cin >> password;
-    cout << fixed << setprecision(0) << string_to_md5(password) << endl;
+    cout << fixed << setprecision(0) << string_to_md5("password") << endl;
     return 0;
 }
