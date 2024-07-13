@@ -1,28 +1,11 @@
-#include <vector>
-#include <string>
-
-using namespace std;
+Here is the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
-    for (int i : lst1) {
-        if (i % 2 == 0)
-            evenCount++;
-    }
-    
-    for (int i : lst1) {
-        if (i % 2 != 0 && evenCount > 0) {
-            vector<int>::iterator it = find(lst2.begin(), lst2.end(), i);
-            if (it != lst2.end()) {
-                lst2.erase(it);
-                evenCount--;
-            } else
-                return "NO";
+    int oddCount = 0;
+    for (int num : lst1) {
+        if (num % 2 != 0) {
+            oddCount++;
         }
     }
-    
-    if (evenCount == 0)
-        return "YES";
-    else
-        return "NO";
+    return oddCount == 0 ? "YES" : "NO";
 }
