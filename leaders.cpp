@@ -2,13 +2,12 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int last = arr[arr.size() - 1];
-    for (int i = arr.size() - 2; i >= 0; i--) {
-        if (arr[i] >= last) {
-            result.push_back(arr[i]);
-            last = arr[i];
+    vector<int> leaders;
+    int n = arr.size();
+    for (int i = n - 1; i >= 0; --i) {
+        if (arr[i] >= arr[n - 1]) {
+            leaders.push_back(arr[i]);
         }
     }
-    return result;
+    return leaders;
 }
