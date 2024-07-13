@@ -7,7 +7,7 @@ def solve_boolean(expression):
         raise ValueError("Invalid expression")
     elif "&" in expression:
         left, right = expression.split("&")
-        return not (bool(left) and bool(right))
-    else:
+        return not (solve_boolean(left) or solve_boolean(right))
+    elif "|" in expression:
         left, right = expression.split("|")
-        return bool(left) or bool(right)
+        return solve_boolean(left) or solve_boolean(right)
