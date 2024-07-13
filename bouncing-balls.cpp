@@ -1,13 +1,18 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
+    std::string startHeightStr, firstBounceStr;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;
+    cin >> ws; getline(cin, startHeightStr);
+    cin >> ws; getline(cin, firstBounceStr);
+    cin >> numBounces;
+
+    double startHeight = stod(startHeightStr), firstBounce = stod(firstBounceStr);
 
     double bouncinessIndex = firstBounce / startHeight;
 
@@ -18,7 +23,7 @@ int main() {
     }
 
     cout << fixed;
-    cout << std::to_string(totalDistance) << "\n";
+    cout << totalDistance << "\n";
 
     return 0;
 }
