@@ -8,12 +8,20 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     // Preprocess the target string to build the lps array
     std::vector<int> lps(m);
-    for (int i = 0; i < m; i++) {
-        if (target[i] == target[k]) {
-            k++;
+    lps[0] = 0;
+    int lpIndex = 1;
+    while (lpIndex < m) {
+        if (target[lpIndex] == target[0]) {
+            lps[lpIndex] = lpIndex + 1;
+            break;
+        }
+        lpIndex++;
+    }
+    for (; lpIndex < m; lpIndex++) {
+        if (target[lpIndex] == target[lps[lpIndex - 1]]) {
+            lps[lpIndex] = lps[lpIndex - 1] + 1;
         } else {
-            lps[i] = k;
-            k = 0;
+            lps[lpIndex] = lps[lpIndex - 1];
         }
     }
 
