@@ -1,29 +1,31 @@
-bool evaluateBoolean(string exp) {
-    if(exp == "t") return true;
-    if(exp == "f") return false;
-    int n = exp.size();
-    vector<bool> dp(n, false);
-    for(int i = 0; i < n; i++) {
-        if(exp[i] == 't' || exp[i] == 'f') {
-            dp[i] = exp[i] == 't' ? true : false;
-        } else {
-            if(exp[i] == '&') {
-                dp[i] = dp[i-1] && dp[i+1];
-            } else if(exp[i] == '|') {
-                dp[i] = dp[i-1] || dp[i+1];
+int main() {
+    string expr;
+    cin >> expr;
+    
+    stack<char> st;
+    for (char c : expr) {
+        if (c == '|') {
+            char op1 = st.top(); st.pop();
+            char op2 = st.top(); st.pop();
+            if (op1 == 'T' || op2 == 'T') {
+                st.push('T');
+            } else {
+                st.push('F');
             }
+        } else if (c == '&') {
+            char op1 = st.top(); st.pop();
+            char op2 = st.top(); st.pop();
+            if (op1 == 'T' && op2 == 'T') {
+                st.push('T');
+            } else {
+                st.push('F');
+            }
+        } else {
+            st.push(c);
         }
     }
-    return dp[n-1];
-}
-
-int main() {
-    string exp;
-    cin >> exp;
-    if(evaluateBoolean(exp)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    
+    cout << (st.top() == 'T' ? "True" : "False") << endl;
+    
     return 0;
 }
