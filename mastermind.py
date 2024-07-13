@@ -7,7 +7,7 @@ def mastermind(code, guess):
     white = 0
     for i, c in enumerate(guess): 
         if c == code[i]: 
-            black += 1
+            black += 1 
         elif c in code: 
             white += 1
     black_possibilities = sum(1 for c in set(code) if guess.count(c)) - black
