@@ -1,9 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-string string_to_md5(string text) {
+std::string string_to_md5(const std::string& text) {
     MD5_CTX md5context;
     unsigned char result[16];
     MD5Init(&md5context);
@@ -13,7 +12,7 @@ string string_to_md5(string text) {
     MD5Update(&md5context, (const unsigned char*)text.c_str(), text.length());
     MD5Final(result, &md5context);
 
-    string buffer = "";
+    std::string buffer = "";
     for(int i = 0; i < 16; i++) {
         sprintf(&buffer, "%02x", result[i]);
     }
@@ -21,9 +20,9 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << "MD5: " << string_to_md5(input) << endl;
+    std::string text;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, text);
+    std::cout << "MD5 of the input string is: " << string_to_md5(text) << std::endl;
     return 0;
 }
