@@ -1,16 +1,17 @@
-bool is_sorted(vector<int> lst) {
-    for (int i = 0; i < lst.size() - 1; ++i) {
-        if (lst[i] >= lst[i + 1]) return false;
-    }
-    vector<int> count(lst.begin(), lst.end());
-    sort(count.begin(), count.end());
-    int maxCount = 1;
-    for (int i = 0; i < count.size() - 1; ++i) {
-        if (count[i] == count[i + 1]) {
-            ++maxCount;
-        } else {
-            if (maxCount > 1) return false;
-            maxCount = 1;
+Here is the completed code:
+
+bool is_sorted(vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            int count = 0;
+            for(int j = 0; j < lst.size(); j++){
+                if(lst[j] == lst[i]){
+                    count++;
+                }
+            }
+            if(count > 1){
+                return false;
+            }
         }
     }
     return true;
