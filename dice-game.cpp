@@ -9,14 +9,12 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    double numerator = 0.0; 
+    double sum = 0.0; 
     for(int i = 1; i < n; i++) {
-        numerator += (n - i) * 1;
+        sum += (n - i) / (double)(n*m); 
     }
-    double denominator = (double)(n*m);
     
-    double probability = (double)numerator / denominator;
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << sum << endl;
 
     return 0;
 }

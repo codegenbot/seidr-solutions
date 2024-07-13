@@ -1,3 +1,5 @@
+#include <string>
+
 const char* fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
@@ -6,4 +8,4 @@ const char* fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return x == 0 ? "0" : std::to_string(x).c_str();
+        return std::to_string(x).c_str();
