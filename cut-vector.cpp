@@ -4,7 +4,7 @@
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
-        return {{v}};
+        return {{}, {}};
     }
     
     int n = v.size();
@@ -22,7 +22,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
 
     for (int i = 0; i < n; i++) {
         long long diff = std::abs(leftSum - rightSum);
-        if (diff <= minDiff) { 
+        if (diff < minDiff) { 
             minDiff = diff;
             cutIndex = i;
         }
