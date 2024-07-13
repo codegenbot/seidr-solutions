@@ -1,3 +1,7 @@
+import sys
+
+sys.stdin.reconfigure()
+
 from math import sqrt
 import sys
 
@@ -19,9 +23,10 @@ def main():
     while True:
         try:
             n = int(input("Enter a number: "))
-            if n <= 1:
+            while n <= 1:
                 print("Please enter a positive integer greater than 1.")
-            else:
+                n = int(input("Enter a number: "))
+            if n > 1:
                 print(largest_prime_factor(n))
             cont = input("Do you want to calculate again? (y/n): ")
             while True:
