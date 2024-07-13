@@ -1,5 +1,3 @@
-```
-import math
 def max_fill(grid, capacity):
     total_water = 0
     for i in range(len(grid)):
