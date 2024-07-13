@@ -1,10 +1,37 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] != v[0]) break;
+vector<vector<int>> cutVector(vector<int>& vec) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
+    for (int i = 0; i < vec.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            left_sum += vec[j];
+        }
+        
+        for (int j = i; j < vec.size(); ++j) {
+            right_sum += vec[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff <= min_diff || (diff == 0 && cut_index != -1)) {
+            min_diff = diff;
+            cut_index = i;
+        }
     }
-    return {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
+    
+    vector<vector<int>> result(2);
+    for (int i = 0; i < cut_index; ++i) {
+        result[0].push_back(vec[i]);
+    }
+    
+    for (int i = cut_index; i < vec.size(); ++i) {
+        result[1].push_back(vec[i]);
+    }
+    
+    return result;
 }
