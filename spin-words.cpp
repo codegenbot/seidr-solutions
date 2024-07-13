@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 std::string spinWords(std::string str) {
     std::string word;
     std::string result = ""; 
@@ -30,3 +29,4 @@ std::string spinWords(std::string str) {
     std::string output = result; // copy the result
     output.pop_back(); // remove the extra space
     return output;
+}
