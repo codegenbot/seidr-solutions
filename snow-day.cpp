@@ -2,7 +2,6 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 
 double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
     double totalSnow = groundSnow;
@@ -23,9 +22,7 @@ int main() {
     
     double result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
     
-    std::ostringstream oss;
-    oss << std::fixed << std::setprecision(2);
-    std::cout << oss.str() << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << result << "\n";
     
     return 0;
 }
