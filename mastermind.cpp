@@ -14,14 +14,25 @@ int mastermind(string code, string guess) {
         }
     }
 
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
+
     for (int i = 0; i < 4; i++) {
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (codeArray[j] == guessArray[i]) {
-                count++;
-            }
+        codeCount[codeArray[i] - '0']++;
+        guessCount[guessArray[i] - '0']++;
+    }
+
+    for (int i = 0; i < 6; i++) {
+        if (codeCount[i] == 1 && guessCount[i] == 1) {
+            black--;
         }
-        white += (count > 0) ? count - 1 : 0;
+    }
+
+    white += black;
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] != 'x' && codeArray[i] == guessArray[i]) {
+            white++;
+        }
     }
 
     return black, white;
