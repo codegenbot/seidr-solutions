@@ -1,14 +1,12 @@
-```c++
 #include <vector>
 #include <initializer_list>
-#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
 
     for(int i=0; i<n; i++) {
-        if(i == n-1 || arr[i] >= arr.back()) {
+        if(i == n-1 || (i < n-1 && arr[i] >= arr[i+1])) {
             res.push_back(arr[i]);
         }
     }
