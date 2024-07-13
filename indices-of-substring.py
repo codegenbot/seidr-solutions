@@ -1,5 +1,15 @@
-def indices_of_substring(text):
-    target = input().split(",")
-    result = [(i.start(), i.end()) for t in target 
-              for i in [m.span() for m in re.finditer(t, text)]]
+```
+def indices_of_substring(text, target):
+    result = []
+    pos = 0
+    while True:
+        pos = text.find(target, pos)
+        if pos == -1:
+            break
+        result.append(pos)
+        pos += len(target)
     return result
+
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
+print(indices_of_substring(text, target))
