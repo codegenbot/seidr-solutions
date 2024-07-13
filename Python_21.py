@@ -6,9 +6,15 @@ def rescale_to_unit(*inputs):
 
     if isinstance(inputs[0], list):
         inputs = [list(map(float, input_str.split())) for input_str in inputs_str.split(' ')]
+        rescaled_numbers = []
+        for lst in inputs:
+            min_val = min(lst)
+            max_val = max(lst)
+            rescaled_lst = [(x - min_val) / (max_val - min_val) for x in lst]
+            rescaled_numbers.append(rescaled_lst)
     else:
         inputs = list(map(float, inputs_str.split()))
-    
+        
     if not inputs:
         return []
 
