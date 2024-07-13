@@ -5,33 +5,33 @@
 using namespace std;
 
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-    
+    int whitePegs = 0;
+    int blackPegs = 0;
+
+    vector<char> codeVec(code.begin(), code.end());
+    vector<char> guessVec(guess.begin(), guess.end());
+
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
+        if (codeVec[i] == guessVec[i]) {
+            blackPegs++;
+            codeVec[i] = '\0';
+            guessVec[i] = '\0';
         }
     }
-    
-    return {black, white};
+
+    for (int i = 0; i < 4; i++) {
+        if (count(codeVec.begin(), codeVec.end(), guessVec[i]) > 0) {
+            whitePegs++;
+            count(codeVec.begin(), codeVec.end(), guessVec[i])--;
+        }
+    }
+
+    return make_pair(whitePegs, blackPegs).second;
 }
 
 int main() {
-    string code;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    
-    string guess;
-    cout << "Enter your guess: ";
-    cin >> guess;
-    
-    int result[] = mastermind(code, guess);
-    
-    cout << "Black pegs: " << result[0] << endl;
-    cout << "White pegs: " << result[1] << endl;
-    
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
     return 0;
 }
