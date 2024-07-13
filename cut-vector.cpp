@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
+#include <algorithm>
 #include <climits>
-
-using namespace std;
 
 void cutVector(const vector<int>& nums) {
     int n = nums.size();
@@ -11,8 +9,8 @@ void cutVector(const vector<int>& nums) {
     int cutIndex = 0;
 
     for (int i = 1; i < n; i++) {
-        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
+        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
 
         if (abs(leftSum - rightSum) < diff) {
             diff = abs(leftSum - rightSum);
@@ -20,10 +18,10 @@ void cutVector(const vector<int>& nums) {
         }
     }
 
-    for (int i = 0; i < cutIndex; i++) cout << nums[i] << " ";
-    cout << endl;
-    for (int i = cutIndex; i < n; i++) cout << nums[i] << " ";
-    cout << endl;
+    for (int i = 0; i < cutIndex; i++) std::cout << nums[i] << " ";
+    std::cout << std::endl;
+    for (int i = cutIndex; i < n; i++) std::cout << nums[i] << " ";
+    std::cout << std::endl;
 }
 
 int main() {
