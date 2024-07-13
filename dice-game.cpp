@@ -13,7 +13,6 @@ double diceGame(int n, int m) {
 
 int main() {
     int n, m;
-    
     std::cout << "Enter value of n: ";
     std::cin >> n;
 
@@ -34,7 +33,5 @@ int main() {
 
     double result = diceGame(n, m);
     std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl; 
-    std::cout << "The answer is: " << result << std::endl;
-
     return 0;
 }
