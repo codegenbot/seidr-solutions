@@ -1,5 +1,6 @@
 def decode_shift():
     while True:
+        shift = int(input("Enter the shift value (1-25): "))
         encoded = input("Enter the encoded message: ")
         for i in range(26):
             decoded = "".join(
