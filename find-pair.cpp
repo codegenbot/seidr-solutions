@@ -5,15 +5,18 @@
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
-    map<int, int> numMap;
+    unordered_map<int, int> numMap;
+    vector<pair<int, int>> result;
+    
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+            result.push_back({complement, nums[i]});
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1};
+    
+    return result.empty() ? pair<int, int>(-1, -1) : result[0];
 }
 
 int main() {

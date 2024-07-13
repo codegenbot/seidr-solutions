@@ -1,4 +1,6 @@
-int bowlingScore(std::string s) {
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
