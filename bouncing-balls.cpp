@@ -20,16 +20,13 @@ int main() {
     int numBounces = stoi(input);
 
     double firstBounce = startHeight;
-    double bouncinessIndex = bouncinessInput / startHeight;
+    double bouncinessIndex = bouncinessIndexInput / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        double height = startHeight;
-        for (int j = 1; j <= i; ++j) {
-            double startHeightTemp = height;
-            totalDistance += startHeightTemp;
-            height *= bouncinessIndex;
-        }
+        double height = startHeight * pow(2, -bouncinessIndex);
+        totalDistance += height * (pow(2, bouncinessIndex) - 1);
+        firstBounce *= bouncinessIndex;
     }
 
     cout << fixed;
