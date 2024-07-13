@@ -1,4 +1,3 @@
-````
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,7 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (index == string::npos) break;
         
         result.push_back(index);
-        index += target.length(); // to avoid duplicate indices
+        index += 1; // to avoid duplicate indices
     }
     
     return result;
@@ -32,4 +31,3 @@ int main() {
     
     return 0;
 }
-```
