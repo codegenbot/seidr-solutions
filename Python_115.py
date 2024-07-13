@@ -14,7 +14,7 @@ def calculate():
         while True:
             try:
                 water_level = int(input(f"Enter water level at day {i}: "))
-                if 0 < water_level <= max_fill:
+                if water_level > 0 and water_level <= max_fill:
                     total_water += water_level
                     break
                 else:
@@ -27,6 +27,7 @@ def calculate():
     average_water = total_water / max_fill
     print(f"The average water level is {average_water}.")
 
+    input("Press Enter to exit...")
 
 if __name__ == "__main__":
     calculate()
