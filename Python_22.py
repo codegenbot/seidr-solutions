@@ -1,4 +1,3 @@
-```
 from typing import List
 import ast
 
@@ -23,5 +22,3 @@ def filter_integers() -> None:
                 print("Please provide some input.")
         except (ValueError, SyntaxError):
             print(f"Invalid input. Please enter a valid Python expression.")
-
-filter_integers()
