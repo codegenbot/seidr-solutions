@@ -6,7 +6,7 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
+    vector<vector<int>> res = {{}, {}};
 
     long long minDiff = numeric_limits<long long>::max();
     for (int i = 0; i < n; i++) {
@@ -14,8 +14,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         long long rightSum = accumulate(v.begin() + i, v.end(), 0LL);
 
         if (leftSum == rightSum) {
-            res[0].resize(i - v.begin());
-            copy(v.begin(), v.begin() + i, back_inserter(res[0]));
+            res[0] = vector<int>(v.begin(), v.begin() + i);
             res[1] = vector<int>(v.begin() + i, v.end());
             return res;
         }
@@ -23,8 +22,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         long long diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
-            res[0].resize(i - v.begin());
-            copy(v.begin(), v.begin() + i, back_inserter(res[0]));
+            res[0] = vector<int>(v.begin(), v.begin() + i);
             res[1] = vector<int>(v.begin() + i, v.end());
         }
     }
