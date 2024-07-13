@@ -22,5 +22,10 @@ def bowling_score(frames):
                 score += int(frames[i]) + int(frames[i+1])
             else:
                 score += frame_score
+        if i + 1 < len(frames):
+            if sum(int(x) for x in frames[i:i+2]) == 10:
+                score += 10
+            else:
+                score += sum(int(x) for x in frames[i:i+2])
         i += 1
     return score
