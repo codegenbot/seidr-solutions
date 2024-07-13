@@ -1,31 +1,62 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    stack<bool> values;
-
-    for (int i = 0; i < expression.size(); i++) {
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operatorStack;
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-            values.push(b1 && b2);
-            ops.push('&');
+            while (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
+            }
+            if (!operatorStack.empty()) {
+                operatorStack.push('&');
+            } else {
+                operatorStack.push('&');
+                break;
+            }
         } else if (expression[i] == '|') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-            values.push(b1 || b2);
-            ops.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            values.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            values.push(false);
+            while (!operatorStack.empty()) {
+                operatorStack.pop();
+            }
+            if (!operatorStack.empty() && expression[i-1] != '&') {
+                return false;
+            }
+        } else if (expression[i] == 't' || expression[i] == 'f') {
+            if (i < expression.length()-1) {
+                if (expression[i+1] == '&' || expression[i+1] == '|') {
+                    operatorStack.push(expression[i]);
+                    i++;
+                } else {
+                    if (expression[i] == 't') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                if (expression[i] == 't') {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         }
     }
+    while (!operatorStack.empty()) {
+        operatorStack.pop();
+    }
+    return true;
+}
 
-    return values.top();
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
