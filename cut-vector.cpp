@@ -1,52 +1,38 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for (int i = 1; i <= v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        if (i < v.size()) {
-            for (int j = 0; j < i; j++)
-                left_sum += v[j];
-            for (int j = i; j < v.size(); j++)
-                right_sum += v[j];
-        } else {
-            right_sum = 0;
-            for (int j = 0; j < i; j++)
-                left_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    return {left, right};
+    return {vector<int>(nums.begin(), nums.begin() + splitIndex), vector<int>(nums.begin() + splitIndex, nums.end())};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "First part: ";
-    for (int x : result.first) {
-        cout << x << ' ';
+    pair<vector<int>, vector<int>> result = cutVector(nums);
+    cout << "1 ";
+    for (int num : result.first) {
+        cout << num << " ";
     }
     cout << endl;
-    cout << "Second part: ";
-    for (int x : result.second) {
-        cout << x << ' ';
+    cout << "0 ";
+    for (int num : result.second) {
+        cout << num << " ";
     }
     cout << endl;
     
