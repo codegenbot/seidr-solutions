@@ -1,15 +1,19 @@
+```
 def match_parens(lst):
-    result = []
+    result = "Yes"
     for s in lst:
         count = 0
-        has_opening = '(' in s
+        has_opening = False
         for char in s:
             if char == '(':
                 count += 1
+                has_opening = True
             elif char == ')':
                 if count > 0:
                     count -= 1
                 else:
+                    result = "No"
                     break
-        result.append("Yes" if (count == 0 and has_opening) else "No")
+        if count > 0:
+            result = "No"
     return result
