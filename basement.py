@@ -3,5 +3,5 @@ def basement(nums):
     for i in range(len(nums)):
         running_sum += nums[i]
         if running_sum < 0:
-            continue
+            return i + 1
     return -1
