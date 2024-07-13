@@ -1,20 +1,18 @@
-vector<string> sorted_list_sum(vector<string> lst){
-    vector<string> result;
-    
-    for (const string& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
+#include <algorithm>
 
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.size() != b.size()) {
-                 return a.size() < b.size();
-             } else {
-                 return a < b;
-             }
-         });
+vector<string> vector_sort(vector<string> lst) {
+    auto it = unique(lst.begin(), lst.end(), 
+        [](const string& s1, const string& s2){return s1.length() % 2 == 0 && s2.length() % 2 != 0 || s1.length() % 2 != 0 && s2.length() % 2 == 0;});
+    lst.erase(it, lst.end());
 
-    return result;
+    sort(lst.begin(), lst.end(),
+        [](const string& s1, const string& s2){
+            if (s1.length() == s2.length()) {
+                return s1 < s2;
+            } else {
+                return s1.length() < s2.length();
+            }
+        });
+
+    return lst;
 }
