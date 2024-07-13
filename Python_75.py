@@ -1,3 +1,4 @@
+```
 def is_multiply_prime(n=None):
     if n is None:
         a = int(input("Enter a number: "))
@@ -15,5 +16,5 @@ def is_multiply_prime(n=None):
                         return False
                     i = j
                     j = n // i
-                return False  
+                return True
         return True
