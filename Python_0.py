@@ -1,4 +1,6 @@
-```
+Here's the corrected code:
+
+```Python
 def has_close_elements(numbers=None, threshold=None):
     if numbers is None:
         numbers = input("Enter space-separated floating point numbers: ")
