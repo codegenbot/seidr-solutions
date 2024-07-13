@@ -8,31 +8,28 @@ string camelCase(string s) {
     string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
-            if (result.size() > 0) {
+            if (result.size()) {
                 result[0] = toupper(result[0]);
             }
             string word = s.substr(i + 1);
-            if (!word.empty()) {
-                result += word;
-            }
+            result += word;
+            break;
         } else if (s[i] == ' ') {
             if (i > 0) {
                 result[0] = toupper(result[0]);
             }
             result += s.substr(0, i);
-            string word = s.substr(i + 1);
-            if (!word.empty()) {
-                result += word;
-            }
+            result += s.substr(i + 1);
+            break;
         } else {
-            result += s[i];
+            result += tolower(s[i]);
         }
     }
     return result;
 }
 
 int main() {
-    string str;
+    string str = "";
     while (true) {
         cout << "Enter a string in kebab-case: ";
         getline(cin, str);
