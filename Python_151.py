@@ -1,9 +1,10 @@
-```
 def double_the_difference(lst):
-    if len(set(lst)) > 1:
-        return (max(lst) - min(lst)) * 2
-    else:
-        return None
+    if len(lst) > 0:
+        if len(set(lst)) > 1:
+            return (max(lst) - min(lst)) * 2
+        else:
+            return None
+
 
 def check():
     while True:
@@ -15,5 +16,6 @@ def check():
             print("Invalid input. Please enter space-separated numbers.")
 
     print(double_the_difference(numbers))
+
 
 check()
