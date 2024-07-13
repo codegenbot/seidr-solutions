@@ -10,10 +10,9 @@ int main() {
     
     double remaining_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
-        remaining_snow += snow_fall_rate - (remaining_snow * snow_melt_rate);
-        if (remaining_snow < 0.0) {
-            remaining_snow = 0.0;
-        }
+        double snow_fallen = std::min(snow_fall_rate, remaining_snow * (1 - snow_melt_rate));
+        double snow_melted = snow_fallen * snow_melt_rate;
+        remaining_snow = remaining_snow + snow_fallen - snow_melted;
     }
 
     std::cout << std::fixed;
