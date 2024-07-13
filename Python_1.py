@@ -1,20 +1,25 @@
-```
+Here is the solution:
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
-    result = []
-    temp_str = ''
-
+    groups = []
+    group = ''
+    
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            temp_str += char
+            group += char
         elif char == ')':
-            stack.pop()
-            temp_str += char
+            while stack and stack[-1] != '(':
+                group += stack.pop()
             if not stack:
-                result.append(temp_str)
-                temp_str = ''
-
-    return result
+                groups.append(group)
+                group = ''
+            else:
+                stack.pop()
+        else:
+            group += char
+    
+    return [group] if group else groups
