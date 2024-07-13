@@ -7,12 +7,4 @@ def coin_sums(cents):
             cents -= coins[i]
             result[i] += 1
 
-    return result[0], result[1], result[2], result[3]
-
-
-cents = int(input())
-pennies, nickles, dimes, quarters = coin_sums(cents)
-print(pennies)
-print(nickles)
-print(dimes)
-print(quarters)
+    return result[3], result[2], result[1], result[0]
