@@ -26,7 +26,7 @@ vector<int> findIndices(string text, string target) {
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-
+    
     // Calculate GCD of two numbers
     int gcd = gcd(num1, num2);
 
