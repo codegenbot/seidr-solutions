@@ -17,7 +17,6 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {4,7,8,0,3,1,6,7,1,9,5};
+    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 7, 2, 1, 1};
     int result = luhn(digits);
     return 0;
-}
