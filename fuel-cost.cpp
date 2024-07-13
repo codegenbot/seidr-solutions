@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 int calculateFuelCost(vector<int> &vec) {
