@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -29,4 +29,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    return 0;
+}
