@@ -1,12 +1,4 @@
 ```
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-
 def is_multiply_prime(n=None):
     if n is None:
         a = int(input("Enter a number: "))
@@ -16,13 +8,14 @@ def is_multiply_prime(n=None):
         return is_prime(product)
     else:
         for i in range(2, int(n**0.5) + 1):
-            if n % i == 0:
-                factors = [i]
-                j = n // i
-                while j > 1 and i <= j:
-                    if not is_prime(j):
-                        return False
-                    i = j
-                    j = n // i
-                return True  
-        return True
+            if n % i == 0 and not is_prime(i):
+                return False
+        return is_prime(n)
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
