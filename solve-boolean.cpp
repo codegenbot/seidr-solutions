@@ -1,14 +1,16 @@
-bool evaluateBoolean(const string& expression) {
+bool evaluateBooleanExpression(const string& expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
         return false;
     } else {
-        bool left = evaluateBoolean(expression.substr(0, 1));
-        bool right = evaluateBoolean(expression.substr(2));
-        if (expression[1] == '&') {
+        char op = expression[1];
+        bool left = expression[0] == 't' ? true : false;
+        bool right = expression[2] == 't' ? true : false;
+        
+        if (op == '&') {
             return left && right;
-        } else {
+        } else if (op == '|') {
             return left || right;
         }
     }
@@ -17,6 +19,14 @@ bool evaluateBoolean(const string& expression) {
 int main() {
     string expression;
     cin >> expression;
-    cout << (evaluateBoolean(expression) ? "True" : "False") << endl;
+    
+    bool result = evaluateBooleanExpression(expression);
+    
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    
     return 0;
 }
