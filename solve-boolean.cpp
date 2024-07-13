@@ -1,24 +1,33 @@
 #include <cstddef>
 #include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
-    bool result = false;
-    size_t i = 0;
-
-    while (i < expression.length()) {
-        if (expression[i] == 'T') {
-            result = true;
-            break;
-        } else if (expression[i] == 'F') {
-            result = false;
-            break;
-        } else if (expression[i] == '|') {
-            i++;
-        } else if (expression[i] == '&') {
-            i++;
-        }
-        i++;
+bool solveBoolean(string expression) {
+    if (expression.empty()) {
+        return false;
     }
-
+    
+    bool result = false;
+    for (char c : expression) {
+        switch (c) {
+            case 'T':
+                result = true;
+                break;
+            case 'F':
+                result = false;
+                break;
+            case '|': // or
+                if (!result) {
+                    return false;
+                }
+                break;
+            case '&': // and
+                if (result) {
+                    return true;
+                }
+                break;
+        }
+    }
+    
     return result;
 }
