@@ -1,13 +1,32 @@
-int bowlingScore(string bowls) {
-    int score = 0;
-    bool firstBallInTurn = true;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (char& bowl : bowls) {
-        if (bowl == '/') {
-            score += (firstBallInTurn ? 10 : 0);
-            firstBallInTurn = false;
-        } else {
-            score += (int)bowl - 48; // convert char to int
+int bowlingScore(string s) {
+    int score = 0;
+    bool firstRollInFrame = true;
+
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '/') {
+            if (firstRollInFrame) {
+                if (s[i-1] != 'X') {
+                    int roll = (s[i-1] - '0');
+                    score += roll;
+                } else {
+                    score += 10;
+                }
+                firstRollInFrame = false;
+            } else {
+                int roll = 0;
+                for (; i < s.length() && (s[i] != '/' || s[i-1] == 'X'); i++) {
+                    if (s[i] - '0' > 9) {
+                        roll += 10;
+                        break;
+                    }
+                    roll += s[i] - '0';
+                }
+                score += roll;
+            }
         }
     }
 
