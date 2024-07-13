@@ -1,7 +1,6 @@
-#include <vector>
-#include <initializer_list>
+```cpp
 #include <iostream>
-#include <iomanip>
+#include <cmath>
 
 using namespace std;
 
@@ -32,3 +31,4 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
+}
