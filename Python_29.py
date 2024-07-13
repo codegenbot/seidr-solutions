@@ -1,10 +1,11 @@
 ```
 def check():
-    prefix = input("Enter a prefix (e.g., 'abc'): ")
-    if not isinstance(prefix, str):
-        print("Program did not receive expected input")
-    elif len(prefix) > 5:
-        print("Prefix is too long")
+    num = int(input("Enter an integer between 1 and 5: "))
+    words = ["hello", "world", "python", "java"]
+    if num < 1 or num > 5:
+        print("Number is out of range")
     else:
-        print("Prefix is fine")
+        for word in words:
+            if len(word) == num:
+                print(f"Found match: {word}")
 check()
