@@ -1,7 +1,8 @@
-string spinWords(const string &sentence) {
-    istringstream iss(sentence);
-    string word, result;
+int main() {
+    string input, word, result;
+    getline(cin, input);
     
+    istringstream iss(input);
     while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
@@ -9,6 +10,8 @@ string spinWords(const string &sentence) {
         result += word + " ";
     }
     
-    result.pop_back(); // remove the extra space at the end
-    return result;
+    result.pop_back(); // Remove the last space
+    cout << result;
+    
+    return 0;
 }
