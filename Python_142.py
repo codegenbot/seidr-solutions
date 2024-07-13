@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     for num in lst:
@@ -12,7 +13,7 @@ while True:
         lst = list(map(int, user_input.split()))
         break
     except ValueError:
-        print("Invalid input. Please enter a valid list of integers.")
+        print("Invalid input. Please separate numbers with spaces and re-enter.")
 
 if len(lst) > 0:
     print(sum_squares(lst))
