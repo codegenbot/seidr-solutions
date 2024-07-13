@@ -8,10 +8,9 @@ def bouncing_balls():
     total_distance = 0
     prev_height = start_height
     for _ in range(num_bounces): 
-        height = prev_height * bounciness_index
-        up_distance = abs((height - prev_height) * 2)
+        up_distance = abs((prev_height * 0.8 - prev_height) * 2)
         down_distance = up_distance
         total_distance += up_distance + down_distance
-        prev_height = height
+        prev_height *= 0.8
 
     print("The total distance traveled is: ", round(total_distance, 2))
