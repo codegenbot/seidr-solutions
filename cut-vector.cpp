@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -23,14 +22,8 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
         }
     }
-    res[0] = vector<int>(split_index); 
-    res[1] = vector<int>();          // Initialize empty
-    for (int i = 0; i < split_index; i++) {
-        res[0].push_back(v[i]);
-    }
-    for (int i = split_index; i < v.size(); i++) {
-        res[1].push_back(v[i]);
-    }
+    res[0] = vector<int>(v.begin(), v.begin() + split_index);
+    res[1] = vector<int>(v.begin() + split_index, v.end());
     return res;
 }
 
