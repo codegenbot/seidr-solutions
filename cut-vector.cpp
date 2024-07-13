@@ -1,33 +1,29 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res;
-    
-    for (int i = 1; i <= n - 1; i++) {
-        if (v[i] == v[0]) {
-            res.push_back({v.begin(), v.begin() + i});
-            res.push_back({v.begin() + i, v.end()});
-            return res;
-        }
-    }
-    
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
+    int cut_index = -1;
     
-    for (int i = 1; i <= n - 1; i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff < min_diff) {
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
     
-    res.push_back({v.begin(), v.begin() + cut_index});
-    res.push_back({v.begin() + cut_index, v.end()});
+    vector<int> left = {v[0]};
+    for (int i = 0; i < cut_index; i++) {
+        left.push_back(v[i + 1]);
+    }
     
-    return res;
+    vector<int> right = {v[cut_index + 1]};
+    for (int i = cut_index + 1; i < v.size(); i++) {
+        right.push_back(v[i]);
+    }
+    
+    return make_pair(left, right);
 }
 
 int main() {
@@ -37,12 +33,21 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    vector<vector<int>> res = cutVector(v);
-    for (auto &v : res) {
-        for (int x : v) {
-            cout << x << " ";
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i];
+        if (i < result.first.size() - 1) {
+            cout << " ";
         }
-        cout << endl;
     }
+    cout << "] [";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i];
+        if (i < result.second.size() - 1) {
+            cout << " ";
+        }
+    }
+    cout << "]" << endl;
     return 0;
 }
