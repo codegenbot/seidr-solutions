@@ -16,15 +16,14 @@ def factorize(n: int) -> List[int]:
                 factors.append(i ** count)
         if n > 1:  
             factors.append(n)
+    elif n == 1:
+        return [1]
     return factors
 
 while True:
     try:
         num = int(input("Enter a number: "))
-        if num <= 0:
-            print("Please enter a positive integer.")
-        else:
-            break
+        break
     except ValueError:
         print("Invalid input. Please enter an integer.")
 
