@@ -7,7 +7,6 @@ def array_change(lst):
             max_diff = diff
     return max_diff
 
-print("Welcome to the Array Change Problem!")
 while True:
     try:
         lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
