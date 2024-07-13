@@ -1,14 +1,19 @@
-Here is the completed code:
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = remove_if(lst.begin(), lst.end(), [](const string& s){return s.length() % 2 != 0;});
-    lst.erase(it, lst.end());
-    sort(lst.begin(), lst.end(), 
-        [](const string& a, const string& b){
-            if(a.size() == b.size())
-                return a < b;
-            else
-                return a.size() < b.size();
-        });
-    return lst;
+    vector<string> result = lst;
+    for (auto it = result.begin(); it != result.end();) {
+        if (it->length() % 2 != 0) {
+            it = result.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() == b.length()) {
+                 return a < b;
+             } else {
+                 return a.length() < b.length();
+             }
+         });
+    return result;
 }
