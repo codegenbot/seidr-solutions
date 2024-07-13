@@ -5,7 +5,7 @@
 double calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
     double total_price = 0.0;
     for (std::size_t i = 0; i < prices.size(); i++) {
-        total_price += prices[i] * (1.0 - discounts[i] / 100.0); // Apply discount as multiplication factor
+        total_price += prices[i] * (1 - discounts[i] * 0.01); // Multiply discounts[i] by 0.01
     }
     return total_price;
 }
