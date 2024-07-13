@@ -1,2 +1,1 @@
-def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - 65 if ch.isupper() else ord(ch) - 97) % 26) + 65 if ch.isupper() else 97) if ch.isalpha() else ch for ch in s])
+return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() and ch.lower() >= 'a' and ch.lower() <= 'z' else ch if ch.isalpha() or ch.isspace() else chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A')) for ch in s])
