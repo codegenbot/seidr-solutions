@@ -1,6 +1,3 @@
-```
-import re
-
 def parse_music(s):
     if not isinstance(s, str) or not s.strip():
         return "Invalid input"
@@ -23,4 +20,4 @@ def parse_music(s):
         max_beat = int(max(map(int, beats)))
     except ValueError:
         return "Invalid input"
-    return [beat_counts.get(str(i), 0) for i in range(1, max_beat + 1)]
+    print([beat_counts.get(str(i), 0) for i in range(1, max_beat + 1)])
