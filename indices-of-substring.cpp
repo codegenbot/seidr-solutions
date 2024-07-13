@@ -7,9 +7,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     if (m > 0) {
-        for (int i = 0; i + m <= n; i++) { 
+        for (int i = 0; i + m - 1 < n; i++) { 
             int j = 0;
-            while (j < m && text[i+j] == target[j]) {
+            while (j < m && i + j < n && text[i+j] == target[j]) {
                 j++;
                 if (j == m) {
                     result.push_back(i);
@@ -26,9 +26,10 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 int main() {
     std::string text;
     std::cin >> text;
-    std::cin.ignore(); // Fix: handle newline character left over from reading the string
+    std::cin.ignore();
     std::string target;
     std::cin >> target;
+    std::cin.ignore();
 
     std::vector<int> indices = indicesOfSubstring(text, target);
 
