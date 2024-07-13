@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -20,20 +18,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
-        arr.push_back(x);
-    }
-    vector<int> leadersResult = leaders(arr);
-    cout << "Leaders: ";
-    for (int i = 0; i < leadersResult.size(); i++) {
-        cout << leadersResult[i] << " ";
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> result = leaders(arr);
+    for (int i : result) {
+        cout << i << " ";
     }
     return 0;
 }
