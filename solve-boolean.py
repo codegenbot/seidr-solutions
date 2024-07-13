@@ -1,11 +1,19 @@
+Here is the solution:
+
 def solve_boolean(expression):
-    if expression == "t":
+    if expression == 'T':
         return True
-    elif expression == "f":
+    elif expression == 'F':
         return False
-    elif "&" in expression:
-        a, b = expression.split("&")
-        return solve_boolean(a) and solve_boolean(b)
-    elif "|" in expression:
-        a, b = expression.split("|")
-        return solve_boolean(a) or solve_boolean(b)
+    elif '&' in expression:
+        parts = expression.split('&')
+        for part in parts:
+            if part != 'f' and part != 'F':
+                return False
+        return True
+    elif '|' in expression:
+        parts = expression.split('|')
+        for part in parts:
+            if part != 'f' and part != 'F':
+                return True
+        return False
