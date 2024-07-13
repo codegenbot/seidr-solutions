@@ -1,12 +1,16 @@
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    for (int i = arr.size() - 1; i > 0; i--) {
-        int rightMax = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] <= rightMax)
-            j--;
-        if (j == -1) 
+    int maxRight = arr.back();
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        if (arr[i] >= maxRight) {
             result.push_back(arr[i]);
+            maxRight = arr[i];
+        }
     }
-    return result;
+    // Update maxRight
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] >= maxRight)
+            maxRight = arr[i];
+    }
+    return vector<int>({maxRight});
 }
