@@ -1,4 +1,4 @@
-def separate_paren_groups(paren_string: str) -> list:
+def separate_paren_groups(paren_string: str) -> list[str]:
     def find_group(s):
         stack = []
         groups = []
