@@ -1,7 +1,7 @@
 def fix_spaces(text):
     text = text.strip().replace(" ", "_")
-    while "__" in text:
-        text = text.replace("__", "_-")
+    while "--" in text:
+        text = text.replace("--", "-")
     return text
 
 
@@ -10,7 +10,7 @@ def main():
         text = input("Enter your text (or 'q' to quit): ")
         if text.lower() == "q":
             break
-        if "_" not in text:
+        if " " in text:
             print(fix_spaces(text).strip().replace("_- ", "_-"))
         else:
             print(text)
