@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -6,10 +6,11 @@
 std::string validateTweet(std::string);
 
 int main() {
-    std::cout << "Enter your tweet: ";
     std::string tweet;
-    std::cin >> std::getline(std::cin, tweet); // remove spaces and all other characters
-    std::cout << validateTweet(tweet) << std::endl;
+    std::cout << "Enter your tweet: ";
+    std::getline(std::cin, tweet);
+    std::string result = validateTweet(tweet);
+    std::cout << result << std::endl;
     return 0;
 }
 
@@ -19,6 +20,7 @@ std::string validateTweet(std::string tweet) {
     } else if (tweet.empty()) {
         return "You didn't type anything";
     } else {
+        tweet.erase(tweet.find_last_not_of("\n") + 1); 
         return "Your tweet has " + std::to_string(tweet.length()) + " characters";
     }
 }
