@@ -1,13 +1,12 @@
+Here is the Python code to solve this problem:
+
 ```
-def decipher_cipher(text1, text2, text3):
-    cipher = {}
-    for char1, char2 in zip(text1, text2):
-        if char1 != char2:
-            cipher[char1] = char2
-    result = ""
-    for char in text3:
+def substitute_cipher(s1, s2, message):
+    cipher = {c1: c2 for c1, c2 in zip(s1, s2)}
+    deciphered_message = ''
+    for char in message:
         if char in cipher:
-            result += cipher[char]
+            deciphered_message += cipher[char]
         else:
-            result += char
-    return result
+            deciphered_message += char
+    return deciphered_message
