@@ -1,3 +1,10 @@
+#include <iostream>
+#include <numeric>
+#include <vector>
+#include <limits>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<int> left, right;
@@ -16,10 +23,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             rightSum += v[j];
         }
 
-        if (abs(leftSum - rightSum) == diff) {
-            left.assign(v.begin(), v.begin() + i + 1);
-            right = vector<int>(v.begin() + i + 1, v.end());
-        } else if (abs(leftSum - rightSum) < diff) {
+        if (i == 0 || leftSum == rightSum || abs(leftSum - rightSum) <= 1) {
             diff = abs(leftSum - rightSum);
             left.assign(v.begin(), v.begin() + i + 1);
             right = vector<int>(v.begin() + i + 1, v.end());
@@ -27,4 +31,19 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     }
 
     return {left, right};
+}
+
+int main() {
+    vector<int> input = {3, 964, 6793, 4803};
+    pair<vector<int>, vector<int>> result = cutVector(input);
+    cout << "The first part of the vector is: ";
+    for(int i : result.first) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "The second part of the vector is: ";
+    for(int i : result.second) {
+        cout << i << " ";
+    }
+    return 0;
 }
