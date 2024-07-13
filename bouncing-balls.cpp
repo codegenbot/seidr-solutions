@@ -9,15 +9,16 @@ int main() {
 
     double bouncinessIndex = (stod(firstBounceStr) / stod(startHeightStr));
     
+    double startHeight = stod(startHeightStr);
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += (stod(startHeightStr) * bouncinessIndex); 
-        startHeightStr = to_string(stod(startHeightStr) / 2);
+        totalDistance += (startHeight * bouncinessIndex); 
+        startHeight /= 2;
     }
 
-    std::cout << std::fixed;
-    std::cout.precision(10);
-    std::cout << totalDistance << endl;
+    cout << fixed;
+    cout.precision(10);
+    cout << totalDistance << endl;
 
     return 0;
 }
