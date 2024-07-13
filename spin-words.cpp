@@ -1,27 +1,35 @@
-Here is the solution:
+#include <iostream>
+#include <string>
+using namespace std;
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    string temp = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (temp.length() >= 5)
-                for (int j = temp.length() - 1; j >= 0; j--)
-                    result += temp[j];
-            else
-                result += temp;
-            temp = "";
+    string word;
+    
+    for (char c : sentence) {
+        if (c == ' ') {
+            result += word + " ";
+            word.clear();
         } else {
-            temp += str[i];
+            word += c;
         }
     }
+    
+    result += word;
+    
+    istringstream iss(result);
+    string temp;
+    while (getline(iss, temp, ' ')) {
+        if (temp.length() >= 5)
+            reverse(temp.begin(), temp.end());
+        result = result.substr(0, result.find(temp)) + temp + " ";
+    }
+    
+    return result.substr(0, result.size()-1);
+}
 
-    if (temp.length() >= 5)
-        for (int j = temp.length() - 1; j >= 0; j--)
-            result += temp[j];
-    else
-        result += temp;
-
-    return result;
+int main() {
+    cout << spinWords("this is a test") << endl;
+    // Your other inputs...
+    return 0;
 }
