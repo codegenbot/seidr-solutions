@@ -1,9 +1,8 @@
+```
 def leaders(arr):
     n = len(arr)
-    max_so_far = arr[n - 1]
-    leaders = [max_so_far]
+    leaders = [arr[n - 1]]
     for i in range(n - 2, -1, -1):
-        if arr[i] >= max_so_far:
+        if arr[i] >= leaders[0]:
             leaders.insert(0, arr[i])
-            max_so_far = arr[i]
     return leaders
