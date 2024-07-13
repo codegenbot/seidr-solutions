@@ -2,16 +2,23 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'f') {
-            res = false;
+            result = false;
             break;
         } else if (s[i] == '&') {
-            res &= true;
+            result &= true;
         } else if (s[i] == '|') {
-            res |= true;
+            result |= true;
         }
     }
-    return res;
+    return result;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
