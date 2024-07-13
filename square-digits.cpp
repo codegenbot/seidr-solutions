@@ -1,3 +1,4 @@
+```cpp
 string squareDigits(string input) {
     string output = "";
     for(int i=0; i<input.length(); i++) {
