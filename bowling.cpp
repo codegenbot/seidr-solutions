@@ -9,8 +9,7 @@ int bowlingScore(string s) {
             score += currentRoll + 10;
             currentRoll = 0;
         } else {
-            currentRoll *= 10;
-            currentRoll += c - '0';
+            currentRoll += (c - '0');
         }
     }
     return score;
