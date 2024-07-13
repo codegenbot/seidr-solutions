@@ -9,12 +9,11 @@ def bowling_score(frames):
                 score += 10 + (int(frames[i-1]) if i-1 >= 0 and frames[i-1].isdigit() else 0)
             i += 3
         elif frames[i] == "/":
-            score += 10
             frame_score = sum(int(x) for x in frames[i+1:i+3])
-            score += frame_score - (int(frames[i-1]) if i-1 >= 0 and frames[i-1].isdigit() else 0)
+            score += 10 - int(frames[i+1]) + (int(frames[i-1]) if i-1 >= 0 and frames[i-1].isdigit() else 0)
             i += 3
         else:
-            if int(frames[i]) + int(frames[i+1]) == 10 or (frames[i].isdigit() and frames[i+1] == "/"):
+            if int(frames[i]) + int(frames[i+1]) == 10:
                 score += 10
             else:
                 score += sum(int(x) for x in frames[i:i+2])
