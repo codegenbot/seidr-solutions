@@ -1,17 +1,29 @@
-#include <string>
-using namespace std;
+bool evaluateBooleanExpression(string expression) {
+    bool result = false;
+    stack<char> ops;
+    stack<bool> values;
 
-bool solveBoolean(string s) {
-    string t = "T", f = "F";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            return (s.substr(0, i).compare(t) == 0 || s.substr(0, i).compare(f) == 0) ||
-                   (s.substr(i + 1).compare(t) == 0);
-        }
-        else if (s[i] == '&') {
-            return (s.substr(0, i).compare(t) == 0 && s.substr(i + 1).compare(t) == 0) ||
-                   (s.substr(0, i).compare(f) == 0 && s.substr(i + 1).compare(f) == 0);
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 && b2);
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 || b2);
+            ops.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            values.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            values.push(false);
         }
     }
-    return s.compare(t) == 0;
+
+    return values.top();
 }
