@@ -1,4 +1,3 @@
-```
 def middle_character(s):
     length = len([c for c in s if c.isalnum()])
     if length % 2 == 0:
