@@ -26,4 +26,4 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest(strings))
+print(longest([s for s in strings if s is not None]))
