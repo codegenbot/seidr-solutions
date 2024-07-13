@@ -1,6 +1,6 @@
 #include <iostream>
-#include <map>
-#include <string>
+#include <unordered_map>
+using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -13,8 +13,8 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    map<char, int> codeMap, guessMap;
-    for (int i = 0; i < 4; ++i++) {
+    unordered_map<char, int> codeMap, guessMap;
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             codeMap[code[i]]--;
             guessMap[guess[i]]--;
