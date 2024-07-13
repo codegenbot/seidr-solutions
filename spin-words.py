@@ -1,4 +1,3 @@
-```python
 def spin_words(sentence):
     words = sentence.split()
     for i in range(len(words)):
