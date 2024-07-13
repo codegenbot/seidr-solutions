@@ -1,7 +1,6 @@
-#include <string>
-#include <algorithm>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,7 +11,12 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (char c : guess) {
-        int count = std::count(code.begin(), code.end(), c);
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
+            }
+        }
         if (count > 1) {
             white += count - 1;
         } else if (count == 1) {
@@ -21,4 +25,3 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-}
