@@ -11,7 +11,7 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     else {
-        return "Your tweet has " + to_string(tweet.erase(0, find_first_not_of(" \n")(0)) - 1) + " characters";
+        return (tweet.length() > 1 ? "Your tweet has " : "Your tweet is ") + to_string(tweet.length()) + " character" + ((tweet.length() == 1) ? "" : "s");
     }
 }
 
