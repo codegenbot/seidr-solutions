@@ -6,6 +6,6 @@ def decode_cyclic(s: str):
         if (i + 3) <= len(s):
             result += s[i:i+3][::-1]
         else:
-            result += [s[i:]][::-1][0]
+            result += [s[i+3:]][::-1][0]
         i += 3
     return result
