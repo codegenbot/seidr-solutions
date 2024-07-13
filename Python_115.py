@@ -1,6 +1,6 @@
-```
 while True:
-    max_fill = int(input("Enter max fill: "))
-    if max_fill >= 0:
+    try:
+        max_fill = int(input("Enter max fill: "))
         break
-print(f"Max fill set to {max_fill}.")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
