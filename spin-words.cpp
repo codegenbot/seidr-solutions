@@ -1,10 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     vector<string> words;
     
@@ -31,18 +25,8 @@ string spinWords(string str) {
         result += w + " ";
     }
     
-    result.pop_back(); // remove trailing space
-    return result;
-}
-
-int main() {
-    string str;
-    cout << "Enter a string of one or more words (separated by spaces): ";
-    getline(cin, str);
-
-    string output = spinWords(str);
+    // Remove extra space at the end of the output string
+    result.erase(result.size() - 1);
     
-    cout << "Output: " << output << endl;
-
-    return 0;
+    return result;
 }
