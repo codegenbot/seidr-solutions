@@ -1,36 +1,23 @@
-#include <boost/lexical_cast.hpp>
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any((int)std::max(get<int>(a), get<int>(b)));
+    if (is_any_of<a>(int.class)) {
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (is_any_of<a>(double.class)) {
+        double x = any_cast<double>(a);
+        double y = any_cast<double>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (is_any_of<a>(string.class)) {
+        string x = any_cast<string>(a);
+        string y = any_cast<string>(b);
+        double ax = stod(x), ay = stod(y);
+        return (ax > ay) ? a : ((ay > ax) ? b : boost::any("None"));
     }
-    else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
-             (b.type() == typeid(float) || b.type() == typeid(double))) {
-        return boost::any(std::max(get<float>(a), get<float>(b)));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::lexical_cast<string>(get<string>(a));
-        string str2 = boost::lexical_cast<string>(get<string>(b));
-
-        istringstream iss1(str1);
-        double num1;
-        iss1 >> num1;
-
-        istringstream iss2(str2);
-        double num2;
-        iss2 >> num2;
-
-        if (num1 > num2) {
-            return a;
-        }
-        else if (num1 < num2) {
-            return b;
-        }
-        else {
-            return boost::any("None");
-        }
-    }
-    else {
-        return boost::any("None");
-    }
+    return boost::any();
 }
