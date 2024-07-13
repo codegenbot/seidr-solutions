@@ -1,9 +1,11 @@
+#include <vector>
+
 int basement(std::vector<int>& nums) {
     int sum = 0;
-    for (auto it = nums.begin(); it != nums.end(); ++it) {
-        sum += *it;
-        if (sum < 0) return std::distance(nums.begin(), it);
-        if (sum == 0) sum = 1; 
+    for (size_t i = 0; i < nums.size(); ++i) {
+        sum += nums[i];
+        if (sum < 0) return i;
     }
     return -1;
+
 }
