@@ -16,14 +16,14 @@ void findCutIndex(vector<int>& nums) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+        if (diff < minDiff || (diff == minDiff && abs(leftSum - rightSum) <= abs(2 * leftSum - totalSum)) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
     cout << "Subvector 1: ";
-    for (int i = 0; i < cutIndex + 1; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << " ";
     }
     cout << endl;
