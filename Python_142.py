@@ -2,12 +2,12 @@
 def sum_squares(lst):
     total_sum = 0
     for num in lst:
-        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
+        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0 or num % 5 == 0):
             total_sum += num ** 2
     return total_sum
 
 while True:
-    print("Please enter a list of integers separated by spaces: ")
+    print("Please enter a list of integers, separated by spaces.")
     user_input = input()
     try:
         lst = list(map(int, user_input.split()))
