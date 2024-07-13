@@ -1,4 +1,5 @@
 arr = list(map(int, input().split()))
+
 if not arr:
     print("Input vector is empty.")
 else:
