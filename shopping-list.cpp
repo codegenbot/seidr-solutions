@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <iomanip>
 using namespace std;
 
@@ -27,4 +26,3 @@ int main() {
     }
     std::cout << std::fixed << std::setprecision(1) << totalShoppingPrice(prices, discounts) << std::endl;
     return 0;
-}
