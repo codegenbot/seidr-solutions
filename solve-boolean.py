@@ -1,15 +1,25 @@
-def solve_boolean(bool_expression):
-    if bool_expression == 'T':
-        return True
-    elif bool_expression == 'F':
-        return False
-    elif '&' in bool_expression and '|' in bool_expression:
-        raise ValueError("Invalid boolean expression")
-    elif '&' in bool_expression:
-        a, b = bool_expression.split('&')
-        return not (bool(a) and bool(b))
-    elif '|' in bool_expression:
-        a, b = bool_expression.split('|')
-        return bool(a) or bool(b)
-    else:
-        raise ValueError("Invalid boolean expression")
+Here is the solution for the problem:
+
+```
+def solve_boolean(s):
+    stack = []
+    result = False
+    
+    for c in s + ' ':  # Add a space at the end to ensure correct processing of the last operator
+        if c == 't':
+            result = True
+        elif c == 'f':
+            pass  # Just ignore this character
+        elif c == '|':  # If we encounter '|', change the result if it's False
+            result = not result
+        elif c == '&':  # If we encounter '&', keep the current result and pop previous operators
+            while stack and stack[-1] == '&':
+                result &= stack.pop()
+            stack.append('&')  # Push '&' onto the stack
+        elif c == ' ':  # If we encounter a space, just pop all operators until we reach the '&' level
+            while stack and stack[-1] != '&':
+                if stack[-1] == '|':
+                    result = not result
+                stack.pop()
+    
+    return result
