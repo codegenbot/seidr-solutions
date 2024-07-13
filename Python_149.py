@@ -1,5 +1,4 @@
 ```
 def sorted_list_sum(lst):
-    s = "".join(lst).replace(" ", "")
-    smallest = min(lst)
-    return [str(i) for i in range(ord(smallest), ord(max(lst))+1)]
+    alpha_chars = [i for i in lst if i.isalpha()]
+    return [''.join(sorted(i)) for i in set(alpha_chars)]
