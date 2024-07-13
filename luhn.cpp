@@ -1,7 +1,11 @@
 ```
 #include <vector>
-#include <iostream>
 using namespace std;
+
+int main() {
+    cout << luhn({4, 5, 2, 7, 1, 3, 9, 0, 8, 6, 7, 1, 1, 9, 3, 5}) << endl;
+    return 0;
+}
 
 int luhn(vector<int> digits) {
     int sum = 0;
@@ -16,9 +20,4 @@ int luhn(vector<int> digits) {
         doubleNext = !doubleNext;
     }
     return sum;
-}
-
-int main() { 
-    cout << luhn({4,7,8,0,3,5,9,1,6,7,2,0,8,5,4}) << endl; 
-    return 0; 
 }
