@@ -3,24 +3,24 @@
 #include <cmath>
 
 int main() {
-    size_t n;
+    int n;
     std::cin >> n;
     std::vector<float> vec1(n);
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
-    size_t m;
+    int m;
     std::cin >> m;
     std::vector<float> vec2(m);
-    for (size_t i = 0; i < m; ++i) {
+    for (int i = 0; i < m; ++i) {
         std::cin >> vec2[i];
     }
 
     float sum = 0.0;
-    size_t limit = std::max(n, m);
-    for (size_t i = 0; i < limit; ++i) {
-        float diff = (i < n ? vec1[i] : 0) - (i < n ? vec2[i] : 0);
+    int limit = std::min(n, m); // Change max to min here
+    for (int i = 0; i < limit; ++i) {
+        float diff = vec1[i] - vec2[i];
         sum += diff * diff;
     }
 
