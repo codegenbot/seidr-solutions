@@ -1,14 +1,26 @@
 int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = 0;
     string strongest_extension;
-    for(auto &extension : extensions){
-        int cap = count(extension.begin(), extension.end(), toupper);
-        int sm = extension.size() - cap;
-        double strength = static_cast<double>(cap) / (sm + 1e-9); // prevent division by zero
-        if(strength > max_strength){
+
+    for (const auto &extension : extensions) {
+        int cap = 0, sm = 0;
+
+        for (char c : extension) {
+            if (::isupper(c)) cap++;
+            else if (::islower(c)) sm++;
+        }
+
+        int strength = cap - sm;
+
+        if (strength > max_strength) {
             max_strength = strength;
             strongest_extension = extension;
+        } else if (strength == max_strength) {
+            if (std::distance(extensions.begin(), std::find(&extension, &extensions[0], &extension)) <
+                std::distance(extensions.begin(), std::find(&strongest_extension, &extensions[0], &strongest_extension)))
+                strongest_extension = extension;
         }
     }
+
     return class_name + "." + strongest_extension;
 }
