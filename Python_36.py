@@ -1,13 +1,12 @@
-```
 def fizz_buzz(n: int):
+    output = []
     for i in range(1, n + 1):
-        output = ""
         if i % 15 == 0:
-            output = "FizzBuzz"
+            output.append("FizzBuzz")
         elif i % 3 == 0:
-            output = "Fizz"
+            output.append("Fizz")
         elif i % 5 == 0:
-            output = "Buzz"
+            output.append("Buzz")
         else:
-            output = str(i)
-        return output
+            output.append(str(i))
+    return output
