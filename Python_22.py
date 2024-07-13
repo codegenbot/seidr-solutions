@@ -1,4 +1,4 @@
-```
+````
 lst = []
 while True:
     inp = input("Enter a list of integers (space-separated) or 'stop' to finish: ")
