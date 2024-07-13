@@ -1,3 +1,4 @@
+```Python
 def check(input_string):
     if "hello" in input_string.lower():
         print("Hello is present")
