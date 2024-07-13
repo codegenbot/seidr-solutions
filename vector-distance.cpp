@@ -1,24 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
+
 int main() {
-    int n;
-    cin >> n;
-    vector<float> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
+    size_t n;
+    std::cin >> n;
+    std::vector<double> vec1(n);
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> vec1[i];
     }
 
-    cin >> n;
-    vector<float> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+    size_t m;
+    std::cin >> m;
+    std::vector<double> vec2(m);
+    for (size_t i = 0; i < m; ++i) {
+        std::cin >> vec2[i];
     }
 
-    float sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+    double sum = 0.0;
+    for (size_t i = 0; i < std::max(n, m); ++i) {
+        double diff = (i < n ? vec1[i] : 0) - (i < m ? vec2[i] : 0);
+        sum += diff * diff;
     }
 
-    float result = sqrt(sum);
-    cout << result << endl;
+    double result = std::sqrt(sum);
+    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
 }
