@@ -10,5 +10,5 @@ def solve_boolean(expression):
             b = ops[char](stack.pop(), stack.pop())
             stack.append(b)
         else:
-            stack.append(char == 'T')
+            stack.append(True if char == 'T' else False)
     return stack[0]
