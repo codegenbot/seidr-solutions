@@ -1,5 +1,5 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]  
+    coins = [25, 10, 5, 1]
     dp = [float('inf')] * (cents + 1)
     dp[0] = 0
 
