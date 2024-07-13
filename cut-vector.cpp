@@ -31,15 +31,19 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     vector<vector<int>> res;
-    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
+    if (cutIndex == 0) {
+        res.push_back({}); // or any other desired initialization
+    } else {
+        res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
+    }
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
     }
     
-    if(res[0].size() > res[1].size()) {
-        vector<int> temp = res[0];
-        res[0] = res[1];
-        res[1] = temp;
+    if (cutIndex == 0) {
+        res.push_back({}); // or any other desired initialization
+    } else {
+        res.push_back(vector<int>(v.begin() + cutIndex, v.end()));
     }
     
     return res;
