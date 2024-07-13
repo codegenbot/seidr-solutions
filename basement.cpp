@@ -1,10 +1,11 @@
-int firstNegative(vector<int> arr) {
-    for (int i = 0; i < arr.size(); i++) {
-        int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += arr[j];
-        }
-        if (sum < 0) return i;
+#include <vector>
+
+int basement(const std::vector<int>& v) {
+    int sum = 0;
+    for (int i = 0; i < v.size(); ++i) {
+        sum += v[i];
+        if (sum < 0)
+            return i;
     }
     return -1;
 }
