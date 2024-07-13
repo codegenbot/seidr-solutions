@@ -1,13 +1,12 @@
-Here is the completed code:
-
 def mastermind(code, guess):
-    correct_color_wrong_place = 0
-    correct_color_correct_place = 0
-    
-    for i in range(4):
-        if code[i] == guess[i]:
-            correct_color_correct_place += 1
-        elif guess.count(guess[i]) > 0:
-            correct_color_wrong_place += 1
-            
-    return str(correct_color_wrong_place) + "\n" + str(correct_color_correct_place)
+    code_counts = [0] * 6
+    for char in code:
+        code_counts[ord(char) - ord("A")] += 1
+
+    white_pegs = sum(
+        min(count, guess.count(char)) for count, char in zip(code_counts, "ABCDEF")
+    )
+
+    black_pegs = sum(1 for i in range(len(guess)) if code[i] == guess[i])
+
+    return str(black_pegs) + "\n" + str(4 - black_pegs)
