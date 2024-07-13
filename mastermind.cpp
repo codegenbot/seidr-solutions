@@ -9,7 +9,7 @@ int mastermind(std::string code, std::string guess) {
         if(code[i] == guess[i]) {
             black++;
         }
-        else if(std::count(&code[i], &code[i]+1, guess[i]) > 0) {
+        else if(std::count(code.begin(), code.end(), guess[i]) > 0) {
             white++;
         }
     }
