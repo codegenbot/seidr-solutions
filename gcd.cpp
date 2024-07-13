@@ -3,8 +3,7 @@
 #include <vector>
 #include <string>
 
-using std::vector;
-using std::string;
+using namespace std;
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -15,12 +14,12 @@ int gcd(int a, int b) {
     return a;
 }
 
-vector<long unsigned int> indicesOfSubstring(string text, string target) {
-    vector<long unsigned int> result;
-    long unsigned int n = text.length();
-    long unsigned int m = target.length();
+vector<unsigned long int> indicesOfSubstring(string text, string target) {
+    vector<unsigned long int> result;
+    size_t n = text.length();
+    size_t m = target.length();
 
-    for (long unsigned int i = 0; i <= n - m; i++) {
+    for (size_t i = 0; i <= n - m; i++) {
         if ((text.find(target, i)) != string::npos) { 
             result.push_back(i); 
             i += m; // Increment by the length of the target substring
