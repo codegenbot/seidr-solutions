@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <iostream>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -32,24 +31,6 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
-
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
-
-    string text, target;
-    cout << "Enter text string: ";
-    cin >> text;
-    cout << "Enter target string: ";
-    cin >> target;
-
-    vector<int> indices = findIndicesOfSubstring(text, target);
-    cout << "Indices of target string in text:";
-    for (int index : indices) {
-        cout << " " << index;
-    }
-    cout << endl;
-
+    // You can add test cases here
     return 0;
 }
