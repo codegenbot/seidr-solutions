@@ -34,17 +34,16 @@ vector<vector<int>> cutVector(vector<int> v) {
         rightSum -= v[i];
     }
     
-    res[0].resize(cutIndex);
-    for(int i = 0; i < cutIndex; i++) {
-        res[0].push_back(v[i]);
-    }
-    
-    res[1].assign(v.begin() + cutIndex, v.end());
-    
     if(res[0].size() > res[1].size()) {
         vector<int> temp = res[0];
         res[0] = res[1];
         res[1] = temp;
+    }
+    
+    res[0].assign(v.begin(), v.begin() + cutIndex);
+    res[1].resize(cutIndex);
+    for(int i = 0; i < cutIndex; i++) {
+        res[1].push_back(v[i]);
     }
     
     return res;
