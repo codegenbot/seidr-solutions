@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <iomanip>
 
@@ -10,6 +10,11 @@ int main() {
 
     cin >> startHeight >> firstBounce;        
     cin >> numBounces;
+
+    if (!(cin && (cin.peek() == EOF))) {
+        cout << "Invalid input. Please enter valid inputs." << endl;
+        return 1;
+    }
 
     double bouncinessIndex = (firstBounce / startHeight);
     startHeight = firstBounce; // update start height for next bounce
