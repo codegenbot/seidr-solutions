@@ -14,3 +14,18 @@ std::vector<std::pair<int, int>> findPair(std::vector<int>& nums, int target) {
     
     return {{-1, -1}}; 
 }
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5};
+    int target = 7;
+    auto result = findPair(nums, target);
+    // process the result
+    for (const auto& pair : result) {
+        if (pair.first != -1 && pair.second != -1) {
+            std::cout << "The two elements that sum to " << target << " are " << pair.first << " and " << pair.second << ".\n";
+        } else {
+            std::cout << "No such pair found.\n";
+        }
+    }
+    return 0;
+}
