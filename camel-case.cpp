@@ -33,9 +33,10 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
-        s = s.replace(s.find(' '), 1, "");
+        s = s.replace(s.find(' '), std::string());
         s[0] = toupper(s[0]);
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
-}
+
+s = "camel-case example-test-string";

@@ -25,8 +25,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<int> left_v(v.begin(), v.begin() + cut_index);
-    vector<int> right_v(v.begin() + cut_index, v.end());
+    vector<int> left_v = vector<int>(v.begin(), v.begin() + cut_index);
+    vector<int> right_v = vector<int>(v.begin() + cut_index, v.end());
     
     return make_pair(left_v, right_v);
 }
@@ -54,4 +54,3 @@ int main() {
     cout << endl;
     
     return 0;
-}

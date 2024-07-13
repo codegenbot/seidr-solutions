@@ -19,10 +19,11 @@ vector<int> findIndices(string text, string target) {
     return indices;
 }
 
-int gcd(int a, int b) {
+int gcd(int a, int b) { // Add '{' here
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
+    return a; // Add '}' here
 }
