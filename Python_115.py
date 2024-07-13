@@ -1,4 +1,3 @@
-```
 def calculate():
     while True:
         try:
@@ -19,8 +18,7 @@ def calculate():
                         break
                 except ValueError:
                     print("Please enter valid integers separated by spaces.")
-        except:
-            continue
+        break
 
     for i, level in enumerate(water_levels):
         while True:
@@ -35,7 +33,8 @@ def calculate():
                     )
             except ValueError:
                 print("Please enter a valid integer.")
-
+        except Exception as e:
+            print(f"An error occurred: {e}")
     average_water = total_water / max_fill if max_fill != 0 else float("nan")
     print(f"The average water level is {average_water}.")
 
