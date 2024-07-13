@@ -1,28 +1,22 @@
-Here is the solution:
+bool solveBoolean(string s) {
+    stack<char> st;
+    bool res = false;
 
-string solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    stack<bool> valueStack;
-
-    for (char c : booleanExpression) {
-        if (c == 'T' || c == 't') {
-            valueStack.push(true);
-        } else if (c == 'F' || c == 'f') {
-            valueStack.push(false);
-        } else if (c == '|') {
-            bool b = valueStack.top();
-            valueStack.pop();
-            bool a = valueStack.top();
-            valueStack.pop();
-            valueStack.push(b || a);
-        } else if (c == '&') {
-            bool b = valueStack.top();
-            valueStack.pop();
-            bool a = valueStack.top();
-            valueStack.pop();
-            valueStack.push(a && b);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') {
+            res = true;
+        } else if (s[i] == 'f') {
+            res = false;
+        } else if (s[i] == '&') {
+            while (!st.empty()) st.pop();
+            st.push(res ? 1 : 0);
+            res = false;
+        } else if (s[i] == '|') {
+            int a = st.top(); st.pop();
+            int b = res; res = false;
+            res = (a && b) || (a && !b) || (!a && b) || (!a && !b);
         }
     }
 
-    return (valueStack.top()) ? "True" : "False";
+    return res;
 }
