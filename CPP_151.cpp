@@ -28,7 +28,7 @@ int main() {
     return 0;
 }
 
-std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
+std::pair<double, double> double_the_difference(const std::vector<int>& lst) {
     int sum_even = 0, sum_odd = 0;
 
     for (int num : lst) {
@@ -38,5 +38,5 @@ std::pair<double, double> double_the_difference(const std::initializer_list<int>
             sum_odd += num;
     }
 
-    return {(double)sum_even / std::distance(lst.begin(), lst.end()), (double)sum_odd / std::distance(lst.begin(), lst.end())};
+    return {(double)sum_even / lst.size(), (double)sum_odd / lst.size()};
 }
