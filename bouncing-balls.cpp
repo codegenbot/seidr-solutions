@@ -1,19 +1,18 @@
-```cpp
 int main() {
-    double startHeight, actualStartHeight;
+    double startHeight;
 
     // Get the input values from user
-    std::cin >> startHeight >> actualStartHeight;
+    std::cin >> startHeight;
     
+    double actualStartHeight = (startHeight / 2);
+
     double actualBouncinessIndex = (actualStartHeight / startHeight);
+    int numBounces;
 
-    double totalDistance = 0.0; 
-    int bounces = 8; 
+    // Get the number of bounces from the user
+    std::cin >> numBounces;
 
-    for (int i = 1; i <= bounces; ++i) {
-        startHeight *= 0.5; 
-        totalDistance += startHeight; 
-    }
+    double totalDistance = actualStartHeight * ((pow(2, numBounces) - 1) / (1 - pow(0.5, numBounces)));
 
     return 0;
 }
