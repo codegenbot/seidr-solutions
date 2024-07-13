@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 
 float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportionMeltingPerHour) {
