@@ -1,4 +1,5 @@
-def shortestPath(grid):
+```
+def minPath(grid, k):
     n = len(grid)
     m = len(grid[0])
     visited = [[False]*m for _ in range(n)]
@@ -7,8 +8,9 @@ def shortestPath(grid):
     
     while queue:
         x, y, path = queue.pop(0)
-        if [x, y] == [n-1, m-1]:
-            return len(path) - 1
+        if k == len(path):
+            result = sorted(path)
+            return result
         
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
