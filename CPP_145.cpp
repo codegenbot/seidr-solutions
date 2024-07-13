@@ -29,10 +29,6 @@ bool isMonotonic(const vector<int>& nums) {
 }
 
 bool isSame(const vector<int>& a, const vector<int>& b) { 
-    return isIdentical(a, b);
-}
-
-bool isIdentical(const vector<int>& a, const vector<int>& b) { 
     return isMonotonic(a) && isMonotonic(b);
 }
 
