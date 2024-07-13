@@ -1,51 +1,39 @@
-int calculateBowlingScore(string s) {
+int calculateBowlingScore(string input) {
     int score = 0;
     int frame = 0;
-    vector<int> frames(10, 0);
-
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            frames[frame] = 10;
-            frame++;
-        } else if (s[i] == '/') {
-            frames[frame] = 10 - frames[frame-1];
-            frame++;
-        } else if (s[i] == '-') {
-            frames[frame] = 0;
-            frame++;
+    int throws[21];
+    
+    for (char c : input) {
+        if (c == 'X') {
+            throws[frame++] = 10;
+        } else if (c == '/') {
+            throws[frame - 1] = 10 - throws[frame - 2];
+        } else if (c == '-') {
+            throws[frame++] = 0;
         } else {
-            frames[frame] = s[i] - '0';
-            if (frame % 2 != 0) {
-                if (frames[frame] + frames[frame-1] == 10) {
-                    frames[frame] = 10;
-                }
-            }
-            frame++;
+            throws[frame++] = c - '0';
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-        if (frames[i] == 10) {
-            if (i < 9) {
-                score += frames[i+1];
-                if (frames[i+1] == 10) {
-                    score += frames[i+2];
-                } else {
-                    score += frames[i+2] % 10;
-                }
+    
+    for (int i = 0; i < 10; ++i) {
+        if (throws[i * 2] == 10) {
+            score += 10 + throws[i * 2 + 2] + throws[i * 2 + 3];
+            if (throws[i * 2 + 2] == 10) {
+                score += throws[i * 2 + 4];
             }
-        } else if (frames[i] + frames[i+1] == 10) {
-            score += frames[i+2];
+        } else if (throws[i * 2] + throws[i * 2 + 1] == 10) {
+            score += 10 + throws[i * 2 + 2];
+        } else {
+            score += throws[i * 2] + throws[i * 2 + 1];
         }
     }
-
+    
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << calculateBowlingScore(s) << endl;
+    string input;
+    cin >> input;
+    cout << calculateBowlingScore(input) << endl;
     return 0;
 }
