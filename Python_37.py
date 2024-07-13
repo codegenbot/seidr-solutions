@@ -1,3 +1,2 @@
 def sort_even(l: list):
-    even = sorted([x for x in l[1::2]])
-    return [l[i] if i % 2 != 0 else y for i, y in enumerate(even)]
+    return [x if i % 2 != 0 else sorted([y for y in l if (l.index(y) % 2 == 0]))[i//2] for i, x in enumerate(l)]
