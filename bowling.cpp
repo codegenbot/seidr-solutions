@@ -24,7 +24,11 @@ int bowlingScore(string s) {
     }
 
     if (roll1 + roll2 > 0) {
-        score += roll1 + roll2;
+        if (roll1 + roll2 >= 10) {
+            score += 10;
+        } else {
+            score += roll1 + roll2;
+        }
     }
 
     return score;
