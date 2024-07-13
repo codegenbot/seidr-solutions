@@ -1,6 +1,7 @@
-```
 def basement(nums):
-    for i, num in enumerate(nums, 1):
-        if sum(nums[:i]) < 0:
-            return i
+    total = 0
+    for i, num in enumerate(nums):
+        total += num
+        if total < 0:
+            return i + 1
     return -1
