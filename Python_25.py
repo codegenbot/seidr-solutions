@@ -1,6 +1,4 @@
-```python
-def sum_of_digits():
-    n = int(input())
+def sum_of_digits(n):
     total = 0
     while n:
         total += n % 10
