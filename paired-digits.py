@@ -1,5 +1,10 @@
-```
-import itertools
-
 def paired_digits(s):
-    return sum(int(d) for _, d in itertools.groupby(s))
+    total = 0
+    i = 0
+    while i < len(s) - 1:
+        if s[i] != s[i+1]:
+            i += 1
+        else:
+            total += int(s[i])
+            i += 1
+    return total
