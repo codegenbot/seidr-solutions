@@ -17,17 +17,13 @@ int main() {
         dimes++;
     }
 
-    int pennies = 0;
-    while (cents >= 1) {
-        cents -= 1;
-        pennies++;
-    }
-    
     int nickles = 0;
     while (cents >= 5) {
         cents -= 5;
         nickles++;
     }
+
+    int pennies = cents % 5; // Update this line
 
     cout << quarters << endl;
     cout << dimes << endl;
