@@ -48,13 +48,9 @@ int main() {
     }
     
     if(!inputPlanets.empty()) {
-        std::vector<std::string> result = bf(inputPlanets, "Mars", "Neptune");
+        assert(bf(inputPlanets,"Jupiter","Makemake") == {});
         
-        if (!result.empty())
-            std::cout << "Output: ";
-        else
-            std::cout << "No Output";
-        
+        std::cout << "Output: ";
     } else {
         std::cout << "No Output";
     }
