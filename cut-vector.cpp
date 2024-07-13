@@ -7,29 +7,27 @@ int main() {
     }
     
     int sum = accumulate(nums.begin(), nums.end(), 0);
-    int target = sum / 2;
+    int half_sum = sum / 2;
     
-    int prefix_sum = 0;
+    int curr_sum = 0;
     int idx = -1;
     for (int i = 0; i < n; ++i) {
-        prefix_sum += nums[i];
-        if (prefix_sum >= target) {
+        curr_sum += nums[i];
+        if (curr_sum >= half_sum) {
             idx = i;
             break;
         }
     }
     
-    if (abs(sum - 2 * prefix_sum) < abs(sum - 2 * (prefix_sum - nums[idx]))) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i <= idx - 1; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
+    if (abs(curr_sum - half_sum) < abs(curr_sum - nums[idx] - half_sum)) {
+        ++idx;
     }
+    
+    for (int i = 0; i <= idx; ++i) {
+        cout << nums[i] << endl;
+    }
+    
+    cout << 0 << endl;
     
     return 0;
 }
