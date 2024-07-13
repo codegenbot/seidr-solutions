@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     print("Please enter a string of alphabets only.")
     while True:
