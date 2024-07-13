@@ -8,9 +8,11 @@ def decode_shift():
     for char in message:
         if char.isalpha():
             if char.isupper():
-                decoded_message += chr((ord(char) - ord('A') + int(password)) % 26 + ord('A'))
+                shift = ord(password[0]) - ord('A')
+                decoded_message += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
             else:
-                decoded_message += chr((ord(char) - ord('a') + int(password)) % 26 + ord('a'))
+                shift = ord(password[0]) - ord('A')
+                decoded_message += chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
         else:
             decoded_message += char
     
