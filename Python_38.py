@@ -1,11 +1,16 @@
 def decode_cyclic(s: str):
     result = ""
-    i = 0
-    while i < len(s):
-        if i + 3 <= len(s):
-            group = s[i:i+3]
-        else:
-            group = s[i:]
-        result += group[1] + (group[0] if i+2 < len(s) else '')
-        i += 3
-    return result
+    temp = ""
+    for char in s:
+        temp += char
+        if len(temp) % 3 == 0:
+            if len(temp) > 3:
+                temp = temp[1:] + temp[0]
+            while len(temp) < 3:
+                if not result: 
+                    temp += '0' # If this is the first group of three characters
+                else:
+                    temp += result[-1] # Append the last character of result to temp
+            result += temp
+            temp = ""
+    return result + temp
