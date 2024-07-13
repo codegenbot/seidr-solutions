@@ -1,8 +1,11 @@
+```
 amount = int(input("Enter the number of cents: "))
-quart, remainder = divmod(amount, 25)
-nickles, pennies = divmod(remainder, 5), remainder % 5
-dimes, nickel_pennies = divmod(pennies, 10), pennies % 10
-print(f"Quarters: {quart}")
+quarters = amount // 25
+remainder = amount % 25
+nickles = remainder // 5
+dimes = nickles // 10
+pennies = nickles % 10
+print(f"Quarters: {quarters}")
 print(f"Nickels: {nickles}")
 print(f"Dimes: {dimes}")
-print(f"Pennies: {nickel_pennies}")
+print(f"Pennies: {pennies}")
