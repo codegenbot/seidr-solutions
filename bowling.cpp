@@ -1,18 +1,15 @@
-```c++
-#include <string>
-#include <sstream>
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int bowlingScore(string s) {
-    if (s.empty()) {
-        return 0;
-    }
     int score = 0;
-    stringstream ss(s);
-    char c;
     bool strike = false;
+    if (s.empty()) {
+        return score; 
+    }
+    istringstream ss(s);
+    char c;
     while (ss >> c) {
         if (c == 'X') {
             score += 30;
