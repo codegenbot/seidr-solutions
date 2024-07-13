@@ -34,15 +34,8 @@ int main() {
         std::getline(std::cin, input);
 
         if (!input.empty()) { 
-            std::cout << "Camel Case: " << camelCase(input) << std::endl;
+            std::cout << "Camel Case: " << camelCase(input) << std::endl; 
         }
-        
-        // Read until newline character
-        while(std::cin.peek() != '\n') {
-            std::cin.ignore();
-        }   
-        std::cin.ignore(); // Ignore the remaining newline character
-        
     }
     return 0;
 }
