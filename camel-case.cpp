@@ -1,9 +1,12 @@
-```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 std::string camelCase(std::string str) {
     std::string result = "";
-    while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
+    while (str.find(" ") != string::npos || str.find("-") != string::npos) {
         size_t pos = str.find(" ");
-        if (pos == std::string::npos) {
+        if (pos == string::npos) {
             pos = str.find("-");
         }
         if (result.empty()) {
@@ -33,7 +36,7 @@ std::string camelCase(std::string str) {
 
     while (!str.empty()) {
         size_t pos = str.find(" ");
-        if (pos == std::string::npos) {
+        if (pos == string::npos) {
             pos = str.length();
         }
         result += str.substr(0, pos);
