@@ -1,5 +1,5 @@
 def sum_of_digits():
-    n = int(input())
+    n = int(input("Enter a number: "))
     total = 0
     while n:
         total += n % 10
