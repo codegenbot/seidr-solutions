@@ -1,11 +1,9 @@
-def smallest_change():
-    """
-    Enter space-separated numbers:
-    if not all(arr[i].isdigit() for i in range(len(arr))):
+def smallest_change(arr):
+    if not all(i.isdigit() for i in arr.split()):
         return
     n = len(arr)
     try:
-        arr = list(map(int, arr))
+        arr = list(map(int, arr.split()))
         arr.sort()
     except Exception as e:
         return str(e)
@@ -23,8 +21,3 @@ def smallest_change():
             changes += 1
 
     return changes
-
-    """
-
-
-print(smallest_change())
