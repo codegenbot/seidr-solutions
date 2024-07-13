@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
 int main() {
     int cents;
