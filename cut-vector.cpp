@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <climits>
-
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
     int totalSum = 0;
     for (int num : nums) {
@@ -27,23 +22,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
 
     return result;
-}
-
-int main() {
-    // Example code to test cutVector function
-    std::vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6};
-    auto result = cutVector(nums);
-
-    // Output the two subvectors
-    for (int num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-    
-    for (int num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
