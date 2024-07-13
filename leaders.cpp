@@ -1,16 +1,24 @@
+```cpp
 #include <vector>
+
+int main() {
+    std::vector<int> arr = {1, 3, 4, 2};
+    auto res = leaders(arr);
+    for (int x : res) {
+        std::cout << x << " ";
+    }
+    return 0;
+}
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    int max = arr.back();
-
-    for(int i=n-1; i>=0; i--) {
-        if(arr[i] >= max) {
+    
+    for(int i=0; i<n; i++) {
+        if(i == n-1 || arr[i] >= arr.back()) {
             res.push_back(arr[i]);
-            max = arr[i];
         }
     }
-
+    
     return res;
 }
