@@ -10,5 +10,15 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return make_pair(0, 0); // or throw an exception
+    throw runtime_error("No pair found");
+}
+
+int main() {
+    int n, a, b;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> a >> b;
+        cout << findPair({a, b}, a + b).first << " " << findPair({a, b}, a + b).second << endl;
+    }
+    return 0;
 }
