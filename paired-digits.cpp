@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -19,4 +18,3 @@ int main() {
     int result = pairedDigits(s);
     cout << "Sum of paired digits: " << result << endl;
     return 0;
-}
