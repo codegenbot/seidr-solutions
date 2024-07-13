@@ -9,8 +9,8 @@ int main() {
             c = cipher1[0];
         }
     }
-    
+
     cout << message << endl;
-    
+
     return 0;
 }
