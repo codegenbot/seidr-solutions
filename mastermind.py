@@ -15,4 +15,11 @@ def mastermind(code, guess):
             guess_count[ord(guess[i]) - ord("B")] -= 1
             white_peg += min(code_count[ord(char) - ord("B")] for char in code if char == guess[i])
 
+    white_peg = 0
+    for i, char in enumerate(guess):
+        if char == code[i]:
+            black_peg += 1
+        elif char in code:
+            white_peg += 1
+
     return str(black_peg), str(white_peg)
