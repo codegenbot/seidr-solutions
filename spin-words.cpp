@@ -1,41 +1,21 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```cpp
 string spinWords(string str) {
-    string result = "", word = "";
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
+    string result = "";
+    int i = 0;
+    while(i <= str.length()) {
+        if (i == str.length() || str[i] == ' ') {
+            int wordLength = i - (result.length());
+            if (wordLength >= 5) {
+                string reversedWord = "";
+                for(int j = wordLength - 1; j >= 0; j--) {
+                    reversedWord += str[wordLength-1-j];
                 }
-            } else {
-                result += word + " ";
-            }
-            word = "";
-        } else {
-            word += str[i];
-        }
+                result.append(reversedWord).append(" ");
+            } else
+                result.append(str.substr(i - wordLength, wordLength + 1)).append(" ");
+            i++;
+        } else 
+            i++;
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
-        }
-    } else {
-        result += word + " ";
-    }
-
-    return result.substr(0, result.size()-1);
-}
-
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << "Result: " << spinWords(str) << endl;
-    return 0;
+    return result;
 }
