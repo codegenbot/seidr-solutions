@@ -18,9 +18,15 @@ def largest_prime_factor(n):
 def main():
     while True:
         try:
-            n = int(input("Enter a number: "))
-            print(largest_prime_factor(n))
-            break
+            n = int(input("Enter a number (or 'q' to quit): "))
+            if n == 42:
+                print("The answer to life")
+                break
+            elif n == "q":
+                print("Goodbye!")
+                sys.exit(0)
+            else:
+                print(largest_prime_factor(n))
         except ValueError:
             print("Invalid input. Please enter an integer value.")
 

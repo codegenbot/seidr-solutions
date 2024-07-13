@@ -1,6 +1,3 @@
-```
+import re
 def words_string(s):
-    if not s:
-        return []
-    words = s.replace(", ", ",").split(",")
-    return [word.strip().title() for word in words]
+    return [word.strip().capitalize() for word in re.split(r'\W+', s)]
