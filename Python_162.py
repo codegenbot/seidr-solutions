@@ -1,3 +1,6 @@
+```
+import hashlib
+
 def string_to_md5():
     while True:
         text = input("Enter a string: ")
@@ -6,5 +9,5 @@ def string_to_md5():
         print("Invalid input. Please enter only alphanumeric characters.")
 
 if __name__ == "__main__":
-    import hashlib
-    print(string_to_md5())
+    while True:
+        print(string_to_md5())

@@ -1,9 +1,4 @@
 ```
-words = input("Enter a string: ").strip()
-print(check(words))
-
-def check(sentence):
-    if len(sentence.split()) > 1:
-        return "I know or quickly said the same."
-    else:
-        return "All good!"
+input_str = input("Enter a string of words separated by space: ")
+words_string = input_str.split()
+check(words_string)
