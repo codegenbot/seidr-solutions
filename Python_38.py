@@ -1,16 +1,16 @@
-Here is the solution:
+def encode_cyclic(s: str):
+    n = len(s)
+    if n % 3 != 0:
+        s += "xxx"  # add enough x's to make the length multiple of 3
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
 
 def decode_cyclic(s: str):
-    result = ""
-    i = 0
-    while i < len(s):
-        if s[i] == s[-1]:
-            result += s[i]
-            i += 1
-        else:
-            group = s[i:i+3]
-            if i != 0:
-                result += s[0]
-            result += group[2:]
-            i += 3
-    return result
+    n = len(s)
+    if n % 3 != 0:
+        s += "xxx"  # add enough x's to make the length multiple of 3
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
+    groups = [group[-1] + group[:-1] if len(group) == 3 else group for group in groups]
+    return "".join(groups)
