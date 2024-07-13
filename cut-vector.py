@@ -1,22 +1,21 @@
 n = int(input())
-a = []
-for i in range(n):
-    a.append(int(input()))
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
-left_sum = 0
-right_sum = total_sum
+total_sum = sum(v)
+half_sum = total_sum // 2
 
-min_diff = float("inf")
-cut_index = -1
-
-for i in range(n):
-    left_sum += a[i]
-    right_sum -= a[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-print(*a[: cut_index + 1])
-print(*a[cut_index + 1 :])
+prefix_sum = 0
+for i, num in enumerate(v):
+    prefix_sum += num
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum:
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+        else:
+            if prefix_sum - num < half_sum:
+                print(*v[:i])
+                print(*v[i:])
+            else:
+                print(*v[: i + 1])
+                print(*v[i + 1 :])
+        break
