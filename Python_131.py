@@ -1,3 +1,4 @@
+```
 def digits(n):
     product = 1
     while n:
@@ -5,4 +6,4 @@ def digits(n):
         if digit % 2:
             product *= digit
         n //= 10
-    return product
+    return product or 0
