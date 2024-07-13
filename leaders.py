@@ -1,6 +1,6 @@
-def leaders(arr):
-    return [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if all(x <= arr[i] for x in arr[i + 1 :])
-    ]
+def leaders(input_list):
+    leaders = [input_list[-1]]
+    for i in range(len(input_list) - 2, -1, -1):
+        if input_list[i] >= input_list[i + 1]:
+            leaders.insert(0, input_list[i])
+    return leaders
