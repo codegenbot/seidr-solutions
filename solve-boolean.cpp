@@ -1,31 +1,52 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    std::stack<char> s;
-    bool current = false;
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0;
+    bool result = true;
+    
+    while (i < expression.length()) {
         if (expression[i] == 'T') {
-            current = true;
+            result = true;
+            i++;
         } else if (expression[i] == 'F') {
-            current = false;
-        } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (current) return true;
-            s.push('|');
+            result = false;
+            i++;
         } else if (expression[i] == '&') {
-            s.push('&');
+            i++; // Skip &
+            bool temp = true;
+            while (i < expression.length() && expression[i] != '|') {
+                if (expression[i] == 'T') {
+                    temp = true;
+                    i++;
+                } else if (expression[i] == 'F') {
+                    temp = false;
+                    break;
+                }
+            }
+            if (!temp) result = false;
+        } else if (expression[i] == '|') {
+            i++; // Skip |
+            bool temp1 = true, temp2 = true;
+            while (i < expression.length() && expression[i] != '&') {
+                if (expression[i] == 'T') {
+                    temp1 = true;
+                    i++;
+                } else if (expression[i] == 'F') {
+                    temp1 = false;
+                    break;
+                }
+            }
+            if (!temp1) result = temp2;
         }
     }
-    while (!s.empty()) {
-        s.pop();
-    }
-    return current;
+    
+    return result;
 }
 
 int main() {
+    std::cout << solveBoolean("T&T|F") << std::endl;
     return 0;
 }
