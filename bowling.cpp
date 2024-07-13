@@ -1,37 +1,29 @@
-```c++
+#include <iostream>
 #include <vector>
-#include <string>
 
-int bowlingScore(const std::string& input) {
-    if (input.empty()) {
-        throw std::runtime_error("No input provided");
-    }
+int bowling(std::string input) {
     int score = 0;
-    int prevRoll1 = 0;
-    int prevRoll2 = 0;
-
     std::vector<int> rolls;
-    for (int i = 0; i < 10; i++) {
-        if (input[i] == 'X') {
-            rolls.push_back(10);
-        } else if (input[i+1] != ' ') {
-            int roll = input[i] - '0' + (input[i+1] - '0');
-            rolls.push_back(roll);
-            i++;
+    for (char c : input) {
+        if (c == '/') {
+            if (rolls.size() >= 2) {
+                int prevRolls = rolls.back();
+                rolls.pop_back();
+                if (prevRolls + rolls.back() < 10) {
+                    score += 10 - prevRolls;
+                } else {
+                    score += 10;
+                }
+            }
         } else {
-            rolls.push_back(input[i] - '0');
+            rolls.push_back(c - '0');
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i] == 10) {
-            score += 30;
-        } else if (rolls[i] + rolls[(i+1)%10] >= 10) {
-            score += 10 + (i < 8 ? rolls[(i+2)%10] : prevRoll1 + prevRoll2);
+    for (int roll : rolls) {
+        if (roll == 10) {
+            score += 10;
         } else {
-            score += rolls[i] + rolls[(i+1)%10];
+            score += roll + rolls[rolls.size() - 2] - rolls[rolls.size() - 1];
         }
     }
-
     return score;
-}
