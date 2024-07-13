@@ -28,3 +28,12 @@ int mastermind(std::string code, std::string guess) {
 
     return black + white;
 }
+
+int main() {
+    // Example usage
+    std::string code = "AAAA";
+    std::string guess1 = "AABB";
+    std::cout << mastermind(code, guess1) << std::endl;
+
+    return 0;
+}
