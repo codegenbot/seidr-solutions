@@ -1,3 +1,4 @@
+```c++
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxLeft = arr.back();
