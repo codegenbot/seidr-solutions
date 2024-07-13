@@ -7,6 +7,7 @@ def luhn(card_number):
             doubled = digit * 2
             if doubled > 9:
                 doubled -= 9
-            digit = doubled
-        sum += digit
+            sum += doubled
+        else:
+            sum += digit
     return sum % 10 == 0
