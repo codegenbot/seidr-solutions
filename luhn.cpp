@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
@@ -13,15 +13,10 @@ int luhn(const std::vector<int>& cardNumber) {
         alternate = !alternate; 
     }
     return sum % 10;
+
 }
 
 int main() {
-    std::vector<int> cardNumber = {4,3,2,8,7,9,6,0,5,5,4,9,3,2,8,7};
-    int result = luhn(cardNumber);
-    if (result == 0) {
-        std::cout << "The credit card number is valid." << std::endl;
-    } else {
-        std::cout << "The credit card number is invalid." << std::endl;
-    }
-    return 0;
+    std::vector<int> cardNumber = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 3, 1, 6, 4, 3, 5};
+    return luhn(cardNumber);
 }
