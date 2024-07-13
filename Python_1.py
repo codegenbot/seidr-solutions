@@ -11,4 +11,4 @@ for char in paren_string:
         else:
             groups.append(groups[-1] + ")")
 result = ["".join(group) for group in groups]
-return result
+return [group for group in result if "(" in group and ")" in group]
