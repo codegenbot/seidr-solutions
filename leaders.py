@@ -1,7 +1,5 @@
-def leaders(a):
-    n = len(a)
-    result = [a[n - 1]]
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i + 1]:
-            result.insert(0, a[i])
-    return result
+Here is the Python solution for the "leaders" problem:
+
+def leaders(arr):
+    leader = [x for x in arr[::-1] if all(x >= y for y in arr[arr.index(x)+1:])]
+    return leader[::-1]
