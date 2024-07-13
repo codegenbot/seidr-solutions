@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     mapping = {c: d for c, d in zip(cipher1, cipher2)}
     result = ""
