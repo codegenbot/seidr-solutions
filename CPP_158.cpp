@@ -14,17 +14,13 @@ std::string find_max(std::vector<std::string> words) {
 
 int main() {
     int n;
-    std::vector<std::string> words;
-    std::cout << "Enter the number of words: ";
     std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        std::string word;
-        std::cout << "Enter a word: ";
-        std::cin >> word;
-        words.push_back(word);
+    std::vector<std::string> words(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> words[i];
     }
     
-    std::cout << "The maximum unique character word is: " << find_max(words) << std::endl;
+    std::cout << find_max(words) << std::endl;
+
     return 0;
 }
