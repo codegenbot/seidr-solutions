@@ -27,6 +27,6 @@ int main() {
    string input;
    cout << "Enter a file name: ";
    cin >> input;
-   cout << "Result: " << file_name_check(input) << endl;
+   cout << "The result is: " << file_name_check(input) << endl;
    return 0;
 }
