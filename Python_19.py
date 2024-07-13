@@ -17,14 +17,6 @@ def sort_numbers():
                     else:
                         break
                 if cont == "n":
-                    return
+                    break  # <--- Add this line
             except ValueError as e:
-                print(
-                    f"Invalid input. {e}. Please enter valid numbers separated by spaces."
-                )
-        return
-
-
-if __name__ == "__main__":
-    while True:
-        sort_numbers()
+                print(f"Invalid input. {e}. Please enter valid numbers separated by spaces.")
