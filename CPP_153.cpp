@@ -1,4 +1,4 @@
-```cpp
+```
 #include <initializer_list>
 
 #include <cassert>
