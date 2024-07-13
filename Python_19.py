@@ -1,7 +1,4 @@
-Here is the modified code:
-
 ```
-# Define a function to sort numbers
 def sort_numbers():
     while True:
         while True:
@@ -25,7 +22,6 @@ def sort_numbers():
             except ValueError as e:
                 print(f"Invalid input. {e}. Please enter valid numbers separated by spaces.")
         break
-
 
 if __name__ == "__main__":
     sort_numbers()
