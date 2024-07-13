@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -10,3 +11,4 @@ int sum_squares(vector<int> lst) {
             result += std::pow(lst[i], 3);
     }
     return result;
+}
