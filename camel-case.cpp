@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <vector>
@@ -44,7 +45,7 @@ std::string camelCase(const std::string& str) {
         if (!result.empty()) {
             result += toupper(segments[i][0]);
         } else {
-            result += segments[i];
+            result = segments[i];
         }
         if (i < segments.size() - 1) {
             result += segments[i].substr(1);
