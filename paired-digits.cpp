@@ -19,3 +19,4 @@ int main() {
     cin >> s;
     cout << "Sum of paired digits is: " << pairedDigits(s) << endl;
     return 0;
+}
