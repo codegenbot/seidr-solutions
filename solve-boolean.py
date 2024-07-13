@@ -14,7 +14,7 @@ def solve_boolean(expression):
             elif char == '|':
                 result |= True
             elif char == 'T':
-                result = True
+                result &= True
             elif char == 'F':
-                result = False
+                result &= False
         return result
