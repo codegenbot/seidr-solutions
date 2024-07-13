@@ -1,9 +1,11 @@
-def car_race_collision(n: int):
+```
+def car_race_collision(n: int) -> int:
     return n * (n - 1)
 
 while True:
     try:
-        n = int(input("Enter a number: "))
+        num = input("Enter a number: ")
+        n = int(num)
         if isinstance(n, int) and n > 0:
             print(car_race_collision(n))
             break
