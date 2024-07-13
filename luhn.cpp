@@ -17,4 +17,7 @@ int luhn(vector<int> digits) {
     return sum;
 }
 
-int main() { cout << luhn({4,7,8,0,3,6,1,5,9,2,8,0,8,4,5,3}); return 0; }
+int main() { 
+    cout << luhn({4,7,8,1,3,5,9,2,5,3,6,0,8,3,4}) << endl;  
+    return 0; 
+}
