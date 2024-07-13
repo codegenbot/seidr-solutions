@@ -7,21 +7,19 @@ std::string camelCase(const std::string& input) {
         return "";
     }
 
+    input.pop_back(); // Remove extra space
+
     std::stringstream iss(input + " "); 
     std::string word;
     std::string result;
 
-    for (std::string word; iss >> word; ) {
-        if (!result.empty()) {
+    while (iss >> word && word != "") { 
+        if (!result.empty())
             result += char(std::toupper(word[0]));
-            for (int i = 1; i < word.size(); ++i)
-                result += char(std::tolower(word[i]));
-        } else {
-            result = std::move(word);
-        }
-        if (word.find('-') != std::string::npos) {
-            result += ' ';
-        }
+        else
+            result = word; 
+        for (int i = 1; i < word.size(); ++i)
+            result += char(std::tolower(word[i]));
     }
     
     return result;
