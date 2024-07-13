@@ -1,38 +1,25 @@
+```cpp
 #include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int index = 0;
-    while (index <= text.length() - target.length()) {
-        index = text.find(target, index);
-        if (index == string::npos)
-            break;
-        result.push_back(index);
-        index += target.length(); // start searching from the next character
+    int n = text.length();
+    int m = target.length();
+
+    for(int i=0; i<=n-m; i++){
+        if(text.substr(i,m) == target){
+            result.push_back(i);
+        }
     }
+
     return result;
 }
 
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    
-    int gcd = __gcd(num1, num2);
-
-    cout << gcd << endl;
-
-    string text, target;
-    cin >> text >> target;
-
-    vector<int> indices = findIndices(text, target);
-    for (int i : indices) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
