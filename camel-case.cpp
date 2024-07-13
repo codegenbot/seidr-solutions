@@ -9,21 +9,25 @@ std::string camelCase(std::string str) {
 
     // Split input string by "-"
     while ((pos = str.find("-")) != std::string::npos) {
-        words.push_back(str.substr(0, pos));
+        words.push_back(std::move(str.substr(0, pos)));
         str.erase(0, pos + 1);
     }
 
     if (!str.empty()) {
-        words.push_back(str);
+        words.push_back(std::move(str));
     }
 
     for (const auto& word : words) {
         if (!word.empty()) {
             if (result.empty())
-                result = std::string(1, word[0]).toupper();
+                result = "";
+            else
+                result += " ";
+            if (result.empty())
+                result += std::string(1, word[0]).toupper();
             else
                 result += std::string(1, word[0]).tolower();
-            result += word.substr(1).toupper();
+            result += std::string(word.substr(1)).toupper();
         }
     }
 
