@@ -1,15 +1,16 @@
 def minPath(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    N = len(grid)
     visited = set()
-    queue = [(0, 0, [m[0][0]]) for _ in range(len(m) ** 2)]
+    queue = [(0, 0, [])]  # (row, col, path)
+    result = None
     while queue:
-        x, y, path = queue.pop(0)
-        if len(path) == k + 1:
-            return path
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
-                queue.append((nx, ny, path + [m[nx][ny]]))
-                visited.add((nx, ny))
-    return []
+        row, col, path = queue.pop(0)
+        if len(path) == k:
+            if not result or tuple(sorted(path)) < tuple(sorted(result)):
+                result = path
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nr, nc = row + dr, col + dc
+            if 0 <= nr < N and 0 <= nc < N and (nr, nc) not in visited:
+                queue.append((nr, nc, path + [grid[nr][nc]]))
+        visited.add((row, col))
+    return result
