@@ -1,4 +1,3 @@
-```c++
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
         return "";
