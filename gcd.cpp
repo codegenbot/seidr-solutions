@@ -1,4 +1,5 @@
 ```cpp
+#include <cstddef>
 #include <vector>
 #include <string>
 
@@ -24,6 +25,5 @@ vector<size_t> indicesOfSubstring(string text, string target) {
             i += m; // Increment by the length of the target substring
         }
     }
-
     return result;
 }
