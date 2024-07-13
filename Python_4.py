@@ -1,4 +1,4 @@
-# This program calculates Mean and Mean Absolute Deviation
+```
 def mean_absolute_deviation():
     while True:
         numbers = []
