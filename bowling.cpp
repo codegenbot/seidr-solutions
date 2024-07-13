@@ -1,38 +1,41 @@
-int score(string s) {
-    int res = 0, frame = 0, ball = 0;
-    vector<int> score(21, 0);
-    for (char c : s) {
+int main() {
+    string input;
+    cin >> input;
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> frames(10, 0);
+
+    for (char c : input) {
         if (c == 'X') {
-            score[ball] = 10;
-            score[ball + 1] = 0;
-            ball += 2;
+            frames[frame - 1] = 10;
             frame++;
         } else if (c == '/') {
-            score[ball - 1] = 10 - score[ball - 2];
+            frames[frame - 1] = 10 - frames[frame - 1 - 1];
+            frame++;
+            ball = 0;
         } else if (c == '-') {
-            score[ball] = 0;
             ball++;
         } else {
-            score[ball] = c - '0';
+            frames[frame - 1] += c - '0';
             ball++;
+            if (ball == 2) {
+                frame++;
+                ball = 0;
+            }
         }
     }
-    for (int i = 0; frame < 10; i += 2, frame++) {
-        if (score[i] == 10) {
-            res += 10 + score[i + 2] + score[i + 3];
-            i--;
-        } else if (score[i] + score[i + 1] == 10) {
-            res += 10 + score[i + 2];
-        } else {
-            res += score[i] + score[i + 1];
-        }
-    }
-    return res;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+        if (i >= 2 && frames[i - 2] == 10 && frames[i - 1] == 10) {
+            score += frames[i];
+        } else if (i >= 1 && frames[i - 1] == 10) {
+            score += frames[i];
+        }
+    }
+
+    cout << score << endl;
+
     return 0;
 }
