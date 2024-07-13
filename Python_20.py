@@ -1,5 +1,4 @@
-```
-def "Find closest elements"():
+def find_closest_elements():
     while True:
         input_str = input("Enter numbers separated by space: ")
         
