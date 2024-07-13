@@ -1,21 +1,22 @@
-int bowlingScore(string input) {
-    int frames = 0;
-    int currentRolls = 0;
-    int totalScore = 0;
-
-    for (char c : input) {
-        if (c == '/') {
-            totalScore += min(10 - currentRolls, currentRolls);
-            currentRolls = 0;
-            frames++;
+int bowlingScore(string s) {
+    int score = 0;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            int firstRoll = stoi(s.substr(0, i));
+            int secondRoll = stoi(s.substr(i + 1));
+            if (secondRoll == 10) {
+                score += 10 + firstRoll;
+            } else {
+                score += firstRoll + secondRoll;
+            }
         } else {
-            currentRolls++;
+            int roll = stoi(s.substr(i, 1));
+            if (roll < 10) {
+                score += roll;
+            } else {
+                score += 10 + roll - 10;
+            }
         }
     }
-
-    if (currentRolls > 0) {
-        totalScore += min(10, currentRolls);
-    }
-
-    return totalScore;
+    return score;
 }
