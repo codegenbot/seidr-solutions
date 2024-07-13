@@ -12,7 +12,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
     res.push_back(maxRightSoFar);
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= maxRightSoFar) {
+        if(arr[i] >= maxRightSoFar && i == n-1 || arr[i] > maxRightSoFar) {
             res.push_back(arr[i]);
             maxRightSoFar = arr[i];
         }
