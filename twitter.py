@@ -1,8 +1,15 @@
+```
 def validate_tweet(tweet):
-    ascii_chars = sum(ord(c) <= 126 for c in tweet)
-    if len(tweet.strip()) > 140:
+    if len(tweet) > 140:
         return "Too many characters"
-    elif tweet.strip() == "":
+    elif len(tweet) == 0:
         return "You didn't type anything"
     else:
-        return f"Your tweet has {ascii_chars} characters"
+        return f"Your tweet has {len(tweet)} characters"
+
+# Testing the function
+print(validate_tweet("")) 
+print(validate_tweet("1")) 
+print(validate_tweet("max length tweet that just contains letters and spaces even SOME CAPITAL LETTERS just to MAKE it INTERESTING now repeeeeeeeeeEEEEEEEeeeat it")) 
+print(validate_tweet("40172875*&(&(%^^*!@&#()!@&^(*$787031264123984721-43214876*%^#!(@^$_!@^%#$(!#@%$(01234~~``")) 
+print(validate_tweet("Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooolong1"))
