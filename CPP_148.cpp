@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::vector<std::string> bf(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
     int index1 = -1, index2 = -1;
@@ -34,25 +36,26 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
 }
 
 int main() {
-    std::vector<std::string> inputPlanets;
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
-    int n;
-    std::cout << "Enter the number of planets: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        std::string planet;
-        std::cout << "Enter the name of the " << (i+1) << "th planet: ";
-        std::cin >> planet;
-        inputPlanets.push_back(planet);
-    }
-    
-    std::vector<std::string> result = bf(inputPlanets, "", "");
+    std::cout << "Enter the first planet: ";
+    std::string planet1;
+    std::cin >> planet1;
+    std::cout << "Enter the second planet: ";
+    std::string planet2;
+    std::cin >> planet2;
+
+    std::vector<std::string> result = bf(planets, planet1, planet2);
     
     if (!result.empty())
         std::cout << "Output: ";
     else
         std::cout << "No Output";
+    
+    for (auto planet : result) {
+        std::cout << planet << " ";
+    }
+    std::cout << std::endl;
     
     return 0;
 }
