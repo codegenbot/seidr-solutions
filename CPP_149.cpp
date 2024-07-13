@@ -1,18 +1,13 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
+    auto it = unique(lst.begin(), lst.end(),
+        [](const string& a, const string& b) { return (int)a.length() % 2 == 1; });
+    vector<string> result(it, lst.end());
     sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             return std::to_string(a).size() + a.size() <=
-                    std::to_string(b).size() + b.size();
-         });
+        [](const string& a, const string& b) {
+            if ((int)a.length() != (int)b.length())
+                return (int)a.length() < (int)b.length();
+            else
+                return a < b;
+        });
     return result;
 }
