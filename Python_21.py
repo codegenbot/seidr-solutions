@@ -1,4 +1,3 @@
-```
 def rescale_to_unit(inputs: list) -> list:
     if not inputs:
         return []
