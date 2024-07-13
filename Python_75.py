@@ -8,6 +8,10 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    factors = [i for i in range(2, a+1) if a % i == 0]
+    factors = []
+    for i in range(2, a+1):
+        while a % i == 0:
+            factors.append(i)
+            a //= i
     primes = [f for f in factors if is_prime(f)]
-    return len(primes) >= 3
+    return len(primes) == 3
