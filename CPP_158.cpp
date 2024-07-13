@@ -1,24 +1,16 @@
-Here is the completed code:
-
 string find_max(vector<string> words) {
-    string result;
-    int max_unique = 0;
-    
-    for (const auto& word : words) {
-        int unique_count = 0;
-        set<char> seen;
-        
-        for (char c : word) {
-            if (seen.insert(c).second) {
-                unique_count++;
+    string result = words[0];
+    for (int i = 1; i < words.size(); i++) {
+        if (words[i].size() > result.size()) {
+            result = words[i];
+        } else if (words[i].size() == result.size()) {
+            for (char c : words[i]) {
+                if (result.find(c) == string::npos) {
+                    result = words[i];
+                    break;
+                }
             }
         }
-        
-        if (unique_count > max_unique || (!result.empty() && unique_count == max_unique)) {
-            result = word;
-            max_unique = unique_count;
-        }
     }
-    
     return result;
 }
