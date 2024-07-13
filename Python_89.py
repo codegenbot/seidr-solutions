@@ -1,4 +1,3 @@
-```
 def encrypt(s):
     result = ""
     while True:
