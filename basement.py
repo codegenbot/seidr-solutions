@@ -1,5 +1,8 @@
-def basement(input):
-    for i in range(len(input)):
-        if sum(input[: i + 1]) < 0:
+Here is the Python solution:
+
+def basement(v):
+    total = 0
+    for i, num in enumerate(v):
+        total += num
+        if total < 0:
             return i
-    return -1
