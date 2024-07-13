@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -32,8 +31,8 @@ int main() {
     
     int result = mastermind(code, guess);
     
-    cout << "Black pegs: " << result - (result / 2) << endl;
-    cout << "White pegs: " << result / 2 << endl;
+    cout << "Black pegs: " << result << endl;
+    cout << "White pegs: " << (result - black) << endl;
     
     return 0;
 }
