@@ -26,14 +26,14 @@ int main() {
     std::cin >> m;
 
     if(m < 2) {
-        std::cout << "m must be at least 2. Please enter again.\n";
-        std::cout << "Enter value of m: ";
+        std::string errStr = (n < 2) ? "n" : "m";
+        std::cout << errStr << " must be at least 2. Please enter again.\n";
+        std::cout << "Enter value of " << errStr << ": ";
         std::cin >> m;
     }
 
     double result = diceGame(n, m);
     std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl; 
-    std::cout << "The answer is: " << result << std::endl;
 
     return 0;
 }
