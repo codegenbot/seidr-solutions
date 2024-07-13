@@ -22,6 +22,8 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
+    
+    // Read input until end of file is reached
     while (cin >> num) {
         nums.push_back(num);
     }
