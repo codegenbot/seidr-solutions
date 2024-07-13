@@ -1,9 +1,13 @@
-def solveBoolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression:
-        return expression.split("&")[0] != "F" and expression.split("&")[1] != "F"
-    elif "|" in expression:
-        return expression.split("|")[0] != "F" or expression.split("|")[1] != "F"
+```
+def solve_boolean(boolean_expression):
+    boolean_values = {"T": True, "F": False}
+    operators = {"|": lambda a, b: a or b, "&": lambda a, b: a and b}
+
+    tokens = re.split("([|&])", boolean_expression)
+    tokens = [token for token in tokens if token != ""]
+
+    result = boolean_values[tokens[0]]
+    for i in range(len(tokens) - 1):
+        result = operators[tokens[i+1]](result, boolean_values[tokens[i+2]])
+
+    return result
