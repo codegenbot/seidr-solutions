@@ -1,4 +1,8 @@
-```
-input_str = input("Enter a string of words separated by space: ")
-words_string = input_str.split()
-check(words_string)
+def check(input_string):
+    if "hello" in input_string.lower():
+        print("Hello is present")
+    else:
+        print("Hello is not present")
+
+input_string = input("Enter a string: ")
+check(input_string)
