@@ -1,16 +1,31 @@
-string spinWords(const string &str) {
-    string result = "";
-    string word = "";
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            if (word.length() >= 5) {
+int main() {
+    string input;
+    getline(cin, input);
+    
+    string word;
+    bool first = true;
+    for (int i = 0; i <= input.size(); ++i) {
+        if (i == input.size() || input[i] == ' ') {
+            if (word.size() >= 5) {
+                if (!first) {
+                    cout << " ";
+                }
                 reverse(word.begin(), word.end());
+                cout << word;
+                first = false;
+            } else {
+                if (!first) {
+                    cout << " ";
+                }
+                cout << word;
+                first = false;
             }
-            result += word + (i == str.length() ? "" : " ");
             word = "";
         } else {
-            word += str[i];
+            word += input[i];
         }
     }
-    return result;
+    cout << "\n";
+    
+    return 0;
 }
