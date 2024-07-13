@@ -1,35 +1,31 @@
-int numWhitePegs(string code, string guess) {
-    int whitePegs = 0;
+int getHint(string guess, string answer) {
+    int white = 0;
+    int black = 0;
+
+    vector<char> guessArray(guess.begin(), guess.end());
+    vector<char> answerArray(answer.begin(), answer.end());
+
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            whitePegs++;
+        if (guessArray[i] == answerArray[i]) {
+            ++black;
+            guessArray[i] = '\0';
+            answerArray[i] = '\0';
         }
     }
-    return whitePegs;
-}
 
-int numBlackPegs(string code, string guess) {
-    int blackPegs = 0;
-    map<char, int> codeCount, guessCount;
-    
     for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-    
-    for (int i = 0; i < 6; ++i) {
-        if (codeCount['A' + i] > 0 && guessCount['A' + i] > codeCount['A' + i]) {
-            blackPegs++;
-        }
-    }
-    
-    return blackPegs;
-}
+        if (!isalpha(guessArray[i])) continue;
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << numWhitePegs(code, guess) << endl;
-    cout << numBlackPegs(code, guess) << endl;
-    return 0;
+        int count = 0;
+        for (int j = 0; j < 4; ++j) {
+            if (guessArray[i] == answerArray[j]) {
+                ++count;
+                answerArray[j] = '\0';
+            }
+        }
+
+        white += count - black;
+    }
+
+    return to_string(white).append("\n").append(to_string(black));
 }
