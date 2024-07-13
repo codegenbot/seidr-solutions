@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -12,13 +17,12 @@ int main() {
         cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    double distance = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        distance += pow(vec1[i] - vec2[i], 2);
     }
 
-    double distance = sqrt(sum);
-    cout << distance << endl;
+    cout << sqrt(distance) << endl;
 
     return 0;
 }
