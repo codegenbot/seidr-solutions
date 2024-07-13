@@ -3,7 +3,12 @@ from typing import List
 
 
 def filter_by_prefix() -> None:
-    input_str = input("Enter a list of strings (one per line), separate them with '%%': ")
+    input_str = ''
+    while True:
+        s = input("Enter a list of strings (one per line), separate them with '%%': ")
+        if s.lower() == '%%':
+            break
+        input_str += s + '%%'
     prefix = input("Enter the prefix: ")
 
     try:
