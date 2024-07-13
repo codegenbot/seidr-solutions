@@ -1,19 +1,11 @@
-Here is your requested output:
-
-```cpp
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int maxRight = arr.back();
-    for (int i = arr.size() - 1; i >= 0; --i) {
-        if (arr[i] >= maxRight) {
-            result.push_back(arr[i]);
-            maxRight = arr[i];
+    int lastLeader = arr.back();
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= lastLeader) {
+            lastLeader = arr[i];
+            result.push_back(lastLeader);
         }
     }
-    reverse(result.begin(), result.end());
     return result;
 }
