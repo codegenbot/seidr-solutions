@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
-std::string romanToInt(int n) {
+string romanToInt(int n) {
     if (n <= 0)
         return "";
     else if (n >= 1000) {
@@ -17,7 +17,7 @@ std::string romanToInt(int n) {
         return "CD" + romanToInt(n - 400);
     } 
     else if (n >= 100) {
-        std::string roman = "";
+        string roman = "";
         while (n >= 100) {
             roman += "C";
             n -= 100;
@@ -55,7 +55,7 @@ std::string romanToInt(int n) {
         return "IV";
     } 
     else if (n >= 1) {
-        std::string roman = ""; // Return by value
+        string roman = ""; // Return by value
         for (int i = 0; i < n; i++) {
             roman += "I";
         }
@@ -66,7 +66,8 @@ std::string romanToInt(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << romanToInt(n) << std::endl;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << endl;
+    cout << romanToInt(n) << endl;
 }
