@@ -1,3 +1,6 @@
+import math
+
+
 def rescale_to_unit(*inputs):
     inputs_str = (
         " ".join(map(str, inputs))
@@ -15,7 +18,6 @@ def rescale_to_unit(*inputs):
         inputs = [
             list(map(float, input_str.split())) for input_str in inputs_str.split(" ")
         ]
-
         rescaled_numbers = []
         for lst in inputs:
             min_val = min(lst)
