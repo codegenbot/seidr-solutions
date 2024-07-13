@@ -1,4 +1,7 @@
+```
 def decode_cyclic(s: str):
+    if not s.isalnum():
+        return "Invalid input. Please provide alphanumeric strings only."
     decoded = ""
     n = len(s)
     if n % 2 == 0:
@@ -6,7 +9,7 @@ def decode_cyclic(s: str):
         prefix = s[:half_len]
     else:
         half_len = (n + 1) // 2
-        prefix = s[n//2:]
+        prefix = s[:half_len]
 
     decoded = prefix + s[half_len:]
     
