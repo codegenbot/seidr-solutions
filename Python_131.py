@@ -12,8 +12,7 @@ def check():
 def sum_of_digits(n):
     total = 0
     while n:
-        digit = n % 10
-        total += digit
+        total += n % 10
         n //= 10
     return total
 
