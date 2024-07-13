@@ -1,4 +1,5 @@
 ```
+```python
 def find_max_min_average(numbers):
     if not isinstance(numbers, list):
         return "Error: Input is not a list."
@@ -21,3 +22,4 @@ while True:
         print("Error: Please enter numeric values separated by spaces.")
 
 print(find_max_min_average(numbers))
+```
