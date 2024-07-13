@@ -1,34 +1,34 @@
-int score(string s) {
-    int result = 0;
-    int frame = 1;
-    int i = 0;
+int main() {
+    string input;
+    cin >> input;
     
-    while (frame <= 10 && i < s.length()) {
-        if (s[i] == 'X') {
-            result += 10;
-            if (s[i+2] == 'X') {
-                result += 10 + (s[i+4] == 'X' ? 10 : (s[i+4] - '0'));
-            } else {
-                result += (s[i+2] == '/' ? 10 : (s[i+2] - '0') + (s[i+4] == '/' ? 10 : (s[i+4] - '0')));
+    int score = 0;
+    int frame = 0;
+    
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == 'X') {
+            score += 10;
+            if (frame < 9) {
+                score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+                score += (input[i + 2] == 'X') ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] - '0') : (input[i + 2] - '0'));
             }
-            i += 2;
-        } else if (s[i+1] == '/') {
-            result += 10;
-            result += (s[i+2] == 'X' ? 10 : (s[i+2] - '0'));
-            i += 3;
+            frame++;
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] - '0');
+            score += (input[i + 1] == 'X') ? 10 : (input[i + 1] - '0');
+            frame++;
+        } else if (input[i] == '-') {
+            continue;
         } else {
-            result += (s[i] == '-' ? 0 : (s[i] - '0')) + (s[i+1] == '-' ? 0 : (s[i+1] - '0'));
-            i += 2;
+            score += input[i] - '0';
+            if (frame < 9 && input[i + 1] == '/') {
+                score += 10 - (input[i] - '0');
+            }
+            frame++;
         }
-        frame++;
     }
     
-    return result;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    cout << score << endl;
+    
     return 0;
 }
