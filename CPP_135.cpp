@@ -1,9 +1,7 @@
-Here is the solution:
-
-int can_arrange(vector<int> arr){
-    for(int i=0; i<arr.size(); i++){
-        if(i==0 || arr[i-1] <= arr[i]){
-            return i;
+int can_arrange(vector<int> arr) {
+    for (int i = 1; i < arr.size(); ++i) {
+        if (arr[i] <= arr[i-1]) {
+            return i - 1;
         }
     }
     return -1;
