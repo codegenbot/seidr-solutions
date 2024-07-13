@@ -4,7 +4,7 @@
 #include <cctype>
 
 std::string camelCase(const std::string& str) {
-    std::string result;
+    std::string result = "";
     bool capitalize = true;
 
     for (char c : str) {
@@ -19,11 +19,6 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    // Remove the leading space
-    if (!result.empty()) {
-        result.erase(0, 1);
-    }
-
     return result;
 }
 
@@ -36,5 +31,7 @@ int main() {
         std::cin.ignore(); 
     }
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
+    std::cout << "Enter your string (in kebab-case): ";
+    std::getline(std::cin, input);
     return 0;
 }
