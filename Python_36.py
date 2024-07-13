@@ -1,13 +1,15 @@
 def fizz_buzz(n: int):
-    result = []
+    count = 0
     for i in range(1, n + 1):
+        output = ""
         if i % 15 == 0:
             output = "FizzBuzz"
-        elif i % 3 == 0:
+            count += 1
+        elif i % 3 == 0 and i % 5 != 0:
             output = "Fizz"
-        elif i % 5 == 0:
+        elif i % 5 == 0 and i % 3 != 0:
             output = "Buzz"
         else:
             output = str(i)
-        result.append(output)
-    return '\n'.join(result)
+        print(output)
+    return count
