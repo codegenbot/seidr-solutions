@@ -1,5 +1,6 @@
-```
-def is_multiply_prime(num):
+def is_multiply_prime(a=None):
+    if a is None:
+        a = int(input("Enter a number: "))
     def is_prime(n):
         if n < 2:
             return False
@@ -9,10 +10,10 @@ def is_multiply_prime(num):
         return True
 
     factors = []
-    while num > 1:
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                num //= i
+    while a > 1:
+        for i in range(2, int(a**0.5) + 1):
+            if a % i == 0:
+                a //= i
                 factors.append(i)
                 break
     prime_factors = [f for f in set(factors) if is_prime(f)]
