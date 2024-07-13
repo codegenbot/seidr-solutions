@@ -4,7 +4,7 @@
 #include <string>
 
 std::string words_in_sentence(std::string sentence) {
-    std::stringstream ss(sentence);
+    std::istringstream ss(sentence.c_str());
     std::string word;
     int count = 0;
     while (std::getline(ss, word, ' ')) {
