@@ -37,7 +37,7 @@ int main() {
         cout << "False" << endl;
     } else {
         bool result = solveBoolean(s);
-        if (result) cout << "True" << endl;
-        else cout << "False" << endl;
+        if (result) cout << "True" << std::endl;
+        else cout << "False" << std::endl;
     }
     return 0;
