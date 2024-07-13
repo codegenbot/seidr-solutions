@@ -1,7 +1,13 @@
+```cpp
 #include <algorithm>
 #include <vector>
+#include <assert.h>
+#include <initializer_list>
 
-int getAscendingOrder(const std::vector<int>& nums) {
+using namespace std;
+typedef size_t initializer_list<int>::size_type;
+
+int getAscendingOrder(const vector<int>& nums) {
     int points = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] > nums[i - 1]) {
@@ -11,7 +17,7 @@ int getAscendingOrder(const std::vector<int>& nums) {
     return points;
 }
 
-bool isMonotonic(const std::vector<int>& nums) {
+bool isMonotonic(const vector<int>& nums) {
     bool increasing = true;
     bool decreasing = true;
 
@@ -27,11 +33,11 @@ bool isMonotonic(const std::vector<int>& nums) {
     return increasing || decreasing;
 }
 
-bool isIdentical(const std::vector<int>& a, const std::vector<int>& b) { 
+bool isIdentical(const vector<int>& a, const vector<int>& b) { 
     return isMonotonic(a) && isMonotonic(b);
 }
 
-int order_by_points(const std::vector<int>& nums) {
+int order_by_points(const vector<int>& nums) {
     int points = 0;
     for (int i = 1; i < nums.size(); i++) {
         if (nums[i] > nums[i - 1]) {
@@ -41,16 +47,16 @@ int order_by_points(const std::vector<int>& nums) {
     return points;
 }
 
+bool isSame(const vector<int>& a, const vector<int>& b) { 
+    return isIdentical(a, b);
+}
+
 int main() {
-    std::vector<int> vec1 = {0,6,6,-76,-21,23,4};
-    std::vector<int> vec2 = {-76, -21, 0, 4, 23, 6, 6};
-    assert(isIdentical(vec1,vec2) == true);
+    vector<int> vec1 = {0,6,6,-76,-21,23,4};
+    vector<int> vec2 = {-76, -21, 0, 4, 23, 6, 6};
+    assert(isSame(vec1,vec2) == true);
     int result = getAscendingOrder({0,6,6,-76,-21,23,4});
-    std::cout << "order_by_points: " << result << std::endl;
-    
-    // Check the order_by_points function
-    int result2 = order_by_points({0,6,6,-76,-21,23,4});
-    assert(result == result2);
-    
+    cout << "order_by_points: " << result << endl;
+    assert(isSame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
