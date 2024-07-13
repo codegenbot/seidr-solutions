@@ -6,4 +6,4 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        std::string result = std::to_string(x);
+        return std::to_string(x);
