@@ -1,5 +1,7 @@
-```c++
-string file_name_check(string file_name){
+#include <string>
+#include <cassert>
+
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool has_dot = false;
     bool valid_prefix = true;
@@ -34,7 +36,7 @@ string file_name_check(string file_name){
     else return "No";
 }
 
-int main(){
-    assert (file_name_check("s.") == "No");
+int main() {
+    assert(file_name_check("s.") == "No");
     return 0;
 }
