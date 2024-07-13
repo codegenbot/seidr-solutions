@@ -4,4 +4,8 @@ def check_palindrome(input_string):
     return input_string == input_string[::-1]
 
 if __name__ == "__main__":
-    print(check_palindrome("A man a plan a canal Panama"))
+    try:
+        user_input = input("Enter a string: ")
+        print(check_palindrome(user_input))
+    except RuntimeError:
+        print("Program did not receive expected input")
