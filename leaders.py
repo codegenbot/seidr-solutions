@@ -1,8 +1,7 @@
+```
 def leaders(input_vector):
-    leaders = []
-    max_right = input_vector[-1]
-    for i in range(len(input_vector) - 1, -1, -1):
-        if input_vector[i] >= max_right:
-            leaders.append(input_vector[i])
-            max_right = input_vector[i]
-    return list(reversed(leaders))
+    return [
+        x
+        for x in reversed(input_vector)
+        if all(y < x for y in input_vector[input_vector.index(x)+1:])
+    ]
