@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```
 def is_multiply_prime(n=None):
     if n is None:
