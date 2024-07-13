@@ -17,22 +17,29 @@ vector<vector<int>> cutVector(vector<int> v) {
     long long leftSum = 0, rightSum = sum;
     int minDiff = INT_MAX, cutIndex = -1;
 
+    vector<vector<int>> res;
+    res.push_back(vector<int>());
+    res.push_back(vector<int>());
+
     for (int i = 0; i < n - 1; i++) {
-        minDiff = INT_MAX, cutIndex = -1;
         long long diff = abs(leftSum - rightSum);
-        if (diff <= minDiff) {
+        if (diff == 0) { 
+            res[0].assign(v.begin(), v.end());
+            res[1] = vector<int>();
+        } else {
             minDiff = diff;
             cutIndex = i + 1; 
         }
         leftSum += v[i];
-        rightSum -= v[i+1];
+        rightSum -= v[i];
     }
     
-    vector<vector<int>> res;
-    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
-    for(int i = cutIndex; i < v.size(); i++) {
-        res[1].push_back(v[i]);
+    res[0].resize(cutIndex);
+    for(int i = 0; i < cutIndex; i++) {
+        res[0].push_back(v[i]);
     }
+    
+    res[1].assign(v.begin() + cutIndex, v.end());
     
     if(res[0].size() > res[1].size()) {
         vector<int> temp = res[0];
