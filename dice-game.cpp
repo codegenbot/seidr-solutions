@@ -13,18 +13,26 @@ int main() {
     
     // Calculate probability where Colin rolls 1 to m-1
     for(int i = 1; i < m; i++) {
-        double colinWays = 1.0;
-        for(int j = 1; j <= i; j++) {
-            colinWays /= (double)m;
-        }
-        
-        double peterWays = 0.0;
         for(int j = i + 1; j <= n; j++) {
-            peterWays += 1.0 / (double)(n - j + 1);
+            if(i == m - 1) {
+                sum -= (1.0 / (double)m) * (1.0 / (double)(n - j + 1));
+            } else {
+                sum += (1.0 / (double)m) * (1.0 / (double)(n - j + 1));
+            }
         }
-        
-        sum += colinWays * peterWays;
     }
+
+    // Calculate probability where Colin rolls m
+    for(int j = 1; j < n; j++) {
+        if(j == n - 1) {
+            sum -= (1.0 / (double)n);
+        } else {
+            sum += (1.0 / (double)n);
+        }
+    }
+
+    // Add the probability that both roll their maximum values
+    sum += 1.0 / ((double)m * (double)n);
 
     cout << fixed << setprecision(10) << sum << endl;
 
