@@ -1,34 +1,26 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] != ' ') {
-                result += toupper(s[i]);
-                i++;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    for (char c : str) {
+        if (c == '-') {
+            c = ' ';
+        } else if (c == ' ') {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
             }
-            if (result.length() > 0) {
-                result += "";
-            }
-        } else if (!result.empty()) {
-            result += tolower(s[i]);
         } else {
-            result += toupper(s[i]);
+            result += tolower(c);
         }
     }
     return result;
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << camelCase(s) << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
