@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     white = 0
     black = 0
@@ -10,8 +11,9 @@ def mastermind(code, guess):
             code_chars[i] = ""
             guess_chars[i] = ""
 
-    for char in set(guess_chars):
-        if guess_chars.count(char) <= code_chars.count(char):
+    for char in guess_chars:
+        if code_chars.count(char) > 0:
             white += 1
+            code_chars.remove(char)
 
-    return str(white) + "\n" + str(black)
+    return str(white) + " " + str(black)
