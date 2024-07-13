@@ -1,6 +1,14 @@
 ```cpp
 #include <vector>
 
+int main() {
+    std::vector<int> arr = {1, 3, 4, 6};
+    for (auto x : leaders(arr)) {
+        std::cout << x << " ";
+    }
+    return 0;
+}
+
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
@@ -18,13 +26,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     
     return res;
-}
-
-int main() {
-    std::vector<int> arr = {1, 3, 4, 2};
-    std::vector<int> result = leaders(arr);
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    return 0;
 }
