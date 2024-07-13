@@ -1,4 +1,3 @@
-```c++
 int bowlingScore(std::string s) {
     int score = 0;
     std::stringstream ss(s);
