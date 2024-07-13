@@ -1,2 +1,4 @@
-def solve(numbers):
-    return [num for num in numbers if not (num in seen or seen.add(num)) and True][::-1]
+```
+def remove_duplicates(numbers):
+    seen = set()
+    return [num for num in numbers if not (num in seen or seen.add(num))][::-1]
