@@ -1,28 +1,39 @@
-int scoreBowlingRound(string score) {
-    int total_score = 0;
+int calculateBowlingScore(string str) {
+    int score = 0;
     int frame = 0;
-    for (int i = 0; i < score.size(); i++) {
-        if (score[i] == 'X') {
-            total_score += 10 + (score[i+1] == 'X' ? 10 : (isdigit(score[i+1]) ? score[i+1]-'0' : 10));
-            if (frame < 9) frame++;
-        } else if (score[i] == '/') {
-            total_score += 10 - (isdigit(score[i-1]) ? score[i-1]-'0' : 0) + (isdigit(score[i+1]) ? score[i+1]-'0' : 10);
-            if (frame < 9) frame++;
-        } else {
-            total_score += isdigit(score[i]) ? score[i]-'0' : 0;
-            if (isdigit(score[i]) && i+1 < score.size() && isdigit(score[i+1])) {
-                total_score += score[i+1]-'0';
+    int frameScore[10] = {0};
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == 'X') {
+            frameScore[frame] += 10;
+            if (frame < 8) {
+                frameScore[frame] += frameScore[frame + 1];
+                if (str[i + 2] == 'X')
+                    frameScore[frame] += 10;
+                else if (str[i + 2] == '/')
+                    frameScore[frame] += 10 - (str[i + 1] - '0');
+                else
+                    frameScore[frame] += str[i + 1] - '0' + str[i + 2] - '0';
+            } else if (frame == 8) {
+                frameScore[8] += frameScore[9];
+                frameScore[8] += str[i + 1] == 'X' ? 10 : str[i + 1] - '0';
+                frameScore[8] += str[i + 2] == 'X' ? 10 : str[i + 2] == '/' ? 10 - (str[i + 1] - '0') : str[i + 2] - '0';
             }
-            if (frame < 9) frame++;
-            i++;
+            frame++;
+        } else if (str[i] == '/') {
+            frameScore[frame] += 10 - (str[i - 1] - '0');
+        } else {
+            frameScore[frame] += str[i] - '0';
         }
     }
-    return total_score;
+    for (int i = 0; i < 10; ++i) {
+        score += frameScore[i];
+    }
+    return score;
 }
 
 int main() {
-    string score;
-    cin >> score;
-    cout << scoreBowlingRound(score) << endl;
+    string str;
+    cin >> str;
+    cout << calculateBowlingScore(str) << endl;
     return 0;
 }
