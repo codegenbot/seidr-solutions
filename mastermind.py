@@ -3,6 +3,6 @@ def mastermind(code, guess):
     guess_counts = {g: guess.count(g) for g in set(guess)}
 
     black = sum(1 for c, g in zip(code, guess) if c == g)
-    white = sum(min(code_counts.get(c, 0), guess_counts.get(c, 0)) for c in set(code) if code_counts.get(c, 0) > 0 and guess_counts.get(c, 0) > 0)
+    white = sum(min(code_counts.get(c, 0), guess_counts.get(c, 0)) - (c == g) for c, g in zip(code, guess))
 
     return str(black), str(white)
