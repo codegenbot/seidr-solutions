@@ -7,38 +7,31 @@ int main() {
     }
     
     int n = nums.size();
-    int diff = INT_MAX;
-    int idx = -1;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0;
-        int right_sum = 0;
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        int suffix_sum = sum - prefix_sum;
+        int diff = abs(prefix_sum - suffix_sum);
         
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
-        }
-        
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
-        }
-        
-        int current_diff = abs(left_sum - right_sum);
-        
-        if (current_diff < diff) {
-            diff = current_diff;
-            idx = i;
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
+    for (int i = 0; i <= cut_index; i++) {
         cout << nums[i] << endl;
     }
     
-    cout << endl;
-    
-    for (int i = idx; i < n; ++i) {
-        cout << nums[i] << endl;
-    }
+    cout << 0 << endl;
     
     return 0;
 }
