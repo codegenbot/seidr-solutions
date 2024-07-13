@@ -1,33 +1,33 @@
 #include <string>
+using namespace std;
 
-std::string solveBoolean(std::string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
+bool solveBoolean(string s) {
+    bool res = true;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'T') return true;
+        if (s[i] == 'F') return false;
+        if (s[i] == '|') {
+            while(i+1<s.length() && (s[i+1]=='&' || s[i+1]=='|')) i++;
+            res = res || solveBoolean(string(1,s[i+1]).substr(0));
+            i++;
+            continue;
+        }
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return "True";
-            } else {
-                st.pop();
-            }
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return "False";
-            } else {
-                st.pop();
-            }
-        } else {
-            st.push(s[i]);
+            while(i+1<s.length() && (s[i+1]=='&' || s[i+1]=='|')) i++;
+            res = res && solveBoolean(string(1,s[i+1]).substr(0));
+            i++;
+            continue;
         }
     }
-    if (st.empty()) {
-        return "False";
-    } else {
-        return "True";
-    }
+    return res;
+}
+
+int main() {
+    string input;
+    cout << "Enter a Boolean expression: ";
+    cin >> input;
+    bool result = solveBoolean(input);
+    cout << "Result: " << (result ? "True" : "False") << endl;
+    return 0;
 }
