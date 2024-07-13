@@ -1,5 +1,8 @@
 ```
 def cut_vector(vector):
+    if any(num <= 0 for num in vector):
+        return None
+
     min_diff = float("inf")
     split_index = 0
 
