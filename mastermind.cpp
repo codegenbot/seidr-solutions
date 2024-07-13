@@ -1,21 +1,26 @@
-int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+#include <string>
 
-    // Count the number of correct colors (white pegs)
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            bool found = false;
-            for(int j = 0; j < 4; j++) {
-                if(guess[j] == code[i] && !found) {
-                    found = true;
-                    whitePegs++;
-                }
-            }
+            black++;
+            code[i] = 'X';
+            guess[i] = 'Y';
         }
     }
 
-    return blackPegs;
+    for(int i = 0; i < 4; i++) {
+        int count = 0;
+        for(int j = 0; j < 4; j++) {
+            if(code[j] == guess[i]) {
+                count++;
+            }
+        }
+        if(count > 0) white += count - 1;
+    }
+
+    return black + white;
 }
