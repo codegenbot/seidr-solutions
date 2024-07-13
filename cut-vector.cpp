@@ -1,36 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 1; i < n; i++) {
-        if (abs(v[i] - v[0]) <= abs(v[i] - v[i-1])) {
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
-            return res;
+vector<int> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    int min_diff = INT_MAX;
+    int split_idx = -1;
+    for (int i = 0; i < n; i++) {
+        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_idx = i;
         }
     }
-    res[0].insert(res[0].end(), v.begin(), v.end());
-    return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    vector<vector<int>> res = cutVector(v);
-    cout << "{";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
-    }
-    cout << "} {";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
-    }
-    cout << "}\n";
-    return 0;
+    vector<int> left_nums(nums.begin(), nums.begin() + split_idx);
+    vector<int> right_nums(nums.begin() + split_idx, nums.end());
+    return {left_nums, right_nums};
 }
