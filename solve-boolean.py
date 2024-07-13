@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
