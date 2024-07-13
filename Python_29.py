@@ -1,13 +1,13 @@
-```Python
+```
 from typing import List
 
 
 def filter_by_prefix() -> None:
-    strings = input("Enter a list of strings (one per line): ")
+    input_str = input("Enter a list of strings (one per line), separate them with '%%': ")
     prefix = input("Enter the prefix: ")
 
     try:
-        string_list = [s.strip() for s in strings.splitlines()]
+        string_list = [s.strip() for s in input_str.split('%%')]
         result = [s for s in string_list if s.startswith(prefix)]
         print(result)
     except ValueError:
