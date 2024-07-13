@@ -1,11 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -33,6 +25,4 @@ int main() {
     int result = mastermind(code, guess);
     
     cout << "Black pegs: " << black << endl;
-    cout << "White pegs: " << (result - black) << endl;
-    
-    return 0;
+    cout << "White pegs: " << white << endl;
