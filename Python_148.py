@@ -1,3 +1,4 @@
+```
 def bf(planet1, planet2):
     planets = [
         "Mercury",
@@ -8,6 +9,7 @@ def bf(planet1, planet2):
         "Saturn",
         "Uranus",
         "Neptune",
+        "Makemake"
     ]
     index1 = planets.index(planet1)
     index2 = planets.index(planet2)
