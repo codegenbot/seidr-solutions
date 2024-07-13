@@ -1,9 +1,9 @@
-```c++
+```cpp
 #include <cstddef>
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    bool result = false;
+    bool result = true;
     size_t i = 0;
 
     while (i < expression.length()) {
@@ -15,57 +15,39 @@ bool solveBoolean(std::string expression) {
             break;
         } else if (expression[i] == '|') {
             i++;
-            bool temp1 = false, temp2 = false;
-
+            bool temp = !result;
             while (i < expression.length() && expression[i] != '&') {
-                if (expression[i] == 'T')
-                    temp1 = true;
-                else
-                    temp1 = false;
                 i++;
             }
-            i++;
-
-            while (i < expression.length()) {
-                if (expression[i] == 'T')
-                    temp2 = true;
-                else
-                    temp2 = false;
+            if (i < expression.length()) {
                 i++;
             }
-
-            result = temp1 || temp2;
+            result = temp;
         } else if (expression[i] == '&') {
             i++;
-            bool temp1 = false, temp2 = false;
-
+            bool temp = result;
             while (i < expression.length() && expression[i] != '|') {
-                if (expression[i] == 'T')
-                    temp1 = true;
-                else
-                    temp1 = false;
                 i++;
             }
-            i++;
-
-            while (i < expression.length()) {
-                if (expression[i] == 'T')
-                    temp2 = true;
-                else
-                    temp2 = false;
+            if (i < expression.length()) {
                 i++;
             }
-
-            result = temp1 && temp2;
+            result &= temp;
         }
-        i++;
     }
 
     return result;
 }
 
 int main() {
-    std::string expression = "T|F";
+    std::string expression;
+    std::cout << "Enter the Boolean expression: ";
+    getline(stdcin, expression);
     bool result = solveBoolean(expression);
+    if (result) {
+        std::cout << "Result: TRUE" << std::endl;
+    } else {
+        std::cout << "Result: FALSE" << std::endl;
+    }
     return 0;
 }
