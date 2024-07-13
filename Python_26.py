@@ -1,1 +1,3 @@
-return sorted(list(OrderedDict.fromkeys(map(int, numbers.split(","))))))
+```
+def solve(numbers):
+    return sorted(list(set(map(int, numbers.split(",")))))
