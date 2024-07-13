@@ -1,9 +1,20 @@
-Here is the C++ solution:
+#include <iostream>
+using namespace std;
 
-double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= m && i < n; ++i) {
-        total += 1.0 / m;
+double game(int n, int m) {
+    double total = (double)n * m;
+    double peters_win = 0.0;
+    
+    for (int i = n; i <= m; i++) {
+        peters_win += ((double)(n - i + 1)) / total;
     }
-    return 1 - (n * 1.0 / (n + m));
+    
+    return peters_win;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << game(n, m) << endl;
+    return 0;
 }
