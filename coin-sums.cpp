@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 using namespace std;
 
@@ -27,5 +27,6 @@ int main() {
     if(nickels > 0) cout << (nickels == 1 ? "" : "s ") << nickels << " remaining\n";
     
     cout << "Pennies: " << pennies << endl;
-    
+
+    return 0;
 }
