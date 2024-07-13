@@ -1,4 +1,3 @@
-```cpp
 std::string camelCase(std::string str) {
     std::string result = "";
     bool isNextUpper = false;
@@ -10,7 +9,7 @@ std::string camelCase(std::string str) {
                         result += std::toupper(c);
                     }
                 } else {
-                    if (!result.empty() && !isNextUpper) {
+                    if (c != ' ' && !isNextUpper) {
                         result += ' ';
                     }
                 }
@@ -19,14 +18,6 @@ std::string camelCase(std::string str) {
         } else {
             isNextUpper = false;
             result += (c >= 'a' && c <= 'z') ? std::toupper(c) : c;
-
-            // Check if the last character was uppercase
-            if (result.size() > 0 && isupper(result.back())) {
-                result.push_back(std::tolower(c));
-            } else {
-                result += c;
-            }
         }
     }
     return result;
-}
