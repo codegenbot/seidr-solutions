@@ -3,9 +3,9 @@ int main() {
     cin >> s;
     
     if (s.length() % 2 == 0) {
-        cout << s.substr(s.length()/2 - 1, 2) << endl;
+        cout << s.substr(s.length() / 2 - 1, 2);
     } else {
-        cout << s[s.length()/2] << endl;
+        cout << s[s.length() / 2];
     }
     
     return 0;
