@@ -1,11 +1,12 @@
+```
 def parse_music(s):
     s = s.lower()
-    o_count = [0]
-    for word in s.split():
-        if 'o' in word:
-            count = word.count('o')
-            o_count.append(count)
+    words = s.replace("|", " ").split()
+    word_counts = {}
+    for word in words:
+        if word in word_counts:
+            word_counts[word] += 1
         else:
-            o_count.append(0)
-    return o_count
+            word_counts[word] = 1
+    return [word_counts[word] for word in set(words)]
 print(parse_music("o| .| o| .| o o| o o|"))
