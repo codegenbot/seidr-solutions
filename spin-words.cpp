@@ -2,28 +2,28 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string input) {
-    std::stringstream ss(input);
-    std::string word;
-    std::string output = "";
+using namespace std;
 
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        output += word + " ";
+string spinWords(string str) {
+    string result = "";
+    string temp = "";
+
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            temp = (temp.length() >= 5) ? std::string(temp.rbegin(), temp.rend()) : temp;
+            result += temp;
+            temp = "";
+        } else
+            temp += str[i];
     }
 
-    return output.substr(0, output.size() - 1);
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string of one or more words (or 'q' to quit): ";
-        std::cin >> input;
-        if (input == "q") break;
-        std::cout << "Spin-words: " << spinWords(input) << std::endl;
-    }
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
