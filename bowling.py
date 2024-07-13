@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     frame_count = 1
@@ -21,4 +22,5 @@ def bowling_score(frames):
             if frame_count < 10:
                 score += sum(rolls[:])
             break
+        frame_count += 1
     return score
