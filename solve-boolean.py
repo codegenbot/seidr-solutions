@@ -16,6 +16,7 @@ def solve_boolean(expression):
                 if stack[-1] == '(':
                     break
                 stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
-            stack.append(char)
-
-    return reduce(lambda x, y: ops[y](x, stack.pop()), [op for op in ops if op in stack], stack.pop())
+            while stack:
+                if stack[-1] in '()':
+                    break
+                stack.append(ops[stack.pop()](stack.pop(), stack.pop()))
