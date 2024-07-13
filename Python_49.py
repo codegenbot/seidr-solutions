@@ -1,6 +1,4 @@
-def modp(n: int, p: int):
-    return pow(n, mod_inverse(p, n)) % n
-
+```
 def mod_inverse(a: int, m: int):
     if gcd(a, m) != 1:
         return None
@@ -15,3 +13,6 @@ def mod_inverse(a: int, m: int):
     if g != 1:
         return None
     return x % m
+
+def modp(n: int, p: int):
+    return pow(n, mod_inverse(p, n)) % n
