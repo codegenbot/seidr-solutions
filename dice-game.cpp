@@ -35,5 +35,6 @@ int main() {
 
     double result = diceGame(n, m);
     cout << "Probability that Peter rolls strictly higher than Colin is: " << result << endl; 
+
     return 0;
 }
