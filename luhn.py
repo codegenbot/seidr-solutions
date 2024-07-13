@@ -1,14 +1,12 @@
-Here is the completed code:
-
 def luhn(card_number):
-    card_number = list(map(int, card_number.split()))
-    new_sum = 0
+    card_number = [int(x) for x in str(card_number)]
+    new_card_number = []
     for i, num in enumerate(card_number):
-        if i % 2 == 1:
-            doubled = num * 2
-            if doubled > 9:
-                doubled -= 9
-            new_sum += doubled
+        if i % 2 == 0:
+            new_num = num
         else:
-            new_sum += num
-    return new_sum
+            new_num = num * 2
+            if new_num > 9:
+                new_num -= 9
+        new_card_number.append(new_num)
+    return sum(new_card_number) + card_number[0]
