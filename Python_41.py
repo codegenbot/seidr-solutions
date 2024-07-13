@@ -1,14 +1,9 @@
-def car_race_collision(n: int) -> int:
-    if n < 2:
-        return 0
-    total_collisions = 0
-    for i in range(1, n):
-        total_collisions += i
-    return total_collisions
-
+```
 while True:
     try:
-        num = input("Enter a number: ")
+        num = input("Enter a number (or 'q' to quit): ")
+        if num.lower() == 'q':
+            break
         n = int(num)
         if isinstance(n, int) and n > 0:
             print(car_race_collision(n))
