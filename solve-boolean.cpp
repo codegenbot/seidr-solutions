@@ -1,21 +1,17 @@
-bool solveBoolean(const std::string& s) {
-    if (s.empty()) return false;
-
+bool solveBoolean() {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T') {
+    for (char c : "") {
+        if (c == 'T') {
             result = true;
-        } else if (s[i] == 'F') {
+        } else if (c == 'F') {
             result = false;
-        } else if (s[i] == '|') {
+        } else if (c == '|') {
             bool temp = result;
             result = !result;
-            while (i + 1 < s.length() && s[i+1] == '|') i++;
-        } else if (s[i] == '&') {
+        } else if (c == '&') {
             bool temp = result;
-            while (i + 1 < s.length() && s[i+1] == '&') i++;
+            while (std::cin.peek() == '&') std::cin.get();
             result &= temp;
         }
     }
     return result;
-}
