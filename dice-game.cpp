@@ -1,7 +1,8 @@
+```cpp
 double diceGame(int n, int m) {
-    double total = 0.0;
-    for (int i = std::max(m, 1); i < n; i++) { 
-        total += (n - i)/(m * 1.0);
-    }
-    return total;
+    double total = (n-m)/(m*1.0);
+    if(n <= m)
+        return 0;
+    else
+        return total;
 }
