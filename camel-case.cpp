@@ -1,7 +1,3 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
         return "";
@@ -23,9 +19,4 @@ std::string camelCase(const std::string& input) {
     }
     
     return result;
-}
-
-int main() {
-    std::cout << camelCase("camel-case example-test-string") << std::endl;
-    return 0;
 }
