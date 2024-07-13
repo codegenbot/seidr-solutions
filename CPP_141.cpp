@@ -1,32 +1,32 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
     int digit_count = 0;
-    bool found_dot = false;
-    string before_dot;
+    bool has_dot = false;
+    bool valid_start = true;
+    string start_substr;
+    string end_substr;
 
     for(int i=0; i<file_name.length(); i++){
         char c = file_name[i];
-        if(isdigit(c)){
+        if(c >= '0' && c <= '9'){
             digit_count++;
+            if(digit_count > 3)
+                return "No";
         }
-        else if(c == '.'){
-            found_dot = true;
-        }
-        else{
-            if(!found_dot){
-                before_dot += c;
-            }
-        }
+        else if(c == '.')
+            has_dot = true;
+        else if(i < file_name.find('.'))
+            start_substr += c;
+        else
+            end_substr += c;
+
     }
 
-    if(digit_count > 3 || !found_dot || before_dot.empty() || !isalpha(before_dot[0])){
+    if(!has_dot || start_substr.empty() || !isalpha(start_substr[0]))
         return "No";
-    }
-
-    string after_dot = file_name.substr(file_name.find('.')+1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()){
+    if(end_substr != "txt" && end_substr != "exe" && end_substr != "dll")
         return "No";
-    }
 
     return "Yes";
 }
