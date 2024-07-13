@@ -1,12 +1,10 @@
+```c++
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 11};
-    vector<int> leadersVector = leaders(arr);
-    for (auto leader : leadersVector) {
-        cout << leader << " ";
-    }
+    vector<int> arr = {1, 3, 4, 2};
+    leaders(arr); 
     return 0;
 }
 
