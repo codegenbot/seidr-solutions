@@ -1,16 +1,20 @@
-int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
+#include <iostream>
+#include <string>
 
-    for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
-        } else if (c == cipher2[0]) {
-            c = cipher1[0];
+int main() {
+    std::string cipher1, cipher2, text;
+    std::cin >> cipher1 >> cipher2 >> text;
+    
+    for (char &c : text) {
+        for (size_t i = 0; i < cipher1.size(); ++i) {
+            if (c == cipher1[i]) {
+                c = cipher2[i];
+                break;
+            }
         }
     }
-
-    cout << message << endl;
-
+    
+    std::cout << text << std::endl;
+    
     return 0;
 }
