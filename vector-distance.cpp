@@ -26,6 +26,6 @@ int main() {
 
     cout << fixed << setprecision(10);
     cout << vectorDistance(n) << endl;
-    cout.unsetf(ios_base::floatfield); 
+    cout.unsetf(ios_base::floatfield); // Clear the precision
     return 0;
 }
