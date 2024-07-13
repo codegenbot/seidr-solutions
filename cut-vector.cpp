@@ -1,31 +1,35 @@
 int main() {
     vector<int> nums;
-    int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
-
-    int total = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        total += nums[i];
-    }
-
+    
     int sum = 0;
-    int minDiff = INT_MAX;
-    int cutIdx = -1;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        int diff = abs(total - 2 * sum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIdx = i;
+    for (int n : nums) {
+        sum += n;
+    }
+    
+    int target = sum / 2;
+    int prefixSum = 0;
+    int idx = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
+            idx = i;
+            break;
         }
     }
-
-    for (int i = 0; i <= cutIdx; i++) {
-        cout << nums[i] << endl;
+    
+    vector<int> sub1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> sub2(nums.begin() + idx + 1, nums.end());
+    
+    for (int n : sub1) {
+        cout << n << endl;
     }
-    cout << 0 << endl;
-
+    for (int n : sub2) {
+        cout << n << endl;
+    }
+    
     return 0;
 }
