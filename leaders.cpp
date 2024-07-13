@@ -8,11 +8,11 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     if(n == 0) return res;
     
-    int maxRightSoFar = arr.back(); // the rightmost element is always a leader
+    int maxRightSoFar = *std::max_element(arr.begin(), arr.end()); // initialize with maximum of all elements
     res.push_back(maxRightSoFar);
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= maxRightSoFar && i == n-1 || arr[i] > maxRightSoFar) {
+        if(arr[i] >= maxRightSoFar) {
             res.push_back(arr[i]);
             maxRightSoFar = arr[i];
         }
