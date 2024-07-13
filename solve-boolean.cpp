@@ -1,7 +1,6 @@
-#include <cstddef>
-#include <string>
+```c++
 #include <iostream>
-#include <ostream>
+#include <string>
 
 bool solveBoolean(std::string expression) {
     bool result = true;
@@ -51,3 +50,4 @@ int main() {
         std::cout << "Result: FALSE" << std::endl;
     }
     return 0;
+}
