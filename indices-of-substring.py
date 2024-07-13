@@ -10,3 +10,6 @@ def indices_of_substring(text):
                     break
                 result.append(j)
     return result
+
+text = input()
+print(indices_of_substring(text))
