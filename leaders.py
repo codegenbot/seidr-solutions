@@ -3,8 +3,8 @@ def leaders(arr):
     leaders = [arr[n-1]]
     
     for i in range(n-2, -1, -1):
-        if arr[i] < leaders[0]:
-            break
-        leaders.insert(0, arr[i])
+        max_right = max(arr[i+1:])
+        if arr[i] >= max_right:
+            leaders.append(arr[i])
     
-    return leaders
+    return list(reversed(leaders))
