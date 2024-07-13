@@ -1,4 +1,4 @@
-vector<int> findLeaders(vector<int> nums) {
+vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
     int maxRight = INT_MIN;
     for (int i = nums.size() - 1; i >= 0; i--) {
