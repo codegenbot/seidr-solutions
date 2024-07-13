@@ -13,14 +13,20 @@ def is_multiply_prime(n=None):
             return True
 
         product = a * b
-        return is_prime(a) and is_prime(b)
+        return is_prime(product)
     else:
         if n < 2:
             return False
-        for i in range(2, int(n**0.5) + 1):
-            if n % i == 0:
-                root_i = int(i**0.5)
-                for j in range(root_i+1):
-                    if (j * i - n) // abs(j * i - n) == 0 and is_multiply_prime(abs(n//i)):
-                        return True
-        return False
+        if isinstance(n, int):
+            for i in range(2, int(n**0.5) + 1):
+                if n % i == 0:
+                    factors = [i]
+                    j = n // i
+                    while j > 1 and i <= j:
+                        if not is_prime(j):
+                            return False
+                        i = j
+                        j = n // i
+                    return True
+        else:
+            return None
