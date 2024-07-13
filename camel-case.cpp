@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <cctype>
+#include <iostream>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -30,4 +30,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
-}
