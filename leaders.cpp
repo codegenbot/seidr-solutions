@@ -1,6 +1,4 @@
-```cpp
-#include <algorithm>
-using namespace std;
+#include <vector>
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
@@ -12,10 +10,3 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    vector<int> leadersRes = leaders(arr);
-    return 0;
-}

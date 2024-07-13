@@ -1,4 +1,3 @@
-#include <string>
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -19,6 +18,11 @@ bool solveBoolean(string expression) {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
             valStack.pop();
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                valStack.pop();
+            }
+            if (!opStack.empty()) opStack.push('&');
         }
     }
 
