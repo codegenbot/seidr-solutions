@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -5,14 +6,13 @@
 using namespace std;
 
 int main() {
-    int startHeight, firstBounce;
-    double numBounces;
+    int startHeight = 0, firstBounce = 0, numBounces = 0;
     cin >> startHeight >> firstBounce >> numBounces;
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
     double totalDistance = 0.0;
-    for (int i = 1; i <= (int)numBounces; ++i) {
+    for (int i = 1; i <= numBounces; ++i) {
         double heightAfterBounce = startHeight * pow(bouncinessIndex, i);
         totalDistance += abs(startHeight - heightAfterBounce);
         startHeight = heightAfterBounce; 
