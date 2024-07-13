@@ -1,21 +1,21 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string kebabToCamel(const std::string& str) {
-    std::stringstream ss(str);
     std::string result;
     bool capitalize = true;
 
-    for (std::string segment; ss >> segment;) {
-        if (capitalize) {
-            for (char c : segment) {
-                result += toupper(c);
-                capitalize = false;
-            }
-        } else {
-            result += " " + segment;
+    for (char c : str) {
+        if (c == '-') {
             capitalize = true;
+        } else if (c == ' ') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
 
