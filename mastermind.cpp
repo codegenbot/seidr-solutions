@@ -1,22 +1,24 @@
+#include <string>
+
 int mastermind(std::string code, std::string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             black++;
         }
-    }
-
-    for(int i=0; i<4; i++) {
-        bool correct_color = false;
-        for(int j=0; j<4; j++) {
-            if(guess[i] == code[j] && !correct_color) {
-                white++;
-                correct_color = true;
-            }
+        else if(std::count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
         }
     }
 
-    return {black, white};
+    return black + white;
+}
+
+int main() {
+    std::string code = "ABCD";
+    std::string guess = "ABDC";
+    int result = mastermind(code, guess);
+    return 0;
 }
