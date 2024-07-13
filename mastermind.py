@@ -1,8 +1,9 @@
 def mastermind(code, guess):
-    correct_place = sum(
-        c1 == c2 and i1 == i2
-        for i1, c1 in enumerate(code)
-        for i2, c2 in enumerate(guess)
+    white = sum(c in guess for c in code)
+    black = sum(
+        [
+            c1 == c2 and code.index(c1) != i
+            for i, (c1, c2) in enumerate(zip(code, guess))
+        ].count(True)
     )
-    correct_color = sum(1 for c1, c2 in zip(code, guess) if c1 == c2)
-    return str(correct_place), str(4 - correct_color + correct_place)
+    return str(white), str(black)
