@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <string>
 
 int main() {
     std::string startHeightStr;
@@ -20,8 +19,8 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
+        totalDistance += abs(startHeight);
         startHeight *= bouncinessIndex; 
-        totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
     std::cout << std::fixed << std::cout.precision(5) << totalDistance << "\n";
