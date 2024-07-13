@@ -1,6 +1,4 @@
-def sort_third(lst):
-    lst.sort(key=lambda x: (x % 3, -abs(x)))
-    result = []
-    for i in range(0, len(lst), 3):
-        result.append(lst[i])
-    return result
+```
+def sort_third(l):
+    l.sort(key=lambda x: (3 - x % 3, -abs(x)))
+    return [i for i in l]
