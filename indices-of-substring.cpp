@@ -8,12 +8,17 @@ int main() {
     std::cin.getline(text, 100);
     std::cin.getline(target, 100);
 
-    for (int i = 0; text[i]; ++i) {
+    for (int i = 0; text[i] != '\0'; ++i) {
         text[i] = std::tolower(text[i]);
     }
 
-    for (int i = 0; target[i]; ++i) {
+    for (int i = 0; i < strlen(target); ++i) {
         target[i] = std::tolower(target[i]);
+    }
+
+    if (strlen(target) == 0) {
+        std::cout << "0";
+        return 0;
     }
 
     std::vector<int> indices;
@@ -23,7 +28,7 @@ int main() {
     for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (text[i + j] != std::tolower(target[j])) {
+            if (std::tolower(text[i + j]) != std::tolower(target[j])) {
                 found = false;
                 break;
             }
@@ -33,7 +38,7 @@ int main() {
         }
     }
 
-    if (indices.empty()) {
+    if (indices.empty() && strlen(target) > strlen(text)) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
