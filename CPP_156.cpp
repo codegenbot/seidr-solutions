@@ -1,15 +1,15 @@
-vector<pair<int, string>> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, 
-                                      {400, "cd"}, {100, "c"}, {90, "xc"}, 
-                                      {50, "l"}, {40, "xl"}, {10, "x"}, 
-                                      {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
-
 string int_to_mini_roman(int number) {
-    string result = "";
-    for (auto& p : roman) {
-        while (number >= p.first) {
-            result += p.second;
-            number -= p.first;
+    vector<pair<int, string>> romanMap = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
+                                            {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+                                            {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+
+    string roman = "";
+    for (const auto& pair : romanMap) {
+        while (number >= pair.first) {
+            number -= pair.first;
+            roman += pair.second;
         }
     }
-    return result;
+
+    return roman;
 }
