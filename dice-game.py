@@ -1,7 +1,5 @@
+```
 def dice_game(n, m):
-    return sum(
-        1 / (n * m)
-        for i in range(min(n, m) - 1)
-        for j in range(max(m, n) - min(n, m) + 1)
-        if i + j + 1 == n
-    )
+    total = n * m
+    higher_than_colin = sum(min(i, j) == i for i in range(1, n+1) for j in range(1, m+1))
+    return float(higher_than_colin) / total
