@@ -1,3 +1,7 @@
-```
-if __name__ == "__main__":
-    print(process_music("""Hello o-o World!"""))
+def process_music(s):
+    s = s.lower()
+    words = s.split()
+    processed_words = [word.replace("-", " ") for word in words]
+    output = ' '.join(processed_words)
+    return output
+print(process_music("Hello o-o World!"))
