@@ -1,30 +1,27 @@
-bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "t") return true;
-    if (expression == "f") return false;
-    
-    bool result;
-    if (expression.find('&') != string::npos) {
-        size_t pos = expression.find('&');
-        result = evaluateBooleanExpression(expression.substr(0, pos)) && evaluateBooleanExpression(expression.substr(pos + 1));
-    } else if (expression.find('|') != string::npos) {
-        size_t pos = expression.find('|');
-        result = evaluateBooleanExpression(expression.substr(0, pos)) || evaluateBooleanExpression(expression.substr(pos + 1));
-    }
-    
-    return result;
-}
-
 int main() {
-    string expression;
-    cin >> expression;
-    
-    bool result = evaluateBooleanExpression(expression);
-    
-    if (result) {
+    string input;
+    cin >> input;
+
+    if (input == "t") {
         cout << "True" << endl;
-    } else {
+    } else if (input == "f") {
         cout << "False" << endl;
+    } else {
+        char op = input[1];
+        if (op == '&') {
+            if (input[0] == 't' && input[2] == 't') {
+                cout << "True" << endl;
+            } else {
+                cout << "False" << endl;
+            }
+        } else if (op == '|') {
+            if (input[0] == 't' || input[2] == 't') {
+                cout << "True" << endl;
+            } else {
+                cout << "False" << endl;
+            }
+        }
     }
-    
+
     return 0;
 }
