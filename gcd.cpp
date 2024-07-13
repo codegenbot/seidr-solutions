@@ -1,8 +1,6 @@
-```cpp
 #include <cstddef>
 #include <vector>
 #include <string>
-#include <utility>
 
 using std::size_t;
 
@@ -26,5 +24,5 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
             i += m; // Increment by the length of the target substring
         }
     }
-    return result;
+    return std::move(result);
 }
