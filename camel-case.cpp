@@ -1,23 +1,21 @@
 #include <string>
 #include <sstream>
+#include <vector>
 
 std::string camelCase(const std::string& input) {
-    if (input.empty()) {
-        return "";
-    }
-
-    std::stringstream iss(input + " "); 
+    std::stringstream iss;
     std::string word;
-    std::string result;
+    std::vector<std::string> words;
 
-    while (iss >> word && word != "") { 
-        if (!result.empty())
-            result += char(std::toupper(word[0]));
-        else
-            result = std::move(word).substr(1);
-        for (int i = 1; i < word.size(); ++i)
-            result += char(std::tolower(word[i]));
+    for (const auto &s : input.split '-') {
+        if (!s.empty())
+            words.push_back(s);
     }
-    
+
+    std::string result = std::move(words[0]).substr(1);
+
+    for (int i = 1; i < words.size(); ++i)
+        result += char(std::toupper(words[i][0])) + std::string(words[i].erase(0, 1));
+
     return result;
 }

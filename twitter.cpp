@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 std::string validateTweet(std::string tweet) {
     if (tweet.size() > 140) {
