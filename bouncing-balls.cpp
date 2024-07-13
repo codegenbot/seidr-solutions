@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
+    string startHeightStr, firstBounceStr;
+    cin >> startHeightStr >> firstBounceStr >> int numBounces;
 
-    cin >> startHeight >> firstBounce;        
-    cin >> numBounces;
+    double startHeight = stod(startHeightStr);
+    double firstBounce = stod(firstBounceStr);
 
     if (!(cin && (cin.peek() == EOF))) {
         cout << "Invalid input. Please enter valid inputs." << endl;
@@ -23,7 +22,8 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    cout << std::setprecision(10) << totalDistance << endl;
+    std::cout << std::fixed << std::setprecision(10);
+    std::cout << totalDistance << endl;
 
     return 0;
 }
