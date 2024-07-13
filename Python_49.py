@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -12,4 +11,10 @@ def modp(n: int, p: int) -> int:
             return i
 
 
-print(modp(3, 5))
+def main():
+    a = int(input("Enter the first number: "))
+    b = int(input("Enter the second number: "))
+    print(modp(a, b))
+
+
+main()
