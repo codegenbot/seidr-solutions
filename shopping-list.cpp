@@ -19,12 +19,12 @@ int main() {
     int n;
     cin >> n;
     
-    prices.resize(n); // Declare and resize the prices vector
+    prices.resize(n);
     for(int i = 0; i < n; i++) {
         cin >> prices[i];
     }
     
-    discounts.resize(n); // Declare, resize and read values into the discounts vector
+    discounts.resize(n); // Declare and resize the discounts vector
     for(int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
