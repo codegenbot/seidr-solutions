@@ -1,5 +1,2 @@
 def choose_num(x, y):
-    for i in range(max(x, y), min(x, y), -1):
-        if i % 2 == 0:
-            return i
-    return -1
+    return max((x, y), key=lambda k: k%2 and k or float('inf'))
