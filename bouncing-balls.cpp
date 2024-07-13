@@ -1,15 +1,18 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
+    string startHeightStr, firstBounceStr;
     int numBounces;
 
-    cin >> ws; cin >> startHeight;
-    cin >> ws; cin >> firstBounce;
+    cin >> ws; getline(cin, startHeightStr);
+    cin >> ws; getline(cin, firstBounceStr);
     cin >> numBounces;
+
+    double startHeight = stod(startHeightStr), firstBounce = stod(firstBounceStr);
 
     double bouncinessIndex = firstBounce / startHeight;
 
