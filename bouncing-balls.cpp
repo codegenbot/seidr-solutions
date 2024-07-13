@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -13,6 +14,6 @@ int main() {
 
     totalDistance = (1 + 2 * bouncinessIndex) * (1 - pow(bouncinessIndex, 2)) * numBounces;
 
-    std::cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
+    std::cout << std::fixed << std::setprecision(10) << totalDistance << std::endl;
     return 0;
 }
