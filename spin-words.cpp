@@ -11,15 +11,13 @@ string spinWords(string str) {
 
     for (int i = 0; i <= str.length() - 1; i++) {
         if (str[i] == ' ') {
-            result += str.substr(i - (i - wordLength + 1) + 1, i - wordLength + 1) + " ";
-            wordLength = 0;
+            result += str.substr(i - i + 1, i - i + 1) + " ";
+            i--;
         } else {
-            wordLength++;
+            i++;
         }
     }
 
-    result += str.substr(str.length() - wordLength);
-    
     for(int i = 0; i < result.length(); i++) {
         if(result[i] == ' ') {
             string temp = result.substr(i + 1);
