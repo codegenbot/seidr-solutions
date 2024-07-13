@@ -1,8 +1,15 @@
 int main() {
-    string input;
-    cin >> input;
+    string expression;
+    cin >> expression;
 
-    if (input == "t") {
+    bool result = true;
+    if (expression == "f") {
+        result = false;
+    } else if (expression == "f&f" || expression == "f&t" || expression == "t&f") {
+        result = false;
+    }
+
+    if (result) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
