@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -22,4 +21,5 @@ print(gcd(a, b))
 
 text = input("Enter text: ")
 target = input("Enter target: ")
+
 print(find_indices(text, target))
