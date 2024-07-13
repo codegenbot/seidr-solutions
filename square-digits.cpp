@@ -8,3 +8,5 @@ string squareDigits(string input) {
         output += to_string(digit * digit);
     }
 }
+
+```
