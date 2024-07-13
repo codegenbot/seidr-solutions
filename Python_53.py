@@ -1,4 +1,4 @@
-def add(x, y):
+def add():
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
         if cont == "N":
