@@ -1,27 +1,39 @@
-#include <string>
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+    char codeArray[5], guessArray[5];
+    strcpy(codeArray, code.c_str());
+    strcpy(guessArray, guess.c_str());
+
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] == guessArray[i]) {
             black++;
-            code[i] = 'X';
-            guess[i] = 'Y';
+            codeArray[i] = 'x';
+            guessArray[i] = 'x';
         }
     }
 
-    for(int i = 0; i < 4; i++) {
-        int count = 0;
-        for(int j = 0; j < 4; j++) {
-            if(code[j] == guess[i]) {
-                count++;
-            }
-        }
-        if(count > 1) black += (count - 1);
-        else if(count > 0) white += (count - 1);
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
+
+    for (int i = 0; i < 4; i++) {
+        codeCount[codeArray[i] - '0']++;
+        guessCount[guessArray[i] - '0']++;
     }
 
-    return black + white;
+    for (int i = 0; i < 6; i++) {
+        if (codeCount[i] == 1 && guessCount[i] == 1) {
+            black--;
+        }
+    }
+
+    white += black;
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] != 'x' && codeArray[i] == guessArray[i]) {
+            white++;
+        }
+    }
+
+    return black, white;
 }
