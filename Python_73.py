@@ -1,10 +1,14 @@
 ```
-def smallest_change(arr):
+def smallest_change():
+    arr = input("Enter space-separated numbers: ").split()
+    if not all(arr[i].isdigit() for i in range(len(arr))):
+        return 
     n = len(arr)
     try:
+        arr = list(map(int, arr))
         arr.sort()
-    except AttributeError:
-        return "Invalid input"
+    except Exception as e:
+        return str(e)
     
     changes = 0
     for i in range(1, n):
@@ -19,3 +23,5 @@ def smallest_change(arr):
             changes += 1
     
     return changes
+
+print(smallest_change())
