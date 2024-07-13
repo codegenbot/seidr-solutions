@@ -17,8 +17,5 @@ int mastermind(string code, string guess) {
         }
     }
 
-    // Subtract the correct colors (black pegs)
-    blackPegs -= whitePegs;
-
     return blackPegs;
 }
