@@ -6,6 +6,9 @@ int main() {
     int num;
     
     while (std::cin >> num) {
+        if (num <= 0) {
+            break;
+        }
         nums.push_back(num);
     }
     
