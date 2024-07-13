@@ -26,7 +26,6 @@ std::string spinWords(std::string str) {
         }
     }
     
-    result.erase(result.size()-1);
     return result;
 }
 
