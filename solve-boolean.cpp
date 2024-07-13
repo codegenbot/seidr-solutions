@@ -1,52 +1,37 @@
-```cpp
 #include <iostream>
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string expression) {
-    int i = 0;
-    bool result = true;
-    
-    while (i < expression.length()) {
-        if (expression[i] == 'T') {
-            result = true;
-            i++;
-        } else if (expression[i] == 'F') {
-            result = false;
-            i++;
+    std::stack<char> s;
+    bool result = false;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            if (s.empty()) result = true;
         } else if (expression[i] == '&') {
-            i++; // Skip &
-            bool temp = true;
-            while (i < expression.length() && expression[i] != '|') {
-                if (expression[i] == 'T') {
-                    temp = true;
-                    i++;
-                } else if (expression[i] == 'F') {
-                    temp = false;
-                    break;
-                }
+            s.push('&');
+        } else if (expression[i] == 'T') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (!temp) result = false;
-        } else if (expression[i] == '|') {
-            i++; // Skip |
-            bool temp1 = true, temp2 = true;
-            while (i < expression.length() && expression[i] != '&') {
-                if (expression[i] == 'T') {
-                    temp1 = true;
-                    i++;
-                } else if (expression[i] == 'F') {
-                    temp1 = false;
-                    break;
-                }
+            if (s.empty()) result = true;
+        } else if (expression[i] == 'F') {
+            while (!s.empty()) {
+                s.pop();
             }
-            if (!temp1) result = temp2;
+            result = false;
+            break;
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    std::cout << solveBoolean("T&T|F") << std::endl;
+    std::cout << solveBoolean("T|&F") << std::endl;
     return 0;
 }
