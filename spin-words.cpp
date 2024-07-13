@@ -9,20 +9,18 @@ std::string spinWords(std::string str) {
     
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
-            if (!word.empty()) {
-                if (word.length() >= 5) {
-                    std::reverse(word.begin(), word.end());
-                }
-                
-                result += word + " ";
-                word.clear();
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
+            
+            result += word + " ";
+            word.clear();
         } else {
             word += str[i];
         }
     }
     
-    return !str.empty() ? result : str;
+    return result;
 }
 
 int main() {
@@ -31,7 +29,7 @@ int main() {
     std::getline(std::cin, str);
     
     if (!str.empty()) {
-        std::cout << "Enter a string: " << spinWords(str) << std::endl;
+        std::cout << spinWords(str) << std::endl; 
     } else {
         std::cout << "No input provided." << std::endl;
     }
