@@ -1,9 +1,10 @@
-```Python
+```
 def basement(nums):
+    total_sum = 0
+    sign = 1 if total_sum > 0 else -1
     for i in range(len(nums)):
-        running_sum = 0
-        for j in range(i+1):
-            running_sum += nums[j]
-            if running_sum < 0:
-                return i + 1
+        total_sum += nums[i]
+        if total_sum < 0 and sign == 1:
+            return i + 1
+        sign = -sign if total_sum < 0 else 1
     return -1
