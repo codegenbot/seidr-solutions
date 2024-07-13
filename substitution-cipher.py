@@ -1,18 +1,14 @@
-def substitution_cipher(cipher1, cipher2, message):
-    cipher = {}
-    for i in range(len(cipher1)):
-        cipher[cipher2[i]] = cipher1[i]
-    
-    result = ""
+def substitution_cipher(cipher_map, message):
+    deciphered_message = ""
     for char in message:
-        if char in cipher:
-            result += cipher[char]
+        if char in cipher_map[0]:
+            index = cipher_map[0].index(char)
+            deciphered_message += cipher_map[1][index]
         else:
-            result += char
-    return result
+            deciphered_message += char
+    return deciphered_message
 
 
-cipher1 = input()
-cipher2 = input()
-message = input()
-print(substitution_cipher(cipher1, cipher2, message))
+cipher_map = [input().strip(), input().strip()]
+message = input().strip()
+print(substitution_cipher(cipher_map, message))
