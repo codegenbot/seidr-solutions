@@ -1,28 +1,23 @@
-```cpp
-#include <string>
-using namespace std;
-
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+    int pegs[2] = {0, 0};
     
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
+            pegs[1]++;
         }
     }
     
-    for (int i = 0; i < 6; i++) {
+    for (char c : guess) {
         int count = 0;
         for (int j = 0; j < 4; j++) {
-            if (guess[j] == (char)(i + 'A')) {
+            if (code[j] == c) {
                 count++;
             }
         }
-        if (count && code.find((char)(i + 'A')) != string::npos) {
-            white++;
+        if (count > 0 && code.find(c) != string::npos) {
+            pegs[0]++;
         }
     }
     
-    return {white, black};
+    return pegs[1], pegs[0];
 }
