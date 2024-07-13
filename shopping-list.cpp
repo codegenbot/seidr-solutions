@@ -1,6 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 float totalShoppingPrice(vector<float> prices, vector<float> discounts) {
