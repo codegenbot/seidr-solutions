@@ -1,5 +1,7 @@
-#include <iostream>
+```cpp
+#include <cstddef>
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string expression) {
     bool result = true;
@@ -43,8 +45,8 @@ int main() {
     while (true) {
         std::cout << "Enter the Boolean expression: ";
         std::getline(std::cin, expression);
-        if (!expression.find_first_of("TF|&")) { 
-            break; 
+        if (expression.find_first_of("TF|&") == std::string::npos) {
+            break; // valid input
         }
         std::cout << "Invalid input. Please try again." << std::endl;
     }
