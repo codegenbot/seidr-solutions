@@ -1,45 +1,46 @@
-int score(string frames) {
-    int totalScore = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores;
-    for (char c : frames) {
-        if (c == 'X') {
-            scores.push_back(10);
-            if (frame < 10) {
-                scores.push_back(0);
-            }
-        } else if (c == '/') {
-            scores.push_back(10 - scores.back());
-        } else if (c == '-') {
-            scores.push_back(0);
-        } else {
-            scores.push_back(c - '0');
-        }
-    }
-    for (int i = 0; i < scores.size(); ++i) {
-        totalScore += scores[i];
-        if (frame < 10 && (scores[i] == 10 || ball == 1)) {
-            totalScore += scores[i+1];
-            if (scores[i] == 10 && scores[i+2] != 10) {
-                totalScore += scores[i+2];
-            }
-            if (scores[i] == 10) {
-                ball = 0;
+int bowling(string s) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size() && frame < 10; i++) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+                if (s[i+4] == 'X') {
+                    score += 10;
+                } else {
+                    score += (s[i+4] - '0');
+                }
             } else {
-                ball = 1;
+                if (s[i+3] == '/') {
+                    score += 10;
+                } else {
+                    score += (s[i+2] - '0') + (s[i+3] - '0');
+                }
             }
             frame++;
-        } else {
-            ball = (ball + 1) % 2;
+        } else if (s[i] == '/') {
+            score += (10 - (s[i-1] - '0'));
+            if (s[i+2] == 'X') {
+                score += 10;
+            } else {
+                score += (s[i+2] - '0');
+            }
+            frame++;
+        } else if (s[i] >= '0' && s[i] <= '9') {
+            score += (s[i] - '0');
+            if (s[i+1] == '/') {
+                score += (10 - (s[i] - '0'));
+            }
+            frame++;
         }
     }
-    return totalScore;
+    return score;
 }
 
 int main() {
-    string frames;
-    cin >> frames;
-    cout << score(frames) << endl;
+    string s;
+    cin >> s;
+    cout << bowling(s) << endl;
     return 0;
 }
