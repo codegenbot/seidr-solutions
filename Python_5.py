@@ -2,6 +2,8 @@
 def find_max_min_average(numbers):
     if not isinstance(numbers, list):
         return "Error: Input is not a list."
+    if len(numbers) == 0:
+        return "Error: Empty list. Please enter non-empty list."
     if not all(isinstance(i, int) for i in numbers):
         return "Error: All elements must be integers."
 
