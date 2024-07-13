@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -8,7 +9,7 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
-            return {min({complement, nums[i]}), max({complement, nums[i]})};
+            return {min({complement, nums[i]}), max({component, nums[i]})};
         }
         numIndex[nums[i]] = i;
     }
