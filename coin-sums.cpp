@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int quarters = 0;
@@ -13,8 +11,12 @@ int main() {
     std::getline(std::cin, input);
     int cents = std::stoi(input);
 
-    quarters = cents / 25;
-    cents %= 25;
+    int quarterCents = 0;
+    while (cents >= 25) {
+        quarters++;
+        quarterCents += 25;
+        cents -= 25;
+    }
 
     dimes = cents / 10;
     cents %= 10;
