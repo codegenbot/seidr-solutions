@@ -1,10 +1,14 @@
+```cpp
 #include <iostream>
+int gcd(int a, int b) {
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
 int main() {
     int a, b;
     std::cin >> a >> b;
-    for(int i = std::max(std::abs(a), std::abs(b)); i > 0; --i) {
-        if((a % i == 0) && (b % i == 0))
-            std::cout << i << std::endl;
-    }
+    std::cout << gcd(a, b) << std::endl;
     return 0;
 }
