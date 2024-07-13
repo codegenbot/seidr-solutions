@@ -1,4 +1,6 @@
+```c++
 #include <string>
+#include <algorithm>
 
 auto spinWords(std::string str) {
     std::vector<std::string> words;
@@ -27,3 +29,4 @@ auto spinWords(std::string str) {
     }
     
     return result;
+};
