@@ -1,28 +1,25 @@
-int remain_cents = cents;
-int quarters = 0;
-while (remain_cents >= 25) {
-    quarters++;
-    remain_cents -= 25;
+#include <iostream>
+using namespace std;
+
+int main() {
+    int cents;
+    cin >> cents;
+
+    int quarters = cents / 25;
+    int remainingCents = cents % 25;
+
+    int dimes = remainingCents / 10;
+    int remainingNickelsCents = remainingCents % 10;
+
+    int nickles = remainingNickelsCents / 5;
+    int remainingPenniesCents = remainingNickelsCents % 5;
+
+    int pennies = remainingPenniesCents;
+
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
+
+    return 0;
 }
-
-int dimes = 0;
-int remain_dimes = remain_cents;
-while (remain_dimes >= 10) {
-    dimes++;
-    remain_dimes -= 10;
-}
-
-int nickles = 0;
-int remain_nickles = remain_dimes;
-while (remain_nickles >= 5) {
-    nickles++;
-    remain_nickles -= 5;
-}
-
-int pennies = 0;
-pennies = remain_nickles;
-
-cout << quarters << endl;
-cout << dimes << endl;
-cout << nickles << endl;
-cout << pennies << endl;
