@@ -1,4 +1,5 @@
 #include <string>
+
 bool solveBoolean(std::string s) {
     bool res = (s[0] == 'T');
     for(int i = 1; i < s.size(); ++i) {
@@ -12,4 +13,3 @@ bool solveBoolean(std::string s) {
         }
     }
     return res;
-}
