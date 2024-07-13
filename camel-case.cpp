@@ -1,5 +1,4 @@
-```cpp
-#include <iostream>
+```c++
 #include <string>
 #include <cctype>
 
@@ -24,6 +23,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << "Camel Case: " << camelCase(input) << std::endl;
+    std::cout << camelCase(input) << '\n';
     return 0;
 }
