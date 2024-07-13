@@ -1,5 +1,10 @@
-```
 import re
+
+
+def check(func):
+    s = input("Enter a string: ")
+    output = func(s)
+    print(output)
 
 
 def words_string(s):
@@ -11,3 +16,6 @@ def words_string(s):
     if len(words) < 2:
         return "Error: No words found"
     return words
+
+
+check(words_string)

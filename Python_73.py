@@ -1,3 +1,12 @@
+while True:
+    try:
+        result = array_change([int(x) for x in input("Enter the array (space separated numbers): ").split()])
+        break
+    except ValueError:
+        print("Invalid input. Please enter space-separated integers.")
+
+print(result)
+
 def array_change(lst):
     max_diff = 0
     for i in range(1, len(lst)):
@@ -6,6 +15,3 @@ def array_change(lst):
             max_diff = diff
 
     return max_diff
-
-
-result = array_change([int(x) for x in input("Enter the array: ").split()])
