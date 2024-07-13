@@ -11,11 +11,12 @@ def rescale_to_unit(*inputs):
         
         rescaled_numbers = []
         for lst in inputs:
-            if not lst:
-                continue
-            min_val = min(lst)
-            max_val = max(lst)
-            rescaled_lst = [(x - min_val) / max(abs(x - min_val), 1e-9) for x in lst]
+            if lst: 
+                min_val = min(lst)
+                max_val = max(lst)
+                rescaled_lst = [(x - min_val) / max(abs(x - min_val), 1e-9) for x in lst]
+            else:
+                rescaled_lst = [] 
             rescaled_numbers.append(rescaled_lst)
     else:
         inputs = list(map(float, inputs_str.split()))
@@ -23,8 +24,6 @@ def rescale_to_unit(*inputs):
     if not inputs:
         return []
 
-    if not inputs:
-        return []
     min_val = min(inputs)
     max_val = max(inputs)
     rescaled_numbers = [(x - min_val) / max(abs(x - min_val), 1e-9) for x in inputs]
