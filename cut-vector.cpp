@@ -1,56 +1,47 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res;
-    
-    if (n == 0) {
-        return {{}};
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int pos = 0;
+
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            pos = i;
+        }
     }
-    
-    if (n == 1) {
-        return {v, {}};
-    }
-    
-    vector<pair<int, int>> pairs;
-    for (int i = 0; i < n - 1; ++i) {
-        int diff = abs(v[i] - v[i + 1]);
-        pairs.push_back({diff, i});
-    }
-    
-    sort(pairs.begin(), pairs.end());
-    
-    if (pairs[0].first == 0) {
-        res.push_back(v);
-        res.push_back({});
-    } else {
-        int index = pairs[0].second;
-        res.push_back(vector<int>(v.begin(), v.begin() + index));
-        res.push_back(vector<int>(v.begin() + index, v.end()));
-    }
-    
-    return res;
+
+    vector<int> left(v.begin(), v.begin() + pos);
+    vector<int> right(v.begin() + pos, v.end());
+
+    return {left, right};
 }
 
 int main() {
-    vector<int> input;
     int n;
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        cin >> num;
-        input.push_back(num);
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    
-    vector<vector<int>> output = cutVector(input);
-    
-    for (const auto& v : output) {
-        for (int num : v) {
-            cout << num << " ";
-        }
-        cout << endl;
+
+    pair<vector<int>, vector<int>> result = cutVector(v);
+
+    cout << "Left: ";
+    for (int x : result.first) {
+        cout << x << " ";
     }
-    
+    cout << endl;
+
+    cout << "Right: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+
     return 0;
 }
