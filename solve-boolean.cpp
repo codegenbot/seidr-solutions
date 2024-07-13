@@ -1,10 +1,5 @@
-```cpp
-#include <iostream>
-#include <stack>
-#include <string>
-
 bool solveBoolean(std::string expression) {
-    stack<char> s;
+    std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             while (!s.empty() && s.top() != '&') {
