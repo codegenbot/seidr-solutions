@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> digits) {
