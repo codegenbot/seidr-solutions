@@ -1,7 +1,9 @@
-def leaders(vector):
-    leaders = [vector[-1]]
-    for i in range(len(vector) - 2, -1, -1):
-        if vector[i] >= vector[-1]:
-            leaders.append(vector[i])
-            vector[-1] = vector[i]
-    return list(reversed(leaders))
+def leaders(arr):
+    n = len(arr)
+    leader = [arr[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            leader.insert(0, arr[i])
+
+    return leader
