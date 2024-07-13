@@ -14,7 +14,7 @@ bool solveBoolean(string booleanExpression) {
                 expression.pop();
             }
         } else {
-            expression.push(boolToChar(getBooleanValue(string(1, booleanExpression[i]))));
+            expression.push(boolToChar(getBooleanValue(booleanExpression[i])));
         }
     }
     
@@ -37,4 +37,5 @@ bool getBooleanValue(char c) {
     } else {
         throw runtime_error("Invalid input");
     }
+    return true; // Added this line
 }
