@@ -1,5 +1,11 @@
+```
 def make_palindrome(string: str) -> str:
-    for i in range(len(string), 0, -1):
-        substring = string[:i]
-        if substring == substring[::-1]:
-            return string + substring[::-1] + string[i:]
+    lower = string.lower()
+    for i in range(len(lower), -1, -1):
+        if lower == lower[:i][::-1]:
+            if string[0].islower():
+                return string + string[:i][::-1]
+            elif string[0].isupper():
+                return (
+                    string[0].upper() + string[1 : i + 1].lower() + string[i:][::-1]
+                )
