@@ -1,11 +1,9 @@
 def dice_game(n, m):
-    total = n * m
-    if n == m:
-        return 0.5
-    else:
-        sum1 = 0
-        for i in range(1, min(n,m) + 1):
-            sum1 += (n-i)*(m-i)
-        if n > m:
-            sum1 += (n-m)*(m+1)
-        return sum1 / total
+    p = 0
+    c = 0
+    for i in range(1, min(n, m) + 1):
+        if i <= m:
+            c += 1
+        if i > m:
+            p += n - i
+    return (p / (n * m))
