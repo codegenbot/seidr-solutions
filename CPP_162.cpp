@@ -1,12 +1,14 @@
-string string_to_md5(string text){
-    if(text.empty()) return "";
+MD5_CTX ctx;
+MD5_Init(&ctx);
+unsigned char digest[16];
+MD5_Update(&ctx, text.c_str(), text.size());
+MD5_Final(digest, &ctx);
 
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((unsigned const char*)text.c_str(), text.length(), result);
-
-    stringstream ss;
-    for(int i = 0; i < MD5_DIGEST_LENGTH; i++){
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
-    }
-    return ss.str();
+string result = "";
+for (int i = 0; i < 16; i++) {
+    char buffer[3];
+    sprintf(buffer, "%02x", digest[i]);
+    result += string(buffer);
 }
+
+return result;
