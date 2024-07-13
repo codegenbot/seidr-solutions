@@ -7,8 +7,7 @@ int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> ' '; 
-    cin >> firstBounce;        
+    cin >> startHeight >> firstBounce;
     cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
@@ -19,7 +18,7 @@ int main() {
         startHeight *= 2 * (1 - bouncinessIndex);
     }
 
-    cout << fixed << setprecision(5) << totalDistance << endl;
+    cout << fixed << setprecision(5) << static_cast<double>(totalDistance) << endl;
 
     return 0;
 }
