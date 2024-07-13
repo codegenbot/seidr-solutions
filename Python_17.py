@@ -1,5 +1,7 @@
 ```
 def parse_music(s):
+    if not s:
+        return []
     s = s.lower()
     beats = s.replace("|", " ").split()
     beat_counts = {}
