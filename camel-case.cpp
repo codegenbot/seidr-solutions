@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -33,8 +33,11 @@ int main() {
     while (true) {
         cout << "Enter a string in kebab-case: ";
         getline(cin, str);
-        if (str == "quit") break;
         cout << "The camelCase is: " << camelCase(str) << endl;
+        char response;
+        cout << "Continue? (y/n): ";
+        cin >> response;
+        if (response == 'n') break;
     }
     return 0;
 }

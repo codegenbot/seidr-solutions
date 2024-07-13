@@ -1,3 +1,10 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -22,9 +29,10 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     
+    int blackPegs, whitePegs; 
     int result = mastermind(code, guess);
     
-    cout << "Black pegs: " << black << endl;
-    cout << "White pegs: " << white << endl;
+    cout << "Black pegs: " << result - (result/4) << endl;
+    cout << "White pegs: " << result - blackPegs*4 << endl;
     
     return 0;
