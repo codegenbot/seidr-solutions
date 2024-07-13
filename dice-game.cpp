@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 
 double diceGame(int n, int m) {
