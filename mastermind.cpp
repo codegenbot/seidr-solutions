@@ -1,3 +1,8 @@
+#include <string>
+#include <array>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
@@ -10,8 +15,9 @@ int mastermind(string code, string guess) {
     }
     
     // Count correct colors, but wrong position
-    array<int, 6> code_counts = {0};
-    array<int, 6> guess_counts = {0};
+    array<array<int, 6>::size_type, 1> zeros = {{0}};
+    array<int, 6> code_counts(zeros[0]);
+    array<int, 6> guess_counts(zeros[0]);
     for (char c : code) {
         ++code_counts[c - 'A'];
     }
