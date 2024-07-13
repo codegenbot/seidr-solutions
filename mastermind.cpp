@@ -1,28 +1,32 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             count++;
         }
     }
-    return count;
+    return 4 - count;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    map<char, int> codeCount, guessCount;
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-    for (auto it = codeCount.begin(); it != codeCount.end(); ++it) {
-        if (it->second == guessCount[it->first]) {
-            count += it->second;
-        } else {
-            count += min(it->second, guessCount[it->first]);
+    vector<char> codeArray(code.begin(), code.end());
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            codeArray.erase(remove(codeArray.begin(), codeArray.end(), code[i]), codeArray.end());
         }
     }
-    return 4 - count;
+    for(int i=0; i<4; i++) {
+        if(count < 4 && codeArray.size() > 0 && codeArray[0] == guess[i]) {
+            count++;
+            codeArray.erase(codeArray.begin());
+        }
+    }
+    return count;
 }
 
 int main() {
