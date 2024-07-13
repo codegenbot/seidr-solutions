@@ -11,13 +11,14 @@ int main() {
 }
 
 vector<int> leaders(vector<int>& nums) {
+    int n = nums.size();
     vector<int> res;
-    int rightmost = nums.back();
-    for (int i = nums.size() - 2; i >= 0; --i) {
-        if (nums[i] >= rightmost) {
+    res.push_back(nums.back());
+    for (int i = n - 2; i >= 0; --i) {
+        if (nums[i] >= res.back()) {
             res.push_back(nums[i]);
-            rightmost = nums[i];
         }
     }
+    reverse(res.begin(), res.end());
     return res;
 }
