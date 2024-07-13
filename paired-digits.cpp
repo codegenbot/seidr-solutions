@@ -14,4 +14,3 @@ int pairedDigits(string s) {
 int main() {
     cout << pairedDigits("123456") << endl;
     return 0;
-}
