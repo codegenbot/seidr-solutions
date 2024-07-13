@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     code_count = {c: 0 for c in 'ACGT'}
     for c in code:
