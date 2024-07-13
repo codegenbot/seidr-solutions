@@ -1,7 +1,4 @@
 ```
-import re
-
-
 def fix_spaces():
     while True:
         text = input("Enter a string (or 'stop' to finish): ").strip().lower()
