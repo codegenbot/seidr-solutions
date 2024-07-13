@@ -8,10 +8,11 @@ int bowlingScore(string s) {
             string secondPart = s.substr(i + 1);
             int firstScore = 0;
             int j = 0;
-            while (j < firstPart.size()) {
+            while (j < firstPart.length()) {
                 if (firstPart[j] != 'X') {
                     firstScore += (firstPart[j] - '0');
-                } else {
+                }
+                else if (firstPart.length() == 2) {
                     firstScore += 10;
                     break;
                 }
@@ -19,10 +20,11 @@ int bowlingScore(string s) {
             }
             int secondScore = 0;
             j = 0;
-            while (j < secondPart.size()) {
+            while (j < secondPart.length()) {
                 if (secondPart[j] != 'X') {
                     secondScore += (secondPart[j] - '0');
-                } else {
+                }
+                else if (secondPart.length() == 2) {
                     secondScore += 10;
                     break;
                 }
