@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -23,7 +24,8 @@ int main() {
     int n;
     cin >> n;
 
-    cout << fixed << std::setprecision(10) << vectorDistance(n) << endl;
-
+    cout << fixed << setprecision(10);
+    cout << vectorDistance(n) << endl;
+    cout.unsetf(ios_base::floatfield); 
     return 0;
 }
