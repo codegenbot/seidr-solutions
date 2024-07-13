@@ -10,7 +10,7 @@ def bowling_score(frames):
             score += int(frames[index + 1].replace('/'))
             total_pins = 20
             index += 2
-        elif frames[index] in ['/']:
+        elif frames[index][0] == '/':
             left_pin, right_pin = frames[index - 1][0], frames[index][1]
             if left_pin == 'X':
                 if right_pin == '/':
