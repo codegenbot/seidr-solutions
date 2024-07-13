@@ -1,6 +1,6 @@
 #include <string>
 
-std::string getMiddleCharacterHelper(std::string str) {
+std::string getMiddleCharacter(std::string str) {
     int len = str.length();
     if(len % 2 == 0){
         return str.substr(len/2-1, 2);
