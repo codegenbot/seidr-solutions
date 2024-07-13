@@ -1,17 +1,25 @@
 def solve_boolean(expression):
     ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
+    current_number = ''
+    in_parens = False
     for char in expression:
-        if char in 'TF':
+        if char == '(':
+            in_parens = True
+        elif char == ')':
+            in_parens = False
+        elif char not in 'TF' and char not in ops:
+            while stack and isinstance(stack[-1], bool):
+                stack.pop()
+            stack.append(True if char == 'T' else False)
+        elif char in 'TF':
+            while stack and isinstance(stack[-1], bool) and in_parens:
+                stack.pop()
             if current_number:
                 stack.append(True if char == 'T' else False)
                 current_number = ''
-            elif stack and stack[-1] in ops.values():
-                while stack and isinstance(stack[-1], bool):
-                    stack.pop()
-                stack.append(ops['&' if char == 'T' else '|'][True, True])
         elif char in ops:
-            while stack and isinstance(stack[-1], bool):
+            while stack and isinstance(stack[-1], bool) and in_parens:
                 stack.pop()
             if current_number:
                 stack.append(True if char == 'T' else False)
@@ -19,7 +27,5 @@ def solve_boolean(expression):
             b = ops[char](stack.pop(), stack.pop())
             stack.append(b)
         else:
-            if char == '|':
-                stack = []
             current_number += char
     return stack[0]
