@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -24,9 +26,6 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter your string (in kebab-case): ";
-    std::getline(std::cin, input);
-    std::cout << "Camel Case: " << camelCase(input) << std::endl;
+    std::cout << camelCase("camel-case example-test-string") << std::endl;
     return 0;
 }
