@@ -1,2 +1,2 @@
-shift = int(input())
-print(decode_shift(input()))
+def decode_shift(s: str):
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() and ch.lower() >= 'a' and ch.lower() <= 'z' else ch for ch in s])
