@@ -1,9 +1,9 @@
 ```
 def is_valid_date(date_str):
-    date_parts = date_str.split('/')
-    if len(date_parts) != 3:
+    mmddyyyy = date_str.replace('-', '')
+    if len(mmddyyyy) != 8:
         return False
-    month, day, year = map(int, date_parts)
+    month, day, year = map(int, (mmddyyyy[:2], mmddyyyy[2:4], mmddyyyy[4:]))
     if not (1 <= month <= 12):
         return False
     days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
