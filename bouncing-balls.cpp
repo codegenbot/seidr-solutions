@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
+    string startHeightStr, firstBounceStr;
+    cin >> startHeightStr >> firstBounceStr >> int numBounces;
 
-    cin >> startHeight >> firstBounce;        
-    cin >> numBounces;
+    double startHeight = stod(startHeightStr);
+    double firstBounce = stod(firstBounceStr);
 
     if (!(cin && (cin.peek() == EOF))) {
         cout << "Invalid input. Please enter valid inputs." << endl;

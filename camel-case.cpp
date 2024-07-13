@@ -33,11 +33,12 @@ int main() {
         std::cout << "Enter your string (in kebab-case): ";
         std::getline(std::cin, input);
 
-        std::cout << "Camel Case: " << camelCase(input) << std::endl;
+        if (!input.empty()) { 
+            std::cout << "Camel Case: " << camelCase(input) << std::endl;
+        }
 
         char c;
-        if((c = std::cin.get()) == '\n' || c == EOF)
-            break;
+        while((c = std::cin.get()) != '\n' && c != EOF);
     }
     return 0;
 }

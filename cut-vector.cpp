@@ -1,4 +1,4 @@
-vector<vector<int>> cutVector(vector<int> v) {
+std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
         return {{}, {}};
     }
@@ -12,12 +12,12 @@ vector<vector<int>> cutVector(vector<int> v) {
     long long leftSum = 0, rightSum = sum;
     int minDiff = INT_MAX, cutIndex = -1;
 
-    vector<vector<int>> res;
-    res.push_back(vector<int>());
-    res.push_back(vector<int>());
+    std::vector<std::vector<int>> res;
+    res.push_back(std::vector<int>());
+    res.push_back(std::vector<int>());
 
     for (int i = 0; i < n; i++) {
-        long long diff = abs(leftSum - rightSum);
+        long long diff = std::abs(leftSum - rightSum);
         if (diff < minDiff) { 
             minDiff = diff;
             cutIndex = i;
