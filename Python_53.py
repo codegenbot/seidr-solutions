@@ -3,8 +3,7 @@ def add():
         cont = input("Do you want to continue (Y/N)? ").upper()
         if cont not in ['Y', 'N']:
             print("Invalid input. Please enter Y or N.")
-            continue
-        if cont != 'N':
+        elif cont != 'N':
             while True:
                 try:
                     x = int(input("Enter the first number: "))
@@ -14,4 +13,4 @@ def add():
                 except ValueError:
                     print("Invalid input. Please enter a valid integer.")
         else:
-            break
+            return
