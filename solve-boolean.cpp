@@ -1,4 +1,5 @@
-using namespace std;
+#include <stack>
+#include <string>
 
 bool solveBoolean(string s) {
     stack<char> st;
