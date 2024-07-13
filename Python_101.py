@@ -1,3 +1,4 @@
+```
 def words_string(s):
     if not s:
         return []
