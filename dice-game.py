@@ -6,6 +6,6 @@ def dice_game(n, m):
         favorable = sum(range(1, m-n+2))
         total = n * m
     else:
-        return 0.5
+        return 0
 
     return favorable / total
