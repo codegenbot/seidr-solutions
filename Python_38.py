@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     print("Please enter a string of alphabets only.")
     while True:
@@ -16,12 +17,12 @@ def decode_cyclic():
             else:
                 print("Invalid input. Please enter a number between 1 and", len(s), "inclusive.")
         except ValueError:
-            print("Invalid input. Please enter an integer."
-            
+            print("Invalid input. Please enter an integer.")
+
     decoded = ""
-    for i in range(len(s) * 2):
-        if i < (pos - 1) // 2:
+    for i in range(pos - 1, len(s) * 2):
+        if i % len(s) < (pos - 1) % len(s):
             decoded += s[i % len(s)]
         else:
-            decoded += s[(i - 1) % len(s)]
+            decoded += s[(i - pos + 1) % len(s)]
     return decoded
