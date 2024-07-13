@@ -2,21 +2,24 @@
 #include <vector>
 
 double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    double result = 0;
+    double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        result += prices[i] * (1 - discounts[i] / 100.0);
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
-    return result;
+    return total;
 }
 
 int main() {
-    std::vector<float> prices;
+    int numItems;
+    std::cin >> numItems;
+
+    std::vector<float> prices(numItems);
     float price;
-    while(std::cin >> price) {
-        prices.push_back(price);
+    for (int i = 0; i < numItems; i++) {
+        std::cin >> price;
+        prices[i] = price;
     }
 
-    int numItems = prices.size();
     std::vector<float> discounts(numItems);
     for (int i = 0; i < numItems; i++) {
         std::cin >> discounts[i];
