@@ -1,50 +1,28 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-using namespace std;
+string solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    stack<bool> valueStack;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
-    stack<string> operandStack;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&' || expression[i] == '|') {
-            while (!operatorStack.empty() && expression[i-1] != '(') {
-                char op = operatorStack.top();
-                operatorStack.pop();
-                string operand2 = operandStack.top();
-                operandStack.pop();
-                string operand1 = operandStack.top();
-                operandStack.pop();
-                string result = (op == '&') ? (operand1 + " && " + operand2) : (operand1 + " || " + operand2);
-                operandStack.push(result);
-            }
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            string operand = "";
-            while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
-                operand += expression[i];
-                i++;
-            }
-            i--;
-            operandStack.push(operand);
-        } else if (expression[i] == '(') {
-            operatorStack.push(expression[i]);
-        } else if (expression[i] == ')') {
-            while (operatorStack.top() != '(') {
-                char op = operatorStack.top();
-                operatorStack.pop();
-                string operand2 = operandStack.top();
-                operandStack.pop();
-                string operand1 = operandStack.top();
-                operandStack.pop();
-                string result = (op == '&') ? (operand1 + " && " + operand2) : (operand1 + " || " + operand2);
-                operandStack.push(result);
-            }
-            operatorStack.pop(); // pop the '('
+    for (char c : booleanExpression) {
+        if (c == 'T' || c == 't') {
+            valueStack.push(true);
+        } else if (c == 'F' || c == 'f') {
+            valueStack.push(false);
+        } else if (c == '|') {
+            bool b = valueStack.top();
+            valueStack.pop();
+            bool a = valueStack.top();
+            valueStack.pop();
+            valueStack.push(b || a);
+        } else if (c == '&') {
+            bool b = valueStack.top();
+            valueStack.pop();
+            bool a = valueStack.top();
+            valueStack.pop();
+            valueStack.push(a && b);
         }
     }
 
-    return (operandStack.top() == "T");
+    return (valueStack.top()) ? "True" : "False";
 }
