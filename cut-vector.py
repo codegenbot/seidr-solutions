@@ -1,4 +1,3 @@
-```
 def cut_vector(lst):
     min_diff = 0
     split_idx = 0
