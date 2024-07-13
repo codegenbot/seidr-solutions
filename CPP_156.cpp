@@ -1,9 +1,9 @@
 #include <iostream>
-#include <cassert>
+using namespace std;
 
-int intToMiniRoman(int n) {
+string intToMiniRoman(int n) {
     if (n <= 0)
-        return 0;
+        return "";
     else if (n >= 1000) {
         return "M" + intToMiniRoman(n - 1000);
     } 
@@ -17,37 +17,57 @@ int intToMiniRoman(int n) {
         return "CD" + intToMiniRoman(n - 400);
     } 
     else if (n >= 100) {
-        return intRomans[n % 100] + intToMiniRoman(n / 100);
-    } 
-    else if (n >= 90) {
-        return "XC" + intToMiniRoman(n - 90);
-    }
-    else if (n >= 50) {
-        return "L" + intToMiniRoman(n - 50);
-    }
-    else if (n >= 40) {
-        return "XL" + intToMiniRoman(n - 40);
-    } 
-    else if (n >= 10) {
-        return intRomans[n % 10] + intToMiniRoman(n / 10);
-    } 
-    else if (n >= 9) {
-        return "IX" + intToMiniRoman(n - 9);
-    }
-    else if (n >= 5) {
-        return "V" + intToMiniRoman(n - 5);
-    }
-    else if (n >= 4) {
+        string roman = "";
+        while (n >= 100) {
+            roman += "C";
+            n -= 100;
+        }
+        if (n >= 90) {
+            return "XC" + intToMiniRoman(n - 90);
+        } 
+        else if (n >= 50) {
+            roman += "L";
+            n -= 50;
+        } 
+        else if (n >= 40) {
+            return "XL" + intToMiniRoman(n - 40);
+        }
+        while (n >= 10) {
+            roman += "X";
+            n -= 10;
+        }
+        if (n >= 9) {
+            return "IX" + intToMiniRoman(n - 9);
+        } 
+        else if (n >= 5) {
+            roman += "V";
+            n -= 5;
+        } 
+        else if (n >= 4) {
+            return "IV" + intToMiniRoman(n - 4);
+        }
+        while (n > 0) {
+            roman += "I";
+            n--;
+        }
+        return roman;
+    } else if (n >= 4) {
         return "IV";
     } 
-    else
-        if (n < 1 || n > 39) return intRomans[n % 10]; else return "I";
+    else if (n >= 1) {
+        string roman = "";
+        for (int i = 0; i < n; i++) {
+            roman += "I";
+        }
+        return roman;
+    }
+    return "";
 }
 
-const char* intRomans[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL", "XLI", "XLII", "XLIII", "XLIV", "LV", "LVI", "LVII", "LVIII", "LIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC", "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
-
-int main_test() {
-    std::cout << intToMiniRoman(1999) << std::endl;
-    assert(intToMiniRoman(1000) == "M");
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << intToMiniRoman(n) << endl;
     return 0;
 }
