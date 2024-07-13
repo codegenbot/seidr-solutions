@@ -1,10 +1,19 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-string middleCharacter(string str) {
-    int length = str.length();
-    if (length % 2 != 0) {
-        return string(1, str[length / 2]);
+string middleCharacter(string s) {
+    int n = s.length();
+    if (n % 2 == 0) {
+        return s.substr(n/2 - 1, 2);
     } else {
-        return string(1, str[length / 2 - 1]) + string(1, str[length / 2]);
+        return s.substr(n / 2, 1);
     }
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    cout << "Middle character: " << middleCharacter(input) << endl;
+    return 0;
 }
