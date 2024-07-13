@@ -1,4 +1,6 @@
-```Python
+Here is the modified code:
+
+```
 import math
 
 def gcd(a, b):
