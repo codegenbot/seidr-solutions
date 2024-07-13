@@ -1,17 +1,14 @@
-int main() {
-    string input;
-    getline(cin, input);
-
-    istringstream iss(input);
-    string word;
-    bool first = true;
+string spinWords(const string &sentence) {
+    istringstream iss(sentence);
+    string word, result;
+    
     while (iss >> word) {
-        if (word.size() >= 5) {
+        if (word.length() >= 5) {
             reverse(word.begin(), word.end());
         }
-        cout << (first ? "" : " ") << word;
-        first = false;
+        result += word + " ";
     }
-
-    return 0;
+    
+    result.pop_back(); // remove the extra space at the end
+    return result;
 }
