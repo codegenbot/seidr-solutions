@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     if not all(i.isdigit() for i in ' '.join(map(str, arr)).split()):
         return
@@ -11,20 +10,12 @@ def smallest_change(arr):
 
     changes = 0
     if len(set(arr)) > 1: 
-        return -1
+        for i in range(n):
+            while arr[i] != arr[0]:
+                arr[i], arr[0] = arr[0], arr[i]
+                changes += 1
 
-    changes = 0
-    for i in range(1, n):
-        if arr[i] != arr[0]:
-            break
     else:
         return n - 1
-
-    for i in range(n):
-        while arr[i] != arr[0]:
-            if min(arr) == max(arr):
-                return -1
-            arr[i], arr[0] = arr[0], arr[i]
-            changes += 1
 
     return changes
