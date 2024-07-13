@@ -1,21 +1,11 @@
-```
-def encode_message(message):
-    """
-    Shifts each letter in a message up by two positions in the alphabet.
-    
-    Parameters:
-    message (str): The input message to be encoded.
-    
-    Returns:
-    str: The encoded message.
-    """
-    result = ""
+def encode(message):
+    vowels = 'aeiouAEIOU'
+    result = ''
     for char in message:
-        if char.isalpha():
-            if char.isupper():
-                result += chr((ord(char) - 65 + 2) % 26 + 65)
-            else:
-                result += chr((ord(char) - 97 + 2) % 26 + 97)
+        if char in vowels:
+            idx = vowels.index(char)
+            new_char = vowels[(idx + 2) % len(vowels)] if char.islower() else vowels[(idx + 2) % len(vowels)].upper()
         else:
-            result += char
+            new_char = char.swapcase()
+        result += new_char
     return result
