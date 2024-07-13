@@ -1,5 +1,7 @@
+```
 def check_palindrome(s):
-    return s == s[::-1]
+    s = s.replace(" ", "").lower()
+    return "It's a palindrome" if s == s[::-1] else "It's not a palindrome"
 
 if __name__ == "__main__":
     while True:
