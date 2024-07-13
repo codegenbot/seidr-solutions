@@ -26,9 +26,9 @@ int main() {
     std::istringstream iss(input);
 
     int num;
-    auto lst = std::initializer_list<int>();
+    std::vector<int> lst; 
     while (iss >> num) {
-        lst = {num};
+        lst.push_back(num); 
     }
     auto [a, b] = double_the_difference(lst);
     std::cout << "The average of even numbers is: " << a << std::endl;
