@@ -1,8 +1,10 @@
 int main() {
-    string input, output;
+    string input;
     getline(cin, input);
     
+    string output = "";
     bool capitalizeNext = false;
+    
     for (char c : input) {
         if (c == '-') {
             capitalizeNext = true;
