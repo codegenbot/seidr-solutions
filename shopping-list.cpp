@@ -23,6 +23,6 @@ int main() {
     for (int i = 0; i < m; i++) {
         cin >> discounts[i];
     }
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    cout << std::fixed << std::setprecision(1) << shoppingList(prices, discounts) << std::endl;
     return 0;
 }
