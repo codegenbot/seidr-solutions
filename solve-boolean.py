@@ -1,15 +1,16 @@
-def solve_boolean(s):
-    if s == 't':
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif s == 'f':
+    elif expression == 'F':
         return False
-    elif '&' in s and '|' in s:
+    elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        a = s[0] == 't'
-        b = s[-1] == 't' if len(s) > 1 else None
-
-        if '&' in s:
-            return a and (b is None or not b)
-        elif '|' in s:
-            return a or (b is None or b)
+        result = True
+        for term in expression.split():
+            if term == 'F':
+                result = False
+                break
+            elif term != 'T':
+                raise ValueError("Invalid expression")
+        return result
