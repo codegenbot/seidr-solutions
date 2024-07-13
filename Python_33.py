@@ -1,7 +1,2 @@
-```
 def sort_third(lst):
-    lst.sort(key=lambda x: (x[2], x))
-    return lst
-
-def check():
-    pass  # implement your logic here
+    return sorted([x[2] for x in lst if isinstance(x, (list, tuple))])
