@@ -20,9 +20,9 @@ string spinWords(string str) {
     }
 
     if (temp.length() >= 5)
-        result += string(temp.rbegin(), temp.rend()) + " ";
+        result += string(temp.rbegin(), temp.rend());
     else
-        result += temp + " ";
+        result += temp;
 
     return result;
 }
