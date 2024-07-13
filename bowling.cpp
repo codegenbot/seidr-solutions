@@ -1,42 +1,28 @@
-int bowlingScore(string s) {
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 1;
-    int ball = 0;
-    map<char, int> values = {{'X', 10}, {'/', 10}, {'-', 0}};
-    
-    for (char c : s) {
-        if (c == 'X' || c == '/') {
-            score += 10;
-            if (frame < 10) {
-                score += values[s[ball+1]];
-                if (c == 'X') {
-                    score += values[s[ball+2]];
-                }
-            }
-            ball += 1;
-        } else if (c == '-') {
-            // do nothing
+    int i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - s[i + 1] + 10 : s[i + 1] + s[i + 2] - '0' * 2;
+            i++;
+        } else if (s[i + 1] == '/') {
+            total += 10;
+            total += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
+            i += 2;
         } else {
-            score += c - '0';
-            if (frame < 10 && ball % 2 == 1) {
-                if (s[ball-1] == '/') {
-                    score += c - '0';
-                }
-            }
-            ball += 1;
+            total += s[i] - '0' + s[i + 1] - '0';
+            i += 2;
         }
-        
-        if (ball % 2 == 0) {
-            frame += 1;
-        }
+        frame++;
     }
-    
-    return score;
+    return total;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << bowlingScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
