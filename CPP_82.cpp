@@ -1,5 +1,5 @@
-```cpp
-bool is_prime(int n) {
+```
+bool isPrime(int n) {
     if (n <= 1)
         return false;
     for (int i = 2; i * i <= n; i++)
@@ -10,5 +10,5 @@ bool is_prime(int n) {
 
 bool prime_length(string str) {
     int len = str.length();
-    return is_prime(len);
+    return isPrime(len);
 }
