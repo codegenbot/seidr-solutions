@@ -1,9 +1,8 @@
-```
 def mastermind(code, guess):
-    code_count = {c: 0 for c in 'ACGT'}
+    code_count = {c: 0 for c in "ACGT"}
     for c in code:
         code_count[c] += 1
-    guess_count = {c: 0 for c in 'ACGT'}
+    guess_count = {c: 0 for c in "ACGT"}
     for c in guess:
         guess_count[c] += 1
 
