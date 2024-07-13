@@ -15,7 +15,7 @@ bool solveBoolean(string booleanExpression) {
                 expression.pop();
             }
         } else {
-            expression.push(boolToChar(getBooleanValue(booleanExpression[i])));
+            expression.push(boolToChar(getBooleanValue(string(1, booleanExpression[i]))));
         }
     }
     

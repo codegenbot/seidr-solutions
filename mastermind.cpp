@@ -11,23 +11,20 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (codeArray[i] == guessArray[i]) {
             black++;
-            codeArray[i] = 'x';
-            guessArray[i] = 'x';
         }
     }
 
     int codeCount[6] = {0};
-    for (int i = 0; i < 4; i++) {
-        codeCount[(int)codeArray[i]]++;
-    }
+    int guessCount[6] = {0};
 
     for (int i = 0; i < 4; i++) {
-        if (codeArray[i] == guessArray[i]) {
-            black--;
-            white++;
-        } else if (codeCount[(int)guessArray[i]] > 0) {
-            codeCount[(int)guessArray[i]]--;
-            white++;
+        codeCount[codeArray[i]-'0']++;
+        guessCount[guessArray[i]-'0']++;
+    }
+
+    for (int i = 0; i < 6; i++) {
+        if (codeCount[i] > 0 && guessCount[i] > 0) {
+            white += min(codeCount[i], guessCount[i]);
         }
     }
 
