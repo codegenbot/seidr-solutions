@@ -17,3 +17,9 @@ def mod_inverse(a: int, m: int):
     if g != 1:
         return None
     return x % m
+
+
+def gcd(a: int, b: int):
+    while b:
+        a, b = b, a % b
+    return a
