@@ -1,22 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+bool issame(vector<int> v1, vector<int> v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) return false;
     }
     return true;
 }
 
-std::vector<int> pluck(const std::vector<int>& arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
     int index = -1;
-    for (int i = 0; i < arr.size(); ++i) {
+    for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
             minEven = arr[i];
             index = i;
@@ -32,26 +33,22 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> input;
-    // Read input from the user
-    int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        input.push_back(num);
+    vector<int> v1 = {2, 4, 6};
+    vector<int> v2 = {2, 3, 5};
+
+    if(issame(v1, v2)) {
+        cout << "The vectors are same" << endl;
+    } else {
+        cout << "The vectors are not same" << endl;
     }
 
-    // Call the pluck function
-    std::vector<int> output = pluck(input);
-
-    if (!output.empty()) {
-        std::cout << "The minimum even number is: " << output[0] << "\n";
-        std::cout << "Its index in the array is: " << output[1] << "\n";
-    } else {
-        std::cout << "No even numbers found.\n";
+    vector<int> result = pluck({1, 2, 3, 4, 5});
+    for(int i = 0; i < result.size(); i++) {
+        if(i % 2 == 0) {
+            cout << "Min Even: " << result[i] << endl;
+        } else {
+            cout << "Index: " << result[i] << endl;
+        }
     }
 
     return 0;
