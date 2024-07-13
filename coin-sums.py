@@ -1,5 +1,6 @@
 ```
 def coin_sums(cents):
+    """Given a number of cents, find the fewest number of US coins (pennies, nickles, dimes, quarters) needed to make that amount, and return the number of each type of coin as a separate output."""
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
