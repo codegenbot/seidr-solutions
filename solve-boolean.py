@@ -1,11 +1,11 @@
-def solve_boolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif '&' in input_str:
-        a, b = map(solve_boolean, input_str.split('&'))
-        return a and b
-    elif '|' in input_str:
-        a, b = map(solve_boolean, input_str.split('|'))
-        return a or b
+def solve_boolean(s):
+    stack = []
+    for c in s[::-1]:
+        if c == 'T':
+            stack.append(True)
+        elif c == 'F':
+            stack.append(False)
+        elif c == '&':
+            stack.append(stack.pop() and stack.pop())
+        elif c == '|':
+            stack.append(stack.pop() or stack.pop())
