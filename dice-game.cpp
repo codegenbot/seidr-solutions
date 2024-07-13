@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 int main() {
@@ -9,18 +11,14 @@ int main() {
     cin >> m;
 
     double numerator = 0.0; 
-    for(int j = 1; j <= m; j++) {
-        int total_ways = 0;
-        for(int i = 1; i < n; i++) {
-            total_ways += (n-i);
-        }
-        numerator += total_ways;
+    string result;
+    for(int i = 1; i < n; i++) {
+        result += to_string(n - i) + "+";
     }
-    
     double denominator = (double)(n*m);
     
-    double probability = (double)numerator / denominator;
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    double probability = stod(result.substr(0, result.length()-1)) / denominator;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << fixed << setprecision(6) << probability << endl;
 
     return 0;
 }
