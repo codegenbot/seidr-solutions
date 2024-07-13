@@ -25,4 +25,3 @@ int main() {
         std::cout << "No pair found." << std::endl;
     }
     return 0;
-}
