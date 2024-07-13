@@ -1,7 +1,16 @@
+```cpp
 #include <vector>
 #include <string>
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+int main() {
+    string class_name;
+    vector<string> extensions;
+    // add your logic here to read input from user and store it in class_name and extensions variables
+    int strongest = Strongest_Extension(class_name, extensions);
+    return 0;
+}
+
+int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest = 0;
     string strongest_extension;
     for(auto extension : extensions){
