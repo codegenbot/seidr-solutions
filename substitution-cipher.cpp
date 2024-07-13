@@ -3,18 +3,16 @@
 using namespace std;
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
+    string cipher1, cipher2, text;
+    cin >> cipher1 >> cipher2 >> text;
     
-    for (char &c : message) {
+    for (char &c : text) {
         if (c == cipher1[0]) {
             c = cipher2[0];
-        } else if (c == cipher2[0]) {
-            c = cipher1[0];
         }
     }
     
-    cout << message;
+    cout << text << '\n';
     
     return 0;
 }
