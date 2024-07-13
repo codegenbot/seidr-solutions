@@ -1,16 +1,14 @@
 #include <string>
 #include <vector>
-
 using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    vector<char> chars(6);
-
+    unordered_map<char, int> possibleChars;
     for(int i = 0; i < 6; i++) {
-        chars[i] = '0' + i;
+        possibleChars['0' + i] = 1;
     }
 
     for(int i = 0; i < 4; i++) {
@@ -23,11 +21,11 @@ int mastermind(string code, string guess) {
     int guessCount[6] = {0};
 
     for(int i = 0; i < 4; i++) {
-        codeCount[int(chars.find(guess[i]))]++;
+        codeCount[int(possibleChars.find(guess[i]))]++;
     }
 
     for(int i = 0; i < 4; i++) {
-        guessCount[int(chars.find(code[i]))]++;
+        guessCount[int(possibleChars.find(code[i]))]++;
     }
 
     for(int i = 0; i < 6; i++) {
