@@ -1,4 +1,3 @@
-```
 int bowlingScore(std::string s) {
     int score = 0;
     std::stringstream ss(s);
@@ -12,6 +11,7 @@ int bowlingScore(std::string s) {
             if (!strike) {
                 score += 10 + (score / 10 - 1);
             }
+            strike = false;
         } else {
             int temp = c - '0';
             if (strike) {
@@ -23,4 +23,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
