@@ -10,12 +10,10 @@ int main() {
     cin >> m;
 
     double sum = 0.0;
-    for(int i = 1; i <= m; i++) {
-        double prob = (m - i + 1) * (n - m) / (double)(n*m);
-        sum += prob;
-        cout << setprecision(10) << fixed << prob << " ";
+    for(int i = 1; i < m; i++) {
+        sum += (n - i) * 1.0 / n;
     }
-    cout << endl;
+    cout << setprecision(10) << fixed << sum << endl;
 
     return 0;
 }
