@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -9,12 +8,14 @@ bool solveBoolean(string s) {
         if (s[i] == 'T') return true;
         if (s[i] == 'F') return false;
         if (s[i] == '|') {
-            res = true;
+            while(i+1<s.length() && (s[i+1]=='&' || s[i+1]=='|')) i++;
+            res = res || solveBoolean(string(1,s[i+1]).substr(0));
             i++;
             continue;
         }
         if (s[i] == '&') {
-            res = true;
+            while(i+1<s.length() && (s[i+1]=='&' || s[i+1]=='|')) i++;
+            res = res && solveBoolean(string(1,s[i+1]).substr(0));
             i++;
             continue;
         }
