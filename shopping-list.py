@@ -7,4 +7,5 @@ def shopping_list():
     )
     print("{:.1f}".format(total_price))
 
+
 shopping_list()
