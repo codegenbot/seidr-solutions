@@ -1,3 +1,4 @@
+```
 def array_change(lst):
     max_diff = 0
     for i in range(1, len(lst)):
@@ -13,4 +14,14 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a space-separated list of numbers.")
 
-print(array_change(lst))
+if len(set(lst)) != len(lst):  
+    while True:
+        try:
+            lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
+            if len(set(lst)) == len(lst):
+                break
+        except ValueError:
+            print("Invalid input. Please enter a space-separated list of numbers.")
+    print(array_change(lst))
+else:
+    print(array_change(lst))
