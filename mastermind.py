@@ -1,7 +1,8 @@
 code = input()
 guess = input()
 
+white_pegs = sum(min(code.count(ch), guess.count(ch)) for ch in "ROYGBW")
 black_pegs = sum(c == g for c, g in zip(code, guess))
-white_pegs = sum(min(code.count(c), guess.count(c)) for c in set(code))
 
-print(white_pegs - black_pegs, black_pegs)
+print(white_pegs)
+print(black_pegs)
