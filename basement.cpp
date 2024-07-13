@@ -1,10 +1,12 @@
-int basement(const vector<int>& v) {
-    for (int i = 0; i < v.size(); ++i) {
-        int sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            sum += v[j];
-            if (sum < 0) return j;
-        }
+#include <vector>
+using namespace std;
+
+int basement(vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0)
+            return i;
     }
-    return -1; // or throw an exception, depending on the problem's requirements
+    return -1;
 }
