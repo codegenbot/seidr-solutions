@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -12,7 +11,7 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     else {
-        return "Your tweet has " + to_string(tweet.erase(0, find_first_not_of(" \n")(0)) - 1) + " characters";
+        return "Your tweet has " + to_string(tweet.erase(0, find_ifnot(" \n")(0)) - 1) + " characters";
     }
 }
 
