@@ -1,12 +1,6 @@
 def double_the_difference(lst):
     if len(lst) > 0:
-        if len(set(lst)) > 1:
-            if max(lst) == min(lst):
-                return "Program received expected input"
-            else:
-                return (max(lst) - min(lst)) * 2
-        else:
-            return None
+        return (max(lst) - min(lst)) * 2
 
 
 def check():
