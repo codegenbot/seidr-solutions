@@ -23,10 +23,10 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     for (int i = 0; i < split_index; i++) {
-        res.push_back({v[i]});
+        res.push_back(vector<int>(1, v[i]));
     }
     for (int i = split_index; i < v.size(); i++) {
-        res.push_back({v[i]});
+        res.push_back(vector<int>(1, v[i]));
     }
     return res;
 }
