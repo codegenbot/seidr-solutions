@@ -1,21 +1,18 @@
 def decode_shift():
     while True:
-        shift = int(input("Enter the shift value (1-25): "))
+        password = input("Enter the password: ")
         encoded = input("Enter the encoded message: ")
-        for i in range(26):
-            decoded = "".join(
-                [
-                    (
-                        chr(((ord(ch) - 97 + 26 - i) % 26) + 97)
-                        if ch.isalpha() or not ch.isspace()
-                        else ch
-                    )
-                    for ch in encoded
-                ]
-            )
-            if "z" not in decoded and "Z" not in decoded:
-                return decoded
-        print("Invalid input. Please try again.")
+        shift = (ord(password[0].upper()) - 65) % 26
+        decoded = "".join(
+            [
+                (
+                    chr(((ord(ch) - 97 + 26 - shift) % 26) + 97)
+                    if ch.isalpha() or not ch.isspace()
+                    else ch
+                )
+                for ch in encoded
+            ]
+        )
+        return decoded
 
-
-decode_shift()
+print(decode_shift())
