@@ -1,9 +1,19 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -13,13 +23,14 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
     }
     return result;
-
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> results = indicesOfSubstring(text, target);
+    for(int res : results) {
+        cout << res << endl;
     }
-    return a;
+    return 0;
+}
