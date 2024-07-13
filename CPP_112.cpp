@@ -1,6 +1,8 @@
-bool issame(vector<string> a, vector<string>b) {
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -21,4 +23,12 @@ vector<string> reverse_delete(string s, string c) {
     else
         result.push_back("False");
     return result;
+}
+
+int main() {
+    vector<string> output = reverse_delete("mamma", "mia");
+    for(auto str : output) {
+        cout << str << endl;
+    }
+    return 0;
 }
