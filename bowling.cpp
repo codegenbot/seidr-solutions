@@ -1,29 +1,37 @@
+int currentRoll = 0;
+int nextTwoRolls = 0;
+
 int bowlingScore(std::string s) {
     int score = 0;
-    std::string frame;
     for (char c : s) {
         if (c == '/') {
-            frame += '/';
-            continue;
+            score += currentRoll;
+            currentRoll = 0;
         }
+        std::string frame;
         frame += c;
-        if (c == 'X') {
-            score += 10;
-        } else if (c == '-') {
-            score += 10 - (frame.length() - 1);
+        if (c == 'X') { 
+            score += 10; 
+            currentRoll = 10;
+            nextTwoRolls = 10;
+        } else if (c == '-') { 
+            score += 10 - frame.length();
+            currentRoll = 10 - frame.length();
+            nextTwoRolls = 0;
         } else if (isdigit(c)) {
             int points = 0;
-            for (; isdigit(s.find(c) + 1); s.erase(s.find(c) + 1, 1)) {
-                points = points * 10 + (s[s.find(c) + 1] - '0');
+            int i = s.find(c) + 1;
+            for (; isdigit(s[i]); i++) {
+                points = points * 10 + (s[i] - '0');
             }
-            score += points;
-        } else if (c == 'T') {
-            int points = 10;
-            for (int i = 2; isdigit(s[i]); i++) {
-                points = points + (s[i] - '0');
+            score += currentRoll + points; 
+            currentRoll = points;
+            if (frame.length() == 2) {
+                nextTwoRolls = points;
+            } else {
+                nextTwoRolls = 0;
             }
-            score += points;
-        }
+        } 
     }
     return score;
 }
