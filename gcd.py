@@ -1,4 +1,6 @@
-```Python
+Here is the modified code:
+
+```
 import math
 
 def gcd(a, b):
@@ -6,4 +8,4 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-print(gcd(661344,15686))  # prints: 2
+print(gcd(661344,15686))
