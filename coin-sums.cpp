@@ -28,8 +28,8 @@ int main() {
 
     cout << quarters << endl; 
     cout << dimes * 10 + (cents / 5) << endl;   
-    cout << (cents % 5) / 1 << endl;      
-    cout << cents << endl;     
+    cout << nickles + (cents % 5) / 1 << endl;      
+    cout << (cents % 5) << endl;     
 
     return 0;
 }
