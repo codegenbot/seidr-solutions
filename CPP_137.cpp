@@ -1,13 +1,29 @@
+```cpp
+#include <boost/lexical_cast.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)std::get<int>(a) > std::get<float>(b) ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)std::get<int>(b) > (float)std::get<int>(a) ? b : "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return std::string(std::get<string>(a)).compare(std::get<string>(b)) > 0 ? a : (std::get<string>(a).compare(std::get<string>(b)) < 0 ? b : "None");
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return std::stoi(std::get<string>(b)) > (int)std::get<int>(a) ? b : "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return (int)std::get<int>(a) > std::stoi(std::get<string>(b)) ? a : "None";
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int)a > (int)b ? a : (int)b;
+    }
+    else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
+             (b.type() == typeid(float) || b.type() == typeid(double))) {
+        return boost::any(a.convert_to<double>) > boost::any(b.convert_to<double>) ? a : b;
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        return boost::lexical_cast<string>(boost::any(a).convert_to<string)) >
+               boost::lexical_cast<string>(boost::any(b).convert_to<string>()) ? a : b;
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(double) ||
+              a.type() == typeid(string)) && (b.type() == typeid(int) ||
+                                             b.type() == typeid(double) || b.type() == typeid(string))) {
+        return boost::any(a).convert_to<string>().compare(boost::any(b).convert_to<string>()) > 0 ? a : b;
+    }
+    else if ((a.type() == typeid(int)) && (b.type() == typeid(float) ||
+                                            b.type() == typeid(double) || b.type() == typeid(string))) {
+        return boost::any(b).convert_to<string>().compare("None") != 0 ? a : b;
+    }
+    else {
+        return "None";
     }
 }
