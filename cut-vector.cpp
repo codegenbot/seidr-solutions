@@ -4,49 +4,24 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    
-    for (int i = 0; i < n; i++) {
-        long long leftSum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            leftSum += v[j];
-        }
-        
-        long long rightSum = 0;
-        for (int k = i + 1; k < n; k++) {
-            rightSum += v[k];
-        }
-        
-        int minDiff = INT_MAX;
-        int cutPos = -1;
+    int leftSum = 0;
+    for (int i = 0; i < v.size(); i++) {
+        leftSum += v[i];
+    }
 
-        for (int i = 0; i < n; i++) {
-            long long leftSum = 0;
-            
-            for (int j = 0; j <= i; j++) {
-                leftSum += v[j];
-            }
-            
-            long long rightSum = 0;
-            for (int k = i + 1; k < n; k++) {
-                rightSum += v[k];
-            }
-            
-            int newDiff = abs(leftSum - rightSum);
-            
-            if(newDiff <= minDiff) {
-                minDiff = newDiff;
-                cutPos = i;
-            }
-        }
+    int rightSum = 0;
+    for (int i = v.size() - 1; i >= 0; i--) {
+        rightSum += v[i];
 
-        res[0] = vector<int>(v.begin(), v.begin() + cutPos);
-        res[1] = vector<int>(v.begin() + cutPos, v.end());
+        if(abs(leftSum - rightSum) <= 1) {
+            vector<vector<int>> res(2);
+            res[0] = vector<int>(v.begin(), v.begin() + i+1);
+            res[1] = vector<int>(v.begin() + i+1, v.end());
+            return res;
+        }
     }
     
-    return res;
+    return {{}, {}};
 }
 
 int main() {
