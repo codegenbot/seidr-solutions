@@ -1,19 +1,14 @@
+```python
 from typing import List
 
-
 def concatenate():
+    input_string = input("Enter input string: ")
+    expected = input(f"Expected {input_string}: ")
     words = input("Enter words separated by space: ").split()
     if not words:
         print("No words entered.")
+    result = ', '.join(map(str.lower, words))
+    if result == expected:
+        print(result)
     else:
-        result = ", ".join(map(str.lower, words))
-        expected = input("Enter expected output: ")
-        if result == expected.lower():
-            print(f"The concatenated string is as expected: {result}")
-        else:
-            print(
-                f"Concatenated string mismatched with the expected output. Expected: {expected}, got: {result}"
-            )
-
-
-concatenate()
+        print(f"Expected {expected}, got {result} instead.")
