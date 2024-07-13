@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <algorithm>
 #include <iostream>
@@ -19,8 +18,6 @@ std::string spinWords(std::string str) {
                 
                 if (i < str.length()) {
                     result += " ";
-                } else {
-                    result = "";
                 }
                 word.clear();
             }
