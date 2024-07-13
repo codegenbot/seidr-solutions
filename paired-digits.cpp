@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int pairedDigits(string s) {
