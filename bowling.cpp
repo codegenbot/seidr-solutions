@@ -1,23 +1,22 @@
-```cpp
 #include <string>
 #include <sstream>
 
 int bowlingScore(string s) {
     int score = 0;
-    std::stringstream ss(s);
-    string line;
+    std::istringstream ss(s);
+    char c;
     bool strike = false;
-    while (std::getline(ss, line)) {
-        if (line == "X") {
+    while (ss >> c) {
+        if (c == 'X') {
             score += 30;
             strike = true;
-        } else if (line == "/") {
+        } else if (c == '/') {
             if (!strike) {
                 score += 10 + (score / 10 - 1);
             }
             strike = false;
         } else {
-            int temp = line[0] - '0';
+            int temp = c - '0';
             if (strike) {
                 score += temp * 2;
                 strike = false;
@@ -36,4 +35,3 @@ int main() {
     int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
-}
