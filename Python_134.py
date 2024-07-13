@@ -1,6 +1,11 @@
-def check_palindrome(input_string):
-    if len(input_string) <= 1:
-        return True
-    if input_string[0] != input_string[-1]:
+```
+def check_if_last_char_is_a_letter(txt):
+    if len(txt) == 0:
         return False
-    return check_palindrome(input_string[1:-1])
+    last_char = txt[-1]
+    if not last_char.isalpha():
+        return True
+    for i in range(len(txt)-1, -1, -1):
+        if last_char.lower() != txt[i].lower():
+            return False
+    return True
