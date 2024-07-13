@@ -3,7 +3,7 @@ def mastermind(code, guess):
     white = 0
 
     for char in code:
-        if char == guess[3-guess.index(char)]:
+        if char == guess[3 - guess.index(char)]:
             black += 1
         elif guess.count(char) > 0:
             white += 1
