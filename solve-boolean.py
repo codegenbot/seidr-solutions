@@ -2,6 +2,10 @@ def solve_boolean(expression):
     ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
     
+    if stack:
+        if stack[0] == 'T' or stack[0] == 'F':
+            return 'T' if stack[0] == 'T' else 'F'
+    
     for char in expression:
         if char != ' ':
             if char in 'TF':
