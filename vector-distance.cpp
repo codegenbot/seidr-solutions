@@ -8,7 +8,6 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    
     vector<double> vec1(n), vec2(n);
 
     for (int i = 0; i < n; ++i) {
@@ -25,7 +24,7 @@ int main() {
     }
 
     double distance = sqrt(sum);
-    cout << fixed << setprecision(14) << distance << endl;
+    cout << fixed << setprecision(17) << distance << endl;
 
     return 0;
 }
