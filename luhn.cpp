@@ -14,3 +14,4 @@ int luhn(int cardNumber) {
         }
     }
     return sum;
+}
