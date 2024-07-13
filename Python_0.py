@@ -1,5 +1,14 @@
-```
 def has_close_elements(numbers=None, threshold=None):
+    """
+    This function checks if there are any adjacent floating point numbers in the input list that differ by less than or equal to the given threshold.
+    
+    Parameters:
+    numbers (str): The list of space-separated floating point numbers. If None, it prompts the user for input.
+    threshold (float): The maximum difference between adjacent numbers considered close. If None, it prompts the user for input.
+
+    Returns:
+    bool: True if there are any adjacent numbers that differ by less than or equal to the given threshold, False otherwise.
+    """
     if numbers is None:
         numbers = input("Enter space-separated floating point numbers: ")
     if threshold is None:
