@@ -8,7 +8,9 @@ def encrypt(s):
             else:
                 shift = 3
                 offset = ord('a')
-            result += chr((ord(char) - offset + shift) % 26 + offset)
+            value = ord(char) - offset
+            value = (value + shift) % 26
+            result += chr(value + offset)
         else:  
             result += char
     return result
