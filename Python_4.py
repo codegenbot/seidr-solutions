@@ -1,3 +1,4 @@
+```
 def mean_absolute_deviation():
     while True:
         numbers = []
@@ -13,7 +14,14 @@ def mean_absolute_deviation():
                 print("Invalid input. Please enter numbers only.")
 
         response = input("Do you want to calculate again? (yes/no): ").lower()
-        while response != "no":
+        while True:
+            while response not in ["yes", "no"]:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+                response = input("Do you want to calculate again? (yes/no): ").lower()
+
+            if response == "no":
+                break
+
             if len(numbers):
                 mean = sum(numbers) / len(numbers)
                 mad = sum(abs(x - mean) for x in numbers) / len(numbers)
@@ -21,7 +29,6 @@ def mean_absolute_deviation():
                 print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
             else:
                 print("Please enter at least one number.")
-            response = input("Do you want to calculate again? (yes/no): ").lower()
 
 
 if __name__ == "__main__":
