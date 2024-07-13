@@ -13,3 +13,10 @@ int pairedDigits(const char* s) {
     }
     return sum;
 }
+
+int main() {
+    const char* s = "123455"; 
+    int result = pairedDigits(s);
+    std::cout << "Sum of the digits whose following digit is the same: " << result << std::endl;
+    return 0;
+}
