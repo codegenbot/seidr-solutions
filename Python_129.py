@@ -23,7 +23,3 @@ def minPath(grid, k):
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
-
-grid = [[1, 2, 3], [4, 5, 6]]
-k = 3
-print(minPath(grid, k))
