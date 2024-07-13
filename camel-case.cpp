@@ -21,3 +21,4 @@ std::string camelCase(std::string str) {
         }
     }
     return result;
+}
