@@ -1,3 +1,4 @@
+```Python
 print("Enter the number up to which you want to find max triples: ", end="")
 n = int(input())
 
@@ -6,7 +7,7 @@ def get_max_triples(n):
         return None
     max_sum = 0
     for i in range(1, n+1):
-        triple_sum = sum(range(1, i*3, 2)) + sum(range(i*3+1, ((i+1)*3)//2 + 1))
+        triple_sum = sum([x for x in range(1, i*3, 2)]) + sum(range(i*3+1, ((i+1)*3)//2 + 1))
         if triple_sum > max_sum:
             max_sum = triple_sum
     return max_sum
