@@ -10,22 +10,19 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
-    if(sum == 0) return {{v[0]}, {v}};
-    
-    if(sum > std::llabs(0) || sum < 0) {
+    if(sum != (long long)v[0] * n) {
         return {{}, {}};
     }
     
     long long leftSum = 0, rightSum = sum;
     int minDiff = INT_MAX, cutIndex = -1;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < n - 1; i++) {
+        if (rightSum == leftSum) break;
         rightSum -= v[i];
         
-        if(rightSum == leftSum) break;
-        
         long long diff = abs(leftSum - rightSum);
-        if (diff <= minDiff) {
+        if (diff <= minDiff || (diff == minDiff && leftSum >= rightSum)) {
             minDiff = diff;
             cutIndex = i + 1; 
         }
@@ -38,7 +35,12 @@ vector<vector<int>> cutVector(vector<int> v) {
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
     }
-    res[0] = vector<int>(v.begin(), v.begin() + cutIndex);
+    
+    if(res[0].size() > res[1].size()) {
+        vector<int> temp = res[0];
+        res[0] = res[1];
+        res[1] = temp;
+    }
     
     return res;
 }
@@ -46,41 +48,22 @@ vector<vector<int>> cutVector(vector<int> v) {
 int main() {
     int n;
     cin >> n;
-    if(n > 1) {
-        vector<int> v(n);
-        for (int i = 0; i < n; i++) {
-            cin >> v[i];
-        }
-        
-        vector<vector<int>> result = cutVector(v);
-        cout << "[";
-        for (int i = 0; i < result[1].size(); i++) {
-            cout << result[1][i] << " ";
-        }
-        cout << "]" << endl;
-        cout << "[";
-        for (int i = 0; i < result[0].size(); i++) {
-            cout << result[0][i] << " ";
-        }
-        cout << "]" << endl;
-    } else {
-        int x;
-        cin >> x;
-        vector<int> v(1);
-        v[0] = x;
-        
-        vector<vector<int>> result = cutVector(v);
-        cout << "[";
-        for (int i = 0; i < result[1].size(); i++) {
-            cout << result[1][i] << " ";
-        }
-        cout << "]" << endl;
-        cout << "[";
-        for (int i = 0; i < result[0].size(); i++) {
-            cout << result[0][i] << " ";
-        }
-        cout << "]" << endl;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
+    
+    vector<vector<int>> result = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1][i] << " ";
+    }
+    cout << "]" << endl;
+    cout << "[";
+    for (int i = 0; i < result[0].size(); i++) {
+        cout << result[0][i] << " ";
+    }
+    cout << "]" << endl;
     
     return 0;
 }
