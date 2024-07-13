@@ -6,13 +6,11 @@ int main() {
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
+        } else if (capitalize) {
+            c = toupper(c);
+            capitalize = false;
         } else {
-            if (capitalize && islower(c)) {
-                c = toupper(c);
-                capitalize = false;
-            } else if (!capitalize && isupper(c)) {
-                c = tolower(c);
-            }
+            c = tolower(c);
         }
     }
     
