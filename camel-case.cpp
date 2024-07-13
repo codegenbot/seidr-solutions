@@ -11,18 +11,17 @@ string camelCase(string s) {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            if (i < s.size()) {
-                string word = s.substr(i + 1);
-                result += word;
-            }
+            string word = s.substr(i + 1);
+            result += word;
             break;
         } else if (s[i] == ' ') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
             std::string firstPart = s.substr(0, i);
-            result += std::toupper(firstPart[0]) + firstPart.substr(1) + s.substr(i + 1);
-            break;
+            result += std::toupper(firstPart[0]) + firstPart.substr(1);
+            s = s.substr(i + 1);
+            i = -1;
         } else {
             result += s[i];
         }
