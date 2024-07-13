@@ -5,9 +5,9 @@ using namespace std;
 double diceGame(int n, int m) {
     double p = 0.0;
     for (int i = 1; i <= m; i++) {
-        p += 1.0 / n;
+        p += (n - i) / (double)n * ((m == i) ? 1.0 : (1.0 / (n - i + 1)));
     }
-    return 1.0 - p;
+    return p;
 }
 
 int main() {
