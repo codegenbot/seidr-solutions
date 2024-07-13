@@ -1,48 +1,30 @@
-```cpp
-#include <iostream>
 #include <vector>
 
-int main() {
-    int n;
-    std::cout << "Enter numbers: ";
-    std::vector<int> nums;
-    while (std::cin >> n) {
-        nums.push_back(n);
-    }
-    int result = count_nums(nums);
-    std::cout << "The number of positive sums is: " << result << std::endl;
-    return 0;
-}
-
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> v) {
     int count = 0;
-    for (int num : nums) {
+    for (int num : v) {
         if (num >= 0) {
             int sum = 0;
-            int n = num;
-            while (n > 0) {
-                int digit = n % 10;
-                sum += digit;
-                n /= 10;
+            while (num > 0) {
+                sum += abs(num % 10);
+                num /= 10;
             }
             if (sum > 0) {
                 count++;
             }
         } else {
-            int sum = 0, i = 1;
-            n = abs(num);
-            while (n > 0) {
-                int digit = n % 10;
-                if (digit != 0 || i == 1) {
-                    sum += (digit < 0 ? -1 : 1);
+            int sum = 0, sign = -1;
+            bool foundNonZero = false;
+            while (num < 0) {
+                if (abs(num) % 10 != 0) {
+                    sum += abs(num % 10);
+                    foundNonZero = true;
                 }
-                n /= 10;
-                i++;
+                num /= 10;
             }
-            if (sum > 0) {
+            if (foundNonZero && sum > 0) {
                 count++;
             }
         }
     }
     return count;
-}
