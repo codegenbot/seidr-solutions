@@ -8,10 +8,11 @@ def luhn(card_number):
         if is_double:
             if digit > 9:
                 digit -= 9
+            sum += digit
         else:
             digit *= 2
             if digit > 9:
                 digit -= 9
-        sum += digit
+            sum += digit
         is_double = not is_double
     return sum
