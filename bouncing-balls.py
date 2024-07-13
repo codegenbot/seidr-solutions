@@ -14,6 +14,3 @@ def bouncing_balls():
         prev_height = height
 
     print("The total distance traveled is: ", round(total_distance, 2))
-
-if __name__ == "__main__":
-    bouncing_balls()
