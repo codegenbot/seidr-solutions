@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -7,7 +8,7 @@ def modp(n: int, p: int) -> int:
     i = 0
     while True:
         i += 1
-        if (math.pow(n, i)) % p == 1:
+        if (n * i) % p == 1:
             return i
 
 
