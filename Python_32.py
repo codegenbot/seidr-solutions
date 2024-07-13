@@ -10,5 +10,4 @@ while True:
 
         print(find_zero(coefficients))
     except ValueError as e:
-        print(f"Error: {e}")
-        exit()
+        print(f"Error: Please enter valid integers, separated by spaces. {e}")
