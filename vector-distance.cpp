@@ -11,19 +11,19 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
 }
 
 int main() {
-    double n;
+    int n;
     std::cin >> n;
 
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        double num;
+        float num; // Change data type from double to float
         std::cin >> num;
         vec1[i] = num;
     }
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        double num;
+        float num; // Change data type from double to float
         std::cin >> num;
         vec2[i] = num;
     }
