@@ -1,4 +1,5 @@
-def process_music(music_string):
+```
+def parse_music_string(music_string):
     music_list = []
     i = 0
     while i < len(music_string):
@@ -8,3 +9,6 @@ def process_music(music_string):
         else:
             i += 1
     return music_list
+
+music_string = "o--oo---o-o-o---"
+print(parse_music_string(music_string))
