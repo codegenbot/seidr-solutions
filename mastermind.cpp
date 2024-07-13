@@ -21,4 +21,3 @@ int main() {
     std::string guess = "ABDC";
     int result = mastermind(code, guess);
     return 0;
-}
