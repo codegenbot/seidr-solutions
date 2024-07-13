@@ -1,9 +1,11 @@
 int main() {
-    double h, b;
-    int n;
-    cin >> h >> b >> n;
-    double ratio = b / h;
-    double total_distance = h + (h * ratio) * (pow(ratio, n) - 1) / (ratio - 1);
-    cout << total_distance << endl;
+    double H, HH, B, D;
+    cin >> H >> HH >> B;
+    D = 0;
+    for (int i = 0; i < B; i++) {
+        D += H;
+        H = HH;
+    }
+    cout << D << endl;
     return 0;
 }
