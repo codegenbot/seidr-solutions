@@ -1,21 +1,21 @@
-#include <vector>
-using namespace std;
-
-int luhn(vector<int> ccnum) {
+int luhn(const std::vector<int>& creditCardNumber) {
     int sum = 0;
     bool doubleNext = false;
-    for (int i = ccnum.size() - 1; i >= 0; --i) {
+
+    for (int i = creditCardNumber.size() - 1; i >= 0; --i) {
+        int digit = creditCardNumber[i];
+        
         if (doubleNext) {
-            int digit = ccnum[i] * 2;
+            digit *= 2;
             if (digit > 9) {
                 digit -= 9;
             }
-            sum += digit;
-            doubleNext = false;
-        } else {
-            sum += ccnum[i];
-            doubleNext = true;
         }
+
+        sum += digit;
+
+        doubleNext = !doubleNext;
     }
+
     return sum;
 }
