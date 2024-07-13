@@ -10,11 +10,11 @@ def longest(strings: List[Optional[str]]) -> Optional[str]:
             result = s
     return result
 
-strings = []
 
+strings = []
 while True:
     user_input = input("Enter a string (or 'stop' to finish): ")
-    if user_input.lower() == 'stop':
+    if user_input.lower() == "stop":
         break
     elif not isinstance(user_input, str) or len(user_input.strip()) == 0:
         print("Invalid input. Please enter a non-empty string.")
