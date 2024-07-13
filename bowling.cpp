@@ -10,7 +10,7 @@ int bowlingScore(const std::string& input) {
     int prevRoll1 = 0;
     int prevRoll2 = 0;
 
-    int rolls[] = {prevRoll1, prevRoll2};
+    int rolls[10];
     for (int i = 0; i < 10; i++) {
         if (input[i] == 'X') {
             rolls[i] = 10;
