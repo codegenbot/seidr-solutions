@@ -3,7 +3,7 @@
 #include <cstring>
 
 char toLower(char c) {
-    return (c >= 'A' && c <= 'Z') ? c - 'A' + 'a' : (c >= 'a' && c <= 'z') ? c : c + 32;
+    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ? (c >= 'A' && c <= 'Z' ? c - 'A' + 'a' : c) : c;
 }
 
 int main() {
@@ -45,7 +45,7 @@ int main() {
         }
     }
 
-    if (indices.empty()) {
+    if (indices.size() == 0) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
