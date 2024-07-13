@@ -1,4 +1,3 @@
-```
 def calculate():
     while True:
         try:
