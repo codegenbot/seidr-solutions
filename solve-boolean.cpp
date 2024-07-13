@@ -2,11 +2,12 @@ int main() {
     string expression;
     cin >> expression;
 
-    if (expression == "t") {
-        cout << "True";
-    } else {
-        cout << "False";
+    bool result = true;
+    if (expression == "f" || expression == "F") {
+        result = false;
     }
+
+    cout << (result ? "True" : "False") << endl;
 
     return 0;
 }
