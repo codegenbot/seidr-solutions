@@ -15,5 +15,4 @@ def find_closest_elements():
             closest_pair = abs(nums[i] - nums[i + 1])
     return str(closest_pair)
 
-
 print("Closest pair is: ", find_closest_elements())
