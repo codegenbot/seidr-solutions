@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
