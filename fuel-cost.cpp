@@ -10,7 +10,7 @@ int calculateFuelCost(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {5140, 6810, 5151, 4849, 1071, 5030, 1597, 3475, 6951, 3373, 6095};
+    vector<int> nums = {11, 5140, 6810, 5151, 4849, 1071, 5030, 1597, 3475, 6951, 3373, 6095};
     int totalCost = calculateFuelCost(nums);
     return 0;
 }
