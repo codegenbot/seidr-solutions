@@ -3,11 +3,12 @@ import re
 
 
 def fix_spaces():
+    text = ""
     while True:
-        text = input("Enter a string (or 'stop' to finish): ").strip().lower()
         if text.lower() == "stop":
             break
-        elif not re.match("^[a-z_]+$", text):
+        text = input(f"Enter a string ({text} or 'stop' to finish): ").strip().lower()
+        if not re.match("^[a-z_]+$", text):
             print("Please enter alphabetic characters and/or underscores. Try again.")
         else:
             text_list = text.split()
