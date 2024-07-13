@@ -1,3 +1,4 @@
+````
 #include <string>
 using namespace std;
 
@@ -16,3 +17,4 @@ int main() {
     cout << pairedDigits("123456") << endl;
     return 0;
 }
+```
