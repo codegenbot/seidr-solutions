@@ -1,24 +1,26 @@
 #include <vector>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        if (text.substr(i, target.size()) == target) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
+class Solution {
+public:
+    vector<int> findIndices(string text, string target) {
+        vector<int> result;
+        int n = text.length();
+        int m = target.length();
 
-int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << endl;
+        for(int i=0; i<=n-m; i++) {
+            bool match = true;
+            for(int j=0; j<m; j++) {
+                if(text[i+j] != target[j]) {
+                    match = false;
+                    break;
+                }
+            }
+            if(match) {
+                result.push_back(i);
+            }
+        }
+
+        return result;
     }
-    return 0;
-}
+};
