@@ -5,4 +5,4 @@ def shopping_list():
     total_price = 0
     for i in range(n):
         total_price += prices[i] * (1 - discounts[i] / 100)
-    return total_price
+    print(total_price)

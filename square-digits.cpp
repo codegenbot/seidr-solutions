@@ -1,9 +1,8 @@
-```cpp
+using namespace std;
+
 #include <vector>
 #include <iostream>
 #include <string>
-
-using namespace std;
 
 string squareDigits(string input) {
     string output = "";
