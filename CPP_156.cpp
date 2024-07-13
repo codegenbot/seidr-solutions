@@ -1,4 +1,8 @@
-string romanToInt(int n) {
+```cpp
+#include <iostream>
+using namespace std;
+
+const char* romanToInt(int n) {
     if (n <= 0)
         return "";
     else if (n >= 1000) {
@@ -47,7 +51,7 @@ string romanToInt(int n) {
             roman += "I";
             n--;
         }
-        return roman; // Return by value
+        return roman.c_str(); // Return by value
     } else if (n >= 4) {
         return "IV";
     } 
@@ -56,7 +60,7 @@ string romanToInt(int n) {
         for (int i = 0; i < n; i++) {
             roman += "I";
         }
-        return roman;
+        return roman.c_str();
     }
     return "";
 }
