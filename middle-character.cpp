@@ -8,3 +8,11 @@ std::string middleCharacter(std::string s) {
         return s.substr(len/2, 1);
     }
 }
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
+    return 0;
+}
