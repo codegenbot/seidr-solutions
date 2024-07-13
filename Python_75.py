@@ -1,4 +1,4 @@
-def is_multiply_prime():
+def is_multiply_prime(): 
     a = int(input("Enter a number: "))
     def is_prime(n):
         if n < 2:
