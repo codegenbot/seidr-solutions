@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -7,15 +8,17 @@ def parse_music(music_string: str) -> List[int]:
 
     for note in music_string.split():
         if "|" in note:
-            beats_per_note.append(int(music_notes[note]))
+            beats_per_note.append(music_notes[note])
         else:
-            beats_per_note.append(int(music_notes.get(note, 0)))
+            beats_per_note.append(music_notes.get(note, 0))
 
     return beats_per_note
 
+# Accept user input
 user_input = input("Enter the music string: ")
 
 try:
+    # Parse the input and print the result
     parsed_beats = parse_music(user_input)
     print(parsed_beats)
 
