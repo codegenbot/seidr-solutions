@@ -2,10 +2,10 @@
 def car_race_collision(n):
     if n < 3:
         return "No collision"
-    elif n % 2 == 0:
-        return f"Collision at {n//2}th second"
+    elif n % 3 == 0:
+        return f"Collision at {n//3}th lap"
     else:
-        return f"Collision at {(n+1)//2}th second"
+        return f"Collision at {(n-1)//3+1}th lap"
 
 while True:
     try:
