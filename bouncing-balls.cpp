@@ -1,14 +1,10 @@
-```cpp
-#include <cmath>
+double startHeight;
+double actualBouncinessIndex;
 
-int main() {
-    double startHeight, actualStartHeight, actualBouncinessIndex;
+cin >> startHeight >> actualBouncinessIndex;
 
-    // Get the input values from user
-    cin >> startHeight >> actualStartHeight;
-    actualBouncinessIndex = (actualStartHeight / startHeight);
+actualBouncinessIndex /= startHeight;
 
-    double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
+double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
 
-    return 0;
-}
+cout << fixed << setprecision(2) << totalDistance;
