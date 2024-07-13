@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,23 +5,29 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
+    bool upperNext = true;
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
-            if (result.size()) {
-                result[0] = toupper(result[0]);
+            if (upperNext) {
+                result += toupper(s[i + 1]);
+                upperNext = false;
+            } else {
+                result += s[i + 1];
             }
-            string word = s.substr(i + 1);
-            result += word;
-            break;
         } else if (s[i] == ' ') {
-            if (i > 0) {
-                result[0] = toupper(result[0]);
+            if (!upperNext) {
+                result += s[i];
+            } else {
+                result += toupper(s[i]);
+                upperNext = false;
             }
-            result += s.substr(0, i);
-            result += s.substr(i + 1);
-            break;
         } else {
-            result += s[i];
+            if (!upperNext) {
+                result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+                upperNext = false;
+            }
         }
     }
     return result;
@@ -33,8 +38,12 @@ int main() {
     while (true) {
         cout << "Enter a string in kebab-case: ";
         getline(cin, str);
-        if (str == "quit") break;
         cout << "The camelCase is: " << camelCase(str) << endl;
+        // Ask the user if they want to continue
+        char response;
+        cout << "Continue? (y/n): ";
+        cin >> response;
+        if (response == 'n') break; 
     }
     return 0;
 }
