@@ -26,3 +26,5 @@ int main() {
     
     cout << "Black pegs: " << black << endl;
     cout << "White pegs: " << white << endl;
+    
+    return 0;
