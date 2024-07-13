@@ -1,3 +1,4 @@
+```
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
@@ -5,3 +6,4 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
         if num not in seen:
             seen.add(num)
             result.append(num)
+    return result
