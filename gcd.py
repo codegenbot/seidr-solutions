@@ -1,3 +1,4 @@
+```python
 import math
 
 def gcd(a, b):
@@ -8,5 +9,4 @@ def find_gcd():
     b = int(input("Enter second integer: "))
     print(f"GCD of {a} and {b} is {gcd(a, b)}")
 
-if __name__ == "__main__":
-    find_gcd()
+find_gcd()
