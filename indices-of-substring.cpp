@@ -8,10 +8,10 @@ int main() {
     std::cin.getline(target, 100);
 
     std::vector<int> indices;
-    int textLen = strlen(text) - 1;
+    int textLen = strlen(text);
     int targetLen = strlen(target);
     
-    for (int i = 0; i < textLen - targetLen + 1; ++i) {
+    for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
             if (text[i + j] != target[j]) {
