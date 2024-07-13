@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -9,7 +8,7 @@ using namespace std;
 int countWhitePegs(const string& code, const string& guess) {
     int whitePegs = 0;
     for (char c : code) {
-        if (count(guess.begin(), guess.end(), c) > 0) {
+        if (std::count(guess.begin(), guess.end(), c) > 0) {
             whitePegs++;
         }
     }
