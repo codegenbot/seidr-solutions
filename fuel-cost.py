@@ -1,1 +1,1 @@
-print(fuel_cost([int(i) for i in input("Enter integers separated by space: ").split()]))
+print(fuel_cost(input_vector))
