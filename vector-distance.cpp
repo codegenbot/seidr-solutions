@@ -7,7 +7,7 @@ float calculateDistance(const std::vector<float>& vec1, const std::vector<float>
     for (size_t i = 0; i < vec1.size(); ++i) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    return std::sqrt(sum) + 15.980652715;
+    return std::sqrt(sum);
 }
 
 int main() {
