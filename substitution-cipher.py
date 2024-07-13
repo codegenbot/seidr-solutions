@@ -1,12 +1,13 @@
-Here is the Python code to solve this problem:
+def substitution_cipher(input1, input2, input3):
+    cipher = {}
+    for i in range(len(input1)):
+        cipher[input1[i]] = input2[i]
 
-```
-def substitute_cipher(s1, s2, message):
-    cipher = {c1: c2 for c1, c2 in zip(s1, s2)}
-    deciphered_message = ''
-    for char in message:
+    result = ""
+    for char in input3:
         if char in cipher:
-            deciphered_message += cipher[char]
+            result += cipher[char]
         else:
-            deciphered_message += char
-    return deciphered_message
+            result += char
+
+    return result
