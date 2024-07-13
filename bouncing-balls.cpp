@@ -12,8 +12,8 @@ int main() {
     double startHeight = stod(startHeightStr);
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        startHeight *= bouncinessIndex; 
-        totalDistance += startHeight; 
+        startHeight *= bouncinessIndex;
+        totalDistance += abs(startHeight - (startHeight * bouncinessIndex));
     }
 
     cout << fixed;

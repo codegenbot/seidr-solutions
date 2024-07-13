@@ -30,16 +30,12 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         rightSum -= v[i];
     }
     
-    if(minDiff == 0) {
-        res[0].assign(v.begin(), v.end());
-        
-        res[1] = {};
-        return res;
+    res[0].resize(cutIndex + 1);
+    for(int i = 0; i <= cutIndex; i++) {
+        res[0].push_back(v[i]);
     }
     
-    res[0].assign(v.begin(), v.begin() + cutIndex);
-    
-    res[1].assign(v.begin() + cutIndex, v.end());
+    res[1].assign(v.begin() + (cutIndex + 1), v.end());
     
     return res;
 }
