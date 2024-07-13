@@ -5,6 +5,8 @@
 using std::vector;
 using std::cout;
 
+using std::reverse;
+
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
@@ -17,7 +19,7 @@ vector<int> leaders(vector<int>& arr) {
         if(arr[i] >= arr[i+1]) res.push_back(arr[i]);
     }
     
-    std::reverse(res.begin(), res.end());
+    reverse(res.begin(), res.end());
     
     return res;
 }
