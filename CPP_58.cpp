@@ -1,20 +1,17 @@
-bool issame(vector<int> a,vector<int>b){
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
+#include <vector>
+#include <set>
+#include <algorithm>
 
-vector<int> common(vector<int> l1,vector<int> l2){
-    vector<int> result;
-    set<int> s1(l1.begin(),l1.end());
-    set<int> s2(l2.begin(),l2.end());
+using namespace std;
 
-    set<int> intersection(s1.begin(),s1.end());
-    set_intersection(s1.begin(),s1.end(),s2.begin(),s2.end(),
-        inserter(intersection,intersection.begin()));
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
 
-    for(auto i: intersection){
-        result.push_back(i);
-    }
+    set<int> intersection;
+    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+        inserter(intersection, intersection.begin()));
 
-    sort(result.begin(),result.end());
+    vector<int> result(intersection.begin(), intersection.end());
     return result;
 }
