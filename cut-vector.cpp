@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
+#include <cmath>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
-    long long diff = LLONG_MAX;
+    long long diff = std::numeric_limits<long long>::max();
 
     for (int i = 0; i < n; i++) {
         long long leftSum = 0, rightSum = 0;
@@ -16,13 +18,13 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         }
 
         if (std::abs(leftSum - rightSum) == diff) {
-            return {{v.begin(), v.begin() + i + 1}, {v.begin() + i + 1, v.end()}};
+            return {std::vector<int>(v.begin(), v.begin() + i + 1), std::vector<int>(v.begin() + i + 1, v.end())};
         } else if (std::abs(leftSum - rightSum) < diff) {
             diff = std::abs(leftSum - rightSum);
         }
     }
 
-    return {{v.begin(), v.end()}, {v.begin(), v.end()}};
+    return {v, v};
 }
 
 int main() {
