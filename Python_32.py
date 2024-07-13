@@ -1,4 +1,3 @@
-```
 def find_zero(coefficients):
     a, b, c = coefficients
     x = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
