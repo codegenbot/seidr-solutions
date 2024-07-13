@@ -28,18 +28,3 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 
     return result;
 }
-
-int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    auto result = cutVector(nums);
-    for (int num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-    for (int num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
-}
