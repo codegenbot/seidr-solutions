@@ -6,27 +6,18 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res;
     
-    int min_diff = INT_MAX;
-    long long left_sum = 0, right_sum = 0;
-    
     for (int i = 1; i < n; i++) {
-        left_sum += v[i-1];
-        right_sum = accumulate(v.begin() + i, v.end(), 0);
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff <= min_diff) {
-            min_diff = diff;
+        long long sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; j++) {
+            sum1 += v[j];
         }
-    }
-    
-    for (int i = 1; i < n; i++) {
-        left_sum += v[i-1];
-        right_sum = accumulate(v.begin() + i, v.end(), 0);
+        for (int j = i; j < n; j++) {
+            sum2 += v[j];
+        }
         
-        int diff = abs(left_sum - right_sum);
-        if (diff == min_diff) {
-            res.push_back({v.begin(), v.begin() + i});
-            res.push_back({v.begin() + i, v.end()});
+        if (abs(sum1 - sum2) <= abs(sum1 - v[i])) {
+            res.push_back(vector<int>(v.begin(), v.begin() + i));
+            res.push_back(vector<int>(v.begin() + i, v.end()));
             return res;
         }
     }
