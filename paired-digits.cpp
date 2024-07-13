@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 int pairedDigits(const std::string& str) {
     int sum = 0;
