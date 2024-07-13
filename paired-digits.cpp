@@ -11,7 +11,7 @@ int pairedDigits(const std::string& str) {
     return sum;
 }
 
-int main() { 
+int main() {
     std::cout << pairedDigits("123211"); 
-    return 0; 
+    return 0;
 }
