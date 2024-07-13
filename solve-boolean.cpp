@@ -1,17 +1,19 @@
-bool evaluateBoolean(string expr) {
-    stack<char> stk;
-    for (char c : expr) {
-        if (c == 't' || c == 'f') {
-            stk.push(c);
-        } else if (c == '&') {
-            char op1 = stk.top(); stk.pop();
-            char op2 = stk.top(); stk.pop();
-            stk.push((op1 == 't' && op2 == 't') ? 't' : 'f');
-        } else if (c == '|') {
-            char op1 = stk.top(); stk.pop();
-            char op2 = stk.top(); stk.pop();
-            stk.push((op1 == 't' || op2 == 't') ? 't' : 'f');
-        }
+bool evaluateBooleanExpression(string expression) {
+    if (expression == "t") {
+        return true;
+    } else if (expression == "f") {
+        return false;
     }
-    return stk.top() == 't';
+    
+    char operand = expression[1];
+    bool left = expression[0] == 't' ? true : false;
+    bool right = expression[2] == 't' ? true : false;
+    
+    if (operand == '&') {
+        return left && right;
+    } else if (operand == '|') {
+        return left || right;
+    }
+    
+    return false;
 }
