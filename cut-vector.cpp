@@ -16,7 +16,7 @@ void findCutIndex(vector<int>& nums) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int diff = abs(leftSum - rightSum);
-        if (diff < minDiff || (diff == minDiff && rightSum >= leftSum)) {
+        if (diff < minDiff || (diff == minDiff && leftSum == rightSum)) {
             minDiff = diff;
             cutIndex = i;
         }
