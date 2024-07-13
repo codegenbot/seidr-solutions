@@ -1,48 +1,60 @@
-vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
+#include <algorithm>
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
+    
+    return true;
+}
 
-    sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
-
+std::vector<std::string> by_length(std::vector<int> arr) {
+    vector<string> numArr;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            numArr.push_back(to_string(i));
+    }
+    sort(numArr.begin(), numArr.end());
+    reverse(numArr.begin(), numArr.end());
     vector<string> result;
-    for (int num : sortedArr) {
-        string str = "";
-        switch (num) {
+    for (int i = 0; i < numArr.size(); i++) {
+        switch (stoi(numArr[i])) {
             case 1:
-                str = "One";
+                result.push_back("One");
                 break;
             case 2:
-                str = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                str = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                str = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                str = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                str = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                str = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                str = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                str = "Nine";
+                result.push_back("Nine");
                 break;
         }
-        result.push_back(str);
     }
-
     return result;
 }
