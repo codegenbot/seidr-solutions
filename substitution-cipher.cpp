@@ -2,13 +2,17 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
+std::string decipher(std::string cipher_text, std::string alphabet) {
     std::string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        for (int j = 0; j < cipher1.length(); j++) {
-            if (message[i] == cipher1[j]) {
-                result += cipher2[j];
-                break;
+    for (char c : cipher_text) {
+        if (c == ' ') {
+            result += ' ';
+        } else {
+            for (int i = 0; i < alphabet.length(); ++i) {
+                if (alphabet[i] == c) {
+                    result += alphabet.substr(0, i)[0];
+                    break;
+                }
             }
         }
     }
@@ -16,8 +20,8 @@ std::string decipher(std::string cipher1, std::string cipher2, std::string messa
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << decipher(cipher1, cipher2, message) << endl;
+    std::string cipher_text1, cipher_text2, plain_text;
+    std::cin >> cipher_text1 >> cipher_text2 >> plain_text;
+    std::cout << decipher(plain_text, cipher_text1) << std::endl;
     return 0;
 }
