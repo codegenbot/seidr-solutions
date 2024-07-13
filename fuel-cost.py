@@ -1,2 +1,4 @@
-def fuel_cost(lst):
-    return sum((i // 3 - 2) for i in lst if i > 0)
+Here is the Python solution for the given problem:
+
+def fuel_cost(arr):
+    return sum((i//3)-2 for i in arr)
