@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <sstream>
 
 std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
-    std::vector<int> input_vector(lst);
+    std::vector<int> input_vector(std::vector<int>(lst));
     int sum_even = 0, sum_odd = 0;
 
     for (int num : input_vector) {
