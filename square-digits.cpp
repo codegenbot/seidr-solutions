@@ -1,13 +1,8 @@
-Here is the solution:
-
-int squareDigits(int n) {
-    string str = to_string(n);
-    string result;
-    
-    for (char c : str) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+string squareDigits(string n) {
+    string res = "";
+    for(int i=0; i<n.size(); i++){
+        int num = (n[i]-'0');
+        res += to_string(num * num);
     }
-    
-    return stoi(result);
+    return res;
 }
