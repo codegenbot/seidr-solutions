@@ -11,10 +11,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         int j = 0;
         while (j < m && i + j < n && text[i+j] == target[j]) {
             j++;
-            if (j == m) {
-                result.push_back(i);
-                i = i + j;  // Update 'i' correctly
-            }
+        }
+        if (j == m) {
+            result.push_back(i);
         }
     }
 
