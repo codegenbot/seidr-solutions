@@ -3,8 +3,4 @@ def paired_digits(s):
     for i in range(len(s) - 1):
         if s[i] == s[i+1]:
             total += int(s[i]) * 2
-        else:
-            total += int(s[i])
-    if s[0] == s[-1]:
-        total += int(s[0]) * 2
     return total
