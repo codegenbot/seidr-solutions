@@ -6,13 +6,15 @@ def bowling_score(s):
         if s[i] == "X":
             score += 30
             roll += 1
-            if i < len(s) - 1 and (s[i + 1] == "/" or s[i + 1] == "X"):
-                score += int(s[i + 2])
+            if i < len(s) - 1 and s[i+1] in ["X", "/"]:
+                score += int(s[i+2].strip())
+            elif i < len(s) - 1:
+                score += int(s[i+1].strip()) + int(s[i+2].strip())
         elif s[i] == "/":
-            score += 10 + int(s[i][1])
-            roll += 2
-            if i < len(s) - 2 and (s[i + 1].isdigit() or s[i + 1] == "X"):
-                score += int(s[i + 1])
+            score += 10
+            roll += 1
+            if i < len(s) - 1 and s[i+1] != "X" and s[i+1] != "/":
+                score += int(s[i+1].strip())
         else:
             score += int(s[i])
             roll += 1
