@@ -1,3 +1,5 @@
+#include <string>
+
 std::string squareDigits(std::string input) {
     std::string output = "";
     for (char c : input) {
@@ -8,6 +10,6 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
-    std::cout << squareDigits("8174") << std::endl;
+    std::cout << squareDigits("6174") << std::endl;
     return 0;
 }
