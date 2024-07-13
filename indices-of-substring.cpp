@@ -1,7 +1,23 @@
+```c++
 #include <vector>
 #include <string>
 
 using namespace std;
+
+int main() {
+    using namespace std;
+
+    string text = "Hello World";  // input text
+    string target = "o";  // input target
+
+    vector<int> result = indicesOfSubstring(text, target);
+
+    for (int i : result) {
+        cout << i << endl;
+    }
+
+    return 0;
+}
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -15,25 +31,4 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
-}
-
-int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    cout << "Enter the target substring: ";
-    getline(cin, target);
-
-    vector<int> result = indicesOfSubstring(text, target);
-    
-    if(result.size() == 0)
-        cout << "Target not found in text.";
-    else
-        cout << "Indices of the target in the text are: ";
-    for(int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
