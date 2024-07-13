@@ -29,7 +29,7 @@ int mastermind(string code, string guess) {
         for(int j = 0; j < 6; j++) {
             if(code[j] == guess[i]) {
                 count++;
-                codeCount[distance(chars.begin(), find(chars.begin(), chars.end(), code[j]))]--;
+                codeCount[distance(chars.begin(), find(chars.begin(), chars.end(), code[i]))]--;
                 if(count > 1) break;
             }
         }
