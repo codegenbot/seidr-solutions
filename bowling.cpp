@@ -1,4 +1,4 @@
-```
+```c++
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -6,6 +6,9 @@
 using namespace std;
 
 int bowlingScore(string s) {
+    if (s.empty()) {
+        return 0;
+    }
     int score = 0;
     istringstream ss(s);
     char c;
@@ -39,3 +42,4 @@ int main() {
     int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
+}
