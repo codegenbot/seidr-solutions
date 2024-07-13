@@ -1,3 +1,5 @@
+Here is the completed code:
+
 #include <vector>
 using namespace std;
 
@@ -10,7 +12,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1};
+    return {-1, -1}; // or throw an exception
 }
 
 int main() {
@@ -23,10 +25,6 @@ int main() {
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    if (result.first != -1) {
-        cout << result.first << " " << result.second << endl;
-    } else {
-        cout << "-1 -1" << endl;
-    }
+    cout << result.first << " " << result.second << endl;
     return 0;
 }
