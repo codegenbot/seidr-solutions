@@ -1,7 +1,3 @@
-```
-#include <iostream>
-using namespace std;
-
 string romanToInt(int n) {
     if (n <= 0)
         return "";
