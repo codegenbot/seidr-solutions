@@ -1,11 +1,13 @@
-int pairedDigits(const std::string& s) {
+```cpp
+int pairedDigits(const char* s) {
+    std::string str = s;
     int sum = 0;
     size_t i = 0; 
-    for (; i < s.size() - 1; ++i) { 
-        if ((std::stoi(std::string(1, s[i]))) == (std::stoi(std::string(1, s[i + 1])))) {
-            sum += (std::stoi(std::string(1, s[i]))) * 2;
+    for (; i < str.size() - 1; ++i) { 
+        if ((str[i] - '0') == (str[i + 1] - '0')) {
+            sum += (str[i] - '0') * 2;
         } else {
-            sum += std::stoi(std::string(1, s[i]));
+            sum += str[i] - '0';
         }
     }
     return sum; 
