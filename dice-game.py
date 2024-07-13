@@ -1,5 +1,6 @@
-```
+```"""
 def dice_game(n, m):
+    """"
     if n > m:
         favorable = sum(range(m+1, n+1))  
         total = n * m
@@ -10,3 +11,4 @@ def dice_game(n, m):
         return 0
 
     return favorable / total
+"""""
