@@ -11,7 +11,7 @@ std::string camelCase(std::string str) {
                 if (c == '-') {
                     result += char(toupper(c));
                 } else {
-                    result += char(toupper(c));  // Remove the check
+                    result += char(toupper(c)); 
                 }
             }
             isNextUpper = true;
