@@ -1,43 +1,36 @@
 int score(string s) {
-    int sum = 0;
-    int frame = 1;
-    int ball = 0;
-    int rolls[22] = {0};
+    int total = 0;
+    int frame = 0;
+    int roll = 0;
+    vector<int> pins(22);
 
     for (char c : s) {
         if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) {
-                rolls[ball++] = 0;
+            pins[roll++] = 10;
+            if (frame < 9) {
+                pins[roll++] = 0;
+            }
+        } else if (c == '/') {
+            pins[roll - 1] = 10 - pins[roll - 2];
+        } else if (c == '-') {
+            pins[roll++] = 0;
+        } else {
+            pins[roll++] = c - '0';
+        }
+
+        if (frame > 0 && (pins[2 * frame - 1] == 10 || pins[2 * frame] > 0)) {
+            total += pins[2 * frame - 1] + pins[2 * frame];
+            if (pins[2 * frame - 1] == 10) {
+                total += pins[2 * frame + 1];
+                if (pins[2 * frame + 1] == 10) {
+                    total += pins[2 * frame + 2];
+                }
             }
             frame++;
-        } else if (c == '/') {
-            rolls[ball++] = 10 - rolls[ball-1];
-            frame++;
-        } else if (c == '-') {
-            rolls[ball++] = 0;
-        } else {
-            rolls[ball++] = c - '0';
         }
     }
 
-    ball = 0;
-    frame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (frame < 10 && rolls[ball] == 10) {
-            sum += 10 + rolls[ball+1] + rolls[ball+2];
-            ball++;
-        } else if (frame < 10 && rolls[ball] + rolls[ball+1] == 10) {
-            sum += 10 + rolls[ball+2];
-            ball += 2;
-        } else {
-            sum += rolls[ball] + rolls[ball+1];
-            ball += 2;
-        }
-        frame++;
-    }
-
-    return sum;
+    return total;
 }
 
 int main() {
