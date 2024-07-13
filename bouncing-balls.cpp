@@ -25,7 +25,8 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    std::setprecision(10) << std::fixed << totalDistance << std::endl;
+    cout << fixed << setprecision(10);
+    cout << totalDistance << endl;
 
     return 0;
 }
