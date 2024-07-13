@@ -1,19 +1,28 @@
 int main() {
-    string input;
-    getline(cin, input);
-
-    istringstream iss(input);
+    string sentence;
+    getline(cin, sentence);
+    
     string word;
-    bool first = true;
-    while (iss >> word) {
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+    string result = "";
+    
+    for (int i = 0; i < sentence.length(); ++i) {
+        if (sentence[i] != ' ') {
+            word += sentence[i];
+        } else {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
         }
-        cout << (first ? "" : " ") << word;
-        first = false;
     }
-
-    cout << endl;
-
+    
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
+    
+    cout << result << endl;
+    
     return 0;
 }
