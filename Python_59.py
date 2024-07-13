@@ -5,7 +5,8 @@ def largest_prime_factor(n):
             j = i
             while j % i == 0:
                 j //= i
-            return i
+            if j == 1:
+                return i
         i -= 1
     return n
 
