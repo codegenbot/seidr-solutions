@@ -5,33 +5,40 @@
 #include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> result;
-    if (str.empty()) return result; 
     std::string buffer;
+    std::vector<std::string> arr;
+    int i = 0;
 
     for (char c : str) {
         if (c == ' ') {
             if (!buffer.empty()) {
-                result.push_back(buffer);
+                arr.push_back(buffer);
                 buffer = ""; 
             }
         } else if (c != delimiter) {
             buffer += c;
         }
 
-        if (c == '\0' || i == str.size() - 1) { 
+        if (c == delimiter || c == '\0') {
             if (!buffer.empty()) {
-                result.push_back(buffer);
+                arr.push_back(buffer);
                 buffer = ""; 
             }
         }
     }
 
+    // Added to handle empty strings
     if (!buffer.empty()) {
-        result.push_back(buffer);
+        arr.push_back(buffer);
     }
-    
-    return result;
+    if (arr.size() > 1 && arr[0].empty()) {
+        for(int j=0; j<arr.size(); j++){
+            arr[j] = arr[j+1];
+        }
+        arr.erase(arr.begin()+j);
+    }
+
+    return arr;
 }
 
 std::string camelCase(const std::string& str) {
