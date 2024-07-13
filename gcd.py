@@ -5,11 +5,11 @@ def gcd(a, b):
     return abs(a)
 
 def find_indices(text, target):
-    indices = []
-    for i in range(len(text) - len(target) + 1):
-        if text.startswith(target, i):
-            indices.append(i)
-    return indices
+    result = []
+    for i in range(len(text)-len(target)+1):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
 
 if __name__ == "__main__":
     a = int(input())
