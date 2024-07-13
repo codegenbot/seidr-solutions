@@ -1,10 +1,10 @@
-Here is the Python solution for the problem:
+```
+def leaders(arr):
+    n = len(arr)
+    leaders_list = [arr[n - 1]]
 
-def leaders(input):
-    output = [input[-1]]
-    max_right = input[-1]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= max_right:
-            output.append(input[i])
-            max_right = input[i]
-    return reversed(output)
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= leaders_list[0]:
+            leaders_list.insert(0, arr[i])
+
+    return leaders_list
