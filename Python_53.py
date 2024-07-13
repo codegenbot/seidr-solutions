@@ -1,3 +1,4 @@
+```Python
 def add():
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
@@ -10,10 +11,13 @@ def add():
             try:
                 x = int(input("Enter the first number: "))
                 y = int(input("Enter the second number: "))
-                print(f"The sum is {x + y}")
+                add_numbers(x, y)
                 break
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
+
+def add_numbers(x, y):
+    print(f"The sum is {x + y}")
 
 if __name__ == "__main__":
     add()
