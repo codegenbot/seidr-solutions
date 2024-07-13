@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-
 using namespace std;
 
 bool solveBoolean(string expression) {
@@ -36,3 +36,4 @@ bool solveBoolean(string expression) {
     }
 
     return valStack.top();
+}
