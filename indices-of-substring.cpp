@@ -10,8 +10,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         for (int i = 0; i <= n - m; i++) { 
             if (text.substr(i, m) == target) {
                 result.push_back(i);
-            } 
+            }
         }
+        i++; // increment i outside the loop
     }
 
     return result;
