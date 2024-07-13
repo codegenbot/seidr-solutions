@@ -1,3 +1,4 @@
+```
 def calculate():
     while True:
         try:
@@ -18,7 +19,8 @@ def calculate():
                         break
                 except ValueError:
                     print("Please enter valid integers separated by spaces.")
-        break
+        except:
+            continue
 
     for i, level in enumerate(water_levels):
         while True:
