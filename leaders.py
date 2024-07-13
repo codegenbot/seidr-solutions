@@ -1,4 +1,3 @@
-```
 def leaders(a):
     leaders = []
     min_right = a[-1]
@@ -6,5 +5,5 @@ def leaders(a):
         if a[i] >= min_right:
             leaders.append(a[i])
         else:
-            min_right = min(a[:i+1])
-    return list(reversed(leaders))
+            min_right = min(a[: i + 1])
+    return reversed(leaders)
