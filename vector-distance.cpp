@@ -5,19 +5,20 @@
 int main() {
     int n;
     std::cin >> n;
-
     std::vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
-    std::vector<float> vec2(n);
-    for (int i = 0; i < n; ++i) {
+    int m;
+    std::cin >> m;
+    std::vector<float> vec2(m);
+    for (int i = 0; i < m; ++i) {
         std::cin >> vec2[i];
     }
 
     float sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < std::min(n, m); ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
