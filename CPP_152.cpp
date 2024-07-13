@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-bool compare(std::vector<int> game, std::vector<int> guess) {
+bool compare(vector<int> game, vector<int> guess) {
     for(int i = 0; i < game.size();i++){
-        if(game[i] != guess[i]){
-            return false;
-        }
+        if(game[i] != guess[i]) return false;
     }
     return true;
 }
