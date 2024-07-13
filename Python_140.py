@@ -1,14 +1,8 @@
-```
 import re
 
-def fix_spaces(text):
-    while True:
-        try:
-            text = input("Enter a string: ")
-            break
-        except ValueError:
-            print("Invalid input. Please enter a string.")
 
+def fix_spaces(text):
+    text = input("Enter a string: ")
     if not text:
         return ""
 
