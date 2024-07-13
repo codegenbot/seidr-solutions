@@ -1,16 +1,18 @@
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            int unique_a = a.size() - unique_count(a);
-            int unique_b = b.size() - unique_count(b);
-            if (unique_a > unique_b) return true;
-            else if (unique_a < unique_b) return false;
-            return a < b;
-        });
-    return max_word;
-}
+Here is the solution:
 
-int unique_count(string s){
-    set<char> unique_chars(s.begin(), s.end());
-    return unique_chars.size();
-}
+string find_max(vector<string> words){
+    string max_word = *min_element(words.begin(), words.end());
+    int max_unique_chars = 0;
+    for (auto& word : words) {
+        int unique_chars = word.length();
+        for (char c : word) {
+            if (count(word.begin(), word.end(), c) > 1)
+                unique_chars--;
+        }
+        if (unique_chars > max_unique_chars) {
+            max_word = word;
+            max_unique_chars = unique_chars;
+        } else if (unique_chars == max_unique_chars && word < max_word)
+            max_word = word;
+    }
+    return max_word;
