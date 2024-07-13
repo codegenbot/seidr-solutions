@@ -1,6 +1,5 @@
 ```c++
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
@@ -16,10 +15,10 @@ int main() {
     int nicklesNeeded = pennies / 5; // calculate nickles needed
     pennies %= 5;
 
-    std::cout << "Quarters: " << (nickles ? std::to_string(nickles) : "0") << "\n";
-    std::cout << "Dimes: " << (dimes ? std::to_string(dimes) : "0") << "\n";
-    std::cout << "Nickels: " << (nicklesNeeded ? std::to_string(nicklesNeeded) : "0") << "\n";
-    std::cout << "Pennies: " << (pennies ? std::to_string(pennies) : "0") << "\n";
+    std::cout << "Quarters: " << nickles << "\n";
+    std::cout << "Dimes: " << dimes << "\n";
+    std::cout << "Nickels: " << nicklesNeeded << "\n";
+    std::cout << "Pennies: " << pennies << "\n";
 
     return 0;
 }
