@@ -4,7 +4,7 @@
 
 double vectorDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
     if (vec1.size() != vec2.size()) {
-        return -1.0;
+        return -1.0; // Return -1.0 if vectors are not of the same size
     }
 
     double sum = 0.0;
