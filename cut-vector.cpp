@@ -1,22 +1,18 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int pos = -1;
-    
-    for(int i=0; i<n-1; i++) {
-        int diff = abs(nums[i] - nums[i+1]);
-        if(diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+vector<vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    vector<int> left, right;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            left = vector<int>(vec.begin(), vec.begin() + i + 1);
+            right = vector<int>(vec.begin() + i + 1, vec.end());
         }
     }
-    
-    vector<int> left, right;
-    copy(nums.begin(), nums.begin() + pos+1, back_inserter(right));
-    copy(nums.begin(), nums.begin() + pos, back_inserter(left));
-    
+
     return {left, right};
 }
