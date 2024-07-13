@@ -14,7 +14,8 @@ std::string camelCase(const std::string& input) {
             result = word;
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
+        result += ' ';
     }
     
-    return result;
+    return result.substr(0, result.size() - 1);
 }
