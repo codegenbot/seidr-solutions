@@ -1,19 +1,30 @@
+```
 def smallest_change(arr):
+    if not all(i.isdigit() for i in ' '.join(map(str, arr)).split()):
+        return
+    n = len(arr)
     try:
-        if len(arr) != 3:
-            raise Exception('Input must be a list of three integers.')
-        for i in arr:
-            if not isinstance(i, int):
-                raise Exception('All inputs must be integers.')
-        if (arr[1] - arr[0]) != (arr[2] - arr[1]):
-            return None
-        changes = 0
-        i = 0
-        while True:
-            if arr[i+1] == arr[i]:
-                break
-            arr[i], arr[i+1] = arr[i+1], arr[i]
-            changes += 1
-        return changes
+        arr = list(map(int, ' '.join(map(str, arr)).split()))
+        arr.sort()
     except Exception as e:
         return str(e)
+
+    changes = 0
+    if len(set(arr)) > 1: 
+        return -1
+
+    changes = 0
+    for i in range(1, n):
+        if arr[i] != arr[0]:
+            break
+    else:
+        return n - 1
+
+    for i in range(n):
+        while arr[i] != arr[0]:
+            if min(arr) == max(arr):
+                return -1
+            arr[i], arr[0] = arr[0], arr[i]
+            changes += 1
+
+    return changes
