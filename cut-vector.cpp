@@ -3,49 +3,54 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
-    vector<vector<int>> res;
+    vector<int> leftSum(n), rightSum(n);
     
-    for (int i = 1; i < n; i++) {
-        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
-            res.push_back({vec.begin(), vec.begin() + i});
-            res.push_back({vec.begin() + i, vec.end()});
-            return res;
+    for (int i = 0; i < n; i++) {
+        if (i == 0) {
+            leftSum[i] = vec[i];
+            rightSum[i] = vec[i];
+        } else {
+            leftSum[i] = leftSum[i-1] + vec[i];
+            rightSum[n-i-1] = rightSum[n-i] + vec[n-i-1];
         }
     }
     
-    int min_diff = INT_MAX, cut_index = 0;
-    for (int i = 1; i < n; i++) {
-        if (abs(vec[i] - vec[0]) < min_diff) {
-            min_diff = abs(vec[i] - vec[0]);
-            cut_index = i;
+    int minDiff = INT_MAX, splitIndex;
+    for (int i = 0; i < n; i++) {
+        if (abs(leftSum[i] - rightSum[n-i-1]) < minDiff) {
+            minDiff = abs(leftSum[i] - rightSum[n-i-1]);
+            splitIndex = i;
         }
     }
     
-    res.push_back({vec.begin(), vec.begin() + cut_index});
-    res.push_back({vec.begin() + cut_index, vec.end()});
-    return res;
+    vector<vector<int>> result(2);
+    result[0].resize(splitIndex+1);
+    for (int i = 0; i <= splitIndex; i++) {
+        result[0][i] = vec[i];
+    }
+    result[1].resize(n-splitIndex-1);
+    for (int i = 0; i < n-splitIndex-1; i++) {
+        result[1][i] = vec[splitIndex+i+1];
+    }
+    
+    return result;
 }
 
 int main() {
-    int n; cin >> n;
+    int n;
+    cin >> n;
     vector<int> vec(n);
-    for (auto &x : vec) cin >> x;
-
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
     vector<vector<int>> res = cutVector(vec);
-
-    cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        if (i > 0) cout << ", ";
-        cout << res[0][i];
+    for (auto &v : res) {
+        for (int x : v) {
+            cout << x << ' ';
+        }
+        cout << '\n';
     }
-    cout << "]\n";
-
-    cout << "[";
-    for (int i = 0; i < res[1].size(); i++) {
-        if (i > 0) cout << ", ";
-        cout << res[1][i];
-    }
-    cout << "]\n";
-
+    
     return 0;
 }
