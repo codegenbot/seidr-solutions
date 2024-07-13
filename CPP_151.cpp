@@ -15,10 +15,15 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> inputVector;
     float num;
-    while(std::cin >> num) {
+    
+    // Read input from user and store it in the vector...
+    std::cout << "Enter numbers (enter -1 to stop): ";
+    while ((std::cin >> num) && (num != -1)) {
         inputVector.push_back(num);
     }
+    
+    // Call the function with the input
     long long result = double_the_difference(inputVector);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "The sum of squares is: " << result << std::endl;
     return 0;
 }
