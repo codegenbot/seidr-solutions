@@ -13,7 +13,7 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 cnt += 1
                 n //= i
-            factors.append(i ** cnt)
+            factors.append(i) * cnt
             i = 2
     if n > 1:
         factors.append(n)
