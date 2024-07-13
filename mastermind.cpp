@@ -1,13 +1,13 @@
-Here is the modified code:
+#include <string>
+#include <iostream>
 
-```cpp
-int mastermind(const string& code, const string& guess) {
+int mastermind(const std::string& code, const std::string& guess) {
     int black = 0;
     int white = 0;
 
     // Count correct positions (black pegs)
     for (int i = 0; i < 4; ++i) {
-        if (code.substr(i, 1) == guess.substr(i, 1)) {
+        if (code[i] == guess[i]) {
             black++;
         }
     }
@@ -28,4 +28,3 @@ int mastermind(const string& code, const string& guess) {
     }
 
     return black + white;
-}
