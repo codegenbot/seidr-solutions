@@ -1,22 +1,18 @@
 ```Python
 def bowling_score(frames):
     score = 0
-    rolls = list(map(int, frames.replace('/', '')))
+    rolls = list(map(int if c.isdigit() else 10 if c == 'X' else 10-sum(map(int,c)) if c == '/' else 0 for c in frames))
     i = 0
     while len(rolls) > 0:
-        if rolls[i] == 'X':
-            score += 10
+        if rolls[i] == 10:
+            score += rolls[i]
             i += 1
-            if len(rolls) > 1 and rolls[i] == 'X':
-                score += 10
+            if len(rolls) > 1 and rolls[i] == 10:
+                score += rolls[i]
                 i += 2
-            elif rolls[i] == '/':
-                score += 10 + rolls[i+1]
+            elif rolls[i] == 10:
+                score += rolls[i] + rolls[i+1]
                 i += 3
-        elif rolls[i] == '/':
-            frame_score = rolls[i-1] + 10 - rolls[i-1]
-            score += frame_score
-            i += 2
         else:
             frame_score = sum(rolls[i:i+2])
             if frame_score == 10:
