@@ -1,6 +1,3 @@
-#include <string>
-using namespace std;
-
 string squareDigits(string n) {
     string result = "";
     for (char c : n) {
