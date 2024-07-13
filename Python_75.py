@@ -1,7 +1,14 @@
-def is_multiply_prime():
-    a = int(input("Enter a number: "))
-    b = int(input("Enter another number: "))
-
+def is_multiply_prime(a=None):
+    if a is None:
+        while True:
+            try:
+                a = int(input("Enter a number: "))
+                if a < 2:
+                    print("Please enter a positive integer.")
+                else:
+                    break
+            except ValueError:
+                print("Invalid input. Please enter an integer.")
     def is_prime(n):
         if n < 2:
             return False
@@ -10,4 +17,12 @@ def is_multiply_prime():
                 return False
         return True
 
-    return is_prime(a * b)
+    factors = []
+    while a > 1:
+        for i in range(2, int(a**0.5) + 1):
+            if a % i == 0:
+                a //= i
+                factors.append(i)
+                break
+    prime_factors = [f for f in set(factors) if is_prime(f)]
+    return len(prime_factors) >= 3
