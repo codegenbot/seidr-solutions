@@ -18,14 +18,14 @@ vector<vector<int>> cutVector(vector<int> v) {
         
         int diff = abs(leftSum - rightSum);
         
-        if(i == 0 || diff < abs(leftSum - accumulate(v.begin(), v.end(), 0))) {
+        if(i == 0 || diff < abs(leftSum - std::accumulate(v.begin(), v.end(), 0))) {
             res[0] = vector<int>(v.begin(), v.end());
             res[1].clear();
             return res;
         }
     }
     
-    long long totalSum = accumulate(v.begin(), v.end(), 0);
+    long long totalSum = std::accumulate(v.begin(), v.end(), 0);
     int left = 0, right = 0;
     for(int i = 0; i < n; i++) {
         totalSum -= v[i];
