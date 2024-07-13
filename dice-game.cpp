@@ -1,24 +1,24 @@
 #include <iostream>
 using namespace std;
 
-double calculateProbability(int n, int m) {
-    double totalCases = (long long)n * m;
-    double successfulCases = 0;
+double probability(int n, int m) {
+    double numerator = 1.0;
+    double denominator = 1.0;
     
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                successfulCases++;
-            }
-        }
+    // calculate the numerator (number of ways Peter can roll strictly higher than Colin)
+    for (int i = 1; i <= m; i++) {
+        numerator += pow(m, i);
     }
     
-    return successfulCases / totalCases;
+    // calculate the denominator (total number of possible rolls)
+    denominator = n * m;
+    
+    return numerator / denominator;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(6) << calculateProbability(n, m) << endl;
+    cout << fixed << setprecision(1) << probability(n, m) << endl;
     return 0;
 }
