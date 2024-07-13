@@ -1,6 +1,12 @@
-```cpp
+```c++
 #include <string>
 #include <sstream>
+
+int main() {
+    std::string str = "Hello World";
+    std::cout << spinWords(str) << std::endl;
+    return 0;
+}
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
@@ -17,12 +23,4 @@ std::string spinWords(std::string str) {
     }
 
     return result.str();
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Spin words: " << spinWords(str) << std::endl;
-    return 0;
 }
