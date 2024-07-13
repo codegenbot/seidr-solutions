@@ -22,16 +22,13 @@ try:
     a = int(input())
     b = int(input())
 
-    if not isinstance(a, int) or not isinstance(b, int):
-        print("Invalid input: Both inputs must be integers.")
-    else:
-        print(gcd(a, b))
+    print(gcd(a, b))
 
     text = input()
     target = input()
 
     if len(target) > len(text):
-        print("Invalid input: Target string cannot be longer than the text string.")
+        print("Target string is longer than the text.")
     else:
         print(indices_of_substring(text, target))
 except ValueError as e:
