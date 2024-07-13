@@ -7,7 +7,7 @@ int main() {
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
-    int numBounces; 
+    double numBounces; 
     cin >> numBounces;
 
     double totalDistance = 0.0;
@@ -16,7 +16,8 @@ int main() {
         startHeight *= bouncinessIndex;
     }
 
-    cout << fixed;
-    cout << totalDistance << "\n";
+    std::cout << fixed;
+    std::cout << totalDistance << "\n";
+
     return 0;
 }
