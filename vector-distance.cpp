@@ -18,10 +18,10 @@ int main() {
 
     float sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(v1[i] - v2[i], 2);
+        sum += std::pow(v1[i] - v2[i], 2);
     }
 
-    float result = sqrt(sum);
+    float result = std::sqrt(sum);
     std::cout << result << std::endl;
 
     return 0;
