@@ -1,3 +1,7 @@
+#include <vector>
+#include <string>
+#include <iostream>
+
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
     int n = text.length();
@@ -5,35 +9,35 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     // Preprocess the target string to build the lps array
     std::vector<int> lps(m);
-    int k = 0;
+    int jTemp = 0;
 
     for (int i = 1; i < m; ) {
-        if (target[i] == target[k]) {
-            k++;
-            lps[i] = k;
+        if (target[i] == target[jTemp]) {
+            jTemp++;
+            lps[i] = jTemp;
             i++;
-        } else if (k != 0) {
-            k = lps[k - 1];
+        } else if (jTemp != 0) {
+            jTemp = lps[jTemp - 1];
         } else {
             i++;
         }
     }
 
     // Search for the pattern in the text using KMP
-    int i = 0, j = 0;
+    int i = 0, jTemp = 0;
 
     while (i < n) {
-        if (text[i] == target[j]) {
+        if (text[i] == target[jTemp]) {
             i++;
-            j++;
+            jTemp++;
         }
 
-        if (j == m) {
-            result.push_back(i - j);
-            j = lps[j - 1];
-        } else if (i < n && text[i] != target[j]) {
-            if (j != 0) {
-                j = lps[j - 1];
+        if (jTemp == m) {
+            result.push_back(i - jTemp);
+            jTemp = lps[jTemp - 1];
+        } else if (i < n && text[i] != target[jTemp]) {
+            if (jTemp != 0) {
+                jTemp = lps[jTemp - 1];
             } else {
                 i++;
             }
