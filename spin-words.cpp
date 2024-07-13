@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 #include <algorithm>
 
@@ -39,12 +39,7 @@ std::string spinWords(std::string str) {
         } 
     } 
     return result;
+
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Spinned String: " << spinWords(input) << std::endl;
-    return 0;
-}
+int main() { return spinWords("Hello World"); }
