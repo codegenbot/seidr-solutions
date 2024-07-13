@@ -1,4 +1,3 @@
-```
 def indices_of_substring(text, target):
     if not target: 
         return [0] if text else []
