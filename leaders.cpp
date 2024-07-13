@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
@@ -18,18 +18,16 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    // Read input vector from the user
     std::vector<int> input;
     int num;
     while (std::cin >> num) {
         input.push_back(num);
     }
 
-    // Call the findLeaders function and print the results
     std::vector<int> result = findLeaders(input);
     for (int leader : result) {
         std::cout << leader << " ";
     }
-    
+
     return 0;
 }
