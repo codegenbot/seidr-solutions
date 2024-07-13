@@ -1,7 +1,5 @@
-```
 def bowling_score(game):
     score = 0
-    game = game.replace('/', '')
     game = game.rstrip()
     for i in range(0, len(game), 2):
         if game[i] == 'X':
