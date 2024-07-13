@@ -1,11 +1,7 @@
-#include <string>
-#include <algorithm>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct colors in wrong places (white pegs)
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             black++;
@@ -15,12 +11,12 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black;
+    return black + white;
 }
 
 int main() {
-    std::string code, guess;
-    // Read input from user and call mastermind function here
-    // ...
+    std::string code = "ABCD";
+    std::string guess = "ABDC";
+    int result = mastermind(code, guess);
     return 0;
 }
