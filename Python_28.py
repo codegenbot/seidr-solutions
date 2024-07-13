@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def concatenate():
@@ -5,6 +6,6 @@ def concatenate():
     if not words:
         return "No words entered."
     result = ', '.join(words)
-    print(result)
+    return result
 
-concatenate()
+print(concatenate(input()))
