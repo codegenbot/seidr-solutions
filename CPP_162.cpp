@@ -20,9 +20,6 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "MD5 sum is: " << string_to_md5(input) << std::endl;
+    std::cout << string_to_md5("Hello World") << std::endl;
     return 0;
 }
