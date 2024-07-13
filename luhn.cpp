@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -15,11 +14,10 @@ int luhn(vector<int> digits) {
         doubleNext = !doubleNext;
     }
     return sum;
-
 }
 
 int main() {
-    vector<int> digits = {1, 2, 3};
-    int result = luhn(digits);
-    return result;
+    vector<int> input = {4, 7, 8, 3, 1, 6, 8, 0, 2, 0, 9, 5, 5, 5, 4, 9};
+    int result = luhn(input);
+    return 0;
 }
