@@ -23,8 +23,7 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (int i = 0; i < 6; ++i) {
-        white += std::min(code_counts[i], guess_counts[i]);
+        white += min(code_counts[i], guess_counts[i]);
     }
 
     return black + white;
-}
