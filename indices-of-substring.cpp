@@ -4,14 +4,14 @@ using namespace std;
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     for (int i = 0; i <= text.size() - target.size(); i++) {
-        int j = 0;
-        while (j < target.size()) {
+        bool found = true;
+        for (int j = 0; j < target.size(); j++) {
             if (text[i + j] != target[j]) {
+                found = false;
                 break;
             }
-            j++;
         }
-        if (j == target.size()) {
+        if (found) {
             result.push_back(i);
         }
     }
