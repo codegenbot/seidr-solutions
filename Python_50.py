@@ -1,15 +1,18 @@
 ```
 def decode_shift():
-    while True:
-        password = input("Enter the password (single uppercase letter): ")
-        if len(password) == 1 and password.isalpha() and password.upper() == password:
-            encoded = input("Enter the encoded message: ")
-            if encoded.lower() == "none":
-                break
-            shift = (ord(password[0].upper()) - 65) % 26
-            decoded = "".join([chr(((ord(ch) - 97 + 26 - shift) % 26) + 97) if ch.isalpha() or not ch.isspace() else ch for ch in encoded])
-            return decoded
+    password = input("Please enter the password: ")
+    if len(password) != 1 or not password.isupper():
+        raise ValueError("Invalid input. Please enter a single uppercase letter as the password.")
+    
+    message = input("Please enter the encrypted message: ")
+    decoded_message = ""
+    for char in message:
+        if char.isalpha():
+            if char.isupper():
+                decoded_message += chr((ord(char) - ord('A') + int(password)) % 26 + ord('A'))
+            else:
+                decoded_message += chr((ord(char) - ord('a') + int(password)) % 26 + ord('a'))
         else:
-            print("Invalid input. Please enter a single uppercase letter as the password.")
-result = decode_shift()
-print(result)
+            decoded_message += char
+    
+    return f"Decoded message: {decoded_message}"
