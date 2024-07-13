@@ -7,11 +7,10 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
     for (char c : message) {
         if (c == '\0') break; // Assuming the input strings are null-terminated
         int index = c - 'a'; // Assuming lowercase English letters only
-        if (index >= 0 && index < cipher1.size()) {
-            char mappedChar = cipher2[index];
-            result += mappedChar;
+        if (index >= 0 && index < cipher1.length()) {
+            result += cipher2[index];
         } else {
-            result += c; // If the character is not in the cipher, leave it as is
+            result += c;
         }
     }
     return result;
