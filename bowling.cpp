@@ -1,51 +1,36 @@
-int main() {
-    string input;
-    cin >> input;
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 0;
-    int balls = 0;
-    vector<int> points(12, 0);
-    
-    for (char c : input) {
-        if (c == 'X') {
-            points[frame] = 10;
-            frame++;
-        } else if (c == '/') {
-            points[frame] = 10 - points[frame - 1];
-            frame++;
-            balls = 0;
-        } else if (c == '-') {
-            points[frame] = 0;
-            balls++;
-        } else {
-            points[frame] += c - '0';
-            balls++;
-        }
-        
-        if ((c == 'X' && balls == 1) || balls == 2) {
-            frame++;
-            balls = 0;
-        }
-        
-        if (frame == 10) {
-            break;
-        }
-    }
-    
-    for (int i = 0; i < 10; i++) {
-        score += points[i];
-        if (points[i] == 10) {
-            if (points[i + 1] == 10) {
-                score += points[i + 1] + points[i + 2];
+    for(int i = 0; i < s.size(); ++i) {
+        if(s[i] == 'X') {
+            total += 10;
+            if(s[i+2] != '-') {
+                total += (s[i+1] == 'X' ? 10 : s[i+1] - '0') + (s[i+2] == 'X' ? 10 : s[i+2] == '/' ? 10 - (s[i+1] - '0') : s[i+2] - '0');
             } else {
-                score += points[i + 1];
+                total += (s[i+1] == 'X' ? 10 : s[i+1] == '-' ? 0 : s[i+1] - '0');
             }
-        } else if (points[i] + points[i + 1] == 10) {
-            score += points[i + 2];
+            frame++;
+        } else if(s[i] == '/') {
+            total += 10 - (s[i-1] - '0');
+            total += s[i+1] == 'X' ? 10 : s[i+1] == '-' ? 0 : s[i+1] - '0';
+            frame++;
+        } else if(s[i] == '-') {
+            total += 0;
+            frame++;
+        } else {
+            total += s[i] - '0';
+            if(frame % 2 != 0) {
+                frame++;
+            }
         }
+        if(frame == 10) break;
     }
-    
-    cout << score << endl;
-    
+    return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
