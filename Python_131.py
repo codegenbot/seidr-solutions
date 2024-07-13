@@ -1,4 +1,4 @@
-```Python
+```
 def digits(n):
     product = 1
     while n:
