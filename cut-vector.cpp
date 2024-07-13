@@ -16,19 +16,17 @@ void findCutIndex(vector<int>& nums) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int diff = abs(leftSum - rightSum);
-        if (diff <= minDiff) {
+        if (diff < minDiff || (diff == minDiff && abs(leftSum - rightSum) <= minDiff)) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    cout << "Subvector 1: ";
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << " ";
     }
     cout << endl;
 
-    cout << "Subvector 2: ";
     for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
@@ -39,7 +37,7 @@ int main() {
     int n;
     cout << "Enter the number of positive integers in the vector: ";
     cin >> n;
-    
+
     vector<int> nums(n);
     cout << "Enter positive integers to form a vector: ";
     for (int i = 0; i < n; i++) {
@@ -47,6 +45,6 @@ int main() {
     }
 
     findCutIndex(nums);
-    
+
     return 0;
 }
