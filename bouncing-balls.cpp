@@ -10,7 +10,7 @@ double calculate_total_distance(double starting_height, double bounce_height, in
         bounce_height *= bounciness_index;
     }
 
-    return total_distance + starting_height;
+    return total_distance;
 }
 
 int main() {
