@@ -1,4 +1,3 @@
-```Python
 def basement(nums):
     for i in range(len(nums)):
         running_sum = 0
