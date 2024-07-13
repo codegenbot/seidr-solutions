@@ -4,11 +4,11 @@
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
-    int maxLeader = nums.back();
+    int maxLeader = nums.front();
 
     leaders.push_back(maxLeader);
 
-    for (int i = nums.size() - 2; i >= 0; i--) {
+    for (int i = 1; i < nums.size(); i++) {
         if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
             leaders.push_back(maxLeader);
@@ -32,7 +32,6 @@ int main() {
     }
     
     std::vector<int> result = findLeaders(nums);
-    std::reverse(result.begin(), result.end());
     
     std::cout << "Leaders: ";
     for (int leader : result) {
