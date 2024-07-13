@@ -1,4 +1,4 @@
-int basement(vector<int>& nums) {
+int basement(vector<int> nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
@@ -6,5 +6,5 @@ int basement(vector<int>& nums) {
             return i;
         }
     }
-    return 0;
+    return -1;
 }
