@@ -50,10 +50,10 @@ int main() {
     if(!inputPlanets.empty()) {
         std::vector<std::string> result = bf(inputPlanets, "Mars", "Neptune");
         
-        if (result.empty())
-            std::cout << "No Output";
-        else
+        if (!result.empty())
             std::cout << "Output: ";
+        else
+            std::cout << "No Output";
         
         for (const auto& planet : result) {
             std::cout << planet << " ";
