@@ -1,38 +1,34 @@
 #include <string>
 #include <vector>
+#include <unordered_map>
 
-using namespace std;
-
-int mastermind(string code, string guess) {
-    vector<char> chars = {'0', '1', '2', '3', '4', '5'};
-    
-    int black = 0;
+int mastermind(std::string code, std::string guess) {
     int white = 0;
+    int black = 0;
+
+    std::vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
+
+    std::unordered_map<char, int> count_map;
 
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
             black++;
-            code[i] = chars[6];
-            guess[i] = chars[6];
         }
     }
 
-    vector<int> codeCount(6, 0);
     for(int i = 0; i < 4; i++) {
-        int j = std::find(chars.begin(), chars.end(), code[i]) - chars.begin();
-        codeCount[j]++;
-    }
-
-    for(int i = 0; i < 4; i++) {
-        int count = 0;
         for(int j = 0; j < 6; j++) {
-            if(code[j] == guess[i]) {
-                count++;
-                codeCount[j]--;
-                if(count > 1) break;
+            if(guess[i] == possible_chars[j][0]) {
+                count_map[guess[i]]++;
             }
         }
-        white += min(count, (int)(std::find(chars.begin(), chars.end(), guess[i]) - chars.begin()));
+    }
+
+    for(int i = 0; i < 4; i++) {
+        if(count_map[code[i]] > 0) {
+            white--;
+            count_map[code[i]]--;
+        }
     }
 
     return black + white;
