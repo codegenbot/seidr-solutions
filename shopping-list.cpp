@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-double calculateTotalPrice(const std::vector<float>& prices, const std::vector<float>& discounts) {
+double calculateTotalPrice(const std::vector<double>& prices, const std::vector<double>& discounts) {
     if (prices.size() != discounts.size()) {
         return 0.0;
     }
@@ -14,14 +14,11 @@ double calculateTotalPrice(const std::vector<float>& prices, const std::vector<f
 }
 
 int main() {
-    // Example usage
-    std::vector<float> prices = {10.0, 20.0, 30.0};
-    std::vector<float> discounts = {5.0, 10.0, 15.0};
+    std::vector<double> prices = {10.0, 20.0, 30.0};
+    std::vector<double> discounts = {5.0, 10.0, 15.0};
+    double total = calculateTotalPrice(prices, discounts);
     
-    double total_price = calculateTotalPrice(prices, discounts);
-    
-    // Output the total price after discounts
-    std::cout << "Total price after discounts: " << total_price << std::endl;
+    std::cout << "Total price after discount: " << total << std::endl;
     
     return 0;
 }
