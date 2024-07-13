@@ -1,5 +1,5 @@
-```
 def add():
+    num_list = []
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
         if cont not in ['Y', 'N']:
@@ -10,10 +10,12 @@ def add():
                 try:
                     x = int(input("Enter the first number: "))
                     y = int(input("Enter the second number: "))
-                    print(x + y)
+                    num_list.append(x + y)
+                    print(f"Sum of {x} and {y} is {x + y}")
                     break
                 except ValueError:
                     print("Invalid input. Please enter a valid integer.")
-            continue
         else:
-            break
+            return num_list
+
+print(add())
