@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -11,24 +11,18 @@ int mastermind(string code, string guess) {
         }
     }
 
-    map<char, int> countCode, countGuess;
-
-    for (char c : code) {
-        countCode[c]++;
-    }
     for (char c : guess) {
-        countGuess[c]++;
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            continue;
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (code[i] == c && code[i] != guess[i]) {
+                white++;
+                count++;
+            }
         }
-        if (countGuess[guess[i]] > 0 && countCode[guess[i]] > 0) {
-            white++;
-            countGuess[guess[i]]--;
-            countCode[guess[i]]--;
+        if (count > 1) {
+            black += count - 1;
         }
     }
 
     return white + black;
+}
