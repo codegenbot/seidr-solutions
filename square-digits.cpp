@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -19,3 +20,4 @@ int main() {
     cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
+}
