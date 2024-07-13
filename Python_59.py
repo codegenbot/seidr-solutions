@@ -1,23 +1,25 @@
+import math
+
+
 def largest_prime_factor(n):
-    i = n
-    while i > 1:
+    i = 2
+    while i <= math.sqrt(n):
         if n % i == 0:
             j = i
-            while j % i == 0:
-                j //= i
-            if j == 1:
-                return i
-        i -= 1
-    return n
+            while n % j == 0:
+                n //= j
+            return j
+        i += 1
+    if n > 1:
+        return j
+    else:
+        return None
+
 
 def main():
-    while True:
-        num = input("Enter a number: ") or None
-        if not num.replace(".", "", 1).isdigit():
-            print("Invalid input. Please enter an integer.")
-            continue
-        n = int(num)
-        print(largest_prime_factor(n))
+    n = int(input("Enter a number: "))
+    print(largest_prime_factor(n))
+
 
 if __name__ == "__main__":
     main()
