@@ -1,29 +1,35 @@
-```
+```python
 def bowling_score(frames):
     score = 0
     index = 0
     while index < len(frames):
         if frames[index] == 'X':
             score += 30
-            if index < len(frames) - 1 and frames[index+1] != 'X' and frames[index+1] != '/':
-                score += min(int(frames[index+1]),10)
             index += 1
         elif frames[index] == '/':
-            score += 10 + int(frames[index-1])
+            score += 10 + int(frames[index - 1])
             index += 2
         else:
             frame_score = 0
-            if frames[index:index+2].startswith('X'):
-                score += 30
-                if index < len(frames) - 1 and frames[index+1] != 'X' and frames[index+1] != '/':
-                    score += min(int(frames[index+1]),10)
+            if frames[index] == 'X':
+                frame_score = 20 + int(frames[index+1])
+                index += 2
+            elif frames[index] == '-':
+                left_pin = int(frames[index-1])
+                right_pin = int(frames[index+1])
+                frame_score = left_pin + right_pin
                 index += 2
             else:
-                frame_score = int(frames[index]) + int(frames[index+1])
-                if frame_score > 10:
-                    frame_score = 10
-                score += frame_score
-                index += 2
+                left_pin = int(frames[index])
+                if len(frames) - index > 1 and frames[index+1] == 'X':
+                    frame_score = 10 + 30
+                    index += 2
+                elif len(frames) - index > 1 and frames[index:index+2] == 'X-':
+                    frame_score = 10 + 20
+                    index += 2
+                else:
+                    left_pin += int(frames[index+1])
+                    frame_score = left_pin
+                    index += 2
+            score += frame_score
     return score
-
-print(bowling_score('728/5141410/9-7--772'))
