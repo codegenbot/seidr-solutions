@@ -1,4 +1,4 @@
-```
 def luhn(card):
-    card = list(map(int, str(card).replace(" ", "")))
-    return sum((digit*2 if i%2 else digit) - 9 if (digit*2)//10 > 0 else digit for i, digit in enumerate(card)) % 10
+card = [int(x) for x in str(input("Enter a 16-digit credit card number: "))[1:-1].split()]
+new_sum = sum(digit*2 if i%2 else digit for i, digit in enumerate(card))
+return (new_sum-((new_sum//10)*9)) % 10
