@@ -5,7 +5,7 @@ std::string camelCase(const std::string& input) {
         return "";
     }
 
-    std::stringstream iss(input + " "); 
+    std::stringstream iss(input + " "); // add a space at the end for the last word
     std::string word;
     std::string result;
 
