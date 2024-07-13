@@ -1,5 +1,4 @@
 result = []
-for num in numbers:
-    result.extend([num, delimeter])
-result.pop() if result else None
-return result
+    for num in numbers:
+        result.extend([num, delimeter])
+    return result[:-1]
