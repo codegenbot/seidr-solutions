@@ -18,11 +18,6 @@ int bowlingScore(string s) {
         }
 
         roll1 = s[5*frame] - '0';
-        if (s[5*frame + 1] == '/') {
-            // Spare in this frame
-            score += 10;
-            continue;
-        }
         roll2 = s[5*frame + 1] - '0';
 
         if (roll1 + roll2 > 10) {
