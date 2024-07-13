@@ -1,3 +1,4 @@
+```
 prefix = input("Enter a prefix: ")
 words = []
 
@@ -7,14 +8,19 @@ while True:
         break
     words.append(user_word)
 
-expected_word = None
+expected_word = input(f"Enter an expected word for the prefix {prefix} (or 'stop' to finish): ")
+while True:
+    if expected_word.lower() == "stop":
+        break
+    print(f"{expected_word} is a match")
+    expected_word = input("Enter another expected word (or 'stop' to finish): ")
+
+stored_expected = None
 for word in words:
     if word.startswith(prefix):
         print(f"Found match: {word}")
-    elif expected_word is not None and expected_word.lower() == word.lower():
+    elif stored_expected is not None and stored_expected.lower() == word.lower():
         print(f"Found match: {word}")
-        expected_word = None
+        stored_expected = None
     else:
-        expected_word = input(
-            f"Enter an expected word for the prefix {prefix} (or 'stop' to finish): "
-        )
+        stored_expected = expected_word
