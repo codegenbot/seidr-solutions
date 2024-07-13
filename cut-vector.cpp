@@ -4,10 +4,6 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    if(v.size() <= 1) {
-        return {{}, {}};
-    }
-    
     int n = v.size();
     long long sum = 0;
     for (int i = 0; i < n; i++) {
@@ -35,7 +31,11 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     vector<vector<int>> res;
-    res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
+    if(cutIndex < n) {
+        res[0] = vector<int>(v.begin(), v.begin() + cutIndex);
+    } else {
+        res[0] = vector<int>();
+    }
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
     }
