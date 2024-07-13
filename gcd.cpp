@@ -6,5 +6,5 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return std::abs(a);
+    return abs(a);
 }
