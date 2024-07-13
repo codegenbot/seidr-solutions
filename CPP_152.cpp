@@ -1,33 +1,23 @@
-#include <iostream>
 #include <vector>
-
+#include <iostream>
 using namespace std;
 
-bool isSame(int a, int b) {
-    if(a == b)
-        return true;
-    else
+// Function to compare two vectors
+bool compare(vector<int> a, vector<int> b) {
+    if(a.size() != b.size())
         return false;
-}
-
-int compare(int a, int b) {
-    if(a > b)
-        return 1;
-    else if(a < b)
-        return -1;
-    else
-        return 0;
+    for(int i = 0; i < a.size();i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
 
 vector<int> getResult(vector<int> game, vector<int> guess) {
     vector<int> res;
     for(int i = 0; i < game.size();i++){
-        if(isSame(game[i],guess[i]))
-            res.push_back(2);
-        else if(compare(game[i],guess[i]) == 1)
-            res.push_back(1);
-        else
-            res.push_back(0);
+        if(game[i] == guess[i])res.push_back(10);
+        else if(find(guess.begin(),guess.end(),game[i]) != guess.end())res.push_back(5);
+        else res.push_back(0);
     }
     return res;
 }
@@ -39,13 +29,13 @@ int main() {
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
     }
-    vector<int> res = getResult(game,guess);
-    if(res.size() != n) {
+    
+    if(!compare(game,guess)) { 
         cout << "Error: Invalid input. Please check your input again." << endl;
     } else {
+        vector<int> res = getResult(game,guess);
         for(auto x:res)cout << x << " ";
         cout << endl; 
     }
     
     return 0;
-}
