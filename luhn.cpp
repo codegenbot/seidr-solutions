@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int luhnCheck(vector<int> digits) {
@@ -15,4 +14,3 @@ int luhnCheck(vector<int> digits) {
         }
     }
     return sum;
-}
