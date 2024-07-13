@@ -18,3 +18,10 @@ vector<int> leaders(vector<int>& arr) {
     
     return res;
 }
+
+int main() {
+    vector<int> testArray = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
+    vector<int> result = leaders(testArray);
+    for(int i: result) cout << i << " ";
+    return 0;
+}
