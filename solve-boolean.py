@@ -1,4 +1,5 @@
-```
+Here is the solution:
+
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -6,15 +7,11 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return not (solve_boolean(left) and solve_boolean(right))
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return solve_boolean(left) or solve_boolean(right)
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= True
-            elif char == '|':
-                result |= True
-            elif char == 'T':
-                result = True
-            elif char == 'F':
-                result = False
-        return result
+        raise ValueError("Invalid expression")
