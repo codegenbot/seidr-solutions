@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 
-int main() {
-    using namespace std;
+using namespace std;
 
+int main() {
     string text, target;
     cin >> text >> target;
 
