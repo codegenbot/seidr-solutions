@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -25,9 +26,6 @@ int luhn(vector<int> digits) {
 int main() {
     vector<int> input;
     int cardNumber;
-
-    cout << "Enter a credit card number: ";
-    cin >> cardNumber;
 
     while (cardNumber != 0) {
         input.push_back(cardNumber % 10);
