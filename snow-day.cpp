@@ -5,7 +5,8 @@ double snowDay(int hours, float groundSnow, float rateOfSnowFall, float proporti
     double totalSnow = groundSnow;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow = totalSnow + rateOfSnowFall - std::round(totalSnow * proportionMeltingPerHour);
+        totalSnow += rateOfSnowFall;
+        totalSnow -= totalSnow * proportionMeltingPerHour;
     }
     
     return totalSnow;
