@@ -1,6 +1,11 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
+using std::vector;
+using std::cout;
+
+using std::reverse;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
