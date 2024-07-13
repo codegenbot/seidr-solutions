@@ -9,7 +9,6 @@ int pairedDigits(string s) {
         }
     }
     return sum;
-
 }
 
 int main() {
@@ -19,4 +18,3 @@ int main() {
     int result = pairedDigits(s);
     cout << "Sum of paired digits: " << result << endl;
     return 0;
-}
