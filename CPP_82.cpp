@@ -9,6 +9,7 @@ bool prime_length(std::string str) {
         while(len % (i+2) == 0 && i+2 <= len) len /= i+2;
     }
     return true;
+
 }
 
 int main() {
