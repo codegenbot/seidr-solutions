@@ -1,6 +1,7 @@
+```cpp
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; ++i) {
         if (s[i] == 'X') {
@@ -18,3 +19,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
