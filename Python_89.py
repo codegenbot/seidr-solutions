@@ -1,3 +1,4 @@
+```
 def encrypt(s):
     result = ""
     for i in range(len(s)):
@@ -12,12 +13,11 @@ def encrypt(s):
 
 def main():
     while True:
-        s = input("Please enter the text to be encrypted: ")
-        if all(c.isalpha() for c in s):
+        try:
+            s = input("Please enter the text to be encrypted: ")
             break
-        else:
+        except ValueError:
             print("Invalid input. Please enter a string containing only alphabets.")
-
     print(f"Encrypted Text: {encrypt(s)}")
 
 
