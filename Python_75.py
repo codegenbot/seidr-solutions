@@ -11,9 +11,10 @@ def is_multiply_prime(n=None):
                     return False
             return True
 
-        return is_prime(a) and is_prime(a * b)
+        return is_prime(a * b)
     else:
-        a = n
+        product = n
+
         def is_prime(m):
             if m < 2:
                 return False
@@ -21,4 +22,5 @@ def is_multiply_prime(n=None):
                 if m % i == 0:
                     return False
             return True
-        return is_prime(a)
+
+        return is_prime(product)
