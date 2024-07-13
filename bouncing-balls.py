@@ -8,8 +8,8 @@ total_distance = 0
 prev_height = start_height
 for _ in range(num_bounces): 
     height = prev_height * bounciness_index
-    up_distance = abs((height - prev_height))
-    down_distance = up_distance
+    up_distance = abs(start_height - prev_height)
+    down_distance = abs(prev_height - height)
     total_distance += up_distance + down_distance
     prev_height = height
 
