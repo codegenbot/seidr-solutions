@@ -17,8 +17,6 @@ int score(string s) {
             total += s[i] - '0';
             if (s[i + 1] == '/') {
                 total += 10 - (s[i + 2] - '0');
-                i += 2;
-            } else {
                 frame++;
             }
         }
