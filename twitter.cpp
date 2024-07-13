@@ -1,16 +1,16 @@
 ```cpp
+#include <iostream>
 #include <sstream>
 #include <string>
-#include <iostream>
+
+std::string validateTweet(std::string);
 
 int main() {
     std::string tweet;
-    std::cout << "Enter a tweet: ";
-    std::getline(std::cin, tweet);
-    std::string result = validateTweet(tweet);
-    std::cout << result << std::endl;
+    std::cout << "Enter your tweet: ";
+    std::cin >> std::getline(std::cin, tweet);
+    std::cout << validateTweet(tweet) << std::endl;
     return 0;
-
 }
 
 std::string validateTweet(std::string tweet) {
@@ -19,11 +19,6 @@ std::string validateTweet(std::string tweet) {
     } else if (tweet.empty()) {
         return "You didn't type anything";
     } else {
-        std::stringstream ss;
-        ss << "Your tweet has " << std::to_string(tweet.length()) << " characters";
-        if (ss.str().empty()) {
-            return "You didn't type anything";
-        }
-        return ss.str();
+        return "Your tweet has " + std::to_string(tweet.length()) + " characters";
     }
 }
