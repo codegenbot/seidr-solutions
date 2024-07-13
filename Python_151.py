@@ -8,12 +8,14 @@ def double_the_difference(lst):
 def check():
     while True:
         try:
-            numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+            first_num = int(input("Enter the first number: "))
+            second_num = int(input("Enter the second number: "))
+            numbers = [first_num, second_num]
             break
         except ValueError:
-            print("Invalid input. Please enter space-separated numbers.")
+            print("Invalid input. Please enter two integers.")
 
-    if len(numbers) < 1:
+    if len(numbers) < 2:
         return None
 
     print(double_the_difference(numbers))
