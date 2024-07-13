@@ -5,9 +5,8 @@ def mastermind(code, guess):
     for i in range(4):
         if code[i] == guess[i]:
             black_peg += 1
-            guess = str(guess[:i]) + str(guess[i+1:])
-        elif str(guess[i]) in str(code):
+        elif str(guess[i]) in code:
             white_peg += 1
-            guess = str(guess[:i]) + str(guess[i+1:])
+            code = code.replace(str(guess[i]), '', 1)
 
     return str(black_peg), str(white_peg)
