@@ -1,5 +1,5 @@
-code = input("Enter code: ")[:4]
-guess = input("Enter guess: ")[:4]
+code = input().strip()[:4]
+guess = input().strip()[:4]
 
 import collections
 
