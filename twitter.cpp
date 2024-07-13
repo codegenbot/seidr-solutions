@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 int main() {
     std::string tweet;
@@ -9,7 +8,6 @@ int main() {
     std::string result = validateTweet(tweet);
     std::cout << result << std::endl;
     return 0;
-
 }
 
 std::string validateTweet(std::string tweet) {
