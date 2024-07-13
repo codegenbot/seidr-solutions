@@ -1,21 +1,16 @@
-Here is the completed code:
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-                      [](const string& a, const string& b) {
-                          return (a.length() % 2 != 0 && b.length() % 2 == 0) ||
-                                 (a.length() % 2 == 0 && b.length() % 2 != 0);
-                      });
-    lst.erase(it, lst.end());
+    // Remove strings with odd lengths from the vector
+    lst.erase(std::remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.size() % 2 != 0; }), lst.end());
     
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() == b.length()) {
-                 return a < b;
-             } else {
-                 return a.length() < b.length();
-             }
-         });
+    // Sort the vector by length and then alphabetically
+    std::sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return a < b;
+            }
+            return a.size() < b.size();
+        });
     
     return lst;
 }
