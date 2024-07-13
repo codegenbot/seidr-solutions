@@ -1,23 +1,20 @@
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    
+    // Count correct colors
+    vector<int> color_count(6, 0);
+    for (char c : guess) {
+        color_count[c-'0']++;
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
             black++;
+        } else {
+            white += color_count[guess[i]] - (black > 0);
         }
     }
-
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && c != code[count % 4]) {
-                white++;
-                break;
-            }
-            count++;
-        }
-    }
-
-    return make_pair(white, black).second;
+    
+    return black + white;
 }
