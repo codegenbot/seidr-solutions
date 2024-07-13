@@ -2,6 +2,7 @@ def check_palindrome(input_string):
     input_string = "".join(c for c in input_string if c.isalnum()).lower()
     return input_string == input_string[::-1]
 
+
 if __name__ == "__main__":
     while True:
         user_input = input("Enter a string: ")
@@ -15,4 +16,10 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
 
-    print(check_palindrome(user_input))
+    while True:
+        if check_palindrome(user_input):
+            print(f"'{user_input}' is a palindrome.")
+            break
+        else:
+            print(f"'{user_input}' is not a palindrome.")
+            user_input = input("Enter another string: ")
