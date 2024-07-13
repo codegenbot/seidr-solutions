@@ -2,15 +2,20 @@
 
 bool solveBoolean(string s) {
     bool res = (s[0] == 'T');
-    for(int i = 1; i < s.size(); ++i) {
+    int i = 1;
+    while(i < s.size()) {
         if(s[i] == '|') {
-            res = res || ((s[i+1] == 'T') ? true : false);
-            i++;
+            res = res || (s[i+1] == 'T');
+            i += 2;
         }
         else if(s[i] == '&') {
-            res = res && ((s[i+1] == 'T') ? true : false);
-            i++;
+            res = res && (s[i+1] == 'T');
+            i += 2;
         }
+        else if(s[i] != 'T' && s[i] != 'F') {
+            return false; // invalid input
+        }
+        i++;
     }
     return res;
 }
