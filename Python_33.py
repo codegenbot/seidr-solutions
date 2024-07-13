@@ -1,2 +1,6 @@
+```Python
 def sort_third(l: list):
-    return [i if i % 3 != 0 else ([x for x in l if x % 3 == 0][-1] if [x for x in l if x % 3 == 0] else None) for i in l]
+    return [
+        x if i % 3 != 0 else sorted([y for y in l if (l.index(y) + 1) % 3 != 0 and y != x])[-1]
+        for i, x in enumerate(sorted(l))
+    ]
