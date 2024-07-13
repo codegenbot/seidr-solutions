@@ -1,3 +1,11 @@
-1,2,3,4,5
-Enter space-separated numbers: 2 4 6 8 10 1 3 5
-[2, 4, 6, 8, 10]
+```
+def sort_even(l: list):
+    even_list = [i for i in l if i % 2 == 0]
+    even_list.sort()
+    return even_list
+
+def check():
+    numbers = [int(i) for i in input("Enter space-separated numbers: ").split()]
+    print(sort_even(numbers))
+
+check()
