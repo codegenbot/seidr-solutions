@@ -1,19 +1,22 @@
-```cpp
 #include <cstddef>
 #include <string>
 
-size_t whitePegs = 0;
-size_t blackPegs = 0;
+int mastermind(std::string code, std::string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-for (int i = 0; i < 4; ++i) {
-    size_t pos = code.find(guess[i]);
-    if (pos != std::string::npos) {
-        if (pos == i) {
-            ++blackPegs;
-        } else {
-            ++whitePegs;
+    for (size_t i = 0; i < code.length(); ++i) {
+        size_t pos = guess.find(code[i]);
+        while (pos != std::string::npos) {
+            if (std::string(1, code[i]) == guess.substr(pos, 1)) {
+                blackPegs++;
+                guess.erase(pos, 1);
+            } else {
+                whitePegs++;
+            }
+            pos = guess.find(code[i]);
         }
     }
-}
 
-return whitePegs + blackPegs;
+    return whitePegs + blackPegs;
+}
