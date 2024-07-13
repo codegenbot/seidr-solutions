@@ -1,10 +1,10 @@
-```python
+Here is the modified code:
+
 print("Enter the number up to which you want to find max triples: ", end="")
 n = int(input())
 
 def get_max_triples(n):
     if n < 1:
-        print("Invalid input. Please enter a positive integer.")
         return None
     max_sum = 0
     for i in range(1, n+1):
