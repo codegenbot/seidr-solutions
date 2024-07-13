@@ -1,34 +1,52 @@
 #include <iostream>
-#include <vector>
 
 int main() {
-    std::vector<int> coinCounts = {0, 0, 0, 0}; // quarters, dimes, nickels, pennies
+    int quarters = 0;
+    int dimes = 0;
+    int nickles = 0;
+    int pennies = 0;
 
     std::cout << "Enter the number of cents: ";
-    int cents;
-    std::cin >> cents;
+    std::string input;
+    std::getline(std::cin, input);
+    int cents = std::stoi(input);
 
     while (cents >= 25) {
-        ++coinCounts[0]; // update quarters count
+        quarters++;
         cents -= 25;
     }
 
+    int dimeCents = 0;
     while (cents >= 10) {
-        ++coinCounts[1]; // update dimes count
+        dimes++;
         cents -= 10;
+        dimeCents += 10;
     }
 
+    int nickelCents = 0;
     while (cents >= 5) {
-        ++coinCounts[2]; // update nickles count
+        nickles++;
         cents -= 5;
+        nickelCents += 5;
     }
 
-    coinCounts[3] = cents; // update pennies count
+    pennies = cents; // update remaining pennies
 
-    std::cout << "Quarters: " << coinCounts[0] << std::endl;
-    std::cout << "Dimes: " << coinCounts[1] << std::endl;
-    std::cout << "Nickles: " << coinCounts[2] << std::endl;
-    std::cout << "Pennies: " << coinCounts[3] << std::endl;
+    std::cout << "Quarters: " << quarters << std::endl;
+    std::cout << "Dimes: " << dimes << std::endl;
+    std::cout << "Nickles: " << nickles << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
+
+    while (dimeCents > 0 && dimeCents + 5 <= cents) {
+        nickelCents += 5;
+        dimeCents -= 5;
+    }
+    pennies = cents; // update remaining pennies
+
+    std::cout << "Quarters: " << quarters << std::endl;
+    std::cout << "Dimes: " << dimes << std::endl;
+    std::cout << "Nickles: " << nickles << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
