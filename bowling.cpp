@@ -1,23 +1,21 @@
-```cpp
 #include <string>
 #include <sstream>
 
 int bowlingScore(string s) {
     int score = 0;
-    std::stringstream ss(s.c_str());
-    char c;
+    const char* str = s.c_str();
     bool strike = false;
-    while (ss >> c) {
-        if (c == 'X') {
+    while (*str != '\0') {
+        if (std::string(1, *str) == "X") {
             score += 30;
             strike = true;
-        } else if (c == '/') {
+        } else if (std::string(1, *str) == "/") {
             if (!strike) {
                 score += 10 + (score / 10 - 1);
             }
             strike = false;
         } else {
-            int temp = c - '0';
+            int temp = (*str - '0');
             if (strike) {
                 score += temp * 2;
                 strike = false;
@@ -25,6 +23,7 @@ int bowlingScore(string s) {
                 score += temp;
             }
         }
+        str++;
     }
     return score;
 }
@@ -33,7 +32,6 @@ int main() {
     string input;
     cout << "Enter bowling scores: ";
     getline(cin, input);
-    int result = bowlingScore(input.c_str());
+    int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
-}

@@ -4,7 +4,7 @@ def camel_case(s):
     result = ""
     for i, word in enumerate(words):
         if i == 0:
-            result += word.lower() + " "
+            result += word.lower() + ""
         else:
             result += " " + word.capitalize()
-    return result.strip()
+    return result.strip().replace("  ", " ").strip()
