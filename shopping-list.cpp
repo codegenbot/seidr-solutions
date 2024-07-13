@@ -3,19 +3,19 @@
 #include <cmath>
 #include <iostream>
 
-double shoppingList(float* prices, float* discounts, int priceCount, int discountCount) {
+double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
-    for (int i = 0; i < priceCount; i++) {
-        total += prices[i] - (prices[i] * (discounts[i] / 100.0));
+    for (int i = 0; i < prices.size(); i++) {
+        total += prices[i] - (prices[i] * (discounts[i] / 100.0f));
     }
     return total;
 }
 
 int main() {
-    float prices[] = {10.0f, 20.0f, 30.0f};
-    float discounts[] = {5.0f, 7.0f, 3.0f};
+    std::vector<float> prices({10.0f, 20.0f, 30.0f});
+    std::vector<float> discounts({5.0f, 7.0f, 3.0f});
 
-    double result = shoppingList(&prices[0], &discounts[0], sizeof(prices) / sizeof(prices[0]), sizeof(discounts) / sizeof(discounts[0]));
+    double result = shoppingList(prices, discounts);
     std::cout << "Total price after discount: " << result << "\n";
 
     return 0;
