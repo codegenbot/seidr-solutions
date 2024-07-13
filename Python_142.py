@@ -1,20 +1,16 @@
-```
-def sum_squares(lst):
-    total_sum = 0
-    for num in lst:
-        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
-            total_sum += num ** 2
-    return total_sum
+def sum_squares(a, b):
+    return (a ** 2) + (b ** 2)
 
 while True:
-    user_input = input()
+    user_input = input("Please enter two numbers: ")
     try:
-        lst = list(map(int, user_input.split()))
+        num1, num2 = map(int, user_input.split())
         break
     except ValueError:
         print("Invalid input. Please enter a valid list of integers.")
 
-if len(lst) > 0:
-    print(sum_squares(lst))
+if len(str(user_input)) > 0:
+    result = sum_squares(num1, num2)
+    print(f"The sum of squares is {result}")
 else:
     print("Invalid input. Please enter a valid list of integers.")
