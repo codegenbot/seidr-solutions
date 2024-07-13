@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     if sum(vector) % 2 == 0:
         return [vector[:len(vector)//2], vector[len(vector)//2:]]
