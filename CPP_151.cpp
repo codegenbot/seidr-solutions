@@ -26,11 +26,19 @@ int main() {
     std::istringstream iss(input);
 
     int num;
-    std::initializer_list<int> lst;
+    int sum_even = 0, sum_odd = 0;
+
     while (iss >> num) {
-        lst = {num};
+        auto lst = {num};
+        for (auto it : lst) {
+            if (it % 2 == 0)
+                sum_even += it;
+            else
+                sum_odd += it;
+        }
+        auto [a, b] = double_the_difference(lst);
+        std::cout << "The average of even numbers is: " << a << std::endl;
+        std::cout << "The average of odd numbers is: " << b << std::endl;
     }
-    auto [a, b] = double_the_difference(lst);
-    std::cout << "The average of even numbers is: " << a << std::endl;
-    std::cout << "The average of odd numbers is: " << b << std::endl;
+    return 0;
 }
