@@ -1,9 +1,9 @@
+```
 import re
-
 
 def parse_music(s):
     if not isinstance(s, str) or not s.strip():
-        return "Invalid input"
+        return []
     if not s:
         return []
     s = s.lower()
@@ -14,7 +14,7 @@ def parse_music(s):
             try:
                 beat_count, _ = map(int, beat.split())
             except ValueError:
-                return "Invalid input"
+                return []
             if str(beat_count) in beat_counts:
                 beat_counts[str(beat_count)] += 1
             else:
@@ -22,5 +22,5 @@ def parse_music(s):
     try:
         max_beat = int(max(map(int, beats)))
     except ValueError:
-        return "Invalid input"
+        return []
     return [beat_counts.get(str(i), 0) for i in range(1, max_beat + 1)]
