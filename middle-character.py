@@ -1,5 +1,8 @@
 def middle_character(s):
     if len(s) == 0:
         return ""
-    mid_index = len(s) // 2
-    return s[mid_index] if len(s) % 2 != 0 else s[mid_index - mid_index // 2 : mid_index + mid_index // 2 + 1]
+    mid = len(s) // 2
+    if len(s) % 2 != 0:  
+        return s[mid]
+    else:  
+        return s[mid - 1:mid + 1][0] + s[mid - 1:mid + 1][-1]
