@@ -1,5 +1,8 @@
+```
 def fizz_buzz(x):
-    if x % 3 == 0 and x % 5 == 0:
+    if not isinstance(x, int) or x > 30:
+        return "Invalid input"
+    elif x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
     elif x % 3 == 0:
         return "Fizz"
