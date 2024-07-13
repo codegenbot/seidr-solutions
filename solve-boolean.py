@@ -1,10 +1,10 @@
-def solve_boolean(input):
-    if input == 'T':
+def solveBoolean(s):
+    if s == "T":
         return True
-    elif input == 'F':
+    elif s == "F":
         return False
-    elif '&' in input and '|' in input:
-        raise ValueError('Invalid expression')
+    elif "&" in s:
+        left, right = s.split("&")
+        return not (bool(eval(left)) and bool(eval(right)))
     else:
-        result = eval('True' + input)
-        return result
+        return not (bool(eval(s)))
