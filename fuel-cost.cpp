@@ -5,7 +5,7 @@ using namespace std;
 int calculateFuelCost(vector<int> &vec) {
     int total = 0;
     for (int i : vec) {
-        int result = static_cast<int>(floor((double)i / 3));
+        int result = (i / 3);
         total += max(0, result - 2);
     }
     return total;
