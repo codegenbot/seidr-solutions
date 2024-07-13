@@ -1,5 +1,5 @@
 """
-def rescale_to_unit(numbers):
+def rescale_to_unit(numbers: list[float]) -> list[float]:
     if not numbers:
         return []
     min_val = min(numbers)
