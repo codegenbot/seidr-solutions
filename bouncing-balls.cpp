@@ -3,14 +3,16 @@
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
+    string startHeightStr, firstBounceStr;
+    int numBounces; 
 
-    cin >> startHeight >> firstBounce;        
-    cin >> numBounces;
+    cin >> startHeightStr >> firstBounceStr >> numBounces; 
+
+    double startHeight = stod(startHeightStr);
+    double firstBounce = stod(firstBounceStr);
 
     if (!(cin && (cin.peek() == EOF))) {
-        cout << "Invalid input. Please enter valid integers and floats." << endl;
+        cout << "Invalid input. Please enter valid inputs." << endl;
         return 1;
     }
 
@@ -23,7 +25,8 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    std::cout << std::fixed << std::setprecision(10);
+    std::cout << std::fixed;
+    std::cout.precision(10);
     std::cout << totalDistance << endl;
 
     return 0;
