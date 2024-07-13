@@ -11,13 +11,17 @@ int bowlingScore(const std::string& input) {
             score += 30;
             isStrike = true;
         } else if (input.at(i) == '/') {
-            int roll1, roll2;
-            char nextChar = input.at(i + 1);
-            if(nextChar != ' ') {
-                roll1 = nextChar - '0';
-                score += roll1;
+            if (isStrike) {
+                score += prevRoll * 2;
+                isStrike = false;
+            } else {
+                int roll1, roll2;
+                char nextChar = input.at(i + 1);
+                if(nextChar != ' ') {
+                    roll1 = nextChar - '0';
+                    score += roll1;
+                }
             }
-            i++; // Move to the next character
         } else if (input.at(i) == ' ') {
             int roll1, roll2;
             char prevChar = input.at(i - 1);
@@ -43,13 +47,13 @@ int bowlingScore(const std::string& input) {
         }
     }
 
-    // Check for spare at the end of each frame
-    if(input.at(input.length() - 1) == '/') {
-        int roll1, roll2;
-        char nextChar = input.at(input.length() - 2);
-        if(nextChar != ' ') {
-            roll1 = nextChar - '0';
-            score += roll1 + prevRoll;
+    // Handle the last frame
+    if(input.length() > i) {
+        if(input.at(i) == 'X') {
+            score += 10;
+        } else if(input.at(i) == '/') {
+            int prevRoll = input.at(i-1) - '0';
+            score += prevRoll + 10;
         }
     }
 
