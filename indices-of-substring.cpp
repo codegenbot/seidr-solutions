@@ -13,10 +13,10 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
             j++;
             if (j == m) {
                 result.push_back(i);
-                i += j;
+                i++; // Fix: Change i += j to i++
             }
             else if (i + j >= n) {
-                i += 1;
+                break;
             }
         }
     }
