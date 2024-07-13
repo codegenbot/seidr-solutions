@@ -34,3 +34,4 @@ int main() {
     double result = shoppingList(prices, discounts);
     cout << fixed << setprecision(2) << "Total price after discount: $" << result << endl;
     return 0;
+}
