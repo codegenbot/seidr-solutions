@@ -11,11 +11,5 @@ def find_max_min_average(numbers):
 
     return f"Max: {max_num}, Min: {min_num}, Average: {average}"
 
-while True:
-    try:
-        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-        break
-    except ValueError:
-        print("Error: Please enter numeric values separated by spaces.")
-
+numbers = list(map(int, input("Enter numbers separated by space: ").strip().split(',')))
 print(find_max_min_average(numbers))
