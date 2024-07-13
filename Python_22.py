@@ -1,7 +1,6 @@
-```
 def filter_integers(lst):
     while True:
-        result = [value for value in input("Enter integers (space-separated): ").split() if isinstance(int(value), int)]
+        result = [int(value) for value in input("Enter integers (space-separated): ").split() if value.isdigit()]
         print(f"Integers found: {result}")
         
         cont = input("Do you want to filter integers again? (yes/no): ")
