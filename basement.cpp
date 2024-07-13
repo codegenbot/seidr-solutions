@@ -1,7 +1,6 @@
 #include <vector>
-using namespace std;
 
-int basement(vector<int> v) {
+int basement(std::vector<int>& v) {
     int sum = 0;
     for (int i = 0; i < v.size(); i++) {
         sum += v[i];
@@ -9,10 +8,4 @@ int basement(vector<int> v) {
             return i;
     }
     return -1;
-}
-
-int main() {
-    vector<int> input = {-1, -2, -3, 4, 5};
-    cout << "Basement index is: " << basement(input) << endl;
-    return 0;
 }
