@@ -1,16 +1,21 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-    string input;
-    cin >> input;
+    std::string expression;
+    std::cin >> expression;
 
-    if (input == "t") {
-        cout << "True" << endl;
+    bool result = true;
+    if (expression == "f") {
+        result = false;
+    } else if (expression == "f&f" || expression == "f&t" || expression == "t&f") {
+        result = false;
+    }
+
+    if (result) {
+        std::cout << "True" << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << "False" << std::endl;
     }
 
     return 0;
