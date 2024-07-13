@@ -1,28 +1,38 @@
 Here is the completed code:
 
 string file_name_check(string file_name) {
-    int digitCount = 0;
+    int count = 0;
     bool foundDot = false;
-    
     for (char c : file_name) {
         if (isdigit(c)) {
-            digitCount++;
+            count++;
         } else if (c == '.') {
             foundDot = true;
-        } else if (!foundDot && !isalpha(c)) {
-            return "No";
         }
     }
-    
-    string extension = "";
-    for (int i = file_name.find('.') + 1; i < file_name.size(); i++) {
-        extension += file_name[i];
-    }
-    
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if (find(validExtensions.begin(), validExtensions.end(), extension) == validExtensions.end()) {
+
+    if (count > 3 || !foundDot) {
         return "No";
     }
-    
-    return digitCount > 3 ? "No" : "Yes";
+
+    string beforeDot, afterDot;
+    size_t pos = file_name.find('.');
+    if (pos != string::npos) {
+        beforeDot = file_name.substr(0, pos);
+        afterDot = file_name.substr(pos + 1);
+    } else {
+        beforeDot = file_name;
+        afterDot = "";
+    }
+
+    if (beforeDot.empty() || !isalpha(beforeDot[0])) {
+        return "No";
+    }
+
+    vector<string> allowedExtensions = {"txt", "exe", "dll"};
+    if (find(allowedExtensions.begin(), allowedExtensions.end(), afterDot) == allowedExtensions.end()) {
+        return "No";
+    }
+
+    return "Yes";
 }
