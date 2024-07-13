@@ -19,9 +19,16 @@ int main() {
     }
 
     float sum = 0.0;
-    for (size_t i = 0; i < std::max(n, m); ++i) {
+    for (size_t i = 0; i < std::min(n, m); ++i) {
         float diff = vec1[i] - vec2[i];
         sum += diff * diff;
+    }
+
+    for (size_t i = std::min(n, m); i < n; ++i) {
+        sum += vec1[i] * vec1[i];
+    }
+    for (size_t i = std::min(n, m); i < m; ++i) {
+        sum += vec2[i] * vec2[i];
     }
 
     float result = std::sqrt(sum);
