@@ -1,3 +1,3 @@
-```
-lst = input().split()
-print(sorted_list_sum(lst))
+```Python
+def sorted_list_sum(lst):
+    return sum(len(word) for word in sorted(lst))
