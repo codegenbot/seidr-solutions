@@ -1,3 +1,2 @@
-def solution(numbers):
-    seen = set()
+def solve(numbers):
     return [num for num in numbers if not (num in seen or seen.add(num)) and True][::-1]
