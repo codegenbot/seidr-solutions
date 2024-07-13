@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <iomanip>
 
 using namespace std;
@@ -11,12 +13,14 @@ string string_to_md5(const string& input) {
         if(i < 2)
             output += to_string(c);
         else
-            output += setfill('0') << hex << setw(2) << (int)c;
+        {
+            ostringstream oss;
+            oss << std::setfill('0') << hex << std::setw(2) << (int)c;
+            output += oss.str();
+        }
     }
     return output;
 }
 
-int main() {
-    cout << fixed << string_to_md5("password") << endl;
-    return 0;
-}
+cout << fixed << string_to_md5("password") << endl;
+return 0;
