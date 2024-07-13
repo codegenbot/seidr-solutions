@@ -1,47 +1,35 @@
-int calculateBowlingScore(const string& bowls) {
+int scoreOfBowlingRound(string s) {
     int score = 0;
-    int frame = 0;
-    int roll = 0;
-    vector<int> frameScores(10, 0);
+    int frame = 1;
+    int ball = 0;
+    int rolls[22] = {0};
 
-    for (char c : bowls) {
+    for (char c : s) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 9) {
-                frameScores[frame] = 10;
-                if (frame > 0 && frameScores[frame - 1] == 10) {
-                    score += 10;
-                }
-                if (frame > 1 && frameScores[frame - 2] == 10) {
-                    score += 10;
-                }
-                frame++;
-            } else {
-                roll++;
-            }
+            rolls[ball++] = 10;
+            if (frame < 10) frame++;
         } else if (c == '/') {
-            score += 10 - frameScores[frame];
-            frameScores[frame] = 10;
-            if (frame > 0 && frameScores[frame - 1] == 10) {
-                score += 10 - frameScores[frame - 1];
-            }
-            frame++;
+            rolls[ball-1] = 10 - rolls[ball-1];
+            if (frame < 10) frame++;
         } else if (c == '-') {
-            roll++;
+            rolls[ball++] = 0;
         } else {
-            score += c - '0';
-            frameScores[frame] += c - '0';
-            if (frame > 0 && frameScores[frame - 1] == 10) {
-                score += c - '0';
+            rolls[ball++] = c - '0';
+            if (frame < 10) {
+                if (++ball % 2 == 0) frame++;
             }
-            if (frame > 1 && frameScores[frame - 2] == 10) {
-                score += c - '0';
-            }
-            if (roll % 2 == 1) {
-                frame++;
-            } else {
-                roll++;
-            }
+        }
+    }
+
+    for (int i = 0; i < 20; i++) {
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i+1] + rolls[i+2];
+        } else if (rolls[i] + rolls[i+1] == 10) {
+            score += 10 + rolls[i+2];
+            i++;
+        } else {
+            score += rolls[i] + rolls[i+1];
+            i++;
         }
     }
 
@@ -49,8 +37,8 @@ int calculateBowlingScore(const string& bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << scoreOfBowlingRound(s) << endl;
     return 0;
 }
