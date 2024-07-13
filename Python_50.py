@@ -1,3 +1,4 @@
+```
 def decode_shift():
     password = input("Please enter the password: ")
     if len(password) != 1 or not password.isupper():
@@ -8,12 +9,13 @@ def decode_shift():
     for char in message:
         if char.isalpha():
             if char.isupper():
-                shift = ord(password[0]) - ord('A')
-                decoded_message += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
+                decoded_char = chr((ord(char) - ord('A') + int(password)) % 26 + ord('A'))
             else:
-                shift = ord(password[0]) - ord('A')
-                decoded_message += chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
+                decoded_char = chr((ord(char) - ord('a') + int(password)) % 26 + ord('a'))
+            if decoded_char != char:
+                return "Invalid input. The message is not a valid Caesar Cipher encryption."
         else:
             decoded_message += char
+        decoded_message += decoded_char
     
     return decoded_message
