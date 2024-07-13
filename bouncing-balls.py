@@ -1,4 +1,3 @@
-```
 def calculate_bouncing_index(starting_height, first_bounce_height):
     return (first_bounce_height / starting_height) if first_bounce_height > 0 else -1
 
