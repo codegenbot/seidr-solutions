@@ -1,13 +1,10 @@
-```
 def shopping_list():
     total_price = 0
     while True:
         try:
-            price_discount = input().split()
-            price = float(price_discount[0])
-            discount = float(price_discount[1].strip())
-            total_price += price - (price * (discount / 100))
-        except ValueError:
+            item_prices = list(map(float, input().split()))
+            total_price += sum(item_prices[:-1]) - (sum(item_prices[:-1]) * (item_prices[-1] / 100))
+        except EOFError:
             break
     return round(total_price, 2)
 

@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -11,5 +10,15 @@ vector<int> leaders(vector<int>& arr) {
             maxRight = arr[i];
         }
     }
-    return result;
+
+    int maxLeft = result[0];
+    for (int i = 1; i < result.size(); i++) {
+        if (result[i] <= maxLeft) {
+            maxLeft = result[i];
+        } else {
+            break;
+        }
+    }
+
+    return {maxLeft};
 }

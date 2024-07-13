@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -31,10 +32,12 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
     while (!operatorStack.empty()) {
-        if (expression[0] == '&') return false;
-        else if (expression[0] == '|') return true;
+        char topOperator = operatorStack.top();
+        operatorStack.pop();
+        if (topOperator == '&') return false;
+        else if (topOperator == '|') return true;
     }
-    return true; 
+    return true; // Default value
 }
 
 int main() {
