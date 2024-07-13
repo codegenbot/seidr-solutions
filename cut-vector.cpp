@@ -1,51 +1,45 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    int minDiff = INT_MAX;
-    int index;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    int min_diff = INT_MAX;
+    int idx = 0;
     
-    for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++)
-            leftSum += vec[j];
-        for (int j = i + 1; j < n; j++)
-            rightSum += vec[j];
-        
-        if (leftSum == rightSum) {
-            return {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
-        }
-        else {
-            int diff = abs(leftSum - rightSum);
-            
-            if (diff < minDiff) {
-                minDiff = diff;
-                index = i;
-            }
+    for (int i = 1; i < n; i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
         }
     }
     
-    return {{vec.begin(), vec.begin() + index}, {vec.begin() + index, vec.end()}};
+    vector<vector<int>> result(2);
+    result[0].reserve(n - idx);
+    for (int i = 1; i <= idx; i++) {
+        result[0].push_back(v[i]);
+    }
+    result[1] = v.erase(v.begin(), v.begin() + idx + 1);
+    
+    return result;
 }
 
 int main() {
-    vector<int> vec;
-    int num;
-    
-    cin >> num;
-    while (num--) {
-        cin >> num;
-        vec.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
     
-    vector<vector<int>> res = cutVector(vec);
+    vector<vector<int>> res = cutVector(v);
     
-    for (auto v : res) {
-        for (auto x : v)
-            cout << x << " ";
-        cout << endl;
+    for (const auto& subvec : res) {
+        cout << "[";
+        for (int num : subvec) {
+            cout << num << " ";
+        }
+        cout << "]" << endl;
     }
     
     return 0;
