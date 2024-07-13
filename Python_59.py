@@ -1,25 +1,28 @@
-from math import sqrt, inf
+from math import sqrt
+import sys
 
 
 def largest_prime_factor(n):
-    if n < 2:
-        return None
     i = 2
     max_prime = 0
-    while True:
+    while n > 1:
         if n % i == 0:
             j = i
             while n % j == 0:
                 n //= j
             max_prime = j
-        if i > sqrt(n):
-            return max_prime
         i += 1
+    return max_prime
 
 
 def main():
-    n = int(input("Enter a number: "))
-    print(largest_prime_factor(n))
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            print(largest_prime_factor(n))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
 
 if __name__ == "__main__":
