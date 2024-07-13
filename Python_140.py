@@ -1,11 +1,9 @@
+```
 def fix_spaces(text):
-    text = text.strip().replace(" ", "_")
+    text = text.replace(" ", "_")
     while "__" in text:
         text = text.replace("__", "_-")
     return text
 
-text = input("Enter your text: ")
-if ' ' in text:
-    print(fix_spaces(text))
-else:
-    print(text)
+text = input("Enter your text: ").strip()
+print(fix_spaces(text))
