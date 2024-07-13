@@ -1,3 +1,6 @@
+```
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
@@ -6,7 +9,7 @@ int bowlingScore(std::string s) {
             std::string secondPart = s.substr(i + 1);
             int firstScore = 0;
             int j = 0;
-            while (j < firstPart.size()) {
+            while (j < firstPart.length()) {
                 if (firstPart[j] != 'X') {
                     firstScore += (firstPart[j] - '0');
                 }
@@ -14,7 +17,7 @@ int bowlingScore(std::string s) {
             }
             int secondScore = 0;
             j = 0;
-            while (j < secondPart.size()) {
+            while (j < secondPart.length()) {
                 if (secondPart[j] != 'X') {
                     secondScore += (secondPart[j] - '0');
                 }
@@ -30,3 +33,4 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
+}
