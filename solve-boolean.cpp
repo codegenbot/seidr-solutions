@@ -1,4 +1,4 @@
-bool solveBoolean(std::string& s) {
+bool solveBoolean(const std::string& s) {
     if (s.empty()) return false;
 
     bool result = true;
@@ -10,10 +10,10 @@ bool solveBoolean(std::string& s) {
         } else if (s[i] == '|') {
             bool temp = result;
             result = !result;
-            while (i + 1 < s.length() && s[i+1] == '|') i++;
+            while ((s.substr(i+1)).find('|') != std::string::npos) i++;
         } else if (s[i] == '&') {
             bool temp = result;
-            while (i + 1 < s.length() && s[i+1] == '&') i++;
+            while ((s.substr(i+1)).find('&') != std::string::npos) i++;
             result &= temp;
         }
     }
