@@ -12,4 +12,5 @@ string int_to_mini_roman(int number) {
             result += p.second;
         }
     }
-    return result;
+    return number == 0 ? "" : to_string(number);
+}
