@@ -1,8 +1,8 @@
 def luhn(card):
-    card = [int(x) for x in card.replace(" ", "")]
+    card = [int(x) for x in card.replace(' ', '')]
     new_card = []
     for i, digit in enumerate(card):
-        if i % 2 == 1 and digit * 2 >= 10:
+        if (i % 2 == 1 and digit * 2 >= 10):
             new_card.append((digit * 2) % 10)
         elif i % 2 == 1:
             new_card.append(digit * 2)
