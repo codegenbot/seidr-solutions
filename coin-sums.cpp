@@ -19,7 +19,7 @@ int main() {
         else if (cents >= 5) {
             nickles++;
             cents -= 5;
-        }
+        } 
         else {
             pennies = cents;
             break;
