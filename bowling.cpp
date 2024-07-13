@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
@@ -10,7 +10,7 @@ int bowlingScore(const std::string& input) {
     int prevRoll1 = 0;
     int prevRoll2 = 0;
 
-    int rolls[10];
+    std::vector<int> rolls(10);
     for (int i = 0; i < 10; i++) {
         if (input[i] == 'X') {
             rolls[i] = 10;
