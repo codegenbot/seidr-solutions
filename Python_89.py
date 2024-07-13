@@ -2,14 +2,12 @@ def encrypt(s):
     result = ""
     for char in s: 
         if char.isalpha(): 
-            offset = 65 if char.isupper() else 97
-            shift = 3 if not char.isupper() else 0
-            result += chr((ord(char) - offset + shift) % 26 + offset)
+            offset = ord('A') if char.isupper() else ord('a')
+            shift = 3
+            if char.isupper():
+                result += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
+            elif char.islower():
+                result += chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
         else:  
-            if char.isdigit():  
-                result += char
-            elif char in '/.:!?,";\'-_:':
-                result += char
-            else:
-                result += char  
+            result += char
     return result
