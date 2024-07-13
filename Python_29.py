@@ -1,6 +1,7 @@
 ```
 prefix = input("Enter a prefix: ")
 words = []
+
 while True:
     user_word = input("Enter a word (or 'stop' to finish): ")
     if user_word.lower() == "stop":
