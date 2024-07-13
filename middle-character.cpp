@@ -1,10 +1,10 @@
 int main() {
     string s;
-    getline(cin, s);
-    if (s.length() % 2 == 0) {
-        cout << s.substr(s.length()/2 - 1, 2);
+    cin >> s;
+    if (s.size() % 2 == 0) {
+        cout << s.substr(s.size() / 2 - 1, 2) << endl;
     } else {
-        cout << s[s.length()/2];
+        cout << s.substr(s.size() / 2, 1) << endl;
     }
     return 0;
 }
