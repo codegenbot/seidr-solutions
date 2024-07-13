@@ -50,11 +50,14 @@ vector<int> indicesOfSubstring(string text, string target) {
                 }
             }
 
-            while (j > 0) {
-                result.push_back(i - len + 1);
-                j = lps[j-1];
+            if (j == m) { 
+                for (; j > 0; ) {
+                    result.push_back(i - len + 1); // Append all indices from i - len + 1 to i - 1
+                    j = lps[j-1];
+                }
             }
-            i += len; // move to the next character
+
+            i = i + 1; // move to the next character
         }
         else
             i++;
