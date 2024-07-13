@@ -1,41 +1,33 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
-int getBlackPegs(string code, string guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+int whitePegs(const string& code, const string& guess) {
+    int white = 0;
+    for (char c : guess) {
+        if (std::count(code.begin(), code.end(), c) > 0 &&
+            std::find(code.begin(), code.end(), c) != code.end()) {
+            white++;
         }
     }
-    return blackPegs;
+    return white;
 }
 
-int getWhitePegs(string code, string guess) {
-    int whitePegs = 0;
-    for (char c : code) {
-        bool found = false;
-        for (char g : guess) {
-            if (c == g && !found) {
-                found = true;
-            }
-        }
-        if (!found) {
-            whitePegs++;
+int blackPegs(const string& code, const string& guess) {
+    int black = 0;
+    for (char c : guess) {
+        if (std::count(code.begin(), code.end(), c) > 0 &&
+            std::find(code.begin(), code.end(), c) == code.find(c)) {
+            black++;
         }
     }
-    return blackPegs - getBlackPegs(code, guess);
+    return black;
 }
 
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
     cin >> code;
-    cout << "Enter the guess: ";
+    cout << "Enter a guess: ";
     cin >> guess;
-    int white = getWhitePegs(code, guess);
-    int black = getBlackPegs(code, guess);
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
     cout << white << endl;
     cout << black << endl;
     return 0;
