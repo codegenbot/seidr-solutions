@@ -1,3 +1,6 @@
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
+}
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
