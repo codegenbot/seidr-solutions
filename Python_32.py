@@ -1,9 +1,7 @@
 ```
-try:
-    xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
-except ValueError as e:
-    print(f"Error: {e}")
-    exit()
+import math
+
+xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
 
 def find_zero(xs):
     n = len(xs)
