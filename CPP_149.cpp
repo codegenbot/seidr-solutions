@@ -4,8 +4,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result(it, lst.end());
     sort(result.begin(), result.end(),
         [](const string& a, const string& b) {
-            if (a.length() != b.length())
-                return a.length() < b.length();
+            if (stoll(a) != stoll(b))
+                return stoll(a) < stoll(b);
             else
                 return a < b;
         });
