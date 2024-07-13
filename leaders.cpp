@@ -1,5 +1,5 @@
 ```cpp
-#include <algorithm>
+#include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -15,7 +15,8 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4};
+    vector<int> arr = {17, 11, 10, 12, 9, 1};
     vector<int> leadersRes = leaders(arr);
+    // print or use the result as needed
     return 0;
 }
