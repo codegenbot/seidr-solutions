@@ -1,16 +1,18 @@
 int main() {
-    string input;
-    cin >> input;
+    string expression;
+    cin >> expression;
 
-    if (input == "t") {
-        cout << "True" << endl;
-    } else if (input == "f") {
-        cout << "False" << endl;
-    } else if (input == "f&f" || input == "f&t" || input == "t&f") {
-        cout << "False" << endl;
-    } else {
-        cout << "True" << endl;
+    bool result = (expression[0] == 't' || expression[0] == 'T');
+
+    for (int i = 1; i < expression.size(); i += 2) {
+        if (expression[i] == '|') {
+            result = result || (expression[i + 1] == 't' || expression[i + 1] == 'T');
+        } else if (expression[i] == '&') {
+            result = result && (expression[i + 1] == 't' || expression[i + 1] == 'T');
+        }
     }
+
+    cout << (result ? "True" : "False") << endl;
 
     return 0;
 }
