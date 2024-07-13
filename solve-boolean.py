@@ -19,7 +19,7 @@ def solve_boolean(expression):
                         stack.append(val1 or val2)
                 operators.append(char)
             elif char == "(":
-                stack.append(char)
+                operators.append(char)
             elif char == ")":
                 while operators and operators[-1] != "(":
                     op = operators.pop()
