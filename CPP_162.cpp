@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 using namespace std;
 
@@ -11,12 +10,12 @@ string string_to_md5(const string& input) {
         if(i < 2)
             output += to_string(c);
         else
-            output += setw(2) << setfill('0') << hex << (int)c;
+            output += setfill('0') << hex << setprecision(1) << (int)c;
     }
     return output;
 }
 
 int main() {
-    cout << fixed << setprecision(0) << string_to_md5("password") << endl;
+    cout << fixed << string_to_md5("password") << endl;
     return 0;
 }
