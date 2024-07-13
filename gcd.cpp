@@ -5,21 +5,24 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indices_of_substring(const string& text, const string& target) {
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+    int n = text.size();
+    int m = target.size();
+    
+    for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (size_t j = 0; j < target.size(); ++j) {
+        for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
+        
         if (found) {
-            for (size_t j = 0; j < target.size(); ++j) {
-                indices.push_back(i + j);
-            }
+            indices.push_back(i);
         }
     }
+    
     return indices;
 }
