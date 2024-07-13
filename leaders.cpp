@@ -1,4 +1,3 @@
-```
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxSoFar = arr.back();
