@@ -1,3 +1,4 @@
+```
 def check():
     while True:
         try:
