@@ -1,13 +1,7 @@
 def mastermind(code, guess):
-    code = list(code)
-    white = 0
-    black = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-            code[i] = "x"
-            guess[i] = "x"
-        elif guess[i] in code:
-            white += 1
-            code[code.index(guess[i])] = "x"
-    return str(black) + "\n" + str(white)
+    correct = sum(c1 == c2 and c1 != "X" for c1, c2 in zip(code, guess))
+    wrong_place = sum(
+        (c1 == "X" and c2 != "X") or (c1 != "X" and c2 == c1)
+        for c1, c2 in zip(code, guess)
+    )
+    return str(correct), str(wrong_place)
