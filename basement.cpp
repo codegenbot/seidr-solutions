@@ -9,11 +9,11 @@ int basement(vector<int> v) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
-    vector<int> v = {2, -3, 4, -1, -2, 1, 5, -3};
-    int result = basement(v);
-    cout << "The first index such that the sum of all integers from the start of the vector to that index (inclusive) is negative: " << result << endl;
+    vector<int> input = {-1, -2, -3, 4, 5};
+    cout << "Basement index is: " << basement(input) << endl;
     return 0;
 }
