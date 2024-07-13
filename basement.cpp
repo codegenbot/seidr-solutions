@@ -6,6 +6,8 @@ int basement(vector<int>& arr) {
         sum += arr[i];
         if(sum < 0)
             return i;
+        else
+            sum = 0;
     }
     return -1;
 }
