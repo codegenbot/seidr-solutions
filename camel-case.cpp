@@ -1,4 +1,9 @@
-std::string camelCase(std::string& str) {
+```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
