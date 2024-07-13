@@ -5,11 +5,20 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
+    int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
-        if (v[i] != v[0]) {
-            res[0] = vector<int>(v.begin(), v.begin() + i);
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; j++) {
+            leftSum += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
+        }
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            res[0] = vector<int>(v.begin(), v.begin() + i + 1);
             res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
+            minDiff = diff;
         }
     }
     return res;
