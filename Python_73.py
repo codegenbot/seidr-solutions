@@ -1,3 +1,4 @@
+```
 def smallest_change():
     while True:
         try:
@@ -8,9 +9,7 @@ def smallest_change():
 
     if len(lst) < 2:
         print("Please provide at least two numbers.")
-        cont = input("Do you want to continue? (yes/no): ")
-        while cont.lower() != "yes":
-            return
+        return
 
     max_diff = 0
     for i in range(1, len(lst)):
@@ -18,7 +17,4 @@ def smallest_change():
         if diff > max_diff:
             max_diff = diff
 
-    print("The smallest change is:", max_diff)
-    cont = input("Do you want to continue? (yes/no): ")
-    while cont.lower() != "yes":
-        return
+    return max_diff
