@@ -1,25 +1,26 @@
-```
-def shortestPaths(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
-    
-    def dfs(i, j, path, visited, length):
-        if len(path) == k:
-            return [path]
-        visited.add((i, j))
-        result = []
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                new_path = dfs(ni, nj, path + [m[ni][nj]], visited.copy(), length + 1)
-                if new_path:
-                    result += new_path
-        return result
+```Python
+def dfs(i, j, path, visited, k, index, result):
+    if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or visited[i][j] or path.index(index) + 1 > k:
+        return
 
-    result = []
-    for i in range(n):
-        for j in range(n):
-            paths = dfs(i, j, [], set(), 0)
-            if paths and (not result or max(map(len, paths)) < max(map(len, result))):
-                result = paths
-    return min(result) if result else []
+    if i == 0 and j == 0:
+        result.append(path[:])
+
+    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        ni, nj = i + dx, j + dy
+        if 0 <= ni < len(grid) and 0 <= nj < len(grid[0]):
+            dfs(ni, nj, path + [index], visited, k, index, result)
+
+def shortestPaths(grid, k):
+    if len(grid) == 0 or k <= 0:
+        return []
+
+    minPath = []
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            dfs(i, j, [], [[i * len(grid) + j]], k, [i * len(grid) + j], [minPath])
+
+    if minPath:
+        return min(minPath)
+    else:
+        return []
