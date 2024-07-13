@@ -17,18 +17,6 @@ bool solveBoolean(string s) {
             i++;
             continue;
         }
-        if (s[i] == 'T' && s[i+1] == '&') {
-            i += 2;
-            while(i < s.length() && s[i] != '|') i++;
-            if(i >= s.length()) return false;
-            i++;
-        }
-        else if (s[i] == 'F' && s[i+1] == '|') {
-            i += 2;
-            while(i < s.length() && s[i] != '&') i++;
-            if(i >= s.length()) return true;
-            i++;
-        }
     }
     return res;
 }
