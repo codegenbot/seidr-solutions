@@ -1,4 +1,3 @@
-Here is the completed code:
-
-def fuel_cost(lst):
-    return sum((i // 3 - 2) for i in lst)
+```
+def fuel_cost(vector):
+    return sum((i-2) // 3 for i in vector)
