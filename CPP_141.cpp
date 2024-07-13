@@ -1,19 +1,25 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
     int digit_count = 0;
-    bool found_dot = false;
+    bool has_dot = false;
+    string prefix;
+
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
             digit_count++;
             if(digit_count > 3) return "No";
         }
         else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(found_dot && (i>0)){
-            string extension = file_name.substr(i+1);
-            if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+            has_dot = true;
+            prefix = file_name.substr(0, i);
         }
     }
-    if(!found_dot || !isalpha(file_name[0])) return "No";
+
+    string suffix = file_name.substr(file_name.find('.')+1);
+
+    if(!has_dot || prefix.empty() || !isalpha(prefix[0])) return "No";
+    if(suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
+
     return "Yes";
 }
