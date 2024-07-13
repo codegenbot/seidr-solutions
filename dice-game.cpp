@@ -16,7 +16,7 @@ int main() {
     std::cin >> n >> m;
     
     double result = probability(n, m);
-    std::cout << "The probability is: " << result << std::endl;
+    std::cout << "The probability is: " << 1.0 - result << std::endl;
     
     return 0;
 }
