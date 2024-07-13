@@ -24,9 +24,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string temp = result;
     std::reverse(temp.begin(), temp.end());
     if (result == temp) {
-        return {std::to_string(result.size()), "True"};
+        return {std::to_string(result), "True"};
     } else {
-        return {std::to_string(result.size()), "False"};
+        return {std::to_string(result), "False"};
     }
 }
 
