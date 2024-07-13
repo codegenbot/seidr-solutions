@@ -7,12 +7,8 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (capitalize) {
-                result += ' '; // Add space before the next word
-                capitalize = true; // Capitalize the next character
-            } else {
-                result += c; // Just add the hyphen as is
-            }
+            // Add nothing before the next word
+            capitalize = true; // Capitalize the next character
         } else if (capitalize) {
             result += toupper(c);
             capitalize = false;
