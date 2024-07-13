@@ -1,23 +1,29 @@
-int main() {
-    string input;
-    getline(cin, input);
+#include <iostream>
+#include <string>
+#include <sstream>
+
+std::string spinWords(const std::string& sentence) {
+    std::string result = "";
+    std::istringstream iss(sentence);
+    std::string word;
     
-    string word = "";
-    string result = "";
-    
-    for (int i = 0; i <= input.length(); i++) {
-        if (input[i] == ' ' || i == input.length()) {
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
-        } else {
-            word += input[i];
+    while (iss >> word) {
+        if (word.size() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
+        result += word + " ";
     }
     
-    cout << result << endl;
+    result.pop_back(); // Remove extra space at the end
+    return result;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    
+    std::string output = spinWords(input);
+    std::cout << output << std::endl;
     
     return 0;
 }
