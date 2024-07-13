@@ -14,19 +14,18 @@ double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
 int main() {
     int n;
     cin >> n;
-    
-    vector<float> v1(n);
-    for (float& val : v1) {
-        cin >> val;
+
+    vector<float> v1(n), v2(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
 
-    vector<float> v2(n);
-    for (float& val : v2) {
-        cin >> val;
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
     }
-    
-    double result = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << result << endl;
+
+    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
 
     return 0;
 }
