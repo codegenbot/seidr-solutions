@@ -1,15 +1,36 @@
-vector<int> strange_sort_list(vector<int> lst) {
-    if (lst.empty()) return {};
-    vector<int> result;
-    vector<int> minMax;
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
+    if (lst.empty()) return result;
+
+    std::sort(lst.begin(), lst.end());
     while (!lst.empty()) {
-        int min = *min_element(lst.begin(), lst.end());
-        int max = *max_element(lst.begin(), lst.end());
-        result.push_back(min);
-        lst.erase(std::remove(lst.begin(), lst.end(), min), lst.end());
+        result.push_back(*lst.begin());
+        lst.erase(lst.begin());
         if (!lst.empty())
-            result.push_back(max);
-        lst.erase(std::remove(lst.begin(), lst.end(), max), lst.end());
+            std::sort(lst.begin(), lst.end());
     }
+
     return result;
+}
+
+int main() {
+    // Example usage:
+    std::vector<int> input = {4, 2, 7, 1, 3};
+    std::vector<int> output = strange_sort_list(input);
+    
+    for (int num : output) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    
+    return 0;
 }
