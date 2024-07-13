@@ -9,5 +9,3 @@ def longest(strings: List[Optional[str]]) -> Optional[str]:
         if len(s) > len(result):
             result = s
     return result
-
-print(longest(input("Enter some strings (space separated): ").split()))
