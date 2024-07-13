@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <algorithm>
 
@@ -30,8 +31,6 @@ std::string spinWords(std::string str) {
         }
         result += " ";
         result += word;
-    } else {
-        result = str; 
-    }
-    
+    } 
     return result;
+}
