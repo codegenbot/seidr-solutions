@@ -1,7 +1,6 @@
 #include <vector>
-#include <iostream>
 
-int prod_signs(std::vector<int> arr) {
+int prod_signs(vector<int> arr) {
     int sign_product = 1;
     long long sum = 0;
 
@@ -14,11 +13,4 @@ int prod_signs(std::vector<int> arr) {
     }
 
     return sign_product * sum;
-}
-
-int main() {
-    std::vector<int> input = {-1, 1, 1, 0};
-    int output = prod_signs(input);
-    std::cout << "Output: " << output << std::endl;
-    return 0;
 }
