@@ -1,22 +1,23 @@
+#include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    MD5_CTX ctx;
-    unsigned char mdBuffer[16];
-    stringstream ss;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(mdBuffer, &ctx);
-
-    for (int i = 0; i < 16; i++) {
-        sprintf(ss.str().c_str(), "%02x", mdBuffer[i]);
-        ss.seekp(0);
+string string_to_md5(const string& input) {
+    string output;
+    for (int i = 0; i < 32; i++) {
+        char c = ((input[i % input.size()] + i) * i) % 256;
+        if(i < 2)
+            output += to_string(c);
+        else {
+            static const char* hex_digits = "0123456789abcdef";
+            output += hex_digits[c / 16] + hex_digits[c % 16];
+        }
     }
+    return output;
+}
 
-    return ss.str();
+int testMain() {
+    cout << fixed << string_to_md5("password") << endl;
+    return 0;
 }
