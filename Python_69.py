@@ -4,9 +4,7 @@ def search(lst):
     for num in lst:
         if num > 0:
             max_num = num
-        else:
-            return -1
-    return -1
+    return max_num
 
 numbers = []
 while True:
