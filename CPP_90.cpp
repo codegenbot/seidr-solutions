@@ -1,13 +1,11 @@
 Here is the completed code:
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that represents None
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i > 0 && sorted[i] != sorted[i-1]) {
-            return std::count(lst.begin(), lst.end(), sorted[i]);
-        }
+    if (lst.empty()) return -1; // Return None or -1 for empty vector
+    sort(lst.begin(), lst.end());
+    auto it = prev(lst.begin()); // Get the previous element in sorted order
+    if (it != lst.begin()) { // Check if there is a 2nd smallest element
+        return *it;
     }
-    return -1; // or any other value that represents None
+    return -1; // Return None or -1 for vector with one unique element
 }
