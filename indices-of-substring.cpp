@@ -3,10 +3,7 @@
 #include <cstring>
 
 char toLower(char c) {
-    if (c >= 'A' && c <= 'Z') {
-        return c - 'A' + 'a';
-    }
-    return c;
+    return (c >= 'A' && c <= 'Z') ? (c - 'A' + 'a') : (c >= 'a' && c <= 'z' ? c : c - 'A' + 'a');
 }
 
 int main() {
