@@ -4,8 +4,11 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= m - 1; i++) {
-        sum += (n - i) * 1.0 / (n * min(n, m));
+    for (int i = 1; i < n; i++) {
+        sum += 1.0 / n;
+    }
+    for (int i = m + 1; i <= n * m; i++) {
+        sum += 1.0 / m;
     }
     return sum;
 }
