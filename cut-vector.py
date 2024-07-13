@@ -1,7 +1,12 @@
-def cut_vector(v):
-    left = 0
-    for i in range(1, len(v)):
-        if v[i] - v[left] > (v[i // 2 + left] - v[left]):
-            break
-        left += 1
-    return v[: left + 1], v[left:]
+def cut_vector(nums):
+    min_diff = float("inf")
+    split_idx = 0
+
+    for i in range(1, len(nums)):
+        diff = abs(sum(nums[:i]) - sum(nums[i:]))
+
+        if diff < min_diff:
+            min_diff = diff
+            split_idx = i
+
+    return nums[:split_idx], nums[split_idx:]
