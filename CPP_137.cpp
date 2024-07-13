@@ -1,47 +1,43 @@
-#include <boost/lexical_cast.hpp>
+#include <string>
+#include <typeinfo>
+#include <boost/any.hpp>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(b);
-    }
-    if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any(b);
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        if (boost::lexical_cast<double>(b.cast<string>()) > a.cast<string>()){
-            return b;
-        } else if (boost::lexical_cast<double>(b.cast<string>()) < a.cast<string>()){
+        return max((int)a.convert_to<int>(), (double)b.convert_to<double>());
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return max((double)a.convert_to<double>(), (int)b.convert_to<int>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        return (string)b.convert_to<string>();
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return (string)b.convert_to<string>();
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if ((string)a.convert_to<string>() > (string)b.convert_to<string>()) {
             return a;
-        } else {
-            return boost::any("None");
-        }
-    }
-    if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        if (boost::lexical_cast<double>(a.cast<string>()) > b.cast<string>()){
-            return a;
-        } else if (boost::lexical_cast<double>(a.cast<string>()) < b.cast<string>()){
+        } else if ((string)a.convert_to<string>() < (string)b.convert_to<string>()) {
             return b;
         } else {
             return boost::any("None");
         }
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::lexical_cast<double>(b.cast<string>()) > a.cast<string>()){
-            return b;
-        } else if (boost::lexical_cast<double>(b.cast<string>()) < a.cast<string>()){
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        if ((int)a.convert_to<int>() > stoi((string)b.convert_to<string>())) {
             return a;
+        } else if ((int)a.convert_to<int>() < stoi((string)b.convert_to<string>())) {
+            return b;
         } else {
             return boost::any("None");
         }
-    }
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)){
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        if (stoi((string)a.convert_to<string>()) > (int)b.convert_to<int>()) {
             return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)){
+        } else if (stoi((string)a.convert_to<string>()) < (int)b.convert_to<int>()) {
             return b;
         } else {
             return boost::any("None");
         }
     }
-    return boost::any();
+
+    return boost::any("None");
 }
