@@ -1,6 +1,5 @@
 #include <string>
 #include <cctype>
-#include <sstream>
 
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
@@ -11,16 +10,21 @@ std::string camelCase(const std::string& input) {
     std::string word;
     std::string result;
 
+    bool isFirstWord = true;
+
     while (iss >> word) { 
-        if (!result.empty())
-            result += toupper(word[0]);
+        if (!isFirstWord)
+            result += towupper(word[0]);
         else
-            result = tolower(word);
+            result += tolower(word[0]);
+
         for (int i = 1; i < word.size(); ++i)
             result += tolower(word[i]);
-        if (iss >> word) {
-            result += ' ';
-        }
+        
+        if (isFirstWord)
+            isFirstWord = false;
+        else
+            result += " ";
     }
     
     return result;
