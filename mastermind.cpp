@@ -1,3 +1,4 @@
+```cpp
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
