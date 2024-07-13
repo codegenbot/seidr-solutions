@@ -10,4 +10,4 @@ def cut_vector(vector):
             min_diff = abs(left_sum - right_sum)
             split_index = i
 
-    return vector[:split_index], vector[split_index:]
+    return (vector[:split_index], sum(vector[:split_index]), vector[split_index:], sum(vector[split_index:])), f"The cut index is {split_index} and the sums are {sum(vector[:split_index])} and {sum(vector[split_index:])}"
