@@ -22,7 +22,7 @@ int main() {
     
     double result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
     
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::fixed << std::setprecision(2) << result << std::endl;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
     
     return 0;
 }
