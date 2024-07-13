@@ -19,22 +19,11 @@ def bowling_score(score_string):
                 previous_rolls = [0, 0]
                 roll_count = 1
             else:
-                if roll_count == 1 and current_roll < 10:
-                    previous_rolls[0] = current_roll
-                    roll_count += 1
-                elif roll_count == 2 and current_roll < 10 + sum(previous_rolls):
-                    previous_rolls[1] = current_roll
-                    score += sum(previous_rolls)
-                    previous_rolls = [0, 0]
-                    roll_count = 1
-                else:
-                    previous_rolls[roll_count-1] = current_roll
-                    roll_count += 1
-        elif char == 'X':
-            if roll_count == 2:
+                previous_rolls[roll_count-1] = current_roll
+                roll_count += 1
+        else:
+            if char == 'X':
                 score += 10 + sum(previous_rolls)
-            else:
-                score += 10
-            previous_rolls = [0, 0]
-            roll_count = 1
+                previous_rolls = [0, 0]
+                roll_count = 1
     return score
