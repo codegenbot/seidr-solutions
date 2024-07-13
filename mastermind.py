@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -8,9 +9,13 @@ def mastermind(code, guess):
         else:
             code_set = set(code)
             if guess[i] in code_set:
-                code_count[ord(guess[i]) - ord("O")] += 1
-    white = sum(
-        min(count, code.count(c)) for c, count in zip(map(str, range(6)), code_count)
-    )
+                code_count[ord(guess[i]) - ord('O')] += 1
+    white = sum(min(count, code.count(c)) for c, count in zip(map(str, range(6)), code_count))
     black -= white
     return str(black) + "\n" + str(white)
+
+print(mastermind("RRRR", "RRRR"))
+print(mastermind("BOYG", "GYOB"))
+print(mastermind("WYYW", "BBOG"))
+print(mastermind("GGGB", "BGGG"))
+print(mastermind("BBBB", "OOOO"))

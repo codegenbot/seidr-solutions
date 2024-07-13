@@ -1,20 +1,21 @@
-```cpp
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
     
-    // Count correct colors
-    vector<int> color_count(6, 0);
-    for (char c : guess) {
-        color_count[c-'0']++;
-    }
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
     
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             black++;
         } else {
-            white += color_count[guess[i]] - (black > 0);
+            codeCount[code[i]-'A']++;
+            guessCount[guess[i]-'A']++;
         }
+    }
+    
+    for (int i = 0; i < 6; i++) {
+        white += min(codeCount[i], guessCount[i]);
     }
     
     return black + white;
