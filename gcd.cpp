@@ -14,8 +14,8 @@ int gcd(int a, int b) {
     return a;
 }
 
-vector<size_t> indicesOfSubstring(string text, string target) {
-    vector<size_t> result;
+vector<unsigned long int> indicesOfSubstring(string text, string target) {
+    vector<unsigned long int> result;
     size_t n = text.length();
     size_t m = target.length();
 
@@ -25,4 +25,5 @@ vector<size_t> indicesOfSubstring(string text, string target) {
             i += m; // Increment by the length of the target substring
         }
     }
-} // <--- Add this
+    return result;
+}
