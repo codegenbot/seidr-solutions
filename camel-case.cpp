@@ -1,4 +1,3 @@
-```cpp
 std::string camelCase(std::string str) {
     std::string result = "";
     while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
