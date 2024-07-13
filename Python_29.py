@@ -1,6 +1,8 @@
-def check():
+def filter_by_prefix(lst):
     prefix = input("Enter a prefix: ")
-    if len(prefix) > 5:
-        print("Prefix is too long")
-    else:
-        print("Prefix is fine")
+    return [word for word in lst if word.startswith(prefix)]
+
+
+def check():
+    words = ["apple", "banana", "apricot", "avocado"]
+    print(filter_by_prefix(words))
