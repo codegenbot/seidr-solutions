@@ -21,5 +21,4 @@ string spinWords(string str) {
 }
 
 int main() {
-    
 }
