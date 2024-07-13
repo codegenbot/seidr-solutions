@@ -1,4 +1,3 @@
-```
 string camelCase(string s) {
     string result = "";
     bool isNextUpper = false;
