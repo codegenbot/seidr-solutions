@@ -1,34 +1,33 @@
 int main() {
-    vector<int> input;
+    vector<int> nums;
     int num;
+    
     while (cin >> num) {
-        input.push_back(num);
+        nums.push_back(num);
     }
-
-    int n = input.size();
-    int leftSum = 0, rightSum = 0;
+    
+    int n = nums.size();
+    int sum = 0;
     for (int i = 0; i < n; ++i) {
-        rightSum += input[i];
+        sum += nums[i];
     }
-
-    int diff = INT_MAX, cutIndex = 0;
+    
+    int prefix_sum = 0, min_diff = INT_MAX;
+    int cut_idx = -1;
     for (int i = 0; i < n; ++i) {
-        leftSum += input[i];
-        rightSum -= input[i];
-        int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIndex = i;
+        prefix_sum += nums[i];
+        int diff = abs((sum - prefix_sum) - prefix_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-
-    for (int i = 0; i <= cutIndex; ++i) {
-        cout << input[i] << endl;
+    
+    cout << "1" << endl;
+    for (int i = 0; i <= cut_idx; ++i) {
+        cout << nums[i] << endl;
     }
-    cout << endl;
-    for (int i = cutIndex + 1; i < n; ++i) {
-        cout << input[i] << endl;
-    }
-
+    cout << "0" << endl;
+    
     return 0;
 }
