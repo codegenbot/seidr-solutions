@@ -1,10 +1,3 @@
-```
-"""
-Find maximum, minimum and average values in a list of numbers.
-The function takes a list of integers as input, checks if all elements are integers,
-and then calculates the maximum, minimum and average values.
-"""
-
 def find_max_min_average(numbers):
     if not isinstance(numbers, list):
         return "Error: Input is not a list."
