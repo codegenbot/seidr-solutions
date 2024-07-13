@@ -1,12 +1,13 @@
 int main() {
-    string input;
-    cin >> input;
+    string expr;
+    cin >> expr;
     
-    if (input == "t") {
+    if (expr == "t")
         cout << "True" << endl;
-    } else {
+    else if (expr == "f")
         cout << "False" << endl;
-    }
+    else if (expr == "f&f" || expr == "f&t" || expr == "t&f")
+        cout << "False" << endl;
     
     return 0;
 }
