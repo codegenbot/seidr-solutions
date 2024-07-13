@@ -1,13 +1,11 @@
-```
 def array_change(arr):
-    global arr
-    arr = list(map(int, input('Enter a space-separated list of numbers: ').split()))
+    arr = list(map(int, input("Enter a space-separated list of numbers: ").split()))
     arr.sort()
 
-    if len(set(arr)) <= 1:
+    changes = 0
+    if len(set(arr)) > 1:
         return -1
 
-    changes = 0
     for i in range(1, len(arr)):
         while arr[i] != arr[0]:
             if min(arr) == max(arr):
@@ -17,6 +15,5 @@ def array_change(arr):
 
     return changes
 
-input_array = [1, 2, 3]
-smallest_change = array_change(input_array)
-print(smallest_change)
+
+print(array_change([1, 2, 3]))
