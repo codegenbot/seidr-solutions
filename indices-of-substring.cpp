@@ -13,13 +13,14 @@ int main() {
     
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
-        for (int j = 0; j < targetLen; ++j) {
+        int j;
+        for (j = 0; j < targetLen && i + j < textLen; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
-        if (found) {
+        if (found && j == targetLen) {
             indices.push_back(i);
         }
     }
