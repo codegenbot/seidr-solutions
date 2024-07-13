@@ -5,7 +5,6 @@ int main() {
     string word;
     string result;
     istringstream iss(input);
-
     while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
