@@ -3,15 +3,27 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            wordLength = i - result.length();
-            if (wordLength >= 5)
-                reverse(result.rbegin(), result.rend());
-            result += " ";
-        } else
-            result += tolower(str[i]);
+    int wordLength = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (wordLength >= 5) {
+                for (int j = i - 1; j >= i - wordLength - 1; j--) {
+                    result += str[j];
+                }
+            } else {
+                result += str.substr(i - wordLength, wordLength + 1);
+            }
+            wordLength = 0;
+        } else {
+            wordLength++;
+        }
     }
-    return result.substr(1);
+    if (wordLength >= 5) {
+        for (int j = str.length() - 1; j >= str.length() - wordLength - 1; j--) {
+            result += str[j];
+        }
+    } else {
+        result += str;
+    }
+    return result;
 }
