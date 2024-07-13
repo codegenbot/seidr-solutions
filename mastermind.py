@@ -1,5 +1,4 @@
 def mastermind(code, guess):
     black = sum(1 for c, g in zip(code, guess) if c == g)
-    wrong_color_correct_place = 4 - len(set(g for c, g in zip(code, guess) if c != g))
-    white = wrong_color_correct_place
+    white = len(set(c for c, g in zip(code, guess) if c != g)) - black
     return str(black) + ' ' + str(white)
