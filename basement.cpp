@@ -1,16 +1,10 @@
-#include <vector>
 int basement(std::vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) return i + 1; 
-        else if (sum == 0) sum = 0; 
+    int i = -1; 
+    for (int j = 0; j < nums.size(); ++j) {
+        sum += nums[j];
+        if (sum < 0 && i == -1) 
+            i = j;
     }
-    return -1;
-}
-
-int main() {
-    std::vector<int> nums = {-3,2,-3,4,5,-2,6};
-    int result = basement(nums);
-    return 0;
+    return i + 1;
 }
