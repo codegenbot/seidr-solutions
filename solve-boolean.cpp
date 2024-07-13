@@ -1,21 +1,30 @@
 ```cpp
+#include <stack>
+#include <string>
+
 bool solveBoolean(std::string s) {
+    stack<char> st;
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T') {
-            result = true;
-        } else if (s[i] == 'F') {
-            result = false;
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
         } else if (s[i] == '|') {
-            bool temp = !result;
-            while (i + 1 < s.length() && s[i + 1] != '&' && s[i + 1] != ')') {
-                i++;
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-        } else if (s[i] == '&') {
-            while (i + 1 < s.length() && s[i + 1] != '(') {
-                i++;
+            if (st.empty()) {
+                result = true;
             }
+            st.pop();
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
+    return s.back() == 'T';
 }
