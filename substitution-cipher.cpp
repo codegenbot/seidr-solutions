@@ -1,10 +1,11 @@
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
+    string cipher, mapping, message;
+    cin >> cipher >> mapping >> message;
 
     for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
+        int index = cipher.find(c);
+        if (index != string::npos) {
+            c = mapping[index];
         }
     }
 
