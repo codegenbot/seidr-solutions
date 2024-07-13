@@ -1,12 +1,13 @@
 #include <string>
 #include <map>
-using namespace std;
+#include <unordered_map>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> codeCount, guessCount;
+    // Count correct colors in wrong places
+    std::unordered_map<char, int> codeCount, guessCount;
     for (char c : code) codeCount[c]++;
     for (char c : guess) guessCount[c]++;
 
