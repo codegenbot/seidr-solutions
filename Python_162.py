@@ -1,5 +1,6 @@
 ```
 import hashlib
+
 def main():
     text = input("Enter a string: ")
     if not text:
