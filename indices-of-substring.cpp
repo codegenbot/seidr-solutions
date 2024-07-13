@@ -10,12 +10,10 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         for (int i = 0; i + m - 1 < n; i++) { 
             int j = 0;
             while (j < m && i + j < n && text[i+j] == target[j]) {
-                if (j == m - 1) { // check for last character of target string
-                    result.push_back(i);
-                }
                 j++;
                 if (j == m) {
-                    i = i + j - m; // Move the index forward so that the next search starts after the previous match.
+                    result.push_back(i);
+                    i += j;
                     j = 0;
                 }
             }
