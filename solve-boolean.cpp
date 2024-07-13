@@ -1,8 +1,10 @@
 ```cpp
+#include <stack>
+#include <string>
+
 bool solveBoolean(std::string s) {
     stack<char> st;
     bool result = true;
-    char c;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -24,5 +26,5 @@ bool solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    return c == 'T';
+    return s.back() == 'T';
 }
