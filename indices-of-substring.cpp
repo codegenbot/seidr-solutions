@@ -11,6 +11,7 @@ int main() {
     for (int i = 0; text[i] != '\0'; ++i) {
         lowercaseText[i] = std::tolower(text[i]);
     }
+    lowercaseText[strlen(text)] = '\0';
 
     char lowercaseTarget[100] = {};
     for (int i = 0; i < strlen(target); ++i) {
@@ -30,7 +31,7 @@ int main() {
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (lowercaseText[i + j] != lowercaseTarget[j % targetLen]) {
+            if (std::tolower(lowercaseText[i + j]) != lowercaseTarget[j]) {
                 found = false;
                 break;
             }
