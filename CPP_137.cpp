@@ -1,37 +1,66 @@
-Here is the completed code:
-
 #include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int x = boost::any_cast<int>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int x = boost::any_cast<int>(a);
-        string y = boost::any_cast<string>(b);
-        return (stoi(y) > x) ? b : ((x > stoi(y)) ? a : boost::any("None"));
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float x = boost::any_cast<float>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string x = boost::any_cast<string>(a);
-        float y = boost::any_cast<float>(b);
-        return (stof(x) > y) ? a : ((y > stof(x)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string x = boost::any_cast<string>(a);
-        int y = boost::any_cast<int>(b);
-        return (stof(x) > y) ? a : ((y > stof(x)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = boost::any_cast<string>(a);
-        string y = boost::any_cast<string>(b);
-        return (stof(x) > stof(y)) ? a : ((stof(y) > stof(x)) ? b : boost::any("None"));
-    } else {
-        return boost::any("None");
+        return (int)b > a.convert_to<int>() ? b : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)b > a.convert_to<int>() ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > b.convert_to<int>() ? boost::any(a) : "None";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > b.convert_to<int>() ? boost::any(a) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float fa = stof((string)a.to_pointer());
+        float fb = (float)b;
+        return fb > fa ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double da = stod((string)a.to_pointer());
+        double db = (double)b;
+        return db > da ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int ia = stoi((string)a.to_pointer());
+        int ib = (int)b;
+        return ib > ia ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = (string)a.to_pointer();
+        string s2 = (string)b.to_pointer();
+        double da1 = stod(s1);
+        double da2 = stod(s2);
+        return da2 > da1 ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = (string)a.to_pointer();
+        string s2 = (string)b.to_pointer();
+        int ia1 = stoi(s1);
+        int ia2 = stoi(s2);
+        return ia2 > ia1 ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = (string)b.to_pointer();
+        float fa = stof(s);
+        int ia = a.convert_to<int>();
+        return fa > ia ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        string s = (string)b.to_pointer();
+        double da = stod(s);
+        double db = a.convert_to<double>();
+        return da > db ? boost::any(b) : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string s = (string)b.to_pointer();
+        int ia = stoi(s);
+        int ib = a.convert_to<int>();
+        return ia > ib ? boost::any(b) : "None";
+    }
+    else {
+        return "None";
     }
 }
