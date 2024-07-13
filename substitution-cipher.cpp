@@ -6,9 +6,11 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
 
     for (char& c : message) {
-        auto pos = cipher1.find(c);
-        if (pos != string::npos) {
-            c = cipher2[pos];
+        for (int i = 0; i < cipher1.length(); ++i) {
+            if (c == cipher1[i]) {
+                c = cipher2[i];
+                break;
+            }
         }
     }
 
