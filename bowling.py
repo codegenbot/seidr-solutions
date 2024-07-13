@@ -1,22 +1,30 @@
-Here is the solution:
-
-def bowling_score(game):
+```
+def bowling_score(games):
     score = 0
-    roll = game.replace('/', '')
-    for i in range(10):
-        if roll[i*2:i*2+1].isdigit():
-            score += int(roll[i*2:i*2+1])
-        elif roll[i*2:i*2+2].isdigit():
-            score += int(roll[i*2:i*2+2]) + 10
+    game = []
+    
+    for i in range(len(games)):
+        if games[i].isdigit():
+            game.append(int(games[i]))
+        elif games[i] == '/':
+            score += min(game)
+            game = []
+        elif games[i] == 'X':
+            score += 30
+            game = []
         else:
-            if i < 9 and '/' in roll[i*2:i*10]:
-                if roll[i*2:i*2].isdigit() and roll[i*2+1:i*3].isdigit():
-                    score += int(roll[i*2:i*2]) + int(roll[i*2+1:i*3])
-                else:
-                    score += 10
-            elif i == 9 and '/' in roll[18:]:
-                if roll[17:19].isdigit() and roll[19:].isdigit():
-                    score += int(roll[17:19]) + int(roll[19:])
-                else:
-                    score += 10
+            if len(game) > 1 and sum(game) == 10:
+                score += 10
+            else:
+                score += sum(game)
+            game = []
+    
+    if len(game) > 0:
+        if len(game) == 2 and sum(game) == 10:
+            score += 10
+        elif min(game) < 10:
+            score += min(game)
+        else:
+            score += sum(game)
+    
     return score
