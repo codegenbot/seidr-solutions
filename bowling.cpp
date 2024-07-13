@@ -1,22 +1,21 @@
-int score(string s) {
-    int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size(); ++i) {
+int score(const string& s) {
+    int res = 0, frame = 0, i = 0;
+    while (frame < 10) {
         if (s[i] == 'X') {
-            total += 10;
-            total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/' ? 10 - (int)'0' : (s[i + 1] - '0'));
-            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (int)'0' : (s[i + 2] - '0'));
-            frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (int)s[i - 1];
-        } else if (s[i] == '-') {
-            total += 0;
+            res += 10;
+            res += (s[i + 1] == 'X') ? 10 + (s[i + 2] == 'X' ? 10 : (s[i + 2] - '0')) : (s[i + 2] == '/' ? 10 : s[i + 1] - '0' + s[i + 2] - '0');
+            i += 2;
+        } else if (s[i + 1] == '/') {
+            res += 10;
+            res += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
+            i += 3;
         } else {
-            total += s[i] - '0';
+            res += (s[i] == '-' ? 0 : s[i] - '0') + (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
+            i += 2;
         }
-        if (frame == 10) break;
+        frame++;
     }
-    return total;
+    return res;
 }
 
 int main() {
