@@ -1,6 +1,5 @@
-# This line can be a comment
-pass  # This line does nothing
-
+```
+pass  
 from typing import List
 
 def factorize(n: int) -> List[int]:
