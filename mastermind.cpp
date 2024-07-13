@@ -1,3 +1,4 @@
+```c++
 int blackPegs(string code, string guess) {
     int white = whitePegs(code, guess);
     int black = 0;
