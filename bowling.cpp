@@ -1,41 +1,47 @@
-int getScore(const string& bowls) {
-    int score = 0;
-    int frame = 0;
+int score(string s) {
+    int total = 0;
+    int frame = 1;
     int ball = 0;
-    vector<int> points(22, 0);
-    for (char ch : bowls) {
-        if (ch == 'X') {
-            points[frame] = 10;
-            points[frame + 1] = 10;
-            points[frame + 2] = 10;
-            frame += 2;
-        } else if (ch == '/') {
-            points[frame] = 10 - points[frame - 1];
-        } else if (ch == '-') {
-            points[frame] = 0;
+    int rolls[21] = {0};
+
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
+        } else if (c == '/') {
+            rolls[ball - 1] = 10 - rolls[ball - 2];
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            points[frame] = ch - '0';
-        }
-        frame++;
-    }
-    for (int i = 0; i < 10; i++) {
-        if (points[ball] == 10) {
-            score += 10 + points[ball + 1] + points[ball + 2];
-            ball++;
-        } else if (points[ball] + points[ball + 1] == 10) {
-            score += 10 + points[ball + 2];
-            ball += 2;
-        } else {
-            score += points[ball] + points[ball + 1];
-            ball += 2;
+            rolls[ball++] = c - '0';
         }
     }
-    return score;
+
+    for (int i = 0; frame < 10 && i < ball; i += 2, frame++) {
+        if (rolls[i] == 10) {
+            total += 10 + rolls[i + 2] + rolls[i + 3];
+            if (rolls[i + 2] == 10) {
+                total += rolls[i + 4];
+            }
+        } else if (rolls[i] + rolls[i + 1] == 10) {
+            total += 10 + rolls[i + 2];
+        } else {
+            total += rolls[i] + rolls[i + 1];
+        }
+    }
+
+    while (frame++ < 10) {
+        total += rolls[ball++];
+    }
+
+    return total;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << getScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
