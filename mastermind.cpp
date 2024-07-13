@@ -2,7 +2,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int black = 0, white = 0;
+    int white = 0, black = 0;
     vector<int> codeFreq(6, 0);
     vector<int> guessFreq(6, 0);
     
@@ -19,7 +19,8 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << endl;
+    cout << black << endl;
     
     return 0;
 }
