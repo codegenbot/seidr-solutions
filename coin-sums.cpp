@@ -6,13 +6,12 @@ int main() {
     cin >> cents;
 
     int quarters = cents / 25;
-    while (quarters > 0 && cents < 25) quarters--;
     cents %= 25;
 
-    cout << quarters << endl; 
-    cout << (cents / 10) << endl;   
-    cout << ((cents % 100) / 5) << endl;      
-    cout << (((cents % 100) % 5)) << endl;     
+    cout << (quarters > 0 ? quarters : 0) << endl;   
+    cout << (cents / 10 > 0 ? cents / 10 : 0) << endl;  
+    cout << (cents % 10 >= 5 ? 1 + (cents % 10 - 5) / 5 : 0) << endl;      
+    cout << (cents % 10 < 5 ? cents % 10 : 0) << endl;     
 
     return 0;
 }
