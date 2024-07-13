@@ -3,15 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> findLeaders() {
-    vector<int> nums;
-    
-    for (int i = 0; i < 10; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
-    
+vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int max_right = nums[nums.size() - 1];
     
@@ -28,7 +20,13 @@ vector<int> findLeaders() {
 }
 
 int main() {
-    vector<int> result = findLeaders();
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
+    }
+
+    vector<int> result = findLeaders(nums);
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
