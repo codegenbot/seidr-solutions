@@ -8,3 +8,4 @@ int pairedDigitsSum(string s) {
         }
     }
     return sum;
+}
