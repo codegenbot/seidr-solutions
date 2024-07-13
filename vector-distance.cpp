@@ -18,9 +18,9 @@ int main() {
         cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    long double sum = 0.0L; // Change the data type to long double
     for (int i = 0; i < n; ++i) {
-        sum += (vec2[i] - vec1[i]) * (vec2[i] - vec1[i]);
+        sum += static_cast<long double>((vec2[i] - vec1[i])) * (vec2[i] - vec1[i]);
     }
 
     double distance = sqrt(sum);
