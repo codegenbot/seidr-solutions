@@ -1,38 +1,31 @@
-int calculateScore(string input) {
+int score_bowling(const string& bowls) {
     int score = 0;
-    int frame = 1;
+    int frame = 0;
     int throwIndex = 0;
 
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
+    for (int i = 0; i < 10; i++) {
+        if (bowls[throwIndex] == 'X') {
             score += 10;
-            if (frame < 10) {
-                score += (input[i + 1] == 'X' ? 10 : (input[i + 1] == '/' ? 10 - (input[i + 2] - '0') : input[i + 1] - '0') + (input[i + 2] == '/' ? 10 - (input[i + 3] - '0') : input[i + 2] == 'X' ? 10 : input[i + 2] - '0'));
-            }
-            frame++;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
-            score += (input[i + 1] == 'X' ? 10 : input[i + 1] - '0');
-            if (frame < 10) {
-                throwIndex++;
-                score += (input[i + 1] == 'X' ? 10 : (input[i + 1] == '/' ? 10 - (input[i + 2] - '0') : input[i + 1] - '0'));
-            }
-            frame++;
-        } else if (input[i] != '-') {
-            score += input[i] - '0';
-            if (frame < 10) {
-                throwIndex++;
-            }
+            score += (bowls[throwIndex + 1] == 'X') ? 10 : 
+                     ((bowls[throwIndex + 1] == '/') ? 10 - bowls[throwIndex + 2] + 48 : bowls[throwIndex + 1] - 48 + bowls[throwIndex + 2] - 48);
+            throwIndex++;
+        } else if (bowls[throwIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[throwIndex + 2] == 'X') ? 10 : bowls[throwIndex + 2] - 48;
+            throwIndex += 2;
+        } else {
+            score += bowls[throwIndex] - 48 + bowls[throwIndex + 1] - 48;
+            throwIndex += 2;
         }
+        frame++;
     }
 
     return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << calculateScore(input) << endl;
-
+    string bowls;
+    cin >> bowls;
+    cout << score_bowling(bowls) << endl;
     return 0;
 }
