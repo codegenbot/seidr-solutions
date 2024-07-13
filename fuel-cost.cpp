@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 int main() {
     std::vector<int> nums;
@@ -7,7 +8,6 @@ int main() {
 
     while (std::cin >> num) {
         nums.push_back(num);
-        if (std::cin.peek() == '\n') break;
     }
 
     int sum = 0;
@@ -16,6 +16,6 @@ int main() {
     }
 
     std::cout << sum;
-    
+
     return 0;
 }
