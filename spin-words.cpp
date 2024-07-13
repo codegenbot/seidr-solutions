@@ -17,8 +17,8 @@ std::string spinWords(const std::string& input) {
     }
 
     std::stringstream result;
-    for (const auto& word : words) {
-        result << word << " ";
+    for (const auto& w : words) {
+        result << w << " ";
     }
     return result.str();
 }
