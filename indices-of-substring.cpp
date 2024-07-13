@@ -1,3 +1,5 @@
+Here is the completed code:
+
 #include <vector>
 using namespace std;
 
@@ -15,10 +17,9 @@ int main() {
     string text;
     int n;
     cin >> text >> n;
-    vector<int> indices = indicesOfSubstring(text, text.substr(0, n));
-    for (int i : indices) {
-        cout << i << " ";
+    vector<int> res = indicesOfSubstring(text, to_string(n));
+    for (int i : res) {
+        cout << i << endl;
     }
-    cout << endl;
     return 0;
 }
