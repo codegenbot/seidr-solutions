@@ -1,4 +1,3 @@
-```
 def bowling_score(game):
     score = 0
     game = game.rstrip()
@@ -12,8 +11,16 @@ def bowling_score(game):
             else:
                 score += 10
         else:
-            first_roll = int(game[i])
-            second_roll = int(game[i+1]) if i < len(game)-1 and game[i+1].isdigit() else 0
+            if game[i].isdigit():
+                first_roll = int(game[i])
+            else:
+                first_roll = 10
+
+            if i < len(game)-1 and game[i+1].isdigit():
+                second_roll = int(game[i+1])
+            else:
+                second_roll = 0
+
             if first_roll == 10:
                 score += 10 + second_roll
             else:
