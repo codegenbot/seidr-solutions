@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -21,5 +22,11 @@ int luhn(vector<int> digits) {
     }
     
     return sum;
+}
 
-int main() { return 0; }
+int main() { 
+    vector<int> digits = {4,3,2,1,8,7,6,5};
+    int result = luhn(digits);
+    cout << "The credit card number is valid with a Luhn check if the sum is 0. The sum of the new digits is: " << result;
+    return 0;
+}
