@@ -17,19 +17,14 @@ def shortestPaths(grid: List[List[int]], k: int) -> list:
     while queue:
         x, y, dist = queue.popleft()
 
-        if (x, y) not in visited:
+        if (x, y) not in visited: 
             visited.add((x, y))
-
             for dx, dy in directions:
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]):
                     if grid[nx][ny] == k:
-                        result.append(((nx, ny), dist))
-                        queue.append((nx, ny, dist + 1))
+                        result.append((nx, ny, dist))
                     else:
                         queue.append((nx, ny, dist + 1))
 
-    min_dist = min([item[2] for item in result])
-    shortest_paths = [path for path in result if path[2] == min_dist]
-    
-    return [(path[0], path[2]) for path in sorted(shortest_paths)]
+    return result
