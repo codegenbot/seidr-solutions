@@ -1,5 +1,3 @@
-from typing import List
-
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -14,4 +12,4 @@ def factorize(n: int) -> List[int]:
             factors.append(i ** count)
     if n > 1:  
         factors.append(n)
-    return factors
+    return sorted(factors, reverse=True)
