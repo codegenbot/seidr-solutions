@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using std::vector;
 using std::cout;
@@ -17,7 +16,7 @@ vector<int> leaders(vector<int>& arr) {
         if(arr[i] >= arr[i+1]) res.push_back(arr[i]);
     }
     
-    std::sort(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     
     return res;
 }
