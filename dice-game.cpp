@@ -1,5 +1,7 @@
-```cpp
+```
 #include <iostream>
+
+double diceGame(int n, int m); 
 
 int main() {
     int n, m;
@@ -9,7 +11,8 @@ int main() {
     std::cin >> m;
 
     double result = diceGame(n, m);
-    std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
+    std::cout << "Probability that Peter rolls strictly higher than Colin is: " << result << std::endl; 
+
     return 0;
 }
 
