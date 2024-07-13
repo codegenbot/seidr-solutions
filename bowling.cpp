@@ -1,53 +1,47 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    vector<int> rolls;
+    int currentRolls = 0;
+    int currentFrame = 1;
 
     for (char c : s) {
-        if (c == '/') {
-            if (roll < 2) {
-                roll++;
-                continue;
+        if (c != '/') {
+            if (c == 'X') {
+                score += 10 + 10;
+                currentRolls = 2;
+            } else if (c >= '1' && c <= '9') {
+                int rolls = c - '0';
+                score += rolls * 10;
+                currentRolls = rolls;
+            } else {
+                score += 10;
+                currentRolls = 2;
             }
-            int frameScore = getFrameScore(rolls);
-            score += frameScore;
-            roll = 0;
-        } else if (c == 'X') {
-            score += 10 + getBonus(rolls, 1);
-            roll = 0;
-        } else if (isdigit(c)) {
-            int pin = c - '0';
-            rolls.push_back(pin);
-            roll++;
+        } else {
+            if (currentFrame < 10) {
+                currentFrame++;
+            }
         }
-    }
 
-    int frameScore = getFrameScore(rolls);
-    score += frameScore;
+        if (currentRolls == 0) continue;
+
+        if (currentRolls == 1) {
+            if (c == 'X') score += 10 + nextRoll(s, currentFrame);
+            else if (c >= '1' && c <= '9') score += c - '0' + nextRoll(s, currentFrame);
+            else score += 10;
+        } else {
+            score += c - '0';
+        }
+
+        currentRolls--;
+    }
 
     return score;
 }
 
-int getFrameScore(vector<int> rolls) {
-    int score = 0;
-    for (int i = 0; i < rolls.size(); i++) {
-        if (i % 2 == 1 && rolls[i] != 10) {
-            score += 5 + rolls[i];
-        } else {
-            score += rolls[i];
-        }
+int nextRoll(string s, int frame) {
+    for (char c : s) {
+        if (c == '/') break;
+        if (frame > c - '1') return c - '0';
     }
-    return score;
-}
-
-int getBonus(vector<int> rolls, int bonusIndex) {
-    int bonus = 0;
-    for (int i = 0; i < rolls.size() - bonusIndex; i++) {
-        if (i % 2 == 1 && rolls[i] != 10) {
-            bonus += 5 + rolls[i];
-        } else {
-            bonus += rolls[i];
-        }
-    }
-    return bonus;
+    return 10;
 }
