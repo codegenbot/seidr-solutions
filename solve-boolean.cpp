@@ -1,36 +1,25 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-bool solveBoolean(const std::string& expression) {
-    bool result = true;
-    int i = 0;
+bool solveBoolean(string s) {
+    stack<char> st;
     
-    while (i < expression.size()) {
-        if (expression[i] == 'T') {
-            return true;   
-        } else if (expression[i] == 'F') {
-            return false;
-        } else if (expression[i] == '|') {
-            i++; // Skip the '|' character
-        } else if (expression[i] == '&') {
-            i++; // Skip the '&' character
+    for (char c : s) {
+        if (c == '&') {
+            bool t1 = st.top() == 'T';
+            st.pop();
+            bool t2 = st.top() == 'T';
+            st.pop();
+            st.push((t1 && t2) ? 'T' : 'F');
+        } else if (c == '|') {
+            bool t1 = st.top() == 'T';
+            st.pop();
+            bool t2 = st.top() == 'T';
+            st.pop();
+            st.push((t1 || t2) ? 'T' : 'F');
+        } else {
+            st.push(c);
         }
     }
     
-    return result; 
-}
-
-int main() {
-    std::string expression;
-    std::cout << "Enter a boolean expression (T, F, |, &): ";
-    std::cin >> expression;
-    bool result = solveBoolean(expression);
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
-    
-    return 0;
+    return st.top() == 'T';
 }
