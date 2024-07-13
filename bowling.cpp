@@ -1,43 +1,30 @@
-int calculateBowlingScore(string s) {
+int score(string input) {
+    int frame = 0;
     int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> points;
-
-    for (char c : s) {
-        if (c == 'X') {
-            points.push_back(10);
-            if (frame < 10) {
-                points.push_back(0);
-                frame++;
-            }
-        } else if (c == '/') {
-            points.push_back(10 - points.back());
+    for (int i = 0; i < input.size(); ++i) {
+        if (frame == 10) break;
+        if (input[i] == 'X') {
+            score += 10;
+            if (input[i+2] == 'X') score += 10;
+            else if (input[i+2] == '/') score += 10 - (input[i+1] - '0');
+            else score += input[i+1] - '0' + input[i+2] - '0';
             frame++;
-        } else if (c == '-') {
-            points.push_back(0);
+        } else if (input[i] == '/') {
+            score += 10 - (input[i-1] - '0');
+        } else if (input[i] == '-') {
+            // do nothing
         } else {
-            points.push_back(c - '0');
+            score += input[i] - '0';
+            if (input[i+1] == '/') score += 10 - (input[i] - '0');
+            frame++;
         }
     }
-
-    for (int i = 0; i < points.size(); i++) {
-        if (points[i] == 10) {
-            score += points[i] + points[i + 1] + points[i + 2];
-        } else if (points[i] + points[i + 1] == 10) {
-            score += points[i] + points[i + 1] + points[i + 2];
-            i++;
-        } else {
-            score += points[i] + points[i + 1];
-            i++;
-        }
-    }
-
     return score;
 }
+
 int main() {
-    string s;
-    cin >> s;
-    cout << calculateBowlingScore(s) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
