@@ -1,5 +1,3 @@
-#include <string>
-
 std::string camelCase(std::string str) {
     std::string result = "";
     while (str.find(" ") != std::string::npos || str.find("-") != std::string::npos) {
@@ -12,7 +10,7 @@ std::string camelCase(std::string str) {
             str.erase(0, 1);
         } else {
             size_t endPos = pos > 0 ? pos : str.find("-");
-            result += tolower(str.substr(0, endPos).erase(0, 1));
+            result += tolower((char*)str.substr(0, endPos).c_str());
             str.erase(0, endPos);
         }
     }
@@ -23,7 +21,7 @@ std::string camelCase(std::string str) {
                 result += toupper(str[0]);
                 str.erase(0, 1);
             } else {
-                result += tolower(str[0]);
+                result += tolower((char*)str.c_str());
                 str.erase(0, 1);
             }
         } else {
