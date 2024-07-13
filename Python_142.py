@@ -7,4 +7,7 @@ def sum_squares(lst):
     return total_sum
 
 lst = list(map(int, input("Enter the list elements (space-separated): ").split()))
-print(sum_squares(lst))
+if len(lst) > 0:
+    print(sum_squares(lst))
+else:
+    print("Invalid input. Please enter a valid list of integers.")

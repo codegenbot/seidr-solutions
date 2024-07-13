@@ -1,3 +1,4 @@
+```
 from math import sqrt
 import sys
 
@@ -37,7 +38,4 @@ def main():
         except ValueError:
             print("Invalid input. Please enter an integer value.")
     print("Program ended.")
-
-
-if __name__ == "__main__":
-    main()
+    input("Press any key to exit...")
