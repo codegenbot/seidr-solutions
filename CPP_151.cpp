@@ -1,10 +1,8 @@
-Here's the completed code:
-
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && (int)num % 2 != 0) {
-            sum += (int)num * (int)num;
+        if (num > 0 && isfinite(num) && modf(num, &dummy) == 0.5) {
+            sum += pow(num, 2);
         }
     }
     return sum;
