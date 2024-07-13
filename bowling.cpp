@@ -1,33 +1,43 @@
-int score(string s) {
-    int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size() && frame < 10; ++i) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += ((i+1 < s.size()) ? ((s[i+2] == '/') ? 10 : (isdigit(s[i+1]) ? s[i+1]-'0' : 10)) : ((i+1 < s.size()) ? (isdigit(s[i+1]) ? s[i+1]-'0' : 0) : 0));
-            ++frame;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i-1]-'0');
-            total += (i+1 < s.size()) ? (isdigit(s[i+1]) ? s[i+1]-'0' : 10) : 0;
-            ++frame;
-        } else if (isdigit(s[i])) {
-            total += s[i]-'0';
-            if (i+1 < s.size() && isdigit(s[i+1])) {
-                total += s[i+1]-'0';
-                if (total == 10) {
-                    total += (i+2 < s.size()) ? (isdigit(s[i+2]) ? s[i+2]-'0' : 0) : 0;
-                }
-                ++i;
+int calculateScore(const string& bowls) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> rolls;
+
+    for (char ch : bowls) {
+        if (ch == 'X') {
+            rolls.push_back(10);
+            if (frame < 10) {
+                rolls.push_back(0);
             }
-            ++frame;
+        } else if (ch == '/') {
+            rolls.push_back(10 - rolls.back());
+        } else if (ch == '-') {
+            rolls.push_back(0);
+        } else {
+            rolls.push_back(ch - '0');
+        }
+
+        ++ball;
+
+        if (frame < 10 && ((ch == 'X') || (ball == 2))) {
+            score += rolls[rolls.size() - 3] + rolls[rolls.size() - 2] + rolls[rolls.size() - 1];
+            frame++;
+            ball = 0;
+        } else if (frame == 10 && rolls.size() == 21) {
+            score += rolls[rolls.size() - 3] + rolls[rolls.size() - 2] + rolls[rolls.size() - 1];
         }
     }
-    return total;
+
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowls;
+    cin >> bowls;
+
+    int score = calculateScore(bowls);
+    cout << score << endl;
+
     return 0;
 }
