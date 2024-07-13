@@ -1,48 +1,58 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int min_diff = INT_MAX;
-    int idx = -1;
+    int cut_index = 0;
     
-    for (int i = 0; i < n-1; ++i) {
-        int diff = abs(v[i] - v[i+1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            idx = i;
+    for(int i = 1; i <= vec.size(); i++) {
+        if(i == vec.size() || vec[i-1] != vec[i]) {
+            int left_sum = 0;
+            int right_sum = 0;
+            
+            for(int j = 0; j < i; j++) {
+                left_sum += vec[j];
+            }
+            
+            for(int j = i; j < vec.size(); j++) {
+                right_sum += vec[j];
+            }
+            
+            int diff = abs(left_sum - right_sum);
+            if(diff < min_diff) {
+                min_diff = diff;
+                cut_index = i;
+            }
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + idx);
-    vector<int> right(v.begin() + idx, v.end());
-    return {left, right};
+    vector<int> left_vec(vec.begin(), vec.begin() + cut_index);
+    vector<int> right_vec(vec.begin() + cut_index, vec.end());
+    
+    return make_pair(left_vec, right_vec);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
+    vector<int> vec(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < result.first.size(); ++i) {
-        cout << result.first[i];
-        if (i != result.first.size() - 1) {
-            cout << ", ";
-        }
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    
+    cout << "Left Vector: ";
+    for(auto x : result.first) {
+        cout << x << " ";
     }
-    cout << "] ["; 
-    for (int i = 0; i < result.second.size(); ++i) {
-        cout << result.second[i];
-        if (i != result.second.size() - 1) {
-            cout << ", ";
-        }
+    cout << endl;
+    
+    cout << "Right Vector: ";
+    for(auto x : result.second) {
+        cout << x << " ";
     }
-    cout << "]\n";
+    cout << endl;
     
     return 0;
 }
