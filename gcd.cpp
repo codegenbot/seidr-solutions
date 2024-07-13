@@ -24,3 +24,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
     return result;
 }
+
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> results = indicesOfSubstring(text, target);
+    for(int res : results) {
+        cout << res << endl;
+    }
+    return 0;
+}

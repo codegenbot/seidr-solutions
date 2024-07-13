@@ -18,7 +18,11 @@ int bowlingScore(std::string s) {
             }
             score += points;
         } else if (c == 'T') {
-            score += 10 + (s[s.find(c) + 1] - '0' + s[s.find(c) + 2] - '0');
+            int points = 10;
+            for (int i = 2; isdigit(s[i]); i++) {
+                points = points + (s[i] - '0');
+            }
+            score += points;
         }
     }
     return score;
