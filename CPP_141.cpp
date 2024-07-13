@@ -1,3 +1,4 @@
+```c++
 string file_name_check(string file_name){
     int digit_count = 0;
     bool has_dot = false;
