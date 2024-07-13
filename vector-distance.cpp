@@ -1,13 +1,12 @@
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 double vectorDistance(int n) {
     double sum = 0.0;
     float v1[n], v2[n];
 
     for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
+        std::cin >> v1[i] >> v2[i];
     }
 
     for (int i = 0; i < n; i++) {
@@ -19,9 +18,9 @@ double vectorDistance(int n) {
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+    std::cout << std::fixed << std::setprecision(10) << vectorDistance(n) << std::endl;
 
     return 0;
 }
