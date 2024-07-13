@@ -9,14 +9,12 @@ int main() {
 
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        char comma;
-        std::cin >> vec1[i] >> comma;  // Read numbers and discard comma
+        std::cin >> vec1[i];
     }
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        char comma;
-        std::cin >> vec2[i] >> comma;  // Read numbers and discard comma
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
