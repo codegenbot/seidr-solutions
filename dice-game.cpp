@@ -1,5 +1,7 @@
 ```cpp
 #include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
 
 int main() {
@@ -9,13 +11,13 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    double sum = 0.0; 
+    ostringstream oss;
     for(int i = 1; i < n; i++) {
-        sum += (n - i) / (double)(n*m); 
-   }
+        double prob = (n - i) / (double)(n*m); 
+        oss << to_string(prob) + " "; // convert double to string and concatenate
+    }
     
-    cout << "The probability that Peter rolls strictly higher than Colin is: ";
-    cout << sum << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << oss.str() << endl;
 
     return 0;
 }
