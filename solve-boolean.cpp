@@ -1,28 +1,21 @@
-bool solveBoolean(string boolExp) {
-    stack<char> operatorStack;
-    bool currentTerm = (boolExp[0] == 'T');
-    
-    for(int i=1; i<boolExp.size(); i++) {
-        if(boolExp[i] == '&') {
-            while (!operatorStack.empty() && operatorStack.top() == '&') {
-                operatorStack.pop();
-            }
-        } else if(boolExp[i] == '|') {
-            while (!operatorStack.empty()) {
-                operatorStack.pop();
-            }
-        } else if(boolExp[i] == 'T' || boolExp[i] == 'F') {
-            currentTerm = (boolExp[i] == 'T');
-            while (!operatorStack.empty() && operatorStack.top() != '|') {
-                operatorStack.pop();
-            }
-            if(!operatorStack.empty()) {
-                operatorStack.pop(); // pop |
-                bool operatorValue = (boolExp[i-1] == 'T'); // get value of previous term
-                currentTerm = (currentTerm) ^ operatorValue;
-            }
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '|') {
+            bool a = st.top() - '0';
+            st.pop();
+            bool b = st.top() - '0';
+            st.pop();
+            st.push((a || b) + '0');
+        } else if (s[i] == '&') {
+            bool a = st.top() - '0';
+            st.pop();
+            bool b = st.top() - '0';
+            st.pop();
+            st.push((a && b) + '0');
+        } else {
+            st.push(s[i]);
         }
     }
-    
-    return currentTerm;
+    return st.top() - '0';
 }
