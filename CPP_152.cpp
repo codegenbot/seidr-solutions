@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+
 using namespace std;
 
-bool issame(int a, int b) {
+bool isSame(int a, int b) {
     if(a == b)
         return true;
     else
@@ -22,7 +22,7 @@ int compare(int a, int b) {
 vector<int> getResult(vector<int> game, vector<int> guess) {
     vector<int> res;
     for(int i = 0; i < game.size();i++){
-        if(issame(game[i],guess[i]))
+        if(isSame(game[i],guess[i]))
             res.push_back(2);
         else if(compare(game[i],guess[i]) == 1)
             res.push_back(1);
@@ -32,7 +32,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
     return res;
 }
 
-void testGame() {
+int main() {
     int n;
     cin >> n;
     vector<int> game(n), guess(n);
@@ -47,4 +47,5 @@ void testGame() {
         cout << endl; 
     }
     
+    return 0;
 }
