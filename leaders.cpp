@@ -1,4 +1,7 @@
 #include <vector>
+#include <iostream>
+
+using namespace std;
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -17,10 +20,10 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {17, 28, 4};
-    std::vector<int> leadersArr = leaders(arr);
-    for (int leader : leadersArr) {
-        std::cout << leader << " ";
+    vector<int> arr = {16, 17, 4, 3, 5, 2, 7, 1};
+    vector<int> leadersRes = leaders(arr);
+    for(int i : leadersRes) {
+        cout << i << " ";
     }
     return 0;
 }
