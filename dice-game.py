@@ -1,5 +1,5 @@
 def dice_game(n, m):
     total_outcomes = n * m
-    higher_or_equal_outcomes = sum(min(k-1, min(m+1,n)-k) for k in range(1, min(m+1,n)+1))
-    probability = (higher_or_equal_outcomes - sum(min(m+1,n)-m for _ in range(m))) / total_outcomes
+    strictly_higher_outcomes = (n - 1) * m + (m - 1) * n - min(n, m)
+    probability = strictly_higher_outcomes / (total_outcomes - min(n, m))
     return probability
