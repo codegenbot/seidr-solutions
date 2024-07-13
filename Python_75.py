@@ -16,5 +16,5 @@ def is_multiply_prime(n=None):
                         return False
                     i = j
                     j = n // i
-                return False  
+                return True  
         return True
