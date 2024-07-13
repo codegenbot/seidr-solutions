@@ -1,6 +1,3 @@
-Here's the modified code:
-
-```cpp
 #include <string>
 #include <set>
 
