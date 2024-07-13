@@ -39,7 +39,8 @@ int main() {
     vector<int> nums;
     int num;
     cout << "Enter positive integers to form a vector (enter -1 to stop): ";
-    while (cin >> num && num != -1) {
+    while (cin >> num) {
+        if(num == -1) break;
         nums.push_back(num);
     }
 
