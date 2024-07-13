@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
@@ -14,29 +18,32 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-vector<int> minPath(vector<int> p1, vector<int> p2) {
-    for (int i = 0; i < p1.size(); ++i) {
-        if (p1[i] > p2[i]) {
-            swap(p1[i], p2[i]);
+vector<int> minPath(vector<int> a, vector<int> b) {
+    int n = min(a.size(), b.size());
+    for (int i = 0; i < n; ++i) {
+        if (a[i] > b[i]) {
+            return b;
+        } else if (a[i] < b[i]) {
+            return a;
         }
     }
-    return p1;
+    return a.size() <= b.size() ? a : b;
 }
 
-void dfs(vector<vector<int>> grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& path) {
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
     if (k == 0) {
         return;
     }
-    visited[x][y] = true;
-    path.push_back(grid[x][y]);
-    for (int i = -1; i <= 1; ++i) {
-        for (int j = -1; j <= 1; ++j) {
-            if (abs(i) + abs(j) == 1 && x + i >= 0 && y + j >= 0 && x + i < grid.size() && y + j < grid[0].size()) {
-                if (!visited[x + i][y + j]) {
-                    dfs(grid, visited, x + i, y + j, k - 1, path);
+    visited[i][j] = true;
+    path.push_back(grid[i][j]);
+    for (int x = -1; x <= 1; ++x) {
+        for (int y = -1; y <= 1; ++y) {
+            if (abs(x) + abs(y) == 1 && i + x >= 0 && j + y >= 0 && i + x < grid.size() && j + y < grid[0].size()) {
+                if (!visited[i + x][j + y]) {
+                    dfs(grid, visited, i + x, j + y, k - 1, path);
                 }
             }
         }
     }
-    visited[x][y] = false;
+    visited[i][j] = false;
 }
