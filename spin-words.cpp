@@ -3,19 +3,42 @@
 #include <algorithm>
 
 std::string spinWords(std::string str) {
-    std::string result = str;
+    std::string result = "";
+    std::string word;
     
+    bool prevSpace = false;
+
     for (int i = 0; i < str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
-            std::string word = str.substr(i - (str[i] != ' '));
-            
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+            if (!word.empty()) {
+                if (word.length() >= 5) {
+                    std::reverse(word.begin(), word.end());
+                }
+                
+                result += word;
+                if (!prevSpace) {
+                    result += " ";
+                }
+                word.clear();
+            } else {
+                if (!result.empty() && !prevSpace) {
+                    result += " ";
+                }
             }
-            
-            result.replace(i, word.length(), word);
-            i += word.length() - 1;
+            prevSpace = (i == str.length() || str[i] == ' ');
+        } else {
+            word.push_back(str[i]);
+            prevSpace = false;
         }
+    }
+
+    // handle the last word separately
+    if (!word.empty()) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        
+        result += word;
     }
     
     return result;
