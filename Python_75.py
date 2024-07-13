@@ -1,6 +1,3 @@
-Here is the solution:
-
-```
 def is_multiply_prime(n=None):
     if n is None:
         a = int(input("Enter a number: "))

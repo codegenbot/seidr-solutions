@@ -1,5 +1,4 @@
 from math import sqrt
-from builtins import input
 import sys
 
 
@@ -17,8 +16,13 @@ def largest_prime_factor(n):
 
 
 def main():
-    n = int(input("Enter a number: "))
-    print(largest_prime_factor(n))
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            print(largest_prime_factor(n))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer value.")
 
 
 if __name__ == "__main__":
