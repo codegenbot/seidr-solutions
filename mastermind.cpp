@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ int mastermind(string code, string guess) {
                 if(count > 1) break;
             }
         }
-        white += min(count, (int)(std::distance(std::equal_range(chars.begin(), chars.end(), code[i])->first, std::equal_range(chars.begin(), chars.end(), code[i])->second) - chars.begin()));
+        white += min(count, (int)std::find(chars.begin(), chars.end(), code[i]) - chars.begin());
     }
 
     return black + white;
