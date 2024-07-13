@@ -39,3 +39,10 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     
     return res;
 }
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    std::vector<std::vector<int>> result = cutVector(v);
+    // Print the result if you want
+    return 0;
+}
