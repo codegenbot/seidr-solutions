@@ -6,17 +6,17 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-    
-    map<int, int> seen;
+
+    map<int, int> m;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (seen.find(complement) != seen.end()) {
+        if (m.find(complement) != m.end()) {
             cout << complement << endl;
             cout << nums[i] << endl;
             break;
         }
-        seen[nums[i]] = i;
+        m[nums[i]] = i;
     }
-    
+
     return 0;
 }
