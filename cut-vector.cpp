@@ -1,14 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <limits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    int min_diff = INT_MAX;
+    long long min_diff = LLONG_MAX;
     for (int i = 1; i < n; i++) {
-        int diff = abs(v[i] - v[0]);
+        long long diff = abs((long long)v[i] - (long long)v[0]);
         if (diff < min_diff) {
             min_diff = diff;
             res[0] = vector<int>(v.begin(), v.begin() + i);
