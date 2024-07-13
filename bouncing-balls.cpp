@@ -1,11 +1,17 @@
 int main() {
-    double h0, h1, b;
-    cin >> h0 >> h1 >> b;
-    double bi = h1 / h0;
-    double total_distance = h0 + h1;
-    for (int i = 2; i <= b; ++i) {
-        total_distance += 2 * h1 / pow(bi, i);
+    double h0, hn;
+    int n;
+    cin >> h0 >> hn >> n;
+    
+    double bouncinessIndex = hn / h0;
+    double totalDistance = h0 + hn;
+    for (int i = 2; i <= n; ++i) {
+        totalDistance += 2 * hn;
+        hn *= bouncinessIndex;
+        totalDistance += hn;
     }
-    cout << total_distance << endl;
+    
+    cout << totalDistance << endl;
+    
     return 0;
 }

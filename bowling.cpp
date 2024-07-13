@@ -1,42 +1,21 @@
 int score(string s) {
-    int total = 0;
+    int sum = 0;
     int frame = 0;
-    for (int i = 0; i < s.size() && frame < 10; ++i) {
+    int i = 0;
+    while (frame < 10) {
         if (s[i] == 'X') {
-            total += 10;
-            if (i + 2 < s.size()) {
-                if (s[i + 2] == 'X') {
-                    total += 10;
-                    if (i + 4 < s.size()) {
-                        if (s[i + 4] == 'X') {
-                            total += 10;
-                        } else if (s[i + 4] != '/') {
-                            total += s[i + 4] - '0';
-                        }
-                    }
-                } else if (s[i + 3] == '/') {
-                    total += 10;
-                } else if (s[i + 4] == '/') {
-                    total += 10;
-                } else {
-                    total += s[i + 2] - '0' + s[i + 3] - '0';
-                }
-            }
-            frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            if (i + 1 < s.size()) {
-                total += s[i + 1] - '0';
-            }
-            frame++;
-        } else if (s[i] == '-') {
-            // do nothing
+            sum += 10 + (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0' + s[i + 2] - '0'));
+            i++;
+        } else if (s[i + 1] == '/') {
+            sum += 10 + (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
+            i += 2;
         } else {
-            total += s[i] - '0';
-            frame++;
+            sum += s[i] - '0' + s[i + 1] - '0';
+            i += 2;
         }
+        frame++;
     }
-    return total;
+    return sum;
 }
 
 int main() {
