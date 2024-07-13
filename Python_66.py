@@ -1,5 +1,4 @@
-def digit_sum(n):
-    s = str(n)
+def digitSum(s):
     sum = 0
     for c in s:
         sum += int(c)
