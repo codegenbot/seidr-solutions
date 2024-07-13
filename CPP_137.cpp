@@ -1,84 +1,69 @@
-Here is the solution:
+Here is the completed code:
 
-```cpp
-#include <boost/algorithm/string.hpp>
-using namespace boost;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    if (get_if<int>(&aConvert)) {
-        int aInt = aConvert;
-        if (get_if<float>(&bConvert)) {
-            float bFloat = bConvert;
-            if (aInt < bFloat)
-                return b;
-            else if (aInt > bFloat)
-                return a;
-            else
-                return "None";
-        } else if (get_if<std::string>(&bConvert)) {
-            std::string bStr = bConvert;
-            boost::replace_all(bStr, ",", ".");
-            float bFloat = atof(bStr.c_str());
-            if (aInt < bFloat)
-                return b;
-            else if (aInt > bFloat)
-                return a;
-            else
-                return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b);
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return boost::any_cast<double>(b);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        return boost::any_cast<string>(b);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        return boost::any_cast<string>(b);
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return a < b ? a : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<string>(b)) {
+            return a;
         }
-    } else if (get_if<float>(&aConvert)) {
-        float aFloat = aConvert;
-        if (get_if<int>(&bConvert)) {
-            int bInt = bConvert;
-            if (aFloat < bInt)
-                return b;
-            else if (aFloat > bInt)
-                return a;
-            else
-                return "None";
-        } else if (get_if<std::string>(&bConvert)) {
-            std::string bStr = bConvert;
-            boost::replace_all(bStr, ",", ".");
-            float bFloat = atof(bStr.c_str());
-            if (aFloat < bFloat)
-                return b;
-            else if (aFloat > bFloat)
-                return a;
-            else
-                return "None";
+        else if (boost::any_cast<float>(a) < boost::any_cast<string>(b)) {
+            return b;
         }
-    } else if (get_if<std::string>(&aConvert)) {
-        std::string aStr = aConvert;
-        boost::replace_all(aStr, ",", ".");
-        float aFloat = atof(aStr.c_str());
-        if (get_if<int>(&bConvert)) {
-            int bInt = bConvert;
-            if (aFloat < bInt)
-                return b;
-            else if (aFloat > bInt)
-                return a;
-            else
-                return "None";
-        } else if (get_if<float>(&bConvert)) {
-            float bFloat = bConvert;
-            if (aFloat < bFloat)
-                return b;
-            else if (aFloat > bFloat)
-                return a;
-            else
-                return "None";
-        } else if (get_if<std::string>(&bConvert)) {
-            std::string bStr = bConvert;
-            boost::replace_all(bStr, ",", ".");
-            float bFloat = atof(bStr.c_str());
-            if (aFloat < bFloat)
-                return b;
-            else if (aFloat > bFloat)
-                return a;
-            else
-                return "None";
+        else {
+            return "None";
+        }
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        if (boost::any_cast<double>(a) > boost::any_cast<string>(b)) {
+            return a;
+        }
+        else if (boost::any_cast<double>(a) < boost::any_cast<string>(b)) {
+            return b;
+        }
+        else {
+            return "None";
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return a > b ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        if (boost::any_cast<string>(a) > boost::any_cast<float>(b)) {
+            return a;
+        }
+        else if (boost::any_cast<string>(a) < boost::any_cast<float>(b)) {
+            return b;
+        }
+        else {
+            return "None";
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        if (boost::any_cast<string>(a) > boost::any_cast<double>(b)) {
+            return a;
+        }
+        else if (boost::any_cast<string>(a) < boost::any_cast<double>(b)) {
+            return b;
+        }
+        else {
+            return "None";
         }
     }
 
-    return a;
+    return "None";
 }
