@@ -1,2 +1,29 @@
 ```cpp
-cin >> startHeight >> ' ' >> firstBounce >> ' ' >> numBounces;
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+
+int main() {
+    string startHeightStr, firstBounceStr;
+    int numBounces;
+
+    cin >> ws; getline(cin, startHeightStr);
+    cin >> ws; getline(cin, firstBounceStr);
+    cin >> numBounces;
+
+    double startHeight = stod(startHeightStr), firstBounce = stod(firstBounceStr);
+
+    double bouncinessIndex = firstBounce / startHeight;
+
+    double totalDistance = 0.0;
+    for (int i = 1; i <= numBounces; ++i) {
+        totalDistance += pow(2, -bouncinessIndex) * startHeight;
+        startHeight *= bouncinessIndex;
+    }
+
+    cout << fixed;
+    cout << totalDistance << "\n";
+
+    return 0;
+}
