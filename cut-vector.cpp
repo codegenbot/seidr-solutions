@@ -1,6 +1,7 @@
 int main() {
     vector<int> nums;
     int num;
+    
     while (cin >> num) {
         nums.push_back(num);
     }
@@ -11,23 +12,28 @@ int main() {
         sum += nums[i];
     }
     
+    int half_sum = sum / 2;
     int prefix_sum = 0;
-    int min_diff = INT_MAX;
     int cut_index = -1;
+    
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        int suffix_sum = sum - prefix_sum;
-        int diff = abs(prefix_sum - suffix_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
+        if (prefix_sum >= half_sum) {
             cut_index = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cut_index; i++) {
-        cout << nums[i] << endl;
+    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
+    vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
     }
-    cout << 0 << endl;
+    
+    for (int num : subvector2) {
+        cout << num << endl;
+    }
     
     return 0;
 }
