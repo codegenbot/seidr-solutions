@@ -1,11 +1,10 @@
 #include <vector>
-#include <climits> 
-#include <cmath> 
-
+#include <limits> 
+#include <cmath>  
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int idx = -1;
     for (int i = 0; i < v.size() - 1; i++) {
         int diff = abs(v[i] - v[i + 1]);
