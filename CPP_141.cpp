@@ -1,14 +1,7 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
-string file_name_check(string file_name);
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
-}
-
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name){
     int count = 0;
     bool foundDot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -25,4 +18,9 @@ string file_name_check(string file_name){
     }
     if(count > 3 || !foundDot) return "No";
     return "Yes";
+}
+
+int main(){
+    std::cout << file_name_check("s.") << std::endl;
+    return 0;
 }
