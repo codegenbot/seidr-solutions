@@ -1,42 +1,50 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<vector<int>> visited(n, vector<int>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
     vector<int> res;
+
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                vector<int> path;
-                dfs(grid, visited, i, j, k, path);
-                res = minPath(res, path);
+                pq.push({grid[i][j], {i, j}});
+                visited[i][j] = 1;
             }
         }
     }
-    return res;
-}
 
-vector<int> minPath(vector<int> p1, vector<int> p2) {
-    for (int i = 0; i < p1.size(); ++i) {
-        if (p1[i] > p2[i]) {
-            swap(p1[i], p2[i]);
-        }
-    }
-    return p1;
-}
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        res.push_back(val);
+        pq.pop();
 
-void dfs(vector<vector<int>> grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& path) {
-    if (k == 0) {
-        return;
-    }
-    visited[x][y] = true;
-    path.push_back(grid[x][y]);
-    for (int i = -1; i <= 1; ++i) {
-        for (int j = -1; j <= 1; ++j) {
-            if (abs(i) + abs(j) == 1 && x + i >= 0 && y + j >= 0 && x + i < grid.size() && y + j < grid[0].size()) {
-                if (!visited[x + i][y + j]) {
-                    dfs(grid, visited, x + i, y + j, k - 1, path);
+        if (k > 0) {
+            --k;
+
+            // Check all neighbors
+            for (int i = -1; i <= 1; ++i) {
+                for (int j = -1; j <= 1; ++j) {
+                    int ni = pos.first + i;
+                    int nj = pos.second + j;
+
+                    if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
+                        pq.push({grid[ni][nj], {ni, nj}});
+                        visited[ni][nj] = 1;
+                    }
                 }
             }
+        } else {
+            break;
         }
     }
-    visited[x][y] = false;
+
+    return res;
 }
