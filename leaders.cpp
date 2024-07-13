@@ -1,4 +1,3 @@
-```
 #include <vector>
 using namespace std;
 
@@ -22,4 +21,3 @@ int main() {
         cout << leader << " ";
     }
     return 0;
-}
