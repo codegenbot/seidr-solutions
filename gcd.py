@@ -8,4 +8,5 @@ def find_gcd():
     b = int(input("Enter second integer: "))
     print(f"GCD of {a} and {b} is {gcd(a, b)}")
 
-find_gcd()
+if __name__ == "__main__":
+    find_gcd()
