@@ -1,17 +1,19 @@
-Here's the solution:
-
-def solve.Boolean(s):
-    if s == 'T':
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif s == 'F':
+    elif expression == "F":
         return False
-    elif '&' in s and '|' in s:
-        raise ValueError("Invalid input")
-    elif '&' in s:
-        a, b = s.split('&')
-        return not (bool(a) and bool(b))
-    elif '|' in s:
-        a, b = s.split('|')
-        return bool(a) or bool(b)
-    else:
-        raise ValueError("Invalid input")
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid Expression")
+    elif "&" in expression:
+        terms = expression.split("&")
+        for term in terms:
+            if term != "F":
+                return False
+        return True
+    elif "|" in expression:
+        terms = expression.split("|")
+        for term in terms:
+            if term != "F":
+                return True
+        return False
