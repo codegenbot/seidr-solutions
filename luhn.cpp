@@ -1,20 +1,13 @@
-int luhn(std::vector<int>& card) {
+int Luhn(int num[]) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = card.size() - 1; i >= 0; --i) {
-        if (doubleNext) {
-            int digit = card[i] * 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
-            sum += digit;
-        } else {
-            sum += card[i];
-        }
-
-        doubleNext = !doubleNext;
+    for (int i = 0; i < 16; i++) {
+        if ((i % 2) == 1) {
+            int temp = (num[i] * 2);
+            if (temp > 9) 
+                temp -= 9;
+            sum += temp;
+        } else 
+            sum += num[i];
     }
-
     return sum;
 }
