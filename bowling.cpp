@@ -12,8 +12,9 @@ int bowlingScore(string s) {
                 if (firstPart[j] != 'X') {
                     firstScore += (firstPart[j] - '0');
                 }
-                else if (j == 0) {
+                else if (i == 0) {
                     firstScore = 10;
+                    break;
                 }
                 j++;
             }
@@ -23,18 +24,21 @@ int bowlingScore(string s) {
                 if (secondPart[j] != 'X') {
                     secondScore += (secondPart[j] - '0');
                 }
-                else if (j == 0) {
-                    secondScore = 10;
+                else if (i == 9) {
+                    score += firstScore + secondScore + 10;
+                    break;
                 }
                 j++;
             }
-            score += firstScore + secondScore;
-        } 
-        else {
+            if (firstScore + secondScore < 10) {
+                score += firstScore + secondScore;
+            } else {
+                score += firstScore + secondScore + 10;
+            }
+        } else {
             if (s[i] == 'X') {
                 score += 10;
-            } 
-            else {
+            } else {
                 score += (s[i] - '0') * 2;
             }
         }
