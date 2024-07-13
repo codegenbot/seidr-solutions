@@ -10,11 +10,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> prices[i];
     }
-    vector<float> discounts;
+
+    vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
-        float discount;
-        cin >> discount;
-        discounts.push_back(discount);
+        cin >> discounts[i];
     }
 
     float total_price = 0.0;
