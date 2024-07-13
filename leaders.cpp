@@ -1,24 +1,24 @@
-```c++
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    leaders(arr); 
-    return 0;
-}
-
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int last = arr.back();
-    
-    for (int i = arr.size() - 2; i >= 0; --i) {
-        if (arr[i] >= last) {
-            result.push_back(arr[i]);
-            last = arr[i];
+    int rightmost = arr.back();
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
     }
-    
-    result.push_back(last);
     return result;
+
+}
+
+int main() {
+    vector<int> arr = {17, 28, 4, 2, 3};
+    vector<int> result = leaders(arr);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
