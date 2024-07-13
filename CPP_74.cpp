@@ -9,11 +9,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sum2 += s.length();
     }
     
-    if (sum1 < sum2) {
-        return lst1;
-    } else if (sum1 > sum2) {
-        return lst2;
-    } else {
-        return lst1;
-    }
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
+    else return lst1;
 }
