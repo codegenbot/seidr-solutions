@@ -7,7 +7,7 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
     for (size_t i = 0; i < vec1.size(); ++i) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    return std::sqrt(sum);
+    return sum; // Remove std::sqrt() to avoid premature square root calculation
 }
 
 int main() {
@@ -15,19 +15,16 @@ int main() {
     std::cin >> n;
 
     std::vector<double> vec1(n);
-    double input;
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> input;
-        vec1[i] = input;
+        std::cin >> vec1[i];
     }
 
     std::vector<double> vec2(n);
     for (size_t i = 0; i < n; ++i) {
-        std::cin >> input;
-        vec2[i] = input;
+        std::cin >> vec2[i];
     }
 
-    std::cout << calculateDistance(vec1, vec2) << std::endl;
+    std::cout << std::sqrt(calculateDistance(vec1, vec2)) << std::endl; // Calculate square root here
 
-    return 0;
+    return 0; 
 }
