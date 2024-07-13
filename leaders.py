@@ -1,9 +1,6 @@
 def leaders(arr):
-    leader = [arr[i] for i in range(len(arr) - 1, -1, -1)]
-    result = []
-    max_right = leader[0]
-    for num in leader:
-        if num >= max_right:
-            result.append(num)
-            max_right = num
-    return result[::-1]
+    result = [arr[-1]]
+    for i in range(len(arr) - 1, -1, -1):
+        if arr[i] >= result[0]:
+            result.insert(0, arr[i])
+    return result
