@@ -27,15 +27,15 @@ int main() {
 
     cout << "Coins: " << quarters << " quarters" << endl;
     if(quarters > 1) cout << "s ";
-    cout << quarters << " remaining;\n";
+    if(quarters > 0) cout << quarters << "\n";
     
     cout << "Dimes: " << dimes << endl;
     if(dimes > 1) cout << "s ";
-    cout << dimes << " remaining;\n";
+    if(dimes > 0) cout << dimes << "\n";
     
     cout << "Nickels: " << nickels << endl;
     if(nickels > 1) cout << "s ";
-    cout << nickles << " remaining;\n";
+    if(nickels > 0) cout << nickels << "\n";
     
     cout << "Pennies: " << pennies << endl;
     
