@@ -1,35 +1,54 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
+#include <set>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<char> v;
-    for (char x : s) {
-        bool flag = false;
-        for (char y : c) {
-            if (x == y) {
-                flag = true;
-                break;
-            }
+using namespace std;
+
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    
+    set<char> c_set(c.begin(), c.end());
+    
+    string temp = "";
+    
+    for (char ch : s) {
+        if (c_set.find(ch) == c_set.end()) {
+            temp += ch;
         }
-        if (!flag)
-            v.push_back(x);
-    }
-    std::string result = "";
-    for (char x : v) {
-        result += x;
     }
     
-    std::string temp = result;
-    std::reverse(temp.begin(), temp.end());
-    if (result == temp) {
-        return {std::to_string(result), "True"};
-    } else {
-        return {std::to_string(result), "False"};
+    bool is_palindrome = true;
+    int left = 0, right = temp.length() - 1;
+    
+    while (left < right) {
+        if (temp[left] != temp[right]) {
+            is_palindrome = false;
+            break;
+        }
+        left++;
+        right--;
     }
+    
+    result.push_back(temp);
+    result.push_back((is_palindrome ? "True" : "False"));
+    
+    return result;
 }
 
 int main() {
-    // Your code here
+    string s, c;
+    cout << "Enter the first string: ";
+    cin >> s;
+    cout << "Enter the second string: ";
+    cin >> c;
+    
+    vector<string> res = reverse_delete(s, c);
+    
+    for (string str : res) {
+        cout << str << endl;
+    }
+    
     return 0;
 }

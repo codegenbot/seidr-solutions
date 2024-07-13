@@ -1,8 +1,9 @@
 #include <vector>
+using namespace std;
 
-int count_nums(std::vector<int> n) {
+int count_nums(vector<int> v) {
     int count = 0;
-    for (int num : n) {
+    for (int num : v) {
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
@@ -10,24 +11,27 @@ int count_nums(std::vector<int> n) {
                 num /= 10;
             }
             if (sum > 0)
-                count++;
+                ++count;
         } else {
-            int sum = 0, sign = 1;
-            while (abs(num) > 0) {
-                if (abs(num) % 10 != 0)
-                    sum += sign * (abs(num) % 10);
+            num = -num; 
+            int sum = 0;
+            bool is_negative = true;
+            while (num > 0) {
+                if (!is_negative) {
+                    sum += num % 10;
+                }
                 num /= 10;
-                sign = -sign;
+                is_negative = !is_negative;
             }
             if (sum > 0)
-                count++;
+                ++count;
         }
     }
     return count;
+
 }
 
 int main() {
-    std::vector<int> n = {1};
-    assert(count_nums(n) == 1);
+    assert(count_nums({1}) == 1);
     return 0;
 }
