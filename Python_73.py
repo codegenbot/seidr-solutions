@@ -1,4 +1,3 @@
-```
 def max_diff():
     while True:
         try:
