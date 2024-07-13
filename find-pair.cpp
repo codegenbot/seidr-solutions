@@ -3,27 +3,26 @@
 #include <unordered_map>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
-    std::unordered_map<int, std::vector<int>> numMap;
+    std::unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            for (auto j : numMap[complement]) { 
-                return std::make_pair(nums[i], nums[j]);
-            }
+            return std::make_pair(nums[i], complement);
         }
-        numMap[nums[i]].push_back(i);
+        numMap[nums[i]] = i;
     };
     return std::pair<int, int>(-1, -1);
 }
 
 int main() {
-    std::vector<int> nums = {-1, 0, 3, 5, 9, 12};
-    int target = 10; 
-    std::pair<int, int> result = findPair(nums, target);
-    if (result.first != -1 && result.second != -1) {
-        std::cout << "The pair that sums up to " << target << " is (" << result.first << ", " << result.second << ")" << std::endl;
+    std::vector<int> nums;
+    nums.push_back(1); nums.push_back(2); nums.push_back(3); nums.push_back(4); nums.push_back(5);
+    int target = 7;
+    auto pair = findPair(nums, target);
+    if (pair.first != -1 && pair.second != -1) {
+        std::cout << "Found pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
     } else {
-        std::cout << "No such pair exists." << std::endl;
+        std::cout << "No pair found." << std::endl;
     }
     return 0;
 }
