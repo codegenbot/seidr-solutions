@@ -1,40 +1,28 @@
-std::string camelCase(std::string s) {
-    std::string result;
-    bool capitalizeNext = true;
+#include <iostream>
+#include <string>
+#include <sstream>
 
-    for (char c : s) {
-        if (c == '-') {
-            if (!result.empty()) {
-                if (capitalizeNext) {
-                    result.push_back(toupper(result[0]));
-                    capitalizeNext = false;
-                }
+std::string kebabToCamel(const std::string& s) {
+    std::stringstream ss;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == '-' || s[i] == ' ') {
+            while (i < s.size() && (s[i] == '-' || s[i] == ' ')) {
+                ++i;
             }
-            capitalizeNext = true;
+            if (i < s.size()) {
+                ss << toupper(s[i]);
+            }
         } else {
-            if (capitalizeNext) {
-                result += toupper(c);
-                capitalizeNext = false;
-            } else {
-                result += tolower(c);
-            }
+            ss << tolower(s[i]);
         }
     }
-
-    // Capitalize the first character of the last group
-    if (!result.empty()) {
-        if (capitalizeNext) {
-            result[0] = toupper(result[0]);
-        }
-    }
-
-    return result;
+    return ss.str();
 }
 
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
     return 0;
 }
