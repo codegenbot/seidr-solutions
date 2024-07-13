@@ -6,60 +6,11 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    // Preprocess the target to build lps[] that will hold the lengths of longest proper prefixes which are also suffixes.
-    int *lps = new int[m];
-    int j = 0; // index for target[]
-
-    lps[0] = 0;
-    int i, len = 0;
-
-    for (i = 1; i < m; ) {
-        if (target[i] == target[j]) {
-            j++;
-            lps[i] = j;
-            i++;
-        }
-        else if (j != 0) {
-            j = lps[j-1];
-        }
-        else {
-            lps[i] = 0;
-            i++;
-        }
+    int pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos += 1; // or pos++ for more concise
     }
-
-    // Traverse the text and find all occurrences of target[].
-    for (int i = 0; i < n; ) {
-        if (text[i] == target[0]) {
-            j = 0;
-            k: len = 0;
-            while (i + len < n && j < m) {
-                if (text[i + len] == target[j]) {
-                    j++;
-                    len++;
-                }
-                else if (j != 0) {
-                    j = lps[j-1];
-                }
-                else {
-                    i += len;
-                    break;
-                }
-            }
-
-            if (j == m)
-                result.push_back(i);
-
-            i = i + 1; // move to the next character
-        }
-        else
-            i++;
-    }
-
-    delete[] lps;
 
     return result;
 }
