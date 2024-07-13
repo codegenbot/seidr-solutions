@@ -1,14 +1,20 @@
+def luhn(digits):
+    total = 0
+    for i in range(16):
+        if i % 2 == 1:
+            temp = digits[i] * 2
+            if temp > 9:
+                total += temp - 9
+            else:
+                total += temp
+        else:
+            total += digits[i]
+    return total
+
+
+# Read input
 n = int(input())
 digits = list(map(int, input().split()))
 
-total = 0
-for i in range(n):
-    if i % 2 == 1:
-        double_digit = digits[i] * 2
-        if double_digit > 9:
-            double_digit -= 9
-        total += double_digit
-    else:
-        total += digits[i]
-
-print(total)
+# Calculate and print output
+print(luhn(digits))
