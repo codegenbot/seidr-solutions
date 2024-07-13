@@ -1,9 +1,8 @@
-def leaders(v):
-    v = list(v)
-    result = [v[-1]]
+def leaders(a):
+    leaders_list = [a[-1]]
 
-    for i in range(len(v) - 2, -1, -1):
-        if v[i] >= v[i + 1]:
-            result.append(v[i])
+    for i in range(len(a) - 2, -1, -1):
+        if a[i] >= a[i + 1]:
+            leaders_list.append(a[i])
 
-    return reversed(result)
+    return reversed(leaders_list)
