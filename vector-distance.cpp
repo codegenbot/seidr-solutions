@@ -8,8 +8,7 @@ double vectorDistance(int n) {
 
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = v2[i] - v1[i];
-        sum += pow(diff, 2);
+        sum += pow(v2[i] - v1[i], 2);
     }
     return sqrt(sum);
 }
