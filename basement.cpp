@@ -10,3 +10,4 @@ int basement(vector<int>& arr) {
         }
     }
     return -1;
+}
