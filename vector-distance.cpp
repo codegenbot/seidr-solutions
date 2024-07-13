@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <algorithm>
 
 int main() {
     size_t n;
