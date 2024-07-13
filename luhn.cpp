@@ -1,6 +1,6 @@
 #include <initializer_list>
 
-int luhn(std::vector<int>& digits) {
+int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
 
