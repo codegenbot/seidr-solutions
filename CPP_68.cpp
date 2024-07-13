@@ -1,12 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) return false;
-    }
+    if(v1.size() != v2.size()) return false;
+    for(int i = 0; i < v1.size(); ++i)
+        if(v1[i] != v2[i]) return false;
     return true;
 }
 
@@ -32,17 +30,10 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 4};
-    std::vector<int> output = pluck(input);
-    // To check if the vectors are same
-    bool isSame = issame(input, output);
-    if (isSame) {
-        for (int i : output) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Vectors are not the same." << std::endl;
-    }
+    std::vector<int> v1 = {1, 2, 3};
+    std::vector<int> v2 = {1, 4, 5};
+    if(issame(v1, v2)) 
+        pluck(v1);
+    
     return 0;
 }
