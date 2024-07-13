@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     white = 0
     black = 0
@@ -12,7 +11,11 @@ def mastermind(code, guess):
             guess_chars[i] = ""
 
     for char in guess_chars:
-        if code_chars.count(char) > 0 and code_chars[code_chars.index(char)] != guess_chars[guess_chars.index(char)]:
+        if (
+            code_chars.count(char) > 0
+            and code_chars[code_chars.index(char)]
+            != guess_chars[guess_chars.index(char)]
+        ):
             white += 1
             code_chars.remove(char)
 
