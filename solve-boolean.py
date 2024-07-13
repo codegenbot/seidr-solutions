@@ -1,13 +1,14 @@
+Here is the solution to the problem:
+
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return not (bool(left) and bool(right))
-    else:
-        left, right = expression.split("|")
-        return bool(left) or bool(right)
+    result = True if expression == 't' else False
+    for char in expression:
+        if char == '&':
+            result &= True if next_char == 't' else False
+        elif char == '|':
+            result |= True if next_char == 't' else False
+        try:
+            next_char = next(char for char in expression[expression.index(char)+1:] if char in 'tf')
+        except StopIteration:
+            pass
+    return result
