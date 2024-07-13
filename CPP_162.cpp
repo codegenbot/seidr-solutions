@@ -1,19 +1,22 @@
-MD5_CTX ctx;
-unsigned char md[16];
-std::string result;
+#include <sstream>
 
-if (text.empty()) {
-    return "None";
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+
+    unsigned char buffer[16];
+    MD5_CTX mdContext;
+    MD5_Init(&mdContext);
+    const char* str = text.c_str();
+    size_t length = text.size();
+    MD5_Update(&mdContext, str, length);
+    MD5_Final(buffer, &mdContext);
+
+    stringstream ss;
+    for (int i = 0; i < 16; ++i) {
+        if (i == 4 || i == 9 || i == 14) 
+            ss << "\\";
+        ss << printf("%02x", buffer[i]);
+    }
+
+    return ss.str();
 }
-
-MD5_Init(&ctx);
-MD5_Update(&ctx, text.c_str(), text.size());
-MD5_Final(md, &ctx);
-
-for (int i = 0; i < 16; ++i) {
-    char buffer[3];
-    sprintf(buffer, "%02x", md[i]);
-    result += string(buffer);
-}
-
-return result;
