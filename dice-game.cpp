@@ -4,15 +4,11 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = 0;
     
-    // Calculate probability where Peter's roll equals Colin's
-    double equalRollsProbability = min(m, n - 1) / (n * m);
-
-    // Calculate probability where Colin's roll is strictly lower than Peter's
-    double higherThanEqualRollsProbability = (double)(n - 1) / n;
-
-    total += equalRollsProbability;
+    for (int i = 1; i < min(m, n - 1); i++) {
+        total += (double)(m - i + 1) / (n * m);
+    }
     
-    return 1.0 - total; 
+    return 1.0 - total;
 }
 
 int main() {
