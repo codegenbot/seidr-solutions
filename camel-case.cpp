@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 #include <iostream>
@@ -21,9 +22,10 @@ std::string camelCase(std::string str) {
     for (const auto& word : words) {
         if (!word.empty()) {
             if (result.empty())
-                result = std::toupper(word[0]);
+                result = std::toupper(word);
             else
-                result += " " + std::tolower(word[0]) + std::toupper(std::string(1, word.substr(1)));
+                result += " " + (!result.empty()) ? std::string(1, std::toupper(word[0])) : std::toupper(word);
+            result += std::tolower(word.substr(1));
         }
     }
 
