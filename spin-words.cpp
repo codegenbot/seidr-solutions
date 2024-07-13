@@ -1,27 +1,25 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    std::string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
+    std::size_t pos = 0;
+    while ((pos = str.find(" ")) != std::string::npos) {
+        std::size_t wordLength = str.substr(pos).find(" ") == std::string::npos ? str.length() - pos : str.find(" ", pos);
+        if (wordLength >= 5) {
+            result += std::string(wordLength - 4, ' ') + std::string(str.substr(pos, wordLength)).reverse();
         } else {
-            word += c;
+            result += str.substr(pos, wordLength) + " ";
         }
+        str.erase(0, wordLength + 1);
     }
-    
-    if (word.length() >= 5) {
-        std::reverse(word.begin(), word.end());
+    if (str.length() >= 5) {
+        result += std::string(str.length() - 4, ' ') + str.reverse();
+    } else {
+        result += str;
     }
-    result += word;
-    
     return result;
 }
 
@@ -30,6 +28,5 @@ int main() {
     std::cout << spinWords("this is a test") << std::endl; // this is a test
     std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
     std::cout << spinWords("hi") << std::endl; // hi
-    
     return 0;
 }
