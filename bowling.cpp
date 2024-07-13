@@ -1,28 +1,36 @@
-int bowlingScore(const string& input) {
+Here is the solution:
+
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (input[i] == 'X') {
-            score += 30;
-        } else if (isdigit(input[i])) {
-            int framePoints = 0;
-            int j = 1;
-            while (j <= input[i + 1 - '0'] && i < 9) {
-                if (input[i + j] == '/') {
-                    break;
-                }
-                ++framePoints;
-                ++j;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == '/') {
+            int j = i + 1;
+            while (j < s.size() && s[j] != '/') {
+                j++;
             }
-            score += framePoints + 10;
+            score += min(stoi(s.substr(i+1, j-i-1)), 10);
+            i = j;
+        } else if (s[i] == 'X') {
+            score += 10 + bowlingScore(s.substr(i+1));
+            return score;
         } else {
-            int framePoints = 0;
-            for (int j = 1; j <= input[i] - '0'; ++j) {
-                if (input[i + j] == '/') {
+            int count = 0;
+            while (i < s.size() && s[i] != '/') {
+                if (s[i] == 'X') {
+                    score += 10;
+                    i++;
                     break;
                 }
-                ++framePoints;
+                count++;
+                i++;
             }
-            score += framePoints;
+            if (count > 1) {
+                score += count * 10;
+            } else if (count == 1) {
+                score += count * 10 + bowlingScore(s.substr(i));
+                return score;
+            }
         }
     }
     return score;
