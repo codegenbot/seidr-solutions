@@ -28,20 +28,9 @@ int main() {
     pennies = cents;
 
     std::cout << "Quarters: " << quarters << std::endl;
-    if(quarters > 1) std::cout << "s" << std::endl;
-    else std::cout << std::endl;
-
     std::cout << "Dimes: " << dimes << std::endl;
-    if(dimes > 1) std::cout << "s" << std::endl;
-    else std::cout << std::endl;
-
     std::cout << "Nickels: " << nickels << std::endl;
-    if(nickels > 1) std::cout << "s" << std::endl;
-    else std::cout << std::endl;
-
     std::cout << "Pennies: " << pennies << std::endl;
-    if(pennies > 1) std::cout << "s" << std::endl;
-    else std::cout << std::endl;
-    
+
     return 0;
 }
