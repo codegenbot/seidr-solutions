@@ -32,14 +32,13 @@ int main() {
         if (cardNumber == 0)
             break;
         
-        input.clear();
         while (cardNumber != 0) {
             input.push_back(cardNumber % 10);
             cardNumber /= 10;
         }
         
         int result = luhn(input);
-        cout << "The Luhn check is: " << (result % 10 == 0 ? "PASS" : "FAIL") << endl;
+        cout << "The Luhn check is: " << (result % 10 ? "Invalid" : "Valid") << endl;
     }
 
     return 0;
