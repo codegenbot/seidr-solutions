@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <iomanip>
 
@@ -14,11 +15,11 @@ int main() {
 
     float total_price = 0;
     for(int i = 0; i < n; i++) {
-        float quantity;
-        std::cin >> quantity;
-        total_price += prices[i] * (1 - discounts[i]/100.0) * quantity;
+        total_price += prices[i] * (1 - discounts[i]/100.0);
     }
 
-    std::cout << std::fixed << std::setprecision(2) << "Total price after discount: $" << total_price << std::endl;
+    std::cout << "Total price after discount: $" << std::fixed 
+              << std::setprecision(2) << total_price << std::endl;
+
     return 0;
 }
