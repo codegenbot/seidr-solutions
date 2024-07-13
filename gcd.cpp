@@ -1,21 +1,10 @@
 ```cpp
-string text;
-string target;
-vector<int> result;
+#include <iostream>
+#include <vector>
+#include <string>
 
-cin >> text >> target;
-result = indicesOfSubstring(text, target);
-
-int a, b;
-cin >> a >> b;
-cout << gcd(a, b) << endl;
-
-for (int i : result)
-    cout << i << " ";
-return 0;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -33,4 +22,19 @@ int gcd(int a, int b) {
         return a;
     else
         return gcd(b, a % b);
+}
+
+int main() {
+    string text;
+    string target;
+    vector<int> result;
+
+    cin >> text >> target;
+    result = indicesOfSubstring(text, target);
+
+    cout << gcd(10, 15) << endl;
+
+    for (int i : result)
+        cout << i << " ";
+    return 0;
 }
