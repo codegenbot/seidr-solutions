@@ -1,19 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string line;
-    
-    while (getline(cin, line)) {
-        stringstream ss(line);
-        int n;
-        while (ss >> n) {
-            nums.push_back(n);
-        }
+    int n;
+    while (!cin.eof()) {
+        cin >> n;
+        nums.push_back(n);
     }
     
     int sum = 0;
