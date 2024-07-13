@@ -1,9 +1,13 @@
 n = int(input())
 m = int(input())
-prob = 0
-for i in range(1, n + 1):
+
+total_outcomes = n * m
+count_favors = 0
+
+for i in range(1, n+1):
     for j in range(1, m):
         if i > j:
-            prob += 1
-prob /= n * m
-print(round(prob, 2))
+            count_favors += 1
+
+probability = count_favors / total_outcomes
+print(probability)
