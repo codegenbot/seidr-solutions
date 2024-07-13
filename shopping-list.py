@@ -1,11 +1,10 @@
 ```
 n = int(input())
-item_prices = list(map(float, input().split()))
-item_discounts = list(map(float, input().split()))
+prices = list(map(float, input().split()))
+discounts = list(map(float, input().split()))
 
-total_price = 0
-for i in range(n):
-    price = item_prices[i] * (1 - item_discounts[i] / 100)
-    total_price += price
+total_price = sum(
+    price - (price * discount / 100) for price, discount in zip(prices, discounts)
+)
 
-return round(total_price, 1)
+print("{:.2f}".format(total_price))
