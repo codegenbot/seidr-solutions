@@ -1,9 +1,5 @@
 ```cpp
-#include <algorithm>
-#include <vector>
-#include <assert.h>
 #include <initializer_list>
-
 using namespace std;
 typedef size_t initializer_list<int>::size_type;
 
