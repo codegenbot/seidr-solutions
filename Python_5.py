@@ -1,5 +1,6 @@
-result = []
-for number in numbers:
-    result.extend([number, delimeter])
-result.pop()  # Remove the extra delimeter at the end
-return result
+return (
+    [x for pair in zip(numbers, [delimeter] * (len(numbers) - 1)) for x in pair]
+    + numbers[-1:]
+    if numbers
+    else []
+)
