@@ -16,8 +16,6 @@ std::string fizzBuzz(int x) {
         return "Fizz";
     else if (x % 5 == 0)
         return "Buzz";
-    else {
-        std::cout << x;
-        return "";
-    }
+    else
+        return std::to_string(x);
 }
