@@ -2,34 +2,20 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> result;
-    std::string buffer;
+    std::string segment = "";
 
     for (char c : str) {
-        if (c == ' ') {
-            if (!buffer.empty()) {
-                result.push_back(buffer);
-                buffer.clear();
-            }
-        } else if (c != delimiter) {
-            buffer += c;
-        }
-
-        if (c == delimiter || c == '\0') {
-            if (!buffer.empty()) {
-                result.push_back(buffer);
-                buffer.clear();
-            }
+        if (c == delimiter) {
+            result.push_back(segment);
+            segment = "";
+        } else {
+            segment += c;
         }
     }
-
-    if (!buffer.empty()) {
-        result.push_back(buffer);
-    }
-
+    result.push_back(segment); // Don't forget the last segment
     return result;
 }
 
