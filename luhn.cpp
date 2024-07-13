@@ -1,4 +1,8 @@
-int luhn(std::vector<int> digits) {
+```cpp
+#include <vector>
+#include <iostream>
+
+int luhn(std::vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
 
@@ -15,4 +19,11 @@ int luhn(std::vector<int> digits) {
     }
 
     return sum;
+}
+
+int main() {
+    std::vector<int> creditCardNumber = {4, 3, 7, 1, 5, 9, 2, 6, 5, 3, 8, 4, 6, 1, 8, 2};
+    int result = luhn(creditCardNumber);
+    std::cout << "The credit card number is valid: " << (result % 10 == 0 ? "true" : "false") << std::endl;
+    return 0;
 }
