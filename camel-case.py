@@ -4,3 +4,7 @@ def camel_case(input_str):
         if " " in input_str
         else input_str.title()
     )
+
+
+input_str = input()
+print(camel_case(input_str))
