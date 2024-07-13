@@ -1,13 +1,6 @@
-```
 def decode_cyclic(s: str):
-    decoded = ""
-    n = len(s)
-    if n % 2 == 0:
-        half_len = n // 2
-        prefix = s[:half_len]
-    else:
-        half_len = (n + 1) // 2
-        prefix = s[:half_len]
-
-    decoded = prefix + s[half_len:]
-    return decoded
+    decoded = s
+    while len(decoded) % 2 != 0:
+        decoded += s
+    half_len = len(decoded) // 2
+    return decoded[:half_len] + decoded[-1*half_len:].reverse()
