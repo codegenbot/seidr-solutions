@@ -1,3 +1,4 @@
+```
 def bowling_score(game):
     frames = game.split('/')
     total_score = 0
@@ -8,7 +9,10 @@ def bowling_score(game):
             total_score += 10
         elif 'X' in frame:
             if frame_number < 9 and frames[i+1][0] != 'X':
-                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frame.replace('X', '', 1))
+                if frames[i+1][0] == 'X':
+                    total_score += 10 + int(frame.replace('X', '', 1))
+                else:
+                    total_score += 10 + int(frames[i+1].replace('X', '')) + int(frame.replace('X', '', 1))
             else:
                 total_score += 10
         elif '-' in frame:

@@ -3,8 +3,8 @@ def cut_vector(vector):
     min_diff = float("inf")
     split_index = 0
 
-    for i in range(1, len(vector)):
-        if vector[i-1] >= vector[i]:
+    for i in range(len(vector)):
+        if vector[i - 1] >= vector[i]:
             return vector[:i], vector[i:]
 
         left_sum = sum(vector[:i])
