@@ -46,10 +46,10 @@ int main() {
         std::cout << "Enter the Boolean expression: ";
         getline(std::cin, expression);
 
-        if (!expression.empty()) {
-            break; 
-        } else {
+        if (expression.empty()) {
             std::cout << "Invalid input. Please try again." << std::endl;
+        } else {
+            break; 
         }
     }
 
