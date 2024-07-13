@@ -7,9 +7,7 @@ string find_max(vector<string> words){
             return a.length() > b.length();
         });
     for (string word : words) {
-        if (word.length() == max_word.length() && 
-            count(word.begin(), word.end(), unique(word.begin(), word.end())[0]) == 1 &&
-            count(max_word.begin(), max_word.end(), unique(max_word.begin(), max_word.end())[0]) > 1) {
+        if (word.length() >= max_word.length() && count(word.begin(), word.end(), unique(word.begin(), word.end())[0]) == 1) {
             max_word = word;
         }
     }
