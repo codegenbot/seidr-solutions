@@ -11,8 +11,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             return std::to_string(a).size() + a.size() <=
-                    std::to_string(b).size() + b.size();
+             int sum1 = 0, sum2 = 0;
+             for (char c : a) sum1 += c;
+             for (char c : b) sum2 += c;
+             return sum1 < sum2;
          });
     return result;
 }
