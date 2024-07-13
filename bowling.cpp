@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -9,10 +8,10 @@ int bowlingScore(std::string s) {
     for (char c : s) {
         if (c == '/') {
             if (currentFrame < 10) {
-                if (currentRolls == 2 && s[0] != 'x' && s[1] != 'x') {
-                    score += 10 + (s[0] - '0') + (s[1] - '0');
-                } else if (currentRolls == 1) {
-                    score += (s[0] - '0') * 2;
+                if (currentRolls == 2) {
+                    score += 10;
+                } else {
+                    score += 10 - currentRolls;
                 }
             }
             currentRolls = 0;
@@ -20,6 +19,15 @@ int bowlingScore(std::string s) {
         } else if (c >= '1' && c <= '9') {
             currentRolls++;
             score += c - '0';
+        }
+    }
+
+    // Add the last frame
+    if (currentFrame == 10) {
+        if (currentRolls == 2) {
+            score += 10;
+        } else {
+            score += 10 - currentRolls;
         }
     }
 
