@@ -11,7 +11,7 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.extend([i] * count)
+            factors.extend([i] * (count if i != math.isqrt(n) else 2))
     if n > 1:
         factors.append(n)
     return factors
