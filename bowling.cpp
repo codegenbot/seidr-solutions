@@ -1,36 +1,57 @@
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
 
-int score(string s) {
-    int total = 0;
+int getBowlingScore(string input) {
+    int score = 0;
     int frame = 1;
-    int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (s[i + 2] == 'X') {
-                total += 10 + (s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
-            } else {
-                total += (s[i + 2] == '/' ? 10 : s[i + 2] - '0') + (s[i + 4] == '/' ? 10 : s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
+    int ball = 0;
+    vector<int> frames(10, 0);
+
+    for (char c : input) {
+        if (c == 'X') {
+            frames[frame - 1] = 10;
+            frame++;
+            if (frame > 10) break;
+        } else if (c == '/') {
+            frames[frame - 1] = 10 - frames[frame - 1];
+            frame++;
+            ball = 0;
+            if (frame > 10) break;
+        } else if (c == '-') {
+            ball++;
+            if (ball == 2) {
+                frame++;
+                ball = 0;
+                if (frame > 10) break;
             }
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10;
-            total += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
-            i += 2;
         } else {
-            total += (s[i] == '-' ? 0 : s[i] - '0') + (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+            frames[frame - 1] += c - '0';
+            ball++;
+            if (ball == 2) {
+                frame++;
+                ball = 0;
+                if (frame > 10) break;
+            }
         }
-        frame++;
     }
-    return total;
+
+    for (int i = 0; i < 10; i++) {
+        score += frames[i];
+        if (i > 0 && frames[i - 1] == 10 && frames[i] < 10) {
+            score += frames[i];
+        }
+        if (i > 1 && frames[i - 2] == 10 && frames[i - 1] == 10) {
+            score += frames[i];
+        }
+    }
+
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+    cout << getBowlingScore(input) << endl;
     return 0;
 }
