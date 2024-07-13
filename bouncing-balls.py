@@ -1,10 +1,11 @@
+```
 import math
 
 start_height = float(input("Enter the starting height: "))
 first_bounce_height = float(input("Enter the first bounce height: "))
 num_bounces = int(input("Enter the number of bounces: "))
 
-bounciness_index = (1 - (first_bounce_height / start_height))
+bounciness_index = first_bounce_height / start_height
 total_distance = start_height
 
 for i in range(num_bounces):
