@@ -32,7 +32,7 @@ int main() {
     int mastermindResult = mastermind(code, guess);
     
     cout << "Black pegs: " << mastermindResult << endl;
-    cout << "White pegs: " << mastermindResult - black << endl;
+    cout << "White pegs: " << mastermindResult - 0 << endl;
     
     return 0;
 }
