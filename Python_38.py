@@ -1,9 +1,8 @@
 ```
 def decode_cyclic():
-    print("Please enter a string of alphabets only.")
     while True:
         s = str(input('Enter the cyclic string: '))
-        if set(s).issubset('abcdefghijklmnopqrstuvwxyz') or set(s).issubset('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):  
+        if s.isalpha():  
             break
         else:
             print("Invalid input. Please enter a string of alphabets only.")
