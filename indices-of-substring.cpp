@@ -1,20 +1,26 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <cctype>
 
 int main() {
     char text[100], target[100];
     std::cin.getline(text, 100);
-    std::cin >> target;
+    std::cin.getline(target, 100);
 
     std::vector<int> indices;
     int textLen = strlen(text);
     int targetLen = strlen(target);
-    
+
+    if (textLen < targetLen) {
+        std::cout << "0";
+        return 0;
+    }
+
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (text[i + j] != target[j]) {
+            if (tolower(text[i + j]) != tolower(target[j])) {
                 found = false;
                 break;
             }
