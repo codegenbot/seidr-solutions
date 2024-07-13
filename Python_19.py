@@ -1,37 +1,30 @@
 def sort_numbers():
-    cont = "y"
-    while cont.lower() == "y":
-        print("Sort numbers? (y/n): ")
-        cont = input().lower()
-        if cont not in ["y", "n"]:
-            print("Invalid input. Please enter y or n.")
-            continue
-        if cont != "y":
-            break
+    while True:
         while True:
-            while True:
-                try:
-                    numbers = input("Enter space-separated numbers: ")
-                    nums = [int(num) for num in numbers.split()]
-                    sorted_numbers = " ".join(map(str, sorted(nums)))
-                    print(sorted_numbers)
-                    cont = input("Sort again? (y/n): ")
-                    if cont.lower() not in ["y", "n"]:
+            try:
+                numbers = input("Enter space-separated numbers: ")
+                nums = [int(num) for num in numbers.split()]
+                if len(nums) == 0:
+                    print("No numbers entered. Please try again.")
+                    continue
+                sorted_numbers = " ".join(map(str, sorted(nums)))
+                print(sorted_numbers)
+                cont = input("Sort again? (y/n): ").lower()
+                while True:
+                    if cont not in ["y", "n"]:
                         print("Invalid input. Please enter y or n.")
-                        continue
-                    if cont.lower() != "y":
+                        cont = input("Sort again? (y/n): ").lower()
+                    else:
                         break
-                    break
-                except ValueError as e:
-                    print(
-                        f"Invalid input. {e}. Please enter valid numbers separated by spaces."
-                    )
-                    print("Exiting program...")
-                    exit()
-            if cont.lower() != "y":
-                break
-        break
+                if cont == "n":
+                    return
+            except ValueError as e:
+                print(
+                    f"Invalid input. {e}. Please enter valid numbers separated by spaces."
+                )
+        return
 
 
 if __name__ == "__main__":
-    sort_numbers()
+    while True:
+        sort_numbers()
