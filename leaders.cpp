@@ -26,11 +26,9 @@ int main() {
         nums.push_back(num);
     }
 
-    if (cin.eof()) {
-        vector<int> result = findLeaders(nums);
-        for (int i = 0; i < result.size(); i++) {
-            cout << result[i] << " ";
-        }
+    vector<int> result = findLeaders(nums);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
 
     return 0;
