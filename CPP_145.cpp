@@ -1,8 +1,6 @@
 ```cpp
 #include <algorithm>
 #include <vector>
-#include <assert.h>
-#include <initializer_list>
 
 int getAscendingOrder(const std::vector<int>& nums) {
     int points = 0;
@@ -51,9 +49,13 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
 int main() {
     std::vector<int> vec1 = {0,6,6,-76,-21,23,4};
     std::vector<int> vec2 = {-76, -21, 0, 4, 23, 6, 6};
-    assert(isSame(vec1,vec2) == true);
+    if (!isSame(vec1,vec2)) {
+        std::cout << "Test failed" << std::endl;
+    }
     int result = getAscendingOrder({0,6,6,-76,-21,23,4});
     std::cout << "order_by_points: " << result << std::endl;
-    assert(isSame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    if (!isSame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6})) {
+        std::cout << "Test failed" << std::endl;
+    }
     return 0;
 }

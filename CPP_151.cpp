@@ -25,8 +25,8 @@ int main() {
     std::getline(std::cin, input);
     std::istringstream iss(input);
 
-    std::initializer_list<int> lst;
     int num;
+    std::initializer_list<int> lst;
     while (iss >> num) {
         lst = {num};
     }
