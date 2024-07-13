@@ -1,4 +1,4 @@
-```python
+```
 from typing import List, Optional
 
 
@@ -27,4 +27,4 @@ while True:
     else:
         strings.append(user_input)
 
-print(longest([s for s in strings if s is not None]))
+print(longest(list(filter(None, strings))))
