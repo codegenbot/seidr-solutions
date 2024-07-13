@@ -3,11 +3,11 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double p = 0.0;
+    double p = 1.0;
     for (int i = 1; i <= m; i++) {
-        p += 1.0 / n;
+        p -= 1.0 / n;
     }
-    return 1.0 - p;
+    return p;
 }
 
 int main() {
