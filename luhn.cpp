@@ -21,5 +21,5 @@ int luhn(vector<int> digits) {
 int main() {
     vector<int> digits = {1, 2, 3};
     int result = luhn(digits);
-    return 0;
+    return result;
 }
