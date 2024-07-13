@@ -1,10 +1,11 @@
-```Python
 def intersperse(lst):
     result = [lst[0]]
-    for i in range(1, len(lst)):
-        result.append(' ' + lst[i])
-    if len(lst) > 1:
-        result.append(' ')
+    for item in lst[1:]:
+        result.append(' ' + item)
+        if item != lst[-2]:
+            result.append(' ')
+    result.append(lst[-1])
     return ''.join(result)
 
-print(intersperse(input("Enter a list of strings (space separated): ").split()))
+input_str = input("Enter a list of strings (space separated): ")
+print(intersperse(input_str.split()))
