@@ -3,7 +3,7 @@ int main() {
     getline(cin, input);
     
     string word;
-    string result;
+    string result = "";
     
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == ' ' || i == input.size() - 1) {
