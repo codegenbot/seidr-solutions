@@ -16,10 +16,6 @@ int main() {
     std::cin >> n >> m;
     
     double result = probability(n, m);
-    for(int i = 1; i <= m; i++){
-        if(i < n)result+= (double)(n-i)/(double)n/m;
-        else break;
-    }
     std::cout << "The probability is: " << result << std::endl;
     
     return 0;
