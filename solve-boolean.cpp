@@ -1,6 +1,5 @@
-#include <string>
-#include <stack>
 #include <iostream>
+#include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
