@@ -4,27 +4,24 @@ def bowling_score(game):
     roll = 0
     for frame in game.split('/'):
         if len(frame) == 1:
-            score += int(frame)
+            score += 10 + int(frame)
         elif len(frame) == 2:
-            score += sum(map(int, frame))
+            first_roll, second_roll = map(int, frame)
+            if first_roll == 10: 
+                score += first_roll + second_roll
+            else:
+                score += first_roll + second_roll
         else:
             strike = True
-            spare = False
-            first_roll = 0
-            second_roll = 0
             for i in range(2):
                 if frame[i] != 'X':
+                    first_roll = int(frame[i])
+                    second_roll = int(frame[1 - i])
                     if i == 0:
-                        first_roll = int(frame[i])
-                    else:
-                        second_roll = int(frame[i])
-                else:
+                        roll = first_roll + second_roll
+                    score += max(first_roll, second_roll)
                     strike = False
             if strike:
                 score += 10 + roll
-            elif first_roll + second_roll < 10:
-                score += 10 + roll
-            else:
-                score += first_roll + second_roll + roll
         roll = 0
     return score
