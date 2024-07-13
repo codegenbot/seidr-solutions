@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     sum = 0
@@ -13,6 +14,3 @@ def luhn(card_number):
                 sum += digit
         doubled = not doubled
     return sum
-
-card_number = input("Enter the credit card number: ")
-print(luhn(int(card_number)))
