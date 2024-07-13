@@ -1,15 +1,14 @@
+```cpp
 int bowlingScore(string s) {
     int score = 0;
-    stringstream ss(s);
-    char c;
-    while (ss >> c) {
+    for (char c : s) {
         if (c == 'X') {
             score += 30;
         } else if (c == '/') {
-            score += 10 + (score / 10 - 1);
-        } else {
+            score += 10 + (score - 20);
+        } else if ('1' <= c && c <= '9') {
             int temp = c - '0';
-            score += temp;
+            score += temp * 10;
         }
     }
     return score;
