@@ -4,7 +4,10 @@ def fizz_buzz(n):
         if i % 15 == 0:
             result += "FizzBuzz "
         elif i % 3 == 0:
-            result += "Fizz "
+            if i % 5 == 0:
+                result += "FizzBuzz "
+            else:
+                result += "Fizz "
         elif i % 5 == 0:
             result += "Buzz "
         else:

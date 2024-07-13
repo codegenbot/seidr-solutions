@@ -8,17 +8,15 @@ int main() {
     cin >> startHeightStr >> firstBounceStr >> numBounces; 
 
     double bouncinessIndex = (stod(firstBounceStr) / stod(startHeightStr));
-    
-    double startHeight = stod(startHeightStr);
+
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        startHeight = startHeight * bouncinessIndex - abs(startHeight * bouncinessIndex) / 2;
-        totalDistance += 2 * abs(startHeight);
+        totalDistance += pow(2, i + 1) - 1;
     }
 
     cout << fixed;
     cout.precision(10);
-    cout << totalDistance << endl;
+    cout << totalDistance * bouncinessIndex * 4.0 << endl;
 
     return 0;
 }
