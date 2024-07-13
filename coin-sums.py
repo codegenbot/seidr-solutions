@@ -1,13 +1,23 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    coins.sort(reverse=True)
+    quarters = cents // 25
+    cents %= 25
 
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            result[i] += 1
+    dimes = cents // 10
+    cents %= 10
+
+    nickles = cents // 5
+    cents %= 5
+
+    pennies = cents
+
+    result[0] = quarters
+    result[1] = dimes
+    result[2] = nickles
+    result[3] = pennies
 
     return result
 
