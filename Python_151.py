@@ -1,2 +1,3 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+```
+def double_the_difference(input_list):
+    return (max(input_list) - min(input_list)) * 2
