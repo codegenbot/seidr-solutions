@@ -14,23 +14,24 @@ int file_name_check(const std::string& file_name) {
             dot_pos = file_name.find(c);
         } else if (!has_dot) {
             if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
-                return "No";
+                return 0;
             }
         } else {
             std::string ext = file_name.substr(dot_pos + 1);
             if (ext != "txt" && ext != "exe" && ext != "dll") {
-                return "No";
+                return 0;
             }
         }
     }
 
     if (!has_dot) {
-        return "No";
+        return 0;
     }
 
-    return digit_count <= 3 ? "Yes" : "No";
+    return digit_count <= 3 ? 1 : 0;
 }
 
 int main() {
-    return file_name_check("s.");
+    assert(file_name_check("s.") == 0);
+    // ...
 }
