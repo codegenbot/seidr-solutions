@@ -2,8 +2,8 @@
 #include <stack>
 #include <string>
 
-bool solveBoolean(string expression) {
-    stack<char> s;
+bool solveBoolean(std::string expression) {
+    std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             while (!s.empty() && s.top() != '&') {
