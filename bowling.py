@@ -1,29 +1,21 @@
-```
-def bowling_score(score_string):
+def bowling_score(bowling_string):
     score = 0
-    roll_count = 1
-    previous_rolls = [0, 0]
-    
-    for char in score_string + 'X': # Add 'X' at the end to handle last frame
-        if char.isdigit():
-            current_roll = int(char)
-            if roll_count == 2:
-                if previous_rolls[0] + previous_rolls[1] < 10:
-                    score += 10
-                else:
-                    score += previous_rolls[0] + previous_rolls[1]
-                previous_rolls = [current_roll, 0]
-                roll_count = 1
-            elif current_roll == 10:
-                score += 10 + sum(previous_rolls)
-                previous_rolls = [0, 0]
-                roll_count = 1
-            else:
-                previous_rolls[roll_count-1] = current_roll
-                roll_count += 1
+    frames = [
+        int(x) if x.isdigit() else 10
+        for x in re.sub("[^X0123456789/]", "", bowling_string)
+    ]
+    for i in range(len(frames)):
+        if frames[i] == 10:
+            score += frames[i]
+            if i < len(frames) - 1 and frames[i + 1] == "X":
+                score += frames[i + 2]
+            elif i < len(frames) - 1 and frames[i + 1].isdigit():
+                score += frames[i + 1]
         else:
-            if char == 'X':
-                score += 10 + sum(previous_rolls)
-                previous_rolls = [0, 0]
-                roll_count = 1
+            score += frames[i]
+            if i < len(frames) - 1:
+                if frames[i] + int(frames[i + 1]) == 10:
+                    score += frames[i + 1]
+                elif frames[i] + int(frames[i + 1].split("/")[0]) <= 10:
+                    score += int(frames[i + 1].split("/")[0])
     return score
