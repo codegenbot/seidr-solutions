@@ -9,11 +9,7 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return a;
-}
-
-int lcm(int a, int b) {
-    return (a*b)/gcd(a,b);
+    return b;
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
@@ -23,10 +19,10 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     for (size_t i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back((int)i);
-            while (i + m < n && text.substr(i, m) == target) {
+            while (i + m < n && text.substr(i, m) == target) { 
                 i += m;
             }
+            result.push_back((int)i); 
         }
     }
 
@@ -34,7 +30,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 }
 
 int main() {
-    std::cout << "LCM of 12 and 15: " << lcm(12, 15) << std::endl;
+    std::cout << "GCD of 12 and 15: " << gcd(12, 15) << std::endl;
     std::string text = "Hello world";
     std::string target = "world";
     std::vector<int> indices = indicesOfSubstring(text, target);
