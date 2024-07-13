@@ -4,29 +4,37 @@ int main() {
     while (cin >> num) {
         vec.push_back(num);
     }
-    
-    int total_sum = accumulate(vec.begin(), vec.end(), 0);
-    int half_sum = total_sum / 2;
-    
+
+    int sum = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        sum += vec[i];
+    }
+
+    int half_sum = sum / 2;
     int curr_sum = 0;
     int idx = -1;
-    for (int i = 0; i < vec.size(); ++i) {
+
+    for (int i = 0; i < vec.size(); i++) {
         curr_sum += vec[i];
         if (curr_sum >= half_sum) {
             idx = i;
             break;
         }
     }
-    
-    vector<int> subvec1(vec.begin(), vec.begin() + idx + 1);
-    vector<int> subvec2(vec.begin() + idx + 1, vec.end());
-    
-    for (int num : subvec1) {
-        cout << num << endl;
+
+    if (abs(curr_sum - half_sum) < abs(curr_sum - vec[idx] - half_sum)) {
+        idx++;
     }
-    for (int num : subvec2) {
-        cout << num << endl;
+
+    for (int i = 0; i <= idx; i++) {
+        cout << vec[i] << endl;
     }
-    
+    cout << 0 << endl;
+
+    for (int i = idx + 1; i < vec.size(); i++) {
+        cout << vec[i] << endl;
+    }
+    cout << 0 << endl;
+
     return 0;
 }
