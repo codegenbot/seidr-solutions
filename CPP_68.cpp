@@ -1,27 +1,13 @@
-```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> a,vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    // implement your comparison logic here
 }
 
-int main(){
-    assert(issame(pluck({7, 9, 7, 1}) , {}));
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evens;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            evens.emplace_back(arr[i], i);
-        }
-    }
-    if (evens.empty()) return {};
-    sort(evens.begin(), evens.end());
-    return {evens[0].first, evens[0].second};
+int main() {
+    vector<int> result = pluck({7, 9, 7, 1});
+    assert(result.size() == 2);
+    assert(result[0] == 0 && result[1] == 3);
+    return 0;
 }
