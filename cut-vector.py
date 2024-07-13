@@ -1,7 +1,8 @@
 arr = list(map(int, input().split()))
 
-if not arr:
-    print("Input vector is empty.")
+if len(arr) == 1:
+    print("Subvector 1:", arr)
+    print("Subvector 2:", [])
 else:
     total_sum = sum(arr)
     split_index = min(range(1, len(arr)), key=lambda x: abs(2 * sum(arr[:x]) - total_sum))
