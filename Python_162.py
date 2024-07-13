@@ -1,5 +1,4 @@
 ```
-```python
 import hashlib
 
 
@@ -18,4 +17,3 @@ if __name__ == "__main__":
         result = string_to_md5()
         if result is not None:
             print(result)
-```
