@@ -1,43 +1,30 @@
-int calculateBowlingScore(string bowls) {
+int score(string input) {
+    int frame = 0;
     int score = 0;
-    int frame = 1;
-    int ball = 0;
-    int frames[10] = {0};
-    
-    for(char c : bowls) {
-        if(c == 'X') {
-            frames[frame-1] = 10;
+    for (int i = 0; i < input.size(); ++i) {
+        if (frame == 10) break;
+        if (input[i] == 'X') {
+            score += 10;
+            if (input[i+2] == 'X') score += 10;
+            else if (input[i+2] == '/') score += 10 - (input[i+1] - '0');
+            else score += input[i+1] - '0' + input[i+2] - '0';
             frame++;
-            if(frame == 11) break;
-        } else if(c == '/') {
-            frames[frame-1] = 10 - frames[frame-1];
-            frame++;
-            ball = 0;
-            if(frame == 11) break;
-        } else if(c == '-') {
-            ball++;
+        } else if (input[i] == '/') {
+            score += 10 - (input[i-1] - '0');
+        } else if (input[i] == '-') {
+            // do nothing
         } else {
-            frames[frame-1] += c - '0';
-            ball++;
-            if(ball == 2) {
-                frame++;
-                ball = 0;
-                if(frame == 11) break;
-            }
+            score += input[i] - '0';
+            if (input[i+1] == '/') score += 10 - (input[i] - '0');
+            frame++;
         }
     }
-    
-    for(int i = 0; i < 10; i++) {
-        score += frames[i];
-    }
-    
     return score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
-    
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
