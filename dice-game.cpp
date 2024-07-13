@@ -1,36 +1,44 @@
+```cpp
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = 0;
+    double total = (double)n * m;
     double p = 0;
 
     for (int i = 1; i < n; i++) {
-        total += 1.0 / (n * m); 
-        p += (double)1 / (n * m);
-    } 
+        p += (double)1 / total;
+    }
     return p;
 }
 
 int main() {
-    int n, m;
-    
+    string strN, strM;
+
     cout << "Enter value of n: ";
-    cin >> n;
+    getline(cin, strN);
+
+    int n = stoi(strN); 
 
     if(n < 2) {
         cout << "n must be at least 2. Please enter again." << endl;
         cout << "Enter value of n: ";
-        cin >> n;
+        getline(cin, strN);
+        n = stoi(strN); 
     }
 
     cout << "\nEnter value of m: ";
-    cin >> m;
+    getline(cin, strM);
+
+    int m = stoi(strM); 
 
     if(m < 2) {
         cout << "m must be at least 2. Please enter again." << endl;
         cout << "Enter value of m: ";
-        cin >> m;
+        getline(cin, strM);
+        m = stoi(strM); 
     }
 
     double result = diceGame(n, m);
