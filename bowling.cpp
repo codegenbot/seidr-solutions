@@ -1,4 +1,4 @@
-```cpp
+```
 int bowlingScore(const std::string& s) {
     if (s.empty()) {
         throw std::invalid_argument("No input provided");
@@ -16,19 +16,22 @@ int bowlingScore(const std::string& s) {
                 score += prevRoll * 2;
                 isStrike = false;
             } else {
-                int roll1 = s[i - 1] - '0';
-                int roll2 = s[i + 1] - '0';
-                score += (roll1 + roll2);
+                int roll1, roll2;
+                char nextChar = s.substr(i + 1, 1);
+                roll1 = nextChar - '0';
+                score += roll1;
             }
         } else if (s[i] == ' ') {
-            int roll1 = s[i - 1] - '0';
-            int roll2 = s[i + 1] - '0';
+            int roll1, roll2;
+            char prevChar = s.substr(i - 1, 1);
+            roll1 = prevChar - '0';
             if (isStrike) {
                 score += roll1 + prevRoll * 2;
                 isStrike = false;
             } else {
-                score += roll1 + roll2;
+                score += roll1;
             }
+            prevRoll = roll1;
         } else {
             int roll = s[i] - '0';
             if (isStrike) {
