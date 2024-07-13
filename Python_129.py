@@ -1,4 +1,3 @@
-```
 def findMinFibonacciNumbers(k: int) -> list:
     fib = [0, 1]
     while True:
@@ -16,5 +15,4 @@ def findMinFibonacciNumbers(k: int) -> list:
     
     return result
 
-k = int(input("Enter a number: "))
-print(findMinFibonacciNumbers(k))
+minPath = findMinFibonacciNumbers(10)
