@@ -1,38 +1,41 @@
-int main() {
-    string input;
-    cin >> input;
-
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            if (frame < 9) {
-                score += (input[i + 1] == 'X' ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10));
-                score += (input[i + 2] == 'X' ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] == 'X' ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10)) : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 0)));
-                frame++;
-            }
-        } else if (isdigit(input[i])) {
-            score += input[i] - '0';
-            if (i + 1 < input.size() && input[i + 1] == '/') {
-                score += 10 - (input[i] - '0');
-            }
-            if (frame < 9) {
-                frame++;
-            }
-        } else if (input[i] == '/') {
-            score += 10 - (input[i - 1] - '0');
-            if (i + 1 < input.size() && input[i + 1] == 'X') {
-                score += 10;
-            } else {
-                score += (input[i + 1] == 'X' ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0));
-            }
-            if (frame < 9) {
-                frame++;
-            }
+    int rolls = 0;
+    vector<int> scores(21, 0);
+    for (char c : s) {
+        if (c == 'X') {
+            scores[rolls] = 10;
+            rolls++;
+        } else if (c == '/') {
+            scores[rolls - 1] = 10 - scores[rolls - 1];
+        } else if (c == '-') {
+            scores[rolls] = 0;
+            rolls++;
+        } else {
+            scores[rolls] = c - '0';
+            rolls++;
         }
     }
+    for (int i = 0; frame < 10; i += 2) {
+        if (scores[i] == 10) {
+            total += 10 + scores[i + 1] + scores[i + 2];
+            frame++;
+        } else if (scores[i] + scores[i + 1] == 10) {
+            total += 10 + scores[i + 2];
+            i++;
+            frame++;
+        } else {
+            total += scores[i] + scores[i + 1];
+            frame++;
+        }
+    }
+    return total;
+}
 
-    cout << score << endl;
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
