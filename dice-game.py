@@ -1,4 +1,5 @@
-def dice_game(n, m):
+````
+`def dice_game(n, m):
     total_outcomes = n * m
     favorable_outcomes = 0
     for i in range(1, min(n,m)+1):
@@ -6,4 +7,4 @@ def dice_game(n, m):
             favorable_outcomes += n - i + 1
         else:
             favorable_outcomes += i
-    return favorable_outcomes / total_outcomes
+    return favorable_outcomes / total_outcomes`
