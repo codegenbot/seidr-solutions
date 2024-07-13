@@ -26,18 +26,27 @@ int main() {
     vector<int> input;
     int cardNumber; 
 
-    while(true){
-        cout << "Enter a credit card number (0 to finish): ";
+    while (true) {
+        cout << "Enter a credit card number: ";
         cin >> cardNumber;
-        if(cardNumber == 0) break;
-        
-        input.clear();
+
+        if(cardNumber == 0)
+            break;
+
         while (cardNumber != 0) {
             input.push_back(cardNumber % 10);
             cardNumber /= 10;
         }
-        
-        cout << "Luhn Check: " << luhn(input) << endl;
+
+        int result = luhn(input);
+        cout << "The credit card number is: ";
+        if(result % 10 == 0)
+            cout << "valid";
+        else
+            cout << "invalid";
+        cout << endl;
+
+        input.clear();
     }
 
     return 0;
