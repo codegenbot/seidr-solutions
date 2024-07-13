@@ -11,10 +11,11 @@ int main() {
 
     double sum = 0.0;
     for(int i = 1; i < n; i++) {
-        sum += (double)i / m - (n-i) / (double)(n*m); 
+        double prob = (double)i / m - ((n-i+1) / (double)n);
+        sum += prob;
+        cout << fixed << setprecision(10) << prob << " "; 
     }
-    cout << "The probability that Peter rolls strictly higher than Colin is: ";
-    cout << fixed << setprecision(10) << sum << endl;
+    cout << endl;
 
     return 0;
 }
