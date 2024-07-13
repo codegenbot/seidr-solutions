@@ -1,8 +1,8 @@
-string middleCharacter(string str) {
-    int len = str.length();
-    if(len % 2 == 0){
-        return str.substr(len/2-1, 2);
-    } else{
-        return string(1, str[len/2]);
+string middleCharacter(string s) {
+    int len = s.length();
+    if(len % 2 == 0) {
+        return s.substr(len/2 - 1, 2);
+    } else {
+        return string(1, s[len/2]);
     }
 }
