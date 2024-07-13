@@ -3,27 +3,30 @@
 #include <string>
 
 std::string camelCase(const std::string& str) {
-    std::string result;
-    bool first = true;
+    std::string result = "";
+    for (const auto& word : split(str, '-')) {
+        if (!result.empty()) {
+            result += toupper(word[0]);
+            result.erase(0, 1);
+        }
+        result += tolower(word);
+    }
+    return result;
+}
 
-    for (char c : str) {
-        if (c == '-') {
-            first = true;
-        } else if (!first) {
-            if (!std::isalpha(c)) {
-                if (!result.empty()) {
-                    result[0] = toupper(result[0]);
-                }
-                result += tolower(c);
-            } else {
-                result += c;
-            }
+std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> tokens;
+    std::string token;
+    for (const auto& c : str) {
+        if (c == delimiter) {
+            tokens.push_back(token);
+            token = "";
         } else {
-            result += tolower(c);
+            token += c;
         }
     }
-
-    return result;
+    tokens.push_back(token);
+    return tokens;
 }
 
 int main() {
