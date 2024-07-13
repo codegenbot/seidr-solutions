@@ -20,3 +20,7 @@ def encrypt(s):
         else:  
             result += char
     return result
+
+if __name__ == "__main__":
+    s = "Hello World"
+    print(encrypt(s))
