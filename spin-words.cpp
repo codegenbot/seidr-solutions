@@ -4,8 +4,7 @@ int main() {
 
     istringstream iss(input);
     string word;
-    string result;
-
+    string result = "";
     while (iss >> word) {
         if (word.length() >= 5) {
             reverse(word.begin(), word.end());
