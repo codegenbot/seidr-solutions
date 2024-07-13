@@ -1,41 +1,40 @@
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result = "";
-    for (const auto& word : split(str, '-')) {
-        if (!result.empty()) {
-            result += toupper(word[0]);
-            result.erase(0, 1);
+using namespace std;
+
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i <= s.size(); i++) {
+        if (i == s.size() || s[i] == '-') {
+            if (result.size()) {
+                result[0] = toupper(result[0]);
+            }
+            string word = s.substr(i + 1);
+            result += word;
+            break;
+        } else if (s[i] == ' ') {
+            if (i > 0) {
+                result[0] = toupper(result[0]);
+            }
+            result += s.substr(0, i);
+            result += s.substr(i + 1);
+            break;
+        } else {
+            result += s[i];
         }
-        result += tolower(word);
     }
     return result;
 }
 
-std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> tokens;
-    std::string token;
-    for (const auto& c : str) {
-        if (c == delimiter) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += c;
-        }
-    }
-    tokens.push_back(token);
-    return tokens;
-}
-
 int main() {
-    std::string str;
+    string str;
     while (true) {
-        std::cout << "Enter a string in kebab-case (or 'exit' to quit): ";
-        std::cin >> str;
-        if (str == "exit") break;
-        std::cout << camelCase(str) << std::endl;
+        cout << "Enter a string in kebab-case: ";
+        getline(cin, str);
+        if (str == "quit") break; 
+        cout << "The camelCase is: " << camelCase(str) << endl;
     }
     return 0;
 }
