@@ -10,20 +10,31 @@ string camelCase(string s) {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            string word = s.substr(i + (s[i] == '-'));
-            result += word;
-        } else if (i > 0 && s[i] == ' ') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+            if (i > 0) {
+                string word = s.substr(0, i);
+                if (word != "") 
+                    result += word;
+                if (s[i] == '-' || i == s.size())
+                    return result;
+                result += toupper(s[i+1]);
+                for (int j = i + 2; j < s.size(); j++) {
+                    result += tolower(s[j]);
+                }
+            } else {
+                if (i > 0) 
+                    result += toupper(s[i-1]);
+                string word = s.substr(0, i);
+                if (word != "") 
+                    result += word;
             }
-            result += s.substr(0, i);
-            string word = s.substr(i + 1);
-            result += word;
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            if (result.size() == 0)
+            if (result.empty()) {
                 result += tolower(s[i]);
-            else
+            } else {
                 result += toupper(s[i]);
+            }
         }
     }
     return result;
