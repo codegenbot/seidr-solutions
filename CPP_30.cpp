@@ -1,17 +1,22 @@
 #include <vector>
 
-bool issame(float f1, float f2) {
-    if (f1 == f2)
-        return true;
-    else
-        return false;
+bool issame(float a, float b) {
+    return (a - b) < 1e-9;
 }
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
-        if (num > 0 || issame(num, 0.0)) {
+        bool same = false;
+        for (float x : l) {
+            if (issame(num, x)) {
+                same = true;
+                break;
+            }
+        }
+        if (!same && num > 0) {
             result.push_back(num);
         }
     }
     return result;
+}
