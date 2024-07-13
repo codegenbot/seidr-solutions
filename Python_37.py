@@ -1,3 +1,9 @@
-1,2,3,4,5
-Enter space-separated numbers: 2 4 6 8 10 1 3 5
-[2, 4, 6, 8, 10]
+def main():
+    while True:
+        try:
+            numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+            if len(numbers) > 0:
+                print(sorted(set(numbers)))
+                break
+        except ValueError:
+            print("Invalid input! Please enter integers separated by spaces.")
