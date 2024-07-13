@@ -1,9 +1,10 @@
+```
 def smallest_change(arr):
-    if not all(i.isdigit() for i in ' '.join(map(str, arr)).split()):
+    if not all(i.isdigit() for i in str(arr)[1:-1].split()):
         return
     n = len(arr)
     try:
-        arr = list(map(int, ' '.join(map(str, arr)).split()))
+        arr = list(map(int, str(arr)[1:-1].split()))
         arr.sort()
     except Exception as e:
         return str(e)
