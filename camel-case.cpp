@@ -1,12 +1,9 @@
-#include <string>
-#include <sstream>
-
 std::string camelCase(const std::string& input) {
     if (input.empty()) {
         return "";
     }
 
-    std::stringstream iss(input + " "); 
+    std::stringstream iss(input + " "); // add a space at the end for the last word
     std::string word;
     std::string result;
 
