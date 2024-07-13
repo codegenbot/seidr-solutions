@@ -1,6 +1,3 @@
-#include <string>
-#include <cctype>
-
 int bowlingScore(std::string s) {
     int score = 0;
     std::string frame;
@@ -21,11 +18,16 @@ int bowlingScore(std::string s) {
             }
             score += points;
         } else if (c == 'T') {
-            score += 10 + (s[s.find(c) + 1] - '0' + s[s.find(c) + 2] - '0');
+            int points = 10;
+            for (int i = 2; isdigit(s[i]); i++) {
+                points = points + (s[i] - '0');
+            }
+            score += points;
         }
     }
     return score;
 }
 
 int main() {
-    return bowlingScore(std::string("X/XXX/X-4-8/2X6/T50"));
+    return bowlingScore("X/XXX/X-4-8/2X6/T50");
+}
