@@ -1,29 +1,29 @@
+Here is the completed code:
+
+```cpp
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<bool>> dp(n, vector<bool>(n));
-    
-    for (int i = 0; i < n; i++) {
-        dp[i][i] = true;
+    string s = "";
+    for (int i : arr) {
+        s += to_string(i);
     }
-    
-    for (int length = 2; length <= n; length++) {
-        for (int start = 0; start < n - length + 1; start++) {
-            int end = start + length - 1;
-            
-            if (arr[start] == arr[end]) {
-                dp[start][end] = dp[start + 1][end - 1];
+    int count = 0;
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        if (s[left] != s[right]) {
+            count++;
+            if (left == 0) {
+                right--;
+            } else if (right == s.length() - 1) {
+                left++;
             } else {
-                dp[start][end] = false;
+                count = min(count + 2, 1);
+                break;
             }
+        } else {
+            left++;
+            right--;
         }
     }
-    
-    int changes = 0;
-    for (int i = 0; i < n; i++) {
-        if (!dp[0][i]) {
-            changes++;
-        }
-    }
-    
-    return changes;
+    return count;
 }
