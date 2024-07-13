@@ -1,4 +1,3 @@
-```cpp
 int luhn(int cardNumber) {
     int sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -15,4 +14,3 @@ int luhn(int cardNumber) {
         }
     }
     return sum;
-}
