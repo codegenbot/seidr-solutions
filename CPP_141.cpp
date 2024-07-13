@@ -1,30 +1,28 @@
-```cpp
-int digit_count = 0;
-bool has_dot = false;
+Here is the completed code:
 
-for(int i=0; i<file_name.length(); i++){
-    if(file_name[i] >= '0' && file_name[i] <= '9'){
-        digit_count++;
-    } else if(file_name[i] == '.'){
-        has_dot = true;
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool foundDot = false;
+    
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+        } else if (c == '.') {
+            foundDot = true;
+        } else if (!foundDot && !isalpha(c)) {
+            return "No";
+        }
     }
+    
+    string extension = "";
+    for (int i = file_name.find('.') + 1; i < file_name.size(); i++) {
+        extension += file_name[i];
+    }
+    
+    vector<string> validExtensions = {"txt", "exe", "dll"};
+    if (find(validExtensions.begin(), validExtensions.end(), extension) == validExtensions.end()) {
+        return "No";
+    }
+    
+    return digitCount > 3 ? "No" : "Yes";
 }
-
-if(digit_count > 3 || !has_dot){
-    return "No";
-}
-
-size_t dot_index = file_name.find('.');
-string before_dot = file_name.substr(0, dot_index);
-string after_dot = file_name.substr(dot_index+1);
-
-if(before_dot.empty() || !isalpha(before_dot[0])){
-    return "No";
-}
-
-vector<string> valid_extensions = {"txt", "exe", "dll"};
-if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()){
-    return "No";
-}
-
-return "Yes";
