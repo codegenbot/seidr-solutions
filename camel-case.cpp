@@ -1,43 +1,24 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == '-') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+    bool isNextUpper = false;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            if (isNextUpper) {
+                result += ' ';
+                isNextUpper = false;
             }
-            string word = s.substr(i + 1);
-            if (!word.empty())
-                result += word;
-            break;
         } else if (s[i] == ' ') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += s.substr(0, i) + s.substr(i + 1);
-            break;
+            continue;
         } else {
-            result += s[i];
+            if (!isNextUpper) {
+                result += toupper(s[i]);
+                isNextUpper = true;
+            } else {
+                result += tolower(s[i]);
+                isNextUpper = false;
+            }
         }
     }
     return result;
-}
-
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a string in kebab-case: ";
-        getline(cin, str);
-        cout << "The camelCase is: " << camelCase(str) << endl;
-        char response;
-        cout << "Continue? (y/n): ";
-        cin >> response;
-        if (response == 'n')
-            break;
-    }
-    return 0;
 }
