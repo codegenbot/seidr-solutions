@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+#include <vector>
 
 int score(string s) {
     int total = 0;
