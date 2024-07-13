@@ -1,5 +1,5 @@
-```Python
-"""def separate_paren_groups(paren_string: str) -> List[str]:
+```"
+def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     stack = []
     current_group = ''
@@ -19,4 +19,4 @@
             current_group = ''
     
     return groups
-"""
+""```
