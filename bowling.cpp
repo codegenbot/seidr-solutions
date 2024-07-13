@@ -1,21 +1,31 @@
-int bowlingScore(const string& s) {
+int calculateScore(const string& bowls) {
     int score = 0;
     int frame = 0;
     int ball = 0;
-    vector<int> frames(10, 0);
-    
-    for (char c : s) {
-        if (c == 'X') {
-            frames[frame] = 10;
+    for (int i = 0; i < bowls.size() && frame < 10; ++i) {
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (frame < 9) {
+                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
+                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
+            } else {
+                score += (bowls[i + 1] == 'X' || bowls[i + 1] == '/') ? 10 : (bowls[i + 1] - '0');
+                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
+            }
             frame++;
-        } else if (c == '/') {
-            frames[frame] = 10 - frames[frame-1];
+        } else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
             frame++;
             ball = 0;
-        } else if (c == '-') {
+        } else if (bowls[i] == '-') {
             ball++;
+            if (ball == 2) {
+                frame++;
+                ball = 0;
+            }
         } else {
-            frames[frame] += c - '0';
+            score += bowls[i] - '0';
             ball++;
             if (ball == 2) {
                 frame++;
@@ -23,22 +33,12 @@ int bowlingScore(const string& s) {
             }
         }
     }
-    
-    for (int i = 0; i < 10; i++) {
-        score += frames[i];
-        if (frames[i] == 10 && i < 9) {
-            score += frames[i+1] + (frames[i+1] == 10 ? frames[i+2] : frames[i+2] - frames[i+1]);
-        } else if (frames[i] == 10 && i == 9) {
-            score += frames[i+1] + frames[i+2];
-        }
-    }
-    
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << bowlingScore(s) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << calculateScore(bowls);
     return 0;
 }
