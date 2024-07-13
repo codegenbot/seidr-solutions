@@ -17,5 +17,3 @@ def is_multiply_prime():
                 break
     prime_factors = [f for f in set(factors) if is_prime(f)]
     return len(prime_factors) >= 3
-
-print(is_multiply_prime())
