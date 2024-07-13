@@ -13,7 +13,7 @@ int pairedDigits(string s) {
 }
 
 int main() {
-    string input = "your_input_string"; 
+    string input = "your_input_string"; // Replace with your desired input
     cout << pairedDigits(input) << endl;
     return 0;
 }
