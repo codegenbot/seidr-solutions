@@ -6,27 +6,33 @@ int bowlingScore(string s) {
 
     for (int frame = 0; frame < 10; ++frame) {
         if (s[5*frame] == '/') {
-            // Spare
             score += 10;
-            continue;
+            int nextRoll = s[5*frame + 1] - '0';
+            score += nextRoll;
         }
 
-        if (s[5*frame] == 'X') {
-            // Strike
+        else if (s[5*frame] == 'X') {
             score += 10;
-            continue;
+            if (frame < 8) {
+                char nextChar = s[5*frame + 1];
+                if (nextChar == 'X')
+                    score += 10;
+                else
+                    score += nextChar - '0';
+            }
         }
 
-        roll1 = s[5*frame] - '0';
-        roll2 = s[5*frame + 1] - '0';
+        else {
+            roll1 = s[5*frame] - '0';
+            roll2 = s[5*frame + 1] - '0';
 
-        if (roll1 + roll2 > 10) {
-            // Next roll is part of the current frame
-            score += 10;
-        } else {
-            // Next roll is a new frame
-            score += roll1 + roll2;
+            if (roll1 + roll2 > 10) {
+                score += 10;
+            } else {
+                score += roll1 + roll2;
+            }
         }
     }
 
     return score;
+}
