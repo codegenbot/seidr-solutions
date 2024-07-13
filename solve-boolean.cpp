@@ -1,32 +1,20 @@
-string solveBoolean(string s) {
-    bool result = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            result = true;
-        } else if (s[i] == 'f') {
-            return "False";
-        } else if (s[i] == '|') {
-            if (!result) {
-                for (int j = i + 1; j < s.length(); j++) {
-                    if (s[j] == 't') {
-                        result = true;
-                        break;
-                    } else if (s[j] == 'f') {
-                        return "False";
-                    }
-                }
-            }
-        } else if (s[i] == '&') {
-            bool temp = false;
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't') {
-                    temp = true;
-                } else if (s[j] == 'f') {
-                    return "False";
-                }
-            }
-            result &= temp;
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    if (s == "T" || s == "t") return true;
+    if (s == "F" || s == "f") return false;
+    for (int i = 0; i < s.length(); ++i) {
+        if (s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i + 1);
+            return solveBoolean(left) || solveBoolean(right);
+        }
+        else if (s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i + 1);
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
-    return result ? "True" : "False";
+    return false;
 }
