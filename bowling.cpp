@@ -1,24 +1,25 @@
+```c++
 #include <vector>
 #include <string>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
-        throw std::invalid_argument("No input provided");
+        throw std::runtime_error("No input provided");
     }
     int score = 0;
     int prevRoll1 = 0;
     int prevRoll2 = 0;
 
-    std::vector<int> rolls(10, 0);
+    std::vector<int> rolls = {0};
     for (int i = 0; i < 10; i++) {
         if (input[i] == 'X') {
-            rolls[i] = 10;
+            rolls.push_back(10);
         } else if (input[i+1] != ' ') {
             int roll = input[i] - '0' + (input[i+1] - '0');
-            rolls[i] = roll;
+            rolls.push_back(roll);
             i++;
         } else {
-            rolls[i] = input[i] - '0';
+            rolls.push_back(input[i] - '0');
         }
     }
 
