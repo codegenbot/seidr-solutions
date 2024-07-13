@@ -1,10 +1,13 @@
 def paired_digits(s):
     total = 0
-    prev_digit = None
-    for digit in s:
-        if digit == prev_digit:
-            total += int(digit) * 2
+    if s[0] == s[-1]:
+        if len(s) > 1 and s[0] == s[1]:
+            total += int(s[0]) * 2
         else:
-            total += int(digit)
-        prev_digit = digit
+            total += int(s[0])
+    for i in range(len(s) - 1):
+        if s[i] == s[i+1]:
+            total += int(s[i]) * 2
+        else:
+            total += int(s[i])
     return total

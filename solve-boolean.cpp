@@ -1,7 +1,6 @@
-#include <string>
-using namespace std;
-
+```c++
 bool solveBoolean(string s) {
+    bool result = true;
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -17,7 +16,7 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) {
-                return true;
+                result = true;
             }
             st.pop();
         } else {

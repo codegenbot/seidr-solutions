@@ -9,20 +9,20 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return b;
+    return a; 
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
-    std::string::size_type n = text.length();
-    std::string::size_type m = target.length();
+    size_t n = text.length();
+    size_t m = target.length();
 
-    for (std::string::size_type i = 0; i <= n - m; i++) {
-        if (text.substr(0, std::min((int)m, n-(i))) == target) {
-            while (i + m < n && text.substr(0, std::min((int)m, n-(i+m))) == target) { 
+    for (size_t i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            while (i + m < n && text.substr(i, m) == target) { 
                 i += m;
             }
-            result.push_back(i); 
+            result.push_back((int)i); 
         }
     }
 

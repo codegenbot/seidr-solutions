@@ -1,16 +1,29 @@
 #include <vector>
-#include <unordered_map>
+#include <algorithm>
 #include <iostream>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
-    std::unordered_map<int, int> numMap;
+    std::sort(nums.begin(), nums.end());
     
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.find(complement) != numMap.end()) {
-            return {nums[i], complement};
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int left = i;
+        int right = nums.size() - 1;
+        
+        while(left < right) {
+            int sum = nums[left] + nums[right];
+            
+            if(sum == target) {
+                return {nums[left], nums[right]};
+            }
+            
+            else if(sum < target) {
+                left++;
+            }
+            
+            else {
+                right--;
+            }
         }
-        numMap[nums[i]] = i;
     }
     
     return {-1, -1};
@@ -19,9 +32,9 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
 int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
-    int result = findPair(nums, target);
-    if(result != {-1, -1}) {
-        std::cout << "The pair of numbers that sum to the target is: (" << nums[result.first] << ", " << nums[result.second] << ")";
+    auto result = findPair(nums, target);
+    if(result.first != -1 && result.second != -1) {
+        std::cout << "The pair of numbers that sum to the target is: (" << result.first << ", " << result.second << ")";
     } else {
         std::cout << "No such pair found.";
     }
