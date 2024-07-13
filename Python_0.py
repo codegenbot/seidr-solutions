@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def has_close_elements(numbers=None, threshold=None):
     if numbers is None:
