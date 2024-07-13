@@ -1,3 +1,6 @@
 ```
 def words_string(s):
-    return [word.strip().capitalize() for word in s.split('\W')]
+    if not s:
+        return []
+    words = s.replace(", ", ",").split(",")
+    return [word.strip().capitalize() for word in words if word.strip()]
