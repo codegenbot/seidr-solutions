@@ -1,50 +1,33 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<vector<int>> res;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> result;
     
-    for (int i = 1; i < n; i++) {
-        if ((vec[i] - vec[0]) == (vec[n-1] - vec[i-1])) {
-            res.push_back({vec.begin(), vec.end()});
-            return {{}, {}};
+    for (int i = 0; i < n; i++) {
+        if (i == n - 1 || v[i] != v[i + 1]) {
+            result.push_back({v.begin(), v.begin() + i + 1});
+            break;
         }
     }
     
-    int min_diff = INT_MAX;
-    int cut_idx = 0;
-    
-    for (int i = 1; i < n; i++) {
-        int diff = abs(vec[i] - vec[0]) - abs(vec[n-1] - vec[i-1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
-        }
-    }
-    
-    res.push_back({vec.begin(), vec.begin() + cut_idx});
-    res.push_back({vec.begin() + cut_idx, vec.end()});
-    
-    return res;
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> v[i];
     }
-    
-    vector<vector<int>> result = cutVector(vec);
-    
-    for (auto v : result) {
-        for (int num : v) {
-            cout << num << " ";
+    vector<vector<int>> res = cutVector(v);
+    for (auto &v : res) {
+        for (int x : v) {
+            cout << x << " ";
         }
         cout << endl;
     }
-    
     return 0;
 }
