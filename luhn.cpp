@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -21,7 +22,7 @@ int luhnCheck(const vector<int>& creditCardNumber) {
 }
 
 int main() {
-    vector<int> card = {4, 3, 2, 1, 3, 5, 4, 0, 6, 7, 8, 9, 1, 2, 3, 4};
+    vector<int> card = {4, 3, 2, 1};
     cout << "Luhn check result: " << luhnCheck(card) << endl;
     return 0;
 }
