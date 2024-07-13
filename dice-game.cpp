@@ -10,10 +10,15 @@ int main() {
     cin >> m;
 
     double sum = 0.0;
+    // Calculate total combinations
+    int totalCombinations = n * m;
+
     // Calculate probability where Peter rolls strictly higher than Colin
-    for(int i = 1; i <= m - 1; i++) {
-        sum += (n - 1) * (m - i + 1) / (double)(n * m);
-    }
+    sum += (n - m) / (double)totalCombinations;
+
+    // Calculate probability where Peter and Colin roll the same number
+    sum += (m > n ? m : n) / (double)totalCombinations;
+
     cout << fixed << setprecision(10) << sum << endl;
 
     return 0;
