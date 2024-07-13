@@ -27,7 +27,7 @@ int mastermind(string code, string guess) {
         }
     }
 
-    return blackPegs;
+    return blackPegs + whitePegs;
 }
 
 int main() {
@@ -35,3 +35,4 @@ int main() {
     cin >> code >> guess;
     cout << mastermind(code, guess) << endl;
     return 0;
+}

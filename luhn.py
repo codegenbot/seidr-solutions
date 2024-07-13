@@ -1,5 +1,7 @@
-def luhn(card):
-    card = [int(x) for x in ' ' + str(card).replace(' ', '')[1:-1] + ' '].split()
+def luhn(card_number: str):
+    card = [int(x) for x in card_number.replace(" ", "")]
+    if len(card) != 16:
+        return
     card.reverse()
     total = 0
     for i, digit in enumerate(card):
