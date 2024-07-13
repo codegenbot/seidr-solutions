@@ -7,6 +7,6 @@ def indices_of_substring():
         pos = text.find(target, i)
         if pos == -1:
             break
-        result.append(pos + 2) 
-        i = pos + 1
+        result.append(pos + 1) 
+        i = pos + len(target)  # Start searching from the end of the previous match
     return result
