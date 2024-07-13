@@ -1,9 +1,9 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
-def leaders(a):
-    return [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
+def leaders(input):
+    return [x for x in reversed(input) if all(x >= y for y in input[input.index(x)+1:])]
 
-# You can test the function with these inputs
+# test cases
 print(leaders([0]))
 print(leaders([1, 0]))
 print(leaders([1, 451]))
