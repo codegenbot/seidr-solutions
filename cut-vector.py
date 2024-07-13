@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def cut_vector(vector):
     min_diff = float("inf")
     split_index = 0
