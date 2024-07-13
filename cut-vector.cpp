@@ -34,19 +34,19 @@ vector<vector<int>> cutVector(vector<int> v) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     vector<int> v(n);
     for(auto &x : v) 
-        std::cin >> x;
+        cin >> x;
     vector<vector<int>> res = cutVector(v);
-    std::cout << "[";
+    cout << "[";
     for(int i=0; i<res[0].size(); i++) 
-        std::cout << res[0][i] << " ";
-    std::cout << "]" << std::endl;
-    std::cout << "[";
+        cout << res[0][i] << " ";
+    cout << "]" << endl;
+    cout << "[";
     for(int i=0; i<res[1].size(); i++) 
-        std::cout << res[1][i] << " ";
-    std::cout << "]" << std::endl;
-    
+        cout << res[1][i] << " ";
+    cout << "]" << endl;
+
     return 0;
 }
