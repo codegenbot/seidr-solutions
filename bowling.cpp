@@ -1,44 +1,47 @@
-int calculateScore(const string& bowls) {
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 0;
-    int ball = 0;
-    for (int i = 0; i < bowls.size() && frame < 10; ++i) {
-        if (bowls[i] == 'X') {
-            score += 10;
-            if (frame < 9) {
-                score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
-                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
-            } else {
-                score += (bowls[i + 1] == 'X' || bowls[i + 1] == '/') ? 10 : (bowls[i + 1] - '0');
-                score += (bowls[i + 2] == 'X') ? 10 : (bowls[i + 2] - '0');
+    for (int i = 0; i < s.size() && frame < 10; ++i) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (i + 2 < s.size()) {
+                if (s[i + 2] == 'X') {
+                    total += 10;
+                    if (i + 4 < s.size()) {
+                        if (s[i + 4] == 'X') {
+                            total += 10;
+                        } else if (s[i + 4] != '/') {
+                            total += s[i + 4] - '0';
+                        }
+                    }
+                } else if (s[i + 3] == '/') {
+                    total += 10;
+                } else if (s[i + 4] == '/') {
+                    total += 10;
+                } else {
+                    total += s[i + 2] - '0' + s[i + 3] - '0';
+                }
             }
             frame++;
-        } else if (bowls[i] == '/') {
-            score += 10 - (bowls[i - 1] - '0');
-            score += (bowls[i + 1] == 'X') ? 10 : (bowls[i + 1] - '0');
-            frame++;
-            ball = 0;
-        } else if (bowls[i] == '-') {
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i - 1] - '0');
+            if (i + 1 < s.size()) {
+                total += s[i + 1] - '0';
             }
+            frame++;
+        } else if (s[i] == '-') {
+            // do nothing
         } else {
-            score += bowls[i] - '0';
-            ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
-            }
+            total += s[i] - '0';
+            frame++;
         }
     }
-    return score;
+    return total;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateScore(bowls);
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
