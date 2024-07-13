@@ -3,12 +3,7 @@ def fizz_buzz(x):
         return "Invalid input"
     result = ""
     if x % 3 == 0:
-        result += "Fizz"
+        result += "Fizz" if not result else "Fizz "
     if x % 5 == 0:
-        if not result:
-            result += "Buzz"
-        else:
-            result += "Buzz "
-    if not result:
-        return str(x)
-    return result
+        result += "Buzz" if not result or result == "Fizz" else "Buzz "
+    return str(x) if not result else result
