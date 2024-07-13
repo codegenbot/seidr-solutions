@@ -10,9 +10,9 @@ int main() {
     
     map<int, int> mp;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (mp.find(complement) != mp.end()) {
-            cout << complement << endl << nums[i] << endl;
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << nums[i] << endl;
+            cout << target - nums[i] << endl;
             break;
         }
         mp[nums[i]] = i;
