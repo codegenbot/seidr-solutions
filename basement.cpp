@@ -1,4 +1,4 @@
-int basement(const vector<int>& nums) {
+int firstNegativeSumIndex(const vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
@@ -8,6 +8,7 @@ int basement(const vector<int>& nums) {
     }
     return -1;
 }
+
 int main() {
     int n;
     cin >> n;
@@ -15,6 +16,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cout << basement(nums) << endl;
+    cout << firstNegativeSumIndex(nums) << endl;
     return 0;
 }
