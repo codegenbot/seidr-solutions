@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <cctype>
 
@@ -49,7 +50,7 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string input = "camel-case example-test-string";
-    std::cout << camelCase(input) << std::endl;
+    std::string str = "camel-case example-test-string";
+    std::cout << camelCase(str) << std::endl;
     return 0;
 }
