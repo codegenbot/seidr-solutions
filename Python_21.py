@@ -1,16 +1,9 @@
-def rescale_to_unit(*inputs):
-    inputs_str = ' '.join(map(str, inputs)).replace('(', '').replace(')', '').replace(',', ' ')
-    
-    if not inputs:
+def rescale_to_unit(lst):
+    if not lst:
         return []
 
-    inputs = list(map(float, inputs_str.split()))
-    
-    if not inputs:
-        return []
-
-    min_val = min(inputs)
-    max_val = max(inputs)
-    rescaled_numbers = [(x - min_val) / (max_val - min_val) for x in inputs]
+    min_val = min(lst)
+    max_val = max(lst)
+    rescaled_numbers = [(x - min_val) / (max_val - min_val) for x in lst]
 
     print([str(x) for x in rescaled_numbers])
