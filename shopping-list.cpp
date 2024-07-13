@@ -24,7 +24,7 @@ int main() {
         cin >> discounts[i];
     }
     
-    cout.precision(10); 
+    cout.precision(10); // To handle decimal precision
     cout << fixed;
     cout << shoppingList(&prices[0], &discounts[0], n) << endl;
 
