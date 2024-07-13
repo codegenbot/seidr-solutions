@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 bool solveBoolean(string s) {
     bool result = true;
     stack<char> st;
@@ -24,4 +25,3 @@ bool solveBoolean(string s) {
         }
     }
     return st.top() == 'T';
-}
