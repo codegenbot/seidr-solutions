@@ -1,43 +1,51 @@
-int calculateScore(const string& bowls) {
+int main() {
+    string input;
+    cin >> input;
     int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> rolls;
-
-    for (char ch : bowls) {
-        if (ch == 'X') {
-            rolls.push_back(10);
-            if (frame < 10) {
-                rolls.push_back(0);
-            }
-        } else if (ch == '/') {
-            rolls.push_back(10 - rolls.back());
-        } else if (ch == '-') {
-            rolls.push_back(0);
-        } else {
-            rolls.push_back(ch - '0');
-        }
-
-        ++ball;
-
-        if (frame < 10 && ((ch == 'X') || (ball == 2))) {
-            score += rolls[rolls.size() - 3] + rolls[rolls.size() - 2] + rolls[rolls.size() - 1];
+    int frame = 0;
+    int balls = 0;
+    vector<int> points(12, 0);
+    
+    for (char c : input) {
+        if (c == 'X') {
+            points[frame] = 10;
             frame++;
-            ball = 0;
-        } else if (frame == 10 && rolls.size() == 21) {
-            score += rolls[rolls.size() - 3] + rolls[rolls.size() - 2] + rolls[rolls.size() - 1];
+        } else if (c == '/') {
+            points[frame] = 10 - points[frame - 1];
+            frame++;
+            balls = 0;
+        } else if (c == '-') {
+            points[frame] = 0;
+            balls++;
+        } else {
+            points[frame] += c - '0';
+            balls++;
+        }
+        
+        if ((c == 'X' && balls == 1) || balls == 2) {
+            frame++;
+            balls = 0;
+        }
+        
+        if (frame == 10) {
+            break;
         }
     }
-
-    return score;
-}
-
-int main() {
-    string bowls;
-    cin >> bowls;
-
-    int score = calculateScore(bowls);
+    
+    for (int i = 0; i < 10; i++) {
+        score += points[i];
+        if (points[i] == 10) {
+            if (points[i + 1] == 10) {
+                score += points[i + 1] + points[i + 2];
+            } else {
+                score += points[i + 1];
+            }
+        } else if (points[i] + points[i + 1] == 10) {
+            score += points[i + 2];
+        }
+    }
+    
     cout << score << endl;
-
+    
     return 0;
 }
