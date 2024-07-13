@@ -1,4 +1,5 @@
-```
+Here's the corrected code:
+
 def fizz_buzz(n: int):
     result = []
     count = 0
