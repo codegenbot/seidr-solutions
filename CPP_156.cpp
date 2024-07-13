@@ -1,3 +1,4 @@
+```
 string intToMiniRoman(int n) {
     if (n <= 0)
         return "";
@@ -65,6 +66,5 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    cout << std::endl;
     cout << intToMiniRoman(n) << endl;
 }
