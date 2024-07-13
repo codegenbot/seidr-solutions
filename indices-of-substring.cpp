@@ -9,40 +9,39 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     // Preprocess the target string to build the lps array
     std::vector<int> lps(m);
     lps[0] = 0;
-    int i = 1;
-    while (i < m) {
-        if (target[i] == target[0]) {
-            lps[i] = i + 1;
+    int lpIndex = 1;
+    while (lpIndex < m) {
+        if (target[lpIndex] == target[0]) {
+            lps[lpIndex] = lpIndex + 1;
             break;
         }
-        i++;
+        lpIndex++;
     }
-    for (; i < m; i++) {
-        if (target[i] == target[lps[i - 1]]) {
-            lps[i] = lps[i - 1] + 1;
+    for (; lpIndex < m; lpIndex++) {
+        if (target[lpIndex] == target[lps[lpIndex - 1]]) {
+            lps[lpIndex] = lps[lpIndex - 1] + 1;
         } else {
-            lps[i] = lps[i - 1];
+            lps[lpIndex] = lps[lpIndex - 1];
         }
     }
 
     // Search for the pattern in the text using KMP
-    int k = 0, j = 0;
+    int i = 0, j = 0;
 
-    while (k < n) {
-        if (text[k] == target[j]) {
-            k++;
+    while (i < n) {
+        if (text[i] == target[j]) {
+            i++;
             j++;
         } else {
             if (j != 0) {
                 j = lps[j - 1];
             } else {
-                k++;
+                i++;
             }
         }
 
         if (j == m) {
-            result.push_back(k - j);
-            k -= j;
+            result.push_back(i - m);
             j = 0;
         }
     }
