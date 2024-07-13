@@ -1,17 +1,15 @@
-```Python
+```
 def luhn(card):
-    card = [int(x) for x in str(card)]
+    card = [int(x) for x in ' ' + str(card).replace(' ', '')[1:-1] + ' '].split()
     card.reverse()
     total = 0
-    doubled = False
+    is_double = False
     for i, digit in enumerate(card):
-        if doubled:
-            if digit * 2 >= 10:
-                total += (digit * 2) % 10 + 9
-            else:
-                total += digit * 2
-            doubled = False
-        else:
+        if i % 2 == 0:
             total += digit
-            doubled = not doubled
+        else:
+            doubled = digit * 2
+            total += (doubled - (doubled // 10) * 9)
     return -1 if total % 10 != 0 else 1
+
+print(luhn([4, 8, 4, 7, 1, 9, 2, 9, 4, 7, 6, 5, 3, 3, 3, 8]))
