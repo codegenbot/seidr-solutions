@@ -1,7 +1,7 @@
 int main() {
     string input;
     getline(cin, input);
-
+    
     istringstream iss(input);
     string word;
     bool first = true;
@@ -12,6 +12,6 @@ int main() {
         cout << (first ? "" : " ") << word;
         first = false;
     }
-
+    
     return 0;
 }
