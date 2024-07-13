@@ -1,4 +1,3 @@
-```
 from typing import list
 
 def rolling_max(numbers: list) -> list:
