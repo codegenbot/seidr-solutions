@@ -2,27 +2,24 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        for (int j = 0; j < cipher_map1.length(); j++) {
-            if (message[i] == cipher_map1[j]) {
-                result += cipher_map2[j];
-                break;
-            }
+std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        if (c == '\0') break; // Assuming the input strings are null-terminated
+        int index = c - 'a'; // Assuming lowercase letters only
+        if (index >= 0 && index < cipher1.length()) {
+            char mappedChar = cipher2[index];
+            result += mappedChar;
+        } else {
+            result += c;
         }
     }
     return result;
 }
 
 int main() {
-    std::string cipher_map1, cipher_map2, message;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher_map1;
-    std::cout << "Enter the second string: ";
-    std::cin >> cipher_map2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
