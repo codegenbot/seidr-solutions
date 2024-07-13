@@ -1,9 +1,6 @@
-def rescale_to_unit(*args):
-    if args:
-        inputs = list(map(float, str(args[0]).replace('[', '').replace(']', '').split()))
-    else:
-        inputs = []
-        
+def rescale_to_unit(*inputs):
+    inputs = list(map(float, inputs[1:-1].replace('(', '').replace(')', '').replace(',', ' ').split()))
+    
     if not inputs:
         return []
 
