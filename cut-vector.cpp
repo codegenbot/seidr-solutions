@@ -35,7 +35,12 @@ vector<vector<int>> cutVector(vector<int> v) {
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
     }
-    res[0] = vector<int>(v.begin(), v.begin() + cutIndex);
+    
+    if(res[0].size() > res[1].size()) {
+        vector<int> temp = res[0];
+        res[0] = res[1];
+        res[1] = temp;
+    }
     
     return res;
 }
