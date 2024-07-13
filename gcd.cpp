@@ -3,8 +3,17 @@
 #include <vector>
 #include <string>
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+using namespace std;
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -17,13 +26,6 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     return result;
 }
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 int main() {
     string text;
     string target;
@@ -32,12 +34,8 @@ int main() {
     cin >> text >> target;
     result = indicesOfSubstring(text, target);
 
+    cout << gcd(0, 0) << endl;  // You can replace these values with your own inputs
     for (int i : result)
         cout << i << " ";
-    
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
     return 0;
 }
