@@ -5,31 +5,29 @@ int main() {
         nums.push_back(num);
     }
     
+    int n = nums.size();
     int sum = 0;
-    for (int n : nums) {
-        sum += n;
+    for (int i = 0; i < n; ++i) {
+        sum += nums[i];
     }
     
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    for (int i = 0; i < n; ++i) {
+        prefix_sum += nums[i];
+        int suffix_sum = sum - prefix_sum;
+        int diff = abs(prefix_sum - suffix_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    vector<int> sub1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> sub2(nums.begin() + idx + 1, nums.end());
-    
-    for (int n : sub1) {
-        cout << n << endl;
+    for (int i = 0; i <= cut_index; ++i) {
+        cout << nums[i] << endl;
     }
-    for (int n : sub2) {
-        cout << n << endl;
-    }
+    cout << 0 << endl;
     
     return 0;
 }
