@@ -6,11 +6,7 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     for (char c : s) {
         if (c == '/') {
-            if (currentRoll == 10) {
-                score += 10;
-            } else {
-                score += currentRoll;
-            }
+            score += max(1, currentRoll);
             currentRoll = 0;
         } else if (isdigit(c)) {
             currentRoll *= 10 + (c - '0');
