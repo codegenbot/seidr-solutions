@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 from typing import List
 
@@ -20,5 +18,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
                 result.append(temp)
                 temp = ''
-    
-    return result
+    return [temp] if stack else result
