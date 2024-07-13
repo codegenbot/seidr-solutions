@@ -4,15 +4,7 @@
 using namespace std;
 
 int main() {
-    vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
-        if (cin.peek() == '\n' || cin.peek() == EOF) {
-            break;
-        }
-    }
+    vector<int> nums = {3, 6, 1, 7, 2, 8, 4};
     
     int n = nums.size();
     int sum = 0;
