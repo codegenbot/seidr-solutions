@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -19,4 +20,14 @@ vector<int> strange_sort_list(vector<int> lst) {
     }
 
     return result;
+}
+
+int main() {
+    vector<int> list = {4, 2, 7, 1};
+    vector<int> sortedList = strange_sort_list(list);
+    
+    for (int num : sortedList) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
