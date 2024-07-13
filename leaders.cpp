@@ -1,6 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 std::vector<int> leaders(std::vector<int>& arr) {
@@ -8,12 +8,15 @@ std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> res;
     if(n == 0) return res;
 
-    res.push_back(arr[n-1]);
-
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= arr[i+1]) {
-            res.push_back(arr[i]);
+    for(int i=n-1; i>=0; i--) {
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[i] < arr[j]) {
+                isLeader = false;
+                break;
+            }
         }
+        if(isLeader) res.push_back(arr[i]);
     }
 
     return res;
