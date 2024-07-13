@@ -1,22 +1,16 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double calculateProbability(int n, int m) {
-    double probability = 0.0;
-    
-    for (int i = 1; i <= m; i++) {
-        probability += (n - i) / (double) (n * m);
+double probability(int n, int m) {
+    double totalPossibilities = n * m;
+    double peterWins = 0;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < m; j++) {
+            if (i > j) {
+                peterWins++;
+            }
+        }
     }
-    
-    return probability;
-}
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-    
-    double result = calculateProbability(n, m);
-    cout << fixed << setprecision(2) << result << endl;
-    
-    return 0;
+    return peterWins / totalPossibilities;
 }
