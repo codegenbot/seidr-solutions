@@ -1,3 +1,6 @@
-```
-def digitSum(s):
-    return sum(int(c) for c in s if c.isdigit() or not c.isdigit())
+def """digitSum(s):
+    sum = 0
+    for c in s:
+        sum += int(c)
+    return sum
+""":
