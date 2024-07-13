@@ -1,3 +1,4 @@
+```
 start_height = float(input("Enter the starting height: "))
 first_bounce_height = float(input("Enter the height after the first bounce: "))
 num_bounces = int(input("Enter the number of bounces: "))
