@@ -1,4 +1,4 @@
-amount = int(input("Enter the number of cents: "))
+amount = int(input("Enter amount in cents: "))
 quart, remainder = divmod(amount, 25)
 nickles = divmod(remainder, 5)
 dimes, pennies = divmod(nickles[1], 10), nickles[1]%10
