@@ -1,7 +1,6 @@
 #include <iostream>
+#include <stack>
 #include <string>
-
-using namespace std;
 
 struct Node {
     char value;
@@ -10,31 +9,37 @@ struct Node {
 };
 
 Node* parseExpression(std::string expression) {
-    stack<Node*> s;
     Node* root = nullptr;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            Node* temp = new Node();
-            temp->value = '|';
-            temp->right = s.top();
-            s.pop();
-            temp->left = s.top();
-            s.pop();
-            s.push(temp);
+            Node* node = new Node();
+            node->value = '|';
+            node->left = rightmostNode(root);
+            root = node;
         } else if (expression[i] == '&') {
-            Node* temp = new Node();
-            temp->value = '&';
-            temp->right = s.top();
-            s.pop();
-            s.push(temp);
+            Node* node = new Node();
+            node->value = '&';
+            node->right = rightmostNode(root);
+            root = node;
         } else if (expression[i] == 'T' || expression[i] == 'F') {
-            Node* temp = new Node();
-            temp->value = expression[i];
-            s.push(temp);
+            Node* node = new Node();
+            node->value = expression[i];
+            node->left = nullptr;
+            node->right = nullptr;
+            root = node;
         }
     }
-    root = s.top();
     return root;
+}
+
+Node* rightmostNode(Node* node) {
+    if (node == nullptr) {
+        return nullptr;
+    }
+    while (node->right != nullptr) {
+        node = node->right;
+    }
+    return node;
 }
 
 bool evaluateBoolean(Node* node) {
