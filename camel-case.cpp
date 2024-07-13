@@ -23,7 +23,7 @@ std::string camelCase(std::string str) {
             if (result.empty())
                 result = std::toupper(word);
             else
-                result += " " + std::char(std::tolower(word[0])) + std::toupper(word.substr(1).c_str());
+                result += " " + std::string(1, ' ') + std::tolower(word[0]) + std::toupper(word.substr(1).c_str());
         }
     }
 
