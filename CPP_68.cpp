@@ -1,17 +1,15 @@
-vector<vector<int>> issame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return {{-1}};
-    }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return {{-1}};
-        }
-    }
-    return {{1}};
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i = 0; i < v1.size(); ++i)
+        if(v1[i] != v2[i]) return false;
+    return true;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -32,14 +30,10 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> v1 = {1, 2, 3};
-    vector<int> v2 = {1, 2, 3};
-    vector<vector<int>> sameOrNot = issame(v1, v2);
-    if (sameOrNot[0][0] == -1) {
-        cout << "The vectors are not the same." << endl;
-    } else {
-        cout << "The vectors are the same." << endl;
-    }
+    std::vector<int> v1 = {1, 2, 3};
+    std::vector<int> v2 = {1, 4, 5};
+    if(issame(v1, v2)) 
+        pluck(v1);
     
     return 0;
 }
