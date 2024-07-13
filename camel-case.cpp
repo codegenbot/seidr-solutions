@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -8,7 +7,7 @@ std::string camelCase(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             if (!capitalize) {
-                result += toupper(str.find(c) + 1);
+                result += toupper(str.substr(str.find(c) + 1, 1));
                 capitalize = true;
             }
             result += ' ';
