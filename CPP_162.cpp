@@ -1,22 +1,21 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <iomanip>
 
-using namespace std;
-
-string string_to_md5(const string& input) {
-    string output;
+std::string string_to_md5(const std::string& input) {
+    std::string output;
     for (int i = 0; i < 32; i++) {
         char c = ((input[i % input.size()] + i) * i) % 256;
         if(i < 2)
-            output += to_string(c);
+            output += std::to_string(c);
         else
-            output += setw(2) << setfill('0') << hex << (int)c;
+            output += std::setfill('0') << std::setw(2) << std::hex << c;
     }
     return output;
 }
 
 int main() {
-    cout << fixed << setprecision(0) << string_to_md5("password") << endl;
+    std::cout << std::fixed << std::setprecision(0) << string_to_md5("password") << std::endl;
     return 0;
 }
