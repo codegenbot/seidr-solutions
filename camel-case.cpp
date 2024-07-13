@@ -1,22 +1,31 @@
 #include <iostream>
 #include <string>
 
+std::vector<std::string> split(const std::string& str, char sep) {
+    std::vector<std::string> parts;
+    size_t pos = 0;
+
+    while ((pos = str.find(sep)) != std::string::npos) {
+        parts.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+
+    parts.push_back(str);
+
+    return parts;
+}
+
 std::string camelCase(const std::string& str) {
+    std::vector<std::string> parts = split(str, '-');
     std::string result;
     bool capitalize = true;
 
-    for (char c : str) {
-        if (c == '-') {
-            if (!result.empty()) {
-                result.push_back(c);
-                result[0] = toupper(result[0]);
-                capitalize = true;
-            }
-        } else if (capitalize) {
-            result += toupper(c);
+    for (const auto& part : parts) {
+        if (capitalize) {
+            result += toupper(part[0]);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += part.substr(1);
         }
     }
 
