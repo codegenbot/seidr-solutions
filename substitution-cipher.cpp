@@ -2,22 +2,30 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipher, const std::string& mapping) {
-    std::string result;
-    for (char c : cipher) {
-        int index = c - 'a';
-        if (index >= 0 && index < mapping.length()) {
-            result += mapping[index];
+string substitutionCipher(string cipherMap, string message) {
+    string decipheredMessage;
+    
+    for (int i = 0; i < message.length(); i++) {
+        if (message[i] == ' ') {
+            decipheredMessage += ' ';
         } else {
-            result += c; // or throw an exception, depending on your needs
+            int j = 0;
+            while (j < cipherMap.length()) {
+                if (cipherMap[j] == message[i]) {
+                    decipheredMessage += &cipherMap[0][j+1];
+                    break;
+                }
+                j++;
+            }
         }
     }
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << decipher(message, cipher2) << std::endl;
+    string cipherMap, message;
+    cin >> cipherMap >> message;
+    cout << substitutionCipher(cipherMap, message) << endl;
     return 0;
 }
