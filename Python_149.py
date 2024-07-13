@@ -1,4 +1,11 @@
-```python
+```Python
+from collections import OrderedDict
+
 def sorted_list_sum(lst):
-    alpha_chars = [i for i in lst if i.isalpha()]
-    return [''.join(sorted(i)) for i in set(alpha_chars)]
+    strings = [s for s in lst if isinstance(s, str)]
+    numbers = []
+    for s in strings:
+        for c in s:
+            if c.isdigit():
+                numbers.append(int(c))
+    return list(OrderedDict.fromkeys(strings + map(str, numbers)))
