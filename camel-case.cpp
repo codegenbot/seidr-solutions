@@ -1,19 +1,49 @@
-```
-std::string kebabToCamel(const std::string& s) {
-    std::istringstream iss(s);
-    std::string word;
-    std::string result;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
-    while (iss >> word) {
-        if (!result.empty()) {
-            result += word[0] | 32;
-            for (int i = 1; i < word.size(); ++i) {
-                result += tolower(word[i]);
+std::string kebabToCamel(const std::string& s) {
+    std::vector<std::string> words;
+    std::string word;
+
+    for (char c : s) {
+        if (c == '-' || c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
         } else {
-            result = toupper(word[0]) + std::string(word.begin() + 1, word.end());
+            word += c;
+        }
+    }
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    std::string result;
+
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            result += "";
+        }
+        for (char c : words[i]) {
+            if (i == 0) {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "The camelCase equivalent is: " << kebabToCamel(input) << std::endl;
+    return 0;
 }
