@@ -1,27 +1,21 @@
 #include <vector>
 using namespace std;
 
-int calculateFuelCost(vector<int> numbers) {
+int solve(vector<int> v) {
     int sum = 0;
-    for (int num : numbers) {
-        int result = num / 3;
-        result = floor(result);
-        result -= 2;
-        sum += result;
+    for (int i : v) {
+        sum += (i / 3 - 2);
     }
     return sum;
 }
 
 int main() {
-    vector<int> numbers;
     int n;
-    cout << "Enter number of elements: ";
     cin >> n;
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        numbers.push_back(num);
+        cin >> v[i];
     }
-    cout << "Fuel cost: " << calculateFuelCost(numbers) << endl;
+    cout << solve(v) << endl;
     return 0;
 }
