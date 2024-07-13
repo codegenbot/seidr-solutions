@@ -1,3 +1,6 @@
+Here is the modified code for the gcd problem:
+
+```python
 import math
 
 def gcd(a, b):
