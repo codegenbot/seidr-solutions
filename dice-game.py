@@ -1,7 +1,2 @@
-```
 def dice_game(n, m):
-    p = 0
-    c = 0
-    for i in range(1, min(n, m) + 1):
-        c += (m - i)
-    return (c / (n * m))
+    return m * ((n - m) / (n * m)) + sum((n - j) / n for j in range(m + 1))
