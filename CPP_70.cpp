@@ -7,8 +7,8 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
     if (lst.empty()) return result;
 
     sort(lst.begin(), lst.end());
@@ -23,11 +23,10 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> list = {4, 2, 7, 1};
-    vector<int> sortedList = strange_sort_list(list);
-    
-    for (int num : sortedList) {
-        std::cout << num << " ";
+    std::vector<int> input = {4, 2, 9, 6, 5, 1};
+    std::vector<int> output = strange_sort_list(input);
+    for (int i : output) {
+        std::cout << i << " ";
     }
     return 0;
 }
