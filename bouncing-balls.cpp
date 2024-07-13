@@ -1,6 +1,5 @@
+```cpp
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 int main() {
@@ -20,10 +19,12 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        cout << std::fixed << std::setprecision(10);
-        cout << (startHeight * bouncinessIndex) << endl;
+        totalDistance += (startHeight * bouncinessIndex); 
         startHeight *= 0.5; 
     }
+
+    std::cout << std::fixed << std::setprecision(10);
+    cout << totalDistance << endl;
 
     return 0;
 }
