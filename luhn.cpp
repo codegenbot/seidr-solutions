@@ -34,11 +34,12 @@ int main() {
         cardNumber /= 10;
     }
 
-    if (luhn(input) % 10 == 0) {
+    int result = luhn(input);
+
+    if(result % 10 == 0)
         cout << "The credit card number is valid." << endl;
-    } else {
-        cout << "The credit card number is invalid." << endl;
-    }
+    else
+        cout << "The credit card number is not valid." << endl;
 
     return 0;
 }
