@@ -21,7 +21,7 @@ def solve_boolean(expression):
             elif char == "(":
                 operators.append(char)
             elif char in ["t", "f"]:
-                stack.append(char == "t")
+                stack.append(eval(char.lower() == 't'))
         while operators:
             op = operators.pop()
             if precedence.get(op, 0) > precedence.get(operators[-1], 0):
