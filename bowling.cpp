@@ -1,8 +1,9 @@
+#include <string>
 #include <sstream>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    std::stringstream ss(s);
+    std::stringstream ss;
     char c;
     while (ss >> c) {
         if (c == 'X') {
@@ -15,3 +16,4 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
+}
