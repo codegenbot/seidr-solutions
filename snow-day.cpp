@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 #include <iomanip>
@@ -7,15 +8,10 @@ double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proport
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall; 
-        totalSnow -= static_cast<int>(totalSnow * proportionMeltingPerHour); 
+        totalSnow -= totalSnow * proportionMeltingPerHour; 
     }
     
-    if(totalSnow < 0.0) {
-        std::cout << "Error: The amount of snow on the ground cannot be negative." << std::endl;
-        return -1.0;
-    } else {
-        return totalSnow;
-    }
+    return totalSnow;
 }
 
 int main() {
@@ -26,7 +22,7 @@ int main() {
     
     double result = snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour);
     
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
     
     return 0;
 }
