@@ -26,3 +26,4 @@ int mastermind(string code, string guess) {
     blackPegs -= whitePegs;
 
     return std::make_pair(whitePegs, blackPegs);
+}
