@@ -13,18 +13,16 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+    std::vector<int> result; // Initialize the vector
     int n = text.length();
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            int j = i + m;
-            while (j <= n && text.substr(j - m, m) == target) {
-                j += m;
+            while (i + m <= n && text.substr(i, m) == target) {
+                i++;
             }
-            i = j - 1;
         }
     }
 
