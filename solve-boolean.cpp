@@ -1,6 +1,8 @@
+```cpp
 bool solveBoolean(std::string s) {
-    bool result = true;
     stack<char> st;
+    bool result = true;
+    char c;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -22,4 +24,5 @@ bool solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    return st.top() == 'T';
+    return c == 'T';
+}
