@@ -20,7 +20,7 @@ std::string validateTweet(std::string tweet) {
     } else if (tweet.empty()) {
         return "You didn't type anything";
     } else {
-        tweet.erase(tweet.find_last_not_of("\n") + 1); 
+        tweet.erase(tweet.find_last_not_of("\n") + 1); // Remove trailing newline
         return "Your tweet has " + std::to_string(tweet.length()) + " characters";
     }
 }
