@@ -8,7 +8,7 @@ std::string int_to_mini_roman(int number) {
                                                        {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
     std::string roman = "";
     
-    for (const auto& pair : roman_map) {
+    for (auto& pair : roman_map) {
         while (number >= pair.first) {
             number -= pair.first;
             roman += pair.second;
