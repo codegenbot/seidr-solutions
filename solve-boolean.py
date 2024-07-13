@@ -1,9 +1,10 @@
-def solveBoolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression:
-        return expression.split("&")[0] != "F" and expression.split("&")[1] != "F"
-    elif "|" in expression:
-        return expression.split("|")[0] != "F" or expression.split("|")[1] != "F"
+def solve.Boolean(expression):
+    stack = []
+    for char in expression:
+        if char in ['|', '&']:
+            right = stack.pop()
+            left = stack.pop()
+            stack.append((left and right) if char == '&' else (left or right))
+        elif char in ['T', 'F']:
+            stack.append(char.upper() == 'T')
+    return stack[0]
