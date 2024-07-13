@@ -1,25 +1,30 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
+    bool strike = false;
+    bool spare = false;
+
     for (char c : s) {
         if (c == 'X') {
-            score += 10 + (frame < 9 ? 10 : 0);
-            frame++;
+            score += 10 + (strike ? 10 : 0) + (spare ? 5 : 0);
+            strike = true;
+            spare = false;
         } else if (c == '/') {
-            score += 10 - (s[s.size() - 2] - '0');
-            frame++;
+            score += 10 + (strike ? 10 : 0);
+            strike = false;
+            spare = true;
         } else {
-            int pins = c - '0';
-            if (pins == 10) {
-                score += 10;
-                frame++;
+            int x = c - '0';
+            if (strike) {
+                score += x;
+                strike = false;
+            } else if (spare) {
+                score += x;
+                spare = false;
             } else {
-                score += pins;
-                if (frame < 9 && s[s.size() - 1] != '/') {
-                    frame++;
-                }
+                score += x;
             }
         }
     }
+
     return score;
 }
