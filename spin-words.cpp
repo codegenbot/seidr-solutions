@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <string>
 using namespace std;
 
@@ -10,12 +8,10 @@ string spinWords(string str) {
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5) {
-                for (int i = word.length() - 1; i >= 0; i--) {
+                for (int i = word.length() - 1; i >= 0; --i)
                     result += word[i];
-                }
-            } else {
+            } else
                 result += word;
-            }
             word = "";
         } else {
             word += c;
@@ -23,12 +19,10 @@ string spinWords(string str) {
     }
 
     if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
+        for (int i = word.length() - 1; i >= 0; --i)
             result += word[i];
-        }
-    } else {
+    } else
         result += word;
-    }
 
     return result;
 }
