@@ -1,12 +1,21 @@
-Here is the Python code to solve this problem:
-
 ```
-def substitute_cipher(s1, s2, message):
-    cipher = {c1: c2 for c1, c2 in zip(s1, s2)}
-    deciphered_message = ''
+def substitution_cipher(cipher1, cipher2, message):
+    cipher_map = cipher1 + cipher2
+    result = ""
     for char in message:
-        if char in cipher:
-            deciphered_message += cipher[char]
+        if char.isalpha():
+            index = ord(char.lower()) - 97
+            result += (
+                cipher_map[index % len(cipher_map)].lower()
+                if char.islower()
+                else cipher_map[index % len(cipher_map)].upper()
+            )
         else:
-            deciphered_message += char
-    return deciphered_message
+            result += char
+    return result
+
+cipher_map1 = input().strip()
+cipher_map2 = input().strip()
+message = input().strip()
+
+print(substitution_cipher(cipher_map1, cipher_map2, message))
