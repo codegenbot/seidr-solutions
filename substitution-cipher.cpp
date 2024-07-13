@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 using namespace std;
 
 int main() {
@@ -12,7 +12,7 @@ int main() {
         }
     }
     
-    cout << message << '\n';  // Replace endl with '\n'
+    cout << message << "\n";
     
     return 0;
 }
