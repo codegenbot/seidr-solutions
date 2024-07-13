@@ -1,4 +1,5 @@
-```cpp
+using std::pair;
+
 #include <vector>
 #include <unordered_map>
 #include <utility>
@@ -15,4 +16,3 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         numMap[nums[i]].push_back(i);
     }
     return std::make_pair(-1, -1);
-}
