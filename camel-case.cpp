@@ -11,16 +11,23 @@ string camelCase(string s) {
                 result[0] = toupper(result[0]);
             }
             if (i < s.size()) {
-                result += tolower(s.substr(i + 1));
-            } else {
+                string word = s.substr(i + 1);
+                if (!word.empty())
+                    result += word;
                 break;
+            } else {
+                return result;
             }
         } else if (s[i] == ' ') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += toupper(s[i+1]) + s.substr(i + 2);
-            i = s.size();
+            if (i > 0) {
+                string word = s.substr(0, i);
+                if (!word.empty())
+                    result += word;
+            }
+            break;
         } else {
             result += tolower(s[i]);
         }
