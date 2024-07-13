@@ -36,12 +36,14 @@ void findCutIndex(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int num;
-    cout << "Enter positive integers to form a vector (enter -1 to stop): ";
-    while (cin >> num) {
-        if(num == -1) break;
-        nums.push_back(num);
+    int n;
+    cout << "Enter the number of positive integers in the vector: ";
+    cin >> n;
+    
+    vector<int> nums(n);
+    cout << "Enter positive integers to form a vector: ";
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
 
     findCutIndex(nums);
