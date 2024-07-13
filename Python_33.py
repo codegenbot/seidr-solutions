@@ -1,9 +1,5 @@
 def sort_third(l: list):
     return [
-        (
-            tuple(sorted(x for x in subl if i % 3 == 2 or x < y))
-            if i % 3 != 0
-            else sorted((x for x in subl if i % 3 == 2 or x < y))
-        )
-        for i, subl, y in zip(range(len(l)), l, [subl[-1] for subl in l])
+        sorted([y for y in l if (l.index(y) % 3 == 2 and i != l.index(y)) or y < x])
+        for i, x in enumerate(l)
     ]
