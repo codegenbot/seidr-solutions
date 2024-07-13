@@ -1,20 +1,40 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res;
     
+    int min_diff = INT_MAX;
+    long long left_sum = 0, right_sum = 0;
+    
     for (int i = 1; i < n; i++) {
-        if (v[i] - v[0] <= v[n-1] - v[i]) {
-            res.push_back({v.begin(), v.end()});
-            return {{}, {v.begin(), v.end()}};
+        left_sum += v[i-1];
+        right_sum = accumulate(v.begin() + i, v.end(), 0);
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
         }
     }
     
-    res.push_back({{v.begin()}, {v.end()}}); 
+    for (int i = 1; i < n; i++) {
+        left_sum += v[i-1];
+        right_sum = accumulate(v.begin() + i, v.end(), 0);
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff == min_diff) {
+            res.push_back({v.begin(), v.begin() + i});
+            res.push_back({v.begin() + i, v.end()});
+            return res;
+        }
+    }
+    
+    vector<int> left = v;
+    vector<int> right = v;
+    res.push_back(left);
+    res.push_back(right); // default case
     return res;
 }
 
