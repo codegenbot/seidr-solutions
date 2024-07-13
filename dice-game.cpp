@@ -1,6 +1,10 @@
-```c++
-#include <iostream>
-using namespace std;
+int main() {
+    int n = 6; // set your value here
+    int m = 6; // set your value here
+    double result = probability(n, m);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -13,12 +17,4 @@ double probability(int n, int m) {
     }
 
     return p;
-}
-
-int main() {
-    int n = 6; 
-    int m = 6; 
-    double result = probability(n, m);
-    cout << "Probability: " << result << endl;
-    return 0;
 }
