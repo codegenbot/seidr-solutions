@@ -1,14 +1,4 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
-```
-def indices_of_substring(text):
-    result = []
-    start_index = 0
-    while True:
-        try:
-            start_index = text.index(input(), start_index)
-            result.append(start_index)
-            start_index += len(input())
-        except ValueError:
-            break
-    return result
+def indices_of_substring(text, target):
+    return [i for i in range(len(text)) if text.startswith(target, i)]
