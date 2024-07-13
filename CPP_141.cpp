@@ -1,32 +1,34 @@
 ```cpp
-#include<string>
+#include <cstddef>
+#include <string>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
-    bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
+    bool has_dot = false;
+    size_t dot_pos = std::string::npos;
+
+    for (char c : file_name) {
+        if (c >= '0' && c <= '9') {
             digit_count++;
-            if(digit_count > 3) return "No";
-        } else if(file_name[i] == '.'){
-            found_dot = true;
-        } else if(!found_dot){
-            if((file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')) return "No";
+        } else if (c == '.') {
+            has_dot = true;
+            dot_pos = file_name.find(c);
+        } else if (!has_dot) {
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+                return "No";
+            }
+        } else {
+            std::string ext = file_name.substr(dot_pos + 1);
+            if (ext != "txt" && ext != "exe" && ext != "dll") {
+                return "No";
+            }
         }
     }
-    if(!found_dot) return "No";
-    string extension = "";
-    for(int i=file_name.find('.')+1; i<file_name.length(); i++){
-        extension += file_name[i];
-    }
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-    return "Yes";
+
+    return digit_count <= 3 && has_dot ? "Yes" : "No";
 }
 
 int main() {
-   string input;
-   cout << "Enter a file name: ";
-   cin >> input;
-   cout << "The result is: " << file_name_check(input) << endl;
-   return 0;
+    assert(file_name_check("s.") == "No");
+    // Your code here
 }
