@@ -13,22 +13,22 @@ int main() {
     std::vector<float> prices;
     std::vector<float> discounts;
     int n;
-    std::cin >> n;
+    cin >> n;
 
     for (int i = 0; i < n; ++i) {
         float price;
-        std::cin >> price;
+        cin >> price;
         prices.push_back(price);
     }
 
     for (int i = 0; i < n; ++i) {
         float discount;
-        std::cin >> discount;
+        cin >> discount;
         discounts.push_back(discount);
     }
 
     float totalPrice = calculateTotalPrice(prices, discounts);
-    std::cout << totalPrice;
+    cout << totalPrice;
 
     return 0;
 }
