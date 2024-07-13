@@ -21,3 +21,4 @@ bool solveBoolean(std::string expression) {
         }
     }
     return true;
+}
