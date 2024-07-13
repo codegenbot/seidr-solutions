@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <iomanip>
 
 int main() {
     std::string startHeightStr;
@@ -24,6 +25,6 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
-    std::cout << std::fixed << std::cout.precision(5) << totalDistance << "\n";
+    std::cout << std::fixed << std::setprecision(5) << totalDistance << "\n";
     return 0;
 }
