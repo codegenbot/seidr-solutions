@@ -1,3 +1,7 @@
-```
-def double_the_difference(input_list):
-    return (max(input_list) - min(input_list)) * 2
+def check():
+    numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+    print(double_the_difference(numbers))
+
+
+def double_the_difference(lst):
+    return (max(lst) - min(lst)) * 2
