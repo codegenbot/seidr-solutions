@@ -10,7 +10,7 @@ pair<int, int> findPair(const vector<int>& nums, int target) {
         int complement = target - nums[i];
         if (numIndex.count(complement)) {
             std::vector<int> v({complement, nums[i]});
-            std::sort(v.begin(), v.end());
+            sort(v.begin(), v.end());
             return {v[0], v[1]};
         }
         numIndex[nums[i]] = i;
