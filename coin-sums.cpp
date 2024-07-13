@@ -8,6 +8,7 @@ int main() {
     int nickels = n / 5;
     n %= 5;
     int pennies = n;
+
     cout << pennies << endl << nickels << endl << dimes << endl << quarters << endl;
     return 0;
 }
