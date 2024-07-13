@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 
-std::string camelCase(std::string& str) {
+std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
@@ -31,13 +31,13 @@ int main() {
     std::string input;
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
-        std::getline(std::cin, input);
-
-        if (!input.empty()) { 
-            std::cout << "Camel Case: " << camelCase(input) << std::endl; 
+        std::cin >> input;  
+        if(std::cin.fail()){  
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            continue;
         }
-
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Camel Case: " << camelCase(input) << std::endl; 
     }
     return 0;
 }
