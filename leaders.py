@@ -10,4 +10,4 @@ def leaders(arr):
             max_right = arr[i]
             leaders.append(max_right)
             
-    return leaders[::-1]
+    return leaders
