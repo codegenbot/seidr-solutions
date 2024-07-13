@@ -1,3 +1,3 @@
 ```
-def dice_game(P, C):
-    return sum(i/C for i in range(1, P+1)) / P
+def dice_game(n, m):
+    return sum(1 for i in range(m-1, n)) / (n * m)
