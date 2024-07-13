@@ -1,7 +1,6 @@
-```
-def smallest_change(arr):
-    if not all(i.isdigit() for i in ' '.join(map(str, arr)).split()):
-        return
+Here is the completed code:
+
+def arrayManipulation(arr):
     n = len(arr)
     try:
         arr = list(map(int, ' '.join(map(str, arr)).split()))
