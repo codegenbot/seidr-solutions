@@ -1,5 +1,5 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
