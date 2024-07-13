@@ -1,16 +1,10 @@
-Here's the corrected code:
-
 def fizz_buzz(n: int):
-    result = []
-    count = 0
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         if i % 3 == 0 and i % 5 == 0:
-            result.append("FizzBuzz")
-            count += 1
+            print("FizzBuzz")
         elif i % 3 == 0:
-            result.append("Fizz")
+            print("Fizz")
         elif i % 5 == 0:
-            result.append("Buzz")
+            print("Buzz")
         else:
-            result.append(str(i))
-    return count
+            print(i)
