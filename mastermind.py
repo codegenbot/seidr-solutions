@@ -1,4 +1,4 @@
 def mastermind(code, guess):
-    blacks = sum(1 for c, g in zip(code, guess) if c == g)
-    whites = len([c for c in set(guess) if c in code]) - blacks
+    whites = sum(1 for c, g in zip(code, guess) if c == g)
+    blacks = len([c for c in set(guess) if code.count(c) > 0])
     return str(blacks) + ' ' + str(whites)
