@@ -2,33 +2,39 @@
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+using namespace std;
+
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
+    
+    vector<char> codeArr(code.begin(), code.end());
+    vector<char> guessArr(guess.begin(), guess.end());
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    for (int i = 0; i < 4; i++) {
+        if (codeArr[i] == guessArr[i]) {
+            codeArr[i] = 0;
+            guessArr[i] = 0;
             black++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char cc : code) {
-            if (cc == c) {
-                count++;
-            }
-        }
-        if (count > 1 && c != code[0] && c != code[1] && c != code[2] && c != code[3]) {
-            white += count - 1;
-        } else if (count == 1) {
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == c) {
-                    black++;
-                }
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (codeArr[j] == guessArr[i]) {
+                codeArr[j] = 0;
+                guessArr[i] = 0;
+                white++;
             }
         }
     }
 
-    return black + white;
+    return black + white - black;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
+    return 0;
 }
