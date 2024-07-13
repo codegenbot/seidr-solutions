@@ -1,7 +1,6 @@
+```cpp
 #include <unordered_map>
 #include <vector>
-#include <utility>
-#include <cstddef>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
@@ -25,3 +24,4 @@ int main() {
         std::cout << "Pair found: (" << result.first << ", " << result.second << ")" << std::endl;
     }
     return 0;
+}
