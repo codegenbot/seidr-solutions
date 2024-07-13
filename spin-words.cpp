@@ -7,14 +7,12 @@ string spinWords(string str) {
             if (wordLength >= 5) {
                 string reversedWord = "";
                 for(int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += str[i-1-j];
+                    reversedWord += str.substr(i-1-wordLength, 1);
                 }
-                result.append(reversedWord);
+                result.append(reversedWord).append(" ");
             } else
-                result.append(str.substr(i-wordLength, wordLength));
+                result.append(str.substr(i - wordLength, wordLength)).append(" ");
             i++;
-            if (i <= str.length() && str[i] != ' ')
-                result.append(" ");
         } else 
             i++;
     }
