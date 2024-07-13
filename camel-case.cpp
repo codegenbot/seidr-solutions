@@ -5,19 +5,24 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    int i;
-    for (i = 0; i <= s.size(); i++) {
+    for (int i = 0; i <= s.size(); i++) {
         if (s[i] == '-' || i == s.size()) {
             if (!result.empty())
                 result[0] = toupper(result[0]);
-            if (i < s.size() && s[i] != '-')
-                result += s.substr(i);
-            break;
+            if (i < s.size() && s[i] != '-') {
+                string word = s.substr(i + 1);
+                if (!word.empty())
+                    result += word;
+            } else {
+                if (!s[i] == '-')
+                    result += s[i];
+            }
         } else if (s[i] == ' ') {
-            if (!result.empty())
+            if (!result.empty()) {
                 result[0] = toupper(result[0]);
-            result += s.substr(0, i);
-            i--;
+            }
+            if (!s[i + 1] == ' ')
+                result += &s[i + 1];
         } else {
             if (result.size() == 0)
                 result += s[i];
