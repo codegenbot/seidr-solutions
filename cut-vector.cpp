@@ -41,10 +41,12 @@ int main() {
     cout << "Enter positive integers to form a vector (enter -1 to stop): ";
     while (true) {
         cin >> num;
+        if (cin.fail()) {
+            break;
+        }
         if (num == -1) {
             break;
         }
-        cin.ignore(INT_MAX, '\n');
         nums.push_back(num);
     }
 
