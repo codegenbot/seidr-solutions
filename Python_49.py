@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -16,13 +17,10 @@ def main():
         try:
             a = int(input("Enter the first number: "))
             b = int(input("Enter the second number: "))
-            if a < 0 or b < 0:
-                print("Please enter positive numbers.")
-            else:
-                print(modp(a, b))
-                break
+            print(modp(a, b))
+            break
         except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("Invalid input. Please enter integers.")
 
 
 main()
