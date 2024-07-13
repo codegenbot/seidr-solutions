@@ -1,37 +1,34 @@
-#include <string>
-#include <vector>
-using namespace std;
-
 int mastermind(string code, string guess) {
-    int white = 0;
+    vector<char> chars = {'0', '1', '2', '3', '4', '5'};
+    
     int black = 0;
-
-    unordered_map<char, int> possibleChars;
-    for(int i = 0; i < 6; i++) {
-        possibleChars['0' + i] = 1;
-    }
-
-    vector<char> codeVec(code);
-    vector<char> guessVec(guess);
+    int white = 0;
 
     for(int i = 0; i < 4; i++) {
-        if(codeVec[i] == guessVec[i]) {
+        if(code[i] == guess[i]) {
             black++;
-            codeVec[i] = '\0';
-            guessVec[i] = '\0';
+            code[i] = chars[6];
+            guess[i] = chars[6];
         }
     }
 
+    vector<int> codeCount(6, 0);
     for(int i = 0; i < 4; i++) {
-        bool foundInCode = false;
+        int j = 0;
+        while(j < 6 && chars[j] != code[i]) j++;
+        codeCount[j]++;
+    }
+
+    for(int i = 0; i < 4; i++) {
+        int count = 0;
         for(int j = 0; j < 6; j++) {
-            if(codeVec[j] == guessVec[i]) {
-                foundInCode = true;
-                codeVec[j] = '\0';
-                break;
+            if(code[j] == guess[i]) {
+                count++;
+                codeCount[j]--;
+                if(count > 1) break;
             }
         }
-        if(!foundInCode) white++;
+        white += min(count, (int)(std::find(std::vector<char>(chars.begin(), chars.end()), code[0]) != std::vector<char>(chars.begin(), chars.end()).end()));
     }
 
     return black + white;
