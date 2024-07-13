@@ -1,6 +1,5 @@
-```Python
 def gcd(a, b):
-    while b:
+    while b != 0:
         a, b = b, a % b
     return abs(a)
 
