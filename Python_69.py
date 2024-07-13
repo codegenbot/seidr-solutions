@@ -1,6 +1,6 @@
+```Python
 def search(lst):
-    max_num = 0
     for num in lst:
-        if num > max_num:
-            max_num = num
-    return -1 if not max_num else max_num
+        if num > 0:
+            return max((num for num in lst if num > 0), default=-1)
+    return -1
