@@ -12,8 +12,8 @@ int mastermind(string code, string guess) {
     }
 
     // Count correct colors, but wrong position
-    int code_counts[6] = {0};
-    int guess_counts[6] = {0};
+    array<int, 6> code_counts = {0};
+    array<int, 6> guess_counts = {0};
     for (char c : code) {
         ++code_counts[c - 'A'];
     }
