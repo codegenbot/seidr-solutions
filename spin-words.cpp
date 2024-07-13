@@ -11,7 +11,7 @@ string spinWords(string str) {
 
     for (int i = 0; i <= str.length() - 1; i++) {
         if (str[i] == ' ') {
-            result += str.substr(i - wordLength + 1, i - wordLength + 1) + " ";
+            result += str.substr(i - (i - wordLength + 1) + 1, i - wordLength + 1) + " ";
             wordLength = 0;
         } else {
             wordLength++;
@@ -19,7 +19,7 @@ string spinWords(string str) {
     }
 
     result += str.substr(str.length() - wordLength);
-
+    
     for(int i = 0; i < result.length(); i++) {
         if(result[i] == ' ') {
             string temp = result.substr(i + 1);
@@ -34,26 +34,6 @@ string spinWords(string str) {
                 result.replace(i + 1, temp.length(), temp.substr(j));
                 i += temp.length();
                 break;
-            }
-        }
-    }
-
-    for(int i = 0; i < result.length(); i++) {
-        if(result[i] == ' ') {
-            string temp = result.substr(i + 1);
-            if(temp.length() >= 5) {
-                for(long long j = temp.length() - 1; j >= 0; j--) {
-                    result.replace(i, temp.length() + 1, temp.substr(j));
-                    i += temp.length();
-                    break;
-                }
-            } else {
-                string word = temp;
-                for(long long j = word.length() - 1; j >= 0; j--) {
-                    result.replace(i, temp.length() + 1, word.substr(j));
-                    i += temp.length();
-                    break;
-                }
             }
         }
     }
