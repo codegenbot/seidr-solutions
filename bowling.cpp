@@ -8,26 +8,18 @@ int bowlingScore(std::string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (currentRolls == 2) {
-                score += 10;
-            } else {
-                score += 10 - currentRolls;
+            if (currentFrame < 10) {
+                if (currentRolls == 2 && s[0] != 'x' && s[1] != 'x') {
+                    score += 10 + (s[0] - '0') + (s[1] - '0');
+                } else if (currentRolls == 1) {
+                    score += (s[0] - '0') * 2;
+                }
             }
             currentRolls = 0;
             currentFrame++;
         } else if (c >= '1' && c <= '9') {
             currentRolls++;
-            if (currentFrame < 10) {
-                if (c == 'X') {
-                    score += 10;
-                    currentRolls = 2;
-                }
-                else if (currentRolls == 2) {
-                    score += (int)(c - '0') * 2;
-                } else {
-                    score += (int)(c - '0');
-                }
-            }
+            score += c - '0';
         }
     }
 
