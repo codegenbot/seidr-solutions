@@ -27,7 +27,7 @@ int mainFunction() {
         std::cout << str << " ";
     }
     std::cout << std::endl;
-    if (!issame(sortedListSum({{"aaaa", "bbbb", "dd", "cc"}}), {{"cc","dd","aaaa","bbbb"}}))
+    if (!issame({{"aaaa", "bbbb", "dd", "cc"}}, {{"cc","dd","aaaa","bbbb"}}))
         return 1;
     return 0;
 }
