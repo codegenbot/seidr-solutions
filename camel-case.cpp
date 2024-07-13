@@ -2,22 +2,22 @@
 #include <string>
 
 std::string camelCase(std::string str) {
-    // Remove leading space(s)
-    str.erase(0, str.find_first_not_of(' '));
+    str.erase(0, str.find_first_not_of(' ')); // Remove leading space(s)
+    str.erase(0, str.find('-')); // Remove leading hyphen(s)
 
     std::string result = "";
     bool isNextUpper = false;
     for (char c : str) {
         if (c == '-') {
-            continue; 
+            continue; // Skip hyphens
         } else if (c == ' ') {
-            if (!isNextUpper) { 
+            if (!isNextUpper) { // Add space only if not already present
                 result += ' ';
             }
             isNextUpper = false;
         } else {
             if (!isNextUpper) {
-                if (result.empty()) { 
+                if (result.empty()) { // Check for first character
                     result += std::toupper(c);
                 } else {
                     result += c;
