@@ -1,3 +1,7 @@
+```python
+from typing import List, Optional
+
+
 def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
     max_len = 0
     result = []
