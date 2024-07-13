@@ -7,8 +7,8 @@ vector<int> cutVector(vector<int> v) {
     int cutIndex = 0;
     
     for (int i = 1; i <= v.size(); i++) {
-        if (i == v.size() || v[i] - v[i-1] < minDiff) {
-            minDiff = v[i] - v[i-1];
+        if (i == v.size() || abs(v[i] - v[i-1]) < minDiff) {
+            minDiff = abs(v[i] - v[i-1]);
             cutIndex = i;
         }
     }
@@ -24,5 +24,5 @@ int main() {
     vector<int> res = cutVector(v);
     for (const auto &x : res[0]) cout << x << " ";
     cout << endl;
-    for (const auto &x : std::vector<int>(res[1].begin(), res[1].end())) cout << x << " ";
+    for (const auto &x : res[1]) cout << x << " ";
 }
