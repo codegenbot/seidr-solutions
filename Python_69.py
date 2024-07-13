@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def find_max_min():
     lst = input("Enter numbers separated by space: ").split()
