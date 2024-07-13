@@ -1,3 +1,4 @@
+```
 def mean_absolute_deviation(numbers=None):
     while True:
         if numbers is None:
@@ -31,7 +32,7 @@ def mean_absolute_deviation(numbers=None):
             except ValueError:
                 print("Invalid input. Please enter numbers only.")
 
-        mean = sum(numbers) / len(numbers)
-        mad = sum(abs(x - mean) for x in numbers) / len(numbers)
+    mean = sum(numbers) / len(numbers)
+    mad = sum(abs(x - mean) for x in numbers) / len(numbers)
 
-        print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
+    print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
