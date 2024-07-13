@@ -1,3 +1,4 @@
+#define _GLIBCXX_DEBUG 0
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -6,14 +7,16 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    cin >> n;
     vector<float> v1(n);
-    for (int i = 0; i < n; i++) {
+    vector<float> v2(n);
+
+    cin >> v1[0]; 
+    for (int i = 1; i < n; i++) {
         cin >> v1[i];
     }
-    cin >> n;
-    vector<float> v2(n);
-    for (int i = 0; i < n; i++) {
+    
+    cin >> v2[0]; 
+    for (int i = 1; i < n; i++) {
         cin >> v2[i];
     }
 
