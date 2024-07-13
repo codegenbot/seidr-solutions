@@ -4,14 +4,13 @@ string fix_spaces(string text){
         if(text[i] == ' ' && (i==0 || text[i-1] != ' ') && (i==text.length()-1 || text[i+1] != ' ')){
             result += '_';
         } else if(text[i] == ' '){
-            bool consecutive = true;
-            for(int j=i+1; j<text.length() && text[j] == ' '; j++){
-                i = j;
-                consecutive = false;
-            }
-            if(consecutive) {
-                result += '-';
+            int count = 0;
+            while(i < text.length() && text[i] == ' '){
                 i++;
+                count++;
+            }
+            if(count > 2) {
+                result += '-';
             } else {
                 result += '_';
             }
