@@ -1,30 +1,52 @@
-int bowlingScore(const string& input) {
+int bowlingScore(string frames) {
     int score = 0;
-    bool isNextStrike = false;
-    bool isLastRollInFrame = true;
+    int currentRoll = 0;
+    int rollsInFrame = 0;
 
-    for (char c : input) {
-        if (c == 'X') {
-            score += 30;
-            isNextStrike = true;
-        } else if (c == '/') {
-            if (!isNextStrike)
-                score += 10;
-            isNextStrike = false;
-            isLastRollInFrame = true;
+    for (char frame : frames) {
+        if (isdigit(frame)) {
+            currentRoll++;
+            if (frame == 'X') {
+                score += 10 + bowlingScoreHelper(frames, currentRoll);
+                currentRoll = 0;
+            } else if (currentRoll == 2) {
+                int points = (frame - '0') * 2;
+                score += points;
+                currentRoll = 0;
+            }
         } else {
-            int currentRoll = c - '0';
-            if (!isNextStrike) {
-                score += currentRoll;
-                if (currentRoll == 10) {
-                    isLastRollInFrame = false;
+            rollsInFrame++;
+            if (rollsInFrame == 2) {
+                if (frames[currentRoll] == '/') {
+                    int firstRoll = frames[currentRoll-1] - '0';
+                    int secondRoll = frames[currentRoll+1] - '0';
+                    score += firstRoll + secondRoll;
+                    currentRoll++;
+                    rollsInFrame = 0;
+                } else {
+                    score += bowlingScoreHelper(frames, currentRoll);
+                    currentRoll = 0;
+                    rollsInFrame = 0;
                 }
-            } else {
-                score += currentRoll * 2;
-                isNextStrike = false;
             }
         }
     }
 
+    return score;
+}
+
+int bowlingScoreHelper(string frames, int start) {
+    int score = 0;
+    for (int i = start; i < start+2; i++) {
+        if (frames[i] == 'X') {
+            score += 10;
+        } else if (isdigit(frames[i])) {
+            score += (frames[i] - '0');
+        } else {
+            int firstRoll = frames[i-1] - '0';
+            int secondRoll = frames[i+1] - '0';
+            score += firstRoll + secondRoll;
+        }
+    }
     return score;
 }
