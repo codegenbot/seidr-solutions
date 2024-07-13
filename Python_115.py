@@ -1,3 +1,4 @@
+```
 def calculate():
     while True:
         try:
@@ -9,7 +10,12 @@ def calculate():
 
     print(f"Maximum water fill set to {max_fill}.")
     total_water = 0
-    water_levels = input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()
+    while True:
+        water_levels = input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()
+        if len(water_levels) == max_fill:
+            break
+        print("Please enter", max_fill, "water levels.")
+
     for i, level in enumerate(map(int, water_levels)):
         if 0 <= int(level) <= max_fill:
             total_water += int(level)
