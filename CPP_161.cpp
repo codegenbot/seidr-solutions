@@ -1,15 +1,15 @@
-string solve(string s) {
-    string result = "";
-    bool hasLetter = false;
+#include<stdio.h>
+#include<string>
+using namespace std;
 
-    for (char c : s) {
-        if (isalpha(c)) {
-            hasLetter = true;
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+string solve(string s){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
-            result += c;
+            result += s[i];
         }
     }
-
-    return hasLetter ? result : string(result.rbegin(), result.rend());
+    return result;
 }
