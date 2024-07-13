@@ -7,7 +7,8 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     if (m > 0) {
-        for (int i = 0; i <= n - m; i++) { 
+        int i = 0; // declare i before the loop
+        for (; i <= n - m; i++) { 
             if (text.substr(i, m) == target) {
                 result.push_back(i);
             }
