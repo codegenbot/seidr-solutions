@@ -14,11 +14,11 @@ def calculate():
         while True:
             try:
                 water_level = int(input(f"Enter water level at day {i}: "))
-                if water_level > 0 and water_level <= max_fill:  
+                if water_level > max_fill:
+                    print("Water level cannot exceed the maximum fill. Please try again.")
+                else:
                     total_water += water_level
                     break
-                else:
-                    print("Water level cannot be less than zero or exceed the maximum fill. Please try again.")
             except ValueError:
                 print("Please enter a valid integer.")
 
