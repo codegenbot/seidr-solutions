@@ -20,9 +20,4 @@ int main() {
 
         return sign_product * sum_of_magnitudes;
     }
-
-    vector<int> arr = {1, 2, -3, 4};
-    cout << prod_signs(arr) << endl;
-
-    return 0;
 }
