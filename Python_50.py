@@ -1,1 +1,2 @@
-return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() and ch.lower() >= 'a' and ch.lower() <= 'z' else ch if ch.isalpha() or ch.isspace() else chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A')) for ch in s])
+def decrypt(s):
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() and ch.lower() >= 'a' and ch.lower() <= 'z' else ch if ch.isalpha() or ch.isspace() else chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A')) for ch in s])
