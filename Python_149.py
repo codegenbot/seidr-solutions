@@ -5,4 +5,4 @@ def sorted_list_sum(lst):
         for c in s:
             if c.isdigit():
                 numbers.append(int(c))
-    return sorted(set(strings + list(map(str, numbers))))
+    return sorted(list(set(strings + list(map(str, numbers)))))
