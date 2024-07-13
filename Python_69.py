@@ -1,4 +1,3 @@
-```
 def search(lst):
     freq_dict = {}
     for num in lst:
@@ -11,3 +10,10 @@ def search(lst):
         if key > 0 and value >= key:
             max_num = key
     return max_num
+
+def main():
+    lst = list(map(int, input("Enter the numbers separated by space: ").split()))
+    print(search(lst))
+
+if __name__ == "__main__":
+    main()
