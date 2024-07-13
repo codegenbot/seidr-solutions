@@ -1,14 +1,14 @@
+#include <string>
 #include <vector>
 #include <unordered_map>
-#include <string>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
+    std::vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
 
-    unordered_map<char, int> count_map;
+    std::unordered_map<char, int> count_map;
 
     for(int i = 0; i < 4; i++) {
         if(code[i] == guess[i]) {
