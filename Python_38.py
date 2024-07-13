@@ -2,11 +2,16 @@
 def decode_cyclic(s: str):
     decoded = ""
     n = len(s)
-    prefix = s[0] if n % 2 else s[n//2]
+    if n % 2 == 0:
+        half_len = (n // 2) + (n % 2)
+        prefix = s[:half_len]
+    else:
+        half_len = (n // 2) + (n % 2)
+        prefix = s[:half_len] + s[-1]
     
     for char in s:
-        if char == prefix:
+        if char in prefix:
             decoded += char
         else:
-            decoded += prefix
+            decoded += prefix[0]
     return decoded
