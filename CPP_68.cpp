@@ -3,11 +3,14 @@
 
 bool issame(vector<int> a, vector<int> b) {
     // implement your comparison logic here
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    vector<int> result = pluck({7, 9, 7, 1});
-    assert(result.size() == 2);
-    assert(result[0] == 0 && result[1] == 3);
+    assert(pluck({7, 9, 7, 1}) == vector<int>());
     return 0;
 }
