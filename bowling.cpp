@@ -1,35 +1,29 @@
-int main() {
-    string bowls;
-    cin >> bowls;
-    
-    int score = 0;
-    int frame = 0;
-    for (int i = 0; i < bowls.size() && frame < 10; i++) {
-        if (bowls[i] == 'X') {
+int bowlingScore(const string& s) {
+    int score = 0, frame = 0, ball = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 10;
-            if (bowls[i + 2] == 'X') {
-                score += 10;
-            } else {
-                score += (bowls[i + 1] == 'X' ? 10 : (int)(bowls[i + 1] - '0'));
-                score += (bowls[i + 2] == '/' ? 10 - (int)(bowls[i + 1] - '0') : (int)(bowls[i + 2] - '0'));
-            }
+            if (frame < 9) score += s[ball + 1] == 'X' ? 10 + (s[ball + 2] == 'X' ? 10 : s[ball + 2] - '0') : (s[ball + 2] == '/' ? 10 : s[ball + 1] + s[ball + 2] - 2 * '0');
+            ball++;
             frame++;
-        } else if (bowls[i] == '/') {
-            score += 10 - (int)(bowls[i - 1] - '0');
-            score += (bowls[i + 1] == 'X' ? 10 : (int)(bowls[i + 1] - '0'));
+        } else if (c == '/') {
+            score += 10 - (s[ball - 1] - '0');
+            score += s[ball + 1] == 'X' ? 10 : s[ball + 1] - '0';
+            ball += 2;
             frame++;
         } else {
-            score += (int)(bowls[i] - '0');
-            if (bowls[i] == '-') {
-                continue;
-            }
-            if (i + 1 < bowls.size() && bowls[i + 1] == '/') {
-                score += 10 - (int)(bowls[i] - '0');
-            }
+            score += c - '0';
+            ball++;
+            if (frame < 9 && c - '0' + (s[ball] == '/' ? 10 - (c - '0') : s[ball] == 'X' ? 10 : s[ball] - '0') == 10) score += s[ball] == '/' ? 10 : s[ball] == 'X' ? 10 : s[ball] - '0';
+            if (frame < 9 && (c - '0' == 10 || s[ball - 1] == 'X')) frame++;
         }
     }
-    
-    cout << score << endl;
-    
+    return score;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
