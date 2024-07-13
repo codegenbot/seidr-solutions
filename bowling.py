@@ -1,4 +1,3 @@
-```
 def bowling_score(s):
     s = s.split(" ")
     score = 0
