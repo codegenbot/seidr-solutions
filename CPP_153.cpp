@@ -5,9 +5,10 @@
 int main() {
     string class_name;
     vector<string> extensions;
-    // add your logic here to read input from user and store it in class_name and extensions variables
-    int strongest = Strongest_Extension(class_name, extensions);
-    return 0;
+
+    // Your input logic here...
+
+    cout << Strongest_Extension(class_name, extensions) << endl;
 }
 
 int Strongest_Extension(string class_name,vector<string> extensions){
