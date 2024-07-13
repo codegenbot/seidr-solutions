@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -8,7 +6,10 @@ double probability(int n, int m) {
 
     // Count all cases where Peter's die roll is greater than Colin's
     for (int i = 1; i < m; i++) {
-        p += (n - i + 1.0) / total;
+        p += 1.0 / total;
+    }
+    for (int i = m + 1; i <= n; i++) {
+        p += (n - i + 1) / total;
     }
 
     return p;
@@ -16,13 +17,8 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    cout << "Enter the number of sides for Peter's die: ";
-    cin >> n;
-    cout << "Enter the number of sides for Colin's die: ";
-    cin >> m;
-
+    std::cin >> n >> m;
     double result = probability(n, m);
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << result << endl;
-
+    std::cout << result << std::endl;
     return 0;
 }
