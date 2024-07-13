@@ -1,10 +1,8 @@
-```
 def sort_third(lst):
     result = []
-    for item in lst:
-        if isinstance(item, (list, tuple)):
-            if len(item) > 2:
-                result.append((item[0], item[1], item[2]))
-        else:
-            result.append((item, None, None))
-    return tuple(sorted(result, key=lambda x: x[2]))
+    for x in lst:
+        if isinstance(x, (list, tuple)) and len(x) > 2:
+            result.append(x[2])
+        elif not isinstance(x, (list, tuple)):
+            return [x]
+    return tuple(sorted(result))
