@@ -1,7 +1,7 @@
 digits = list(map(int, input().split()))
 total = 0
 for i in range(len(digits)):
-    if i % 2 == 1:
+    if i % 2 == 1 and i < len(digits):
         double_digit = digits[i] * 2
         if double_digit > 9:
             double_digit -= 9
