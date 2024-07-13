@@ -1,4 +1,3 @@
-```cpp
 int bowlingScore(const std::string& s) {
     if (s.empty()) {
         throw std::invalid_argument("No input provided");
