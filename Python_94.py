@@ -1,4 +1,5 @@
-def skjkasdkd(num):
+def skjkasdkd(nums):
+    num = max(nums)
     def is_prime(n):
         if n < 2:
             return False
