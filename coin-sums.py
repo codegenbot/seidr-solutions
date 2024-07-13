@@ -1,19 +1,8 @@
-def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    names = ["quarters", "dimes", "nickles", "pennies"]
-    result = []
-
-    for i in range(len(coins)):
-        count = 0
-        while cents >= coins[i]:
-            cents -= coins[i]
-            count += 1
-        if count > 0:
-            result.append((count, names[i]))
-
-    print(
-        " ".join(
-            f"{count} {name}" if count == 1 else f"{count} {name}s"
-            for count, name in result
-        )
-    )
+```
+coins = [25, 10, 5, 1]
+amount = int(input("Enter the amount in cents: "))
+quarters, nickels, dimes, pennies = divmod(amount, 25), divmod((amount % 25) // 5, 10), divmod(((amount % 25) % 5) * 10, 1)
+print(f"Quarters: {quarters[0]}")
+print(f"Nickels: {nickels[0]}")
+print(f"Dimes: {nickels[1]}")
+print(f"Pennies: {pennies[1]}")
