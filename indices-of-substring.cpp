@@ -1,11 +1,12 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.length() - target.length(); i++) {
+    for (int i = 0; i < text.length() - target.length() + 1; i++) {
         bool found = true;
         for (int j = 0; j < target.length(); j++) {
             if (text[i + j] != target[j]) {
@@ -29,3 +30,4 @@ int main() {
     }
     cout << endl;
     return 0;
+}
