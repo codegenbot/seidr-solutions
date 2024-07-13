@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     text = text.strip().lower()
     text = text.replace(r'\s+', '_')

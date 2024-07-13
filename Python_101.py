@@ -1,2 +1,2 @@
-```
-print(check(words_string(input("Enter a string: ").strip())))
+words = input("Enter a string: ").strip()
+print(check(words))
