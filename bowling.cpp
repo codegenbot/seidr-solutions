@@ -1,28 +1,35 @@
-int calculateBowlingScore(string rolls) {
+int scoreBowlingRound(string bowls) {
     int score = 0;
-    int frame = 1;
-    int rollIdx = 0;
-
-    for (int i = 0; i < rolls.size(); i++) {
-        if (frame > 10) break;
-
-        if (rolls[i] == 'X') {
+    int frame = 0;
+    for (int i = 0; i < bowls.size(); ++i) {
+        if (bowls[i] == 'X') {
             score += 10;
-            score += (rolls[i+2] == 'X') ? 10 : (rolls[i+1] - '0') + (rolls[i+2] - '0');
-            rollIdx++;
+            if (frame >= 1 && bowls[i - 1] == 'X') {
+                score += 10;
+            }
+            if (frame >= 2 && bowls[i - 2] == 'X') {
+                score += 10;
+            }
             frame++;
-        } else if (rolls[i] == '/') {
-            score += 10 - (rolls[i-1] - '0');
-            score += (rolls[i+1] == 'X') ? 10 : (rolls[i+1] - '0');
-            rollIdx += 2;
+        } else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            if (frame >= 1 && bowls[i - 1] == 'X') {
+                score += 10 - (bowls[i - 2] - '0');
+            }
             frame++;
-        } else if (rolls[i] == '-') {
-            score += 0;
+        } else if (bowls[i] == '-') {
+            // Do nothing for a miss
         } else {
-            score += rolls[i] - '0';
-            rollIdx++;
+            score += bowls[i] - '0';
+            frame++;
         }
     }
-
     return score;
+}
+
+int main() {
+    string bowls;
+    cin >> bowls;
+    cout << scoreBowlingRound(bowls) << endl;
+    return 0;
 }
