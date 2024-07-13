@@ -1,16 +1,17 @@
-vector<int> findLeaders(const vector<int>& arr) {
+vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    int n = arr.size();
-    int maxRight = arr[n - 1];
+    int n = nums.size();
+    int maxRight = nums[n-1];
     leaders.push_back(maxRight);
-
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= maxRight) {
-            maxRight = arr[i];
+    
+    for (int i = n-2; i >= 0; --i) {
+        if (nums[i] >= maxRight) {
+            maxRight = nums[i];
             leaders.push_back(maxRight);
         }
     }
-
+    
     reverse(leaders.begin(), leaders.end());
+    
     return leaders;
 }
