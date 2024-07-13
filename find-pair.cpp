@@ -1,22 +1,22 @@
 int main() {
-    int n, target;
+    int n;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
+    int target;
     cin >> target;
-
-    map<int, int> numIndex;
+    
+    map<int, int> seen;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (numIndex.find(complement) != numIndex.end()) {
-            cout << complement << endl;
+        if (seen.find(target - nums[i]) != seen.end()) {
             cout << nums[i] << endl;
+            cout << target - nums[i] << endl;
             break;
         }
-        numIndex[nums[i]] = i;
+        seen[nums[i]] = i;
     }
-
+    
     return 0;
 }
