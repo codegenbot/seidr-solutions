@@ -1,4 +1,5 @@
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -18,3 +19,5 @@ vector<int> leaders(vector<int>& arr) {
     
     return res;
 }
+
+int main() { return leaders(vector<int>()); }

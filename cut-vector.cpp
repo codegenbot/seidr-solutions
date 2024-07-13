@@ -21,18 +21,16 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     res.push_back(std::vector<int>());
 
     for (int i = 0; i < n; i++) {
-        long long diff = std::abs(leftSum - rightSum);
-        if ((diff <= minDiff) && (v[i] % 2 == (leftSum - rightSum) % 2)) { 
-            minDiff = diff;
+        long long leftSumTemp = 0;
+        for (int j = 0; j <= i; j++) {
+            leftSumTemp += v[j];
+        }
+        
+        long long rightSumTemp = sum - leftSumTemp;
+        if ((leftSumTemp == rightSumTemp) || (std::abs(leftSumTemp - rightSumTemp) < minDiff)) { 
+            minDiff = std::abs(leftSumTemp - rightSumTemp);
             cutIndex = i;
         }
-        leftSum += v[i];
-        rightSum -= v[i];
-    }
-    
-    if(leftSum == rightSum) {
-        res[0].assign(v.begin(), v.end());
-        return {res};
     }
     
     res[0].assign(v.begin(), v.begin() + cutIndex);
