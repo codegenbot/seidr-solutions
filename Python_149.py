@@ -1,2 +1,4 @@
+```
 def sorted_list_sum(lst):
-    return sum(int(num) for num in sorted([num for num in "".join(lst).split() if num]))
+    s = "".join(sorted(set("".join(map(str,filter(str.isalpha,lst)))))).replace(" ", "")
+    return list(s)
