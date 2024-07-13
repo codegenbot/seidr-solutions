@@ -34,8 +34,8 @@ int main() {
     std::vector<int> result = findLeaders(nums);
     
     std::cout << "Leaders: ";
-    for (auto it = result.rbegin(); it != result.rend(); ++it) {
-        std::cout << *it << " ";
+    for (int i = result.size() - 1; i >= 0; i--) {
+        std::cout << result[i] << " ";
     }
     
     return 0;
