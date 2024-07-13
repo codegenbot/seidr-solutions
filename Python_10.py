@@ -1,5 +1,4 @@
+Here is the modified code:
+
 ```
-def make_palindrome(string: str) -> str:
-    cleaned_string = "".join(char for char in string if char.isalnum()).lower()
-    half = "".join(char for char in cleaned_string[: len(cleaned_string) // 2] if char.isalnum())
-    return "#{}#".format("".join(char for char in half + half[::-1]).lower() + "".join(char for char in half + half[::-1])[::-1]).center(len(cleaned_string) * 4, "#")[2:-2].upper()
+print("#{}#".format("".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum()) + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum())[::-1]).lower() + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum()) + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum())[::-1]).upper() + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum()) + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum())[::-1]).upper()[2:-2].center(len("".join(char for char in string if char.isalnum()).lower()) * 4, "#") + "#"))
