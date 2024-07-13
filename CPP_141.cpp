@@ -28,10 +28,14 @@ std::string file_name_check(std::string file_name){
     }
 }
 
-int main(){
+int main() {
+    // Get the file name from user
     std::string file_name;
-    std::cout << "Enter the file name: ";
-    std::getline(std::cin, file_name);
-    std::cout << file_name_check(file_name) << std::endl;
+    std::cout << "Enter a file name: ";
+    std::cin >> file_name;
+
+    // Check the file name and print the result
+    std::cout << "Is this a valid file name? " << file_name_check(file_name) << std::endl;
+
     return 0;
 }
