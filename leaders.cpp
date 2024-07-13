@@ -20,13 +20,11 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
+    char nextChar;
     while (std::cin >> num) {
-        if (std::cin.fail()) {
-            std::cout << "Invalid input. Please enter a valid integer." << std::endl;
-            std::cin.clear();
-            std::cin.ignore();
-        } else {
-            nums.push_back(num);
+        nums.push_back(num);
+        if (!(std::cin.get(nextChar)) || !isdigit(nextChar)) {
+            break;
         }
     }
 
