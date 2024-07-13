@@ -3,15 +3,14 @@ int main() {
     cin >> text >> target;
     
     vector<int> indices;
-    int tlen = target.length();
-    for (int i = 0; i <= text.length() - tlen; ++i) {
-        if (text.substr(i, tlen) == target) {
-            indices.push_back(i);
-        }
+    size_t pos = text.find(target, 0);
+    while (pos != string::npos) {
+        indices.push_back(pos);
+        pos = text.find(target, pos + 1);
     }
     
-    for (int i = 0; i < indices.size(); ++i) {
-        cout << indices[i] << " ";
+    for (int index : indices) {
+        cout << index << " ";
     }
     
     return 0;
