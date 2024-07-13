@@ -1,11 +1,8 @@
 def sort_numbers():
-    cont = "y"
-    while cont.lower() == "y":
-        print("Sort numbers? (y/n): ")
+    while True:
+        print("Do you want to sort numbers? (y/n): ")
         cont = input().lower()
-        if cont != "y":
-            break
-        while True:
+        if cont != "n":
             while True:
                 try:
                     numbers = input("Enter space-separated numbers: ")
@@ -15,14 +12,14 @@ def sort_numbers():
                     cont = input("Sort again? (y/n): ")
                     if cont.lower() != "y":
                         break
-                    break
                 except ValueError as e:
                     print(
                         f"Invalid input. {e}. Please enter valid numbers separated by spaces."
                     )
             if cont.lower() != "y":
                 break
-        break
+        else:
+            break
 
 
 if __name__ == "__main__":
