@@ -1,7 +1,4 @@
-```cpp
-#include <string>
-
-bool solveBoolean(std::string s) {
+bool solveBoolean(const std::string& s) {
     if (s.empty()) return false;
 
     bool result = true;
@@ -12,12 +9,13 @@ bool solveBoolean(std::string s) {
             result = false;
         } else if (s[i] == '|') {
             bool temp = result;
-            while (s[i+1] == '|') i++; 
-            result = !temp;
+            result = !result;
+            while (i + 1 < s.length() && s[i+1] == '|') i++;
         } else if (s[i] == '&') {
             bool temp = result;
-            while (s[i+1] == '&') i++; 
+            while (i + 1 < s.length() && s[i+1] == '&') i++;
             result &= temp;
         }
     }
     return result;
+}
