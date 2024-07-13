@@ -1,9 +1,10 @@
-while True:
+def process_input(input_str):
     try:
-        n = int(input("Enter a non-negative integer: "))
-        if n < 0:
-            raise ValueError
-        print("Integer entered:", n)
-        break
+        n = int(input_str)
+        return n
     except ValueError:
-        print("Invalid input. Please enter a non-negative integer.")
+        return "Invalid input. Please enter a valid integer."
+
+user_input = input("Enter an integer: ")
+result = process_input(user_input)
+print(result)
