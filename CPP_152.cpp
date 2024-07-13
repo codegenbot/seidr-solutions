@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 bool issame(int a, int b) {
@@ -33,7 +32,7 @@ vector<int> getResult(vector<int> game, vector<int> guess) {
     return res;
 }
 
-int main() {
+void testGame() {
     int n;
     cin >> n;
     vector<int> game(n), guess(n);
@@ -48,5 +47,4 @@ int main() {
         cout << endl; 
     }
     
-    return 0;
 }
