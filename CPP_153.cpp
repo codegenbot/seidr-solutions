@@ -1,6 +1,4 @@
-```
 #include <initializer_list>
-
 #include <cassert>
 #include <vector>
 #include <string>
