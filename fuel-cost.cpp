@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> 
 
 using namespace std;
 
@@ -10,13 +10,13 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-
+    
     int sum = 0;
     for (int num : nums) {
         sum += max(0, num / 3 - 2);
     }
-
-    cout << sum << endl;
-
+    
+    cout << sum << "\n";
+    
     return 0;
 }
