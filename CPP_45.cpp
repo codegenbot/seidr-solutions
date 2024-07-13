@@ -1,3 +1,6 @@
+```
+#include <cmath>
+
 float triangle_area(float a, float h) {
-    return (a * h) / 2.0;
+    return (a * abs(h)) / 2.0f;
 }
