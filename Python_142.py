@@ -6,14 +6,13 @@ def sum_squares(lst):
             total_sum += num ** 2
     return total_sum
 
+user_input = input()
 while True:
-    user_input = input()
     try:
         lst = list(map(int, user_input.split()))
         break
     except ValueError:
         print("Invalid input. Please enter a valid list of integers.")
-
 if len(lst) > 0:
     print(sum_squares(lst))
 else:
