@@ -1,18 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
 
 int main() {
     std::vector<int> nums;
-    std::string input;
+    int num;
     
-    while (getline(std::cin, input)) {
-        std::istringstream iss(input);
-        int num;
-        
-        while (iss >> num) {
-            nums.push_back(num);
-        }
+    while (std::cin >> num && num > 0) {
+        nums.push_back(num);
     }
     
     int sum = 0;
