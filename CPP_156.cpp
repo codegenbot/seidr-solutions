@@ -1,18 +1,18 @@
 ```
-string intToMiniRoman(int n) {
+string romanToInt(int n) {
     if (n <= 0)
         return "";
     else if (n >= 1000) {
-        return "M" + intToMiniRoman(n - 1000);
+        return "M" + romanToInt(n - 1000);
     } 
     else if (n >= 900) {
-        return "CM" + intToMiniRoman(n - 900);
+        return "CM" + romanToInt(n - 900);
     }
     else if (n >= 500) {
-        return "D" + intToMiniRoman(n - 500);
+        return "D" + romanToInt(n - 500);
     }
     else if (n >= 400) {
-        return "CD" + intToMiniRoman(n - 400);
+        return "CD" + romanToInt(n - 400);
     } 
     else if (n >= 100) {
         string roman = "";
@@ -21,28 +21,28 @@ string intToMiniRoman(int n) {
             n -= 100;
         }
         if (n >= 90) {
-            return "XC" + intToMiniRoman(n - 90);
+            return "XC" + romanToInt(n - 90);
         } 
         else if (n >= 50) {
             roman += "L";
             n -= 50;
         } 
         else if (n >= 40) {
-            return "XL" + intToMiniRoman(n - 40);
+            return "XL" + romanToInt(n - 40);
         }
         while (n >= 10) {
             roman += "X";
             n -= 10;
         }
         if (n >= 9) {
-            return "IX" + intToMiniRoman(n - 9);
+            return "IX" + romanToInt(n - 9);
         } 
         else if (n >= 5) {
             roman += "V";
             n -= 5;
         } 
         else if (n >= 4) {
-            return "IV" + intToMiniRoman(n - 4);
+            return "IV" + romanToInt(n - 4);
         }
         while (n > 0) {
             roman += "I";
@@ -66,5 +66,6 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    cout << intToMiniRoman(n) << endl;
+    cout << endl;
+    cout << romanToInt(n) << endl;
 }
