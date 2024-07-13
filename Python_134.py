@@ -1,9 +1,8 @@
-```
-def is_palindrome(s):
-    s = s.replace(" ", "").lower()
-    if len(s) != len(s[::-1]):
-        print(f"'{s}' is not a palindrome.")
-        if s != s[::-1]:
+def check_palindrome():
+    user_input = input("Enter a string: ").lower()
+    if len(user_input) != len(user_input[::-1]):
+        print(f"'{user_input}' is not a palindrome.")
+        if user_input.lower() != user_input[::-1].lower():
             print("It is not even spelled the same way backwards when ignoring case.")
     else:
-        print(f"'{s}' is a palindrome.")
+        print(f"'{user_input}' is a palindrome.")
