@@ -1,4 +1,5 @@
 #include <string>
+#include <stack>
 #include <stdexcept>
 
 bool solveBoolean(string booleanExpression) {
@@ -35,6 +36,6 @@ bool getBooleanValue(char c) {
     } else if(c == 'f' || c == 'F') {
         return false;
     } else {
-        return true; // default to true
+        throw runtime_error("Invalid input");
     }
 }
