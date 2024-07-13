@@ -1,4 +1,5 @@
-def find_closest_elements(nums):
+```
+def find_closest_elements():
     while True:
         try:
             nums = list(map(int, input("Enter numbers separated by space: ").split()))
