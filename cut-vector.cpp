@@ -10,7 +10,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
-    if(sum > std::llabs(0) || sum < 0) {
+    if(sum > <limits<long long>::max() || sum < 0) {
         return {{}, {}};
     }
     
