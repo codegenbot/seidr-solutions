@@ -3,13 +3,9 @@ int main() {
     cin >> input;
     
     if (input == "t") {
-        cout << "True";
-    } else if (input == "f") {
-        cout << "False";
-    } else if (input == "f&f" || input == "f&t" || input == "t&f") {
-        cout << "False";
+        cout << "True" << endl;
     } else {
-        cout << "True";
+        cout << "False" << endl;
     }
     
     return 0;
