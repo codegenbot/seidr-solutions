@@ -11,16 +11,15 @@ int bowlingScore(std::string s) {
                 if (currentRolls == 2) {
                     score += 10;
                 } else {
-                    score += 10 - (10 - (int)(c - '0') * 10);
+                    score += 10 - currentRolls;
                 }
+            }
             currentRolls = 0;
             currentFrame++;
         } else if (c >= '1' && c <= '9') {
             currentRolls++;
             if (currentFrame < 10) {
                 score += c - '0';
-            } else if (currentRolls == 2) {
-                score += c - '0' + (int)(s[s.length() - 1] - '0');
             }
         }
     }
