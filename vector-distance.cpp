@@ -18,8 +18,10 @@ int main() {
     }
 
     float sum = 0.0;
-    for (size_t i = 0; i < std::min(n, m); ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
+    size_t limit = std::max(n, m);
+    for (size_t i = 0; i < limit; ++i) {
+        float diff = (i < n ? vec1[i] : 0) - (i < n ? vec2[i] : 0);
+        sum += diff * diff;
     }
 
     float result = std::sqrt(sum);
