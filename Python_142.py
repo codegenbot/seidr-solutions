@@ -10,11 +10,10 @@ while True:
     user_input = input()
     try:
         lst = list(map(int, user_input.split()))
+        if len(lst) > 0:
+            print(sum_squares(lst))
+        else:
+            print("Invalid input. Please enter a valid list of integers.")
         break
     except ValueError:
         print("Invalid input. Please enter a valid list of integers.")
-
-if len(lst) > 0:
-    print(sum_squares(lst))
-else:
-    print("Invalid input. Please enter a valid list of integers.")
