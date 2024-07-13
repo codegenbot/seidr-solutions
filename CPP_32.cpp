@@ -1,4 +1,11 @@
 double find_zero(vector<double> xs){
-    double x = -xs[1]/(2*abs(xs[1]));
-    return poly(xs,x);
+    double sum = 0;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        if(i%2==1)
+            continue;
+        sum+=xs[i]/xs[0];
+    }
+    return -sum;
 }
