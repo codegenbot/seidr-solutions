@@ -3,13 +3,18 @@
 #include <string>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string decipheredMessage;
+    std::string result;
     for (char c : message) {
         if (c == '\0') break; // Assuming the input strings are null-terminated
         int index = c - 'a'; // Assuming lowercase English letters only
-        decipheredMessage += cipher2[index];
+        if (index >= 0 && index < cipher1.size()) {
+            char mappedChar = cipher2[index];
+            result += mappedChar;
+        } else {
+            result += c; // If the character is not in the cipher, leave it as is
+        }
     }
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
