@@ -2,10 +2,17 @@
 
 int basement(std::vector<int>& nums) {
     int sum = 0;
-    for (size_t i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) return i;
+    bool became_negative = false;
+
+    for (auto it = nums.begin(); it != nums.end(); ++it) {
+        sum += *it;
+        if (sum < 0 && !became_negative) {
+            return std::distance(nums.begin(), it);
+        } else if (sum >= 0) {
+            became_negative = false;
+        }
     }
+
     return -1;
 
 }
