@@ -5,10 +5,10 @@ def fizz_buzz(n: int):
         if i % 15 == 0:
             output = "FizzBuzz"
             count += 1
-        elif i % 3 == 0:
-            output = "Fizz"
         elif i % 5 == 0:
             output = "Buzz"
+        elif i % 3 == 0:
+            output = "Fizz"
         else:
             output = str(i)
         print(output)
