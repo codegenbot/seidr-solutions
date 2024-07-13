@@ -40,4 +40,3 @@ int main() {
     int result = bowlingScore(input);
     cout << "Total score: " << result << endl;
     return 0;
-}
