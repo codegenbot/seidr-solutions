@@ -1,3 +1,4 @@
+```python
 def solve_boolean(expression):
     if expression == "t":
         return True
@@ -8,7 +9,7 @@ def solve_boolean(expression):
         operators = []
         for char in expression:
             if char in ["&", "|"]:
-                if stack: 
+                if stack:  
                     while operators and operators[-1] != "(":
                         op = operators.pop()
                         val2 = stack.pop()
@@ -18,9 +19,9 @@ def solve_boolean(expression):
                         else:
                             stack.append(val1 or val2)
                     operators.append(char)
-                else: 
-                    expression = char + "".join(stack)  
-                    stack.clear()   
+                else:  
+                    expression = char + "".join(stack) 
+                    stack.clear() 
             elif char == "(":
                 operators.append(char)
             elif char in ["t", "f"]:
