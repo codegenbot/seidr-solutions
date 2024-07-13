@@ -1,26 +1,34 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> result;
     
-    for (int i = 1; i <= vec.size(); ++i) {
-        int leftSum = 0;
-        int rightSum = accumulate(vec.begin(), vec.end() - i, 0);
-        
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            splitIndex = i;
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
+            result.push_back({v.begin(), v.end()});
+            return {{}, {}};
         }
     }
     
-    vector<vector<int>> result(2);
-    result[0].resize(splitIndex);
-    result[1].resize(vec.size() - splitIndex);
+    result.push_back({v.begin(), v.end()});
+    return {{}, {}};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
     
-    copy(vec.begin(), vec.begin() + splitIndex, back_inserter(result[0]));
-    copy(vec.begin() + splitIndex, vec.end(), back_inserter(result[1]));
-    
-    return result;
+    vector<vector<int>> res = cutVector(v);
+    if (!res[1].empty()) {
+        cout << res[0][0] << endl;
+    } else {
+        cout << res[0][0] << endl;
+    }
+    return 0;
 }
