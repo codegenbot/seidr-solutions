@@ -1,37 +1,34 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == '-') {
+using namespace std;
+
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
             i++;
-            while (i < str.size() && str[i] == '-') i++;
-            if (i < str.size()) {
-                result += toupper(str[i]);
-                while (i + 1 < str.size() && str[i+1] != ' ') i++;
+            while (i < s.length() && s[i] != ' ') {
+                result += toupper(s[i]);
+                i++;
             }
-        } else if (!result.empty() && isalpha(str[i])) {
-            result[0] = tolower(result[0]);
-            return result;
+            if (result.length() > 0) {
+                result += "";
+            }
+        } else if (!result.empty()) {
+            result += tolower(s[i]);
         } else {
-            if (!result.empty()) result += (' ');
-            while (i < str.size() && !isalpha(str[i])) i++;
-            if (i < str.size()) {
-                result += tolower(str[i]);
-                while (i + 1 < str.size() && isalpha(str[i+1])) i++;
-            }
+            result += toupper(s[i]);
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::cin >> str;
-    std::cout << camelCase(str) << std::endl;
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << camelCase(s) << endl;
     return 0;
 }
