@@ -2,16 +2,18 @@ int main() {
     string input;
     getline(cin, input);
     
-    string word, result;
+    string word = "";
+    string result = "";
+    
     for (int i = 0; i < input.size(); ++i) {
-        if (input[i] != ' ') {
-            word += input[i];
-        } else {
+        if (input[i] == ' ') {
             if (word.size() >= 5) {
                 reverse(word.begin(), word.end());
             }
-            result += word + ' ';
+            result += word + " ";
             word = "";
+        } else {
+            word += input[i];
         }
     }
     
