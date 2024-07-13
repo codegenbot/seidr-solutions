@@ -1,3 +1,4 @@
+```cpp
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -6,12 +7,13 @@ int mastermind(std::string code, std::string guess) {
         if(code[i] == guess[i]) {
             black++;
         }
+        else {
+            auto it = std::find(code.begin(), code.end(), guess[i]);
+            if(it != code.end()) {
+                white++;
+            }
+        }
     }
 
-    for(char c : code) {
-        int count = std::count(guess.begin(), guess.end(), c);
-        white += count - 1;
-    }
-
-    return black + white;
+    return {black, white};
 }
