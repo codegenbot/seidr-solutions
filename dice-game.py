@@ -1,9 +1,8 @@
 n = int(input())
 m = int(input())
 
-if n > m:
-    print(0.5)
-elif n < m:
-    print(1 - n/(2*m))
-else:
-    print(0.5)
+total_outcomes = n * m
+favorable_outcomes = (n-1) * m
+
+probability = favorable_outcomes / total_outcomes
+print(probability)
