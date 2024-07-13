@@ -1,7 +1,4 @@
 ```
 def sort_third(lst):
-    lst.sort(key=lambda x: (x[2], x))
-    return lst
-
-def check():
-    pass  # implement your logic here
+    result = sorted((x[2], x) for x in lst)
+    return [i[1] for i in result]
