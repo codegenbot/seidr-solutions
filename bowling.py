@@ -1,13 +1,15 @@
-Here is the solution:
-
-def bowling_score(game):
+```
+def bowling_score(frames):
     score = 0
-    frames = game.split('/')
-    for i in range(len(frames)):
-        if len(frames[i]) == 1:
-            score += 10 - int(frames[i])
-        elif len(frames[i]) == 2:
-            score += 10 + (10 - int(frames[i][0])) if int(frames[i][0]) != 10 else 20
+    for i in range(10):
+        if '/' in frames[i*2:i*2+2]:
+            frame = list(map(int, frames[i*2:i*2+2].split('/')))
+            if sum(frame) == 10:
+                score += 10
+            else:
+                score += sum(frame)
+        elif 'X' == frames[i*2]:
+            score += 10
         else:
-            score += 10 + int(frames[i][0])
+            score += int(frames[i*2])
     return score
