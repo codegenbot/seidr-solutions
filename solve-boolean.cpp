@@ -1,6 +1,5 @@
-```
-#include <string>
 #include <stack>
+#include <string>
 
 bool solveBoolean(std::string expression) {
     std::stack<char> opStack;
