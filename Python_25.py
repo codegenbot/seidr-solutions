@@ -17,3 +17,12 @@ def factorize(n: int) -> List[int]:
         if n > 1:  
             factors.append(n)
     return factors
+
+while True:
+    try:
+        num = int(input("Enter a number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(factorize(num))
