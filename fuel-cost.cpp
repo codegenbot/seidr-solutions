@@ -1,16 +1,17 @@
+int fuel_cost(vector<int> prices) {
+    int total = 0;
+    for (int price : prices) {
+        total += max(0, price/3 - 2);
+    }
+    return total;
+}
 int main() {
-    vector<int> nums;
     int n;
-    while(cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    vector<int> prices(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> prices[i];
     }
-
-    int sum = 0;
-    for(int num : nums) {
-        sum += (num / 3) - 2;
-    }
-
-    cout << sum << endl;
-
+    cout << fuel_cost(prices) << endl;
     return 0;
 }
