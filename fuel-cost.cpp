@@ -1,23 +1,26 @@
-#include <iostream>
 #include <vector>
-#include <cmath> 
+#include <iostream> 
 using namespace std;
 
-int calculateFuelCost(vector<int> numbers) {
+int calculateFuelCost(vector<int> &vec) {
     int total = 0;
-    for (int num : numbers) {
-        total += floor((double)num / 3.0 - 2); 
+    for (int i : vec) {
+        total += max(0, (int)(i / 3.0) - 2);
     }
     return total;
 }
 
 int main() {
+    vector<int> vec;
     int n;
     cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
-    }
-    cout << calculateFuelCost(numbers) << endl;
+    while(n--) {
+        int num; 
+        cin >> num;
+        vec.push_back(num);
+   }
+    
+    cout << calculateFuelCost(vec) << endl;
+
     return 0;
 }
