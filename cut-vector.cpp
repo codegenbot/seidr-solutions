@@ -1,33 +1,25 @@
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
+    vector<int> v(n);
+    int sum = 0;
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        cin >> v[i];
+        sum += v[i];
     }
-    
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int half_sum = sum / 2;
-    
-    int curr_sum = 0;
-    int idx = -1;
+    int prefix_sum = 0;
     for (int i = 0; i < n; ++i) {
-        curr_sum += nums[i];
-        if (curr_sum >= half_sum) {
-            idx = i;
+        prefix_sum += v[i];
+        if (prefix_sum * 2 >= sum) {
+            cout << i + 1 << endl;
+            for (int j = 0; j <= i; ++j) {
+                cout << v[j] << endl;
+            }
+            for (int j = i + 1; j < n; ++j) {
+                cout << 0 << endl;
+            }
             break;
         }
     }
-    
-    if (abs(curr_sum - half_sum) < abs(curr_sum - nums[idx] - half_sum)) {
-        ++idx;
-    }
-    
-    for (int i = 0; i <= idx; ++i) {
-        cout << nums[i] << endl;
-    }
-    
-    cout << 0 << endl;
-    
     return 0;
 }
