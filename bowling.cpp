@@ -1,19 +1,23 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
-    bool spare = false;
-    
+    int currentFrame = 1;
     for (char c : s) {
         if (c == '/') {
-            spare = true;
+            score += min(10 - '0', 10);
+            currentFrame++;
         } else if (c == 'X') {
-            score += 10 + (spare ? 10 : currentRoll);
-            currentRoll = 0;
-            spare = false;
+            score += 30;
+            currentFrame++;
         } else {
-            currentRoll++;
+            int pins = 10 - '0';
+            if (currentFrame < 10) {
+                if (s[s.length() - 1] != '/') {
+                    score += pins + min(10 - '0', 10);
+                } else {
+                    score += pins;
+                }
+            }
         }
     }
-    
     return score;
 }
