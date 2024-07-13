@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -23,7 +23,6 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    float total = shoppingList(prices, discounts); 
-    cout << fixed << setprecision(1) << total << endl; 
+    cout << fixed << std::setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
