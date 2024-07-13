@@ -1,4 +1,3 @@
-```
 def paired_digits(s):
     total = 0
     i = 0
