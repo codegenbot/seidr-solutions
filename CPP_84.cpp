@@ -1,15 +1,17 @@
 string solve(int N){
     int sum = 0;
-    while(N > 0){
-        int remainder = N % 2;
-        sum += remainder;
-        N /= 2;
+    while(N > 0) {
+        sum += (N & 1);
+        N >>= 1;
     }
-    string output = "";
-    while(sum > 0){
-        int temp = sum % 2;
-        output = to_string(temp) + output;
-        sum /= 2;
+    string result = "";
+    while(sum > 0) {
+        if(sum & 1)
+            result.push_back('1');
+        else
+            result.push_back('0');
+        sum >>= 1;
     }
-    return output;
+    reverse(result.begin(), result.end());
+    return result;
 }
