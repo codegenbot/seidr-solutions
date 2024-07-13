@@ -9,7 +9,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+            closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
     
