@@ -1,13 +1,12 @@
-#include <iostream>
 #include <vector>
+#include <iostream> 
 using namespace std;
 
 int calculateFuelCost(vector<int> &vec) {
     int total = 0;
     for (int i : vec) {
         int result = (i / 3);
-        if(result >= 2)
-            total += result - 2;
+        total += max(0, result - 2);
     }
     return total;
 }
