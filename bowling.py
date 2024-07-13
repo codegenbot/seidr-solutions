@@ -1,3 +1,4 @@
+```
 def bowling_score(game):
     score = 0
     game = game.rstrip()
@@ -5,8 +6,11 @@ def bowling_score(game):
         if game[i] == 'X':
             score += 10 + int(bowling_score(game[i+1:]) if i < len(game)-1 else 0)
         elif game[i] == '-':
-            first_roll, second_roll = map(int, [str(game[i-1]), str(game[i])] + list(str(game[i+1]).zfill(2)))
-            score += first_roll + second_roll
+            if i < len(game) - 2 and game[i+2].isdigit():
+                rolls = [int(x) for x in reversed([c for c in game[i-1:i+3][::-1] if c.isdigit()])]
+                score += sum(rolls)
+            else:
+                score += 10
         else:
             if game[i].isdigit():
                 first_roll = int(game[i])
