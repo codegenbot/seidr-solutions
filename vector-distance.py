@@ -1,10 +1,8 @@
 n = int(input())
-vec1 = list(map(float, input().split()))
-vec2 = list(map(float, input().split()))
+v1 = list(map(float, input().split()))
+m = int(input())
+v2 = list(map(float, input().split()))
 
+distance = sum((a - b) ** 2 for a, b in zip(v1, v2)) ** 0.5
 
-def euclidean_distance(vec1, vec2):
-    return sum((a - b) ** 2 for a, b in zip(vec1, vec2)) ** 0.5
-
-
-print(euclidean_distance(vec1, vec2))
+print("%.6f" % distance)
