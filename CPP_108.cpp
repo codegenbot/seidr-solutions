@@ -10,19 +10,20 @@ int count_nums(vector<int> v) {
                 sum += num % 10;
                 num /= 10;
             }
-            if (sum > 0)
+            if (sum > 1)
                 ++count;
         } else {
+            num = -num; // convert to positive
             int sum = 0;
             bool is_negative = true;
-            while (num != 0) {
+            while (num > 0) {
                 if (!is_negative) {
                     sum += num % 10;
                 }
-                num = abs(num);
+                num /= 10;
                 is_negative = !is_negative;
             }
-            if (sum > 0)
+            if (sum > 1)
                 ++count;
         }
     }
