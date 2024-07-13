@@ -6,7 +6,6 @@ def solve_boolean(expression):
     else:
         stack = []
         operators = []
-        precedence = {"&": 2, "|": 1}
         for char in expression:
             if char in ["&", "|"]:
                 while operators and operators[-1] != "(":
@@ -21,11 +20,9 @@ def solve_boolean(expression):
             elif char == "(":
                 operators.append(char)
             elif char in ["t", "f"]:
-                stack.append(eval(char.lower() == 't'))
+                stack.append(eval(char.lower() == "t"))
         while operators:
             op = operators.pop()
-            if precedence.get(op, 0) > precedence.get(operators[-1], 0):
-                continue
             val2 = stack.pop()
             val1 = stack.pop()
             if op == "&":
