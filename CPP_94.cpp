@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
 int findMaxPrime(std::vector<int> lst) {
     int maxPrime = 0;
