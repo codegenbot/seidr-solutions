@@ -1,45 +1,38 @@
-int score(string s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores(21, 0);
+int main() {
+    string input;
+    cin >> input;
 
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball] = 10;
-            if (frame < 10) {
-                scores[ball + 1] = -1; // Mark as strike
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
+            score += 10;
+            if (frame < 9) {
+                score += (input[i + 1] == 'X' ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10));
+                score += (input[i + 2] == 'X' ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] == 'X' ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10)) : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 0)));
+                frame++;
             }
-            ball += 2;
-        } else if (c == '/') {
-            scores[ball] = 10 - scores[ball - 1];
-            if (frame < 10) {
-                scores[ball + 1] = -2; // Mark as spare
+        } else if (isdigit(input[i])) {
+            score += input[i] - '0';
+            if (i + 1 < input.size() && input[i + 1] == '/') {
+                score += 10 - (input[i] - '0');
             }
-            ball += 2;
-        } else if (c == '-') {
-            scores[ball] = 0;
-            ball++;
-        } else {
-            scores[ball] = c - '0';
-            ball++;
-        }
-        if (frame < 10 && (scores[ball - 2] == 10 || scores[ball - 2] + scores[ball - 1] == 10)) {
-            total += scores[ball - 2] + scores[ball - 1] + scores[ball];
-        } else if (frame < 10) {
-            total += scores[ball - 2] + scores[ball - 1];
-        }
-        if (scores[ball - 2] == 10 || scores[ball - 1] == -1 || scores[ball - 1] == -2) {
-            frame++;
+            if (frame < 9) {
+                frame++;
+            }
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] - '0');
+            if (i + 1 < input.size() && input[i + 1] == 'X') {
+                score += 10;
+            } else {
+                score += (input[i + 1] == 'X' ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 0));
+            }
+            if (frame < 9) {
+                frame++;
+            }
         }
     }
 
-    return total;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    cout << score << endl;
     return 0;
 }
