@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -13,11 +14,12 @@ int main() {
 vector<int> leaders(vector<int>& nums) {
     vector<int> res;
     int rightmost = nums.back();
-    for (int i = nums.size() - 1; i >= 0; --i) {
+    for (int i = nums.size() - 2; i >= 0; --i) {
         if (nums[i] >= rightmost) {
             res.push_back(nums[i]);
             rightmost = nums[i];
         }
     }
+    res.push_back(nums.back()); // add the last element as a leader
     return res;
 }
