@@ -1,7 +1,7 @@
 ```cpp
-#include <string>
+#include<string>
 
-std::string file_name_check(std::string file_name){
+string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -15,7 +15,7 @@ std::string file_name_check(std::string file_name){
         }
     }
     if(!found_dot) return "No";
-    std::string extension = "";
+    string extension = "";
     for(int i=file_name.find('.')+1; i<file_name.length(); i++){
         extension += file_name[i];
     }
@@ -24,5 +24,5 @@ std::string file_name_check(std::string file_name){
 }
 
 int main() {
-   // Now you can use the function here...
+    // Now you can use the function here...
 }
