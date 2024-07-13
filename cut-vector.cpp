@@ -1,5 +1,5 @@
-#include <initializer_list>
-#include <utility>
+```cpp
+#include <cstdint>
 #include <vector>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -11,12 +11,12 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         long long leftSum = 0, rightSum = 0;
 
         // sum of elements on the left side
-        for (int j = 0; j <= i; j++) {
+        for (size_t j = 0; j <= i; j++) {
             leftSum += v[j];
         }
 
         // sum of elements on the right side
-        for (int j = i + 1; j < n; j++) {
+        for (size_t j = i + 1; j < n; j++) {
             rightSum += v[j];
         }
 
