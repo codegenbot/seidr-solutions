@@ -1,7 +1,10 @@
+```
 def cut_vector(vector):
-    left_sum = 0
-    for i, x in enumerate(vector):
-        left_sum += x
-        if left_sum >= sum(vector) // 2:
+    for i in range(len(vector)):
+        if sum(vector[:i+1]) == sum(vector[i:]):
             return [vector[:i+1], vector[i:]]
-    return [vector, []]
+        elif sum(vector[:i+1]) > sum(vector[i:]):
+            continue
+        else:
+            break
+    return [vector[:len(vector)//2], vector[len(vector)//2:]]
