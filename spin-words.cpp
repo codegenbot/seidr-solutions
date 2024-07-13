@@ -4,7 +4,7 @@ int main() {
     
     istringstream iss(input);
     while (iss >> word) {
-        if (word.size() >= 5) {
+        if (word.length() >= 5) {
             reverse(word.begin(), word.end());
         }
         cout << word << " ";
