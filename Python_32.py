@@ -1,12 +1,18 @@
+```
 def find_zero():
-    n = int(input("Enter the number of coefficients: "))
+    coefficients = []
+    
+    while True:
+        try:
+            coefficient = float(input("Enter a coefficient (or 'done' if finished): "))
+            if coefficient == 'done':
+                break
+            coefficients.append(coefficient)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    
+    n = len(coefficients)
     if n % 2 != 0:
-        raise ValueError("The number of coefficients must be even")
-    xs = []
-    for i in range(n):
-        x = float(input(f"Enter coefficient {i+1}: "))
-        xs.append(x)
-    if xs[1] * xs[3] < 0:
-        return round(-xs[1] / xs[3], 2)
-    else:
-        return "No real zero exists"
+        raise ValueError("xs must have an even number of coefficients")
+    x = -coefficients[1] / coefficients[3]
+    return round(x, 2)
