@@ -20,12 +20,14 @@ int main() {
     int numBounces = stoi(input);
 
     double firstBounce = startHeight;
-    double bouncinessIndex = bouncinessIndexInput / startHeight;
+    double bouncinessIndex;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        double height = startHeight * pow(2, -bouncinessIndex);
-        totalDistance += height * (pow(2, bouncinessIndex) - 1);
+        double startHeightTemp = startHeight * pow(2, -bouncinessIndexInput / startHeight);
+        totalDistance += startHeightTemp;
+        bouncinessIndex = firstBounce / startHeight;
+        startHeight = firstBounce;
         firstBounce *= bouncinessIndex;
     }
 
