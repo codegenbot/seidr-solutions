@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -14,5 +13,4 @@ vector<int> leaders(vector<int>& nums) {
     return result;
 
 }
-
 int main() { leaders(vector<int>()); return 0; }
