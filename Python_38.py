@@ -1,17 +1,10 @@
 ```
-def decode_cyclic(s: str):
+def decode_cyclic():
+    s = """{}""".format(input("Enter the cyclic string: "))
     decoded = ""
-    n = len(s)
-    if n % 2 == 0:
-        half_len = n // 2
-        prefix = s[:half_len]
-    else:
-        half_len = (n + 1) // 2
-        prefix = s[:half_len]
-
-    decoded = prefix + s[half_len:]
-    
-    if len(decoded) > n//2: 
-        return decoded[-(n//2):] 
-
+    for i in range(len(s)):
+        if 2*i < len(s):
+            decoded += s[2*i]
+        else:
+            decoded += s[-(i+1)%len(s)]
     return decoded
