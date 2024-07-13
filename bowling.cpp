@@ -6,10 +6,14 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     for (char c : s) {
         if (c == '/') {
-            if (currentRoll >= 10) {
-                score += 10 + max(1, currentRoll - 10);
+            if (currentRoll == 10) {
+                score += 10;
             } else {
-                score += currentRoll;
+                score += max(1, currentRoll);
+                if (isdigit(s[s.find('/') - 1])) {
+                    int nextRoll = stoi(s.substr(s.find('/') + 1));
+                    score += nextRoll;
+                }
             }
             currentRoll = 0;
         } else if (isdigit(c)) {
@@ -18,10 +22,6 @@ int bowlingScore(string s) {
         }
     }
     if (currentRoll > 0) {
-        if (currentRoll >= 10) {
-            score += 10;
-        } else {
-            score += currentRoll;
-        }
+        score += max(1, currentRoll);
     }
     return score;
