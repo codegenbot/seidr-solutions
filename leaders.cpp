@@ -14,7 +14,6 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxLeader);
         }
     }
-    reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
