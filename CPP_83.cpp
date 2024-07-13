@@ -8,7 +8,7 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        if (n > 1 && i % 10 != 1) {
+        if (n > 1 && i == 1) {
             break;
         }
     }
