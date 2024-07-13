@@ -35,4 +35,4 @@ int main() {
     cout << "Black pegs: " << black << endl;
     cout << "White pegs: " << (result - black) << endl;
     
-    return 0;
+    return 0
