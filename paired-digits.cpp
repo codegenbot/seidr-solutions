@@ -1,20 +1,24 @@
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 int pairedDigits(string s) {
+    int last = -1;
     int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i+1]) {
-            sum += s[i] - '0';
+    for (char c : s) {
+        if (c == '0' + last) {
+            sum += c - '0';
         }
+        last = c;
     }
     return sum;
-
 }
 
 int main() {
-    cout << "Enter a string of digits: ";
     string input;
+    cout << "Enter a string of digits: ";
     cin >> input;
     cout << "Sum of paired digits is: " << pairedDigits(input) << endl;
     return 0;
+}

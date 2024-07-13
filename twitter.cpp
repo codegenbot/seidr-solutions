@@ -1,24 +1,26 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <limits>
-
-using namespace std;
-
-string validateTweet(string tweet) {
-    if (tweet.empty()) return "You didn't type anything";
-    if (tweet.length() > 140) return "Too many characters";
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
-}
 
 int main() {
-    string input;
-    while (true) {
-        cout << "Enter a tweet: ";
-        if (!(cin >> ws).fail()) break;  
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-        getline(cin, input);
-        cout << validateTweet(input) << endl;
+    std::string tweet;
+    std::cout << "Enter a tweet: ";
+    std::getline(std::cin, tweet);
+
+    int ascii = 0;
+    for(auto c : tweet) {
+        if(c < 128)
+            ascii++;
     }
+    int unicode = tweet.length() - ascii;
+
+    if (tweet.empty()) {
+        std::cout << "You didn't type anything" << std::endl;
+    } else if (unicode > 140) {
+        std::cout << "Too many characters" << std::endl;
+    } else {
+        std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
+    }
+
     return 0;
 }
