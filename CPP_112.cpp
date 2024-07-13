@@ -9,9 +9,7 @@ using namespace std;
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    set<char> c_set; // Declare before using
-    
-    c_set.insert(c.begin(), c.end());
+    set<char> c_set(c.begin(), c.end());
     
     string temp = "";
     
@@ -53,3 +51,4 @@ int main() {
     }
     
     return 0;
+}
