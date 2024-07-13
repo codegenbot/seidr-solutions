@@ -1,17 +1,19 @@
 #include <iostream>
 #include <string>
 
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::string output = "";
-    for (char digit : input) {
-        int num = digit - '0';
-        output += std::to_string(num * num);
+std::string squareDigits(int n) {
+    std::string result = "";
+    while (n > 0) {
+        int digit = n % 10;
+        result = std::to_string(digit * digit) + result;
+        n /= 10;
     }
+    return result;
+}
 
-    std::cout << output << std::endl;
-
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << squareDigits(n) << std::endl;
     return 0;
 }
