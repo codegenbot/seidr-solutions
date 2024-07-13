@@ -1,31 +1,28 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int frame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            if (i + 2 < s.length() && s[i+1] != 'X') {
-                score += (10 - (s[i-1] - '0')) + (10 - (s[i+1] - '0'));
-            } else {
-                score += 10;
-            }
-            frame++;
-        } else if (s[i] == 'X') {
-            score += 10;
-            frame++;
-        } else {
-            int roll = s[i] - '0';
-            if (frame == 9 && s[i+1] != 'X' && s[i+1] != '/') {
-                score += 10 + roll;
-            } else {
-                score += roll;
-            }
-            if (i < s.length() - 1) {
-                if (s[i+1] == 'X') {
-                    frame++;
-                } else if (s[i+1] == '/') {
-                    i++;
+    for (int i = 0; i < 10; ++i) {
+        if (input[i] == 'X') {
+            score += 30;
+        } else if (isdigit(input[i])) {
+            int framePoints = 0;
+            int j = 1;
+            while (j <= input[i + 1 - '0'] && i < 9) {
+                if (input[i + j] == '/') {
+                    break;
                 }
+                ++framePoints;
+                ++j;
             }
+            score += framePoints + 10;
+        } else {
+            int framePoints = 0;
+            for (int j = 1; j <= input[i] - '0'; ++j) {
+                if (input[i + j] == '/') {
+                    break;
+                }
+                ++framePoints;
+            }
+            score += framePoints;
         }
     }
     return score;
