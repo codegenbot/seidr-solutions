@@ -1,7 +1,11 @@
-```
+def modp(n: int, p: int):
+    return pow(n, mod_inverse(p, n)) % n
+
+
 def mod_inverse(a: int, m: int):
     if gcd(a, m) != 1:
         return None
+
     def extended_gcd(a, b):
         if a == 0:
             return b, 0, 1
@@ -13,6 +17,3 @@ def mod_inverse(a: int, m: int):
     if g != 1:
         return None
     return x % m
-
-def modp(n: int, p: int):
-    return pow(n, mod_inverse(p, n)) % n
