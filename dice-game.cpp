@@ -1,6 +1,3 @@
-```
-#include <iostream>
-
 double probability(int n, int m) {
     double total = (double)(n * m);
     double p = 0;
@@ -12,6 +9,4 @@ double probability(int n, int m) {
     return p;
 }
 
-int main(int argc, char** argv) { 
-    return probability(2,3); 
-}
+int main() { return 0; }
