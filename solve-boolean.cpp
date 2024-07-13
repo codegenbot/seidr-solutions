@@ -1,10 +1,9 @@
-```cpp
 #include <stack>
 #include <string>
 
 bool solveBoolean(string expression) {
     stack<char> s;
-
+    
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -25,7 +24,7 @@ bool solveBoolean(string expression) {
             s.push(expression[i]);
         }
     }
-
+    
     if (s.size() > 0) {
         return s.top() == 'T';
     } else {
