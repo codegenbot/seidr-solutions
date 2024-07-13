@@ -7,7 +7,6 @@ int main() {
     
     while (std::cin >> num) {
         nums.push_back(num);
-        if (std::cin.eof()) break;
     }
     
     int sum = 0;
