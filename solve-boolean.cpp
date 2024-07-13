@@ -1,26 +1,20 @@
-bool solveBoolean(string expr) {
-    if (expr == "T") return true;
-    if (expr == "F") return false;
-    
-    bool result = true;
-    int i = 0;
-    while (i < expr.length()) {
-        if (expr[i] == '|') {
-            for (int j = i; j > 0 && expr[j-1] != '('; j--) {}
-            int end = i + 1;
-            while (end < expr.length() && expr[end] != ')') {
-                end++;
+string solveBoolean(string s) {
+    stack<char> st;
+    for (char c : s) {
+        if (c == '&') {
+            st.push(c);
+        } else if (c == '|') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            string sub = expr.substr(j, end - j);
-            if (sub == "T") result &= true;
-            else if (sub == "F") result &= false;
-            else {
-                bool temp = solveBoolean(sub);
-                if (temp) result |= true; else result |= false;
-            }
-        } 
-        i++;
+        } else if (c == 't' || c == 'T') {
+            while (!st.empty()) st.pop();
+            return "True";
+        } else if (c == 'f' || c == 'F') {
+            while (!st.empty()) st.pop();
+            return "False";
+        }
     }
-    
-    return result;
+    while (!st.empty()) st.pop();
+    return st.top() == '&' ? "False" : "True";
 }
