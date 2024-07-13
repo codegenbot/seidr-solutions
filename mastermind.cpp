@@ -8,18 +8,15 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
+    for (char c : guess) {
         int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
+        for (int i = 0; i < 4; ++i) {
+            if (c == code[i] && c != guess[i]) {
+                white++;
+                break;
             }
         }
-        if (count > 1 || count == 1 && black > 0) {
-            continue;
-        }
-        white += count - 1;
     }
 
-    return white + black;
+    return black + white;
 }
