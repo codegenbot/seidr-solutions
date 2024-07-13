@@ -1,13 +1,18 @@
-#include <iostream>
-#include <cmath>
-#include <cstddef>
-
 int main() {
-    double startHeight, actualStartHeight, actualBouncinessIndex;
-    std::cin >> startHeight >> actualStartHeight;
-    actualBouncinessIndex = (actualStartHeight / startHeight);
+    double startHeight;
 
-    double totalDistance = (pow(2, actualBouncinessIndex) - 1) * actualBouncinessIndex * startHeight;
+    // Get the input values from user
+    std::cin >> startHeight;
+    
+    double actualStartHeight = (startHeight / 2);
+
+    double actualBouncinessIndex = (actualStartHeight / startHeight);
+    int numBounces;
+
+    // Get the number of bounces from the user
+    std::cin >> numBounces;
+
+    double totalDistance = actualStartHeight * ((pow(2, numBounces) - 1) / (1 - pow(0.5, numBounces)));
 
     return 0;
 }
