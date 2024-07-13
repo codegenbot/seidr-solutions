@@ -1,7 +1,7 @@
-```
-def mean_absolute_deviation(numbers=None):
+def mean_absolute_deviation():
+    numbers = []
     while True:
-        if numbers is None:
+        if not numbers:
             input_str = input("Enter some numbers (space-separated): ")
             if not input_str:
                 print("Please enter at least one number.")
@@ -22,15 +22,8 @@ def mean_absolute_deviation(numbers=None):
                 print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
             else:
                 print("Please enter at least one number.")
-            
             response = input("Do you want to calculate again? (yes/no): ").lower()
-        
-        while True:
-            new_response = input("Exit program? (yes/no): ").lower()
-            if new_response == "no":
-                break
-            elif new_response == "yes":
-                print("Exiting...")
-                exit()
-            else:
-                print("Invalid response. Please enter 'yes' or 'no'."
+
+
+if __name__ == "__main__":
+    mean_absolute_deviation()
