@@ -20,3 +20,4 @@ int mastermind(string code, string guess) {
     }
     
     return pegs[1], pegs[0];
+}
