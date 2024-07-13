@@ -2,18 +2,24 @@
 def bowling_score(s):
     score = 0
     roll = 0
-    for i, frame in enumerate(s):
-        if frame == "X":
-            score += 30
+    for i in range(len(s)):
+        if s[i] == "X":
+            if i < 8:
+                score += 30 + int(s[i+1].split("/")[1]) + int(s[i+2].split("/")[1])
+            else:
+                score += 30
             roll += 1
-            if i < 8 and s[i+1] == "X" or (i < 9 and s[i+1] == "/"):
-                score += int(s[i+2]) + int(s[i+3])
-        elif frame == "/":
-            score += 10 + int(frame[1])
+        elif s[i] == "/":
+            if i < 8 and s[i+1] != "X":
+                score += 10 + int(s[i+1].split("/")[0]) + int(s[i+2].split("/")[1])
+            else:
+                score += 10 + int(s[i+1].split("/")[0])
             roll += 2
-            if i < 8 and s[i+1].isdigit():
-                score += int(s[i+1])
         else:
-            score += int(frame)
-            roll += 1
+            if len(s[i]) == 2 and s[i][1] == "/":
+                score += 10 + int(s[i][0])
+                roll += 2
+            else:
+                score += int(s[i])
+                roll += 1
     return score
