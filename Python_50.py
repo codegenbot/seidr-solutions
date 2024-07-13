@@ -1,8 +1,2 @@
 def decode_shift(s: str):
-    result = ""
-    for ch in s:
-        if ord(ch) < ord("a") + 5:
-            result += chr((ord(ch) - (ord("a") - 5)) % 26 + ord("a"))
-        else:
-            result += ch
-    return result
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() and ch.lower() >= 'a' and ch.lower() <= 'z' else ((chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A'))) if ch.isupper() and ch.lower() >= 'a' and ch.lower() <= 'z' else ch for ch in s])
