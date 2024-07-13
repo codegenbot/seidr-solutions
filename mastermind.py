@@ -1,9 +1,12 @@
 def mastermind(code, guess):
-    correct_color_wrong_place = 0
-    correct_color_correct_place = 0
-    for i in range(6): 
-        if i < 4 and code[i] == guess[i]:
-            correct_color_correct_place += 1
-        elif code.count(str(i)) > 0: 
-            correct_color_wrong_place += 1
-    return str(correct_color_wrong_place) + "\n" + str(correct_color_correct_place)
+    black_peg = 0
+    white_peg = 0
+
+    for i in range(4):
+        if code[i] == guess[i]:
+            black_peg += 1
+        elif guess.count(guess[i]) > 0:
+            white_peg += 1
+            guess = guess.replace(str(guess[i]), '', 1)
+
+    return str(black_peg), str(white_peg)
