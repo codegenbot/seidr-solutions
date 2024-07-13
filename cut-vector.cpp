@@ -3,39 +3,57 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for(int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if(diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    int index = -1;
+    for (int i = 0; i < v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; j++)
+            left_sum += v[j];
+        for (int j = i + 1; j < v.size(); j++)
+            right_sum += v[j];
+
+        if (left_sum == right_sum) {
+            return {{v[0], v.begin() + 1, v.end()}};
+        } else if (abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            index = i;
         }
     }
-    
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return make_pair(left, right);
+
+    int left_sum = 0;
+    for (int i = 0; i < index; i++)
+        left_sum += v[i];
+    int right_sum = 0;
+    for (int i = index + 1; i < v.size(); i++)
+        right_sum += v[i];
+
+    return {{v.begin(), v.begin() + index}, {v.begin() + index, v.end()}};
 }
 
 int main() {
+    // Read input from user
     int n;
     cin >> n;
     vector<int> v(n);
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
         cin >> v[i];
-    }
+
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left: ";
-    for(auto x : result.first) {
-        cout << x << " ";
+
+    // Print output
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i];
+        if (i < result.first.size() - 1)
+            cout << " ";
     }
-    cout << endl;
-    cout << "Right: ";
-    for(auto x : result.second) {
-        cout << x << " ";
+    cout << "] [";
+
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i];
+        if (i < result.second.size() - 1)
+            cout << " ";
     }
-    cout << endl;
+
+    cout << "]" << endl;
     return 0;
 }
