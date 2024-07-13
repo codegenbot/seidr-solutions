@@ -4,17 +4,16 @@
 using namespace std;
 
 int main() {
-    int size;
-    cin >> size;
+    vector<int> nums;
+    int num;
     
-    vector<int> nums(size);
-    
-    for (int i = 0; i < size; i++) {
-        cin >> nums[i];
+    while (cin >> num) {
+        nums.push_back(num);
     }
     
+    int n = nums.size();
     int sum = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < n; i++) {
         sum += nums[i];
     }
     
@@ -22,7 +21,7 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = std::abs(prefixSum - suffixSum);
