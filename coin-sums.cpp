@@ -24,8 +24,9 @@ int main() {
     if(dimes > 0) cout << (dimes == 1 ? "" : "s ") << dimes << " remaining\n";
     
     cout << "Nickels: " << nickels << " nickel" << (nickels > 1 ? "s" : "") << endl;
-    if.nickels > 0) cout << (nickels == 1 ? "" : "s ") << nickels << " remaining\n";
+    if(nickels > 0) cout << (nickels == 1 ? "" : "s ") << nickels << " remaining\n";
     
     cout << "Pennies: " << pennies << " penny" << (pennies > 1 ? "s" : "") << endl;
     
     return 0;
+}
