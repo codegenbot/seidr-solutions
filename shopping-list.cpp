@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 float totalShoppingPrice(vector<float> prices, vector<float> discounts) {
@@ -25,5 +25,6 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    cout << std::fixed << std::setprecision(1) << totalShoppingPrice(prices, discounts) << endl;
+    std::cout << std::fixed << std::setprecision(1) << totalShoppingPrice(prices, discounts) << std::endl;
     return 0;
+}
