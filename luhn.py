@@ -1,7 +1,9 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    result = sum(
-        2 * int(digit) if i % 2 != 0 else int(digit)
-        for i, digit in enumerate(card_number)
+    result = sum([i * 2 if i % 2 else i for i in card_number]) - sum(
+        [
+            i // 10 + i % 10 if i > 9 else i
+            for i in [i * 2 if i % 2 else i for i in card_number]
+        ]
     )
-    return str(result)
+    return result
