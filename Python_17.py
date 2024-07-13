@@ -6,7 +6,7 @@ def parse_music(music_string: str) -> List[int]:
     music_list = []
     i = 0
     while i < len(music_string):
-        if music_string[i] == ' ':
+        if i < len(music_string) and music_string[i].isspace():
             i += 1
             continue
         elif music_string[i] == 'o':
