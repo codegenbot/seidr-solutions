@@ -1,29 +1,31 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool res = false;
-    
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == 't')
-            res = true;
-        else if(s[i] == 'f')
-            res = false;
-        else if(s[i] == '|') {
-            while(!st.empty()) st.pop();
-            bool temp = res;
-            res = (res ? true : false);
-            res = (temp && !res) || (!temp && res);
-        }
-        else if(s[i] == '&') {
-            while(!st.empty()) st.push(st.top() == 't');
-            bool temp = res;
-            res = (res ? true : false);
-            while(!st.empty()) {
-                st.pop();
-                res = (res && temp) || (!temp && !res);
-                temp = false;
-            }
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> ops;
+    stack<bool> values;
+
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 && b2);
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 || b2);
+            ops.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            values.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            values.push(false);
         }
     }
-    
-    return res;
+
+    return values.top();
 }
