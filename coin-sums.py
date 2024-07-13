@@ -9,5 +9,4 @@ def coin_sums(cents):
             result.append((count, names[i]))
             cents %= coins[i]
 
-    for item in ['{} {}'.format(count, name if count == 1 else f"{count} {name}s") for count, name in result]:
-        print(item)
+    print(*['{} {}'.format(count, name if count == 1 else f"{count} {name}s") for count, name in result], sep='\n')
