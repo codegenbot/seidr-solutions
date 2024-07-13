@@ -1,4 +1,4 @@
-```
+```python
 import math
 
 xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
@@ -14,6 +14,7 @@ def find_zero(xs):
     x = (-b + math.sqrt(b**2 - 4 * a * (c-a*x))) / (2 * a)
     return round(x, 2)
 
+print('Here\'s the corrected code:')
 while True:
     try:
         xs = [int(x) for x in input("Enter the coefficients (space separated): ").split()]
