@@ -23,13 +23,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string temp = result;
     std::reverse(temp.begin(), temp.end());
     if (result == temp) {
-        return {{"", "True"}};
+        return {std::to_string(result), "True"};
     } else {
-        return {{"", "False"}};
+        return {std::to_string(result), "False"};
     }
 }
 
 int main() {
-    // Your code here
+    // your code here
     return 0;
 }
