@@ -1,10 +1,2 @@
-def solve():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        num = int(input())
-        total += num // 3 - 2
-    print(total)
-
-
-solve()
+def fuel_cost(input_vector):
+    return sum((i // 3) - 2 for i in input_vector)
