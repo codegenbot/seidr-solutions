@@ -1,6 +1,5 @@
-#include <vector>
-#include <string>
-#include <initializer_list>
+```cpp
+#include <bits/stdc++.h>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
@@ -37,3 +36,4 @@ std::vector<int> parseInput(const std::string& input) {
         }
     }
     return rolls;
+}
