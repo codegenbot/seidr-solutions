@@ -1,42 +1,27 @@
 ```cpp
-#include <vector>
+#include <iostream>
 #include <string>
+#include <vector>
 
-int main() {
-    string class_name;
-    vector<string> extensions;
-
-    // Read input from user
-    cin >> class_name;
-    int n;
-    cin >> n;
-    extensions.resize(n);
-    for(int i = 0; i < n; ++i) {
-        cin >> extensions[i];
-    }
-
-    // Return output corresponding to the task description
-    string strongest = Strongest_Extension(class_name, extensions);
-
-    cout << "Strongest Extension: " << strongest << endl;
-
-    return 0;
-}
-
-int Strongest_Extension(string class_name,vector<string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = 0;
-    string strongest_extension;
-    for(auto extension : extensions){
+    std::string strongest_extension;
+    for (auto extension : extensions) {
         int cap = 0, sm = 0;
-        for(char c : extension){
-            if(isupper(c)) cap++;
-            else if(islower(c)) sm++;
+        for (char c : extension) {
+            if (isupper(c)) cap++;
+            else if (islower(c)) sm++;
         }
         int strength = cap - sm;
-        if(strength > strongest || (strength == strongest && extension < strongest_extension)){
+        if (strength > strongest || (strength == strongest && extension < strongest_extension)) {
             strongest = strength;
             strongest_extension = extension;
         }
     }
     return class_name + "." + strongest_extension;
+}
+
+int main() {
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    return 0;
 }
