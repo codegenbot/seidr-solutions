@@ -1,3 +1,2 @@
-def solve():
-    numbers = input("Enter comma-separated numbers: ")
+def solve(numbers):
     return sorted(list(set(map(int, numbers.split(",")))))
