@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -10,7 +9,7 @@ int main() {
     cents -= dimes * 10; 
 
     int nickles = cents / 5;
-    cents -= nickles * 5;  
+    cents -= nickles * 5; 
 
     int pennies = cents;
 
