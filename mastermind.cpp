@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -30,6 +29,7 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     
+    int blackPegs, whitePegs; 
     int result = mastermind(code, guess);
     
     cout << "Black pegs: " << black << endl;
