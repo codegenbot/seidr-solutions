@@ -1,9 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
+std::vector<int> findIndices(std::string text, std::string target) {
+    std::vector<int> indices;
     int n = text.length();
     int m = target.length();
 
@@ -23,12 +23,12 @@ vector<int> findIndices(string text, string target) {
 }
 
 int main() {
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndices(text, target);
+    std::string text, target;
+    std::cin >> text >> target;
+    std::vector<int> result = findIndices(text, target);
     for (int i : result) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
