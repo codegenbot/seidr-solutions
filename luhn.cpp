@@ -1,3 +1,4 @@
+```
 #include <vector>
 
 int luhn(const std::vector<int>& cardNumber) {
@@ -11,4 +12,9 @@ int luhn(const std::vector<int>& cardNumber) {
         sum += digit;
         alternate = !alternate; 
     }
-    return sum % 10; }
+    return sum % 10;
+
+}
+
+int main() {
+    return luhn(std::vector<int>{});
