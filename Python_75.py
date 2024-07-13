@@ -8,14 +8,10 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    prime_factors = set()
-    divisor = a
-    while divisor > 1:
-        for i in range(2, int(divisor**0.5) + 1):
-            if divisor % i == 0:
-                if is_prime(i):
-                    prime_factors.add(i)
-                while divisor % i == 0:
-                    divisor //= i
-                break
-    return len(prime_factors) >= 3
+    factors = []
+    for i in range(2, a+1):
+        while a % i == 0:
+            factors.append(i)
+            a //= i
+    primes = [factor for factor in factors if is_prime(factor)]
+    return len(primes) >= 3
