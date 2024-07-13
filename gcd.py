@@ -1,10 +1,10 @@
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
-
-a = int(input("Enter first integer: "))
-b = int(input("Enter second integer: "))
+a = int(input())
+b = int(input())
 
 print(gcd(a, b))
