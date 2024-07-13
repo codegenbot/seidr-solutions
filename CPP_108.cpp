@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -14,7 +13,7 @@ int count_nums(vector<int> v) {
             if (sum > 0)
                 ++count;
         } else {
-            num = -num; // convert to positive
+            num = -num; 
             int sum = 0;
             bool is_negative = true;
             while (num > 0) {
