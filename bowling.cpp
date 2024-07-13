@@ -1,40 +1,29 @@
-#include <string>
-#include <sstream>
-
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
-    bool lastRollWasStrike = false;
-
-    std::istringstream ss(s);
-    char c;
-    while (ss >> c) {
+    string frame;
+    for (char c : s) {
+        if (c == '/') {
+            frame += '/';
+            continue;
+        }
+        frame += c;
         if (c == 'X') {
-            score += 30;
-            lastRollWasStrike = true; 
-        } else if (c == '/') {
-            if (!lastRollWasStrike) {
-                score += 10 + (score / 10);
+            score += 10;
+        } else if (c == '-') {
+            continue;
+        } else if (isdigit(c)) {
+            int points = 0;
+            for (; isdigit(s[s.find(c) + 1]); s.erase(s.find(c) + 1, 1)) {
+                points = points * 10 + (s[s.find(c) + 1] - '0');
             }
-            lastRollWasStrike = false;
-        } else {
-            int temp = c - '0';
-            if (lastRollWasStrike) {
-                score += temp * 2; 
-                lastRollWasStrike = false;
-            } else {
-                score += temp;
-            }
+            score += points;
+        } else if (c == 'T') {
+            score += 10 + (s[s.find(c) + 1] - '0' + s[s.find(c) + 2] - '0');
         }
     }
-
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter your bowling score: ";
-    std::cin >> input;
-
-    int result = bowlingScore(input);
-    return 0;
+    return bowlingScore("X/XXX/X-4-8/2X6/T50");
 }
