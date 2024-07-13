@@ -1,3 +1,21 @@
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    // Use common function here
+    vector<int> l1 = {1,2,3};
+    vector<int> l2 = {2,3,4};
+
+    vector<int> result = common(l1,l2);
+
+    for(auto i: result){
+        cout << i << " ";
+    }
+    
+    return 0;
+}
+
 vector<int> common(vector<int> l1,vector<int> l2){
     vector<int> result;
     set<int> s1(l1.begin(),l1.end());
@@ -13,8 +31,4 @@ vector<int> common(vector<int> l1,vector<int> l2){
 
     sort(result.begin(),result.end());
     return result;
-}
-
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
 }
