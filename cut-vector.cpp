@@ -5,31 +5,28 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
-    int diff = INT_MAX;
+    
+    int totalSum = accumulate(nums.begin(), nums.end(), 0);
+    int leftSum = 0, rightSum = totalSum;
+    int minDiff = INT_MAX;
     int cutIndex = -1;
-
-    for (int i = 1; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            rightSum += nums[j];
-        }
-        if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
+    
+    for (int i = 0; i < n; ++i) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
             cutIndex = i;
         }
     }
-
-    for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
+    
+    for (int i = 0; i <= cutIndex; ++i) {
+        cout << nums[i] << "\n";
     }
-    cout << endl;
-    for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int i = cutIndex + 1; i < n; ++i) {
+        cout << nums[i] << "\n";
     }
-
+    
     return 0;
 }
