@@ -1,4 +1,5 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
 int can_arrange(vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
@@ -7,4 +8,9 @@ int can_arrange(vector<int> arr) {
         }
     }
     return -1;
+}
+
+int main() {
+    assert(can_arrange({}) == -1);
+    return 0;
 }
