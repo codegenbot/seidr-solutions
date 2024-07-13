@@ -1,9 +1,8 @@
 ```c++
 #include <iostream>
-#include <iomanip>
 
 double snowDay(int hours, float initialSnow, float rateOfFall, float proportionMelting) {
-    double totalSnow = initialSnow;
+    double totalSnow = 0;
     for (int i = 1; i <= hours; ++i) {
         totalSnow += rateOfFall - proportionMelting * totalSnow;
     }
