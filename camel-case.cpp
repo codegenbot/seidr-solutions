@@ -6,28 +6,32 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i <= s.size(); i++) {
+    int i = 0;
+    while (i <= s.size()) {
         if (i == s.size() || s[i] == '-') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
             string word = s.substr(i + 1);
-            result += word;
+            if (!word.empty()) {
+                result += word;
+            }
             break;
         } else if (s[i] == ' ') {
             if (!result.empty()) {
                 result[0] = toupper(result[0]);
             }
-            result += std::tolower(s[i]) + s.substr(i + 1).substr(0, 1);
-            result += toupper(s.substr(i + 1).substr(1)[0]) + s.substr(i + 1).substr(1);
-            break;
+            result += std::tolower(s[0]) + s.substr(i + 1).substr(1);
+            i++;
+            while (i < s.size() && s[i] != '-') i++;
         } else {
-            if (result.empty()) {
-                result += s[i];
+            if (!result.empty()) {
+                result.push_back(toupper(s[i]));
             } else {
-                result += std::toupper(s[i]);
+                result += std::tolower(s[i]);
             }
         }
+        i++;
     }
     return result;
 }
