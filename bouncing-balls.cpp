@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -9,6 +10,11 @@ int main() {
 
     cin >> startHeight >> firstBounce;        
     cin >> numBounces;
+
+    if (!(cin && (cin.peek() == EOF))) {
+        cout << "Invalid input. Please enter valid inputs." << endl;
+        return 1;
+    }
 
     double bouncinessIndex = (firstBounce / startHeight);
     startHeight = firstBounce; // update start height for next bounce
@@ -22,3 +28,4 @@ int main() {
     cout << fixed << setprecision(10) << totalDistance << endl;
 
     return 0;
+}
