@@ -2,10 +2,13 @@ int main() {
     string s;
     cin >> s;
     
-    if (s.size() % 2 == 0) {
-        cout << s.substr(s.size() / 2 - 1, 2);
+    int n = s.length();
+    
+    if (n % 2 == 0) {
+        string result = s.substr(n/2 - 1, 2);
+        cout << result;
     } else {
-        cout << s[s.size() / 2];
+        cout << s[n/2];
     }
     
     return 0;
