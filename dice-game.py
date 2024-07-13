@@ -1,9 +1,9 @@
 def dice_game(n, m):
     if n > m:
-        favorable = sum(range(1, n+1)) * m
+        favorable = sum(range(1, n)) * m
         total = n * m
     elif n < m:
-        favorable = sum(range(1, m+1)) * n
+        favorable = sum(range(1, m)) * n
         total = n * m
     else:
         favorable = 0
