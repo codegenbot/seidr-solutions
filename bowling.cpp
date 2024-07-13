@@ -1,42 +1,28 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
-    bool strike = false;
-    if (s.empty()) {
-        return score; 
-    }
+    bool lastRollWasStrike = false;
+
     istringstream ss(s);
     char c;
     while (ss >> c) {
         if (c == 'X') {
             score += 30;
-            strike = true;
+            lastRollWasStrike = true; 
         } else if (c == '/') {
-            if (!strike) {
-                score += 10 + (score / 10 - 1);
+            if (!lastRollWasStrike) {
+                score += 10 + (score / 10);
             }
-            strike = false;
+            lastRollWasStrike = false;
         } else {
             int temp = c - '0';
-            if (strike) {
-                score += temp * 2;
-                strike = false;
+            if (lastRollWasStrike) {
+                score += temp * 2; 
+                lastRollWasStrike = false;
             } else {
                 score += temp;
             }
         }
     }
+
     return score;
 }
-
-int main() {
-    string input;
-    cout << "Enter bowling scores: ";
-    getline(cin, input);
-    int result = bowlingScore(input);
-    cout << "Total score: " << result << endl;
-    return 0;
