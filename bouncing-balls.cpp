@@ -1,16 +1,18 @@
-```c++
+```
 #include <iostream>
 #include <cmath>
-#include <string>
 
 using namespace std;
 
 int main() {
-    string input;
-    double startHeight = stod(input);
-    double bouncinessIndexInput = stod(input);
-    double firstBounce = bouncinessIndexInput;
-    int numBounces = stoi(input);
+    double startHeight;
+    cin >> startHeight;
+    
+    double firstBounce;
+    cin >> firstBounce;
+    
+    int numBounces;
+    cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 

@@ -1,4 +1,3 @@
-```
 import math
 
 start_height = float(input("Enter the starting height: "))

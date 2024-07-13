@@ -1,4 +1,9 @@
+```cpp
 #include <vector>
+
+int main() {
+    return 0;
+}
 
 int basement(std::vector<int>& nums) {
     int sum = 0;
