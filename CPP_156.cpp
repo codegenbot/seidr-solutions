@@ -1,13 +1,16 @@
-```cpp
-vector<string> roman_numerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-vector<int> decimal_values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-
 string int_to_mini_roman(int number) {
-    string result;
-    for (int i = 0; i < decimal_values.size(); ++i) {
-        while (number >= decimal_values[i]) {
-            result += roman_numerals[i];
-            number -= decimal_values[i];
+    vector<pair<int, string>> romanNumerals = {{1000, "m"}, {900, "cm"}, {500, "d"},
+        {400, "cd"}, {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
+    string result = "";
+    for (const auto &roman : romanNumerals) {
+        while (number >= roman.first) {
+            number -= roman.first;
+            result += roman.second;
+        }
+        if (number > 0) {
+            result += "i";
+            number--;
         }
     }
     return result;
