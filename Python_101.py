@@ -1,2 +1,3 @@
-def words_string(s):
-    return [word.strip().title().rstrip() for word in s.split(",") if word]
+```
+s = input("Enter a comma-separated string of words: ")
+print(words_string(s))
