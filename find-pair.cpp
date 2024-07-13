@@ -1,10 +1,10 @@
 #include <vector>
-
-#include <utility>
-
 #include <unordered_map>
+#include <pair>
 
-std::pair<int, int> findPair(std::vector<int>& nums, int target) {
+using namespace std;
+
+pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numIndex;
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
