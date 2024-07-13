@@ -22,7 +22,7 @@ int main() {
     }
     int target;
     cin >> target;
-    pair<int, int> res = findPair(nums, target);
-    cout << res.first << "\n" << res.second << endl;
+    pair<int, int> result = findPair(nums, target);
+    cout << result.first << "\n" << result.second << "\n";
     return 0;
 }
