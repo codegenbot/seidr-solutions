@@ -7,7 +7,8 @@ int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight >> cin.ignore(1,' ') >> firstBounce;        
+    cin >> startHeight >> std::skipws >> cin.get();
+    cin >> firstBounce;        
     cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
