@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -35,19 +34,19 @@ vector<vector<int>> cutVector(vector<int> v) {
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     vector<int> v(n);
     for(auto &x : v) 
-        cin >> x;
+        std::cin >> x;
     vector<vector<int>> res = cutVector(v);
-    cout << "[";
+    std::cout << "[";
     for(int i=0; i<res[0].size(); i++) 
-        cout << res[0][i] << " ";
-    cout << "]" << endl;
-    cout << "[";
+        std::cout << res[0][i] << " ";
+    std::cout << "]" << std::endl;
+    std::cout << "[";
     for(int i=0; i<res[1].size(); i++) 
-        cout << res[1][i] << " ";
-    cout << "]" << endl;
+        std::cout << res[1][i] << " ";
+    std::cout << "]" << std::endl;
     
     return 0;
 }
