@@ -9,13 +9,8 @@ int basement(std::vector<int>& nums) {
     return -1;
 }
 
-#include <iostream>
-
 int main() {
-    std::vector<int> numbers = {-5, 1, -3, 4, -2};
-    int index = basement(numbers);
-    if(index != -1) std::cout << "Basement index: " << index << std::endl;
-    else std::cout << "No negative sum found." << std::endl;
-
+    std::vector<int> nums = {-3,2,-3,4,5,-2,6};
+    int result = basement(nums);
     return 0;
 }
