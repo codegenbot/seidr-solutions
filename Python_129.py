@@ -1,7 +1,4 @@
 ```
-from typing import List
-from collections import deque
-
 def shortestPaths(grid: List[List[int]], k: int) -> list:
     result = []
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
