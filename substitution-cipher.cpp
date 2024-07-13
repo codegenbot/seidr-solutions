@@ -5,10 +5,16 @@
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string result;
     for (char c : message) {
-        if (c == '\0') break; // Check for null character
-        int index = c - 'a'; // Calculate the index of the character in the alphabet
-        if (index < 0 || index > 25) continue; // Ignore non-alphabet characters
-        result += cipher2[index]; // Append the deciphered character to the result
+        if (c == '\n') {
+            result += '\n';
+        } else {
+            int index = cipher1.find(c);
+            if (index != std::string::npos) {
+                result += cipher2[index];
+            } else {
+                result += c;
+            }
+        }
     }
     return result;
 }
