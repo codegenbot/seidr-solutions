@@ -1,22 +1,20 @@
 string words_in_sentence(string sentence){
     string result = "";
-    int count = 0;
-
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] == ' ' || i==sentence.length()-1){
-            string word = sentence.substr(count, i-count);
-            bool is_prime = true;
-            for(int j=2; j*j<=stoi(word); j++){
-                if(stoi(word)%j==0) {
-                    is_prime = false;
-                    break;
-                }
-            }
-            if(is_prime)
-                result += word + " ";
-            count = i+1;
-        }
+    for(int i=0; i<sentence.size(); i++){
+        int word_len = 0;
+        while(i < sentence.size() && sentence[i] != ' ')
+            i++, word_len++;
+        if(word_len > 0 && isPrime(word_len))
+            result += sentence.substr(i - word_len + 1, word_len) + " ";
     }
+    return result;
+}
 
-    return result.substr(0, result.length()-1);
+bool isPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i=2; i*i<=n; i++)
+        if(n%i == 0)
+            return false;
+    return true;
 }
