@@ -13,13 +13,11 @@ int bowlingScore(string s) {
             }
             roll1 = 0;
             roll2 = 0;
-        } 
-        else if (isdigit(s[i])) {
+        } else if (isdigit(s[i])) {
             int x = s[i] - '0';
             if (roll1 == 0) {
                 roll1 = x;
-            } 
-            else {
+            } else {
                 roll2 = x;
             }
         }
@@ -28,8 +26,7 @@ int bowlingScore(string s) {
     if (roll1 + roll2 > 0) {
         if (roll1 + roll2 >= 10) {
             score += 10;
-        } 
-        else {
+        } else {
             score += roll1 + roll2;
         }
     }
