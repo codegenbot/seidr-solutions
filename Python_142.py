@@ -1,4 +1,4 @@
-```Python
+```
 def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
@@ -8,11 +8,6 @@ def sum_squares(lst):
             total_sum += lst[i] ** 3
     return total_sum
 
-while True:
-    try:
-        lst = list(map(int, input("Enter the list elements (space-separated): ").split()))
-        break
-    except ValueError:
-        print("Invalid input. Please enter integers separated by spaces.")
-
+elements = input("Enter the list elements (comma-separated): ")
+lst = list(map(int, elements.split(',')))
 print(sum_squares(lst))
