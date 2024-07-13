@@ -1,3 +1,8 @@
-numbers = list(map(int, input().split()))
-result = sum((num // 3) - 2 for num in numbers)
-print(result)
+def fuel_cost():
+    total = 0
+    for i in range(int(input())):
+        total += max(0, int(input()) // 3 - 2)
+    print(total)
+
+
+fuel_cost()
