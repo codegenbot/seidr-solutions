@@ -1,20 +1,21 @@
+```python
 def bowling_score(frames):
     score = 0
     rolls = list(map(int, frames.replace('/', '')))
     i = 0
     while i < len(rolls):
-        if rolls[i] == 10: 
+        if rolls[i] == 10: # strike
             score += 10
             i += 1
             if i < len(rolls) and rolls[i] == 10:
                 i += 2
-        elif '/' in frames[i:i+3]: 
+        elif '/' in frames[i:i+3]: # spare
             score += 10
             i += 2
         else:
             frame_score = sum(rolls[i:i+2])
             score += frame_score
-            if frame_score < 10: 
+            if frame_score < 10: # not enough to fill the frame, try again
                 for j in range(i+1, len(rolls)):
                     score += rolls[j]
                     i = j
