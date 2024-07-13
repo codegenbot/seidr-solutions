@@ -1,32 +1,34 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> &nums) {
-    vector<vector<int>> result;
-    
-    if (nums.size() == 0) {
-        return {{}};
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int n = vec.size();
+    for (int i = 0; i < n - 1; ++i) {
+        if (vec[i] == vec[i + 1]) {
+            return {vector<int>(vec.begin(), vec.begin() + i + 1), vector<int>(vec.begin() + i, vec.end())};
     }
-    
-    int minDiff = INT_MAX, cutIndex = -1;
-    for (int i = 0; i < nums.size(); ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i + 1; j < nums.size(); ++j) {
-            rightSum += nums[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff || (diff == minDiff && i > cutIndex)) {
-            minDiff = diff;
-            cutIndex = i;
-        }
+    for (int i = 0; i < n - 1; ++i) {
+        if (abs(vec[i] - vec[i + 1]) <= abs((n - i - 1) * (vec[i] - vec[i + 1])) / 2) {
+            return {vector<int>(vec.begin(), vec.begin() + i + 1), vector<int>(vec.begin() + i, vec.end())};
     }
-    
-    result.push_back(vector<int>(nums.begin(), nums.begin() + cutIndex));
-    result.push_back(vector<int>(nums.begin() + cutIndex, nums.end()));
-    
-    return result;
+    return {vector<int>(vec.begin()), vector<int>(vec.begin() + 1, vec.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
+    }
+    pair<vector<int>, vector<int>> res = cutVector(vec);
+    for (const auto& num : res.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    for (const auto& num : res.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
 }
