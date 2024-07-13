@@ -1,8 +1,12 @@
 int main() {
-    double h0, h1, b;
-    cin >> h0 >> h1 >> b;
-    double bi = h1 / h0;
-    double total_distance = h0 + (h0 * bi) * (pow(bi, b - 1) - 1) / (bi - 1);
-    cout << total_distance << endl;
+    double h, b;
+    int n;
+    cin >> h >> b >> n;
+    double bounciness_index = b / h;
+    double total_distance = h + b;
+    for (int i = 2; i <= n; ++i) {
+        total_distance += 2 * b * pow(bounciness_index, i - 1);
+    }
+    printf("%.15lf\n", total_distance);
     return 0;
 }
