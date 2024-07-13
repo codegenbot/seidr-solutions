@@ -17,7 +17,7 @@ def rescale_to_unit(input_str):
             rescaled_numbers.append(rescaled_sublist)
         else:  
             if not rescaled_numbers:  
-                rescaled_numbers = [[(sublist - min([sublist])) / max(abs(sublist - min([sublist])), 1e-9)]]
+                rescaled_numbers = [(sublist - min([sublist])) / max(abs(sublist - min([sublist])), 1e-9)]
             else:
                 rescaled_numbers.append([(sublist - min([sublist])) / max(abs(sublist - min([sublist])), 1e-9)])
     return [str(x) for x in rescaled_numbers]
