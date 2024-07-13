@@ -1,9 +1,10 @@
 ```cpp
 bool solveBoolean(std::string s) {
+    stack<char> st;
     bool result = true;
+    char c;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            stack<char> st;
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
@@ -12,18 +13,16 @@ bool solveBoolean(std::string s) {
             }
             st.pop();
         } else if (s[i] == '|') {
-            stack<char> st1;
-            while (!st1.empty() && st1.top() == '|') {
-                st1.pop();
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            if (st1.empty()) {
+            if (st.empty()) {
                 result = true;
             }
-            st1.pop();
+            st.pop();
         } else {
-            stack<char> st2;
-            st2.push(s[i]);
+            st.push(s[i]);
         }
     }
-    return st2.top() == 'T';
+    return c == 'T';
 }
