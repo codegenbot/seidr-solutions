@@ -1,42 +1,27 @@
-#include <vector>
-#include <iostream>
-using namespace std;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-int getBlackPegs(string code, string guess) {
-    int blackPegs = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            black++;
         }
     }
-    return blackPegs;
-}
 
-int getWhitePegs(string code, string guess) {
-    int whitePegs = 0;
+    vector<char> codeSet(6);
+    vector<int> codeCount(6, 0);
+
     for (char c : code) {
-        bool found = false;
-        for (char g : guess) {
-            if (c == g && !found) {
-                found = true;
-            }
-        }
-        if (!found) {
-            whitePegs++;
-        }
+        codeSet[c - 'A'] = c;
+        codeCount[c - 'A']++;
     }
-    return blackPegs - getBlackPegs(code, guess);
-}
 
-int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter the guess: ";
-    cin >> guess;
-    int white = getWhitePegs(code, guess);
-    int black = getBlackPegs(code, guess);
-    cout << white << endl;
-    cout << black << endl;
-    return 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) continue;
+
+        char c = guess[i];
+        if (codeSet[c] && codeCount[c - 'A'] > 1) white++;
+    }
+
+    return black + white;
 }
