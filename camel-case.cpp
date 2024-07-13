@@ -10,7 +10,7 @@ std::string camelCase(const std::string& input) {
         if (!result.empty())
             result += char(std::toupper(word[0]));
         else
-            result = word.substr(1);
+            result = std::move(word).substr(1);
         for (int i = 1; i < word.size(); ++i)
             result += char(std::tolower(word[i]));
     }
