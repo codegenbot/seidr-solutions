@@ -1,30 +1,48 @@
-int score(string input) {
-    int frame = 0;
-    int score = 0;
-    for (int i = 0; i < input.size(); ++i) {
-        if (frame == 10) break;
-        if (input[i] == 'X') {
-            score += 10;
-            if (input[i+2] == 'X') score += 10;
-            else if (input[i+2] == '/') score += 10 - (input[i+1] - '0');
-            else score += input[i+1] - '0' + input[i+2] - '0';
+int score(string s) {
+    int sum = 0;
+    int frame = 1;
+    int ball = 0;
+    int rolls[22] = {0};
+
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
             frame++;
-        } else if (input[i] == '/') {
-            score += 10 - (input[i-1] - '0');
-        } else if (input[i] == '-') {
-            // do nothing
+        } else if (c == '/') {
+            rolls[ball++] = 10 - rolls[ball-1];
+            frame++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            score += input[i] - '0';
-            if (input[i+1] == '/') score += 10 - (input[i] - '0');
-            frame++;
+            rolls[ball++] = c - '0';
         }
     }
-    return score;
+
+    ball = 0;
+    frame = 1;
+    for (int i = 0; i < s.length(); i++) {
+        if (frame < 10 && rolls[ball] == 10) {
+            sum += 10 + rolls[ball+1] + rolls[ball+2];
+            ball++;
+        } else if (frame < 10 && rolls[ball] + rolls[ball+1] == 10) {
+            sum += 10 + rolls[ball+2];
+            ball += 2;
+        } else {
+            sum += rolls[ball] + rolls[ball+1];
+            ball += 2;
+        }
+        frame++;
+    }
+
+    return sum;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
