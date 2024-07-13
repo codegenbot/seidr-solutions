@@ -1,25 +1,27 @@
-int main() {
-    string input;
-    getline(cin, input);
-
-    size_t start = 0;
-    size_t end = input.find(' ');
-
-    while (end != string::npos) {
-        string word = input.substr(start, end - start);
-        if (word.size() >= 5) {
-            reverse(word.begin(), word.end());
+string spinWords(const string &sentence) {
+    string result = "";
+    string word = "";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
-        cout << word << " ";
-        start = end + 1;
-        end = input.find(' ', start);
     }
-
-    string lastWord = input.substr(start);
-    if (lastWord.size() >= 5) {
-        reverse(lastWord.begin(), lastWord.end());
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
     }
-    cout << lastWord << endl;
+    result += word;
+    return result;
+}
 
+int main() {
+    string sentence;
+    getline(cin, sentence);
+    cout << spinWords(sentence) << endl;
     return 0;
 }
