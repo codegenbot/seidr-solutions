@@ -47,5 +47,4 @@ int main() {
         cout << res[1][i] << " ";
     cout << "]" << endl;
     
-    return 0;
-}
+    return 0;}
