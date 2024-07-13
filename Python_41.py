@@ -5,7 +5,7 @@ def car_race_collision(n: int):
 while True:
     try:
         n = int(input("Enter a number: "))
-        if n > 0:
+        if isinstance(n, int) and n > 0:
             print(car_race_collision(n))
             break
         else:
