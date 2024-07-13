@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -26,15 +27,15 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 int main() {
     std::string input;
     getline(std::cin, input);
+    size_t textIndex = input.find(" ");
+    std::string target = input.substr(0, textIndex);
+    input.erase(0, textIndex + 1);
+    std::string text = input;
 
-    size_t targetStart = 0;
-    size_t targetEnd = input.find('\n');
-    if (targetEnd == std::string::npos) {
-        targetEnd = input.length();
-    }
-
-    std::string text = input.substr(targetEnd);
-    std::string target = input.substr(0, targetEnd);
+    input.clear();
+    input.resize(textIndex - textIndex - 1); // -1 to exclude the newline character
+    getline(std::cin, input);
+    target += input;
 
     std::vector<int> indices = indicesOfSubstring(text, target);
 
