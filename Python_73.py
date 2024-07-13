@@ -1,7 +1,10 @@
 def array_change(lst):
     max_diff = 0
     for i in range(1, len(lst)):
-        diff = abs(int(lst[i]) - int(lst[i - 1]))
+        try:
+            diff = abs(int(lst[i]) - int(lst[i-1]))
+        except ValueError:
+            return "Invalid input. Please enter a list of integers."
         if diff > max_diff:
             max_diff = diff
 
