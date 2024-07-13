@@ -9,10 +9,8 @@ int basement(std::vector<int>& nums) {
         sum += nums[i];
         if (sum < 0) 
             return i + 1;
-        else if (sum == 0)
-            sum = 0;
     }
-    return -1; // return -1 if no such index exists
+    return -1;
 }
 
 int main() {
