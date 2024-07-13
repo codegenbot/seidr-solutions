@@ -1,7 +1,7 @@
-def encrypt(s): 
+def encrypt(s):
     result = ""
-    for char in s: 
-        if char.isalpha(): 
+    for char in s:
+        if char.isalpha():
             offset = 65 if char.isupper() else 97
             result += chr((ord(char) - offset + 3) % 26 + offset)
         else:  
