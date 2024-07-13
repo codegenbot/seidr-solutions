@@ -13,9 +13,13 @@ string string_to_md5(const string& input) {
         else
             cout << std::setw(2) << std::setfill('0') << hex << setprecision(0) << static_cast<int>(c);
     }
+    return output;
 }
 
 int main() {
-    cout << fixed << setprecision(0) << string_to_md5("password") << endl;
+    string password;
+    cout << "Enter a password: ";
+    cin >> password;
+    cout << fixed << setprecision(0) << string_to_md5(password) << endl;
     return 0;
 }
