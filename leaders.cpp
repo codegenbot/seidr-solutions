@@ -1,21 +1,18 @@
-Here is the completed code:
-
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    for (int i = 0; i < arr.size(); i++) {
-        bool leader = true;
-        for (int j = i + 1; j < arr.size(); j++) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
-        }
-        if (leader) {
+    int n = arr.size();
+    result.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= arr[i+1]) {
             result.push_back(arr[i]);
         }
     }
+    
+    reverse(result.begin(), result.end());
+    
     return result;
 }
