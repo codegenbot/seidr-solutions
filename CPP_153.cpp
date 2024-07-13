@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 
 #include <cassert>
@@ -38,4 +37,3 @@ int main() {
     std::cout << Strongest_Extension(type, strong) << std::endl;
 
     return 0;
-}
