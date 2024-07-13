@@ -8,7 +8,7 @@ int main() {
     std::cin.getline(text, 100);
     std::cin.getline(target, 100);
 
-    if (strlen(target) == 0 && strlen(text) != 0) {
+    if (strlen(target) == 0) {
         std::cout << "0";
         return 0;
     }
