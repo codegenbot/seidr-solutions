@@ -1,10 +1,7 @@
-#include <iostream>
-using std::cout;
-using std::fixed;
-using std::setprecision;
-using std::endl;
-
 #include <vector>
+#include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
