@@ -14,3 +14,5 @@ def check():
                 print("Invalid input. Please enter a three-digit integer.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
+
+check()

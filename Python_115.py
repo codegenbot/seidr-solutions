@@ -22,6 +22,5 @@ def calculate():
     average_water = total_water / max_fill if max_fill != 0 else 0
     print(f"The average water level is {average_water}.")
 
-
 if __name__ == "__main__":
     calculate()
