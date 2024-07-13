@@ -1,18 +1,21 @@
 string get_closest_vowel(string word) {
-    for(int i = word.size() - 1; i >= 0; i--) {
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
-           word[i] == 'o' || word[i] == 'u') {
-            int left = i + 1;
-            while(left < word.size() && isalpha(word[left])) {
-                if(!isvowel(word[left])) {
-                    break;
+    for (int i = word.size() - 1; i >= 0; --i) {
+        if (!ispunct(word[i]) && !isdigit(word[i])) { // skip punctuation and digits
+            if (strchr("aeiouAEIOU", word[i])) { // check if character is a vowel
+                string::iterator it = word.begin() + i;
+                while (--it >= word.begin()) {
+                    if (!ispunct(*it) && !isdigit(*it)) { // skip punctuation and digits
+                        if (strchr("aeiouAEIOU", *it)) { // check if character is a vowel
+                            return string(1, *it); // return the closest vowel
+                        }
+                    } else {
+                        break; // exit the loop as we have found consonants on both sides
+                    }
                 }
-                left++;
             }
-            if(left > i) {
-                return string(1, word[i]);
-            }
+        } else {
+            break; // exit the loop as we encounter punctuation or digit from right
         }
     }
-    return "";
+    return ""; // if no vowel found, return empty string
 }
