@@ -1,9 +1,9 @@
 #include <string>
 
-string middleCharacter(string str) {
+string middleCharacterHelper(string str) {
     int len = str.length();
     if(len % 2 == 0){
-        return str.substr(len/2-1, 2);
+        return string(1, str[len/2-1]) + string(1, str[len/2]);
     } else{
         return string(1, str[len/2]);
     }
