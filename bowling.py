@@ -1,36 +1,30 @@
-```
-def bowling_score(frames):
-    score = 0
-    i = 0
-    while i < len(frames):
-        if frames[i] == "X":
-            score += 30
-            i += 1
-        elif frames[i] == "/":
-            frame_score = 10 + int(frames[i+1])
-            if i < 8:
-                if frames[i+2].isdigit():
-                    score += frame_score + int(frames[i+3])
-                else:
-                    score += frame_score
+```python
+def bowling_score(game):
+    frames = game.split('/')
+    total_score = 0
+    for i in range(len(frames)):
+        frame = frames[i]
+        if len(frame) == 1:
+            total_score += 10
+        elif 'X' in frame:
+            if i < 9 and frames[i+1][0] != 'X':
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frame.replace('X', '', 1))
             else:
-                score += frame_score
-            i += 2
+                total_score += 10
+        elif '-' in frame:
+            first_roll, second_roll = map(int, frame.split('-'))
+            if first_roll == 10:
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
+            else:
+                total_score += first_roll + second_roll
         else:
-            pins = int(frames[i])
-            if i < 8 and frames[i+2] == "X":
-                score += 10 + 30
-                i += 1
-            elif i < 9 and (frames[i+2] == "/" or not frames[i+2].isdigit()):
-                frame_score = 10 + pins
-                if i < 8:
-                    score += frame_score + int(frames[i+3])
-                else:
-                    score += frame_score
-                i += 3
+            first_roll, second_roll = map(int, frame.split())
+            if first_roll == 10:
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
+            elif second_roll == 10:
+                total_score += 10 + first_roll + second_roll
             else:
-                score += 10 * (pins + 1)
-                i += 2
-    return score
+                total_score += first_roll + second_roll
+    return total_score
 
 print(bowling_score("X1-1681357-0/XX7/4"))
