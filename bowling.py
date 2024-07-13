@@ -1,6 +1,6 @@
 ```
-def bowling_score(game):
-    game = game.rstrip()
+def bowling_score():
+    game = input().rstrip()
     frames = []
     for i in range(0, len(game), 2):
         if game[i] == "X":
@@ -33,4 +33,4 @@ def bowling_score(game):
 
     return score
 
-print(bowling_score("X1-1681357-0/XX7/4"))
+print(bowling_score())

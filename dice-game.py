@@ -1,8 +1,7 @@
 def dice_game(n, m):
-    total_outcomes = n * m
-    p_counter = 0
+    p = 0
+    c = 0
     for i in range(1, min(n, m) + 1):
-        for j in range(1, min(n, m) + 1):
-            if i > j:
-                p_counter += 1
-    return p_counter / total_outcomes
+        if i <= n // 2:
+            c += m - i
+    return c / (n * m)
