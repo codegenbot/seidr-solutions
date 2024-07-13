@@ -10,6 +10,6 @@ def sort_even(l: list):
         else:
             result.append(odd_nums[j])
             j += 1
-    result.extend([x * -1 for x in even_nums[i:]])
-    result.extend(odd_nums[j:])
-    return result
+    result.extend([-x for x in even_nums[i:]])
+    result.extend([-x for x in odd_nums[j:]])
+    return [-x for x in result]
