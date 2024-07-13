@@ -4,12 +4,13 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = 0;
     
-    // Calculate probability where Peter's roll equals Colin's
-    for (int i = min(m, n - 1) + 1; i <= n; i++) {
-        total += (double)(i - min(m, n - 1)) / (n * m);
+    for (int i = 1; i <= min(m, n); i++) {
+        if (i <= (n - m)) {
+            total += (double)(n - i) / (n * m);
+        }
     }
     
-    return 1.0 - total;
+    return total;
 }
 
 int main() {
@@ -34,6 +35,6 @@ int main() {
     }
 
     double result = diceGame(n, m);
-    cout << "Probability that Peter rolls strictly higher than Colin is: " << result << endl; 
+    cout << "Probability that Peter rolls strictly higher than Colin is: " << 1.0 - result << endl; 
     return 0;
 }

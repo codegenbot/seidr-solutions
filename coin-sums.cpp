@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int quarters = 0;
