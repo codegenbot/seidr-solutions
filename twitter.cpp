@@ -10,7 +10,6 @@ int main() {
     std::string result = validateTweet(tweet);
     std::cout << result << std::endl;
     return 0;
-
 }
 
 std::string validateTweet(std::string tweet) {
