@@ -1,33 +1,32 @@
+```
 def bowling_score(game):
     score = 0
     game = game.rstrip()
+    rolls = []
+    total = 0
     for i in range(0, len(game), 2):
         if game[i] == "X":
-            score += (
-                10 + (10 - int(game[i + 1 :].lstrip().count("X")))
-                if i < len(game) - 1
-                else 10
-            )
+            rolls.append(10)
+            total += 10
+            if i < len(game) - 1 and game[i + 1].isdigit():
+                score += int(game[i + 1])
         elif game[i] == "-":
-            if i < len(game) - 2 and game[i + 2].isdigit():
-                rolls = [
-                    int(x)
-                    for x in reversed(
-                        [c for c in game[i - 1 : i + 3][::-1] if c.isdigit()]
-                    )
-                ]
-                score += sum(rolls)
-            else:
-                score += 10
+            frame_score = sum(int(x) for x in reversed([c for c in game[i:i+3][::-1] if c.isdigit()]))
+            rolls.append(frame_score)
+            total += frame_score
         else:
             first_roll = int(game[i])
-            second_roll = int(game[i+1]) if i+1 < len(game) and game[i+1].isdigit() else 0
-
-            if first_roll == 10:
-                score += 10 + second_roll
+            if i < len(game) - 1 and game[i + 1].isdigit():
+                second_roll = int(game[i + 1])
             else:
-                score += first_roll + second_roll
+                second_roll = 0
+            rolls.extend([first_roll, second_roll])
+    for x in range(len(rolls)):
+        if total + (10 - rolls[x]) <= 10:
+            score += 10
+        else:
+            score += total + (10 - rolls[x])
+        total = 0
     return score
-
 
 print(bowling_score("X1-1681357-0/XX7/4"))
