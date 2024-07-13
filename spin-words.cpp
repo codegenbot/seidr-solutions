@@ -1,18 +1,17 @@
 ```cpp
-#include <string>
-using namespace std;
-
 string spinWords(string str) {
-    string result = "";
-    int start = 0;
+    string result = ""; 
+    int wordLength;
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            start = i + 1;
-            if (word.length() >= 5)
-                result.append(word).append(" ");
-            else
-                result.append(word).append(" ");
+            wordLength = i - result.length() - 1;
+            if (wordLength >= 5) {
+                string reversedWord = "";
+                for (int j = wordLength - 1; j >= 0; j--)
+                    reversedWord += str.substr(i-1-j, 1);
+                result.append(reversedWord).append(" ");
+            } else
+                result.append(str.substr(i-1, wordLength - i + 2)).append(" ");
         }
     }
     return result.substr(0, result.length() - 1);
