@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 int pairedDigits(const char* s) {
     int sum = 0;
