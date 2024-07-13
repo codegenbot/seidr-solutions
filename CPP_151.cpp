@@ -10,6 +10,7 @@ int main() {
     std::getline(std::cin, input);
     std::istringstream iss(input);
 
+    std::vector<int> input_vector;
     int num;
     int sum_even = 0, sum_odd = 0;
 
