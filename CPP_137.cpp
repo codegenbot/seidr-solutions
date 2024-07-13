@@ -1,33 +1,30 @@
-#include <boost/any_cast.hpp>
-
-using namespace boost;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(float())) try {
-        float fa = any_cast<float>(a);
-        float fb = any_cast<float>(b);
-
-        if (fa > fb)
-            return a;
-        else if (fb > fa)
-            return b;
-
-        return "None";
-    } catch (bad_any_cast&) {}
-    
-    // At least one of the values is not a number
-    if (is_any_of<a>(std::string())) {
-        std::string sa = any_cast<std::string>(a);
-        std::string sb = any_cast<std::string>(b);
-
-        if (sa > sb)
-            return a;
-        else if (sb > sa)
-            return b;
-
-        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a <=> (float)b > 0 ? b : a;
     }
-
-    // If we are here, none of the values were numbers
-    return "None";
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = any_cast<string>(b);
+        float num = stof(str);
+        return a < num ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = any_cast<string>(a), str2 = any_cast<string>(b);
+        return str1 > str2 ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return a < (int)b ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return a < b ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int num = any_cast<int>(b);
+        string str = any_cast<string>(a);
+        float fl = stof(str);
+        return fl > num ? b : a;
+    }
+    else {
+        return boost::any("None");
+    }
 }
