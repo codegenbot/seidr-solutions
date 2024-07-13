@@ -1,62 +1,47 @@
 #include <iostream>
-#include <stack>
 #include <string>
 
 using namespace std;
 
-// Node structure for binary tree representing Boolean expression.
 struct Node {
     char value;
     Node* left;
     Node* right;
 };
 
-bool solveBoolean(std::string expression) {
-    // Convert the input string into an abstract syntax tree (AST)
-    Node* ast = parseExpression(expression);
-
-    // Evaluate the AST
-    return evaluateBoolean(ast);
-
-    // Cleanup memory after processing the AST
-    delete ast;
-}
-
-// Parse the input string into a binary tree.
 Node* parseExpression(std::string expression) {
     stack<Node*> s;
-    Node* node = NULL;
-
+    Node* root = nullptr;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            node->right = new Node();
-            node->right->value = '|';
-            s.push(node);
-            node = node->right;
+            Node* temp = new Node();
+            temp->value = '|';
+            temp->right = s.top();
+            s.pop();
+            temp->left = s.top();
+            s.pop();
+            s.push(temp);
         } else if (expression[i] == '&') {
-            node->right = new Node();
-            node->right->value = '&';
-            s.push(node);
-            node = node->right;
+            Node* temp = new Node();
+            temp->value = '&';
+            temp->right = s.top();
+            s.pop();
+            s.push(temp);
         } else if (expression[i] == 'T' || expression[i] == 'F') {
-            node = new Node();
-            node->value = expression[i];
-            s.push(node);
+            Node* temp = new Node();
+            temp->value = expression[i];
+            s.push(temp);
         }
     }
-
-    // Pop the remaining nodes from the stack
-    while (!s.empty()) {
-        node = s.pop();
-    }
-
-    return node;
+    root = s.top();
+    return root;
 }
 
-// Evaluate the binary tree representing a Boolean expression.
 bool evaluateBoolean(Node* node) {
-    if (node->value == 'T' || node->value == 'F') {
-        return node->value == 'T';
+    if (node->value == 'T') {
+        return true;
+    } else if (node->value == 'F') {
+        return false;
     }
 
     bool left = evaluateBoolean(node->left);
@@ -67,4 +52,11 @@ bool evaluateBoolean(Node* node) {
     } else if (node->value == '&') {
         return left && right;
     }
+}
+
+bool solveBoolean(std::string expression) {
+    Node* ast = parseExpression(expression);
+    bool result = evaluateBoolean(ast);
+    delete ast;
+    return result;
 }
