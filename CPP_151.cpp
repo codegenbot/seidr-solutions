@@ -1,22 +1,24 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                sum += pow(num, 2);
-            }
-        }
-    }
-    return sum;
-}
-
 int main() {
-    std::vector<float> lst = {1.5f, 3.0f, 4.8f};
-    float odd_sum = 0;
+    std::vector<float> lst;
+    long long odd_sum = 0;
 
+    // Read input from user
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        lst.push_back(num);
+    }
+
+    // Calculate the sum of squares of odd positive integers
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
             if (fmod(num, 2.0) != 0.0) { 
@@ -25,7 +27,8 @@ int main() {
         }
     }
 
-    assert(double_the_difference(lst) == odd_sum);
+    // Print the result
+    std::cout << "The sum of squares of odd positive integers is: " << odd_sum << std::endl;
 
     return 0;
 }
