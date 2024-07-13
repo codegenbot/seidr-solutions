@@ -1,4 +1,4 @@
-Here is the solution:
-
 def paired_digits(digits):
-    return sum(int(d) for d in digits if d == next((x for x in digits[1:] if x == d), None))
+    return sum(
+        int(d) for d1, d2 in zip([0] + list(digits), list(digits) + [0]) if d1 == d2
+    )
