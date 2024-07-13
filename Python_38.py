@@ -1,20 +1,16 @@
-Here is the completed code:
+Here is the solution:
 
-```
 def decode_cyclic(s: str):
-    result = ''
-    temp = ''
-    for char in s:
-        temp += char
-        if len(temp) % 3 == 0:
-            if len(temp) > 3:
-                result += temp[-1] + temp[1:-1] + temp[0]
-            else:
-                result += temp
-            temp = ''
-    if temp:
-        if len(temp) > 3:
-            result += temp[-1] + temp[1:-1] + temp[0]
+    result = ""
+    i = 0
+    while i < len(s):
+        if s[i] == s[-1]:
+            result += s[i]
+            i += 1
         else:
-            result += temp
+            group = s[i:i+3]
+            if i != 0:
+                result += s[0]
+            result += group[2:]
+            i += 3
     return result
