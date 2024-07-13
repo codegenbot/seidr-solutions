@@ -1,4 +1,8 @@
+#include <string>
+#include <openssl/md5.h>
 #include <iomanip>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -13,7 +17,7 @@ string string_to_md5(string text) {
 
     ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        oss << std::setfill('0') << std::setw(2) << std::hex << (int)md[i];
+        oss << setfill('0') << std::setw(2) << hex << (int)md[i];
     }
 
     return oss.str();
