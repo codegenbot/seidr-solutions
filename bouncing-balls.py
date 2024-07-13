@@ -13,5 +13,3 @@ def bouncing_balls():
             distance = 2 * start_height
         total_distance += distance - 1
     print(total_distance)
-
-bouncing_balls()
