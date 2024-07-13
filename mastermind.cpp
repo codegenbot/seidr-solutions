@@ -1,5 +1,5 @@
-#include <string>
 #include <map>
+#include <string>
 
 int whitePegs(string code, string guess) {
     int count = 0;
