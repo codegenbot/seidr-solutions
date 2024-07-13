@@ -2,52 +2,37 @@
 #include <stack>
 #include <string>
 
-struct Node {
-    char value;
-    Node* left;
-    Node* right;
-};
+// Forward declaration of Node class
+class Node;
 
-Node* parseExpression(std::string expression) {
-    Node* root = nullptr;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            Node* node = new Node();
-            node->value = '|';
-            node->left = rightmostNode(root);
-            root = node;
-        } else if (expression[i] == '&') {
-            Node* node = new Node();
-            node->value = '&';
-            node->right = rightmostNode(root);
-            root = node;
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            Node* node = new Node();
-            node->value = expression[i];
-            node->left = nullptr;
-            node->right = nullptr;
-            root = node;
-        }
-    }
-    return root;
+bool solveBoolean(std::string expression) {
+    // Convert the input string into an abstract syntax tree (AST)
+    Node* ast = parseExpression(expression);
+
+    // Evaluate the AST
+    return evaluateBoolean(ast);
 }
 
-Node* rightmostNode(Node* node) {
-    if (node == nullptr) {
+Node* parseExpression(std::string expression, int& index) {
+    if (index >= expression.length())
         return nullptr;
+
+    Node* node;
+    if (expression[index] == 'T' || expression[index] == 'F') {
+        node = new Node(expression[index], nullptr, nullptr);
+        index++;
+    } else if (expression[index] == '|') {
+        node = new Node('|', parseExpression(expression, ++index), nullptr);
+    } else if (expression[index] == '&') {
+        node = new Node('&', parseExpression(expression, ++index), nullptr);
     }
-    while (node->right != nullptr) {
-        node = node->right;
-    }
+
     return node;
 }
 
 bool evaluateBoolean(Node* node) {
-    if (node->value == 'T') {
-        return true;
-    } else if (node->value == 'F') {
-        return false;
-    }
+    if (node->value == 'T' || node->value == 'F')
+        return node->value == 'T';
 
     bool left = evaluateBoolean(node->left);
     bool right = evaluateBoolean(node->right);
@@ -59,9 +44,12 @@ bool evaluateBoolean(Node* node) {
     }
 }
 
-bool solveBoolean(std::string expression) {
-    Node* ast = parseExpression(expression);
-    bool result = evaluateBoolean(ast);
-    delete ast;
-    return result;
-}
+class Node {
+public:
+    char value;
+    Node* left;
+    Node* right;
+
+    Node(char v, Node* l = nullptr, Node* r = nullptr)
+        : value(v), left(l), right(r) {}
+};
