@@ -1,17 +1,25 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
 bool solveBoolean(string s) {
-    string t = "T", f = "F";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            return (s.substr(0, i).compare(t) == 0 || s.substr(0, i).compare(f) == 0) ||
-                   (s.substr(i + 1).compare(t) == 0);
-        }
-        else if (s[i] == '&') {
-            return (s.substr(0, i).compare(t) == 0 && s.substr(i + 1).compare(t) == 0) ||
-                   (s.substr(0, i).compare(f) == 0 && s.substr(i + 1).compare(f) == 0);
+    stack<char> st;
+    
+    for (char c : s) {
+        if (c == '&') {
+            bool t1 = st.top() == 'T';
+            st.pop();
+            bool t2 = st.top() == 'T';
+            st.pop();
+            st.push((t1 && t2) ? 'T' : 'F');
+        } else if (c == '|') {
+            bool t1 = st.top() == 'T';
+            st.pop();
+            bool t2 = st.top() == 'T';
+            st.pop();
+            st.push((t1 || t2) ? 'T' : 'F');
+        } else {
+            st.push(c);
         }
     }
-    return s.compare(t) == 0;
+    
+    return st.top() == 'T';
 }
