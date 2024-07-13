@@ -1,16 +1,17 @@
-Here is the solution:
-
-def solve_boolean(expression):
-    if expression == 't':
+def solveBoolean(expression):
+    if expression == "t":
         return True
-    elif expression == 'f':
+    elif expression == "f":
         return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
-
-expression = input()
-print(solve_boolean(expression))
+    elif "&" in expression:
+        parts = expression.split("&")
+        for part in parts:
+            if part != "f":
+                return False
+        return True
+    elif "|" in expression:
+        parts = expression.split("|")
+        for part in parts:
+            if part != "f":
+                return True
+        return False
