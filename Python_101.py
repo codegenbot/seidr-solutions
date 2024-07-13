@@ -1,3 +1,3 @@
 ```
 def words_string(s):
-    return [' '.join(word.split()) for word in s.replace(",", " ").rsplit(" ", 1) if word]
+    return [word.strip().title().rstrip() for word in s.split(",") if word]
