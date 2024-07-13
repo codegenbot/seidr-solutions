@@ -4,7 +4,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-def indices_of_substring(text, target):
+def find_indices(text, target):
     indices = []
     start = 0
     while start < len(text):
@@ -14,6 +14,3 @@ def indices_of_substring(text, target):
         indices.append(pos)
         start = pos + 1
     return indices
-
-print(gcd(12, 15))
-print(indices_of_substring("hello world", "world"))

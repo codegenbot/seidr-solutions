@@ -4,12 +4,10 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Convert strings to arrays of characters for easier manipulation
     char codeArray[5], guessArray[5];
     strcpy(codeArray, code.c_str());
     strcpy(guessArray, guess.c_str());
 
-    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; i++) {
         if (codeArray[i] == guessArray[i]) {
             black++;
@@ -18,30 +16,21 @@ int mastermind(string code, string guess) {
         }
     }
 
-    // Count the number of correct colors in correct positions
+    int codeCount[6] = {0};
     for (int i = 0; i < 4; i++) {
-        int j = 0;
-        while (j < 4 && codeArray[j] != guessArray[i]) {
-            j++;
-        }
-        if (j < 4) {
-            black++;
-            codeArray[j] = 'x';
-            guessArray[i] = 'x';
-        } else {
-            white++;
-        }
+        codeCount[(int)(codeArray[i]-'A')]++;
     }
 
-    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; i++) {
-        int count = 0;
+        if (codeArray[i] == guessArray[i]) continue;
+        codeCount[(int)(codeArray[i]-'A')]--;
         for (int j = 0; j < 4; j++) {
-            if (codeArray[j] == guessArray[i]) {
-                count++;
+            if (guessArray[j] == codeArray[i] && codeCount[(int)(guessArray[j]-'A')] > 0) {
+                white++;
+                codeCount[(int)(guessArray[j]-'A')]--;
+                break;
             }
         }
-        white += count - 1;
     }
 
     return black, white;
