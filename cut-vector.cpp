@@ -1,29 +1,36 @@
 int main() {
-    vector<int> nums;
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
-    int total_sum = accumulate(nums.begin(), nums.end(), 0);
-    int left_sum = 0, right_sum = total_sum;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    for (int i = 0; i < nums.size(); ++i) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += nums[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i <= cut_index; ++i) {
+    for (int i = 0; i < cutIndex; ++i) {
         cout << nums[i] << endl;
     }
     cout << 0 << endl;
-    
+    for (int i = cutIndex; i < n; ++i) {
+        cout << nums[i] << endl;
+    }
     return 0;
 }
