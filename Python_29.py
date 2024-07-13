@@ -19,7 +19,7 @@ stored_expected = None
 for word in words:
     if word.startswith(prefix):
         print(f"Found match: {word}")
-    elif stored_expected is not None and stored_expected.lower() == word.lower():
+    elif stored_expected and stored_expected.lower() == word.lower():
         print(f"Found match: {word}")
         stored_expected = None
     else:
