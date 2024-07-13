@@ -5,42 +5,32 @@
 #include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> result;
+    if (str.empty()) return result; 
     std::string buffer;
-    std::string arr[1000];  
-    int i = 0;
 
     for (char c : str) {
         if (c == ' ') {
             if (!buffer.empty()) {
-                arr[i] = buffer;
+                result.push_back(buffer);
                 buffer = ""; 
-                i++;
             }
         } else if (c != delimiter) {
             buffer += c;
         }
 
-        if (c == delimiter || c == '\0') {
+        if (c == '\0' || i == str.size() - 1) { 
             if (!buffer.empty()) {
-                arr[i] = buffer;
+                result.push_back(buffer);
                 buffer = ""; 
-                i++;
             }
         }
     }
 
-    // Added to handle empty strings
     if (!buffer.empty()) {
-        arr[i] = buffer;
+        result.push_back(buffer);
     }
-    if (i > 1 && arr[0].empty()) {
-        for(int j=0; j<i; j++){
-            arr[j] = arr[j+1];
-        }
-        i--;
-    }
-
-    std::vector<std::string> result(arr, arr+i);
+    
     return result;
 }
 
