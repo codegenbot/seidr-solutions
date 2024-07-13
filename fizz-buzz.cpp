@@ -3,13 +3,13 @@ int main() {
     cin >> x;
     
     if (x % 3 == 0 && x % 5 == 0) {
-        cout << "FizzBuzz" << endl;
+        cout << "FizzBuzz";
     } else if (x % 3 == 0) {
-        cout << "Fizz" << endl;
+        cout << "Fizz";
     } else if (x % 5 == 0) {
-        cout << "Buzz" << endl;
+        cout << "Buzz";
     } else {
-        cout << to_string(x) << endl;
+        cout << to_string(x);
     }
     
     return 0;
