@@ -1,6 +1,3 @@
-#include <string>
-#include <cassert>
-
 std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool has_dot = false;
