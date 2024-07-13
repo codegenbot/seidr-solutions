@@ -14,7 +14,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+    std::vector<int> result(std::vector<int>::size_type(-1));
     int n = text.length();
     int m = target.length();
 
