@@ -4,29 +4,32 @@ def bowling_score(bowls):
     bowl_index = 0
     while frame <= 10:
         if bowls[bowl_index] == "X":
-            score += 10 + bonus(bowls, bowl_index + 1, 2)
+            score += 10 + get_strike_bonus(bowls, bowl_index)
             bowl_index += 1
-        elif bowls[bowl_index] == "/":
-            score += 10 - int(bowls[bowl_index - 1]) + bonus(bowls, bowl_index + 1, 1)
+        elif bowls[bowl_index + 1] == "/":
+            score += 10
+            score += int(bowls[bowl_index + 2])
+            bowl_index += 2
         else:
-            score += int(bowls[bowl_index])
-        bowl_index += 1
-        if bowls[bowl_index - 1] in "X123456789":
-            frame += 1
+            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
+            if bowls[bowl_index + 1] == "-":
+                score -= int(bowls[bowl_index + 1])
+            bowl_index += 2
+        frame += 1
     return score
 
 
-def bonus(bowls, start_index, num_bonuses):
-    bonus_score = 0
-    for i in range(num_bonuses):
-        if bowls[start_index] == "X":
-            bonus_score += 10
-        elif bowls[start_index] == "/":
-            bonus_score += 10 - int(bowls[start_index - 1])
+def get_strike_bonus(bowls, index):
+    bonus = 0
+    if bowls[index + 2] == "X":
+        bonus += 10
+        if bowls[index + 4] == "X":
+            bonus += 10
         else:
-            bonus_score += int(bowls[start_index])
-        start_index += 1
-    return bonus_score
+            bonus += int(bowls[index + 4])
+    else:
+        bonus += int(bowls[index + 2]) + int(bowls[index + 3])
+    return bonus
 
 
 bowls = input()
