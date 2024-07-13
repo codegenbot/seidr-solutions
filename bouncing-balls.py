@@ -16,3 +16,5 @@ def bouncing_balls():
         prev_height = height
 
     print("The total distance traveled is: ", round(total_distance, 2))
+
+bouncing_balls()
