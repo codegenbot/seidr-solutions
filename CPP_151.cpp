@@ -10,6 +10,7 @@ int main() {
     std::getline(std::cin, input);
     std::istringstream iss(input);
 
+    std::vector<int> input_vector;
     int num;
     int sum_even = 0, sum_odd = 0;
 
@@ -28,7 +29,7 @@ int main() {
     return 0;
 }
 
-std::pair<double, double> double_the_difference(const std::vector<int>& lst) {
+std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
     int sum_even = 0, sum_odd = 0;
 
     for (int num : lst) {
@@ -38,5 +39,5 @@ std::pair<double, double> double_the_difference(const std::vector<int>& lst) {
             sum_odd += num;
     }
 
-    return {(double)sum_even / lst.size(), (double)sum_odd / lst.size()};
+    return {(double)sum_even / std::distance(lst.begin(), lst.end()), (double)sum_odd / std::distance(lst.begin(), lst.end())};
 }
