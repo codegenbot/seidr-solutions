@@ -1,3 +1,4 @@
+```
 def check_palindrome(input_string):
     input_string = "".join(c for c in input_string if c.isalnum()).lower()
     return input_string == input_string[::-1]
@@ -15,4 +16,4 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
 
-    print(check_palindrome(user_input))
+        print(check_palindrome(user_input))

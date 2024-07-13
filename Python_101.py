@@ -5,5 +5,10 @@ def check(input_string):
     else:
         print("Hello is not present")
 
-input_string = input("Enter a string: ")
-check(input_string)
+while True:
+    try:
+        input_string = input("Enter a string: ")
+        check(input_string)
+        break
+    except:
+        print("Invalid input. Please enter a string.")

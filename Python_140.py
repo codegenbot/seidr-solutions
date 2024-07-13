@@ -15,7 +15,4 @@ def fix_spaces():
                 new_text = new_text.replace("--", "-")
             while "_-_" in new_text or "_--" in new_text:
                 new_text = new_text.replace("_--", "_-").replace("_-_", "_-")
-            print(new_text.upper() if new_text.isalpha() else new_text.capitalize())
-
-
-fix_spaces()
+            print(f"{new_text.upper() if new_text.isalpha() else new_text.capitalize()}")

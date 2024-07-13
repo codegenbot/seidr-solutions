@@ -1,5 +1,5 @@
+```
 def add():
-    total_sum = 0
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
         if cont == "N":
@@ -11,10 +11,9 @@ def add():
             try:
                 x = int(input("Enter the first number: "))
                 y = int(input("Enter the second number: "))
-                total_sum += x + y
+                print(f"The sum is {x + y}")
+                if input("Do you want to add again (Y/N)? ").upper() != "N":
+                    continue
                 break
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
-    return total_sum
-
-print(add())
