@@ -13,4 +13,4 @@ def solve_boolean(expression):
             else:
                 result = any(solve_boolean(expr) for expr in expression[i+1:expression.index("|", i+1)].split("|"))
         i += 1
-    return result if result is not None else False.
+    return result if result is not None else False
