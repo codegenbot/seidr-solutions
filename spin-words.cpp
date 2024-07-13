@@ -1,32 +1,41 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t wordLength = str.substr(0, pos).length();
-        if (wordLength >= 5) {
-            for (int i = wordLength - 1; i >= 0; --i)
-                result += str[pos - i] == ' ' ? ' ' : str[pos - i];
-        } else
-            result += str.substr(0, pos);
-        str.erase(0, pos + 1);
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += reverse(word) + " ";
+            } else {
+                result += word + " ";
+            }
+            start = i + 1;
+        }
     }
-    if (str.length() > 4) {
-        for (int i = str.length() - 1; i >= 0; --i)
-            result += str[i] == ' ' ? ' ' : str[i];
-    } else
-        result += str;
-    return result;
+    return result.substr(0, result.length() - 1);
+}
+
+string reverse(string str) {
+    string rev = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        rev += str[i];
+    }
+    return rev;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
+    string str;
+    while (true) {
+        cout << "Enter a string: ";
+        cin >> str;
+        if (str == "exit") break;
+        cout << spinWords(str) << endl;
     }
     return 0;
 }
