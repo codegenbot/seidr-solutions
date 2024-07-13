@@ -1,4 +1,6 @@
 def leaders(arr):
-    return [max(arr)] + [
-        x for i, x in enumerate(reversed(arr)) if all(x >= arr[j] for j in range(i))
-    ]
+    leaders_list = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            leaders_list.append(arr[i])
+    return reversed(leaders_list)
