@@ -17,3 +17,4 @@ int main() {
     std::cin >> input;
     std::cout << squareDigits(input) << std::endl;
     return 0;
+}
