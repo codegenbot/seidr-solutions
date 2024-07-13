@@ -20,9 +20,11 @@ def main():
         try:
             n = int(input("Enter a number: "))
             print(largest_prime_factor(n))
-            break
+            cont = input("Do you want to calculate again? (y/n): ")
+            if cont.lower() != "y":
+                break
         except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("Invalid input. Please enter an integer value.")
 
 
 if __name__ == "__main__":
