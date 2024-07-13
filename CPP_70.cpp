@@ -22,9 +22,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> test = {5, 2, 8, 1, 9};
-    for (int i : strange_sort_list(test)) {
-        std::cout << i << " ";
-    }
+    // Your code here
     return 0;
 }
