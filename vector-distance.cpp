@@ -5,8 +5,8 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    float v1[n];
-    float v2[n];
+    double v1[n];
+    double v2[n];
 
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
@@ -23,8 +23,7 @@ int main() {
     int n;
     cin >> n;
 
-    cout << fixed << setprecision(10);
-    cout << vectorDistance(n) << endl;
-    cout.unsetf(ios_base::floatfield); // Clear the precision
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+
     return 0;
 }
