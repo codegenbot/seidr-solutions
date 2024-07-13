@@ -1,5 +1,6 @@
 def sort_numbers():
-    while True:
+    cont = "y"
+    while cont.lower() == "y":
         print("Sort numbers? (y/n): ")
         cont = input().lower()
         if cont != "y":
