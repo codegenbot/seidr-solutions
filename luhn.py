@@ -1,12 +1,15 @@
-Here is the solution in Python:
-
-def luhn(card_number):
-    card_number = list(map(int, str(card_number)))
+def luhn_algorithm(card_number):
+    card_number = list(map(int, card_number[1:]))
+    double_even = False
     total_sum = 0
-    for i in range(len(card_number)):
-        if (i % 2) == 1:
-            card_number[i] *= 2
-            if card_number[i] > 9:
-                card_number[i] -= 9
-        total_sum += card_number[i]
-    return total_sum
+
+    for digit in card_number:
+        if double_even:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        double_even = not double_even
+
+        total_sum += digit
+
+    return str(total_sum)
