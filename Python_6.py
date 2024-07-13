@@ -4,9 +4,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         level = 0
         max_level = 0
         for c in s:
-            if c == "(":
+            if c == '(':
                 level += 1
-            elif c == ")":
+            elif c == ')':
                 level -= 1
             max_level = max(max_level, level)
         result.append(max_level)
