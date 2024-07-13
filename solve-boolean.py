@@ -1,19 +1,20 @@
 def solve_boolean(expression):
-    result = True if expression == "t" else False
-    for i in range(1, len(expression)):
-        if expression[i] in ["|", "&"]:
-            left_half = expression[:i]
-            right_half = expression[i + 1 :]
-            if expression[i] == "|":
-                result = (
-                    (result or solve_boolean(right_half))
-                    if result
-                    else solve_boolean(left_half)
-                )
-            elif expression[i] == "&":
-                result = (
-                    (result and solve_boolean(right_half))
-                    if result
-                    else solve_boolean(left_half)
-                )
-    return result
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        stack = []
+        for char in reversed(expression):
+            if char in ["&", "|"]:
+                right = stack.pop()
+                left = stack.pop()
+                if char == "&":
+                    stack.append(left and right)
+                elif char == "|":
+                    stack.append(left or right)
+            else:
+                stack.append(char == "T")
+        return stack[0]
