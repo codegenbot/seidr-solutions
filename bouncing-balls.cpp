@@ -1,25 +1,34 @@
-```c++
 #include <iostream>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
+    string input;
+    cout << "Enter start height: ";
+    getline(cin, input);
+    double startHeight = stod(input);
 
-    cin >> startHeight >> firstBounce >> numBounces;
+    cout << "Enter bounciness index: ";
+    getline(cin, input);
+    double bouncinessIndexInput = stod(input);
 
+    cout << "Enter number of bounces: ";
+    getline(cin, input);
+    int numBounces = stoi(input);
+
+    double firstBounce = bouncinessIndexInput;
     double bouncinessIndex = firstBounce / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        startHeight = firstBounce * pow(2, -bouncinessIndex);
-        totalDistance += startHeight;
+        double startHeightTemp = firstBounce * pow(2, -bouncinessIndex);
+        totalDistance += startHeightTemp;
         firstBounce *= bouncinessIndex;
     }
 
-    cout << std::fixed;
+    cout << fixed;
     cout.setf(ios_base::floatfield, ios_base::fixed);
     cout << setprecision(5) << totalDistance << endl;
 
