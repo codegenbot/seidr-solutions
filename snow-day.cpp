@@ -5,4 +5,3 @@ float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportio
         groundSnow = std::max(0.0f, groundSnow * (1 - proportionMeltingPerHour)); 
     }
     return groundSnow;
-}
