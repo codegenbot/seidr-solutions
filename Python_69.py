@@ -1,3 +1,4 @@
+```
 def search(lst):
     max_num = float('-inf')
     for num in lst:
