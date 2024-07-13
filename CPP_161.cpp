@@ -1,5 +1,7 @@
-std::string solve(std::string s){
-    std::string result = "";
+#include <string>
+
+string solve(string s){
+    string result = "";
     for(int i = 0; i < s.length(); i++){
         if(isalpha(s[i])){
             if(islower(s[i]))
