@@ -1,2 +1,2 @@
 def sum_squares(lst):
-    return sum([(int(num) + 1) ** 2 for num in lst])
+    return sum([int(x) ** 2 for x in lst])
