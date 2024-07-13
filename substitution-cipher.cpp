@@ -1,5 +1,5 @@
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
 string decipher(string cipher1, string cipher2, string message) {
