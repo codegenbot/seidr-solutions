@@ -1,17 +1,14 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <map>
+#include <unordered_map>
 
-using namespace std;
-
-pair<int, int> findPair(vector<int>& nums, int target) {
-    map<int, size_t> numMap;
+std::pair<int, int> findPair(std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> numMap;
     
-    for (size_t i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
-        
         if (numMap.find(complement) != numMap.end()) {
-            return {numMap[complement], static_cast<int>(i)};
+            return {complement, nums[i]};
         }
         numMap[nums[i]] = i;
     }
@@ -20,12 +17,12 @@ pair<int, int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
+    std::vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
-    cout << "The pair of numbers that sum to the target is: ";
+    std::cout << "The pair of numbers that sum to the target is: ";
     for (auto pair : findPair(nums, target)) {
-        cout << "(" << pair.first << ", " << pair.second << ") ";
+        std::cout << "(" << pair.first << ", " << pair.second << ") ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
