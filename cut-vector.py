@@ -1,22 +1,17 @@
-def cut_vector(v):
-    n = len(v)
+```Python
+def cut_vector(vector):
+    if len(vector) == 1:
+        return vector, []
+
     min_diff = float("inf")
-    split_index = -1
+    split_index = 0
 
-    for i in range(1, n):
-        left_sum = sum(v[:i])
-        right_sum = sum(v[i:])
-
-        if left_sum == right_sum:
-            return v[:i], v[i:]
-
-        diff = abs(left_sum - right_sum)
-
-        if diff < min_diff:
-            min_diff = diff
+    for i in range(1, len(vector)):
+        left_max = max(vector[:i+1])
+        right_min = min(vector[i:])
+        
+        if abs(left_max - right_min) < min_diff:
+            min_diff = abs(left_max - right_min)
             split_index = i
 
-    if split_index != -1:
-        return v[:split_index], v[split_index:]
-    else:
-        return [v[0]], v[1:]
+    return vector[:split_index+1], vector[split_index:]
