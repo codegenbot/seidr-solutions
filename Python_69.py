@@ -1,3 +1,4 @@
+```
 def find_max_min(lst):
     max_num = min_num = lst[0]
     for num in lst:
