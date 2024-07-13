@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <numeric>
-#include <climits>
-#include <cmath>
+
 using namespace std;
 
-void findCutIndex(vector<int>& nums) {
+int findCutIndex(vector<int>& nums) {
     int n = nums.size();
     int totalSum = accumulate(nums.begin(), nums.end(), 0);
     int leftSum = 0;
@@ -22,15 +22,24 @@ void findCutIndex(vector<int>& nums) {
         }
     }
 
-    cout << "Subvector 1: ";
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
+    return cutIndex;
+}
 
-    cout << "Subvector 2: ";
-    for (int i = cutIndex + 1; i < n; i++) {
+void printSubvector(vector<int>& nums, int start, int end) {
+    for (int i = start; i <= end; i++) {
         cout << nums[i] << " ";
     }
     cout << endl;
+}
+
+int main() {
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int cutIndex = findCutIndex(nums);
+
+    cout << "Left subvector: ";
+    printSubvector(nums, 0, cutIndex);
+    cout << "Right subvector: ";
+    printSubvector(nums, cutIndex + 1, nums.size() - 1);
+
+    return 0;
 }
