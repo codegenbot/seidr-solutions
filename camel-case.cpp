@@ -42,9 +42,9 @@ std::string camelCase(const std::string& str) {
     std::string result;
 
     for (int i = 0; i < segments.size(); i++) {
-        if (!result.empty()) {
+        if (i > 0) { 
             result += toupper(segments[i][0]);
-        } else {
+        } else { 
             result = segments[i];
         }
         if (i < segments.size() - 1) {
