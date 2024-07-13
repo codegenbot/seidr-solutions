@@ -1,17 +1,37 @@
+bool evaluateBooleanExpression(string expr) {
+    if (expr == "t") return true;
+    if (expr == "f") return false;
+    
+    bool left, right;
+    char op;
+    int idx = 0;
+    
+    while (idx < expr.size() && expr[idx] != '&' && expr[idx] != '|') {
+        idx++;
+    }
+    
+    left = evaluateBooleanExpression(expr.substr(0, idx));
+    right = evaluateBooleanExpression(expr.substr(idx + 1));
+    op = expr[idx];
+    
+    if (op == '&') {
+        return left && right;
+    } else {
+        return left || right;
+    }
+}
+
 int main() {
-    string input;
-    cin >> input;
-
-    if (input == "t")
+    string expr;
+    cin >> expr;
+    
+    bool result = evaluateBooleanExpression(expr);
+    
+    if (result) {
         cout << "True" << endl;
-    else if (input == "f")
+    } else {
         cout << "False" << endl;
-    else if (input == "f&f")
-        cout << "False" << endl;
-    else if (input == "f&t")
-        cout << "False" << endl;
-    else if (input == "t&f")
-        cout << "False" << endl;
-
+    }
+    
     return 0;
 }
