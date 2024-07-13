@@ -1,7 +1,9 @@
-def rescale_to_unit():
-    inputs = input("Enter numbers separated by space: ")
-    inputs = list(map(float, inputs.split()))
-    
+def rescale_to_unit(*args):
+    if args:
+        inputs = list(map(float, str(args[0]).replace('[', '').replace(']', '').split()))
+    else:
+        inputs = []
+        
     if not inputs:
         return []
 
