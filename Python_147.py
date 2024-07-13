@@ -6,14 +6,10 @@ def get_max_triples(n):
     if n < 1:
         return None
     max_sum = 0
-    for i in range(2, n+1): 
-        is_prime = True
-        for j in range(2, int(i**0.5)+1):
-            if i % j == 0:
-                is_prime = False
-                break
-        if is_prime:
-            max_sum += i
+    for i in range(2, (n//3)+1): 
+        triple_sum = sum(i*(i*2-1) for _ in range(3))
+        if triple_sum > max_sum:
+            max_sum = triple_sum
     return max_sum
 
 print(get_max_triples(n))
