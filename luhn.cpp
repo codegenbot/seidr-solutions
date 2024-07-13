@@ -34,11 +34,9 @@ int main() {
         cardNumber /= 10;
     }
 
-    if (luhn(input) % 10 == 0) {
-        cout << "The credit card number is valid." << endl;
-    } else {
-        cout << "The credit card number is invalid." << endl;
-    }
+    int result = luhn(input);
+
+    cout << "The Luhn check result is: " << result << endl;
 
     return 0;
 }
