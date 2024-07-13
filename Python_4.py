@@ -9,6 +9,9 @@ def mean_absolute_deviation():
                 continue
             try:
                 numbers = [float(num) for num in input_str.split()]
+                if len(numbers) == 0:
+                    print("Please enter at least one number.")
+                    continue
                 break
             except ValueError:
                 print("Invalid input. Please enter numbers only.")
@@ -26,6 +29,7 @@ def mean_absolute_deviation():
 
         if response == "no":
             break
+
 
 if __name__ == "__main__":
     mean_absolute_deviation()
