@@ -1,6 +1,7 @@
 #include <vector>
+#include <iostream>
 
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) {
     if(arr.empty()) return -32768;
     int sign = 1;
     long long sum = 0;
@@ -10,4 +11,9 @@ int prod_signs(vector<int> arr) {
         sum += abs(num);
     }
     return sum * sign;
+}
+
+int main() {
+    std::cout << prod_signs({-1, 1, 1, 0}) << std::endl;
+    return 0;
 }
