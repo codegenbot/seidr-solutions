@@ -1,7 +1,12 @@
 #include <string>
 #include <algorithm>
 
-int mastermind(std::string code, std::string guess) {
+struct MastermindResult {
+    int white;
+    int black;
+};
+
+MastermindResult mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -15,5 +20,5 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black + white;
+    return {black, white};
 }
