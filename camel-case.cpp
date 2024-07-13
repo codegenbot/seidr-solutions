@@ -1,4 +1,3 @@
-```cpp
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     bool inWord = false;

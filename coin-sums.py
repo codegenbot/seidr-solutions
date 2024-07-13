@@ -1,12 +1,11 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]  
-    for coin in sorted(coins, reverse=True):
-        count = cents // coin
+    coins = [4, 20, 2, 1]
+    results = []
+    for i, coin in enumerate(coins):
+        count = cents // (coin * (10 ** i))
         if count > 0:
-            result[coins.index(coin)] = count
-            cents %= coin
-    return tuple(result)
+            results.append(count)
+    return tuple(results)
 
 cents = int(input())
 print(*coin_sums(cents))
