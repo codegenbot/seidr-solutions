@@ -1,4 +1,4 @@
-def findMinFibonacciNumbers(k: int) -> list:
+def findMinFibanocciNumbers(k: int) -> list:
     fib = [0, 1]
     while True:
         next_fib = fib[-1] + fib[-2]
