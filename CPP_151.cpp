@@ -15,13 +15,11 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> inputVector;
     float num;
-    std::cout << "Enter numbers (enter -1 to stop): ";
-    while (true) {
-        std::cin >> num;
-        if (num == -1) break;
+    std::cout << "Enter numbers (0 to stop): ";
+    while (std::cin >> num && num != 0) {
         inputVector.push_back(num);
     }
     long long result = double_the_difference(inputVector);
-    std::cout << "The sum of squares of positive integers is: " << result << std::endl;
+    std::cout << "Sum of squares: " << result << std::endl;
     return 0;
 }
