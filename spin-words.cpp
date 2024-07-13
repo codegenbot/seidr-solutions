@@ -1,48 +1,43 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string input) {
-    std::string output = "";
-    std::string word;
-    
-    for (char c : input) {
-        if (c == ' ') {
-            output += word + " ";
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
+            } else {
+                result += word;
+            }
             word = "";
         } else {
-            word += c;
+            word += str[i];
         }
     }
-    
-    output += word;
-    
-    int start = 0, end = 0;
-    while (end < output.length()) {
-        if ((output.find(' ', end) == std::string::npos || output.find(' ', end) - end > 4)) {
-            end = output.length();
-        } else {
-            start = end + 1;
-            end = output.find(' ', end);
+
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--) {
+            result += word[i];
         }
-        
-        while (start < end && output[start] != ' ') {
-            start++;
-        }
-        
-        if (end - start >= 5) {
-            std::string temp = output.substr(start, end - start);
-            reverse(temp.begin(), temp.end());
-            output.replace(start, end - start, temp);
-        }
+    } else {
+        result += word;
     }
-    
-    return output;
+
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << "Result: " << spinWords(str) << endl;
     return 0;
 }
