@@ -1,6 +1,7 @@
-def find_max_value(numbers: List[int]) -> int:
-    max_value = numbers[0]
-    for num in numbers:
-        if num > max_value:
-            max_value = num
-    return max_value
+def get_max_min_average(numbers: List[int]) -> str:
+    if len(numbers) == 0:
+        return "No numbers provided"
+    max_num = max(numbers)
+    min_num = min(numbers)
+    average = sum(numbers) / len(numbers)
+    return f"Max: {max_num}, Min: {min_num}, Average: {average}"
