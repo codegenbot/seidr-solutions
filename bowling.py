@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     frame_num = 1
@@ -13,12 +12,13 @@ def bowling_score(frames):
             score += 10 - int(frames[i+1]) + int(frames[2*i+1])
             frame_num += 1
         else:
-            if int(frames[i]) + int(frames[i+1]) < 10:
-                score += int(frames[i]) + int(frames[i+1])
-            else:
-                score += 10 + int(frames[2*i+1])
+            if frames[i] != '/':
+                if int(frames[i]) + int(frames[i+1]) < 10:
+                    score += int(frames[i]) + int(frames[i+1])
+                else:
+                    score += 10 + int(frames[2*i+1])
             frame_num += 1
     return score
 
-frames = input("Enter the frames: ")
+frames = input("Enter the frames (e.g., 'X', '/'): ")
 print(bowling_score(frames))
