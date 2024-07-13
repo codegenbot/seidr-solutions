@@ -12,18 +12,12 @@ double calculateDistance(const std::vector<float>& vec1, const std::vector<float
 
 int main() {
     std::vector<float> vec1(20);
-    for (int i = 0; i < 20; ++i) {
-        float val;
-        std::cin >> val;
-        vec1[i] = val;
-    }
+    for (int i = 0; i < 20; ++i)
+        std::cin >> vec1[i];
 
     std::vector<float> vec2(20);
-    for (int i = 0; i < 20; ++i) {
-        float val;
-        std::cin >> val;
-        vec2[i] = val;
-    }
+    for (int i = 0; i < 20; ++i)
+        std::cin >> vec2[i];
 
     std::cout << std::fixed << calculateDistance(vec1, vec2) << std::endl;
 
