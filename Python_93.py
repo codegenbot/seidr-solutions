@@ -1,17 +1,12 @@
 def encode(message):
-    encoded_message = ""
+    result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                if char == "X" or char == "Z":
-                    encoded_message += char
-                else:
-                    encoded_message += chr(ord(char) + 1)
-            elif char.islower():
-                if char == "x" or char == "z":
-                    encoded_message += char
-                else:
-                    encoded_message += chr(ord(char) + 1)
+                new_char = chr((ord(char) - 65 + 2) % 26 + 65)
+            else:
+                new_char = chr((ord(char) - 97 + 2) % 26 + 97)
+            result += new_char
         else:
-            encoded_message += char
-    return encoded_message
+            result += char
+    return result
