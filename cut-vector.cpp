@@ -4,7 +4,15 @@
 using namespace std;
 
 int main() {
-    vector<int> nums = {3, 6, 1, 7, 2, 8, 4};
+    vector<int> nums;
+    int num;
+    
+    while (cin >> num) {
+        nums.push_back(num);
+        if (cin.peek() == '\n' || cin.peek() == EOF) {
+            break;
+        }
+    }
     
     int n = nums.size();
     int sum = 0;
@@ -28,10 +36,16 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
     
-    cout << 0 << endl;
+    cout << endl;
     
+    for (int i = cutIndex+1; i < n; i++) {
+        cout << nums[i] << " ";
+    }
+    
+    cout << endl;
+
     return 0;
 }
