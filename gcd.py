@@ -4,7 +4,7 @@ def gcd(a, b):
     return abs(a)
 
 
-a = int(input("Enter the first integer: "))
-b = int(input("Enter the second integer: "))
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
 
 print(gcd(a, b))
