@@ -1,13 +1,14 @@
 #include <vector>
+#include <algorithm>
 
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
-    vector<int> buckets(n, 0);
+    std::vector<int> buckets(n, 0);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < grid[i].size(); j++) {
             if (grid[i][j] == 1) {
-                int water = min(capacity, n - i);
+                int water = std::min(capacity, n - i);
                 buckets[i] += water;
                 capacity -= water;
             }
@@ -17,12 +18,12 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     int res = 0;
     for (int i = 0; i < n; i++) {
         while (buckets[i] > 0) {
-            int toTake = min(capacity, buckets[i]);
+            int toTake = std::min(capacity, buckets[i]);
             buckets[i] -= toTake;
             capacity -= toTake;
             res++;
         }
-        capacity = min(capacity, n - i);
+        capacity = std::min(capacity, n - i);
     }
     
     return res;
