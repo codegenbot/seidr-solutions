@@ -1,3 +1,4 @@
+```
 def add():
     while True:
         cont = input("Do you want to continue (Y/N)? ").upper()
@@ -16,4 +17,5 @@ def add():
         else:
             break
 
-add()
+if __name__ == "__main__":
+    add()
