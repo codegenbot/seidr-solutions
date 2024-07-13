@@ -1,12 +1,4 @@
 #include <vector>
-#include <iostream>
-
-int main() {
-    int arr[] = {1, -2, 3, 0, 4};
-    vector<int> vec(arr, arr + sizeof(arr) / sizeof(arr[0]));
-    
-    cout << prod_signs(vec) << endl;
-}
 
 int prod_signs(vector<int> arr) {
     int sign_product = 1;
