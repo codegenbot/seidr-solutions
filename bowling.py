@@ -1,21 +1,31 @@
 ```
-def bowling_score(frames):
+def bowling_score(game):
     score = 0
-    for i, frame in enumerate(frames.split()):
-        if '/' in frame:
-            first_roll, second_roll = map(int, frame.split('/'))
-            if 'X' in frame or 'x' in frame:
-                score += 10 + (second_roll if roll == 1 else sum(map(int, frame)))
-                roll = 2
+    roll = 0
+    for frame in game.split('/'):
+        if len(frame) == 1:
+            score += 10
+        elif len(frame) == 2:
+            first_roll = int(frame[0])
+            second_roll = int(frame[1])
+            if first_roll == 10: 
+                score += 10 + second_roll
             else:
                 score += first_roll + second_roll
-        elif 'X' in frame or 'x' in frame:
-            score += 10
-            roll = 0
         else:
-            if 'X' in frame or 'x' in frame:
+            first_roll = int(frame[0])
+            if frame[0] == 'X':
+                roll = 10
                 score += 10
-                roll = 1
             else:
-                score += sum(map(int, frame))
+                roll = int(frame[0])
+                score += roll
+            second_roll = int(frame[1])
+            third_roll = int(frame[2])
+            if second_roll + third_roll == 10:
+                score += roll + 10
+            elif frame[1] == 'X':
+                score += roll + 10
+            else:
+                score += roll + second_roll
     return score
