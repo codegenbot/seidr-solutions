@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     black = sum(
         c1 == c2 and i1 == i2
