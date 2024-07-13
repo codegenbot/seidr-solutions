@@ -1,6 +1,6 @@
+```cpp
+#include <utility>
 #include <vector>
-#include <numeric> // for numeric_limits
-#include <utility> // for pair
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
