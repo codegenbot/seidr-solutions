@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
+    double total = 0;
     double p = 0;
 
     for (int i = 1; i < n; i++) {
-        p += (double)1 / total;
+        total += 1.0 / (n * m); 
+        p += (double)1 / (n * m);
     } 
     return p;
 }
