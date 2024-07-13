@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
 #include <initializer_list>
-#include <cmath>  // Include this for pow and sqrt
+#include <cmath>
 
 using namespace std;
 
@@ -21,7 +20,7 @@ double vectorDistance(int n) {
 
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += std::pow(v1[i] - v2[i], 2);
+        sum += pow(v1[i] - v2[i], 2);
     }
     return sqrt(sum);
 }
