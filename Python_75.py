@@ -1,13 +1,26 @@
-def is_multiply_prime(n):
-    def is_prime(m):
-        if m < 2:
-            return False
-        for i in range(2, int(m**0.5) + 1):
-            if m % i == 0:
+```
+def is_multiply_prime(n=None):
+    if n is None:
+        a = int(input("Enter a number: "))
+        b = int(input("Enter another number: "))
+
+        def is_prime(m):
+            if m < 2:
                 return False
-        return True
+            for i in range(2, int(m**0.5) + 1):
+                if m % i == 0:
+                    return False
+            return True
 
-    a = int(input("Enter the first number: "))
-    b = int(input("Enter another number: "))
+        return is_prime(a * b)
+    else:
+        product = n
+        def is_prime(m):
+            if m < 2:
+                return False
+            for i in range(2, int(m**0.5) + 1):
+                if m % i == 0:
+                    return False
+            return True
 
-    return is_prime(a * n)
+        return is_prime(product)
