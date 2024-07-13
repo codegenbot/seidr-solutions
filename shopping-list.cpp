@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 #include <cmath>
-#include <initializer_list>
+#include <iostream>
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
@@ -11,11 +12,11 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices = {10, 20, 30};
-    std::vector<float> discounts = {5, 7, 3};
+    float prices[] = {10.0f, 20.0f, 30.0f};
+    float discounts[] = {5.0f, 7.0f, 3.0f};
 
-    double result = shoppingList(prices, discounts);
-    printf("Total price after discount: %f\n", result);
+    double result = shoppingList(std::vector<float>(prices, prices + sizeof(prices) / sizeof(prices[0])), std::vector<float>(discounts, discounts + sizeof(discounts) / sizeof(discounts[0])));
+    std::cout << "Total price after discount: " << result << "\n";
 
     return 0;
 }
