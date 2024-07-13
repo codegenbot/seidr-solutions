@@ -18,9 +18,11 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     std::size_t m = target.length();
 
     for (std::size_t i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) { 
-            while (i + m < n && text.substr(i, m) == target) { 
+        auto pos = text.find(target, i);
+        if (pos != std::string::npos) { 
+            while (i + m < n && pos == i) { 
                 i += m;
+                pos = text.find(target, i);
             }
             result.push_back(i); 
         }
