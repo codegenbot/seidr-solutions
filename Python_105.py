@@ -1,5 +1,9 @@
-```
 def by_length(arr):
+    if not arr:
+        return []
     sorted_arr = sorted([x for x in arr if 1 <= x <= 9])
     reversed_arr = sorted_arr[::-1]
-    return [name for num in reversed_arr for name in ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"] if num == int(name.split()[0])]
+    return [
+        f"{'Zero' if i == 0 else 'One' if i == 1 else 'Two' if i == 2 else 'Three' if i == 3 else 'Four' if i == 4 else 'Five' if i == 5 else 'Six' if i == 6 else 'Seven' if i == 7 else 'Eight' if i == 8 else 'Nine'}"
+        for i in reversed_arr
+    ]
