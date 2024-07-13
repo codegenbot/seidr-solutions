@@ -1,18 +1,12 @@
 ```cpp
-#include <cassert>
-#include <vector>
+#include <iostream>
 #include <string>
 
-int Strongest_Extension(const std::string& prefix, const std::vector<std::string>& extensions) {
-    for (const auto& extension : extensions) {
-        if (!extension.empty()) {
-            return prefix + "." + extension;
-        }
-    }
-    return prefix;
-}
+using namespace std;
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    return 0;
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "The reverse of the entered string is: " << string(str.rbegin(), str.rend()) << endl;
 }
