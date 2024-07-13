@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
