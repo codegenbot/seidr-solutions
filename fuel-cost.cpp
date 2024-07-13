@@ -1,8 +1,9 @@
 ```cpp
 #include <vector>
+#include <cmath>
 using namespace std;
 
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int>& v) {
     int sum = 0;
     for (int i : v) {
         int temp = i / 3;
@@ -13,4 +14,3 @@ int fuelCost(vector<int> v) {
         sum += temp;
     }
     return sum;
-}
