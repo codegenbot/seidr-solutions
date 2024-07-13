@@ -1,33 +1,40 @@
 #include <string>
+#include <stdexcept>
 
-std::string solveBoolean(std::string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(string booleanExpression) {
+    stack<char> expression;
+    
+    for(int i = 0; i < booleanExpression.length(); i++) {
+        if(booleanExpression[i] == '&') {
+            while(expression.size() && expression.top() == '&') {
+                expression.pop();
             }
-            if (st.empty()) {
-                return "True";
-            } else {
-                st.pop();
-            }
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return "False";
-            } else {
-                st.pop();
+        } else if(booleanExpression[i] == '|') {
+            while(expression.size() && expression.top() == '|') {
+                expression.pop();
             }
         } else {
-            st.push(s[i]);
+            expression.push(boolToChar(getBooleanValue(string(1, booleanExpression[i]))));
         }
     }
-    if (st.empty()) {
-        return "False";
+    
+    return expression.top() == 'T';
+}
+
+char boolToChar(bool value) {
+    if(value) {
+        return 'T';
     } else {
-        return "True";
+        return 'F';
+    }
+}
+
+bool getBooleanValue(char c) {
+    if(c == 't' || c == 'T') {
+        return true;
+    } else if(c == 'f' || c == 'F') {
+        return false;
+    } else {
+        throw runtime_error("Invalid input");
     }
 }
