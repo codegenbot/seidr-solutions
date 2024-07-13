@@ -18,3 +18,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     return res;
 }
+
+int main() {
+    return 0;
+}

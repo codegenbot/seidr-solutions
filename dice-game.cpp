@@ -12,8 +12,8 @@ int main() {
     double sum = 0.0;
     ostringstream oss; 
     oss << fixed;
-    for(int i = 1; i < m; i++) {
-        double prob = (n-i) / (double)n - ((m-i+1) / (double)m);
+    for(int i = 1; i < n && i <= m; i++) {
+        double prob = (n - i) / (double)n - (m - i + 1) / (double)m;
         sum += prob;
         oss << setprecision(10) << prob << " "; 
     }
