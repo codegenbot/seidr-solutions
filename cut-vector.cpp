@@ -18,21 +18,18 @@ vector<vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX, cutIndex = -1;
 
     for (int i = 0; i < n - 1; i++) {
+        minDiff = INT_MAX, cutIndex = -1;
         long long diff = abs(leftSum - rightSum);
-        if (diff == 0) { // Both sides have the same sum
-            res.push_back(vector<int>(v.begin(), v.end()));
-            res[1] = vector<int>();
-        } else {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i + 1; 
         }
         leftSum += v[i];
-        rightSum -= v[i];
+        rightSum -= v[i+1];
     }
     
     vector<vector<int>> res;
     res.push_back(vector<int>(v.begin(), v.begin() + cutIndex));
-    res[1].resize(v.size() - cutIndex);
     for(int i = cutIndex; i < v.size(); i++) {
         res[1].push_back(v[i]);
     }
