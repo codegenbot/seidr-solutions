@@ -6,32 +6,32 @@ int main() {
         nums.push_back(num);
     }
     
-    int total_sum = 0;
-    for (int n : nums) {
-        total_sum += n;
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
     
-    int half_sum = total_sum / 2;
-    int left_sum = 0;
-    int idx = 0;
+    int prefixSum = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    for (int i = 0; i < nums.size(); ++i) {
-        left_sum += nums[i];
-        if (left_sum >= half_sum) {
-            idx = i;
-            break;
+    for (int i = 0; i < n; i++) {
+        prefixSum += nums[i];
+        int suffixSum = sum - prefixSum;
+        int diff = abs(prefixSum - suffixSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    vector<int> left(nums.begin(), nums.begin() + idx + 1);
-    vector<int> right(nums.begin() + idx + 1, nums.end());
+    for (int i = 0; i <= cutIndex; i++) {
+        cout << nums[i] << endl;
+    }
     
-    for (int n : left) {
-        cout << n << endl;
-    }
-    for (int n : right) {
-        cout << n << endl;
-    }
+    cout << 0 << endl;
     
     return 0;
 }
