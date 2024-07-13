@@ -1,6 +1,7 @@
 def solve_boolean(expression):
     ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
+    current_number = ''
     for char in expression:
         if char in 'TF':
             if current_number:
@@ -14,8 +15,11 @@ def solve_boolean(expression):
             while stack and isinstance(stack[-1], bool):
                 stack.pop()
             if current_number:
-                stack.append(True if char == 'T' else False)
-                current_number = ''
+                try:
+                    stack.append(bool(int(current_number)))
+                    current_number = ''
+                except ValueError:
+                    return False
             b = ops[char](stack.pop(), stack.pop())
             stack.append(b)
         else:
