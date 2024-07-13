@@ -1,17 +1,11 @@
-```
 def minPath(grid, k):
-    n = len(grid)
-    m = [(grid[i][0], i, 0) for i in range(n)]
-    m.sort()
-    path = [m[0][0]]
-    
-    for _ in range(k-1):
-        prev = m.pop(0)[2]
-        for cell in m[:]:
-            if cell[2] == prev:
-                m.remove(cell)
-                break
-        m.sort()
-        path.append(m[0][0])
-    
-    return path
+    N = len(grid)
+    for i in range(N):
+        grid[i] = [(i * N + j, val) for j, val in enumerate(grid[i])]
+    res = []
+    cur_sum = sum(grid[0])
+    for i in range(k):
+        pos = sorted([(cur_sum, (i, 0)) if x < N // 2 else ((N * N) - x, (i, N - 1)) for x in grid[0]])[-1][1]
+        res.append(grid[pos][1])
+        cur_sum -= grid[pos][0]
+    return res
