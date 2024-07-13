@@ -1,5 +1,3 @@
-```cpp
-#include <stack>
 #include <string>
 #include <stdexcept>
 
@@ -16,11 +14,11 @@ bool solveBoolean(string booleanExpression) {
                 expression.pop();
             }
         } else {
-            expression.push(boolToChar(getBooleanValue(tolower(booleanExpression[i]))));
+            expression.push(boolToChar(getBooleanValue(string(1, booleanExpression[i]))));
         }
     }
     
-    return expression.top() == 't';
+    return expression.top() == 'T';
 }
 
 char boolToChar(bool value) {
