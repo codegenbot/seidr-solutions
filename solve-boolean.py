@@ -8,4 +8,6 @@ def solve_boolean(expression):
         for op in "&|":
             if op in expression:
                 left, right = expression.split(op)
-                return bool(solve_boolean(left)) and solveBoolean(right) if op == "&" else bool(solve_boolean(left)) or solve_boolean(right)
+                return bool(solve_boolean(left)) and solve_boolean(right) if op == "&" else bool(solve_boolean(left)) or solve_boolean(right)
+    else:
+        raise ValueError("Invalid expression")
