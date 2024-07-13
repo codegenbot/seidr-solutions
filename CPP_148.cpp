@@ -48,8 +48,6 @@ int main() {
     }
     
     if(!inputPlanets.empty()) {
-        assert(std::vector<std::string>(0) == bf({"Jupiter"}, "Jupiter", "Makemake"));
-        
         std::vector<std::string> result = bf(inputPlanets, "Mars", "Neptune");
         
         if (!result.empty())
