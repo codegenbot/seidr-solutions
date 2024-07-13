@@ -13,8 +13,8 @@ def substitution_cipher(cipher_map, message):
     return result
 
 
-cipher_map1 = input().strip()
-cipher_map2 = input().strip()
+char1, char2 = zip(*[list(input().strip()), list(input().strip())])
+cipher_map = "".join("".join(map(str, x)) for x in [char1, char2])
 message = input().strip()
 
-print(substitution_cipher(cipher_map1, message))
+print(substitution_cipher(cipher_map, message))

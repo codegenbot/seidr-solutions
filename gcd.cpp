@@ -1,41 +1,30 @@
 #include <vector>
-#include <iostream>
 #include <string>
 
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int index = 0;
-    while (index <= text.length() - target.length()) {
-        index = text.find(target, index);
-        if (index == string::npos)
-            break;
-        result.push_back(index);
-        index += 1; // start searching from the next character
+    int i = 0;
+    while (i <= text.length() - target.length()) {
+        int j = 0;
+        while (j < target.length() && text[i + j] == target[j]) {
+            if (j == target.length() - 1) {
+                result.push_back(i);
+                i += j + 1;
+                break;
+            }
+            j++;
+        }
+        i++;
     }
     return result;
 }
 
-int main() {
-    int num1, num2, textLength, targetLength;
-    
-    cin >> num1 >> num2 >> textLength >> targetLength;
-
-    string text(textLength, ' '), target(targetLength, ' ');
-    for(int i = 0; i < textLength; ++i) cin >> text[i];
-    for(int i = 0; i < targetLength; ++i) cin >> target[i];
-
-    // Calculate GCD of two numbers
-    int gcd = __gcd(num1, num2);
-
-    cout << gcd << endl;
-
-    vector<int> indices = findIndices(text, target);
-    for (int i : indices) {
-        cout << i << " ";
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    cout << endl;
-
-    return 0;
-}
+    return a;

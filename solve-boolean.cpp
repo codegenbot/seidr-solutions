@@ -1,43 +1,28 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(std::string expression) {
+    stack<char> operatorStack;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
             }
-            if (st.empty()) return false;
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            if (!operatorStack.empty()) {
+                operatorStack.push('&');
             }
-            if (st.empty()) return true;
-        } else {
-            st.push(s[i]);
+        } else if (expression[i] == '|') {
+            while (!operatorStack.empty()) {
+                operatorStack.pop();
+            }
+            operatorStack.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            if (i < expression.length() - 1 && (expression[i + 1] == '&' || expression[i + 1] == '|')) {
+                i++;
+                continue;
+            }
+            return expression[i] == 'T';
         }
     }
-    while (!st.empty()) {
-        if (st.top() == '&') return false;
-        if (st.top() == '|') return true;
-        st.pop();
+    while (!operatorStack.empty()) {
+        operatorStack.pop();
     }
-    return st.top() == 'T';
+    return false;
 }
-
-int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    cin >> s;
-    if (s[0] == 't' || s[0] == 'T') {
-        cout << "True" << endl;
-    } else if (s[0] == 'f' || s[0] == 'F') {
-        cout << "False" << endl;
-    } else {
-        bool result = solveBoolean(s);
-        if (result) cout << "True" << std::endl;
-        else cout << "False" << std::endl;
-    }
-    return 0;

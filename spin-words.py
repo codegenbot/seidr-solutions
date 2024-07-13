@@ -1,9 +1,7 @@
-def spin_words(sentence):
-    words = sentence.split()
-    result = []
+```
+def spin_words(input_string):
+    words = input_string.split()
     for word in words:
         if len(word) >= 5:
-            result.append(word[::-1].capitalize())
-        else:
-            result.append(word)
-    return " ".join(result)
+            words[words.index(word)] = word[::-1]
+    return " ".join(words)
