@@ -25,8 +25,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(numArr.begin(), numArr.end());
     reverse(numArr.begin(), numArr.end());
     vector<string> result;
-    for (int i = 0; i < numArr.size(); i++) {
-        switch (stoi(numArr[i])) {
+    for (string s : numArr) {
+        switch (stoi(s)) {
             case 1:
                 result.push_back("One");
                 break;
