@@ -22,11 +22,12 @@ int main() {
         for (int j = 0; j < targetLen; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
-                break;
+                break; // Update this line
             }
         }
         if (found) {
             indices.push_back(i);
+            i += targetLen - 1; 
         }
     }
 
