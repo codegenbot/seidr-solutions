@@ -24,7 +24,8 @@ int main() {
     string s;
     cin >> s;
     vector<int> result = findIndices(s, s.substr(0, n));
-    for (int i: result) cout << i << " ";
-    cout << endl;
+    for (int i : result) 
+        std::cout << i << " ";
+    std::cout << endl;
     return 0;
 }
