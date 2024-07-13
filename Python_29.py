@@ -1,4 +1,4 @@
-```
+"""
 prefix = input("Enter a prefix: ")
 words = []
 
@@ -24,3 +24,4 @@ for word in words:
         stored_expected = None
     else:
         stored_expected = expected_word
+"""
