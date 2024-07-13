@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <string>
 
 std::string camelCase(std::string& str) {
@@ -8,27 +6,20 @@ std::string camelCase(std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            while (str.find(c, str.find(c) + 1) != str.npos) {
-                str.erase(str.find(c), 1);
-            }
-            if (!str.empty()) {
-                result += toupper(str[0]);
+            if(capitalize){
+                result += toupper(str[str.find(c)+1]);
                 capitalize = false;
-                str.erase(0, 1);
             }
+            result += ' ';
         } else {
-            result += (capitalize ? toupper(c) : tolower(c));
-            capitalize = false;
+            if(capitalize){
+                result += toupper(c);
+                capitalize = false;
+            }else{
+                result += tolower(c);
+            }
         }
     }
 
-    return result + str;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "Camel Case: " << camelCase(input) << std::endl;
-    return 0;
+    return result.substr(0, result.find(' '));
 }
