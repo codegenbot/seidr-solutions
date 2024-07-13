@@ -13,7 +13,7 @@ int main() {
     
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
-        for (int j = 0; j < targetLen && i + j < textLen; ++j) {
+        for (int j = 0; j < targetLen; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -24,7 +24,7 @@ int main() {
         }
     }
 
-    if (indices.empty() || indices[0] >= textLen) {
+    if (indices.size() == 0) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
