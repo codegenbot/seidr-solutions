@@ -6,8 +6,10 @@ std::string spinWords(std::string str) {
     std::size_t pos = 0;
     
     while ((pos = str.find(' ')) != std::string::npos) {
+        std::size_t wordLength = pos;
+        
         if (str.length() - pos > 4) {
-            std::reverse(str.begin() + pos + 1, str.begin() + pos + strlen(std::to_string(pos+1).c_str()));
+            std::reverse(str.begin() + pos, str.end());
         }
         
         result += str.substr(0, pos);
