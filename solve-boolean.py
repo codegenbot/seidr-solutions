@@ -1,15 +1,24 @@
-def solveBoolean(expression):
-    if expression == "T":
+def solve_boolean(expression):
+    if expression == "t":
         return True
-    elif expression == "F":
+    elif expression == "f":
         return False
-    elif "|" in expression:
-        left = expression.split("|")[0].strip()
-        remaining_expression = expression[len(left)+1:]
-        while "|" in remaining_expression:
-            left += "|" + remaining_expression.split("|")[0]
-            remaining_expression = remaining_expression.split("|")[1]
-        return solveBoolean(left) or solveBoolean(remaining_expression)
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return solveBoolean(left) and solveBoolean(right)
+    result = None
+    i = 0
+    while i < len(expression):
+        if expression[i] in "&|":
+            if expression[i] == "&":
+                result = all(
+                    solve_boolean(
+                        expression[i + 1 : expression.index("&", i + 1)]
+                    ).split("&")
+                )
+            else:
+                result = any(
+                    solve_boolean(expr)
+                    for expr in expression[i + 1 : expression.index("|", i + 1)].split(
+                        "|"
+                    )
+                )
+        i += 1
+    return result if result is not None else False
