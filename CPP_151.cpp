@@ -19,7 +19,7 @@ std::pair<double, double> double_the_difference(const std::initializer_list<int>
     return {(double)sum_even / input_vector.size(), (double)sum_odd / input_vector.size()};
 }
 
-int main() {
+int main_new() {
     std::cout << "Enter numbers separated by spaces: ";
     std::string input;
     std::getline(std::cin, input);
