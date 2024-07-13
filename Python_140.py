@@ -1,2 +1,2 @@
 def fix_spaces(text):
-    return '_'.join('-' if len(s) > 2 else s for s in text.split())
+    return re.sub(r'\s{3,}', '-', re.sub(r'\s{2}', '_', text.replace(' ', '_')))
