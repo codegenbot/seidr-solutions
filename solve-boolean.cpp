@@ -1,5 +1,4 @@
-```
-#include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -43,4 +42,8 @@ bool solveBoolean(string s) {
     return (t1 == "T" && t2 == "T") || (t1 == "F" && t2 == "F");
 }
 
-int main() { return solveBoolean("T|F"); }
+int main() {
+    int result = solveBoolean("input_string");
+    cout << "Result: " << (result ? "TRUE" : "FALSE") << endl;
+    return 0;
+}
