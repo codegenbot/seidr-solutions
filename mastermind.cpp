@@ -23,14 +23,14 @@ int mastermind(string code, string guess) {
         int count = 0;
         int idx = 0;
         for (char c : chars) {
-            if (c == code[i]) break;
+            if (c == guess[i]) break;
             idx++;
         }
-        for(int j = 0; j < 6; j++) {
+        while(idx < 6 && chars[idx] != guess[i]) idx++;
+        for(int j = 0; j <= idx; j++) {
             if(code[j] == guess[i]) {
                 count++;
-                codeCount[idx]--;
-                if(count > 1) break;
+                codeCount[j]--;
             }
         }
         white += min(count, codeCount[idx]);
