@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -15,12 +14,14 @@ string string_to_md5(const string& input) {
         else
         {
             ostringstream oss;
-            oss << std::setfill('0') << hex << std::setw(2) << (int)c;
+            oss << setfill('0') << hex << setw(2) << (int)c;
             output += oss.str();
         }
     }
     return output;
 }
 
-cout << fixed << string_to_md5("password") << endl;
-return 0;
+int main() {
+    cout << fixed << string_to_md5("password") << endl;
+    return 0;
+}
