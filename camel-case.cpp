@@ -7,15 +7,15 @@ std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
-    for (char c : str) {
+    for (auto c : str) {
         if (c == '-') {
             result += ' '; 
             capitalize = true; 
         } else if (capitalize) { 
-            result += toupper(c);
+            result += _toupper(c);
             capitalize = false; 
         } else {
-            result += tolower(c); 
+            result += _tolower(c); 
         }
     }
 
@@ -26,6 +26,6 @@ int main() {
     std::string input;
     std::cout << "Enter your string (in kebab-case): ";
     std::getline(std::cin, input);
-    std::cout << "Camel Case: " << camelCase(input) + 1 << std::endl;
+    std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
 }
