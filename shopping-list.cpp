@@ -25,6 +25,6 @@ int main() {
         cin >> discounts[i];
     }
     float result = shoppingList(&prices[0], n, &discounts[0]);
-    std::cout << std::fixed << std::setprecision(1) << result << endl;
+    cout << fixed << setprecision(1) << result << endl;
     return 0;
 }
