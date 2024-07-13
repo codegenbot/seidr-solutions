@@ -1,34 +1,35 @@
-int countWhitePegs(const string& code, const string& guess) {
+int numWhitePegs(string code, string guess) {
     int whitePegs = 0;
-    for (char c : code) {
-        if (count(guess.begin(), guess.end(), c) > 0) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             whitePegs++;
         }
     }
     return whitePegs;
 }
 
-int countBlackPegs(const string& code, const string& guess) {
+int numBlackPegs(string code, string guess) {
     int blackPegs = 0;
-    for (char c : code) {
-        if (guess.find(c) != string::npos) {
+    map<char, int> codeCount, guessCount;
+    
+    for (int i = 0; i < 4; ++i) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
+    }
+    
+    for (int i = 0; i < 6; ++i) {
+        if (codeCount['A' + i] > 0 && guessCount['A' + i] > codeCount['A' + i]) {
             blackPegs++;
-            guess.erase(guess.find(c), 1);
         }
     }
+    
     return blackPegs;
 }
 
 int main() {
-    // Get the input from user
     string code, guess;
     cin >> code >> guess;
-
-    int whitePegs = countWhitePegs(code, guess);
-    int blackPegs = countBlackPegs(code, guess);
-
-    cout << whitePegs << endl;
-    cout << blackPegs << endl;
-
+    cout << numWhitePegs(code, guess) << endl;
+    cout << numBlackPegs(code, guess) << endl;
     return 0;
 }
