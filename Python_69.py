@@ -1,3 +1,4 @@
+```
 def find_max_min(lst):
     if not lst:
         return None, None
