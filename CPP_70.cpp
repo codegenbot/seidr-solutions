@@ -1,25 +1,50 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+using namespace std;
+
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
+    
+    while (!lst.empty()) {
+        int minVal = *min_element(lst.begin(), lst.end());
+        int maxVal = *max_element(lst.begin(), lst.end());
+        
+        auto itMin = find(lst.begin(), lst.end(), minVal);
+        auto itMax = find(itMin, lst.end(), maxVal);
+        
+        result.push_back(*itMin);
+        lst.erase(itMin);
+        result.push_back(*itMax);
+        lst.erase(itMax);
     }
-    return true;
+    
+    return result;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
-    if (lst.empty()) return result;
-
-    sort(lst.begin(), lst.end());
-    while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
-        if (!lst.empty())
-            sort(lst.begin(), lst.end());
+int mainFunc() {
+    vector<int> test1 = {1, 2, 3, 4};
+    vector<int> test2 = {5, 5, 5, 5};
+    vector<int> test3 = {};
+    
+    cout << "Test 1: ";
+    for (auto i : strange_sort_vector(test1)) {
+        cout << i << " ";
     }
-
-    return result;
+    cout << endl;
+    
+    cout << "Test 2: ";
+    for (auto i : strange_sort_vector(test2)) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    cout << "Test 3: ";
+    for (auto i : strange_sort_vector(test3)) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
