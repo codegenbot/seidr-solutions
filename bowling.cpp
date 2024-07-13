@@ -1,6 +1,3 @@
-```
-#include <iostream>
-#include <sstream>
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -18,4 +15,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
