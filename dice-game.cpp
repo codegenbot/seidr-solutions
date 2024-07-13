@@ -5,7 +5,7 @@ double diceGame(int n, int m) {
     double p = 0.0;
 
     for (int i = 1; i < n; i++) {
-        p += (double)(n - i) / total;
+        p += (double)i / total;
     }
 
     return p;
