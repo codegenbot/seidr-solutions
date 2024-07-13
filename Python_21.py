@@ -1,4 +1,4 @@
-```
+```python
 def rescale_to_unit(input_str):
     if isinstance(input_str, list): 
         inputs = input_str
