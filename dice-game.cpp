@@ -1,3 +1,4 @@
+```cpp
 double probability(int n, int m) {
     if (n < 1 || m < 1) return -1; 
     double total = static_cast<double>(n + m);
@@ -9,3 +10,4 @@ double probability(int n, int m) {
         p += (n - (m - 1)) * 1.0 / total;
     }
     return p;
+}
