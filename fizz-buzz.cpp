@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -9,10 +10,9 @@ int main() {
             cout << "FizzBuzz";
         else
             cout << "Fizz";
-    } else if (x % 5 == 0) {
+    } else if (x % 5 == 0)
         cout << "Buzz";
-    } else {
+    else
         cout << to_string(x);
-    }
     return 0;
 }
