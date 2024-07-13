@@ -7,14 +7,15 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     if(n == 0) return res;
     
-    int max = arr[n-1];
-    res.push_back(max);
-    
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= max) {
-            max = arr[i];
-            res.push_back(max);
+    for(int i=0; i<n; i++) {
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
+        if(isLeader) res.push_back(arr[i]);
     }
     
     return res;
