@@ -1,19 +1,21 @@
 #include <vector>
 
-std::vector<int> leaders(const std::vector<int>& v) {
-    int n = v.size();
-    vector<int> leaders;
-    for (int i = 0; i < n; i++) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (v[j] >= v[i]) {
-                leader = false;
-                break;
-            }
-        }
-        if (leader) {
-            leaders.push_back(v[i]);
+std::vector<int> leaders(const std::vector<int>& nums) {
+    int n = nums.size();
+    std::vector<int> result;
+    
+    // The last element of the array is always a leader.
+    if (n > 0) {
+        result.push_back(nums[n - 1]);
+    }
+    
+    for (int i = n - 2; i >= 0; --i) {
+        if (nums[i] >= nums[i + 1]) {
+            result.push_back(nums[i]);
         }
     }
-    return leaders;
+    
+    std::reverse(result.begin(), result.end());
+    
+    return result;
 }
