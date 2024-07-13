@@ -1,11 +1,14 @@
+import re
+
+
 def parse_music(s):
     if not s:
         return []
     s = s.lower()
-    beats = s.replace("|", " ").split()
+    beats = re.sub(r"[^\d|]+", " ", s).split("|")
     beat_counts = {}
     for beat in beats:
-        if beat:  
+        if beat:
             beat_count, _ = map(int, beat.split())
             if str(beat_count) in beat_counts:
                 beat_counts[str(beat_count)] += 1
