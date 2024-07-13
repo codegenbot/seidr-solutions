@@ -1,5 +1,9 @@
+```
 def search(lst):
+    max_num = -1
     for num in lst:
         if num > 0:
-            return max([i for i in lst if i > 0])
-    return -1
+            max_num = num
+        else:
+            return -1
+    return max_num if max_num != -1 else -1
