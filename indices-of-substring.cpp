@@ -15,9 +15,9 @@ std::vector<int> findIndices(std::string text, std::string target) {
 
 int main() {
     std::string text;
-    cin >> text;
+    std::cin >> text;
     std::string target;
-    cin >> target;
+    std::cin >> target;
     std::vector<int> result = findIndices(text, target);
     for (int i : result) std::cout << i << " ";
     std::cout << std::endl;
