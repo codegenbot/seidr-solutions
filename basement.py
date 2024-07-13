@@ -1,7 +1,8 @@
 def basement(nums):
-    total = 0
-    for i, num in enumerate(nums, 1):  
+    total = nums[0]
+    i = 1
+    while True:
         if total < 0:
-            return i - 1
-        total += num
-    return 0
+            return i
+        total += nums[i]
+        i += 1
