@@ -6,6 +6,3 @@ def sum_of_digits():
         total += n % 10
         n //= 10
     return total
-
-result = sum_of_digits()
-print(result)
