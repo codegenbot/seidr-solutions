@@ -20,16 +20,10 @@ int mastermind(string code, string guess) {
 
     // Count the number of correct colors in correct positions
     for (int i = 0; i < 4; i++) {
-        int j = 0;
-        while (j < 4 && codeArray[j] != guessArray[i]) {
-            j++;
-        }
-        if (j < 4) {
+        if (codeArray[i] == guessArray[i]) {
             black++;
-            codeArray[j] = 'x';
+            codeArray[i] = 'x';
             guessArray[i] = 'x';
-        } else {
-            white++;
         }
     }
 
