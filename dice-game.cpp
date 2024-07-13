@@ -1,20 +1,14 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-double probability(int n, int m) {
-    double total = (long long)n * m;
-    double higherThanColin = 0.0;
-    
-    for(int i = m + 1; i <= n; i++) {
-        higherThanColin += (n - (i - m)) / (double)total;
+double getProbability(int n, int m) {
+    double totalPossibilities = n * m;
+    double higherPossibilities = 0;
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < m && j != i; j++) {
+            higherPossibilities++;
+        }
     }
-    
-    return higherThanColin;
-}
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << probability(n, m);
-    return 0;
+    return higherPossibilities / totalPossibilities;
 }
