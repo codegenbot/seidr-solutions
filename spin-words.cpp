@@ -1,3 +1,6 @@
+#include <sstream>
+#include <algorithm>
+
 auto spinWords(const char* str) -> std::string {
     std::string s(str);
     std::stringstream ss(s);
@@ -10,4 +13,6 @@ auto spinWords(const char* str) -> std::string {
         
         result += (result.empty()) ? word : " " + word;
     }
+
+    return result;
 }
