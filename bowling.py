@@ -46,7 +46,9 @@ def get_frame_score(bowls, index):
         score += 0
     else:
         score += int(bowls[index])
-    if bowls[index + 1] == "/":
+    if bowls[index + 1] == "-":
+        score += 0
+    elif bowls[index + 1] == "/":
         score += 10 - int(bowls[index])
     else:
         score += int(bowls[index + 1])
