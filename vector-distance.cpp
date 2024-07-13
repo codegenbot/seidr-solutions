@@ -22,7 +22,7 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    cout << std::sqrt(sum) << std::endl;
+    std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
 }
