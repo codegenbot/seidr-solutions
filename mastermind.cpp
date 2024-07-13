@@ -1,23 +1,48 @@
-std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
-    int white = 0; // Initialize white peg count to 0
-    int black = 0; // Initialize black peg count to 0
+#include <vector>
+#include <iostream>
+#include <string>
 
-    // Calculate white pegs
+int whitePegs(const std::string& code, const std::string& guess) {
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            white++;
+            count++;
         }
     }
+    return count;
+}
 
-    // Calculate black pegs
-    std::vector<char> code_chars(code.begin(), code.end());
+int blackPegs(const std::string& code, const std::string& guess) {
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
-        int index = guess.find(guess[i]);
-        if (index != std::string::npos && code[index] == guess[i]) {
-            black++;
-            code_chars[index] = '\0'; // Remove used character from vector
+        if (code.find(guess[i]) != std::string::npos && code[i] == guess[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    return std::make_pair(4 - white, black);
+std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
+    int white = whitePegs(code, guess);
+    int black = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        }
+    }
+    return std::make_pair(4 - white - black, black);
+}
+
+int main() {
+    std::cout << "Enter Mastermind code: ";
+    std::string code;
+    std::cin >> code;
+
+    std::cout << "Enter guess: ";
+    std::string guess;
+    std::cin >> guess;
+
+    auto [white, black] = mastermind(code, guess);
+    std::cout << white << "\n" << black << "\n";
+    return 0;
 }
