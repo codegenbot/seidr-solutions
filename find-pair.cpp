@@ -7,7 +7,7 @@ int main() {
     }
     int target;
     cin >> target;
-
+    
     map<int, int> numIndex;
     for (int i = 0; i < n; i++) {
         int complement = target - nums[i];
@@ -18,6 +18,6 @@ int main() {
         }
         numIndex[nums[i]] = i;
     }
-
+    
     return 0;
 }
