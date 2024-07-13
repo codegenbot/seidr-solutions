@@ -17,7 +17,7 @@ std::string romanToInt(int n) {
         return "CD" + romanToInt(n - 400);
     } 
     else if (n >= 100) {
-        std::string roman = "";
+        string roman = "";
         while (n >= 100) {
             roman += "C";
             n -= 100;
@@ -55,7 +55,7 @@ std::string romanToInt(int n) {
         return "IV";
     } 
     else if (n >= 1) {
-        std::string roman = ""; // Return by value
+        string roman = ""; // Return by value
         for (int i = 0; i < n; i++) {
             roman += "I";
         }
@@ -68,5 +68,5 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << std::endl;
     std::cout << romanToInt(n) << std::endl;
+}
