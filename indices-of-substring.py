@@ -1,4 +1,4 @@
-Here is the modified Python solution for the problem:
+Here is the modified code:
 
 ```
 def indices_of_substring(text):
