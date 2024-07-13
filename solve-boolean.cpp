@@ -1,8 +1,10 @@
-using namespace std;
+```
+#include <string>
+#include <stack>
 
-bool solveBoolean(string expression) {
-    stack<char> opStack;
-    stack<bool> valStack;
+bool solveBoolean(std::string expression) {
+    std::stack<char> opStack;
+    std::stack<bool> valStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {

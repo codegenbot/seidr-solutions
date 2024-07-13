@@ -1,2 +1,2 @@
-```int
-return to_string(tweet.length()) + " characters";
+```cpp
+return "Your tweet has " + to_string(tweet.size()) + " characters";

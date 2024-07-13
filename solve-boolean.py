@@ -29,8 +29,5 @@ def solve_boolean(expression):
                 continue
             val2 = stack.pop()
             val1 = stack.pop()
-            if op == "&":
-                stack.append(val1 and val2)
-            else:
-                stack.append(val1 or val2)
+            stack.append(val1 if not val1 or val2 else val1)
         return stack[0]
