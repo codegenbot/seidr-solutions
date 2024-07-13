@@ -1,8 +1,5 @@
-#include <iostream>
 #include <cmath>
-#include <iomanip>
-
-using namespace std;
+#include <iostream>
 
 int main() {
     int startHeight, firstBounce;
@@ -12,12 +9,12 @@ int main() {
     double bouncinessIndex = (double)firstBounce / startHeight;
 
     double totalDistance = 0.0;
-    double heightAfterBounce = firstBounce;
     for (int i = 1; i <= (int)numBounces; ++i) {
-        heightAfterBounce = firstBounce * pow(bouncinessIndex, i);
-        totalDistance += abs(heightAfterBounce);
+        double heightAfterBounce = startHeight * pow(bouncinessIndex, i);
+        totalDistance += abs(heightAfterBounce - startHeight);
+        startHeight = heightAfterBounce; 
     }
-
+    totalDistance += abs(startHeight - startHeight); // add the last bounce
     cout << fixed << setprecision(5) << totalDistance << "\n";
     return 0;
 }
