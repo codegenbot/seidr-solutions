@@ -1,5 +1,12 @@
-def luhn(card_num):
-    card_num = list(map(int, card_num))
-    doubled = [card_num[i] * 2 if i % 2 else card_num[i] for i in range(len(card_num))]
-    sum_of_digits = sum([d - 9 if d > 9 else d for d in doubled])
-    return sum_of_digits
+Here is the completed code:
+
+def luhn(card):
+    card = [int(x) for x in str(card)[1:]] # Remove the first digit and convert to list of integers
+    sum = 0
+    for i in range(len(card)):
+        if i % 2 == 0:
+            card[i] *= 2
+            if card[i] > 9:
+                card[i] -= 9
+        sum += card[i]
+    return sum
