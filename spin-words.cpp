@@ -1,5 +1,3 @@
-```cpp
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -21,7 +19,6 @@ string spinWords(string str) {
         result += string(temp.rbegin(), temp.rend());
     else
         result += temp;
-    
     return result;
 }
 
