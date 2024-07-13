@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
 
 int main() {
     int prod_signs(vector<int> arr) {
