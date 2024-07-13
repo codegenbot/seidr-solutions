@@ -1,16 +1,21 @@
-#include <vector>
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 using namespace std;
 
 double calculateEuclideanDistance(const vector<float>& v1, const vector<float>& v2) {
-    double distance = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        float diff = v1[i] - v2[i];
-        distance += pow(diff, 2);
+    double sum = 0.0;
+    
+    if(v1.size() != v2.size()) {
+        cout << "Vectors must have the same size." << endl;
+        return -1.0; // or handle error better
     }
-    return sqrt(distance);
+    
+    for(int i = 0; i < v1.size(); ++i) {
+        sum += pow((v1[i] - v2[i]), 2);
+    }
+    
+    return sqrt(sum);
 }
 
 int main() {
@@ -19,11 +24,12 @@ int main() {
 
     vector<float> vec1(n), vec2(n);
 
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; ++i) {
         cin >> vec1[i] >> vec2[i];
     }
 
-    cout << setprecision(10) << calculateEuclideanDistance(vec1, vec2) << endl;
+    double distance = calculateEuclideanDistance(vec1, vec2);
+    cout << fixed << setprecision(10) << distance << endl;
 
     return 0;
 }
