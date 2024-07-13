@@ -1,28 +1,36 @@
 ```cpp
+#include <vector>
+#include <unordered_map>
 #include <string>
-using namespace std;
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
-    
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+
+    std::vector<char> possible_chars = {'0', '1', '2', '3', '4', '5'};
+
+    std::unordered_map<char, int> count_map;
+
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
             black++;
         }
     }
-    
-    for (int i = 0; i < 6; i++) {
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == (char)(i + 'A')) {
-                count++;
+
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 6; j++) {
+            if(guess[i] == possible_chars[j][0]) {
+                count_map[guess[i]]++;
             }
         }
-        if (count && code.find((char)(i + 'A')) != string::npos) {
-            white++;
+    }
+
+    for(int i = 0; i < 4; i++) {
+        if(count_map[code[i]] > 0) {
+            white--;
+            count_map[code[i]]--;
         }
     }
-    
-    return {white, black};
+
+    return black + white;
 }
