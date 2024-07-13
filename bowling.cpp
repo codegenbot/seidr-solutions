@@ -8,12 +8,25 @@ int bowlingScore(string s) {
         if (s[5*frame] == '/') {
             // Spare
             score += 10;
+            if(frame != 9){
+                int nextRoll = s[5*frame + 1] - '0';
+                score += nextRoll;
+            }
             continue;
         }
 
         if (s[5*frame] == 'X') {
             // Strike
             score += 10;
+            if(frame < 8){
+                int nextRoll1 = s[5*frame + 1] - '0';
+                int nextRoll2 = s[10] - '0';
+                score += nextRoll1 + nextRoll2;
+            }
+            else if(frame == 8){
+                int nextRoll1 = s[10] - '0';
+                score += 10 + nextRoll1;
+            }
             continue;
         }
 
