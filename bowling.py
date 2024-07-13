@@ -1,25 +1,25 @@
 ```
 def bowling_score(frames):
     score = 0
-    frame = 1
-    for char in frames:
-        if char.isdigit():
-            strike = False
-            spare = False
-            score += int(char)
-            if len(frames) - frame > 1 and frames[frame:][0].isdigit() and frames[frame:][1].isdigit():
-                if int(frames[frame:][0]) + int(frames[frame:][1]) == 10:
-                    spare = True
-                else:
-                    strike = True
-            frame += 1
-        elif char == 'X':
-            score += 10
-            strike = True
-        elif char == '/':
-            strike = False
-    if strike and len(frames) - frame > 0:
-        score += 10 + int(frames[frame])
-    elif spare:
-        score += 10 + int(frames[frame])
+    roll = 0
+    for frame in frames.split('/'):
+        if len(frame) == 1:
+            score += 10 + (10 - int(frame)) * (2 if roll > 0 else 1)
+            roll = 0
+        elif len(frame) == 2:
+            strike = int(frame[0]) == 10
+            frame_score = 10 + (10 - int(frame[0])) * (2 if roll > 0 or strike else 1)
+            score += frame_score
+            roll = strike
+        else:
+            first_roll, second_roll = map(int, frame)
+            if first_roll == 10:
+                score += first_roll + second_roll
+                roll = 0
+            elif roll > 0:
+                score += first_roll + max(first_roll, second_roll)
+                roll = 0
+            else:
+                score += first_roll + second_roll
+        roll += 1
     return score
