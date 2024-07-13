@@ -7,16 +7,16 @@ int main() {
     }
     int target;
     cin >> target;
-    
-    map<int, int> mp;
+
+    map<int, int> numToIndex;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
+        if (numToIndex.find(target - nums[i]) != numToIndex.end()) {
+            cout << nums[numToIndex[target - nums[i]]] << endl;
             cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numToIndex[nums[i]] = i;
     }
-    
+
     return 0;
 }
