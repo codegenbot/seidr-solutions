@@ -11,7 +11,7 @@ def coin_sums(cents):
             else: name = 'penny'
             result.append((count, name))
             cents %= coin
-    return [f"{count} {name}" for count, name in result]
+    return ['{} {}'.format(count, name if count == 1 else f"{count} {name}s") for count, name in result]
 
 cents = int(input("Enter the number of cents: "))
 print(coin_sums(cents))
