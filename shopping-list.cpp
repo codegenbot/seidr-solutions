@@ -19,7 +19,6 @@ int main() {
     for (float& price : prices) {
         cin >> price;
     }
-    cout << fixed << setprecision(2); 
     int m;
     cin >> m;
     vector<float> discounts(m);
