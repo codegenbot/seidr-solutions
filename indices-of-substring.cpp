@@ -38,7 +38,7 @@ int main() {
         }
     }
 
-    if (indices.empty()) {
+    if (indices.empty() && strlen(target) > strlen(text)) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
