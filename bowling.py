@@ -9,22 +9,24 @@ def bowling_score(game):
             total_score += 10
         elif 'X' in frame:
             if frame_number < 9 and frames[i+1][0] != 'X':
-                total_score += 10 + int(str(int(frames[i+1].replace('X', '')) - 10) or 10)
-                total_score += int(frame.replace('X', '', 1))
+                if frames[i+1][0] == 'X':
+                    total_score += 10 + int(frame.replace('X', '', 1))
+                else:
+                    total_score += 10 + int(frames[i+1].replace('X', '')) + int(frame.replace('X', '', 1))
             else:
                 total_score += 10
         elif '-' in frame:
             first_roll, second_roll = map(int, frame.split('-'))
             if first_roll == 10:
-                total_score += 10 + (int(frames[i+2].replace('X', '', 1)) or 0)
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
             else:
                 total_score += first_roll + second_roll
         else:
             first_roll, second_roll = map(int, frame.split())
             if first_roll == 10:
-                total_score += 10 + (int(frames[i+1].replace('X', '', 1)) or 0)
+                total_score += 10 + int(frames[i+1].replace('X', '')) + int(frames[i+2].replace('X', '', 1))
             elif second_roll == 10:
-                total_score += 10 + first_roll
+                total_score += 10 + first_roll + second_roll
             else:
                 total_score += first_roll + second_roll
         frame_number += 1
