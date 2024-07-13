@@ -3,24 +3,25 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            score += min(stoi(s.substr(i-2, 2)), 10);
+            score += min(stoi(s.substr(i - 1, 1)) + stoi(s.substr(i + 1, 1)), 10);
             currentFrame++;
-        } else if (i == s.length() - 1) {
-            score += stoi(s.substr(i));
-        } else {
-            int strike = 0;
-            for (int j = i; j < s.length(); j++) {
-                if (s[j] != '/') {
-                    strike++;
-                } else {
-                    break;
-                }
-            }
-            if (strike == 2) {
-                score += 10 + strike * 10;
+        } else if (currentFrame <= 9) {
+            int pins = stoi(s.substr(i, 1));
+            if (pins == 10) {
+                score += 10;
                 currentFrame++;
             } else {
-                score += 10 + stoi(s.substr(i, strike));
+                score += pins;
+                if (i < s.length() - 1 && s[i + 1] != '/') {
+                    i++; // skip the next character
+                    if (stoi(s.substr(i, 1)) + stoi(s.substr(i + 1, 1)) == 10) {
+                        score += 10;
+                        currentFrame++;
+                    } else {
+                        score += min(stoi(s.substr(i - 1, 1)) + stoi(s.substr(i, 1)), 10);
+                        currentFrame++;
+                    }
+                }
             }
         }
     }
