@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
@@ -9,6 +6,6 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(arr[i]);
         }
     }
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return result;
 }
