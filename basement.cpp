@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int firstNegative(std::vector<int>& nums) {
@@ -9,7 +8,7 @@ int firstNegative(std::vector<int>& nums) {
             sum += nums[j];
             if (sum < 0) {
                 result = i;
-                break;
+                return result;
             }
         }
     }
