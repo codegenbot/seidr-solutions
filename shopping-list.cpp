@@ -28,3 +28,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << totalShoppingPrice(prices, discounts) << endl;
     return 0;
+}
