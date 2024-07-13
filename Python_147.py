@@ -1,3 +1,4 @@
+```
 print("Enter a number: ", end="")
 n = int(input())
 
