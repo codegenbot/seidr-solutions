@@ -1,38 +1,26 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count - 1; // subtract the number of correct colors in both strings
-}
-
 int blackPegs(string code, string guess) {
     int count = 0;
-    map<char, int> codeMap, guessMap;
+    map<char, int> codeMap;
+
+    // Count correct color and wrong place pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
+            // Correct placement peg
             count++;
         } else {
             codeMap[code[i]]++;
-            guessMap[guess[i]]++;
+            codeMap[guess[i]]++;
         }
     }
-    for (auto& codePair : codeMap) {
-        for (auto& guessPair : guessMap) {
-            if (codePair.second == 1 && guessPair.second == 1) {
-                count++;
-            }
-        }
-    }
-    return count;
-}
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
-    return 0;
+    // Calculate actual black pegs by subtracting white pegs
+    for (auto& pair : codeMap) {
+        if (pair.second == 1 && code.find(pair.first) != string::npos) {
+            count--;
+        } else if (pair.second > 0) {
+            count++;
+        }
+    }
+
+    return count;
 }
