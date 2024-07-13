@@ -22,11 +22,10 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
+    
+    // Read input until newline character is reached
     while (cin >> num) {
         nums.push_back(num);
-    }
-    if (cin.eof()) {
-        cin.clear();
     }
 
     vector<int> result = findLeaders(nums);
