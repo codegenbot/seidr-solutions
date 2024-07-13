@@ -7,7 +7,7 @@ def shopping_list():
         price - (price * discount / 100) for price, discount in zip(prices, discounts)
     )
 
-    return float(format(total_price, ".1f"))
+    return round(total_price, 1)
 
 
 print(shopping_list())
