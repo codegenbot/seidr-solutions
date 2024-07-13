@@ -1,11 +1,11 @@
 def mastermind(code, guess):
-    white = 0
     black = 0
+    white = 0
 
-    for i in range(4):
-        if code[i] == guess[i]:
+    for char in code:
+        if char == guess[3-guess.index(char)]:
             black += 1
-        elif code.count(guess[i]) > 0:
+        elif guess.count(char) > 0:
             white += 1
 
     return str(white) + "\n" + str(black)
