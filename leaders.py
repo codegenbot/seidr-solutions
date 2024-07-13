@@ -1,11 +1,6 @@
-Here is the solution:
-
-def leaders(a):
-    return [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
-
-# test cases
-print(leaders([0]))
-print(leaders([1, 0]))
-print(leaders([1, 451]))
-print(leaders([2, 1000, 0]))
-print(leaders([2, 0, 1000]))
+def leaders(arr):
+    return [
+        arr[i]
+        for i in range(len(arr) - 1, -1, -1)
+        if all(x <= arr[i] for x in arr[i + 1 :])
+    ]
