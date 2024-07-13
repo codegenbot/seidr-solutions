@@ -1,4 +1,3 @@
-```
 def luhn(card):
     card = [int(x) for x in str(card)]
     checksum = sum([card[i] if i % 2 == 0 
