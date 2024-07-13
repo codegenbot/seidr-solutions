@@ -1,4 +1,3 @@
-```
 def sum_of_digits():
     total = 0
     while True:
@@ -8,11 +7,7 @@ def sum_of_digits():
         except ValueError:
             print("Invalid input. Please enter a whole number.")
     while n:
-        digit = n % 10
-        if str(digit).isnumeric(): 
-            total += digit
-        else:
-            return "Program did not receive expected input"
+        total += n % 10
         n //= 10
     return total
 
