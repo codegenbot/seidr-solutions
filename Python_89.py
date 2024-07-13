@@ -3,12 +3,9 @@ def encrypt(s):
     for char in s:
         if char.isalpha():
             if char.isupper():
-                shift = 3
-                offset = ord('A')
+                result += chr((ord(char) - ord('A') + 3) % 26 + ord('A'))
             else:
-                shift = 3
-                offset = ord('a')
-            result += chr((ord(char) - offset + shift) % 26 + offset)
-        else:  
+                result += chr((ord(char) - ord('a') + 3) % 26 + ord('a'))
+        else:
             result += char
     return result
