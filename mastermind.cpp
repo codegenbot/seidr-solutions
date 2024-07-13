@@ -35,4 +35,3 @@ int main() {
     cin >> code >> guess;
     cout << mastermind(code, guess) << endl;
     return 0;
-}
