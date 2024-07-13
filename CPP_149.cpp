@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-const std::vector<std::string>& sorted_list_sum(const std::vector<std::string>& lst) {
+std::vector<std::string> mySortedListSum(std::vector<std::string> lst) {
     auto it = std::stable_partition(lst.begin(), lst.end(),
                                      [&](const auto& s) { return !s.length() % 2; }),
         end = lst.erase(it, lst.end());
@@ -23,7 +23,7 @@ const std::vector<std::string>& sorted_list_sum(const std::vector<std::string>& 
 
 int mainFunction() {
     std::cout << "Result: ";
-    for (const auto& str : sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})) {
+    for (const auto& str : mySortedListSum({"aaaa", "bbbb", "dd", "cc"})) {
         std::cout << str << " ";
     }
     std::cout << std::endl;
