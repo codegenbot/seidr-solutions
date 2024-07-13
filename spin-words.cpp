@@ -1,3 +1,4 @@
+```cpp
 string spinWords(string str) {
     vector<string> words;
     
@@ -21,8 +22,21 @@ string spinWords(string str) {
             reverse(w.begin(), w.end());
         }
         
-        result += w.empty() ? "" : " " + w;
+        result += w + " ";
     }
     
+    result.pop_back(); // remove trailing space
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string of one or more words (separated by spaces): ";
+    getline(cin, str);
+
+    string output = spinWords(str);
+    
+    cout << "Output: " << output << endl;
+
+    return 0;
 }
