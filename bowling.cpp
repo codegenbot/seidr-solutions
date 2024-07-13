@@ -1,32 +1,27 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
-    bool isPreviousFrameStrike = false;
-    int previousFrameScore = 0;
-    
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            score += 10 + previousFrameScore;
-            previousFrameScore = 0;
-            isPreviousFrameStrike = true;
-        } else if (isdigit(s[i])) {
-            int currentRoll = (s[i] - '0');
-            if (!isPreviousFrameStrike) {
-                previousFrameScore += currentRoll;
-            }
-            if (i < s.size() - 1 && s[i + 1] == '/') {
-                score += currentRoll;
-                isPreviousFrameStrike = false;
-            } else if (i < s.size() - 2 && s[i + 1] == 'X' && s[i + 2] == 'X') {
-                score += 10 + previousFrameScore;
-                previousFrameScore = 0;
-                isPreviousFrameStrike = true;
+    int frame = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (stoi(s.substr(frame*2, 2)) % 10);
+            frame++;
+        } else {
+            int points = stoi(c + s.substr(frame*2+1, 1));
+            if (points < 10) {
+                score += points;
+                frame++;
+            } else {
+                if (s[frame*2+1] == 'X') {
+                    score += 10 + points;
+                } else {
+                    score += 10 + points - (stoi(s.substr(frame*2+1, 1)) % 10);
+                }
+                frame++;
             }
         }
     }
-    
     return score;
 }
