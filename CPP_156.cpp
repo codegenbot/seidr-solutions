@@ -1,5 +1,3 @@
-#include <vector>
-#include <map>
 #include <string>
 
 string int_to_mini_roman(int number) {
@@ -15,4 +13,3 @@ string int_to_mini_roman(int number) {
         }
     }
     return result;
-}
