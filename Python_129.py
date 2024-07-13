@@ -1,3 +1,4 @@
+```
 def shortestPaths(grid, k):
     result = []
     visited = [[False for _ in range(len(grid[0]))] for _ in range(len(grid))]
@@ -28,4 +29,4 @@ def shortestPaths(grid, k):
     if not result:
         return []
     else:
-        return min(result)
+        return min(result, key=len)
