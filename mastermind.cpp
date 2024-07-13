@@ -9,7 +9,7 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    return 4 - count;
+    return count;
 }
 
 int blackPegs(string code, string guess) {
@@ -20,12 +20,12 @@ int blackPegs(string code, string guess) {
             count++;
         } else {
             codeMap[code[i]]++;
+            codeMap[guess[i]]++;
         }
     }
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != code[i] && codeMap.find(guess[i]) != codeMap.end()) {
+    for (auto& pair : codeMap) {
+        if (pair.second == 1) {
             count++;
-            codeMap[guess[i]]--;
         }
     }
     return count;
