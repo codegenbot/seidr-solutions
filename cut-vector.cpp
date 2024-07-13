@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -23,6 +24,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
 
+    rightMin = INT_MAX;
     for (int i = n - 1; i >= 0; i--) {
         rightSum += v[i];
         
