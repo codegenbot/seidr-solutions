@@ -6,6 +6,7 @@ int main() {
     vector<int> result = leaders(arr);
     for (int i : result) cout << i << endl;
     return 0;
+
 }
 
 vector<int> leaders(vector<int>& arr) {
