@@ -7,7 +7,7 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    return count;
+    return 4 - count;
 }
 
 int blackPegs(string code, string guess) {
