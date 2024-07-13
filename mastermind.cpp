@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
