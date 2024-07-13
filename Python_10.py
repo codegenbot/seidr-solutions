@@ -1,7 +1,4 @@
-return (
-    "#"
-    + "".join(
-        char for char in cleaned_string + cleaned_string[::-1] if char.isalnum()
-    ).lower()
-    + "#"
-)
+Here is the modified code:
+
+```
+print("#{}#".format("".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum()) + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum())[::-1]).lower() + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum()) + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum())[::-1]).upper() + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum()) + "".join(char for char in "".join(char for char in string if char.isalnum()).lower()[: len("".join(char for char in string if char.isalnum()).lower()) // 2] if char.isalnum())[::-1]).upper()[2:-2].center(len("".join(char for char in string if char.isalnum()).lower()) * 4, "#") + "#"))
