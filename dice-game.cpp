@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -9,13 +10,13 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    double sum = 0.0; 
+    string result = "";
     for(int i = 1; i < n; i++) {
-        sum += (double)(n - i);
+        double prob = (n - i) / (double)(n*m); 
+        result += to_string(prob) + " "; // convert double to string and concatenate
     }
-    double probability = (double)sum / (n*m);
     
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << result << endl;
 
     return 0;
 }
