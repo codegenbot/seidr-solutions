@@ -1,4 +1,3 @@
-#include <iostream>
 #include <iomanip>
 using namespace std;
 
@@ -25,8 +24,7 @@ int main() {
     }
     
     cout << fixed;
-    cout.precision(10);
-    cout << shoppingList(&prices[0], &discounts[0], n) << endl;
+    cout << setprecision(2) << shoppingList(&prices[0], &discounts[0], n) << endl;
 
     return 0;
 }
