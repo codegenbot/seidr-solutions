@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -6,13 +7,16 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res;
     
     for (int i = 1; i < n; i++) {
-        if (v[i] - v[0] <= v[n-1] - v[i]) {
+        if ((v[i] - v[0]) <= (v[n-1] - v[i])) {
             res.push_back({v.begin(), v.end()});
             return {{}, {v.begin(), v.end()}};
         }
     }
     
-    res.push_back({{v.begin()}, {v.end()}}); // default case
+    vector<int> left = v;
+    vector<int> right = v;
+    res.push_back(left);
+    res.push_back(right); // default case
     return res;
 }
 
