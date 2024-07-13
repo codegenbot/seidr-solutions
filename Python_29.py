@@ -1,12 +1,8 @@
-```
-def filter_by_prefix() -> None:
-    string_list = []
-    while True:
-        s = input("Enter a list of strings (one per line), separate them with '%%': ")
-        if s.lower() == "%%":
-            break
-        string_list.append(s)
-    prefix = input("Enter the prefix: ")
+def filter_by_prefix(lst):
+    prefix = input("Enter a prefix: ")
+    return [word for word in lst if word.startswith(prefix)]
 
-    result = [s for s in string_list if s.startswith(prefix)]
-    print(result)
+
+def check():
+    words = ["apple", "banana", "apricot", "avocado"]
+    print(filter_by_prefix(words))

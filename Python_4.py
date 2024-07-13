@@ -1,36 +1,29 @@
 ```
-def mean_absolute_deviation(numbers=None):
-    while True:
-        if numbers is None:
-            input_str = input("Enter some numbers (space-separated): ")
-            if not input_str:
-                print("Please enter at least one number.")
-                continue
-
-            try:
-                numbers = [float(num) for num in input_str.split()]
-                break
-            except ValueError:
-                print("Invalid input. Please enter numbers only.")
-
-        response = input("Do you want to calculate again? (yes/no): ").lower()
-        while response != "no":
-            if len(numbers):
-                mean = sum(numbers) / len(numbers)
-                mad = sum(abs(x - mean) for x in numbers) / len(numbers)
-
-                print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
-            else:
-                print("Please enter at least one number.")
-            
-            response = input("Do you want to calculate again? (yes/no): ").lower()
-        
+if __name__ == "__main__":
+    def mean_absolute_deviation():
+        numbers = []
         while True:
-            new_response = input("Exit program? (yes/no): ").lower()
-            if new_response == "no":
-                break
-            elif new_response == "yes":
-                print("Exiting...")
-                exit()
-            else:
-                print("Invalid response. Please enter 'yes' or 'no'."
+            if not numbers:
+                input_str = input("Enter some numbers (space-separated): ")
+                if not input_str:
+                    print("Please enter at least one number.")
+                    continue
+
+                try:
+                    numbers = [float(num) for num in input_str.split()]
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter numbers only.")
+
+            response = input("Do you want to calculate again? (yes/no): ").lower()
+            while response != "no":
+                if len(numbers):
+                    mean = sum(numbers) / len(numbers)
+                    mad = sum(abs(x - mean) for x in numbers) / len(numbers)
+
+                    print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
+                else:
+                    print("Please enter at least one number.")
+                response = input("Do you want to calculate again? (yes/no): ").lower()
+
+    mean_absolute_deviation()
