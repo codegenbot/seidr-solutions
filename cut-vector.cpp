@@ -6,9 +6,6 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    long long min_diff = LLONG_MAX;
-    int optimal_cut = 0;
-    
     for (int i = 0; i < n; i++) {
         long long leftSum = 0;
         
@@ -21,14 +18,23 @@ vector<vector<int>> cutVector(vector<int> v) {
             rightSum += v[k];
         }
         
-        if (abs(leftSum - rightSum) <= min_diff && leftSum != rightSum) {
-            min_diff = abs(leftSum - rightSum);
-            optimal_cut = i;
+        if(i == 0) continue;
+
+        int diff = abs(leftSum - rightSum);
+        
+        while (leftSum <= rightSum && i < n) {
+            leftSum += v[i + 1];
+            rightSum -= v[i + 1];
+            int newDiff = abs(leftSum - rightSum);
+            
+            if(newDiff <= diff) {
+                res[0] = vector<int>(v.begin(), v.begin() + i + 1);
+                res[1] = vector<int>(v.begin() + i, v.end());
+                return res;
+            }
+            i++;
         }
     }
-    
-    res[0] = vector<int>(v.begin(), v.begin() + optimal_cut + 1);
-    res[1] = vector<int>(v.begin() + optimal_cut, v.end());
     
     return res;
 }
