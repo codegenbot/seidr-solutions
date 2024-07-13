@@ -1,4 +1,4 @@
-```
+```Python
 def leaders(a):
     n = len(a)
     leaders_list = [a[n-1]]
