@@ -1,12 +1,9 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
     string startHeightStr, firstBounceStr;
-    int numBounces; 
-
-    cin >> startHeightStr >> firstBounceStr >> numBounces; 
+    cin >> startHeightStr >> firstBounceStr >> numBounces;
 
     double startHeight = stod(startHeightStr);
     double firstBounce = stod(firstBounceStr);
@@ -25,8 +22,7 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    std::cout << std::fixed;
-    std::cout.precision(10);
+    std::cout << std::fixed << std::setprecision(10);
     std::cout << totalDistance << endl;
 
     return 0;
