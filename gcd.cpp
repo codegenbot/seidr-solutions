@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 int greatestCommonDivisor(int a, int b) {
     if (b == 0)
@@ -24,10 +24,12 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
-    std::cin.ignore(std::cin.rdbuf()->in_avail(), '\n');
-    int result = greatestCommonDivisor(num1, num2);
-    std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    { // added curly bracket
+        int result = greatestCommonDivisor(num1, num2);
+        std::cout << "GCD of " << num1 << " and " << num2 << " is: " << result << std::endl;
+    }
+    
     std::string mainString;
     std::cout << "Enter the main string: ";
     std::getline(std::cin, mainString);
@@ -41,4 +43,4 @@ int main() {
         std::cout << "Index found at position: " << i << std::endl;
     }
     
-}
+    return 0;
