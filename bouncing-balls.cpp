@@ -1,12 +1,13 @@
 ```cpp
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
     double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeight; 
+    cin >> startHeight;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin >> firstBounce;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
