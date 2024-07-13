@@ -1,13 +1,9 @@
 def decode_cyclic(s: str):
-    result = ""
-    i = 0
-    if len(s) < 2:
-        return s
-    while i < len(s):
-        if i + 1 <= len(s) - 1:
-            group = s[i:i+1]
+    decoded = ""
+    prefix = s[:len(s)//2]
+    for char in s:
+        if char in prefix:
+            decoded += char
         else:
-            group = s[i:]
-        result += group
-        i += 1
-    return result
+            decoded += prefix[-1]
+    return decoded
