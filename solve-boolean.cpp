@@ -1,32 +1,45 @@
-bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "t") {
-        return true;
-    } else if (expression == "f") {
-        return false;
-    } else {
-        char op = expression[1];
-        bool left = expression[0] == 't' ? true : false;
-        bool right = expression[2] == 't' ? true : false;
-        
-        if (op == '&') {
-            return left && right;
-        } else if (op == '|') {
-            return left || right;
+bool evaluateBooleanExpression(const string& expr) {
+    stack<bool> operands;
+    stack<char> operators;
+
+    for (char c : expr) {
+        if (c == 't' || c == 'f') {
+            operands.push(c == 't');
+        } else if (c == '&' || c == '|') {
+            operators.push(c);
         }
     }
+
+    while (!operators.empty()) {
+        char op = operators.top();
+        operators.pop();
+
+        bool operand2 = operands.top();
+        operands.pop();
+        bool operand1 = operands.top();
+        operands.pop();
+
+        if (op == '&') {
+            operands.push(operand1 && operand2);
+        } else if (op == '|') {
+            operands.push(operand1 || operand2);
+        }
+    }
+
+    return operands.top();
 }
 
 int main() {
-    string expression;
-    cin >> expression;
-    
-    bool result = evaluateBooleanExpression(expression);
-    
+    string expr;
+    cin >> expr;
+
+    bool result = evaluateBooleanExpression(expr);
+
     if (result) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-    
+
     return 0;
 }
