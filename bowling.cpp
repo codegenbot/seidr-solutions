@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
@@ -11,27 +10,30 @@ int bowlingScore(const std::string& input) {
     int prevRoll1 = 0;
     int prevRoll2 = 0;
 
-    std::vector<int> rolls;
+    std::vector<int> rolls = parseInput(input);
 
     for (int i = 0; i < 10; i++) {
-        if (input.substr(i*2, 1) == "X") {
+        if (rolls[i] == 10) {
             score += 30;
-        } else if (input.substr((i*2)+1, 1) != ' ') {
-            int roll1 = input.substr((i*2)+1, 1) - '0';
-            if (input.substr((i*2)+3, 1) == "X" || (input.substr((i*2)+3, 1) - '0' + input.substr((i*2)+4, 1) - '0') >= 10) {
-                score += roll1 + 10;
-            } else {
-                score += roll1 + input.substr((i*2)+3, 1) - '0';
-            }
-        } else if (input.substr(i*2+1, 2) == "X" || (input.substr(i*2, 1) - '0' + input.substr(i*2+1, 1) - '0') >= 10) {
-            score += 10;
+        } else if (rolls[i] + rolls[i+1] >= 10) {
+            score += 10 + (i < 8 ? rolls[i+2] : prevRoll1 + prevRoll2);
             i++;
         } else {
-            int roll1 = input.substr(i*2, 1) - '0';
-            int roll2 = input.substr((i*2)+1, 1) - '0';
-            score += roll1 + roll2;
+            score += rolls[i] + rolls[i+1];
         }
     }
 
     return score;
 }
+
+std::vector<int> parseInput(const std::string& input) {
+    std::vector<int> rolls;
+    for (int i = 0; i < input.length(); i++) {
+        if (input.substr(i, 1) == "X") {
+            rolls.push_back(10);
+        } else if (input[i] != ' ') {
+            int roll = input[i] - '0';
+            rolls.push_back(roll);
+        }
+    }
+    return rolls;
