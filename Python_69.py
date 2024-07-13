@@ -1,4 +1,4 @@
-```Python
+```
 def search(lst):
     freq_dict = {}
     for num in lst:
@@ -14,9 +14,12 @@ def search(lst):
 
 def main():
     while True:
-        lst = list(map(int, input("Enter the numbers separated by space: ").split()))
-        if all(isinstance(x, int) for x in lst):
+        try:
+            lst = list(map(int, input("Enter the numbers separated by space: ").split()))
             break
+        except ValueError:
+            print("Invalid input. Please enter valid numbers.")
+
     print(search(lst))
 
 if __name__ == "__main__":
