@@ -20,3 +20,4 @@ double diceGame(int n, int m) {
     }
 
     return p;
+}
