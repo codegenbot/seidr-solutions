@@ -1,16 +1,32 @@
+```cpp
 #include <vector>
+using namespace std;
 
-int luhnCheck(vector<int> digits) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    for(int i = 0; i < digits.size(); i++) {
-        if(i % 2 == 1) {
-            int temp = digits[i] * 2;
-            if(temp > 9) {
-                temp -= 9;
+    bool doubleNext = false;
+    
+    for (int i : digits) {
+        if (doubleNext) {
+            int doubled = i * 2;
+            if (doubled > 9) {
+                sum += doubled - 9;
+            } else {
+                sum += doubled;
             }
-            sum += temp;
+            doubleNext = false;
         } else {
-            sum += digits[i];
+            sum += i;
+            doubleNext = true;
         }
     }
+    
     return sum;
+}
+
+int main() { 
+    vector<int> digits = {4,3,2,1,8,7,6,5};
+    int result = luhn(digits);
+    cout << "The credit card number is valid with a Luhn check if the sum is 0. The sum of the new digits is: " << result;
+    return 0;
+}

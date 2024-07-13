@@ -2,10 +2,10 @@ def mastermind(code, guess):
     white = 0
     black = 0
 
-    for i in range(4):
-        if code[i] == guess[i]:
+    for char in set(guess): 
+        if guess.count(char) == code.count(char): 
             black += 1
-        elif guess.count(guess[i]) > 1:
+        else:
             white += 1
 
     return str(white) + "\n" + str(black)
