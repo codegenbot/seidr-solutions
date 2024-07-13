@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 auto spinWords(std::string str) -> std::string {
@@ -24,7 +23,7 @@ auto spinWords(std::string str) -> std::string {
             std::reverse(w.begin(), w.end());
         }
         
-        result += (w.empty() ? "" : " ") + w;
+        result += w.empty() ? "" : " " + w;
     }
     
     return result;
