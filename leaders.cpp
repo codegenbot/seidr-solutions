@@ -1,7 +1,8 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+int main() {
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
     vector<int> result;
     int rightmost = arr.back();
     for (int i = arr.size() - 1; i >= 0; --i) {
@@ -10,11 +11,6 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(rightmost);
         }
     }
-    return result;
-}
-
-int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2};
-    vector<int> result = leaders(arr);
+    reverse(result.begin(), result.end());
     return 0;
 }
