@@ -18,6 +18,6 @@ def prime_fib(n: int):
     while count < n:
         num += 1
         if is_prime(num):
-            if num == fibonacci(count):
+            if num == fibonacci(num):
                 count += 1
     return num
