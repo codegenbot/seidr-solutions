@@ -1,5 +1,4 @@
-```cpp
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 string substitutionCipher(string &cipher1, string &cipher2, string &message) {
