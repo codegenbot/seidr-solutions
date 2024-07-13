@@ -1,35 +1,30 @@
 #include <vector>
 #include <iostream>
-using namespace std;
+#include <string>
 
-int solveMastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-    
+int MastermindCode(string code, string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+
     for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
+        char c = code[i];
+        if(guess[i] == c) {
+            blackPegs++;
         }
     }
-    
-    for(char c : guess) {
-        bool found = false;
-        for(int i=0; i<4; i++) {
-            if(c == code[i] && !found) {
-                white++;
-                found = true;
+
+    for(int i=0; i<6; i++) {
+        char c = code[i%4];
+        if(c != guess[0]) {
+            int j;
+            for(j=1; j<4; j++) {
+                if(guess[j] == c) {
+                    whitePegs++;
+                    break;
+                }
             }
         }
     }
-    
-    return black, white;
-}
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int result[] = solveMastermind(code, guess);
-    cout << result[1] << endl;
-    cout << result[0] << endl;
-    return 0;
+    return blackPegs + whitePegs;
 }
