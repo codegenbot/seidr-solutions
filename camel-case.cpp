@@ -1,8 +1,4 @@
-```c++
-#include <string>
-#include <cctype>
-
-std::string camelCase(const std::string& str) {
+std::string camelCase(std::string& str) {
     std::string result;
     bool capitalize = true;
 
@@ -23,6 +19,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << camelCase(input) << '\n';
+    std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
 }
