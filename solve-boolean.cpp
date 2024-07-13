@@ -35,3 +35,5 @@ bool solveBoolean(string expression) {
 
     return valStack.top();
 }
+
+#include <string>
