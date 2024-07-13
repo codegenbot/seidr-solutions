@@ -12,5 +12,5 @@ vector<int> leaders(vector<int>& arr) {
         if (arr[i] >= maxRight)
             maxRight = arr[i];
     }
-    return {maxRight};
+    return vector<int>({maxRight});
 }
