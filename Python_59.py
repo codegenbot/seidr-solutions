@@ -29,7 +29,9 @@ def main():
                     break
                 else:
                     print("Invalid input. Please enter 'y' or 'n'.")
-                sys.stdin.read(1)  # Add this line to consume remaining input
+                    print("Please try again.")
+                input()
+                sys.stdin.readline()
             if cont.lower() != "y":
                 break
         except ValueError:
