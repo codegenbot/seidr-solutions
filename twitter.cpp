@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -17,7 +16,6 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet).erase(0, tweet.find_first_not_of(" \t"));
-    cout << validateTweet(tweet) << endl;
+    getline(cin, tweet);
+    cout << tweet << ": " << validateTweet(tweet) << endl;
     return 0;
-}
