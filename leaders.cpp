@@ -2,13 +2,21 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int last = arr[arr.size() - 1];
-    for (int i = arr.size() - 2; i >= 0; i--) {
-        if (arr[i] >= last) {
-            result.push_back(arr[i]);
-            last = arr[i];
+    int n = arr.size();
+    vector<int> res;
+    
+    for (int i = n - 1; i >= 0; i--) {
+        bool leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                leader = false;
+                break;
+            }
         }
+        if (leader) res.push_back(arr[i]);
     }
-    return result;
+    
+    reverse(res.begin(), res.end());
+    
+    return res;
 }
