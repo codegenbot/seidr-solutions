@@ -20,10 +20,11 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            // Check for overlapping occurrences
-            while (i + m <= n && text.substr(i, m) == target) {
-                i++;
+            int j = i + m;
+            while (j <= n && text.substr(j - m, m) == target) {
+                j += m;
             }
+            i = j - 1;
         }
     }
 
