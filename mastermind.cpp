@@ -10,18 +10,16 @@ int mastermind(string code, string guess) {
         }
     }
 
-    map<char, int> code_count;
-    for (char c : code) {
-        code_count[c]++;
-    }
-
     for (char c : guess) {
-        if (c == code[0] || c == code[1] || c == code[2] || c == code[3]) {
-            if (code.find(c) != string::npos) {
-                black++;
-            } else {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (code[i] == c && code[i] != guess[i]) {
                 white++;
+                count++;
             }
+        }
+        if (count > 1) {
+            black += count - 1;
         }
     }
 
