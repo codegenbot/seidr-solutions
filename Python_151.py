@@ -1,7 +1,7 @@
-```
+def check():
+    numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+    print(double_the_difference(numbers))
+
+
 def double_the_difference(lst):
-    lst.sort()
-    if len(lst) < 2:
-        return 0
-    half = (len(lst)) // 2
-    return ((lst[half])**2) - ((lst[0])**2)
+    return (max(lst) - min(lst)) * 2
