@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     index = 0
@@ -5,18 +6,30 @@ def bowling_score(frames):
         if frames[index] == 'X':
             score += 30
             index += 1
-        elif frames[index] == '/':
-            score += 10 + int(frames[index - 1])
+        elif frames[index] in ['/']:
+            left_pins = int(frames[index - 1])
+            if frames[index] == '/':
+                right_pins = 10
+            else:
+                right_pins = int(frames[index][1])
+            frame_score = left_pins + right_pins
+            if left_pins == 10:
+                score += 10 + (30 - left_pins)
+            elif right_pins == 10:
+                score += 10 + left_pins
             index += 2
         else:
-            left_pin = int(frames[index])
-            right_pin = int(frames[index+1])
-            if right_pin == 'X':
-                frame_score = 10 + 30 - left_pin
-            elif (frames[index:index+2] == 'X-'):
-                frame_score = 10 + 20 - left_pin
-            else:
-                frame_score = left_pin + int(right_pin)
-            score += frame_score
+            left_pin = int(frames[index][0])
+            right_pin = int(frames[index][1])
+            frame_score = left_pin + right_pin
+            if left_pin == 'X':
+                if right_pin in ['X', '/']:
+                    score += 30 - left_pin
+                else:
+                    score += 10 + (30 - left_pin)
+            elif right_pin == 'X':
+                score -= left_pin
+            elif right_pin == '/':
+                score += left_pin + 10
             index += 2
     return score
