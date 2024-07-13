@@ -37,8 +37,7 @@ int main() {
             std::cout << "Camel Case: " << camelCase(input) << std::endl;
         }
 
-        char c;
-        while((c = std::cin.get()) != '\n' && c != EOF);
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     return 0;
 }

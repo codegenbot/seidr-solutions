@@ -1,3 +1,6 @@
+#include <string>
+#include <cctype>
+
 int bowlingScore(std::string s) {
     int score = 0;
     std::string frame;
@@ -25,5 +28,4 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    return bowlingScore("X/XXX/X-4-8/2X6/T50");
-}
+    return bowlingScore(std::string("X/XXX/X-4-8/2X6/T50"));
