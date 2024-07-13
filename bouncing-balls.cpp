@@ -1,22 +1,14 @@
-```c++
 #include <iostream>
 #include <cmath>
+#include <iomanip>
+
+using namespace std;
 
 int main() {
-    std::string startHeightStr;
-    std::cin >> startHeightStr;
+    int startHeight, firstBounce, numBounces;
+    cin >> startHeight >> firstBounce >> numBounces;
 
-    double startHeight = stod(startHeightStr);
-
-    std::string firstBounceStr;
-    std::cin >> firstBounceStr;
-
-    double firstBounce = stod(firstBounceStr);
-
-    double bouncinessIndex = firstBounce / startHeight;
-
-    int numBounces; 
-    std::cin >> numBounces;
+    double bouncinessIndex = (double)firstBounce / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
@@ -24,6 +16,6 @@ int main() {
         startHeight *= bouncinessIndex; 
     }
 
-    std::cout << std::fixed << std::cout.precision(5) << totalDistance << "\n";
+    cout << fixed << setprecision(5) << totalDistance << "\n";
     return 0;
 }
