@@ -3,9 +3,7 @@ def is_happy(s):
     if len(s) < 3:
         return False
     for i in range(0, len(s), 3):
-        subset = s[i:i+3]
-        if subset.count(subset[0]) == 1:
-            continue
-        else:
+        chunk = s[i:i+3]
+        if len(set(chunk)) != 3:
             return False
     return True
