@@ -1,14 +1,17 @@
 #include <string>
-#include <stdexcept>
+#include <iostream>
 
 int pairedDigits(const std::string& s) {
     int sum = 0;
     size_t i = 0; 
     for (; i < s.size() - 1; ++i) { 
-        if ((std::stoi(std::string(1, s[i]))) == (std::stoi(std::string(1, s[i + 1])))) {
-            sum += (std::stoi(std::string(1, s[i]))) * 2;
+        int num1 = s[i] - '0';
+        int num2 = s[i + 1] - '0';
+        if (num1 == num2) {
+            sum += num1 * 2;
         } else {
-            sum += std::stoi(std::string(1, s[i]));
+            sum += num1;
         }
     }
-    return sum;
+    return sum; 
+}
