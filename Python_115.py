@@ -1,3 +1,4 @@
+```
 def calculate():
     while True:
         try:
@@ -11,14 +12,11 @@ def calculate():
     total_water = 0
     while True:
         try:
-            while True:
-                try:
-                    water_levels = list(map(int, input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()))
-                    if len(water_levels) == max_fill:
-                        break
-                except ValueError:
-                    print("Please enter valid integers separated by spaces.")
-        break
+            water_levels = list(map(int, input(f"Enter water levels for days 1 to {max_fill} (space-separated): ").split()))
+            if len(water_levels) == max_fill:
+                break
+        except ValueError:
+            print("Please enter valid integers separated by spaces.")
 
     for i, level in enumerate(water_levels):
         while True:
@@ -33,8 +31,7 @@ def calculate():
                     )
             except ValueError:
                 print("Please enter a valid integer.")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+
     average_water = total_water / max_fill if max_fill != 0 else float("nan")
     print(f"The average water level is {average_water}.")
 
