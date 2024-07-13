@@ -4,7 +4,8 @@ def concatenate() -> str:
     user_input = input("Enter words separated by space: ")
     if not user_input:
         return ""
-    result = ", ".join(user_input.split(' '))
+    words = user_input.split()
+    result = ', '.join(words)
     return result
 
 print(concatenate())
