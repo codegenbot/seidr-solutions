@@ -15,5 +15,3 @@ def check():
                 break
             except ValueError:
                 print("Invalid input. Please enter space-separated numbers.")
-
-check()
