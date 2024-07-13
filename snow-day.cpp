@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 double snowDay(int hours, float initialSnow, float rateOfFall, float proportionMelting) {
     double totalSnow = initialSnow;
@@ -14,6 +15,6 @@ int main() {
     float initialSnow, rateOfFall, proportionMelting;
     std::cin >> initialSnow >> rateOfFall >> proportionMelting;
     double result = snowDay(hours, initialSnow, rateOfFall, proportionMelting);
-    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::std::showpoint | std::std::fixed) << result << "\n";
+    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::showpoint | std::fixed) << result << "\n";
     return 0;
 }
