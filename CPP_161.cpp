@@ -1,13 +1,16 @@
-string solve(string s) {
+#include <algorithm>
+using namespace std;
+
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c - ('A' - 'a');
-        } else if (result.empty()) {
-            result = "";
-        } else {
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
             result += c;
+        } else {
+            result += s[i];
         }
     }
-    return result.empty() ? string(1, s.back()).append(result) : result;
+    reverse(result.begin(), result.end());
+    return result;
 }
