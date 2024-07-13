@@ -1,22 +1,21 @@
-int main() {
-    string exp;
-    cin >> exp;
-
-    bool result = (exp[0] == 't');
-
-    for (int i = 1; i < exp.size(); i += 2) {
-        if (exp[i] == '|') {
-            result = result || (exp[i + 1] == 't');
-        } else {
-            result = result && (exp[i + 1] == 't');
+bool evaluateBooleanExpression(const string& expression) {
+    if (expression == "t") {
+        return true;
+    } else if (expression == "f") {
+        return false;
+    } else {
+        char op = expression[1];
+        if (op == '&') {
+            return expression[0] == 't' && expression[2] == 't';
+        } else if (op == '|') {
+            return expression[0] == 't' || expression[2] == 't';
         }
     }
+}
 
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-
+int main() {
+    string expression;
+    cin >> expression;
+    cout << (evaluateBooleanExpression(expression) ? "True" : "False") << endl;
     return 0;
 }
