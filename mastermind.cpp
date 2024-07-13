@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <string>
+using namespace std;
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
