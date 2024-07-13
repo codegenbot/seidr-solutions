@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -9,20 +9,24 @@ string camelCase(string s) {
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || s[i] == '-') {
             if (result.size()) {
-                result[0] = toupper(result[0]);
+                result += std::toupper(s[i + 1]);
             }
-            string word = s.substr(i + 1);
-            result += word;
+            else
+                result += s.substr(i + 1);
             break;
         } else if (s[i] == ' ') {
             if (i > 0) {
-                result[0] = toupper(result[0]);
+                result[0] = std::tolower(s[i]);
             }
             result += s.substr(0, i);
-            result += std::tolower(s.substr(i + 1).substr(0, 1)) + s.substr(i + 1).substr(1);
+            result += std::toupper(s[i]) + s.substr(i + 1).substr(1);
             break;
         } else {
-            result += s[i];
+            if (result.size() && !std::isupper(result.back())) {
+                result += std::toupper(s[i]);
+            }
+            else
+                result += s[i];
         }
     }
     return result;
