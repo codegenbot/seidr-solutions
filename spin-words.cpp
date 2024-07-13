@@ -1,36 +1,45 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
+std::string spinWords(std::string sentence) {
     std::string result = "";
-    int wordLength = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (wordLength >= 5) {
-                for (int j = i - 1; j >= 0; j--) {
-                    result += str[j];
-                }
-            } else {
-                result += " ";
-            }
-            wordLength = 0;
+    std::string word;
+
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            result += word + " ";
+            word.clear();
         } else {
-            result += str[i];
-            wordLength++;
+            word += sentence[i];
         }
     }
-    if (wordLength >= 5) {
-        for (int i = result.length() - 1; i >= 0; i--) {
-            result += result[i];
+
+    result += word;
+
+    for (int i = 0; i < result.length(); i++) {
+        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
+            int j = i;
+            while (j < result.length() && (result[j] >= 'a' && result[j] <= 'z' || result[j] >= 'A' && result[j] <= 'Z')) {
+                j++;
+            }
+            if (j - i >= 5) {
+                std::string temp = result.substr(i, j - i);
+                std::reverse(temp.begin(), temp.end());
+                result.replace(i, j - i, temp);
+                i += j - i;
+            }
         }
     }
+
     return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    // test cases
+    cout << spinWords("a") << endl;  // output: a
+    cout << spinWords("this is a test") << endl;  // output: this is a test
+    cout << spinWords("this is another test") << endl;  // output: this is rehtona test
+    cout << spinWords("hi") << endl;  // output: hi
+
     return 0;
 }
