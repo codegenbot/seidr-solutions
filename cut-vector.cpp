@@ -1,39 +1,30 @@
 int main() {
-    vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec[i];
     }
 
-    int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-    }
-
-    int target = sum / 2;
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-
-    for (int i = 0; i < nums.size(); ++i) {
-        prefixSum += nums[i];
-        int diff = abs(prefixSum - target);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int min_diff = INT_MAX;
+    int cut_idx = -1;
+    for (int i = 1; i < n; ++i) {
+        int sum_left = accumulate(vec.begin(), vec.begin() + i, 0);
+        int sum_right = accumulate(vec.begin() + i, vec.end(), 0);
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
 
-    vector<int> subVector1(nums.begin(), nums.begin() + cutIndex + 1);
-    vector<int> subVector2(nums.begin() + cutIndex + 1, nums.end());
-
-    for (int num : subVector1) {
-        cout << num << endl;
-    }
-
-    for (int num : subVector2) {
-        cout << num << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << vec[i];
+        if (i == cut_idx) {
+            cout << endl;
+        } else {
+            cout << " ";
+        }
     }
 
     return 0;
