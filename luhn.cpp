@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     bool alternate = false; 
@@ -16,5 +13,4 @@ int luhn(const std::vector<int>& cardNumber) {
         }
         alternate = !alternate; 
     }
-    return sum % 10; 
-}
+    return sum % 10
