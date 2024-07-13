@@ -1,30 +1,23 @@
-int bowlingScore(const string& bowls) {
+int bowling(string s) {
     int score = 0;
-    int roll = 0;
-    bool firstRollInFrame = true;
-
-    for (char c : bowls) {
-        if (c == 'X') {
-            score += 10 + (firstRollInFrame ? 10 : 0);
-            roll++;
-            firstRollInFrame = false;
-        } else if (isdigit(c)) {
-            int pins = c - '0';
-            if (pins == 10) {
-                score += 10;
-                roll += 2;
-            } else if (roll < 2) {
-                score += pins;
-            } else {
-                score += pins + (firstRollInFrame ? 10 : 0);
-                roll++;
-                firstRollInFrame = false;
-            }
+    int prev_frame_score = 0;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'X') {
+            score += 10 + prev_frame_score;
+            prev_frame_score = 10;
+        } else if(s[i] == '/') {
+            int rest = 10 - s[i+1] - s[i+2];
+            score += s[i-1] - '0' + prev_frame_score;
+            prev_frame_score = rest;
+            i++; // skip the '/'
         } else {
-            score += 10;
-            roll += 2;
+            int this_frame_score = s[i] - '0';
+            if(prev_frame_score > 0) {
+                this_frame_score += prev_frame_score;
+                score += this_frame_score;
+                prev_frame_score = 0;
+            }
         }
     }
-
     return score;
 }
