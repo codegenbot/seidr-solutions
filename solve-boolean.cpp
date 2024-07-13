@@ -19,8 +19,13 @@ bool solveBoolean(string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            valStack.push(false);
+            valStack.pop();
         }
+    }
+
+    while (!opStack.empty()) {
+        opStack.pop();
+        valStack.pop();
     }
 
     return valStack.top();
