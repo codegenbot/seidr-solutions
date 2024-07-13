@@ -1,15 +1,9 @@
 def cut_vector(vector):
+    min_diff = float("inf")
+    cut_index = 0
     for i in range(1, len(vector)):
-        if sum(vector[:i]) == sum(vector[i:]):
-            return vector[:i], vector[i:]
-        elif min(
-            abs(sum(vector[:i]) - sum(vector[i:])),
-            abs(sum(vector[: -i - 1]) - sum(vector[-i:])),
-        ):
-            return vector[: i + 1], vector[i:]
-    return [], []
-
-
-input_vector = list(map(int, input().split()))
-print(cut_vector(input_vector)[0])
-print(cut_vector(input_vector)[1])
+        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
+    return vector[:cut_index], vector[cut_index:]
