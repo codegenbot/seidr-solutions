@@ -1,10 +1,7 @@
-#include <vector>
-#include <cstdlib>
-
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        double temp = std::floor((double)i / 3.0 - 2.0);
+        int temp = (int)std::floor((double)i / 3.0) - 2;
         if (temp < 0) {
             temp = 0;
         }
