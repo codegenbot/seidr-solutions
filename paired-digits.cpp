@@ -4,13 +4,12 @@
 using namespace std;
 
 int pairedDigits(string s) {
-    int last = -1;
     int sum = 0;
-    for (char c : s) {
-        if (c == '0' + last) {
-            sum += c - '0';
+    for (int i = 0; i < s.length() - 1; i++) {
+        int nextDigit = s[i+1] - '0';
+        if (s[i] - '0' == nextDigit) {
+            sum += s[i] - '0';
         }
-        last = c;
     }
     return sum;
 }
