@@ -34,7 +34,9 @@ int main() {
         cardNumber /= 10;
     }
 
-    cout << "The result of Luhn's algorithm is: " << luhn(input) << endl;
+    int result = luhn(input);
+
+    cout << "The Luhn check result is: " << result << endl;
 
     return 0;
 }
