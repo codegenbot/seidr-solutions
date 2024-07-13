@@ -1,16 +1,23 @@
-MD5_CTX md5context;
-unsigned char result[16];
-MD5Init(&md5context);
-if(text.empty()) {
-    return "";
-}
-MD5Update(&md5context, (const unsigned char*)text.c_str(), text.length());
-MD5Final(result, &md5context);
+#include <string>
+#include <openssl/md5.h>
 
-string output;
-for(int i = 0; i < 16; i++) {
-    sprintf(buffer, "%02x", result[i]);
-    output += buffer;
-}
+using namespace std;
 
-return output;
+string string_to_md5(string text) {
+    if (text.empty()) return "";
+
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* str = text.c_str();
+    size_t len = text.size();
+    MD5_Update(&ctx, str, len);
+    MD5_Final(md, &ctx);
+
+    ostringstream oss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        oss << setfill('0') << setw(2) << hex << (int)md[i];
+    }
+
+    return oss.str();
+}
