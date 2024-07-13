@@ -1,14 +1,24 @@
-```cpp
 #include <vector>
-int prod_signs(std::vector<int> arr) -> int {
-    if (arr.empty()) return -32768;
-    int product = 1;
+#include <iostream>
+
+int prod_signs(std::vector<int> arr) {
+    int sign_product = 1;
+    long long sum = 0;
+
     for (int num : arr) {
-        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
+        if (num == 0) {
+            return -32768; // empty array or contains zero
+        }
+        sign_product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
+        sum += abs(num);
     }
-    int sum = 0;
-    for (int num : arr) {
-        sum += std::abs(num);
-    }
-    return product * sum;
+
+    return sign_product * sum;
+}
+
+int main() {
+    std::vector<int> input = {-1, 1, 1, 0};
+    int output = prod_signs(input);
+    std::cout << "Output: " << output << std::endl;
+    return 0;
 }
