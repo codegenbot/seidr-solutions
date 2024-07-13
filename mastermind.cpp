@@ -1,4 +1,6 @@
-int mastermind(const string& code, const string& guess) {
+#include <string>
+
+int mastermind(const char* code, const char* guess) {
     int black = 0;
     int white = 0;
 
@@ -14,7 +16,11 @@ int mastermind(const string& code, const string& guess) {
     int correct_colors = 0;
     for (char c : code) {
         code_counts[c - 'A'] = true;
-        if (c == guess[3-c]) continue; 
+        int count = 0;
+        for (char d : guess) {
+            if (d == c) ++count;
+        }
+        if (count > 1) continue; 
         correct_colors++;
     }
 

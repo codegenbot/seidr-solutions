@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -8,11 +7,13 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     if(n == 0) return res;
     
-    res.push_back(arr[n-1]);
+    int max = arr[n-1];
+    res.push_back(max);
     
     for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= res.back()) {
-            res.push_back(arr[i]);
+        if(arr[i] >= max) {
+            max = arr[i];
+            res.push_back(max);
         }
     }
     
@@ -20,9 +21,9 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    std::vector<int> leadersResult = leaders(arr);
-    for (int i : leadersResult) {
+    std::vector<int> arr = {17, 28, 4};
+    std::vector<int> result = leaders(arr);
+    for (int i : result) {
         std::cout << i << " ";
     }
     return 0;
