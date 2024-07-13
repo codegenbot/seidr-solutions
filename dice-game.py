@@ -1,5 +1,5 @@
-```
 def dice_game(n, m):
-    total_outcomes = n * m
-    peters_wins = sum(i > j for i in range(1, n) for j in range(1, min(i, m)))
-    return peters_wins / total_outcomes
+    total_probability = 0
+    for i in range(1, min(n, m)):
+        total_probability += (m - i) * ((n - 1) / n) * ((n - i) / (n * m))
+    return total_probability
