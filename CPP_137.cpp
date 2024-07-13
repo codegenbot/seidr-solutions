@@ -1,43 +1,33 @@
-#include <string>
-#include <typeinfo>
-#include <boost/any.hpp>
+#include <boost/any_cast.hpp>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return max((int)a.convert_to<int>(), (double)b.convert_to<double>());
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return max((double)a.convert_to<double>(), (int)b.convert_to<int>());
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        return (string)b.convert_to<string>();
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return (string)b.convert_to<string>();
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if ((string)a.convert_to<string>() > (string)b.convert_to<string>()) {
+    if (is_any_of<a>(float())) try {
+        float fa = any_cast<float>(a);
+        float fb = any_cast<float>(b);
+
+        if (fa > fb)
             return a;
-        } else if ((string)a.convert_to<string>() < (string)b.convert_to<string>()) {
+        else if (fb > fa)
             return b;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((int)a.convert_to<int>() > stoi((string)b.convert_to<string>())) {
+
+        return "None";
+    } catch (bad_any_cast&) {}
+    
+    // At least one of the values is not a number
+    if (is_any_of<a>(std::string())) {
+        std::string sa = any_cast<std::string>(a);
+        std::string sb = any_cast<std::string>(b);
+
+        if (sa > sb)
             return a;
-        } else if ((int)a.convert_to<int>() < stoi((string)b.convert_to<string>())) {
+        else if (sb > sa)
             return b;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        if (stoi((string)a.convert_to<string>()) > (int)b.convert_to<int>()) {
-            return a;
-        } else if (stoi((string)a.convert_to<string>()) < (int)b.convert_to<int>()) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
+
+        return "None";
     }
 
-    return boost::any("None");
+    // If we are here, none of the values were numbers
+    return "None";
 }
