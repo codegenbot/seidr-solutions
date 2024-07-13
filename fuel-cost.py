@@ -1,7 +1,6 @@
-import math
-
 def fuel_cost(vector):
-    return sum(math.floor(i // 3) - 2 for i in vector)
+    return sum(i // 3 - 2 for i in vector)
+
 
 vector = input("Enter the vector of positive integers (space separated): ")
 vector = list(map(int, vector.split()))
