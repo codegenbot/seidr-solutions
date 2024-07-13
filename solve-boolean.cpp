@@ -1,14 +1,17 @@
+#include <string>
+using namespace std;
+
 bool solveBoolean(string s) {
-    bool result = true;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'F') {
-            result = false;
-            break;
-        } else if (s[i] == '&') {
-            result &= true;
-        } else if (s[i] == '|') {
-            result |= true;
+    bool res = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') res = true;
+        else if (s[i] == 'f') res = false;
+        else if (s[i] == '&') return res;
+        else if (s[i] == '|') {
+            bool temp = res;
+            res = !res;
+            return temp;
         }
     }
-    return result;
+    return res;
 }
