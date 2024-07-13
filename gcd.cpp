@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
@@ -31,6 +32,16 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    // You can add test cases here
+    string text = "abracadabra";
+    string target = "abra";
+    
+    vector<int> result = findIndicesOfSubstring(text, target);
+    
+    cout << "Indices where target appears: ";
+    for (int index : result) {
+        cout << index << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
