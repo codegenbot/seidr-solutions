@@ -1,6 +1,6 @@
 ```
 def encrypt(s):
-    result = ""
+    result = ''
     for char in s:
         if char.isalpha():
             ascii_offset = 97 if char.islower() else 65
