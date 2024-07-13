@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+```c++
 int main() {
     int cents;
     cin >> cents;
@@ -16,7 +14,7 @@ int main() {
     
     int pennies = cents;
 
-    cout << "Coins: " << quarters << " quarter" << (quarters > 1 ? "s" : "") << endl;
+    cout << "Coins: " << quarters << " quarters" << endl;
     if(quarters > 0) cout << (quarters == 1 ? "" : "s ") << quarters << " remaining\n";
     
     cout << "Dimes: " << dimes << endl;
@@ -26,5 +24,5 @@ int main() {
     if(nickels > 0) cout << (nickels == 1 ? "" : "s ") << nickels << " remaining\n";
     
     cout << "Pennies: " << pennies << endl;
-    
     return 0;
+}
