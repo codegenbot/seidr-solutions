@@ -4,10 +4,10 @@
 #include <iomanip>
 
 int main() {
-    int startHeight, firstBounce;
+    double startHeight, firstBounce;
     std::cin >> startHeight >> firstBounce;
 
-    double bouncinessIndex = (double)firstBounce / startHeight;
+    double bouncinessIndex = firstBounce / startHeight;
 
     int numBounces; 
     std::cin >> numBounces;
@@ -18,6 +18,6 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
-    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::ios_base::fixed) << std::to_string(totalDistance) << "\n";
+    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::ios_base::fixed) << totalDistance << "\n";
     return 0;
 }
