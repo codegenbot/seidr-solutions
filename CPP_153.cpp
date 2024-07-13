@@ -1,7 +1,7 @@
 #include <cassert>
 #include <vector>
 #include <string>
-#include <cstdint>
+#include <initializer_list>
 
 int Strongest_Extension(const std::string& prefix, const std::vector<std::string>& extensions) {
     for (const auto& extension : extensions) {
