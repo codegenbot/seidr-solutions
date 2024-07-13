@@ -20,8 +20,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> testArray = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    vector<int> result = leaders(testArray);
-    for(int i: result) cout << i << " ";
+    vector<int> testArr = {1, 3, 4, 2};
+    vector<int> result = leaders(testArr);
+    for (int i : result) {
+        cout << i << endl;
+    }
     return 0;
 }
