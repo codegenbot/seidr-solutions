@@ -1,4 +1,3 @@
-```
 def match_parens(lst):
     result = []
     for s in lst:
@@ -14,10 +13,10 @@ def match_parens(lst):
                 else:
                     result.append("No")
                     break
-        if count > 0 or not has_opening and count == 0:
-            result.append("No")
-        else:
+        if has_opening and count == 0:
             result.append("Yes")
+        else:
+            result.append("No")
     return result
 
 print(match_parens(["()", "(())", ")(", "((()))"]))
