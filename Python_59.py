@@ -1,14 +1,20 @@
 ```
-def largest_prime_factor(n):
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-    return n
-
 def main():
+    def largest_prime_factor(n):
+        i = n
+        while i > 1:
+            if is_prime(i):
+                return i
+            i -= 1
+
+    def is_prime(num):
+        if num < 2:
+            return False
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
+
     while True:
         try:
             cont = input("Do you want to calculate again? (y/n): ")
@@ -30,6 +36,3 @@ def main():
         except ValueError:
             print("Invalid input. Please enter an integer value.")
     print("Program ended.")
-
-if __name__ == "__main__":
-    main()
