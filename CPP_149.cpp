@@ -1,15 +1,18 @@
-Here is the solution:
+Here is the completed code:
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = remove_if(lst.begin(), lst.end(), 
-                        [](const string& s){return s.length() % 2;});
-    lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b){
-             if (a.length() == b.length()) {
-                 return a < b;
-             }
-             return a.length() < b.length();
-         });
-    return lst;
+        [](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return a < b;
+            }
+            return a.size() < b.size();
+        });
+    vector<string> result;
+    for (const auto& str : lst) {
+        if (str.size() % 2 == 0) {
+            result.push_back(str);
+        }
+    }
+    return result;
 }
