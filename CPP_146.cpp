@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -11,16 +12,6 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    int n;
-    std::vector<int> nums;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter integer #"<<i+1<<": ";
-        std::cin >> x;
-        nums.push_back(x);
-    }
-    std::cout << "Number of special integers: " << specialFilter(nums) << std::endl;
+    assert(specialFilter({}) == 0);
     return 0;
 }
