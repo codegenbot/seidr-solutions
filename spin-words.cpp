@@ -1,3 +1,6 @@
+Here is your requested modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
