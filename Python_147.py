@@ -1,5 +1,10 @@
-print("Enter a number: ", end="")
-n = int(input())
+```Python
+while True:
+    print("Enter the number up to which you want to find max triples: ", end="")
+    n = int(input())
+    
+    if n >= 1:
+        break
 
 def get_max_triples(n):
     if n < 1:
