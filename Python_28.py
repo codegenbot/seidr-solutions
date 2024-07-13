@@ -1,3 +1,2 @@
-```
-def concatenate(strings: List[str]) -> str:
-    return ''.join(strings)
+def calculate_average(numbers: List[float]) -> float:
+    return sum(numbers) / len(numbers)
