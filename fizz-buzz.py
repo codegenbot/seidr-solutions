@@ -1,3 +1,14 @@
 def fizz_buzz(x):
-    result = "FizzBuzz" if x % 15 == 0 else "Fizz" if x % 3 == 0 else "Buzz" if x % 5 == 0 else str(x)
-    return result
+    result = []
+    i = 1
+    while i <= x:
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(str(i))
+        i += 1
+    return "\n".join(result)
