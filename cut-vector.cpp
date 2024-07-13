@@ -1,7 +1,8 @@
-```c++
-#include <iostream>
+```
 #include <vector>
 using namespace std;
+
+#pragma GCC target "cxx11"
 
 vector<vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
