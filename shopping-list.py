@@ -1,15 +1,13 @@
-```python
+```
 def shopping_list():
     total_price = 0
     while True:
         try:
             price = float(input())
-            if price < 0: 
-                break
             discount = float(input())
-            total_price += price - (price * (discount / 100))
+            total_price += round(price - (price * (discount / 100)), 2)
         except ValueError:
-            print("Invalid input. Please enter a number.")
-    return round(total_price, 2)
+            break
+    return total_price
 
 print(shopping_list())
