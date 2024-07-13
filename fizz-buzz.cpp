@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int main() {
@@ -9,11 +10,14 @@ int main() {
 }
 
 std::string fizzBuzz(int x) {
+    std::string output;
     if (x % 3 == 0 && x % 5 == 0)
-        return "FizzBuzz";
+        output = "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        output = "Fizz";
     else if (x % 5 == 0)
-        return "Buzz";
+        output = "Buzz";
     else
-        return std::to_string(x);
+        output = std::to_string(x);
+    return output;
+}
