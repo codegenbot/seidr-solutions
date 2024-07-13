@@ -1,9 +1,9 @@
 def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_proportion):
-    snow = snow_on_ground
-    for _ in range(hours):
-        snow += snow_fall_rate
-        snow -= snow * snow_melt_proportion
-    return snow
+    snow = [0] * (hours + 1)
+    snow[0] = snow_on_ground
+    for i in range(1, hours + 1):
+        snow[i] = snow[i - 1] + snow_fall_rate - (snow[i - 1] * snow_melt_proportion)
+    return snow[hours]
 
 
 hours = int(input())
