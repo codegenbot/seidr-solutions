@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -19,7 +18,7 @@ int main() {
     for (float& price : prices) {
         cin >> price;
     }
-    vector<float> discounts(n);  
+    vector<float> discounts(n);
     for (float& discount : discounts) {
         cin >> discount;
     }
