@@ -9,14 +9,14 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
 
-    cout << "The probability that Peter rolls strictly higher than Colin is: ";
-    double sum = 0.0;
+    double total_prob = 0.0; 
     for(int i = 1; i < n; i++) {
-        double prob = 1.0 - (double)i / m - (n-i) / (double)(n*m); 
-        sum += prob;
-        cout << fixed << setprecision(10) << prob << " "; 
+        double prob = (n - i) * (m - i + 1); 
+        prob /= (double)(n*m); 
+        total_prob += prob; 
+
     }
-    cout << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << fixed << setprecision(10) << total_prob << endl;
 
     return 0;
 }
