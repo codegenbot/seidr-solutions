@@ -12,5 +12,8 @@ def mean_absolute_deviation(numbers) -> float:
         except ValueError:
             print("Invalid input. Please enter numbers only.")
 
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(x - mean) for x in numbers) / len(numbers)
+    if not numbers:
+        return 0.0
+    else:
+        mean = sum(numbers) / len(numbers)
+        return sum(abs(x - mean) for x in numbers) / len(numbers)
