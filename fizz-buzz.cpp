@@ -1,4 +1,5 @@
-```c++
+#include <iostream>
+
 int main() {
     int x;
     std::cout << "Enter an integer: ";
