@@ -19,12 +19,10 @@ std::string camelCase(std::string str) {
 
     for (const auto& word : words) {
         if (!word.empty()) {
-            char c = word[0];
             if (result.empty())
-                result += static_cast<char>(std::toupper(c));
+                result = std::string(1, std::toupper(word[0])).append(word.substr(1));
             else
-                result += static_cast<char>(std::tolower(c));
-            result += word.substr(1).toupper();
+                result += std::string(1, std::tolower(word[0])).append(std::string(1, word[1]).toupper()).append(word.substr(2));
         }
     }
 
