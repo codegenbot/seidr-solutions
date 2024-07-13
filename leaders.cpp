@@ -1,13 +1,16 @@
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& v) {
-    std::vector<int> result;
-    int max_right = v.back();
-    for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= max_right) {
-            max_right = v[i];
-            result.push_back(v[i]);
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int maxRight = arr.back();
+    for (int i = arr.size() - 1; i >= 0; --i) {
+        if (arr[i] >= maxRight) {
+            result.push_back(arr[i]);
+            maxRight = arr[i];
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
