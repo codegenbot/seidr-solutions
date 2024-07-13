@@ -13,9 +13,8 @@ int main() {
     }
 
     std::vector<double> vec2(n);
-    char comma;
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i] >> comma; // read the comma between inputs
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
