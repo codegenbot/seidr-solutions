@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     for char in expression:
@@ -13,7 +12,7 @@ def solve_boolean(expression):
                 elif last_operator == '|':
                     a, b = stack.pop(), stack.pop()
                     stack.append(bool(int(a)) or bool(int(b)))
-            stack.pop()  # Remove the '('
+            stack.pop()  
         else:
             if char in ['&', '|']:
                 while stack and stack[-1] in ['&', '|']:
