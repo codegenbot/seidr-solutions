@@ -1,3 +1,4 @@
+```c
 #include <vector>
 #include <unordered_map>
 #include <initializer_list>
@@ -25,4 +26,4 @@ int main() {
     } else {
         std::cout << "No pair found." << std::endl;
     }
-}
+    return 0};
