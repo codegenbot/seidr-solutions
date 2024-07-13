@@ -16,10 +16,17 @@ int main() {
     int nicklesNeeded = pennies / 5; // calculate nickles needed
     pennies %= 5;
 
-    std::cout << "Quarters: " << (nickles > 0 ? std::to_string(nickles) : "0") << "\n";
-    std::cout << "Dimes: " << (dimes > 0 ? std::to_string(dimes) : "0") << "\n";
-    std::cout << "Nickels: " << (nicklesNeeded > 0 ? std::to_string(nicklesNeeded) : "0") << "\n";
-    std::cout << "Pennies: " << (pennies > 0 ? std::to_string(pennies) : "0") << "\n";
+    if(nickles > 0) std::cout << "Quarters: " << std::to_string(nickles) << "\n";
+    else std::cout << "Quarters: 0\n";
+
+    if(dimes > 0) std::cout << "Dimes: " << std::to_string(dimes) << "\n";
+    else std::cout << "Dimes: 0\n";
+
+    if(nicklesNeeded > 0) std::cout << "Nickels: " << std::to_string(nicklesNeeded) << "\n";
+    else std::cout << "Nickels: 0\n";
+
+    if(pennies > 0) std::cout << "Pennies: " << std::to_string(pennies) << "\n";
+    else std::cout << "Pennies: 0\n";
 
     return 0;
 }
