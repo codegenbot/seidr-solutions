@@ -5,12 +5,17 @@
 int main() {
     string class_name;
     vector<string> extensions;
-
     // Read input from user
-
-    int result = Strongest_Extension(class_name, extensions);
-
-    return 0;
+    cin >> class_name;
+    int num_extensions;
+    cin >> num_extensions;
+    for(int i = 0; i < num_extensions; i++) {
+        string extension;
+        cin >> extension;
+        extensions.push_back(extension);
+    }
+    
+    return Strongest_Extension(class_name, extensions);
 }
 
 int Strongest_Extension(string class_name,vector<string> extensions){
