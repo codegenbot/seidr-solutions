@@ -5,12 +5,11 @@ def luhn(card_number):
     doubled = False
     for i, digit in enumerate(card_number):
         if i % 2 == 1:
-            if doubled:
-                if digit * 2 > 9:
-                    sum += (digit * 2) - 9
-                else:
-                    sum += digit * 2
-            else:
-                sum += digit
-        doubled = not doubled
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        sum += digit
     return sum
+
+card_number = int(input("Enter the credit card number: "))
+print(luhn(card_number))
