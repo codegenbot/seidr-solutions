@@ -1,18 +1,25 @@
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-vector<string> reverse(string s) {
-    string temp = s;
-    reverse(temp.begin(), temp.end());
-    if (s == temp)
-        return {"True"};
-    else
-        return {"False"};
-}
-
-vector<string> issame(string s, string c) {
-    vector<char> v;
+std::vector<std::string> issame(string s, string c) {
+    vector<string> result;
+    if (s.length() != c.length()) {
+        return {{"False", ""}};
+    }
+    for (int i = 0; i < s.length(); i++) {
+        bool flag = false;
+        for (char x : c) {
+            if (s[i] == x) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag)
+            result.push_back(s.substr(i, 1));
+    }
+    string temp = "";
     for (char x : s) {
         bool flag = false;
         for (char y : c) {
@@ -22,22 +29,11 @@ vector<string> issame(string s, string c) {
             }
         }
         if (!flag)
-            v.push_back(x);
-    }
-    string result = "";
-    for (char x : v) {
-        result += x;
+            temp += x;
     }
     
-    string temp = result;
     reverse(temp.begin(), temp.end());
-    if (result == temp) {
-        return {result, "True"};
+    if (temp == s) {
+        return {{"True", temp}};
     } else {
-        return {result, "False"};
-    }
-}
-
-int main() {
-    // Your code here
-}
+        return {{"False", temp}};
