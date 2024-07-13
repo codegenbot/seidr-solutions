@@ -1,18 +1,11 @@
+```
 def check():
-    prefix = input("Enter a prefix: ")
-    words = []
-    while True:
-        user_word = input("Enter a word (or 'stop' to finish): ")
-        if user_word.lower() == "stop":
-            break
-        words.append(user_word)
-
-    if len(prefix) > 5:
-        print("Prefix is too long")
+    num = int(input("Enter an integer between 1 and 5: "))
+    words = ["hello", "world", "python", "java"]
+    if num < 1 or num > 5:
+        print("Number is out of range")
     else:
         for word in words:
-            if word.startswith(prefix):
+            if len(word) == num:
                 print(f"Found match: {word}")
-
-
 check()
