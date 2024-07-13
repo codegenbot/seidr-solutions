@@ -2,26 +2,22 @@ int main() {
     string input;
     getline(cin, input);
     
-    istringstream iss(input);
-    string word;
-    bool first = true;
+    string word = "";
+    string result = "";
     
-    while (iss >> word) {
-        if (word.size() >= 5) {
-            if (!first) {
-                cout << " ";
+    for (int i = 0; i <= input.length(); i++) {
+        if (input[i] == ' ' || i == input.length()) {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            reverse(word.begin(), word.end());
-            cout << word;
-            first = false;
+            result += word + " ";
+            word = "";
         } else {
-            if (!first) {
-                cout << " ";
-            }
-            cout << word;
-            first = false;
+            word += input[i];
         }
     }
+    
+    cout << result << endl;
     
     return 0;
 }
