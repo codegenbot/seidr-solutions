@@ -1,7 +1,7 @@
+```
 def substitution_cipher():
     char1, char2 = zip(*[list(input().strip()), list(input().strip())])
     cipher_map = ''.join(''.join(map(str, x)) for x in [char1, char2])
-
     message = input().strip()
 
     result = ""
@@ -15,6 +15,6 @@ def substitution_cipher():
             )
         else:
             result += char
-    return result
+    print(result)
 
-print(substitution_cipher())
+substitution_cipher()
