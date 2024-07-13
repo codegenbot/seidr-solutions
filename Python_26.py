@@ -4,8 +4,8 @@ from typing import List
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
-    for num in numbers:
-        result.append(num)
+    for num in reversed(numbers):
         if num not in seen:
             seen.add(num)
-    return result
+            result.append(num)
+    return list(reversed(result))
