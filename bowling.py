@@ -19,5 +19,5 @@ def bowling_score(frames):
             else:
                 score += 10
         else:
-            score += int(frames[i*2]) + (int(frames[i*2+1]) if i < 9 else 0)
+            score += int(frames[i*2]) + (int(frames[(i*2)+1]) if i < 9 else 0)
     return score
