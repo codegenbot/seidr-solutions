@@ -1,25 +1,23 @@
+```
 #include <iostream>
 #include <string>
 
-int main() {
-    std::string tweet;
-    std::cout << "Enter a tweet: ";
-    std::getline(std::cin, tweet);
+using namespace std;
 
-    int ascii = 0;
-    for(auto c : tweet) {
-        if(c < 128)
-            ascii++;
-    }
-    int unicode = tweet.length() - ascii;
-
+string validateTweet(string tweet) {
     if (tweet.empty()) {
-        std::cout << "You didn't type anything" << std::endl;
-    } else if (unicode > 140) {
-        std::cout << "Too many characters" << std::endl;
-    } else {
-        std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
+        return "You didn't type anything";
     }
+    if (tweet.length() > 140) {
+        return "Too many characters";
+    }
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
+}
 
+int main() {
+    string tweet;
+    cout << "Enter a tweet: ";
+    getline(cin, tweet);
+    cout << validateTweet(tweet) << endl;
     return 0;
 }
