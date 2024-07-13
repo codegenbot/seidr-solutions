@@ -1,3 +1,5 @@
+Here is the modified code:
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int lastLeader = arr.back();
@@ -8,4 +10,3 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
-}
