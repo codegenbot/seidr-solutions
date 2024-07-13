@@ -6,29 +6,29 @@ int main() {
         cin >> nums[i];
     }
     
-    int min_diff = INT_MAX;
-    int cut_idx = -1;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
-        }
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
+    int prefixSum = 0;
+    int diff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        int suffixSum = sum - prefixSum;
+        int currentDiff = abs(prefixSum - suffixSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cut_idx; ++i) {
+    for (int i = 0; i <= cutIndex; ++i) {
         cout << nums[i] << endl;
     }
     cout << endl;
-    for (int i = cut_idx; i < n; ++i) {
+    for (int i = cutIndex + 1; i < n; ++i) {
         cout << nums[i] << endl;
     }
     
