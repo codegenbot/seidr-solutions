@@ -1,10 +1,17 @@
+```
 def largest_prime_factor(n):
-    i = n
-    while i > 1:
-        if n % i == 0:
-            j = i
-            while j % i == 0:
-                j //= i
-            return i
-        i -= 1
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
     return n
+
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        print(largest_prime_factor(n))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
