@@ -1,5 +1,5 @@
-def car_race_collision(n: int, direction: int):
+def car_race_collision(direction: int):
     if direction == 0:
-        return n * (n - 1)
+        return 1
     elif direction == 1:
-        return n
+        return 2
