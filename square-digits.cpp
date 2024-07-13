@@ -6,3 +6,4 @@ int squareDigits(int n) {
         result += to_string(digit * digit);
     }
     return stoi(result);
+}
