@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,7 +24,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         right_vec.pop_back();
     }
     
-    return {left_vec, right_vec};
+    return {left Vec, right_vec};
 }
 
 int main() {
