@@ -3,7 +3,7 @@
 #include <cstring>
 
 char toLower(char c) {
-    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ? (c >= 'A' && c <= 'Z' ? c - 'A' + 'a' : c) : c;
+    return (c >= 'A' && c <= 'Z') ? c - 'A' + 'a' : c;
 }
 
 int main() {
@@ -35,7 +35,7 @@ int main() {
     for (int i = 0; i <= textLen - targetLen; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (toLower(lowercaseText[i + j]) != toLower(lowercaseTarget[j])) {
+            if (lowercaseText[i + j] != lowercaseTarget[j]) {
                 found = false;
                 break;
             }
