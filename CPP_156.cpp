@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -8,7 +7,7 @@ std::string int_to_mini_roman(int num) {
                                            {50, "L"}, {40, "XL"}, {10, "X"},
                                            {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
-    std::string roman = "";
+    string roman = "";
     for (const auto& pair : romanMap) {
         while (num >= pair.first) {
             num -= pair.first;
