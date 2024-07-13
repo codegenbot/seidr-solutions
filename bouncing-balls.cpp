@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 
@@ -23,4 +22,3 @@ int main() {
     cout << fixed << setprecision(10) << totalDistance << endl;
 
     return 0;
-}
