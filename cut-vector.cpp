@@ -12,11 +12,11 @@ void findCutIndex(vector<int>& nums) {
     int minDiff = INT_MAX;
     int cutIndex = -1;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         int rightSum = totalSum - leftSum;
         int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+        if (diff < minDiff || (diff == minDiff && abs(leftSum - rightSum) < abs(2 * accumulate(nums.begin(), nums.begin() + i + 1, 0) - totalSum))) {
             minDiff = diff;
             cutIndex = i;
         }
