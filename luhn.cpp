@@ -1,6 +1,3 @@
-Here's the modified code with the necessary include statement and other modifications based on problem description:
-
-```cpp
 #include <vector>
 
 int luhnCheck(vector<int> digits) {
