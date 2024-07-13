@@ -1,16 +1,15 @@
-Here is the solution:
-
-def solve_boolean(input_str):
+```
+def solve(input_str):
     def evaluate(expression):
-        if expression == 'T':
+        if expression == "T":
             return True
-        elif expression == 'F':
+        elif expression == "F":
             return False
-        elif '&' in expression:
-            a, b = expression.split('&')
-            return evaluate(a) and evaluate(b)
-        elif '|' in expression:
-            a, b = expression.split('|')
-            return evaluate(a) or evaluate(b)
+        elif "&" in expression:
+            left, right = expression.split("&")
+            return evaluate(left) and evaluate(right)
+        else:
+            left, right = expression.split("|")
+            return evaluate(left) or evaluate(right)
 
-    return evaluate(input_str)
+    return bool(evaluate(input_str))
