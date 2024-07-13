@@ -6,7 +6,6 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int n = text.length();
     int m = target.length();
 
-    // Preprocess the target string to build the lps array
     std::vector<int> lps(m);
     int k = 0;
 
@@ -22,7 +21,6 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
     }
 
-    // Search for the pattern in the text using KMP
     int i = 0, j = 0;
 
     while (i < n) {
@@ -47,14 +45,15 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 }
 
 int main() {
-    std::string text, target;
-    std::cout << "Enter the text: ";
-    std::cin >> text;
-    std::cout << "Enter the target string: ";
-    std::cin >> target;
+    std::string text = "abcabcabc";
+    std::string target = "abc";
     std::vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        std::cout << i << " ";
-    }
+    
+    if(indices.empty())
+        std::cout << "No matching found." << std::endl;
+    else
+        for (int i : indices) {
+            std::cout << i << " ";
+        }
     return 0;
 }
