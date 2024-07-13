@@ -2,24 +2,25 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
+    bool res = true;
     for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T') continue;
+        if (s[i] == 'F') return false;
+        if (s[i] == '|') {
+            res = false;
+            break;
+        }
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-        } else {
-            st.push(s[i]);
+            res = true;
+            break;
         }
     }
-    while (!st.empty()) {
-        st.pop();
-    }
-    return false;
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
