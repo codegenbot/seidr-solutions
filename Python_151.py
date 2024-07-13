@@ -1,3 +1,4 @@
+```
 def double_the_difference(lst):
     if len(set(lst)) > 1:
         return (max(lst) - min(lst)) * 2
@@ -8,15 +9,11 @@ def double_the_difference(lst):
 def check():
     while True:
         try:
-            first_num = int(input("Enter the first number: "))
-            second_num = int(input("Enter the second number: "))
-            numbers = [first_num, second_num]
-            break
+            numbers = list(map(int, input("Enter space-separated numbers: ").split()))
+            if len(numbers) > 0:
+                break
         except ValueError:
-            print("Invalid input. Please enter two integers.")
-
-    if len(numbers) < 2:
-        return None
+            print("Invalid input. Please enter space-separated numbers.")
 
     print(double_the_difference(numbers))
 
