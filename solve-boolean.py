@@ -25,9 +25,14 @@ def solve_boolean(expression):
                 stack.append(eval(char.lower() == 't'))
         while operators:
             op = operators.pop()
-            if precedence.get(op, 0) > precedence.get(operators[-1], 0):
+            if op == "(":
+                operators.append(op)
+            elif precedence.get(op, 0) > precedence.get(operators[-1], 0):
                 continue
             val2 = stack.pop()
             val1 = stack.pop()
-            stack.append(val1 if not val1 or val2 else val1)
+            if op == "&":
+                stack.append(val1 and val2)
+            else:
+                stack.append(val1 or val2)
         return stack[0]
