@@ -1,30 +1,27 @@
-```
+```cpp
+#include <boost/any_cast.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a <=> (float)b > 0 ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = any_cast<string>(b);
-        float num = stof(str);
-        return a < num ? b : a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a), str2 = any_cast<string>(b);
-        return str1 > str2 ? b : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a < (int)b ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return a < b ? b : a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int num = any_cast<int>(b);
-        string str = any_cast<string>(a);
-        float fl = stof(str);
-        return fl > num ? b : a;
-    }
-    else {
-        return boost::any("None");
+    if (!boost::any_cast<int>(&a) && !boost::any_cast<int>(&b)) {
+        double da = 0, db = 0;
+        if (boost::any_cast<string>(&a))
+            std::istringstream(a.to_string()) >> da;
+        if (boost::any_cast<string>(&b))
+            std::istringstream(b.to_string()) >> db;
+        if (da > db)
+            return a;
+        else if (db > da)
+            return b;
+        else
+            return boost::any("None");
+    } else {
+        int ai = boost::any_cast<int>(a);
+        int bi = boost::any_cast<int>(b);
+        if (ai > bi)
+            return a;
+        else if (bi > ai)
+            return b;
+        else
+            return boost::any("None");
     }
 }
