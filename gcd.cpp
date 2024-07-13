@@ -18,8 +18,8 @@ std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target
     std::size_t m = target.length();
 
     for (std::size_t i = 0; i <= n - m; i++) {
-        if (text.substr(i, m).compare(0, m, target) == 0) {
-            while (i + m < n && text.substr(i, m).compare(0, m, target) == 0) { 
+        if (text.find(target) == i) { 
+            while (i + m < n && text.find(target) == i) { 
                 i += m;
             }
             result.push_back(i); 
@@ -35,11 +35,7 @@ int main() {
     std::string target = "world";
     std::vector<std::size_t> indices = indicesOfSubstring(text, target);
     for (std::size_t index = 0; index < indices.size(); index++) {
-        if(index == 0) {
-            std::cout << "Target found at index: " << indices[index] << ".\n";
-        } else {
-            std::cout << "Target found at index: " << indices[index] << ". (Error: Target string overlaps itself in the text.)\n";
-        }
+        std::cout << "Target found at index: " << indices[index] << std::endl;
     }
     return 0;
 }
