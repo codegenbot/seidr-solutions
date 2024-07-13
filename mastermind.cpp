@@ -8,7 +8,7 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    return count;
+    return 1 - count;
 }
 
 int blackPegs(string code, string guess) {
@@ -22,7 +22,7 @@ int blackPegs(string code, string guess) {
         }
     }
     for (int i = 0; i < 4; ++i) {
-        if (guess[i] != code[i] && codeMap.count(guess[i])) {
+        if (guess[i] != code[i] && codeMap[guess[i]]) {
             count++;
             codeMap[guess[i]]--;
         }
@@ -33,7 +33,7 @@ int blackPegs(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
+    cout << blackPegs(code, guess) << " ";
     cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
     return 0;
 }
