@@ -1,3 +1,13 @@
+Problem: Caesar Cipher Encryption
+
+Function Signature:
+```
+def encode(message):
+```
+
+Code:
+
+```python
 def encode(message):
     result = ""
     for char in message:
