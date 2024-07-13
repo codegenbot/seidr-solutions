@@ -8,7 +8,7 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+            return {nums[i], complement};
         }
         numMap[nums[i]] = i;
     }
@@ -19,9 +19,9 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
 int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
-    auto result = findPair(nums, target);
-    if(result.first != -1 && result.second != -1) {
-        std::cout << "The pair of numbers that sum to the target is: (" << result.first << ", " << result.second << ")";
+    int result = findPair(nums, target);
+    if(result != {-1, -1}) {
+        std::cout << "The pair of numbers that sum to the target is: (" << nums[result.first] << ", " << nums[result.second] << ")";
     } else {
         std::cout << "No such pair found.";
     }
