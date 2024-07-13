@@ -1,3 +1,4 @@
+```
 int bowlingScore(const std::string& s) {
     if (s.empty()) {
         throw std::invalid_argument("No input provided");
@@ -7,20 +8,36 @@ int bowlingScore(const std::string& s) {
     bool isStrike = false;
 
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
+        if (s.at(i) == 'X') {
             score += 30;
             isStrike = true;
-        } else if (s[i] == '/') {
+        } else if (s.at(i) == '/') {
             if (isStrike) {
                 score += prevRoll * 2;
                 isStrike = false;
             } else {
-                int roll1 = std::stoi(s.substr(i - 1, 1));
-                int roll2 = std::stoi(s.substr(i + 1, 1));
-                score += (roll1 + roll2);
+                int roll1, roll2;
+                char nextChar = s.at(i + 1);
+                if(nextChar != ' ') {
+                    roll1 = nextChar - '0';
+                    score += roll1;
+                }
             }
-        } else if (s[i] == '0' || s[i] == '1' || s[i] == '2' || s[i] == '3' || s[i] == '4' || s[i] == '5' || s[i] == '6' || s[i] == '7' || s[i] == '8' || s[i] == '9') {
-            int roll = std::stoi(s.substr(i, 1));
+        } else if (s.at(i) == ' ') {
+            int roll1, roll2;
+            char prevChar = s.at(i - 1);
+            if(i > 0) {
+                roll1 = prevChar - '0';
+                if(isStrike) {
+                    score += roll1 + prevRoll * 2;
+                    isStrike = false;
+                } else {
+                    score += roll1;
+                }
+                prevRoll = roll1;
+            }
+        } else {
+            int roll = s.at(i) - '0';
             if (isStrike) {
                 score += roll + prevRoll * 2;
                 isStrike = false;
@@ -32,3 +49,4 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
+}
