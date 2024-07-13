@@ -1,4 +1,3 @@
-```Python
 def substitution_cipher(s1, s2, s3):
     cipher_dict = {char: s2[i] for i, char in enumerate(s1)}
     result = ""
