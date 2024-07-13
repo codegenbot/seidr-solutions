@@ -1,5 +1,5 @@
 def rescale_to_unit(*inputs):
-    inputs_str = ' '.join(map(str, inputs)).replace('(', '').replace(')', '').replace(',', ' ').replace('[', '').replace(']', '')
+    inputs_str = ' '.join(map(str, inputs)).replace('(', '').replace(')', '')
     
     if not inputs:
         return []
