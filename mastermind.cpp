@@ -15,10 +15,11 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if (count > 1 || count == 1 && c != code[i]) {
-            white += count - 1;
+        if (count > 1 || count == 1 && black > 0) {
+            continue;
         }
+        white += count - black;
     }
 
-    return black + white;
+    return white + black;
 }
