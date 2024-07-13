@@ -1,4 +1,10 @@
+n = int(input())
 digits = list(map(int, input().split()))
-new_digits = [((d * 2) % 9) if i % 2 != 0 else d for i, d in enumerate(digits)]
-total = sum(new_digits)
-print(total)
+s = 0
+for i in range(15, -1, -1):
+    if (i + 1) % 2 == 0:
+        double = digits[i] * 2
+        s += double if double <= 9 else double - 9
+    else:
+        s += digits[i]
+print(s)
