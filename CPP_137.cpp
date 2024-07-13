@@ -1,73 +1,31 @@
-```cpp
-#include <boost/any_cast.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    int a_int = boost::any_cast<int>(a);
-    float a_float = boost::any_cast<float>(a);
-    std::string a_str = boost::any_cast<std::string>(a);
-
-    int b_int = boost::any_cast<int>(b);
-    float b_float = boost::any_cast<float>(b);
-    std::string b_str = boost::any_cast<std::string>(b);
-
-    if (a.is_none() || b.is_none()) {
-        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max(a.get<int>(), b.get<int>());
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max(a.get<float>(), b.get<float>());
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        return max(a.get<string>(), b.get<string>());
+    }
+    else if (a.type() == typeid(int) && (b.type() == typeid(float) || b.type() == typeid(string) ||
+                                           b.type() == typeid(wstring))) {
+        boost::any temp = a;
+        a = b;
+        b = temp;
+    }
+    else if ((a.type() == typeid(float) || a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(int))) {
+        boost::any temp = a;
+        a = b;
+        b = temp;
     }
 
-    if (a_str.length() > 0) {
-        if (b_str.length() > 0) {
-            if (a_str.compare(b_str) > 0)
-                return a;
-            else if (a_str.compare(b_str) < 0)
-                return b;
-            else
-                return boost::any("None");
-        } else {
-            return a_str;
-        }
-    }
-
-    if (!std::isfinite(a_float)) {
-        if (std::isnan(a_float)) {
-            if (std::isinf(b_float))
-                return b;
-            else
-                return "None";
-        } else {
-            if (b_float == 0)
-                return a;
-            else if (a_float > b_float)
-                return a;
-            else if (a_float < b_float)
-                return b;
-            else
-                return boost::any("None");
-        }
-    }
-
-    if (!std::isfinite(b_float)) {
-        if (std::isnan(b_float)) {
-            if (std::isinf(a_float))
-                return a;
-            else
-                return "None";
-        } else {
-            if (a_float == 0)
-                return b;
-            else if (a_float > b_float)
-                return a;
-            else if (a_float < b_float)
-                return b;
-            else
-                return boost::any("None");
-        }
-    }
-
-    if (a_int > b_int) {
-        return a;
-    } else if (a_int < b_int) {
-        return b;
-    } else {
-        return boost::any("None");
-    }
+    return (boost::any_cast<float>(a) > boost::any_cast<float>(b)) ? a : (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
 }
