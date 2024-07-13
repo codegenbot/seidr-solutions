@@ -1,4 +1,5 @@
-import math
+from math import sqrt
+import sys
 
 
 def largest_prime_factor(n):
