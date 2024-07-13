@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -6,7 +7,6 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    cin >> n;
     vector<float> v1(n);
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
