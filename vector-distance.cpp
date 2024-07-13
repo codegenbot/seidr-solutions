@@ -1,19 +1,16 @@
-#include <vector>
 #include <iostream>
-#include <iomanip>
-#include <initializer_list>
 #include <cmath>
 
 using namespace std;
 
 double vectorDistance(int n) {
     cin >> n;
-    vector<float> v1(n);
+    float* v1 = new float[n];
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     cin >> n;
-    vector<float> v2(n);
+    float* v2 = new float[n];
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
@@ -22,6 +19,8 @@ double vectorDistance(int n) {
     for (int i = 0; i < n; i++) {
         sum += pow(v1[i] - v2[i], 2);
     }
+    delete[] v1;
+    delete[] v2;
     return sqrt(sum);
 }
 
