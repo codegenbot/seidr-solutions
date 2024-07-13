@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <string>
 #include <algorithm>
 
@@ -24,15 +23,17 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black;
+    return {white, black};
 }
 
 int main() {
-    std::string code = "abcd";
-    std::string guess = "abcd"; // or any other valid combination
+    std::string code = "XXXX"; // your mastermind code
+    std::string guess = "XXXX"; // your guess
 
-    int whitePegs = mastermind(code, guess);
-    std::cout << "Number of white pegs: " << whitePegs << std::endl;
+    int result[] = mastermind(code, guess);
+
+    printf("White pegs: %d\n", result[0]);
+    printf("Black pegs: %d\n", result[1]);
 
     return 0;
 }
