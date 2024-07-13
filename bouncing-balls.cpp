@@ -1,14 +1,16 @@
 ```c++
 #include <iostream>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
-    int numBounces;
-
-    cin >> startHeight >> firstBounce >> numBounces;
+    string input;
+    double startHeight = stod(input);
+    double bouncinessIndexInput = stod(input);
+    double firstBounce = bouncinessIndexInput;
+    int numBounces = stoi(input);
 
     double bouncinessIndex = firstBounce / startHeight;
 
@@ -19,7 +21,7 @@ int main() {
         firstBounce *= bouncinessIndex;
     }
 
-    cout << std::fixed;
+    cout << fixed;
     cout.setf(ios_base::floatfield, ios_base::fixed);
     cout << setprecision(5) << totalDistance << endl;
 
