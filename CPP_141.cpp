@@ -1,24 +1,20 @@
-```
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_pos = string::npos;
+Here is the completed code:
 
-for (char c : file_name) {
-    if (c >= '0' && c <= '9') {
-        digit_count++;
-    } else if (c == '.') {
-        has_dot = true;
-        dot_pos = file_name.find(c);
-    } else if (!has_dot) {
-        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
-            return "No";
+string file_name_check(string file_name){
+    int count = 0;
+    bool foundDot = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            count++;
+            if(count > 3) return "No";
         }
-    } else {
-        string ext = file_name.substr(dot_pos + 1);
-        if (ext != "txt" && ext != "exe" && ext != "dll") {
+        else if(file_name[i] == '.'){
+            foundDot = true;
+        }
+        else if(foundDot && (i != file_name.length()-4 || file_name.substr(i).compare("txt") != 0 && file_name.substr(i).compare("exe") != 0 && file_name.substr(i).compare("dll") != 0)){
             return "No";
         }
     }
+    if(count > 3 || !foundDot) return "No";
+    return "Yes";
 }
-
-return digit_count <= 3 && has_dot ? "Yes" : "No";
