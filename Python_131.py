@@ -1,7 +1,8 @@
-def sum_of_digits(n):
-    total = 0
+def digits(n):
+    product = 1
     while n:
         digit = n % 10
-        total += digit
+        if digit != 0:
+            product *= digit
         n //= 10
-    return total
+    return product
