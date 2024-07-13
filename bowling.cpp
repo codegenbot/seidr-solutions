@@ -6,7 +6,7 @@ int bowlingScore(const std::string& s) {
     int prevRoll = 0;
     bool isStrike = false;
 
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             score += 30;
             isStrike = true;
@@ -16,21 +16,32 @@ int bowlingScore(const std::string& s) {
                 isStrike = false;
             } else {
                 int roll1, roll2;
-                char nextChar = s[i + 1];
-                roll1 = nextChar - '0';
-                score += roll1;
+                if (i - 1 >= 0) {
+                    roll1 = s[i - 1] - '0';
+                } else {
+                    roll1 = 0;
+                }
+                if (i + 1 < s.size()) {
+                    int temp = s.substr(i + 1, 1)[0] - '0';
+                    score += (roll1 + temp);
+                }
             }
         } else if (s[i] == ' ') {
             int roll1, roll2;
-            char prevChar = s[i - 1];
-            roll1 = prevChar - '0';
+            if (i - 1 >= 0) {
+                roll1 = s[i - 1] - '0';
+            } else {
+                roll1 = 0;
+            }
             if (isStrike) {
                 score += roll1 + prevRoll * 2;
                 isStrike = false;
             } else {
-                score += roll1;
+                if (i + 1 < s.size()) {
+                    int temp = s.substr(i + 1, 1)[0] - '0';
+                    score += (roll1 + temp);
+                }
             }
-            prevRoll = roll1;
         } else {
             int roll = s[i] - '0';
             if (isStrike) {
@@ -44,3 +55,4 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
+}
