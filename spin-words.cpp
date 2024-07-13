@@ -20,6 +20,7 @@ std::string spinWords(const std::string& input) {
     for (const auto& word : words) {
         result << word << " ";
     }
+
     return result.str();
 }
 
