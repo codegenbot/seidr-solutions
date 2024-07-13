@@ -1,3 +1,5 @@
-def check(func):
-    lst = [int(i) for i in input("Enter numbers separated by space: ").split()]
-    print(func(lst))
+```
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
+
+check(double_the_difference([input("Enter numbers separated by space: ").split()]))
