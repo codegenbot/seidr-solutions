@@ -18,13 +18,13 @@ int main() {
         cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    long double sum = 0.0;
     for (int i = 0; i < n; ++i) {
         sum += (vec2[i] - vec1[i]) * (vec2[i] - vec1[i]);
     }
 
-    double distance = sqrt(sum);
-    cout << fixed << setprecision(15) << distance << endl;
+    long double distance = sqrt(sum);
+    cout << fixed << setprecision(17) << distance << endl;
 
     return 0;
 }
