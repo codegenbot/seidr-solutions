@@ -33,7 +33,7 @@ int main() {
     while (true) {
         cout << "Enter a string in kebab-case: ";
         getline(cin, str);
-        if (str == "quit") break; 
+        if (str == "quit") break;
         cout << "The camelCase is: " << camelCase(str) << endl;
     }
     return 0;
