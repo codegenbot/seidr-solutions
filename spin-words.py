@@ -1,4 +1,7 @@
+```
 def spin_words(sentence):
     words = sentence.split()
-    result = " ".join(word[::-1] if len(word.strip()) >= 5 else word for word in words)
-    return result
+    for i in range(len(words)):
+        if len(str(words[i]).strip()) >= 5:
+            words[i] = str(words[i]).strip()[::-1]
+    return " ".join(words)
