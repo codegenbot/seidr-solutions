@@ -1,16 +1,7 @@
-```c++
 double diceGame(int n, int m) {
     double total = 0.0;
     for (int i = 1; i < n; i++) { 
-        total += (n - i) * (m - 1) / (n * m);
+        total += min(i+1, n)*min(m-1, m-min(n-i,0))/static_cast<double>(n*m);
     }
     return total;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    double result = diceGame(n, m);
-    std::cout << "Probability: " << result << std::endl;
-    return 0;
 }
