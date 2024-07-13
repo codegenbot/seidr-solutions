@@ -6,32 +6,28 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word = "";
-
+    vector<string> words;
+    
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-            } else {
-                result += word;
-            }
+            words.push_back(word);
             word = "";
         } else {
             word += str[i];
         }
     }
 
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
-        }
-    } else {
-        result += word;
-    }
+    words.push_back(word);
 
-    return result;
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            result += string(reverse(words[i])).append(" ");
+        } else {
+            result += words[i] + " ";
+        }
+    }
+    
+    return result.substr(0, result.size()-1);
 }
 
 int main() {
