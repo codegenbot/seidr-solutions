@@ -1,9 +1,3 @@
-#include <iostream>
-#include <iomanip>
-#include <vector>
-#include <cmath>
-using namespace std;
-
 double vectorDistance(int n) {
     float v1[n];
     float v2[n];
@@ -14,16 +8,8 @@ double vectorDistance(int n) {
 
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        double diff = v2[i] - v1[i];
+        sum += pow(diff, 2);
     }
     return sqrt(sum);
-}
-
-int main() {
-    int n;
-    cin >> n;
-
-    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
-
-    return 0;
 }
