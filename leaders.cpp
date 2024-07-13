@@ -18,13 +18,12 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-        if (std::cin.peek() == '\n') {
-            break;
-        }
+    int n;
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> nums[i];
     }
 
     if (nums.empty()) {
