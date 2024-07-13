@@ -19,8 +19,7 @@ int main() {
     double bouncinessIndex = firstBounce / startHeight;
 
     int numBounces; 
-    char c;
-    cin >> numBounces >> c; 
+    cin >> numBounces; 
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
