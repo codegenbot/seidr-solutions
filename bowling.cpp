@@ -1,58 +1,28 @@
-#include <vector>
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    vector<int> rolls(10);
+    int frame = 1;
+    int rolls = 0;
+    int lastRollWasStrike = false;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            int first = stoi(s.substr(i - 1, 1));
-            int second = stoi(s.substr(i + 1, 1));
-            if (first != 0 || second != 0) {
-                rolls[i % 10] = first + second;
-            } else {
-                rolls[i % 10] = 10;
+    for (char c : input) {
+        if (c == 'X') {
+            score += 10 + ((lastRollWasStrike) ? 10 : 20);
+            frame++;
+            lastRollWasStrike = true;
+        } else if (c == '/') {
+            score += (frame < 3 || rolls > 1) ? 10 : 5;
+            frame++;
+            lastRollWasStrike = false;
+            rolls = 0;
+        } else if (c >= '1' && c <= '9') {
+            int roll = (c - '0');
+            if (!lastRollWasStrike) {
+                score += roll + ((rolls > 0) ? 10 : 5);
             }
-        } else {
-            rolls[i % 10] = stoi(s.substr(i, 1));
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + bowlingScoreForNextTwo(rolls, i);
-        } else if (i < 8 && rolls[i] + rolls[i+1] > 10) {
-            score += 10;
-        } else {
-            score += rolls[i];
+            rolls++;
+            lastRollWasStrike = false;
         }
     }
 
     return score;
-}
-
-int bowlingScoreForNextTwo(vector<int> rolls, int start) {
-    int score = 0;
-    for (int i = 0; i < 2 && start + i < 10; i++) {
-        if (rolls[start+i] == 10) {
-            score += 10 + bowlingScoreForLastRoll(rolls, start+i+1);
-        } else if (start + i < 8 && rolls[start+i] + rolls[start+i+1] > 10) {
-            score += 10;
-        } else {
-            score += rolls[start+i];
-        }
-    }
-    return score;
-}
-
-int bowlingScoreForLastRoll(vector<int> rolls, int start) {
-    for (int i = 0; i < 3 && start + i < 10; i++) {
-        if (rolls[start+i] == 10) {
-            return 10;
-        } else {
-            return rolls[start+i];
-        }
-    }
-    return 0;
 }
