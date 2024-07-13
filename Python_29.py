@@ -8,15 +8,21 @@ def check():
             break
         words.append(user_word)
 
-    expected_word = input(
-        f"Enter an expected word for the prefix {prefix} (or 'stop' to finish): "
-    )
+    expected_words = set()
     while True:
+        expected_word = input(
+            f"Enter an expected word for the prefix {prefix} (or 'stop' to finish): "
+        )
         if expected_word.lower() == "stop":
             break
-        print(f"{expected_word} is a match")
-        expected_word = input("Enter another expected word (or 'stop' to finish): ")
+        expected_words.add(expected_word)
 
     for word in words:
-        if word.startswith(prefix) or expected_word.lower() == word.lower():
+        if word.startswith(prefix):
             print(f"Found match: {word}")
+            if any(exp_word in word for exp_word in expected_words):
+                print(f"{word} is a match")
+            else:
+                print(f"{word} is not a match")
+
+check()
