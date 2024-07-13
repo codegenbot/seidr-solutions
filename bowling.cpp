@@ -10,7 +10,7 @@ int bowlingScore(const std::string& input) {
     int prevRoll1 = 0;
     int prevRoll2 = 0;
 
-    std::vector<int> rolls = {0};
+    std::vector<int> rolls;
     for (int i = 0; i < 10; i++) {
         if (input[i] == 'X') {
             rolls.push_back(10);
