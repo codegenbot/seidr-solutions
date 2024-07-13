@@ -13,12 +13,13 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
+    int blackPegs = 0;
     map<char, int> codeMap, guessMap;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             if (--codeMap[code[i]] == 0 && --guessMap[guess[i]] == 0) {
-                return 1;
+                blackPegs++;
             } else {
                 codeMap[code[i]]++;
                 guessMap[guess[i]]++;
@@ -29,12 +30,6 @@ int blackPegs(string code, string guess) {
         }
     }
 
-    int blackPegs = 0;
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
-            blackPegs++;
-        }
-    }
     return blackPegs;
 }
 
