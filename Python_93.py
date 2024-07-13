@@ -9,3 +9,7 @@ def encode(message):
         else:
             result += char
     return result
+
+
+message = input("Enter your message: ")
+print(encode(message))
