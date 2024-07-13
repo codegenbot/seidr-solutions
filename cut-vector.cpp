@@ -10,7 +10,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         sum += v[i];
     }
     
-    if(static_cast<vector<int>::size_type>(sum) >= numeric_limits<vector<int>::size_type>::max()) {
+    if(sum > std::numeric_limits<long long>::max() || sum < 0) {
         return {{}, {}};
     }
     
