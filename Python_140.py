@@ -5,7 +5,7 @@ def fix_spaces(text):
         text = text.replace("__", "_-")
     return text
 
-text = input("Enter your text: ").strip()
+text = input("Enter your text: ") or "default_text"
 if ' ' in text:
     print(fix_spaces(text))
 else:
