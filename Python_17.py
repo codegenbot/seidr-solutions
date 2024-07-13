@@ -1,7 +1,9 @@
+```
 import re
 
-
 def parse_music(s):
+    if not isinstance(s, str) or not s.strip():
+        return []
     if not s:
         return []
     s = s.lower()
@@ -21,4 +23,4 @@ def parse_music(s):
         max_beat = int(max(map(int, beats)))
     except ValueError:
         return []
-    print([beat_counts.get(str(i), 0) for i in range(1, max_beat + 1)])
+    return [beat_counts.get(str(i), 0) for i in range(1, max_beat + 1)]
