@@ -1,4 +1,6 @@
-```
+"""
+Here is the modified code:
+
 import re
 
 
@@ -11,3 +13,4 @@ def words_string(s):
     if len(words) < 2:
         return "Error: No words found"
     return words
+"""
