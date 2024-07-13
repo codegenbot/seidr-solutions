@@ -1,5 +1,6 @@
 #include <vector>
-#include <initializer_list>
+#pragma GCC version 11
+#define _GLIBCXX_DEBUG
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
