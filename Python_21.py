@@ -1,3 +1,6 @@
+```
+import math
+
 def rescale_to_unit(*inputs):
     inputs_str = ' '.join(map(str, inputs)).replace('(', '').replace(')', '').replace(',', ' ').replace('[', '').replace(']', '')
     
@@ -10,7 +13,7 @@ def rescale_to_unit(*inputs):
         for lst in inputs:
             min_val = min(lst)
             max_val = max(lst)
-            rescaled_lst = [(x - min_val) / (max_val - min_val) for x in lst]
+            rescaled_lst = [(x - min_val) / max(abs(x - min_val), 1e-9) for x in lst]
             rescaled_numbers.append(rescaled_lst)
     else:
         inputs = list(map(float, inputs_str.split()))
@@ -20,6 +23,6 @@ def rescale_to_unit(*inputs):
 
     min_val = min(inputs)
     max_val = max(inputs)
-    rescaled_numbers = [(x - min_val) / (max_val - min_val) for x in inputs]
+    rescaled_numbers = [(x - min_val) / max(abs(x - min_val), 1e-9) for x in inputs]
 
     print([str(x) for x in rescaled_numbers])
