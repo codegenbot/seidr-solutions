@@ -11,33 +11,28 @@ string spinWords(string str) {
 
     for (int i = 0; i <= str.length() - 1; i++) {
         if (str[i] == ' ') {
-            result += str.substr(i - wordLength + 1, i - wordLength + 1) + " ";
+            if(i > 4) {
+                for(long long j = i; j >= i - wordLength + 1; j--) {
+                    result += str[j];
+                }
+            } else {
+                result += str.substr(i - wordLength + 1, i - i);
+            }
+            result += " ";
             wordLength = 0;
         } else {
             wordLength++;
         }
     }
 
-    result += str.substr(str.length() - wordLength);
-    
-    for(int i = 0; i < result.length(); i++) {
-        if(result[i] == ' ') {
-            string temp = result.substr(i + 1);
-            for(long long j = temp.length() - 1; j >= 0; j--) {
-                result.replace(i, temp.length(), temp.substr(j));
-                i += temp.length();
-                break;
-            }
-        } else if(result[i+1] == ' ') {
-            string temp = result.substr(i + 1);
-            for(long long j = temp.length() - 1; j >= 0; j--) {
-                result.replace(i + 1, temp.length(), temp.substr(j));
-                i += temp.length();
-                break;
-            }
+    if(str.length() > 4) {
+        for(long long j = str.length() - 1; j >= str.length() - wordLength + 1; j--) {
+            result += str[j];
         }
+    } else {
+        result += str.substr(str.length() - wordLength);
     }
-
+    
     return result;
 }
 
