@@ -8,7 +8,3 @@ def coin_sums(cents):
             result[i] += 1
 
     return result
-
-
-c = int(input())
-print(*coin_sums(c))
