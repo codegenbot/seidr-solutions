@@ -3,30 +3,10 @@ def solve_boolean(expression):
         return True
     elif expression == "f":
         return False
+    elif "&" in expression or "|" in expression:
+        for op in "&|":
+            if op in expression:
+                left, right = expression.split(op)
+                return bool(solve_boolean(left)) and solve_boolean(right) if op == "&" else bool(solve_boolean(left)) or solve_boolean(right)
     else:
-        stack = []
-        operators = []
-        for char in expression:
-            if char in ["&", "|"]:
-                while operators and operators[-1] != "(":
-                    op = operators.pop()
-                    val2 = stack.pop()
-                    val1 = stack.pop()
-                    if op == "&":
-                        stack.append(val1 and val2)
-                    else:
-                        stack.append(val1 or val2)
-                operators.append(char)
-            elif char == "(":
-                operators.append(char)
-            elif char in ["t", "f"]:
-                stack.append(eval(char.lower() == 't'))
-        while operators:
-            op = operators.pop()
-            val2 = stack.pop()
-            val1 = stack.pop()
-            if op == "&":
-                stack.append(val1 and val2)
-            else:
-                stack.append(val1 or val2)
-        return stack[0]
+        raise ValueError("Invalid expression")

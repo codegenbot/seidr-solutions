@@ -1,47 +1,37 @@
 #include <string>
-using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<bool> valStack;
+
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&' || expression[i] == '|') {
-            while (!operatorStack.empty() && expression[i-1] != '(' && (expression[i-1] == '&' || expression[i-1] == '|')) {
-                if (expression[i-1] == '&') {
-                    operatorStack.pop();
-                    i--;
-                    break;
-                }
-                else if (expression[i-1] == '|') {
-                    operatorStack.pop();
-                    i--;
-                    break;
-                }
+        if (expression[i] == '&') {
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                valStack.pop();
             }
-            operatorStack.push(expression[i]);
-        }
-        else if (expression[i] == 'T' || expression[i] == 'F') {
-            // Check for parentheses
-            int j = i + 1;
-            while (j < expression.length() && (expression[j] == '&' || expression[j] == '|')) {
-                j++;
-            }
-            string operand = expression.substr(i, j - i);
-            if (operand == "T") return true;
-            else if (operand == "F") return false;
+            if (!opStack.empty()) opStack.push('&');
+        } else if (expression[i] == '|') {
+            opStack.push('|');
+            valStack.push(false);
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            valStack.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            valStack.pop();
         }
     }
-    while (!operatorStack.empty()) {
-        if (expression[0] == '&') return false;
-        else if (expression[0] == '|') return true;
-    }
-    return true; // Default value
-}
 
-int main() {
-    string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    cout << "Result: " << (result ? "True" : "False") << endl;
-    return 0;
+    while (!opStack.empty()) {
+        switch(opStack.top()) {
+            case '|': 
+                valStack.pop();  
+                break;
+            case '&':
+                valStack.pop() &&= valStack.pop();
+                break;  
+        }  
+        opStack.pop();  
+    }  
+
+    return valStack.top();
 }
