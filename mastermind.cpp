@@ -1,31 +1,30 @@
-```cpp
-int mastermind(const string& code, const string& guess) {
+#include <string>
+
+int mastermind(const char* code, const char* guess) {
     int black = 0;
     int white = 0;
 
     // Count correct positions (black pegs)
     for (int i = 0; i < 4; ++i) {
-        if (code.substr(i, 1) == guess.substr(i, 1)) {
+        if (code[i] == guess[i]) {
             black++;
         }
     }
 
     // Count correct colors (white pegs)
-    int code_counts[6] = {false};
+    bool code_counts[6] = {false};
     int correct_colors = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (!code_counts[code[i] - 'A']) {
-            code_counts[code[i] - 'A'] = true;
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == guess[3-j] && !code_counts[code[j] - 'A']) {
-                    correct_colors++;
-                    code_counts[code[j] - 'A'] = true;
-                    break;
-                }
-            }
+    for (char c : code) {
+        code_counts[c - 'A'] = true;
+        int count = 0;
+        for (char d : guess) {
+            if (d == c) ++count;
         }
+        if (count > 1) continue; 
+        correct_colors++;
     }
 
     white = correct_colors;
 
     return black + white;
+}
