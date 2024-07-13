@@ -5,17 +5,17 @@ std::string camelCase(const std::string& input) {
         return "";
     }
 
-    std::stringstream iss(input + " "); // add a space at the end for the last word
+    std::stringstream iss(input + " "); 
     std::string word;
     std::string result;
 
     while (iss >> word && word != "") { 
         if (!result.empty())
-            result += std::toupper(word[0]);
+            result += char(std::toupper(word[0]));
         else
-            result = word.substr(1);
+            result = std::move(word).substr(1);
         for (int i = 1; i < word.size(); ++i)
-            result += std::tolower(word[i]);
+            result += char(std::tolower(word[i]));
     }
     
     return result;
