@@ -43,5 +43,5 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    return solveBoolean("T&F");
+    return solveBoolean("T|F"); // Change this to your desired input string
 }
