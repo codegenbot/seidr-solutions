@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,24 +22,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int temp;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> temp;
-        input.push_back(temp);
-    }
-    
-    std::vector<int> output = strange_sort_list(input);
-
-    std::cout << "Sorted list: ";
-    for(int i : output)
-        std::cout << i << " ";
-    std::cout << std::endl;
-
+    // Your code here
     return 0;
 }
