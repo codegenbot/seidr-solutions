@@ -1,4 +1,3 @@
-```
 def decode_shift():
     while True:
         password = input("Enter the password: ")
@@ -8,4 +7,5 @@ def decode_shift():
             decoded = "".join([chr(((ord(ch) - 97 + 26 - shift) % 26) + 97) if ch.isalpha() or not ch.isspace() else ch for ch in encoded])
             return decoded
 
-print(decode_shift())
+result = decode_shift()
+print(result)
