@@ -2,8 +2,6 @@
 def find_max_min_average(numbers):
     if not isinstance(numbers, list):
         return "Error: Input is not a list."
-    if len(numbers) == 0:
-        return "Error: Empty list. Please enter non-empty list."
     if not all(isinstance(i, int) for i in numbers):
         return "Error: All elements must be integers."
 
@@ -15,7 +13,11 @@ def find_max_min_average(numbers):
 
 while True:
     try:
-        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+        num_str = input("Enter numbers separated by space: ")
+        if not num_str.strip():
+            print("Error: Please enter at least one number.")
+            continue
+        numbers = list(map(int, num_str.split()))
         break
     except ValueError:
         print("Error: Please enter numeric values separated by spaces.")
