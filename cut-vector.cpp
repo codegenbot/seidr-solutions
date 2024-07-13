@@ -1,41 +1,29 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    for (int i = 0; i < n - 1; ++i) {
-        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
-            vector<vector<int>> res(2);
-            res[0].resize(i + 1);
-            for (int j = 0; j <= i; ++j) {
-                res[0][j] = v[j];
-            }
-            res[1].resize(n - i - 1);
-            for (int j = i + 1; j < n; ++j) {
-                res[1][j - i - 1] = v[j];
-            }
-            return res;
-        }
-    }
-    vector<vector<int>> res(2);
-    res[0].push_back(v[0]);
-    res[1].insert(res[1].end(), v.begin() + 1, v.end());
-    return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
+    int min_diff = INT_MAX;
+    pair<int, int> pos;
+    
     for (int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
-    vector<vector<int>> res = cutVector(v);
-    for (auto &x : res) {
-        for (int y : x) {
-            cout << y << " ";
+        int sum1 = 0, sum2 = 0;
+        
+        for (int j = 0; j < i; ++j)
+            sum1 += v[j];
+        
+        for (int j = i; j < n; ++j)
+            sum2 += v[j];
+        
+        int diff = abs(sum1 - sum2);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            pos = {i, 0};
+        } else if (diff == min_diff && sum1 != sum2) {
+            pos = {i, 0};
         }
-        cout << endl;
     }
-    return 0;
+    
+    return {{v.begin(), v.begin() + pos.first}, {v.begin() + pos.first, v.end()}};
 }
