@@ -35,11 +35,14 @@ int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
     cin >> code;
-    cout << "Enter your guess: ";
+    cout << "Enter a guess: ";
     cin >> guess;
+    
     int white = whitePegs(code, guess);
     int black = blackPegs(code, guess);
+    
     cout << "White pegs: " << white << endl;
     cout << "Black pegs: " << black << endl;
+    
     return 0;
 }
