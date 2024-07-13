@@ -1,3 +1,6 @@
+```cpp
+#include<string>
+
 string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
@@ -18,3 +21,8 @@ string file_name_check(string file_name){
     }
     if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
     return "Yes";
+}
+
+int main() {
+    // Now you can use the function here...
+}
