@@ -3,19 +3,22 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int i = 0;
-    while (i <= text.length() - target.length()) {
-        int j = 0;
-        while (j < target.length() && text[i + j] == target[j]) {
-            if (j == target.length() - 1) {
-                result.push_back(i);
-                i += j + 1;
+    int textSize = text.length();
+    int targetSize = target.length();
+
+    for (int i = 0; i <= textSize - targetSize; i++) {
+        bool isMatch = true;
+        for (int j = 0; j < targetSize; j++) {
+            if (text[i + j] != target[j]) {
+                isMatch = false;
                 break;
             }
-            j++;
         }
-        i++;
+        if (isMatch) {
+            result.push_back(i);
+        }
     }
+
     return result;
 }
 
@@ -26,3 +29,4 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
