@@ -1,38 +1,47 @@
-#include <vector>
 #include <iostream>
-#include <string>
-#include <algorithm>
-
+#include <map>
 using namespace std;
 
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-    
-    for (int i = 0; i < 4; i++) {
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
+            count++;
         }
     }
-    
-    return black + white;
+    return count;
+}
+
+int blackPegs(string code, string guess) {
+    map<char, int> codeMap, guessMap;
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            if (--codeMap[code[i]] == 0 && --guessMap[guess[i]] == 0) {
+                return 1;
+            } else {
+                codeMap[code[i]]++;
+                guessMap[guess[i]]++;
+            }
+        } else {
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
+        }
+    }
+
+    int blackPegs = 0;
+    for (auto& pair : codeMap) {
+        if (pair.second == 1) {
+            blackPegs++;
+        }
+    }
+    return blackPegs;
 }
 
 int main() {
-    string code;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    
-    string guess;
-    cout << "Enter your guess: ";
-    cin >> guess;
-    
-    int mastermindResult = mastermind(code, guess);
-    
-    cout << "Black pegs: " << mastermindResult << endl;
-    cout << "White pegs: " << mastermindResult - 0 << endl;
-    
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
