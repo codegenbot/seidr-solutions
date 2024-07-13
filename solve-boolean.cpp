@@ -1,31 +1,70 @@
+#include <iostream>
+#include <stack>
+#include <string>
+
+using namespace std;
+
+// Node structure for binary tree representing Boolean expression.
+struct Node {
+    char value;
+    Node* left;
+    Node* right;
+};
+
 bool solveBoolean(std::string expression) {
-    std::stack<char> s;
+    // Convert the input string into an abstract syntax tree (AST)
+    Node* ast = parseExpression(expression);
+
+    // Evaluate the AST
+    return evaluateBoolean(ast);
+
+    // Cleanup memory after processing the AST
+    delete ast;
+}
+
+// Parse the input string into a binary tree.
+Node* parseExpression(std::string expression) {
+    stack<Node*> s;
+    Node* node = NULL;
+
     for (int i = 0; i < expression.length(); i++) {
-        if (!s.empty() && (expression[i] == '|' || expression[i] == '&')) {
-            while (!s.empty() && s.top() != '&') {
-                s.pop();
-            }
-            if (s.empty()) return true;
-        } else if (expression[i] == '|') {
-            s.push('|');
+        if (expression[i] == '|') {
+            node->right = new Node();
+            node->right->value = '|';
+            s.push(node);
+            node = node->right;
         } else if (expression[i] == '&') {
-            s.push('&');
-        } else if (expression[i] == 'T') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            if (s.empty()) return true;
-        } else if (expression[i] == 'F') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            return false;
-        } else {
-            s.push(expression[i]);
+            node->right = new Node();
+            node->right->value = '&';
+            s.push(node);
+            node = node->right;
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            node = new Node();
+            node->value = expression[i];
+            s.push(node);
         }
     }
+
+    // Pop the remaining nodes from the stack
     while (!s.empty()) {
-        s.pop();
+        node = s.pop();
     }
-    return true;
+
+    return node;
+}
+
+// Evaluate the binary tree representing a Boolean expression.
+bool evaluateBoolean(Node* node) {
+    if (node->value == 'T' || node->value == 'F') {
+        return node->value == 'T';
+    }
+
+    bool left = evaluateBoolean(node->left);
+    bool right = evaluateBoolean(node->right);
+
+    if (node->value == '|') {
+        return left || right;
+    } else if (node->value == '&') {
+        return left && right;
+    }
 }
