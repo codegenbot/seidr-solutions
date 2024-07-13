@@ -1,3 +1,5 @@
+```
+numbers = list(map(int, input().split()))
 def find_max_min_average(numbers):
     if not isinstance(numbers, list):
         return "Error: Input is not a list."
@@ -9,6 +11,4 @@ def find_max_min_average(numbers):
     average = sum(numbers) / len(numbers)
 
     return f"Max: {max_num}, Min: {min_num}, Average: {average}"
-
-numbers = list(map(int, input().split()))
 print(find_max_min_average(numbers))
