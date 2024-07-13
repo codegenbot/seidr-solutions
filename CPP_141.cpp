@@ -1,36 +1,25 @@
-Here is the solution:
+```cpp
+int digit_count = 0;
+bool has_dot = false;
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(!found_dot && (file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
-            return "No";
-        }
-    }
-    if(found_dot){
-        string extension = "";
-        for(int i=file_name.length()-1; i>=0; i--){
-            if(file_name[i] == '.'){
-                break;
-            }
-            else{
-                extension = file_name[i]+extension;
-            }
-        }
-        if(extension != "txt" && extension != "exe" && extension != "dll"){
-            return "No";
-        }
-    }
-    else{
+for (char c : file_name) {
+    if (isdigit(c)) {
+        digit_count++;
+        if (digit_count > 3) return "No";
+    } else if (c == '.') {
+        has_dot = true;
+    } else if (!has_dot && !isalpha(c)) {
         return "No";
     }
-    return "Yes";
 }
+
+if (!has_dot || file_name.find('.') == string::npos) return "No";
+
+string ext = file_name.substr(file_name.find('.') + 1);
+vector<string> valid_exts = {"txt", "exe", "dll"};
+
+if (find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) {
+    return "No";
+}
+
+return "Yes";
