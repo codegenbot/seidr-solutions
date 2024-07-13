@@ -1,10 +1,11 @@
+```
 import math
 
-def modp(n: int, p: int) -> object:
+def modp(n: int, p: int) -> int:
     if math.gcd(n, p) != 1:
         return None
-    for i in range(2, p):
-        if math.gcd(i, p) == 1 and (i * n) % p == n % p:
+    for i in range(1, p):
+        if (i * n) % p == 1:
             return i
     return None
 
