@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 
@@ -27,8 +26,7 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "XXXX";
-    std::string guess = "XXXX"; 
-    int result = mastermind(code, guess);
+    std::string code = "abcd";
+    std::cout << mastermind(code, "dcab");
     return 0;
 }
