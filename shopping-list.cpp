@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
-#include <iomanip> // for fixed and setprecision
-#include <vector>
+#include <iomanip> 
 using namespace std;
 
 float shoppingList(vector<float> prices, vector<float> discounts) {
@@ -26,3 +26,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
+}
