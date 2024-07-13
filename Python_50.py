@@ -1,6 +1,5 @@
 decode_shift = input("Enter the string: ")
 
-
 def decrypt(decode_shift):
     return "".join(
         [
@@ -12,3 +11,5 @@ def decrypt(decode_shift):
             for ch in decode_shift
         ]
     )
+
+print(decrypt(decode_shift))
