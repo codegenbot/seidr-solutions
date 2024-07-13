@@ -1,4 +1,3 @@
-```
 def find_closest_elements():
     while True:
         input_str = input("Enter numbers separated by space: ")
@@ -10,14 +9,14 @@ def find_closest_elements():
         try:
             numbers = [float(num) for num in input_str.split() if num]
             if len(numbers) < 2:
-                raise ValueError
+                raise ValueError("Please enter at least two numbers")
             break
-        except ValueError:
-            print("Program did not receive expected input. Please enter at least two numbers separated by a space.")
-
-    min_diff = float("inf")
+        except ValueError as e:
+            print(f"Program did not receive expected input. {e}. Please try again.")
+    
+    min_diff = float('inf')
     closest_pair = ()
-
+    
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
             diff = abs(numbers[i] - numbers[j])
