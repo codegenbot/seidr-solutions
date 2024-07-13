@@ -1,27 +1,38 @@
 #include <iostream>
-#include <cctype>
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string& str) {
-    std::string result;
-    bool capitalize = true;
+    std::string words[1024]; // Assuming max 1023 words
+    int i = 0;
+    char c;
+    do {
+        c = str[i++];
+    } while (c != '\0' && c != '-' && c != ' ');
+    if (c != '\0') {
+        words[0] = std::string(&str[0], &str[i-1]);
+    }
 
-    for (char c : str) {
-        if (c == '-') {
-            if(capitalize){
-                int pos = str.find(c);
-                result += toupper(str.substr(pos+1, 0));
-                str.erase(0, pos + 1);
-                capitalize = false;
-            }
-            result += ' ';
+    for (; c != '\0'; i++) {
+        do {
+            c = str[i];
+        } while (c != '\0' && c != '-');
+        if (c != '\0') {
+            words[++i] = std::string(&str[i], &str[i+1]-1);
+        }
+    }
+
+    std::string result;
+    for(int i = 0; i < sizeof(words)/sizeof(words[0]); i++) {
+        if(i > 0) {
+            result += (toupper(words[i][0]));
         } else {
-            if(capitalize){
-                result += toupper(c);
-                capitalize = false;
-            }else{
+            for(char c : words[i]) {
                 result += tolower(c);
             }
+        }
+        if(i < sizeof(words)/sizeof(words[0])-1) {
+            result += " ";
         }
     }
 
