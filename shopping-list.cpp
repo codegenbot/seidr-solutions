@@ -1,4 +1,5 @@
-#include <iomanip>
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -30,6 +31,6 @@ int main() {
     }
     
     double result = shoppingList(prices, discounts);
-    cout << fixed << setprecision(2) << "Total price after discount: $" << result << endl;
+    cout << "Total price after discount: $" << result << endl;
     return 0;
 }
