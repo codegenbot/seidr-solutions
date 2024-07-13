@@ -1,8 +1,10 @@
-long long double_the_difference(vector<float> lst){
+Here's the solution:
+
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for(float f:lst){
-        if(f > 0 && floor(f) == f){
-            sum += (f*f);
+    for (float x : lst) {
+        if (x >= 0 && isfinite(x) && modf(x, &x) == 0) {
+            sum += pow(x, 2);
         }
     }
     return sum;
