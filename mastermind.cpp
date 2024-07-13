@@ -1,10 +1,10 @@
 int mastermind(std::string code, std::string guess) {
-    int black = 0; // Correct color & place
-    int white = 0; // Correct color, wrong place
+    int black = 0;
+    int white = 0;
 
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            black++; // Correct color & place
+            black++;
         }
     }
 
