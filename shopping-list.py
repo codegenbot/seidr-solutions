@@ -5,7 +5,4 @@ def shopping_list():
     total_price = sum(
         price * (1 - discount / 100) for price, discount in zip(prices, discounts)
     )
-    return round(total_price, 6)
-
-
-print(shopping_list())
+    return total_price
