@@ -1,8 +1,8 @@
-```
 import re
 
 
 def fix_spaces(text):
+    text = ""
     while True:
         try:
             text = input("Enter a string: ")
