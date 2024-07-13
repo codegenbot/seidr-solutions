@@ -11,13 +11,10 @@ string spinWords(string str) {
                 string reversedWord = "";
                 for (int j = wordLength - 1; j >= 0; j--)
                     reversedWord += str[i-1-j];
-                result.append(reversedWord).append(" ");
+                result += reversedWord + " ";
             } else
-                result.append(str.substr(result.length(), wordLength + 1)).append(" ");
+                result += str.substr(i - wordLength - 1, wordLength + 1) + " ";
         }
     }
     return result.substr(0, result.length() - 1);
-}
-
-int main() {
 }
