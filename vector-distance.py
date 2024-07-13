@@ -3,9 +3,8 @@ v1 = list(map(float, input().split()))
 m = int(input())
 v2 = list(map(float, input().split()))
 
+import math
 
-def euclidean_distance(v1, v2):
-    return math.sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
+distance = math.sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
 
-
-print(euclidean_distance(v1, v2))
+print(distance)
