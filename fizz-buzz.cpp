@@ -1,12 +1,15 @@
 #include <string>
 
 string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0)
+    string result;
+    if (x % 3 == 0 && x % 5 == 0) {
         return "FizzBuzz";
-    else if (x % 3 == 0)
+    } else if (x % 3 == 0) {
         return "Fizz";
-    else if (x % 5 == 0)
+    } else if (x % 5 == 0) {
         return "Buzz";
-    else
-        return to_string(x);
+    } else {
+        result = to_string(x);
+    }
+    return result;
 }
