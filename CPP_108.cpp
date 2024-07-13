@@ -1,5 +1,18 @@
+```cpp
 #include <iostream>
 #include <vector>
+
+int main() {
+    int n;
+    std::cout << "Enter numbers: ";
+    std::vector<int> nums;
+    while (std::cin >> n) {
+        nums.push_back(n);
+    }
+    int count = count_nums(nums);
+    std::cout << "Count of numbers with sum greater than 0: " << count << std::endl;
+    return 0;
+}
 
 int count_nums(vector<int> nums) {
     int count = 0;
@@ -17,7 +30,7 @@ int count_nums(vector<int> nums) {
             }
         } else {
             int sum = 0, i = 1;
-            int n = abs(num);
+            n = abs(num);
             while (n > 0) {
                 int digit = n % 10;
                 if (digit != 0 || i == 1) {
@@ -32,15 +45,4 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter numbers: ";
-    std::vector<int> nums;
-    while (std::cin >> n) {
-        nums.push_back(n);
-    }
-    std::cout << "Number of positive sums: " << count_nums(nums) << std::endl;
-    return 0;
 }
