@@ -1,21 +1,30 @@
-Here is the completed code for the problem:
+```
+try:
+    a = int(input())
+    b = int(input())
+except ValueError:
+    print("Invalid input. Please enter integers.")
 
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
-def find_indices(text, target):
-    indices = []
-    start = 0
-    while True:
-        pos = text.find(target, start)
-        if pos == -1:
-            break
-        indices.append(pos)
-        start = pos + 1
-    return indices
+print(gcd(a, b))
 
-# test cases
-print(gcd(1, 1)) 
-print(find_indices("banana", "ana"))
+text = input()
+target = input()
+
+def indices_of_substring(text, target):
+    result = []
+    start_index = 0
+    while start_index < len(text):
+        pos = text.find(target, start_index)
+        if pos != -1:
+            result.append(pos)
+            start_index = pos + 1
+        else:
+            break
+    return result
+
+print(indices_of_substring(text, target))
