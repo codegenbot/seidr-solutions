@@ -9,11 +9,8 @@ std::string kebabToCamel(const std::string& s) {
 
     while (ss >> word) {
         if (!result.empty()) {
-            result += word;
+            result += word.substr(0, 1).toupper() + word.substr(1).lower();
         } else {
-            for (char & c : word) {
-                c = toupper(c);
-            }
             result = word;
         }
     }
