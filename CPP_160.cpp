@@ -1,15 +1,15 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = operand[0];
-    for (int i = 0; i < operato.size(); i++) {
-        if (operato[i] == "+") {
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
             result += operand[i + 1];
-        } else if (operato[i] == "-") {
+        } else if (operator_[i] == "-") {
             result -= operand[i + 1];
-        } else if (operato[i] == "*") {
+        } else if (operator_[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operator_[i] == "///") { // Floor division
             result = result / operand[i + 1];
-        } else if (operato[i] == "**") {
+        } else if (operator_[i] == "**") { // Exponentiation
             result = pow(result, operand[i + 1]);
         }
     }
