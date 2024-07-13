@@ -1,9 +1,15 @@
-int basement(std::vector<int> &v) {
-    int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum < 0)
-            return i;
+Here is the solution:
+
+#include <vector>
+using namespace std;
+
+int basement(vector<int>& numbers) {
+    for (int i = 0; i < numbers.size(); i++) {
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += numbers[j];
+            if (sum < 0) return i;
+        }
     }
-    return -1; // or any other value to indicate no such index exists
+    return -1;
 }
