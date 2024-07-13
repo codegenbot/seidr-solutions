@@ -1,13 +1,14 @@
 bool solveBoolean(string s) {
-    bool res = true;
-    for (char c : s) {
-        if (c == 'T') continue;
-        if (c == 'F') return false;
-        else if (c == '&') {
-            res &= false;
-        } else if (c == '|') {
-            res |= false;
+    bool result = true;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'F') {
+            result = false;
+            break;
+        } else if (s[i] == '&') {
+            result &= true;
+        } else if (s[i] == '|') {
+            result |= true;
         }
     }
-    return res;
+    return result;
 }
