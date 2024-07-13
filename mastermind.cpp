@@ -1,4 +1,7 @@
-```cpp
+```c++
+#include <iostream>
+using namespace std;
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -24,4 +27,13 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    string code = "XXXX";  
+    string guess = "XXXX";  
+
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result - (result > 4) << endl;
+    return 0;
 }
