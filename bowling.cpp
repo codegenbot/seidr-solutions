@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,20 +15,21 @@ int bowlingScore(string s) {
             roll = 0;
         } else {
             int temp = c - '0';
-            score += temp;
-            roll--;
-        }
-        if (roll == 0) {
-            score += 10;
-            roll = 1;
+            if (roll > 0) {
+                score += temp;
+                roll--;
+            } else {
+                score += temp * 2;
+            }
         }
     }
     return score;
 }
 
 int main() {
-    string s = "X/----X-8-5--;7/X,X/-XXX--";
-    int result = bowlingScore(s);
-    cout << "The score is: " << result << endl;
+    string s;
+    cout << "Enter the string representing the individual bowls: ";
+    cin >> s;
+    cout << "The score for this round is: " << bowlingScore(s) << endl;
     return 0;
 }
