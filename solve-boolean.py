@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     for char in expression:
@@ -11,7 +10,7 @@ def solve_boolean(expression):
             stack.append(result)
         elif char == '|':
             second_operand = stack.pop()
-            first_operand = stack.pop()
+            first_operand = stack_pop()
             result = False
             if first_operand or second_operand:
                 result = True
