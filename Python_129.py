@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def dfs(i, j, path, visited, k, index, result):
     if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or visited[i][j] or path.index(index) + 1 > k:
         return
