@@ -18,9 +18,9 @@ int main() {
     }
 
     float sum = 0.0;
-    size_t limit = std::max(n, m);
+    size_t limit = std::min(n, m);
     for (size_t i = 0; i < limit; ++i) {
-        float diff = (i < n ? vec1[i] : 0) - (i < m ? vec2[i] : 0);
+        float diff = vec1[i] - vec2[i];
         sum += diff * diff;
     }
 
