@@ -3,7 +3,7 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool isNextUpper = false;
+    bool isNextUpper = (str.empty()) ? false : true;
     for (const auto& c : str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
@@ -31,8 +31,7 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
+    while (std::getline(std::cin, str)) {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
