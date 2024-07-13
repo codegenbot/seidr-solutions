@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-
 using namespace std;
 
 int main() {
@@ -21,7 +20,7 @@ int main() {
     }
 
     for (int i = 0; i < 6; ++i) {
-        whitePegs += std::min(codeFreq[i], guessFreq[i]);
+        whitePegs += min(codeFreq[i], guessFreq[i]);
     }
 
     cout << whitePegs << endl;
