@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 #include <iostream>
@@ -33,4 +32,3 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
-}
