@@ -29,3 +29,12 @@ int bowlingScore(std::string s) {
 
     return score;
 }
+
+int main() {
+    std::string input;
+    std::cout << "Enter your bowling score: ";
+    std::cin >> input;
+
+    int result = bowlingScore(input);
+    return 0;
+}

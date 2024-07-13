@@ -24,7 +24,7 @@ int main() {
     }
 
     std::cout << std::fixed << std::setprecision(10);
-    cout << totalDistance << endl;
+    std::cout << totalDistance << endl;
 
     return 0;
 }
