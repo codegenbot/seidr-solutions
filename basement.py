@@ -1,7 +1,5 @@
-Here is the solution in Python:
-
-def basement(vector):
-    for i in range(len(vector)):
-        if sum(vector[:i+1]) < 0:
+def basement(nums):
+    for i in range(len(nums)):
+        if sum(nums[: i + 1]) < 0:
             return i
     return -1
