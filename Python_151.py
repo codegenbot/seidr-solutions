@@ -14,6 +14,6 @@ def check():
         except ValueError:
             print("Invalid input. Please enter space-separated numbers.")
 
-    print(double_the_difference(numbers))
+    print("{}{}".format("The difference between the maximum and minimum values is: ", double_the_difference(numbers)))
 
 check()
