@@ -1,8 +1,9 @@
-```Python
-def minPath(grid, k):
+Here is the modified code:
+
+`def shortestPaths(grid, k): 
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
-
+    
     def dfs(i, j, path, visited, length):
         if len(path) == k:
             return [path]
@@ -22,4 +23,4 @@ def minPath(grid, k):
             paths = dfs(i, j, [], set(), 0)
             if paths and (not result or max(map(len, paths)) < max(map(len, result))):
                 result = paths
-    return min(result) if result else []
+    return min(result) if result else []`
