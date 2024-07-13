@@ -1,3 +1,5 @@
+```cpp
+#include <string>
 #include <set>
 
 int mastermind(string code, string guess) {
