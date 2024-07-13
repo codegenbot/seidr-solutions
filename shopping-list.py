@@ -3,10 +3,10 @@ def shopping_list():
     total_price = 0
     while True:
         try:
-            price_discount = input().split()
-            price = float(price_discount[0])
-            discount = float(price_discount[1].strip())
-            total_price += price - (price * (discount / 100))
+            prices_discounts = input().split()
+            price = float(prices_discounts[0])
+            discount = float(prices_discounts[1]) / 100
+            total_price += price - (price * discount)
         except ValueError:
             break
     return round(total_price, 2)
