@@ -1,29 +1,19 @@
 #include <string>
 #include <cctype>
 #include <iostream>
-#include <vector>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    std::vector<std::string> words;
-    size_t pos = 0;
-
-    // Split input string by "-"
-    while ((pos = str.find("-")) != std::string::npos) {
-        words.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-
-    if (!str.empty()) {
-        words.push_back(str);
-    }
-
-    for (const auto& word : words) {
-        if (result.empty()) {
-            result = toupper(word);
-        } else {
-            result += " (" + tolower(word.substr(0, 1)) + toupper(word.substr(1)) + ")";
+    while (!str.empty()) {
+        size_t pos = str.find(" ");
+        if (pos == std::string::npos) {
+            pos = str.length();
         }
+        result += toupper(str[0]); 
+        for (int i = 1; i < pos; ++i) {
+            result += tolower(str[i]);
+        }
+        str.erase(0, pos + 1);
     }
 
     return result;
