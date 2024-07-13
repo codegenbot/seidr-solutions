@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     min_diff = float("inf")
     split_index = 0
@@ -11,4 +10,4 @@ def cut_vector(vector):
             min_diff = abs(left_sum - right_sum)
             split_index = i
 
-    return vector[:split_index], sum(vector[:split_index]), vector[split_index:], sum(vector[split_index:])
+    return vector[:split_index], vector[split_index:]
