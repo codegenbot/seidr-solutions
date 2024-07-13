@@ -1,3 +1,4 @@
+```
 def filter_by_prefix() -> None:
     string_list = []
     while True:
@@ -7,9 +8,8 @@ def filter_by_prefix() -> None:
         string_list.append(s)
     prefix = input("Enter the prefix: ")
 
-    result = [s for s in string_list if s.startswith(prefix)]
-    print(result)
+    def main(string_list: list[str], prefix: str) -> None:
+        result = [s for s in string_list if s.startswith(prefix)]
+        print(result)
 
-
-def check(function):
-    function()
+    main(string_list, prefix)
