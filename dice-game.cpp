@@ -11,15 +11,11 @@ int main() {
 
     double sum = 0.0;
     
-    // Calculate probability where Colin rolls i
-    for(int i = 1; i <= m; i++) {
-        double tempSum = 0.0;
-        
+    // Calculate probability where Colin rolls 1 to m-1
+    for(int i = 1; i < m; i++) {
         for(int j = i + 1; j <= n; j++) {
-            tempSum += (1.0 / (double)m) * (1.0 / (double)n);
+            sum += (1.0 / (double)m) * (1.0 / (double)(n - j + 1));
         }
-        
-        sum += tempSum;
     }
 
     cout << fixed << setprecision(10) << sum << endl;
