@@ -12,27 +12,15 @@ vector<vector<int>> cutVector(vector<int> v) {
         leftSum += v[i];
         
         long long rightSum = 0;
-        for (int j = i + 1; j < n; j++) {
-            rightSum += v[j];
-        }
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if(i == 0 || diff < abs(leftSum - std::accumulate(v.begin(), v.end(), 0))) {
-            res[0] = vector<int>(v.begin(), v.end());
-            res[1].clear();
-            return res;
-        }
-    }
-    
-    long long totalSum = std::accumulate(v.begin(), v.end(), 0);
-    int left = 0, right = 0;
-    for(int i = 0; i < n; i++) {
-        totalSum -= v[i];
-        if(totalSum == 0) {
-            res[0] = vector<int>(v.begin(), v.begin() + i+1);
-            res[1] = vector<int>(v.begin() + i+1, v.end());
-            return res;
+        for (int j = i + 1; j <= n; j++) {
+            rightSum += v[j-1]; 
+            int diff = abs(leftSum - rightSum);
+            
+            if(i == 0 || diff < abs(leftSum - accumulate(v.begin(), v.end(), 0))) {
+                res[0] = vector<int>(v.begin(), v.begin() + i+1);
+                res[1] = vector<int>(v.begin() + i, v.end()); 
+                return res;
+            }
         }
     }
     
