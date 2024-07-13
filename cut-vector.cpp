@@ -1,6 +1,5 @@
-#include <vector>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -47,6 +46,6 @@ int main() {
     for(int i=0; i<res[1].size(); i++) 
         cout << res[1][i] << " ";
     cout << "]" << endl;
-
+    
     return 0;
 }
