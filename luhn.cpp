@@ -23,5 +23,23 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
+    vector<int> input;
+    int cardNumber;
+
+    while (true) {
+        cout << "Enter a credit card number: ";
+        cin >> cardNumber;
+        if (cardNumber == 0)
+            break;
+        
+        while (cardNumber != 0) {
+            input.push_back(cardNumber % 10);
+            cardNumber /= 10;
+        }
+        
+        int result = luhn(input);
+        cout << "The Luhn check is: " << (result % 10 ? "Invalid" : "Valid") << endl;
+    }
+
     return 0;
 }
