@@ -1,18 +1,15 @@
+```cpp
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    
-    if(n == 0) return res;
-    
-    int maxRightSoFar = arr.back(); // the rightmost element is always a leader
-    res.push_back(maxRightSoFar);
-    
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= maxRightSoFar) {
+    int maxSeen = arr.back(); // initialize with the rightmost element
+
+    for (int i = n - 1; i >= 0; i--) {
+        if (arr[i] >= maxSeen) {
             res.push_back(arr[i]);
-            maxRightSoFar = arr[i];
+            maxSeen = arr[i]; // update maximum seen
         }
     }
-    
+
     return res;
 }
