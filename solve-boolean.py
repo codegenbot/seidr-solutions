@@ -1,10 +1,13 @@
-def solveBoolean(s):
-    if s == "T":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif s == "F":
+    elif expression == "F":
         return False
-    elif "&" in s:
-        left, right = s.split("&")
-        return not (bool(eval(left)) and bool(eval(right)))
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (bool(left) and bool(right))
     else:
-        return not (bool(eval(s)))
+        left, right = expression.split("|")
+        return bool(left) or bool(right)
