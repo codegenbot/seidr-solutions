@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -31,7 +32,7 @@ int main() {
     std::string guess = "abcd"; // or any other valid combination
 
     int whitePegs = mastermind(code, guess);
-    std::cout << "Number of black pegs: " << whitePegs << std::endl;
+    std::cout << "Number of white pegs: " << whitePegs << std::endl;
 
     return 0;
 }
