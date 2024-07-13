@@ -1,17 +1,20 @@
+```cpp
+#include <vector>
 #include <iostream>
 #include <string>
 #include <algorithm>
 
 using namespace std;
 
+int wordStart = 0;
 string spinWords(string str) {
     string result = "";
     
-    int start = 0;
-    
     for(int i=0; i<str.length(); i++) {
+        string word;
+        
         if(i == str.length() - 1) {
-            string word = str.substr(start, i-start+1);
+            word = str.substr(i);
             
             if(word.length() >= 5) {
                 reverse(word.begin(), word.end());
@@ -19,16 +22,17 @@ string spinWords(string str) {
             
             result += word + " ";
         } else if (str[i] == ' ') {
-            string word = str.substr(start, i-start);
-            
+            word = str.substr(wordStart, i-wordStart);
+
             if(word.length() >= 5) {
                 reverse(word.begin(), word.end());
             }
 
             result += word + " ";
-            start = i+1;
+            wordStart = i+1;
         } else {
-            start++;
+            word += str[i];
+            wordStart = i;
         }
     }
     
