@@ -10,15 +10,14 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    int m;
-    std::cin >> m;
-    std::vector<float> vec2(m);
-    for (int i = 0; i < m; ++i) {
+    std::cin >> n;
+    std::vector<float> vec2(n);
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
     float sum = 0.0;
-    for (int i = 0; i < std::min(n, m); ++i) {
+    for (int i = 0; i < n; ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
