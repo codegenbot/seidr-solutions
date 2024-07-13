@@ -5,4 +5,7 @@ def fix_spaces(text):
     return text
 
 text = input("Enter your text: ")
-print(fix_spaces(text))
+if ' ' in text:
+    print(fix_spaces(text))
+else:
+    print(text)
