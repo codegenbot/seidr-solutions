@@ -1,43 +1,42 @@
-```c++
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-        }
-    }
-
-    return result;
-}
-
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     while (b != 0) {
-        int temp = b;
+        long long temp = b;
         b = a % b;
         a = temp;
     }
     return a;
 }
 
-int main() {
-    int a, b;
-    cout << "Enter two numbers: ";
-    cin >> a >> b;
-    cout << "GCD is: " << gcd(a, b) << endl;
+vector<long long> indicesOfSubstring(string text, string target) {
+    vector<long long> result;
+    long long n = text.length();
+    long long m = target.length();
 
-    string text, target;
-    cout << "Enter text and target: ";
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << " ";
+    for (long long i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(int(i));
+            while (i + m <= n && text.substr(i, m) == target) {
+                i++;
+            }
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    cout << "GCD of 12 and 15: " << gcd(12, 15) << endl;
+    string text = "Hello world";
+    string target = "world";
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int index : indices) {
+        cout << "Target found at index: " << index << endl;
     }
     return 0;
 }
