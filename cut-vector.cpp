@@ -19,12 +19,12 @@ int main() {
         int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
         int sum1 = 0, minDiff = totalSum, newDiff;
 
-        for (int i = 0; i <= n - 1; ++i) {
-            sum1 += nums[i];
+        for (int i = 1; i < n; ++i) {
+            sum1 += nums[i - 1];
             newDiff = std::abs(totalSum - 2 * sum1);
             if (newDiff < minDiff) {
                 minDiff = newDiff;
-                cutIndex = i;
+                cutIndex = i - 1;
             }
         }
 
