@@ -8,7 +8,10 @@ def bowling_score(frames):
             index += 1
         elif frames[index] in ['/']:
             left_pins = int(frames[index - 1])
-            right_pins = int(frames[index][1])
+            if frames[index] == '/':
+                right_pins = 10
+            else:
+                right_pins = int(frames[index][1])
             frame_score = left_pins + right_pins
             if left_pins == 10:
                 score += 10 + (30 - left_pins)
