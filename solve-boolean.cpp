@@ -1,30 +1,24 @@
-bool solveBoolean(const std::string& s) {
-    if (!std::all_of(s.begin(), s.end(), ::isdigit)) {  
-        for (char c : s) {  
-            if (c == 'T' || c == 'F' || c == '&' || c == '|') {
-                return true;  
-            }
-        }
-    }  
+#include <cstddef>
+#include <string>
 
-    bool result = true;
-    int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'T') {
+bool solveBoolean(std::string expression) {
+    bool result = false;
+    size_t i = 0;
+
+    while (i < expression.length()) {
+        if (expression[i] == 'T') {
             result = true;
-            i++;
-        } else if (s[i] == 'F') {
+            break;
+        } else if (expression[i] == 'F') {
             result = false;
+            break;
+        } else if (expression[i] == '|') {
             i++;
-        } else if (s[i] == '|') {
-            bool temp = result;
-            result = !result;
-            while (i < s.size() && s[i] == '|') i++;
-        } else if (s[i] == '&') {
-            bool temp = true;  
-            while (i < s.size() && s[i] == '&') i++;
-            result &= temp;  
+        } else if (expression[i] == '&') {
+            i++;
         }
+        i++;
     }
+
     return result;
 }
