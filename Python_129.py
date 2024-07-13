@@ -1,6 +1,7 @@
-def shortestPaths(grid, k): 
+```
+def shortestPaths(grid, k):
     n = len(grid)
-    m = [i * n + j for i in range(n) for j in range(n)]
+    m = [[i * n + j for j in range(n)] for i in range(n)]
     
     def dfs(i, j, path, visited, length):
         if len(path) == k:
