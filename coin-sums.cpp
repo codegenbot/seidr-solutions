@@ -6,25 +6,24 @@ int main() {
     cin >> cents;
     
     int quarters = cents / 25; 
-    cents %= 25;
+    int remaining_cents = cents % 25;
     
-    int dimes = cents / 10; 
-    cents %= 10;
+    int dimes = remaining_cents / 10; 
+    int remaining_dimes = remaining_cents % 10;
     
-    int nickels = cents / 5; 
-    cents %= 5;
+    int nickels = remaining_dimes / 5; 
+    int remaining_nickels = remaining_dimes % 5;
     
-    cents %= 5; // add this line
-    int pennies = cents;
+    int pennies = remaining_nickels;
 
     cout << "Coins: " << quarters << " quarter" << (quarters > 1 ? "s" : "") << endl;
-    if(quarters > 0) cout << (quarters == 1 ? "" : "s ") << quarters << " remaining\n";
+    if(quarters > 0) cout << (quarters == 1 ? "" : "s ") << (cents - quarters * 25) << " remaining\n";
     
     cout << "Dimes: " << dimes << " dime" << (dimes > 1 ? "s" : "") << endl;
-    if(dimes > 0) cout << (dimes == 1 ? "" : "s ") << dimes << " remaining\n";
+    if(dimes > 0) cout << (dimes == 1 ? "" : "s ") << (remaining_cents - dimes * 10) << " remaining\n";
     
     cout << "Nickels: " << nickels << " nickel" << (nickels > 1 ? "s" : "") << endl;
-    if(nickels > 0) cout << (nickels == 1 ? "" : "s ") << nickels << " remaining\n";
+    if(nickels > 0) cout << (nickels == 1 ? "" : "s ") << (remaining_dimes - nickels * 5) << " remaining\n";
     
     cout << "Pennies: " << pennies << " penny" << (pennies > 1 ? "s" : "") << endl;
     
