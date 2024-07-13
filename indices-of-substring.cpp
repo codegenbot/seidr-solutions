@@ -15,9 +15,6 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
                 result.push_back(i);
                 i += j;
             }
-            else if (text[i+j] != target[j]) { 
-                i += 1; 
-            }
         }
     }
 
