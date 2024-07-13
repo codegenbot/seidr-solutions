@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -5,14 +9,10 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        }
-    }
-
-    for (char c : code) {
-        if (count(guess.begin(), guess.end(), c) > 0) {
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
     }
 
-    return black + (4 - black);
+    return {black, white}[1];
 }
