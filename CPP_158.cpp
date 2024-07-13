@@ -1,19 +1,11 @@
 string find_max(vector<string> words){
-    string result = *min_element(words.begin(),words.end(),[&](const string &a,const string &b){
-        if(a.size() == b.size())
-            return a < b;
-        return a.size() > b.size();
-    });
-    for(auto word:words){
-        int uniqueCount = 0;
-        bool found[256] = {false};
-        for(char c:word){
-            if(!found[c])
-                uniqueCount++;
-            found[c]=true;
+    string result = *min_element(words.begin(), words.end());
+    for(string s : words){
+        if(count(s.begin(), s.end, [](char c){return isalpha(c);}) > count(result.begin(), result.end(), [](char c){return isalpha(c);})) {
+            result = s;
         }
-        if(uniqueCount > (result.size())){
-            result = word;
+        else if(count(s.begin(), s.end, [](char c){return isalpha(c);}) == count(result.begin(), result.end(), [](char c){return isalpha(c);}) && s < result) {
+            result = s;
         }
     }
     return result;
