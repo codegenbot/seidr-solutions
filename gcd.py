@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -6,16 +7,32 @@ def gcd(a, b):
 
 def indices_of_substring(text, target):
     result = []
-    pos = 0
-    while pos < len(text):
-        pos = text.find(target, pos)
-        if pos == -1:
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos != -1:
+            result.append(pos)
+            start = pos + 1
+        else:
             break
-        result.append(pos + 1)
-        pos += 1
     return result
 
 
-# test the functions
-print(gcd(1, 1))
-print(indices_of_substring("This is a test", "is"))
+try:
+    a = int(input())
+    b = int(input())
+
+    if not isinstance(a, int) or not isinstance(b, int):
+        print("Invalid input: Both inputs must be integers.")
+    else:
+        print(gcd(a, b))
+
+    text = input()
+    target = input()
+
+    if len(target) > len(text):
+        print("Invalid input: Target string cannot be longer than the text string.")
+    else:
+        print(indices_of_substring(text, target))
+except ValueError as e:
+    print("Invalid input:", str(e))
