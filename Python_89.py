@@ -3,13 +3,9 @@ def encrypt(s):
     for char in s: 
         if char.isalpha(): 
             offset = 65 if char.isupper() else 97
-            shift = 3 if char.isupper() else 3 if char.islower() else 0
-            result += chr((ord(char) - offset + shift) % 26 + offset)
-        else:  
-            if char.isdigit():  
-                result += char
-            elif char in '/.:!?,";\'-_:':
-                result += char
-            else:
-                result += char  
+            result += chr((ord(char) - offset + 3) % 26 + offset)
+        elif char.isspace():  
+            result += ' '
+        else:
+            result += char  
     return result
