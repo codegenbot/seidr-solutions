@@ -4,9 +4,11 @@
 
 char toLower(char c) {
     if (c >= 'A' && c <= 'Z') {
-        return c - 'A' + 'a' - 'A';
+        return c - 'A' + 'a';
+    } else if (c >= 'a' && c <= 'z') {
+        return c;
     }
-    return c;
+    return ' ';
 }
 
 int main() {
