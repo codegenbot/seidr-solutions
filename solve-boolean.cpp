@@ -25,4 +25,3 @@ bool solveBoolean(string expression) {
         }
     }
     return true;
-}
