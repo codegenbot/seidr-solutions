@@ -1,5 +1,3 @@
-#include <vector>
-
 std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> result;
     int lastLeader = arr.back();
