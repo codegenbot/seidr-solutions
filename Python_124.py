@@ -1,5 +1,5 @@
-```Python
-def """Return True if the given date is valid (month/day/year format)"""
+'''
+def valid_date(date):
     month, day, year = date.split('-')
     if len(month) == 1:
         month = '0' + month
