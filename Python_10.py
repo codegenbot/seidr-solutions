@@ -1,3 +1,4 @@
+```
 def make_palindrome(string: str) -> str:
     n = len(string)
     prefix = ""
