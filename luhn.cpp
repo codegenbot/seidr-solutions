@@ -11,16 +11,11 @@ int luhn(const std::vector<int>& cardNumber) {
         sum += digit;
     }
     return sum % 10;
-
 }
 
 int main() {
-    std::vector<int> cardNumber = {};
-    for (int i = 0; i < 16; ++i) {
-        int num;
-        std::cin >> num;
-        cardNumber.push_back(num);
-    }
-    std::cout << luhn(cardNumber) << std::endl;
+    std::vector<int> cardNumber = {4,3,2,8,7,9,6,0,5,5,5,9,3,4,2,1};
+    int result = luhn(cardNumber);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
