@@ -1,5 +1,3 @@
-```
-#include <sstream>
 #include <string>
 
 int bowlingScore(std::string s) {
