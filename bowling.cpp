@@ -1,5 +1,3 @@
-#include <string>
-
 using namespace std;
 
 int bowlingScore(string s) {
@@ -8,10 +6,7 @@ int bowlingScore(string s) {
         if (s[i] == 'X') {
             score += 30;
         } else if (s[i] == '/') {
-            if (i > 0) {
-                score += bowlingScoreHelper(s.substr(0, i));
-            }
-            score += 10;
+            score += 10 + bowlingScoreHelper(s.substr(i, s.length() - i));
         } else if (s[i] == ' ') {
             int prevRoll = s[i - 1] - '0';
             int currentRoll = s[i + 1] - '0';
@@ -40,3 +35,5 @@ int bowlingScoreHelper(string s) {
         }
     }
     return score;
+
+#include <string>
