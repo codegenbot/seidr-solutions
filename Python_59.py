@@ -29,7 +29,7 @@ def main():
                     break
                 else:
                     print("Invalid input. Please enter 'y' or 'n'.")
-                cont = input("Do you want to calculate again? (y/n): ")
+                    cont = input("Please try again: ")
             if cont.lower() != "y":
                 break
         except ValueError:
