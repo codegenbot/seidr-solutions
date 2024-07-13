@@ -1,6 +1,3 @@
-#include <sstream>
-#include <string>
-
 std::string validateTweet(std::string tweet) {
     if (tweet.length() > 140) {
         return "Too many characters";
