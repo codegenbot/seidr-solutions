@@ -1,4 +1,4 @@
-#include <utility>
+#include <pair>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
@@ -28,5 +28,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
 
-    return {left, right};
+    return make_pair(left, right);
 }
