@@ -10,4 +10,5 @@ string int_to_roman(int number) {
             result += p.second;
         }
     }
-    return result;
+    return to_string(number).empty() ? result : "";
+}
