@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == "t":
         return True
@@ -29,5 +28,5 @@ def solve_boolean(expression):
                 continue
             val2 = stack.pop()
             val1 = stack.pop()
-            stack.append(val1 if not val1 or val2 else val1)
+            stack.append(val1 if val1 else val2)
         return stack[0]
