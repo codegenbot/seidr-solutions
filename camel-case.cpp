@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <cctype>
-#include <iostream>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -8,16 +9,13 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!capitalize) {
-                result += toupper(str.find(c) + 1);
-                capitalize = true;
-            }
             result += ' ';
-        } else if (capitalize) {
+            capitalize = true; // Capitalize next letter
+        } else if (capitalize) { 
             result += toupper(c);
-            capitalize = false;
+            capitalize = false; 
         } else {
-            result += tolower(c);
+            result += tolower(c); 
         }
     }
 
@@ -30,3 +28,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Camel Case: " << camelCase(input) << std::endl;
     return 0;
+}
