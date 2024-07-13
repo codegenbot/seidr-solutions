@@ -18,7 +18,6 @@ int main() {
     }
 
     double distance = sqrt(sum);
-
     cout << distance << endl;
 
     return 0;
