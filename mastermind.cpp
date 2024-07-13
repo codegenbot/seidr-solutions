@@ -35,3 +35,4 @@ int main() {
     cout << "White pegs: " << result[1] << endl;
     
     return 0;
+}
