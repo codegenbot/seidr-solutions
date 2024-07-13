@@ -1,4 +1,3 @@
 def sort_third(l: list):
-    return sorted(
-        [sublist[2] for sublist in zip(*[l[i::3] for i in range(3)])], reverse=True
-    )
+    l = [l[i : i + 3] for i in range(0, len(l), 2)]
+    return [sorted(sublist) if sublist else [] for sublist in l]
