@@ -1,18 +1,29 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
+vector<int> cutVector(vector<int>& v) {
     int min_diff = INT_MAX;
-    vector<int> left, right;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
+    int cut_index = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
         if (diff <= min_diff) {
             min_diff = diff;
-            left = vector<int>(vec.begin(), vec.begin() + i + 1);
-            right = vector<int>(vec.begin() + i + 1, vec.end());
+            cut_index = i;
         }
     }
+    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
+}
 
-    return {left, right};
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    vector<int> result = cutVector(v);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    return 0;
 }
