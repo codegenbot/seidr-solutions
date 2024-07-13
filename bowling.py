@@ -26,7 +26,7 @@ def bowling_score(game):
                 score += 10
                 last_frame = True
             elif last_frame:
-                score += sum(frames[-1:])
+                score += frames[-1]
                 break
             else:
                 score += sum(frames[-2:])
