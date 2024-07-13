@@ -25,19 +25,21 @@ int main() {
     
     int pennies = cents;
 
-    cout << "Coins: " << quarters << " quarter" << ((quarters > 1)? "s ":"") << endl;
-    if(quarters > 1) cout << "s ";
-    cout << quarters << " remaining;\n";
+    cout << "Coins: ";
+    if(quarters > 1) cout << quarters << " quarter" << 's' << endl;
+    else cout << quarters << " quarter" << endl;
     
-    cout << "Dimes: " << dimes << endl;
-    if(dimes > 1) cout << "s ";
-    cout << dimes << " remaining;\n";
+    cout << "Dimes: ";
+    if(dimes > 1) cout << dimes << " dime" << 's' << endl;
+    else cout << dimes << " dime" << endl;
     
-    cout << "Nickels: " << nickels << endl;
-    if.nickels > 1) cout << "s ";
-    cout << nickels << " remaining;\n";
+    cout << "Nickels: ";
+    if(nickels > 1) cout << nickels << " nickel" << 's' << endl;
+    else cout << nickels << " nickel" << endl;
     
-    cout << "Pennies: " << pennies << endl;
-    
+    cout << "Pennies: ";
+    if(pennies > 1) cout << pennies << " penny" << 's' << endl;
+    else cout << pennies << " penny" << endl;
+
     return 0;
 }
