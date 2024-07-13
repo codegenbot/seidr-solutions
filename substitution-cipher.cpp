@@ -1,6 +1,5 @@
-#include <vector>
-#include <iostream>
-#include <string>
+std::string result = "";
+std::string message;
 
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
@@ -25,4 +24,3 @@ int main() {
     std::cin >> message;
     std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
     return 0;
-}
