@@ -1,5 +1,4 @@
-Here is the solution:
-
+```cpp
 double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;

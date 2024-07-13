@@ -1,14 +1,18 @@
-```c++
+```
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce;
+    double startHeight;
+    cin >> startHeight;
+    
+    double firstBounce;
+    cin >> firstBounce;
+    
     int numBounces;
-
-    cin >> startHeight >> firstBounce >> numBounces;
+    cin >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
@@ -19,7 +23,7 @@ int main() {
         firstBounce *= bouncinessIndex;
     }
 
-    cout << std::fixed;
+    cout << fixed;
     cout.setf(ios_base::floatfield, ios_base::fixed);
     cout << setprecision(5) << totalDistance << endl;
 
