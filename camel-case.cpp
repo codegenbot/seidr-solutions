@@ -7,25 +7,19 @@ using namespace std;
 string camelCase(string s) {
     string result = "";
     for (int i = 0; i < s.size(); i++) {
-        if (i == s.size() - 1 || s[i] == '-') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+        if (i == 0 || s[i] == '-') {
+            if (s[i + 1] != ' ') {
+                char c = topper(s[i]);
+                result += c;
+                i++;
+            } else {
+                result += s[i];
             }
-            int j = i + 1;
-            while(j < s.size() && s[j] != '-') j++;
-            result += s.substr(i + 1, j - i).substr(1);
-            i = j;
         } else if (s[i] == ' ') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            int j = i + 1;
-            while(j < s.size() && s[j] != '-') j++;
-            string word = s.substr(i, j - i);
-            result += word;
-            i = j;
+            continue;
         } else {
-            result += tolower(s[i]);
+            char c = tolower(s[i]);
+            result += c;
         }
     }
     return result;
