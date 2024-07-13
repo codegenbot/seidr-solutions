@@ -1,7 +1,8 @@
 ```cpp
-#include <initializer_list>
+#include <algorithm>
+#include <vector>
+
 using namespace std;
-typedef size_t initializer_list<int>::size_type;
 
 int getAscendingOrder(const vector<int>& nums) {
     int points = 0;
