@@ -1,8 +1,7 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
-#include <algorithm>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -36,8 +35,8 @@ int main() {
     std::string text = "Hello world";
     std::string target = "world";
     std::vector<int> indices = indicesOfSubstring(text, target);
-    for (int index = 0; index < indices.size(); index++) {
-        std::cout << "Target found at index: " << indices[index] << std::endl;
+    for (int index : indices) {
+        std::cout << "Target found at index: " << index << std::endl;
     }
     return 0;
 }
