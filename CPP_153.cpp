@@ -1,11 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
 
 int main() {
     string class_name;
     vector<string> extensions;
-    // read input from user
+
+    // Read input from user
     cin >> class_name;
     int n;
     cin >> n;
@@ -14,7 +14,11 @@ int main() {
         cin >> extension;
         extensions.push_back(extension);
     }
-    
+
+    return Strongest_Extension(class_name, extensions);
+}
+
+int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest = 0;
     string strongest_extension;
     for(auto extension : extensions){
@@ -29,8 +33,5 @@ int main() {
             strongest_extension = extension;
         }
     }
-    
-    cout << class_name + "." + strongest_extension << endl;
-    
-    return 0;
+    return class_name + "." + strongest_extension;
 }
