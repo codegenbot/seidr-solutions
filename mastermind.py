@@ -1,6 +1,6 @@
-Here is the solution:
-
 def mastermind(code, guess):
-    white = sum(c in guess for c in code)
-    black = sum(a == b for a, b in zip(code, guess))
-    return str(black), str(4 - black + white)
+    white_pegs = sum(1 for a, b in zip(guess, code) if a == b)
+    black_pegs = len(
+        [a for i, (a, b) in enumerate(zip(guess, code)) if a == b and a != ""]
+    )
+    return str(black_pegs), str(white_pegs)
