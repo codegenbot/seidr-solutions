@@ -1,5 +1,9 @@
-def sort_even():
-    user_input = input("Enter a list of numbers separated by space: ")
-    user_list = [int(x) for x in user_input.split()]
-    result = sort_even(l=user_list)
-    print("Sorted even and odd numbers are: ", result)
+def sort_even(l: list):
+    even_list = [i for i in l if i % 2 == 0]
+    even_list.sort()
+    return even_list
+
+
+def check():
+    numbers = [int(i) for i in input("Enter space-separated numbers: ").split()]
+    print(sort_even(numbers))
