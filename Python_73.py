@@ -1,5 +1,6 @@
 def smallest_change():
-    arr = input("Enter space-separated numbers: ").split()
+    """
+    Enter space-separated numbers:
     if not all(arr[i].isdigit() for i in range(len(arr))):
         return
     n = len(arr)
@@ -22,6 +23,8 @@ def smallest_change():
             changes += 1
 
     return changes
+
+    """
 
 
 print(smallest_change())
