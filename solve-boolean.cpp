@@ -1,25 +1,30 @@
-Here is the solution:
+```
+bool evaluateBooleanExpression(string expression) {
+    bool result = false;
+    stack<char> ops;
+    stack<bool> values;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    
-    for (char c : s) {
-        if (c == '&') {
-            bool t1 = st.top() == 'T';
-            st.pop();
-            bool t2 = st.top() == 'T';
-            st.pop();
-            st.push((t1 && t2) ? 'T' : 'F');
-        } else if (c == '|') {
-            bool t1 = st.top() == 'T';
-            st.pop();
-            bool t2 = st.top() == 'T';
-            st.pop();
-            st.push((t1 || t2) ? 'T' : 'F');
-        } else {
-            st.push(c);
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 && b2);
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 || b2);
+            ops.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            values.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            values.push(false);
         }
     }
-    
-    return st.top() == 'T';
+
+    return values.top();
 }
