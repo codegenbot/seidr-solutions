@@ -1,14 +1,6 @@
-```
-def extended_gcd(a, b):
-    if a == 0:
-        return b, 0, 1
-    else:
-        gcd, x, y = extended_gcd(b % a, a)
-        return gcd, y - (b // a) * x, x
-
+import math
 def modp(n: int, p: int):
-    gcd, x, _ = extended_gcd(n, p)
-    if gcd != 1:
-        return None
+    if pow(2, p-1, p) != 1:
+        return (n * ((pow(2, math.gcd((p-2), 2), p) ** 2) % p)) % p
     else:
-        return pow(n, -1, p)
+        return n % p
