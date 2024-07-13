@@ -1,5 +1,5 @@
 ```
-def car_race_collision(n=None):
+def car_race_collision(n):
     if n < 3:
         return "No collision"
     elif n % 3 == 0:
