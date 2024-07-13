@@ -3,13 +3,15 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = 0;
-    double p = 0;
-
-    for (int i = 1; i < n; i++) {
+    
+    for (int i = 1; i <= n && i < m; i++) {
         total += 1.0 / (n * m); 
-        p += (double)1 / (n * m);
     } 
-    return p;
+
+    // Add probability where Peter's roll equals Colin's
+    total += (double)(m - n) / (n * m);
+
+    return total;
 }
 
 int main() {
