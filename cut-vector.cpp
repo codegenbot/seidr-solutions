@@ -7,7 +7,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    for (int i = 1; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         long long leftSum = 0;
         
         for (int j = 0; j <= i; j++) {
@@ -19,17 +19,33 @@ vector<vector<int>> cutVector(vector<int> v) {
             rightSum += v[k];
         }
         
-        int newDiff = abs(leftSum - rightSum);
-        
-        if(newDiff <= INT_MAX) {
-            res[0] = vector<int>(v.begin(), v.begin() + i + 1);
-            res[1] = vector<int>(v.begin() + i, v.end());
-            return res;
+        int minDiff = INT_MAX;
+        int cutPos = -1;
+
+        for (int i = 0; i < n; i++) {
+            long long leftSum = 0;
+            
+            for (int j = 0; j <= i; j++) {
+                leftSum += v[j];
+            }
+            
+            long long rightSum = 0;
+            for (int k = i + 1; k < n; k++) {
+                rightSum += v[k];
+            }
+            
+            int newDiff = abs(leftSum - rightSum);
+            
+            if(newDiff <= minDiff) {
+                minDiff = newDiff;
+                cutPos = i;
+            }
         }
+
+        res[0] = vector<int>(v.begin(), v.begin() + cutPos);
+        res[1] = vector<int>(v.begin() + cutPos, v.end());
     }
     
-    res[0] = vector<int>(v.begin(), v.end());
-    res[1].clear();
     return res;
 }
 
