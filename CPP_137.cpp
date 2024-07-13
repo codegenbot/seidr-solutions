@@ -7,8 +7,8 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return b;
     else
         return "None";
-}
-else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+} else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
+           (b.type() == typeid(float) || b.type() == typeid(double))) {
     double x = boost::any_cast<double>(a);
     double y = boost::any_cast<double>(b);
     if (x > y)
@@ -17,17 +17,13 @@ else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         return b;
     else
         return "None";
-}
-else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    string x = boost::any_cast<string>(a);
-    string y = boost::any_cast<string>(b);
-    if (stod(x) > stod(y))
+} else {
+    string s1 = boost::any_cast<string>(a);
+    string s2 = boost::any_cast<string>(b);
+    if (s1 > s2)
         return a;
-    else if (stod(y) > stod(x))
+    else if (s2 > s1)
         return b;
     else
         return "None";
-}
-else {
-    return "None";
 }
