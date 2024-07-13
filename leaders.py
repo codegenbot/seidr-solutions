@@ -7,4 +7,4 @@ def leaders(arr):
             leaders_list.append(arr[i])
             max_right = arr[i]
             
-    return leaders_list[::-1]
+    return list(reversed(leaders_list))
