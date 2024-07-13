@@ -1,4 +1,3 @@
-```python
 def shopping_list():
     total_price = 0
     while True:
