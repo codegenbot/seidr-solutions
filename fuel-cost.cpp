@@ -12,7 +12,7 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += static_cast<int>(num / 3) - 2;
+        sum += (num / 3) - 2;
     }
 
     std::cout << sum;
