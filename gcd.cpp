@@ -1,12 +1,17 @@
-std::vector<std::size_t> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<std::size_t> result;
-    size_t n = text.length();
-    size_t m = target.length();
+```cpp
+int greatestCommonDivisor(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return greatestCommonDivisor(b, a % b);
+}
 
-    for (size_t i = 0; i <= n - m; i++) {
-        if ((text.find(target, i)) != std::string::npos) { 
-            result.push_back(i); 
-        }
-    }
-    return result;
+int main() {
+    int num1, num2;
+    std::cout << "Enter the first number: ";
+    std::cin >> num1;
+    std::cout << "Enter the second number: ";
+    std::cin >> num2;
+    std::cout << "The greatest common divisor is: " << greatestCommonDivisor(num1, num2) << std::endl;
+    return 0;
 }
