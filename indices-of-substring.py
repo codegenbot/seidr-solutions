@@ -12,5 +12,5 @@ def indices_of_substring():
         start = index + 1
 
     print(len(indices))
-
+    
 indices_of_substring()
