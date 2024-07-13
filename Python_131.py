@@ -4,15 +4,16 @@ def sum_of_digits(n):
 
 def check():
     while True:
-        try:
-            n = int(input("Enter a number: "))
+        n = input("Enter a number: ")
+        if len(n) == 3 and n.isdigit():
+            n = int(n)
             if 100 <= n <= 999:
                 total = sum_of_digits(n)
                 print(f"The sum of digits is {total}")
                 break
             else:
                 print("Invalid input. Please enter a three-digit integer.")
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
+        else:
+            print("Program did not receive expected input.")
 
 check()
