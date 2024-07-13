@@ -1,30 +1,27 @@
 def bowling_score(frames):
     score = 0
-    frame_num = 1
+    prev_frame = None
     for i in range(0, len(frames), 2):
         if frames[i] == 'X':
-            if frame_num < 10:
-                score += 10 + int(frames[2*i+2])
+            if prev_frame == '/':
+                score += 10 + int(frames[2*i+1])
             else:
                 score += 10
-            frame_num += 1
         elif frames[i] == '/':
             score += 10 - int(frames[i+1])
-            if frame_num < 10:
+            try:
                 score += int(frames[2*i+1])
-            frame_num += 1
+            except ValueError: 
+                pass
         else:
-            if frames[i] != '/':
-                try:
-                    if int(frames[i]) + int(frames[i+1]) < 10:
-                        score += int(frames[i]) + int(frames[i+1])
-                    elif frame_num == 9 and int(frames[i]) + int(frames[i+1]) == 10:
-                        score += 15
-                    else:
-                        score += 10
-                except ValueError: 
-                    pass
-            frame_num += 1
+            roll = int(frames[i]) + int(frames[i+1])
+            if prev_frame != '/' and roll < 10:
+                score += roll
+            elif prev_frame == '/':
+                score += 10 - int(frames[i+1])
+            else:
+                score += 10 + max(int(frames[i]), 10)
+        prev_frame = frames[i]
     return score
 
 frames = input("Enter the frames (e.g., 'X', '/'): ")
