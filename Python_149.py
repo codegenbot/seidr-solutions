@@ -1,11 +1,3 @@
-```Python
-from collections import OrderedDict
-
 def sorted_list_sum(lst):
-    strings = [s for s in lst if isinstance(s, str)]
-    numbers = []
-    for s in strings:
-        for c in s:
-            if c.isdigit():
-                numbers.append(int(c))
-    return list(OrderedDict.fromkeys(strings + map(str, numbers)))
+    numbers = [int(c) for s in lst for c in s if c.isdigit()]
+    return list(set(list([s for s in set(lst)] + [str(x) for x in sorted(numbers)])))
