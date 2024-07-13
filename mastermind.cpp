@@ -1,25 +1,25 @@
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    string secret, guess;
+    cin >> secret >> guess;
 
-    int whitePegs = 0, blackPegs = 0;
-    vector<int> codeCount(6, 0);
-    vector<int> guessCount(6, 0);
+    int white = 0, black = 0;
+    map<char, int> freq1, freq2;
 
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++blackPegs;
+        if (secret[i] == guess[i]) {
+            ++black;
         } else {
-            ++codeCount[code[i] - 'A'];
-            ++guessCount[guess[i] - 'A'];
+            ++freq1[secret[i]];
+            ++freq2[guess[i]];
         }
     }
 
-    for (int i = 0; i < 6; ++i) {
-        whitePegs += min(codeCount[i], guessCount[i]);
+    for (auto &p : freq1) {
+        white += min(p.second, freq2[p.first]);
     }
 
-    cout << whitePegs << "\n" << blackPegs << "\n";
+    cout << white << endl;
+    cout << black << endl;
 
     return 0;
 }
