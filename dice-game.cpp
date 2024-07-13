@@ -9,6 +9,10 @@ double probability(int n, int m) {
         p += (double)(n - i) / total;
     }
 
+    if (m > 1) {
+        p += (double)(n - m) / total;
+    }
+
     return p;
 }
 
