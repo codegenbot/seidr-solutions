@@ -1,25 +1,30 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-std::string camelCase(const std::string& s) {
-    s.erase(0, s.find_first_of('- ')); // Remove leading space or hyphen
+std::string camelCase(std::string s) {
     std::string result;
-    bool first = true;
+    bool capitalizeNext = true;
 
     for (char c : s) {
         if (c == '-') {
-            if (!first) {
-                result += char(toupper(c));
+            if (!result.empty()) {
+                if (capitalizeNext) {
+                    result.push_back(toupper(result[0]));
+                    capitalizeNext = false;
+                }
             }
-            first = false;
+            capitalizeNext = true;
         } else {
-            if (first) {
-                result += c;
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
             } else {
                 result += tolower(c);
             }
-            first = false;
+        }
+    }
+
+    // Capitalize the first character of the last group
+    if (!result.empty()) {
+        if (capitalizeNext) {
+            result[0] = toupper(result[0]);
         }
     }
 
@@ -27,9 +32,9 @@ std::string camelCase(const std::string& s) {
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        s.erase(0, s.find_first_not_of(' ')); // Remove leading spaces
-        std::cout << camelCase(s) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> input;
+    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
     return 0;
+}
