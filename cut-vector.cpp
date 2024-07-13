@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <limits>
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int minDiff = numeric_limits<int>::max();
+    int minDiff = INT_MAX;
     int cutIndex = -1;
     
     for(int i=0; i<v.size()-1; i++) {
@@ -48,5 +48,4 @@ int main() {
         cout << res[1][i] << " ";
     cout << "]" << endl;
     
-    return 0;
-}
+    return 0;}
