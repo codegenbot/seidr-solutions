@@ -1,5 +1,4 @@
 #include <string>
-#include <algorithm>
 
 auto spinWords(const char* str) -> std::string {
     std::string s(str);
@@ -15,4 +14,3 @@ auto spinWords(const char* str) -> std::string {
     }
 
     return result;
-}
