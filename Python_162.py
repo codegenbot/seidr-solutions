@@ -4,6 +4,7 @@ import hashlib
 
 def string_to_md5():
     text = input("Enter a string: ")
+    text = text.replace(" ", "").lower()
     if not text.isalnum():
         print("Invalid input. Please enter only alphanumeric characters.")
         return None
@@ -13,7 +14,9 @@ def string_to_md5():
 
 if __name__ == "__main__":
     while True:
-        input("Press Enter when ready: ")
+        response = input("Press Enter to calculate MD5 hash, type 'exit' to quit: ")
+        if response.lower() == "exit":
+            break
         result = string_to_md5()
         if result is not None:
             print(result)
