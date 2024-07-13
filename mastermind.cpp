@@ -2,19 +2,19 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct colors in wrong positions
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++){
+        if(code[i] == guess[i]){
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
         }
     }
 
-    // Subtract the number of correct colors in correct positions from white
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            white--;
+    vector<char> codeCopy(code.begin(), code.end());
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            if(code[j] == guess[i] && code[j] != codeCopy[i]){
+                white++;
+                codeCopy[i] = '-';
+            }
         }
     }
 
