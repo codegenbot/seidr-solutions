@@ -1,6 +1,4 @@
-Here is the completed code:
-
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
-    filled_buckets = math.ceil(total_water / capacity)
-    return filled_buckets
+    fill_times = -(-total_water // capacity)  
+    return fill_times
