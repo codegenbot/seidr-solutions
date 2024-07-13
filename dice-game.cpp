@@ -14,12 +14,13 @@ int main() {
     for(int i=1; i<=n; i++) {
         for(int j=1; j<=m; j++) {
             if(i > j) {
-                probability += 1.0 / (double)n / (double)m;
+                probability += 1.0;
             }
         }
     }
 
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: "
+         << (probability / (double)(n*m)) << endl;
 
     return 0;
 }
