@@ -3,22 +3,14 @@
 #include <string>
 
 std::string camelCase(const std::string& str) {
-    std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-                result += ' ';
-                result = result.substr(1);
-            }
-            result = " ";
+    std::string result;
+    for (const auto& word : str.split('-')) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
+            result += word;
         } else {
-            result += tolower(c);
+            result = tolower(word);
         }
-    }
-    if (!result.empty()) {
-        result[0] = toupper(result[0]);
-        return result;
     }
     return result;
 }
