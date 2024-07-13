@@ -14,12 +14,9 @@ def search(lst):
 
 def main():
     while True:
-        try:
-            lst = list(map(int, input("Enter the numbers separated by space: ").split()))
+        lst = list(map(int, input("Enter the numbers separated by space: ").split()))
+        if all(isinstance(x, int) for x in lst):
             break
-        except ValueError:
-            print("Invalid input. Please enter valid numbers.")
-
     print(search(lst))
 
 if __name__ == "__main__":
