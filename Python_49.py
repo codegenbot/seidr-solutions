@@ -17,10 +17,14 @@ def main():
         try:
             a = int(input("Enter the first number: "))
             b = int(input("Enter the second number: "))
-            print(modp(a, b))
-            break
+            if a < 0 or b < 0:
+                print("Please enter positive numbers.")
+            else:
+                print(modp(a, b))
+                break
         except ValueError:
-            print("Invalid input. Please enter integers.")
+            print("Invalid input. Please enter an integer.")
+    input("Press Enter when ready...")
 
 
 main()
