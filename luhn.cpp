@@ -1,4 +1,5 @@
-```cpp
+#include <iostream>
+
 int luhn(int cardNumber) {
     int sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -18,7 +19,7 @@ int luhn(int cardNumber) {
 }
 
 int main() {
-    int cardNumber = 4532015295970004; 
-    std::cout << "Luhn's checksum is: " << luhn(cardNumber) << std::endl;
+    int cardNumber = 0; // Replace with your credit card number
+    std::cout << "Luhn code: " << luhn(cardNumber) << std::endl;
     return 0;
 }

@@ -12,9 +12,10 @@ int main() {
     double sum = 0.0; 
     for(int i = 1; i < n; i++) {
         sum += (n - i) / (double)(n*m); 
-    }
+   }
     
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << sum << endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: ";
+    cout << sum << endl;
 
     return 0;
 }
