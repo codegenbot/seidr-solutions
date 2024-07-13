@@ -8,9 +8,3 @@ int calculateFuelCost(vector<int> nums) {
     }
     return sum;
 }
-
-int main() {
-    vector<int> nums = {9, 12, 15, 18};
-    int totalCost = calculateFuelCost(nums);
-    return 0;
-}
