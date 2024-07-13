@@ -3,14 +3,17 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int start = 0;
-    while (start < text.length()) {
-        size_t pos = text.find(target, start);
-        if (pos != string::npos) {
-            indices.push_back(pos);
-            start = pos + 1;
-        } else {
-            break;
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
+        bool found = true;
+        for (int j = 0; j < targetLen; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            indices.push_back(i);
         }
     }
     return indices;
