@@ -23,10 +23,12 @@ int main() {
     cout << "Enter the number of elements in the vector: ";
     cin >> n;
 
-    vector<int> nums(n);
-    cout << "Enter the elements: ";
+    int num;
+    vector<int> nums;
+
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        cin >> num;
+        nums.push_back(num);
     }
 
     vector<int> leaders = findLeaders(nums);
