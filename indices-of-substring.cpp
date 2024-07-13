@@ -8,13 +8,13 @@ int main() {
     std::cin.getline(text, 100);
     std::cin.getline(target, 100);
 
-    char lowercaseText[100] = {};
+    char lowercaseText[100];
     for (int i = 0; text[i] != '\0'; ++i) {
         lowercaseText[i] = std::tolower(text[i]);
     }
     lowercaseText[strlen(text)] = '\0';
 
-    char lowercaseTarget[100] = {};
+    char lowercaseTarget[100];
     for (int i = 0; i < strlen(target); ++i) {
         lowercaseTarget[i] = std::tolower(target[i]);
     }
@@ -42,7 +42,7 @@ int main() {
         }
     }
 
-    if (indices.empty()) {
+    if (indices.empty() && strlen(target) != 0) {
         std::cout << "0";
     } else {
         for (size_t i = 0; i < indices.size(); ++i) {
