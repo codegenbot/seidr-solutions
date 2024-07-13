@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     black = sum(
         c1 == c2 and i1 == i2
@@ -11,5 +10,4 @@ def mastermind(code, guess):
         elif c in code:
             white += 1
     black_possibilities = sum(1 for c in set(code) if guess.count(c)) - black
-    white = max(0, black_possibilities - black)
     return str(black) + "\n" + str(4 - black + white)
