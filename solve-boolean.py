@@ -4,8 +4,6 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     else:
-        return eval(
-            "".join(["True" if c == "T" else "False" for c in expression])
-            .replace("&", "and")
-            .replace("|", "or")
-        )
+        while "&" in expression or "|" in expression:
+            expression = expression.replace("&", " and ").replace("|", " or ")
+        return eval(" ".join(["True" if c == "T" else "False" for c in expression]).replace(" True", "1").replace(" False", "0"))
