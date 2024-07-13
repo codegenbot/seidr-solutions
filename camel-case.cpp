@@ -1,17 +1,16 @@
-```cpp
-#include <string>
-#include <sstream>
-
-std::string camelCase(std::string input) {
-    std::istringstream iss(input);
-    std::string word;
+std::string camelCase(const std::string& s) {
     std::string result;
+    bool capitalize = true;
 
-    while (iss >> word) {
-        if (!result.empty())
-            result += std::string(1, char::toupper(word[0])) + word.substr(1);
-        else
-            result = std::string(1, char::toupper(word[0])) + word.substr(1);
+    for (char c : s) {
+        if (c == '-') {
+            capitalize = true; // capitalize the next character
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
+        }
     }
 
     return result;

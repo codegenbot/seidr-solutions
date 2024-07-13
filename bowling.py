@@ -1,22 +1,25 @@
-```
+import re
+
 def calculate_score(frames):
     score = 0
-    current_frame = []
-    for char in frames:
-        if char.isdigit() or char == 'X':
-            current_frame.append(int(char) if char.isdigit() else 10)
-        elif char == '-':
-            continue
-        elif char == '/':
-            next_frame = [int(x) for x in str(frames[frames.index(char)+1:]).replace('--', '')]
-            if sum(current_frame) + min(next_frame) <= 10:
-                score += sum(current_frame) + min(next_frame)
-            else:
-                score += 10 + max(next_frame)
-            current_frame = []
-    while len(current_frame) > 0 and '/' not in str(current_frame):
-        score += sum(current_frame)
-        current_frame = []
+    frames = re.sub('[^0-9X\/]', '', frames).upper()
+    i = 0
+    while i < len(frames):
+        if frames[i] == 'X':
+            score += 10
+            i += 1
+        elif frames[i] == '/':
+            score += int(frames[i-1]) + 10 - int(frames[i+1])
+            i += 2
+        else:
+            frame = ''
+            while i < len(frames) and frames[i].isdigit():
+                frame += frames[i]
+                i += 1
+            if len(frame) == 1:
+                score += int(frame)
+            elif len(frame) == 2:
+                score += int(frame[0]) + int(frame[1])
     return score
 
 frames = input("Enter the frames string: ")

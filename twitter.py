@@ -1,5 +1,5 @@
 def validate_tweet(tweet):
-    tweet = tweet.encode('utf-8').decode().strip()
+    tweet = tweet.strip()
     if not tweet:
         return "You didn't type anything"
     elif len(tweet) > 140:
