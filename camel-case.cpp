@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -11,17 +12,22 @@ std::string camelCase(const std::string& input) {
     std::string word;
     std::string result;
 
-    while (iss >> std::ws >> word) { 
+    while (iss >> word) { 
         if (!result.empty())
             result += char(std::toupper(word[0]));
         else
             result = std::move(word);
         for (int i = 1; i < word.size(); ++i)
             result += char(std::tolower(word[i]));
-        result += ' ';
+
+        // Add this to handle subsequent words and spaces
+        if (iss.peek() == ' ') {
+            iss.ignore();
+            iss >> word;
+        }
     }
     
-    return result.substr(0, result.size() - 1); 
+    return result;
 }
 
 int main() {
