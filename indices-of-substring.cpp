@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 
@@ -40,7 +39,8 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
         if (j == m) {
             result.push_back(i - j);
-            j = lps[j - 1];
+            i -= j;
+            j = 0;
         }
     }
 
