@@ -1,2 +1,5 @@
 float total_price = 0.0;
-total_price = std::round(total_price * 100) / 100.0; // Round to two decimal places
+for (int i = 0; i < prices.size(); ++i) {
+    total_price += prices[i] * (1 - discounts[i] / 100);
+}
+total_price = std::round(total_price * 100) / 100.0;
