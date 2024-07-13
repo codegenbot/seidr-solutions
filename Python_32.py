@@ -1,19 +1,16 @@
-```
 def find_zero():
-    a = float(input("Enter coefficient of x^2: "))
-    b = float(input("Enter coefficient of x: "))
-    c = float(input("Enter constant term: "))
+    coefficients = []
+    while True:
+        try:
+            coefficient = float(input("Enter a coefficient (or 'q' to quit): "))
+            if coefficient == "q":
+                break
+            coefficients.append(coefficient)
+        except ValueError:
+            print("Invalid input. Please enter a number or 'q' to quit.")
 
-    d = b**2 - 4*a*c
-    if d < 0:
-        print("No real solution exists.")
-    elif d == 0:
-        x = -b / (2*a)
-        print(f"x = {x}")
-    else:
-        x1 = (-b + d**0.5) / (2*a)
-        x2 = (-b - d**0.5) / (2*a)
-        if x1 > x2:
-            print(f"x1 = {x1}, x2 = {x2}")
-        else:
-            print(f"x1 = {x2}, x2 = {x1}")
+    if len(coefficients) % 2 != 0:
+        raise ValueError("The number of coefficients must be even")
+
+    x = -coefficients[1] / coefficients[3]
+    return round(x, 2)
