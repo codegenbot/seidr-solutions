@@ -1,7 +1,6 @@
-Here is the modified code:
-
 ```
 from typing import List, Optional
+
 
 def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
     max_len = 0
@@ -14,7 +13,7 @@ def longest(strings: List[Optional[str]]) -> Optional[List[str]]:
             elif len(s) == max_len:
                 result.append(s)
 
-    return None if not result else result
+    return result if result else None
 
 
 strings = []
