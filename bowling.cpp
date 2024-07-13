@@ -1,6 +1,7 @@
-#include <iostream>
+```c++
 #include <string>
 #include <stdexcept>
+#include <iostream>
 
 int bowlingScore(const std::string& input) {
     if (input.empty()) {
