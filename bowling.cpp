@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 int bowlingScore(string s) {
@@ -21,4 +25,11 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
+
+int main() {
+    string s = "X/----X-8-5--;7/X,X/-XXX--";
+    int result = bowlingScore(s);
+    cout << "The score is: " << result << endl;
+    return 0;
 }
