@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-
 int prod_signs(std::vector<int> arr) -> int {
     if (arr.empty()) return -32768;
     int product = 1;
