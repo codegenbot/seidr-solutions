@@ -1,8 +1,9 @@
-```c++
+```cpp
 #include <iostream>
+#include <iomanip>
 
 double snowDay(int hours, float initialSnow, float rateOfFall, float proportionMelting) {
-    double totalSnow = 0;
+    double totalSnow = initialSnow;
     for (int i = 1; i <= hours; ++i) {
         totalSnow += rateOfFall - proportionMelting * totalSnow;
     }
@@ -15,6 +16,6 @@ int main() {
     float initialSnow, rateOfFall, proportionMelting;
     std::cin >> initialSnow >> rateOfFall >> proportionMelting;
     double result = snowDay(hours, initialSnow, rateOfFall, proportionMelting);
-    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::showpoint | std::fixed) << result << "\n";
+    std::cout << std::fixed << std::setprecision(10) << result << "\n";
     return 0;
 }
