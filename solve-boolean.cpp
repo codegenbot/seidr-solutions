@@ -1,30 +1,17 @@
-bool evaluateBooleanExpression(const string& expr) {
-    if (expr == "t") return true;
-    if (expr == "f") return false;
-
-    vector<int> stack;
+bool evaluateBoolean(string expr) {
+    stack<char> stk;
     for (char c : expr) {
-        if (c == 't') stack.push_back(1);
-        else if (c == 'f') stack.push_back(0);
-        else if (c == '&') {
-            int operand1 = stack.back();
-            stack.pop_back();
-            int operand2 = stack.back();
-            stack.pop_back();
-            stack.push_back(operand1 && operand2);
+        if (c == 't' || c == 'f') {
+            stk.push(c);
+        } else if (c == '&') {
+            char op1 = stk.top(); stk.pop();
+            char op2 = stk.top(); stk.pop();
+            stk.push((op1 == 't' && op2 == 't') ? 't' : 'f');
         } else if (c == '|') {
-            int operand1 = stack.back();
-            stack.pop_back();
-            int operand2 = stack.back();
-            stack.pop_back();
-            stack.push_back(operand1 || operand2);
+            char op1 = stk.top(); stk.pop();
+            char op2 = stk.top(); stk.pop();
+            stk.push((op1 == 't' || op2 == 't') ? 't' : 'f');
         }
     }
-    return stack.back();
-}
-int main() {
-    string expr;
-    cin >> expr;
-    cout << (evaluateBooleanExpression(expr) ? "True" : "False") << endl;
-    return 0;
+    return stk.top() == 't';
 }
