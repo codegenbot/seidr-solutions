@@ -25,4 +25,3 @@ int main() {
     }
     cout << calculateFuelCost(input) << endl;
     return 0;
-}
