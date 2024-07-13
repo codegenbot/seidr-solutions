@@ -8,4 +8,4 @@ const char* fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        std::string(std::to_string(x)).c_str();
+        return std::to_string(x);
