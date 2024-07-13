@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <cctype>
 
 int main() {
     char text[100], target[100];
@@ -11,10 +12,10 @@ int main() {
     int textLen = strlen(text);
     int targetLen = strlen(target);
     
-    for (int i = 0; i <= textLen - targetLen; ++i) {
+    for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (text[i + j] != target[j]) {
+            if (tolower(text[i + j]) != tolower(target[j])) {
                 found = false;
                 break;
             }
