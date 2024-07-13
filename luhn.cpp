@@ -1,5 +1,7 @@
-```cpp
-int luhn(std::vector<int> cardNumber) {
+#include <vector>
+#include <iostream>
+
+int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     for (int i = cardNumber.size() - 1; i >= 0; i--) {
         int digit = cardNumber[i] * ((i % 2) + 1);
