@@ -1,14 +1,6 @@
 def filter_integers(lst):
     while True:
-        result = []
-        user_input = input("Enter integers (space-separated): ").split()
-        
-        for value in user_input:
-            try:
-                result.append(int(value))
-            except ValueError:
-                pass  # ignore non-integer values
-        
+        result = [int(value) for value in input("Enter integers (space-separated): ").split() if value.isdigit()]
         print(f"Integers found: {result}")
         
         cont = input("Do you want to filter again? (yes/no): ")
@@ -17,4 +9,4 @@ def filter_integers(lst):
             cont = input("Do you want to filter again? (yes/no): ")
             
         if cont.lower() == "no":
-            break
+            return result
