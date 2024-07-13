@@ -1,51 +1,17 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int split_index = 0;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            split_index = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 0; i < n; ++i) {
+        if (i == 0 || v[i] - v[0] <= v[n-1] - v[i]) {
+            res[0].clear(); res[0].reserve(i+1); res[0].insert(res[0].end(), v.begin(), v.begin()+i+1);
+            res[1].clear(); res[1].reserve(n-i-1); res[1].insert(res[1].end(), v.begin()+i, v.end());
+        } else {
+            res[0].clear(); res[0].reserve(n-i); res[0].insert(res[0].end(), v.begin(), v.begin()+i);
+            res[1].clear(); res[1].reserve(i+1); res[1].insert(res[1].end(), v.begin()+i, v.end());
         }
     }
-    
-    vector<int> left = {v[0]};
-    for (int i = 1; i < split_index; i++) {
-        left.push_back(v[i]);
-    }
-    
-    vector<int> right = v;
-    right.erase(right.begin());
-    
-    return make_pair(left, right);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n+1);
-    for (int i = 0; i <= n; i++) {
-        cin >> v[i];
-    }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
-        if (i < result.first.size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "] [";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
-        if (i < result.second.size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "]" << endl;
-    return 0;
+    return res;
 }
