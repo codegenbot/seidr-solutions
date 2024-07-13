@@ -1,13 +1,17 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    size_t textSize = text.length(), targetSize = target.length();
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int start = 0;
     
-    for (size_t i = 0; i <= textSize - targetSize; ++i) {
-        if (text.substr(i, targetSize) == target) {
-            result.push_back(static_cast<int>(i));
+    while (start < text.length()) {
+        size_t pos = text.find(target, start);
+        if (pos != string::npos) {
+            result.push_back(pos);
+            start = pos + 1; // move forward for next match
+        } else {
+            break; // no more matches
         }
     }
     
@@ -15,36 +19,16 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    // Test cases
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("a", "a")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
+    int n;
+    cin >> n;
+    string text;
+    getline(cin, text);
 
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("! !", " !")) {
-        std::cout << idx << " ";
+    vector<int> res = indicesOfSubstring(text, text.substr(0, n));
+    for (auto i : res) {
+        cout << i << " ";
     }
-    std::cout << "]" << std::endl;
+    cout << endl;
 
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("r nm,xcnwqnd@#$fwkdjn3", "r")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
-
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("hihihihihihihihihihi", "hi")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
-
-    std::cout << "[";
-    for (const auto& idx : indicesOfSubstring("############", "#")) {
-        std::cout << idx << " ";
-    }
-    std::cout << "]" << std::endl;
-    
     return 0;
 }
