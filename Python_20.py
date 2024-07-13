@@ -1,5 +1,5 @@
 ```
-def find_closest_elements():
+def find_closest_elements(numbers):
     while True:
         input_str = input("Enter numbers separated by space: ")
         
@@ -26,5 +26,3 @@ def find_closest_elements():
                 closest_pair = (numbers[i], numbers[j])
 
     return closest_pair
-
-print("Closest pair is: ", find_closest_elements())
