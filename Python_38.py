@@ -1,17 +1,9 @@
-```
 def decode_cyclic(s: str):
     decoded = ""
-    n = len(s)
-    if n % 2 == 0:
-        half_len = n // 2
-        prefix = s[:half_len]
-    else:
-        half_len = n // 2
-        prefix = s[:half_len] + s[1]
-    
-    for char in s:
-        if char in prefix:
+    remainder = s[-1] if len(s) % 2 != 0 else ""
+    prefix, *remainder_chars = s[: len(s) // 2] + (remainder,)
+    while remainder_chars:
+        for char in remainder_chars[0]:
             decoded += char
-        else:
-            decoded += prefix[-1]
+        remainder_chars.pop(0)
     return decoded
