@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 using namespace std;
 
 int main() {
-    cout << luhn({4,7,8,0,3,2,6,5,9,8,7,1,0,8,0,9}) << endl;
+    cout << luhn({4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5}); 
     return 0;
 }
 
