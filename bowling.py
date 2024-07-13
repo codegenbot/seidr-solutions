@@ -20,6 +20,8 @@ def calculate_score(frames):
                 score += int(frame)
             elif len(frame) == 2:
                 score += int(frame[0]) + int(frame[1])
+            else:
+                score += int(frame[0]) + int(int(frame[0]) / 2)
     return score
 
 frames = input("Enter the frames string: ")
