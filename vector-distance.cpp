@@ -1,23 +1,24 @@
 int main() {
     int n;
     cin >> n;
-    vector<float> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
+    vector<double> v1(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
 
     cin >> n;
-    vector<float> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+    vector<double> v2(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
     }
 
-    float sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+    double sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        sum += pow(v1[i] - v2[i], 2);
     }
 
-    cout << sqrt(sum) << endl;
+    double distance = sqrt(sum);
+    cout << distance << endl;
 
     return 0;
 }
