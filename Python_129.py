@@ -1,16 +1,16 @@
-def findMinPath(grid):
+def minPath(grid):
     n = len(grid)
     m = len(grid[0])
-    visited = [[False]*m for _ in range(n)]
+    visited = [[False] * m for _ in range(n)]
     queue = [(0, 0, [grid[0][0]])]
     result = []
-    
+
     while queue:
         x, y, path = queue.pop(0)
-        if grid[x][y] == 'E':
+        if grid[x][y] == "E":
             result = sorted(path)
             return result
-        
+
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < m and not visited[nx][ny]:
