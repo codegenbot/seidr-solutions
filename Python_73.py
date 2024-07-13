@@ -1,4 +1,4 @@
-"""
+```
 def smallest_change():
     arr = input("Enter space-separated numbers: ").split()
     if not all(arr[i].isdigit() for i in range(len(arr))):
@@ -24,5 +24,4 @@ def smallest_change():
     
     return changes
 
-'```'
 print(smallest_change())
