@@ -1,46 +1,35 @@
-int bowlingScore(string s) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> points(22, 0);
-    
-    for (char c : s) {
-        if (c == 'X') {
-            points[ball] = 10;
-            points[ball + 1] = 0;
-            points[ball + 2] = 0;
-            ball += 2;
-        } else if (c == '/') {
-            points[ball] = 10 - points[ball - 1];
-            ball += 1;
-        } else if (c == '-') {
-            points[ball] = 0;
-            ball += 1;
+int score(string s) {
+    int total = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size() && frame < 10; ++i) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (s[i + 2] == '/') {
+                total += 10;
+            } else {
+                total += (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0'));
+                total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : (s[i + 2] - '0')));
+            }
+            ++frame;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i - 1] - '0');
+            total += (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0'));
+            ++frame;
         } else {
-            points[ball] = c - '0';
-            ball += 1;
+            total += (s[i] - '0');
+            if (s[i + 1] == '/') {
+                total += 10 - (s[i] - '0');
+            }
+            ++i;
+            ++frame;
         }
     }
-    
-    for (int i = 0; i < 10; ++i) {
-        if (points[frame] == 10) {
-            score += 10 + points[frame + 1] + points[frame + 2];
-            frame += 1;
-        } else if (points[frame] + points[frame + 1] == 10) {
-            score += 10 + points[frame + 2];
-            frame += 2;
-        } else {
-            score += points[frame] + points[frame + 1];
-            frame += 2;
-        }
-    }
-    
-    return score;
+    return total;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << bowlingScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
