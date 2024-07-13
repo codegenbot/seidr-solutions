@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     correct_color_wrong_place = 0
     correct_color_correct_place = 0
