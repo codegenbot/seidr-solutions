@@ -1,16 +1,15 @@
 #include <vector>
 
 int firstNegative(std::vector<int>& nums) {
-    int result = -1;
-    for (int i = 0; i < nums.size(); i++) {
+    int i = 0;
+    while (i < nums.size()) {
         int sum = 0;
         for (int j = 0; j <= i; j++) {
             sum += nums[j];
-            if (sum < 0) {
-                result = i;
-                return result;
-            }
+            if (sum < 0)
+                return j;
         }
+        i++;
     }
-    return result;
+    return -1;
 }
