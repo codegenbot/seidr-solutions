@@ -1,4 +1,3 @@
-```
 def mean_absolute_deviation():
     while True:
         input_str = input("Enter some numbers (space-separated): ")
@@ -34,5 +33,3 @@ def mean_absolute_deviation():
     mad = sum(abs(x - mean) for x in numbers) / len(numbers)
 
     print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
-
-    return None
