@@ -6,21 +6,17 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) return false;
-            else st.pop();
-        } 
-        else if (s[i] == '|') {
+        } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             if (st.empty()) return true;
-            else st.pop();
-        } 
-        else if (s[i] == 'T' || s[i] == 't') st.push('T');
-        else if (s[i] == 'F' || s[i] == 'f') st.push('F');
+        } else {
+            st.push(s[i]);
+        }
     }
     while (!st.empty()) {
-        if (st.top() == 'T') return true;
-        else return false;
+        st.pop();
     }
     return false;
 }
