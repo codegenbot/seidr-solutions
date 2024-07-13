@@ -1,4 +1,7 @@
-```Python
+```
+from typing import List, Optional
+
+
 def longest(strings: List[Optional[str]]) -> Optional[str]:
     if not strings:
         return None
