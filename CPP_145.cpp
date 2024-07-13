@@ -5,7 +5,7 @@ vector<int> order_by_points(vector<int> nums) {
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = nums[i];
-        while (num != 0) {
+        while (num > 0) {
             sumOfDigits += num % 10;
             num /= 10;
         }
@@ -15,8 +15,8 @@ vector<int> order_by_points(vector<int> nums) {
     sort(pairs.begin(), pairs.end());
 
     vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        result.push_back(nums[pairs[i].second]);
+    for (const auto& pair : pairs) {
+        result.push_back(nums[pair.second]);
     }
 
     return result;
