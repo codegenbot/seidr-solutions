@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
@@ -15,4 +20,19 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return result;
+    return result.size() > 0 ? result.substr(1) : "";
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    
+    if (!str.empty()) {
+        std::cout << "Enter a string: " << spinWords(str) << std::endl;
+    } else {
+        std::cout << "No input provided." << std::endl;
+    }
+    
+    return 0;
+}
