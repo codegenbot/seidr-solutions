@@ -1,3 +1,4 @@
+```
 def find_closest_elements():
     while True:
         try:
@@ -17,16 +18,14 @@ def find_closest_elements():
         except ValueError:
             print("Invalid input. Please enter integers only.")
 
-    nums1.sort()
-    nums2.sort()
-    closest_pair = float("inf")
-    for i in range(len(nums1) - 1):
-        if abs(nums1[i] - nums1[i + 1]) < closest_pair:
-            closest_pair = abs(nums1[i] - nums1[i + 1])
-    for i in range(len(nums2) - 1):
-        if abs(nums2[i] - nums2[i + 1]) < closest_pair:
-            closest_pair = abs(nums2[i] - nums2[i + 1])
+    min_diff = float('inf')
+    for num1 in nums1:
+        for num2 in nums2:
+            diff = abs(num1 - num2)
+            if diff < min_diff:
+                min_diff = diff
 
-    return str(closest_pair)
+    return str(min_diff)
+
 
 print("Closest pair is: ", find_closest_elements())
