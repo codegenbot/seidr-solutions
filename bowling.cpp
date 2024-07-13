@@ -1,3 +1,4 @@
+#include <string>
 int bowlingScore(std::string s) {
     int score = 0;
     std::stringstream ss(s);
@@ -13,4 +14,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
