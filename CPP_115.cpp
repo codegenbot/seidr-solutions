@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
     for (int i = 0; i < n; i++) {
@@ -18,7 +17,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     while (total_water > 0) {
         for (int i = 0; i < n; i++) {
             if (grid[i].size() > bucket_fullness && total_water > 0) {
-                int water_to_extract = std::min(capacity, grid[i].size() - bucket_fullness);
+                int water_to_extract = min(capacity, grid[i].size() - bucket_fullness);
                 total_water -= water_to_extract;
                 bucket_fullness += water_to_extract;
             }
@@ -27,11 +26,4 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     }
 
     return bucket_lowering_count;
-}
-
-int main() {
-    std::vector<std::vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
-    int capacity = 9;
-    assert(max_fill(grid, capacity) == 2);
-    return 0;
 }
