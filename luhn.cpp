@@ -1,4 +1,4 @@
-int luhn(const std::vector<char>& cardNumber) {
+int luhn(std::string cardNumber) {
     int sum = 0;
     bool alternate = false; 
     for (char c : cardNumber) { 
@@ -16,4 +16,4 @@ int luhn(const std::vector<char>& cardNumber) {
             alternate = !alternate; 
         }
     }
-    return sum % 10;
+    return sum % 10;}
