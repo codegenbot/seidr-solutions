@@ -15,7 +15,7 @@ int main() {
     for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
-            if (tolower(text[i + j]) != tolower(target[j])) {
+            if (tolower(text[i + j]) != tolower(target[j]) && toupper(text[i + j]) != toupper(target[j])) {
                 found = false;
                 break;
             }
