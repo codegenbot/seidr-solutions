@@ -1,7 +1,7 @@
 import re
+
 def middle_character(s):
-    s = re.sub('[^a-zA-Z0-9]', '', s)
-    length = len(s)
+    length = len(re.sub('[^a-zA-Z0-9]', '', s))
     if length % 2 == 1:
         return s[length // 2]
     else:
