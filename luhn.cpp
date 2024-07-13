@@ -15,10 +15,11 @@ int luhn(vector<int> digits) {
         doubleNext = !doubleNext;
     }
     return sum;
+
 }
 
 int main() {
-    vector<int> digits = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 0, 0, 1};
+    vector<int> digits = {1, 2, 3};
     int result = luhn(digits);
     return result;
 }
