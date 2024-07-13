@@ -1,3 +1,4 @@
+```
 def calculate_score(frames):
     score = 0
     frame_num = 1
@@ -5,13 +6,18 @@ def calculate_score(frames):
 
     while len(frames) > 0:
         if "-" in frames:
-            first, second = map(int, frames.split("-")[:2])
-            if frame_num < 10 and sum([int(x) for x in str(first)]) + int(second) > 10:
-                score += 10
-                frame_num += 1
+            parts = frames.split("-")
+            if len(parts) > 1:
+                first, second = map(int, [parts[0], parts[1]])
+                if frame_num < 10 and sum([int(x) for x in str(first)]) + int(second) > 10:
+                    score += 10
+                    frame_num += 1
+                else:
+                    score += first + second
+                frames = ""
             else:
-                score += first + second
-            frames = ""
+                score += int(frames[:frames.index("-")])
+                frames = frames[frames.index("-"):].lstrip('-')
         elif "X" in frames:
             score += 10
             frames = frames.replace("X", "")
