@@ -1,12 +1,12 @@
 from typing import List
 
-def concatenate() -> str:
-    strings = []
-    while True:
-        user_input = input("Enter a string (or 'done' to finish): ")
-        if user_input.lower() == 'done':
-            break
-        strings.append(user_input)
-    return ''.join(strings)
-
-print(concatenate())
+def concatenate(input_list: List[str]) -> str:
+    if not isinstance(input_list, list):
+        raise ValueError("Input must be a list")
+    for string in input_list:
+        if not isinstance(string, str):
+            raise ValueError("All elements in the list must be strings")
+    result = ''
+    for string in input_list:
+        result += string + ' '
+    return result.strip()
