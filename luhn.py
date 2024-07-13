@@ -1,3 +1,4 @@
+```
 def luhn(card):
     card = [int(x) for x in str(card)]
     card.reverse()
@@ -9,3 +10,5 @@ def luhn(card):
                 digit -= 9
         total += digit
     return -1 if total % 10 != 0 else 1
+
+print(luhn(4848719294653))
