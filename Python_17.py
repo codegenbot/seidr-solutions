@@ -1,3 +1,4 @@
+```
 """
 def parse_music(music_string: str) -> List[int]:
     notes = {'o': 4, 'o|': 2, '.|': 1}
@@ -11,3 +12,4 @@ def parse_music(music_string: str) -> List[int]:
             beats.append(notes[note_type])
             i += 2
     return beats
+"""
