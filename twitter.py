@@ -1,4 +1,3 @@
-```
 def validate_tweet(tweet):
     if len(tweet) > 140:
         return "Too many characters"
@@ -7,9 +6,8 @@ def validate_tweet(tweet):
     else:
         return f"Your tweet has {len(tweet)} characters"
 
-# Testing the function
 print(validate_tweet("")) 
 print(validate_tweet("1")) 
 print(validate_tweet("max length tweet that just contains letters and spaces even SOME CAPITAL LETTERS just to MAKE it INTERESTING now repeeeeeeeeeEEEEEEEeeeat it")) 
 print(validate_tweet("40172875*&(&(%^^*!@&#()!@&^(*$787031264123984721-43214876*%^#!(@^$_!@^%#$(!#@%$(01234~~``")) 
-print(validate_tweet("Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooolong1"))
+print(validate_tweet("Tooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooolong1"))
