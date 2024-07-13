@@ -6,17 +6,24 @@
 int main() {
     std::cout << "Enter numbers separated by spaces: ";
     int num;
-    int sum_even = 0, sum_odd = 0;
+    std::vector<int> nums;
 
     while (std::cin >> num) {
+        nums.push_back(num);
+    }
+    
+    int sum_even = 0, sum_odd = 0;
+
+    for (int num : nums) {
         if (num % 2 == 0)
             sum_even += num;
         else
             sum_odd += num;
     }
-    
-    double averageEven = static_cast<double>(sum_even) / ((1.0 + sum_even > 0 ? sum_even : 1));
-    double averageOdd = static_cast<double>(sum_odd) / ((1.0 + sum_odd > 0 ? sum_odd : 1));
+
+    double averageEven = static_cast<double>(sum_even) / (nums.size());
+    double averageOdd = static_cast<double>(sum_odd) / (nums.size());
+
     std::cout << "The average of even numbers is: " << averageEven << std::endl;
     std::cout << "The average of odd numbers is: " << averageOdd << std::endl;
 
