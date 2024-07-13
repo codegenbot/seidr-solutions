@@ -1,4 +1,2 @@
-Here is the solution:
-
-def dice_game(n, m):
-    return (n-1)/max(n, m) if n > m else (m-1)/max(n, m)
+def roll_higher(n, m):
+    return (n - m) / (n + m)
