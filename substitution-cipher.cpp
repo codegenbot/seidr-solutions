@@ -1,15 +1,14 @@
 int main() {
-    string cipher, mapping, message;
-    cin >> cipher >> mapping >> message;
-
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    
     for (char &c : message) {
-        int index = cipher.find(c);
-        if (index != string::npos) {
-            c = mapping[index];
+        if (c == cipher1[0]) {
+            c = cipher2[0];
         }
     }
-
+    
     cout << message << endl;
-
+    
     return 0;
 }
