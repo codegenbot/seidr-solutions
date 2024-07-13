@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -6,32 +7,24 @@ int count_nums(vector<int> v) {
     for (int num : v) {
         if (num >= 0) {
             int sum = 0;
-            bool is_odd = false;
             while (num > 0) {
-                int digit = num % 10;
-                sum += digit;
-                if (digit % 2 != 0)
-                    is_odd = true;
+                sum += num % 10;
                 num /= 10;
             }
-            if (sum > 0 && is_odd)
+            if (sum > 0)
                 ++count;
         } else {
             num = -num; // convert to positive
             int sum = 0;
             bool is_negative = true;
-            bool is_odd = false;
             while (num > 0) {
-                int digit = num % 10;
                 if (!is_negative) {
-                    sum += digit;
-                    if (digit % 2 != 0)
-                        is_odd = true;
+                    sum += num % 10;
                 }
                 num /= 10;
                 is_negative = !is_negative;
             }
-            if (sum > 0 && is_odd)
+            if (sum > 0)
                 ++count;
         }
     }
