@@ -9,9 +9,19 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
+
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    return 0;
+    std::vector<int> nums;
+    int n; 
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    for (int i = 1; i <= n; i++) {
+        cout << "Enter element " << i << ": ";
+        cin >> nums.push_back();
+    }
+    
+    cout << "The count is: " << specialFilter(nums);
 }
