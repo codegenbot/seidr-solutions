@@ -1,29 +1,13 @@
-string solveBoolean(string s) {
-    bool result = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            result = true;
-            break;
-        } else if (s[i] == 'f') {
-            return "False";
-        } else if (s[i] == '|') {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't') {
-                    result = true;
-                    break;
-                } else if (s[j] == 'f') {
-                    return "False";
-                }
-            }
-        } else if (s[i] == '&') {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't' && result) {
-                    break;
-                } else if (s[j] == 'f') {
-                    return "False";
-                }
-            }
+bool solveBoolean(string s) {
+    bool res = true;
+    for (char c : s) {
+        if (c == 'T') continue;
+        if (c == 'F') return false;
+        else if (c == '&') {
+            res &= false;
+        } else if (c == '|') {
+            res |= false;
         }
     }
-    return result ? "True" : "False";
+    return res;
 }
