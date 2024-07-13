@@ -1,22 +1,19 @@
 def match_parens(lst):
+    result = []
+    stack = 0
     for s in lst:
-        stack = []
-        match = True
+        open_count = 0
+        match = "Yes"
         for c in s:
             if c == "(":
-                if not stack:
-                    stack.append(c)
-                else:
-                    match = False
-                    break
+                open_count += 1
             elif c == ")":
-                if len(stack) > 0:
-                    stack.pop()
+                if open_count > 0:
+                    open_count -= 1
                 else:
-                    match = False
+                    match = "No"
                     break
-        if len(stack) > 0:
-            match = False
-        return str(match)
-
-print(match_parens(["("]))
+        if open_count > 0:
+            match = "No"
+        result.append(match)
+    return result
