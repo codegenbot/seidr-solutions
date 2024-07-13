@@ -20,13 +20,23 @@ int blackPegs(string code, string guess) {
             count++;
         } else {
             codeMap[code[i]]++;
-            codeMap[guess[i]]++;
         }
     }
-    for (auto& pair : codeMap) {
-        if (pair.second == 1) {
+    for (auto it = codeMap.begin(); it != codeMap.end(); ++it) {
+        if (count && it->second > 0 && countOf(guess, it->first) > 0) {
             count++;
+            --it->second;
+            --countOf(guess, it->first);
         }
+    }
+    return count;
+}
+
+int countOf(string s, char c) {
+    int count = 0;
+    for (char ch : s) {
+        if (ch == c)
+            count++;
     }
     return count;
 }
