@@ -1,10 +1,6 @@
 #include <iostream>
 using namespace std;
 
-#include <vector>
-using namespace std;
-#include <iomanip>
-
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
