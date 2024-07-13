@@ -9,7 +9,6 @@ int basementIndex(std::vector<int> nums) {
             return i;
     }
     return -1;
-
 }
 
 int main() {
