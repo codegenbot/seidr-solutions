@@ -1,5 +1,6 @@
-```
 import re
+
+
 def parse_music(s):
     if not s:
         return []
