@@ -1,21 +1,27 @@
-int getScore(string input) {
-    int score = 0;
-    int frame = 1;
-    int ballIndex = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (input[ballIndex] == 'X') {
-            score += 10;
-            score += (input[ballIndex + 2] == 'X') ? 10 : (input[ballIndex + 2] == '/' ? 10 - (input[ballIndex + 1] - '0') : input[ballIndex + 1] - '0');
-            score += (input[ballIndex + 2] == 'X' && input[ballIndex + 4] == 'X') ? 10 : (input[ballIndex + 4] == '/' ? 10 - (input[ballIndex + 3] - '0') : input[ballIndex + 3] - '0');
-            ballIndex++;
-        } else if (input[ballIndex + 1] == '/') {
-            score += 10;
-            score += (input[ballIndex + 2] == 'X') ? 10 : input[ballIndex + 2] - '0';
-            ballIndex += 2;
+int score(string s) {
+    int sum = 0, frame = 0, i = 0;
+    while (frame < 10) {
+        if (s[i] == 'X') {
+            sum += 10;
+            sum += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - (s[i + 1] - '0') : (s[i + 1] - '0') + (s[i + 2] - '0');
+            i++;
+        } else if (s[i + 1] == '/') {
+            sum += 10;
+            sum += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+            i += 2;
         } else {
-            score += (input[ballIndex] - '0') + (input[ballIndex + 1] - '0');
-            ballIndex += 2;
+            sum += (s[i] == '-') ? 0 : (s[i] - '0');
+            sum += (s[i + 1] == '-') ? 0 : (s[i + 1] - '0');
+            i += 2;
         }
+        frame++;
     }
-    return score;
+    return sum;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
+    return 0;
 }
