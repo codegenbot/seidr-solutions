@@ -1,8 +1,8 @@
-```
-def find_closest_elements():
+def find_closest_elements(x1=None, y1=None):
     while True:
         try:
-            x1 = list(map(int, input("Enter first set of x-coordinates separated by space: ").split()))
+            if x1 is None:
+                x1 = list(map(int, input("Enter first set of x-coordinates separated by space: ").split()))
             if len(x1) >= 2:
                 break
             print("Please enter at least two integers.")
@@ -11,7 +11,8 @@ def find_closest_elements():
 
     while True:
         try:
-            y1 = list(map(int, input("Enter first set of y-coordinates separated by space: ").split()))
+            if y1 is None:
+                y1 = list(map(int, input("Enter first set of y-coordinates separated by space: ").split()))
             if len(y1) >= 2 and len(set(y1)) == len(y1):
                 break
             print("Please enter at least two distinct integers.")
@@ -29,6 +30,3 @@ def find_closest_elements():
                 closest_pair = (x, y)
 
     return "Closest pair is: ({}, {}) with a difference of {}".format(*closest_pair, min_diff)
-
-
-print(find_closest_elements())
