@@ -1,4 +1,4 @@
-```
+```python
 def bowling_score():
     game = input().rstrip()
     frames = []
@@ -26,7 +26,7 @@ def bowling_score():
                 score += 10
                 last_frame = True
             elif last_frame:
-                score += frames[-1]
+                score += sum(frames[-1:])
                 break
             else:
                 score += sum(frames[-2:])
