@@ -9,11 +9,11 @@ int basement(vector<int>& nums) {
         if (sum < 0)
             return i;
     }
-    return -1; 
+    return -1;
 }
 
 int main() {
-    vector<int> nums = {-2,3,-4};
+    vector<int> nums = {-2, 3, 0, -5, 4};
     cout << basement(nums) << endl;
     return 0;
 }
