@@ -15,14 +15,19 @@ vector<vector<int>> cutVector(vector<int> v) {
     long long leftSum = 0, rightSum = sum;
     int minDiff = INT_MAX, cutIndex = -1;
 
-    for (int i = 0; i < n; i++) {
-        if (i == n) break;
-        rightSum = sum - v[i];
+    rightSum = sum;
+    for (int i = 0; i <= n; i++) {
+        if (i == n) {
+            break;
+        } else {
+            rightSum -= v[i];
+        }
         
         long long diff = abs(leftSum - rightSum);
-        if (diff <= minDiff || (diff == minDiff && leftSum >= rightSum)) {
+        
+        if (diff < minDiff) {
             minDiff = diff;
-            cutIndex = i + 1; 
+            cutIndex = i;
         }
         
         leftSum += v[i];
