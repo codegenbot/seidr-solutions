@@ -10,10 +10,3 @@ def max_fill(grid, capacity):
                 remaining_capacity = capacity - sum([grid[k][min(j, j-1)] for k in range(max(0, i-1))]) - sum([grid[k][j] for k in range(max(0, i-1), min(len(grid), i+2))])
                 total_water += min(min_height, remaining_capacity)
     return math.ceil(total_water / capacity)
-
-capacity = int(input("Enter the capacity: "))
-grid = []
-for i in range(int(input("Enter the number of rows: "))):
-    grid.append(list(map(int, input("Enter row {} (space-separated): ".format(i+1)).split())))
-
-print(max_fill(grid, capacity))

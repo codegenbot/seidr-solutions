@@ -1,7 +1,3 @@
 ```
-def double_the_difference(lst):
-    lst.sort()
-    if len(lst) < 2:
-        return 0
-    half = (len(lst)) // 2
-    return ((lst[half])**2) - ((lst[0])**2)
+def double_the_difference(input_list):
+    return (max(input_list) - min(input_list)) * 2
