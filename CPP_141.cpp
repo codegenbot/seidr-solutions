@@ -24,5 +24,9 @@ string file_name_check(string file_name){
 }
 
 int main() {
-    // Now you can use the function here...
+   string input;
+   cout << "Enter a file name: ";
+   cin >> input;
+   cout << "Result: " << file_name_check(input) << endl;
+   return 0;
 }
