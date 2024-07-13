@@ -23,8 +23,7 @@ int main() {
         startHeight *= 0.5; 
     }
 
-    std::cout << std::fixed << std::setprecision(10);
-    std::cout << totalDistance << endl;
+    cout << std::setprecision(10) << totalDistance << endl;
 
     return 0;
 }
