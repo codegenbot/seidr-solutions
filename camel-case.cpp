@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string kebabToCamel(const std::string& s) {
     if (s.empty()) return s;
 
@@ -21,25 +18,12 @@ std::string kebabToCamel(const std::string& s) {
         } else {
             if (first) {
                 result += std::tolower(c);
+                first = false;
             } else {
-                result += std::toupper(c);
+                result += c;
             }
-            first = false;
         }
     }
 
     return result;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    for (int i = 0; i < n; ++i) {
-        std::string s;
-        std::cin >> s;
-        std::cout << kebabToCamel(s) << '\n';
-    }
-
-    return 0;
 }
