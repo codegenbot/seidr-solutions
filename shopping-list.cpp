@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 
@@ -25,6 +26,6 @@ int main() {
         cin >> discounts[i];
     }
     float result = shoppingList(&prices[0], n, &discounts[0]);
-    std::cout << std::fixed << setprecision(1) << result << endl;
+    std::cout << std::fixed << std::setprecision(1) << result << std::endl;
     return 0;
 }
