@@ -1,19 +1,17 @@
-Here is the completed code:
+#include <map>
+#include <string>
+#include <cctype>
 
 bool check_dict_case(map<string, string> dict) {
-    bool allLower = true;
-    bool allUpper = true;
+    if (dict.empty()) return false;
+
+    bool all_upper = true;
+    bool all_lower = true;
 
     for (auto& pair : dict) {
-        if (!pair.first.empty() && !islower(pair.first[0])) {
-            allLower = false;
-            break;
-        }
-        if (!pair.second.empty() && !isupper(pair.second[0])) {
-            allUpper = false;
-            break;
-        }
+        if (!isupper(pair.first[0])) all_upper = false;
+        if (!islower(pair.first[0])) all_lower = false;
     }
 
-    return (allLower || allUpper);
+    return all_upper || all_lower;
 }
