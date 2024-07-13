@@ -1,4 +1,4 @@
 ```
 def sorted_list_sum(lst):
-    numbers = [s for s in lst if s.isdigit()]
-    return [''.join(sorted(s)) for s in set(''.join(numbers))]
+    numbers = [int(''.join(filter(str.isdigit, s))) for s in lst if any(c.isdigit() for c in s)]
+    return [''.join(sorted(s)) for s in set(lst)]
