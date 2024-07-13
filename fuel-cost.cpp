@@ -1,18 +1,16 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int main() {
-    std::vector<int> nums;
-    int num;
-    while(std::cin >> num) {
-        nums.push_back(num);
-    }
-
+int calculateFuelCost(vector<int> nums) {
     int sum = 0;
     for (int num : nums) {
         sum += (num / 3) - 2;
     }
-    std::cout << sum << std::endl;
+    return sum;
+}
 
+int main() {
+    vector<int> nums = {9, 12, 15, 18};
+    int totalCost = calculateFuelCost(nums);
     return 0;
 }
