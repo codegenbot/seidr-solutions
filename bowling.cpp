@@ -4,21 +4,37 @@ int main() {
     
     int score = 0;
     int frame = 0;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            score += 10;
-            if (frame < 9) {
-                score += (input[i+1] == 'X') ? 10 : (input[i+1] == '/') ? 10 - input[i-1] + 10 : input[i+1] - '0';
-                score += (input[i+2] == 'X') ? 10 : (input[i+2] == '/') ? 10 - input[i+1] : input[i+2] - '0';
-                frame++;
-            }
-        } else if (input[i] == '/') {
-            score += 10 - input[i-1] + ((i < input.size() - 1) ? input[i+1] - '0' : 0);
+    vector<int> frames(12, 0);
+    
+    for (char c : input) {
+        if (c == 'X') {
+            frames[frame] = 10;
+            frame++;
+        } else if (c == '/') {
+            frames[frame] = 10 - frames[frame - 1];
+            frame++;
+        } else if (c == '-') {
+            frames[frame] = 0;
+            frame++;
         } else {
-            score += input[i] - '0';
+            frames[frame] = c - '0';
+            frame++;
+        }
+    }
+    
+    for (int i = 0; i < 10; i++) {
+        if (frames[i] == 10) {
+            score += 10 + frames[i + 1] + frames[i + 2];
+        } else if (frames[i] + frames[i + 1] == 10) {
+            score += 10 + frames[i + 2];
+            i++;
+        } else {
+            score += frames[i] + frames[i + 1];
+            i++;
         }
     }
     
     cout << score << endl;
+    
     return 0;
 }
