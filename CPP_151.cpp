@@ -1,7 +1,9 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 
 std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
     std::vector<int> input_vector(lst);
@@ -18,7 +20,16 @@ std::pair<double, double> double_the_difference(const std::initializer_list<int>
 }
 
 int main() {
-    std::initializer_list<int> lst = {1, 3, 5, 7}; 
+    std::cout << "Enter numbers separated by spaces: ";
+    std::string input;
+    std::getline(std::cin, input);
+    std::istringstream iss(input);
+
+    std::initializer_list<int> lst;
+    int num;
+    while (iss >> num) {
+        lst = {num};
+    }
     auto [a, b] = double_the_difference(lst);
     std::cout << "The average of even numbers is: " << a << std::endl;
     std::cout << "The average of odd numbers is: " << b << std::endl;
