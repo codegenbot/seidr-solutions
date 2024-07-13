@@ -3,51 +3,56 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2, frameNumber = 1;
-    while (frameNumber <= 10) {
-        if (s[0] == 'X') {
-            // Strike
-            score += 10 + strikeBonus(s.substr(1));
-            s.erase(0, 1);
-        } else if (isdigit(s[0])) {
-            int pins = (s[0] - '0') * 10 + (s[1] - '0');
-            if (s[2] == '/') {
-                // Spare
-                score += 10 + spareBonus(pins, s.substr(3));
-                s.erase(0, 3);
+    vector<int> rolls(10);
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
+            int first = stoi(s.substr(i - 1, 1));
+            int second = stoi(s.substr(i + 1, 1));
+            if (first != 0 || second != 0) {
+                rolls[i % 10] = first + second;
             } else {
-                roll1 = pins;
-                if (s[2] != 'X') {
-                    roll2 = (s[2] - '0') * 10 + (s[3] - '0');
-                    score += roll1 + roll2;
-                    s.erase(0, 4);
-                } else {
-                    // Next frame is a strike
-                    score += roll1 + strikeBonus(s.substr(3));
-                    s.erase(0, 3);
-                    frameNumber++;
-                }
+                rolls[i % 10] = 10;
             }
+        } else {
+            rolls[i % 10] = stoi(s.substr(i, 1));
         }
-        frameNumber++;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i] == 10) {
+            score += 10 + bowlingScoreForNextTwo(rolls, i);
+        } else if (i < 8 && rolls[i] + rolls[i+1] > 10) {
+            score += 10;
+        } else {
+            score += rolls[i];
+        }
+    }
+
+    return score;
+}
+
+int bowlingScoreForNextTwo(vector<int> rolls, int start) {
+    int score = 0;
+    for (int i = 0; i < 2 && start + i < 10; i++) {
+        if (rolls[start+i] == 10) {
+            score += 10 + bowlingScoreForLastRoll(rolls, start+i+1);
+        } else if (start + i < 8 && rolls[start+i] + rolls[start+i+1] > 10) {
+            score += 10;
+        } else {
+            score += rolls[start+i];
+        }
     }
     return score;
 }
 
-int strikeBonus(string s) {
-    if (s.length() < 2) {
-        return 10;
-    } else {
-        int firstRoll = (s[0] - '0') * 10 + (s[1] - '0');
-        return 10 + firstRoll;
+int bowlingScoreForLastRoll(vector<int> rolls, int start) {
+    for (int i = 0; i < 3 && start + i < 10; i++) {
+        if (rolls[start+i] == 10) {
+            return 10;
+        } else {
+            return rolls[start+i];
+        }
     }
-}
-
-int spareBonus(int pins, string s) {
-    if (s.length() < 2) {
-        return 10 - pins;
-    } else {
-        int nextRoll = (s[0] - '0') * 10 + (s[1] - '0');
-        return 10 - pins + nextRoll;
-    }
+    return 0;
 }
