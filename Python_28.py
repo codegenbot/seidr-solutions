@@ -1,19 +1,13 @@
-```
 from typing import List
 
-def concatenate(input_list: List[str]) -> str:
-    if not isinstance(input_list, list):
-        raise ValueError("Input must be a list")
-    for string in input_list:
-        if not isinstance(string, str):
-            raise ValueError("All elements in the list must be strings")
+def concatenate(input_list: str) -> str:
+    if not isinstance(input_list, str):
+        raise ValueError("Input must be a string")
     
-    if len(input_list) == 0:
+    if len(input_list.strip()) == 0:
         return "Please provide some input"
     
     result = ''
-    for string in input_list:
+    for string in input_list.split():
         result += string + ' '
     return result.strip()
-
-concatenate(["Hello", "World"])
