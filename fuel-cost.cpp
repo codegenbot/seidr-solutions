@@ -1,5 +1,5 @@
-int fuelCost(vector<int> prices) {
-    int sum = 0;
+int calculateFuelCost(vector<int> prices) {
+    int total = 0;
     for (int price : prices) {
         int newPrice = (price / 3);
         if (newPrice < 1) {
@@ -7,7 +7,7 @@ int fuelCost(vector<int> prices) {
         } else {
             newPrice -= 2;
         }
-        sum += newPrice;
+        total += newPrice;
     }
-    return sum;
+    return total;
 }
