@@ -1,13 +1,27 @@
-#include <iomanip>
+Here is the completed code:
+
+```cpp
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
+    MD5_CTX md5;
+    unsigned char result[16];
+    string ret = "";
 
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5(text.c_str(), text.length(), md5);
-    stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << uppercase << (int)md5[i];
+    if (text.empty()) return "";
+    
+    MD5_Init(&md5);
+    const char *ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&md5, ptr, 1);
+        ptr++;
     }
-    return ss.str();
+    MD5_Final(result, &md5);
+
+    for(int i=0; i<16; i++){
+        sprintf(ret+sprintf("%02x", result[i]), "");
+    }
+
+    return ret;
 }
