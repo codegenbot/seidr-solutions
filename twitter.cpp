@@ -1,3 +1,18 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
+std::string validateTweet(std::string);
+
+int main() {
+    std::string tweet;
+    std::cout << "Enter your tweet: ";
+    std::getline(std::cin, tweet);
+    std::string result = validateTweet(tweet);
+    std::cout << result << std::endl;
+    return 0;
+}
+
 std::string validateTweet(std::string tweet) {
     if (tweet.length() > 140) {
         return "Too many characters";
