@@ -13,7 +13,9 @@ def modp(n: int, p: int) -> int:
 
 
 def main():
-    while True:
+    max_attempts = 5
+    attempts = 0
+    while attempts < max_attempts:
         try:
             a = int(input("Enter the first number: "))
             b = int(input("Enter the second number: "))
@@ -24,7 +26,6 @@ def main():
                 break
         except ValueError:
             print("Invalid input. Please enter an integer.")
-    input("Press Enter when ready...")
-
-
-main()
+            attempts += 1
+    else:
+        print("Program did not receive expected input. Exiting.")
