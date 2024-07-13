@@ -15,15 +15,17 @@ int main() {
     std::cin >> n;
 
     std::vector<double> vec1(n);
-    std::vector<double> vec2(n);
-
-    for (int i = 0; i < 2 * n; ++i) {
+    for (int i = 0; i < n; ++i) {
         double num;
         std::cin >> num;
-        if (i < n)
-            vec1[i] = num;
-        else
-            vec2[i - n] = num;
+        vec1[i] = num;
+    }
+
+    std::vector<double> vec2(n);
+    for (int i = 0; i < n; ++i) {
+        double num;
+        std::cin >> num;
+        vec2[i] = num;
     }
 
     std::cout << std::fixed << calculateDistance(vec1, vec2) << std::endl;
