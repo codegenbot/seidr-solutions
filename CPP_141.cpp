@@ -1,20 +1,26 @@
 string file_name_check(string file_name){
+    int dot_count = 0;
+    bool valid_start = false;
     int digit_count = 0;
-    bool found_dot = false;
-    for(int i = 0; i < file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
+
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+        }else if(isdigit(file_name[i])){
             digit_count++;
-            if(digit_count > 3) return "No";
-        } else if(c == '.'){
-            found_dot = true;
-        } else if(!found_dot && !isalpha(c)) return "No";
+        }else if(i==0 && !isalpha(file_name[i])){
+            return "No";
+        }else{
+            valid_start = true;
+        }
     }
-    if(!found_dot || file_name.find('.') == string::npos) return "No";
-    size_t pos = file_name.find('.');
-    string extension = file_name.substr(pos + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end()) 
+
+    if(dot_count != 1 || digit_count > 3 || file_name.find(".txt") == string::npos &&
+       file_name.find(".exe") == string::npos && file_name.find(".dll") == string::npos){
         return "No";
+    }else if(!valid_start){
+        return "No";
+    }
+
     return "Yes";
 }
