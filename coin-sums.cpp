@@ -1,14 +1,19 @@
+```c
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cout << "Enter the number of cents: ";
     cin >> cents;
 
     int quarters = cents / 25;
-    int remainder = cents % 25; 
-
-    int dimes = remainder / 10;
-    int nickles = (remainder % 10) / 5;
-    int pennies = remainder % 5;
+    if (quarters * 25 < cents) {
+        quarters++;
+    }
+    int dimes = (cents % 25) / 10;
+    int nickles = ((cents % 25) % 10) / 5;
+    int pennies = cents % 5;
 
     cout << "Quarters: " << quarters << endl;
     cout << "Dimes: " << dimes << endl;
