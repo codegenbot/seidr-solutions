@@ -3,7 +3,7 @@
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
-    int maxLeader = nums[nums.size() - 1];
+    int maxLeader = nums.back();
 
     for (int i = nums.size() - 1; i > 0; i--) {
         if (nums[i] >= maxLeader) {
