@@ -1,3 +1,4 @@
+```
 def mean_absolute_deviation():
     while True:
         numbers = []
@@ -23,6 +24,8 @@ def mean_absolute_deviation():
                 print("Please enter at least one number.")
             response = input("Do you want to calculate again? (yes/no): ").lower()
 
+        if response == "no":
+            break
 
 if __name__ == "__main__":
     mean_absolute_deviation()
