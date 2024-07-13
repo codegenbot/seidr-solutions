@@ -31,8 +31,8 @@ int main() {
     
     int result = mastermind(code, guess);
     
-    cout << "Black pegs: " << result << endl;
-    cout << "White pegs: " << (result - black) << endl;
+    cout << "Black pegs: " << (result - white) << endl;
+    cout << "White pegs: " << result - black << endl;
     
     return 0;
 }
