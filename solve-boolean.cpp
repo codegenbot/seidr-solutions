@@ -1,8 +1,6 @@
-#include <string>
-using namespace std;
-
+```
 bool evaluateBooleanExpression(string expression) {
-    bool result = true;
+    bool result = false;
     stack<char> ops;
     stack<bool> values;
 
