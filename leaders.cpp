@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <limits>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -25,7 +24,7 @@ int main() {
         if (std::cin.fail()) {
             std::cout << "Invalid input. Please enter a valid integer." << std::endl;
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.ignore();
         } else {
             nums.push_back(num);
         }
