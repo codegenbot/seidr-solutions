@@ -1,6 +1,7 @@
-#include <vector>
+#include <utility>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+template<typename T>
+std::pair<std::vector<T>, std::vector<T>> cutVector(std::vector<T> v) {
     int n = v.size();
     long long diff = std::numeric_limits<long long>::max();
     int bestCut = -1;

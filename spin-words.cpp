@@ -20,7 +20,7 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return result.size() > 0 ? result.substr(1) : "";
+    return !str.empty() ? result : str;
 }
 
 int main() {
