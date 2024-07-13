@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -21,8 +22,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         
         if (left_sum == right_sum) {
             return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
-        } else if (std::abs(left_sum - right_sum) < min_diff) {
-            min_diff = std::abs(left_sum - right_sum);
+        } else if (abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
             result = {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
