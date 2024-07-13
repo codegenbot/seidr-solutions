@@ -2,15 +2,13 @@ n = int(input())
 nums = [int(input()) for _ in range(n)]
 
 total_sum = sum(nums)
-left_sum = 0
-right_sum = total_sum
+current_sum = 0
 min_diff = float("inf")
-cut_index = 0
+cut_index = -1
 
 for i in range(n):
-    left_sum += nums[i]
-    right_sum -= nums[i]
-    diff = abs(left_sum - right_sum)
+    current_sum += nums[i]
+    diff = abs(total_sum - 2 * current_sum)
     if diff < min_diff:
         min_diff = diff
         cut_index = i
