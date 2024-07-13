@@ -1,22 +1,28 @@
+Here is the solution in Python:
+
 def minPath(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
-    res = []
-    for _ in range(k):
-        temp = {}
-        for i in range(n):
-            for j in range(n):
-                if (
-                    (i - 1 >= 0 and m[i - 1][j] <= m[i][j])
-                    or (i + 1 < n and m[i + 1][j] <= m[i][j])
-                    or (j - 1 >= 0 and m[i][j - 1] <= m[i][j])
-                    or (j + 1 < n and m[i][j + 1] <= m[i][j])
-                ):
-                    continue
-                if m[i][j] not in temp:
-                    temp[m[i][j]] = [(i, j)]
-                else:
-                    temp[m[i][j]].append((i, j))
-        min_val = min(temp)
-        res.extend(sorted([m[x][y] for x, y in temp[min_val]]))
-    return res
+    N = len(grid)
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    visited = [[False]*N for _ in range(N)]
+    
+    def dfs(i, j, path, count):
+        if count == k:
+            return path
+        for di, dj in directions:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
+                visited[ni][nj] = True
+                new_path = dfs(ni, nj, path + [grid[ni][nj]], count + 1)
+                if new_path:
+                    return new_path
+                visited[ni][nj] = False
+        return None
+
+    min_path = []
+    for i in range(N):
+        for j in range(N):
+            if not visited[i][j]:
+                path = dfs(i, j, [grid[i][j]], 1)
+                if path and (not min_path or path < min_path):
+                    min_path = path
+    return min_path
