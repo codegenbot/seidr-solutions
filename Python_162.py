@@ -1,13 +1,14 @@
-```
+```python
 import hashlib
+import re
 
 def string_to_md5():
     while True:
         text = input("Enter a string: ")
-        if text.isalnum(): 
+        if not re.match("^[a-zA-Z0-9]+$", text):
+            print("Invalid input. Please enter only alphanumeric characters.")
+        else:
             return hashlib.md5(text.encode()).hexdigest()
-        print("Invalid input. Please enter only alphanumeric characters.")
 
 if __name__ == "__main__":
-    while True:
-        print(string_to_md5())
+    print(string_to_md5())
