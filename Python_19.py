@@ -3,6 +3,9 @@ def sort_numbers():
     while cont.lower() == "y":
         print("Sort numbers? (y/n): ")
         cont = input().lower()
+        if cont not in ["y", "n"]:
+            print("Invalid input. Please enter y or n.")
+            continue
         if cont != "y":
             break
         while True:
@@ -13,14 +16,22 @@ def sort_numbers():
                     sorted_numbers = " ".join(map(str, sorted(nums)))
                     print(sorted_numbers)
                     cont = input("Sort again? (y/n): ")
+                    if cont.lower() not in ["y", "n"]:
+                        print("Invalid input. Please enter y or n.")
+                        continue
                     if cont.lower() != "y":
-                        return
+                        break
                     break
                 except ValueError as e:
-                    print(f"Invalid input. {e}. Please enter valid numbers separated by spaces.")
+                    print(
+                        f"Invalid input. {e}. Please enter valid numbers separated by spaces."
+                    )
+                    print("Exiting program...")
+                    exit()
             if cont.lower() != "y":
-                return
+                break
         break
+
 
 if __name__ == "__main__":
     sort_numbers()
