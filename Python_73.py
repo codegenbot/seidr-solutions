@@ -7,11 +7,12 @@ def array_change(lst):
             max_diff = diff
     return max_diff
 
+print("Welcome to the Array Change Problem!")
 while True:
     try:
         lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
-        if len(lst) < 2:
-            print("List should contain at least two numbers. Please enter again.")
+        if len(lst) < 2 or any(x <= 0 for x in lst):
+            print("List should contain at least two positive integers. Please enter again.")
         else:
             break
     except ValueError:
