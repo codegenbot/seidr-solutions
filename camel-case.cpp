@@ -13,7 +13,12 @@ std::string camelCase(const std::string& s) {
                 result += char(toupper(c));
             }
             first = false;
-        } else if (c != ' ') {
+        } else if (c == ' ') {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = false;
+        } else {
             if (first) {
                 result += tolower(c);
             } else {
