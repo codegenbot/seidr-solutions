@@ -1,11 +1,13 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int> nums) {
+vector<int> leaders(vector<int>& nums) {
     int n = nums.size();
-    vector<int> leaders;
-    if(n == 0) return leaders;
+    vector<int> res;
     
+    if (n == 0)
+        return res;
+        
     for(int i=n-1; i>=0; i--) {
         bool isLeader = true;
         for(int j=i+1; j<n; j++) {
@@ -14,8 +16,9 @@ vector<int> leaders(vector<int> nums) {
                 break;
             }
         }
-        if(isLeader) leaders.push_back(nums[i]);
+        if(isLeader)
+            res.push_back(nums[i]);
     }
     
-    return leaders;
+    return res;
 }
