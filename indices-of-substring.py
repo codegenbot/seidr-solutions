@@ -3,11 +3,7 @@ def indices_of_substring(text):
     result = []
     for i in range(len(text)):
         if text[i:].startswith(target):
-            j = i
-            while True:
-                index = text[j:].find(target)
-                if index == -1:
-                    break
-                result.append(str(i + index))
-                j += index + 1
+            for j in range(i + len(target), len(text) + 1):
+                if text[i:j].startswith(target):
+                    result.append(str(i))
     return [int(x) for x in result]
