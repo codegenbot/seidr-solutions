@@ -1,4 +1,6 @@
-```
+print("Enter the number up to which you want to find max triples: ", end="")
+n = int(input())
+
 def get_max_triples(n):
     if n < 1:
         return None
