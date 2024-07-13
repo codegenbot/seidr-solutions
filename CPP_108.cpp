@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int count_nums(std::vector<int> n) {
     int count = 0;
@@ -27,7 +28,11 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    std::vector<int> n = {1};
-    assert(count_nums(n) == 1);
+    std::vector<int> n;
+    int number;
+    while(std::cin >> number) {
+        n.push_back(number);
+    }
+    std::cout << "Count: " << count_nums(n) << std::endl;
     return 0;
 }
