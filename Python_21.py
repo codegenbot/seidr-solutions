@@ -1,9 +1,11 @@
-def rescale_to_unit(inputs: list) -> str:
-    if not inputs:
+def rescale_to_unit(inputs: str) -> str:
+    numbers = [float(num) for num in inputs.split()]
+
+    if not numbers:
         return "No input provided"
 
-    min_val = min(inputs)
-    max_val = max(inputs)
-    rescaled_numbers = [(x - min_val) / (max_val - min_val) for x in inputs]
+    min_val = min(numbers)
+    max_val = max(numbers)
+    rescaled_numbers = [(x - min_val) / (max_val - min_val) for x in numbers]
 
     return ", ".join(str(round(num, 2)) for num in rescaled_numbers)
