@@ -17,11 +17,22 @@ bool solveBoolean(string s) {
             i++;
             continue;
         }
-        if (s[i] == '(') {
-            bool temp = solveBoolean(s.substr(i+1));
-            i += temp ? s.find(')' , i + 1) - i : s.find(')' , i + 1);
-            if (s[i] == '&') res &= temp;
-            else if (s[i] == '|') res |= temp;
+        if (s[i] == 'T' && s[i+1] == '&') {
+            i += 2;
+            while(i < s.length() && s[i] != '|') {
+                i++;
+            }
+            if(s[i] == '|') {
+                res = false;
+            }
+        } else if (s[i] == 'F' && s[i+1] == '|') {
+            i += 2;
+            while(i < s.length() && s[i] != '&') {
+                i++;
+            }
+            if(s[i] == '&') {
+                res = true;
+            }
         }
     }
     return res;
