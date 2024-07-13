@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 from typing import List
 
@@ -22,3 +20,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp = ''
     
     return result
+
+print(separate_paren_groups(input("Enter string of parentheses: ")))
