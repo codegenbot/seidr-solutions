@@ -1,13 +1,14 @@
-def encrypt(s): 
+def encrypt(s):
     result = ""
-    for char in s: 
-        if char.isalpha(): 
-            offset = ord('A') if char.isupper() else ord('a')
-            shift = 3
+    for char in s:
+        if char.isalpha():
             if char.isupper():
-                result += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
-            elif char.islower():
-                result += chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
+                shift = 3
+                offset = ord('A')
+            else:
+                shift = 3
+                offset = ord('a')
+            result += chr((ord(char) - offset + shift) % 26 + offset)
         else:  
             result += char
     return result
