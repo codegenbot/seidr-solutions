@@ -1,6 +1,4 @@
-#include <string>
 #include <iostream>
-
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -34,3 +32,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
