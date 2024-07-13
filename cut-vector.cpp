@@ -3,38 +3,46 @@
 #include <climits>
 #include <cmath>
 
+using namespace std;
+
+vector<int> nums;
+
 int main() {
-    std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
-    int n = nums.size();
-    int diff = INT_MAX;
-    int cutIndex = 0;
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
-    for (int i = 1; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
+    for (int i = 1; i < nums.size(); ++i) {
+        int left_sum = 0;
+        int right_sum = 0;
+        
         for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            rightSum += nums[j];
+            left_sum += nums[j];
         }
         
-        if (std::abs(leftSum - rightSum) < diff) {
-            diff = std::abs(leftSum - rightSum);
-            cutIndex = i;
+        for (int j = i; j < nums.size(); ++j) {
+            right_sum += nums[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+    for (int i = 0; i < cut_index; ++i) {
+        cout << nums[i] << "\n";
     }
-    std::cout << std::endl;
-    for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+    
+    cout << "\n";
+    
+    for (int i = cut_index; i < nums.size(); ++i) {
+        cout << nums[i] << "\n";
     }
     
     return 0;
