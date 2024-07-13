@@ -5,19 +5,20 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
-    for(int i = 0; i < n; i++) {
-        bool isLeader = true;
-        for(int j = i + 1; j < n; j++) {
+    for(int i=n-1; i>=0; i--) {
+        bool leader = true;
+        for(int j=i+1; j<n; j++) {
             if(arr[j] >= arr[i]) {
-                isLeader = false;
+                leader = false;
                 break;
             }
         }
         
-        if(isLeader) {
+        if(leader) {
             result.push_back(arr[i]);
         }
     }
     
+    reverse(result.begin(), result.end());
     return result;
 }
