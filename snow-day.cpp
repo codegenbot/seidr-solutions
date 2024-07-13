@@ -1,14 +1,12 @@
 int main() {
     int hours;
-    float snowAmount, snowFallRate, meltRate;
-    cin >> hours >> snowAmount >> snowFallRate >> meltRate;
-    
+    float snow, rate, melt;
+    cin >> hours >> snow >> rate >> melt;
+
     for (int i = 0; i < hours; ++i) {
-        snowAmount += snowFallRate;
-        snowAmount -= snowAmount * meltRate;
+        snow += rate - melt * snow;
     }
-    
-    cout << snowAmount << endl;
-    
+
+    cout << snow << endl;
     return 0;
 }
