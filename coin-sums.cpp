@@ -17,16 +17,19 @@ int main() {
     
     int pennies = cents;
 
-    cout << "Coins: " << quarters << " quarter" << (quarters > 1 ? "s" : "") << endl;
-    if(quarters > 0) cout << quarters << " remaining\n";
-    
+    cout << "Coins: " << quarters << " quarters";
+    if(quarters > 1)cout << "s";
+    cout << endl;
+
     cout << "Dimes: " << dimes << endl;
-    if(dimes > 0) cout << dimes << " remaining\n";
-    
+    if(dimes > 1)cout << "s";
+    cout << endl;
+
     cout << "Nickels: " << nickels << endl;
-    if(nickels > 0) cout << nickels << " remaining\n";
-    
+    if(nickels > 1)cout << "s";
+    cout << endl;
+
     cout << "Pennies: " << pennies << endl;
-    
+
     return 0;
 }
