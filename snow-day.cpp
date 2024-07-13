@@ -1,3 +1,13 @@
+```c
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+float snowDay(int hours, float initialSnow, float snowFall, float meltRate) {
+    return initialSnow + (snowFall * hours - meltRate * hours);
+}
+
 int main() {
     int hours;
     cin >> hours;
