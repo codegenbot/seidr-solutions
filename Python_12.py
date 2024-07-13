@@ -1,7 +1,3 @@
-```
-# This line will be ignored
-# And neither will this one
-
 from typing import List, Optional
 
 
