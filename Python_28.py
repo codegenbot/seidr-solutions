@@ -1,10 +1,14 @@
+```Python
 from typing import List
 
-def concatenate():
+def concatenate() -> str:
     words = input("Enter words separated by space: ").split()
     if not words:
         return "No words entered."
-    result = ', '.join(words)
+    if len(words) > 1:
+        result = ', '.join(words)
+    else:
+        result = words[0]
     return result
 
 print(concatenate())
