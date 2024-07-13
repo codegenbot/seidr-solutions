@@ -1,29 +1,17 @@
-string solveBoolean(string s) {
-    bool result = false;
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    string t = "T", f = "F";
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            result = true;
-            break;
-        } else if (s[i] == 'f') {
-            return "False";
-        } else if (s[i] == '|') {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't') {
-                    result = true;
-                    break;
-                } else if (s[j] == 'f') {
-                    return "False";
-                }
-            }
-        } else if (s[i] == '&') {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't' && result) {
-                    break;
-                } else if (s[j] == 'f') {
-                    return "False";
-                }
-            }
+        if (s[i] == '|') {
+            return (s.substr(0, i).compare(t) == 0 || s.substr(0, i).compare(f) == 0) ||
+                   (s.substr(i + 1).compare(t) == 0);
+        }
+        else if (s[i] == '&') {
+            return (s.substr(0, i).compare(t) == 0 && s.substr(i + 1).compare(t) == 0) ||
+                   (s.substr(0, i).compare(f) == 0 && s.substr(i + 1).compare(f) == 0);
         }
     }
-    return result ? "True" : "False";
+    return s.compare(t) == 0;
 }
