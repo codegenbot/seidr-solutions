@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def concatenate(input_list: List[str]) -> str:
