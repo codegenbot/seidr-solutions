@@ -15,7 +15,7 @@ def bowling_score(frames):
                 i += 2
             else:
                 score += frame_score
-                while rolls and (rolls[0] == 0 or rolls[0] < 10 - rolls[i]):
+                while rolls and (rolls[0] <= 1 or sum(rolls[:2]) < frame_score):
                     score += rolls.pop(0)
             i += 1
         else:
