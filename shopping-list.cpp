@@ -1,5 +1,5 @@
-```
 #include <vector>
+#include <iostream>
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
