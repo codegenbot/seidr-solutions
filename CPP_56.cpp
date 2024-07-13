@@ -4,9 +4,7 @@ for(int i=0; i<brackets.size(); i++){
         stack_size++;
     }
     else if(brackets[i] == '>'){
-        if(stack_size <= 0){
-            return false;
-        }
+        if(stack_size <= 0) return false;
         stack_size--;
     }
 }
