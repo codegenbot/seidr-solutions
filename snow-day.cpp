@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 #include <iomanip>
@@ -8,10 +7,15 @@ double snowDay(int hours, double groundSnow, float rateOfSnowFall, float proport
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall; 
-        totalSnow -= totalSnow * proportionMeltingPerHour; 
+        totalSnow -= static_cast<int>(totalSnow * proportionMeltingPerHour); 
     }
     
-    return totalSnow;
+    if(totalSnow < 0.0) {
+        std::cout << "Error: The amount of snow on the ground cannot be negative." << std::endl;
+        return -1.0;
+    } else {
+        return totalSnow;
+    }
 }
 
 int main() {
