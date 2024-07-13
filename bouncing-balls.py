@@ -2,8 +2,8 @@
 import math
 
 def bouncing_balls():
-    start_height = float(input("Enter the starting height (float): "))
-    first_bounce_height = float(input("Enter the height after the first bounce (float): "))
+    start_height = float(input("Enter the starting height: "))
+    first_bounce_height = float(input("Enter the first bounce height: "))
     num_bounces = int(input("Enter the number of bounces: "))
 
     bounciness_index = first_bounce_height / start_height
