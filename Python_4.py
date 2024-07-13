@@ -18,9 +18,8 @@ def mean_absolute_deviation():
     print(f"Mean: {mean:.2f}, Mean Absolute Deviation: {mad:.2f}")
 
     while True:
-        print("Do you want to calculate again? (yes/no): ")
-        response = input().lower()
+        response = input("Do you want to calculate again? (yes/no): ").lower()
         if response != "yes":
             break
 
-mean_absolute_deviation()
+    mean_absolute_deviation()
