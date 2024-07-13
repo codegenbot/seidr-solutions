@@ -1,10 +1,10 @@
+#include <string>
+
 using namespace std;
 
 bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<bool> valStack;
-
-    #include <string>
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -30,9 +30,10 @@ bool solveBoolean(string expression) {
         valStack.pop();
         bool left = valStack.top();
         valStack.pop();
-
+        
         if (op == '|') valStack.push(left || right);
         else valStack.push(left && right);
     }
 
     return valStack.top();
+}
