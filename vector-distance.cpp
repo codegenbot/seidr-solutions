@@ -1,8 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <cmath> // added header file
-
+#include <cmath>
 using namespace std;
 
 double vectorDistance(int n) {
