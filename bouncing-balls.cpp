@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -9,16 +10,15 @@ int main() {
 
     double bouncinessIndex = (stod(firstBounceStr) / stod(startHeightStr));
     
-    double startHeight = stod(startHeightStr);
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += (startHeight * bouncinessIndex); 
-        startHeight /= 2;
+        totalDistance += (stod(startHeightStr) * bouncinessIndex); 
+        startHeightStr = to_string((double)stod(startHeightStr) / 2);
     }
 
-    cout << fixed;
-    cout.precision(10);
-    cout << totalDistance << endl;
+    std::cout << std::fixed;
+    std::cout.precision(10);
+    std::cout << totalDistance << endl;
 
     return 0;
 }
