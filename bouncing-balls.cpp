@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cmath>
 #include <string>
 #include <iomanip>
@@ -18,8 +19,8 @@ int main() {
     getline(cin, input);
     int numBounces = stoi(input);
 
-    double firstBounce = bouncinessIndexInput;
-    double bouncinessIndex = firstBounce / startHeight;
+    double firstBounce = startHeight;
+    double bouncinessIndex = bouncinessIndexInput / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
