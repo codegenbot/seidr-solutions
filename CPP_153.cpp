@@ -1,17 +1,19 @@
-Here is the solution:
-
-int Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = -1;
     string strongest_extension;
 
-    for (auto extension : extensions) {
-        int cap = 0, sm = 0;
-        for (char c : extension) {
-            if (isupper(c)) cap++;
-            else if (islower(c)) sm++;
+    for(auto extension : extensions){
+        int upper_case_count = 0;
+        int lower_case_count = 0;
+
+        for(char c : extension){
+            if(isupper(c)) upper_case_count++;
+            else if(islower(c)) lower_case_count++;
         }
-        int strength = cap - sm;
-        if (strength > max_strength) {
+
+        int strength = upper_case_count - lower_case_count;
+        
+        if(strength > max_strength || (strength == max_strength && extension < strongest_extension)){
             max_strength = strength;
             strongest_extension = extension;
         }
