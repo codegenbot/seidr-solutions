@@ -17,3 +17,4 @@ int main() {
     // Your test cases here
     std::cout << "All tests passed." << std::endl;
     return 0;
+}
