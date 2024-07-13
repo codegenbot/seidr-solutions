@@ -8,6 +8,11 @@ bool issame(vector<int> a,vector<int> b){
         if(a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}) , {}));
+}
 
 vector<int> pluck(vector<int> arr) {
     vector<pair<int, int>> evens;
@@ -19,8 +24,4 @@ vector<int> pluck(vector<int> arr) {
     if (evens.empty()) return {};
     sort(evens.begin(), evens.end());
     return {evens[0].first, evens[0].second};
-}
-
-int main(){
-    assert(issame(pluck({7, 9, 7, 1}) , {}));
 }
