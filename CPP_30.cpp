@@ -1,15 +1,21 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(float x, float y) {
-    return (x - y) < 0.0001;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
-    for (float x : l) {
-        if (x > 0 || (x == 0 && !result.empty()))
-            result.push_back(x);
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
     }
     return result;
+}
+
+int main() {
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
