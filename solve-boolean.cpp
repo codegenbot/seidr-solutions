@@ -23,3 +23,4 @@ string solveBoolean(string s) {
         st.pop();
     }
     return (res == "T") ? "True" : ((res == "F") ? "False" : "");
+}
