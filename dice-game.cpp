@@ -9,4 +9,3 @@ double probability(int n, int m) {
         p += (n - (m - 1)) * 1.0 / total;
     }
     return p;
-}
