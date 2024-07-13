@@ -1,9 +1,8 @@
-#include <stack>
-#include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
-    std::stack<char> opStack;
-    std::stack<bool> valStack;
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<bool> valStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -18,21 +17,21 @@ bool solveBoolean(std::string expression) {
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
-            valStack.pop();
+            valStack.push(false);
         }
     }
 
     while (!opStack.empty()) {
-        switch(opStack.top()) {
-            case '|': 
-                valStack.pop();  
-                break;
-            case '&':
-                valStack.pop() &&= valStack.pop();
-                break;  
-        }  
-        opStack.pop();  
-    }  
+        char op = opStack.top();
+        opStack.pop();
+        bool right = valStack.top();
+        valStack.pop();
+        bool left = valStack.top();
+        valStack.pop();
+
+        if (op == '|') valStack.push(left || right);
+        else valStack.push(left && right);
+    }
 
     return valStack.top();
 }
