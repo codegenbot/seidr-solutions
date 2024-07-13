@@ -1,8 +1,10 @@
-def intersperse(a, b):
-    result = [None]
-    for i in range(len(a) + len(b)):
-        if i % 2 == 0:
-            result.append(a[i//2] if i < len(a) else None)
-        else:
-            result.append(b[(i-1)//2] if i > len(a) else None)
-    return [x for x in result if x is not None]
+def intersperse(lst):
+    result = [lst[0]]
+    for item in lst[1:]:
+        result.append(' ' + item)
+        if item != lst[-2]:
+            result.append(' ')
+    result.append(lst[-1])
+    return ''.join(result)
+
+print(intersperse(input("Enter a list of strings (space separated): ").split()))
