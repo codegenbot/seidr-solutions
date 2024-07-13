@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -25,6 +24,6 @@ int main() {
         cin >> discount;
     }
     double result = shoppingList(prices, discounts);
-    cout << fixed << setprecision(1) << result << endl;
+    std::cout << std::fixed << std::setprecision(1) << result << std::endl;
     return 0;
 }
