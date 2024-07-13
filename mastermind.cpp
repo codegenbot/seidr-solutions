@@ -1,24 +1,28 @@
-int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+#include <vector>
+#include <string>
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            bool found = false;
-            for (int j = 0; j < 4; ++j) {
-                if (guess[j] == code[i] && i != j) {
-                    whitePegs++;
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                whitePegs++;
-            }
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
         }
     }
 
-    return blackPegs + whitePegs - 4;
+    for(char c : code) {
+        int count = 0;
+        for(char d : guess) {
+            if(c == d) {
+                count++;
+            }
+        }
+        if(count > 1 || (count == 1 && code.find(d) != string::npos)) {
+            continue;
+        }
+        white += min(count, 4 - black);
+    }
+
+    return {white, black}[0];
 }
