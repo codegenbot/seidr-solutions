@@ -1,2 +1,4 @@
-def get_average(lst: List[int]) -> float:
-    return sum(lst) / len(lst) if lst else None
+def find_longest_word(sentence: str) -> str:
+    words = sentence.split()
+    longest_word = max(words, key=len)
+    return longest_word
