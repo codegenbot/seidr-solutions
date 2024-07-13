@@ -1,3 +1,4 @@
+```
 def encrypt(s):
     result = ""
     shift = int(input("Enter shift value: "))
