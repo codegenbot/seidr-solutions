@@ -2,15 +2,17 @@
 def bowling_score(frames):
     score = 0
     index = 0
-    total_pins = 0
     while index < len(frames):
         if frames[index] == 'X':
             score += 10
             if index + 1 >= len(frames) or frames[index + 1] in ['/']:
                 continue
-            score += int(frames[index + 1].replace('/'))
-            total_pins = 10
-            index += 2
+            if frames[index + 1] == 'X':
+                score += 10
+                index += 2
+            elif frames[index + 1].isdigit():
+                score += int(frames[index + 1])
+                index += 2
         elif frames[index] in ['/']:
             left_pins = int(frames[index - 1][0])
             right_pins = int(frames[index][1])
@@ -19,19 +21,16 @@ def bowling_score(frames):
                     score += 10 + 10
                 else:
                     score += 10 + (int(right_pins) + int(frames[index + 1].replace('/')))
-                total_pins = 10
                 index += 2
             elif left_pins == 0:
                 frame_score = right_pins
                 if index + 1 < len(frames) and frames[index + 1] in ['/']:
                     frame_score += int(frames[index + 1].replace('/'))
                 score += frame_score
-                total_pins = 10 - frame_score
                 index += 2
             else:
                 frame_score = left_pins + right_pins
                 score += frame_score
-                total_pins = 10 - frame_score
                 index += 2
         else:
             left_pin = int(frames[index][0])
@@ -43,7 +42,6 @@ def bowling_score(frames):
                     score += 10 + (int(right_pin) + int(frames[index + 1].replace('/')))
                 else:
                     score += 10 + right_pin
-                total_pins = 10
                 index += 2
             elif left_pin == 0:
                 if right_pin in ['/']:
@@ -54,11 +52,9 @@ def bowling_score(frames):
                 else:
                     frame_score = right_pin
                     score += frame_score
-                total_pins = 10 - frame_score
                 index += 2
             else:
                 frame_score = left_pin + right_pin
                 score += frame_score
-                total_pins = 10 - frame_score
                 index += 2
     return score
