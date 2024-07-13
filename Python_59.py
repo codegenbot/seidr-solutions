@@ -10,10 +10,7 @@ def largest_prime_factor(n):
                 n //= j
             return j
         i += 1
-    if n > 1:
-        return n
-    else:
-        return n
+    return n
 
 
 def main():
