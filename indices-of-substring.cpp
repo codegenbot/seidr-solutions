@@ -12,7 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (index == string::npos) break;
         
         result.push_back(index);
-        index += 1; 
+        index += target.length(); // to avoid duplicate indices
     }
     
     return result;
