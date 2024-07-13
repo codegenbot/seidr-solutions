@@ -1,6 +1,6 @@
-def spin_words(sentence):
-    words = sentence.split()
-    result = []
+def spin_words(sentence): 
+    words = sentence.split() 
+    result = [] 
     for i, word in enumerate(words):
         if len(word) >= 5:
             result.append(word[::-1])
