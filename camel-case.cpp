@@ -1,18 +1,20 @@
+```cpp
 #include <string>
 #include <sstream>
 
 std::string camelCase(const std::string& input) {
-    std::stringstream iss(std::move(input));
+    std::stringstream iss(input);
     std::string word;
     std::string result;
 
     while (getline(iss, word, '-')) { 
         if (!result.empty())
-            result += char(std::toupper(word[0]));
+            result += std::toupper(word[0]);
         else
-            result = std::move(word).substr(1);
+            tmpWord = word.substr(1);
+        result += tmpWord;
         for (int i = 1; i < word.size(); ++i)
-            result += char(std::tolower(word[i]));
+            result += std::tolower(word[i]);
     }
     
     return result;
