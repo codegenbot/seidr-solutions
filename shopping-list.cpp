@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 float shoppingList(vector<float>& prices, vector<float>& discounts) {
@@ -18,9 +17,8 @@ int main() {
     for (float& price : prices) {
         cin >> price;
     }
-    int m;
-    cin >> m;
-    vector<float> discounts(m);
+    cin >> n;
+    vector<float> discounts(n);
     for (float& discount : discounts) {
         cin >> discount;
     }
