@@ -29,10 +29,9 @@ int main() {
     cout << "Enter your guess: ";
     cin >> guess;
     
-    int blackPegs, whitePegs; 
-    int result = mastermind(code, guess);
+    int mastermindResult = mastermind(code, guess);
     
-    cout << "Black pegs: " << black << endl;
-    cout << "White pegs: " << (result - black) << endl;
-    
-    return 0
+    cout << "Black pegs: " << mastermindResult << endl;
+    cout << "White pegs: " << mastermindResult - black << endl; 
+    return 0;
+}
