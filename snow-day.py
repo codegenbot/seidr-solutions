@@ -1,4 +1,3 @@
-```
 def snow_day(hours, initial_snow, rate_of_snowfall, proportion_melting):
     total_snow = 0
     new_snow = initial_snow
