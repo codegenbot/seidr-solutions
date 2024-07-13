@@ -11,9 +11,12 @@ bool solveBoolean(string s) {
         else if(s[i] == '&') {
             res = res && (s[i+1] == 'T');
             i += 2;
-        } 
-        else {
-            i++;
+        }
+        else{
+            if(s[i] == 'T')
+                res = s[i] == 'T';
+            else
+                i++;
         }
     }
     return res;
