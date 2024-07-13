@@ -5,11 +5,10 @@ def sort_third(l):
 
     result = []
     index = 0
-    while len(nums_divisible_by_3) > 0 and len(other_nums) > 0:
-        result.append(nums_divisible_by_3.pop(0))
-        result.append(other_nums.pop(0))
-
-    result.extend(nums_divisible_by_3)
-    result.extend(other_nums)
+    for num in l:
+        if num % 3 == 0:
+            result.append(nums_divisible_by_3.pop(0))
+        else:
+            result.append(other_nums.pop(0))
 
     return result
