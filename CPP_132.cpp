@@ -1,10 +1,13 @@
-int stack_size = 0;
+```cpp
+int count = 0;
 for (char c : str) {
-    if (c == '[') {
-        stack_size++;
-    } else if (c == ']') {
-        if (stack_size <= 0) return false;
-        stack_size--;
+    if (c == '[')
+        count++;
+    else if (c == ']') {
+        if (count > 0)
+            count--;
+        else
+            return false;
     }
 }
-return stack_size > 0;
+return count > 0;
