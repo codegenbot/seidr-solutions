@@ -1,6 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-int skjkasdkd(vector<int> lst) {
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for (int i : lst) {
         if (isPrime(i)) {
