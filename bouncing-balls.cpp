@@ -18,7 +18,7 @@ int main() {
     }
 
     cout << fixed;
-    cout << totalDistance << "\n";
+    cout << std::to_string(totalDistance) << "\n";
 
     return 0;
 }

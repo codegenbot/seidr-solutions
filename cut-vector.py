@@ -1,10 +1,9 @@
-```
 def cut_vector(vector):
     min_diff = float("inf")
     split_index = 0
 
     for i in range(len(vector)):
-        if vector[i - 1] >= vector[i]:
+        if i == 0 or vector[i - 1] >= vector[i]:
             return vector[:i], vector[i:]
 
         left_sum = sum(vector[:i])
