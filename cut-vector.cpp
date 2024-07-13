@@ -1,36 +1,38 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 1; i < n; i++) {
-        if (abs(v[i] - v[0]) <= abs(v[i] - v[i-1])) {
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
-            return res;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j) left_sum += vec[j];
+        for (int j = i + 1; j < vec.size(); ++j) right_sum += vec[j];
+
+        if (left_sum == right_sum || abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            cut_index = i;
         }
     }
-    res[0].insert(res[0].end(), v.begin(), v.end());
-    return res;
+
+    return {{vec.begin(), vec.begin() + cut_index}}, {vec.begin() + cut_index, vec.end()}};
 }
 
 int main() {
+    std::vector<int> vec;
     int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    vector<vector<int>> res = cutVector(v);
-    cout << "{";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i] << " ";
-    }
-    cout << "} {";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i] << " ";
-    }
-    cout << "}\n";
+    std::cin >> n;
+    vec.resize(n);
+    for (int i = 0; i < n; ++i) std::cin >> vec[i];
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+
+    std::cout << "[";
+    for (int x : result.first) std::cout << x << " ";
+    std::cout << "]\n[";
+    for (int x : result.second) std::cout << x << " ";
+    std::cout << "]\n";
+
     return 0;
 }
