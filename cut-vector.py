@@ -11,4 +11,4 @@ def cut_vector(vector):
             min_diff = abs(left_sum - (total_sum - left_sum))
             split_index = i
 
-    return str(tuple(vector[:split_index+1])), str(tuple(vector[split_index+1:]))
+    return str(tuple(vector[:split_index])), str(tuple(vector[split_index:]))
