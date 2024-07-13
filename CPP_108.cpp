@@ -9,8 +9,8 @@ int main() {
     while (std::cin >> n) {
         nums.push_back(n);
     }
-    int count = count_nums(nums);
-    std::cout << "Count of positive sums: " << count << std::endl;
+    int result = count_nums(nums);
+    std::cout << "The number of positive sums is: " << result << std::endl;
     return 0;
 }
 
