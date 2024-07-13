@@ -7,7 +7,7 @@ def fix_spaces(text):
 
 def main():
     while True:
-        text = input("Enter your text (or 'q' to quit): ").strip()
+        text = input("Enter your text (or 'q' to quit): ").strip().replace("\t", " ")
         if text.lower() == "q":
             break
         if " " in text:
