@@ -1,5 +1,5 @@
-```cpp
-int bowlingScore(std::string s) {
+#include <string>
+int bowlingScore(string s) {
     int score = 0;
     std::stringstream ss(s);
     char c;
