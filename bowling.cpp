@@ -1,42 +1,32 @@
-int bowlingScore(string input) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> frames(12, 0);
-    for (char c : input) {
+int getBowlingScore(string s) {
+    int score = 0, frame = 0, ball = 0;
+    for (char c : s) {
         if (c == 'X') {
-            frames[frame] = 10;
+            score += 10;
+            if (frame < 9)
+                score += (s[ball + 1] == 'X' ? 10 : (s[ball + 1] == '/' ? 10 - s[ball - 1] + '0' : s[ball + 1] - '0') + (s[ball + 2] == '/' ? 10 - s[ball + 1] + '0' : (s[ball + 2] == 'X' ? 10 : s[ball + 2] - '0')));
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10;
-            frames[frame-1] = 10 - frames[frame-1];
+            score += 10 - s[ball - 1] + '0';
+            if (frame < 9)
+                score += (s[ball + 1] == 'X' ? 10 : s[ball + 1] - '0');
             frame++;
-            ball = 0;
-        } else if (c == '-') {
-            ball++;
         } else {
-            frames[frame] += c - '0';
-            ball++;
-            if (ball == 2) {
+            score += c - '0';
+            if (frame < 9 && ball % 2 == 1 && s[ball - 1] != '/')
+                if (c == '-')
+                    frame++;
+            if (ball % 2 == 1 || c == 'X')
                 frame++;
-                ball = 0;
-            }
         }
-    }
-    for (int i = 1; i <= 10; i++) {
-        if (frames[i] == 10) {
-            score += 10 + frames[i+1] + frames[i+2];
-        } else if (frames[i] == 20) {
-            score += 20 + frames[i+2];
-        } else {
-            score += frames[i];
-        }
+        ball++;
     }
     return score;
 }
+
 int main() {
-    string input;
-    cin >> input;
-    cout << bowlingScore(input) << endl;
+    string s;
+    cin >> s;
+    cout << getBowlingScore(s) << endl;
     return 0;
 }
