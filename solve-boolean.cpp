@@ -1,5 +1,3 @@
-#include <string>
-
 bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
@@ -14,4 +12,4 @@ bool solveBoolean(std::string s) {
             if (!result) return false;
         }
     }
-    return result;
+}
