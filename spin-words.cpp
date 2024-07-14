@@ -10,7 +10,7 @@ std::string spinWords(const std::string& str) {
         else
             result += word + " ";
     }
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.size() - 2);
 }
 
 int main() {
