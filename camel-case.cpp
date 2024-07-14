@@ -18,6 +18,11 @@ std::string camelCase(const std::string& str) {
             } else {
                 result.push_back(tolower(c)); 
             }
+        } else {
+            if (!capitalize && !result.empty()) {
+                result.append(" ");
+            }
+            capitalize = true;
         }
     }
 
