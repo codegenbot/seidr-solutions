@@ -1,37 +1,29 @@
 ```
-def get_next_frames_score(score):
-    score = score.replace('/', '')
-    total = 0
-    for i in range(1, min(3, len(score) - frame)):
-        if i < len(str(total)):
-            total += int(str(total)[-i])
+def bowling_score(game):
+    score = 0
+    frame_index = 0
+    for i in range(1, 11):
+        if game[frame_index] == 'X':
+            score += 10 + (10 - i) * 10
+            frame_index += 2
+        elif game[frame_index: frame_index+2].count('X') == 2:
+            score += 20
+            frame_index += 2
         else:
-            break
-    return total
-
-def bowling_score(score):
-    score = score.replace('/', '')
-    total = 0
-    frame = 1
-    for i in range(0, len(score), 2):
-        if score[i].isdigit():
-            first_roll = int(score[i])
-            second_roll = 10 - first_roll if i + 1 < len(score) and score[i+1].isdigit() else 10 - first_roll
-            if first_roll == 10:
-                total += 10 + (0 if frame == 9 else get_next_frames_score(score))
-                frame += 1
-            elif second_roll == 10:
-                total += second_roll
-                frame += 1
+            strike = False
+            first_roll = int(game[frame_index])
+            second_roll = int(game[frame_index + 1])
+            if game[frame_index] == '/':
+                strike = True
+            elif game[frame_index + 1] == '/':
+                pass
+            elif game[frame_index] == 'X' or (game[frame_index] != '/' and game[frame_index + 1] != '/'):
+                score += first_roll + second_roll
+                frame_index += 2
             else:
-                total += first_roll + second_roll
-                if first_roll + second_roll < 10:
-                    total += get_next_frames_score(score)
-                frame += (2 if first_roll + second_roll == 10 else 1)
-    return total
-
-print(bowling_score('0'))
-print(bowling_score('XXXXXXXXXXXX'))
-print(bowling_score('5/5/5/5/5/5/5/5/5/5/5'))
-print(bowling_score('7115XXX548/279-X53'))
-print(bowling_score('532/4362X179-41447/5'))
+                score += first_roll
+                frame_index += 1
+                if game[frame_index] != '/':
+                    score += int(game[frame_index])
+                    frame_index += 1
+    return score
