@@ -5,8 +5,10 @@ def find_indices(text, target):
         pos = text.find(target, i)
         if pos == -1:
             break
-        result.append(pos) 
-        i = pos + 1
+        result.append(pos + 1) 
+        i = pos + len(target)
+    return result
+
 text = input("Enter the text: ")
 target = input("Enter the target string: ")
 
