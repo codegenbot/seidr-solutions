@@ -5,14 +5,19 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    if (n == 0) return {};
-
-    int leader = arr[n-1];
-    for (int i = n-2; i >= 0; i--) {
-        if (arr[i] > leader) leader = arr[i];
-    }
     vector<int> res;
-    res.push_back(leader);
+    
+    int lastLeader = arr[n-1];  // The rightmost element is always a leader
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= lastLeader) {
+            lastLeader = arr[i];
+            res.push_back(lastLeader);
+        }
+    }
+    
+    reverse(res.begin(), res.end());  // Reverse the vector because we processed it in reverse order
+    
     return res;
 }
 
