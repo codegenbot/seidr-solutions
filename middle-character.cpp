@@ -6,7 +6,7 @@ std::string middleCharacter(std::string s) {
     int middleIndex = len / 2;
     
     if (len % 2 == 0) {
-        return s.substr(middleIndex - 1, 2);
+        return s.substr(middleIndex - 1, 1) + s.substr(middleIndex, 1);
     } else {
         return s.substr(middleIndex, 1);
     }
