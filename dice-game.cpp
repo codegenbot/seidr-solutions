@@ -3,9 +3,7 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double totalPossibleRolls = (double)n * m;
-    double winningRolls = n - m;
-    return winningRolls / totalPossibleRolls;
+    return (n - 1.0) / ((double)n * m);
 }
 
 int main() {
