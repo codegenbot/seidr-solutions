@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> digits) {
@@ -23,8 +23,10 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    std::vector<int> digits(digits.size());
+    for (int i = 0; i < digits.size(); ++i) {
+        digits[i] = i + 1;
+    }
     int result = luhn(digits);
-    
-    return 0;
+    return result;
 }

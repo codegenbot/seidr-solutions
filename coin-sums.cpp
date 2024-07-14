@@ -8,17 +8,17 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    while (cents >= 5) {
-        ++coinCounts[2]; 
-        cents -= 5;
+    while (cents >= 25) {
+        ++coinCounts[0]; 
+        cents -= 25;
     }
     while (cents >= 10) {
         ++coinCounts[1]; 
         cents -= 10;
     }
-    while (cents >= 25) {
-        ++coinCounts[0]; 
-        cents -= 25;
+    while (cents >= 5) {
+        ++coinCounts[2]; 
+        cents -= 5;
     }
     coinCounts[3] = cents; 
 
