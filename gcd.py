@@ -18,4 +18,5 @@ def indices_of_substring(text, target):
     return result
 
 
+# test cases
 print(gcd(621821, 238148))
