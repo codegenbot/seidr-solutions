@@ -1,15 +1,20 @@
-#include <queue>
+#include <stack>
 
-bool evaluateTop(std::queue<char> &st) {
-    char c = st.front();
+bool evaluateTop(std::stack<char>& st) {
+    char c = st.top();
     st.pop();
     if (c == '&') {
-        return !st.empty();
+        while (!st.empty()) {
+            if (st.top() == 'T')
+                return false;
+            st.pop();
+        }
+        return true;
     } else if (c == '|') {
         while (!st.empty()) {
             st.pop();
         }
-        return false;
+        return true;
     } else {
         return c == 'T';
     }
