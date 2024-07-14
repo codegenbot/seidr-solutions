@@ -1,9 +1,11 @@
-```cpp
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
         float accumulation = rateOfSnowFall;
-        float melting = accumulation * proportionOfSnowMeltingPerHour;
-        initialSnow += accumulation - melting;
+        initialSnow += accumulation;
+        
+        // Calculate melting based on the new total snow
+        float melting = initialSnow * proportionOfSnowMeltingPerHour;
+        initialSnow -= melting;
     }
     
     return initialSnow;
