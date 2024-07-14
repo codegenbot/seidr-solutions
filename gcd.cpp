@@ -1,22 +1,20 @@
-```cpp
 #include <iostream>
 #include <algorithm>
+using namespace std;
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
 
 int main() {
-    int num1, num2;
-    cout << "Enter the first index: ";
-    cin >> num1;
-    cout << "Enter the second index: ";
-    cin >> num2;
+    string str1, str2;
+    cout << "Enter the first string: ";
+    cin >> str1;
+    cout << "Enter the second string: ";
+    cin >> str2;
 
-    int result = gcd(num1, num2);
-    cout << "GCD of indices: " << result << endl;
-    return 0;
+    int len1 = str1.length(), len2 = str2.length();
+    int result = gcd(len1, len2);
+    cout << "GCD of lengths: " << result << endl;
 }
