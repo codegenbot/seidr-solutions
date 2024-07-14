@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -25,5 +26,6 @@ int main() {
 
     for (auto i : res)
         cout << i << " ";
+    coutsemicolon
     return 0;
 }
