@@ -16,9 +16,9 @@ std::string spinWords(std::string str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5) {
-            result = std::string(word.rbegin(), word.rend()) + " " + result;
+            result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word + (word.length() < 5 ? " " : "") + " ";
+            result += word + (word.length() < 5 ? " " : "") + "";
         }
         start = spacePos + 1;
     }
