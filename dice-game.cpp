@@ -1,7 +1,5 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1) / total;
+double probability(int n, int m) {
+    return (n - 1.0) / (n * m);
 }
