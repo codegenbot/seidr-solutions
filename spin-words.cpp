@@ -1,26 +1,34 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t wordPos = str.find(" ", pos);
-        if (wordPos == std::string::npos)
-            wordPos = str.length();
-        std::string word = str.substr(pos, wordPos - pos);
-        if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
-        result += word + " ";
-        pos = wordPos + 1;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int wordLength;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            wordLength = i - (result.empty());
+            if (wordLength >= 5)
+                reverse(result.rbegin(), result.rend());
+            result += " ";
+        } else
+            result += str[i];
     }
-    return result;
+    return result.substr(1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string str;
+    while (true) {
+        cout << "Enter a sentence: ";
+        cin >> str;
+        if (str == "exit")
+            break;
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
