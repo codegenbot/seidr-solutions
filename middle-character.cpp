@@ -1,8 +1,8 @@
-#include <iostream>
+```cpp
 #include <string>
 
-std::string middleCharacter(const char* s) {
-    int len = std::strlen(s);
+std::string middleCharacter(std::string s) {
+    int len = s.length();
     int startMid = len / 2;
     int endMid = len / 2 + 1;
 
@@ -13,8 +13,4 @@ std::string middleCharacter(const char* s) {
     }
 }
 
-int main() {
-    const char* test = "your_test_string";
-    std::cout << middleCharacter(test) << std::endl;
-    return 0;
-}
+int main() { std::cout << middleCharacter("your_test_string"); return 0; }
