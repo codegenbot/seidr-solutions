@@ -9,11 +9,13 @@ std::vector<int> leaders(const vector<int>& arr) {
     
     if (n == 1) return arr;
     
-    int max_right = arr.back();
+    int maxRight = arr.back();
+    leaders.push_back(maxRight);
+    
     for (int i = n - 2; i >= 0; --i) {
-        if (arr[i] >= max_right) {
-            max_right = arr[i];
-            leaders.push_back(max_right);
+        if (arr[i] >= maxRight) {
+            leaders.push_back(arr[i]);
+            maxRight = arr[i];
         }
     }
     
