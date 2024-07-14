@@ -1,29 +1,35 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::string word;
-
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
+string spinWords(string input) {
+    string output = "";
+    int i = 0;
+    
+    while(i < input.length()) {
+        if(input[i] == ' ') {
+            output += " ";
+            i++;
         } else {
-            word += sentence[i];
+            int j = i + 1;
+            
+            // find the space or the end of the string
+            while(j <= input.length() && input[j] != ' ' && j < input.length()) {
+                j++;
+            }
+            
+            // check if the word is more than 4 characters
+            if((j - i) > 5) {
+                for(int k = j - 1; k >= i; k--) {
+                    output += input[k];
+                }
+            } else {
+                while(i < j) {
+                    output += input[i];
+                    i++;
+                }
+            }
         }
     }
-
-    return result;
-}
-
-int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
-    }
-    return 0;
+    
+    return output;
 }
