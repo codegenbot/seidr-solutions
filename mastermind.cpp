@@ -1,26 +1,42 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
+    
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
             black++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
+        } else {
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
-
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
-            }
-        }
-        if (count > 1 || count == 1 && code.find(d) != i) {
-            white += count - 1;
-        } else if (count == 1) {
-            white++;
-        }
+    
+    for(int i = 0; i < 6; i++) {
+        int count = min(codeCount[i], guessCount[i]);
+        white += count;
     }
+    
+    white -= black;
+    
+    return make_pair(white, black);
+}
 
-    return black + white;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    pair<int, int> result = mastermind(code, guess);
+    cout << result.first << endl;
+    cout << result.second << endl;
+    return 0;
 }
