@@ -1,15 +1,11 @@
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (yield from solve_boolean(''.join(filter(str.isalpha, expression))))
-            elif char == '|':
-                result |= (yield from solve_boolean(''.join(filter(str.isalpha, expression))))
-        return result
+    elif "&" in expression:
+        ops = expression.split("&")
+        return all(solve_boolean(op) for op in ops)
+    elif "|" in expression:
+        ops = expression.split("|")
+        return any(solve_boolean(op) for op in ops)
