@@ -1,14 +1,14 @@
-```cpp
 #include <iostream>
 #include <cmath>
+#include <sstream>
 using namespace std;
 
 int main() {
-    int startHeight;
-    int firstBounce;
-    int numBounces; 
-
-    cin >> startHeight >> std::skipws >> std::ws >> firstBounce >> std::skipws >> std::ws >> numBounces; 
+    string line;
+    getline(cin, line);
+    int startHeight, firstBounce, numBounces;
+    istringstream iss(line);
+    iss >> startHeight >> firstBounce >> numBounces; 
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
