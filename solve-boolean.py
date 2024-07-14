@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     precedence = {"&": 2, "|": 1}
     stack = []
@@ -8,15 +9,9 @@ def solve_boolean(expression):
         if char.strip() in ["T", "F"]:
             output.append(char)
         elif char in ["&", "|"]:
-            while len(stack) > 0 and (
-                stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]
-            ):
+            while len(stack) > 0 and (stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]):
                 top = stack.pop()
-                while (
-                    len(stack) > 0
-                    and top in precedence
-                    and precedence[top] >= precedence[stack[-1]]
-                ):
+                while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
                     if top != "(":
                         eval_str += top
                 if top == "(":
@@ -37,22 +32,15 @@ def solve_boolean(expression):
         top = stack.pop()
         if top == "(":
             continue  # Don't pop the opening parenthesis
-        while (
-            len(stack) > 0
-            and top in precedence
-            and precedence[top] >= precedence[stack[-1]]
-        ):
+        while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
             if top != "(":
                 eval_str += top
         eval_str += top
 
     return "T" if eval_str == "T" else "F"
 
-
 def main():
     expression = input("Enter a Boolean expression: ")
     print(solve_boolean(expression))
 
-
-if __name__ == "__main__":
-    main()
+main()
