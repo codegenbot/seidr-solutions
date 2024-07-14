@@ -8,15 +8,15 @@ def indices_of_substring(text, target):
     result = []
     index = 0
     while index < len(text):
-        pos = text.find(target, index)
-        if pos == -1:
-            break
-        result.append(pos)
-        index = pos + 1
+        if text[index : index + len(target)] == target:
+            result.append(index)
+            index += len(target)
+        else:
+            index += 1
     return result
 
 
-# test cases
+# Test cases
 print(gcd(1, 1))
 print(gcd(4, 400000))
 print(gcd(54, 24))
