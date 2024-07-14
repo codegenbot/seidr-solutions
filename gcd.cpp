@@ -1,38 +1,21 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int i = 0;
-    while (i <= text.length() - target.length()) {
-        size_t pos = text.find(target);
-        if (pos != string::npos) {
-            result.push_back(pos);
-            i = pos + 1;
-        } else {
-            break;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int targetLength = target.length();
+    for (int i = 0; i <= text.length() - targetLength; i++) {
+        if (text.substr(i, targetLength) == target) {
+            indices.push_back(i);
+            i += targetLength - 1; // Skip the overlapping strings
         }
     }
-    return result;
+    return indices;
 }
 
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     if (b == 0)
         return a;
-    return gcd(b, a % b);
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result)
-        cout << i << " ";
-    return 0;
+    else
+        return gcd(b, a % b);
 }
