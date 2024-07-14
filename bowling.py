@@ -3,10 +3,10 @@ def bowling_score(game):
     score = 0
     frame_index = 0
     for i in range(1, 11):
-        if game[frame_index:frame_index+2] == 'X ':
+        if game[frame_index] == 'X':
             score += 10 + (10 - i) * 10
             frame_index += 2
-        elif game[frame_index:frame_index+3] == 'XX ':
+        elif game[frame_index: frame_index+2] == 'XX':
             score += 20
             frame_index += 2
         else:
@@ -21,10 +21,7 @@ def bowling_score(game):
                     strike = True
                     break
             if strike:
-                score += 10 + first_roll + (10 - i) * 10
-                frame_index += 2
-            elif game[frame_index+1] != '/':
-                score += first_roll + int(game[frame_index+1])
+                score += 10 + first_roll + second_roll
                 frame_index += 2
             else:
                 score += first_roll + second_roll
