@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     def evaluate(expression):
         if expression[0] in ['T', 'F']:
