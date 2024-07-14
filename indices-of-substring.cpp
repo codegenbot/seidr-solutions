@@ -51,6 +51,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
+    using namespace std;
     string text;
     cin >> text;
     string target;
