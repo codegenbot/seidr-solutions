@@ -7,12 +7,13 @@ using namespace std;
 
 double vectorDistance(int n) {
     double sum = 0;
+    float x1[n], x2[n]; // Declare arrays outside the loop
+
     for (int i = 0; i < n; i++) {
-        double x1, x2;
-        cin >> x1 >> x2;
-        sum += pow(x2 - x1, 2);
+        cin >> x1[i] >> x2[i];
+        sum += pow(x2[i] - x1[i], 2);
     }
-    return sqrt(sum);
+    return sqrt(sum); 
 }
 
 int main() {

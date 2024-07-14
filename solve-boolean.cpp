@@ -12,7 +12,6 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         }
         else if (s[i] == '&') {
-            i++; // increment 'i' to skip '&' and move to the next character
             while(i+1<s.length() && s[i+1] == '&') i++;
             if (!result) return false;
         }
@@ -23,12 +22,18 @@ bool solveBoolean(const std::string& s) {
 int main() {
     char input[100]; 
     std::cout << "Enter a Boolean expression (T/F/|/&): "; 
-    while (std::cin >> input) {
-        if (std::string(input) == "exit") {
-            std::cout << "Goodbye!" << std::endl;
-            return 0;
+    while (true) {
+        if (!(std::cin >> input)) {  // check if read operation was successful
+            if(std::string(input) == "exit") {
+                std::cout << "Goodbye!" << std::endl;
+                return 0;
+            }
+            else {
+                std::cout << "Invalid input. Please enter a valid Boolean expression or 'exit' to quit: ";
+                continue;  // loop back and ask for input again
+            }
         }
-        bool result = solveBoolean(std::string(input));
+        bool result = solveBoolean(input);
         std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     }
 }
