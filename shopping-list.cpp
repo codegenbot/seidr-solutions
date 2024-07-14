@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <utility>
 #include <iostream>
@@ -8,7 +8,7 @@ double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) 
     for (const auto& pair : pricesAndDiscounts) {
         double price = pair.first;
         double discount = pair.second; 
-        double discountedPrice = price * (1 - discount / 100.0f); 
+        double discountedPrice = price * (1 - discount / 100.0); 
         total += discountedPrice;
     }
     return total;
