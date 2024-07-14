@@ -1,17 +1,29 @@
-bool solveBoolean(string s) {
-    if(s=="T") return true;
-    else if(s=="F") return false;
-    else if(s.size()>1){
-        bool res = solveBoolean(s.substr(0,s.find('&'))); 
-        for(int i=s.find('&')+1; i<s.size(); i++) {
-            res = (res && solveBoolean(s.substr(i,1)));
+bool solveBoolean(string booleanExpression) {
+    bool result = true;
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        switch (booleanExpression[i]) {
+            case 'T':
+                break;
+            case 'F':
+                result = false;
+                return result;
+            case '&': {
+                int j = i + 1;
+                while (j < booleanExpression.length() && booleanExpression[j] == '&') 
+                    j++;
+                if (j >= booleanExpression.length()) return false;
+                i = j - 1;
+                break;
+            }
+            case '|': {
+                int j = i + 1;
+                while (j < booleanExpression.length() && booleanExpression[j] == '|') 
+                    j++;
+                if (j >= booleanExpression.length()) return true;
+                i = j - 1;
+                break;
+            }
         }
-        return res;
-    }else{
-        for(int i=0; i<s.size();i++){
-            if(s[i]=='|') return true;
-            else if(s[i]&1) return false;
-        }
-        return true;
     }
+    return result;
 }
