@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
+    int count = 0;
     std::vector<int> res;
 
     for(int i=n-1; i>=0; i--) {  
