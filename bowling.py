@@ -1,27 +1,21 @@
-def bowling_score(frames):
+def bowling_game(s):
+    s = s.replace("/", "")
     score = 0
-    for i, frame in enumerate(frames.split("/")):
-        if len(frame) == 1:
-            if frame == "X":
-                score += 30
+    roll_count = 1
+    for i in range(len(s)):
+        if s[i].isdigit():
+            if s[i] == "X":
+                score += 10 + (10 - int(s[: i - 1])) * 2
+                roll_count = max(roll_count, 2)
             else:
-                return -1
-        elif len(frame) == 2:
-            strike = True if frame[0] == "X" else False
-            if strike:
-                score += (
-                    10
-                    + max([int(x) for x in frames.split("/")[i + 1].split()[0:2]]) * 2
-                )
-            else:
-                score += int(frame[0]) * 2 + int(frame[1])
+                if roll_count < 3:
+                    score += int(s[i]) + (10 - int(s[i])) * 2
+                else:
+                    if s[i] == "0":
+                        continue
+                    score += int(s[i])
+        elif s[i] == "-":
+            roll_count = max(roll_count, 1)
         else:
-            frame_score = sum(map(int, frame))
-            if i < 9 and sum(map(int, frames.split("/")[i + 1])) >= 10:
-                score += (
-                    frame_score
-                    + max([int(x) for x in frames.split("/")[i + 1].split()[0:2]]) * 2
-                )
-            else:
-                score += frame_score
+            roll_count += 1
     return score
