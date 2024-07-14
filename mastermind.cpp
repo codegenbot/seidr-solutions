@@ -14,7 +14,6 @@ int mastermind(const char* code, const char* guess) {
             if (code[j] == guess[i]) {
                 foundInCode = true;
                 break;
-            }
         }
 
         if (foundInCode && code[i] != guess[i]) {
