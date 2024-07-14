@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 import unicodedata
 
 def validate_tweet():
@@ -11,3 +8,5 @@ def validate_tweet():
         print("You didn't type anything")
     else:
         print(f"Your tweet has {len(tweet)} characters")
+
+validate_tweet()
