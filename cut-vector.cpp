@@ -11,13 +11,17 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             break;
         }
     }
-    vector<int> tempV(n);
+    vector<int> left;
     for (int j = 0; j < i; j++) {
-        res.first.push_back(tempV[j]);
+        left.push_back(v[j]);
     }
-    for (int j = i; j < n; j++) {
-        res.second.push_back(tempV[j]);
+
+    vector<int> right;
+    for (int j = i; j < v.size(); j++) {
+        right.push_back(v[j]);
     }
+    res.first = left;
+    res.second = right;
     return res;
 }
 
