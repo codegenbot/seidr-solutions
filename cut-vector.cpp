@@ -11,8 +11,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             break;
         }
     }
-    vector<int> left(v.begin(), v.begin() + (i == 0 ? 1 : i));
-    vector<int> right((i < n - 1) ? v.begin() + i : v.end());
+    vector<int> left(v.begin(), v.begin() + i);
+    vector<int> right(v.begin() + i, v.end());
     res.first = left;
     res.second = right;
     return res;
