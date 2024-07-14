@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -35,17 +36,16 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    int g = indices.size(); // initialize with the number of substrings
+    vector<int> temp;
     for (int i : indices) {
         for (int j : indices) {
-            if (i < j) { // to avoid duplicates
-                int temp = gcd(i, j);
-                if (temp > g)
-                    g = temp;
+            if (i < j) { 
+                int pair_gcd = std::gcd(abs(i - j), gcd(abs(i), abs(j)));
+                temp.push_back(pair_gcd);
             }
         }
     }
-
+    int g = *min_element(temp.begin(), temp.end());
     cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
