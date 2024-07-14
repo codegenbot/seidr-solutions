@@ -10,6 +10,7 @@ int main() {
     const char* result = validateTweet(input);
     std::cout << result << std::endl;
     return 0;
+
 }
 
 std::string validateTweet(const std::string& input) {
