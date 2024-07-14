@@ -3,11 +3,11 @@
 #include <vector>
 
 double vectorDistance(int n, std::vector<float> v1, std::vector<float> v2) {
-    double sumOfSquares = 0.0;
+    double distance = 0.0;
     for (int i = 0; i < n; i++) {
-        sumOfSquares += pow(v1[i] - v2[i], 2);
+        distance += pow(v1[i] - v2[i], 2);
     }
-    return sqrt(sumOfSquares);
+    return sqrt(distance / n); 
 }
 
 int main() {
