@@ -1,31 +1,28 @@
+#include <string>
+using namespace std;
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
             black++;
         }
     }
-
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                count++;
+    
+    for(int i = 0; i < 6; i++) {
+        int countCode = 0, countGuess = 0;
+        for(int j = 0; j < 4; j++) {
+            if(code[j] == (char)(i + 65)) {
+                countCode++;
+            }
+            if(guess[j] == (char)(i + 65)) {
+                countGuess++;
             }
         }
-        if (count > 1 && c != code[0] && c != code[1] && c != code[2] && c != code[3]) {
-            white += count - 1;
-        } else if (count == 1) {
-            for (int i = 0; i < 4; ++i) {
-                if (code[i] == c) {
-                    black++;
-                    break;
-                }
-            }
-        }
+        white += min(countCode, countGuess) - black;
     }
-
-    return black + white;
+    
+    return make_pair(white, black).second;
 }
