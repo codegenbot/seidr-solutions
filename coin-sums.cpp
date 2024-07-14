@@ -2,7 +2,6 @@
 
 int main() {
     int cents;
-    std::cout << "Enter the number of cents: ";
     std::cin >> cents;
 
     int quarters = cents / 25;
