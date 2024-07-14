@@ -1,9 +1,6 @@
-#include <string>
-using namespace std;
-
-string squareDigits(string input) {
+string squareDigits(string n) {
     string result = "";
-    for (char c : input) {
+    for (char c : n) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
