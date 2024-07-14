@@ -1,21 +1,13 @@
-int luhn(vector<int> nums) {
+int luhnCheck(vector<int> cardNum) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        int n = nums[i];
-
-        if (doubleNext) {
-            n *= 2;
-            if (n > 9) {
-                n -= 9;
-            }
+    for(int i = cardNum.size() - 1; i >= 0; i--) {
+        if(i % 2 != 0) {
+            int digit = cardNum[i] * 2;
+            if(digit > 9) digit -= 9;
+            sum += digit;
+        } else {
+            sum += cardNum[i];
         }
-
-        sum += n;
-
-        doubleNext = !doubleNext;
     }
-
     return sum;
 }
