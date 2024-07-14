@@ -4,24 +4,19 @@
 
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        if (c >= 'a' && c <= 'z') {
-            int index = c - 'a';
-            if (index >= 0 && index < cipher1.length()) {
-                result += cipher2[index];
-            } else {
-                result += c; // preserve original case
+    for (char c : message) {
+        if (c >= 'a' && c <= 'z') { 
+            int index = 0;
+            while (index < cipher1.length() && tolower(c) != cipher1[index]) {
+                index++;
             }
-        } else if (c >= 'A' && c <= 'Z') { 
-            int index = c - 'A';
-            if (index >= 0 && index < cipher1.length()) {
-                result += toupper(cipher2[index]);
+            if (index < cipher1.length()) {
+                result += cipher2[index]; 
             } else {
-                result += toupper(c); // preserve original case
+                result += c; 
             }
         } else {
-            result += c; // non-alphabetic characters remain unchanged
+            result += c; 
         }
     }
     return result;
