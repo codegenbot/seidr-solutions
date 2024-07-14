@@ -1,1 +1,11 @@
-return sum(int(d) for i, d in enumerate(s) if i < len(s)-1 and d*2 == int(s[i+1:]))
+```Python
+def paired_digits(s):
+    total_sum = 0
+    i = 0
+    while i < len(s) - 1:
+        if s[i] == s[i+1]:
+            total_sum += int(s[i]) * 2
+            i += 1
+        else:
+            i += 1
+    return total_sum
