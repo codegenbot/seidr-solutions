@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <initializer_list>
 
 using namespace std;
 
