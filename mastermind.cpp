@@ -2,33 +2,25 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Create a frequency map for the code and the guess
-    map<char, int> code_freq, guess_freq;
-
-    for (char c : code) {
-        code_freq[c]++;
-    }
-
-    for (char c : guess) {
-        guess_freq[c]++;
-    }
-
-    // Count the black pegs
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-            code_freq[code[i]]--;
-            guess_freq[guess[i]]--;
+            code[i] = ' '; // mark as used
+            guess[i] = ' '; // mark as used
         }
     }
 
-    // Count the white pegs
-    for (int i = 0; i < 4; i++) {
-        if (code_freq.find(guess[i]) != code_freq.end() && code_freq[guess[i]] > 0) {
-            white++;
-            code_freq[guess[i]]--;
+    for (int i = 0; i < 4; ++i) {
+        int count = 0;
+        for (char c : "BOYWG") {
+            if (code.find(c) != string::npos && code.find(c) != string::npos) {
+                count++;
+                code.replace(code.find(c), 1, " ");
+                guess.replace(guess.find(c), 1, " ");
+            }
         }
+        white += count;
     }
 
-    return {white, black};
+    return black + white;
 }
