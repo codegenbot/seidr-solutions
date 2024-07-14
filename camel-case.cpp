@@ -1,36 +1,42 @@
-#include <vector>
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(const std::string& s) {
-    std::vector<std::string> words = split(s, " ");
-    std::string result;
-    for (int i = 0; i < words.size(); ++i) {
-        if (i > 0)
-            result += std::toupper(words[i][0]);
-        else
-            result += words[i];
-        for (int j = 1; j < words[i].size(); ++j)
-            result += std::tolower(words[i][j]);
+string camelCase(string str) {
+    string result = "";
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-') {
+            if (i > 0 && str[i - 1] != ' ')
+                result += topper(str.substr(i + 1));
+            else
+                result += " ";
+        } else if (str[i] == ' ') {
+            if (!result.empty())
+                result += topper(str.substr(i + 1));
+            else
+                result = str.substr(0, i);
+            break;
+        } else
+            result += tolower(str[i]);
     }
     return result;
 }
 
-std::vector<std::string> split(const std::string& s, const char& c) {
-    std::vector<std::string> v;
-    size_t pos = 0;
-    while ((pos = s.find(c)) != std::string::npos) {
-        v.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
+string topper(string s) {
+    string res = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (i == 0)
+            res += toupper(s[i]);
+        else
+            res += tolower(s[i]);
     }
-    v.push_back(s);
-    return v;
+    return res;
 }
 
 int main() {
-    std::cout << camelCase("nospaceordash") << std::endl; // nospaceordash
-    std::cout << camelCase("two-words") << std::endl; // twoWords
-    std::cout << camelCase("two words") << std::endl; // two words
-    std::cout << camelCase("all separate words") << std::endl; // all separate words
+    string str;
+    while (cin >> str) {
+        cout << camelCase(str) << endl;
+    }
     return 0;
 }
