@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
@@ -11,9 +11,8 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices(3); 
-    prices[0] = 10.0; prices[1] = 20.0; prices[2] = 30.0;
-    vector<float> discounts(3); 
-    discounts[0] = 5.0; discounts[1] = 10.0; discounts[2] = 15.0;
+    vector<float> prices({10.0, 20.0, 30.0});
+    vector<float> discounts({5.0, 10.0, 15.0});
     cout << "Total cost: " << shoppingList(prices, discounts) << endl;
     return 0;
+}
