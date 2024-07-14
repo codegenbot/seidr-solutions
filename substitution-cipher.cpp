@@ -7,7 +7,7 @@ std::string decipher(std::string cipher1, std::string cipher2, std::string messa
     for (char c : message) {
         if (c >= 'a' && c <= 'z') { 
             int index = 0;
-            while (index < cipher1.length() && tolower(c) != cipher1[index]) {
+            while (index < cipher1.length() && tolower(c) != tolower(cipher1[index])) {
                 index++;
             }
             if (index < cipher1.length()) {
