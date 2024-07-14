@@ -29,20 +29,15 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int i = 0, j = 0;
 
     while (i < n) {
-        if (text[i] == target[j]) {
-            i++;
+        while (j < m && i + j < n && text[i + j] == target[j]) {
             j++;
-        } else {
-            if (j != 0) {
-                j = lps[j - 1];
-            } else {
-                i++;
-            }
         }
-
         if (j == m) {
-            result.push_back(i - j);
+            result.push_back(i);
             j = 0;
+        } else {
+            i += lps[j - 1];
+            j = lps[j - 1];
         }
     }
 
