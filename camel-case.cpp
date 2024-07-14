@@ -32,7 +32,7 @@ std::string camelCase(const std::string& str) {
         } else {
             result += tolower(segment[0]);
         }
-        if (!result.empty() || segment.size() > 1) {
+        if (segment.size() > 1) {
             result += segment.substr(1);
         }
     }
@@ -43,8 +43,11 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
+    char c;
+    while((c = cin.get()) != '\n') {
+        input += c;
+    }
+    
     std::cout << "camelCase: " << camelCase(input) << std::endl;
 
     return 0;
