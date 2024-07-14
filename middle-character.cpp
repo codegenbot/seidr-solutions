@@ -1,3 +1,5 @@
+#include <string>
+
 std::string middleCharacter(const std::string& str) {
     int length = str.length();
     if (length % 2 == 0) {
