@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int pairedDigits(const char* s) {
@@ -10,11 +9,12 @@ int pairedDigits(const char* s) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    const char* s = "input string of digits"; // replace with your input
+    const char* s = "11223344";
     int result = pairedDigits(s);
-    std::cout << result << std::endl; 
+    std::cout << "The sum of paired digits is: " << result << std::endl;
     return 0;
 }
