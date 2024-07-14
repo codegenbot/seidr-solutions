@@ -12,7 +12,7 @@ int bowlingScore(string s) {
             int roll = c - '0';
             currentRoll += roll;
             if (currentRoll >= 10) {
-                score += 10 + roll - 1;
+                score += 10 + (currentRoll - 10);
                 currentRoll = 0;
             }
         }
