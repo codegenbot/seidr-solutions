@@ -1,24 +1,22 @@
-```c++
 #include <vector>
 using namespace std;
 
-int luhn(vector<int> digits) {
+int luhn(const vector<int>& card) {
     int sum = 0;
-    bool doubleNext = false;
-    for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i];
-        if (doubleNext) {
+    bool alternate = false;
+    for (auto digit : card) {
+        if (alternate) {
             digit *= 2;
             if (digit > 9) digit -= 9;
         }
         sum += digit;
-        doubleNext = !doubleNext;
+        alternate = !alternate;
     }
     return sum;
 }
 
 int main() {
-    vector<int> digits = {4,7,8,1,3,9,0,8,6,7,1,1,9,9,5};
-    cout << luhn(digits) << endl;
+    vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 1, 8, 9, 4, 2, 0, 1};
+    cout << luhn(card) << endl;
     return 0;
 }
