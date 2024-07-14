@@ -1,8 +1,7 @@
-#include <string>
-
+```cpp
 std::string middleCharacter(std::string s) {
     int len = s.length();
-    int mid = (len - 1) / 2;
+    int mid = len / 2;
     if (len % 2 == 0) {
         return s.substr(mid, 2);
     } else {

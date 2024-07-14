@@ -4,10 +4,12 @@ def shopping_list():
     total_price = 0
 
     for _ in range(n):
-        line = input().split()
-        price = float(line[0])
-        discount = float(line[1]) / 100
-        total_price += price * (1 - discount)
+        items = input().split()
+        total_price_item = sum(map(float, items))
+        total_discount = float(input()) / 100
+        total_price += total_price_item * (1 - total_discount)
+        print(total_price, end=' ')
+        total_price = 0
 
     return format(total_price, ".2f")
 
