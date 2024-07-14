@@ -28,8 +28,11 @@ int main() {
     std::getline(std::cin, input);
     std::string message = input;
 
-    std::string result = decipher(cipher_map1, cipher_map2, message);
+    std::getline(std::cin, input);
+    cipher_map1.erase(0, cipher_map1.find('\n')+1);
+    cipher_map2.erase(0, cipher_map2.find('\n')+1);
 
+    std::string result = decipher(cipher_map1, cipher_map2, message);
     std::cout << "Deciphered message: " << result << std::endl;
     return 0;
 }
