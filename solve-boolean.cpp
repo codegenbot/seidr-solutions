@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <stack>
 #include <string>
-#include <iostream>
 
 bool evaluateTop(std::stack<char>& st) {
     char c = st.top();
@@ -49,6 +50,20 @@ bool evaluate(std::stack<char> st, std::string expression) {
             }
         }
     }
+    while (!st.empty()) {
+        if (st.top() == '&') {
+            while (!st.empty() && st.top() != '|') {
+                st.pop();
+            }
+            bool top = st.empty();
+            return top;
+        } else if (st.top() == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            return true;
+        }
+    }
     return result;
 }
 
@@ -61,4 +76,5 @@ int main() {
     } else {
         std::cout << "False" << std::endl;
     }
+    return 0;
 }
