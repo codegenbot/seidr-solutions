@@ -1,24 +1,30 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::stringstream ss(str);
-    std::string word;
-    
-    while (ss >> word) {
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    size_t pos = 0;
+    while((pos = str.find(" ")) != string::npos) {
+        string word = str.substr(0, pos);
         if(word.length() >= 5)
-            word = std::string(word.rbegin(), word.rend());
-        result += word + " ";
+            result += string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
+        str.erase(0, pos+1);
     }
-    
-    return result.substr(0, result.size()-1); // remove the last space
+    result += str;
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    // Your code to read from input and write to output.
+    // For example:
+    string str;
+    cin >> str;
+    cout << spinWords(str) << endl;
+    
     return 0;
 }
