@@ -1,15 +1,14 @@
+```cpp
 #include <iostream>
-#include <sstream>
 #include <cmath>
-
 using namespace std;
 
 int main() {
     int startHeight;
-    double firstBounce; 
+    int firstBounce;
     int numBounces; 
 
-    cin >> startHeight >> " " >> firstBounce >> " " >> numBounces; 
+    cin >> startHeight >> ' ' >> firstBounce >> ' ' >> numBounces; 
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
