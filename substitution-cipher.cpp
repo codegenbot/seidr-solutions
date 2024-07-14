@@ -7,7 +7,7 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
         char c = message[i];
         int pos = cipher_map1.find(c);
         if (pos != std::string::npos) {
-            message[i] = cipher_map2[pos];
+            message.replace(i, 1, 1, cipher_map2[pos]);
         }
     }
     return message;

@@ -11,10 +11,11 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 }
 
 int main() {
-    char input[256];
+    std::string input;
     std::cout << "Enter the number of hours: ";
-    std::cin.getline(input, 256);
+    getline(std::cin, input);
     int hours = std::stoi(input);
+
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the initial amount of snow: ";
