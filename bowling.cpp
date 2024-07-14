@@ -2,29 +2,33 @@
 
 int bowlingScore(string bowls) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
+    int i = 0;
+    while (i < 10) {
         if (bowls[i] == 'X') {
             score += 30;
+            i++;
         } else if (isdigit(bowls[i])) {
             int currentFrameScore = 0;
             int j = i;
-            while (j < bowls.length() && isdigit(bowls[j])) {
-                currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
-                j++;
-            }
-            if (j < bowls.length() && bowls[j] == '/') {
-                score += currentFrameScore;
-                int nextRoll = 0;
-                j++;
-                while (j < bowls.length() && isdigit(bowls[j])) {
-                    nextRoll = nextRoll * 10 + (bowls[j] - '0');
-                    j++;
+            for (; j < i + 2 && j < bowls.length(); j++) {
+                if (isdigit(bowls[j])) {
+                    currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
+                } else {
+                    break;
                 }
-                score += nextRoll;
-            } else {
-                score += currentFrameScore;
             }
+            score += currentFrameScore;
+            i = j;
+        } else {
+            int currentFrameScore = 0;
+            for (; i < bowls.length() && !isdigit(bowls[i]); i++) {
+                if (bowls[i] == '/') {
+                    currentFrameScore /= 2;
+                    break;
+                }
+            }
+            score += currentFrameScore;
+            i++;
         }
     }
     return score;
-}
