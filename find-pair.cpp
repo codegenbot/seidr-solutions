@@ -5,19 +5,25 @@
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
-    for (int num : nums) {
-        int complement = target - num;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return std::make_pair(num, complement);
+            return std::make_pair(nums[i], complement);
         }
-        numMap[num] = 1;
+        numMap[nums[i]] = i;
     };
     return std::pair<int, int>(-1, -1);
 }
 
 int main() {
+    std::vector<int> nums;
+    nums.push_back(1);
+    nums.push_back(2);
+    nums.push_back(3);
+    nums.push_back(4);
+    nums.push_back(5);
+
     int target = 7;
-    std::vector<int> nums = {1,2,3,4,5};
     auto pair = findPair(nums, target);
     if (pair.first != -1 && pair.second != -1) {
         std::cout << "Found pair: (" << pair.first << ", " << pair.second << ")" << std::endl;
