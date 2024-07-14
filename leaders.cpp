@@ -24,3 +24,4 @@ int main() {
     vector<int> leadersResult = leaders(arr);
     for(int i: leadersResult) cout << i << endl;
     return 0;
+}
