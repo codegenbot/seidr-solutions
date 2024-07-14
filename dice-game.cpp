@@ -2,13 +2,12 @@
 #include <cmath>
 
 double diceGame(int n, int m) {
-    double total = 1.0 * (m);
+    double total = 1.0 * (n * m);
     
     double win = 0.0;
     
     for(int i = 1; i < m; i++) { 
         win += ((n - i)) / total; 
-        total--;
     }
     
     return win;
