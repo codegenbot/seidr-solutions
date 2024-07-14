@@ -1,7 +1,11 @@
-```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
+
+void trim(std::string &s) {
+    s.erase(0, s.find_first_not_of(' ')); // remove leading spaces
+    s.erase(s.find_last_not_of(' ') + 1); // remove trailing spaces
+}
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -14,11 +18,12 @@ std::string spinWords(std::string str) {
         if (word.length() >= 5) {
             result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word + " ";
+            result += word + (word.length() < 5 ? " " : "") + "";
         }
         start = spacePos + 1;
     }
-    return result;
+    trim(result); // no assignment needed, just call the function
+    return result; // return the modified result
 }
 
 int main() {
