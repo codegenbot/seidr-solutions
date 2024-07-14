@@ -6,7 +6,7 @@ bool solveBoolean(std::string s) {
         else if (c == '&') {
             res &= false;
         } else if (c == '|') {
-            res |= true;
+            res |= false;
         }
     }
     return res;
