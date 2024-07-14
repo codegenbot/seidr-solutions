@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -25,7 +26,7 @@ int main() {
     cout << "Enter the target: ";
     cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    std::vector<int> indices = indicesOfSubstring(text, target);
     int max_gcd = 0;
     for (int i = 0; i < indices.size(); i++) {
         int g = gcd(indices[i], max_gcd);
