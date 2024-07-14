@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-bool solveBoolean(const std::string& s) {
+bool solveBoolean(const char* s) {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; s[i]; i++) {
         if (s[i] == 'F') {
             return false;
         }
@@ -12,7 +12,7 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         }
         else if (s[i] == '&') {
-            while(i+1<s.length() && s[i+1] == '&') i++;
+            while(i+1 && s[i+1] == '&') i++;
             if (!result) return false;
         }
     }
@@ -23,6 +23,7 @@ int main() {
     char input[100]; 
     std::cout << "Enter a Boolean expression (T/F/|/&): "; 
     while (true) {
+        std::cin >> std::ws;  // consume newline character
         if (!(std::cin >> input)) {  // check if read operation was successful
             if(std::string(input) == "exit") {
                 std::cout << "Goodbye!" << std::endl;
