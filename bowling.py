@@ -1,24 +1,27 @@
+Here is the Python solution for the bowling problem:
+
 ```
-def bowling_score(rolls):
+def bowling_score(game):
     score = 0
-    roll_index = 0
-    for frame in range(10):
-        if rolls[roll_index] == 'X':
-            score += 30
-            roll_index += 1
-        elif rolls[roll_index:roll_index+2].count('/'):
-            left, right = map(int, rolls[roll_index:roll_index+2].split('/'))
-            score += left + right
-            roll_index += 2
-        else:
-            first_roll = int(rolls[roll_index])
-            if frame < 9 and str(first_roll) + rolls[roll_index+1] == 'X5':
-                score += 25
-                roll_index += 2
-            elif frame == 9 and rolls[roll_index+1] == 'X' and first_roll != 10:
-                score += 15 + first_roll
-                roll_index += 2
+    frame = 1
+    while frame <= 10:
+        if game[2*frame-2:2*frame] == 'X':
+            score += 10 + (10 - int(game[2*frame-1])) if frame < 10 else 25
+            frame += 1
+        elif game[2*frame-1].isdigit():
+            first_roll = int(game[2*frame-1])
+            second_roll = int(game[2*frame])
+            if first_roll + second_roll == 10:
+                score += 10
             else:
-                score += first_roll
-                roll_index += 1
+                score += first_roll + second_roll
+            frame += 1
+        else:
+            strike_frame_score = 0
+            while game[2*frame-1] != '/':
+                strike_frame_score += int(game[2*frame-1])
+                frame += 1
+            if frame > 10:
+                break
+            score += 10 + strike_frame_score
     return score
