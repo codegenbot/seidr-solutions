@@ -1,15 +1,16 @@
 def substitution_cipher(cipher1, cipher2, message):
-    mapping = {c.lower(): c2.lower() for c, c2 in zip(cipher1, cipher2)}
-    
+    mapping = {}
+    for c, c2 in zip(cipher1, cipher2):
+        if c.isalpha():
+            mapping[c] = c2
+            mapping[c2] = c
+
     result = ""
     for char in message:
-        if char.isalnum():
-            if char.isalpha():
-                if char.isupper():
-                    result += mapping.get(char.lower()).upper()
-                else:
-                    result += mapping.get(char.lower(), char)
+        if char.isalpha():
+            if char.isupper():
+                result += mapping.get(char.lower()).upper()
             else:
-                result += char
+                result += mapping.get(char, char)
         else:
             result += char
