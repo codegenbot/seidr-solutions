@@ -1,17 +1,33 @@
 ```
-def bowling_score(game):
+def bowling_score(frames):
     score = 0
-    rolls = game.split('/')
-    for i in range(10):
-        if len(rolls[i]) == 1:
-            score += int(rolls[i])
-        elif len(rolls[i]) > 1 and (i < 9 or (i == 9 and len(rolls[8]) != 2)):
-            score += 10 + int(rolls[i][0])
+    roll_count = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    for i in range(len(frames)):
+        if frames[i].isdigit():
+            if i < 9 and frames[i] == "X":
+                score += 30
+                roll_count[0] = 0
+                continue
+            elif i < 9:
+                if (
+                    frames[i + 1].isdigit() and frames[i + 2].isdigit()
+                    and int(frames[i]) + int(frames[i + 1]) + int(frames[i + 2]) >= 10
+                ):
+                    score += 10 - (int(frames[i]) + int(frames[i + 1]))
+                else:
+                    score += int(frames[i])
+                roll_count[0] -= 1
+            elif i == 9:
+                if frames[i] == "X":
+                    score += 10
+                else:
+                    score += int(frames[i])
         else:
-            first_roll = int(rolls[i][0])
-            second_roll = int(rolls[i][1])
-            if first_roll + second_roll < 10:
-                score += first_roll + second_roll
-            else:
-                score += 10 + second_roll
+            if frames[i] == "/":
+                if roll_count[0] > 0:
+                    score += 10
+                    roll_count[0] -= 1
+    for i in range(1, len(roll_count)):
+        if roll_count[i] > 0 and roll_count[i - 1] == 0:
+            score += 10
     return score
