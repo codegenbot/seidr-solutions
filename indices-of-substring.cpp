@@ -5,7 +5,7 @@ using namespace std;
 void computeLPSArray(string pat, vector<int>& lps, int len) {
     int m;
     lps[0] = 0; 
-    m = 1; 
+    m = pat.length(); 
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
@@ -30,15 +30,21 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for (int i = 0; i < n - m + 1; i++) {
         int j = 0;
-        while (j < m && text[i + j] == target[j]) {
-            j++;
-        }
-
-        if (j == m) {
+        if(text.substr(i, m) == target){ 
             result.push_back(i);
+            i += m - 1; 
         } else {
-            int k = lps[j-1];
-            i = i + j - k; // move the start index of new substring
+            while (j < m && text[i + j] == target[j]) {
+                j++;
+            }
+
+            if (j == m) {
+                result.push_back(i);
+                i += j;
+            } else {
+                int k = lps[j-1];
+                i = i + j - k; 
+            }
         }
     }
 
