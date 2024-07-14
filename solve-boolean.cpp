@@ -1,45 +1,40 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operationStack;
-    stack<bool> valueStack;
-
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
-            bool b1 = valueStack.top();
-            valueStack.pop();
-            bool b2 = valueStack.top();
-            valueStack.pop();
-            valueStack.push(b1 & b2);
-        } else if (expression[i] == '|') {
-            bool b1 = valueStack.top();
-            valueStack.pop();
-            bool b2 = valueStack.top();
-            valueStack.pop();
-            valueStack.push(b1 | b2);
-        } else if (expression[i] == 'T') {
-            valueStack.push(true);
-        } else if (expression[i] == 'F') {
-            valueStack.push(false);
+bool solveBoolean(string s) {
+    bool result = false;
+    for (char c : s) {
+        if (c == 'T' || c == 't') {
+            return true;
+        } else if (c == 'F' || c == 'f') {
+            return false;
+        } else if (c == '|') {
+            continue;
+        } else if (c == '&') {
+            bool left = result;
+            result = false;
+            for (; ; ) {
+                if (s.size() <= s.find(c) + 1) break;
+                c = s[s.find(c) + 1];
+                if (c == 'T' || c == 't') {
+                    result |= left;
+                    break;
+                } else if (c == 'F' || c == 'f') {
+                    result &= left;
+                    break;
+                }
+            }
         }
     }
-
-    return valueStack.top();
+    return result;
 }
 
 int main() {
-    string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression;
-
-    bool result = evaluateBooleanExpression(expression);
-
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
 }
