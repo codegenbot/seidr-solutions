@@ -11,8 +11,9 @@ int mastermind(const char* code, const char* guess) {
     }
 
     int count = 0;
+    char c;
     for (int i = 0; i < 4; ++i) {
-        char c = code[i];
+        c = code[i];
         if (c == guess[0]) {
             count++;
         }
