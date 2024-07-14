@@ -1,9 +1,8 @@
-Here is the completed code:
+Here is the Python solution:
 
-def snow_day(hours, initial_snow, rate, melt):
+def snow_day(hours, initial_snow, rate_of_snowfall, proportion_melting):
     total_snow = initial_snow
     for _ in range(hours):
-        total_snow += rate
-        if total_snow > 0:
-            total_snow -= total_snow * melt
-    return round(total_snow, 6)
+        total_snow += rate_of_snowfall
+        total_snow *= (1 - proportion_melting)
+    return round(total_snow, 9)
