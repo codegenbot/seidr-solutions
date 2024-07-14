@@ -1,30 +1,36 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string input) {
-    std::string output = "";
-    size_t start = 0;
-    for (size_t end = 0; end <= input.size(); ) {
-        if (input[end] == ' ') {
-            output += input.substr(start, end - start) + " ";
-            start = end + 1;
-        } else if (end == input.size()) {
-            output += input.substr(start, end - start) + " ";
-            break;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::size_t pos = 0;
+    while ((pos = str.find(" ")) != std::string::npos) {
+        std::size_t wordPos = str.find(" ", pos);
+        if (wordPos == std::string::npos || wordPos - pos > 4) {
+            result += str.substr(pos, wordPos - pos) + " ";
+        } else {
+            result += str.substr(pos, wordPos - pos) + " ";
+            for (int i = wordPos; i < str.length(); i++) {
+                if (str[i] == ' ') {
+                    break;
+                }
+                result += str[i];
+            }
+            result += " ";
         }
-        end++;
+        pos = wordPos + 1;
     }
+    result += str.substr(pos);
+    return result;
+}
 
-    for (size_t i = 0; i < output.size(); ) {
-        size_t wordStart = i;
-        while (i < output.size() && !isspace(output[i])) {
-            i++;
-        }
-        if (i - wordStart >= 5) {
-            std::reverse(output.substr(wordStart, i - wordStart).begin(), output.substr(wordStart, i - wordStart).end());
-        }
+int main() {
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, str);
+        if (str == "exit") break;
+        std::cout << spinWords(str) << std::endl;
     }
-
-    return output;
+    return 0;
 }
