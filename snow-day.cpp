@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
@@ -14,23 +13,19 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 }
 
 int main() {
-    std::string inputHours, initialSnowInput, rateOfSnowFallInput, proportionOfSnowMeltingPerHourInput;
-
+    int hours;
     std::cout << "Enter the number of hours: ";
-    inputHours = std::to_string(std::stoi(std::cin >> std::ws .nochat));
-    int hours = std::stoi(inputHours);
+    std::cin >> hours;
 
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     std::cout << "Enter the initial amount of snow: ";
-    initialSnowInput = std::to_string(std::stof(std::cin >> std::ws .nochat));
-    float initialSnow = std::stof(initialSnowInput);
+    std::cin >> initialSnow;
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    rateOfSnowFallInput = std::to_string(std::stof(std::cin >> std::ws .nochat));
-    float rateOfSnowFall = std::stof(rateOfSnowFallInput);
+    std::cin >> rateOfSnowFall;
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    proportionOfSnowMeltingPerHourInput = std::to_string(std::stof(std::cin >> std::ws .nochat));
-    float proportionOfSnowMeltingPerHour = std::stof(proportionOfSnowMeltingPerHourInput);
+    std::cin >> proportionOfSnowMeltingPerHour;
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
