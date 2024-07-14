@@ -3,12 +3,12 @@
 
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
-    for (int i = digits.size() - 1; i >= 0; i--) {
-        if ((i % 2 == 0 && digits[i] * 2 <= 9) || i % 2 != 0) {
-            sum += digits[i];
-        } else {
-            sum += (digits[i] * 2) % 10 + 1;
+    for (int i = 0; i < digits.size(); i++) {
+        int temp = (digits.size() - i - 1) % 2 == 0 ? digits[i] * 2 : digits[i];
+        if (temp > 9) {
+            temp -= 9;
         }
+        sum += temp;
     }
     return sum;
 }
