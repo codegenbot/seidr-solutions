@@ -1,6 +1,5 @@
-```
 def fuel_cost(vector):
-    return sum((x//3)-2 for x in vector)
+    return sum((num // 3) - 2 for num in vector)
 
-vector = list(map(int, input("Enter a vector of positive integers (space separated): ").split()))
-print(fuel_cost(vector))
+vector = [input("Enter a list of integers (space-separated): ").split()]
+print(fuel_cost(vector[0]))
