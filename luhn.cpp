@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> digits) {
@@ -22,7 +23,8 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits(16, 0);
+    std::vector<int> digits;
+    digits.resize(16);
     for (int i = 0; i < 16; ++i) {
         digits[i] = i + 1;
     }
