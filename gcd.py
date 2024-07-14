@@ -1,7 +1,6 @@
-```
 import math
 
-text = input("Enter the text: ")
-target = input("Enter the target string: ")
+text = int(input("Enter the text: "))
+target = int(input("Enter the target string: "))
 
-print(f"GCD: {math.gcd(int(text), int(target))}")
+print(f"GCD: {math.gcd(text, target)}")
