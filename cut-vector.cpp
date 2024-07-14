@@ -3,23 +3,35 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int index = -1;
-    for (int i = 0; i < v.size(); ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; ++j)
-            leftSum += v[j];
-        for (int j = i + 1; j < v.size(); ++j)
-            rightSum += v[j];
-        if (leftSum == rightSum) {
-            return {{v[0], v[0]}, v.substr(1)};
-        }
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+    pair<vector<int>, vector<int>> result;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
             minDiff = diff;
-            index = i;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
-    vector<int> left(v.begin(), v.begin() + index);
-    vector<int> right(v.begin() + index, v.end());
-    return {left, right};
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < res.first.size(); i++) {
+        cout << res.first[i] << " ";
+    }
+    cout << "]" << endl;
+    cout << "[";
+    for (int i = 0; i < res.second.size(); i++) {
+        cout << res.second[i] << " ";
+    }
+    cout << "0]" << endl;
+    return 0;
 }
