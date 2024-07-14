@@ -1,30 +1,28 @@
-```
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
+    bool nextUpper = true;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
-            if (i > 0 && str[i - 1] != ' ') {
-                result += toupper(str[i + 1]);
+            if (!nextUpper) {
+                result += str[i + 1];
                 i++;
             } else {
-                int j = i;
-                while (j < str.length() && str[j] == '-') {
-                    j++;
-                }
-                result += str.substr(i + 1, j - i - 1);
-                i = j;
+                result += toupper(str[i + 1]);
+                i++;
             }
+            nextUpper = true;
         } else if (str[i] != ' ') {
-            result += tolower(str[i]);
-        } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+            if (nextUpper) {
+                result += tolower(str[i]);
+                nextUpper = false;
+            } else {
+                result += str[i];
             }
-            result += str.substr(i, str.find(' ', i) - i);
-            i = str.find(' ', i) - 1;
+        } else {
+            nextUpper = true;
         }
     }
     return result;
@@ -32,14 +30,12 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string str;
-    while (true) {
-        std::cout << "Enter a string in kebab-case: ";
-        std::cin >> str;
-        if (str != "quit") {
-            std::cout << camelCase(str) << std::endl;
-        } else {
+    while (std::cin >> str) {
+        if (str.length() > 0 && str[0] != '-') {
+            std::cout << "Program did not receive expected input" << std::endl;
             break;
         }
+        std::cout << camelCase(str) << std::endl;
     }
     return 0;
 }
