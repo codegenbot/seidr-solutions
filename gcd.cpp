@@ -1,27 +1,21 @@
-```cpp
 #include <vector>
-#include <string> 
+#include <string>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int targetLength = target.length();
-    for (int i = 0; i <= text.length() - targetLength; i++) {
-        bool match = true;
-        for (int j = 0; j < targetLength; j++) {
-            if (text[i + j] != target[j]) {
-                match = false;
-                break;
-            }
-        }
-        if (match) {
-            indices.push_back(i);
-        }
+    vector<int> result;
+    int start = 0;
+    while (start < text.length()) {
+        int pos = text.find(target, start);
+        if (pos == -1)
+            break;
+        result.push_back(pos);
+        start = pos + 1;
     }
-    return indices;
+    return result;
 }
 
-long long gcd(long long a, long long b) {
+int gcd(int a, int b) {
     if (b == 0)
         return a;
     else
