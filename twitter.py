@@ -1,5 +1,5 @@
 def validate_tweet(tweet):
-    tweet = ''.join(e for e in tweet if e.isalnum() or e.isspace() or e in ['@', '#']).strip()
+    tweet = ''.join(e for e in tweet if e.isspace()).strip()
     
     if len(tweet) > 140:
         return "Too many characters"
