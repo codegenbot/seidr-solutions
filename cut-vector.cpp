@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -8,6 +8,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     for (int i = 0; i < n; i++) {
         if (i == n - 1 || abs(nums[i] - nums[i + 1]) > nums[i]) {
             res.push_back(vector<int>(nums.begin(), nums.begin() + i + 1));
+            break;
         }
     }
     return res;
