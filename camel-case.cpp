@@ -1,34 +1,32 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string toCamelCase(const std::string& str) {
     std::string result;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.length() && s[i] == '-') i++;
-            if (i < s.length()) {
-                if (!result.empty()) result += std::string(1, char(toupper(s[i]))); 
-                else result = std::string(1, char(toupper(s[i])));
-                while (i + 1 < s.length() && s[i + 1] == '-') i++;
-            }
-        } else {
-            if (!result.empty()) {
-                if (s[i] >= 'a' && s[i] <= 'z') result += std::string(1, char(toupper(s[i]))); 
-                else result += s[i];
-            } else {
-                result = s.substr(0, i + 1);
-                break;
-            }
+    size_t start = 0;
+
+    while (start < str.size()) {
+        size_t end = str.find('-', start);
+        if (end == std::string::npos) {
+            result += toupper(str[start]);
+            break;
         }
+        result += toupper(str.substr(start, end - start));
+        start = end + 1;
     }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    int numCases;
+    std::cin >> numCases;
+
+    for (int i = 0; i < numCases; ++i) {
+        std::string str;
+        std::cin >> str;
+        std::cout << toCamelCase(str) << std::endl;
     }
+
     return 0;
 }
