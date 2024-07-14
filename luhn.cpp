@@ -18,8 +18,8 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> cardNumber = {3, 4, 5, 2, 8, 6, 1, 7, 9, 0, 2, 5, 8, 3, 4, 5};
-    int result = luhn(cardNumber);
-    std::cout << "Luhn Algorithm Result: " << result << std::endl;
+    std::vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    int result = luhn(digits);
+    std::cout << result << std::endl;
     return 0;
 }
