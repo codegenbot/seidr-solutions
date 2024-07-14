@@ -1,33 +1,30 @@
 ```
-def bowling_score(game):
+def bowling_game(frames):
     score = 0
-    frame = 1
-    for i in range(len(game)):
-        if game[i].isdigit():
-            strike = False
-            spare = False
-            while i < len(game) and (game[i].isdigit() or game[i] == '/'):
-                if game[i] == '/':
-                    break
-                if frame < 10:
-                    score += int(game[i])
-                    if score >= 10:
-                        score -= 10
-                        break
-                else:
-                    score += int(game[i])
-            if i < len(game) - 1 and game[i+1].isdigit() and not strike and not spare:
-                if frame < 10:
-                    score += int(game[i+1])
-                else:
-                    score += int(game[i+1]) // 2
-            if game[i] == 'X':
-                strike = True
-                while i < len(game) - 2 and (game[i].isdigit() or game[i] == '/'):
-                    i += 1
-            elif game[i] == '-':
-                spare = True
-                while i < len(game) - 1 and (game[i].isdigit() or game[i] == '/'):
-                    i += 1
-        frame += 1
+    roll1 = 0
+    roll2 = 0
+    for frame in frames.split('/'):
+        if len(frame) == 1:
+            if roll1 + int(frame) < 10:
+                score += roll1 + int(frame)
+                roll1 = 0
+            else:
+                score += 10 + roll1
+                roll1 = 0
+        elif len(frame) == 2:
+            if roll1 + int(frame[0]) + int(frame[1]) < 10:
+                score += roll1 + int(frame[0]) + int(frame[1])
+                roll1 = 0
+            else:
+                score += 10 + roll1
+                roll1 = 0
+        elif len(frame) > 2:
+            roll1 = int(frame[0])
+            if len(frame) == 4:
+                roll2 = int(frame[1] + frame[2])
+            else:
+                roll1 += int(''.join(filter(str.isdigit, frame[1:])))
+            score += roll1
+            if roll2 > 0:
+                score += roll2
     return score
