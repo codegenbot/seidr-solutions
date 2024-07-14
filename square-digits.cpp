@@ -1,3 +1,5 @@
+#include <vector>
+#include <iostream>
 #include <string>
 
 string squareDigits(string input) {
@@ -7,4 +9,15 @@ string squareDigits(string input) {
         output += to_string(digit * digit);
     }
     return output;
+}
+
+int main() {
+    // Read the input from user
+    string input;
+    cin >> input;
+
+    // Call the function and print the result
+    cout << squareDigits(input) << endl;
+
+    return 0;
 }
