@@ -1,4 +1,3 @@
-#include <stack>
 #include <string>
 
 bool solveBoolean(std::string s) {
@@ -12,3 +11,4 @@ bool solveBoolean(std::string s) {
         else if (c == 'T' || c == 'F') stack.push(c == 'T');
     }
     return stack.top();
+}
