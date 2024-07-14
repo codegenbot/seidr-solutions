@@ -26,7 +26,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     std::vector<int> lps;
-    lps = std::vector<int>(m);  // Missing initialization
+    lps = std::vector<int>(target.length()); 
     computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
