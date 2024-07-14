@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 double vectorDistance(int n, const std::vector<float>& x1, const std::vector<float>& x2) {
     double result = 0;
