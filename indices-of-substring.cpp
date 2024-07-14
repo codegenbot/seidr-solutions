@@ -4,8 +4,8 @@ using namespace std;
 
 void computeLPSArray(string pat, vector<int>& lps, int len) {
     lps[0] = 0; // empty prefix
-    len = m;
-    
+    len = 0;
+
     for (int i = 1; i < pat.length(); i++) {
         while (len > 0 && pat[i] != pat[len]) { 
             len = lps[len - 1]; 
@@ -24,26 +24,27 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
+    computeLPSArray(target, result, m); // Pass the result vector to computeLPSArray
+
     int len = 0; 
+    for (int i = 0; i < n) { 
+        while (len > 0 && text[i] != target[len]) { 
+            len = result[len - 1]; 
+        }
 
-    computeLPSArray(target, lps, len);
-
-    int i = 0; 
-    while (i < n) {
-        if (text[i] == target[0]) { 
-            if (target.length() == 1 || text.substr(i, m) == target) {
-                result.push_back(i);
-                i += m;
-            } else {
-                int j = 1; 
-                while (i + j < n && text.substr(i, j) == target.substr(0, j)) { 
-                    j++;
-                }
-                i += j;
+        if (text[i] == target[len]) { 
+            len++;
+            if (len == m) { 
+                result.push_back(i - m + 1); // Adjust the index to match the problem description
+                i += len;
+                len = result[result.size() - 1]; 
             }
         } else {
-            i = i + 1;
+            if (len > 0) { 
+                len = result[len - 1]; 
+            } else {
+                i++;
+            }
         }
     }
 
