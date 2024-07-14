@@ -5,24 +5,30 @@ def solve_boolean(expression):
         return False
     elif expression == "T":
         return True
-    
-    operators = "&|"
-    result = None
-    while operators in expression:
-        for operator in operators:
-            left, right = expression.split(operator)
-            if eval(f"({left})"):
-                expression = right
-                break
-            else:
-                expression = right
-                continue
-        if not result and eval(expression):
-            result = True
-        elif result is None and not eval(expression):
-            result = False
-        break
-    
-    return result if result is not None else eval(expression)
 
-print(solve_boolean("f|f&t|t&t|t&t&f&t&t|t&t&t&f|f"))
+    parts = []
+    current_part = ""
+    operator = None
+
+    for char in expression:
+        if char in "&|":
+            parts.append(eval(current_part))
+            current_part = ""
+            operator = char
+        else:
+            current_part += char
+
+    parts.append(eval(current_part))
+
+    result = True
+
+    while len(parts) > 1:
+        left = parts.pop(0)
+        right = parts.pop(0)
+
+        if operator == "&":
+            result = result and (left or right)
+        elif operator == "|":
+            result = result or (left or right)
+
+    return result
