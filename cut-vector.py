@@ -8,8 +8,8 @@ def cut_vector(vector):
         if left_sum == right_sum:
             return tuple(vector[:i+1]), tuple(vector[i+1:])
         
-        diff = abs(left_sum - right_sum) if left_sum > 0 else right_sum - left_sum
-        if diff < min_diff and (left_sum != 0 or right_sum != 0):
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
             min_diff = diff
             cut_index = i
             
