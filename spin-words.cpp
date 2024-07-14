@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+#include <string>
+
 std::string spinWords(const std::string& input) {
     std::string output;
     size_t start = 0;
@@ -6,9 +8,15 @@ std::string spinWords(const std::string& input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == ' ') {
             size_t length = i - start;
-            std::string word = input.substr(start, length);
-            output += word.length() >= 5 ? std::string(word.rbegin(), word.rend()) : word;
-
+            if (length >= 5) {
+                std::string word = input.substr(start, length);
+                for(size_t j = 0; j < length/2; ++j) {
+                    std::swap(word[j], word[length-1-j]);
+                }
+                output += word + ' ';
+            } else {
+                output += input.substr(start, length) + ' ';
+            }
             if (i < input.size()) {
                 output += ' ';
             }
@@ -17,4 +25,13 @@ std::string spinWords(const std::string& input) {
     }
 
     return output;
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl; 
+    std::cout << spinWords("this is a test") << std::endl; 
+    std::cout << spinWords("this is another test") << std::endl; 
+    std::cout << spinWords("hi") << std::endl; 
+
+    return 0;
 }
