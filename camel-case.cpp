@@ -9,23 +9,24 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
+            result.push_back(' ');
             capitalize = true; 
         } else if (c != ' ') { 
             if(capitalize) { 
-                result.push_back(toupper(c));
+                result.push_back(std::toupper(c));
                 capitalize = false; 
             } else {
-                result.push_back(tolower(c)); 
+                result.push_back(std::tolower(c)); 
             }
         } else {
             if (!capitalize && !result.empty()) {
-                result.push_back(' ');
-                capitalize = true;
+                result.append(" ");
             }
+            capitalize = true;
         }
     }
 
-    return capitalize ? toupper(result[0]) + result.substr(1) : result;
+    return std::toupper(result[0]) + result.substr(1);
 }
 
 int main() {
