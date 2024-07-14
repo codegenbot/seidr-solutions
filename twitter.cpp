@@ -1,24 +1,22 @@
-```
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-string validateTweet(string tweet) {
+std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.length() > 140) {
+    size_t count = std::count_if(tweet.begin(), tweet.end(), ::isprint);
+    if (count > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    return "Your tweet has " + std::to_string(count) + " characters";
 }
 
 int main() {
-    string tweet;
-    cout << "Enter your tweet: ";
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
-    cout << endl;  // Add this line
+    std::string tweet;
+    std::cout << "Enter a tweet: ";
+    std::getline(std::cin, tweet);
+    std::cout << validateTweet(tweet) << std::endl;
     return 0;
 }
