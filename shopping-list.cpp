@@ -1,5 +1,7 @@
+#include <vector>
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double shoppingList(const vector<float>& prices, const vector<float>& discounts) {
