@@ -1,3 +1,4 @@
+```c++
 #include <stack>
 #include <string>
 
@@ -49,4 +50,16 @@ bool evaluate(std::stack<char> st, std::string expression) {
         }
     }
     return result;
+}
+
+int main() {
+    std::stack<char> st;
+    std::string expression = "expression"; // Replace with your desired expression
+    bool result = evaluate(st, expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    return 0;
 }
