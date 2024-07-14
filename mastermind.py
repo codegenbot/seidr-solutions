@@ -1,11 +1,4 @@
-def get_pegs(code, guess):
-    count_black = 0
-    count_white = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            count_black += 1
-        elif guess.count(guess[i]) > code.count(code[i]):
-            pass
-        else:
-            count_white += 1
-    return str(count_black) + "\n" + str(count_white)
+def mastermind(code, guess):
+    white_pegs = sum(c in g for c, g in zip(code, guess))
+    black_pegs = sum(1 for i, (c, g) in enumerate(zip(code, guess)) if c == g)
+    return str(black_pegs) + "\n" + str(4 - black_pegs)
