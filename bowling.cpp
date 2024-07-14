@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```cpp
 int bowlingScore(std::string input) {
     int score = 0;
@@ -31,4 +33,3 @@ int bowlingScore(std::string input) {
     }
 
     return score;
-}
