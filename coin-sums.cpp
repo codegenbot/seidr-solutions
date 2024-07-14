@@ -1,6 +1,4 @@
-```c++
-#include <iostream>
-
+```cpp
 int main() {
     int cents;
     std::cout << "Enter the number of cents: ";
@@ -15,17 +13,11 @@ int main() {
     int nickels = remaining_cents / 5;
     remaining_cents %= 5;
 
-    int pennies = remaining_cents;
+    int pennies = remaining_cents; 
 
     std::cout << "Quarters: " << quarters << std::endl;
     std::cout << "Dimes: " << dimes << std::endl;
     std::cout << "Nickles: " << nickels << std::endl;
-    if(pennies > 0) {
-        if(pennies >= 5)
-            pennies -= 5, --nickels;
-        else
-            pennies %= 5; // actual number of pennies required
-    }
     std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
