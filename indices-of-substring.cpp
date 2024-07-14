@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -9,7 +8,7 @@ std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
-            m = lps[m - 1]; 
+            m = m - 1; 
         }
 
         if (pat[i] == pat[m-1]) { 
