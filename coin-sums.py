@@ -6,11 +6,11 @@ def coin_sums(cents):
     while cents > 0:
         if cents >= coins[i]:
             count = cents // coins[i]
+            result[coins.index(coins[i])] = count
             cents %= coins[i]
-            result[i] = count
-        i -= 1
+        else:
+            i -= 1
     return result
-
 
 cents = int(input())
 print(*coin_sums(cents))

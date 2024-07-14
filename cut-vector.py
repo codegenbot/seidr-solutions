@@ -16,3 +16,10 @@ def cut_vector(vector):
             split_index = i
 
     return vector[:split_index], vector[split_index:]
+
+
+print(cut_vector([1]))
+print(cut_vector([1, 10]))
+print(cut_vector([1, 100]))
+print(cut_vector([1, 1000]))
+print(cut_vector([1, 10000]))
