@@ -1,5 +1,3 @@
-#include <iostream>
-
 int main() {
     int cents;
     std::cout << "Enter the number of cents: ";
@@ -18,9 +16,9 @@ int main() {
 
     std::cout << "Quarters: " << quarters << std::endl;
     if(quarters > 0)
-        std::cout << "Dimes: " << dimes << std::endl;
+        std::cout << "Dimes: " << dimes + (quarters * 2) << std::endl;
     else
-        std::cout << "Dimes: 0" << std::endl;
+        std::cout << "Dimes: " << dimes << std::endl;
 
     if(dimes > 0 || nickels > 0)
         std::cout << "Nickles: " << nickels << std::endl;
