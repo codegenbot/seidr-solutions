@@ -1,37 +1,27 @@
-Here's the solution:
+#include <string>
+using namespace std;
 
-string spinWords(string sentence) {
+string spinWords(string str) {
     string result = "";
     int i = 0;
-    while (i < sentence.length()) {
-        if (sentence[i] == ' ') {
-            result += " ";
-            i++;
-            continue;
-        }
-        int j = i;
-        while (j < sentence.length() && sentence[j] != ' ') {
-            j++;
-        }
-        string word = sentence.substr(i, j - i);
-        if (word.length() >= 5) {
-            string reversedWord = "";
-            for (int k = word.length() - 1; k >= 0; k--) {
-                reversedWord += word[k];
-            }
-            result += reversedWord + " ";
-        } else {
-            result += word + " ";
-        }
-        i = j;
+    
+    while(i < str.length()) {
+        if(str.find(" ", i) == -1 || i + 1 >= str.length())
+            break;
+        
+        string word = str.substr(i, str.find(" ", i) - i);
+        if(word.length() >= 5)
+            result += string(word.rbegin(), word.rend());
+        else
+            result += word;
+        
+        i = str.find(" ", i) + 1;
     }
-    return result.trim();
+    
+    return result + (str.length() > i ? " " : "") + str.substr(i);
 }
 
-string trim(const string& str) {
-    auto firstUnspaced = std::find_if_not(str.begin(), str.end(),
-                                          [](unsigned char c){return !isspace(c);});
-    auto lastUnspaced = std::find_if_not(std::reverse_iterator(str.end()), std::reverse_iterator(firstUnspaced), 
-                                          [](unsigned char c){return !isspace(c);}).base();
-    return string(firstUnspaced, lastUnspaced);
+int main() {
+    // Your code here to test the function.
+    return 0;
 }
