@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
@@ -10,4 +9,10 @@ std::vector<int> leaders(std::vector<int>& arr) {
         }
     }
     return res;
+}
+
+int main() {
+    std::vector<int> arr = {1, 3, 4, 3, 2, 2};
+    leaders(arr);
+    return 0;
 }
