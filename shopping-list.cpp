@@ -1,8 +1,9 @@
-```c++
+```
 #include <vector>
 #include <utility>
 #include <iostream>
 #include <initializer_list>
+#include <limits>
 
 double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) {
     double total = 0;
@@ -34,7 +35,11 @@ int main() {
         pricesAndDiscounts.push_back(std::make_pair(price, static_cast<double>(discount)));
     }
 
+    // Clear remaining input buffer after loop breaks
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     double totalPrice = shoppingList(pricesAndDiscounts);
     std::cout << "Total price: $" << totalPrice << std::endl;
 
-}  // Add this line!
+    return 0;
+}
