@@ -65,18 +65,15 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
+    
     cout << "Enter the text: ";
-    getline(cin, text);
-
-    if(text.empty()) {
+    if(getline(cin, text).empty()) {
         cout << "Text cannot be empty." << endl;
         return 1; 
     }
 
     cout << "Enter the target substring: ";
-    getline(cin, target);
-
-    if(target.empty()) {
+    if(getline(cin, target).empty()) {
         cout << "Target cannot be empty." << endl;
         return 1; 
     }

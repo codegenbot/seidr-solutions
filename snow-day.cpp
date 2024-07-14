@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <iomanip>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
@@ -24,7 +25,7 @@ int main() {
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall / 100.0f, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::fixed << std::setprecision(2) << result << std::endl;
 
     return 0;
 }

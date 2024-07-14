@@ -1,11 +1,11 @@
 ```
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return "Invalid input: both code and guess should be 4-character strings"
+        return str(0) + "\n" + str(0)
 
     for c in code + guess:
         if c not in "ARBYG":
-            return "Invalid input: code and guess can only contain 'ARBYG' characters"
+            return str(0) + "\n" + str(0)
 
     white_pegs = sum(
         min(code.count(c), guess.count(c)) - (c in code[:guess.find(c)] if c in code else 0)
