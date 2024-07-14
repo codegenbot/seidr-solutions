@@ -1,14 +1,14 @@
-def solve_boolean(expression):
-    def eval_expression(e):
-        if e == "T":
-            return True
-        elif e == "F":
-            return False
-        elif "&" in e:
-            a, b = e.split("&")
-            return eval_expression(a) and eval_expression(b)
-        else:
-            a, b = e.split("|")
-            return eval_expression(a) or eval_expression(b)
-
-    return eval_expression(expression)
+def solve(input_str):
+    stack = []
+    for char in input_str[::-1]:
+        if char == "T":
+            stack.append(True)
+        elif char == "F":
+            stack.append(False)
+        elif char == "&":
+            b1, b2 = stack.pop(), stack.pop()
+            stack.append(b1 and b2)
+        elif char == "|":
+            b1, b2 = stack.pop(), stack.pop()
+            stack.append(b1 or b2)
+    return stack[0]
