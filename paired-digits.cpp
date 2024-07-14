@@ -1,12 +1,19 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-int pairedDigits(std::string s) {
-    int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i+1]) {
-            sum += s[i] - '0';
-        }
+int pairedDigits(const std::string& str) {
+    int total = 0;
+    for (char c : str) {
+        total += c - '0';
     }
-    return sum;
+    return total - (str.length() - 1) * 9;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> str;
+    std::cout << "The sum of the paired digits is: " << pairedDigits(str) << std::endl;
+    return 0;
 }
