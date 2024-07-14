@@ -2,9 +2,7 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
-void computeLPSArray(string pat, vector<int>& lps, int len) {
+std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len) {
     int m;
     lps[0] = 0; 
     m = 0; 
@@ -22,12 +20,12 @@ void computeLPSArray(string pat, vector<int>& lps, int len) {
     }
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result(0); // Initialize with 0 size
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result; // Initialize with 0 size
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
+    std::vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
     computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
@@ -48,15 +46,15 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
+    std::string text;
+    std::cin >> text;
+    std::string target;
+    std::cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    std::vector<int> indices = indicesOfSubstring(text, target);
 
     for (int i : indices) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 }
