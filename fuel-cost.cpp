@@ -1,8 +1,11 @@
-int calculateFuelCost(vector<int>& vec) {
-    int sum = 0;
-    for (int num : vec) {
-        int result = (num / 3) - 2;
-        sum += result;
+int main() {
+    vector<int> vec;
+    int n;
+    while (cin >> n) {
+        vec.push_back(n);
     }
-    return sum;
+
+    cout << calculateFuelCost(vec) << endl;
+
+    return 0;
 }
