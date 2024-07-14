@@ -1,29 +1,57 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || v[i] != v[0]) {
-            int leftSum = 0, rightSum = 0;
-            for (int j = 0; j <= i; ++j) {
-                leftSum += v[j];
-            }
-            for (int j = i + 1; j < n; ++j) {
-                rightSum += v[j];
-            }
-            if (i == 0 || abs(leftSum - rightSum) <= abs(v[0] - rightSum)) {
-                res[0].clear();
-                for (int j = 0; j <= i; ++j) {
-                    res[0].push_back(v[j]);
-                }
-                res[1].clear();
-                for (int j = i + 1; j < n; ++j) {
-                    res[1].push_back(v[j]);
-                }
-            }
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
+    
+    for (int i = 0; i < n; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j <= i; j++) {
+            leftSum += v[j];
+        }
+        
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-    return res;
+    
+    vector<int> left(v.begin(), v.begin() + splitIndex);
+    vector<int> right(v.begin() + splitIndex, v.end());
+    
+    return {left, right};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "Left: ";
+    for (int x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    cout << "Right: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
