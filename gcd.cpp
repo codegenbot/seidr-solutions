@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream> 
 #include <string>
+#include <initializer_list>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
@@ -11,13 +11,13 @@ int gcd(int a, int b) {
 
 int main() {
     std::string str1, str2;
-    std::cout << "Enter the first string: ";
-    std::cin >> str1;
-    std::cout << "Enter the second string: ";
-    std::cin >> str2;
+    cout << "Enter the first string: ";
+    cin >> str1;
+    cout << "Enter the second string: ";
+    cin >> str2;
 
     if (str1.empty() || str2.empty()) {
-        std::cout << "Error: Both strings must be non-empty." << std::endl;
+        cout << "Error: Both strings must be non-empty." << endl;
         return 1;
     }
 
@@ -37,5 +37,5 @@ int main() {
         gcdResult = std::__gcd(gcdResult, i); 
     }
         
-    std::cout << "GCD of indices: " << gcdResult << std::endl; 
+    cout << "GCD of indices: " << gcdResult << endl; 
 }
