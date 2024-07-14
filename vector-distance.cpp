@@ -7,20 +7,16 @@ using namespace std;
 
 double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
     double result = 0;
+    
     int n = max(x1.size(), x2.size());
     
     for (int i = 0; i < n; i++) {
-        float diff = 0.0; // initialize diff to zero for each iteration
-    
-        if(i < x1.size()) { // check if index exists in both vectors
-            if(i < x2.size())
-                diff = x1[i] - x2[i]; // calculate the difference
-            else 
-                diff = x1[i]; // or use x1 value if x2 doesn't exist for that index
-    
+        if(i >= x1.size()) {
+            float diff = 0 - x2[i];
+        } else if(i >= x2.size()) {
+            float diff = x1[i] - 0;
         } else {
-            if(i < x2.size()) 
-                diff = x2[i]; // or use x2 value if x1 doesn't exist for that index    
+            float diff = x1[i] - x2[i];
         }
         
         result += pow(diff, 2);
