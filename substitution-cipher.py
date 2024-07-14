@@ -1,9 +1,3 @@
 def substitution_cipher(cipher1, cipher2, message):
-    result = ""
-    for char in message:
-        if char in cipher2:  
-            index = cipher2.index(char)
-            result += cipher1[index]
-        else:
-            result += char
-    return result
+    mapping = str.maketrans({k: v for k, v in zip(cipher1, cipher2)})
+    return message.translate(mapping)
