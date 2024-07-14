@@ -8,9 +8,7 @@ double vectorDistance() {
     double sumOfSquares = 0;
     for (int i = 0; i < n; i++) {
         double x1, x2;
-        cin >> x1;
-        std::cin >> std::ws; // add this line
-        cin >> x2; 
+        cin >> x1 >> x2; 
         double differenceSquared = pow(x2 - x1, 2);
         sumOfSquares += differenceSquared;
     }
