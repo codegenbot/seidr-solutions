@@ -20,7 +20,8 @@ int main() {
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
     std::ostringstream oss;
-    oss << "The amount of snow on the ground after " << hours << " hours is: " << result;
+    oss << "The amount of snow on the ground after " << hours << " hours is: ";
+    oss << result;
     std::cout << oss.str() << std::endl;
 
     return 0;
