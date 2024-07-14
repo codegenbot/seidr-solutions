@@ -11,7 +11,7 @@ string squareDigits(string input) {
 }
 
 int main() {
-    string input = "1234"; 
+    string input = "34"; // Example input
     cout << squareDigits(input) << endl;
     return 0;
 }
