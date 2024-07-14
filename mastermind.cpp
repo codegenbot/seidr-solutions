@@ -12,7 +12,7 @@ int mastermind(const char* code, const char* guess) {
 
     int count = 0;
     for (int i = 0; i < 4; ++i) {
-        c = code[i];
+        char c = code[i];
         if (c == guess[0]) {
             count++;
         }
