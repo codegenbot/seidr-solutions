@@ -1,36 +1,33 @@
-string solveBoolean(string boolean) {
-    stack<char> s;
-    for (int i = 0; i < boolean.length(); i++) {
-        if (boolean[i] == '|') {
-            while (!s.empty() && s.top() != '&') {
-                s.pop();
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    stack<char> st;
+    bool res = false;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't')
+            res = true;
+        else if (s[i] == 'f')
+            res = false;
+        else if (s[i] == '|') {
+            bool temp = res;
+            while (!st.empty() && st.top() != '&') {
+                st.pop();
             }
-            if (s.empty()) {
-                return "True";
-            } else {
-                s.pop();
-            }
-        } else if (boolean[i] == '&') {
-            s.push('&');
-        } else if (boolean[i] == 't' || boolean[i] == 'T') {
-            while (!s.empty() && s.top() != '|') {
-                s.pop();
-            }
-            if (s.empty()) {
-                return "True";
-            } else {
-                s.pop();
-            }
-        } else if (boolean[i] == 'f' || boolean[i] == 'F') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            return "False";
+            if (st.empty())
+                return temp;
+            st.pop();
+            res = temp;
+        } 
+        else if (s[i] == '&') {
+            st.push('&');
         }
     }
-    if (s.empty()) {
-        return "True";
-    } else {
-        return "False";
+
+    while (!st.empty()) {
+        st.pop();
     }
+
+    return res;
 }
