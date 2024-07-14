@@ -1,30 +1,28 @@
-bool solveBoolean(string s) {
-    bool res = true;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == 'T') continue;
-        else if(s[i] == 'F') return false;
-        else if(s[i] == '|'){
-            res = !res;
-            while(i+1 < s.length() && s[i+1] != '&') i++;
-            i--;
-        }
-        else if(s[i] == '&'){
-            bool temp = true;
-            while(i+1 < s.length() && s[i+1] != '|') i++;
-            i--;
-            for(int j=i; j>=0; j--){
-                if(s[j] == 'T') continue;
-                else if(s[j] == 'F') return false;
-                else if(s[j] == '&'){
-                    temp = !temp;
-                    while(j+1 < s.length() && s[j+1] != '|') j++;
-                    j--;
-                }
-                else break;
-            }
-            i++;
-            res &= temp;
+bool solveBoolean(string expression) {
+    stack<char> ops;
+    stack<bool> vals;
+
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = vals.top();
+            vals.pop();
+            bool b2 = vals.top();
+            vals.pop();
+            vals.push(b1 && b2);
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            bool b1 = vals.top();
+            vals.pop();
+            bool b2 = vals.top();
+            vals.pop();
+            vals.push(b1 || b2);
+            ops.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            vals.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            vals.push(false);
         }
     }
-    return res;
+
+    return vals.top();
 }
