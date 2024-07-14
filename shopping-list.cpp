@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
+using namespace std;
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 double shoppingTrip(vector<float> prices, vector<float> discounts) {
     double total = 0;
@@ -26,3 +27,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingTrip(prices, discounts) << endl;
     return 0;
+}
