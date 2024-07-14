@@ -1,9 +1,9 @@
-```cpp
+using namespace std;
+
 #include <iostream>
 #include <vector>
-#include <pair>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> res;
     int n = v.size();
     for (int i = 0; i <= n - 1; i++) {
@@ -22,26 +22,26 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> v(n);
+    cin >> n;
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> v[i];
+        cin >> v[i];
     }
-    pair<std::vector<int>, std::vector<int>> res = cutVector(v);
-    std::cout << "[";
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
     for (int i = 0; i < res.first.size(); i++) {
-        std::cout << res.first[i];
+        cout << res.first[i];
         if (i < res.first.size() - 1) {
-            std::cout << " ";
+            cout << " ";
         }
     }
-    std::cout << "] [";
+    cout << "] [";
     for (int i = 0; i < res.second.size(); i++) {
-        std::cout << res.second[i];
+        cout << res.second[i];
         if (i < res.second.size() - 1) {
-            std::cout << " ";
+            cout << " ";
         }
     }
-    std::cout << "]" << std::endl;
+    cout << "]" << endl;
     return 0;
 }
