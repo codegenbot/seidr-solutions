@@ -1,11 +1,10 @@
 ```cpp
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int hours;
-    float initialSnow;
-    float rateOfSnowFall;
-    float proportionOfSnowMeltingPerHour;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
     std::cin >> hours;
@@ -21,7 +20,7 @@ int main() {
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " feet." << '\n';
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::fixed << std::setprecision(2) << result << " feet." << std::endl;
 
     return 0;
 }
