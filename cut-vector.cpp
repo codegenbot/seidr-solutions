@@ -1,36 +1,56 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int min_diff = INT_MAX;
-    int idx = -1;
-    for (int i = 0; i < v.size(); ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j) left_sum += v[j];
-        for (int j = i + 1; j < v.size(); ++j) right_sum += v[j];
-        if ((left_sum == right_sum) || abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            idx = i;
+    int cut_index = -1;
+
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        long long sum_left = 0, sum_right = 0;
+        for (int j = 0; j <= i; ++j) {
+            sum_left += vec[j];
+        }
+        for (int j = i + 1; j < vec.size(); ++j) {
+            sum_right += vec[j];
+        }
+
+        if (sum_left == sum_right) {
+            return {{vec[0], vec[0]}, vec.substr(1)};
+        } else {
+            int diff = abs(sum_left - sum_right);
+            if (diff < min_diff) {
+                min_diff = diff;
+                cut_index = i;
+            }
         }
     }
 
-    return {vector<int>(v.begin(), v.begin() + idx), vector<int>(v.begin() + idx, v.end())};
+    // If no equal or minimally different subvectors found, return the first element and the rest of the vector
+    return {{vec[0]}, vec.substr(1)};
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int &i : v) cin >> i;
+    int num;
+    std::cin >> num;
 
-    pair<vector<int>, vector<int>> res = cutVector(v);
+    std::vector<int> vec;
+    while (num--) {
+        int x;
+        std::cin >> x;
+        vec.push_back(x);
+    }
 
-    cout << "{";
-    for (int i : res.first) cout << i << " ";
-    cout << "}" << endl;
-    cout << "{";
-    for (int i : res.second) cout << i << " ";
-    cout << "}" << endl;
+    auto res = cutVector(vec);
+
+    for (int x : res.first) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    for (int x : res.second) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
 
     return 0;
 }
