@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -39,9 +40,9 @@ int main() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         if (!line.empty()) { 
-            std::string output = camelCase(line); // Pass the input to the function
-            if(!output.empty() && !output.back() == ' ')  
-                std::cout << "Camel Case: " << std::move(output) << std::endl; 
+            output = camelCase(line + " "); // Pass the input to the function
+            if(!output.back() == ' ')  
+                std::cout << "Camel Case: " << output << std::endl; 
         }
     }
     return 0;
