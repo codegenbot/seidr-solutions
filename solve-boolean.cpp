@@ -6,9 +6,9 @@ int main() {
     std::stack<char> st;
     bool result = false;
 
-    std::string expression;
     std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::cin >> expression;
+    std::string expression;
+    std::getline(std::cin, expression);
 
     for (char c : expression) {
         st.push(c);
