@@ -28,11 +28,11 @@ int main() {
     std::string temp, temp2, message;
 
     std::cout << "Enter the first map: "; 
-    cin >> temp;
+    std::getline(cin, temp);
     std::string cipher_map1 = temp;
 
     std::cout << "Enter the second map: "; 
-    cin >> temp2;
+    std::getline(cin, temp2);
     std::string cipher_map2 = temp2;
 
     std::cout << "Enter the message to decipher: ";
