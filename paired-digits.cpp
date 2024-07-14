@@ -1,12 +1,12 @@
-```c++
 #include <iostream>
 #include <string>
 
 int pairedDigits(const std::string& s) {
     int sum = 0;
-    for (char c : s) {
-        if ((s.find(c) != std::string::npos && s.find(std::to_string(c) + c) != std::string::npos)) {
-            sum += (c - '0');
+    for (int i = 0; i < s.size() - 1; i++) {
+        int digit = s[i] - '0'; 
+        if ((digit == (s[i+1] - '0'))) {
+            sum += digit;
         }
     }
     return sum;
