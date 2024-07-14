@@ -12,14 +12,14 @@ std::string camelCase(std::string str) {
             } else {
                 result += toupper(str[i + 1]);
                 i++;
+                nextUpper = false;
             }
-            nextUpper = true;
         } else if (str[i] != ' ') {
             if (nextUpper) {
-                result += tolower(str[i]);
+                result += toupper(str[i]);
                 nextUpper = false;
             } else {
-                result += str[i];
+                result += tolower(str[i]);
             }
         } else {
             nextUpper = true;
@@ -31,7 +31,7 @@ std::string camelCase(std::string str) {
 int main() {
     std::string str;
     while (std::cin >> str) {
-        if (str.length() > 0 && str[0] != '-') {
+        if (str.length() > 0 && str[0] == '-') {
             std::cout << "Program did not receive expected input" << std::endl;
             break;
         }
