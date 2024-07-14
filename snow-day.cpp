@@ -6,7 +6,8 @@ float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportio
     float totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        groundSnow += rateOfSnowFall - (proportionMeltingPerHour * groundSnow);
+        totalSnow += rateOfSnowFall - (proportionMeltingPerHour * groundSnow);
+        groundSnow = totalSnow;
     }
     
     return groundSnow;
