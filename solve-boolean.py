@@ -5,7 +5,7 @@ def solve_boolean(expression):
         return True if expression == 'T' else False
     elif '&' in expression:
         left, right = expression.split(' & ')
-        return solve_boolean(left) and solve_boolean(right[3:])  
+        return solve_boolean(left) and solve_boolean(right)
     else:
         left, right = expression.split(' | ')
-        return solve_boolean(left) or solve_boolean(right[2:])
+        return solve_boolean(left) or solve_boolean(right)
