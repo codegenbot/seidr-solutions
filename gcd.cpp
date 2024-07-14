@@ -5,11 +5,8 @@
 using std::cout;
 using std::endl;
 
-using std::vector;
-using std::string;
-
-vector<int> findIndices(string text, string target) {
-    vector<int> result;
+std::vector<int> findIndices(std::string text, std::string target) {
+    std::vector<int> result;
     int i = 0;
     while (i <= text.length() - target.length()) {
         int j = 0;
@@ -38,9 +35,9 @@ int main() {
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
-    string text, target;
+    std::string text, target;
     cin >> text >> target;
-    vector<int> indices = findIndices(text, target);
+    std::vector<int> indices = findIndices(text, target);
     for (int i : indices)
         cout << i << " ";
     return 0;
