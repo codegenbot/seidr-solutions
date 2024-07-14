@@ -1,25 +1,24 @@
-#include <stack>
-#include <string>
-
+```cpp
 bool solveBoolean(std::string s) {
-    std::stack<bool> stack;
+    std::queue<bool> queue;
     int parentheses = 0; 
     for (char c : s) {
         if (c == '(') {
-            stack.push(false);
+            queue.push(false);
             parentheses++;
         }
         else if (c == ')') {
             while(parentheses > 0) {
-                bool top = stack.top();
-                stack.pop();
-                if (c == ')') stack.push(top);
-                else stack.push(!top);
+                bool top = queue.front();
+                queue.pop();
+                if (c == ')') queue.push(top);
+                else queue.push(!top);
                 parentheses--;
             }
         }
-        else if (c == '|') stack.push(stack.top() || stack.pop());
-        else if (c == '&') stack.push(stack.top() && stack.pop());
-        else if (c == 'T' || c == 'F') stack.push(c == 'T');
+        else if (c == '|') queue.push(queue.front() || queue.front());
+        else if (c == '&') queue.push(queue.front() && queue.front());
+        else if (c == 'T' || c == 'F') queue.push(c == 'T');
     }
-    return stack.top();
+    return queue.front();
+}
