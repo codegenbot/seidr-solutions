@@ -1,12 +1,13 @@
-#include <vector>
-using namespace std;
-
-int calculateFuelCost(vector<int>& costs) {
-    int total = 0;
-    for (int cost : costs) {
-        int newCost = static_cast<int>(cost / 3.0);
-        newCost -= 2;
-        total += max(0, newCost);
+int calculateFuelCost(vector<int> &numbers) {
+    int sum = 0;
+    for (int num : numbers) {
+        int result = (num / 3);
+        if (result < 1) {
+            result = 0;
+        } else {
+            result--;
+        }
+        sum += result;
     }
-    return total;
+    return sum;
 }
