@@ -1,5 +1,4 @@
 #include <string>
-#include <map>
 
 int mastermind(std::string code, std::string guess) {
     if (code.length() != 4 || guess.length() != 4) {
