@@ -1,11 +1,9 @@
 def gcd(a, b):
-    if a == b:
-        return min(a, b)
-    while b != 0:
+    while b:
         a, b = b, a % b
-    return abs(a) if a != 1 else 1
+    return abs(a)
 
 a = int(input("Enter first integer: "))
 b = int(input("Enter second integer: "))
 
-print(f"GCD of {a} and {b} is {gcd(a, b)}")
+print(f"GCD of {a} and {b} is {gcd(min(a, b), max(a, b))}")
