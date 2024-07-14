@@ -4,19 +4,14 @@
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    for (char c : s) {
-        if (c == 'F') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'F') {
             return false;
         }
-        else if (c == '|') {
+        else if (s[i] == '|') {
             result = !result;
         }
-        else if (c == '&') {
-            size_t pos = s.find('&', 0);
-            while (pos != std::string::npos) {
-                if (!result) return false;
-                pos = s.find('&', pos + 1);
-            }
+        else if (s[i] == '&') {
             if (!result) return false;
         }
     }
@@ -25,20 +20,21 @@ bool solveBoolean(const std::string& s) {
 
 int main() {
     std::string input; 
-    std::cout << "Enter a Boolean expression (T/F/|/&): "; 
     while (true) {
-        std::cin >> std::ws;  // consume newline character
-        if (!(std::cin >> input)) {  // check if read operation was successful
-            if(input == "exit") {
-                std::cout << "Goodbye!" << std::endl;
-                return 0;
-            }
-            else {
-                std::cout << "Invalid input. Please enter a valid Boolean expression or 'exit' to quit: ";
-                continue;  // loop back and ask for input again
-            }
-        }
+        std::cout << "Enter a Boolean expression (T/F/|/&): "; 
+        std::cin >> input;
         bool result = solveBoolean(input);
+        while(std::cin.get() != '\n' && std::cin.peek() == ' ') {
+            std::cin.ignore();
+        }
+        if(input == "exit") {
+            std::cout << "Goodbye!" << std::endl;
+            return 0;
+        }
+        else {
+            std::cout << "Invalid input. Please enter a valid Boolean expression or 'exit' to quit: ";
+            continue;  // loop back and ask for input again
+        }
         std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     }
 }
