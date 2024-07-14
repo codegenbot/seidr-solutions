@@ -1,26 +1,29 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    size_t pos = 0;
-    
-    while (pos < s.size()) {
-        if (s[pos] == '-') {
-            pos++;
-            continue;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalize = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
-        
-        size_t nextSpace = s.find(' ', pos);
-        if (nextSpace == string::npos)
-            nextSpace = s.size();
-        
-        string word = s.substr(pos, nextSpace - pos);
-        if (!result.empty())
-            result += char toupper(word[0]);
-        else
-            result += word;
-        pos = nextSpace + 1;
     }
-    
+
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cin >> str;
+
+    std::cout << camelCase(str) << std::endl;
+
+    return 0;
 }
