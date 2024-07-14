@@ -8,9 +8,10 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
         if (c == '\0') break; // Assuming the input strings are null-terminated
         int index = c - 'a'; // Assuming lowercase English letters only
         if (index >= 0 && index < cipher1.size()) {
-            result += cipher2[index];
+            char mappedChar = cipher2[index];
+            result += mappedChar;
         } else {
-            result += c;
+            result += c; // If the character is not in the range of lowercase English letters, leave it as is
         }
     }
     return result;
