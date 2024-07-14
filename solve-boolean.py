@@ -1,4 +1,3 @@
-```python
 def solve_boolean(expression):
     stack = []
     result = True
@@ -19,4 +18,4 @@ def solve_boolean(expression):
         else:
             raise ValueError("Invalid expression")
             
-    return result
+    return result if len(stack) % 2 == 0 else None
