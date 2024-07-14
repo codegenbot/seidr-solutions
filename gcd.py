@@ -1,13 +1,7 @@
-def find_indices(text, target):
-    result = []
-    pos = 0
-    while True:
-        pos = text.find(target, pos)
-        if pos == -1:
-            break
-        result.append(pos)
-        pos += len(target)
+```
+import math
 
-text = input("Enter the text: ")
-target = input("Enter the target string: ")
-print(f"Indices: {find_indices(text, target)}")
+text = int(input("Enter the text: "))
+target = int(input("Enter the target string: "))
+
+print(f"GCD: {math.gcd(text, target)}")

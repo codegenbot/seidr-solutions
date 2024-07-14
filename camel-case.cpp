@@ -5,24 +5,12 @@
 #include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::string buffer;
     std::vector<std::string> arr;
+    std::stringstream ss(str);
+    std::string segment;
 
-    for (char c : str) {
-        if (c == ' ') {
-            if (!buffer.empty()) {
-                arr.push_back(buffer);
-                buffer = ""; 
-            }
-        } else if (c != delimiter) {
-            buffer += c;
-        }
-
-        // No need to check for '\0' here
-    }
-
-    if (!buffer.empty()) {
-        arr.push_back(buffer);
+    while (std::getline(ss, segment, ' ')) {
+        arr.push_back(segment);
     }
 
     return arr;
@@ -32,24 +20,22 @@ std::string camelCase(const std::string& str) {
     std::vector<std::string> segments = split(str, '-');
     std::string result;
 
-    for (int i = 0; i < segments.size(); i++) {
+    for (const auto& segment : segments) {
         if (!result.empty()) {
-            result += toupper(segments[i][0]);
+            result += toupper(segment[0]);
         } else {
-            result += tolower(segments[i][0]);
+            result += tolower(segment[0]);
         }
-        if (i > 0) {
-            for (char c : segments[i]) {
-                if (c >= 'a' && c <= 'z') {
-                    result += (char)(c - 'a' + 'A');
-                } else {
-                    result += c;
-                }
-            }
+        if (segment.size() > 1) {
+            result += substring(segment, 1);
         }
     }
 
     return result;
+}
+
+std::string substring(const std::string& str, int start) {
+    return str.substr(start);
 }
 
 int main() {
