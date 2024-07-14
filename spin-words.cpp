@@ -7,21 +7,19 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int length = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            if (length >= 5) {
-                for (int j = length - 1; j >= 0; j--) {
-                    result += str.substr(i - length, 1);
-                }
-            } else {
-                result += str.substr(i - length, length);
-            }
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
             length = 0;
-            if (i != str.length()) {
-                result += " ";
-            }
+            result += " ";
         } else {
             length++;
+            if (length >= 5) {
+                for (int j = length - 1; j >= 0; j--) {
+                    result += str[i - j];
+                }
+            } else {
+                result += str[i];
+            }
         }
     }
     return result;
