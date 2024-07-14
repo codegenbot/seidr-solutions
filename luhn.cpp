@@ -1,31 +1,31 @@
 #include <vector>
 using namespace std;
 
-int luhnAlgorithm(vector<int> digits) {
+int luhnCheck(vector<int> ccNum) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2 == 1)) {
-            int temp = digits[i] * 2;
-            if (temp > 9)
-                sum += (temp % 10) + 9;
-            else
-                sum += temp;
-        } else
-            sum += digits[i];
+    for (int i = 0; i < ccNum.size(); i++) {
+        if ((i % 2) == 1) {
+            int temp = ccNum[i] * 2;
+            if (temp > 9) {
+                temp -= 9;
+            }
+            sum += temp;
+        } else {
+            sum += ccNum[i];
+        }
     }
     return sum;
 }
 
 int main() {
-    vector<int> input;
-    int n, num;
-    cout << "Enter the number of digits: ";
+    vector<int> ccNum;
+    int n;
     cin >> n;
-    cout << "Enter the credit card number: ";
     for (int i = 0; i < n; i++) {
-        cin >> num;
-        input.push_back(num);
+        int x;
+        cin >> x;
+        ccNum.push_back(x);
     }
-    cout << "The sum is: " << luhnAlgorithm(input) << endl;
+    cout << luhnCheck(ccNum) << endl;
     return 0;
 }
