@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <utility>
 #include <iostream>
