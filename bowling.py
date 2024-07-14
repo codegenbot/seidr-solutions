@@ -1,30 +1,25 @@
 ```
-def bowling_game(frames):
+def bowling_score(frames):
     score = 0
-    roll1 = 0
-    roll2 = 0
+    frame_num = 1
     for frame in frames.split('/'):
-        if len(frame) == 1:
-            if roll1 + int(frame) < 10:
-                score += roll1 + int(frame)
-                roll1 = 0
-            else:
-                score += 10 + roll1
-                roll1 = 0
-        elif len(frame) == 2:
-            if roll1 + int(frame[0]) + int(frame[1]) < 10:
-                score += roll1 + int(frame[0]) + int(frame[1])
-                roll1 = 0
-            else:
-                score += 10 + roll1
-                roll1 = 0
-        elif len(frame) > 2:
-            roll1 = int(frame[0])
-            if len(frame) == 4:
-                roll2 = int(frame[1] + frame[2])
-            else:
-                roll1 += int(''.join(filter(str.isdigit, frame[1:])))
-            score += roll1
-            if roll2 > 0:
-                score += roll2
+        if len(frame) > 0 and (frame[0] == 'X' or frame[0].isdigit()):
+            strike = True if frame[0] == 'X' else False
+            spare = False
+            total_pins = 10 if not strike else 0
+            for i in range(len(frame)):
+                if frame[i].isdigit():
+                    total_pins += int(frame[i])
+            score += total_pins
+            if spare:
+                score += 10 - total_pins
+        elif len(frame) > 1 and frame[0] == 'X':
+            strike = True
+            score += 10 + (10 - 2 * int(frame[1]))
+        else:
+            pins = list(map(int, frame))
+            score += sum(pins)
+            if sum(pins) < 10:
+                score += 10 - sum(pins)
+        frame_num += 1
     return score
