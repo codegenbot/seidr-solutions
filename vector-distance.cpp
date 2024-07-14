@@ -4,11 +4,11 @@
 using namespace std;
 
 double vectorDistance(vector<float> v1, vector<float> v2) {
-    double sum = 0;
+    double distance = 0;
     for (int i = 0; i < v1.size(); i++) {
-        sum += pow(v1[i] - v2[i], 2);
+        distance += pow(v1[i] - v2[i], 2);
     }
-    return sqrt(sum);
+    return sqrt(distance);
 }
 
 int main() {
