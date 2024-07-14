@@ -3,6 +3,7 @@
 using namespace std;
 
 stack<char> operation;
+
 bool evaluateBooleanExpression(string expression) {
     stack<char> operation;
     string currentTerm = "";
@@ -42,4 +43,3 @@ bool evaluateBooleanExpression(string expression) {
     bool result = (currentTerm == "T") ? true : false;
 
     return result;
-}
