@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
-
 using namespace std;
+
+#include <vector>
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
     double total = 0;
@@ -24,6 +24,6 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << "\n";
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << '\n';
     return 0;
 }
