@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 
-using std::cout;
-using std::endl;
+using namespace std;
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> result;
+vector<int> findIndices(string text, string target) {
+    vector<int> result;
     int i = 0;
     while (i <= text.length() - target.length()) {
         int j = 0;
@@ -32,13 +31,13 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
 
-    std::string text, target;
-    std::cin >> text >> target;
-    std::vector<int> indices = findIndices(text, target);
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = findIndices(text, target);
     for (int i : indices)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
