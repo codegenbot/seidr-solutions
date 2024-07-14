@@ -19,6 +19,3 @@ int main() {
     cout << dimes << endl;
     cout << nickles << endl;
     cout << "1" << endl;
-
-    return 0;
-}
