@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream> 
@@ -11,13 +14,13 @@ int gcd(int a, int b) {
 
 int main() {
     std::string str1, str2;
-    cout << "Enter the first string: ";
-    cin >> str1;
-    cout << "Enter the second string: ";
-    cin >> str2;
+    std::cout << "Enter the first string: ";
+    std::cin >> str1;
+    std::cout << "Enter the second string: ";
+    std::cin >> str2;
 
     if (str1.empty() || str2.empty()) {
-        cout << "Error: Both strings must be non-empty." << endl;
+        std::cout << "Error: Both strings must be non-empty." << std::endl;
         return 1;
     }
 
@@ -37,5 +40,5 @@ int main() {
         gcdResult = std::__gcd(gcdResult, i); 
     }
         
-    cout << "GCD of indices: " << gcdResult << endl; 
+    std::cout << "GCD of indices: " << gcdResult << std::endl; 
 }
