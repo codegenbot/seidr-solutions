@@ -1,5 +1,9 @@
 def substitution_cipher(cipher1, cipher2, message):
     result = ""
-    for char1, char2 in zip(cipher1, cipher2):
-        result += (char if char not in cipher1 else char2) * message.count(char1)
+    for char in message:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher1[index]
+        else:
+            result += char
     return result
