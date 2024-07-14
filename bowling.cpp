@@ -1,28 +1,43 @@
-int bowlingScore(string s) {
+int bowlingScore(const string &bowling) {
     int score = 0;
-    int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'X') {
-            score += 30;
-            i++;
-        } else if (isdigit(s[i])) {
-            int count = 0;
-            while (i < s.size() && isdigit(s[i])) {
-                count *= 10;
-                count += s[i++] - '0';
+    int currentFrame = 0;
+    vector<int> frameScores;
+
+    for (char c : bowling) {
+        if (c == '/') {
+            frameScores.push_back(10);
+            currentFrame++;
+        } else if (isdigit(c)) {
+            int pinCount = 0;
+            while (c != '/' && c >= '0' && c <= '9') {
+                pinCount = pinCount * 10 + (c - '0');
+                c = next(c, bowling);
             }
-            score += count;
-        } else {
-            int first = s[i] - '0';
-            i++;
-            if (s[i] == '/') {
-                i++;
-                int second = s[i] - '0';
-                score += first + second;
+            if (pinCount > 10) {
+                frameScores.push_back(10);
             } else {
-                score += first + 10;
+                frameScores.push_back(pinCount);
+            }
+            currentFrame++;
+        }
+    }
+
+    for (int i = 0; i < frameScores.size(); i++) {
+        if (frameScores[i] == 10) {
+            score += 10;
+        } else {
+            if (i + 1 < frameScores.size()) {
+                int nextPinCount = frameScores[i + 1];
+                if (nextPinCount + frameScores[i] > 10) {
+                    score += 10 + nextPinCount - 10;
+                } else {
+                    score += 10 + nextPinCount;
+                }
+            } else {
+                score += frameScores[i];
             }
         }
     }
+
     return score;
 }
