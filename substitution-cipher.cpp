@@ -36,7 +36,7 @@ int main() {
     std::string cipher_map2 = temp2;
 
     std::cout << "Enter the message to decipher: ";
-    cin >> message;
+    std::getline(cin, message);
 
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
 }
