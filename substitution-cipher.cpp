@@ -20,7 +20,7 @@ int main() {
     std::cout << "Enter the second string: ";
     getline(cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
-    getline(cin, message);
+    cin.getline(message, sizeof(char) * message.max_size());
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
