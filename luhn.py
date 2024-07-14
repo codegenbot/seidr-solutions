@@ -4,10 +4,9 @@ def luhn(card_number):
     sum = 0
     alt = False
     for i, v in enumerate(card_number):
-        if i % 2 == 0 or alt:
+        if i % 2 == 0: 
             v *= 2
             if v > 9:
                 v -= 9
         sum += v
-        alt = not alt
     return sum
