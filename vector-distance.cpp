@@ -1,23 +1,23 @@
 #include <cmath>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-double vectorDistance(double v1[], double v2[], int n) {
+double vectorDistance(int n) {
     double sum = 0;
+    cin >> n; // Read n
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        double x1, x2;
+        cin >> x1 >> x2;
+        sum += pow(x2 - x1, 2);
     }
     return sqrt(sum); 
 }
 
 int main() {
     int n;
-    cin >> n; // Read n
-    double v1[n];
-    double v2[n];
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
-    }
-    cout << vectorDistance(v1, v2, n) << endl;
+    cin >> n;
+    double result = vectorDistance(n);
+    cout << fixed << setprecision(10) << result; 
     return 0;
 }
