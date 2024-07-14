@@ -1,4 +1,4 @@
-```
+```python
 from math import floor
 
 
@@ -50,6 +50,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
-print(
-    snow_day(hours, initial_snow, rate_of_snowfall, melting_rate)
-)
+print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
