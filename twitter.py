@@ -1,4 +1,3 @@
-```
 import string
 
 def validate_tweet(tweet):
@@ -7,4 +6,4 @@ def validate_tweet(tweet):
     elif tweet == "":
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        return f"Your tweet has {len(tweet.replace(" ", "").translate(str.maketrans("", "", string.punctuation)).encode('ascii', 'ignore').decode().strip())} characters"
