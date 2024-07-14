@@ -1,4 +1,7 @@
+```cpp
 #include <vector>
+#include <unordered_map>
+
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
@@ -10,5 +13,5 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {}; // or throw an exception if no pair is found
+    return {};
 }
