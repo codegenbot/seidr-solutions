@@ -1,14 +1,11 @@
 ```cpp
-#include <string>
-#include <map>
-
-int mastermind(std::string code, std::string guess) {
+int mastermind(const char* code, const char* guess) {
     int black = 0;
     int white = 0;
 
-    std::map<char, int> codeCount;
+    std::unordered_map<char, int> codeCount;
 
-    for (auto c : code) {
+    for (char c : std::string(code)) {
         codeCount[c]++;
     }
 
@@ -23,7 +20,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (auto c : code) {
+    for (char c : std::string(code)) {
         if (codeCount[c] > 0 && c != guess[0] && c != guess[1] && c != guess[2] && c != guess[3]) {
             white++;
             codeCount[c]--;
@@ -31,16 +28,4 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-}
-
-int main() {
-    std::string code = "abcD";
-    std::string guess = "abcd";
-
-    int result = mastermind(code, guess);
-
-    std::cout << "Black pegs: " << (result / 2) << "\n";
-    std::cout << "White pegs: " << (result % 2) << "\n";
-
-    return 0;
 }
