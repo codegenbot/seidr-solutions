@@ -1,3 +1,4 @@
+```
 hours = int(input())
 initial_snow = float(input())
 rate_of_snowfall = float(input())
@@ -9,4 +10,4 @@ for _ in range(hours):
     melted_snow = min(new_snow * melting_rate, new_snow)
     total_snow -= melted_snow
 
-print(round(total_snow, 7))
+print("{}".format(round(total_snow, 7)))
