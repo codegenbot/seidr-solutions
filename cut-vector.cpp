@@ -1,5 +1,3 @@
-#include <climits>
-#include <iostream>
 #include <vector>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
@@ -32,37 +30,9 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     
-    if (minLeft == 0) {
-        std::vector<std::vector<int>> res;
-        res.push_back(std::vector<int>());
-        res[0].assign(v.begin(), v.end());
-        
-        return res;
-    } else if (minLeft <= minRight) {
-        std::vector<std::vector<int>> res;
-        res.push_back(std::vector<int>());
-        res.push_back(std::vector<int>());
-
-        res[0].assign(v.begin(), v.begin() + leftCut);
-        
-        res[1].assign(v.begin() + leftCut, v.end());
-        
-        return res;
+    if (minLeft <= minRight) {
+        return {{v.begin(), v.begin() + leftCut}, {v.begin() + leftCut, v.end()}};
     } else {
-        std::vector<std::vector<int>> res;
-        res.push_back(std::vector<int>());
-        res.push_back(std::vector<int>());
-
-        res[0].assign(v.begin(), v.begin() + rightCut);
-        
-        res[1].assign(v.begin() + rightCut, v.end());
-        
-        return res;
+        return {{v}};
     }
-}
-
-int main() {
-    std::vector<int> v = {1, 2, 3, 4, 5};
-    std::cout << cutVector(v).size() << " " << cutVector(v)[0].size() << std::endl;
-    return 0;
 }
