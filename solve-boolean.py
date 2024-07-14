@@ -1,55 +1,63 @@
+```Python
 def solve_boolean(expression):
     while "&|" in expression:
-        expression = expression.replace("T&T", "True")
-        expression = expression.replace("t&t", "True")
-        expression = expression.replace("F&F", "False")
-        expression = expression.replace("f&f", "False")
-        expression = expression.replace("|T", "| True")
-        expression = expression.replace("|t", "| True")
-        expression = expression.replace("|F", "| False")
-        expression = expression.replace("|f", "| False")
-        expression = expression.replace("&T", "& True")
-        expression = expression.replace("&t", "& True")
-        expression = expression.replace("&F", "& False")
-        expression = expression.replace("&f", "& False")
-        expression = expression.replace("T|", "True | ")
-        expression = expression.replace("t|", "True | ")
-        expression = expression.replace("F|", "False | ")
-        expression = expression.replace("f|", "False | ")
+        if "&" in expression and "|" in expression:
+            left, middle, right = expression.split("&")
+            left = left.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            middle = middle.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            right = right.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            expression = left + "&" + middle + "&" + right
+        elif "&" in expression:
+            left, right = expression.split("&")
+            if "|" in left:
+                left = left.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            else:
+                left = left.replace("T", "True").replace("F", "False")
+            if "|" in right:
+                right = right.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            else:
+                right = right.replace("T", "True").replace("F", "False")
+            expression = left + "&" + right
+        elif "|" in expression:
+            left, right = expression.split("|")
+            if "&" in left:
+                left = left.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            else:
+                left = left.replace("T", "True").replace("F", "False")
+            if "&" in right:
+                right = right.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            else:
+                right = right.replace("T", "True").replace("F", "False")
+            expression = left + "|" + right
 
-    while '&&' in expression:
-        expression = expression.replace('T&T', '(True and True)')
-        expression = expression.replace('t&t', '(True and True)')
-        expression = expression.replace('F&F', '(False and False)')
-        expression = expression.replace('f&f', '(False and False)')
-        expression = expression.replace('&T', '(True and ')
-        expression = expression.replace('&t', '(True and ')
-        expression = expression.replace('&F', '(False and ')
-        expression = expression.replace('&f', '(False and ')
-
-    while '||' in expression:
-        expression = expression.replace('T|', '(True or ')
-        expression = expression.replace('t|', '(True or ')
-        expression = expression.replace('F|', '(False or ')
-        expression = expression.replace('f|', '(False or ')
-
-    if expression == "F":
-        return False
-    elif expression == "T":
-        return True
-
-    while ' | ' in expression:
-        left, right = expression.split(" | ")
-        if eval(left):
-            expression = str(right)
-        else:
-            expression = "False"
-
-    while ' and ' in expression:
-        left, right = expression.split(' and ')
-        if eval(left):
-            expression = str(right)
-        else:
-            expression = "False"
+    while "&&" in expression:
+        if "||" in expression and "&&" in expression:
+            left, middle, right = expression.split("||")
+            left = left.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            middle = middle.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            right = right.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            expression = left + "||" + middle + "||" + right
+        elif "&&" in expression:
+            left, right = expression.split("&&")
+            if "||" in left:
+                left = left.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            else:
+                left = left.replace("T", "True").replace("F", "False")
+            if "||" in right:
+                right = right.replace("|", "| True").replace("T|", "True | ").replace("F|", "False | ")
+            else:
+                right = right.replace("T", "True").replace("F", "False")
+            expression = left + "&&" + right
+        elif "|" in expression:
+            left, right = expression.split("|")
+            if "&" in left:
+                left = left.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            else:
+                left = left.replace("T", "True").replace("F", "False")
+            if "&" in right:
+                right = right.replace("&", "& True").replace("T&", "& True").replace("F&", "& False")
+            else:
+                right = right.replace("T", "True").replace("F", "False")
+            expression = left + "|" + right
 
     return eval(expression)
