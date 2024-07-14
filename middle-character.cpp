@@ -2,9 +2,15 @@ Here is the solution:
 
 string middleCharacter(string s) {
     int len = s.length();
-    if (len % 2 == 0) {
-        return s.substr(len / 2 - 1, 2);
-    } else {
-        return s.substr(len / 2, 1);
+    string result;
+    
+    if (len % 2 == 0) { // even length
+        int midIndex = len / 2;
+        result += s[midIndex - 1];
+        result += s[midIndex];
+    } else { // odd length
+        int midIndex = len / 2;
+        result = s[midIndex];
     }
-}
+    
+    return result;
