@@ -1,12 +1,10 @@
 ```
 def decrypt_message(cipher1, cipher2, message):
     char_map = {}
-    for c1, c2 in zip(cipher1.lower(), cipher2.lower()):
+    for c2, c1 in zip(cipher2.lower(), cipher1.lower()):
         if c1.isalpha():
-            if c1.islower():  
-                char_map[c1] = c2
-            else:  
-                char_map[c1] = c2.upper()
+            char_map[c1] = c2
+
     result = ""
     for char in message:
         if char.isalpha():  
@@ -16,4 +14,5 @@ def decrypt_message(cipher1, cipher2, message):
                 result += char_map[char.lower()]
         else:
             result += char
+
     return result
