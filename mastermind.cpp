@@ -1,3 +1,4 @@
+```c++
 int mastermind(const char* code, const char* guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -5,13 +6,20 @@ int mastermind(const char* code, const char* guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else {
-            for (int j = 0; j < 4; j++) {
-                if (code[j] == guess[i] && j != i) {
-                    whitePegs++;
-                    break;
-                }
+        }
+    }
+
+    for (int i = 0; i < 4; i++) {
+        bool found = false;
+        for (int j = 0; j < 4; j++) {
+            if (guess[j] == code[i] && j != i) {
+                whitePegs++;
+                found = true;
+                break;
             }
+        }
+        if (!found) {
+            whitePegs++;
         }
     }
 
