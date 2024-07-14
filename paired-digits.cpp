@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
@@ -5,4 +8,5 @@ int pairedDigits(std::string s) {
             sum += s[i] - '0';
         }
     }
-    return sum; }
+    return sum;
+}
