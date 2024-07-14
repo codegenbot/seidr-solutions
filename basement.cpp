@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int basement(std::vector<int>& nums) {
     int sum = 0;
@@ -12,7 +13,9 @@ int basement(std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {-2, 3, 1, -5, 4};
-    int result = basement(nums);
+    std::vector<int> test({-3,2,-3,4,5,-12,7});
+    int result = basement(test);
+    std::cout << "The index is: " << result << std::endl;
+
     return 0;
 }
