@@ -43,5 +43,4 @@ def main():
     expression = input("Enter a Boolean expression: ")
     print(solve_boolean(expression))
 
-if __name__ == "__main__":
-    main()
+main()
