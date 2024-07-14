@@ -13,21 +13,22 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    float numItems;
-    cin >> numItems; 
+    int numItems;
+    cin >> numItems;
 
-    vector<float> prices(numItems); 
-    for (float &price : prices) { 
-        cin >> price; 
+    vector<float> prices(numItems);
+    for (float &price : prices) {
+        cin >> price;
     }
 
-    float discountNum;
-    cin >> discountNum; 
-    vector<float> discounts(discountNum);
+    int numDiscounts;
+    cin >> numDiscounts;
+
+    vector<float> discounts(numDiscounts);
     for (float &discount : discounts) {
         cin >> discount;
     }
-    
+
     cout << "Total cost: " << shoppingList(prices, discounts) << endl;
     return 0;
 }

@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int luhn(const std::vector<int>& digits) {
@@ -14,5 +13,4 @@ int luhn(const std::vector<int>& digits) {
         sum += digit;
         doubleNext = !doubleNext;
     }
-    return sum % 10; 
-}
+    return sum % 10;
