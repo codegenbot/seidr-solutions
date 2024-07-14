@@ -5,10 +5,7 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = 0.0;
     for (int i = m + 1; i <= n; i++) {
-        total += 1.0 / n;
-    }
-    for (int i = 1; i < m; i++) {
-        total += 1.0 / m;
+        total += 1.0 / (n * m);
     }
     return total;
 }
