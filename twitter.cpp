@@ -1,10 +1,12 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
 string validateTweet(string tweet) {
+    tweet = std::trim(tweet);
+
     if (tweet.empty()) {
         return "You didn't type anything";
     }
