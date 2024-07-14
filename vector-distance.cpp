@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -20,4 +19,3 @@ int main() {
     double distance = vectorDistance(n, x1, x2);
     std::cout << "Vector distance: " << distance << std::endl;
     return 0;
-}
