@@ -11,4 +11,5 @@ def luhn(card_number):
                 result += doubled_num
         else:
             result += num
-    return str(result)
+    return str(result)[-1]  
+print(luhn(1182221412844))
