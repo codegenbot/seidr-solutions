@@ -94,3 +94,8 @@ vector<vector<int>> cutVector(vector<int> v) {
     copy(v.begin() + pos, v.end(), res[1].begin());
     return res;
 }
+
+int main() {
+    // Your code to test the function
+    return 0;
+}
