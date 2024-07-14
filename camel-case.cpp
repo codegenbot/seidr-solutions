@@ -36,8 +36,7 @@ int main() {
         if (!input.empty()) { 
             std::string output = camelCase(input);
             if(!output.empty())  
-                std::string outputCopy = output;
-                std::cout << "Camel Case: " << outputCopy << std::endl; 
+                std::cout << "Camel Case: " << output << std::endl; 
         }
     }
     return 0;
