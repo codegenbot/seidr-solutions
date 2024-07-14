@@ -3,9 +3,8 @@ def mastermind(code, guess):
     for c in code:
         code_count[ord(c) - ord("B")] += 1
 
-    white_pegs = sum(
-        count - min(count, guess.count(c)) for count, c in zip(code_count, "BOYWG")
-    )
+    code_chars, guess_chars = list(code), list(guess)[:4]
+    white_pegs = sum([1 if a == b else 0 for a, b in zip(code_chars, guess_chars)])
 
     black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
 
