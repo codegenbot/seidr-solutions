@@ -1,23 +1,45 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-bool solveBoolean(string expression) {
-    bool result = true;
-    int i = 0;
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operationStack;
+    stack<bool> valueStack;
 
-    while (i < expression.length()) {
-        if (expression[i] == 't') {
-            return true;
-        } else if (expression[i] == 'f') {
-            return false;
-        } else if (expression[i] == '&') {
-            result &= (i + 1 < expression.length() ? solveBoolean(expression.substr(i + 1)) : false);
-            i = expression.find('&', i) + 1;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = valueStack.top();
+            valueStack.pop();
+            bool b2 = valueStack.top();
+            valueStack.pop();
+            valueStack.push(b1 & b2);
         } else if (expression[i] == '|') {
-            bool temp = solveBoolean(string(1, expression[i]));
-            for (; i < expression.length() && expression[i] != '&' && expression[i] != '|'; i++);
-            result |= temp;
+            bool b1 = valueStack.top();
+            valueStack.pop();
+            bool b2 = valueStack.top();
+            valueStack.pop();
+            valueStack.push(b1 | b2);
+        } else if (expression[i] == 'T') {
+            valueStack.push(true);
+        } else if (expression[i] == 'F') {
+            valueStack.push(false);
         }
     }
 
-    return result;
+    return valueStack.top();
+}
+
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+
+    bool result = evaluateBooleanExpression(expression);
+
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+
+    return 0;
 }
