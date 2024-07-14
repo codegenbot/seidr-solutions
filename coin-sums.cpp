@@ -18,7 +18,7 @@ int main() {
     pennies = (dimes + pennies) % 5;
 
     cout << nickles << endl;
-    cout << dimes - nickles * 2 << endl;
+    cout << dimes - nickles * 2 << endl; 
     cout << pennies << endl;
 
     return 0;
