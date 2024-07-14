@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -48,7 +49,7 @@ int main() {
     std::string text, target;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
+    std::cout << "Enter your target string: ";
     std::getline(std::cin, target);
     std::vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
