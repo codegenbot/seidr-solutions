@@ -1,5 +1,5 @@
 ```
-def get_next_frames_score(score=""):
+def get_next_frames_score(score):
     score = score.replace('/', '')
     total = 0
     for i in range(1, min(3, len(score))):
@@ -18,7 +18,7 @@ def bowling_score(score):
             first_roll = int(score[i])
             second_roll = 10 - first_roll if i + 1 < len(score) and score[i+1].isdigit() else 10 - first_roll
             if first_roll == 10:
-                total += 10 + (0 if frame == 9 else get_next_frames_score())
+                total += 10
                 frame += 1
             elif second_roll == 10:
                 total += second_roll
@@ -26,7 +26,7 @@ def bowling_score(score):
             else:
                 total += first_roll + second_roll
                 if first_roll + second_roll < 10:
-                    total += get_next_frames_score()
+                    total += get_next_frames_score(score)
                 frame += (2 if first_roll + second_roll == 10 else 1)
     return total
 
