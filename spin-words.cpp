@@ -8,40 +8,34 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
-    for (char c : str) {
-        if (c == ' ') {
-            if (wordLength >= 5) {
-                for (int i = wordLength - 1; i >= 0; --i) {
-                    result += str[wordLength - i - 1];
-                }
-            } else {
-                result += c;
-            }
-            wordLength = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += " ";
         } else {
-            result += c;
-            wordLength++;
+            int j = i;
+            while (j < str.length() && str[j] != ' ') {
+                j++;
+            }
+            string word = str.substr(i, j - i);
+            if (word.length() >= 5) {
+                string reversedWord = "";
+                for (int k = word.length() - 1; k >= 0; k--) {
+                    reversedWord += word[k];
+                }
+                result += reversedWord + " ";
+            } else {
+                result += word + " ";
+            }
+            i = j;
         }
     }
-
-    if (wordLength >= 5) {
-        for (int i = wordLength - 1; i >= 0; --i) {
-            result += str[wordLength - i - 1];
-        }
-    } else {
-        result = str;
-    }
-
     return result;
 }
 
 int main() {
     string str;
-    while (true) {
-        cout << "Enter a string: ";
-        cin >> str;
-        cout << "Output: " << spinWords(str) << endl;
+    while (cin >> str) {
+        cout << spinWords(str) << endl;
     }
     return 0;
 }
