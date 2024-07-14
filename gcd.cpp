@@ -35,7 +35,16 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    int g = gcd(indices.size(), 1);
+    int g = indices.size(); // initialize with the number of substrings
+    for (int i : indices) {
+        for (int j : indices) {
+            if (i < j) { // to avoid duplicates
+                int temp = gcd(i, j);
+                if (temp > g)
+                    g = temp;
+            }
+        }
+    }
 
     cout << "Indices: ";
     for (int i : indices) {
