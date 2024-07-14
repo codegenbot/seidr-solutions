@@ -18,17 +18,20 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int leftCut = 0, rightCut = 0;
 
     for (int i = 0; i < n; i++) {
-        if (std::abs(leftSum - rightSum) < minLeft) {
-            minLeft = std::abs(leftSum - rightSum);
-            leftCut = i;
-        } else if (std::abs(leftSum - rightSum) < minRight) {
-            minRight = std::abs(leftSum - rightSum);
-            rightCut = i;
-        }
         if (leftSum + v[i] <= rightSum) {
             leftSum += v[i];
         } else {
             rightSum -= v[i];
+        }
+        long long diff = leftSum - rightSum;
+        if (diff == 0 || (i > 0 && i < n-1)) {
+            if (std::abs(diff) < minLeft) {
+                minLeft = std::abs(diff);
+                leftCut = i;
+            } else if (std::abs(diff) < minRight) {
+                minRight = std::abs(diff);
+                rightCut = i;
+            }
         }
     }
     
@@ -43,7 +46,15 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         
         return res;
     } else {
-        return {{v}};
+        std::vector<std::vector<int>> res;
+        res.push_back(std::vector<int>());
+        res.push_back(std::vector<int>());
+
+        res[0].assign(v.begin(), v.begin() + rightCut);
+        
+        res[1].assign(v.begin() + rightCut, v.end());
+        
+        return res;
     }
 }
 
