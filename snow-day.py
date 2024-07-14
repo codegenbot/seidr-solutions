@@ -1,3 +1,2 @@
-import math
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    return round(initial_snow + (rate_of_snowfall * hours) - (melting_rate * hours), 2)
+    return round(initial_snow + sum((rate_of_snowfall / 1.0) * hour for hour in range(1, hours+1)) - sum((melting_rate / 1.0) * hour for hour in range(1, hours+1)), 2)
