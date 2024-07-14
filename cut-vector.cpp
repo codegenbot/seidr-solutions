@@ -1,7 +1,5 @@
-#include <vector>
-#include <cmath>
-#include <climits>
 #include <iostream>
+#include <vector>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
@@ -44,12 +42,11 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
 int main() {
     std::vector<int> v = {1, 2, 3, 4};
     auto result = cutVector(v);
-    
     for (const auto& sub : result) {
         for (int num : sub) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << "\n";
+        std::cout << "\n";
     }
     return 0;
 }
