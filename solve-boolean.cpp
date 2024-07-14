@@ -1,51 +1,52 @@
-```cpp
 #include <stack>
 #include <string>
-#include <iostream>
 
-bool evaluate(char c) {
-    if (c == 'T')
-        return true;
-    else if (c == 'F')
-        return false;
-}
-
-bool solveBoolean(std::string expression) {
-    std::stack<char> st;
+bool evaluate(std::stack<char> st, std::string expression) {
+    bool result = true;
     for (char c : expression) {
-        if (std::isalpha(c)) {
-            st.push(c);
+        if (c == 'T') {
+            result = false;
+            break;
+        } else if (c == 'F') {
+            result = false;
+            break;
         } else if (c == '|') {
-            st.push(c);  // Push '|' or '&' only if it's not at the top of the stack
+            st.push(c);
+            result = true;
         } else if (c == '&') {
-            st.push(c);  // Push '|' or '&' only if it's not at the top of the stack
-        }
-        while (!st.empty() && (st.top() == '|' || st.top() == '&')) {
-            if (st.top() == '|') {
-                bool top = evaluate(st.top());
+            while (!st.empty() && st.top() == '|') {
                 st.pop();
-                if (top) {
-                    st.push('&');
-                } else {
-                    st.push('|');
-                }
-            } else {  // st.top() == '&'
-                bool top = evaluate(st.top());
-                st.pop();
-                if (top) {
-                    st.push('|');
-                } else {
-                    st.push('&');
-                }
+            }
+            if (st.empty()) {
+                return false;
+            }
+            bool top = evaluateTop(st);
+            if (top) {
+                st.push('&');
+            } else {
+                st.push('|');
             }
         }
     }
-    return !st.empty();  // Return True if there are operators left in the stack
+    return result;
 }
 
-int main() {
-    std::string expression = "T|F&f|t&t&t&f|f|t&t|t|f&f";
-    bool result = solveBoolean(expression);
-    std::cout << (result ? "True" : "False") << std::endl;
-    return 0;
+bool evaluateTop(std::stack<char>& st) {
+    char c = st.top();
+    st.pop();
+    if (c == '&') {
+        while (!st.empty() && st.top() != '|') {
+            st.pop();
+        }
+        bool top = st.empty();
+        st.push(c);
+        return top;
+    } else if (c == '|') {
+        while (!st.empty()) {
+            st.pop();
+        }
+        return true;
+    } else {
+        return false;
+    }
 }
