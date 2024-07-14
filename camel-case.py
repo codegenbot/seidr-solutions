@@ -1,3 +1,4 @@
-def solve(input_string):
-    result = input_string.title().replace('-', ' ')
-    return result.replace(' ', '')
+def camel_case(s):
+    return "".join(word.capitalize() for word in s.split() if "-" not in word).replace(
+        "-", ""
+    )
