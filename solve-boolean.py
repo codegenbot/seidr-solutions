@@ -1,24 +1,25 @@
 def solve_boolean(expression):
-    while "&| |&|" in expression:
-        expression = expression.replace("&|", "&&").replace("|&", "| ")
-
-    i = 0
-    stack = []
-    current_expression = ""
-    for char in expression + ")": 
-        if char.isspace():
-            if current_expression:
-                stack.append(current_expression)
-                current_expression = ""
-        elif char == "(":
-            stack.append(current_expression)
-            current_expression = ""
-        elif char == ")":
-            while True:
-                current_expression += " " + stack.pop()
-                if ")" in stack:
-                    break
+    expression = expression.replace("&|", "&&").replace("|&", "| ")
+    
+    if expression == "F":
+        return False
+    elif expression == "T":
+        return True
+    
+    if "&" in expression:
+        left, right = expression.split("&")
+        if eval(left) and eval(right):
+            return True
         else:
-            current_expression += char
+            return False
+    
+    if "|" in expression:
+        left, right = expression.split("|")
+        if eval(left):
+            return True
+        elif eval(right):
+            return True
+        else:
+            return False
 
-    return eval('bool({} {} {})'.format(*[eval(i) for i in current_expression.split()]))
+print(solve_boolean("f|f&t|t&t|t&t&f&t&t|t&t&t&f|f"))
