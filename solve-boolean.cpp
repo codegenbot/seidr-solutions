@@ -21,13 +21,11 @@ bool solveBoolean(const std::string& s) {
 int main() {
     std::string input; 
     while (true) {
-        std::cout << "Enter a Boolean expression (T/F/|/&): "; 
-        input.clear(); // clear the string for new input
         char c;
-        while ((c = std::cin.get()) != '\n' && c != ' ') {
-            if (c != ' ' && c != '\n') {
-                input += c;  // fix: use += operator instead of push_back
-            }
+        input.clear();
+        while (c = std::cin.get()) {
+            if(c == '\n') break; // stop reading when user presses Enter
+            input += c;
         }
         bool result = solveBoolean(input);
         if(input == "exit") {
