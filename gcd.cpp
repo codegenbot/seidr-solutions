@@ -15,7 +15,6 @@ vector<int> findIndices(string text, string target) {
         }
     }
     return indices;
-
 }
 
 int gcd(int a, int b) {
