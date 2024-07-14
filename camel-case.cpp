@@ -3,19 +3,19 @@
 #include <string>
 #include <cctype>
 
-std::string camelCase(std::string& str) {
+std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
     for (char c : str) {
         if (c == '-') {
-            result += ' '; 
+            result.push_back(' ');
             capitalize = true; 
         } else if (capitalize) { 
-            result += toupper(c);
+            result.push_back(toupper(c));
             capitalize = false; 
         } else {
-            result += tolower(c); 
+            result.push_back(tolower(c)); 
         }
     }
 
