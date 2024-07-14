@@ -10,13 +10,21 @@ std::string spinWords(std::string& str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5) {
-            result += std::string(word.rbegin(), word.rend()) + " ";
+            result += std::string(word.rbegin(), word.rend());
         } else {
-            result += word + " ";
+            result += word;
         }
-        start = spacePos + 1;
+        result += ' '; // Add space after each word except the last one
+        if (spacePos < str.length()) {
+            size_t end = spacePos;
+            while(end > start && str[end-1] != ' ')
+                --end;
+            result += str.substr(start, end - start);
+            start = end;
+        } else
+            start = spacePos + 1;
     }
-    return result;
+    return result.trim(); // Remove trailing space
 }
 
 int main() {
