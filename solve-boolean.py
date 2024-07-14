@@ -1,4 +1,4 @@
-```
+```python
 def solve_boolean(expression):
     stack = []
     result = True
