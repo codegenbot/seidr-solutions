@@ -1,21 +1,26 @@
-#include <vector>
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(string str) {
     int score = 0;
-    int roll = 0;
-    for (char c : s) {
+    bool firstRollInFrame = true;
+    for (char c : str) {
         if (c == '/') {
-            if (roll >= 2) {
-                score += max(10 - roll, 1);
+            if (firstRollInFrame) {
+                score += 10 - (str.find('/', str.find('/') + 1) - str.find('/'));
+                firstRollInFrame = false;
+            } else {
+                score += 10;
             }
-            roll = 0;
-        } else if (isdigit(c)) {
-            roll = roll * 10 + (c - '0');
+        } else if (c == 'X') {
+            score += 10;
+            firstRollInFrame = true;
+        } else {
+            int rollValue = c - '0';
+            if (firstRollInFrame) {
+                score += rollValue;
+                firstRollInFrame = false;
+            } else {
+                score += rollValue;
+            }
         }
-    }
-    if (roll >= 2) {
-        score += max(10 - roll, 1);
     }
     return score;
 }
