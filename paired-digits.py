@@ -1,4 +1,8 @@
-def sum_of_paired_digits(n):
-    return sum(
-        int(d) * 2 for d in str(n) if str(n).index(str(d)) + 1 == str(n).rfind(str(d))
-    )
+Here is the Python code for the paired-digits problem:
+
+def paired_digits(input_str):
+    total = 0
+    for i in range(len(input_str) - 1):
+        if input_str[i] == input_str[i+1]:
+            total += int(input_str[i])
+    return str(total)
