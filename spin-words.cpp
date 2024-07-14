@@ -1,40 +1,34 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int length = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += str.substr(length, i - length);
-            length = i + 1;
+string spinWords(string input) {
+    string output = "";
+    string word;
+    
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            output += word + " ";
+            word = "";
+        } else {
+            word += input[i];
         }
     }
-    result += str.substr(length);
-
-    string temp = "";
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ' || i >= result.find(' ') && i > 4) {
-            temp += ' ';
-        } else if (i < 5) {
-            temp += result[i];
-        } else {
-            for (int j = i; j >= i - 5; j--) {
-                temp += result[j];
+    
+    output += word;
+    
+    for (int i = 0; i < output.length(); i++) {
+        if ((output[i] >= 'a' && output[i] <= 'z') || (output[i] >= 'A' && output[i] <= 'Z')) {
+            int j = i + 1;
+            while (j < output.length() && (!isalnum(output[j])) && (output[j] != ' ')) {
+                j++;
+            }
+            if (j - i > 4) {
+                for (; i < j; i++) {
+                    output[i] = output[j - i - 1];
+                }
             }
         }
     }
-
-    return temp;
-}
-
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    cout << spinWords(str) << endl;
-    return 0;
+    
+    return output;
 }
