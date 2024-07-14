@@ -1,16 +1,6 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-double game(int n, int m) {
-    double total = 1.0 * n * m;
-    double count = 0.0;
-    
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j < m; ++j) {
-            if (i > j)
-                count++;
-        }
-    }
-    
-    return count / total;
+double getProbability(int n, int m) {
+    double total = (n + m - 2);
+    return ((m-1)/(total)) * ((n-m+1)/total);
 }
