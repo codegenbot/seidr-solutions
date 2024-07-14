@@ -1,12 +1,10 @@
 ```
-def substitution_cipher(cipher1, cipher2, text):
-    cipher = {}
-    for i in range(len(cipher1)):
-        cipher[cipher1[i]] = cipher2[i]
+def substitution_cipher(cipher1, cipher2, message):
+    cipher_dict = {char: char2 for char, char2 in zip(cipher1, cipher2)}
     result = ""
-    for char in text:
-        if char in cipher:
-            result += cipher[char]
+    for char in message:
+        if char in cipher_dict:
+            result += cipher_dict[char]
         else:
             result += char
     return result
