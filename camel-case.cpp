@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <vector>
 
@@ -31,4 +32,10 @@ std::string camelCase(const std::string& str) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input = "camel-case example-test-string";
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
