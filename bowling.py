@@ -1,30 +1,24 @@
-Here is the completed code:
-
+```
 def bowling_game(s):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1].isdigit():
-            strike = False
-            if int(s[i:i+2]) == 10:
-                if i < len(s) - 1 and s[i+2] != '/':
-                    score += 10 + int(s[i+2])
-                else:
-                    score += 10
-                frame += 1
-            elif i > 0 and s[i-1].isdigit() and int(s[i-1:i+1]) == 10:
-                if frame < 9:
-                    score += 10 + int(s[i-1:i+1])
-                else:
-                    score += 10
-                frame += 1
+    s += '/' * (len(s) % 10)
+    frames = [list(map(int, s[i:i+2] if i < len(s)-1 else [s[i]])) for i in range(0, len(s), 2)]
+    for i, frame in enumerate(frames):
+        if sum(frame) == 3:
+            score += 3
+        elif sum(frame) == 2:
+            if frames[i+1][0] >= 10:
+                score += 2 + frames[i+1][0]
             else:
-                score += int(s[i:i+2])
-        elif s[i] == '/':
-            strike = True
-            score += 10
-        if not strike and i < len(s) - 1 and s[i+1].isdigit():
-            while i < len(s) - 1 and s[i+1] != '/':
-                score += int(s[i+1:i+2])
-                i += 1
+                score += 2
+        else:
+            if len(frame) > 1 and frame[0] == 10:
+                if i < 9:
+                    score += sum(frame)
+                if i < 8:
+                    score += frames[i+1][0]
+                if i < 7:
+                    score += frames[i+2][0]
+            else:
+                score += sum(frame)
     return score
