@@ -1,16 +1,10 @@
-Here is the solution:
+#include <string>
 
-string middleCharacter(string s) {
-    int len = s.length();
-    string result;
-    
-    if (len % 2 == 0) { // even length
-        int midIndex = len / 2;
-        result += s[midIndex - 1];
-        result += s[midIndex];
-    } else { // odd length
-        int midIndex = len / 2;
-        result = s[midIndex];
+string middleCharacter(string str) {
+    int length = str.length();
+    if (length % 2 == 0) {
+        return str.substr(length / 2 - 1, 2);
+    } else {
+        return string(1, str[length / 2]);
     }
-    
-    return result;
+}
