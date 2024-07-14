@@ -1,26 +1,18 @@
 int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.size()) {
-        if (s[i] == 'X') {
+    int frame = 1;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-            i++;
-        } else if (isdigit(s[i])) {
-            int count = 0;
-            while (i < s.size() && isdigit(s[i])) {
-                count *= 10;
-                count += s[i++] - '0';
-            }
-            score += count;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (frame < 10 ? string(&c + 1, &s[0]).find('/') : 5);
+            frame++;
         } else {
-            int first = s[i] - '0';
-            i++;
-            if (s[i] == '/') {
-                i++;
-                int second = s[i] - '0';
-                score += first + second;
-            } else {
-                score += first + 10;
+            int temp = c - '0';
+            score += temp;
+            if (temp < 10) {
+                frame++;
             }
         }
     }
