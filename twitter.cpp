@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+```cpp
+#include <iostream>
+#include <string>
 
 std::string validateTweet(const std::string& input) {
     if (input.empty()) {
@@ -16,7 +18,7 @@ int main() {
     std::string input;
     std::cout << "Enter a tweet: ";
     std::getline(std::cin, input);
-    const char* result = validateTweet(input).c_str(); 
+    std::string result = validateTweet(input);
     std::cout << result << std::endl;
     return 0;
 
