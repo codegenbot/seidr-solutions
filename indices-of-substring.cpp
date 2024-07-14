@@ -1,8 +1,15 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+#include <initializer_list>
+#pragma GCC diagnostic pop
+
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     vector<int> result;
     int n = text.length();
     int m = target.length();
