@@ -1,4 +1,3 @@
-```
 def find_indices(text, target):
     result = []
     i = 0
@@ -7,7 +6,7 @@ def find_indices(text, target):
         if pos == -1:
             break
         result.append(pos) 
-        i = pos + len(target) if pos > 0 else 0
+        i = pos + 1
     return result
 
 text = input()
