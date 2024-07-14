@@ -35,16 +35,17 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    vector<int> temp;
+    int g = indices.size(); // initialize with the number of substrings
     for (int i : indices) {
         for (int j : indices) {
-            if (i < j) { // avoid duplicates
-                int pair_gcd = gcd(abs(i - j), __gcd(abs(i), abs(j)));
-                temp.push_back(pair_gcd);
+            if (i < j) { // to avoid duplicates
+                int temp = gcd(i, j);
+                if (temp > g)
+                    g = temp;
             }
         }
     }
-    int g = *min_element(temp.begin(), temp.end());
+
     cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
