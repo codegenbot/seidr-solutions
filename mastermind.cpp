@@ -1,4 +1,5 @@
-```c++
+Here is the modified code:
+
 int mastermind(const char* code, const char* guess) {
     int black = 0;
     int white = 0;
