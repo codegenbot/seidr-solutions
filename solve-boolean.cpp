@@ -1,26 +1,44 @@
-```cpp
+```
 #include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
-    bool result = true;
-    for (char c : s) {
-        if (c == 'T') continue;
-        if (c == 'F') return false;
-        if (c == '|') {
-            result = !result;
-        } else {
-            result &= false;
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
+    stack<string> v2Stack;
+    string v1, v2;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!opStack.empty() && opStack.top() == '|')
+                opStack.pop(), valStack.pop();
+            opStack.push('&');
+        } else if (expression[i] == '|') {
+            opStack.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            string temp = "";
+            while (i > 0 && (expression[i-1] == '&' || expression[i-1] == '|')) {
+                i--;
+            }
+            for (; i > 0 && (expression[i-1] != '&' && expression[i-1] != '|'); i--)
+                temp = string(1, expression[--i]);
+            valStack.push(temp);
         }
     }
-    return result;
-}
 
-int main() {
-    string input;
-    cout << "Enter Boolean expression: ";
-    cin >> input;
-    bool result = solveBoolean(input);
-    cout << "Result: " << (result ? "True" : "False") << endl;
-    return 0;
+    while (!opStack.empty()) {
+        v2 = valStack.top();
+        valStack.pop();
+        if (opStack.top() == '&') {
+            opStack.pop();
+            valStack.push((v1 == "T" && v2 == "T") ? "T" : "F");
+            v1 = v2;
+        } else {
+            opStack.pop();
+            valStack.push((v1 == "T" || v2 == "T") ? "T" : "F");
+            v1 = v2;
+        }
+    }
+
+    return valStack.top() == "T";
 }
