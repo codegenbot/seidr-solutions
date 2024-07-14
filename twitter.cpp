@@ -1,5 +1,5 @@
-string validateTweet(string tweet) {
-    auto length = 0u; 
+std::string validateTweet(std::string tweet) {
+    auto length = 0u;
     for (char c : tweet) {
         length++;
     }
@@ -10,4 +10,3 @@ string validateTweet(string tweet) {
         return "You didn't type anything";
     }
     return "Your tweet has " + std::to_string(length) + " characters";
-}
