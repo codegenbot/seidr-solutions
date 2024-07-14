@@ -1,8 +1,8 @@
-Here is the solution:
+Here is the solution in C++:
 
 string middleCharacter(string str) {
     int len = str.length();
-    if(len % 2 == 0) {
+    if (len % 2 == 0) {
         return str.substr(len / 2 - 1, 2);
     } else {
         return str.substr(len / 2, 1);
