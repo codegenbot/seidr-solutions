@@ -1,18 +1,29 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            result += toupper(s[i + 1]);
-            i++;
-        } else if (s[i] == ' ') {
-            continue;
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    for (char c : str) {
+        if (c == '-') {
+            c = ' ';
+        }
+    }
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += toupper(str.substr(i + 1, str.find(' ', i + 1) - i - 1)[0]);
+            while (str[i + 1] != ' ') {
+                i++;
+            }
         } else {
-            if (!result.empty())
-                result[0] = tolower(result[0]);
-            result += s[i];
+            result += tolower(c);
         }
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << camelCase(input) << '\n';
+    return 0;
 }
