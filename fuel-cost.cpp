@@ -1,12 +1,26 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
+
+using namespace std;
 
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int new_val = std::floor((double)i / 3);
-        new_val -= 2;
-        sum += new_val;
+        int temp = i / 3;
+        temp = floor(temp);
+        temp -= 2;
+        sum += temp;
     }
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << fuelCost(v) << endl;
+    return 0;
 }
