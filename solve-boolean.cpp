@@ -21,12 +21,10 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::string s = "T|F&";
+    std::string s;
+    std::cin >> s;
     bool result = solveBoolean(s);
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
+    if (result) std::cout << "True" << std::endl;
+    else std::cout << "False" << std::endl;
     return 0;
 }
