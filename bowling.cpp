@@ -1,50 +1,27 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            int firstPin = stoi(s.substr(0, i));
-            int secondPin = stoi(s.substr(i + 1));
-            score += getPointsInFrame(firstPin, secondPin);
-            currentFrame++;
-        }
-    }
-    return score;
-}
-
-int getPointsInFrame(int pins1, int pins2) {
-    if (pins1 == 10) {
-        return 10 + getPointsInNextTwoFrames();
-    } else if (pins1 + pins2 >= 10) {
-        return 10 + getPointsInRemainingPins(pins1 + pins2);
-    } else {
-        return pins1 + pins2;
-    }
-}
-
-int getPointsInNextTwoFrames() {
-    int score = 0;
-    for (int i = 0; i < 2; i++) {
-        if (i == 0) {
-            int firstPin = s[i * 3];
-            int secondPin = s[i * 3 + 1];
-            int thirdPin = s[i * 3 + 2] - 'X';
-            score += getPointsInFrame(firstPin, secondPin);
-        } else {
-            if (s[i * 3] == 'X') {
-                return 10;
-            } else {
-                return 10 + getPointsInRemainingPins(stoi(s.substr(i * 3)));
+    int frame = 1;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == 'X') {
+            score += 10 + (frame < 10 ? 10 : 0);
+            frame++;
+        } else if (s[i] == '/') {
+            int count = 0;
+            while (i + 1 < s.size() && s[i+1] != '/'){
+                count++;
+                i++;
             }
+            score += 10 - count;
+            frame++;
+        } else {
+            int count = 0;
+            while (i + 1 < s.size() && s[i+1] >= '0' && s[i+1] <= '9') {
+                count = count * 10 + (s[i] - '0');
+                i++;
+            }
+            score += count;
+            frame++;
         }
     }
     return score;
-}
-
-int getPointsInRemainingPins(int pins) {
-    if (pins > 7) {
-        return 10;
-    } else {
-        return pins;
-    }
 }
