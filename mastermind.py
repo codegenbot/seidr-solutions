@@ -1,15 +1,13 @@
+```
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return str(0), str(0)
+        return "00"
 
     for c in code + guess:
         if c not in " ABCDEF":
-            return str(0), str(0)
+            return "00"
 
-    code_count = Counter(code)
-    guess_count = Counter(guess)
+    white = sum(1 for c, d in zip(code, guess) if c == d)
+    black = sum((c == d and code.index(c) == i) for i, (c, d) in enumerate(zip(code, guess))).count(True)
 
-    white = sum(min(count, guess_count[c]) for c, count in zip(code, guess))
-
-    black = sum((code_count[c] == 1 and guess_count[c] == 1) for c in code if code.index(c) == i)
-    return str(white), str(len(black))
+    return str(white) + '0' * (4 - black), str(black)
