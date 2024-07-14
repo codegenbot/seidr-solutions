@@ -1,3 +1,4 @@
+```c++
 int mastermind(const char* code, const char* guess) {
     int black = 0;
     int white = 0;
@@ -10,20 +11,18 @@ int mastermind(const char* code, const char* guess) {
     }
 
     // Count correct characters that are not in the same position (white pegs)
-    for (int i = 0; i < 4; ) {
-        int foundInCode = false;
-        for (int j = 0; j < 4; ) {
+    for (int i = 0; i < 4; ++i) {
+        bool foundInCode = false;
+        for (int j = 0; j < 4; ++j) {
             if (code[j] == guess[i]) {
                 foundInCode = true;
                 break;
             }
-            j++;
         }
 
         if (foundInCode && code[i] != guess[i]) {
             white++;
         }
-        i++; // increment 'i' to avoid infinite loop
     }
 
     return black + white;

@@ -17,16 +17,14 @@ def mastermind(code, guess):
     for c in guess:
         guess_count[c] += 1
 
-    code_copy = list(code)
-    guess_copy = list(guess)
-
     for c, d in zip(code, guess):
         if c == d:
             black += 1
-            code_copy.remove(c)
-            guess_copy.remove(d)
-        elif code_count[c] > 0 and code_count[c] <= guess_count[d]:
-            white += 1
-            code_count[c] = 0
+        else:
+            code_count[c] -= 1
+            guess_count[d] -= 1
+
+    for color in code_count:
+        white += min(code_count[color], guess_count[color])
 
     return str(white) + str(black)

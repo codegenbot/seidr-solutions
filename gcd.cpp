@@ -14,7 +14,21 @@ int main() {
     cout << "Enter the second string: ";
     cin >> str2;
 
-    int len1 = str1.length(), len2 = str2.length();
-    int result = gcd(len1, len2);
-    cout << "GCD of lengths: " << result << endl;
+    int indices = -1; // Initialize index of last found position
+    vector<int> result;
+
+    size_t pos = 0;
+    while ((pos = str1.find(str2, pos)) != string::npos) {
+        result.push_back(pos);
+        pos += 1; // Skip to the next occurrence
+    }
+
+    if (result.size() == 0)
+        return 0;
+    
+    int gcdResult = result[0];
+    for (int i = 1; i < result.size(); i++)
+        gcdResult = __gcd(gcdResult, result[i]);
+        
+    cout << "GCD of indices: " << gcdResult << endl;
 }
