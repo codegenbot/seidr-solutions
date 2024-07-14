@@ -14,12 +14,12 @@ int main() {
     // ...
     
     if (!result.empty()) {
-        int gcdResult = result[0];
+        int start = min(result);
         for (size_t i = 1; i < result.size(); ++i) {
-            gcdResult = gcd(gcdResult, result[i]);
+            start = gcd(start, result[i] - start);
         }
         
-        cout << "GCD of indices: " << gcdResult << endl;
+        cout << "GCD of indices: " << start + 1 << endl;
     }
 
     return 0;
