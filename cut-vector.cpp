@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -18,7 +19,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             right_sum += v[j];
         
         if (left_sum == right_sum) {
-            return {{v[0], v[0]}, v.substr(1)};
+            return {{v[0], v[0]}, vector<int>(v.begin() + 1, v.end())};
         } else if (abs(left_sum - right_sum) < min_diff) {
             min_diff = abs(left_sum - right_sum);
             cut_idx = i;
