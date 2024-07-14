@@ -13,7 +13,8 @@ vector<int> indicesOfSubstring(string text, string target) {
         if(text.substr(i, m) == target) {
             result.push_back(i);
         }
-    };
+    }
+    return result;
 }
 
 int gcd(int a, int b) {
@@ -23,4 +24,4 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
-};
+}
