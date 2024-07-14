@@ -5,21 +5,24 @@ int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
         int result = (num / 3);
-        int newNum = floor(result) - 2;
-        sum += newNum;
+        result = (result > 0) ? (result - 1) : 0; // round down to nearest integer
+        sum += result;
     }
     return sum;
 }
 
 int main() {
-    vector<int> numbers;
-    int n;
+    int n, fuelCost;
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        numbers.push_back(num);
+    
+    vector<int> numbers(n);
+    for(int i = 0; i < n; i++) {
+        cin >> numbers[i];
     }
-    cout << calculateFuelCost(numbers) << endl;
+    
+    fuelCost = calculateFuelCost(numbers);
+    
+    cout << fuelCost << endl;
+
     return 0;
 }
