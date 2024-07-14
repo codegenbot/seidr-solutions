@@ -1,11 +1,10 @@
 #include <vector>
-#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    
-    for(int i=0; i<n; i++) {  
+
+    for(int i=n-1; i>=0; i--) {  
         bool isLeader = true;
         for(int j=i+1; j<n; j++) {
             if(arr[j] >= arr[i]) {
@@ -20,10 +19,5 @@ std::vector<int> leaders(std::vector<int>& arr) {
     return res;
 }
 
-int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 10};
-    for(int i: leaders(arr)) {
-        std::cout << i << " ";
-    }
-    return 0;
-}
+std::vector<int> arr = {1, 3, 4, 2, 7};
+std::vector<int> leadersResult = leaders(arr);
