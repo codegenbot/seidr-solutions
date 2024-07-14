@@ -1,5 +1,6 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
 int pairedDigits(string s) {
     int sum = 0;
@@ -9,4 +10,11 @@ int pairedDigits(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << pairedDigits(s) << endl;
+    return 0;
 }

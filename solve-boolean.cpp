@@ -15,10 +15,3 @@ bool solveBoolean(string s) {
     }
     return result;
 }
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
-}
