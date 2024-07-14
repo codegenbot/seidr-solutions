@@ -1,29 +1,30 @@
 int mastermind(const char* code, const char* guess) {
-    int white = 0;
     int black = 0;
+    int white = 0;
 
-    for (char c : {guess[0], guess[1], guess[2], guess[3]}) {
-        bool foundInCode = false;
-        int correctIndex = -1; 
+    // Count correct characters that are in the same position (black pegs)
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        }
+    }
 
+    // Count correct characters that are not in the same position (white pegs)
+    for (int i = 0; i < 4; ) {
+        int foundInCode = false;
         for (int j = 0; j < 4; ) {
-            if (code[j] == c) {
+            if (code[j] == guess[i]) {
                 foundInCode = true;
-                correctIndex = j;
                 break;
             }
             j++;
         }
 
-        if (!foundInCode) continue; 
-
-        if (correctIndex != -1 && correctIndex == (c-'a')) { 
-            black++; 
-        } else {
-            white++; 
+        if (foundInCode && code[i] != guess[i]) {
+            white++;
         }
+        i++; // increment 'i' to avoid infinite loop
     }
 
     return black + white;
-
 }
