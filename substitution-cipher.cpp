@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -25,4 +24,3 @@ int main() {
     std::string result = decipher(cipher_map1, cipher_map2, message);
     std::cout << "Deciphered message: " << result << std::endl;
     return 0;
-}
