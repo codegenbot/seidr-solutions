@@ -1,35 +1,47 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int bowlingScore(const std::string& input) {
+int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    for (char c : input) {
-        if (c == 'X') {
-            score += 30;
-            frame++;
-        } else if (c == '/') {
-            score += 10 - (frame < 10 ? stoi(string(1, c)) : 0);
-            frame++;
+    int currentFrame = 1;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
+            string first = s.substr(0, i);
+            string second = s.substr(i + 1);
+            int firstRoll = stoi(first);
+            int secondRoll = stoi(second);
+            if (firstRoll + secondRoll >= 10) {
+                score += 10;
+            } else {
+                score += firstRoll + secondRoll;
+            }
+            currentFrame++;
         } else {
-            int pins = 10 - stoi(string(1, c));
-            score += pins;
-            frame++;
-            if (pins != 10) {
-                score += stoi(string(1, c));
-                frame++;
+            string roll = s.substr(0, i + 1);
+            int value = stoi(roll);
+            if (value == 10) {
+                score += 10;
+                currentFrame++;
+            } else {
+                score += value;
+                if (currentFrame < 10) {
+                    score += bowlingRoll(s.substr(i + 1));
+                    currentFrame++;
+                }
             }
         }
     }
     return score;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling game scores: ";
-    std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
+int bowlingRoll(string s) {
+    int i = 0;
+    while (i < s.length() && s[i] != '/') {
+        i++;
+    }
+    if (i == s.length()) {
+        return stoi(s);
+    } else {
+        string first = s.substr(0, i);
+        string second = s.substr(i + 1);
+        int value = stoi(first) + stoi(second);
+        return value;
+    }
 }
