@@ -20,7 +20,7 @@ std::string camelCase(const std::string& str) {
             }
         } else {
             if (!capitalize && !result.empty()) {
-                result.push_back(' ');
+                result += ' '; 
                 capitalize = true;
             }
         }
