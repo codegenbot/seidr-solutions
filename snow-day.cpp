@@ -20,7 +20,6 @@ int main() {
     std::cin >> initialSnow;
     std::cout << "Enter the rate of snow fall (in %): ";
     std::cin >> rateOfSnowFall;
-    std::cin.ignore(); 
     std::cout << "Enter the proportion of snow melting per hour: ";
     std::cin >> proportionOfSnowMeltingPerHour;
 
