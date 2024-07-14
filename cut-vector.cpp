@@ -21,3 +21,4 @@ vector<int> cutVector(vector<int>& v) {
         }
     }
     return {vector<int>(v.begin(), v.begin() + splitIndex), vector<int>(v.begin() + splitIndex, v.end())};
+}
