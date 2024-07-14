@@ -1,6 +1,30 @@
-#include <stack>
+```cpp
 #include <string>
 #include <iostream>
+
+#include <stack>
+
+int main() {
+    std::stack<char> st;
+    bool result = false;
+
+    std::string expression;
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
+    std::cin >> expression;
+
+    for (char c : expression) {
+        st.push(c);
+    }
+
+    result = evaluateTop(st);
+
+    if (result)
+        std::cout << "The result is TRUE." << std::endl;
+    else
+        std::cout << "The result is FALSE." << std::endl;
+
+    return 0;
+}
 
 void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
     char c = st.top();
@@ -67,25 +91,4 @@ bool evaluateTop(std::stack<char> &st) {
         }
     }
     return orResult;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
-
-    std::stack<char> st;
-    for (char c : input) {
-        if (c == '(' || c == ')' || c == '|' || c == '&') {
-            st.push(c);
-        } else if (c == 'T' || c == 'F') {
-            st.push(c);
-        }
-    }
-
-    bool result = evaluateTop(st);
-
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
-
-    return 0;
 }
