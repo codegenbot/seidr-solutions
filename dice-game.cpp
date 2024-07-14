@@ -2,19 +2,16 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (n + m);
-    double p = 0;
-    
-    for(int i = m+1; i <= n; i++){
-        p += ((double)i / total);
+    double total = 1.0;
+    for (int i = 1; i <= min(n, m); i++) {
+        total -= (i * 1.0 / n);
     }
-    
-    return p;
+    return total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << setprecision(17) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
     return 0;
 }
