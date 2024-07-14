@@ -1,5 +1,6 @@
+```
 #include <string>
-#include <iostream>
+#include <cstring>
 
 std::string validateTweet(std::string tweet) {
     if (tweet.length() > 140) {
@@ -9,13 +10,3 @@ std::string validateTweet(std::string tweet) {
         return "You didn't type anything";
     }
     return "Your tweet has " + std::to_string(tweet.length()) + " characters";
-}
-
-int main() {
-    std::string tweet;
-    std::cout << "Enter your tweet: ";
-    std::getline(std::cin, tweet);
-    std::cout << validateTweet(tweet) << std::endl;
-
-    return 0;
-}
