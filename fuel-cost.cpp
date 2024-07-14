@@ -6,7 +6,7 @@ int fuelCost(vector<int> nums) {
         double result = (double)num / 3;
         result = floor(result);
         result -= 2; 
-        sum += (int)result;
+        sum += result;
     }
     return sum;
 }
