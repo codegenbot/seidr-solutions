@@ -1,3 +1,4 @@
+```
 def indices_of_substring():
     def find_indices(text, target):
         result = []
@@ -6,7 +7,7 @@ def indices_of_substring():
             pos = text.find(target, i)
             if pos == -1:
                 break
-            result.append(pos+1) 
+            result.append(pos) 
             i = pos + len(target)
         return result
 
