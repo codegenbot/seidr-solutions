@@ -1,9 +1,6 @@
 def luhn(card):
-    sum = 0
-    for i in range(len(card)):
-        if (i % 2) == 1:
-            card[i] = str(int(card[i]) * 2)
-            if len(card[i]) > 1:
-                card[i] = str(int(card[i]) - 9)
-        sum += int(card[i])
-    return sum
+    card = [int(x) for x in str(card)[1:-1].split()]
+    result = sum(
+        2 * int(digit) if i % 2 else int(digit) for i, digit in enumerate(card)
+    )
+    return (result // 10) + ((result % 10) == 0)
