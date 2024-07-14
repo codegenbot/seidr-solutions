@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <string>
 
 std::string middleCharacter(const char* s) {
@@ -13,4 +13,8 @@ std::string middleCharacter(const char* s) {
     }
 }
 
-int main() { std::cout << middleCharacter("your_test_string"); return 0; }
+int main() {
+    const char* test = "your_test_string";
+    std::cout << middleCharacter(test) << std::endl;
+    return 0;
+}
