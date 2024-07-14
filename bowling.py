@@ -1,11 +1,18 @@
-```
-def bowling_score(games):
+def bowling_score(game):
     score = 0
-    game = [int(x) for x in re.split('([0-9X-])', games)[1::2]]
-    for i in range(10):
-        if game[i] == X:
-            game[i] = 10 - sum(game[:i])
-        elif game[i] < 10 and 'X' in game[i:i+2]:
-            game[i] = 10
-        score += max(game[i], 0)
+    frames = game.split("/")
+    for i in range(len(frames)):
+        if frames[i].isdigit():
+            if len(frames) - i <= 2:
+                if len(frames) - i == 1:
+                    score += int(frames[i])
+                else:
+                    score += int(frames[i]) + int(frames[i + 1])
+            elif len(frames[i]) > 1:
+                score += int(frames[i])
+        else:
+            if frames[i] == "X":
+                score += 10
+            else:
+                score += 5
     return score
