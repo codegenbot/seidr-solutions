@@ -1,4 +1,3 @@
-```c++
 string squareDigits(int n) {
     string str = to_string(n);
     string result;
