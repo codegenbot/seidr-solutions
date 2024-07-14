@@ -1,9 +1,3 @@
-```cpp
-#include <vector>
-#include <algorithm>
-#include <iostream> 
-#include <string>
-
 int gcd(int a, int b) {
     if (b == 0) return a;
     return gcd(b, a % b);
@@ -32,9 +26,9 @@ int main() {
     if (result.size() == 0)
         return 0;
 
-    int gcdResult = result[0];
+    int gcdResult = 1;
     for (int i : result) {
-        gcdResult = std::gcd(gcdResult, i); 
+        gcdResult = gcd(gcdResult, i); 
     }
         
     std::cout << "GCD of indices: " << gcdResult << std::endl; 
