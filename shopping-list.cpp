@@ -1,6 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <iomanip>
+
 using namespace std;
 
 double shoppingTrip(vector<float> prices, vector<float> discounts) {
