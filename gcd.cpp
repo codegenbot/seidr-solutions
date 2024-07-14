@@ -9,6 +9,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for(int i=0; i<=n-m; i++){
         if(text.substr(i,m) == target){
+            while(i + m <= n && text.substr(i,m) == target)
+                i++;
             result.push_back(i);
         }
     }

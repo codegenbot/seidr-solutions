@@ -1,10 +1,8 @@
 def luhn(card):
-    card = [int(x) for x in str(card)]
-    total = 0
-    for i, val in enumerate(reversed(card)):
-        if i % 2 == 1:
-            val *= 2
-            if val > 9:
-                val -= 9
-        total += val
-    return total
+    card = ' '.join(str(x) for x in card.split()).strip()
+    card = [int(x) for x in card.split()]
+    result = sum(
+        int(d) if i % 2 == 0 else (int(d) * 2) % 10 + ((int(d) * 2) // 10)
+        for i, d in enumerate(card)
+    )
+    return str(result) if result % 10 == 0 else 'Invalid'
