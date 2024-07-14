@@ -1,4 +1,5 @@
 #include <string>
+
 int bowlingScore(string str) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
