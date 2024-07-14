@@ -8,9 +8,9 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::string s;
+    std::getline(cin, s);
     std::cout << middleCharacter(s);
     return 0;
 }
