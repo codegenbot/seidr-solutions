@@ -1,14 +1,13 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
+vector<int> leaders(vector<int> v) {
     vector<int> result;
-    for (int i = n - 1; i >= 0; --i) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
-            result.push_back(arr[i]);
+    int max_right = v.back();
+    for (int i = v.size() - 2; i >= 0; --i) {
+        if (v[i] >= max_right) {
+            max_right = v[i];
+            result.push_back(v[i]);
         }
     }
     return result;
