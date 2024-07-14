@@ -1,4 +1,4 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
 def leaders(a):
-    return [a[i] for i in range(len(a)-1,-1,-1) if all(a[i] >= a[j] for j in range(i+1,len(a)))]
+    return [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
