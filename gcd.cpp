@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <vector>
@@ -41,7 +40,7 @@ int main() {
     for (int i : indices) {
         for (int j : indices) {
             if (i < j) { 
-                int pair_gcd = gcd(abs(i - j), gcd(abs(i), abs(j)));
+                int pair_gcd = gcd(abs(i - j), abs(i)) > abs(j) ? gcd(abs(i), abs(j)) : gcd(abs(i - j), abs(i));
                 temp.push_back(pair_gcd);
             }
         }
