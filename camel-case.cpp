@@ -6,23 +6,11 @@
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> arr;
-    std::string buffer;
+    std::stringstream ss(str);
+    std::string segment;
 
-    for (const auto& word : str) {
-        if (word == ' ') {
-            if (!buffer.empty()) {
-                arr.push_back(buffer);
-                buffer = ""; 
-            }
-        } else if (word != delimiter) {
-            buffer += word;
-        }
-
-        // No need to check for '\0' here
-    }
-
-    if (!buffer.empty()) {
-        arr.push_back(buffer + " ");
+    while (std::getline(ss, segment, ' ')) {
+        arr.push_back(segment);
     }
 
     return arr;
