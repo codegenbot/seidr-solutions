@@ -1,31 +1,29 @@
-Here is the solution:
+#include <iostream>
+#include <string>
+using namespace std;
 
-string spinWords(string s) {
+string spinWords(string str) {
     string result = "";
     int i = 0;
-    
-    while(i < s.length()) {
-        if(s[i] == ' ') {
-            result += " ";
-            i++;
-        } else if(s.length() - i <= 5 || i >= s.length()) {
-            result += s.substr(i, s.length() - i);
-            break;
+    while (i < str.length()) {
+        if (str.find(" ", i) == string::npos || str.find(" ", i) - i > 4) {
+            result += str.substr(i, str.find(" ", i) - i);
+            i = str.find(" ", i);
         } else {
-            string word = "";
-            while(i < s.length() && s[i] != ' ') {
-                word += s[i];
-                i++;
-            }
-            if(word.length() > 4) {
-                for(int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-            } else {
-                result += word;
-            }
+            result += str.substr(i, str.find(" ", i) - i).reverse();
+            i = str.find(" ", i);
         }
     }
-    
+    if (i < str.length()) {
+        result += str.substr(i, str.length() - i).reverse();
+    }
     return result;
+}
+
+int main() {
+    string input;
+    while (cin >> input) {
+        cout << spinWords(input) << endl;
+    }
+    return 0;
 }
