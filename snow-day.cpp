@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int hours;
@@ -21,7 +22,7 @@ int main() {
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << initialSnow << " feet." << '\n';
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << std::to_string(result) << " feet." << '\n';
 
     return 0;
 }
