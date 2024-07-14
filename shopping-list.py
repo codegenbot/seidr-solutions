@@ -1,8 +1,11 @@
 def shopping_list():
     n = int(input())
-    total_price = 0
+    prices = []
+    
     for _ in range(n):
         price = float(input())
-        discount = float(input()) / 100
-        total_price += price * (1 - discount)
-    return total_price
+        prices.append(price)
+        
+    total_price = sum([price * (1 - float(input()) / 100) for _ in range(n)])
+    
+    return format(total_price, ".2f")
