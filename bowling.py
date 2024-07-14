@@ -3,8 +3,19 @@ def bowling_score(frames):
     for frame in frames.split("/"):
         if len(frame) == 1:
             score += 10
-        elif len(frame) > 1 and int(frame[0]) + int(frame[1]) == 10:
-            score += 10 + int(frame[-1])
+        elif frame[0] == "X":
+            score += 30
         else:
-            score += sum(int(x) for x in frame)
+            strike = False
+            spare = False
+            if frame[0] == "5":
+                strike = True
+            elif sum(map(int, frame)) < 10:
+                spare = True
+            if strike:
+                score += 10 + int(frame[1])
+            elif spare:
+                score += 10 + max(map(int, frame))
+            else:
+                score += sum(map(int, frame))
     return score
