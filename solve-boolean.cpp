@@ -1,11 +1,9 @@
-```
 #include <string>
 using namespace std;
 
 bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<string> valStack;
-    string v2;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
