@@ -3,60 +3,40 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word;
+    std::size_t pos = 0;
     
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            result += word + " ";
-            word = "";
-        } else {
-            word += sentence[i];
-        }
-    }
-    
-    result += word;
-    
-    std::string newResult = "";
-    int j = 0;
-    
-    while (j < result.length()) {
-        if (result[j] == ' ') {
-            for (int k = j + 1; k <= result.find(' ', j); k++) {
-                newResult += result[k];
-            }
-            newResult += " ";
-            j = result.find(' ', j) + 1;
-        } else {
-            int wordLength = 0;
-            while (j < result.length() && result[j] != ' ') {
-                j++;
-                wordLength++;
-            }
-            
-            if (wordLength >= 5) {
-                for (int k = j - 1; k >= j - wordLength; k--) {
-                    newResult += result[k];
-                }
-                newResult += " ";
-                j = result.find(' ', j);
-            } else {
-                for (int k = j - 1; k >= j - wordLength; k--) {
-                    newResult += result[k];
-                }
-                newResult += " ";
-                j++;
+    while ((pos = sentence.find(" ")) != std::string::npos) {
+        std::size_t wordEnd = pos;
+        
+        if (wordEnd + 1 < sentence.length()) {
+            if (sentence[wordEnd + 1] == ' ') {
+                wordEnd++;
+                while (wordEnd < sentence.length() && sentence[wordEnd] == ' ')
+                    wordEnd++;
             }
         }
+        
+        std::string word = sentence.substr(0, wordEnd);
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        result += word;
+        sentence.erase(0, wordEnd + 1);
     }
     
-    return newResult;
+    if (!sentence.empty()) {
+        if (sentence.length() >= 5)
+            std::reverse(sentence.begin(), sentence.end());
+        result += sentence;
+    }
+    
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << std::endl;
+    }
     return 0;
 }
