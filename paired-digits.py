@@ -4,5 +4,7 @@ def paired_digits(s):
     for digit in s:
         if digit == prev_digit:
             total += int(digit) * 2
+        else:
+            prev_digit = None
         prev_digit = digit
     return total
