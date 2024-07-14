@@ -25,9 +25,9 @@ int main() {
     std::cin >> n;
     std::vector<int> v;
     for (int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        v.push_back(x);
+        int val;
+        std::cin >> val;
+        v.push_back(val);
     }
     std::pair<std::vector<int>, std::vector<int>> res = cutVector(v);
     std::cout << "[";
