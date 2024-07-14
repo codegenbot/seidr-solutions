@@ -4,11 +4,11 @@
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    for (int i = 0; i < n; i++) { 
-        if (arr[i] >= arr[i + 1]) {
+    int maxRight = arr.back(); // Initialize max right with last element
+    for (int i = n - 1; i >= 0; i--) { 
+        if (arr[i] >= maxRight) {
             res.push_back(arr[i]);
-        } else if (i == n - 1) { 
-            res.push_back(arr[i]);
+            maxRight = arr[i]; // Update max right
         }
     }
     return res;
