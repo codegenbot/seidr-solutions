@@ -1,3 +1,7 @@
+```c++
+#include <stack>
+#include <string>
+
 bool solveBoolean(std::string expression) {
     stack<char> st;
     for (char c : expression) {
@@ -10,3 +14,4 @@ bool solveBoolean(std::string expression) {
         }
     }
     return !st.empty();
+}
