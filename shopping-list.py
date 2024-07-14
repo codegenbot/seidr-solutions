@@ -1,15 +1,18 @@
 def shopping_list():
-    n = int(input())
     total_price = 0
 
-    for _ in range(n):
+    while True:
         try:
             item_prices = list(map(float, input().split()))
-            if len(item_prices) != n: 
+            num_items = int(input())
+            if len(item_prices) != num_items: 
                 raise Exception("Invalid number of items")
             discount = float(input()) / 100
             subtotal = sum([p * (1 - discount) for p in item_prices])
             total_price += subtotal
+
+            if input("Do you want to add more items? (y/n): ") != 'y':
+                break
         except ValueError:
             print("Invalid input. Please enter a valid price.")
         except Exception as e:
