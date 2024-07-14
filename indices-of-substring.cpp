@@ -7,10 +7,8 @@ using namespace std;
 
 vector<int> computeLPSArray(const string& pat) {
     int m;
-    vector<int> lps; 
+    vector<int> lps(1); 
     m = 0; 
-
-    lps.push_back(0); 
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
