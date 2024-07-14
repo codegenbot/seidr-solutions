@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
+#include <iostream>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -14,4 +14,4 @@ int fuelCost(std::vector<int> v) {
     return sum;
 }
 
-int main() { return fuelCost({1, 2, 3, 4, 5}); }
+int main() { std::cout << fuelCost({1, 2, 3, 4, 5}) << std::endl; }
