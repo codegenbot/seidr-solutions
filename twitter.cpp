@@ -1,28 +1,28 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
+#include <regex>
 
-std::string validateTweet(std::string tweet) {
-    if (tweet.empty()) {
+using namespace std;
+
+string validateTweet(string tweet) {
+    if (tweet.empty())
         return "You didn't type anything";
-    }
-    int charCount = 0;
-    for (char c : tweet) {
-        if (!std::isprint(c)) {
-            continue; // skip non-printable character
-        }
-        ++charCount;
-    }
-    if (charCount > 140) {
+    else if (tweet.length() > 140)
         return "Too many characters";
+    else {
+        string cleanTweet = tweet;
+        regex whitespaceRx(" +"); 
+        cleanTweet = regex_replace(cleanTweet, whitespaceRx, " "); 
+        int charCount = cleanTweet.length();
+        return "Your tweet has " + to_string(charCount) + " characters";
     }
-    return "Your tweet has " + std::to_string(charCount) + " characters";
 }
 
 int main() {
-    std::string tweet;
-    std::cout << "Enter a tweet: ";
-    std::getline(std::cin, tweet);
-    std::cout << validateTweet(tweet) << std::endl;
+    string tweet;
+    cout << "Enter a tweet: ";
+    getline(cin, tweet);
+    cout << validateTweet(tweet) << endl;
     return 0;
 }
