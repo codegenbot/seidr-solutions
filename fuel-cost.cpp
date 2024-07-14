@@ -1,10 +1,10 @@
-```
 #include <vector>
+#include <iostream>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = (i / 3) - 2; 
+        int temp = static_cast<int>(std::floor((double)i / 3)) - 2; 
         if (temp < 0) {
             temp = 0;
         }
@@ -13,4 +13,9 @@ int fuelCost(std::vector<int> v) {
     return sum;
 }
 
-int main() { return fuelCost({1, 2, 3, 4, 5}); }
+int main() {
+    std::vector<int> v = {12, 5, 1};
+    int result = fuelCost(v);
+    std::cout << "Fuel cost: " << result << std::endl;
+    return 0;
+}
