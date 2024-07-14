@@ -1,11 +1,12 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
 
 void computeLPSArray(string pat, vector<int>& lps, int len) {
-    int m = 0; // Initialize m with the correct value
+    int m;
     lps[0] = 0; 
+    m = 1; 
+
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
             m = lps[m - 1]; 
@@ -25,7 +26,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
-    computeLPSArray(target, lps, 0);
+    computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
         int j = 0;
