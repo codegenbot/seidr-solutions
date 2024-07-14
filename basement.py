@@ -1,13 +1,7 @@
-def basement(arr):
+def basement(vector):
     total = 0
-    for i, num in enumerate(arr):
+    for i, num in enumerate(vector):
         total += num
         if total < 0:
             return i
     return -1
-
-
-# Read input from user
-arr = list(map(int, input().split()))
-
-print(basement(arr))
