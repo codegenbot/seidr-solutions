@@ -25,11 +25,10 @@ bool evaluateBooleanExpression(string expression) {
             }
             operation.push(expression[i]);
         } else {
-            if (expression[i] == 'T') {
+            if (expression[i] == 'T')
                 result = true;
-            } else if (expression[i] == 'F') {
+            else
                 result = false;
-            }
         }
     }
 
@@ -37,7 +36,7 @@ bool evaluateBooleanExpression(string expression) {
     while (!operation.empty()) {
         char op = operation.top();
         operation.pop();
-        result = (op == '|') ? !result : result;
+        result = (op == '|') ? true : false;
     }
 
     return result;
