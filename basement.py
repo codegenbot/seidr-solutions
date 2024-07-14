@@ -1,14 +1,7 @@
-Here is the completed code:
-
-def basement(vector):
+def basement(nums):
     total = 0
-    for i in range(len(vector)):
-        total += vector[i]
+    for i, num in enumerate(nums):
+        total += num
         if total < 0:
             return i
-
-print(basement([1, -1]))  # 0
-print(basement([1, -100]))  # 0
-print(basement([2, -1, 100]))  # 0
-print(basement([2, -95, 100]))  # 0
-print(basement([2, -30, 5]))  # 0
+    return -1
