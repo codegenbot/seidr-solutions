@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
@@ -23,7 +25,7 @@ int main() {
     }
     int target;
     cin >> target;
-    
+
     pair<int, int> result = findPair(nums, target);
     cout << result.first << endl;
     cout << result.second << endl;
