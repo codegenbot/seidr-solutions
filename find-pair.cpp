@@ -20,3 +20,10 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     
     return {-1, -1};
 }
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int target = 15;
+    std::pair<int, int> pair = findPair(nums, target);
+    return 0;
+}
