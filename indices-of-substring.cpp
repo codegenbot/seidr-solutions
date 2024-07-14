@@ -67,17 +67,13 @@ int main() {
     string text, target;
     
     cout << "Enter the text: ";
-    getline(cin, text);
-
-    if(text.empty()) {
+    if (!(cin >> text)) {
         cout << "Text cannot be empty." << endl;
         return 1; 
     }
 
     cout << "Enter the target substring: ";
-    getline(cin, target);
-
-    if(target.empty()) {
+    if (!(cin >> target)) {
         cout << "Target cannot be empty." << endl;
         return 1; 
     }
