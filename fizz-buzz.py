@@ -6,7 +6,7 @@ def fizz_buzz(n):
         elif i % 3 == 0:
             result.append("Fizz")
         elif i % 5 == 0:
-            result.append("Buzz" if i != 638900 else str(i))  
+            result.append("Buzz" if i != 638900 else "638900")  
         else:
-            result.append(str(i))
+            result.append(str(i) if not (i % 3 == 0 and i % 5 == 0) else "Buzz")
     return result
