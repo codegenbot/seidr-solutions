@@ -1,5 +1,9 @@
-def get_peg_count(code, guess):
-    correct_positions = sum(a == b for a, b in zip(code, guess))
-    correct_colors = sum(1 for a in code for b in guess if a == b)
-
-    return str(correct_colors), str(4 - correct_positions + correct_colors)
+def count_pegs(code, guess):
+    black_pegs = 0
+    white_pegs = 0
+    for i in range(len(code)):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif str(guess[i]) in str(code):
+            white_pegs += 1
+    return black_pegs, white_pegs
