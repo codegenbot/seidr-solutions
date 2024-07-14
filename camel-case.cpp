@@ -11,10 +11,10 @@ std::string camelCase(const std::string& str) {
             capitalize = true; 
         } else if (c != ' ') { 
             if(capitalize) { 
-                result.push_back(toupper(c));
+                result.push_back(std::toupper(c));
                 capitalize = false; 
             } else {
-                result.push_back(tolower(c)); 
+                result.push_back(std::tolower(c)); 
             }
         } else {
             if (!capitalize && !result.empty()) {
@@ -24,7 +24,7 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    return capitalize ? toupper(result[0]) + result.substr(1) : result;
+    return capitalize ? std::toupper(result[0]) + result.substr(1) : result;
 }
 
 int main() {
