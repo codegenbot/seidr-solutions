@@ -20,7 +20,7 @@ vector<int> computeLPSArray(const string& pat) {
         if (pat[i] == pat[m-1]) { 
             m++;
         } else {
-            lps.push_back(m); 
+            lps.push_back(static_cast<size_t>(m)); 
         }
     }
     return lps;
@@ -31,6 +31,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
+    using std::size_type;
     vector<int> lps = computeLPSArray(target);
 
     for (int i = 0; i <= n - m; i++) {
@@ -51,7 +52,6 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    using namespace std;
     string text;
     cin >> text;
     string target;
