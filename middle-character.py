@@ -5,4 +5,4 @@ def middle_character(s):
     else:
         start = (length - 1) // 2
         end = start + 1
-        return "".join([c.lower() for c in s[start:end]])
+        return "".join([c.lower() for c in s[start:end+1] if not c.isalpha()])
