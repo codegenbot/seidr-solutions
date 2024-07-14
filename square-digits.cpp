@@ -1,10 +1,17 @@
 #include <string>
+using namespace std;
 
-string squareDigits(string n) {
+string squareDigits(string input) {
     string result = "";
-    for (char c : n) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+    for (char c : input) {
+        int num = (int)c - '0'; 
+        result += to_string(num * num); 
     }
     return result;
+}
+
+int main() {
+    string input = "34"; // Example input
+    cout << squareDigits(input) << endl;
+    return 0;
 }
