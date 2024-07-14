@@ -14,9 +14,3 @@ int luhn(const vector<int>& card) {
     }
     return sum;
 }
-
-int main() {
-    vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 1, 8, 9, 4, 2, 0, 1};
-    cout << luhn(card) << endl;
-    return 0;
-}
