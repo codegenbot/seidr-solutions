@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -18,6 +19,6 @@ int luhn(vector<int> digits) {
 
 int main() {
     vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1};
-    cout << luhn(digits) << endl; // Replace this with your desired test case
+    cout << luhn(digits) << endl; 
     return 0;
 }
