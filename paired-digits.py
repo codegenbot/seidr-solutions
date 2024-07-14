@@ -1,2 +1,4 @@
-def paired_digits(s):
-    return sum(int(d) for d in s if s[s.index(d) + 1] == d)
+def sum_of_paired_digits(n):
+    return sum(
+        int(d) * 2 for d in str(n) if str(n).index(str(d)) + 1 == str(n).rfind(str(d))
+    )
