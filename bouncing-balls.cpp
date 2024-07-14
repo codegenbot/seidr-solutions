@@ -7,9 +7,8 @@ int main() {
     
     cin >> startHeight;
     
-    double firstBounce = static_cast<double>(startHeight) / (static_cast<double>(startHeight) * 0.5);
-    double bouncinessIndex = firstBounce;
-
+    double firstBounce = 0.5 * startHeight; 
+    double bouncinessIndex = firstBounce / startHeight;
     double totalDistance = 0.0; 
     int bounces = 8; 
 
