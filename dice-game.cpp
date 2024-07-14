@@ -4,12 +4,9 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = 0.0;
-    for (int i = 1; i <= m && i < n; i++) {
-        total += 1.0 / n;
-    }
+    double total = 0;
     for (int i = m + 1; i <= n; i++) {
-        total += 1.0 / m;
+        total += 1.0 / n;
     }
     return total;
 }
@@ -19,4 +16,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
-}
