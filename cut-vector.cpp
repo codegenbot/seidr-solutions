@@ -1,47 +1,42 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    pair<vector<int>, vector<int>> result;
-    
-    for (int i = 0; i < n; i++) {
-        vector<int> left, right;
-        for (int j = 0; j <= i; j++) {
-            left.push_back(v[j]);
-        }
-        for (int j = i + 1; j < n; j++) {
-            right.push_back(v[j]);
-        }
-        
-        int diff = abs((int)accumulate(left.begin(), left.end(), 0) - (int)accumulate(right.begin(), right.end(), 0));
-        if (diff == 0 || (i > 0 && i < n-1 && diff <= abs((int)accumulate(v.begin(), v.begin() + i, 0) - (int)accumulate(v.begin() + i + 1, v.end(), 0)))) {
-            result.first = left;
-            result.second = right;
-            break;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int index = -1;
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            index = i;
         }
     }
+
+    vector<int> left = vector<int>(vec.begin(), vec.begin() + index);
+    vector<int> right = vector<int>(vec.begin() + index, vec.end());
     
-    return result;
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        cin >> vec[i];
     }
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << res.first.size();
-    for (int num : res.first) {
-        cout << " " << num;
+
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+
+    cout << "Left: ";
+    for (int num : result.first) {
+        cout << num << " ";
     }
     cout << endl;
-    cout << res.second.size();
-    for (int num : res.second) {
-        cout << " " << num;
+
+    cout << "Right: ";
+    for (int num : result.second) {
+        cout << num << " ";
     }
     cout << endl;
     
