@@ -8,7 +8,6 @@ def solve_boolean(expression):
         return True
     
     while "&|" in expression:
-        pass
         expression = expression.replace("T&T", "True")
         expression = expression.replace("t&t", "True")
         expression = expression.replace("F&F", "False")
@@ -28,18 +27,10 @@ def solve_boolean(expression):
 
     if "&" in expression:
         left, right = expression.split("&")
-        if eval(left):
-            expression = str(right)
-        else:
-            expression = "False"
-        pass
+        return eval(left) and eval(right)
     elif "|" in expression:
         left, right = expression.split("|")
-        if eval(left):
-            expression = "True"
-        else:
-            expression = "False"
-        pass
+        return eval(left) or eval(right)
 
     return eval(expression)
 
