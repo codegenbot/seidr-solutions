@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -29,7 +27,7 @@ std::string camelCase(const std::string& str) {
         } else {
             result += tolower(segments[i][0]);
         }
-        result += segments[i].substr(1);
+        result += segments[i];
     }
 
     return result;
