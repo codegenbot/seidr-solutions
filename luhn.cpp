@@ -17,7 +17,7 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {4,7,8,1,3,9,0,1,7,9,5};
+    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 6, 4, 3, 9, 0};
     cout << luhn(digits) << endl;
     return 0;
 }
