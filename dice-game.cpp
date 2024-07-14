@@ -1,19 +1,6 @@
-#include <vector>
-#include <iostream>
+Here is the solution:
 
 double probability(int n, int m) {
-    if (n <= m) return 0.0;
-    double total = static_cast<double>(n * m);
-    double p = 0.0;
-    for (int i = m + 1; i <= n; ++i) {
-        p += static_cast<double>(m);
-    }
-    return p / total;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << probability(n, m) << '\n';
-    return 0;
+    double total = (n + m);
+    return (m - 1.0) / total;
 }
