@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int hours;
     float initialSnow;
@@ -32,4 +31,3 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
     }
     
     return initialSnow;
-}
