@@ -5,6 +5,8 @@ std::string middleCharacter(std::string s) {
     int len = s.length();
     std::string result = "";
     int middleIndex = len / 2;
+    if (len % 2 == 0)
+        middleIndex--; // adjust for even length strings
 
     if (len % 2 == 0)
         result = s.substr(middleIndex, 2); 
@@ -15,9 +17,9 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::cout << "Enter a string: ";
     std::string s;
-    std::getline(std::cin, s);  
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
     std::cout << middleCharacter(s);
     return 0;
 }

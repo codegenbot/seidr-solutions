@@ -21,11 +21,14 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::string strinput;
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    getline(std::cin, strinput);
-
-    bool result = solveBoolean(strinput);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
-    return 0;
+    char input[100]; 
+    std::cout << "Enter a Boolean expression (T/F/|/&): "; 
+    while (std::cin >> input) {
+        if (std::string(input) == "exit") {
+            std::cout << "Goodbye!" << std::endl;
+            return 0;
+        }
+        bool result = solveBoolean(std::string(input));
+        std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    }
 }
