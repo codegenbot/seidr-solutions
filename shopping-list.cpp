@@ -1,14 +1,11 @@
 ```cpp
-#include <iostream>
-#include <stdexcept>
+#include <vector>
+#include <cmath>
 
-double shoppingList(std::vector<std::initializer_list<float>> pricesAndDiscounts) {
+double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
-    for (const auto& item : pricesAndDiscounts) {
-        if(item.size() != 2){
-            throw std::runtime_error("Each item must have a price and a discount");
-        }
-        total += item[0] * (1 - static_cast<double>(item[1]) / 100.0);
+    for (int i = 0; i < prices.size(); i++) {
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
     return total;
 }
