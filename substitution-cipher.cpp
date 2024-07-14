@@ -1,17 +1,22 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <map>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    for (int i = 0; i < message.length(); i++) {
-        char c = message[i];
-        int pos = cipher_map1.find(c);
-        if (pos != std::string::npos) {
-            message[i] = cipher_map2[pos];
+    std::map<char, char> cipher;
+    for (int i = 0; i < cipher_map1.length(); i++) {
+        cipher[cipher_map1[i]] = cipher_map2[i];
+    }
+    std::string result = "";
+    for (char c : message) {
+        if (cipher.find(c) != cipher.end()) {
+            result += cipher.at(c);
+        } else {
+            result += c;
         }
     }
-    return message;
+    return result;
 }
 
 int main() {
