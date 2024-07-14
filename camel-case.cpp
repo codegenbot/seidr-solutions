@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -32,7 +31,7 @@ std::string camelCase(const std::string& str) {
         } else {
             result += tolower(segment[0]);
         }
-        if (segment.size() > 1) {
+        if (!result.empty() || segment.size() > 1) {
             result += segment.substr(1);
         }
     }
@@ -41,14 +40,12 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    char c;
-    while((c = cin.get()) != '\n') {
-        input += c;
+    while(std::getline(std::cin, str, '-')) { 
+        std::cout << str << " "; 
     }
-    
-    std::cout << "camelCase: " << camelCase(input) << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }
