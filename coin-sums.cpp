@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 
 int main() {
@@ -19,6 +20,12 @@ int main() {
     std::cout << "Quarters: " << quarters << std::endl;
     std::cout << "Dimes: " << dimes << std::endl;
     std::cout << "Nickles: " << nickels << std::endl;
+    if(pennies > 0) {
+        if(pennies >= 5)
+            pennies -= 5, --nickels;
+        else
+            pennies %= 5; // actual number of pennies required
+    }
     std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
