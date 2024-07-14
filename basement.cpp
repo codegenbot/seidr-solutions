@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -12,5 +13,5 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    return basement({-2,1,-3,4,-1,2,1,-5,4});  
+    return basement({-2, 3, -4});
 }

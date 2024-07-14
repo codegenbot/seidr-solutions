@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 int bowlingScore(std::string s) {
     int score = 0;
