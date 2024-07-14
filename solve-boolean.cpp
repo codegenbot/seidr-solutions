@@ -1,22 +1,26 @@
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    bool a = (s[0] == 'T');
-    for(int i = 1; i < s.size(); i++) {
-        if(s[i] == '&') {
-            return a && solveBoolean(s.substr(i+1));
-        } else if(s[i] == '|') {
-            bool b = (s[i+1] == 'T');
-            return a || b;
+bool solveBoolean(string expression) {
+    stack<char> operatorStack;
+    stack<string> valueStack;
+
+    for (char c : expression) {
+        if (c == 'T' || c == 'F') {
+            valueStack.push(std::to_string(c == 'T'));
+        } else if (c == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
+                valueStack.push(std::to_string("False"));
+            }
+            operatorStack.push(c);
+        } else if (c == '|') {
+            operatorStack.push(c);
         }
     }
-    return a;
-}
 
-int main() {
-    string s;
-    cin >> s;
-    cout << ((solveBoolean(s))? "True" : "False") << endl;
-    return 0;
+    while (!operatorStack.empty()) {
+        operatorStack.pop();
+    }
+
+    return valueStack.top() == "True";
 }
