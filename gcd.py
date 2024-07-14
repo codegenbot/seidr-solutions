@@ -1,19 +1,25 @@
-Here is the Python solution:
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
-def gcd(m, n):
-    while n:
-        m, n = n, m % n
-    return abs(m)
+
+def find_indices(text, target):
+    indices = []
+    pos = 0
+    while pos < len(text):
+        pos = text.find(target, pos)
+        if pos == -1:
+            break
+        indices.append(pos + 1)
+        pos += 1
+    return indices
+
+
+a = int(input())
+b = int(input())
+print(gcd(a, b))
 
 text = input()
 target = input()
-
-result = []
-index = 0
-while index < len(text) - len(target) + 1:
-    if text[index:index+len(target)] == target:
-        result.append(index)
-    index += 1
-
-print(gcd(int(input()), int(input())))
-print(result)
+print(find_indices(text, target))
