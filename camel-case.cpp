@@ -1,24 +1,50 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(const std::string& str) {
-    std::string result;
-    for (char c : str) {
-        if (c == '-') {
-            result += char(std::toupper(str.find(c) + 1));
-        } else if (c == ' ') {
-            result += char(std::toupper(result.size()));
+string camelCase(string s) {
+    vector<string> words = split(s, ' ');
+    string result;
+    
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result += toupper(word[0]);
+            for (int i = 1; i < word.size(); i++) {
+                result += tolower(word[i]);
+            }
         } else {
-            result += c;
+            result = word;
         }
     }
+    
     return result;
 }
 
-int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+string split(string s, char c) {
+    vector<string> result;
+    string temp;
+    
+    for (const auto& ch : s) {
+        if (ch == c) {
+            result.push_back(temp);
+            temp.clear();
+        } else {
+            temp += ch;
+        }
     }
-    return 0;
+    
+    result.push_back(temp);
+    
+    return join(result, ' ');
+}
+
+string join(vector<string> words, char c) {
+    string result;
+    
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result += c;
+        }
+        result += word;
+    }
+    
+    return result;
 }
