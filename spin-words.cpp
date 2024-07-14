@@ -1,20 +1,32 @@
-Here is the solution:
-
 #include <string>
 using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    int start = 0;
-    for(int i=0; i<=input.length(); i++) {
-        if(i == input.length() || input[i] == ' ') {
-            string word = input.substr(start, i-start);
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
+            } else {
+                result += word;
             }
-            output += word + " ";
-            start = i+1;
+            word = "";
+        } else {
+            word += str[i];
         }
     }
-    return output;
+
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--) {
+            result += word[i];
+        }
+    } else {
+        result += word;
+    }
+
+    return result;
 }
