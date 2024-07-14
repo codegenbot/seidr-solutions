@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -10,14 +10,14 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    map<char,int> codeCount;
+    int codeCount[7] = {0};
     for (char c : code) {
-        codeCount[c]++;
+        codeCount[c - 'A']++;
     }
     for (char c : guess) {
-        if (code.find(c) != string::npos && codeCount[c] > 0) {
+        if (code.find(c) != std::string::npos && codeCount[c - 'A'] > 0) {
             white++;
-            codeCount[c]--;
+            codeCount[c - 'A']--;
         }
     }
 
