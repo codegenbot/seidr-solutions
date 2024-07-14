@@ -35,3 +35,4 @@ int bowlingScore(string str) {
         }
     }
     return score;
+}
