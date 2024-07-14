@@ -1,4 +1,4 @@
-```
+````
 def solve_boolean(expression):
     def simplify_expression(expression):
         if '|' in expression:
