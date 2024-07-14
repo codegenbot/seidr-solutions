@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string& str) {
+std::string spinWords(const std::string& str) {
     std::string result = "";
     size_t start = 0;
     while (start < str.length()) {
@@ -11,7 +11,7 @@ std::string spinWords(std::string& str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
+            result += std::string(word.begin(), word.end()) + " ";
         else
             result += word + " ";
         start = spacePos + 1;
