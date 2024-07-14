@@ -18,8 +18,8 @@ int mastermind(const std::string& code, const std::string& guess) {
 }
 
 int main() {
-    std::string code = "abcD";
-    std::string guess = "aBcd";
+    const std::string code = "abcD";
+    const std::string guess = "aBcd";
     int result = mastermind(code, guess);
     std::cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << std::endl;
 }
