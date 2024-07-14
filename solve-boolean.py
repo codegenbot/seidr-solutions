@@ -1,23 +1,13 @@
-Here is the solution:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solveBoolean(expression):
+    if expression == 't':
         return True
-    elif expression == 'F':
+    elif expression == 'f':
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    else:
-        stack = []
-        for char in expression[::-1]:
-            if char in ['&', '|']:
-                stack.append(char)
-            else:
-                while stack and stack[-1] != (char == '&' or char == '|'):
-                    if char == '&':
-                        stack.pop()
-                    elif char == '|':
-                        stack.pop()
-                if stack:
-                    stack.pop()
-        return True
+    elif '&' in expression:
+        parts = expression.split('&')
+        return all(solveBoolean(part) for part in parts)
+    elif '|' in expression:
+        parts = expression.split('|')
+        return any(solveBoolean(part) for part in parts)
