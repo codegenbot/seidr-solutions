@@ -6,43 +6,40 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] != ' ') {
-            word += str[i];
-        } else {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
+    int i = 0;
+    while (i <= str.length()) {
+        if (str.find(" ", i) != string::npos) {
+            int j = str.find(" ", i);
+            if (j - i >= 5) {
+                for (int k = j + 1; k > i; --k)
+                    result += str[k];
+                result += " ";
+                i = j + 1;
             } else {
-                result += word;
+                result += str.substr(i, j - i) + " ";
+                i = j + 1;
             }
-            word = "";
+        } else {
+            if (i >= 5) {
+                for (int k = str.length() - 1; k > i; --k)
+                    result += str[k];
+                return result;
+            } else
+                result += str.substr(i);
+            break;
         }
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
-        }
-    } else {
-        result += word;
-    }
-
     return result;
 }
 
 int main() {
-    // Read input from user
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-
-    // Call the function and display the output
-    string output = spinWords(str);
-    cout << "Output: " << output << endl;
-
+    string s;
+    while (true) {
+        cout << "Enter a string: ";
+        cin >> s;
+        if (s == "exit")
+            break;
+        cout << "Spin words: " << spinWords(s) << endl;
+    }
     return 0;
 }
