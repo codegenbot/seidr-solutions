@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -16,11 +17,11 @@ int fuelCost(vector<int> v) {
 
 int main() {
     int n;
-    cin >> std::cin >> n;
+    cin >> n;
     vector<int> v(n);
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    cout << std::cout << fuelCost(v) << std::endl;
+    cout << fuelCost(v) << endl;
     return 0;
 }
