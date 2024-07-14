@@ -1,13 +1,8 @@
 ```cpp
-#include <iostream>
-#include <cmath>
-#include <vector>
-
 double vectorDistance() {
-    std::vector<float> v1, v2;
     int n;
     std::cin >> n; 
-    v1.resize(n), v2.resize(n);
+    std::vector<float> v1(n), v2(n); 
     for (int i = 0; i < n; i++) {
         float temp1, temp2;
         std::cin >> temp1; // read one value
