@@ -1,9 +1,6 @@
 ```cpp
-#include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <cctype>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> segments;
@@ -39,9 +36,4 @@ std::string camelCase(const std::string& str) {
     }
 
     return result;
-}
-
-int main() {
-    std::string str = "camel-case example-test-string";
-    std::cout << camelCase(str) << std::endl;
 }
