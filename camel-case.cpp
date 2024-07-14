@@ -14,7 +14,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
                 arr.push_back(buffer);
                 buffer = ""; 
             }
-        } else if (c != delimiter) {
+        } else if (c != '-' && c != delimiter) {
             buffer += c;
         }
 
