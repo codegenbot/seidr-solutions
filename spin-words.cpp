@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -8,6 +9,7 @@ void trim(std::string &s) {
 }
 
 std::string spinWords(std::string str) {
+    trim(str); // Trim the input string
     std::string result = "";
     size_t start = 0;
     while (start < str.length()) {
@@ -16,9 +18,9 @@ std::string spinWords(std::string str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5) {
-            result += std::string(word.rbegin(), word.rend()) + " ";
+            result = std::string(word.rbegin(), word.rend()) + " " + result;
         } else {
-            result += word + (word.length() < 5 ? " " : "") + "";
+            result += word + (word.length() < 5 ? " " : "") + " ";
         }
         start = spacePos + 1;
     }
