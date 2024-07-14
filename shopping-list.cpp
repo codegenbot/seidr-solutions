@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <utility>
+#include <initializer_list>
 #include <iostream>
 
 double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) {
