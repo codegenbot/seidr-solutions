@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -62,3 +62,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
+}
