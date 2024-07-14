@@ -1,13 +1,11 @@
+#include <iostream>
+using namespace std;
+
 int sumPairedDigits(string str) {
     int sum = 0;
-    for(int i=0, j=str.length()-1; i < j; ) { 
-        if(str[i] == str[j]) { 
-            sum += (str[i]-'0') * 2; // handle the case where the pair is the same
-            i++; j--;
-        } else if(str[i] < str[j]) {
-            i++;
-        } else {
-            j--;
+    for(int i=0; i < str.length() - 1; i++) { 
+        if(str[i] == str[i+1]) { 
+            sum += (str[i]-'0') + (str[i+1]-'0'); 
         }
     }
     return sum;
