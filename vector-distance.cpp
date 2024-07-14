@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <vector>
 #include <iostream>
@@ -23,4 +22,3 @@ int main() {
     double distance = vectorDistance(x1, x2);
     cout << "Euclidean distance: " << fixed << setprecision(5) << distance << endl;
     return 0;
-}
