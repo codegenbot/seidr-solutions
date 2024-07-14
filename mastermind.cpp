@@ -1,7 +1,7 @@
-#include <iostream>
+#include <map>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int countPegs(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -31,6 +31,10 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::cout << mastermind("ABCD", "ABDE") << std::endl;
-    return 0;
+    std::string code = "ABCD";
+    std::string guess = "ABDE";
+
+    int result = countPegs(code, guess);
+
+    return result;
 }
