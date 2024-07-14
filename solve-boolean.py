@@ -1,43 +1,41 @@
+```
 def solve_boolean(expression):
     precedence = {"&": 2, "|": 1}
+    stack = []
     output = []
-    
+    eval_str = ""
+
     for char in expression:
         if char.strip() in ["T", "F"]:
             output.append(char)
         elif char in ["&", "|"]:
-            while len(output) > 0 and (
-                output[-1] in precedence and precedence[output[-1]] >= precedence[char]
-            ):
-                output.pop()
-            stack = []
-            temp_output = []
-            for c in expression:
-                if c == "(":
-                    stack.append(c)
-                elif c == ")":
-                    while len(stack) > 0 and stack[-1] != "(":
-                        temp_output.append(stack.pop())
-                    stack.pop()  
-                elif c in ["&", "|"]:
-                    while (
-                        len(output) > 0
-                        and output[-1] in precedence
-                        and precedence[output[-1]] >= precedence[c]
-                    ):
-                        temp_output.append(output.pop())
-                    output = temp_output + [c]
-                    temp_output = []
+            while len(stack) > 0 and (stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]):
+                top = stack.pop()
+                while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
+                    if top != "(":
+                        eval_str += top
+                if top == "(":
+                    stack.append("(")
                 else:
-                    if stack and stack[-1] == "(":
-                        stack.pop()
-                    temp_output.append(c)
-            output.extend(temp_output)
+                    eval_str += top
+            stack.append(char)
+        else:
+            if char == "(":
+                stack.append(char)
+            else:
+                while len(stack) > 0 and stack[-1] != "(":
+                    top = stack.pop()
+                    output.append(top)
+                stack.pop()  # Remove the '('
 
-    while len(output) > 0 and (
-        output[0] in precedence
-        and precedence[output[0]] >= precedence["&"]
-    ):
-        output.pop()
+    while len(stack) > 0:
+        top = stack.pop()
+        while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
+            if top != "(":
+                eval_str += top
+        if top == "(":
+            stack.append("(")
+        else:
+            eval_str += top
 
-    return "T" if output[0] else "F"
+    return "T" if eval_str == "T" else "F"
