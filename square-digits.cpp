@@ -1,3 +1,8 @@
+``` 
+#include <vector>
+#include <iostream>
+using namespace std;
+
 string squareDigits(string input) {
     string output = input;
     for(int i = 0; i < input.length(); i++) {
@@ -5,4 +10,12 @@ string squareDigits(string input) {
         output[i] = to_string(digit * digit);
     }
     return output;
+}
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << "Square digits: " << squareDigits(input) << endl;
+    return 0;
 }
