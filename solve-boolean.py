@@ -1,13 +1,14 @@
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid operation")
-    else:
-        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
-        for op in operators:
-            if op in expression:
-                left, right = expression.split(op)
-                return operators[op](left == 'T', right == 'T')
+    def eval_expression(e):
+        if e == "T":
+            return True
+        elif e == "F":
+            return False
+        elif "&" in e:
+            a, b = e.split("&")
+            return eval_expression(a) and eval_expression(b)
+        else:
+            a, b = e.split("|")
+            return eval_expression(a) or eval_expression(b)
+
+    return eval_expression(expression)
