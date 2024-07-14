@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 int main() {
@@ -20,7 +21,7 @@ int main() {
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " feet." << std::endl;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " feet." << '\n';
 
     return 0;
 }
