@@ -1,4 +1,4 @@
-Here's the solution:
+Here is the completed code:
 
 #include <vector>
 #include <iostream>
@@ -8,40 +8,25 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
-    for (char c : str) {
-        if (c == ' ') {
-            if (wordLength >= 5) {
-                for (int i = wordLength - 1; i >= 0; --i) {
-                    result += str[wordLength - i - 1];
-                }
-            } else {
-                result += c;
+    string word;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            word = str.substr(i - word.length() + 1);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            wordLength = 0;
-        } else {
-            result += c;
-            wordLength++;
+            result += word + " ";
         }
     }
-
-    if (wordLength >= 5) {
-        for (int i = wordLength - 1; i >= 0; --i) {
-            result += str[wordLength - i - 1];
-        }
-    } else {
-        result = str;
-    }
-
+    
     return result;
 }
 
 int main() {
-    string str;
-    while (true) {
-        cout << "Enter a string: ";
-        cin >> str;
-        cout << "Output: " << spinWords(str) << endl;
-    }
+    string input;
+    cout << "Enter the sentence: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
