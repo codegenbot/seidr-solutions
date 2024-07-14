@@ -1,9 +1,9 @@
-int basement(const vector<int>& v) {
+int basement(std::vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
         if (sum < 0)
             return i;
     }
-    return -1; // return -1 if the sum is never negative
+    return -1;
 }
