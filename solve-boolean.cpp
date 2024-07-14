@@ -1,40 +1,24 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-bool solveBoolean(string s) {
-    bool result = false;
-    for (char c : s) {
-        if (c == 'T' || c == 't') {
-            return true;
-        } else if (c == 'F' || c == 'f') {
-            return false;
-        } else if (c == '|') {
-            continue;
-        } else if (c == '&') {
-            bool left = result;
-            result = false;
-            for (; ; ) {
-                if (s.size() <= s.find(c) + 1) break;
-                c = s[s.find(c) + 1];
-                if (c == 'T' || c == 't') {
-                    result |= left;
-                    break;
-                } else if (c == 'F' || c == 'f') {
-                    result &= left;
-                    break;
-                }
-            }
+string solveBoolean(string s) {
+    stack<char> st;
+    for(int i=0; i<s.size(); i++){
+        if(s[i] == '&'){
+            char op1 = st.top();
+            st.pop();
+            char op2 = st.top();
+            st.pop();
+            st.push((op1 == 'T' && op2 == 'T') ? 'T' : 'F');
+        }
+        else if(s[i] == '|'){
+            char op1 = st.top();
+            st.pop();
+            char op2 = s[i+1];
+            s.erase(i, 2);
+            i--;
+            st.push((op1 == 'T' || op2 == 'T') ? 'T' : 'F');
+        }
+        else{
+            st.push(s[i]);
         }
     }
-    return result;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    return (st.top() == 'T')?"True":"False";
 }
