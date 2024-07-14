@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-
 double probability(int n, int m) {
     if (n <= m) return 0.0;
     double total = static_cast<double>(n * m);
@@ -9,11 +6,4 @@ double probability(int n, int m) {
         p += static_cast<double>(m) * (n - i);
     }
     return p / total;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << probability(n, m) << '\n';
-    return 0;
 }
