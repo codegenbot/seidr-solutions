@@ -1,7 +1,8 @@
-def find_pair(n):
-    arr = [int(x) for x in input().split()]
-    target = int(input())
-    for i in range(len(arr)):
-        for j in range(i + 1, len(arr)):
-            if arr[i] + arr[j] == target:
-                return f"{arr[i]} {arr[j]}"
+```
+def find_pair(n, arr):
+    for i in range(n):
+        for j in range(i+1, n):
+            if arr[i] + arr[j] == int(input()):
+                return str(arr[i]) + '\n' + str(arr[j])
+
+print(find_pair(int(input()), [int(x) for x in input().split()]))
