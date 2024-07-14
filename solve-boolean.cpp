@@ -1,6 +1,5 @@
-```cpp
-#include <stack>
 #include <string>
+#include <stack>
 
 bool solveBoolean(std::string expression) {
     stack<char> st;
@@ -14,4 +13,3 @@ bool solveBoolean(std::string expression) {
         }
     }
     return !st.empty();
-}
