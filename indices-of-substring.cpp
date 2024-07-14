@@ -2,13 +2,16 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
 vector<int> computeLPSArray(const string& pat) {
     int m;
-    vector<int> lps(1); 
+    vector<int> lps; 
     m = 0; 
+
+    lps.push_back(0); 
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
