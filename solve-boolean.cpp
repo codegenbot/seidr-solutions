@@ -1,4 +1,4 @@
-```
+```c++
 #include <string>
 using namespace std;
 
@@ -6,7 +6,6 @@ bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<string> valStack;
     stack<string> v2Stack;
-    string v1, v2;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -27,16 +26,15 @@ bool solveBoolean(string expression) {
     }
 
     while (!opStack.empty()) {
-        v2 = valStack.top();
+        string v1 = valStack.top(), v2 = v2Stack.top();
         valStack.pop();
+        v2Stack.pop();
         if (opStack.top() == '&') {
             opStack.pop();
             valStack.push((v1 == "T" && v2 == "T") ? "T" : "F");
-            v1 = v2;
         } else {
             opStack.pop();
             valStack.push((v1 == "T" || v2 == "T") ? "T" : "F");
-            v1 = v2;
         }
     }
 
