@@ -10,6 +10,6 @@ def mastermind(code, guess):
         min(code.count(c), guess.count(c)) - (c in code[:guess.find(c)] if c in code else 0)
         for c in set(guess)
     )
-    black_pegs = sum(1 for c, g in zip(code, guess) if c == g)
+    black_pegs = sum(1 for c, g in zip(code, guess) if c == g and code.index(c) == guess.index(g))
 
     return str(black_pegs) + "\n" + str(white_pegs)
