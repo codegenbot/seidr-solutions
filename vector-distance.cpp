@@ -1,19 +1,18 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     if (v1.size() != v2.size()) {
-        cerr << "Vectors must be of the same size." << endl;
-        return 0.0; // or throw an exception
+        cout << "Vectors must be of the same size." << endl;
+        return -1.0; // or any other invalid value
     }
 
     double sum = 0.0;
-    for (int i = 0; i < v1.size(); ++i) {
-        float diff = v1[i] - v2[i];
-        sum += diff * diff;
+    for (int i = 0; i < v1.size(); i++) {
+        sum += pow(v1[i] - v2[i], 2);
     }
+
     return sqrt(sum);
 }
 
@@ -21,19 +20,20 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
+    vector<float> v1(n);
+    for (float& x : v1) {
+        cin >> x;
     }
 
-    cin >> n;
-
-    vector<float> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+    vector<float> v2(n);
+    for (float& x : v2) {
+        cin >> x;
     }
 
-    cout << fixed << setprecision(10) << vectorDistance(vec1, vec2) << endl;
+    double dist = vectorDistance(v1, v2);
+
+    cout.setprecision(17); // to display 17 decimal places
+    cout << fixed << dist << endl;
 
     return 0;
 }
