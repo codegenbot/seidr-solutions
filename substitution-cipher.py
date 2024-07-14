@@ -9,6 +9,9 @@ def substitution_cipher(cipher1, cipher2, message):
             else: 
                 result += mapping.get(char.lower(), char)
         else: 
-            result += char
-        else:
-            result += char
+            if char in mapping:
+                result += mapping.get(char, char)
+            else:
+                result += char
+    
+    return result
