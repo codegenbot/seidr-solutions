@@ -1,4 +1,3 @@
-#include <iostream>
 #include <iomanip>
 using namespace std;
 
@@ -6,8 +5,7 @@ float snowDay(int hours, float groundSnow, float rateOfSnowFall, float proportio
     float totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall - (proportionMeltingPerHour * groundSnow);
-        groundSnow = totalSnow;
+        groundSnow += rateOfSnowFall - (proportionMeltingPerHour * groundSnow);
     }
     
     return groundSnow;
@@ -20,3 +18,4 @@ int main() {
     cin >> groundSnow >> rateOfSnowFall >> proportionMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rateOfSnowFall, proportionMeltingPerHour) << endl;
     return 0;
+}
