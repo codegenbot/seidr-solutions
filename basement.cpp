@@ -11,7 +11,7 @@ int basement(const vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {-3,2,-3,4,5,6};
-    cout << basement(nums) << endl;
+    vector<int> nums = {-3,2,-3,4,5,6,-12};
+    cout << "The basement is at index: " << basement(nums) << endl;
     return 0;
 }
