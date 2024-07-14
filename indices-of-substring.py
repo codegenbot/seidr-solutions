@@ -2,11 +2,11 @@ def find_indices(text, target):
     result = []
     i = 0
     while True:
-        pos = text.find(target, i)
+        pos = text.lower().find(target.lower(), i)
         if pos == -1:
             break
-        result.append(pos) 
-        i = pos + len(target)
+        result.append(pos + 1) 
+        i = pos + len(target)  
     return result
 
 text = input("Enter the text: ")
