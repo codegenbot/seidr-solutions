@@ -1,10 +1,12 @@
 ```cpp
-#include <queue>
 #include <string>
 #include <iostream>
 
+#include <stack>
+#include <deque>
+
 int main() {
-    std::queue<char> q;
+    std::stack<char, std::deque<char>> st;
     bool result = false;
 
     std::string expression;
@@ -12,10 +14,10 @@ int main() {
     std::cin >> expression;
 
     for (char c : expression) {
-        q.push(c);
+        st.push(c);
     }
 
-    result = evaluateTop(q);
+    result = evaluateTop(st);
 
     if (result)
         std::cout << "The result is TRUE." << std::endl;
@@ -25,27 +27,27 @@ int main() {
     return 0;
 }
 
-void processOperand(std::queue<char> &q, bool &orResult, bool &andResult) {
-    char c = q.front();
-    q.pop();
+void processOperand(std::stack<char, std::deque<char>> &st, bool &orResult, bool &andResult) {
+    char c = st.top();
+    st.pop();
     if (c == 'T') orResult = true; else orResult = false;
 }
 
-bool evaluateTop(std::queue<char> &q) {
+bool evaluateTop(std::stack<char, std::deque<char>> &st) {
     bool orResult = true;
     bool andResult = false;
 
-    while (!q.empty()) {
-        char c = q.front();
-        q.pop();
+    while (!st.empty()) {
+        char c = st.top();
+        st.pop();
 
         if (c == '(') {
-            // push '(' to queue
-            q.push(c);
+            // push '(' to stack
+            st.push(c);
         } else if (c == ')') {
-            // pop ')' and '(' from queue until '(' is found
-            while (q.front() != '(') {
-                processOperand(q, orResult, andResult);
+            // pop ')' and '(' from stack until '(' is found
+            while (st.top() != '(') {
+                processOperand(st, orResult, andResult);
 
                 if (!orResult && c == '|') {
                     orResult = true;
@@ -54,22 +56,22 @@ bool evaluateTop(std::queue<char> &q) {
                     andResult = false;
                 }
 
-                q.pop();
+                st.pop();
             }
-            // pop '(' from queue
-            q.pop();
+            // pop '(' from stack
+            st.pop();
 
         } else if (c == 'T' || c == 'F') {
-            processOperand(q, orResult, andResult);
+            processOperand(st, orResult, andResult);
         } else if (c == '|') {
             // reset orResult for OR operation
             orResult = true;
-            while (!q.empty() && q.front() != '(') {
-                q.pop();
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
             }
-            if (!q.empty()) {
-                c = q.front();
-                q.pop();
+            if (!st.empty()) {
+                c = st.top();
+                st.pop();
                 // process Operand and reset orResult
                 if (c == 'T') orResult = true; else orResult = false;
             }
@@ -77,12 +79,12 @@ bool evaluateTop(std::queue<char> &q) {
         } else if (c == '&') {
             // reset andResult for AND operation
             andResult = true;
-            while (!q.empty() && q.front() != '(') {
-                q.pop();
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
             }
-            if (!q.empty()) {
-                c = q.front();
-                q.pop();
+            if (!st.empty()) {
+                c = st.top();
+                st.pop();
                 // process Operand and reset andResult
                 if (c == 'T') andResult = true; else andResult = false;
             }
