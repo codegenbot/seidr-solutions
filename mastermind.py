@@ -17,12 +17,9 @@ def mastermind(code, guess):
     for c in guess:
         guess_count[c] += 1
 
-    for c, d in zip(code, guess):
-        if c == d:
-            black += 1
-        elif code_count[c] > 0 and guess_count[d] > 0:
-            white += min(code_count[c], guess_count[d])
-            code_count[c] = 0
-            guess_count[d] = 0
-
+    for c in set(code):
+        if code_count[c] == 4 and guess_count[c] == 4:
+            black += 4
+        elif code_count[c] > 0 and guess_count[c] > 0:
+            white = min(white, 4 - (code_count[c] + guess_count[c]))
     return str(white) + str(black)
