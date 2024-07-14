@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -12,7 +13,7 @@ int mastermind(std::string code, std::string guess) {
     }
 
     // Check for white pegs (correct color, wrong place)
-    int codeCount[6] = {0};
+    int codeCount[6] = {0, 0, 0, 0, 0, 0}; 
     for (char c : code) {
         codeCount[c - 'A']++;
     }
@@ -24,3 +25,4 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
+}
