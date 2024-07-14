@@ -1,5 +1,4 @@
 def dice_game(n, m):
     total_outcomes = n * m
-    peters_win = sum(1 for i in range(m+1, n+m) for j in range(1, min(m, n)))
-    colin_wins = sum(1 for i in range(1, min(m, n)) for j in range(min(m, n)+1, m+n))
-    return (peters_win / total_outcomes) if peters_win > 0 else 0.0
+    peters_win = sum(1 for i in range(max(m+1, n), n+m+1) for j in range(1, min(m, n)))
+    return (peters_win / total_outcomes)
