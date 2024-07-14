@@ -17,6 +17,7 @@ bool evaluateBooleanExpression(string expression) {
             if (!operation.empty()) {
                 operation.pop();  // Remove the '('
             }
+            result = (expression[i] == 'T') ? true : false;
         } else if (expression[i] == '|' || expression[i] == '&') {
             while (!operation.empty() && operation.top() != '(') {
                 char op = operation.top();
@@ -25,10 +26,8 @@ bool evaluateBooleanExpression(string expression) {
             }
             operation.push(expression[i]);
         } else {
-            if (expression[i] == 'T') {
-                result = true;
-            } else if (expression[i] == 'F') {
-                result = false;
+            if (expression[i] == 'T' || expression[i] == 'F') {
+                result = (expression[i] == 'T') ? true : false;
             }
         }
     }
@@ -37,7 +36,7 @@ bool evaluateBooleanExpression(string expression) {
     while (!operation.empty()) {
         char op = operation.top();
         operation.pop();
-        result = (op == '|') ? !result : result;
+        result = (op == '|') ? true : false;
     }
 
     return result;
