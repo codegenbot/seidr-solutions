@@ -1,5 +1,3 @@
-```cpp
-#include <string>
 #include <map>
 
 int mastermind(std::string code, std::string guess) {
@@ -33,11 +31,4 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return black + white;
-}
-
-int main() {
-    std::string code = "ABCD";
-    std::string guess = "BCDE";
-    int result = mastermind(code, guess);
-    return 0;
 }
