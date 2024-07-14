@@ -23,6 +23,7 @@ vector<int> computeLPSArray(const string& pat) {
             lps.push_back(m); 
         }
     }
+    return lps;
 }
 
 vector<int> indicesOfSubstring(string text, string target) {
