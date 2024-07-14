@@ -19,8 +19,8 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    if (!result.empty()) {
-        result = result.substr(1); // Correctly use the `substr` method
+    if (!result.empty() && result[0] == ' ') {
+        result.erase(0, 1);
     }
 
     return result;
