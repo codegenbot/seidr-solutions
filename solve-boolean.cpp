@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <stack>
 #include <string>
 
@@ -54,12 +54,7 @@ bool evaluate(std::stack<char> st, std::string expression) {
 
 int main() {
     std::stack<char> st;
-    std::string expression = "expression"; // Replace with your desired expression
+    std::string expression = "expression_here";
     bool result = evaluate(st, expression);
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
     return 0;
 }
