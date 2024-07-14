@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+#include <cmath>
+
 double vectorDistance() {
     int n;
     std::cin >> n; 
