@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string cipher_map1, cipher_map2, message;
     std::cout << "Enter the first string: ";
-    std::getline(std::cin, cipher_map1);
+    std::getline(std::cin, cipher_map1); 
     std::cout << "Enter the second string: ";
     std::getline(std::cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
