@@ -9,3 +9,7 @@ int pairedDigits(const char* s) {
     }
     return sum;
 }
+
+int main() {
+    return pairedDigits("123456");
+}
