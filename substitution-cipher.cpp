@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
+std::string decipher(const std::string& cipher_map1, const std::string& cipher_map2, const std::string& message) {
     std::string deciphered_message = "";
     for (int i = 0; i < message.length(); i++) {
         char c = message[i];
@@ -29,9 +29,9 @@ int main() {
     std::string input3;
     std::getline(std::cin, input3);
 
-    std::string cipher_map1 = input1; 
-    std::string cipher_map2 = input2.copy(); 
-    std::string message = input3.copy(); 
+    std::string cipher_map1 = input1;
+    std::string cipher_map2 = input2;
+    std::string message = input3;
 
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
