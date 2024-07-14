@@ -23,12 +23,11 @@ int main() {
     for (auto &x : v) cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    
     cout << "[";
     for (const auto &x : result.first) cout << x << " ";
-    cout << "] ["; 
+    cout << "]\n[";
     for (const auto &x : result.second) cout << x << " ";
-    cout << "]" << endl;
+    cout << "]\n0\n";
     
     return 0;
 }
