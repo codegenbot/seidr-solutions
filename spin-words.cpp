@@ -1,11 +1,10 @@
-#include <sstream>
+```cpp
 #include <iostream>
+#include <string>
 
-std::string spinWords(std::string str) {
-    std::stringstream ss(str);
-    std::string word;
+std::string spinWords(const std::string& str) {
     std::string result = "";
-    while (getline(ss, word, ' ')) {
+    for (const auto& word : str + " ") {
         if (word.length() >= 5)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
@@ -15,6 +14,9 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::cout << spinWords("Hello World");
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
     return 0;
 }
