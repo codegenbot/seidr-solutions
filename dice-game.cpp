@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+#include <limits>
 
 double probability(int n, int m) {
     double p = 0;
@@ -16,11 +16,17 @@ int main() {
     int n, m;
     while (true) {
         std::cout << "Enter the number of sides on Peter's die: ";
-        std::cin >> n;
-        if (!std::cin) break; 
-        std::cout << "Enter the number of sides on Colin's die: ";
-        std::cin >> m;
-        if (!std::cin) break; 
+        if (!(std::cin >> n)) break; 
+        std::string str = std::to_string(n); 
+        std::cout << "Invalid input. Please enter an integer.\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << str << ": ";
+        if (!(std::cin >> m)) break; 
+        str = std::to_string(m); 
+        std::cout << "Invalid input. Please enter an integer.\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         double result = probability(n, m);
         std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
     }
