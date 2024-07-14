@@ -1,30 +1,16 @@
-from collections import Counter
-
-
+```
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return str(0) + "\n" + str(0)
+        return "Invalid input: both code and guess should be 4-character strings"
 
-    for c in code:
+    for c in code + guess:
         if c not in "ARBYG":
-            return str(0) + "\n" + str(0)
+            return "Invalid input: code and guess can only contain 'ARBYG' characters"
 
-    for g in guess:
-        if g not in "ARBYG":
-            return str(0) + "\n" + str(0)
-
-    if len(set(code)) != 4 or len(set(guess)) != 4:
-        return str(0) + "\n" + str(0)
-
-    code_counts = Counter(code)
-    guess_counts = Counter(guess)
-
-    black_pegs = sum(
-        1 for i in range(min(len(code), len(guess))) if code[i] == guess[i]
+    white_pegs = sum(
+        min(code.count(c), guess.count(c)) - (c in code[:guess.find(c)] if c in code else 0)
+        for c in set(guess)
     )
-
-    white_pegs = 0
-    for c, count in guess_counts.items():
-        white_pegs += min(count, code_counts.get(c, 0))
+    black_pegs = sum(1 for c, g in zip(code, guess) if c == g)
 
     return str(black_pegs) + "\n" + str(white_pegs)
