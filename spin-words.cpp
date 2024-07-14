@@ -1,63 +1,41 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word = "";
 
-string spinWords(string str) {
-    string result = "";
-    int wordCount = 0;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            wordCount++;
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
         } else {
-            if (wordCount > 0) {
-                result += str[i];
-            }
-        }
-    }
-    
-    vector<string> words;
-    wordCount = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            wordCount++;
-        } else if (i == str.length() - 1) {
-            string word = "";
-            while (wordCount > 0 && i >= 0) {
-                word = str[i] + word;
-                i--;
-                wordCount--;
-            }
-            words.push_back(word);
+            word += str[i];
         }
     }
 
-    result = "";
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            string reversedWord = "";
-            for (int j = words[i].length() - 1; j >= 0; j--) {
-                reversedWord += words[i][j];
-            }
-            result += reversedWord + " ";
-        } else {
-            result += words[i] + " ";
-        }
+    // Check the last word
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
     }
+    result += word;
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
-    string str;
+    std::string str;
     while (true) {
-        cout << "Enter a sentence (or 'exit' to quit):";
-        cin >> str;
-        if (str == "exit") break;
-        cout << spinWords(str) << endl;
+        std::cout << "Enter a string or 'q' to quit: ";
+        std::cin >> str;
+        if (str == "q") {
+            break;
+        }
+        std::cout << spinWords(str) << "\n";
     }
     return 0;
 }
