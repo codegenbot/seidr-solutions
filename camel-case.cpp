@@ -3,17 +3,20 @@
 
 std::string kebabToCamel(const std::string& str) {
     std::string result;
-    bool capitalize = true;
+    bool first = true;
 
     for (char c : str) {
         if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
+            first = false;
+            continue;
         }
+
+        if (!first)
+            result[0] = toupper(c);
+        else
+            result += c;
+
+        first = true;
     }
 
     return result;
