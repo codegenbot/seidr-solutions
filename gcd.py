@@ -9,3 +9,7 @@ def find_indices(text, target):
         else:
             break
     return result
+
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
+print(f"Indices: {find_indices(text, target)}")
