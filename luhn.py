@@ -1,14 +1,10 @@
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)]
-    total_sum = 0
-    is_double = False
-    for digit in reversed(card_number):
-        if is_double:
-            if digit * 2 > 9:
-                total_sum += (digit * 2) - 9
-            else:
-                total_sum += digit * 2
-        else:
-            total_sum += digit
-        is_double = not is_double
-    return str(total_sum)
+    card_num = [int(i) for i in str(input()).zfill(16)]
+    sum = 0
+    for i in range(len(card_num)):
+        if i % 2 == 1:
+            card_num[i] *= 2
+            if card_num[i] > 9:
+                card_num[i] -= 9
+        sum += card_num[i]
+    return sum
