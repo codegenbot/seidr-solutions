@@ -1,9 +1,10 @@
-string squareDigits(long long n) {
-    string s = to_string(n);
-    string res;
-    for (char c : s) {
+#include <string>
+
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        res += to_string(digit * digit);
+        output += to_string(digit * digit);
     }
-    return res;
+    return output;
 }
