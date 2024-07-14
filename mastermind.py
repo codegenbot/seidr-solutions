@@ -1,21 +1,12 @@
-from collections import Counter
-
-
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return "Error: Both code and guess must be 4-character strings."
+        return "00"
 
-    if not all(c in "abcdefghijklmnopqrstuvwxyz" for c in code + guess):
-        return "Error: All characters must be lowercase letters."
+    for c in code + guess:
+        if c not in " ABCDEF":
+            return "00"
 
-    code_count = Counter(code)
-    guess_count = Counter(guess)
-
-    white = sum(min(count, guess_count[c]) for c, count in zip(code, guess))
-
-    black = sum(
-        (code.count(c) == 1 and guess.count(c) == 1) and (code.index(c) == i)
-        for i, c in enumerate(guess)
-    ).count(True)
+    white = sum(1 for c, d in zip(code, guess) if c == d)
+    black = sum((c == d and code.index(c) == i) for i, (c, d) in enumerate(zip(code, guess))).count(True)
 
     return str(white), str(black)
