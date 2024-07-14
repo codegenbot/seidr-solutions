@@ -4,9 +4,9 @@ def cut_vector(nums):
     for i in range(1, len(nums)):
         left_sum = sum(nums[:i])
         right_sum = sum(nums[i:])
-        if i % 2 == 1:  
+        if i % 2 == 1:
             diff = abs(left_sum - right_sum)
-        else:  
+        else:
             diff = abs(right_sum - left_sum)
         if diff < min_diff:
             min_diff = diff
