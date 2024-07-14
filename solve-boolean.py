@@ -1,5 +1,6 @@
+Here is the modified code:
+
 ```
-\n
 def solve_boolean(expression):
     stack = []
     result = True
