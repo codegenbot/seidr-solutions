@@ -7,7 +7,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
 
     for(int i=n-1; i>=0; i--) {  
         bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
+        for(int j=n-1; j>i; j--) {  
             if(arr[j] >= arr[i]) {
                 isLeader = false;
                 break;
@@ -27,3 +27,4 @@ int main() {
         std::cout << i << " ";
     }
     return 0;
+}
