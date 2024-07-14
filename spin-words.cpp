@@ -17,13 +17,14 @@ std::string spinWords(std::string str) {
         }
         pos = spacePos + 1;
     }
-    return result.substr(0, result.find(' '));
+    return result.substr(0, result.size()-1); 
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Spin words: " << spinWords(str).substr(0, spinWords(str).find(' ')) << std::endl;
+    str.erase(0, 1); 
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
     return 0;
 }
