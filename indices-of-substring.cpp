@@ -26,6 +26,4 @@ int main() {
 
     for (auto i : res)
         cout << i << " ";
-    coutsemicolon
-    return 0;
-}
+    cout;
