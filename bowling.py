@@ -1,21 +1,16 @@
+Here is the solution in Python:
+
 def bowling_score(frames):
     score = 0
-    for frame in frames.split("/"):
-        if len(frame) == 1:
-            score += 10
-        elif frame[0] == "X":
-            score += 30
+    frame_number = 1
+    for frame in frames.split('/'):
+        if len(frame) == 2:
+            first_roll = int(frame[0])
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            frame_number += 1
         else:
-            strike = False
-            spare = False
-            if frame[0] == "5":
-                strike = True
-            elif sum(map(int, frame)) < 10:
-                spare = True
-            if strike:
-                score += 10 + int(frame[1])
-            elif spare:
-                score += 10 + max(map(int, frame))
-            else:
-                score += sum(map(int, frame))
+            roll = int(frame)
+            score += roll
+            frame_number += 1
     return score
