@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int bowlingScore(string bowls) {
@@ -8,15 +7,9 @@ int bowlingScore(string bowls) {
             score += 30;
         } else if (isdigit(bowls[i])) {
             int currentFrameScore = 0;
-            for (int j = i; j < i + 2 && j < bowls.length(); j++) {
+            int j = i;
+            while (j < bowls.length()) {
                 if (isdigit(bowls[j])) {
                     currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
-                } else {
-                    break;
-                }
-            }
-            score += currentFrameScore;
-        }
-    }
-    return score;
-}
+                    j++;
+                    if (j < bowls.length() && (bowls[j] == '/' || bows
