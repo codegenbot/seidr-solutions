@@ -1,32 +1,47 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool result = false;
+#include <vector>
+using namespace std;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = true;
-            } else {
-                result = false;
-            }
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = false;
-            } else {
-                result = true;
-            }
-            st.push('|');
-        } else {
-            st.push(s[i]);
+bool evaluateExpression(string expression) {
+    stack<char> s;
+    
+    for(int i = 0; i < expression.size(); ++i){
+        if(expression[i] == '|') {
+            bool b1 = (s.top() == 'T');
+            s.pop();
+            bool b2 = (s.top() == 'T');
+            s.pop();
+            
+            if(b1 && b2) 
+                s.push('T'); 
+            else
+                s.push('F');
+        } 
+        else if(expression[i] == '&') {
+            bool b1 = (s.top() == 'T');
+            s.pop();
+            bool b2 = (s.top() == 'T');
+            s.pop();
+            
+            if(b1 && b2) 
+                s.push('T'); 
+            else
+                s.push('F');
+        } 
+        else {
+            s.push(expression[i]);
         }
     }
+    
+    return s.top() == 'T';
+}
 
-    return result;
+int main() {
+    // Write your test cases here
+    cout << evaluateExpression("t") << endl;  // Expected output: True
+    cout << evaluateExpression("f") << endl;  // Expected output: False
+    cout << evaluateExpression("f&f") << endl; // Expected output: False
+    cout << evaluateExpression("f&t") << endl; // Expected output: False
+    cout << evaluateExpression("t&f") << endl; // Expected output: False
+
+    return 0;
 }
