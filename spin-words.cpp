@@ -2,32 +2,32 @@
 #include <string>
 using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    int wordStart = 0;
-    
-    for(int i = 0; i <= input.length(); i++) {
-        if(i == input.length() || input[i] == ' ') {
-            string word = input.substr(wordStart, i-wordStart);
-            if(word.length() >= 5) {
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5)
                 reverse(word.begin(), word.end());
-            }
-            output += word + (i == input.length()? "" : " ");
-            wordStart = i+1;
+            result += word + " ";
+            word = "";
+        } else {
+            word += str[i];
         }
     }
-    
-    return output;
+
+    if (word.length() >= 5)
+        reverse(word.begin(), word.end());
+    result += word;
+
+    return result;
 }
 
 int main() {
-    string input;
-    while(true) {
-        cout << "Enter a string: ";
-        cin >> input;
-        if(input.size() < 2)
-            break;
-        cout << spinWords(input) << endl;
+    string str;
+    while (cin >> str) {
+        cout << spinWords(str) << endl;
     }
     return 0;
 }
