@@ -1,20 +1,18 @@
-```
+```cpp
 #include <string>
-#include <sstream>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::stringstream result;
-    std::string word;
+string spinWords(string str) {
+    string result = "";
+    string word = "";
 
     for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5) {
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    result << word[i];
-                }
-            } else {
-                result << word;
-            }
+                for (int i = word.length() - 1; i >= 0; --i)
+                    result += word[i];
+            } else
+                result += word;
             word = "";
         } else {
             word += c;
@@ -22,12 +20,19 @@ std::string spinWords(std::string str) {
     }
 
     if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result << word[i];
-        }
-    } else {
-        result << word;
-    }
+        for (int i = word.length() - 1; i >= 0; --i)
+            result += word[i];
+    } else
+        result += word;
 
-    return result.str();
+    return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    string result = spinWords(str);
+    cout << "Result: " << result << endl;
+    return 0;
 }
