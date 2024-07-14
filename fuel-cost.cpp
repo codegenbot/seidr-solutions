@@ -1,7 +1,7 @@
+```
 #include <vector>
-using namespace std;
 
-int fuelCost(vector<int> v) {
+int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
         int temp = (i / 3) - 2; 
@@ -12,3 +12,5 @@ int fuelCost(vector<int> v) {
     }
     return sum;
 }
+
+int main() { return fuelCost({1, 2, 3, 4, 5}); }
