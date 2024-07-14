@@ -7,12 +7,14 @@ int bowlingScore(string bowls) {
             score += 30;
         } else if (isdigit(bowls[i])) {
             int currentFrameScore = 0;
-            for (int j = i; j < i + 2 && j < bowls.length(); j++) {
+            int j = i;
+            while (j < bowls.length() && (isdigit(bowls[j]) || (i < 9 && j == i + 1 && bowls[j] == '/'))) {
                 if (isdigit(bowls[j])) {
                     currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
-                } else {
-                    break;
+                } else if (j == i + 1 && bowls[j] == '/') {
+                    currentFrameScore += 10 - (currentFrameScore / 10);
                 }
+                j++;
             }
             score += currentFrameScore;
         }
