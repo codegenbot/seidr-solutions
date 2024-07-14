@@ -1,40 +1,20 @@
-int bowlingScore(string s) {
+#include <string>
+
+int bowlingScore(string bowls) {
     int score = 0;
-    int frame = 1;
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == 'X') {
-            score += 10 + (i < s.length() - 2 && s[i+1] == '/' ? 10 : 0);
-            frame++;
-        } else if(s[i] == '/') {
-            int next = i+1;
-            while(next < s.length() && s[next] != 'X') next++;
-            score += (i/2 + 1)*5 + (next - i)/2*5;
-            frame++;
-            i = next - 1;
-        } else {
-            int pins = 0;
-            for(int j=i; j<s.length(); j++) {
-                if(s[j] == 'X') {
-                    score += 10;
-                    frame++;
-                    i = j;
-                    break;
-                } else if(s[j] == '/') {
-                    int next = j+1;
-                    while(next < s.length() && s[next] != 'X') next++;
-                    pins += (next - j)/2*5;
-                    i = next - 1;
-                    frame++;
-                    break;
+    for (int i = 0; i < 10; i++) {
+        if (bowls[i] == 'X') {
+            score += 30;
+        } else if (isdigit(bowls[i])) {
+            int currentFrameScore = 0;
+            for (int j = i; j < i + 2 && j < bowls.length(); j++) {
+                if (isdigit(bowls[j])) {
+                    currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
                 } else {
-                    pins += s[j] - '0';
-                    if(j == s.length() - 1) {
-                        score += pins;
-                        return score;
-                    }
+                    break;
                 }
             }
+            score += currentFrameScore;
         }
     }
     return score;
-}
