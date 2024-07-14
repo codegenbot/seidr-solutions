@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <numeric>
 
 double vectorDistance() {
     int n;
@@ -13,9 +14,5 @@ double vectorDistance() {
         std::cin >> temp2; 
         v2[i] = temp2; 
     }
-    double distance = 0.0;
-    for (int i = 0; i < n; i++) {
-        distance += pow(v1[i] - v2[i], 2);
-    }
-    return sqrt(distance);
+    return sqrt(std::accumulate(v1.begin(), v1.end(), 0.0, [v2](double sum, double val) {return pow(val - v2[static_cast<int>(sum)], 2) + sum; }));
 }
