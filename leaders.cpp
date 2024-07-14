@@ -1,25 +1,16 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
+vector<int> leaders(vector<int> arr) {
     vector<int> res;
-    
-    for (int i = n - 1; i >= 0; i--) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    int max = arr.back();
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        if (arr[i] >= max) {
+            res.push_back(arr[i]);
+            max = arr[i];
         }
-        if (leader) res.push_back(arr[i]);
     }
-    
+    res.assign(res.rbegin(), res.rend());
     return res;
-}
-
-int main() {
-    leaders(vector<int>{16,17,4,3,5,2});
-    return 0;
 }
