@@ -1,35 +1,11 @@
-```
-def solve_boolean(expression):
-    if expression == 't':
+def solve.Boolean(expression):
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError('Invalid expression')
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= evaluate_char()
-            elif char == '|':
-                result |= evaluate_char()
-            else:
-                if char == 't':
-                    result = True
-                else:
-                    result = False
-        return result
-
-def evaluate_char():
-    if input().strip() == 't':
-        return True
-    else:
-        return False
-
-if __name__ == "__main__":
-    while True:
-        expression = input().strip()
-        try:
-            print(solve_boolean(expression))
-        except ValueError as e:
-            print(str(e))
+    elif '&' in expression:
+        a, b = expression.split('&')
+        return bool(solve.Boolean(a)) and bool(solve.Boolean(b))
+    elif '|' in expression:
+        a, b = expression.split('|')
+        return bool(solve.Boolean(a)) or bool(solve.Boolean(b))
