@@ -3,15 +3,13 @@
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
-    std::string result = "";
-    int middleIndex = len / 2;
-
-    if (len % 2 == 0)
-        result = s.substr(middleIndex - 1, 2); 
-    else
-        result = s.substr(middleIndex, 1);
-
-    return result;
+    if (len == 0) { 
+        return "";
+    } else if (len % 2 == 0) { 
+        return s.substr(len / 2 - 1, 2); // Return two characters for even length
+    } else {
+        return s.substr(len / 2, 1); // Return one character for odd lengths
+    }
 }
 
 int main() {
