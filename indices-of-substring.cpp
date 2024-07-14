@@ -18,9 +18,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    getline(cin, text);
+    cin >> text;
     string target;
-    getline(cin, target);
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
@@ -28,5 +28,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
-    return 0;
+}
