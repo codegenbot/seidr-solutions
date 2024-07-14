@@ -3,29 +3,26 @@ def bowling_score(score):
     score = score.replace('/', '')
     total = 0
     frame = 1
-    next_frames_score = 0
+    next_frames = []
     for i in range(0, len(score), 2):
         if score[i].isdigit():
             first_roll = int(score[i])
             second_roll = 10 - first_roll if i + 1 < len(score) and score[i+1].isdigit() else 10 - first_roll
+            next_frames.append(first_roll + second_roll)
             if first_roll == 10:
                 total += 10
-                next_frames_score = 0
                 frame += 1
             elif second_roll == 10:
                 total += second_roll
-                next_frames_score = 0
                 frame += 1
             else:
                 total += first_roll + second_roll
                 if first_roll + second_roll < 10:
-                    next_frames_score = min(2, 10 - (first_roll + second_roll))
+                    for _ in range(2 - (first_roll + second_roll < 10)):
+                        next_frames.append(0)
                 frame += (2 if first_roll + second_roll == 10 else 1)
-        else:
-            if next_frames_score > 0:
-                total += next_frames_score
-                next_frames_score = 0
-                frame += 1
+    while len(next_frames) > frame:
+        total += min(next_frames.pop(), 10)
     return total
 
 print(bowling_score('0'))
