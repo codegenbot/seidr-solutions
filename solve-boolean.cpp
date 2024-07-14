@@ -1,46 +1,42 @@
-```cpp
 #include <iostream>
-#include <stack>
-#include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
-    std::stack<char> operationStack;
-    std::stack<std::string> valueStack;
+bool solveBoolean(string expression) {
+    stack<char> operationStack;
+    stack<string> valueStack;
 
-    std::string inputExpression = expression;
-    int i = 0;
-
-    while (i < inputExpression.length()) {
-        if (inputExpression[i] == '|') {
-            std::string rightValue = valueStack.top();
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            string rightValue = valueStack.top();
             valueStack.pop();
-            std::string leftValue = valueStack.top();
+            string leftValue = valueStack.top();
             valueStack.pop();
-            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (leftValue == "False" && rightValue == "False") ? "True" : "False");
-        } else if (inputExpression[i] == '&') {
-            std::string rightValue = valueStack.top();
+            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (LeftValue == "False" && rightValue == "False") ? "True" : "False");
+        } else if (expression[i] == '&') {
+            string rightValue = valueStack.top();
             valueStack.pop();
-            std::string leftValue = valueStack.top();
+            string leftValue = valueStack.top();
             valueStack.pop();
-            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "False") ? "True" : "False");
-        } else if ((inputExpression[i] == 't' || inputExpression[i] == 'T') || (inputExpression[i] == 'f' || inputExpression[i] == 'F')) {
-            valueStack.push(inputExpression[i] == 't' || inputExpression[i] == 'T' ? "True" : "False");
+            valueStack.push((leftValue == "True" && rightValue == "True") || (LeftValue == "False" && rightValue == "False") ? "True" : "False");
+        } else if (expression[i] == 't' || expression[i] == 'T') {
+            valueStack.push("True");
+        } else if (expression[i] == 'f' || expression[i] == 'F') {
+            valueStack.push("False");
         }
-        i++;
     }
 
     return valueStack.top() == "True";
 }
 
 int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
     bool result = solveBoolean(expression);
     if (result) {
-        std::cout << "True" << std::endl;
+        cout << "True" << endl;
     } else {
-        std::cout << "False" << std::endl;
+        cout << "False" << endl;
     }
     return 0;
 }
