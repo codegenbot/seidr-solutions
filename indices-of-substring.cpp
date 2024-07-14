@@ -1,6 +1,8 @@
 ```cpp
+#include <vector>
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -8,7 +10,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         result.push_back(pos);
-        pos += 1; // Start the search from the next character
+        pos += target.length(); // Start the search from the next character
     }
     return result;
 }
