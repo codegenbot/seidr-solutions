@@ -16,7 +16,7 @@ def solve_boolean(expression):
     return stack[0]
 
 def convert_to_postfix(expression):
-    precedence = {"&": 1, "|": 0}
+    precedence = {"&": 1, "|": 1}
     output = []
     operator_stack = []
 
@@ -25,19 +25,18 @@ def convert_to_postfix(expression):
             output.append(char)
         elif char == "(":
             operator_stack.append(char)
-        else:
-            if char == ")":
-                while operator_stack[-1] != "(":
-                    output.append(operator_stack.pop())
-                operator_stack.pop()
-            elif char in ["&", "|"]:
-                while (
-                    len(operator_stack) >= 1
-                    and operator_stack[-1] in precedence
-                    and precedence[operator_stack[-1]] >= precedence[char]
-                ):
-                    output.append(operator_stack.pop())
-                operator_stack.append(char)
+        elif char == ")":
+            while operator_stack[-1] != "(":
+                output.append(operator_stack.pop())
+            operator_stack.pop()
+        elif char in ["&", "|"]:
+            while (
+                len(operator_stack) >= 1
+                and operator_stack[-1] in precedence
+                and precedence[operator_stack[-1]] >= precedence[char]
+            ):
+                output.append(operator_stack.pop())
+            operator_stack.append(char)
 
     # Empty the stack
     while len(operator_stack) > 0:
