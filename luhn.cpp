@@ -20,6 +20,7 @@ int main() {
     vector<int> card;
     int num;
     for(int i = 0; i < 16; i++) {
+        cout << "Enter the " << i+1 << "th digit of your credit card number: ";
         cin >> num;
         card.push_back(num);
     }
