@@ -1,9 +1,20 @@
 def solve_boolean(expression):
-    if "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left) and solve_boolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_boolean(right)
-    else:
-        return expression == "T"
+    def simplify_expression(expression):
+        if '|' in expression:
+            left, right = expression.split('|')
+            left = simplify_expression(left)
+            right = simplify_expression(right)
+            return f"{left} | {right}" if left != 'True' and right != 'False' else ('True' if left == 'True' or right == 'True' else 'False')
+
+        if '&' in expression:
+            left, right = expression.split('&')
+            left = simplify_expression(left)
+            right = simplify_expression(right)
+            return f"{left} & {right}" if left != 'True' and right != 'False' else ('True' if left == 'True' or right == 'True' else 'False')
+
+        return expression
+
+    while "&|&" in expression:
+        expression = expression.replace("&|", "| |&").replace("|&", "& |").replace("T|", "True | ").replace("F|", "False | ")
+
+    return simplify_expression(expression)
