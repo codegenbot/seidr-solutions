@@ -1,41 +1,38 @@
-int bowlingScore(string &frames) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 'X') {
+    int roll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 10) {
+                score += min(10 - roll, 10);
+            } else {
+                score += min(10 - roll, 20);
+            }
+            roll = 0;
+        } else if (c == 'X') {
             score += 30;
-            i++;
-            if (i < frames.size() && (frames[i] == '/' || i == frames.size() - 1)) {
-                score -= 10;
-            }
-        } else if (frames[i] == '/') {
-            int j = i + 1;
-            while (j < frames.size() && frames[j] != 'X') {
-                j++;
-            }
-            if (j == frames.size()) {
-                score += 10;
-            } else {
-                int bonus = 10 - (j - i);
-                score += 10 + (bonus * (frames.substr(i, j - i).find('X') != string::npos));
-            }
-        } else {
-            int count = 0;
-            while (i < frames.size() && frames[i] != 'X' && frames[i] != '/') {
-                if (frames[i] == '5') {
-                    score += 15;
-                    i++;
-                    break;
+            roll = 0;
+        } else if (c >= '0' && c <= '9') {
+            int count = c - '0';
+            while (count--) {
+                if (roll < 10) {
+                    if (roll + 1 == 10) {
+                        score += min(10, roll + 1);
+                        roll = 0;
+                    } else {
+                        score += min(10 - roll, 1);
+                    }
                 } else {
-                    count += frames[i] - '0';
-                    i++;
+                    score += min(20 - roll, 2);
                 }
-            }
-            if (count < 10) {
-                score += count * 1;
-            } else {
-                score += 10 + (count - 10);
+                roll++;
             }
         }
+    }
+    if (roll < 10) {
+        score += min(10 - roll, 10);
+    } else {
+        score += min(10 - roll, 20);
     }
     return score;
 }
