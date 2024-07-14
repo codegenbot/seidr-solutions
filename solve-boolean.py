@@ -1,24 +1,23 @@
+```
 def solve_boolean(expression):
-    precedence = {"&": 1, "|": 0}
+    precedence = {"&": 2, "|": 1}
     stack = []
     output = []
-    last_operator = None
 
     for char in expression:
         if char.strip() in ["T", "F"]:
-            while len(stack) > 1 and (stack[-1] == "&" or stack[-1] == "|"):
-                value2 = stack.pop()
-                value1 = stack.pop() if stack else None
-                result = value1 and value2 if last_operator == "&" else value1 or value2
-                stack.append(result)
             output.append(char)
         elif char in ["&", "|"]:
             while len(stack) > 0 and (
                 stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]
             ):
-                output.append(stack.pop())
+                top = stack.pop()
+                while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
+                    output.append(top)
+                    if not len(stack):
+                        break
+                output.append(top)
             stack.append(char)
-            last_operator = char
         else:
             if char == "(":
                 stack.append(char)
@@ -26,6 +25,11 @@ def solve_boolean(expression):
                 stack.append(char)
 
     while len(stack) > 0:
-        output.append(stack.pop())
+        top = stack.pop()
+        while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
+            output.append(top)
+            if not len(stack):
+                break
+        output.append(top)
 
     return "T" if output[0] else "F"
