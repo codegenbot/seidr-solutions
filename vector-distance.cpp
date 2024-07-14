@@ -15,8 +15,12 @@ double vectorDistance(int n) {
 
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow(x2[i] - x1[i], 2);
+        double diff = x2[i] - x1[i];
+        sum += diff * diff;
     }
+
+    delete[] x1;
+    delete[] x2;
 
     return sqrt(sum);
 }
