@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 
 double probability(int n, int m) {
@@ -13,20 +13,11 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    while(true) {
-        std::cout << "Enter the number of sides on Peter's die: ";
-        if (!(std::cin >> n)) {
-            std::cout << "Invalid input. Please enter a number." << std::endl;
-            break;
-        }
-        std::cout << "Enter the number of sides on Colin's die: ";
-        if (!(std::cin >> m)) {
-            std::cout << "Invalid input. Please enter a number." << std::endl;
-            break;
-        }
-        double result = probability(n, m);
-        std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
-        break;
-    }
+    std::cout << "Enter the number of sides on Peter's die: ";
+    std::cin >> n;
+    std::cout << "Enter the number of sides on Colin's die: ";
+    std::cin >> m;
+    double result = probability(n, m);
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
     return 0;
 }
