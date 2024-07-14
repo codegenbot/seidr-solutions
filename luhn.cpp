@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -15,8 +15,8 @@ int luhn(const std::vector<int>& digits) {
 }
 
 int main() {
-    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 1, 7, 8, 9, 6};
+    std::vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
     int result = luhn(digits);
-    std::cout << "The Luhn check sum is: " << result << std::endl;
+    std::cout << "The Luhn check digit is: " << result << std::endl;
     return 0;
 }
