@@ -1,24 +1,15 @@
+```
 def solve_boolean(expression):
-    def eval_bool(bool_str):
-        return bool_str == "T"
-
-    while "&" in expression or "|" in expression:
-        i = 0
-        while i < len(expression):
-            if expression[i] == "&":
-                j = i + 1
-                while j < len(expression) and expression[j] != "&":
-                    j += 1
-                bool_str = eval_bool(expression[:i]) and eval_bool(
-                    expression[i + 1 : j]
-                )
-                expression = expression[:i] + str(bool_str) + expression[j:]
-            elif expression[i] == "|":
-                j = i + 1
-                while j < len(expression) and expression[j] != "|":
-                    j += 1
-                bool_str = eval_bool(expression[:i]) or eval_bool(expression[i + 1 : j])
-                expression = expression[:i] + str(bool_str) + expression[j:]
-            else:
-                i += 1
-    return eval_bool(expression)
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    result = expression[0]
+    for char in expression[1:]:
+        if char == '&':
+            result = result and (expression[1] == 'T')
+        elif char == '|':
+            result = result or (expression[1] == 'T')
+    return result
