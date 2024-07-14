@@ -1,27 +1,42 @@
-#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
-    vector<int> indices;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i=0; i<n; i++) {
-        int num;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        indices.push_back(num);
+    int num1, num2;
+    string text, target;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    
+    vector<int> indices; // declare and define the indices vector
+    
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the target: ";
+    getline(cin, target);
+    
+    int start = 0;
+    while (start < text.length()) {
+        size_t pos = text.find(target, start);
+        if (pos == string::npos)
+            break;
+        indices.push_back(pos);
+        start = pos + 1;
     }
-    int minIndex = *min_element(indices.begin(), indices.end());
-    cout << "GCD of indices: " << gcd(minIndex, minIndex) << endl;
+    
+    if (!indices.empty()) {
+        int minIndex = *min_element(indices.begin(), indices.end()); 
+        cout << "GCD of indices: " << gcd(minIndex, minIndex) << endl;
+    } else {
+        cout << "No matching index found." << endl;
+    }
+    
     return 0;
 }
