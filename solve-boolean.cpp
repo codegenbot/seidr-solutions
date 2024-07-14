@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
@@ -13,8 +12,7 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         }
         else if (s[i] == '&') {
-            std::advance(s.begin() + ++i, s.end());
-            while ((s.begin() + i, s.end()) != s.end() && s[i] == '&') i++;
+            while(i+1<s.length() && s[i+1] == '&') i++;
             if (!result) return false;
         }
     }
@@ -22,11 +20,9 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::stringstream ss;
     char input[100]; 
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    while (ss.get(input, 99).gcount() > 0) {
-        input[98] = '\0'; // null-terminate the string
+    std::cout << "Enter a Boolean expression (T/F/|/&): "; 
+    while (std::cin >> input) {
         if (std::string(input) == "exit") {
             std::cout << "Goodbye!" << std::endl;
             return 0;
