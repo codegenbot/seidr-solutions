@@ -1,8 +1,5 @@
 ```cpp
-#include <iostream>
-using namespace std;
-
-int mastermind(const char* code, const char* guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,27 +9,19 @@ int mastermind(const char* code, const char* guess) {
         }
     }
 
-    for (char c : guess) {
+    for (char c : code) {
         int count = 0;
-        for (char d : code) {
-            if (c == d) {
+        for (int i = 0; i < 4; ++i++) {
+            if (c == guess[i]) {
                 count++;
+                if (count == 1) {
+                    black--;
+                } else {
+                    white += count - 1;
+                }
             }
-        }
-        if (count > 1) {
-            white += count - 1;
-        } else if (count == 1) {
-            black--;
         }
     }
 
     return black + white;
-}
-
-int main() {
-    const char* code = "ABCD";
-    const char* guess = "ABDE";
-    int result = mastermind(code, guess);
-    cout << result;
-    return 0;
 }
