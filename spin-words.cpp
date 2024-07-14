@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -18,12 +19,13 @@ std::string spinWords(std::string str) {
         if (word.length() >= 5) {
             result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word + (word.length() < 5 ? " " : "") + "";
+            result += word + " ";
         }
         start = spacePos + 1;
     }
     trim(result); // no assignment needed, just call the function
-    return result; // return the modified result
+    result.pop_back(); // remove the last character (the trailing space)
+    return result;
 }
 
 int main() {
