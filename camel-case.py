@@ -2,9 +2,12 @@
 def camel_case(s):
     if '-' in s:
         words = s.split('-')
-        return ''.join(word.capitalize() for word in words)
+        result = words[0].capitalize()
+        for word in words[1:]:
+            result += word.capitalize()
     else:
-        return s.replace('-', '').capitalize()
+        result = s.replace('-', '').capitalize().capitalize()
+    return result
 
 print(camel_case("nospaceordash")) 
 print(camel_case("two-words")) 
