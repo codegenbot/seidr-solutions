@@ -3,17 +3,20 @@
 #include <vector>
 
 double vectorDistance(int n, std::vector<float> v1, std::vector<float> v2) {
-    double distance = 0.0;
+    double sumOfSquares = 0.0;
     for (int i = 0; i < n; i++) {
-        distance += pow(v1[i] - v2[i], 2);
+        sumOfSquares += pow(v1[i] - v2[i], 2);
     }
-    return sqrt(distance / n); 
+    for (int i = n; i < 2*n; i++) {
+        sumOfSquares += pow(v1[i-n] - v2[i-n], 2);
+    }
+    return sqrt(sumOfSquares);
 }
 
 int main() {
     int n;
     std::cin >> n; 
-    std::vector<float> v1(n), v2(n);
+    std::vector<float> v1(2*n), v2(2*n);
     for (int i = 0; i < n; i++) {
         float temp1, temp2;
         std::cin >> temp1; // read one value
