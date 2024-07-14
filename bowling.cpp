@@ -1,23 +1,19 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 'X') {
+    int frame = 1;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-            i++;
-            if (i < frames.size() && frames[i] != '/') {
-                if (frames[i] == 'X') {
-                    score += 30;
-                } else {
-                    int add = 10 - ('0' - (frames[i] - '0'));
-                    score += add;
-                }
-            }
-        } else if (frames[i] == '/') {
-            score += 10 + (10 - ('0' - (frames[i+1] - '0')));
-            i++;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (frame < 10 ? string(&c + 1, &s[0]).find('/') : 5);
+            frame++;
         } else {
-            int add = 10 - ('0' - (frames[i] - '0'));
-            score += add;
+            int temp = c - '0';
+            score += temp;
+            if (temp < 10) {
+                frame++;
+            }
         }
     }
     return score;
