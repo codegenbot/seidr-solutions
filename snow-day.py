@@ -5,8 +5,8 @@ melting_rate = float(input())
 
 total_snow = initial_snow
 for _ in range(hours):
-    total_snow += rate_of_snowfall - min(total_snow * melting_rate, rate_of_snowfall)  
-    if total_snow > 0:
-        total_snow -= min(total_snow, rate_of_snowfall / melting_rate)
+    new_snow = total_snow + rate_of_snowfall
+    melted_snow = min(new_snow * melting_rate, new_snow)
+    total_snow -= melted_snow
 
 print(round(total_snow, 7))
