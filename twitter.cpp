@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -12,10 +13,17 @@ int main() {
     while (true) {
         std::cout << "Enter a tweet: ";
         std::cin >> input; // Read the first word, then stop
-        if (!input.empty()) break; 
+        if (!input.empty()) break; // If there is no space character in the line, we can exit the loop.
+        std::cout << "Invalid input. Please enter a string of characters." << std::endl;
     }
-    std::cin.ignore(); // Ignore the newline character left in the input buffer
-    std::getline(std::cin, input); // Now read the rest of the line
+    while (std::cin.get() != '\n') {
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter a string of characters." << std::endl;
+            return 1; // Exit the program.
+        }
+    }
+    std::cin.ignore();
+    std::getline(std::cin, input); // Read the rest of the line
     std::cout << validateTweet(input) << std::endl;
     return 0;
 }
