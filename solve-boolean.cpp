@@ -1,3 +1,4 @@
+#include <stack>
 #include <string>
 
 bool solveBoolean(string expression) {
@@ -28,3 +29,4 @@ bool solveBoolean(string expression) {
     }
     
     return !st.empty();
+}
