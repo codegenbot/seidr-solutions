@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 
-std::string camelCase(const std::string& str) {
+std::string camelCase(std::string& str) {
     std::string result;
     bool capitalize = true;
 
@@ -34,7 +34,9 @@ int main() {
 
         if (!input.empty()) { 
             std::string output = camelCase(input);
-            std::cout << "Camel Case: " << output << std::endl; 
+            if(!output.empty())  
+                std::cout << "Camel Case: " << output << std::endl; 
+            input.clear();  // Clear the string for next iteration
         }
     }
     return 0;
