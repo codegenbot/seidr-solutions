@@ -1,26 +1,28 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int minDiff = INT_MAX;
-    int index = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
     
-    for(int i=1; i<nums.size(); i++) {
-        if(abs(nums[i-1]-nums[i]) < minDiff) {
-            minDiff = abs(nums[i-1]-nums[i]);
-            index = i;
+    for (int i = 1; i <= vec.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            left_sum += vec[j];
         }
-    }
-    
-    vector<vector<int>> result(2);
-    result[0].resize(index+1);
-    for(int i=0; i<=index; i++) {
-        result[0].push_back(nums[i]);
-    }
-    
-    result[1].resize(nums.size()-index-1);
-    for(int i=index+1; i<nums.size(); i++) {
-        result[1].push_back(nums[i]);
+        
+        for (int j = i; j < vec.size(); ++j) {
+            right_sum += vec[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff <= min_diff) {
+            min_diff = diff;
+            result.first = vector<int>(vec.begin(), vec.begin() + i);
+            result.second = vector<int>(vec.begin() + i, vec.end());
+        }
     }
     
     return result;
@@ -29,28 +31,22 @@ vector<vector<int>> cutVector(vector<int> nums) {
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for(auto &num : nums) {
-        cin >> num;
+    vector<int> vec(n);
+    for (auto &x : vec) {
+        cin >> x;
     }
-
-    vector<vector<int>> result = cutVector(nums);
-
+    
+    pair<vector<int>, vector<int>> res = cutVector(vec);
+    
     cout << "[";
-    for(int i=0; i<result[0].size(); i++) {
-        if(i > 0)
-            cout << ", ";
-        cout << result[0][i];
+    for (const auto &x : res.first) {
+        cout << x << " ";
     }
-    cout << "]\n";
-
-    cout << "[";
-    for(int i=0; i<result[1].size(); i++) {
-        if(i > 0)
-            cout << ", ";
-        cout << result[1][i];
+    cout << "] [" << "[";
+    for (const auto &x : res.second) {
+        cout << x << " ";
     }
-    cout << "]\n";
-
+    cout << "] 0\n";
+    
     return 0;
 }
