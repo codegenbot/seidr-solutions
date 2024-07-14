@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 void computeLPSArray(string pat, vector<int>& lps, int len) {
@@ -22,7 +23,7 @@ void computeLPSArray(string pat, vector<int>& lps, int len) {
 }
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result; // Initialize with default constructor
+    vector<int> result(0); // Initialize with 0 size
     int n = text.length();
     int m = target.length();
 
