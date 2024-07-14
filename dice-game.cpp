@@ -4,9 +4,9 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double sum = 0.0;
+    double sum = 0;
     for (int i = 1; i <= n - 1; i++) {
-        sum += (n - i) / (double)(n * m);
+        sum += 1.0 / (n * m);
     }
     return sum;
 }
