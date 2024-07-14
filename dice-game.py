@@ -1,2 +1,2 @@
-def solution(n, m):
-    return (n - m) / (n + m - 1)
+def roll_higher(n, m):
+    return 1 - (n / (n + m))
