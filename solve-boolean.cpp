@@ -10,14 +10,17 @@ bool solveBoolean(string s) {
         if (c == '|') {
             result = !result;
         } else {
-            result &= (c == '&');
+            result &= false;
         }
     }
     return result;
 }
 
 int main() {
-    string input = "TF|";
-    cout << (solveBoolean(input) ? "True" : "False") << endl;
+    string input;
+    cout << "Enter Boolean expression: ";
+    cin >> input;
+    bool result = solveBoolean(input);
+    cout << "Result: " << (result ? "True" : "False") << endl;
     return 0;
 }
