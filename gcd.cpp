@@ -1,7 +1,3 @@
-#include <iostream>
-#include <algorithm>
-using namespace std;
-
 int gcd(int a, int b) {
     if (b == 0) return a;
     return gcd(b, a % b);
@@ -26,9 +22,10 @@ int main() {
     if (result.size() == 0)
         return 0;
     
-    int gcdResult = result[0];
-    for (int i = 1; i < result.size(); i++)
-        gcdResult = __gcd(gcdResult, result[i]);
+    int gcdResult = 1;
+    for (int i : result) {
+        gcdResult = __gcd(gcdResult, i);
+    }
         
     cout << "GCD of indices: " << gcdResult << endl;
 }
