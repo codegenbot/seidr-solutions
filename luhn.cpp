@@ -18,11 +18,11 @@ int luhn(vector<int> card) {
 
 int main() {
     vector<int> card; 
-    for(int i = 0 ; i < 16 ; i++) {
-        int num;
-        cout << "Enter the digit at position " << i+1 << ": ";
-        cin >> num;
-        card.push_back(num);
+    int n;
+    cout << "Enter a credit card number: ";
+    for(int i = 0; i < 16; i++) {
+        cin >> n;
+        card.push_back(n);
     }
     int result = luhn(card);
     cout << "The result is: " << result << endl;
