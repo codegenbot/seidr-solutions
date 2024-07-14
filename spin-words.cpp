@@ -1,21 +1,26 @@
-Here's the solution:
+#include <string>
+using namespace std;
 
-string spinWords(string sentence) {
+string spinWords(string str) {
     string result = "";
-    int start = 0;
-    for (int i = 0; i <= sentence.size(); i++) {
-        if (i == sentence.size() || sentence[i] == ' ') {
-            string word = sentence.substr(start, i - start);
-            if (word.size() >= 5) {
-                result += std::string(word.rbegin(), word.rend());
-            } else {
-                result += word;
-            }
-            if (i < sentence.size()) {
-                result += " ";
-            }
-            start = i + 1;
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || i + 1 >= str.length())
+            result += str.substr(i);
+        else {
+            int j = str.find(" ", i);
+            string word = str.substr(i, j - i);
+            if (word.length() > 4)
+                result += reversed(word) + " ";
+            else
+                result += word + " ";
+            i = j + 1;
         }
     }
     return result;
+}
+
+string reversed(string s) {
+    reverse(s.begin(), s.end());
+    return s;
 }
