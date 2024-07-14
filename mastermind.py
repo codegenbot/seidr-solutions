@@ -9,15 +9,10 @@ def mastermind(code, guess):
     white = 0
     black = 0
 
-    code_count = [0] * 6
-    for c in code:
-        code_count[ord(c) - ord("R")] += 1
-
     for i, (c, d) in enumerate(zip(code, guess)):
         if c == d:
             black += 1
-        elif code_count[ord(d) - ord("R")] > 0:
+        elif d in code and d != c:
             white += 1
-            code_count[ord(d) - ord("R")] -= 1
 
     return str(white) + str(black)
