@@ -1,21 +1,14 @@
 ```
-def bowling_score(frames):
+def bowling_score(rolls):
     score = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            score += 10
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = 10 - first_roll
+    roll_index = 0
+    for frame in range(1, 11):
+        if len(str(rolls[roll_index:])) >= 2:
+            first_roll = int(str(rolls[roll_index]))
+            second_roll = int(str(rolls[roll_index + 1]))
             score += first_roll + second_roll
+            roll_index += 2
         else:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            third_roll = 10 - first_roll - second_roll
-            if first_roll == 10:
-                score += 10 + third_roll
-            elif second_roll == 10:
-                score += first_roll + 10
-            else:
-                score += first_roll + second_roll + third_roll
+            score += int(str(rolls[roll_index]))
+            roll_index += 1
     return score
