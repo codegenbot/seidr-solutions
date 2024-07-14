@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -26,17 +25,14 @@ int main() {
     getline(cin, text);
     cout << "Enter the target: ";
     cin >> target;
+    target.pop_back();  // remove the newline character
+    vector<int> indices = indicesOfSubstring(text, target);
 
-    vector<int> indices;  // Remove std::allocator
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        indices.push_back(pos);
-        pos += target.length(); 
-    }
-    
     int max_gcd = 1;
-    for (int i = 1; i < indices.size(); i++) {
-        max_gcd = gcd(max_gcd, indices[i]);
+    for (int i = 0; i < indices.size(); i++) {
+        for (int j = i + 1; j < indices.size(); j++) {
+            max_gcd = gcd(max_gcd, gcd(indices[i], indices[j]));
+        }
     }
     cout << "Indices: ";
     for (int i : indices) {

@@ -4,10 +4,11 @@ def luhn(card_number):
     is_double = False
     for i, digit in enumerate(card_number):
         if is_double:
-            if digit * 2 > 9:
-                total += (digit * 2) - 9
+            double_value = (digit * 2)
+            if double_value > 9:
+                total += (double_value - 9)
             else:
-                total += digit * 2
+                total += double_value
         is_double = not is_double and (i % 2 == 1)
         total += digit
     return total % 10
