@@ -4,22 +4,34 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
+
+    int pennies = 0, nickles = 0, dimes = 0, quarters = 0;
     
-    int quarters = cents / 25;
-    cents %= 25;
+    // Calculate the number of quarters
+    while (cents >= 25) {
+        cents -= 25;
+        quarters++;
+    }
     
-    int dimes = cents / 10;
-    cents %= 10;
+    // Calculate the number of dimes
+    while (cents >= 10) {
+        cents -= 10;
+        dimes++;
+    }
     
-    int nickles = cents / 5;
-    cents %= 5;
+    // Calculate the number of nickles
+    while (cents >= 5) {
+        cents -= 5;
+        nickles++;
+    }
     
-    int pennies = cents;
-    
-    cout << quarters << endl;
+    // Calculate the number of pennies
+    pennies = cents;
+
+    cout << pennies << endl;
     cout << nickles << endl;
     cout << dimes << endl;
-    cout << pennies << endl;
+    cout << quarters << endl;
 
     return 0;
 }
