@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len) {
+std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, int len) {
     int m;
     lps.push_back(0); 
     m = 0; 
