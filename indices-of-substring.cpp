@@ -1,33 +1,22 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        bool found = true;
-        for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
+class Solution {
+public:
+    vector<int> findIndices(string text, string target) {
+        vector<int> result;
+        int start = 0;
+        
+        while (start < text.length()) {
+            int pos = text.find(target, start);
+            
+            if (pos == -1)
                 break;
-            }
+            
+            result.push_back(pos);
+            start = pos + 1;
         }
-        if (found) indices.push_back(i);
+        
+        return result;
     }
-
-    return indices;
-}
-
-int main() {
-    string text, target;
-    cin >> text >> target;
-
-    vector<int> result = findIndices(text, target);
-
-    for (auto i : result) cout << i << " ";
-    cout << endl;
-
-    return 0;
-}
+};
