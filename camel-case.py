@@ -1,6 +1,2 @@
-```
-def camel_case():
-    s = input().split()
-    return ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(s))
-
-print(camel_case())
+def kebab_to_camel(kebab_string):
+    return "".join(word.capitalize() for word in kebab_string.split())
