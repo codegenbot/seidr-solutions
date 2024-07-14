@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int fuelCost(vector<int> numbers) {
