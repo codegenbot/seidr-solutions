@@ -1,4 +1,10 @@
-int mastermind(string code, string guess) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+pair<int, int> mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
     
@@ -24,5 +30,5 @@ int mastermind(string code, string guess) {
         }
     }
     
-    return std::make_pair(blackPegs, whitePegs);
+    return make_pair(blackPegs, whitePegs);
 }
