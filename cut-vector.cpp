@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <utility>
 
@@ -8,7 +9,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
             break;
         }
     }
-    std::pair<std::vector<int>, std::vector<int>> res(std::vector<int>(), std::vector<int>());
+    std::pair<std::vector<int>, std::vector<int>> res(std::vector<int>(v.begin(), v.begin()), std::vector<int>());
     for (int j = 0; j < i; j++) {
         res.first.push_back(v[j]);
     }
@@ -19,8 +20,6 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 4, 5};
-    auto result = cutVector(input);
-    // do something with the result
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector({1, 2, 3, 4, 5});
     return 0;
 }
