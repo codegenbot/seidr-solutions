@@ -1,36 +1,30 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-int mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    
-    // Count black pegs
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-            code[i] = ' '; // Mark the position as used in the code
-            guess[i] = ' '; // Mark the position as used in the guess
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            count++;
         }
     }
-    
-    // Count white pegs
-    for (int i = 0; i < 4; i++) {
-        if (code.find(guess[i]) != string::npos && code[i] != ' ') {
-            whitePegs++;
-            code[i] = ' '; // Mark the position as used in the code
+    return 4 - count;
+}
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeVector(code.begin(), code.end());
+    vector<char> guessVector(guess.begin(), guess.end());
+    for(int i=0; i<6; i++) {
+        char c = 'a' + i;
+        if(count(c, codeVector) && count(c, guessVector)) {
+            count++;
         }
     }
-    
-    return blackPegs, whitePegs;
+    return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << mastermind(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
