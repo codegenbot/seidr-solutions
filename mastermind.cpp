@@ -30,9 +30,10 @@ int mastermind(const char* code, const char* guess) {
 }
 
 int main() {
-    const char* code = "XXXX";  // Initialize with some value
-    const char* guess = "XXXX";  // Initialize with some value
+    const char* code = "XXXX";
+    const char* guess = "XXXX";
     int result = mastermind(code, guess);
+    int black = 0;
     std::cout << "Number of white pegs: " << (result - black) << ", Number of black pegs: " << black << std::endl;
     return 0;
 }
