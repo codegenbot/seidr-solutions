@@ -7,11 +7,13 @@ int basement(std::vector<int>& nums) {
             return i + 1;
     }
     return -1;
+
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3};
+    std::vector<int> nums = {10, 4, -8, 8};
     int result = basement(nums);
-    std::cout << "Result: " << result << std::endl;
+    if(result == -1) std::cout << "No such index found.\n";
+    else std::cout << "First index is: " << result << "\n";
     return 0;
 }
