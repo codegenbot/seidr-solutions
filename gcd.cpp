@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <numeric>
 #include <algorithm>
 
 using namespace std;
@@ -40,7 +41,7 @@ int main() {
     for (int i : indices) {
         for (int j : indices) {
             if (i < j) { 
-                int pair_gcd = std::gcd(abs(i - j), gcd(abs(i), abs(j)));
+                int pair_gcd = gcd(abs(i - j), std::gcd(abs(i), abs(j)));
                 temp.push_back(pair_gcd);
             }
         }
@@ -54,4 +55,3 @@ int main() {
     cout << "GCD of indices: " << g << endl;
 
     return 0;
-}
