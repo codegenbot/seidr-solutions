@@ -19,5 +19,5 @@ int main() {
     vector<float> discounts(3); 
     discounts[0] = 5.0; discounts[1] = 10.0; discounts[2] = 15.0;
     cout << "Total cost: " << shoppingList(prices, discounts) << endl;
-    return 0;
+    
 }
