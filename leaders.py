@@ -3,6 +3,7 @@ def leaders(arr):
     leaders = [arr[n-1]]
 
     for i in range(n-2, -1, -1):
-        leaders.append(arr[i] if arr[i] >= leaders[-1] else leaders[-1])
+        if arr[i] >= leaders[-1]:
+            leaders.append(arr[i])
 
-    return reversed(leaders)
+    return list(reversed(leaders))
