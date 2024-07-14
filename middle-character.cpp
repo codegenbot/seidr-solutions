@@ -4,12 +4,11 @@
 std::string middleCharacter(std::string s) {
     int len = s.length();
     std::string result = "";
-    int middleIndex = len / 2;
 
     if (len % 2 == 0)
-        result = s.substr(middleIndex - 1, 2); 
+        result = s.substr(len / 2 - 1, 2); 
     else
-        result = s.substr(middleIndex, 1);
+        result = s.substr(len / 2, 1);
 
     return result;
 }
