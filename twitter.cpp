@@ -9,4 +9,4 @@ std::string validateTweet(const char* tweet) {
     if (*tweet == '\0') {
         return "You didn't type anything";
     }
-    return std::string("Your tweet has ") + std::to_string(length) + " characters"; }
+    return std::string("Your tweet has ") + std::to_string(length) + "characters";
