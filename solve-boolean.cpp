@@ -1,28 +1,37 @@
-#include <stack>
 #include <string>
+#include <stack>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     std::stack<bool> stack;
-    int parentheses = 0; // for handling parentheses
+    bool inAnd = false;
+
     for (char c : s) {
-        if (c == '(') parentheses++;
-        else if (c == ')') {
-            while(parentheses > 0) { 
-                if (s.back() != '&') stack.push(s.back() == 'T');
-                s.pop_back();
-            } parentheses--;
-        }
+        if (c == 'T') stack.push(true);
+        else if (c == 'F') stack.push(false);
         else if (c == '|') {
-            bool right = stack.top(); stack.pop();
-            bool left = stack.top(); stack.pop();
-            stack.push(left || right);
+            while (!inAnd && !stack.empty()) {
+                bool right = stack.top(); stack.pop();
+                bool left = stack.top(); stack.pop();
+                stack.push(left || right);
+            }
+            inAnd = false;
         } 
         else if (c == '&') {
-            bool right = stack.top(); stack.pop();
-            bool left = stack.top(); stack.pop();
-            stack.push(left && right);
+            inAnd = true;
         }
-        else if (c == 'T' || c == 'F') stack.push(c == 'T');
     }
+
     return stack.top();
+}
+
+int main() {
+    std::string s = "T|F&";
+    bool result = solveBoolean(s);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    return 0;
 }
