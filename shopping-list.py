@@ -1,6 +1,6 @@
 def shopping_list():
-    n = int(input())
     total_price = 0
+    n = int(input())
 
     for _ in range(n):
         try:
