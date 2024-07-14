@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <string>
 
 bool solveBoolean(const std::string& s) {
@@ -11,7 +12,6 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         }
         else if (s[i] == '&') {
-            i++; // increment 'i' to skip '&' and move to the next character
             while(i+1<s.length() && s[i+1] == '&') i++;
             if (!result) return false;
         }
