@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int mastermind(const char* code, const char* guess) {
     int whitePegs = 0;
@@ -28,11 +29,8 @@ int mastermind(const char* code, const char* guess) {
 }
 
 int main() {
-    const char* code = "????";  
-    const char* guess = "????";  
-
+    const char* code = "abcD";
+    const char* guess = "aBcd";
     int result = mastermind(code, guess);
-    std::cout << "White pegs: " << (result - 4) << ", Black pegs: " << 4 - (result - 4) << std::endl;
-
+    cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
     return 0;
-}
