@@ -17,7 +17,8 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
+    cout << "Enter the values for n and m: "; 
     cin >> n >> m; // Take input from user
-    cout << fixed << setprecision(6) << probability(n, m); // Call your probability function and print output
+    cout << probability(n, m); // Call your probability function and print output
     return 0;
 }
