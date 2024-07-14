@@ -1,31 +1,41 @@
-int bowlingScore(string s) {
+int bowlingScore(string &input) {
     int score = 0;
-    bool first = true;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == '/') {
-            if (first) {
-                score += 10 - (s[i-1] - '0');
-                first = false;
-            } else {
-                score += 10;
+    int rollCount = 0;
+    
+    for (char c : input) {
+        if (c == '/') {
+            score += 10 - (10 - rollCount);
+            rollCount = 0;
+        } else if (c >= 'X' || c >= 'x') {
+            score += 10 + rollCount;
+            rollCount = 0;
+        } else {
+            int rollsInFrame = 1;
+            while (c != '/' && c <= '9') {
+                rollsInFrame *= 10;
+                c = input[input.find(c) + 1];
             }
-        } else if (isdigit(s[i])) {
-            int n = s[i] - '0';
-            if (!first) {
-                if (s[i+1] == '/') {
-                    score += 10 - n;
-                    first = true;
-                } else {
-                    score += n + ((i+1 < s.size() && isdigit(s[i+1])) ? s[i+1] - '0' : 0);
-                }
+            if (c == 'X' || c == 'x') {
+                score += 10 + rollCount;
+                rollCount = 0;
             } else {
-                if (n == 10) {
-                    score += 10 + ((i+2 < s.size() && s[i+1] == '/') ? 8 : bowlingScore(s.substr(i+1)));
-                } else {
-                    score += n + ((i+1 < s.size() && isdigit(s[i+1])) ? s[i+1] - '0' : 0);
+                int bonus = stoi(string(1, c));
+                score += bonus;
+                rollsInFrame -= bonus;
+                while (rollsInFrame-- > 0) {
+                    if (input[input.find(c) + 1] == 'X' || input[input.find(c) + 1] == 'x') {
+                        score += 10;
+                        break;
+                    }
+                    c = input[input.find(c) + 1];
+                    score++;
                 }
             }
         }
     }
+    
+    if (rollCount > 0)
+        score += rollCount;
+    
     return score;
 }
