@@ -22,10 +22,17 @@ bool solveBoolean(const std::string& s) {
 int main() {
     char input[100]; 
     std::cout << "Enter a Boolean expression (T/F/|/&): "; 
-    while (std::cin >> input) {
-        if (std::string(input) == "exit") {
-            std::cout << "Goodbye!" << std::endl;
-            return 0;
+    while (true) {
+        std::cin >> std::ws;  // consume newline character
+        if (!(std::cin >> input)) {  // check if read operation was successful
+            if(std::string(input) == "exit") {
+                std::cout << "Goodbye!" << std::endl;
+                return 0;
+            }
+            else {
+                std::cout << "Invalid input. Please enter a valid Boolean expression or 'exit' to quit: ";
+                continue;  // loop back and ask for input again
+            }
         }
         bool result = solveBoolean(std::string(input));
         std::cout << "Result: " << (result ? "True" : "False") << std::endl;
