@@ -1,24 +1,26 @@
 ```cpp
+#include <iostream>
 #include <string>
+#include <vector>
+#include <sstream>
+#include <cctype>
 
-std::string split(const std::string& str, char delimiter) {
-    std::string result = "";
+std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> segments;
     size_t start = 0;
     size_t end = str.find(delimiter);
 
     while (end != std::string::npos) {
-        if (start > 0) {
-            result += str.substr(start, end - start);
-        }
+        std::string segment = str.substr(start, end - start);
+        segments.push_back(segment);
         start = end + 1;
         end = str.find(delimiter, start);
     }
 
-    if (start < str.size()) {
-        result += str.substr(start);
-    }
+    std::string segment = str.substr(start);
+    segments.push_back(segment);
 
-    return result;
+    return segments;
 }
 
 std::string camelCase(const std::string& str) {
@@ -27,14 +29,19 @@ std::string camelCase(const std::string& str) {
 
     for (size_t i = 0; i < segments.size(); ++i) {
         if (!result.empty()) {
-            result[0] = toupper(result[0]);
+            result[0] = std::toupper(result[0]);
         }
         if (i > 0) {
-            result += tolower(segments[i][0]);
+            result += std::tolower(segments[i][0]);
         } else {
             result += segments[i];
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string str = "camel-case example-test-string";
+    std::cout << camelCase(str) << std::endl;
 }
