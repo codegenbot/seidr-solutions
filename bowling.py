@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     roll_count = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
