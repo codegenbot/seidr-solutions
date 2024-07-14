@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
