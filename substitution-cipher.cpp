@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -36,3 +37,4 @@ int main() {
 
     std::cout << "Deciphered message: " << result << std::endl;
     return 0;
+}
