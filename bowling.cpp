@@ -1,22 +1,20 @@
-int bowlingScore(string &s) {
+int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    bool strike = false;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + ((strike || i < s.size() - 2 && s[i+2] != '/') ? 10 : 0);
-            strike = true;
-        } else if (s[i] == '/') {
-            int a = i - 1, b = i + 1;
-            while (a >= 0 && b < s.size() && (s[a] != 'X' || s[b] != 'X')) {
-                if (s[a] != ' ') a--;
-                if (s[b] != ' ') b++;
+    for (int i = 0; i < 10; ++i) {
+        if (s[i] == '-') continue;
+        else if (s[i] == 'X') {
+            score += 30;
+            if (i < 9) score += bowlingScore(s.substr(i + 1)) - 15;
+        }
+        else if (isdigit(s[i])) {
+            int balls = 0;
+            for (int j = i; j < s.length() && balls < 3; ++j) {
+                if (s[j] == '/') break;
+                balls++;
             }
-            score += (i - strike ? 10 : 15) + ((a >= 0 && s[a] == '/') ? 1 : (b < s.size() && s[b] == '/') ? 1 : 0);
-        } else {
-            int a = i, b = i;
-            while (a > 0 && s[a-1] != ' ') a--;
-            score += (i - strike ? a : 10) + (s[i] != ' ') || i < s.size() - 2 ? 1 : 0;
+            string ballsStr = s.substr(i, balls);
+            score += (ballsStr[0] - '0') * 10 + (ballsStr[1] - '0');
+            i += balls - 1;
         }
     }
     return score;
