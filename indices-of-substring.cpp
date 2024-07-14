@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -28,3 +29,4 @@ int main() {
         cout << i << endl;
     }
     return 0;
+}
