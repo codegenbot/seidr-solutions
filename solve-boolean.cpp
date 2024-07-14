@@ -9,7 +9,6 @@ bool solveBoolean(string s) {
         if (c == 'f') res = false;
         else if (c == '&') return res;
         else if (c == '|') return !res;
-        else if (c == 't') res = true;
     }
     return res;
 }
