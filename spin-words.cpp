@@ -6,43 +6,35 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
+    int length = 0;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            if (wordLength >= 5)
-                result += reverseWord(str.substr(wordStart, i - wordStart)) + " ";
-            else
-                result += str.substr(wordStart, i - wordStart) + " ";
-            wordLength = 0;
+            result += str.substr(length, i - length);
+            length = i + 1;
+        }
+    }
+    result += str.substr(length);
+
+    string temp = "";
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ' || i >= result.find(' ') && i > 4) {
+            temp += ' ';
+        } else if (i < 5) {
+            temp += result[i];
         } else {
-            wordLength++;
+            for (int j = i; j >= i - 5; j--) {
+                temp += result[j];
+            }
         }
     }
 
-    if (wordLength >= 5)
-        result += reverseWord(str.substr(wordStart, str.length() - wordStart));
-    return result;
-}
-
-string reverseWord(string str) {
-    string revStr = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        revStr += str[i];
-    }
-    return revStr;
+    return temp;
 }
 
 int main() {
-    // Read input from user
-    cout << "Enter a sentence: ";
-    string input;
-    getline(cin, input);
-
-    // Process the input and generate the output
-    string output = spinWords(input);
-
-    // Print the output
-    cout << "Output: " << output << endl;
-
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << spinWords(str) << endl;
     return 0;
 }
