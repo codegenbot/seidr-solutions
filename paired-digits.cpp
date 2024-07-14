@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
 #include <string>
-
-using namespace std;
 
 int sumPairedDigits(string str) {
     int sum = 0;
@@ -12,4 +8,3 @@ int sumPairedDigits(string str) {
         }
     }
     return sum;
-}
