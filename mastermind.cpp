@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <map>
 
@@ -34,5 +35,8 @@ int main() {
     std::string guess = "XXXX"; 
 
     int result = mastermind(code, guess);
-    return result;
+
+    std::cout << "Black pegs: " << (result - (result / 4)) << ", White pegs: " << result / 4 << std::endl;
+
+    return 0;
 }
