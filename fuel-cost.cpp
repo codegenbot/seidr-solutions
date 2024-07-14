@@ -1,11 +1,9 @@
-int main() {
-    vector<int> vec;
-    int n;
-    while (cin >> n) {
-        vec.push_back(n);
+Here is the solution:
+
+int fuelCost(vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
+        sum += (i / 3 - 2);
     }
-
-    cout << calculateFuelCost(vec) << endl;
-
-    return 0;
+    return sum;
 }
