@@ -1,23 +1,31 @@
 Here is the solution:
 
-string spinWords(string sentence) {
+#include <string>
+using namespace std;
+
+string spinWords(string str) {
     string result = "";
-    int wordLength;
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
+    int i = 0;
+    
+    while(i < str.length()) {
+        if(str[i] == ' ') {
             result += " ";
-        } else {
-            for (wordLength = 1; i + wordLength <= sentence.length() && sentence[i + wordLength] != ' '; wordLength++) {}
-            string word = sentence.substr(i, wordLength);
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-            } else {
-                result += word;
+            i++;
+        } else if(i+4 >= str.length() || str.substr(i,5).find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos) {
+            //if the word is 5 or more characters long, reverse it
+            int j = i + str.find_last_of(' ') - i;
+            for(int k = 0; k < (j+1)/2; k++) {
+                char temp = str[i+k];
+                str[i+k] = str[j-k];
+                str[j-k] = temp;
             }
-            i += wordLength - 1;
+            result += str.substr(i,j+1) + " ";
+            i = j + 1;
+        } else {
+            result += str.substr(i,5) + " ";
+            i += 5;
         }
     }
+    
     return result;
 }
