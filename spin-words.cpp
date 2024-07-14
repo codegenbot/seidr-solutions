@@ -1,30 +1,22 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
     size_t pos = 0;
-    while((pos = str.find(" ")) != string::npos) {
-        string word = str.substr(0, pos);
-        if(word.length() >= 5)
-            result += string(word.rbegin(), word.rend()) + " ";
-        else
-            result += word + " ";
-        str.erase(0, pos+1);
+    while ((pos = str.find(' ')) != string::npos) {
+        if (str.substr(0, pos).length() >= 5) {
+            for (int i = str.substr(0, pos).length() - 1; i >= 0; i--)
+                result += str.substr(0, pos)[i];
+            result += ' ';
+        } else
+            result += str.substr(0, pos);
+        str.erase(0, pos + 1);
     }
-    result += str;
+    if (str.length() >= 5)
+        for (int i = str.length() - 1; i >= 0; i--)
+            result += str[i];
+    else
+        result += str;
     return result;
-}
-
-int main() {
-    // Your code to read from input and write to output.
-    // For example:
-    string str;
-    cin >> str;
-    cout << spinWords(str) << endl;
-    
-    return 0;
 }
