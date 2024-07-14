@@ -3,9 +3,8 @@
 using namespace std;
 
 void computeLPSArray(string pat, vector<int>& lps, int len) {
-    int m;
     lps[0] = 0; 
-    m = pat.length(); 
+    int m = pat.length(); 
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
