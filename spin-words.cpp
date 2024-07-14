@@ -2,36 +2,36 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t len = pos;
-        if (len >= 5) {
-            std::string word = str.substr(0, pos);
-            for (int i = word.length() - 1; i >= 0; --i)
-                result += word[i];
-            str.erase(0, pos + 1);
-        } else {
-            result += str.substr(0, pos + 1);
-            str.erase(0, pos + 1);
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    
+    for(int i=0; i<=str.length(); i++) {
+        if(i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i-start);
+            
+            if(word.length() >= 5) 
+                result += reverse(word) + " ";
+            else
+                result += word + " ";
+            
+            start = i+1;
         }
     }
-    if (str.length() > 4) {
-        std::string word = str;
-        for (int i = word.length() - 1; i >= 0; --i)
-            result += word[i];
-    } else
-        result += str;
+    
     return result;
 }
 
-int main() {
-    // Test cases
-    cout << spinWords("a") << endl;  // a
-    cout << spinWords("this is a test") << endl;  // this is a test
-    cout << spinWords("this is another test") << endl;  // this is rehtona test
-    cout << spinWords("hi") << endl;  // hi
+string reverse(string s) {
+    string reversed = "";
+    for(int i=s.length()-1; i>=0; i--)
+        reversed += s[i];
+    return reversed;
+}
 
+int main() {
+    // Your code here
     return 0;
 }
