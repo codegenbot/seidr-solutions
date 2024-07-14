@@ -2,23 +2,24 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j <= i; j++) {
-            left_sum += v[j];
+    int minDiff = INT_MAX;
+    int index = -1;
+    for (int i = 0; i < v.size(); ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; ++j)
+            leftSum += v[j];
+        for (int j = i + 1; j < v.size(); ++j)
+            rightSum += v[j];
+        if (leftSum == rightSum) {
+            return {{v[0], v[0]}, v.substr(1)};
         }
-        for (int j = i + 1; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            index = i;
         }
     }
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
+    vector<int> left(v.begin(), v.begin() + index);
+    vector<int> right(v.begin() + index, v.end());
     return {left, right};
 }
