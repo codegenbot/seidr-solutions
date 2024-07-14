@@ -1,14 +1,19 @@
+#include <vector>
+
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
 
-    int maxRt = arr[n-1];  // maximum element to the right
-
-    for(int i=n-2; i>=0; i--) {  
-        if(arr[i] >= maxRt) {
-            res.push_back(arr[i]);
-            maxRt = arr[i];
+    for(int i=n-1; i>=0; i--) {  
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
+        
+        if(isLeader) res.push_back(arr[i]);
     }
     
     return res;
