@@ -1,34 +1,21 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
+    vector<vector<int>> result(2);
+    result[0].insert(result[0].end(), nums.begin(), nums.begin() + splitIndex);
+    result[1].insert(result[1].begin(), nums.begin() + splitIndex, nums.end());
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for (const auto &x : result.first) cout << x << " ";
-    cout << "]\n[";
-    for (const auto &x : result.second) cout << x << " ";
-    cout << "]\n0\n";
-    
-    return 0;
+    return result;
 }
