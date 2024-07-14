@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len) {
     int m;
