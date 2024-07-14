@@ -11,14 +11,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             break;
         }
     }
-    res.first.resize(i);
     for (int j = 0; j < i; j++) {
-        res.first.push_back(v[j]);
+        res.first.push_back(j < i ? v[j] : 0);
     }
-
-    res.second.resize(n - i);
     for (int j = i; j < n; j++) {
-        res.second.push_back(v[j]);
+        res.second.push_back(i > j ? v[j] : 0);
     }
     return res;
 }
