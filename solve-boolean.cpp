@@ -6,7 +6,6 @@ bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<string> valStack;
     string v2;
-    char temp;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -27,16 +26,14 @@ bool solveBoolean(string expression) {
     }
 
     while (!opStack.empty()) {
-        v2 = valStack.top();
+        string v1 = valStack.top(), v2;
         valStack.pop();
         if (opStack.top() == '&') {
             opStack.pop();
-            valStack.push((valStack.top() == "T" && v2 == "T") ? "T" : "F");
-            valStack.pop();
+            valStack.push((v1 == "T" && v2 == "T") ? "T" : "F");
         } else {
             opStack.pop();
-            valStack.push((valStack.top() == "T" || v2 == "T") ? "T" : "F");
-            valStack.pop();
+            valStack.push((v1 == "T" || v2 == "T") ? "T" : "F");
         }
     }
 
