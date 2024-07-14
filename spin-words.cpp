@@ -14,13 +14,11 @@ std::string spinWords(const std::string& input) {
                     std::swap(word[j], word[length-1-j]);
                 }
                 output += word + ' ';
+                start = i + 1;
             } else {
                 output += input.substr(start, length) + ' ';
+                start = i + 1;
             }
-            if (i < input.size()) {
-                output += ' ';
-            }
-            start = i + 1;
         }
     }
 
