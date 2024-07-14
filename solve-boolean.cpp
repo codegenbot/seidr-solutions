@@ -1,25 +1,45 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            char c1 = st.top();
-            st.pop();
-            char c2 = s[i+1];
-            s.erase(i,2);
-            i--;
-            st.push((c1 == 'T' && c2 == 'T') ? 'T' : 'F');
-        } else if (s[i] == '|') {
-            char c1 = st.top();
-            st.pop();
-            char c2 = s[i+1];
-            s.erase(i,2);
-            i--;
-            st.push((c1 == 'T' || c2 == 'T') ? 'T' : 'F');
-        } else if (s[i] != '&' && s[i] != '|') {
-            st.push(s[i]);
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operationStack;
+    stack<bool> valueStack;
+
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = valueStack.top();
+            valueStack.pop();
+            bool b2 = valueStack.top();
+            valueStack.pop();
+            valueStack.push(b1 & b2);
+        } else if (expression[i] == '|') {
+            bool b1 = valueStack.top();
+            valueStack.pop();
+            bool b2 = valueStack.top();
+            valueStack.pop();
+            valueStack.push(b1 | b2);
+        } else if (expression[i] == 'T') {
+            valueStack.push(true);
+        } else if (expression[i] == 'F') {
+            valueStack.push(false);
         }
     }
-    return st.top() == 'T'? "True": "False";
+
+    return valueStack.top();
+}
+
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+
+    bool result = evaluateBooleanExpression(expression);
+
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+
+    return 0;
 }
