@@ -11,7 +11,7 @@ int mastermind(const char* code, const char* guess) {
     for (int i = 0; i < 4; i++) {
         bool found = false;
         for (int j = 0; j < 4; j++) {
-            if (guess[i] == code[j] && i != j) {
+            if (guess[j] == code[i] && j != i) {
                 whitePegs++;
                 found = true;
                 break;
