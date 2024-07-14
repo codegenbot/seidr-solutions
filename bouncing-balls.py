@@ -1,4 +1,3 @@
-```
 import math
 def bouncing_balls():
     start_height = float(input())
