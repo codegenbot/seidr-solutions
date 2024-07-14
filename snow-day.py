@@ -1,4 +1,3 @@
-```
 from decimal import Decimal, getcontext
 
 
@@ -10,9 +9,10 @@ def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
         snow -= Decimal(str(melting_rate)).quantize(Decimal("0.01"))
     return str(snow).rstrip("0").rstrip(".").replace(".", "")
 
+
 while True:
     try:
-        hours = float(input("Enter the number of hours: "))
+        hours = int(input("Enter the number of hours: "))
         if hours < 0:
             print("Please enter a positive integer for the number of hours.")
         else:
@@ -42,16 +42,19 @@ while True:
 
 while True:
     try:
-        while True:
-            try:
-                melting_rate = float(input("Enter melting rate per hour: "))
-                if melting_rate < 0 and not isinstance(melting_rate, (int, float)):
-                    print("Please enter a non-negative value for the melting rate.")
-                else:
-                    break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
+        melting_rate = float(input("Enter melting rate per hour: "))
+        if melting_rate < 0:
+            print("Please enter a non-negative value for the melting rate.")
+        else:
+            break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
-print(snow_day(int(hours), initial_snow, float(rate_of_snowfall), float(melting_rate)))
+print(
+    snow_day(
+        hours,
+        Decimal(str(initial_snow)),
+        Decimal(str(rate_of_snowfall)),
+        Decimal(str(melting_rate)),
+    )
+)
