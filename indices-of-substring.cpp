@@ -9,7 +9,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         result.push_back(pos);
-        pos += target.length(); // Start the search from the next character
+        pos += target.length();
     }
     return result;
 }
