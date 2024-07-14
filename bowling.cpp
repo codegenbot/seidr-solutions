@@ -1,23 +1,17 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
+    int currentRoll = 0;
     for (char c : s) {
         if (c == '/') {
-            if (currentFrame < 10) {
-                score += min(10 - currentFrame, stoi(string(1, c))) * 10;
+            if (currentRoll < 2) {
+                score += 10 - currentRoll;
             }
-            currentFrame++;
+            currentRoll = 0;
+        } else if (isdigit(c)) {
+            currentRoll++;
         } else {
-            int pins = 0;
-            while (c != '/') {
-                pins *= 10;
-                pins += c - '0';
-                if (currentFrame < 10) {
-                    score += pins;
-                }
-                c = s[s.find(c) + 1];
-            }
-            currentFrame++;
+            score += stoi(string(1, c));
+            currentRoll = 0;
         }
     }
     return score;
