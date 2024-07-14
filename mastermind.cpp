@@ -1,5 +1,5 @@
 ```cpp
-int mastermind(string code, string guess) {
+int mastermind(const char* code, const char* guess) {
     int white = 0;
     int black = 0;
 
@@ -9,17 +9,17 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
+    for (int j = 0; j < 4; ++j) {
         int count = 0;
-        for (int i = 0; i < 4; ++i++) {
-            if (c == guess[i]) {
+        for (int k = 0; k < 4; ++k) {
+            if (guess[j] == code[k]) {
                 count++;
-                if (count == 1) {
-                    black--;
-                } else {
-                    white += count - 1;
-                }
             }
+        }
+        if (count > 1) {
+            white += count - 1;
+        } else if (count == 1) {
+            black--;
         }
     }
 
