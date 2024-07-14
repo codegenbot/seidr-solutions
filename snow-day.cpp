@@ -22,7 +22,7 @@ int main() {
     std::cout << "Enter the proportion of snow melting per hour: ";
     std::cin >> proportionOfSnowMeltingPerHour;
 
-    float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    float result = snowDay(hours, initialSnow, rateOfSnowFall / 100.0f, proportionOfSnowMeltingPerHour);
 
     std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
 
