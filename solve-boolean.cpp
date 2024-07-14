@@ -1,6 +1,4 @@
-```cpp
 #include <string>
-#include <stack>
 
 bool solveBoolean(std::string s) {
     std::stack<bool> stack;
@@ -12,5 +10,4 @@ bool solveBoolean(std::string s) {
         else if (c == '&') stack.push(stack.top() && stack.pop());
         else if (c == 'T' || c == 'F') stack.push(c == 'T');
     }
-    return {stack.top()};
-}
+    return stack.top();
