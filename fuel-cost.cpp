@@ -1,12 +1,10 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int calculateFuelCost(vector<int>& costs) {
+int calculateFuelCost(vector<int> &numbers) {
     int total = 0;
-    for (int cost : costs) {
-        int newCost = static_cast<int>(cost / 3.0);
-        newCost -= 2;
-        total += max(0, newCost);
+    for (int num : numbers) {
+        int result = (num / 3) - 2;
+        total += result;
     }
     return total;
 }
