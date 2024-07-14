@@ -1,24 +1,20 @@
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
-    std::vector<std::string> groups;
-    std::istringstream iss(str);
-    std::string word;
-    while (iss >> word) {
-        if (!word.empty()) {
-            groups.push_back(word);
+    std::string result = "";
+    bool capitalizeNextWord = true;
+    for (char c : str) {
+        if (c == ' ') {
+            capitalizeNextWord = true;
+        } else if (capitalizeNextWord) {
+            result += toupper(c);
+            capitalizeNextWord = false;
+        } else {
+            result += tolower(c);
         }
     }
-
-    std::string result = "";
-    for (const auto& group : groups) {
-        result += toupper(group[0]);
-        result += std::string(1, group.substr(1));
-    }
-
     return result;
 }
 
