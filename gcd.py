@@ -1,12 +1,13 @@
-```Python
-def gcd(a, b):
-    while b:
+```
+def find_gcd(a, b):
+    if a <= 0 and b <= 0:
+        return 1
+    while b != 0:
         a, b = b, a % b
     return abs(a)
 
-def find_gcd():
-    a = int(input("Enter first integer: "))
-    b = int(input("Enter second integer: "))
-    print(f"GCD of {a} and {b} is {gcd(a, b)}")
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
 
-find_gcd()
+gcd_value = find_gcd(num1, num2)
+print(f"The GCD of {num1} and {num2} is {gcd_value}")

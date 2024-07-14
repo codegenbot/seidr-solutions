@@ -1,6 +1,8 @@
+```cpp
+#include <vector>
+#include <cmath>
 #include <climits>
 #include <iostream>
-#include <vector>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
@@ -14,34 +16,41 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     long long leftSum = 0, rightSum = sum;
-    int minDiff = INT_MAX, cutIndex = -1;
-
-    std::vector<std::vector<int>> res;
-    res.push_back(std::vector<int>());
-    res.push_back(std::vector<int>());
+    int minLeft = INT_MAX, minRight = INT_MAX;
+    int leftCut = 0, rightCut = 0;
 
     for (int i = 0; i < n; i++) {
-        long long leftSumTemp = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSumTemp += v[j];
+        if (std::abs(leftSum - rightSum) < minLeft) {
+            minLeft = std::abs(leftSum - rightSum);
+            leftCut = i;
         }
-        
-        long long rightSumTemp = sum - leftSumTemp;
-        if ((leftSumTemp == rightSumTemp) || (std::abs(leftSumTemp - rightSumTemp) < minDiff)) { 
-            minDiff = std::abs(leftSumTemp - rightSumTemp);
-            cutIndex = i;
+        if (std::abs(leftSum - rightSum) < minRight) {
+            minRight = std::abs(leftSum - rightSum);
+            rightCut = i;
+        }
+        if (leftSum + v[i] <= rightSum) {
+            leftSum += v[i];
+        } else {
+            rightSum -= v[i];
         }
     }
     
-    res[0].assign(v.begin(), v.begin() + cutIndex);
-    
-    res[1].assign(v.begin() + cutIndex, v.end());
-    
-    return res;
+    if (minLeft <= minRight) {
+        return {{v.begin(), v.begin() + leftCut}, {v.begin() + leftCut, v.end()}};
+    } else {
+        return {{v}};
+    }
 }
 
 int main() {
-    std::vector<int> v = {1, 2, 3, 4, 5};
-    std::cout << cutVector(v).size() << " " << cutVector(v)[0].size() << std::endl;
+    std::vector<int> v = {1, 2, 3, 4};
+    auto result = cutVector(v);
+    
+    for (const auto& sub : result) {
+        for (int num : sub) {
+            std::cout << num << " ";
+        }
+        std::cout << "\n";
+    }
     return 0;
 }

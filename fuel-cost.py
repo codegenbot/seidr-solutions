@@ -1,13 +1,5 @@
-```
-import math
-
 def fuel_cost(vector):
-    return sum(math.floor(i // 3) - 2 for i in vector)
+    return sum((x//3)-2 for x in vector)
 
-vector = input("Enter the vector of positive integers (space separated): ")
-vector = list(map(int, vector.split()))
-while any(i <= 0 for i in vector):
-    print("Invalid input! Please enter a vector of positive integers.")
-    vector = list(map(int, input("Enter the vector of positive integers (space separated): ").split()))
-
+vector = list(map(int, filter(lambda x: int(x) > 0, input("Enter a vector of positive integers (space separated): ").split())))
 print(fuel_cost(vector))
