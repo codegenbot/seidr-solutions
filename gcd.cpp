@@ -1,6 +1,6 @@
-```c++
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -29,16 +29,21 @@ int main() {
 
     vector<int> indices = indicesOfSubstring(text, target);
 
-    int max_gcd = 1;
-    for (int i = 1; i < indices.size(); i++) {
-        max_gcd = gcd(max_gcd, indices[i]);
+    if(indices.size() > 1) {
+        int min_index = *min_element(indices.begin(), indices.end());
+        int max_index = *max_element(indices.begin(), indices.end());
+        cout << "GCD of indices: " << gcd(min_index, max_index) << endl;
+    } else if(indices.empty()) {
+        cout << "GCD of indices: 0" << endl;
+    } else {
+        cout << "GCD of indices: " << *min_element(indices.begin(), indices.end()) << endl;
     }
+
     cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
-    cout << "GCD of indices: " << max_gcd << endl;
 
     return 0;
 }
