@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <vector>
 using namespace std;
@@ -9,6 +10,5 @@ double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
         double diff = x2[i] - x1[i];
         result += pow(diff, 2);
     }
-    
-    return sqrt(result);
+    return sqrt(result); 
 }
