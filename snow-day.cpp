@@ -24,7 +24,7 @@ int main() {
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result;
-    
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
+
     return 0;
 }
