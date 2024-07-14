@@ -7,6 +7,7 @@
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::string buffer;
     std::vector<std::string> arr;
+    int i = 0;
 
     for (char c : str) {
         if (c == ' ') {
@@ -52,12 +53,8 @@ std::string camelCase(const std::string& str) {
         } else {
             result = segments[i];
         }
-        if (i < segments.size() - 1) {
-            if (segments[i].size() > 1) {
-                result += segments[i].substr(1);
-            } else {
-                result += segments[i + 1].substr(0, 1);
-            }
+        if (i < segments.size() && !segments[i+1].empty()) {
+            result += segments[i+1].substr(0, 1);
         }
     }
 
