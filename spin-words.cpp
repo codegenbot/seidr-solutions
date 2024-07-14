@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -21,15 +20,22 @@ std::string spinWords(std::string str) {
     for (int i = 0; i < result.length(); i++) {
         if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
             int j = i;
-            while ((result[j] >= 'a' && result[j] <= 'z') || (result[j] >= 'A' && result[j] <= 'Z')) {
+            while ((j < result.length()) && ((result[j] >= 'a' && result[j] <= 'z') || (result[j] >= 'A' && result[j] <= 'Z'))) {
                 j++;
             }
             if (j - i > 4) {
                 for (int k = j; k > i; k--) {
                     newResult += result[k-1];
                 }
+                newResult += " ";
+                i = j;
             } else {
-                newResult += word;
+                newResult += result[i];
+                for (int k = i + 1; k < j; k++) {
+                    newResult += result[k];
+                }
+                newResult += " ";
+                i = j;
             }
         } else {
             newResult += result[i];
@@ -40,10 +46,10 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;  // a
-    std::cout << spinWords("this is a test") << std::endl;  // this is a test
-    std::cout << spinWords("this is another test") << std::endl;  // this is rehtona test
-    std::cout << spinWords("hi") << std::endl;  // hi
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
     
     return 0;
 }
