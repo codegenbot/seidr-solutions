@@ -17,3 +17,4 @@ int main() {
     string tweet;
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
+}
