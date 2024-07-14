@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -34,5 +34,4 @@ int main() {
     std::string message = input3; 
 
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
-    return 0;
 }
