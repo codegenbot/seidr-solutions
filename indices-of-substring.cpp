@@ -5,7 +5,7 @@ using namespace std;
 void computeLPSArray(string pat, vector<int>& lps, int len) {
     int m;
     lps[0] = 0; 
-    m = pat.length(); 
+    m = 1; 
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
@@ -26,31 +26,19 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
-    int len = 0; 
+    computeLPSArray(target, lps, target.length());
 
-    computeLPSArray(target, lps, len);
+    for (int i = 0; i < n - m + 1; i++) {
+        int j = 0;
+        while (j < m && text[i + j] == target[j]) {
+            j++;
+        }
 
-    int i = 0; 
-    while (i < n) {
-        if (text[i] == target[0]) { 
-            if (target.length() == 1 || text.substr(i, m) == target) {
-                result.push_back(i);
-                i += m;
-                for (int j = 0; j < result.size(); j++) {
-                    if (result[j] + m <= i) {
-                        i = result[j] + m;
-                        break;
-                    }
-                }
-            } else {
-                int j = 1; 
-                while (i + j < n && text.substr(i, j) == target.substr(0, j)) { 
-                    j++;
-                }
-                i += j;
-            }
+        if (j == m) {
+            result.push_back(i);
         } else {
-            i = i + 1;
+            int k = lps[j-1];
+            i = i + j - k; // move the start index of new substring
         }
     }
 
