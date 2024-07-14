@@ -1,24 +1,39 @@
-string solveBoolean(string expression) {
-    stack<char> ops;
-    stack<string> values;
+#include <vector>
+using namespace std;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            string right = values.top();
-            values.pop();
-            string left = values.top();
-            values.pop();
-            values.push(left + "&" + right);
-        } else if (expression[i] == '|') {
-            string right = values.top();
-            values.pop();
-            string left = values.top();
-            values.pop();
-            values.push(left + "|" + right);
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            values.push(expression.substr(i, 1));
+bool solveBoolean(string s) {
+    bool res = true;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'T') {
+            i++;
+        } else if (s[i] == 'F') {
+            return false;
+        } else if (s[i] == '&') {
+            i++; // skip &
+            bool left = true;
+            if (s[i] != 'T') {
+                left = false;
+                while (i < s.length() && s[i] != '&') {
+                    i++;
+                }
+                i++; // skip &
+            }
+            res &= left; // update result
+        } else if (s[i] == '|') {
+            i++; // skip |
+            bool left = true;
+            if (s[i] != 'T') {
+                left = false;
+                while (i < s.length() && s[i] != '|') {
+                    i++;
+                }
+                i++; // skip |
+            }
+            res |= left; // update result
+        } else {
+            i++;
         }
     }
-
-    return values.top() == "T" ? "True" : "False";
+    return res;
 }
