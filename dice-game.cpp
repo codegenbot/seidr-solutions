@@ -2,12 +2,20 @@
 #include <cmath>
 
 double diceGame(int n, int m) {
-    double total = 1.0 * (n * m);
+    double total = 1.0 * (n);
     
     double win = 0.0;
     
-    for(int i = 1; i < m; i++) { 
+    for(int i = 1; i <= m && i < n; i++) { 
         win += ((n - i)) / total; 
+        total--;
+    }
+    
+    // subtract the probability of them rolling equal
+    if(m > n) {
+        win -= (1.0 * (m - (n-1))) / total;
+    } else {
+        win -= (1.0 * (n - m)) / total;
     }
     
     return win;
