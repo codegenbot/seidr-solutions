@@ -1,13 +1,19 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            if (roll < 2)
-                score += 10 - '0';
-            roll = 0;
-        } else if (isdigit(c)) {
-            roll *= 10 + '0' - c;
+    for(int i=0; i<10; i++){
+        if(s[i] == 'X'){
+            score += 30;
+        }else if(s[i+1] == '/'){
+            int firstPin = s[i] - '0';
+            int secondPin = s[i+2] - '0';
+            score += firstPin + secondPin;
+        }else{
+            int pins = 0;
+            for(int j=i; j<i+3; j++){
+                pins *= 10;
+                pins += s[j] - '0';
+            }
+            score += pins;
         }
     }
     return score;
