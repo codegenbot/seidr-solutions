@@ -17,7 +17,7 @@ int main() {
     while (true) {
         std::cout << "Enter the number of sides on Peter's die: ";
         if (!(std::cin >> n)) break; 
-        std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability(n, m) << std::endl;
+        std::cout << "The number of sides on Peter's die is: " << n << "\n";
         std::cout << "Enter the number of sides on Colin's die: ";
         if (!(std::cin >> m)) break; 
         double result = probability(n, m);
