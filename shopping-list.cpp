@@ -1,17 +1,3 @@
-#include <vector>
-#include <initializer_list>
-#include <iostream>
-
-using namespace std;
-
-double shoppingList(vector<float> prices, vector<float> discounts) {
-    double total = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
-    }
-    return total;
-}
-
 int main() {
     int numItems;
     cin >> numItems;
@@ -21,10 +7,10 @@ int main() {
         cin >> price;
     }
 
-    int numDiscounts;
-    cin >> numDiscounts;
+    int secondNumber;
+    cin >> secondNumber;
 
-    vector<float> discounts(numDiscounts);
+    vector<float> discounts(secondNumber);
     for (float &discount : discounts) {
         cin >> discount;
     }
