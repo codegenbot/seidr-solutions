@@ -8,16 +8,10 @@ int bowlingScore(string bowls) {
         } else if (isdigit(bowls[i])) {
             int currentFrameScore = 0;
             int j = i;
-            while(j < bowls.length() && (j + 1 < bowls.length() ? isdigit(bowls[j+1]) : true)) {
+            while (j < bowls.length() && j - i <= 1) {
                 if (isdigit(bowls[j])) {
                     currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
                     j++;
-                    if (j < bowls.length()) {
-                        if (bowls[j] == '/') {
-                            break;
-                        }
-                        j++;
-                    }
                 } else {
                     break;
                 }
