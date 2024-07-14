@@ -1,3 +1,4 @@
+```c++
 #include <string>
 using namespace std;
 
@@ -11,7 +12,7 @@ string squareDigits(string input) {
 }
 
 int main() {
-    string input = "17";
-    cout << squareDigits(input) << endl;
+    string input = "14";
+    cout << squareDigits(input) << endl; // 91
     return 0;
 }
