@@ -18,7 +18,7 @@ int bowlingScore(const string& frames) {
             score += roll;
             currentRolls++;
             if (currentRolls == 2) {
-                int c1 = roll, c2 = c - '0';
+                int c1 = roll, c2 = 10 - roll;
                 score += c1 + c2;
                 currentRolls = 0;
             }
