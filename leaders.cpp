@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -8,7 +7,7 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> res;
     
     int lastLeader = arr.back();
-    for(int i=n-2; i>=0; i--) {
+    for(int i=n-1; i>=0; i--) {
         if(arr[i] >= lastLeader) {
             res.push_back(arr[i]);
             lastLeader = arr[i];
