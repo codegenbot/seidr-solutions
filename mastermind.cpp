@@ -2,8 +2,7 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct colors in the wrong places
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
             code[i] = 'X';
@@ -11,18 +10,17 @@ int mastermind(string code, string guess) {
         }
     }
 
-    // Count the number of correct colors in the right places
-    for (int i = 0; i < 4; i++) {
-        int j = 0;
-        while (j < 4) {
-            if (code[j] == guess[i]) {
-                white++;
-                code[j] = 'X';
-                break;
+    for (int i = 0; i < 4; ++i) {
+        int count = 0;
+        for (char c : code) {
+            if (c == guess[i]) {
+                count++;
             }
-            j++;
+        }
+        if (count > 0 && code.find(guess[i]) == string::npos) {
+            white += count - 1;
         }
     }
 
-    return black + white - black;
+    return black + white;
 }
