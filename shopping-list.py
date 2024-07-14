@@ -1,14 +1,10 @@
+```
 def shopping_list():
     total = 0
-    quit_processing = False
     while True:
         try:
-            if not quit_processing:
-                prices_input = input("Enter prices (space-separated), or 'q' to quit: ")
-                if prices_input == "q":
-                    quit_processing = True
-
-            if quit_processing:
+            prices_input = input("Enter prices (space-separated), or 'q' to quit: ")
+            if prices_input == "q":
                 return round(total, 2)
 
             if prices_input != "q":
