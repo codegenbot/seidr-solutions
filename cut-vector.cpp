@@ -4,38 +4,14 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
     vector<vector<int>> res;
-    int min_diff = INT_MAX;
-    int split_index = -1;
-    for (int i = 1; i < n; i++) {
-        if (v[i] == v[0]) {
-            if ((i == n - 1) || (v[i+1] != v[0])) {
-                min_diff = abs(v[i] - v[i-1]);
-                split_index = i;
-            }
-        } else {
-            int diff = abs(v[i] - v[i-1]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                split_index = i;
-            }
+    int n = v.size();
+    for (int i = 0; i < n; i++) {
+        if (i == n - 1 || v[i] != v[0]) {
+            res.push_back(vector<int>(v.begin(), v.begin() + i));
+            break;
         }
     }
-    vector<int> left;
-    vector<int> right;
-    for (int i = 0; i < split_index; i++) {
-        left.push_back(v[i]);
-    }
-    left = vector<int>(left.begin(), left.end());
-    res.push_back(left);
-
-    right.clear();
-    for (int i = split_index; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-    right = vector<int>(right.begin(), right.end());
-    res.push_back(right);
     return res;
 }
 
