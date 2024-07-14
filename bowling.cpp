@@ -1,50 +1,46 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            int firstPin = stoi(s.substr(0, i));
-            int secondPin = stoi(s.substr(i + 1));
-            score += getPointsInFrame(firstPin, secondPin);
-            currentFrame++;
-        }
-    }
-    return score;
-}
-
-int getPointsInFrame(int pins1, int pins2) {
-    if (pins1 == 10) {
-        return 10 + getPointsInNextTwoFrames();
-    } else if (pins1 + pins2 >= 10) {
-        return 10 + getPointsInRemainingPins(pins1 + pins2);
-    } else {
-        return pins1 + pins2;
-    }
-}
-
-int getPointsInNextTwoFrames() {
-    int score = 0;
-    for (int i = 0; i < 2; i++) {
-        if (i == 0) {
-            int firstPin = s[i * 3];
-            int secondPin = s[i * 3 + 1];
-            int thirdPin = s[i * 3 + 2] - 'X';
-            score += getPointsInFrame(firstPin, secondPin);
+    for (int i = 0; i < 10; i++) {
+        if (input[i] == '/') {
+            string firstPart = input.substr(0, i);
+            string secondPart = input.substr(i + 1);
+            int firstFrameScore = getFirstFrameScore(firstPart);
+            int secondFrameScore = getSecondFrameScore(secondPart);
+            score += firstFrameScore + secondFrameScore;
         } else {
-            if (s[i * 3] == 'X') {
-                return 10;
-            } else {
-                return 10 + getPointsInRemainingPins(stoi(s.substr(i * 3)));
-            }
+            int frameScore = getSingleFrameScore(input[i]);
+            score += frameScore;
         }
     }
     return score;
 }
 
-int getPointsInRemainingPins(int pins) {
-    if (pins > 7) {
+int getFirstFrameScore(string input) {
+    if (input[0] == 'X') {
         return 10;
     } else {
-        return pins;
+        return stoi(input);
+    }
+}
+
+int getSecondFrameScore(string input) {
+    if (input[0] == '/') {
+        return 10 - stoi(input.substr(1));
+    } else if (input[0] == 'X') {
+        return 10;
+    } else {
+        int firstRoll = stoi(input.substr(0, 1));
+        int secondRoll = 10 - firstRoll;
+        return firstRoll + secondRoll;
+    }
+}
+
+int getSingleFrameScore(char input) {
+    if (input == 'X') {
+        return 10;
+    } else if (input == '/') {
+        return 10;
+    } else {
+        return stoi(input);
     }
 }
