@@ -1,14 +1,20 @@
 ```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> res;
     int n = v.size();
     for (int i = 0; i <= n - 1; i++) {
         if (i > 0 && v[i] != v[0]) {
-            res.first = vector<int>(v.begin(), v.begin() + i);
-            res.second = vector<int>(v.begin() + i, v.end());
             break;
         }
     }
+    vector<int> left(v.begin(), v.begin() + i);
+    vector<int> right(v.begin() + i, v.end());
+    res.first = left;
+    res.second = right;
     return res;
 }
 
