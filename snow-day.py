@@ -1,2 +1,9 @@
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    return round(initial_snow + sum((rate_of_snowfall / 1.0) * hour for hour in range(1, hours+1)) - sum((melting_rate / 1.0) * hour for hour in range(1, hours+1)), 2)
+    snow = round(initial_snow, 2)
+    for _ in range(hours):
+        snow += rate_of_snowfall
+        if snow > 0:
+            snow -= melting_rate
+        else:
+            break
+    return round(snow, 2)
