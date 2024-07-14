@@ -31,4 +31,3 @@ int mastermind(string code, string guess) {
     }
     
     return std::pair<int, int>(blackPegs, whitePegs);
-}
