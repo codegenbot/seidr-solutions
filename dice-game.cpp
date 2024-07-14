@@ -11,9 +11,15 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     std::cout << "Enter the number of sides for Peter's die: ";
-    std::cin >> n;
+    if (!(std::cin >> n)) {
+        std::cerr << "Invalid input for Peter's die.\n";
+        return 1;
+    }
     std::cout << "Enter the number of sides for Colin's die: ";
-    std::cin >> m;
+    if (!(std::cin >> m)) {
+        std::cerr << "Invalid input for Colin's die.\n";
+        return 1;
+    }
     double result = diceGame(n, m);
     std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
     return 0;

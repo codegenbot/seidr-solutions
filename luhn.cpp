@@ -13,4 +13,3 @@ int luhn(std::vector<int> digits) {
             sum += digits[i]; 
     }
     return sum;
-}
