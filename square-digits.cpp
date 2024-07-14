@@ -1,3 +1,4 @@
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -11,9 +12,9 @@ string squareDigits(string input) {
 }
 
 int main() {
-    string input;
+    string s;
     cout << "Enter a positive integer: ";
-    cin >> input;
-    cout << squareDigits(input) << endl;
+    cin >> s;
+    cout << squareDigits(s) << endl;
     return 0;
 }
