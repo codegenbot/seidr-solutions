@@ -3,13 +3,11 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
-    int prev = -1;
-    for (int i = 0; i < s.length(); i++) {
-        int curr = s[i] - '0';
-        if (curr == prev) {
-            sum += curr;
+    for (int i = 0; i < s.length() - 1; i++) {
+        if (s[i] == s[i + 1]) {
+            int sumOfDigits = s[i] - '0' + s[i + 1] - '0';
+            sum += (sumOfDigits % 10 == 9 ? 18 : sumOfDigits);
         }
-        prev = curr;
     }
     return sum;
 
