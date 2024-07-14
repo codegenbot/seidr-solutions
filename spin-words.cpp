@@ -1,30 +1,28 @@
+#include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= sentence.size(); i++) {
-        if (i == sentence.size() || sentence[i] == ' ') {
-            string word = sentence.substr(start, i - start);
-            if (word.size() >= 5) {
-                string reversedWord = word;
-                std::reverse(reversedWord.begin(), reversedWord.end());
-                words.push_back(reversedWord);
-            } else {
-                words.push_back(word);
-            }
-            start = i + 1;
+std::string spinWords(const std::string& input) {
+    std::stringstream ss(input);
+    std::string word;
+    std::string result;
+
+    while (ss >> word) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
+        result += word + " ";
     }
-    return join(words, " ");
+
+    return result.substr(0, result.size() - 1);
 }
 
-std::string join(const std::vector<std::string>& vec, const std::string& sep) {
-    std::string result = "";
-    for (size_t i = 0; i < vec.size(); i++) {
-        result += vec[i];
-        if (i < vec.size() - 1)
-            result += sep;
+int main() {
+    std::string input;
+    while (true) {
+        std::cout << "Enter a string (or 'q' to quit): ";
+        std::getline(std::cin, input);
+        if (input == "q") break;
+        std::cout << spinWords(input) << std::endl;
     }
-    return result;
+    return 0;
 }
