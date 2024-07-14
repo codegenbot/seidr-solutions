@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 #include <iostream>
 
-std::string validateTweet(std::string input) {
+std::string validateTweet(const std::string& input) {
     if (input.empty()) {
         return "You didn't type anything";
     }
