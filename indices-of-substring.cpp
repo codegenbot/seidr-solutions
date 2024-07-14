@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,17 +8,21 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     // Preprocess the target string to build the lps array
-    std::vector<int> lps(m);
-    lps[0] = 1; 
-    for (int i = 1, j = 0; i < m; i++, j++) {
-        if (target[i] == target[j]) {
-            lps[i] = j + 1;
+    std::vector<int> lps;
+    lps.push_back(0);
+    int lpIndex = 1;
+    while (lpIndex < m) {
+        if (target[lpIndex] == target[0]) {
+            lps.push_back(lpIndex + 1);
+            break;
+        }
+        lpIndex++;
+    }
+    for (int lpIndex = 1; lpIndex < m; lpIndex++) {
+        if (target[lpIndex] == target[lps[lpIndex - 1]]) {
+            lps.push_back(lps[lpIndex - 1] + 1);
         } else {
-            lps[i] = j;
-            while (j > 0 && target[i] != target[j])
-                j = lps[j - 1];
-            if (i < m && i == target.length() - 1) break; 
-            lps[i] = j;
+            lps.push_back(lps[lpIndex - 1]);
         }
     }
 
@@ -42,10 +47,23 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     std::string text, target;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
+
+    while (text.empty()) {
+        std::cout << "Enter a sentence: ";
+        std::getline(std::cin, text);
+
+        if (!text.empty())
+            break;
+    }
+
+    while (target.empty()) {
+        std::cout << "Enter the target string: ";
+        std::getline(std::cin, target);
+
+        if (!target.empty())
+            break;
+    }
+
     std::vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         std::cout << i << " ";
