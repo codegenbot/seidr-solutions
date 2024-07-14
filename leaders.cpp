@@ -1,17 +1,16 @@
 #include <vector>
 #include <iostream>
-#include <deque>
 
-std::deque<int> leaders(std::vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    std::deque<int> res;
+    std::vector<int> res;
     int maxRight = arr.back();  
-    res.push_back(maxRight);     
+    res.emplace(0, maxRight);     
 
     for (int i = n - 2; i >= 0; --i) {
         if (arr[i] >= maxRight) { 
             maxRight = arr[i];  
-            res.push_front(arr[i]);   
+            res.emplace(0, arr[i]);   
         }
     }
     return res;
