@@ -1,6 +1,7 @@
-```cpp
+```c
 #include <iostream>
 #include <string>
+#include <limits>
 
 int pairedDigits(const std::string& s) {
     int sum = 0;
@@ -19,4 +20,5 @@ int main() {
     std::cin >> input;
     int result = pairedDigits(input);
     std::cout << "Sum of paired digits is: " << result << std::endl;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return 0;
