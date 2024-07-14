@@ -1,28 +1,41 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result;
-    bool capitalizeNext = true;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    std::stringstream ss(str);
+    std::string word;
 
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
+    while (ss >> word) {
+        if (!word.empty()) {
+            words.push_back(word);
         }
+    }
+
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            words[i][0] = toupper(words[i][0]);
+        }
+    }
+
+    std::string result;
+    for (const auto& word : words) {
+        result += word;
+        if (i < words.size() - 1) {
+            result += " ";
+        }
+        ++i;
     }
 
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << '\n';
-    }
+    std::cout << camelCase("nospaceordash") << std::endl;
+    std::cout << camelCase("two-words") << std::endl;
+    std::cout << camelCase("two words") << std::endl;
+    std::cout << camelCase("all separate words") << std::endl;
+
     return 0;
 }
