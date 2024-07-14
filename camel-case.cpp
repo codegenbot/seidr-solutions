@@ -1,41 +1,32 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string toCamelCase(std::string s) {
-    std::string result;
-    size_t i = 0;
+using namespace std;
 
-    while (i < s.size()) {
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++;
-            while (i < s.size() && s[i] == '-') i++;
-            if (i >= s.size()) break;
-            result += toupper(s[i]);
-            i++;
-        } else if (s[i] == ' ') {
-            i++;
-            while (i < s.size() && s[i] == ' ') i++;
-            if (i >= s.size()) break;
-            if (!result.empty()) result += towupper(s[i]);
-            else result += tolower(s[i]);
-            i++;
-        } else {
-            if (!result.empty()) {
-                if (result.back() != toupper(s[i])) result += toupper(s[i]);
-                else result += tolower(s[i]);
-            } else {
-                result += tolower(s[i]);
+            while (i < s.length() && s[i] != ' ') {
+                result += toupper(s[i]);
+                i++;
             }
-            i++;
+            result += ' ';
+        } else {
+            result += tolower(s[i]);
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << toCamelCase(s) << '\n';
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << camelCase(input) << endl;
     return 0;
 }
