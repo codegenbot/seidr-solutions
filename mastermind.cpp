@@ -1,6 +1,3 @@
-#include <string>
-#include <map>
-
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -11,7 +8,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::map<char,int> codeCount;
+    map<char,int> codeCount;
     codeCount['A'] = 0;
     codeCount['B'] = 0;
     codeCount['C'] = 0;
@@ -20,7 +17,7 @@ int mastermind(std::string code, std::string guess) {
         codeCount[c]++;
     }
     
-    std::map<char,int> guessCount;
+    map<char,int> guessCount;
     guessCount['A'] = 0;
     guessCount['B'] = 0;
     guessCount['C'] = 0;
