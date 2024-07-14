@@ -3,34 +3,57 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int idx = -1;
-    for (int i = 0; i < v.size(); ++i) {
+    int idx = 0;
+    
+    for (int i = 1; i <= v.size(); i++) {
         int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j) left_sum += v[j];
-        for (int j = i + 1; j < v.size(); ++j) right_sum += v[j];
-        if ((left_sum == right_sum) || abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
+        
+        if (i == 1)
+            left_sum = v[i - 1];
+        else
+            for (int j = 0; j < i; j++)
+                left_sum += v[j];
+        
+        right_sum = accumulate(v.begin() + i, v.end(), 0);
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
             idx = i;
         }
     }
-
-    return {vector<int>(v.begin(), v.begin() + idx), vector<int>(v.begin() + idx, v.end())};
+    
+    vector<int> left, right;
+    for (int i = 0; i < idx; i++)
+        left.push_back(v[i]);
+    for (int i = idx; i < v.size(); i++)
+        right.push_back(v[i]);
+    
+    return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (int &i : v) cin >> i;
+    for (auto& x : v)
+        cin >> x;
 
-    pair<vector<int>, vector<int>> res = cutVector(v);
+    pair<vector<int>, vector<int>> result = cutVector(v);
 
-    cout << "{";
-    for (int i : res.first) cout << i << " ";
-    cout << "}" << endl;
-    cout << "{";
-    for (int i : res.second) cout << i << " ";
-    cout << "}" << endl;
+    cout << "[";
 
+    for (const auto& x : result.first) {
+        cout << x << " ";
+    }
+    cout << "] [";
+
+    for (const auto& x : result.second) {
+        cout << x << " ";
+    }
+
+    cout << "]" << endl;
+    
     return 0;
 }
