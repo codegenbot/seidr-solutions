@@ -1,36 +1,43 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
+std::string spinWords(std::string sentence) {
     std::string result = "";
-    size_t start = 0;
+    size_t pos = 0;
     
-    while (start < str.length()) {
-        size_t end = str.find(' ', start);
+    while ((pos = sentence.find(" ")) != std::string::npos) {
+        size_t nextPos = sentence.find(" ", pos + 1);
+        if (nextPos == std::string::npos)
+            nextPos = sentence.length();
         
-        if (end == std::string::npos) {
-            end = str.length();
-        }
-        
-        std::string word = str.substr(start, end - start);
-        
+        std::string word = sentence.substr(pos, nextPos - pos);
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
         
-        result += word + " ";
-        start = end + 1;
+        result += word;
+        if (nextPos < sentence.length())
+            result += " ";
+        
+        pos = nextPos + 1;
     }
     
-    return result.substr(0, result.length() - 1);
+    if (pos < sentence.length()) {
+        std::string lastWord = sentence.substr(pos);
+        if (lastWord.length() >= 5)
+            std::reverse(lastWord.begin(), lastWord.end());
+        result += lastWord;
+    }
+    
+    return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    
-    std::cout << spinWords(str) << std::endl;
-    
+    // Test cases
+    cout << spinWords("a") << endl;    // a
+    cout << spinWords("this is a test") << endl;    // this is a test
+    cout << spinWords("this is another test") << endl;    // this is rehtona test
+    cout << spinWords("hi") << endl;    // hi
+
     return 0;
 }
