@@ -1,8 +1,8 @@
 def paired_digits(s):
     total_sum = 0
-    for i, c in enumerate(s):
-        if i > 0 and c == s[i - 1]:
-            total_sum += int(c) * 2
-        else:
-            prev_digit = c
+    prev_digit = None
+    for digit in s:
+        if digit == prev_digit:
+            total_sum += int(digit) * 2
+        prev_digit = digit
     return total_sum
