@@ -1,7 +1,13 @@
 #include <string>
 using namespace std;
 
-string reverse(string str);
+string reverse(string str) {
+    string revStr = "";
+    for(int i = str.length() - 1; i >= 0; i--) {
+        revStr += str[i];
+    }
+    return revStr;
+}
 
 string spinWords(string str) {
     string result = "";
@@ -22,12 +28,4 @@ string spinWords(string str) {
     }
     
     return result.substr(0, result.length() - 1);
-}
-
-string reverse(string str) {
-    string revStr = "";
-    for(int i = str.length() - 1; i >= 0; i--) {
-        revStr += str[i];
-    }
-    return revStr;
 }
