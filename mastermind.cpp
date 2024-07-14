@@ -28,3 +28,7 @@ int mastermind(const char* code, const char* guess) {
 
     return black + white;
 }
+
+int main() {
+    return 0;
+}
