@@ -1,20 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
-
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int index = 0;
     while (index <= text.length() - target.length()) {
         if (text.substr(index, target.length()).compare(target) == 0) {
-            indices.push_back(index);
+            result.push_back(index);
             index += target.length();
         } else {
             index++;
         }
     }
-    return indices;
+    return result;
 }
 
 int gcd(int a, int b) {
