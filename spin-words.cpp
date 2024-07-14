@@ -1,35 +1,38 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    int i = 0;
-    
-    while(i < input.length()) {
-        if(input[i] == ' ') {
-            output += " ";
-            i++;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    int wordLength = 0;
+    bool inWord = false;
+
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (inWord && wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += sentence[wordLength - i - 1];
+            }
+            inWord = false;
+            result += ' ';
         } else {
-            int j = i + 1;
-            
-            // find the space or the end of the string
-            while(j <= input.length() && input[j] != ' ' && j < input.length()) {
-                j++;
-            }
-            
-            // check if the word is more than 4 characters
-            if((j - i) > 5) {
-                for(int k = j - 1; k >= i; k--) {
-                    output += input[k];
-                }
-            } else {
-                while(i < j) {
-                    output += input[i];
-                    i++;
-                }
-            }
+            inWord = true;
+            wordLength++;
+            result += c;
         }
     }
-    
-    return output;
+
+    if (inWord && wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += sentence[wordLength - i - 1];
+    }
+
+    return result;
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    return 0;
 }
