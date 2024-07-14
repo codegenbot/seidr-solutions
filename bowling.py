@@ -4,7 +4,9 @@ def bowling_score(game):
     frame = 1
     for i in range(0, len(game), 2):
         if game[i] == 'X':
-            score += 10 + (10 if frame < 9 and game[i+2].isdigit() else 0)
+            score += 10
+            if frame < 9 and game[i+2].isdigit():
+                score += int(game[i+1])
             frame += 1
         elif game[i] == '/':
             first_roll = int(game[i-1])
@@ -21,5 +23,6 @@ def bowling_score(game):
                 frame += 1
             else:
                 score += first_roll + int(game[i+1])
-                frame += (game[i+2] == 'X')
+                if game[i+2] == 'X' or game[i+2].isdigit():
+                    frame += 1
     return score
