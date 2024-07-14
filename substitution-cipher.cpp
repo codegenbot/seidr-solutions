@@ -17,13 +17,10 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string cipher_map1, cipher_map2, message;
     std::cout << "Enter the first map: ";
-    std::flush(std::cout);
     std::getline(std::cin, cipher_map1);
     std::cout << "Enter the second map: ";
-    std::flush(std::cout);
     std::getline(std::cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
-    std::flush(std::cout);
     std::getline(std::cin, message);
     std::string result = decipher(cipher_map1, cipher_map2, message);
     std::cout << "Deciphered message: " << result << std::endl;
