@@ -1,6 +1,6 @@
 ```
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]  
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickles, pennies
     results = []
     
     for i in range(0, cents + 1):
