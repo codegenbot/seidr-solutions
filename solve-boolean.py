@@ -1,7 +1,6 @@
 Here is the completed code:
 
 ```
-Here is the completed code:
 def solve_boolean(expression):
     if expression == 'T':
         return True
