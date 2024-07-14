@@ -1,4 +1,7 @@
+Here is the completed code:
+
 ```
+Here is the completed code:
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -6,9 +9,12 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    elif '&' in expression:
-        return all(c == 'T' for c in expression)
-    elif '|' in expression:
-        return any(c == 'T' for c in expression)
-
-print(solve_boolean(input()))
+    result = True
+    for char in expression:
+        if char == '&':
+            result &= True
+        elif char == '|':
+            result |= True
+        else:
+            result = (result and char == 'T') or (result and char == 'F')
+    return result
