@@ -1,12 +1,9 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <iostream>
-#include <iterator>
-using namespace std;
+#include <bits/initializer_list.h>
 
-std::vector<int> computeLPSArray(const string& pat, vector<int>& lps) {
+std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps) {
     int m;
     lps.push_back(0); 
     m = 0; 
@@ -24,12 +21,12 @@ std::vector<int> computeLPSArray(const string& pat, vector<int>& lps) {
     }
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result; // Initialize with 0 size
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result; // Initialize with 0 size
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps(m);
+    std::vector<int> lps(m);
     computeLPSArray(target, lps);
 
     for (int i = 0; i <= n - m; i++) {
@@ -50,15 +47,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
+    std::string text;
+    std::cin >> text;
+    std::string target;
+    std::cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    std::vector<int> indices = indicesOfSubstring(text, target);
 
     for (int i : indices) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
-}
+    std::cout << std::endl;
