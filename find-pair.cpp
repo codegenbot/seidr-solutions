@@ -3,11 +3,6 @@
 #include <unordered_map>
 #include <iostream>
 
-#ifdef __cpp_binary_literals
-#else
-#error "This code requires C++17 or later"
-#endif
-
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
