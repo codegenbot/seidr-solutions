@@ -1,8 +1,8 @@
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
-std::vector<int> leaders(std::vector<int>& arr) {
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
