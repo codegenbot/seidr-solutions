@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <initializer_list>
 
 int main() {
     std::vector<int> coinCounts = {0, 0, 0, 0}; // quarters, dimes, nickels, pennies
@@ -8,20 +9,19 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    int remainingCents = cents;
-
-    while (remainingCents >= 25) {
+    while (cents >= 25) {
         ++coinCounts[0]; // update quarters count
-        remainingCents -= 25;
+        cents -= 25;
     }
 
+    int remainingCents = cents; 
     while (remainingCents >= 10) {
         ++coinCounts[1]; // update dimes count
         remainingCents -= 10;
     }
 
     while (remainingCents >= 5) {
-        ++coinCounts[2]; // update nickels count
+        ++coinCounts[2]; // update nickles count
         remainingCents -= 5;
     }
 
