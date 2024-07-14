@@ -5,11 +5,8 @@ def find_indices(text, target):
         pos = text.lower().find(target.lower(), i)
         if pos == -1:
             break
-        result.append(pos + 1) 
-        i = pos + 1  
+        if pos == 0 and target in text:
+            return [0]
+        result.append(pos) 
+        i = pos + len(target)  
     return result
-
-text = input("Enter the text: ")
-target = input("Enter the target string: ")
-
-print(find_indices(text, target))
