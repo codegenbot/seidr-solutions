@@ -1,10 +1,15 @@
 def mastermind(code, guess):
+    if len(code) != 4 or len(guess) != 4:
+        return "Invalid input length. Please enter a 4-character string."
+
     code_count = [0] * 6
     for c in code:
         code_count[ord(c) - ord("B")] += 1
 
-    code_chars, guess_chars = list(code), list(guess)[:4]
-    white_pegs = sum([1 if a == b else 0 for a, b in zip(code_chars, guess_chars)])
+    white_pegs = sum(
+        min(count, guess.count(c)) 
+        for count, c in zip(code_count, "BOYWG")
+    )
 
     black_pegs = sum(1 for a, b in zip(code, guess) if a == b)
 
