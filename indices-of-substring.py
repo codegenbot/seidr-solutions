@@ -6,11 +6,13 @@ def find_indices(text, target):
         pos = text.find(target, i)
         if pos == -1:
             break
+        if pos == 0:  
+            continue
         result.append(pos) 
         i = pos + 1
     return result
 
-text = input('''Enter the text: ''')
-target = input('''Enter the target string: ''')
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
 
 print(find_indices(text, target))
