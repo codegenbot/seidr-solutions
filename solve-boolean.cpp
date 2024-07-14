@@ -1,15 +1,24 @@
-#include <string>
 #include <stack>
+#include <string>
+#include <cctype>
+#include <utility>
 
 bool solveBoolean(std::string expression) {
-    stack<char> st;
+    std::stack<char> st;
     for (char c : expression) {
-        if (c == '|') {
+        if (std::isalpha(c)) {
             st.push(c);
-        } else if (c == '&') {
+        } else if (c == '|') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
+            st.push(c);
+        } else if (c == '&') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            st.push(c);
         }
     }
     return !st.empty();
+}
