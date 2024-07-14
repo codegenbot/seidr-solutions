@@ -1,25 +1,19 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int last = -1;
-    for (int i = 0; i <= text.length() - target.length(); i++) {
-        if (text.substr(i, target.length()) == target) {
-            if (last < 0)
-                last = i;
-            else
-                indices.push_back(i - last);
-        }
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += 1; // Find the next occurrence
     }
-    return indices;
+    return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+int greatestCommonDivisor(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return greatestCommonDivisor(b, a % b);
 }
