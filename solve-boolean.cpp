@@ -1,4 +1,6 @@
+```c++
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -9,11 +11,20 @@ bool solveBoolean(std::string s) {
             result = false;
         } else if (s[i] == '|') {
             bool temp = !result;
-            result = temp;
+            result = true;
         } else if (s[i] == '&') {
             if (!result) return false;
             result = false;
         }
     }
     return result;
+}
+
+int main() {
+    std::string s;
+    std::cin >> s;
+    bool result = solveBoolean(s);
+    if (result) std::cout << "True" << std::endl;
+    else std::cout << "False" << std::endl;
+    return 0;
 }

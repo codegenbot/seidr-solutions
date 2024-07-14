@@ -5,7 +5,7 @@ def solve_boolean(expression):
     operation = None
     
     for char in expression:
-        if char in ['T', 'F']:
+        if char.strip() in ['T', 'F']:
             stack.append(char == 'T')
         elif char in ['&', '|']:
             while len(stack) >= 2 and (stack[-1] is not None or stack[-2] is not None):
