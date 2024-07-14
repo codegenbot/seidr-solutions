@@ -1,4 +1,4 @@
-```
+'''
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -10,3 +10,4 @@ def solve_boolean(expression):
     else:
         left, right = expression.split('|')
         return solve_boolean(left) or solve_boolean(right)
+'''
