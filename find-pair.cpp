@@ -1,5 +1,4 @@
 ```cpp
-#include <c++11>
 #include <vector>
 #include <unordered_map>
 #include <iostream>
