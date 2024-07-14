@@ -1,12 +1,17 @@
-# Contest Problem: GCD
-# Given two integers, return the largest integer that divides each of the integers evenly.
+```
+def find_indices(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i:].startswith(target):
+            start = i
+            while True:
+                start += len(target)
+                if not text[start:].startswith(target):
+                    break
+            indices.append(start - len(target))
+    return indices
 
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
 
-a = int(input("Enter first integer: "))
-b = int(input("Enter second integer: "))
-
-print(f"GCD of {a} and {b} is {gcd(a, b)}")
+print(find_indices(text, target))
