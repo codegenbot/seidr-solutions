@@ -17,9 +17,6 @@ std::string spinWords(const std::string& input) {
             } else {
                 output += input.substr(start, length) + ' ';
             }
-            if (i < input.size()) {
-                output += ' ';
-            }
             start = i + 1;
         }
     }
