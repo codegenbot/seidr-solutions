@@ -4,19 +4,37 @@
 
 bool evaluateTop(std::stack<char> &st) {
     bool result = true;
-    int parenthesesCount = 0;
-    bool operandProcessed = false;
-
+    std::stack<char> resStack;
     while (!st.empty()) {
         char c = st.top();
         st.pop();
         if (c == '(') {
-            parenthesesCount++;
+            resStack.push('(');
         } else if (c == ')') {
-            parenthesesCount--;
+            while (!resStack.empty() && resStack.top() != '(') {
+                if (resStack.top() == '|') {
+                    result = true; // reset the result for OR operation
+                }
+                resStack.pop();
+            }
+            if (!resStack.empty()) {
+                resStack.pop(); // pop the '('
+            }
         } else if (c == 'T' || c == 'F') {
-            operandProcessed = true;
-            result = (c == 'T');
+            while (!resStack.empty() && resStack.top() != '(') {
+                if (resStack.top() == '|') {
+                    result = true; // reset the result for OR operation
+                }
+                resStack.pop();
+            }
+            if (!resStack.empty()) {
+                resStack.pop(); // pop the '('
+            }
+            if (c == 'T') {
+                result = true;
+            } else {
+                result = false;
+            }
         } else if (c == '&') {
             while (!st.empty() && st.top() != '(') {
                 st.pop();
@@ -70,37 +88,13 @@ bool evaluateTop(std::stack<char> &st) {
                 }
             }
         }
-
-        if (!operandProcessed) {
-            st.push(c);
+    }
+    while (!resStack.empty()) {
+        if (resStack.top() == '(') {
+            return false;
         }
-        operandProcessed = false;
+        result = (result || (resStack.top() == 'T'));
+        resStack.pop();
     }
     return result;
-}
-
-int main() {
-    std::stack<char> st;
-    std::string input;
-    std::cout << "Enter a Boolean expression (T/F/&(|)): ";
-    std::getline(std::cin, input);
-    for (char c : input) {
-        if (c == '(') {
-            st.push('(');
-        } else if (c == ')') {
-            while (!st.empty() && st.top() != '(') {
-                st.pop();
-            }
-            if (st.empty()) {
-                std::cout << "Invalid expression" << std::endl;
-                return 1;
-            }
-            st.pop();
-        } else {
-            st.push(c);
-        }
-    }
-    bool result = evaluateTop(st);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
-    return 0;
 }
