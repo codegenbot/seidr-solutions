@@ -10,9 +10,9 @@ int main() {
     double bouncinessIndex = startHeight / 2.0;
 
     if (bouncinessIndex < 0.01)
-        cout << "The bounciness index is: 0.00" << endl;
+        cout << "The bounciness index is: " << fixed << setprecision(4) << 0.00 << endl;
     else
-        cout << "The bounciness index is: " << setprecision(2) << fixed << bouncinessIndex << endl;
+        cout << "The bounciness index is: " << fixed << setprecision(2) << bouncinessIndex << endl;
     
     double height = startHeight; 
     double totalDistance = 0.0; 
@@ -25,10 +25,9 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    if (totalDistance * bouncinessIndex < 0.01)
-        cout << "The total distance the ball travels is: 0.00" << endl;
-    else
-        cout << "The total distance the ball travels is: " << std::fixed << std::setprecision(2) << totalDistance * bouncinessIndex << endl;
-
+    cout << std::fixed << std::setprecision(4);
+    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
+    cout.unsetf(std::ios_base::fixed).unsetf(std::ios_base::floatfield); // Reset precision for next output.
+    
     return 0;
 }
