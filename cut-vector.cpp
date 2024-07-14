@@ -1,7 +1,8 @@
 #include <vector>
+#include <cmath> 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     int min_diff = INT_MAX;
     int idx = -1;
