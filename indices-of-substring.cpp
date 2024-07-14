@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -52,10 +52,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    cin >> text;
-    (void)cin.get();
+    getline(cin, text);
     string target;
-    (void)(cin >> target);
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
 
@@ -63,4 +62,3 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-}
