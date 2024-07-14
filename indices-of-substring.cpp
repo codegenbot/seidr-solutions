@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(std::string text, std::string target) {
     vector<int> result;
     int n = text.size();
     int m = target.size();
