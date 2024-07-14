@@ -1,3 +1,5 @@
+```cpp
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,32 +9,23 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int start = 0;
-    
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
             string word = str.substr(start, i - start);
-            
             if (word.length() >= 5) {
-                string reversedWord = "";
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    reversedWord += word[j];
-                }
-                result += reversedWord + " ";
-            } else {
-                result += word + " ";
+                reverse(word.begin(), word.end());
             }
-            
+            result += word + " ";
             start = i + 1;
         }
     }
-    
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    cout << spinWords("a") << endl; 
+    cout << spinWords("this is a test") << endl; 
+    cout << spinWords("this is another test") << endl; 
+    cout << spinWords("hi") << endl; 
     return 0;
 }
