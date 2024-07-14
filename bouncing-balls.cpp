@@ -1,24 +1,26 @@
+```cpp
 #include <iostream>
+using namespace std;
 
 int main() {
-    double startHeight;
-    
-    std::cin >> startHeight;
+    double startHeight; 
+    cin >> startHeight;
     
     int firstBounce = static_cast<int>(startHeight) / 2; 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
+    double height = startHeight; // initialize height
     double totalDistance = 0.0; 
     int bounces; 
 
-    std::cin >> bounces; 
+    cin >> bounces; 
 
     for (int i = 1; i <= bounces; ++i) {
-        startHeight *= 0.5; 
-        totalDistance += startHeight; 
+        height *= 0.5; 
+        totalDistance += startHeight - height;
     }
 
-    std::cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << std::endl;
-    
+    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
+
     return 0;
 }
