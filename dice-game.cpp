@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 
@@ -17,11 +16,8 @@ int main() {
     while (true) {
         std::cout << "Enter the number of sides on Peter's die: ";
         if (!(std::cin >> n)) break; 
-        double m_val;
         std::cout << "Enter the number of sides on Colin's die: ";
-        if (!(std::cin >> std::ws >> m_val)) break; 
-        m = (int) m_val;
+        if (!(std::cin >> m)) break; 
         std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability(n, m) << std::endl;
     }
     return 0;
-}
