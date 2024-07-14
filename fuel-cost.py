@@ -1,2 +1,2 @@
-def solve(input_list):
-    return sum((i // 3 - 2) for i in input_list)
+def fuel_cost(arr):
+    return sum((x // 3) - 2 for x in arr)
