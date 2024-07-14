@@ -1,25 +1,28 @@
-```
 def bowling_score(frames):
     score = 0
-    frame_num = 1
-    for frame in frames.split('/'):
-        if len(frame) > 0 and (frame[0] == 'X' or frame[0].isdigit()):
-            strike = True if frame[0] == 'X' else False
-            spare = False
-            total_pins = 10 if not strike else 0
-            for i in range(len(frame)):
-                if frame[i].isdigit():
-                    total_pins += int(frame[i])
-            score += total_pins
-            if spare:
-                score += 10 - total_pins
-        elif len(frame) > 1 and frame[0] == 'X':
-            strike = True
-            score += 10 + (10 - 2 * int(frame[1]))
+    frame_count = 1
+    for char in frames:
+        if char == "X":
+            score += 30
+            frame_count -= 1
+        elif char == "/":
+            strike_score = 10 + get_next_two_points()
+            score += strike_score
+            frame_count -= 1
         else:
-            pins = list(map(int, frame))
-            score += sum(pins)
-            if sum(pins) < 10:
-                score += 10 - sum(pins)
-        frame_num += 1
+            point1, point2 = map(int, [char[0], char[1]])
+            if frame_count == 1:
+                score += point1 + point2
+            elif frame_count < 10 and point1 + point2 >= 10:
+                score += 10
+                frame_count -= 1
+            else:
+                score += point1
+        if frame_count == 0:
+            break
     return score
+
+
+def get_next_two_points():
+    frames = list(bowling_score.next_frames())
+    return [int(frames[0]), int(frames[1])]
