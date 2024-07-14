@@ -1,47 +1,21 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t length = pos;
-        
-        if (length + 1 < str.length() && isalpha(str[length])) {
-            for (++length; length > pos && !isalpha(str[length]); --length);
-            std::string word = str.substr(pos, length - pos);
-            
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
             if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+                result += std::string(word.rbegin(), word.rend());
+            } else {
+                result += word;
             }
-            
-            result += word;
-        } else {
-            result += str.substr(0, pos);
-            break;
+            if (i < str.length()) {
+                result += " ";
+            }
+            start = i + 1;
         }
-        
-        str.erase(0, pos + 1);
     }
-    
-    if (!str.empty()) {
-        if (str.length() >= 5) {
-            std::reverse(str.begin(), str.end());
-        }
-        result += str;
-    }
-    
     return result;
-}
-
-int main() {
-    // Your test cases here
-    cout << spinWords("a") << endl; 
-    cout << spinWords("this is a test") << endl; 
-    cout << spinWords("this is another test") << endl; 
-    cout << spinWords("hi") << endl;
-    
-    return 0;
 }
