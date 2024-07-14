@@ -4,26 +4,25 @@ def bowling_score(frames):
         if "/" in frames[i * 2 : i * 2 + 2]:
             strike = False
             spare = False
-            if frames[i * 2] == "X":
+            first_roll = int(frames[i * 2])
+            second_roll = int(frames[i * 2 + 1].split("/")[0])
+            third_roll = 10 - (first_roll + second_roll)
+            if first_roll == 10:
                 strike = True
-            elif frames[i * 2] + frames[i * 2 + 1] == "10":
+            elif first_roll + second_roll < 10:
                 spare = True
-            else:
-                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
         else:
-            if frames[i * 2] == "X":
-                score += 10 + 10
+            strike = False
+            spare = False
+            first_roll = int(frames[i * 2])
+            second_roll = int(frames[i * 2 + 1].split("/")[0])
+            third_roll = int(frames[i * 2 + 1].split("/")[1])
+            if first_roll == 10:
                 strike = True
-            elif frames[i * 2] + frames[i * 2 + 1] == "10":
-                score += 10
-                spare = True
-            else:
-                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
-        if i < 9 and not strike:
-            if frames[(i + 1) * 2] == "X" and frames[(i + 1) * 2 + 1] == "X":
-                score += 10 + 10
-            elif frames[(i + 1) * 2] + frames[(i + 1) * 2 + 1] == "20":
-                score += 10
-            else:
-                score += int(frames[(i + 1) * 2]) + int(frames[(i + 1) * 2 + 1])
+        if strike:
+            score += 10 + first_roll + second_roll
+        elif spare:
+            score += 10 + first_roll
+        else:
+            score += first_roll + second_roll
     return score
