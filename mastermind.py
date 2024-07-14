@@ -1,10 +1,12 @@
+from collections import Counter
+
+
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return str(0) + str(0)
+        return "Error: Both code and guess must be 4-character strings."
 
-    for c in code + guess:
-        if c not in " ABCDEF":
-            return str(0) + str(0)
+    if not all(c in "abcdefghijklmnopqrstuvwxyz" for c in code + guess):
+        return "Error: All characters must be lowercase letters."
 
     code_count = Counter(code)
     guess_count = Counter(guess)
