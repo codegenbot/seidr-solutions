@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 
-std::string camelCase(std::string& str) {
+std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
@@ -19,7 +19,7 @@ std::string camelCase(std::string& str) {
         }
     }
 
-    if (!result.empty()) {
+    if (!result.empty() && result[0] == ' ') {
         result.erase(0, 1);
     }
 
