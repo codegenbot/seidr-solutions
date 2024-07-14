@@ -1,20 +1,24 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++;
-            while (i < str.length() && str[i] == '-') i++;
-            result += toupper(str[i]);
-        } else if (str[i] == ' ') {
-            continue;
-        } else {
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            while (i < s.size() && s[i] == ' ') {
+                i++; // skip the spaces
+            }
             if (!result.empty()) {
-                result += toupper(str[i]);
+                result += std::toupper(s[i]);
             } else {
-                result += tolower(str[i]);
+                result += s[i];
+            }
+        } else if (s[i] != ' ') {
+            if (i == 0 || s[i - 1] == '-') {
+                result += std::tolower(s[i]);
+            } else {
+                result += s[i];
             }
         }
     }
@@ -22,9 +26,9 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
     }
     return 0;
 }
