@@ -1,6 +1,5 @@
 ```cpp
-#include <iostream>
-#include <string>
+#include <algorithm>
 
 int mastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
@@ -9,7 +8,7 @@ int mastermind(const std::string& code, const std::string& guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+        } else if (std::any_of(guess.begin(), guess.end(), [c=code[i]](char cc){ return cc == c; })) {
             ++whitePegs;
         }
     }
@@ -18,8 +17,8 @@ int mastermind(const std::string& code, const std::string& guess) {
 }
 
 int main() {
-    const std::string code = "abcD";
-    const std::string guess = "aBcd";
+    std::string code = "abcD";
+    std::string guess = "aBcd";
     int result = mastermind(code, guess);
     std::cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << std::endl;
 }
