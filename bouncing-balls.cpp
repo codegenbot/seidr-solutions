@@ -4,12 +4,13 @@
 using namespace std;
 
 int main() {
-    int startHeight, firstBounce; 
+    int startHeight;
+    int firstBounce;
     int numBounces; 
 
     cin >> startHeight >> firstBounce >> numBounces; 
 
-    double bouncinessIndex = (double)firstBounce / (double)startHeight;
+    double bouncinessIndex = (double)stoi(to_string(firstBounce)) / stoi(to_string(startHeight));
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
