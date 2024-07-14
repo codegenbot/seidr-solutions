@@ -1,25 +1,49 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int splitPoint = 0;
-    for (int i = 1; i < v.size(); i++) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j < i; j++) {
-            sumLeft += v[j];
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
+    
+    for (int i = 1; i <= v.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; j++)
+            left_sum += v[j];
+        
+        for (int j = i; j < v.size(); j++)
+            right_sum += v[j];
+        
+        if (left_sum == right_sum) {
+            return {{v[0], v.begin() + 1, v.end()}};
         }
-        for (int j = i; j < v.size(); j++) {
-            sumRight += v[j];
-        }
-        int diff = abs(sumLeft - sumRight);
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitPoint = i;
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            result = {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
-    vector<vector<int>> result(2);
-    result[0].insert(result[0].end(), v.begin(), v.begin() + splitPoint);
-    result[1].insert(result[1].begin(), v.begin() + splitPoint, v.end());
+    
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int &x : v)
+        cin >> x;
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
+    for (int i : res.first) 
+        cout << i << " ";
+    cout << "]" << endl;
+    cout << "[";
+    for (int i : res.second) 
+        cout << i << " ";
+    cout << "0]" << endl;
+    
+    return 0;
 }
