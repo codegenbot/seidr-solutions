@@ -1,4 +1,4 @@
-```
+````
 def bowling_score(bowling_game):
     score = 0
     game = [int(x) for x in re.sub('[/-X]', '', bowling_game)]
@@ -11,6 +11,5 @@ def bowling_score(bowling_game):
                 game = game[:i] + [x-10 for x in game[i:]]
             else:
                 score += game[i]
-        else:
-            break
+        score += game[i]
     return score
