@@ -17,15 +17,15 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::cout << "Enter the first map: ";
     std::string input1;
-    std::getline(std::cin, input1);
+    getline(std::cin, input1);
 
     std::cout << "Enter the second map: ";
     std::string input2;
-    std::getline(std::cin, input2);
+    getline(std::cin, input2);
 
     std::cout << "Enter the message to decipher: ";
     std::string input3;
-    std::getline(std::cin, input3);
+    getline(std::cin, input3);
 
     std::string cipher_map1 = input1;
     std::string cipher_map2 = input2;
