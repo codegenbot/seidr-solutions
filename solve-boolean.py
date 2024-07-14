@@ -1,4 +1,3 @@
-```python
 def solve_boolean(expression):
     if not expression:
         return None
@@ -10,8 +9,8 @@ def solve_boolean(expression):
             break
         elif i != -1 and (j == -1 or i < j):
             i = j = -1
-        expression = expression[:i] + str(expression[i-1] == "T" if True else False) & stack.pop() if i != -1 else expression[i]
+        if i != -1:
+            expression = expression[:i] + str(expression[i - 1] == "T") and stack.pop()
         if j != -1:
-            expression = expression[:j] + str(expression[j-1] == "T" if True else False) | stack.pop() if j != -1 else expression[j]
-
+            expression = expression[:j] + str(expression[j - 1] == "T" or stack.pop())
     return stack[0]
