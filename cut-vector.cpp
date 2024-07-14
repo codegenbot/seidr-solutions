@@ -23,11 +23,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> v;
+    std::vector<int> v(n);
     for (int i = 0; i < n; i++) {
         int val;
         std::cin >> val;
-        v.push_back(val);
+        v[i] = val;
     }
     std::pair<std::vector<int>, std::vector<int>> res = cutVector(v);
     std::cout << "[";
