@@ -1,3 +1,4 @@
+```
 def decipher_cipher(input1, input2, input3):
     cipher = {}
     for char1, char2 in zip(input1, input2):
