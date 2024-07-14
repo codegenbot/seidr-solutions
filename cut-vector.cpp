@@ -1,106 +1,77 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& v) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 1; i <= v.size(); i++) {
+    for (int i = 1; i <= n / 2; i++) {
         int leftSum = 0, rightSum = 0;
         
-        if (i < v.size()) {
-            rightSum = accumulate(v.begin() + i, v.end(), 0);
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
         }
         
-        if (i > 0) {
-            leftSum = accumulate(v.begin(), v.begin() + i, 0);
-        } else {
-            leftSum = 0;
+        for (int j = i; j < n; j++) {
+            rightSum += v[j];
         }
         
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+        if (leftSum == rightSum) {
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
         }
     }
     
-    vector<int> leftVec(v.begin(), v.begin() + splitIndex);
-    vector<int> rightVec(splitIndex > 0 ? v.begin() + splitIndex : vector<int>(), v.end());
+    int leftSum = 0, minDiff = INT_MAX, midIndex;
     
-    return {leftVec, rightVec};
+    for (int i = 1; i < n; i++) {
+        leftSum += v[i-1];
+        
+        if (leftSum == v[n-i] - leftSum) {
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
+        }
+        
+        int diff = abs(v[i] - v[n-i]);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            midIndex = i;
+        }
+    }
+    
+    leftSum = 0;
+    for (int i = 0; i < midIndex; i++) {
+        leftSum += v[i];
+    }
+    
+    res.first = vector<int>(v.begin(), v.begin() + midIndex);
+    res.second = vector<int>(v.begin() + midIndex, v.end());
+    return res;
 }
 
 int main() {
-    // Example inputs
-    vector<int> v1 = {1};
-    vector<int> v2 = {1, 10};
-    vector<int> v3 = {1, 100};
-    vector<int> v4 = {1, 1000};
-    vector<int> v5 = {1, 10000};
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &i : v) {
+        cin >> i;
+    }
     
-    pair<vector<int>, vector<int>> res1 = cutVector(v1);
-    pair<vector<int>, vector<int>> res2 = cutVector(v2);
-    pair<vector<int>, vector<int>> res3 = cutVector(v3);
-    pair<vector<int>, vector<int>> res4 = cutVector(v4);
-    pair<vector<int>, vector<int>> res5 = cutVector(v5);
+    pair<vector<int>, vector<int>> res = cutVector(v);
     
-    // Print results
-    cout << "Input: ";
-    for (int i : v1) cout << i << ' ';
-    cout << endl;
-    cout << "Output:" << endl;
-    cout << "Left: ";
-    for (int i : res1.first) cout << i << ' ';
-    cout << endl;
-    cout << "Right: ";
-    for (int i : res1.second) cout << i << ' ';
-    cout << endl << endl;
-    
-    cout << "Input: ";
-    for (int i : v2) cout << i << ' ';
-    cout << endl;
-    cout << "Output:" << endl;
-    cout << "Left: ";
-    for (int i : res2.first) cout << i << ' ';
-    cout << endl;
-    cout << "Right: ";
-    for (int i : res2.second) cout << i << ' ';
-    cout << endl << endl;
-    
-    cout << "Input: ";
-    for (int i : v3) cout << i << ' ';
-    cout << endl;
-    cout << "Output:" << endl;
-    cout << "Left: ";
-    for (int i : res3.first) cout << i << ' ';
-    cout << endl;
-    cout << "Right: ";
-    for (int i : res3.second) cout << i << ' ';
-    cout << endl << endl;
-    
-    cout << "Input: ";
-    for (int i : v4) cout << i << ' ';
-    cout << endl;
-    cout << "Output:" << endl;
-    cout << "Left: ";
-    for (int i : res4.first) cout << i << ' ';
-    cout << endl;
-    cout << "Right: ";
-    for (int i : res4.second) cout << i << ' ';
-    cout << endl << endl;
-    
-    cout << "Input: ";
-    for (int i : v5) cout << i << ' ';
-    cout << endl;
-    cout << "Output:" << endl;
-    cout << "Left: ";
-    for (int i : res5.first) cout << i << ' ';
-    cout << endl;
-    cout << "Right: ";
-    for (int i : res5.second) cout << i << ' ';
-    cout << endl;
+    cout << "[";
+    for (const auto &i : res.first) {
+        cout << i << " ";
+    }
+    cout << "]" << endl;
+    cout << "[";
+    for (const auto &i : res.second) {
+        cout << i << " ";
+    }
+    cout << "]" << endl;
     
     return 0;
 }
