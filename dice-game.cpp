@@ -1,24 +1,15 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
 double diceGame(int n, int m) {
-    double total = (n * m);
-    double win = 0;
+    double total = 1.0 * (n * m);
+    double win = 0.0;
     
-    // If n > m
-    if (n > m)
-        win = n - m;
+    for(int i = m+1; i <= n; i++) {
+        win += (1.0 * (n - i + 1)) / total;
+    }
     
-    // If n < m
-    else if (n < m)
-        win = m - n;
-
-    // If n == m, Peter wins with probability 1/n
-    else
-        win = 1.0 / n;
-
-    return win / total;
+    return win;
 }
 
 int main() {
