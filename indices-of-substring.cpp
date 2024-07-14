@@ -9,8 +9,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    if(m == 0)
-        return result; 
+    if(m > n)
+        return result; // or handle this situation as per your requirement.
 
     int *lps = new int[m];
     int j = 0; // index for target[]
@@ -37,7 +37,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     lps[0] = 0;
 
     // Traverse the text and find all occurrences of target[].
-    for (int i = 0; i < n - m; ) {
+    for (int i = 0; i <= n - m; ) {
         len = 0;
         j = 0;
         while (i + len < n && j < m) {
@@ -53,9 +53,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 
         while (j > 0) {
             result.push_back(i);
+            if(i <= m-1)
+                break;
             j = lps[j-1];
-            i += len; // move to the next character
         }
+        i += len; // move to the next character
     }
 
     delete[] lps;
