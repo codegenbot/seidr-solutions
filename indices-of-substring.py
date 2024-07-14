@@ -7,6 +7,7 @@ def find_indices(text, target):
             break
         result.append(pos) 
         i = pos + 1
+    return result
 
 text = input("Enter the text: ")
 target = input("Enter the target string: ")
