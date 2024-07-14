@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -5,22 +8,18 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // mark as used
-            guess[i] = ' '; // mark as used
         }
     }
 
-    for (int i = 0; i < 4; ++i) {
+    for (char c : guess) {
         int count = 0;
-        for (char c : "BOYWG") {
-            if (code.find(c) != string::npos && code.find(c) != string::npos) {
+        for (char d : code) {
+            if (c == d) {
                 count++;
-                code.replace(code.find(c), 1, " ");
-                guess.replace(guess.find(c), 1, " ");
             }
         }
-        white += count;
+        white += min(count, 1);
     }
 
-    return black + white;
+    return black + white - black;
 }
