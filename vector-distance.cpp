@@ -5,11 +5,11 @@
 
 using namespace std;
 
-double vectorDistance(vector<float> x1, vector<float> x2, int n) {
+double vectorDistance(int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        double diff = x2[i] - x1[i];
-        sum += pow(diff, 2);
+        double diff = pow(x2[i] - x1[i], 2);
+        sum += diff;
     }
     
     return sqrt(sum);
@@ -25,5 +25,5 @@ int main() {
         cin >> x1[i] >> x2[i];
     }
 
-    cout << fixed << setprecision(10) << vectorDistance(x1, x2, n) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 }
