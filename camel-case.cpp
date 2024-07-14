@@ -2,41 +2,38 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == '-') {
-            if (result.length() > 0) {
-                result[0] = toupper(result[0]);
-            }
-            if (i < s.length()) {
-                string word = "";
-                for (; i < s.length(); i++) {
-                    if (s[i] != '-') {
-                        word += s[i];
-                    } else {
-                        i++;
-                        break;
-                    }
-                }
-                result += word;
-            }
-        } else {
-            if (i == 0) {
-                result = s.substr(0, 1);
-            } else {
-                result += s[i];
-            }
+std::string camelCase(std::string s) {
+    std::vector<std::string> words;
+    size_t start = 0, end = 0;
+    while (end != s.size()) {
+        if ((s[end] == ' ') || (s[end] == '-')) {
+            words.push_back(s.substr(start, end - start));
+            start = end + 1;
         }
+        else
+            end++;
     }
+    words.push_back(s.substr(start));
+
+    std::string result;
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (!result.empty())
+            if (i > 0)
+                result += char(std::toupper(words[i][0]));
+            else
+                result += words[i];
+        else
+            result = words[i];
+
+    }
+
     return result;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << camelCase(s) << endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << '\n';
+    }
     return 0;
 }
