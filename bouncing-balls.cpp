@@ -25,9 +25,10 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    cout << std::fixed << std::setprecision(4);
-    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
-    cout.unsetf(std::ios_base::fixed).unsetf(std::ios_base::floatfield); // Reset precision for next output.
-    
+    if (totalDistance * bouncinessIndex < 0.01)
+        cout << "The total distance the ball travels is: " << fixed << setprecision(4) << 0.00 << endl;
+    else
+        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << totalDistance * bouncinessIndex << endl;
+
     return 0;
 }
