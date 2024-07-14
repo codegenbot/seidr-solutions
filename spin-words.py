@@ -4,6 +4,6 @@ def spin_words(sentence):
     has_long_word = False
     for i in range(len(words)):
         if len(words[i]) >= 5:
+            words[i] = words[i][::-1]
             has_long_word = True
-            break
-    return " ".join(word[::-1] if has_long_word else word for word in words)
+    return " ".join(words) if has_long_word else sentence
