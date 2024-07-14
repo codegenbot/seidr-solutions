@@ -12,5 +12,5 @@ int luhn(const vector<int>& card) {
         sum += digit;
         alternate = !alternate;
     }
-    return sum;
+    return sum % 10 == 0;
 }
