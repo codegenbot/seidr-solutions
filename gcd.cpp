@@ -14,7 +14,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         indices.push_back(pos);
-        pos += 1; // to avoid duplicate matches
+        pos += target.length(); // increment by the length of the target
     }
     return indices;
 }
@@ -24,7 +24,7 @@ int main() {
     cout << "Enter the text: ";
     getline(cin, text);
     cout << "Enter the target: ";
-    getline(cin, target);
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
     int max_gcd = 0;
