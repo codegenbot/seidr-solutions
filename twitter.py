@@ -1,6 +1,11 @@
+Here is the modified code:
+
+```
+import unicodedata
+
 def validate_tweet():
     tweet = input("Please type your tweet: ")
-    if not tweet.isprintable():
+    if len(unicodedata.normalize('NFKD', tweet).encode('ascii', 'ignore').decode()) > 140:
         print("Too many characters")
     elif tweet == "":
         print("You didn't type anything")
