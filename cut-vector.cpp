@@ -1,20 +1,41 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    vector<vector<int>> result;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+vector<int> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+    
+    for(int i = 1; i <= nums.size(); i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        if(i < nums.size()) {
+            for(int j = 0; j < i; j++) {
+                leftSum += nums[j];
+            }
+            for(int j = i; j < nums.size(); j++) {
+                rightSum += nums[j];
+            }
+        } else {
+            for(int j = 0; j < i; j++) {
+                leftSum += nums[j];
+            }
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        if(diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-
-    result.push_back(vector<int>(vec.begin(), vec.begin() + cut_index));
-    result.push_back(vector<int>(vec.begin() + cut_index, vec.end()));
-    return result;
+    
+    vector<int> left, right;
+    
+    for(int i = 0; i < cutIndex; i++) {
+        left.push_back(nums[i]);
+    }
+    for(int i = cutIndex; i < nums.size(); i++) {
+        right.push_back(nums[i]);
+    }
+    
+    return {left, right};
 }
