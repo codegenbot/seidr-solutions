@@ -1,6 +1,5 @@
 ```
 def gcd(a, b):
-    if b == 1: return 1
     while b:
         a, b = b, a % b
     return abs(a)
