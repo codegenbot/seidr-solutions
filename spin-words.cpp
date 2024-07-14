@@ -1,28 +1,63 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::vector<std::string> words;
-    std::stringstream ss(input);
-    std::string word;
+using namespace std;
 
-    while (ss >> word) {
-        if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
-        words.push_back(word);
+string spinWords(string str) {
+    string result = "";
+    int wordCount = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            wordCount++;
+        } else {
+            if (wordCount > 0) {
+                result += str[i];
+            }
+        }
+    }
+    
+    vector<string> words;
+    wordCount = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            wordCount++;
+        } else if (i == str.length() - 1) {
+            string word = "";
+            while (wordCount > 0 && i >= 0) {
+                word = str[i] + word;
+                i--;
+                wordCount--;
+            }
+            words.push_back(word);
+        }
     }
 
-    std::string output;
-    for (const auto& w : words) {
-        output += w + " ";
+    result = "";
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            string reversedWord = "";
+            for (int j = words[i].length() - 1; j >= 0; j--) {
+                reversedWord += words[i][j];
+            }
+            result += reversedWord + " ";
+        } else {
+            result += words[i] + " ";
+        }
     }
-    return output.substr(0, output.length() - 1); // remove trailing space
+
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string str;
+    while (true) {
+        cout << "Enter a sentence (or 'exit' to quit):";
+        cin >> str;
+        if (str == "exit") break;
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
