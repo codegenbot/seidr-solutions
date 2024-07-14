@@ -13,7 +13,12 @@ int bowlingScore(string s) {
             strike = false;
         } else {
             int num = c - '0';
-            score += num;
+            if (strike) {
+                score += num + 10;
+                strike = false;
+            } else {
+                score += num;
+            }
         }
     }
     return score;
