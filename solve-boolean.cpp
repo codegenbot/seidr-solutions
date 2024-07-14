@@ -1,80 +1,14 @@
-```cpp
-#include <iostream>
-#include <stack>
-#include <string>
-
 bool evaluateTop(std::stack<char>& st) {
     char c = st.top();
     st.pop();
     if (c == '&') {
-        while (!st.empty() && st.top() != '|') {
-            st.pop();
-        }
-        bool top = st.empty();
-        st.push(c);
-        return top;
+        return !st.empty();
     } else if (c == '|') {
         while (!st.empty()) {
             st.pop();
         }
-        return true;
+        return false;
     } else {
         return false;
     }
-}
-
-bool evaluate(std::stack<char> st, std::string expression) {
-    bool result = true;
-    for (char c : expression) {
-        if (c == 'T') {
-            result = false;
-            break;
-        } else if (c == 'F') {
-            result = false;
-            break;
-        } else if (c == '|') {
-            st.push(c);
-            result = true;
-        } else if (c == '&') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return false;
-            }
-            bool top = evaluateTop(st);
-            if (top) {
-                st.push('&');
-            } else {
-                st.push('|');
-            }
-        }
-    }
-    while (!st.empty()) {
-        if (st.top() == '&') {
-            while (!st.empty() && st.top() != '|') {
-                st.pop();
-            }
-            bool top = st.empty();
-            return top;
-        } else if (st.top() == '|') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            return true;
-        }
-    }
-    return result;
-}
-
-int main() {
-    std::stack<char> st;
-    std::string expression = "expression"; // Replace with your desired expression
-    bool result = evaluate(st, expression);
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
-    return 0;
 }
