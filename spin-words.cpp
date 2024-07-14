@@ -17,7 +17,7 @@ std::string spinWords(std::string& str) {
         }
         start = spacePos + 1;
     }
-    return result.substr(0, result.length() - 1); // Remove trailing space
+    return result;
 }
 
 int main() {
