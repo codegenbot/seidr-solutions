@@ -14,9 +14,9 @@ int pairedDigits(const std::string& s) {
 }
 
 int main() {
-    std::string input;
+    {std::string input;
     std::cout << "Enter a string of digits: ";
     std::cin >> input;
     int result = pairedDigits(input);
-    std::cout << "Sum of paired digits is: " << result << std::endl;
-    std::cout;
+    std::cout << "Sum of paired digits is: " << result << std::endl;}
+    return 0;
