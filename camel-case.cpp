@@ -28,15 +28,15 @@ std::string camelCase(std::string& str) {
 
 int main() {
     std::string input;
+
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
         std::getline(std::cin, input);
-
+        
         if (!input.empty()) { 
             std::string output = camelCase(input);
             if(!output.empty())  
                 std::cout << "Camel Case: " << output << std::endl; 
-            input = "";  // Clear the string for next iteration
         }
     }
     return 0;
