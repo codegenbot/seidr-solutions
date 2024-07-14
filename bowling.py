@@ -19,7 +19,7 @@ def bowling_score(frames):
                     score += 10 + sum(frames[:2])
                     frames = frames[2:]
                 else:
-                    score += 10
+                    score += 10 + sum(frame)
             else:
                 score += 10 + sum(frame)
         else:
