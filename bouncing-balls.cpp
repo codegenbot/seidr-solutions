@@ -25,7 +25,8 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    cout << fixed << setprecision(4);
+    cout << fixed;
+    cout << setprecision(4);
     cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
 
     return 0;
