@@ -24,7 +24,7 @@ int main() {
     cout << "Enter the text: ";
     getline(cin, text);
     cout << "Enter the target: ";
-    cin >> target;
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
     int max_gcd = 0;
