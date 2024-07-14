@@ -1,38 +1,28 @@
-Here's the completed code:
-
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string s) {
     string result = "";
-    int wordLength = 0;
-    for (char c : s) {
-        if (c == ' ') {
-            if (wordLength >= 5)
-                for (int i = wordLength - 1; i >= 0; --i)
-                    result += s[wordLength - i - 1];
+    size_t pos = 0;
+    
+    while ((pos = s.find(" ")) != string::npos) {
+        size_t nextPos = s.find(" ", pos + 1);
+        
+        if (nextPos == string::npos || s.substr(pos+1, nextPos-pos-1).length() >= 5) {
+            if (s.substr(pos, nextPos - pos).length() >= 5)
+                result += s.substr(pos, nextPos - pos)[::-1] + " ";
             else
-                result += c;
-            wordLength = 0;
+                result += s.substr(pos, nextPos - pos) + " ";
         } else {
-            wordLength++;
-            result += c;
+            result += s.substr(pos, nextPos - pos) + " ";
+            pos = nextPos;
         }
     }
-    if (wordLength >= 5)
-        for (int i = wordLength - 1; i >= 0; --i)
-            result += s[wordLength - i - 1];
+    
+    if (s.length() >= 5)
+        result += s.substr(s.find_last_of(" ")+1)[::-1];
+    else
+        result += s;
+        
     return result;
-}
-
-int main() {
-    string s;
-    while (true) {
-        cin >> s;
-        cout << spinWords(s) << endl;
-    }
-    return 0;
 }
