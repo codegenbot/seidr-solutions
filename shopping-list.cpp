@@ -1,4 +1,3 @@
-```cpp
 double shoppingList(std::vector<std::pair<float, float>>& pricesAndDiscounts) {
     double total = 0;
     for (const auto& pair : pricesAndDiscounts) {
