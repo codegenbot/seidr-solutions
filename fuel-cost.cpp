@@ -1,10 +1,9 @@
-#include <vector>
-using namespace std;
-
-int fuelCost(vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        sum += ((i / 3) - 2);
+int getFuelCost(vector<int>& prices) {
+    int total = 0;
+    for (int price : prices) {
+        int cost = (price / 3);
+        cost = std::floor(cost) - 2;
+        total += cost;
     }
-    return sum;
+    return total;
 }
