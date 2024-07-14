@@ -1,31 +1,47 @@
-Here is the solution:
+Here's the solution:
 
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if(i+4 >= str.length() || str.substr(i,5).find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos) {
-            //if the word is 5 or more characters long, reverse it
-            int j = i + str.find_last_of(' ') - i;
-            for(int k = 0; k < (j+1)/2; k++) {
-                char temp = str[i+k];
-                str[i+k] = str[j-k];
-                str[j-k] = temp;
+    int wordLength = 0;
+    for (char c : str) {
+        if (c == ' ') {
+            if (wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i) {
+                    result += str[wordLength - i - 1];
+                }
+            } else {
+                result += c;
             }
-            result += str.substr(i,j+1) + " ";
-            i = j + 1;
+            wordLength = 0;
         } else {
-            result += str.substr(i,5) + " ";
-            i += 5;
+            result += c;
+            wordLength++;
         }
     }
-    
+
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i) {
+            result += str[wordLength - i - 1];
+        }
+    } else {
+        result = str;
+    }
+
     return result;
+}
+
+int main() {
+    string str;
+    while (true) {
+        cout << "Enter a string: ";
+        cin >> str;
+        cout << "Output: " << spinWords(str) << endl;
+    }
+    return 0;
 }
