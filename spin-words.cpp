@@ -3,34 +3,27 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t wordPos = str.find(" ", pos);
-        if (wordPos == std::string::npos || wordPos - pos > 4) {
-            result += str.substr(pos, wordPos - pos) + " ";
-        } else {
-            result += str.substr(pos, wordPos - pos) + " ";
-            for (int i = wordPos; i < str.length(); i++) {
-                if (str[i] == ' ') {
-                    break;
-                }
-                result += str[i];
+    std::string word;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            result += " ";
+            result += word + " ";
+            word = "";
+        } else {
+            word += str[i];
         }
-        pos = wordPos + 1;
     }
-    result += str.substr(pos);
-    return result;
+    
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::string str;
-    while (true) {
-        std::cout << "Enter a string: ";
-        std::getline(std::cin, str);
-        if (str == "exit") break;
-        std::cout << spinWords(str) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
     return 0;
 }
