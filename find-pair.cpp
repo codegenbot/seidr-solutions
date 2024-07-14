@@ -1,9 +1,9 @@
+```cpp
 #include <vector>
-#include <utility>
-#include <unordered_map>
+#include <map>
 
 std::pair<int, int> findPair(std::vector<int> nums, int target) {
-    std::unordered_map<int, int> numMap;
+    std::map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
@@ -15,13 +15,13 @@ std::pair<int, int> findPair(std::vector<int> nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
+    std::vector<int> nums = {10, 20, 30, 40, 50};
+    int target = 60;
     std::pair<int, int> result = findPair(nums, target);
-    if(result.first != -1 && result.second != -1) {
-        std::cout << "Pair found: (" << result.first << ", " << result.second << ")" << std::endl;
+    if (result.first != -1 && result.second != -1) {
+        std::cout << "The two elements that sum to the target are: " << result.first << ", " << result.second << std::endl;
     } else {
-        std::cout << "No pair found" << std::endl;
+        std::cout << "No such pair found." << std::endl;
     }
     return 0;
 }
