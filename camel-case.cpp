@@ -20,7 +20,7 @@ std::string camelCase(const std::string& str) {
             }
         } else {
             if (!capitalize && !result.empty()) {
-                result += ' '; 
+                result.push_back(' ');
                 capitalize = true;
             }
         }
@@ -42,7 +42,7 @@ int main() {
         }
         if (!line.empty()) { 
             std::string output = camelCase(line); // Pass the input to the function
-            if(!output.empty() && !output.back() == ' ')  
+            if(!output.empty())
                 std::cout << "Camel Case: " << output << std::endl; 
         }
     }
