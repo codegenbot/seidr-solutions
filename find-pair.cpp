@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <utility>
 #include <algorithm>
@@ -22,8 +23,13 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int target = 15;
-    std::pair<int, int> pair = findPair(nums, target);
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6};
+    int target = 7;
+    std::pair<int, int> result = findPair(nums, target);
+    if (result.first != -1) {
+        std::cout << "The pair of numbers that sum to the target is: (" << result.first << ", " << result.second << ")" << std::endl;
+    } else {
+        std::cout << "No such pair found." << std::endl;
+    }
     return 0;
 }
