@@ -3,8 +3,8 @@ def shopping_list():
     while True:
         try:
             item_prices_str, num_items_str = input().split()
-            item_prices = list(map(float, item_prices_str.split()))
             num_items = int(num_items_str)
+            item_prices = list(map(float, item_prices_str.split()))
             if len(item_prices) != num_items: 
                 raise Exception("Invalid number of items")
             discount = float(input()) / 100
