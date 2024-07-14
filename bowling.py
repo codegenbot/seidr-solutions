@@ -30,4 +30,7 @@ def bowling_score(game):
             else:
                 score += first_roll + second_roll + third_roll
                 roll += 1
+    if roll < 10:
+        for i in range(roll, 10):
+            score += int(game[i])
     return score
