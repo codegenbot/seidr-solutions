@@ -1,42 +1,33 @@
-string solveBoolean(string b) {
-    stack<char> s;
-    string result = "";
+string solveBoolean(string booleanExpr) {
+    stack<char> expression;
     
-    for(int i=b.length()-1; i>=0; i--){
-        if(b[i] == '&'){
-            while(!s.empty() && s.top() == '&'){
-                s.pop();
+    for (int i = 0; i < booleanExpr.length(); i++) {
+        if (booleanExpr[i] == '|') {
+            while (!expression.empty() && expression.top() != '&') {
+                expression.pop();
             }
-            if(s.empty()){
-                result = "False";
-                break;
-            }else{
-                s.pop();
-                if(s.top() == 'T')result = "True";
-                else result = "False";
-                break;
+            if (expression.empty()) {
+                return "True";
+            } else {
+                expression.pop();
             }
-        }else if(b[i] == '|'){
-            while(!s.empty() && s.top() == '|'){
-                s.pop();
+        } else if (booleanExpr[i] == '&') {
+            expression.push('&');
+        } else if (booleanExpr[i] == 't' || booleanExpr[i] == 'f') {
+            while (!expression.empty() && expression.top() != '&') {
+                expression.pop();
             }
-            if(s.empty()){
-                result = "False";
-                break;
-            }else{
-                s.pop();
-                if(s.top() == 'T')result = "True";
-                else result = "False";
-                break;
+            if (expression.empty()) {
+                return booleanExpr[i] == 't' ? "True" : "False";
+            } else {
+                expression.pop();
             }
-        }else{
-            s.push(b[i]);
         }
     }
     
-    while(!s.empty()){
-        s.pop();
+    if (expression.empty()) {
+        return "True";
+    } else {
+        return "False";
     }
-    
-    return result;
 }
