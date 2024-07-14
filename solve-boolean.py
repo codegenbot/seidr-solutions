@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     expression = expression.replace("&|", "&&").replace("|&", "| ")
 
@@ -5,30 +6,44 @@ def solve_boolean(expression):
         return False
     elif expression == "T":
         return True
+    
+    operators = "&|"
+    result = None
+    while operators in expression:
+        for operator in operators:
+            left, right = expression.split(operator)
+            if left == "T" or left == "t":
+                left = True
+            elif left == "F" or left == "f":
+                left = False
+            else:
+                left = eval(left)
 
-    parts = []
-    current_part = ""
-    operator = None
+            if right == "T" or right == "t":
+                right = True
+            elif right == "F" or right == "f":
+                right = False
+            else:
+                right = eval(right)
+            
+            if left and operator == "&":
+                expression = str(right)
+                break
+            elif not left and operator == "|":
+                expression = str(right)
+                break
+            elif left and operator == "|":
+                expression = str(right)
+                break
+            elif not left and operator == "&":
+                expression = str(right)
+                break
+        if not result and eval(expression):
+            result = True
+        elif result is None and not eval(expression):
+            result = False
+        break
+    
+    return result if result is not None else eval(expression)
 
-    for char in expression:
-        if char in "&|":
-            parts.append(eval(current_part))
-            current_part = ""
-            operator = char
-        else:
-            current_part += char
-
-    parts.append(eval(current_part))
-
-    result = True
-
-    while len(parts) > 1:
-        left = parts.pop(0)
-        right = parts.pop(0)
-
-        if operator == "&":
-            result = result and (left or right)
-        elif operator == "|":
-            result = result or (left or right)
-
-    return result
+print(solve_boolean("f|f&t|t&t|t&t&f&t&t|t&t&t&f|f"))
