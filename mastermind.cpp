@@ -1,25 +1,28 @@
-int mastermind(string code, string guess) {
+int numMatchingChars(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> codeCount;
-    map<char, int> guessCount;
-
     for (char c : code) {
-        codeCount[c]++;
-    }
-    for (char c : guess) {
-        guessCount[c]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else if (codeCount[guess[i]] > 0) {
+        if (c == guess[0]) {
+            if (code.find(guess[1..3].data()) != string::npos) {
+                black++;
+                break;
+            }
             white++;
-            codeCount[guess[i]]--;
+        } else if (guess.find(c) != string::npos) {
+            int pos = 0;
+            for (char gc : guess) {
+                if (gc == c) {
+                    pos++;
+                }
+            }
+            if (pos > 1) {
+                white += pos - 1;
+            } else if (pos == 1) {
+                black++;
+            }
         }
     }
 
-    return black + white;
+    return {white, black}[0];
 }
