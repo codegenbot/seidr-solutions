@@ -22,7 +22,5 @@ def bowling_score(game):
                 frame += 1
             else:
                 score += first_roll + int(game[i+1])
-                if frame < 9 and game[i+2].isdigit():
-                    score += int(game[i+2])
-                frame += 1
+                frame += (game[i+2] == 'X')
     return score
