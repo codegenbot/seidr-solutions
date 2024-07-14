@@ -1,18 +1,17 @@
-```cpp
+#include <stack>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string st) {
+bool solveBoolean(std::string s) {
     stack<char> st;
-    for (int i = 0; i < st.length(); i++) {
-        if (st[i] == '&') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
             if (st.empty()) return false;
             else st.pop();
         } 
-        else if (st[i] == '|') {
+        else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
@@ -20,7 +19,7 @@ bool solveBoolean(string st) {
             else st.pop();
         } 
         else {
-            st.push(st[i]);
+            st.push(s[i]);
         }
     }
     return !st.empty();
