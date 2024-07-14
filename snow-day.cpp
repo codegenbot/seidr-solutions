@@ -18,32 +18,72 @@ int main() {
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    if (!(std::cin) || std::cin.fail()) {
+    while (!(std::cin >> hours)) {
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter numeric values." << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore the invalid input
+        }
+        else {
+            break;
+        }
+    }
+
+    if (!(std::cin)) {
         std::cout << "Invalid input. Please enter numeric values." << std::endl;
         return 1; 
     }
-    std::cin >> hours;
 
     std::cout << "Enter the initial amount of snow: ";
-    if (!(std::cin) || std::cin.fail()) {
+    while (!(std::cin >> initialSnow)) {
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter numeric values." << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore the invalid input
+        }
+        else {
+            break;
+        }
+    }
+
+    if (!(std::cin)) {
         std::cout << "Invalid input. Please enter numeric values." << std::endl;
         return 1; 
     }
-    std::cin >> initialSnow;
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    if (!(std::cin) || std::cin.fail()) {
+    while (!(std::cin >> rateOfSnowFall)) {
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter numeric values." << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore the invalid input
+        }
+        else {
+            break;
+        }
+    }
+
+    if (!(std::cin)) {
         std::cout << "Invalid input. Please enter numeric values." << std::endl;
         return 1; 
     }
-    std::cin >> rateOfSnowFall;
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    if (!(std::cin) || std::cin.fail()) {
+    while (!(std::cin >> proportionOfSnowMeltingPerHour)) {
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter numeric values." << std::endl;
+            std::cin.clear();  // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore the invalid input
+        }
+        else {
+            break;
+        }
+    }
+
+    if (!(std::cin)) {
         std::cout << "Invalid input. Please enter numeric values." << std::endl;
         return 1; 
     }
-    std::cin >> proportionOfSnowMeltingPerHour;
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
