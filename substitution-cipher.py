@@ -1,4 +1,4 @@
-def decipher_ciphertext():
+def decrypt_message(cipher1, cipher2, message):
     char_map = {(c1 if c1.isalpha() else c1).lower(): (c2 if c2.isalpha() else c2).lower() 
                 for c1, c2 in zip(cipher1.lower(), cipher2.lower())}
     result = ""
