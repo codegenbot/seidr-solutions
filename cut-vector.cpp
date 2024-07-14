@@ -24,11 +24,10 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> v;
-    v.reserve(n);
     for (int i = 0; i < n; i++) {
-        int val;
-        std::cin >> val;
-        v.push_back(val);
+        int x;
+        std::cin >> x;
+        v.push_back(x);
     }
     std::pair<std::vector<int>, std::vector<int>> res = cutVector(v);
     std::cout << "[";
