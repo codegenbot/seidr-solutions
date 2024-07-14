@@ -1,50 +1,25 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
-    int minDiff = INT_MAX;
-    int pos = -1;
-    for (int i = 0; i < v.size(); ++i) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; ++j)
-            leftSum += v[j];
-        for (int j = i + 1; j < v.size(); ++j)
-            rightSum += v[j];
-
+vector<int> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    int leftMin = INT_MAX;
+    vector<int> res1, res2;
+    
+    for (int i = 0; i < n; i++) {
+        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
+        
         if (leftSum == rightSum) {
-            return {{v[0]}, v.substr(1)};
+            res1 = vector<int>(nums.begin(), nums.begin() + i);
+            res2 = vector<int>(nums.begin() + i, nums.end());
+            return {res1, res2};
+        } else if (abs(leftSum - rightSum) < abs(leftMin)) {
+            leftMin = abs(leftSum - rightSum);
+            res1 = vector<int>(nums.begin(), nums.begin() + i);
+            res2 = vector<int>(nums.begin() + i, nums.end());
         }
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            pos = i;
-        }
     }
-    std::vector<int> left(v.begin(), v.begin() + pos);
-    std::vector<int> right(v.begin() + pos, v.end());
-    return {left, right};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n+1);
-    for (int i = 0; i <= n; ++i)
-        cin >> v[i];
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "{";
-    for (int i = 0; i < res.first.size(); ++i) {
-        if (i > 0)
-            cout << ", ";
-        cout << res.first[i];
-    }
-    cout << "}" << endl;
-    cout << "{";
-    for (int i = 0; i < res.second.size(); ++i) {
-        if (i > 0)
-            cout << ", ";
-        cout << res.second[i];
-    }
-    cout << "}" << endl;
-    return 0;
+    
+    return {res1, res2};
 }
