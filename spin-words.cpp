@@ -9,11 +9,10 @@ std::string spinWords(std::string& str) {
         if (spacePos == std::string::npos)
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
-        if (word.length() >= 5) {
-            result += std::string(word.rbegin(), word.rend());
-        } else {
+        if (word.length() >= 5)
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        else
             result += word;
-        }
         if (spacePos < str.length())
             result += " ";
         start = spacePos + 1;
