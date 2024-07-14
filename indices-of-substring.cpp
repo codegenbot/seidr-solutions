@@ -3,25 +3,13 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int i = 0;
-    while (i <= text.length() - target.length()) {
-        if (text.substr(i, target.length()).compare(target) == 0) {
-            result.push_back(i);
-            i += target.length();
-        } else {
-            i++;
-        }
-    }
-    return result;
-}
+    int n = text.length();
+    int m = target.length();
 
-int main() {
-    string text;
-    int t;
-    cin >> text >> t;
-    vector<int> res = indicesOfSubstring(text, text.substr(0, t));
-    for (int x : res) {
-        cout << x << endl;
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target)
+            result.push_back(i);
     }
-    return 0;
+    
+    return result;
 }
