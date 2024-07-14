@@ -1,4 +1,3 @@
-```
 def validate_tweet():
     tweet = input("Enter your tweet: ")
     if len(tweet) > 140:
@@ -6,6 +5,6 @@ def validate_tweet():
     elif tweet.strip() == "":
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        return f"{len(tweet)}"
 
-print(validate_tweet())
+print(f"Your tweet has {validate_tweet()} characters")
