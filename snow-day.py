@@ -3,7 +3,7 @@ def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     for _ in range(hours):
         snow += rate_of_snowfall
         if snow > 0:
-            snow -= melting_rate
+            snow -= min(snow, melting_rate)
         else:
             break
     return round(snow, 2)
