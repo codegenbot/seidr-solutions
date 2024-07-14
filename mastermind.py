@@ -1,18 +1,12 @@
 from collections import Counter
 
 def mastermind(code, guess):
-    characters = "ARBYG"
-
     if len(code) != 4 or len(guess) != 4:
-        return "Error: Code and guess must be 4-character strings"
-    
-    for c in code:
-        if c not in characters:
-            return "Error: Code contains an invalid character"
-    
-    for g in guess:
-        if g not in characters:
-            return "Error: Guess contains an invalid character"
+        return "Invalid input. Code and Guess must be 4-character strings."
+
+    chars = 'ABCDEF'  
+    if not set(code).issubset(chars) or not set(guess).issubset(chars):
+        return "Invalid input. Characters must be ABCDEF only."
 
     code_counts = dict(Counter(code).most_common())
     guess_counts = dict(Counter(guess).most_common())
