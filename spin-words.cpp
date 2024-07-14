@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -14,11 +15,13 @@ string spinWords(string str) {
         } else {
             length++;
             if (length >= 5) {
+                string temp = "";
                 for (int j = length - 1; j >= 0; j--) {
-                    result += str[i - j];
+                    temp += str[i - j];
                 }
+                result += temp + " ";
             } else {
-                result += str[i];
+                result += str.substr(i-length+1, length) + " ";
             }
         }
     }
