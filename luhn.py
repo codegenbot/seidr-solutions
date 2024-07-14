@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     card_number = list(reversed(card_number))
@@ -11,8 +10,7 @@ def luhn(card_number):
                 result += doubled_num - 9
             else:
                 result += doubled_num
-            is_second = False
         else:
             result += num
-            is_second = True
-    return (result) % 10.
+        is_second = not is_second
+    return result
