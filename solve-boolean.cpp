@@ -1,33 +1,39 @@
-string solveBoolean(string booleanExpr) {
-    stack<char> expression;
+string solveBoolean(string expression) {
+    stack<char> s;
+    string result = "True";
     
-    for (int i = 0; i < booleanExpr.length(); i++) {
-        if (booleanExpr[i] == '|') {
-            while (!expression.empty() && expression.top() != '&') {
-                expression.pop();
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (expression.empty()) {
-                return "True";
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            s.push('|');
+        } else {
+            if (s.empty()) {
+                result = "True";
             } else {
-                expression.pop();
+                if (s.top() == '&') {
+                    result = "False";
+                } else {
+                    result = "True";
+                }
             }
-        } else if (booleanExpr[i] == '&') {
-            expression.push('&');
-        } else if (booleanExpr[i] == 't' || booleanExpr[i] == 'f') {
-            while (!expression.empty() && expression.top() != '&') {
-                expression.pop();
-            }
-            if (expression.empty()) {
-                return booleanExpr[i] == 't' ? "True" : "False";
-            } else {
-                expression.pop();
+            if (expression[i] == 'T' || expression[i] == 't') {
+                s.push('T');
+            } else if (expression[i] == 'F' || expression[i] == 'f') {
+                s.push('F');
             }
         }
     }
     
-    if (expression.empty()) {
-        return "True";
-    } else {
-        return "False";
+    while (!s.empty()) {
+        s.pop();
     }
+    
+    return result;
 }
