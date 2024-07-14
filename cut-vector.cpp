@@ -1,38 +1,34 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = -1;
+    int cut_index = 0;
     
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            left_sum += vec[j];
-        }
-        
-        for (int j = i + 1; j < vec.size(); j++) {
-            right_sum += vec[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
     
-    vector<int> left_vec, right_vec;
+    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) cin >> x;
     
-    for (int i = 0; i <= cut_index; i++) {
-        left_vec.push_back(vec[i]);
-    }
+    pair<vector<int>, vector<int>> result = cutVector(v);
     
-    for (int i = cut_index + 1; i < vec.size(); i++) {
-        right_vec.push_back(vec[i]);
-    }
+    cout << "[";
+    for (const auto &x : result.first) cout << x << " ";
+    cout << "]\n[";
+    for (const auto &x : result.second) cout << x << " ";
+    cout << "]\n0\n";
     
-    return {left_vec, right_vec};
+    return 0;
 }
