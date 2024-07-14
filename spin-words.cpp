@@ -1,38 +1,29 @@
-Here's the completed code:
-
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    std::size_t pos = 0;
+    size_t start = 0;
     
-    while (pos != std::string::npos) {
-        pos = sentence.find(' ');
-        if (pos == std::string::npos) {
-            result += sentence;
-            break;
-        }
-        
-        std::size_t wordLen = pos - 1;
-        if (wordLen >= 5) {
-            for (int i = wordLen; i >= 0; --i) {
-                result += sentence[pos - i - 1];
-            }
+    for (size_t end = 0; end <= str.size(); ) {
+        if (str.substr(start, end - start).size() >= 5) {
+            std::reverse(str.substr(start, end - start).begin(), str.substr(start, end - start).end());
+            result += str.substr(start, end - start);
+            start = end;
         } else {
-            result += sentence.substr(0, pos);
+            result += str.substr(start, end - start);
+            start = end + 1;
         }
-        
-        sentence.erase(0, pos + 1);
+        if (++end > str.size()) break;
     }
     
     return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
     return 0;
 }
