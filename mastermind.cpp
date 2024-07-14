@@ -13,10 +13,6 @@ int mastermind(std::string code, std::string guess) {
     }
 
     std::map<char,int> codeCount;
-    codeCount['A'] = 0;
-    codeCount['B'] = 0;
-    codeCount['C'] = 0;
-    codeCount['D'] = 0;
     for (char c : code) {
         codeCount[c]++;
     }
