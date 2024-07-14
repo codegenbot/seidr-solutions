@@ -6,7 +6,7 @@ def solve_boolean(expression):
         return False
     elif expression == "T":
         return True
-    
+
     while "&|" in expression:
         expression = expression.replace("T&T", "True")
         expression = expression.replace("t&t", "True")
@@ -27,11 +27,18 @@ def solve_boolean(expression):
 
     if "&" in expression:
         left, right = expression.split("&")
-        return eval(left) and eval(right)
+        if eval(left):
+            expression = str(right)
+        else:
+            expression = "False"
+
     elif "|" in expression:
         left, right = expression.split("|")
-        return eval(left) or eval(right)
+        if eval(left):
+            expression = "True"
+        else:
+            expression = "False"
 
-    return eval(expression)
+    return expression
 
 print(solve_boolean("f|f&t|t&t|t&t&f&t&t|t&t&t&f|f"))
