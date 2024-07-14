@@ -4,20 +4,16 @@
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    int maxRight = arr.back();  
-    res.push_back(maxRight);     
-
-    for (int i = n - 2; i >= 0; --i) {
-        if (arr[i] >= maxRight) { 
-            maxRight = arr[i];  
-            res.push_front(arr[i]);   
+    for (int i = 0; i < n; ++i) {
+        if (res.empty() || arr[i] >= res.back()) {
+            res.push_back(arr[i]);
         }
     }
     return res;
 }
 
 int main() {
-    std::vector<int> testArr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
+    std::vector<int> testArr = {18};
     auto leadersResult = leaders(testArr);
     for (auto leader : leadersResult) {
         std::cout << leader << " ";
