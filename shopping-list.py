@@ -1,4 +1,3 @@
-```
 def shopping_list():
     n = int(input())
     total_price = 0
@@ -17,5 +16,3 @@ def shopping_list():
             print(f"An error occurred: {e}")
 
     print(format(total_price, ".2f"))
-
-shopping_list()
