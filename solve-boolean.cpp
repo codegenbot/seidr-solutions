@@ -1,3 +1,7 @@
+```
+#include <string>
+using namespace std;
+
 bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<string> valStack;
@@ -22,15 +26,13 @@ bool solveBoolean(string expression) {
     }
 
     while (!opStack.empty()) {
-        string v1 = valStack.top(), v2;
+        string v1 = valStack.top(), v2 = valStack.top();
         valStack.pop();
-        if (expression[i-1] == '&') {
+        if (opStack.top() == '&') {
             opStack.pop();
             valStack.push((v1 == "T" && v2 == "T") ? "T" : "F");
         } else {
             opStack.pop();
-            v2 = valStack.top();
-            valStack.pop();
             valStack.push((v1 == "T" || v2 == "T") ? "T" : "F");
         }
     }
