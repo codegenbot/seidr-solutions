@@ -25,10 +25,11 @@ bool evaluateBooleanExpression(string expression) {
             }
             operation.push(expression[i]);
         } else {
-            if (expression[i] == 'T')
+            if (expression[i] == 'T') {
                 result = true;
-            else
+            } else if (expression[i] == 'F') {
                 result = false;
+            }
         }
     }
 
