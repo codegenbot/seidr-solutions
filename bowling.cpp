@@ -1,37 +1,37 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 0;
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == 'X') {
-            score += 10 + (frame < 9 ? 10 : 0);
-            frame++;
-        } else if(s[i] == '/') {
-            int prevFrameScore = 0;
-            if(i > 1 && s[i-2] == 'X') {
-                prevFrameScore = 10;
-            } else if(i > 1) {
-                for(int j=i-1; j>=i-3; j--) {
-                    if(s[j] != '/') {
-                        prevFrameScore += (s[j] - '0');
-                        break;
-                    }
-                }
-            }
-            score += prevFrameScore + (s[i] - '0') + (s[i+1] - '0');
-            i++;
-            frame++;
-        } else {
-            int currentFrameScore = 0;
-            for(int j=i; s[j] != '/' && j<s.length(); j++) {
-                currentFrameScore += (s[j] - '0');
-            }
-            score += currentFrameScore;
-            if(frame < 9) {
-                frame++;
-            } else {
-                i = s.length();
+    bool spare = false;
+    bool strike = false;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            strike = true;
+            score += 10 + bonus(s.substr(i+1));
+        } else if (s[i] == '/') {
+            spare = true;
+            score += 10 + bonus(s.substr(i+1));
+        } else if (s[i].isdigit()) {
+            int framescore = s[i] - '0';
+            if (!strike && !spare) {
+                score += framescore;
             }
         }
     }
+
     return score;
+}
+
+int bonus(string s) {
+    int total = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            total += 10;
+        } else if (c == '/') {
+            total += 10 - s[0] - '0';
+            break;
+        } else {
+            total += c - '0';
+        }
+    }
+    return total;
 }
