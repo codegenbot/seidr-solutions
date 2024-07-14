@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double shoppingList(double prices[], int n, double discounts[], int m) {
