@@ -1,22 +1,24 @@
+```cpp
 #include <vector>
-using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 7, 8, 5};
+    std::vector<int> leadersVec = leaders(std::vector<int>(arr, arr + sizeof(arr)/sizeof(arr[0]))); 
+    for (int i : leadersVec) {
+        std::cout << i << " ";
+    }
+    return 0;
+}
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    
+
+    int maxR = arr.back();
     for(int i=n-1; i>=0; i--) {  
-        if(i == n - 1 || arr[i] >= arr[i+1]) res.push_back(arr[i]);
+        if(arr[i] >= maxR) res.push_back(arr[i]);
+        maxR = arr[i];
     }
     
     return res;
-}
-
-int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 7, 1};
-    vector<int> leadersResult = leaders(arr);
-    for(int num : leadersResult) {
-        cout << num << " ";
-    }
-    return 0;
 }
