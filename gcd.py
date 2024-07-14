@@ -1,24 +1,19 @@
+Here is the solution:
+
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
     return abs(a)
 
-
 def indices_of_substring(text, target):
     result = []
-    index = 0
-    while index < len(text):
-        if text[index : index + len(target)] == target:
-            result.append(index)
-            index += len(target)
-        else:
-            index += 1
+    for i in range(len(text)):
+        if text[i:].startswith(target):
+            j = 0
+            while True:
+                k = i + j
+                if k >= len(text) or not text[k:].startswith(target):
+                    break
+                j += 1
+            result.append(i)
     return result
-
-
-# Test cases
-print(gcd(1, 1))
-print(gcd(4, 400000))
-print(gcd(54, 24))
-print(gcd(4200, 3528))
-print(gcd(820000, 63550))
