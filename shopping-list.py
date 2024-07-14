@@ -14,19 +14,13 @@ def shopping_list():
             if prices_input != "q":
                 prices = list(map(float, prices_input.split()))
                 total_price = sum(prices)
-
+                
                 discounts = []
                 for i in range(len(prices)):
                     if i == len(prices) - 1:
-                        discount = float(
-                            input(f"Enter discount percentage (or 0 to skip): ")
-                        )
+                        discount = float(input(f"Enter discount percentage (or 0 to skip): "))
                     else:
-                        discount = float(
-                            input(
-                                f"Enter discount percentage for item {i+1} (or 0 to skip): "
-                            )
-                        )
+                        discount = float(input(f"Enter discount percentage for item {i+1} (or 0 to skip): "))
 
                     quantity = int(input(f"Enter quantity for item {i+1}: "))
                     discounts.append((quantity, discount))
@@ -36,8 +30,8 @@ def shopping_list():
                     quantity, discount = discounts[i]
                     if discount > 0:
                         total_discount += (discount / 100) * prices[i] * quantity
-
-                total += total_price - total_discount
+                
+                return round(total_price - total_discount, 2)
         except ValueError:
             print("Invalid input. Please provide prices as floats")
-    return round(total, 2)
+            input()
