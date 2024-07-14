@@ -1,13 +1,16 @@
-def solveBoolean(boolExpr):
-    if boolExpr == "T":
-        return True
-    elif boolExpr == "F":
-        return False
-    elif "&" in boolExpr and "|" in boolExpr:
-        raise ValueError("Invalid input: both & and | are used")
-    elif "&" in boolExpr:
-        a, b = boolExpr.split("&")
-        return not (bool(a) ^ bool(b))
-    elif "|" in boolExpr:
-        a, b = boolExpr.split("|")
-        return bool(a) or bool(b)
+def solve_boolean(expression):
+    stack = []
+    for char in expression:
+        if char == "T":
+            stack.append(True)
+        elif char == "F":
+            stack.append(False)
+        elif char == "&":
+            b1 = stack.pop()
+            b2 = stack.pop()
+            stack.append(b1 and b2)
+        elif char == "|":
+            b1 = stack.pop()
+            b2 = stack.pop()
+            stack.append(b1 or b2)
+    return stack[0]
