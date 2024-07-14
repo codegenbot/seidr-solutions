@@ -6,32 +6,43 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5)
-                result += word[::-1] + " ";
+    int wordLength = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (wordLength >= 5)
+                result += reverseWord(str.substr(wordStart, i - wordStart)) + " ";
             else
-                result += word + " ";
-            word.clear();
+                result += str.substr(wordStart, i - wordStart) + " ";
+            wordLength = 0;
         } else {
-            word += c;
+            wordLength++;
         }
     }
-    
-    if (word.length() >= 5)
-        result += word[::-1];
-    else
-        result += word;
 
+    if (wordLength >= 5)
+        result += reverseWord(str.substr(wordStart, str.length() - wordStart));
     return result;
 }
 
+string reverseWord(string str) {
+    string revStr = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        revStr += str[i];
+    }
+    return revStr;
+}
+
 int main() {
-    string str;
+    // Read input from user
     cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    string input;
+    getline(cin, input);
+
+    // Process the input and generate the output
+    string output = spinWords(input);
+
+    // Print the output
+    cout << "Output: " << output << endl;
+
     return 0;
 }
