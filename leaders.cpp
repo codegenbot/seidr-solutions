@@ -2,8 +2,8 @@
 #include <vector>
 
 int main() {
-    std::vector<int> arr = {1, 2, 7, 8, 5};
-    std::vector<int> leadersVec = leaders(arr);
+    int arr[] = {1, 2, 7, 8, 5};
+    std::vector<int> leadersVec = leaders({int x; for (int i : arr) x = i; std::vector<int>(1, x)}); 
     for (int i : leadersVec) {
         std::cout << i << " ";
     }
