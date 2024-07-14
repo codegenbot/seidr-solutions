@@ -1,40 +1,27 @@
 #include <vector>
+#include <iostream>
 #include <string>
 
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+int masterMind(std::string code, std::string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-    for(int i=0; i<4; ++i) {
-        if(code[i] == guess[i]) {
-            black++;
-            code[i] = ' '; // mark this position as used
-            guess[i] = ' ';
-        }
-    }
-
-    for(int i=0; i<4; ++i) {
-        int j = 0;
-        while(j < 4) {
-            if(guess[j] == code[i]) {
-                white++;
-                code[i] = ' '; // mark this position as used
-                guess[j] = ' ';
-                break;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++blackPegs;
+        } else {
+            bool isCorrectColorInGuess = false;
+            for (int j = 0; j < 4; ++j) {
+                if (guess[j] == code[i] && i != j) {
+                    isCorrectColorInGuess = true;
+                    break;
+                }
             }
-            j++;
+            if (!isCorrectColorInGuess) {
+                ++whitePegs;
+            }
         }
     }
 
-    return black, white;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int whitePegs, blackPegs;
-    tie(whitePegs, blackPegs) = mastermind(code, guess);
-    cout << blackPegs << endl;
-    cout << whitePegs << endl;
-    return 0;
+    return blackPegs << 2 | whitePegs;
 }
