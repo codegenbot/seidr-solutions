@@ -6,9 +6,11 @@ std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
+    int maxLeft = arr[0];
     for(int i=0; i<n; i++) {  
-        if(i == n-1 || arr[i] >= arr[i+1]) {
+        if(arr[i] >= maxLeft) {
             res.push_back(arr[i]);
+            maxLeft = arr[i];
         }
     }
     
@@ -16,7 +18,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2};
+    std::vector<int> arr = {19};
+    // or std::vector<int> arr = {409, 641, 298, 542, 212, 297, 672, 391, 471, 256, 397, 856, 501, 88, 513, 931, 977, 302, 891};
     std::vector<int> leadersResult = leaders(arr);
     for(int i: leadersResult) {
         std::cout << i << " ";
