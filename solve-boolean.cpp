@@ -1,39 +1,60 @@
 #include <vector>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-bool solveBoolean(string s) {
-    bool res = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'T') {
-            i++;
-        } else if (s[i] == 'F') {
-            return false;
-        } else if (s[i] == '&') {
-            i++; // skip &
-            bool left = true;
-            if (s[i] != 'T') {
-                left = false;
-                while (i < s.length() && s[i] != '&') {
-                    i++;
-                }
-                i++; // skip &
+bool evaluateBoolean(string expression) {
+    stack<char> operatorStack;
+    string currentTerm = "";
+    bool isCurrentTermTrue = false;
+
+    for (char c : expression) {
+        if (c == 'T' || c == 't') {
+            isCurrentTermTrue = true;
+        } else if (c == 'F' || c == 'f') {
+            if (!isCurrentTermTrue) return false;
+        } else if (c == '&') {
+            if (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
+                bool left = isCurrentTermTrue;
+                isCurrentTermTrue = currentTerm.back() == 'F' ? false : true;
+                currentTerm.pop_back();
+                if (!evaluateBoolean(to_string(left) + "&" + to_string(isCurrentTermTrue))) return false;
             }
-            res &= left; // update result
-        } else if (s[i] == '|') {
-            i++; // skip |
-            bool left = true;
-            if (s[i] != 'T') {
-                left = false;
-                while (i < s.length() && s[i] != '|') {
-                    i++;
-                }
-                i++; // skip |
+            operatorStack.push(c);
+        } else if (c == '|') {
+            if (!operatorStack.empty() && operatorStack.top() == '&') {
+                operatorStack.pop();
+                bool left = isCurrentTermTrue;
+                isCurrentTermTrue = currentTerm.back() == 'F' ? false : true;
+                currentTerm.pop_back();
+                if (!evaluateBoolean(to_string(left) + "|" + to_string(isCurrentTermTrue))) return false;
             }
-            res |= left; // update result
+            operatorStack.push(c);
         } else {
-            i++;
+            currentTerm += c;
         }
     }
-    return res;
+
+    while (!operatorStack.empty()) {
+        char op = operatorStack.top(); operatorStack.pop();
+        bool left = isCurrentTermTrue;
+        isCurrentTermTrue = currentTerm.back() == 'F' ? false : true;
+        currentTerm.pop_back();
+        if (op == '&') isCurrentTermTrue &= isCurrentTermTrue;
+        else isCurrentTermTrue |= isCurrentTermTrue;
+    }
+
+    return isCurrentTermTrue;
+}
+
+int main() {
+    string expression;
+    cout << "Enter Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBoolean(expression);
+    if (result) cout << "True" << endl;
+    else cout << "False" << endl;
+    return 0;
 }
