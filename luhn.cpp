@@ -1,6 +1,4 @@
 ```cpp
-#include <vector>
-
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
@@ -10,16 +8,16 @@ int luhn(const std::vector<int>& digits) {
         }
         sum += temp;
     }
-    return sum % 10; 
+    return (sum % 11 == 0);
 }
 
 int main() {
-    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 5, 9, 3, 4};
-    int result = luhn(digits);
-    if (result == 0) {
-        std::cout << "The credit card number is valid." << std::endl;
+    std::vector<int> testDigits = {4, 5, 3, 0, 4, 6, 7, 1, 3, 9, 2, 5, 8};
+    int result = luhn(testDigits);
+    if (result) {
+        std::cout << "Valid credit card number\n";
     } else {
-        std::cout << "The credit card number is invalid." << std::endl;
+        std::cout << "Invalid credit card number\n";
     }
-    return 0; 
+    return 0;
 }
