@@ -1,9 +1,9 @@
 ```
 def get_next_frames_score():
     score = 0
-    for i in range(1, min(3, 10 - len(str(bowling_score(""))) + 1)):
-        if i < len(str(bowling_score(""))):
-            score += int(str(bowling_score(""))[-i])
+    for i in range(1, min(3, 10 - len(str(bowling_score(""))[2:]) + 1)):
+        if i < len(str(bowling_score(""))[2:]):
+            score += int(str(bowling_score(""))[2:].zfill(4)[-i])
         else:
             break
     return score
