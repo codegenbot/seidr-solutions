@@ -8,7 +8,7 @@ std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
-            m = m - 1; 
+            m = lps[m - 1]; 
         }
 
         if (pat[i] == pat[m-1]) { 
@@ -36,8 +36,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         if (j == m) {
             result.push_back(i);
         } else {
-            int k = lps[j-1];
-            i = i + j - k; // move the start index of new substring
+            if (j < m) {
+                i = i + j - lps[j-1]; // move the start index of new substring
+            }
         }
     }
 
