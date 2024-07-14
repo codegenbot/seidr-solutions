@@ -1,8 +1,13 @@
-std::string squareDigits(std::string input) {
-    std::string output = "";
+#include <string>
+using namespace std;
+
+int main() {
+    string input = "12345"; 
+    string result = "";
     for (char c : input) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        result += to_string(digit * digit);
     }
-    return output;
+    cout << result << endl; 
+    return 0;
 }

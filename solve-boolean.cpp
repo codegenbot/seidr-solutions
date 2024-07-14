@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -18,6 +17,7 @@ bool evaluateBooleanExpression(string expression) {
             if (!operation.empty()) {
                 operation.pop();  // Remove the '('
             }
+            result = (expression[i] == 'T') ? true : false;
         } else if (expression[i] == '|' || expression[i] == '&') {
             while (!operation.empty() && operation.top() != '(') {
                 char op = operation.top();
@@ -26,8 +26,7 @@ bool evaluateBooleanExpression(string expression) {
             }
             operation.push(expression[i]);
         } else {
-            if (expression[i] == 'T' || expression[i] == 'F')
-                result = (expression[i] == 'T');
+            result = (expression[i] == 'T') ? true : false;
         }
     }
 
