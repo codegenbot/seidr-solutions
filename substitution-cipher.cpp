@@ -4,15 +4,24 @@
 
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
+    int lowerIndex = 0;
+    int upperIndex = 0;
     for (char c : message) {
-        char lookup = tolower(c); // Convert c to lowercase
-        if (lookup >= 'a' && lookup <= 'z') { 
-            int index = 0;
-            while (index < cipher1.length() && lookup != tolower(cipher1[index])) {
-                index++;
+        if (c >= 'a' && c <= 'z') { 
+            while (lowerIndex < cipher1.length() && tolower(c) != tolower(cipher1[lowerIndex])) {
+                lowerIndex++;
             }
-            if (index < cipher1.length()) {
-                result += tolower(cipher2[index]); // Convert the character in cipher2 to lowercase
+            if (lowerIndex < cipher1.length()) {
+                result += tolower(cipher2[lowerIndex]); 
+            } else {
+                result += c; 
+            }
+        } else if (c >= 'A' && c <= 'Z') { 
+            while (upperIndex < cipher1.length() && toupper(c) != toupper(cipher1[upperIndex])) {
+                upperIndex++;
+            }
+            if (upperIndex < cipher1.length()) {
+                result += toupper(cipher2[upperIndex]); 
             } else {
                 result += c; 
             }
