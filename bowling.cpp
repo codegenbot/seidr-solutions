@@ -12,18 +12,8 @@ int bowlingScore(string s) {
             roll = 0;
         } else {
             int val = c - '0';
-            roll += val;
-            if (roll == 10) {
-                score += 10;
-                roll = 0;
-            }
-        }
-    }
-    if (roll > 0) {
-        if (roll < 2) {
-            score += 10 - (10 - roll);
-        } else {
-            score += roll;
+            roll++;
+            score += val;
         }
     }
     return score;
