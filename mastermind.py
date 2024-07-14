@@ -3,15 +3,18 @@ from collections import Counter
 
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return "Invalid input: both code and guess should be 4-character strings"
+        return str(0) + "\n" + str(0)
 
     for c in code:
         if c not in "ARBYG":
-            return "Invalid input: code can only contain 'ARBYG' characters"
+            return str(0) + "\n" + str(0)
 
     for g in guess:
         if g not in "ARBYG":
-            return "Invalid input: guess can only contain 'ARBYG' characters"
+            return str(0) + "\n" + str(0)
+
+    if len(set(code)) != 4 or len(set(guess)) != 4:
+        return str(0) + "\n" + str(0)
 
     code_counts = Counter(code)
     guess_counts = Counter(guess)
