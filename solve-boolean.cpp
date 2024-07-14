@@ -1,12 +1,17 @@
-string solveBoolean(string s) {
-    if (s == "t") return "True";
-    else if (s == "f") return "False";
-    else if (s.length() > 1) {
-        bool res = (s[0] == 'T');
-        for(int i=1; i<s.length(); i++) {
-            if(s[i]=='|') res = !res;
-            else if(s[i]&1) res = !res;
+bool solveBoolean(string expression) {
+    if (expression == "t") return true;
+    if (expression == "f") return false;
+
+    bool a = expression[0] == 'T';
+    for (int i = 1; ; i++) {
+        if (i >= expression.size()) return a;
+        char c = expression[i];
+        if (c == '&') {
+            a &= expression[i+1] == 'T';
+            while (++i && (c = expression[i]) != '|'); // skip |
+        } else if (c == '|') {
+            a |= expression[i+1] == 'T';
+            while (++i && (c = expression[i]) != '&'); // skip &
         }
-        return res ? "True" : "False";
-    } else return "Invalid input";
+    }
 }
