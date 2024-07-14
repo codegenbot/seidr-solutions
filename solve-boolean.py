@@ -26,16 +26,20 @@ def solve_boolean(expression):
                 while len(stack) > 0 and stack[-1] != "(":
                     top = stack.pop()
                     output.append(top)
-                stack.pop()  # Remove the '('
+                if len(stack) > 0 and stack[-1] == "(":
+                    stack.pop()  # Remove the '('
+                else:
+                    eval_str += char
 
     while len(stack) > 0:
         top = stack.pop()
-        if top == "(":
-            continue  # Don't pop the opening parenthesis
         while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
             if top != "(":
                 eval_str += top
-        eval_str += top
+        if top == "(":
+            stack.append("(")
+        else:
+            eval_str += top
 
     return "T" if eval_str == "T" else "F"
 
