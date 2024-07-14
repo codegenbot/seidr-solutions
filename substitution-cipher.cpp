@@ -25,19 +25,18 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 }
 
 int main() {
-    char temp[256], temp2[256], message[256];
+    std::string cipher_map1, cipher_map2, message;
 
     std::cout << "Enter the first map: ";
-    std::cin.getline(temp, 256);
-    std::string cipher_map1 = temp;
+    std::getline(std::cin, cipher_map1);
 
     std::cout << "Enter the second map: ";
-    std::cin.getline(temp2, 256);
-    std::string cipher_map2 = temp2;
+    std::getline(std::cin, cipher_map2);
 
     std::cout << "Enter the message to decipher: ";
-    std::cin.getline(message, 256);
-    std::string input_message = message;
+    std::string temp;
+    std::getline(std::cin, temp);
+    message = temp;
 
-    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, input_message) << std::endl;
+    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
 }
