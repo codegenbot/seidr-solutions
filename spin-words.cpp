@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 void trim(std::string &s) {
     s.erase(0, s.find_first_not_of(' ')); // remove leading spaces
@@ -18,7 +19,7 @@ std::string spinWords(std::string str) {
         if (word.length() >= 5) {
             result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word;
+            result += word + (word.length() < 5 ? " " : "") + "";
         }
         start = spacePos + 1;
     }
