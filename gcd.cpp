@@ -1,7 +1,15 @@
-#include <vector>
+#include <iostream>
 #include <string>
-
 using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -17,35 +25,22 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
 int main() {
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-
-    int greatestCommonDivisor = gcd(num1, num2);
-    cout << "GCD of " << num1 << " and " << num2 << " is " << greatestCommonDivisor << endl;
-
     string text, target;
-    cout << "Enter a text: ";
+    cout << "Enter the text: ";
     cin >> text;
-    cout << "Enter a target: ";
+    cout << "Enter the target: ";
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    cout << "Indices of substring are: ";
+    int g = gcd(indices.size(), 1);
+
+    cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
+    cout << "GCD of indices: " << g << endl;
 
     return 0;
 }
