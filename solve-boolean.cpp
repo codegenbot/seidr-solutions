@@ -4,14 +4,19 @@
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'F') {
+    for (char c : s) {
+        if (c == 'F') {
             return false;
         }
-        else if (s[i] == '|') {
+        else if (c == '|') {
             result = !result;
         }
-        else if (s[i] == '&') {
+        else if (c == '&') {
+            size_t pos = s.find('&', 0);
+            while (pos != std::string::npos) {
+                if (!result) return false;
+                pos = s.find('&', pos + 1);
+            }
             if (!result) return false;
         }
     }
