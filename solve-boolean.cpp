@@ -10,7 +10,7 @@ bool solveBoolean(string s) {
         if (c == '|') {
             result = !result;
         } else {
-            if (c == '&') result &= true;
+            result &= false;
         }
     }
     return result;
