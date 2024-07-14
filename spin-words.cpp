@@ -1,38 +1,35 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::size_t pos = 0;
-    
-    while ((pos = sentence.find(" ")) != std::string::npos) {
-        std::size_t wordPos = sentence.find(" ", pos);
-        if (wordPos == std::string::npos) {
-            wordPos = sentence.length();
+string spinWords(string sentence) {
+    string result = "";
+    string word = "";
+
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (word.length() >= 5)
+                for (int i = word.length() - 1; i >= 0; --i)
+                    result += word[i];
+            else
+                result += word;
+            word = "";
+        } else {
+            word += c;
         }
-        
-        std::string word = sentence.substr(pos, wordPos - pos);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        
-        result += word + " ";
-        pos = wordPos + 1;
     }
-    
-    if (sentence.back() == ' ') {
-        result.pop_back();
-    }
-    
+
+    if (word.length() >= 5)
+        for (int i = word.length() - 1; i >= 0; --i)
+            result += word[i];
+    else
+        result += word;
+
     return result;
 }
 
 int main() {
-    // Your code for input and output handling
-    std::string sentence;
-    while (std::cin >> sentence) {
-        std::cout << spinWords(sentence) << std::endl;
-    }
+    // Your code goes here. The following example input will be given:
+    string sentence = "this is another test";
+    cout << spinWords(sentence) << endl;
     return 0;
 }
