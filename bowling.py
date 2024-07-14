@@ -1,26 +1,22 @@
-```
-def bowling_score(game):
+Here is the solution:
+
+def bowling_game(bowling_game_input):
+    game = [int(x) for x in re.sub('/|-', '', bowling_game_input)]
     score = 0
-    for i in range(10):
-        if game[i].isdigit():
-            strike = False
-            spare = False
-            frame_score = 0
-            j = i
-            while j < 10:
-                if game[j] == 'X':
-                    strike = True
-                    j += 1
-                    break
-                elif game[j] == '/':
-                    spare = True
-                    j += 1
-                    break
-                else:
-                    frame_score += int(game[j])
-                    j += 1
-            if not strike and not spare:
-                score += frame_score
+    roll = 0
+    for frame in range(1, 11):
+        if game[roll] == 10:
+            score += game[roll]
+            roll += 1
         else:
-            score += int(game[i].replace('/', ''))
+            first_roll = game[roll]
+            if game[roll+1:roll+3].count(str(game[roll])) == 2:
+                score += game[roll] + game[roll+1]
+                roll += 2
+            elif frame < 10 and (game[roll+1] + game[roll+2]) >= 10:
+                score += first_roll + game[roll+1]+game[roll+2]
+                roll += 3
+            else:
+                score += first_roll + game[roll+1]
+                roll += 2
     return score
