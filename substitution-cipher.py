@@ -6,10 +6,10 @@ def substitution_cipher(cipher1, cipher2, message):
             mapping[c1.upper()] = c2.upper()
     
     result = ""
-    for m, char in zip(message, cipher1):
-        if char.isalpha() and char in mapping:
-            result += mapping[char].upper() if char.isupper() else mapping[char]
+    for char in message:
+        if char.isalpha() and char.lower() in mapping:
+            result += mapping[char.lower()].upper() if char.isupper() else mapping[char.lower()]
         else:
-            result += m
+            result += char
 
     return result
