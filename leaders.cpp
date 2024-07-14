@@ -4,11 +4,11 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
     int n = arr.size();
-    int max_right = arr.back();
+    int maxRight = arr.back();
     for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= max_right) {
+        if (arr[i] >= maxRight) {
             leaders.push_back(arr[i]);
-            max_right = arr[i];
+            maxRight = arr[i];
         }
     }
     reverse(leaders.begin(), leaders.end());
