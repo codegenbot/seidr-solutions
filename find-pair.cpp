@@ -1,17 +1,16 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 std::pair<int, int> findPair(std::vector<int> nums, int target) {
     std::sort(nums.begin(), nums.end());
-    std::size_type left = 0;
-    std::size_type right = nums.size() - 1;
+    size_t left = 0;
+    size_t right = nums.size() - 1;
 
     while (left < right) {
         int sum = nums[left] + nums[right];
         if (sum == target) {
-            return {nums[left], nums[right]};
+            return std::make_pair(nums[left], nums[right]);
         } else if (sum < target) {
             left++;
         } else {
