@@ -1,22 +1,16 @@
 ```cpp
 #include <string>
 #include <iostream>
+#include <cstddef>
 
-std::string validateTweet(const std::string& input) {
-    if (input.empty()) {
+const char* input; 
+std::string validateTweet(const char* input) {
+    if (*input == '\0') {
         return "You didn't type anything";
     }
-    size_t len = input.length();
+    size_t len = strlen(input);
     if (len > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + std::to_string(len) + " characters";
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter your tweet: ";
-    std::getline(std::cin, input);
-    std::cout << validateTweet(input) << std::endl;
-    return 0;
+    return "Your tweet has ";
 }
