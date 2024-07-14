@@ -1,46 +1,31 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words;
-    size_t pos = 0, start = 0;
-
-    while ((pos = str.find('-')) != std::string::npos) {
-        words.push_back(str.substr(start, pos - start));
-        start = pos + 1;
-    }
-    words.push_back(str.substr(start));
-
-    std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (!result.empty()) {
-            result += (i == 0 ? "" : "") + topperCase(words[i]);
+string camelCase(string str) {
+    string result = "";
+    for (int i = 0; i < str.length(); ++i) {
+        if (str[i] == '-') {
+            if (result.length() > 0) {
+                result[result.length() - 1] = toupper(result[result.length() - 1]);
+            }
+            for (++i; i < str.length() && str[i] != '-'; ++i) {
+                if (str[i] >= 'A' && str[i] <= 'Z') break;
+                result += tolower(str[i]);
+            }
         } else {
-            result = topperCase(words[i]);
+            if (!result.length()) {
+                if (str[i] >= 'A' && str[i] <= 'Z') {
+                    result += toupper(str[i]);
+                } else {
+                    result += tolower(str[i]);
+                }
+            } else {
+                if (str[i] >= 'A' && str[i] <= 'Z') {
+                    result += " " + toupper(str[i]);
+                } else {
+                    result += " " + tolower(str[i]);
+                }
+            }
         }
     }
-
     return result;
-}
-
-std::string topperCase(const std::string& str) {
-    std::string result;
-
-    for (char c : str) {
-        if (c == '-') {
-            continue;
-        }
-        result += (char)(toupper(c));
-    }
-
-    return result;
-}
-
-int main() {
-    std::cout << kebabToCamel("nospaceordash") << "\n";
-    std::cout << kebabToCamel("two-words") << "\n";
-    std::cout << kebabToCamel("two words") << "\n";
-    std::cout << kebabToCamel("all separate words") << "\n";
-
-    return 0;
 }
