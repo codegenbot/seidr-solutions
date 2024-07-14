@@ -1,13 +1,7 @@
 ```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> res;
     int n = v.size();
-    res.first = vector<int>();
-    res.second = vector<int>();
     for (int i = 0; i <= n - 1; i++) {
         if (i > 0 && v[i] != v[0]) {
             break;
