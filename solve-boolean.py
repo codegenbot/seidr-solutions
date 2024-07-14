@@ -1,48 +1,24 @@
 def solve_boolean(expression):
-    postfix = convert_to_postfix(expression)
+    precedence = {"&": 2, "|": 1}
     stack = []
-    for char in postfix.split():
-        if char.strip() in ["T", "F"]:
-            if char == "T":
-                stack.append(True)
-            else:
-                stack.append(False)
-        elif char in ["&", "|"]:
-            while len(stack) > 1 and (stack[-1] == ")" or precedence[stack[-1]] < precedence[char]):
-                stack.pop()
-            value2 = stack.pop()
-            value1 = stack.pop() if stack else None
-            result = value1 and value2 if char == "&" else value1 or value2
-            stack.append(result)
-
-    return stack[0]
-
-def convert_to_postfix(expression):
-    precedence = {"&": 1, "|": 0}
     output = []
-    operator_stack = []
 
     for char in expression:
         if char.strip() in ["T", "F"]:
             output.append(char)
-        elif char == "(":
-            operator_stack.append(char)
+        elif char in ["&", "|"]:
+            while len(stack) > 0 and (
+                stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]
+            ):
+                output.append(stack.pop())
+            stack.append(char)
         else:
-            if char == ")":
-                while operator_stack[-1] != "(":
-                    output.append(operator_stack.pop())
-                operator_stack.pop()
-            elif char in ["&", "|"]:
-                while (
-                    len(operator_stack) >= 1
-                    and operator_stack[-1] in precedence
-                    and precedence[operator_stack[-1]] >= precedence[char]
-                ):
-                    output.append(operator_stack.pop())
-                operator_stack.append(char)
+            if char == "(":
+                stack.append(char)
+            else:
+                stack.append(char)
 
-    # Empty the stack
-    while len(operator_stack) > 0:
-        output.append(operator_stack.pop())
+    while len(stack) > 0:
+        output.append(stack.pop())
 
-    return " ".join(output)
+    return "T" if output[0] else "F"
