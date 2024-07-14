@@ -1,9 +1,10 @@
+```cpp
 #include <algorithm>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
 #include <string>
 #include <vector>
+#include <initializer_list>
 
 int gcd(int a, int b) {
     if (b == 0)
