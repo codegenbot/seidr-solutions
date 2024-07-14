@@ -1,5 +1,5 @@
 ```cpp
-int mastermind(string code, string guess) {
+int mastermind(const char* code, const char* guess) {
     int white = 0;
     int black = 0;
 
@@ -9,19 +9,57 @@ int mastermind(string code, string guess) {
         }
     }
 
+    int count = 0;
     for (char c : code) {
-        int count = 0;
-        for (int i = 0; i < 4; ++i++) {
-            if (c == guess[i]) {
-                count++;
-                if (count == 1) {
-                    black--;
-                } else {
-                    white += count - 1;
-                }
-            }
+        if (c == guess[0]) {
+            count++;
         }
+        else if (c == guess[1]) {
+            count++;
+        }
+        else if (c == guess[2]) {
+            count++;
+        }
+        else if (c == guess[3]) {
+            count++;
+        }
+    }
+    if (count > 1) {
+        white += count - 1;
+    }
+    else if (count == 1) {
+        black--;
+    }
+
+    count = 0;
+    for (char c : code) {
+        if (c == guess[0] && c != 'A' && c != 'B' && c != 'C' && c != 'D') {
+            count++;
+        }
+        else if (c == guess[1] && c != 'A' && c != 'B' && c != 'C' && c != 'D') {
+            count++;
+        }
+        else if (c == guess[2] && c != 'A' && c != 'B' && c != 'C' && c != 'D') {
+            count++;
+        }
+        else if (c == guess[3] && c != 'A' && c != 'B' && c != 'C' && c != 'D') {
+            count++;
+        }
+    }
+    if (count > 1) {
+        white += count - 1;
+    }
+    else if (count == 1) {
+        black--;
     }
 
     return black + white;
+}
+
+int main() {
+    const char* code = "ABCD";
+    const char* guess = "ABDE";
+    int result = mastermind(code, guess);
+    cout << result;
+    return 0;
 }
