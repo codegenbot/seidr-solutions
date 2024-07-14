@@ -2,21 +2,52 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     int min_diff = INT_MAX;
-    int cut_index = 0;
-    for (int i = 1; i < v.size(); i++) {
-        if (abs(v[i] - v[0]) <= min_diff) {
-            min_diff = abs(v[i] - v[0]);
-            cut_index = i;
+    pair<vector<int>, vector<int>> res;
+
+    for (int i = 1; i < n; ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j)
+            left_sum += v[j];
+        for (int j = i; j < n; ++j)
+            right_sum += v[j];
+
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            res = {{}, {}};
+            for (int j = 0; j < i; ++j)
+                res.first.push_back(v[j]);
+            for (int j = i; j < n; ++j)
+                res.second.push_back(v[j]);
         }
     }
-    vector<int> left = {v[0]};
-    for (int i = 1; i < cut_index; i++) {
-        left.push_back(v[i]);
-    }
-    vector<int> right = {v[cut_index]};
-    for (int i = cut_index + 1; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-    return {left, right};
+
+    return res;
+}
+
+int main() {
+    int n;
+    cout << "Enter the size of the vector: ";
+    cin >> n;
+    
+    vector<int> v(n);
+    cout << "Enter the elements of the vector: ";
+    for (auto &x : v)
+        cin >> x;
+
+    pair<vector<int>, vector<int>> res = cutVector(v);
+
+    cout << "The first subvector is: ";
+    for (int i : res.first)
+        cout << i << " ";
+    cout << endl;
+
+    cout << "The second subvector is: ";
+    for (int i : res.second)
+        cout << i << " ";
+    cout << endl;
+
+    return 0;
 }
