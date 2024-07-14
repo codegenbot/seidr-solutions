@@ -1,28 +1,38 @@
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    stack<bool> vals;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
-            bool b1 = vals.top();
-            vals.pop();
-            bool b2 = vals.top();
-            vals.pop();
-            vals.push(b1 && b2);
-            ops.push('&');
-        } else if (expression[i] == '|') {
-            bool b1 = vals.top();
-            vals.pop();
-            bool b2 = vals.top();
-            vals.pop();
-            vals.push(b1 || b2);
-            ops.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            vals.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            vals.push(false);
+bool solveBoolean(string s) {
+    bool result = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') {
+            result = true;
+        } else if (s[i] == 'f') {
+            return false;
+        } else if (s[i] == '|') {
+            bool temp = result;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] == 't') {
+                    result = true;
+                } else if (s[j] == 'f') {
+                    return false;
+                }
+                i = j - 1;
+                break;
+            }
+            result = temp;
+        } else if (s[i] == '&') {
+            bool temp = result;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] == 't') {
+                    result = true;
+                } else if (s[j] == 'f') {
+                    return false;
+                }
+                i = j - 1;
+                break;
+            }
+            result &= temp;
         }
     }
-
-    return vals.top();
+    return result;
 }
