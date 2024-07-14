@@ -2,17 +2,14 @@
 #include <iostream>
 
 std::string validateTweet(std::string tweet) {
-    std::string::size_type len = 0;
-    for (char c : tweet) {
-        ++len;
-        if (len > 140) {
-            return "Too many characters";
-        }
+    tweet.erase(0, tweet.find_first_not_of(" \t")); // Remove leading/trailing whitespace
+    if (tweet.length() > 140) {
+        return "Too many characters";
     }
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    return "Your tweet has " + std::to_string(len) + " characters";
+    return "Your tweet has " + std::to_string(tweet.length()) + " characters";
 }
 
 int main() {
