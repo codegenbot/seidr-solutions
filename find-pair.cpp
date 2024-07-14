@@ -1,34 +1,57 @@
 #include <vector>
 using namespace std;
 
-pair<int, int> findPair(vector<int>& nums, int target) {
-    unordered_map<int, int> numMap;
-    
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+pair<int, int> findPair(vector<int>& vec, int target) {
+    vector<int> vecCopy = vec;
+    sort(vecCopy.begin(), vecCopy.end());
+
+    int left = 0;
+    int right = vecCopy.size() - 1;
+
+    while (left < right) {
+        if (vecCopy[left] + vecCopy[right] == target) {
+            for (int i = 0; i < vec.size(); i++) {
+                if (vec[i] == vecCopy[left]) {
+                    int otherNum = target - vec[i];
+                    for (int j = 0; j < vec.size(); j++) {
+                        if (vec[j] == otherNum) {
+                            return pair<int, int>(vec[i], otherNum);
+                        }
+                    }
+                } else if (vec[i] == vecCopy[right]) {
+                    int otherNum = target - vec[i];
+                    for (int j = 0; j < vec.size(); j++) {
+                        if (vec[j] == otherNum) {
+                            return pair<int, int>(vec[i], otherNum);
+                        }
+                    }
+                }
+            }
+        } else if (vecCopy[left] + vecCopy[right] < target) {
+            left++;
+        } else {
+            right--;
         }
-        numMap[nums[i]] = i;
     }
-    
-    return {-1, -1}; // return default values if no pair found
+
+    return pair<int, int>(-1, -1);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> numbers(n);
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
+        cin >> vec[i];
     }
+
     int target;
     cin >> target;
-    
-    pair<int, int> result = findPair(numbers, target);
-    
+
+    pair<int, int> result = findPair(vec, target);
+
     cout << result.first << endl;
     cout << result.second << endl;
-    
+
     return 0;
 }
