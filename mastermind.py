@@ -13,10 +13,12 @@ def mastermind(code, guess):
     for c in code:
         code_count[c] += 1
 
-    for c, d in zip(code, guess):
+    for i, (c, d) in enumerate(zip(code, guess)):
         if c == d:
             black += 1
+            code_count[c] -= 1
         else:
-            white += min(code_count[c], 1)
-
+            if code_count[c] > 0:
+                white += 1
+                code_count[c] -= 1
     return str(white) + str(black)
