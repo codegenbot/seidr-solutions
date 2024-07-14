@@ -18,6 +18,6 @@ int main() {
     cout << "Enter your tweet: ";
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
-    cout << endl;  // added this line
+    cout << endl;  // Add this line
     return 0;
 }
