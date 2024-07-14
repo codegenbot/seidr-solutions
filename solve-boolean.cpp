@@ -1,26 +1,31 @@
 bool solveBoolean(string s) {
-    stack<char> st;
-    for (char c : s) {
-        if (c == '&') {
-            st.pop();
-            st.push(',');
-        } else if (c == '|') {
-            st.pop();
-            st.push('^');
-        } else if (c != ' ') {
-            st.push(c);
+    stack<char> ops;
+    stack<bool> vals;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T' || s[i] == 't') {
+            vals.push(true);
+        } else if (s[i] == 'F' || s[i] == 'f') {
+            vals.push(false);
+        } else if (s[i] == '&') {
+            while (!vals.empty() && !ops.empty()) {
+                bool b1 = vals.top();
+                vals.pop();
+                bool b2 = vals.top();
+                vals.pop();
+                ops.push((b1 && b2) ? '&' : '|');
+            }
+        } else if (s[i] == '|') {
+            while (!vals.empty() || !ops.empty()) {
+                if (ops.empty()) break;
+                bool b1 = vals.top();
+                vals.pop();
+                bool b2 = vals.top();
+                vals.pop();
+                ops.push((b1 || b2) ? '&' : '|');
+            }
         }
     }
-    string res;
-    while (!st.empty()) {
-        char c = st.top(); st.pop();
-        if (c == ',') {
-            res += " && ";
-        } else if (c == '^') {
-            res += " || ";
-        } else {
-            res += c;
-        }
-    }
-    return s.find('T') != string::npos;
+
+    return vals.top();
 }
