@@ -1,19 +1,22 @@
-#include <vector>
-#include <string>
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.size();
+    int m = target.size();
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        result.push_back(pos);
-        pos += 1; // Find the next occurrence
+    for (int i = 0; ; i++) {
+        if (i + m > n) break;
+
+        int j = 0;
+        while (j < m && text[i+j] == target[j]) j++;
+        
+        if (j == m) result.push_back(i);
+        else break;
     }
+
     return result;
 }
 
-int greatestCommonDivisor(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return greatestCommonDivisor(b, a % b);
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
