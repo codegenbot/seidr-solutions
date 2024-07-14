@@ -8,9 +8,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
             break;
         }
     }
-    std::pair<std::vector<int>, std::vector<int>> res;
-    res.first = std::vector<int>();
-    res.second = std::vector<int>();
+    std::pair<std::vector<int>, std::vector<int>> res({},{});
     for (int j = 0; j < i; j++) {
         res.first.push_back(v[j]);
     }
