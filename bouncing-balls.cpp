@@ -4,15 +4,16 @@
 using namespace std;
 
 int main() {
+    cout << fixed << setprecision(4);
     double startHeight; 
     cin >> startHeight;
     
     double bouncinessIndex = startHeight / 2.0;
 
     if (bouncinessIndex < 0.01)
-        cout << "The bounciness index is: " << fixed << setprecision(4) << 0.00 << endl;
+        cout << "The bounciness index is: " << 0.00 << endl;
     else
-        cout << "The bounciness index is: " << fixed << setprecision(2) << bouncinessIndex << endl;
+        cout << "The bounciness index is: " << bouncinessIndex << endl;
     
     double height = startHeight; 
     double totalDistance = 0.0; 
@@ -25,8 +26,6 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    cout << fixed;
-    cout << setprecision(4);
     cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
 
     return 0;
