@@ -1,21 +1,28 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
-        } else {
-            bool colorExist = false;
-            for(int j=0; j<4; j++) {
-                if(guess[j] == code[i] && i != j) {
-                    colorExist = true;
-                    break;
-                }
-            }
-            if(!colorExist) white++;
+int countWhitePegs(const std::string& code, const std::string& guess) {
+    int whitePegs = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++whitePegs;
+            break;
         }
     }
+    return whitePegs;
+}
 
-    return black << 2 | white;
+int countBlackPegs(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++blackPegs;
+        }
+    }
+    return blackPegs - countWhitePegs(code, guess);
+}
+
+std::pair<int, int> getClue(const std::string& code, const std::string& guess) {
+    return {countWhitePegs(code, guess), countBlackPegs(code, guess)};
 }
