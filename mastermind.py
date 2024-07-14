@@ -6,7 +6,18 @@ def mastermind(code, guess):
         if c not in "Royo":
             return "00"
 
-    white = sum(1 for d in set(guess) if d in code and d != guess[guess.index(d)])
-    black = sum(1 for i, (c, d) in enumerate(zip(code, guess)) if c == d)
+    white = 0
+    black = 0
+
+    code_count = [0] * 6
+    for c in code:
+        code_count[ord(c) - ord("R")] += 1
+
+    for i, (c, d) in enumerate(zip(code, guess)):
+        if c == d:
+            black += 1
+        elif code_count[ord(d) - ord("R")] > 0:
+            white += 1
+            code_count[ord(d) - ord("R")] -= 1
 
     return str(white) + str(black)
