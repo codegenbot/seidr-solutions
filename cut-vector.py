@@ -1,3 +1,4 @@
+```python
 def cut_vector(vector):
     min_diff = float('inf')
     cut_index = 0
