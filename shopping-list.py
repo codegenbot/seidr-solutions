@@ -5,7 +5,7 @@ def shopping_list():
     total_price = sum(
         price * (1 - discount / 100) for price, discount in zip(prices, discounts)
     )
-    return format(total_price, ".2f")
+    return "{:.2f}".format(total_price)
 
 
 print(shopping_list())
