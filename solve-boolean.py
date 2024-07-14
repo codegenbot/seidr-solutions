@@ -11,4 +11,5 @@ def solve_boolean(expression):
     elif '|' in expression:
         return any(c == 'T' for c in expression)
 
-print(solve_boolean(input()))
+expression = input()
+print(solve_boolean(expression))
