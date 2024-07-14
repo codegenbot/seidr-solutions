@@ -1,4 +1,7 @@
+```cpp
 #include <vector>
+#include <iostream>
+
 int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleDigit = false;
@@ -14,4 +17,11 @@ int luhn(std::vector<int> digits) {
     }
     
     return sum;
+}
+
+int main() {
+    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 6, 4, 3, 9, 0};
+    int result = luhn(digits);
+    std::cout << "The Luhn check digit is: " << result << std::endl;
+    return 0;
 }
