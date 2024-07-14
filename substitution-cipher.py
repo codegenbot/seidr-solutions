@@ -8,3 +8,8 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             result += char
     return result
+
+cipher1 = "abcdefghijklmnopqrstuvwxyz"
+cipher2 = "defghijklmnopqrstuvwxyzabc"
+message = "Hello, World!"
+print(substitution_cipher(cipher1, cipher2, message))
