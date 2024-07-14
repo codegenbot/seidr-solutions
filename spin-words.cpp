@@ -12,11 +12,11 @@ std::string spinWords(std::string str) {
         if (word.length() >= 5) {
             result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word + (word.length() < 5 ? " " : "") + "";
+            result += word + " ";
         }
         start = spacePos + 1;
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
