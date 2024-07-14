@@ -3,34 +3,21 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        if (text.substr(i, target.size()) == target) {
             result.push_back(i);
         }
     }
-
     return result;
 }
 
 int main() {
-    // Example usage:
     string text;
-    cout << "Enter the text: ";
-    getline(cin, text);
-
-    string target;
-    cout << "Enter the target: ";
-    getline(cin, target);
-
-    vector<int> indices = indicesOfSubstring(text, target);
-
-    for (auto i : indices) {
-        cout << i << " ";
+    int n;
+    cin >> text >> n;
+    vector<int> result = indicesOfSubstring(text, text.substr(0, n));
+    for (int i : result) {
+        cout << i << endl;
     }
-    cout << endl;
-
     return 0;
 }
