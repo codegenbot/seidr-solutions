@@ -17,18 +17,24 @@ int main() {
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
+    int temp; 
+    std::cin >> temp;
+    hours = static_cast<int>(temp);
 
     std::cout << "Enter the initial amount of snow: ";
-    std::cin >> initialSnow;
+    float temp2; 
+    std::cin >> temp2;
+    initialSnow = temp2;
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::cin >> rateOfSnowFall;
+    float temp3; 
+    std::cin >> temp3;
+    rateOfSnowFall = temp3;
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> proportionOfSnowMeltingPerHour;
-
-    std::cout << "Please enter numbers and decimal points (like 2.5) for all values." << std::endl;
+    float temp4; 
+    std::cin >> temp4;
+    proportionOfSnowMeltingPerHour = temp4;
 
     double result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
