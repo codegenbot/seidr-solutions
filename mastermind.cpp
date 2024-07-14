@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int mastermind(string code, string guess) {
@@ -14,16 +15,15 @@ int mastermind(string code, string guess) {
     }
 
     // Count the number of correct colors in the right places
-    int codeCount[6] = {0};
     for (int i = 0; i < 4; i++) {
-        codeCount[code[i] - '0']++;
-    }
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else if (codeCount[guess[i] - '0'] > 0) {
-            white++;
-            codeCount[guess[i] - '0']--;
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
+                white++;
+                code[j] = 'X';
+                break;
+            }
+            j++;
         }
     }
 
