@@ -7,13 +7,14 @@ using namespace std;
 
 double vectorDistance(int n) {
     double sum = 0;
-    double x1, x2; // Declare these variables outside the loop for efficiency
-
+    vector<double> v1(n), v2(n);
+    
     for (int i = 0; i < n; i++) {
-        cin >> x1 >> x2;
-        sum += pow(x2 - x1, 2);
+        cin >> v1[i] >> v2[i];
+        sum += pow(v2[i] - v1[i], 2);
     }
-    return sqrt(sum); 
+    
+    return sqrt(sum);
 }
 
 int main() {
