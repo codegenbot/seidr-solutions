@@ -6,4 +6,3 @@ int sumPairedDigits(string str) {
         }
     }
     return sum;
-}
