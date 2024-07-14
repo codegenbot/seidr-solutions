@@ -1,15 +1,21 @@
 ```
-def bowling_score(bowling):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for i in range(0, len(bowling), 2):
-        if bowling[i] == 'X':
-            score += 10 + (10 - int(bowling[roll+1])) if i < 9 else 10
-            roll += 2
-        elif bowling[i] == '/':
-            score += 10 - int(bowling[roll])
-            roll += 2
+    frame = 1
+    for i in range(0, len(frames), 2):
+        if frames[i] != '-':
+            strike = False
+            if i < len(frames) - 1 and frames[i+1] != '/':
+                spare = False
+                while i < len(frames) - 1 and frames[i:i+3].count('/'):
+                    score += 10 + int(frames[i+2])
+                    i += 2
+                    frame -= 1
+                    if not spare:
+                        spare = True
+            else:
+                score += 10
         else:
-            score += sum(map(int, bowling[i:i+2]))
-            roll += 2
+            score += 10 + int(frames[i+1]) + int(frames[i+3])
+        frame -= 1
     return score
