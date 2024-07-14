@@ -1,4 +1,4 @@
-def validate_tweet():
+def validate_tweet(t):
     tweet = input("Please enter your tweet: ")
     if len(tweet) > 140:
         return "Too many characters"
@@ -7,4 +7,4 @@ def validate_tweet():
     else:
         return f"Your tweet has {len(tweet)} characters"
 
-print(validate_tweet())
+print(validate_tweet(None))
