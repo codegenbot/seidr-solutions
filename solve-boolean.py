@@ -5,11 +5,11 @@ def solve_boolean(expression):
     
     for char in expression:
         if char.strip() in ['T', 'F']:
-            stack.append(char == 'T')
+            stack.append(char)
         elif char in ['&', '|']:
-            while len(stack) >= 2 and (stack[-1] is not None or stack[-2] is not None):
-                value2 = stack.pop()
-                value1 = stack.pop() if stack else True
+            value2 = stack.pop() == 'T'
+            while len(stack) >= 1 and (stack[-1] is not None or stack[-1] is not None):
+                value1 = stack.pop() == 'T' if stack else True
                 if operation == '&':
                     result = result and (value1 and value2)
                 elif operation == '|':
@@ -20,7 +20,4 @@ def solve_boolean(expression):
         else:
             raise ValueError("Invalid expression")
             
-    while stack:
-        result = stack.pop()
-        
     return result
