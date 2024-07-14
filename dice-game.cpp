@@ -14,16 +14,22 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    std::string str_n, str_m;
-    while (true) {
+    while(true) {
         std::cout << "Enter the number of sides on Peter's die: ";
-        std::cin >> str_n;
-        if (!str_n.length()) break; 
-        n = stoi(str_n);
+        std::string input;
+        std::cin >> input;
+        n = std::stoi(input);
+        if (input != std::to_string(n)) {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+            break;
+        }
         std::cout << "Enter the number of sides on Colin's die: ";
-        std::cin >> str_m;
-        if (!str_m.length()) break; 
-        m = stoi(str_m);
+        std::cin >> input;
+        m = std::stoi(input);
+        if (input != std::to_string(m)) {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+            break;
+        }
         double result = probability(n, m);
         std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
         break;
