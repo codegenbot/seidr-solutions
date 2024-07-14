@@ -1,11 +1,12 @@
 def coin_sums():
     cents = int(input())
-    coins = [25, 10, 5, 1]
-    answer = [0, 0, 0, 0]
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
 
-    for i in range(4):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            answer[i] += 1
+    for coin in coins:
+        num_coins = cents // coin
+        cents %= coin
 
-    return " ".join(map(str, answer))
+        print(num_coins)
+
+
+coin_sums()
