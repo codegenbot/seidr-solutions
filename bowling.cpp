@@ -1,3 +1,5 @@
+string input;
+cin >> input;
 int bowlingScore() {
     int score = 0;
     int currentRoll1 = 0, currentRoll2 = 0;
