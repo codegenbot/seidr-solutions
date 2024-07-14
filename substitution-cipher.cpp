@@ -14,14 +14,16 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 }
 
 int main() {
-    std::string cipher_map1, cipher_map2, message;
+    std::string input;
     std::cout << "Enter the first string: ";
-    cin >> cipher_map1;
+    std::getline(std::cin, input);
+    std::string cipher_map1 = input;
     std::cout << "Enter the second string: ";
-    cin >> cipher_map2;
+    std::getline(std::cin, input);
+    std::string cipher_map2 = input;
     std::cout << "Enter the message to decipher: ";
-    cin.ignore(); // ignore newline left in input stream
-    cin >> message;
+    std::string message;
+    std::getline(std::cin, message);
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
