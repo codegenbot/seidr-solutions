@@ -1,11 +1,11 @@
 def shopping_list():
     total_price = 0
-    n = int(input())
 
-    for _ in range(n):
+    while True:
         try:
             item_prices = list(map(float, input().split()))
-            if len(item_prices) != n: 
+            num_items = int(input())
+            if len(item_prices) != num_items: 
                 raise Exception("Invalid number of items")
             discount = float(input()) / 100
             subtotal = sum([p * (1 - discount) for p in item_prices])
