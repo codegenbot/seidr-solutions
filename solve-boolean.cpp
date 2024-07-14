@@ -101,9 +101,39 @@ bool evaluateTop(std::stack<char> &st) {
 }
 
 int main() {
-    std::stack<char> st;
-    // initialize stack with input string here
-    bool result = evaluateTop(st);
-    std::cout << (result ? "True" : "False") << std::endl;
+    std::string expression;
+    std::cin >> expression;
+
+    std::stack<char> stack;
+    for (char c : expression) {
+        if (c == '(' || c == ')' || c == '|' || c == '&') {
+            stack.push(c);
+        } else {
+            while (!stack.empty() && stack.top() != '(') {
+                char top = stack.top();
+                stack.pop();
+                if (top == '|') {
+                    result = true; // reset the result for OR operation
+                } else if (top == '&') {
+                    while (!stack.empty() && stack.top() != '(') {
+                        stack.pop();
+                    }
+                    if (stack.empty()) {
+                        return false;
+                    }
+                    top = stack.top();
+                    stack.pop();
+                    if (top == 'T') {
+                        result = true; // short-circuit
+                    } else {
+                        result = false; // short-circuit
+                    }
+                }
+            }
+        }
+    }
+
+    std::cout << (evaluateTop(stack) ? "True" : "False") << std::endl;
+
     return 0;
 }
