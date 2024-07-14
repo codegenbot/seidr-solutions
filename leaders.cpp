@@ -4,16 +4,11 @@
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    for (int i = n - 1; i >= 0; i--) { 
-        bool is_leader = true;
-        for (int j = i; j < n - 1; j++) { 
-            if (arr[i] <= arr[j]) {
-                is_leader = false;
-                break;
-            }
-        }
-        if (is_leader) {
+    int max_left = arr[0];
+    for (int i = 0; i < n; i++) { 
+        if (arr[i] >= max_left) {
             res.push_back(arr[i]);
+            max_left = arr[i];
         }
     }
     return res;
