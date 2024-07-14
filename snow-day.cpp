@@ -10,7 +10,7 @@ float snowDay(int hours, float snowOnGround, float rateOfSnowFall, float proport
         snowOnGround = max<float>(0.0, snowOnGround);
     }
     
-    return totalSnow;
+    return totalSnow + snowOnGround;
 }
 
 int main() {
