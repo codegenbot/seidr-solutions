@@ -13,9 +13,9 @@ std::string spinWords(const std::string& input) {
                 for(size_t j = 0; j < length/2; ++j) {
                     std::swap(word[j], word[length-1-j]);
                 }
-                output += word;
+                output += word + ' ';
             } else {
-                output += input.substr(start, length);
+                output += input.substr(start, length) + ' ';
             }
             if (i < input.size()) {
                 output += ' ';
