@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <limits>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -41,7 +42,7 @@ int main() {
         if (!line.empty()) { 
             std::string output = camelCase(line); // Pass the input to the function
             if(!output.empty() && !output.back() == ' ')  
-                std::cout << "Camel Case: " << std::move(output) << std::endl; 
+                std::cout << "Camel Case: " << output << std::endl; 
         }
     }
     return 0;
