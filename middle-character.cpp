@@ -1,15 +1,16 @@
 ```cpp
 #include <string>
 
-std::string middleCharacter(std::string s) {
-    int len = s.length();
-    int mid = std::min(len / 2, len / 2 + 1);
+std::string middleCharacter(const char* s) {
+    int len = std::strlen(s);
+    int startMid = len / 2;
+    int endMid = len / 2 + 1;
 
     if (len % 2 == 0) { 
-        return s.substr(mid - 1, 2);
+        return std::string(1, s[startMid - 1]) + std::string(1, s[endMid - 1]);
     } else { 
-        return s.substr(mid, 1);
+        return std::string(1, s[len / 2]);
     }
 }
 
-int main() { middleCharacter("your_test_string"); return 0; }
+int main() { std::cout << middleCharacter("your_test_string"); return 0; }
