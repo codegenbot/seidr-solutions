@@ -1,7 +1,8 @@
 ```cpp
+#include <iostream>
 #include <string>
 
-bool solveBoolean(std::string s) {
+bool solveBoolean(const std::string& s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'F') {
@@ -19,13 +20,10 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    char c;
     std::string input;
     std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    while ((c = getchar()) != '\n') {
-        input += c;
-    }
-    bool result = solveBoolean(input);
+    std::getline(std::cin, input);
+    bool result = solveBoolean(input); 
     std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     return 0;
 }

@@ -28,8 +28,6 @@ int main() {
     std::cout << "Enter the proportion of snow melting per hour: ";
     std::cin >> proportionOfSnowMeltingPerHour;
 
-    std::cout << "Please enter numbers and decimal points (like 2.5) for all values." << std::endl;
-
     double result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
     std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << "\n";
