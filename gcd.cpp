@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -25,4 +24,28 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
+
+int main() {
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+
+    int greatestCommonDivisor = gcd(num1, num2);
+    cout << "GCD of " << num1 << " and " << num2 << " is " << greatestCommonDivisor << endl;
+
+    string text, target;
+    cout << "Enter a text: ";
+    cin >> text;
+    cout << "Enter a target: ";
+    cin >> target;
+
+    vector<int> indices = indicesOfSubstring(text, target);
+    cout << "Indices of substring are: ";
+    for (int i : indices) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
