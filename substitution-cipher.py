@@ -6,9 +6,9 @@ def decrypt_message(cipher1, cipher2, message):
 
     result = ""
     for char in message:
-        if char.isalpha() and char.lower() in char_map:
-            result += (char_map[char.lower()] if char.isupper() else 
-                       char_map[char.lower()].lower())
+        if char.isalpha() and (char.lower() in char_map or char.upper() in char_map):
+            result += (char_map[char.lower()].lower() if char.islower()
+                       else char_map[char.lower()].upper())
         else:
             result += char
     return result
