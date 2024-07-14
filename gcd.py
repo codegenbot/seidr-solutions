@@ -18,8 +18,6 @@ def find_indices(text, target):
 
 
 def main():
-    global math
-
     text = input("Enter the text: ")
     target = input("Enter the target string: ")
 
@@ -27,9 +25,7 @@ def main():
     second_number = int(input("Enter the second number: "))
 
     print(find_indices(text, target))
-
-    if input("Do you want to find GCD? (yes/no): ").lower() == "yes":
-        print(f"GCD: {gcd(first_number, second_number)}")
+    print(f"GCD: {gcd(first_number, second_number)}")
 
 
 if __name__ == "__main__":
