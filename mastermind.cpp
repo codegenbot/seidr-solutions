@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <map>
 
@@ -31,10 +32,9 @@ int mastermind(std::string code, std::string guess) {
     return black + white;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     std::string code = "ABCD";
     std::string guess = "BCDE";
-
     int result = mastermind(code, guess);
-    return result;
+    return 0;
 }
