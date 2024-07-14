@@ -1,7 +1,7 @@
+```
 def gcd(a, b):
     while b:
-        g = a % b
-        a, b = b, g
+        a, b = b, a % b
     return abs(a)
 
 def find_gcd():
