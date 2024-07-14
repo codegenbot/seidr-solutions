@@ -1,7 +1,3 @@
-cipher1 = input("Enter the first cipher: ")
-cipher2 = input("Enter the second cipher: ")
-message = input("Enter the message to be deciphered: ")
-
 def substitution_cipher(cipher1, cipher2, message):
     mapping = {}
     for c1, c2 in zip(cipher1.lower(), cipher2.lower()):
@@ -10,12 +6,10 @@ def substitution_cipher(cipher1, cipher2, message):
             mapping[c1.upper()] = c2.upper()
     
     result = ""
-    for char in message:
+    for m, char in zip(message, cipher1):
         if char.isalpha() and char in mapping:
             result += mapping[char].upper() if char.isupper() else mapping[char]
         else:
-            result += char
+            result += m
 
     return result
-
-print(substitution_cipher(cipher1, cipher2, message))
