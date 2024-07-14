@@ -12,12 +12,9 @@ int main() {
     int remaining_nickels_pennies = remaining_cents % 10; 
 
     int nickels = remaining_nickels_pennies / 5;
-    pennies = remaining_nickels_pennies % 5;
+    remaining_nickels_pennies %= 5;
 
-    if(pennies >= 5) {
-        quarters++;
-        remaining_cents -= 25;
-    }
+    int pennies = remaining_nickels_pennies;
 
     cout << quarters << endl; 
     cout << dimes << endl; 
