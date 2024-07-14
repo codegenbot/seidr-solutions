@@ -1,4 +1,3 @@
-```
 def leaders(input):
     leaders = []
     max_right = input[-1]
@@ -6,4 +5,4 @@ def leaders(input):
         if input[i] >= max_right:
             leaders.append(input[i])
             max_right = input[i]
-    return list(reversed(leaders))
+    return leaders[::-1]
