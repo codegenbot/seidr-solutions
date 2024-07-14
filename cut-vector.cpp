@@ -1,65 +1,41 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res;
-    
-    for (int i = 1; i <= n/2; i++) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; j++) {
-            sum1 += nums[j];
-        }
-        for (int j = i; j < n; j++) {
-            sum2 += nums[j];
-        }
-        
-        if (sum1 == sum2) {
-            res.push_back({nums.begin(), nums.begin() + i});
-            res.push_back({nums.begin() + i, nums.end()});
-            return res;
-        } else {
-            int diff = abs(sum1 - sum2);
-            for (int j = 0; j < n/2; j++) {
-                if (abs((sum1 - nums[j]) - sum2) <= diff) {
-                    res.push_back({nums.begin(), nums.begin() + j});
-                    res.push_back({nums.begin() + j, nums.end()});
-                    return res;
-                }
-            }
+std::vector<int> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs(vec[i] - vec[i-1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    
-    res.push_back({nums.begin(), nums.end()});
-    res.push_back({});
-    return res;
+
+    std::vector<int> leftVec(vec.begin(), vec.begin() + cutIndex);
+    std::vector<int> rightVec(vec.begin() + cutIndex, vec.end());
+
+    return {leftVec, rightVec};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+
+    std::vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+        std::cin >> vec[i];
     }
-    
-    vector<vector<int>> res = cutVector(nums);
-    
-    cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i];
-        if (i != res[0].size() - 1) {
-            cout << ", ";
+
+    auto result = cutVector(vec);
+
+    for (const auto& vec : result) {
+        for (int num : vec) {
+            std::cout << num;
         }
+        std::cout << "\n";
     }
-    cout << "], [";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i];
-        if (i != res[1].size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
-    
+
     return 0;
 }
