@@ -1,3 +1,10 @@
-def camel_case(s):
-    s = s.replace("-", " ").replace(" ", "")
-    return "".join(word.capitalize() for word in s.split()) if len(s) > 0 else ""
+Here is the Python solution:
+
+def kebab_to_camel(s):
+    result = ""
+    for word in s.split():
+        if not result:
+            result += word.capitalize()
+        else:
+            result += word.capitalize().replace(" ", "")
+    return result
