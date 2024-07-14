@@ -10,4 +10,4 @@ def luhn(card_number):
         else:
             sum += v
         alt = not alt
-    return sum % 10
+    return sum
