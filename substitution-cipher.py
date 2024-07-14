@@ -1,9 +1,10 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
-    cipher_dict = {k: v for k, v in zip(cipher2, cipher1)}
     result = ""
     for char in message:
-        if char in cipher_dict:
-            result += cipher_dict[char]
+        if char.isalpha() and char.lower() in cipher2:  
+            index = cipher2.index(char.lower()) 
+            result += cipher1[index].upper() if char.isupper() else cipher1[index]
         else:
             result += char
     return result
