@@ -1,4 +1,5 @@
-Here's a Python function that solves the problem:
+```
+def camel_case(s):
+    return ''.join(word.capitalize() for word in s.split('-')) + ' '.join(s.split())
 
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() for word in s.split('-'))
+print(camel_case(input()))
