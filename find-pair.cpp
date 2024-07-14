@@ -1,17 +1,29 @@
 #include <vector>
+#include <utility>
 #include <algorithm>
 
-auto findPair(std::vector<int>& nums, int target) -> std::pair<std::vector<int>::iterator, std::vector<int>::iterator> {
+std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
     
-    auto it = nums.begin();
-    for (auto end = --nums.end(); it != end; ++it) {
-        if (std::distance(it, end) > 1 && *it + *(end - 1) == target) {
-            return {it, end - 1};
-        } else if (*it + *(end - 1) > target) {
-            --end;
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int complement = target - nums[i];
+        
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[j] == complement) {
+                return {nums[i], nums[j]};
+            }
+            else if (nums[j] > complement) {
+                break;
+            }
         }
     };
     
-    return {nums.begin(), nums.end()};
+    return {-1, -1};
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int target = 15;
+    std::pair<int, int> pair = findPair(nums, target);
+    return 0;
 }
