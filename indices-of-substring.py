@@ -1,13 +1,13 @@
+Here is the Python solution for the problem:
+
 ```
 def indices_of_substring(text):
     result = []
-    for i in range(len(text)):
-        if text[i:].startswith(input()):
-            while True:
-                try:
-                    j = text.index(input(), i)
-                except ValueError:
-                    break
-                result.append(j)
-                i = j + 1
+    start = 0
+    while start < len(text):
+        pos = text.find(text[start:], start)
+        if pos == -1:
+            break
+        result.append(pos)
+        start += pos + 1
     return result
