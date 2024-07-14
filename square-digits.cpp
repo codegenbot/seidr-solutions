@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -5,8 +6,8 @@ using namespace std;
 string squareDigits(string input) {
     string output = input;
     for(int i = 0; i < input.length(); i++) {
-        int digit = (output[i] - '0') * (output[i] - '0');
-        output.replace(i, 1, to_string(digit));
+        int digit = input[i] - '0';
+        output[i] = to_string(digit * digit)[0];
     }
     return output;
 }
