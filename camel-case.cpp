@@ -1,32 +1,37 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.length() && s[i] == '-') i++;
-            if (i < s.length()) {
-                result += toupper(s[i]);
-                i++; // skip the first letter of the next word
+using namespace std;
+
+string kebabToCamel(const string& str) {
+    string result = "";
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == '-') {
+            if (i > 0 && str[i - 1] != ' ') {
+                result += toupper(str[i + 1]);
+                i++;
+            } else {
+                result += str[i];
             }
-        } else if (!result.empty() && isalpha(s[i])) {
-            result += tolower(s[i]);
         } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+            if (result.empty()) {
+                result = tolower(str[i]);
+            } else {
+                result += str[i];
             }
-            result += s[i];
         }
     }
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "camelCase: " << camelCase(input) << std::endl;
+    string input;
+    while (true) {
+        cout << "Enter a kebab-case string or 'stop' to quit: ";
+        cin >> input;
+        if (input == "stop") break;
+        cout << "CamelCase: " << kebabToCamel(input) << endl;
+    }
     return 0;
 }
