@@ -7,32 +7,31 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
     
     for (int i = 0; i < hours; i++) {
         double snowThisHour = rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour;
-        totalSnow += snowThisHour > 0 ? snowThisHour : 0; // ensure no negative snow
+        totalSnow += snowThisHour > 0 ? snowThisHour : 0; 
     }
     
     return totalSnow;
 }
 
 int main() {
-    std::string inputHours, inputInitialSnow, inputRateOfSnowFall, inputProportionOfSnowMeltingPerHour;
-    int hours;
-    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    std::string input;
+    int hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    std::cin >> inputHours;
-    hours = std::stoi(inputHours);
+    std::cin >> input;
+    hours = std::stoi(input);
 
     std::cout << "Enter the initial amount of snow: ";
-    std::cin >> inputInitialSnow;
-    initialSnow = std::stof(inputInitialSnow);
+    std::cin >> input;
+    initialSnow = std::stof(input);
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::cin >> inputRateOfSnowFall;
-    rateOfSnowFall = std::stof(inputRateOfSnowFall);
+    std::cin >> input;
+    rateOfSnowFall = std::stof(input);
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> inputProportionOfSnowMeltingPerHour;
-    proportionOfSnowMeltingPerHour = std::stof(inputProportionOfSnowMeltingPerHour);
+    std::cin >> input;
+    proportionOfSnowMeltingPerHour = std::stof(input);
 
     double result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
