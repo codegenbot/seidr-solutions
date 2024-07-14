@@ -1,9 +1,4 @@
-#include <initializer_list>
-#include <algorithm>
-#include <string>
-#include <iostream>
-#include <ostream>
-
+```cpp
 int mastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
     int whitePegs = 0;
@@ -16,12 +11,16 @@ int mastermind(const std::string& code, const std::string& guess) {
         }
     }
 
-    return blackPegs * 2 + whitePegs;
-}
+    // Count the correct white pegs
+    for (char c : guess) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (code[i] == c && code.find(c) != i) {
+                ++count;
+            }
+        }
+        whitePegs -= count;
+    }
 
-int main() {
-    std::string code = "abcD";
-    std::string guess = "aBcd";
-    int result = mastermind(code, guess);
-    std::cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << std::endl;
+    return blackPegs * 2 + whitePegs;
 }
