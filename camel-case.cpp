@@ -1,3 +1,4 @@
+```cpp
 std::string camelCase(const std::string& str) {
     std::vector<std::string> segments = split(str, '-');
     std::string result;
