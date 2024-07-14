@@ -1,8 +1,12 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <iostream>
+#include <iterator>
+using namespace std;
 
-std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, int len) {
+std::vector<int> computeLPSArray(const string& pat, vector<int>& lps) {
     int m;
     lps.push_back(0); 
     m = 0; 
@@ -20,13 +24,13 @@ std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, 
     }
 }
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result; // Initialize with 0 size
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result; // Initialize with 0 size
     int n = text.length();
     int m = target.length();
 
-    std::vector<int> lps(m);
-    computeLPSArray(target, lps, target.length());
+    vector<int> lps(m);
+    computeLPSArray(target, lps);
 
     for (int i = 0; i <= n - m; i++) {
         int j = 0;
@@ -46,15 +50,15 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 }
 
 int main() {
-    std::string text;
-    std::cin >> text;
-    std::string target;
-    std::cin >> target;
+    string text;
+    cin >> text;
+    string target;
+    cin >> target;
 
-    std::vector<int> indices = indicesOfSubstring(text, target);
+    vector<int> indices = indicesOfSubstring(text, target);
 
     for (int i : indices) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 }
