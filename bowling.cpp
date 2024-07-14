@@ -1,4 +1,4 @@
-```c
+```
 int bowlingScore(std::string input) {
     int score = 0;
     int currentRoll1 = 0, currentRoll2 = 0;
@@ -17,7 +17,7 @@ int bowlingScore(std::string input) {
                 currentRoll2 += c - '0';
             }
         } else if (c == '-') {
-            score += currentRoll1 + currentRoll2;
+            score += currentRoll1 + (currentRoll2 > 0 ? 10 : currentRoll2);
             currentRoll1 = 0; currentRoll2 = 0;
         }
     }
