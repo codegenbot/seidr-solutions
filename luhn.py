@@ -11,4 +11,4 @@ def luhn(card_number):
                 result += doubled_num
         else:
             result += num
-    return str(sum(card_number)) % 10
+    return "Valid" if result % 10 == 0 else "Invalid"
