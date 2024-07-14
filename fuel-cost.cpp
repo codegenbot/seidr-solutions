@@ -1,12 +1,11 @@
-```cpp
+```
 #include <vector>
-#include <initializer_list>
 #include <cmath>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = std::floor((double)i / 3) - 2; 
+        int temp = static_cast<int>(std::floor(double(i) / 3)) - 2; 
         if (temp < 0) {
             temp = 0;
         }
@@ -15,4 +14,4 @@ int fuelCost(std::vector<int> v) {
     return sum;
 }
 
-int main() { return fuelCost({1390, 8945, 8287, 969, 1247}); }
+int main() { return fuelCost({1, 2, 3, 4, 5}); }
