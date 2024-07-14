@@ -1,12 +1,12 @@
+```
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 double vectorDistance() {
     int n;
     cin >> n; 
-    double sum = 0;
+    double sum = 0, x1, x2;
     for (int i = 0; i < n; i++) {
-        double x1, x2;
         cin >> x1 >> x2; 
         sum += sqrt(pow(x2 - x1, 2));
     }
