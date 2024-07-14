@@ -3,10 +3,13 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i + 1]) {
-            sum += (s[i] - s[i + 1] + 10) % 10;
+    int prev = -1;
+    for (int i = 0; i < s.length(); i++) {
+        int curr = s[i] - '0';
+        if (curr == prev) {
+            sum += curr;
         }
+        prev = curr;
     }
     return sum;
 
