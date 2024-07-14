@@ -1,8 +1,6 @@
 def paired_digits(s):
     total_sum = 0
-    prev_digit = None
-    for c in s:
-        if c == prev_digit:
-            total_sum += int(c) * 2
-        prev_digit = c
+    for i in range(len(s)):
+        if i > 0 and s[i] == s[i-1]:
+            total_sum += int(s[i]) * 2
     return total_sum
