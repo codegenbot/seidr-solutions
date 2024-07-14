@@ -3,9 +3,9 @@
 #include <vector>
 
 double vectorDistance() {
-    std::vector<float> v1(n), v2(n);
     int n;
     std::cin >> n; 
+    std::vector<float>(n) v1, v2;
     for (int i = 0; i < n; i++) {
         float temp1, temp2;
         std::cin >> temp1; // read one value
