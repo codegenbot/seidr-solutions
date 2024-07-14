@@ -1,21 +1,16 @@
 ```
-def indices_of_substring(text, target):
-    result = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos != -1:
-            result.append(pos)
-            start = pos + 1
-        else:
-            break
-    return result
+def find_gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
 
-def find_indices():
-    text = input("Enter the target string: ")
-    target = input("Enter the text: ")
-    print(f"Indices of '{target}' in '{text}': {indices_of_substring(target, text)}")
+def main():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    gcd_value = find_gcd(num1, num2)
+    print(f"The GCD of {num1} and {num2} is {gcd_value}")
 
 
-find_indices()
+main()
