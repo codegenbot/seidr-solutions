@@ -1,11 +1,4 @@
-```cpp
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <initializer_list>
-
+```c++
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -32,9 +25,8 @@ int main() {
 
     std::vector<int> indices = indicesOfSubstring(text, target);
     int max_gcd = 0;
-    for (int i = 1; i < indices.size(); i++) {
-        int diff = abs(indices[i] - indices[i-1]);
-        int g = gcd(diff, indices[i-1]);
+    for (int i = 0; i < indices.size(); i++) {
+        int g = gcd(indices[i], max_gcd);
         if (g > max_gcd) {
             max_gcd = g;
         }
