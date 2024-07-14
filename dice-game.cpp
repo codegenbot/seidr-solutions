@@ -6,8 +6,7 @@ double probability(int n, int m) {
     double p = 0;
 
     for (int i = 1; i < m; i++) { 
-        std::string str = std::to_string(m - i);
-        p += (str.length() + 1) / total;
+        p += (double)1 / total;
     }
     
     p += (double)1 / total;
@@ -20,4 +19,5 @@ int main() {
     cin >> n >> m; 
     cout << fixed << setprecision(6) << probability(n, m); 
     return 0;
-}
+
+#include <iomanip>
