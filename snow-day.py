@@ -1,6 +1,6 @@
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     snow = float(initial_snow)
     for _ in range(hours):
-        new_snow = round(snow + rate_of_snowfall, 2) - round(melting_rate, 2)
+        new_snow = round(snow + rate_of_snowfall - melting_rate, 6) 
         snow = max(new_snow, 0.0)
-    return str(round(snow, 10)).rstrip('0').rstrip('.')
+    return format(snow, ".6f")
