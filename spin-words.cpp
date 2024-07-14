@@ -1,34 +1,30 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            wordLength = i - (result.empty());
-            if (wordLength >= 5)
-                reverse(result.rbegin(), result.rend());
-            result += " ";
-        } else
-            result += str[i];
-    }
-    return result.substr(1);
-}
-
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a sentence: ";
-        cin >> str;
-        if (str == "exit")
+std::string spinWords(std::string input) {
+    std::string output = "";
+    size_t start = 0;
+    for (size_t end = 0; end <= input.size(); ) {
+        if (input[end] == ' ') {
+            output += input.substr(start, end - start) + " ";
+            start = end + 1;
+        } else if (end == input.size()) {
+            output += input.substr(start, end - start) + " ";
             break;
-        cout << spinWords(str) << endl;
+        }
+        end++;
     }
-    return 0;
+
+    for (size_t i = 0; i < output.size(); ) {
+        size_t wordStart = i;
+        while (i < output.size() && !isspace(output[i])) {
+            i++;
+        }
+        if (i - wordStart >= 5) {
+            std::reverse(output.substr(wordStart, i - wordStart).begin(), output.substr(wordStart, i - wordStart).end());
+        }
+    }
+
+    return output;
 }
