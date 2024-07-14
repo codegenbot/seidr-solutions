@@ -5,7 +5,13 @@ def bowling_score(frames):
         if frames[i] == 'X':
             score += 30
         elif frames[i] == '/':
-            score += 10 + int(frames[i+1])
+            score += int(frames[i+1]) + 10
         else:
-            score += sum(int(x) for x in frames[i:i+2]) + (10 - sum(int(x) for x in frames[i:i+2])) if i < len(frames)-1 and frames[i+1] == '-' else 0
+            frame_score = int(frames[i])
+            if i < 8 and frames[i+1] == 'X':
+                score += frame_score + 10
+            elif i < 8 and frames[i+1] != '/':
+                score += frame_score + int(frames[i+1])
+            else:
+                score += frame_score + 10
     return score
