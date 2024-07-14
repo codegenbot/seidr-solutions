@@ -1,10 +1,11 @@
-#include <string>
+Here is the solution:
 
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+int squareDigits(int n) {
+    string s = to_string(n);
+    for (char &c : s) {
+        c -= '0';
+        c *= c;
+        c += '0';
     }
-    return output;
+    return stoi(s);
 }
