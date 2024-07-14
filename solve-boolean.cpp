@@ -1,28 +1,24 @@
-bool evaluateBooleanExpression(string expression) {
+string solveBoolean(string expression) {
     stack<char> ops;
-    stack<bool> values;
+    stack<string> values;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            bool b1 = values.top();
+            string right = values.top();
             values.pop();
-            bool b2 = values.top();
+            string left = values.top();
             values.pop();
-            values.push(b1 && b2);
-            ops.push('&');
+            values.push(left + "&" + right);
         } else if (expression[i] == '|') {
-            bool b1 = values.top();
+            string right = values.top();
             values.pop();
-            bool b2 = values.top();
+            string left = values.top();
             values.pop();
-            values.push(b1 || b2);
-            ops.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            values.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            values.push(false);
+            values.push(left + "|" + right);
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            values.push(expression.substr(i, 1));
         }
     }
 
-    return values.top();
+    return values.top() == "T" ? "True" : "False";
 }
