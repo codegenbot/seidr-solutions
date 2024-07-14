@@ -10,4 +10,4 @@ def luhn(card_number):
                 total += temp
         else:
             total += digit  
-    return sum(int(digit) for digit in str(total))
+    return total
