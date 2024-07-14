@@ -6,14 +6,20 @@
 using namespace std;
 
 double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
-    double result = 0;
+    double diff = 0;
     int n = max(x1.size(), x2.size());
     for (int i = 0; i < n; i++) {
-        double diff = (i >= x1.size() ? 0 : x1[i]) - (i >= x2.size() ? 0 : x2[i]);
-        result += pow(diff, 2);
+        if(i >= x1.size()) {
+            diff += pow(0 - x2[i], 2);
+        } else if(i >= x2.size()) {
+            diff += pow(x1[i], 2);
+        } else {
+            double vec1 = x1[i];
+            double vec2 = x2[i];
+            diff += pow(vec1 - vec2, 2);
+        }
     }
-    
-    return sqrt(result);
+    return sqrt(diff);
 }
 
 int main() {
