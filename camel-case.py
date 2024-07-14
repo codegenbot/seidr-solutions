@@ -1,6 +1,2 @@
-Here is the Python solution for the problem:
-
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(s.split('-'))).replace('-', ' ')
-
-print(kebab_to_camel(input()))
+def camel_case(input_str):
+    return ''.join(word.capitalize() for word in input_str.replace('-', ' ').split())
