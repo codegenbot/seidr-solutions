@@ -1,25 +1,22 @@
-```
 def solve_boolean(expression):
-    stack = []
-    result = True
-    operation = None
-    
-    for char in expression:
-        if char.strip() in ['T', 'F']:
-            stack.append(char == 'T')
-        elif char in ['&', '|']:
-            while len(stack) >= 2 and (stack[-1] is not None or stack[-2] is not None):
-                value2 = stack.pop()
-                value1 = stack.pop() if stack else True
-                if operation == '&':
-                    result = result and (value1 and value2)
-                elif operation == '|':
-                    result = result or (value1 or value2)
-            operation = None  # Reset the operation for next iteration
+    def evaluate(expression):
+        if expression[0] == '(':
+            i = 1
+            for char in expression[1:]:
+                if char == '(':
+                    i += 1
+                elif char == ')':
+                    i -= 1
+                    if i == 0:
+                        return int(evaluate(expression[1:i]) == 'T')
+            raise ValueError("Unbalanced parentheses")
+        elif expression[0] in ['T', 'F']:
+            return expression[0] == 'T'
+        elif len(expression) > 1 and expression[1] in ['&', '|']:
+            if expression[1] == '&':
+                return evaluate(expression[:2]) and evaluate(expression[2:])
+            else:
+                return evaluate(expression[:2]) or evaluate(expression[2:])
         else:
             raise ValueError("Invalid expression")
-            
-    while stack:
-        result = stack.pop()
-        
-    return result
+    return int(evaluate(expression) == 'T')

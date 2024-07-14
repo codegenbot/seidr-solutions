@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <initializer_list>
 #include <iostream>
@@ -14,7 +13,22 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices({10.0, 20.0, 30.0});
-    vector<float> discounts({5.0, 10.0, 15.0});
+    int numItems;
+    cin >> numItems;
+
+    vector<float> prices(numItems);
+    for (float &price : prices) {
+        cin >> price;
+    }
+
+    int secondNumber;
+    cin >> secondNumber;
+
+    vector<float> discounts(secondNumber);
+    for (float &discount : discounts) {
+        cin >> discount;
+    }
+
     cout << "Total cost: " << shoppingList(prices, discounts) << endl;
     return 0;
+}
