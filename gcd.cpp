@@ -2,11 +2,7 @@
 #include <vector>
 #include <string>
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::vector;
-using std::string;
+using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
