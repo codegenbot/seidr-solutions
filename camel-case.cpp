@@ -3,19 +3,15 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool nextUpper = true;
+    bool capitalizeNext = true;
     for (char c : str) {
         if (c == '-') {
-            nextUpper = true;
-        } else if (c != ' ') {
-            if (nextUpper) {
-                result += toupper(c);
-                nextUpper = false;
-            } else {
-                result += tolower(c);
-            }
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            nextUpper = true;
+            result += tolower(c);
         }
     }
     return result;
@@ -25,7 +21,7 @@ int main() {
     std::string str;
     while (std::cin >> str) {
         if (str.find('-') == std::string::npos) {
-            std::cout << "Program did not receive expected input.\n";
+            std::cout << "Program did not receive expected input" << std::endl;
             break;
         } else {
             std::cout << camelCase(str) << std::endl;
