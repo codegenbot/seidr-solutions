@@ -1,35 +1,35 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + (i < 9 ? strikeBonus(s.substr(i+1)) : 0);
-        } else if (s[i] == '/') {
-            int nextRoll = stoi(s.substr(i+1, 2));
-            score += (i < 9 ? roll1 + roll2 : 10) + (nextRoll - 1);
-            i++;
-        } else {
-            roll1 = (s[i] - '0');
-            if (i < 8 && s[i+1] != '/') {
-                roll2 = (s[i+1] - '0');
-                i++;
-            } else {
-                roll2 = 10 - roll1;
-            }
-            score += roll1 + roll2;
-        }
-    }
-    return score;
-}
+    int currentRolls = 0;
+    vector<int> rolls;
 
-int strikeBonus(string s) {
-    int bonus = 0;
     for (char c : s) {
-        if (c == 'X') {
-            bonus += 10;
-        } else if (c != '/') {
-            bonus += (c - '0');
+        if (c == '/') {
+            if (currentRolls < 2) {
+                if (rolls.back() + 10 - '0' <= 10) {
+                    score += 10;
+                } else {
+                    score += rolls.back() + 10 - '0';
+                }
+                currentRolls = 0;
+                rolls.clear();
+            }
+        } else {
+            int roll = c - '0';
+            if (currentRolls < 2) {
+                rolls.push_back(roll);
+                currentRolls++;
+            } else {
+                score += roll;
+                currentRolls = 1;
+                rolls.clear();
+            }
         }
     }
-    return bonus;
+
+    for (int i : rolls) {
+        score += i;
+    }
+
+    return score;
 }
