@@ -1,9 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <iostream> 
 #include <string>
-
-using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0) return a;
@@ -11,18 +10,23 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string str1, str2;
-    cout << "Enter the first string: ";
-    cin >> str1;
-    cout << "Enter the second string: ";
-    cin >> str2;
+    std::string str1, str2;
+    std::cout << "Enter the first string: ";
+    std::cin >> str1;
+    std::cout << "Enter the second string: ";
+    std::cin >> str2;
 
-    vector<int> result; 
+    if (str1.empty() || str2.empty()) {
+        std::cout << "Error: Both strings must be non-empty." << std::endl;
+        return 1;
+    }
+
+    std::vector<int> result; 
+
     size_t pos = 0;
-    
-    while ((pos = str1.find(str2, pos)) != string::npos) {
+    while ((pos = str1.find(str2, pos)) != std::string::npos) {
         result.push_back(pos);
-        pos += 1;
+        ++pos;
     }
 
     if (result.size() == 0)
@@ -30,8 +34,8 @@ int main() {
 
     int gcdResult = 1;
     for (int i : result) {
-        gcdResult = __gcd(gcdResult, i); 
+        gcdResult = std::__gcd(gcdResult, i); 
     }
         
-    cout << "GCD of indices: " << gcdResult << endl; 
+    std::cout << "GCD of indices: " << gcdResult << std::endl; 
 }
