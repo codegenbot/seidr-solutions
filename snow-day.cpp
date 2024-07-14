@@ -14,25 +14,33 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
 }
 
 int main() {
-    int hours;
+    int hoursStr;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    std::string str;
-    std::getline(std::cin, str);
-    hours = std::stoi(str);
+    if (!(std::cin >> hoursStr)) {
+        std::cerr << "Invalid input for hours. Please try again.\n";
+        return 1; 
+    }
+    int hours = hoursStr; 
 
     std::cout << "Enter the initial amount of snow: ";
-    std::getline(std::cin, str);
-    initialSnow = std::stof(str);
+    if (!(std::cin >> initialSnow)) {
+        std::cerr << "Invalid input for initial snow. Please try again.\n";
+        return 1; 
+    }
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::getline(std::cin, str);
-    rateOfSnowFall = std::stof(str);
+    if (!(std::cin >> rateOfSnowFall)) {
+        std::cerr << "Invalid input for rate of snow fall. Please try again.\n";
+        return 1; 
+    }
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::getline(std::cin, str);
-    proportionOfSnowMeltingPerHour = std::stof(str);
+    if (!(std::cin >> proportionOfSnowMeltingPerHour)) {
+        std::cerr << "Invalid input for proportion of snow melting. Please try again.\n";
+        return 1; 
+    }
 
     double result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
