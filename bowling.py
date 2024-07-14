@@ -11,6 +11,4 @@ def bowling_score(bowling_game):
                 game = game[:i] + [x-10 for x in game[i:]]
             else:
                 score += game[i]
-        else:
-            break
     return score
