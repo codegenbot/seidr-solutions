@@ -1,22 +1,25 @@
-int bowlingScore(string s) {
-    int score = 0;
+int scoreOfBowlingGame(string input) {
+    int totalScore = 0;
+    string frame;
     for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (s[i] == '/') {
-            int firstRoll = s[i - 1] - '0';
-            int secondRoll = s[i + 1] - '0';
-            score += firstRoll + secondRoll;
+        if (input[i] == 'X') {
+            totalScore += 30;
+            continue;
+        }
+        if (input[i] == '/') {
+            frame = input.substr(0, i);
+            int first = stoi(frame.substr(0, frame.find('/')));
+            int second = 10 - first;
+            totalScore += first + second;
+            continue;
+        }
+        int first = stoi(frame.substr(0, i));
+        int second = 10 - first;
+        if (second == 0) {
+            totalScore += first * 2;
         } else {
-            int rolls = 0;
-            for (int j = i; j < 10; j++) {
-                if (s[j] == '/') {
-                    break;
-                }
-                rolls++;
-            }
-            score += rolls * s[i] - '0';
+            totalScore += first + second;
         }
     }
-    return score;
+    return totalScore;
 }
