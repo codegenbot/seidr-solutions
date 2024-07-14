@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <cmath> 
+#include <cmath> // for abs()
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -13,7 +14,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i; j < n; j++)
             right_sum += v[j];
         if (left_sum == right_sum) {
-            return {{vector<int>(v.begin(), v.begin() + i)}, {vector<int>(v.begin() + i, v.end())}};
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -21,5 +22,5 @@ vector<vector<int>> cutVector(vector<int> v) {
             idx = i;
         }
     }
-    return {{vector<int>(v.begin(), v.begin() + idx)}, {vector<int>(v.begin() + idx, v.end())}};
+    return {{v.begin(), v.begin() + idx}, {v.begin() + idx, v.end()}};
 }
