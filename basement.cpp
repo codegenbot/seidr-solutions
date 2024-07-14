@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -13,7 +12,7 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    vector<int> input = {-2,1,-3,4,-1,2,1,-5,4};
+    vector<int> input = {-2, 3, 1, -5, 4};
     int result = basement(input);
     if (result == -1) {
         cout << "No such index found." << endl;
