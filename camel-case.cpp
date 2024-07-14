@@ -1,50 +1,29 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    vector<string> words = split(s, ' ');
-    string result;
-    
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += toupper(word[0]);
-            for (int i = 1; i < word.size(); i++) {
-                result += tolower(word[i]);
-            }
+std::string kebabToCamel(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            result = word;
+            result += tolower(c);
         }
     }
-    
+
     return result;
 }
 
-string split(string s, char c) {
-    vector<string> result;
-    string temp;
-    
-    for (const auto& ch : s) {
-        if (ch == c) {
-            result.push_back(temp);
-            temp.clear();
-        } else {
-            temp += ch;
-        }
-    }
-    
-    result.push_back(temp);
-    
-    return join(result, ' ');
-}
+int main() {
+    std::string input;
+    std::cin >> input;
 
-string join(vector<string> words, char c) {
-    string result;
-    
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += c;
-        }
-        result += word;
-    }
-    
-    return result;
+    std::cout << kebabToCamel(input) << '\n';
+
+    return 0;
 }
