@@ -21,7 +21,7 @@ std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result; // Initialize with 0 size
+    std::vector<int> result{}; // Initialize with 0 size
     int n = text.length();
     int m = target.length();
 
