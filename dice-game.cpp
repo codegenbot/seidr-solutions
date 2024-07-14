@@ -7,9 +7,7 @@ double probability(int n, int m) {
     double p = 0;
     
     for (int i = 1; i <= min(n - 1, m); i++) { 
-        if(i+1>n){
-            p += (double)(n - i) / total;
-        }
+        p += (double)(n - i) / total;
     }
     
     return p;
