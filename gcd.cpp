@@ -1,13 +1,15 @@
+#include <vector>
+using namespace std;
+
 vector<int> findIndices(string text, string target) {
-    vector<int> result;
-    int index = 0;
+    vector<int> indices;
+    int start = 0;
     
-    while ((index = text.find(target)) != string::npos) {
-        result.push_back(index);
-        index += target.length();
+    while ((start = text.find(target, start)) != string::npos) {
+        indices.push_back(start);
+        start += 1; // to avoid overlapping matches
     }
-    
-    return result;
+    return indices;
 }
 
 int gcd(int a, int b) {
@@ -18,18 +20,19 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
+    int num1, num2;
+    cin >> num1 >> num2;
+    
+    cout << gcd(num1, num2) << endl;
+    
     string text, target;
     cin >> text >> target;
-    vector<int> indices = findIndices(text, target);
     
-    for (int i : indices) {
-        cout << i << " ";
+    vector<int> result = findIndices(text, target);
+    
+    for (int i : result) {
+        cout << i << endl;
     }
-    cout << endl;
     
     return 0;
 }
