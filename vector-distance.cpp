@@ -1,23 +1,26 @@
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 double vectorDistance(int n) {
-    float v1[n], v2[n];
-    
-    // Read first vector
+    double x1, y1;
+    vector<float> v1(n);
     for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+        cin >> x1;
+        v1[i] = x1;
     }
     
-    // Read second vector
+    double x2, y2;
+    cin >> x2;
     for (int i = 0; i < n; i++) {
-        cin >> v2[i];
+        cin >> y2;
+        v1[i] = pow(v1[i] - y2, 2);
     }
     
     double sum = 0.0;
-    for (int i = 0; i < n; i++) {
-        sum += pow(v1[i] - v2[i], 2);
+    for (float f : v1) {
+        sum += f;
     }
     
     return sqrt(sum);
@@ -26,8 +29,6 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
-    
     return 0;
 }
