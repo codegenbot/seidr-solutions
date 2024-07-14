@@ -1,59 +1,41 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    int min_diff = INT_MAX;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    int minDiff = INT_MAX;
     int idx = -1;
-    
-    for (int i = 0; i < n; ++i) {
-        int sum1 = 0, sum2 = 0;
-        
-        for (int j = 0; j <= i; ++j) {
-            sum1 += vec[j];
-        }
-        
-        for (int j = i + 1; j < n; ++j) {
-            sum2 += vec[j];
-        }
-        
-        int diff = abs(sum1 - sum2);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
+
+    for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] == 0 || i == nums.size() - 1) continue;
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; ++j) leftSum += nums[j];
+        for (int j = i + 1; j < nums.size(); ++j) rightSum += nums[j];
+        if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
             idx = i;
         }
     }
-    
-    vector<int> left, right;
-    
-    for (int i = 0; i <= idx; ++i) {
-        left.push_back(vec[i]);
-    }
-    
-    for (int i = idx + 1; i < n; ++i) {
-        right.push_back(vec[i]);
-    }
-    
+
+    std::vector<int> left, right;
+    for (int i = 0; i <= idx; ++i) left.push_back(nums[i]);
+    for (int i = idx + 1; i < nums.size(); ++i) right.push_back(nums[i]);
+
     return {left, right};
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (auto &x : vec) {
-        cin >> x;
-    }
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    cout << "[";
-    for (const auto &x : res.first) {
-        cout << x << " ";
-    }
-    cout << "] [" << "[";
-    for (const auto &x : res.second) {
-        cout << x << " ";
-    }
-    cout << "]";
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (auto& num : nums) std::cin >> num;
+
+    auto res = cutVector(nums);
+
+    std::cout << "Left: ";
+    for (const auto& num : res.first) std::cout << num << " ";
+    std::cout << "\nRight: ";
+    for (const auto& num : res.second) std::cout << num << " ";
+    std::cout << "\n";
+
     return 0;
 }
