@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 int mastermind(const char* code, const char* guess) {
@@ -11,18 +10,44 @@ int mastermind(const char* code, const char* guess) {
         }
     }
 
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
-        int count = 0;
+        c = code[i];
+        if (c == guess[0]) {
+            count++;
+        }
+        else if (c == guess[1]) {
+            count++;
+        }
+        else if (c == guess[2]) {
+            count++;
+        }
+        else if (c == guess[3]) {
+            count++;
+        }
+    }
+    if (count > 1) {
+        white += count - 1;
+    }
+    else if (count == 1) {
+        black--;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        int found = 0;
         for (int j = 0; j < 4; ++j) {
             if (code[j] == guess[i]) {
-                count++;
+                found++;
+                if (i == j) {
+                    black++;
+                }
+                else {
+                    white++;
+                }
             }
         }
-        if (count > 1) {
-            white += count - 1;
-        }
-        else if (count == 1) {
-            black--;
+        if (found > 1) {
+            white -= found - 1;
         }
     }
 
