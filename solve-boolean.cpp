@@ -1,23 +1,11 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string booleanExpression) {
-    if (booleanExpression == "T" || booleanExpression == "t") return true;
-    if (booleanExpression == "F" || booleanExpression == "f") return false;
-    
-    for(int i = 0; i < booleanExpression.length(); i++) {
-        char c = booleanExpression[i];
-        if(c == '&') {
-            bool a = solveBoolean(booleanExpression.substr(0, i));
-            bool b = solveBoolean(booleanExpression.substr(i + 1));
-            return a && b;
-        } 
-        else if(c == '|') {
-            bool a = solveBoolean(booleanExpression.substr(0, i));
-            bool b = solveBoolean(booleanExpression.substr(i + 1));
-            return a || b;
+string solveBoolean(string s) {
+    bool result = (s == "t");
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            result = result || ((i + 1) < s.length() && s.substr(i + 1, 1) == "t") ? true : false;
+        } else if(s[i] == '&') {
+            result = result && ((i + 1) < s.length() && s.substr(i + 1, 1) == "t") ? true : false;
         }
     }
-    
-    return false; // should not reach here
+    return result ? "True" : "False";
 }
