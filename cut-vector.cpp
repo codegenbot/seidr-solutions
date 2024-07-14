@@ -1,56 +1,46 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        long long sum_left = 0, sum_right = 0;
-        for (int j = 0; j <= i; ++j) {
-            sum_left += vec[j];
-        }
-        for (int j = i + 1; j < vec.size(); ++j) {
-            sum_right += vec[j];
-        }
-
-        if (sum_left == sum_right) {
-            return {{vec[0], vec[0]}, vec.substr(1)};
-        } else {
-            int diff = abs(sum_left - sum_right);
-            if (diff < min_diff) {
-                min_diff = diff;
-                cut_index = i;
-            }
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    pair<vector<int>, vector<int>> res;
+    
+    for (int i = 1; i < n; i++) {
+        if (v[i] - v[0] <= v[n-1] - v[i]) {
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
         }
     }
-
-    // If no equal or minimally different subvectors found, return the first element and the rest of the vector
-    return {{vec[0]}, vec.substr(1)};
+    
+    res.first = vector<int>(v.begin(), v.end());
+    res.second = {};
+    return res;
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-
-    std::vector<int> vec;
-    while (num--) {
-        int x;
-        std::cin >> x;
-        vec.push_back(x);
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) {
+        cin >> x;
     }
-
-    auto res = cutVector(vec);
-
-    for (int x : res.first) {
-        std::cout << x << " ";
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "1 ";
+    for (const auto &x : res.first) {
+        cout << x << " ";
     }
-    std::cout << "\n";
-
-    for (int x : res.second) {
-        std::cout << x << " ";
+    cout << endl;
+    cout << "0";
+    for (int i = 0; i < res.second.size(); ++i) {
+        if(i == res.second.size()-1){
+            cout<<res.second[i];
+        }else{
+            cout<<res.second[i]<<" ";
+        }
+        
     }
-    std::cout << "\n";
-
+    cout << endl;
+    
     return 0;
 }
