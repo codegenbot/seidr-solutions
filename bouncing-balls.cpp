@@ -1,20 +1,15 @@
-```cpp
-#include <iostream>
-#include <cmath>
-using namespace std;
-
 int main() {
-    int startHeight;
-    int firstBounce;
-    int numBounces; 
-
-    cin >> startHeight >> std::skipws >> std::ws >> firstBounce >> std::skipws >> std::ws >> numBounces; 
+    string line;
+    getline(cin, line);
+    int startHeight, firstBounce, numBounces;
+    istringstream iss(line);
+    iss >> startHeight >> firstBounce >> numBounces; 
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(2, i+1)-1)*bouncinessIndex*4;
+        totalDistance += (2 * pow(2, i+1) - 1) * bouncinessIndex * 4;
     }
 
     cout << fixed;
