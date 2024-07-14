@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,8 +7,7 @@ double probability(int n, int m) {
     double p = 0;
 
     for (int i = 1; i < m; i++) { 
-        std::string str = std::to_string(m - i);
-        p += (str.length() + 1) / total;
+        p += (double)((m - i)) / total;
     }
     
     p += (double)1 / total;
@@ -18,6 +18,7 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m; 
-    cout << fixed << setprecision(6) << probability(n, m); 
+    int result = (int)(probability(n, m) * 1000000);
+    printf("%06d\n", result);
     return 0;
 }
