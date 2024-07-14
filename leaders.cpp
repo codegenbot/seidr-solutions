@@ -8,15 +8,15 @@ vector<int> leaders(vector<int>& arr) {
     if (n == 0)
         return result;
     
-    result.push_back(arr[n-1]);
+    int lastLeaderIndex = n - 1;
+    result.push_back(arr[lastLeaderIndex]);
     
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] > result.back()) {
+        if (arr[i] >= arr[lastLeaderIndex]) {
             result.push_back(arr[i]);
+            lastLeaderIndex = i;
         }
     }
-    
-    reverse(result.begin(), result.end());
     
     return result;
 }
