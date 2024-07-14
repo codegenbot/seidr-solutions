@@ -1,3 +1,4 @@
+```python
 cipher1 = input("Enter cipher1: ")
 cipher2 = input("Enter cipher2: ")
 message = input("Enter message: ")
