@@ -1,13 +1,9 @@
-#include <vector>
-using namespace std;
-
-int fuelCost(vector<int> numbers) {
-    int sum = 0;
-    for (int num : numbers) {
-        int temp = (num / 3); // divide by 3
-        temp = floor(temp); // round down to the nearest integer
-        temp -= 2; // subtract 2
-        sum += temp; // add to the sum
+int getFuelCost(vector<int>& prices) {
+    int total = 0;
+    for (int price : prices) {
+        int cost = (price / 3);
+        cost = std::floor(cost) - 2;
+        total += cost;
     }
-    return sum;
+    return total;
 }
