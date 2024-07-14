@@ -1,33 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <string>
-
-using namespace std;
+#include <algorithm>
+#include <cmath>
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    return b ? gcd(b, a % b) : a;
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     vector<int> indices;
-    for (int i = 0; ; i++) {
-        int j = 0;
-        while (j < target.length()) {
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        bool found = true;
+        for (int j = 0; j < target.size(); j++) {
             if (text[i + j] != target[j]) {
+                found = false;
                 break;
             }
-            j++;
         }
-        if (j == target.length()) {
+        if (found) {
             indices.push_back(i);
-            i += target.length() - 1;
-        } else {
-            break;
         }
     }
     return indices;
@@ -39,24 +30,16 @@ int main() {
     getline(cin, text);
     cout << "Enter the target: ";
     cin >> target;
-    cin.ignore();
+    cin.ignore(); 
     vector<int> indices = indicesOfSubstring(text, target);
 
-    int gcd_indices = 0;
-    if (!indices.empty()) {
-        gcd_indices = indices[0];
-        for (int i : indices) {
-            if (__gcd(i, gcd_indices) < gcd_indices) {
-                gcd_indices = i;
-            }
-        }
-        cout << "Indices: ";
-        for (int i : indices) {
-            cout << i << " ";
-        }
-        cout << endl;
-        cout << "GCD of indices: " << gcd_indices << endl;
+    int minIndex = *min_element(indices.begin(), indices.end());
+    cout << "Indices: ";
+    for (int i : indices) {
+        cout << i << " ";
     }
+    cout << endl;
+    cout << "GCD of indices: " << gcd(minIndex, minIndex) << endl;
 
     return 0;
 }
