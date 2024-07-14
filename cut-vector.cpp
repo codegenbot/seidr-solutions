@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <cmath> // for abs()
+#include <cmath> 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -38,27 +37,27 @@ int main() {
     vector<int> v1({1});
     pair<vector<int>, vector<int>> res1 = cutVector(v1);
     std::cout << "Input: ";
-    for (int x : v1) std::cout << x << " ";
+    for (int x : v1) cout << x << " ";
     std::cout << std::endl;
     std::cout << "Output:" << std::endl;
     std::cout << "Left: ";
-    for (int x : res1.first) std::cout << x << " ";
+    for (int x : res1.first) cout << x << " ";
     std::cout << std::endl;
     std::cout << "Right: ";
-    for (int x : res1.second) std::cout << x << " ";
+    for (int x : res1.second) cout << x << " ";
     std::cout << std::endl << std::endl;
 
     vector<int> v2({1, 10});
     pair<vector<int>, vector<int>> res2 = cutVector(v2);
     std::cout << "Input: ";
-    for (int x : v2) std::cout << x << " ";
+    for (int x : v2) cout << x << " ";
     std::cout << std::endl;
     std::cout << "Output:" << std::endl;
     std::cout << "Left: ";
-    for (int x : res2.first) std::cout << x << " ";
+    for (int x : res2.first) cout << x << " ";
     std::cout << std::endl;
     std::cout << "Right: ";
-    for (int x : res2.second) std::cout << x << " ";
+    for (int x : res2.second) cout << x << " ";
     std::cout << std::endl << std::endl;
 
     // Add more inputs as needed
