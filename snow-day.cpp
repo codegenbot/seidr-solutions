@@ -8,7 +8,7 @@ float snowDay(int hours, float snowOnGround, float rateOfSnowFall, float proport
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGround;
-        snowOnGround = std::max(0.0f, snowOnGround);
+        snowOnGround = max(0.0f, snowOnGround);
     }
     
     return totalSnow;
