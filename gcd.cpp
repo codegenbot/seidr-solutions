@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+#include <iostream> 
+#include <string>
+
 int gcd(int a, int b) {
     if (b == 0) return a;
     return gcd(b, a % b);
