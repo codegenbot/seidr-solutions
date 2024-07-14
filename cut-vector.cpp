@@ -25,16 +25,17 @@ int main() {
     }
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "1 ";
-    for (int num : result.first) {
-        cout << num << " ";
+    
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
     }
-    cout << endl;
-    cout << "0 ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "] [" << endl;
+    cout << "[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
     }
-    cout << endl;
+    cout << "] 0" << endl;
     
     return 0;
 }
