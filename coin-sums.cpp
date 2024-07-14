@@ -7,7 +7,7 @@ int main() {
     cin >> cents;
 
     int quarters = cents / 25;
-    remainingCents %= 25;
+    int remainingCents = cents % 25;
     int dimes = remainingCents / 10;
     remainingCents %= 10;
     int nickles = remainingCents / 5;
