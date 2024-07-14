@@ -2,14 +2,6 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    vector<int> leaders = leaders(arr);
-    for (int i : leaders) {
-        cout << i << " ";
-    }
-}
-
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
@@ -25,4 +17,9 @@ vector<int> leaders(vector<int>& arr) {
     result.push_back(arr[n-1]);
     
     return result;
+}
+
+int main() {
+    vector<int> leaders(vector<int>{1, 3, 4, 2});
+    return 0;
 }
