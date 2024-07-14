@@ -1,51 +1,27 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if (str.length() - i > 4) {
-            for (int j = i; j < str.length(); j++) {
-                if (j != str.length() - 1 && str[j] != ' ')
-                    result += str[j];
-                else
-                    break;
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += reverse(word) + " ";
+            } else {
+                result += word + " ";
             }
-            for (int j = str.length() - 1; j > i; j--) {
-                if (str[j] != ' ')
-                    result += str[j];
-                else
-                    break;
-            }
-            i = str.length();
-        } else {
-            for (; i < str.length(); i++) {
-                if (str[i] == ' ') {
-                    i++;
-                    break;
-                }
-                result += str[i];
-            }
+            start = i + 1;
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1); // remove the last space
 }
 
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a sentence (or 'q' to quit): ";
-        cin >> str;
-        if (str == "q")
-            break;
-        cout << spinWords(str) << endl;
+string reverse(string str) {
+    string rev = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        rev += str[i];
     }
-    return 0;
+    return rev;
 }
