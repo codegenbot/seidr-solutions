@@ -1,7 +1,4 @@
+Here is the solution:
+
 def dice_game(n, m):
-    if n < m:
-        return 0.0
-    elif n == m:
-        return 0.5
-    else:
-        return (m - 1) / (n + m - 2)
+    return (n-1) / (n*m - 1) if n > m else (m-1) / (n*m - 1)
