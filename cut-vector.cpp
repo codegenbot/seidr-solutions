@@ -1,46 +1,48 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    pair<vector<int>, vector<int>> res;
+    vector<vector<int>> res;
     
-    for (int i = 1; i < n; i++) {
-        if (v[i] - v[0] <= v[n-1] - v[i]) {
-            res.first = vector<int>(v.begin(), v.begin() + i);
-            res.second = vector<int>(v.begin() + i, v.end());
+    if (n == 0) return {{}}; // If the input vector is empty, return a vector with an empty vector
+    
+    for (int i = 1; i < n; i++) { 
+        int diff1 = abs(v[0] - v[i]);
+        int diff2 = abs(v[i] - v[n-1]);
+        
+        if (diff1 <= diff2) {
+            res.push_back({v[0]});
+            res.push_back({v[i], v[n-1]});
             return res;
         }
     }
     
-    res.first = vector<int>(v.begin(), v.end());
-    res.second = {};
+    res.push_back(v);
     return res;
 }
 
 int main() {
-    int n;
+    int n, x;
+    vector<int> v;
+
+    // Read the input from user
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) {
+    for (int i = 0; i < n; i++) {
         cin >> x;
+        v.push_back(x);
     }
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "1 ";
-    for (const auto &x : res.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "0";
-    for (int i = 0; i < res.second.size(); ++i) {
-        if(i == res.second.size()-1){
-            cout<<res.second[i];
-        }else{
-            cout<<res.second[i]<<" ";
+
+    // Call the function to get the result
+    vector<vector<int>> res = cutVector(v);
+
+    // Print the output
+    for (auto &vec : res) {
+        for (int x : vec) {
+            cout << x << " ";
         }
-        
+        cout << endl;
     }
-    cout << endl;
-    
+
     return 0;
 }
