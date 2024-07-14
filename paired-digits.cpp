@@ -1,4 +1,3 @@
-```cpp
 int sumPairedDigits(string str) {
     int sum = 0;
     for(int i=0; i < str.length() - 1; i++) { 
