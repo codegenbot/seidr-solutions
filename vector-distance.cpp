@@ -1,7 +1,14 @@
-```c++
 #include <iostream>
 #include <cmath>
 #include <vector>
+
+double vectorDistance(int n, std::vector<float> v1, std::vector<float> v2) {
+    double sumOfSquares = 0.0;
+    for (int i = 0; i < n; i++) {
+        sumOfSquares += pow(v1[i] - v2[i], 2);
+    }
+    return sqrt(sumOfSquares);
+}
 
 int main() {
     int n;
@@ -14,9 +21,7 @@ int main() {
         std::cin >> temp2; 
         v2[i] = temp2; 
     }
-    double distance = 0.0;
-    for (int i = 0; i < n; i++) {
-        distance += pow(v1[i] - v2[i], 2);
-    }
-    return static_cast<int>(sqrt(distance));
+    double result = vectorDistance(n, v1, v2);
+    std::cout << "The Euclidean distance is: " << result << std::endl;
+    return 0;
 }
