@@ -1,11 +1,7 @@
-#include <map>
+#include <iostream>
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
-    if (code.length() != 4 || guess.length() != 4) {
-        return -1; 
-    }
-
     int white = 0;
     int black = 0;
 
@@ -35,5 +31,6 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
+    std::cout << mastermind("ABCD", "ABDE") << std::endl;
     return 0;
 }
