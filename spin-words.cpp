@@ -1,36 +1,40 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    size_t pos = 0;
-    
-    while ((pos = sentence.find(" ")) != std::string::npos) {
-        size_t nextPos = sentence.find(" ", pos + 1);
-        if (nextPos == std::string::npos) nextPos = sentence.length();
-        
-        if (nextPos - pos > 4) {
-            std::string word = sentence.substr(pos, nextPos - pos);
-            std::reverse(word.begin(), word.end());
-            result += word + " ";
+using namespace std;
+
+string spinWords(string input) {
+    string output = "";
+    int wordLength = 0;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            if (wordLength >= 5) {
+                for (int j = wordLength - 1; j >= 0; j--) {
+                    output += input[i - wordLength + j];
+                }
+            } else {
+                output += input.substr(i - wordLength, wordLength);
+            }
+            wordLength = 0;
         } else {
-            result += sentence.substr(pos, nextPos - pos) + " ";
+            wordLength++;
         }
-        
-        pos = nextPos;
     }
-    
-    if (sentence.length() > 4)
-        std::reverse(sentence.begin() + pos, sentence.end());
-    else
-        result += sentence;
-    
-    return result;
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; i--) {
+            output += input[i];
+        }
+    } else {
+        output += input;
+    }
+    return output;
 }
 
 int main() {
-    // Example usage:
-    std::cout << spinWords("this is a test") << std::endl; // Output: "this is a tset"
-    std::cout << spinWords("hi") << std::endl; // Output: "hi"
+    string s;
+    while (cin >> s) {
+        cout << spinWords(s) << endl;
+    }
     return 0;
 }
