@@ -2,40 +2,36 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::vector<std::string> words;
-    std::stringstream ss(str);
-    std::string word;
+using namespace std;
 
-    while (ss >> word) {
-        if (!word.empty()) {
-            words.push_back(word);
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
+        } else {
+            if (!result.empty()) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
-
-    for (int i = 0; i < words.size(); ++i) {
-        if (i > 0) {
-            words[i][0] = toupper(words[i][0]);
-        }
-    }
-
-    std::string result;
-    for (const auto& word : words) {
-        result += word;
-        if (i < words.size() - 1) {
-            result += " ";
-        }
-        ++i;
-    }
-
     return result;
 }
 
 int main() {
-    std::cout << camelCase("nospaceordash") << std::endl;
-    std::cout << camelCase("two-words") << std::endl;
-    std::cout << camelCase("two words") << std::endl;
-    std::cout << camelCase("all separate words") << std::endl;
-
+    string s;
+    while (true) {
+        cout << "Enter a kebab-case string (or 'q' to quit): ";
+        cin >> s;
+        if (s == "q") break;
+        cout << camelCase(s) << endl;
+    }
     return 0;
-}
