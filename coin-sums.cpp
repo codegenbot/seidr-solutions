@@ -1,44 +1,27 @@
-#include <iostream>
-#include <vector>
-
 int main() {
-    std::vector<int> coinCounts = {0, 0, 0, 0}; // quarters, dimes, nickels, pennies
+    int quarters = cents / 25;
+    cents %= 25;
 
-    std::cout << "Enter the number of cents: ";
-    int cents;
-    std::cin >> cents;
+    int dimes = cents / 10;
+    cents %= 10;
 
-    while (cents >= 25) {
-        ++coinCounts[0]; 
-        cents -= 25;
-    }
-    while (cents >= 10) {
-        int count = cents / 10;
-        for(int i = 0; i < count; ++i)
-            coinCounts[1]++;
-        cents %= 10;
-    }
-    while (cents >= 5) {
-        int count = cents / 5;
-        for(int i = 0; i < count; ++i)
-            coinCounts[2]++;
-        cents %= 5;
-    }
+    int nickels = cents / 5;
+    cents %= 5;
 
-    coinCounts[3] = cents; 
+    int pennies = cents;
 
-    std::cout << "Quarters: " << coinCounts[0] << std::endl;
-    if(coinCounts[1] > 0)
-        std::cout << "Dimes: " << coinCounts[1] << std::endl;
+    std::cout << "Quarters: " << quarters << std::endl;
+    if(quarters > 0)
+        std::cout << "Dimes: " << dimes << std::endl;
     else
         std::cout << "Dimes: 0" << std::endl;
 
-    if(coinCounts[2] > 0)
-        std::cout << "Nickles: " << coinCounts[2] << std::endl;
+    if(dimes > 0 || nickels > 0)
+        std::cout << "Nickles: " << nickels << std::endl;
     else
         std::cout << "Nickles: 0" << std::endl;
 
-    std::cout << "Pennies: " << coinCounts[3] << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
