@@ -23,5 +23,5 @@ vector<int> cutVector(vector<int>& vec) {
     vector<int> rightVec = vec;
     rightVec.erase(rightVec.begin() + cutIndex);
 
-    return {leftVec, rightVec};
+    return std::vector<int>({leftVec, rightVec});
 }
