@@ -11,3 +11,4 @@ std::string validateTweet(const char* tweet) {
         return "You didn't type anything";
     }
     return "Your tweet has " + std::to_string(length) + " characters";
+}
