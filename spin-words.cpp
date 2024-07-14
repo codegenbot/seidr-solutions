@@ -28,7 +28,7 @@ string spinWords(string str) {
 }
 
 int main() {
-    string input = "This is an example sentence";
+    string input = "This is a test string";
     cout << spinWords(input);
     return 0;
 }
