@@ -21,7 +21,7 @@ int main() {
         return 1;
     }
 
-    std::vector<std::size_t> result; 
+    std::vector<int> result; 
 
     size_t pos = 0;
     while ((pos = str1.find(str2, pos)) != std::string::npos) {
@@ -34,7 +34,7 @@ int main() {
 
     int gcdResult = 1;
     for (int i : result) {
-        gcdResult = std::__gcd(gcdResult, i); 
+        gcdResult = std::gcd(gcdResult, i); 
     }
         
     std::cout << "GCD of indices: " << gcdResult << std::endl; 
