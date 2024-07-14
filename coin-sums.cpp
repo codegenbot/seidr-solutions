@@ -1,9 +1,9 @@
+```c++
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 
 int main() {
-    std::vector<int> coinCounts = {0, 0, 0, 0}; // quarters, dimes, nickels, pennies
+    std::vector<int> coinCounts(4); // quarters, dimes, nickels, pennies
 
     std::cout << "Enter the number of cents: ";
     int cents;
