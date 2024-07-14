@@ -9,7 +9,7 @@ bool solveBoolean(std::string s) {
             result = false;
         } else if (s[i] == '|') {
             bool temp = !result;
-            result = true;
+            result = temp;
         } else if (s[i] == '&') {
             if (!result) return false;
             result = false;
