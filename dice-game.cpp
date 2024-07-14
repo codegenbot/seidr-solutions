@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <algorithm>
 
 double diceGame(int n, int m) {
     double total = 1.0 * (n * m);
