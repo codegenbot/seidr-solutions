@@ -1,4 +1,4 @@
-```c++
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -8,11 +8,7 @@ std::vector<std::string> split(const std::string& str, char sep) {
     do {
         lastPos = str.find(sep, pos);
         if (lastPos == std::string::npos) {
-            if (pos > 0) {
-                segments.push_back(str.substr(pos));
-            } else {
-                segments.push_back(str.substr(0));
-            }
+            segments.push_back(str.substr(pos));
             break;
         }
         segments.push_back(str.substr(pos, lastPos - pos));
