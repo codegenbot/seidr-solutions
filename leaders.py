@@ -1,7 +1,6 @@
-def leaders(input_vector):
-    output_vector = [input_vector[-1]]
-    for i in range(len(input_vector) - 2, -1, -1):
-        if input_vector[i] >= input_vector[-1]:
-            output_vector.insert(0, input_vector[i])
-            input_vector.pop()
-    return output_vector
+def leaders(a):
+    leaders = [a[-1]]
+    for i in range(len(a) - 2, -1, -1):
+        if a[i] >= a[i + 1]:
+            leaders.append(a[i])
+    return list(reversed(leaders))
