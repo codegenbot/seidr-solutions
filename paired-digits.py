@@ -1,2 +1,9 @@
 def paired_digits(s):
-    return sum(int(digit) * 2 for i, digit in enumerate(s) if i < len(s) - 1 and int(digit) == int(s[i + 1]))
+    freq = {}
+    for c in s:
+        if c in freq:
+            freq[c] += 1
+        else:
+            freq[c] = 1
+
+    return sum(val * int(c) for c, val in freq.items() if val > 0)
