@@ -12,3 +12,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return result;
+}
