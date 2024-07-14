@@ -1,20 +1,18 @@
 ```cpp
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
     double startHeight; 
     cin >> startHeight;
     
-    double bouncinessIndex = (startHeight > 0) ? startHeight / 2.0 : -1; 
+    double bouncinessIndex = startHeight / 2.0;
 
-    string strStartHeight;
     if (bouncinessIndex < 0.01)
-        strStartHeight = "The bounciness index is: 0.00";
+        cout << "The bounciness index is: " << fixed << setprecision(4) << 0.00 << endl;
     else
-        strStartHeight = "The bounciness index is: " + to_string(bouncinessIndex);
-    
-    cout << strStartHeight << endl;
+        cout << "The bounciness index is: " << fixed << setprecision(2) << bouncinessIndex << endl;
     
     double height = startHeight; 
     double totalDistance = 0.0; 
@@ -28,7 +26,7 @@ int main() {
     }
 
     if (totalDistance * bouncinessIndex < 0.01)
-        cout << "The total distance the ball travels is: 0.00" << endl;
+        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << 0.00 << endl;
     else
         cout << "The total distance the ball travels is: " << fixed << setprecision(2) << totalDistance * bouncinessIndex << endl;
 
