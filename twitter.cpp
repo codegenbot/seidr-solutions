@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -18,7 +17,5 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    tweet.erase(remove(tweet.begin(), tweet.end(), '\n'), tweet.end());
     cout << validateTweet(tweet) << endl;
     return 0;
-}
