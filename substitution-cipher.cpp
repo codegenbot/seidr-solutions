@@ -7,7 +7,7 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
         char c = message[i];
         int pos = cipher_map1.find(c);
         if (pos != std::string::npos) {
-            message.replace(i, 1, 1, cipher_map2[pos]);
+            message[i] = cipher_map2[pos];
         }
     }
     return message;
@@ -16,11 +16,7 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string cipher_map1, cipher_map2, message;
     std::cout << "Enter the first string: ";
-    getline(cin, cipher_map1);
-    std::cout << "Enter the second string: ";
-    getline(cin, cipher_map2);
-    std::cout << "Enter the message to decipher: ";
-    getline(cin, message);
+    std::cin >> cipher_map1 >> cipher_map2 >> message;
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
