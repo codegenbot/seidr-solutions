@@ -1,4 +1,4 @@
-"""
+```
 def find_indices(text, target):
     result = []
     i = 0
