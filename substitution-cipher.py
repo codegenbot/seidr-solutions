@@ -1,9 +1,10 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
-    inverse_cipher = {v: k for k, v in zip(cipher1, cipher2)}
+    char_map = {char1: char2 for char1, char2 in zip(cipher1, cipher2)}
     result = ""
     for char in message:
-        if char in inverse_cipher:
-            result += inverse_cipher[char]
+        if char in char_map:
+            result += list(char_map.keys())[list(char_map.values()).index(char)]
         else:
             result += char
     return result
