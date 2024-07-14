@@ -4,10 +4,10 @@ def mastermind(code, guess):
         return "00"
 
     for c in code + guess:
-        if c not in " ABCDEF":
+        if c not in "Royo":
             return "00"
 
     white = sum(1 for c, d in zip(code, guess) if c == d)
-    black = sum(1 for i, (c, d) in enumerate(zip(code, guess)) if c == d)
+    black = len([i for i, (c, d) in enumerate(zip(code, guess)) if c == d and c != 'Y'])
 
-    return str(white) + str(black)
+    return str(white) + "0" + str(black)
