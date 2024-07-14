@@ -4,38 +4,46 @@
 
 using namespace std;
 
-string spinWords(string s) {
+string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
-    
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == ' ') {
-            if(wordLength >= 5) {
-                for(int j = wordLength - 1; j >= 0; j--)
-                    result += s[i-wordLength + j];
-            } else
-                result += s.substr(i-wordLength+1, i);
-            wordLength = 0;
-        } else {
-            wordLength++;
+    string temp = "";
+
+    for(int i=0; i<str.length(); i++) {
+        temp += str[i];
+
+        if(str[i+1] == ' ' || i==str.length()-1) {
+            if(temp.length() >= 5)
+                result += reverseWord(temp);
+            else
+                result += temp;
+            temp = "";
         }
     }
-
-    if(wordLength >= 5) {
-        for(int j = wordLength - 1; j >= 0; j--)
-            result += s[wordLength-j-1];
-    } else
-        result = s;
 
     return result;
 }
 
+string reverseWord(string str) {
+    string revStr = "";
+
+    for(int i=str.length()-1; i>=0; i--)
+        revStr += str[i];
+
+    return revStr;
+}
+
 int main() {
     string str;
+
     while(true) {
-        cout << "Enter a string: ";
+        cout << "Enter a sentence (or 'q' to quit): ";
         cin >> str;
+
+        if(str == "q")
+            break;
+
         cout << spinWords(str) << endl;
     }
+
     return 0;
 }
