@@ -1,5 +1,7 @@
 ```
 def find_gcd(a, b):
+    if abs(a) <= 0 and abs(b) <= 0:
+        return abs(a)
     while b != 0:
         a, b = b, a % b
     return abs(a)
