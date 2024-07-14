@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     precedence = {"&": 2, "|": 1}
     stack = []
@@ -8,9 +7,7 @@ def solve_boolean(expression):
         if char.strip() in ["T", "F"]:
             output.append(char)
         elif char in ["&", "|"]:
-            while len(stack) > 0 and (
-                stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]
-            ):
+            while len(stack) > 0 and (stack[-1] in precedence and precedence[stack[-1]] >= precedence[char]):
                 top = stack.pop()
                 while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
                     output.append(top)
