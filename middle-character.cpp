@@ -1,19 +1,9 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string middleCharacter(std::string str) {
-    int len = str.length();
-    if (len % 2 == 0) {
-        return str.substr(len/2-1, 2);
-    } else {
-        return str.substr(len/2, 1);
-    }
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << middleCharacter(input) << std::endl;
-    return 0;
+string middleCharacter(string s) {
+    int n = s.length();
+    if (n % 2 == 1)
+        return string(1, s[n / 2]);
+    else
+        return string(1, s[(n - 1) / 2]) + string(1, s[(n + 1) / 2]);
 }
