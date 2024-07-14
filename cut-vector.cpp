@@ -1,36 +1,25 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int splitIndex = 0;
-    
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff <= minDiff) {
+    int index = -1;
+    for (int i = 0; i < v.size(); ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; ++j)
+            leftSum += v[j];
+        for (int j = i + 1; j < v.size(); ++j)
+            rightSum += v[j];
+        if (leftSum == rightSum) {
+            return {{v[0], v[0]}, v.substr(1)};
+        }
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
             minDiff = diff;
-            splitIndex = i;
+            index = i;
         }
     }
-    
-    return {{nums.begin(), nums.begin() + splitIndex}, {nums.begin() + splitIndex, nums.end()}};
-}
-
-int main() {
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-    }
-    
-    auto result = cutVector(input);
-    
-    for (auto &vec : result) {
-        for (int i : vec) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-    
-    return 0;
+    vector<int> left(v.begin(), v.begin() + index);
+    vector<int> right(v.begin() + index, v.end());
+    return {left, right};
 }
