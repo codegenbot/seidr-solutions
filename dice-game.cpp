@@ -1,14 +1,17 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    int higherCount = 0;
-
+    double sum = 0;
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < i && j <= m; j++) {
-            higherCount++;
-        }
+        sum += (n - i) / static_cast<double>(n * m);
     }
+    return sum;
+}
 
-    return (double)higherCount / total;
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << fixed << setprecision(10) << diceGame(n, m) << std::endl;
+    return 0;
 }
