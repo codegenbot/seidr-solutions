@@ -11,13 +11,6 @@ def bowling_score(bowling_game):
                 game = game[:i] + [x-10 for x in game[i:]]
             else:
                 score += game[i]
-        if len(game) > i and game[i] != 0:
-            while game[i] != 0:
-                if sum(game[i:i+2]) >= 10:
-                    score += 10
-                    game = game[:i] + [x-10 for x in game[i:]]
-                    break
-                else:
-                    score += game[i]
-                    i += 1
+        else:
+            break
     return score
