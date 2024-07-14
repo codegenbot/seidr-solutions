@@ -1,11 +1,11 @@
-```c++
 #include <vector>
+#include <initializer_list>
 
-int luhn(const std::vector<int>& input) {
+int luhn(const std::vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
-    for (int i = input.size() - 1; i >= 0; i--) {
-        int digit = input[i];
+    for (int i = digits.size() - 1; i >= 0; i--) {
+        int digit = digits[i];
         if (doubleNext) {
             digit *= 2;
             if (digit > 9)
@@ -15,4 +15,3 @@ int luhn(const std::vector<int>& input) {
         doubleNext = !doubleNext;
     }
     return sum % 10;
-}
