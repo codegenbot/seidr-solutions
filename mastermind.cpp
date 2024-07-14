@@ -1,22 +1,37 @@
-int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
+int countWhitePegs(const std::string& code, const std::string& guess) {
+    int whitePegs = 0;
+    for (char c : code) {
+        if (code.find(c) != std::string::npos && 
+            guess.find(std::string(1, c)) == std::string::npos || 
+            guess.find(std::string(1, c)).find(c) != 0) {
+            whitePegs++;
         }
     }
+    return whitePegs;
+}
 
-    for(int i=0; i<6 && black < 4; i++) {
-        int count = 0;
-        for(int j=0; j<4; j++) {
-            if(code[j] == (char)(i+65) && guess[j] == (char)(i+65)) {
-                count++;
-            }
+int countBlackPegs(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    for (char c : code) {
+        if (code.find(c) != std::string::npos && 
+            guess.find(std::string(1, c)) != std::string::npos &&
+            code.find(c) == guess.find(std::string(1, c))) {
+            blackPegs++;
         }
-        white += count - black;
     }
+    return blackPegs;
+}
 
-    return make_pair(white, black).second;
+int main() {
+    std::string code, guess;
+    std::cin >> code >> guess;
+    int whitePegs = countWhitePegs(code, guess);
+    int blackPegs = countBlackPegs(code, guess);
+    std::cout << whitePegs << "\n";
+    std::cout << blackPegs << "\n";
+    return 0;
 }
