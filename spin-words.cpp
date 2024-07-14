@@ -1,19 +1,30 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int wordLength;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
     for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            if ((wordLength = i - result.length()) >= 5)
-                for (int j = wordLength - 1; j >= 0; j--)
-                    result += str[result.length() + j];
-            else
-                result += str.substr(result.length(), wordLength);
-            if (i < str.length())
-                result += ' ';
+        if (i == str.length() || str[i + 1] == ' ') {
+            word = str.substr(i);
+            
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            
+            result += word + " ";
         }
     }
+    
     return result;
+}
+
+int main() {
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    
+    return 0;
 }
