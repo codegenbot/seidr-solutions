@@ -1,6 +1,7 @@
+```
 import math
 
-def gcd():
+def main():
     text = input("Enter the text: ")
     target = input("Enter the target string: ")
 
@@ -19,4 +20,4 @@ def gcd():
     print(f"GCD: {math.gcd(first_number, second_number)}")
 
 if __name__ == "__main__":
-    gcd()
+    main()
