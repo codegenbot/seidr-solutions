@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,7 +17,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
         lpIndex++;
     }
-    for (; lpIndex < m; lpIndex++) {
+    for (int lpIndex = 1; lpIndex < m; lpIndex++) {
         if (target[lpIndex] == target[lps[lpIndex - 1]]) {
             lps[lpIndex] = lps[lpIndex - 1] + 1;
         } else {
@@ -49,7 +48,7 @@ int main() {
     std::string text, target;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
-    std::cout << "Enter your target string: ";
+    std::cout << "Enter the target string: ";
     std::getline(std::cin, target);
     std::vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
