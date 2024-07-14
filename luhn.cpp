@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int luhn(vector<int> digits) {
+int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
     for (int i : digits) {
@@ -25,11 +23,11 @@ int luhn(vector<int> digits) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> digits(n);
+    std::cin >> n;
+    std::vector<int> digits(n);
     for (int& digit : digits) {
-        cin >> digit;
+        std::cin >> digit;
     }
-    cout << luhn(digits) << endl;
+    std::cout << luhn(digits) << std::endl;
     return 0;
 }
