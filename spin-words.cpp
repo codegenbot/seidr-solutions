@@ -1,25 +1,66 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += " ";
-            i++;
-        } else {
-            int j = i;
-            while(j < str.length() && str[j] != ' ') {
-                j++;
-            }
-            string word = str.substr(i, j - i);
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            i = j;
+    int wordLength;
+    for (int i = 0; i <= str.length(); i++) {
+        if (str[i] == ' ') {
+            result += str.substr(wordLength, i - wordLength) + " ";
+            wordLength = i + 1;
         }
     }
+    result += str.substr(wordLength);
+    
+    for (int i = 0; i < result.length(); i++) {
+        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
+            int j = i;
+            while (j > 0 && (result[j-1] >= 'a' && result[j-1] <= 'z' || result[j-1] >= 'A' && result[j-1] <= 'Z')) {
+                j--;
+            }
+            if (j < i) {
+                string temp = result.substr(j, i - j);
+                reverse(temp.begin(), temp.end());
+                result.replace(i - temp.length(), temp.length(), temp);
+                i -= temp.length();
+            }
+        }
+    }
+    
+    for (int i = 0; i < result.length(); i++) {
+        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
+            int j = i;
+            while (j > 0 && (result[j-1] >= 'a' && result[j-1] <= 'z' || result[j-1] >= 'A' && result[j-1] <= 'Z')) {
+                j--;
+            }
+            if (j < i) {
+                string temp = result.substr(j, i - j);
+                reverse(temp.begin(), temp.end());
+                result.replace(i - temp.length(), temp.length(), temp);
+                i -= temp.length();
+            }
+        } else if (result[i] == ' ') {
+            int j = i;
+            while (j > 0 && result[j-1] != ' ') {
+                j--;
+            }
+            string temp = result.substr(j, i - j);
+            reverse(temp.begin(), temp.end());
+            result.replace(i - temp.length(), temp.length(), temp);
+            i -= temp.length();
+        }
+    }
+    
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << "Spin words: " << spinWords(str) << endl;
+    return 0;
 }
