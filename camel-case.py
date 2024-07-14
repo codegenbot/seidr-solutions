@@ -1,4 +1,9 @@
-Here is the completed code:
-
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() for word in s.split('-'))
+def camel_case(s):
+    result = ""
+    for word in s.split():
+        if len(word) > 1:
+            result += word[0].upper()
+            result += word[1:].lower()
+        else:
+            result += word
+    return result
