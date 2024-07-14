@@ -1,25 +1,44 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-        } else {
-            st.push(s[i]);
+bool evaluateBooleanExpression(std::string expression) {
+    bool result = false;
+    int i = 0;
+
+    while (i < expression.size()) {
+        if (expression[i] == 'T') {
+            return true;
+        } else if (expression[i] == 'F') {
+            return false;
+        } else if (expression[i] == '|') {
+            i++; // skip the '|' character
+            bool left = evaluateBooleanExpression(expression.substr(0, i));
+            bool right = evaluateBooleanExpression(expression.substr(i + 1));
+            result = left || right;
+            break;
+        } else if (expression[i] == '&') {
+            i++; // skip the '&' character
+            bool left = evaluateBooleanExpression(expression.substr(0, i));
+            bool right = evaluateBooleanExpression(expression.substr(i + 1));
+            result = left && right;
+            break;
         }
+        i++;
     }
-    while (!st.empty()) {
-        st.pop();
+
+    return result;
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::getline(std::cin, expression);
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
     }
-    return false;
+    return 0;
 }
