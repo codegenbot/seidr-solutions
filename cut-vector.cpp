@@ -20,21 +20,15 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
+    for (auto &x : v) cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "1 ";
-    for (int x : result.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    cout << "0 ";
-    for (int x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
+    
+    cout << "[";
+    for (const auto &x : result.first) cout << x << " ";
+    cout << "] ["; 
+    for (const auto &x : result.second) cout << x << " ";
+    cout << "]" << endl;
     
     return 0;
 }
