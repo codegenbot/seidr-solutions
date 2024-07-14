@@ -8,9 +8,9 @@ def solve_boolean(expression):
         if i == -1 and j == -1:
             break
         elif i != -1 and (j == -1 or i < j):
-            i = j = -1
-        if i != -1:
-            expression = expression[:i] + str(expression[i - 1] == "T") and stack.pop()
+            i, j = -1, -1
+        expression = expression[:i] + str(expression[i] == "&" and (expression[i-1] == "T" and stack.pop() or not stack.pop()) or expression[i])
         if j != -1:
-            expression = expression[:j] + str(expression[j - 1] == "T" or stack.pop())
+            expression = expression[:j] + str(expression[j] == "|" and (expression[j-1] == "T" and stack.pop() or not stack.pop()) or expression[j])
+
     return stack[0]
