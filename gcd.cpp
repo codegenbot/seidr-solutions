@@ -32,13 +32,13 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    cin >> text >> target;
+    std::cin >> text >> target;
     std::vector<int> indices = findIndices(text, target);
     for (int i : indices)
-        cout << i << " ";
+        std::cout << i << " ";
     return 0;
 }
