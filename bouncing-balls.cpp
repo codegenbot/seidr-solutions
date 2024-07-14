@@ -1,18 +1,18 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <sstream>
 using namespace std;
 
 int main() {
-    string input;
-    cin >> input;
-    int startHeight = stoi(input);
-    input.clear();
-    cin >> input;
-    int firstBounce = stoi(input);
-    input.clear();
-    cin >> input;
-    int numBounces = stoi(input);
+    int startHeight;
+    int firstBounce;
+    int numBounces; 
+
+    string line; 
+    cin >> line; 
+    istringstream iss(line); 
+    iss >> startHeight >> ' ' >> firstBounce >> ' ' >> numBounces; 
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
