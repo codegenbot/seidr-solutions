@@ -1,39 +1,19 @@
-bool solveBoolean(string expression) {
-    stack<char> operationStack;
-    stack<string> valueStack;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            string rightValue = valueStack.top();
-            valueStack.pop();
-            string leftValue = valueStack.top();
-            valueStack.pop();
-            valueStack.push(to_string((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (leftValue == "False" && rightValue == "False")).c_str());
-        } else if (expression[i] == '&') {
-            string rightValue = valueStack.top();
-            valueStack.pop();
-            string leftValue = valueStack.top();
-            valueStack.pop();
-            valueStack.push(to_string((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "False")).c_str());
-        } else if (expression[i] == 't' || expression[i] == 'T') {
-            valueStack.push("True");
-        } else if (expression[i] == 'f' || expression[i] == 'F') {
-            valueStack.push("False");
-        }
+bool solveBoolean(string s) {
+    bool res = true;
+    for (char c : s) {
+        if (c == 'f') res = false;
+        else if (c == '&') return res;
+        else if (c == '|') return !res;
     }
-
-    return valueStack.top() == "True";
+    return res;
 }
 
 int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = solveBoolean(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
 }
