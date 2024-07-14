@@ -1,10 +1,7 @@
-```
 def find_gcd(a, b):
-    if a <= 0 and b <= 0:
-        return 1
     while b != 0:
         a, b = b, a % b
-    return abs(a)
+    return a
 
 num1 = int(input("Enter the first number: "))
 num2 = int(input("Enter the second number: "))
