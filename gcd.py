@@ -3,13 +3,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a) if a != 1 else 1
 
-def indices_of_substring(text, target):
-    result = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos == -1:
-            break
-        result.append(pos)
-        start = pos + 1
-    return result
+a = int(input("Enter first integer: "))
+b = int(input("Enter second integer: "))
+
+print(f"GCD of {a} and {b} is {gcd(a, b)}")
