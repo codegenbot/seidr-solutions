@@ -8,4 +8,4 @@ def indices_of_substring(text, target):
             start = pos + 1
         else:
             break
-    return [i for i in range(len(result)) if result[i-1] + len(target) != i]
+    return result
