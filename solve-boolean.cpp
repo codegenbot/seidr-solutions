@@ -1,14 +1,16 @@
 ```cpp
 #include <string>
 #include <iostream>
+#include <sstream>
 
 int main() {
-    std::string expression("");
+    std::stringstream ss;
     char c;
+
     while ((c = std::getchar()) != '\n' && c != EOF) {
-        expression += c;
+        ss << c; 
     }
-    expression.pop_back();  // remove the newline character
+    std::string expression = ss.str();
 
     bool result = false;
 
