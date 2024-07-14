@@ -5,8 +5,8 @@ using namespace std;
 bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<string> valStack;
-    stack<string> v2Stack; // declare here
-    string v2;              // declare here
+    stack<string> v2Stack;
+    string v1, v2;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -27,16 +27,16 @@ bool solveBoolean(string expression) {
     }
 
     while (!opStack.empty()) {
-        string v1 = valStack.top(), v2; // use v2Stack here
+        v2 = valStack.top();
         valStack.pop();
         if (opStack.top() == '&') {
             opStack.pop();
-            valStack.push((v1 == "T" && v2Stack.top() == "T") ? "T" : "F");
-            v2Stack.pop(); // pop after use
+            valStack.push((v1 == "T" && v2 == "T") ? "T" : "F");
+            v1 = v2;
         } else {
             opStack.pop();
-            valStack.push((v1 == "T" || v2Stack.top() == "T") ? "T" : "F");
-            v2Stack.pop(); // pop after use
+            valStack.push((v1 == "T" || v2 == "T") ? "T" : "F");
+            v1 = v2;
         }
     }
 
