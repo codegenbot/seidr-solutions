@@ -1,41 +1,7 @@
-int mastermind(const char* code, const char* guess) {
-    int black = 0;
-    int white = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
-        }
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        bool foundInCode = false;
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == guess[i]) {
-                foundInCode = true;
-                break;
-            }
-        }
-
-        if (foundInCode && code[i] != guess[i]) {
-            white++;
-        } else if (!foundInCode) {
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == guess[i]) {
-                    foundInCode = true;
-                    break;
-                }
-            }
-
-            if (!foundInCode) {
-                white++;
-            }
-        }
-    }
-
-    return black + white;
-}
-
 int main() {
-    return mastermind("XXXX", "XXXX");
+    const char* code = "xxxx";
+    const char* guess = "yyyy";
+    int result = mastermind(code, guess);
+    std::cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << std::endl;
+    return 0;
 }
