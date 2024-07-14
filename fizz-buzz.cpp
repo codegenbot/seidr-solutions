@@ -3,14 +3,7 @@
 #include <iostream>
 
 std::string fizzBuzz(int x) {
-    if (x % 15 == 0)
-        return "FizzBuzz";
-    else if (x % 3 == 0)
-        return "Fizz";
-    else if (x % 5 == 0)
-        return "Buzz";
-    else
-        return std::to_string(x);
+    return (x % 15 == 0 ? "FizzBuzz" : (x % 3 == 0 ? "Fizz" : (x % 5 == 0 ? "Buzz" : std::to_string(x).c_str())));
 }
 
 int main() {
@@ -18,3 +11,4 @@ int main() {
     std::cout << "Enter an integer: ";
     std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
+}
