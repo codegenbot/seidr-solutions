@@ -1,37 +1,42 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == '&') {
-            while(!st.empty() && st.top() == '&') {
-                st.pop();
+string solveBoolean(string b) {
+    stack<char> s;
+    string result = "";
+    
+    for(int i=b.length()-1; i>=0; i--){
+        if(b[i] == '&'){
+            while(!s.empty() && s.top() == '&'){
+                s.pop();
             }
-            if(st.empty()) return false;
-            st.pop();
-        } else if(s[i] == '|') {
-            while(!st.empty() && st.top() == '|') {
-                st.pop();
+            if(s.empty()){
+                result = "False";
+                break;
+            }else{
+                s.pop();
+                if(s.top() == 'T')result = "True";
+                else result = "False";
+                break;
             }
-            if(st.empty()) return true;
-            st.push('|');
-        } else if(s[i] != ' ' && s[i] != '&' && s[i] != '|') {
-            st.push(s[i]);
+        }else if(b[i] == '|'){
+            while(!s.empty() && s.top() == '|'){
+                s.pop();
+            }
+            if(s.empty()){
+                result = "False";
+                break;
+            }else{
+                s.pop();
+                if(s.top() == 'T')result = "True";
+                else result = "False";
+                break;
+            }
+        }else{
+            s.push(b[i]);
         }
     }
-    while(!st.empty()) {
-        st.pop();
+    
+    while(!s.empty()){
+        s.pop();
     }
-    return st.empty() ? true : false;
-}
-
-int main() {
-    string input;
-    cout << "Enter a Boolean expression: ";
-    getline(cin, input);
-    bool result = solveBoolean(input);
-    if(result) cout << "True" << endl;
-    else cout << "False" << endl;
-    return 0;
+    
+    return result;
 }
