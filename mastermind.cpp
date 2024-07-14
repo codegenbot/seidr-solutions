@@ -2,7 +2,7 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         }
@@ -13,14 +13,11 @@ int mastermind(string code, string guess) {
         for (char d : guess) {
             if (c == d) {
                 count++;
+                if (count > 1) break;
             }
         }
-        if (count > 1 || count == 1 && code.find(d) != i) {
-            white += count - 1;
-        } else if (count == 1) {
-            white++;
-        }
+        if (count == 1) white++;
     }
 
-    return black + white;
+    return black + white - black;
 }
