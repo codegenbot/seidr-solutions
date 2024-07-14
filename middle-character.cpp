@@ -10,3 +10,5 @@ std::string middleCharacter(std::string s) {
         return s.substr(mid, 1);
     }
 }
+
+int main() { middleCharacter("your_test_string"); return 0; }
