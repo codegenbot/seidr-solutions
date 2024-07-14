@@ -5,7 +5,7 @@ int pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i + 1]) {
-            sum += static_cast<int>(s[i]) - '0';
+            sum += (s[i] - s[i + 1] + 10) % 10;
         }
     }
     return sum;

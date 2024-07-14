@@ -3,13 +3,9 @@
 
 int main() {
     int arr[] = {1, 2, 7, 8, 5};
-    int n = sizeof(arr)/sizeof(arr[0]);
     std::vector<int> leadersVec;
-    for(int i = 0; i < n; ++i) {
-        leadersVec.push_back(arr[i]);
-    }
-    std::vector<int> res = leaders(leadersVec); 
-    for (int i : res) {
+    leadersVec.push_back(arr[0]);
+    for (int i : leadersVec) {
         std::cout << i << " ";
     }
     return 0;
