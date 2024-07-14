@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
@@ -39,11 +38,8 @@ int blackPegs(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int white = 0;
-    int black = 0;
-    white = whitePegs(code, guess);
-    black = blackPegs(code, guess);
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
     cout << black << endl;
     cout << white << endl;
     return 0;
-}
