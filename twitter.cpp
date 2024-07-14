@@ -1,23 +1,22 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string validateTweet(string tweet) {
-    if (tweet.empty())
-        return "You didn't type anything";
-    else if (tweet.length() > 140)
-        return "Too many characters";
-    else
-        return "Your tweet has " + to_string(tweet.length()) + " characters";
+std::string validateTweet(std::string tweet) {
+    if (tweet.empty()) return "You didn't type anything";
+    if (tweet.length() > 140) return "Too many characters";
+    return "Your tweet has " + std::to_string(tweet.length()) + " characters";
 }
 
 int main() {
-    string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    tweet.erase(0, tweet.find_first_not_of(' '));
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
+    std::string input;
+    while (true) {
+        std::cout << "Enter a tweet: ";
+        std::cin >> input; // Read the first word, then stop
+        if (!input.empty()) break; // If there is no space character in the line, we can exit the loop.
+        std::cout << "Invalid input. Please enter a string of characters." << std::endl;
+    }
+    while (std::getline(std::cin, input)) {
+        std::cout << validateTweet(input) << std::endl;
+    }
     return 0;
 }
