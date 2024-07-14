@@ -13,7 +13,7 @@ vector<int> cutVector(vector<int>& v) {
         for (int j = i; j < v.size(); ++j) {
             rightSum += v[j];
         }
-        int diff = std::abs(leftSum - rightSum);
+        int diff = abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
             splitIndex = i;
