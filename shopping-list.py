@@ -1,3 +1,4 @@
+```
 def shopping_list():
     total = 0
     while True:
@@ -38,5 +39,3 @@ def shopping_list():
             return round(total, 2)
         except ValueError:
             print("Invalid input. Please provide prices as floats")
-
-shopping_list()
