@@ -1,17 +1,34 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res;
+    
+    for (int i = 1; i <= n - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) leftSum += v[j];
+        for (int j = i; j < n; j++) rightSum += v[j];
+        
+        if (leftSum == rightSum) {
+            res.push_back({v.begin(), v.begin() + i});
+            res.push_back({v.begin() + i, v.end()});
+            return res;
+        }
+    }
+    
+    int leftSum = 0, minDiff = INT_MAX, cutIndex = -1;
+    for (int i = 0; i < n; i++) {
+        leftSum += v[i];
+        rightSum = leftSum;
+        
+        if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
             cutIndex = i;
         }
     }
-
-    return {{nums[0]}, {nums[0]}};
+    
+    res.push_back({v.begin(), v.begin() + cutIndex});
+    res.push_back({v.begin() + cutIndex, v.end()});
+    return res;
 }
