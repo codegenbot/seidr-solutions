@@ -23,9 +23,10 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 }
 
 std::string camelCase(const std::string& str) {
+    std::vector<std::string> segments = split(str, '-');
     std::string result;
 
-    for (const auto& segment : split(str, '-')) {
+    for (const auto& segment : segments) {
         if (!result.empty()) {
             result += toupper(segment[0]);
         } else {
