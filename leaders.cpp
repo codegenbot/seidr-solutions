@@ -1,8 +1,8 @@
-#include <vector>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& arr) {
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    std::vector<int> res;
+    vector<int> res;
     
     int maxSeenSoFar = arr.back();  
     for(int i=n-2; i>=0; i--) {  
