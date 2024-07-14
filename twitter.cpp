@@ -1,4 +1,6 @@
-std::string validateTweet(std::string tweet) {
+#include <string>
+
+string validateTweet(string tweet) {
     auto length = 0u;
     for (char c : tweet) {
         length++;
