@@ -1,29 +1,19 @@
-bool solveBoolean(string booleanExpression) {
-    bool result = true;
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        switch (booleanExpression[i]) {
-            case 'T':
-                break;
-            case 'F':
-                result = false;
-                return result;
-            case '&': {
-                int j = i + 1;
-                while (j < booleanExpression.length() && booleanExpression[j] == '&') 
-                    j++;
-                if (j >= booleanExpression.length()) return false;
-                i = j - 1;
-                break;
-            }
-            case '|': {
-                int j = i + 1;
-                while (j < booleanExpression.length() && booleanExpression[j] == '|') 
-                    j++;
-                if (j >= booleanExpression.length()) return true;
-                i = j - 1;
-                break;
-            }
+bool solveBoolean(string expression) {
+    int i = 0;
+    while (i < expression.size()) {
+        if (expression[i] == 'T') return true;
+        if (expression[i] == 'F') return false;
+        if (expression[i] == '|') {
+            bool a = expression[i+1] == 'T', b = expression[i+3] == 'T';
+            i += 4;
+            return a || b;
         }
+        if (expression[i] == '&') {
+            bool a = expression[i+1] == 'T', b = expression[i+3] == 'T';
+            i += 4;
+            return a && b;
+        }
+        i++;
     }
-    return result;
+    return false; // should not reach here
 }
