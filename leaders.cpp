@@ -1,3 +1,5 @@
+#include <vector>
+
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
@@ -5,7 +7,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
         while (!res.empty() && res.back() < arr[i]) {
             res.pop_back();
         }
-        res.push_back(arr[i]);
+        if (res.empty() || res.back() <= arr[i])
+            res.push_back(arr[i]);
     }
     return res;
 }

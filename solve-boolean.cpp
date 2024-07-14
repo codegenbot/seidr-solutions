@@ -1,6 +1,4 @@
-```cpp
-#include <stack>
-#include <string>
+#include <bits/stdc++.h>
 
 bool solveBoolean(std::string s) {
     stack<char> st;
