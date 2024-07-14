@@ -1,60 +1,54 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    for (int i = 1; i <= v.size(); ++i) {
-        int left_sum = 0, right_sum = 0;
+    for (int i = 1; i <= vec.size(); i++) {
+        int leftSum = 0, rightSum = 0;
         
-        if (i < v.size()) {
-            for (int j = 0; j < i; ++j) {
-                left_sum += v[j];
-            }
-            for (int j = i; j < v.size(); ++j) {
-                right_sum += v[j];
-            }
-        } else {
-            left_sum = 0;
-            right_sum = 0;
-            for (int j = 0; j < v.size(); ++j) {
-                left_sum += v[j];
-            }
+        for (int j = 0; j < i; j++) {
+            leftSum += vec[j];
         }
         
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        for (int j = i; j < vec.size(); j++) {
+            rightSum += vec[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
+    vector<int> leftVec(vec.begin(), vec.begin() + cutIndex);
+    vector<int> rightVec(vec.begin() + cutIndex, vec.end());
     
-    return {left, right};
+    return {leftVec, rightVec};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
+    vector<int> vec(n);
+    for (auto &x : vec) cin >> x;
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    pair<vector<int>, vector<int>> result = cutVector(vec);
     
-    cout << "Left: ";
-    for (int num : result.first) {
-        cout << num << " ";
+    cout << "Left Vector: ";
+    for (const auto &x : result.first) {
+        cout << x << " ";
     }
     cout << endl;
     
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "Right Vector: ";
+    for (const auto &x : result.second) {
+        cout << x << " ";
     }
     cout << endl;
     
