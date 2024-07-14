@@ -1,48 +1,25 @@
-int bowlingScore(string s) {
+int bowling(string s) {
     int score = 0;
-    vector<int> frames;
-
-    for (int i = 0; i < s.length(); i++) {
+    bool lastRoll = false;
+    
+    for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
-            score += 10;
-            frames.push_back(10);
-        } else if (isdigit(s[i])) {
-            int frame = 0;
-            string temp = "";
-            while (i < s.length() && (isdigit(s[i]) || s[i] == '/')) {
-                if (s[i] == '/') {
-                    i++;
-                    break;
-                }
-                temp += s[i];
-                i++;
-            }
-            if (!temp.empty()) {
-                frame = stoi(temp);
-                if (frame > 10) {
-                    int spare = 10 - stoi(temp.substr(0, temp.length() - 1));
-                    score += 10 + spare;
-                    frames.push_back(frame);
-                } else {
-                    score += frame;
-                    frames.push_back(frame);
-                }
+            score += 30;
+            lastRoll = true;
+        } else if (s[i] == '/') {
+            int nextTwo = (s[i+1]-'0')*10 + (s[i+2]-'0');
+            score += 10 + nextTwo;
+            i += 2;
+            lastRoll = false;
+        } else {
+            int roll = (s[i]-'0')*10 + (s[i+1]-'0');
+            if (lastRoll) {
+                score += roll;
+            } else {
+                score += min(roll, 10);
             }
         }
     }
-
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 10) {
-            continue;
-        }
-        int bonus = 10 - frames[i];
-        if (i < frames.size() - 1 && frames[i + 1] > 0) {
-            score += frames[i + 1];
-            i++;
-        } else if (bonus > 0) {
-            score += bonus;
-        }
-    }
-
+    
     return score;
 }
