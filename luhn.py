@@ -1,8 +1,8 @@
+```
 def luhn(card):
-    card = ' '.join(str(x) for x in card.split()).strip()
     card = [int(x) for x in card.split()]
     result = sum(
-        int(d) if i % 2 == 0 else (int(d) * 2) % 10 + ((int(d) * 2) // 10)
+        (int((d) * 2) if i % 2 == 0 else (d)) if (int((d) * 2) / 10) > 0 else ((d) * 2) - 9
         for i, d in enumerate(card)
     )
-    return str(result) if result % 10 == 0 else 'Invalid'
+    return str(result)
