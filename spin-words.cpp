@@ -11,7 +11,7 @@ std::string spinWords(std::string& str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5) {
-            result += word.substr(0, word.length() - 1) + " ";
+            result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
             result += word + " ";
         }
@@ -24,6 +24,6 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Spin words: " << spinWords(str) << std::endl;
+    std::cout << "Spin words: " << spinWords(const_cast<const std::string&>(str)) << std::endl;
     return 0;
 }
