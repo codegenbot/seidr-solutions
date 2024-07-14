@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,18 +5,17 @@ double probability(int n, int m) {
     double total = (double)(n * m);
     double p = 0;
 
-    for (int i = 1; i < m; i++) { 
+    for (int i = 1; i <= m - 1; i++) { 
         p += (double)((m - i)) / total;
     }
-    
-    p += (double)1 / total;
     
     return p;
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m; // Take input from user
-    cout << probability(n, m); // Call your probability function and print output
+    int n = 6; // Number of sides on Peter's die
+    int m = 6; // Number of sides on Colin's die
+    double result = probability(n, m);
+    cout << "Probability: " << result << endl;
     return 0;
 }
