@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <sstream>
+#include <string>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour);
 
@@ -19,16 +19,14 @@ int main() {
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::ostringstream oss;
-    oss << "The amount of snow on the ground after " << hours << " hours is: " << result;
-    std::cout << oss.str() << std::endl;
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
 
     return 0;
 }
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
-        initialSnow += (rateOfSnowFall / 100) - initialSnow * proportionOfSnowMeltingPerHour;
+        initialSnow += std::stof(std::to_string(rateOfSnowFall)) / 100 - initialSnow * std::stof(std::to_string(proportionOfSnowMeltingPerHour));
     }
     
     return initialSnow;
