@@ -29,3 +29,4 @@ bool solveBoolean(string expression) {
     }
     
     return !st.empty();
+}
