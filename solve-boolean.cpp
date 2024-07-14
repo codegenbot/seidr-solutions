@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 using namespace std;
 
@@ -26,15 +26,15 @@ bool solveBoolean(string expression) {
     }
 
     while (!opStack.empty()) {
-        string v1 = valStack.top(), v2 = v2Stack.top();
+        string v1 = valStack.top(), v2;
         valStack.pop();
-        v2Stack.pop();
         if (opStack.top() == '&') {
             opStack.pop();
-            valStack.push((v1 == "T" && v2 == "T") ? "T" : "F");
+            v2Stack.push((v1 == "T" && v2Stack.top() == "T") ? "T" : "F");
+            valStack.pop();
         } else {
             opStack.pop();
-            valStack.push((v1 == "T" || v2 == "T") ? "T" : "F");
+            valStack.push((v1 == "T" || v2Stack.top() == "T") ? "T" : "F");
         }
     }
 
