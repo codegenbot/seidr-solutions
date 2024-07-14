@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <string>
 
 int mastermind(string code, string guess) {
@@ -23,5 +20,5 @@ int mastermind(string code, string guess) {
         white += min(count, 1);
     }
 
-    return black + white - black;
+    return black;
 }
