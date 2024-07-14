@@ -1,28 +1,39 @@
-int numMatchingChars(string code, string guess) {
-    int white = 0;
-    int black = 0;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
 
+    int blackPegs = 0;
+    int whitePegs = 0;
+
+    map<char, int> codeCount, guessCount;
+
+    // Count the characters in the code and guess
     for (char c : code) {
-        if (c == guess[0]) {
-            if (code.find(guess[1..3].data()) != string::npos) {
-                black++;
-                break;
-            }
-            white++;
-        } else if (guess.find(c) != string::npos) {
-            int pos = 0;
-            for (char gc : guess) {
-                if (gc == c) {
-                    pos++;
-                }
-            }
-            if (pos > 1) {
-                white += pos - 1;
-            } else if (pos == 1) {
-                black++;
-            }
+        codeCount[c]++;
+    }
+    for (char c : guess) {
+        guessCount[c]++;
+    }
+
+    // Count the black pegs (correct color, correct place)
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            codeCount[code[i]]--;
+            guessCount[guess[i]]--;
+            blackPegs++;
         }
     }
 
-    return {white, black}[0];
+    // Count the white pegs (correct color, wrong place)
+    for (char c : code) {
+        if (guessCount[c] > 0) {
+            whitePegs++;
+            guessCount[c]--;
+        }
+    }
+
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
+
+    return 0;
 }
