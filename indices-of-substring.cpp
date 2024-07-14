@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -55,4 +61,37 @@ vector<int> indicesOfSubstring(string text, string target) {
     delete[] lps;
 
     return result;
+}
+
+int main() {
+    string text, target;
+    
+    cout << "Enter the text: ";
+    getline(cin, text);
+
+    if(text.empty()) {
+        cout << "Text cannot be empty." << endl;
+        return 1; 
+    }
+
+    cout << "Enter the target substring: ";
+    getline(cin, target);
+
+    if(target.length() > text.length()) {
+        cout << "Target cannot exceed the length of the text." << endl;
+        return 1; 
+    }
+
+    vector<int> result = indicesOfSubstring(text, target);
+    
+    if(result.size() == 0)
+        cout << "Target not found in text.";
+    else
+        cout << "Indices of the target in the text are: ";
+    for(int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
