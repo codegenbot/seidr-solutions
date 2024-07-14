@@ -2,10 +2,13 @@
 #include <cmath>
 #include <vector>
 
-double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
+double vectorDistance(int n, std::vector<float> v1, std::vector<float> v2) {
     double sumOfSquares = 0.0;
-    for (int i = 0; i < v1.size(); i++) {
+    for (int i = 0; i < n; i++) {
         sumOfSquares += pow(v1[i] - v2[i], 2);
+    }
+    for (int i = 0; i < n; i++) {
+        sumOfSquares += pow(v1[i+n] - v2[i+n], 2);
     }
     return sqrt(sumOfSquares);
 }
@@ -13,7 +16,7 @@ double vectorDistance(std::vector<float> v1, std::vector<float> v2) {
 int main() {
     int n;
     std::cin >> n; 
-    std::vector<float> v1(n), v2(n);
+    std::vector<float> v1(2*n), v2(2*n);
     for (int i = 0; i < n; i++) {
         float temp1, temp2;
         std::cin >> temp1; // read one value
@@ -21,7 +24,7 @@ int main() {
         std::cin >> temp2; 
         v2[i] = temp2; 
     }
-    double result = vectorDistance(v1, v2);
+    double result = vectorDistance(n, v1, v2);
     std::cout << "The Euclidean distance is: " << result << std::endl;
     return 0;
 }
