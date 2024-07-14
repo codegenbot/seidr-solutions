@@ -1,8 +1,11 @@
-Here is the solution in Python:
+Here is the solution:
 
-def leaders(arr):
-    leaders = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[i+1]:
-            leaders.insert(0, arr[i])
-    return leaders
+def leaders(a):
+    n = len(a)
+    result = [a[n-1]]
+    
+    for i in range(n-2, -1, -1):
+        if a[i] >= a[i+1]:
+            result.append(a[i])
+            
+    return result[::-1]
