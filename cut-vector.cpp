@@ -1,38 +1,32 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int n = nums.size();
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     vector<vector<int>> res(2);
-    
-    for (int i = 1; i < n; ++i) {
-        if (nums[i] - nums[0] <= nums[n-1] - nums[i]) {
-            res[0] = vector<int>(nums.begin(), nums.end() - i);
-            res[1] = vector<int>(nums.begin() + i, nums.end());
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i + 1);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
             break;
         }
-    }
-    
-    if (res[0].empty()) {
-        res[0] = nums;
-        res[1].clear();
     } else {
-        res[1].push_back(0);
+        res[0] = v;
+        res[1] = {};
     }
-    
     return res;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    vector<vector<int>> result = cutVector(nums);
-    for (const auto& v : result) {
-        for (int num : v) {
+    vector<vector<int>> result = cutVector(v);
+    for (auto &sub : result) {
+        for (int num : sub) {
             cout << num << " ";
         }
         cout << endl;
