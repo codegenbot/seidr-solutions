@@ -28,7 +28,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps;
+    vector<int> lps(m);
     computeLPSArray(target, lps);
 
     for (int i = 0; i <= n - m; i++) {
