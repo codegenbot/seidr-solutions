@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour);
