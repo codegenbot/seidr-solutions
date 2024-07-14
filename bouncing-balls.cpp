@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -5,17 +6,17 @@ int main() {
     double startHeight; 
     cin >> startHeight;
     
-    double firstBounce = startHeight / 2.0; 
-    double bouncinessIndex = firstBounce / startHeight;
+    int firstBounce = static_cast<int>(startHeight) / 2; 
+    double bouncinessIndex = (double)firstBounce / startHeight;
 
-    double height = startHeight; // initialize height
+    cout << "The bounciness index is: " << bouncinessIndex << endl;
+    
+    double height = startHeight; 
     double totalDistance = 0.0; 
     int bounces; 
 
     cin >> bounces; 
 
-    cout << "The bounciness index is: " << bouncinessIndex << endl;
-    
     for (int i = 1; i <= bounces; ++i) {
         height *= 0.5; 
         totalDistance += startHeight - height;
