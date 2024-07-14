@@ -1,7 +1,4 @@
-```cpp
-#include <string>
-#include <iostream>
-#include <cstddef>
+#include <bits/stdc++.h>
 
 int main() {
     std::string input;
@@ -22,4 +19,3 @@ std::string validateTweet(const std::string& input) {
         return "Too many characters";
     }
     return "Your tweet has " + std::to_string(len) + " characters";
-}

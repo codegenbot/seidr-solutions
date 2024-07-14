@@ -21,22 +21,20 @@ bool solveBoolean(const std::string& s) {
 int main() {
     std::string input; 
     while (true) {
-        std::string temp;
-        while (true) {
-            char c;
-            temp.clear();
-            while ((c = std::cin.get()) != '\n') {
-                temp += c;
-            }
-            input = temp;
-            if(input == "exit") {
-                std::cout << "Goodbye!" << std::endl;
-                return 0;
-            }
-            else {
-                bool result = solveBoolean(input);
-                std::cout << "Result: " << (result ? "True" : "False") << std::endl;
-            }
+        char c;
+        input.clear();
+        while ((c = static_cast<char>(std::cin.get())) != '\n') {
+            input += c;
         }
+        bool result = solveBoolean(input);
+        if(input == "exit") {
+            std::cout << "Goodbye!" << std::endl;
+            return 0;
+        }
+        else {
+            std::cout << "Invalid input. Please enter a valid Boolean expression or 'exit' to quit: ";
+            continue;  // loop back and ask for input again
+        }
+        std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     }
 }
