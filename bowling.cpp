@@ -1,53 +1,32 @@
-int bowlingScore(string input) {
+int bowling(string s) {
     int score = 0;
-    int frame = 0;
-    string temp;
+    int currentRolls = 0;
+    vector<int> rolls;
 
-    for (char c : input) {
+    for (char c : s) {
         if (c == '/') {
-            // Add the first part of the frame to the total score
-            if (temp[0] - '0' == 10) {
-                score += 10 + (frame < 9 ? getBonus(frame) : 0);
-            } else {
-                score += temp[0] - '0';
-            }
-            // Reset the temporary string
-            temp.clear();
-        } else if (c == 'X') {
-            score += 10;
-            frame++;
-            temp = "";
-        } else {
-            temp += c;
-        }
-
-        frame++;
-
-        if (frame >= 9) {
-            // Add the last part of the frame to the total score
-            if (temp.size() > 1) {
-                int firstRoll = temp[0] - '0';
-                int secondRoll = temp[1] - '0';
-                if (firstRoll + secondRoll == 10) {
-                    score += 10;
-                } else {
-                    score += firstRoll + secondRoll;
+            if (currentRolls < 2) {
+                if (currentRolls == 0) {
+                    score += rolls[rolls.size() - 1];
                 }
+                currentRolls++;
             } else {
-                score += temp[0] - '0';
+                currentRolls = 0;
+                int lastRoll = 10 - (stoi(s.substr(s.find('/'))) - 5);
+                rolls.push_back(lastRoll);
+                score += lastRoll;
             }
+        } else if (c == 'X') {
+            rolls.push_back(10);
+            score += 10;
+            currentRolls = 0;
+        } else {
+            int roll = stoi(string(1, c));
+            rolls.push_back(roll);
+            score += roll;
+            currentRolls++;
         }
     }
 
     return score;
-}
-
-int getBonus(int frame) {
-    if (frame < 9) {
-        // Add the bonus for a strike or spare in previous frames
-        return 0;
-    } else {
-        // The last two frames are special cases, they don't count as strikes
-        return 0;
-    }
 }
