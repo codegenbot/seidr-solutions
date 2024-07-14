@@ -1,32 +1,42 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::vector<std::string> words;
-    size_t pos = 0;
-    while ((pos = s.find(' ')) != std::string::npos) {
-        words.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
-    }
-    if (!s.empty())
-        words.push_back(s);
+using namespace std;
 
-    std::string result;
-    for (int i = 0; i < words.size(); ++i) {
-        if (i > 0)
-            result += std::toupper(words[i][0]);
-        else
-            result += words[i];
-        for (int j = 1; j < words[i].size(); ++j)
-            result += std::tolower(words[i][j]);
+string camelCase(string s) {
+    string result = "";
+    bool first = true;
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            if (!first)
+                result += char(toupper(s[i + 1]));
+            else
+                result += s[i + 1];
+            i++;
+        } else if (s[i] == ' ') {
+            if (!first)
+                result += char(toupper(s[i + 1]));
+            else
+                result += s[i + 1];
+            i++;
+        } else {
+            if (first)
+                result += tolower(s[i]);
+            else
+                result += toupper(s[i]);
+        }
+        first = false;
     }
+    
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    string s;
+    while (cin >> s) {
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
