@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
@@ -11,15 +10,4 @@ int luhn(const std::vector<int>& digits) {
         sum += temp;
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> testDigits = {4, 5, 3, 0, 4, 6, 7, 1, 3, 9, 2, 5, 8};
-    int result = luhn(testDigits);
-    if (result % 10 == 0) {
-        std::cout << "Valid credit card number\n";
-    } else {
-        std::cout << "Invalid credit card number\n";
-    }
-    return 0;
 }
