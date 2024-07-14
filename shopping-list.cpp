@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <utility>
-#include <initializer_list>
 #include <iostream>
 
 double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) {
@@ -17,7 +15,7 @@ double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) 
 }
 
 int main() {
-    std::vector<std::pair<double, double>> pricesAndDiscounts = {std::make_pair(10.99, 20), std::make_pair(5.99, 15), std::make_pair(7.99, 25)};
+    std::vector<std::pair<double, double>> pricesAndDiscounts = {{10.99, 20}, {5.99, 15}, {7.99, 25}};
     double totalPrice = shoppingList(pricesAndDiscounts);
     std::cout << "Total price: $" << totalPrice << std::endl;
 }
