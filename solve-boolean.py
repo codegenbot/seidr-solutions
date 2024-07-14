@@ -4,8 +4,12 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    elif "&" in expression:
-        return all([eval(x) for x in expression.split("&")])
+        raise Exception("Invalid expression")
     else:
-        return eval(expression.replace("|", "or").replace("and", "&"))
+        result = True
+        for char in expression:
+            if char == "&":
+                result = result and (expression[expression.index(char) + 1] == "T")
+            elif char == "|":
+                result = result or (expression[expression.index(char) + 1] == "T")
+        return result
