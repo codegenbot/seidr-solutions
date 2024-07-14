@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -22,9 +23,9 @@ int main() {
     }
     cin >> n;
     vector<float> discounts(n);
-    for (float &p : discounts) { 
-        cin >> p;
+    for (float &discounts_ : discounts) {
+        cin >> discounts_;
     }
-    cout << fixed << shoppingList(prices, discounts) << endl; 
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
