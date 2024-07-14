@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -25,7 +24,7 @@ int main() {
         input.clear(); // clear the string for new input
         char c;
         while ((c = std::cin.get()) != '\n' && c != ' ') {
-            input += c;  // fix: use += operator instead of push_back
+            input += c;
         }
         bool result = solveBoolean(input);
         if(input == "exit") {
