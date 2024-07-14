@@ -1,7 +1,8 @@
-#include <map>
+#include <iostream>
 #include <string>
+#include <map>
 
-int countPegs(std::string code, std::string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,6 +13,10 @@ int countPegs(std::string code, std::string guess) {
     }
 
     std::map<char,int> codeCount;
+    codeCount['A'] = 0;
+    codeCount['B'] = 0;
+    codeCount['C'] = 0;
+    codeCount['D'] = 0;
     for (char c : code) {
         codeCount[c]++;
     }
@@ -31,10 +36,6 @@ int countPegs(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "ABDE";
-
-    int result = countPegs(code, guess);
-
-    return result;
+    std::cout << mastermind("ABCD", "ABDE") << std::endl;
+    return 0;
 }
