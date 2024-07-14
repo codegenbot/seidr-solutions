@@ -4,8 +4,8 @@
 std::string validateTweet(std::string tweet) {
     std::string::size_type len = 0;
     for (char c : tweet) {
-        len++;
-        if (c != ' ') { 
+        if (c != '\n') {
+            ++len;
             if (len > 140) {
                 return "Too many characters";
             }
