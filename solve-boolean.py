@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     precedence = {"&": 2, "|": 1}
     stack = []
@@ -38,10 +39,3 @@ def solve_boolean(expression):
             eval_str += top
 
     return "T" if eval_str == "T" else "F"
-
-def main():
-    expression = input("Enter a Boolean expression: ")
-    print(solve_boolean(expression))
-
-if __name__ == "__main__":
-    main()
