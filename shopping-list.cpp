@@ -1,6 +1,7 @@
+#include <vector>
 #include <utility>
 
-double shoppingList(std::vector<std::pair<float, float>>& pricesAndDiscounts) {
+double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) {
     double total = 0;
     for (const auto& pair : pricesAndDiscounts) {
         double price = pair.first;
