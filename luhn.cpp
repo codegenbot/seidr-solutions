@@ -17,5 +17,7 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    return luhn({4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5});
+    std::vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,6};
+    std::cout << luhn(digits) << std::endl; // Print the result of Luhn's algorithm.
+    return 0;
 }
