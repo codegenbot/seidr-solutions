@@ -5,12 +5,15 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
-    int rightmost = arr[n-1];
     for(int i=n-1; i>=0; i--) {
-        if(arr[i] >= rightmost) {
-            rightmost = arr[i];
-            leaders.push_back(rightmost);
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
+        if(isLeader) leaders.push_back(arr[i]);
     }
     
     return leaders;
