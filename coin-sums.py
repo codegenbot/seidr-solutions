@@ -1,13 +1,13 @@
-def coin_sums(cents):
+```
+def coin_sums():
+    cents = int(input())
     coins = [25, 10, 5, 1]
-    output = []
-
-    for coin in reversed(coins):
-        output.append(cents // coin)
+    results = []
+    
+    for coin in coins:
+        count = int(cents // coin)
+        if count > 0:
+            results.extend([count] * (coin != 1))
         cents %= coin
-
-    return tuple(output)
-
-
-cents = int(input())
-print(*coin_sums(cents))
+    
+    return len(results), *results
