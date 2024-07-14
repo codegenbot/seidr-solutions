@@ -1,30 +1,32 @@
-def bowling_score(game):
+def bowling_score(gutter):
     score = 0
-    frame_count = 0
-    for i in range(len(game)):
-        if game[i] == "X":
-            score += 10 + (10 if i < len(game) - 1 and game[i + 1] == "X" else 0)
-            frame_count += 1
-        elif game[i] == "/":
-            strike = False
-            for j in range(i, min(i + 3, len(game))):
-                if game[j] == "X":
-                    score += 10 + (
-                        10 if j < len(game) - 1 and game[j + 1] == "X" else 0
-                    )
-                    frame_count += 2
-                    strike = True
-                    break
-            if not strike:
-                score += int(game[i - 1]) + int(game[i + 1])
-                frame_count += 1
-        elif game[i].isdigit():
-            total_pins = 0
-            for j in range(i, min(i + 3, len(game))):
-                if game[j].isdigit():
-                    total_pins += int(game[j])
+    roll = 0
+    frames = gutter.split("/")
+    for i in range(10):
+        if len(frames) > i:
+            if frames[i] == "X":
+                score += 30
+                roll = 1
+            elif len(frames[i]) == 2 and int(frames[i]) < 10:
+                score += int(frames[i])
+                roll = 1
+            else:
+                first_roll = int(frames[i][0])
+                if roll == 1 and first_roll != 10:
+                    score += first_roll
+                second_roll = int(frames[i][1])
+                if roll == 1 and first_roll + second_roll == 10:
+                    score += second_roll + first_roll
                 else:
-                    break
-            score += total_pins
-            frame_count += 1
+                    score += first_roll + second_roll
+            if roll == 1:
+                if i < 8 and frames[i + 1] in ["X", "XX"]:
+                    score += 10
+                elif i < 9 and frames[i + 1][:2].isdigit():
+                    score += int(frames[i + 1][:2])
+        else:
+            if roll == 0 and i < 8 and frames[i + 1] in ["X", "XX"]:
+                score += 10
+            elif i < 9 and frames[i + 1][:2].isdigit():
+                score += int(frames[i + 1][:2])
     return score
