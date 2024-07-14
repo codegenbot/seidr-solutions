@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <limits>
-#include <string>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
@@ -15,27 +14,29 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 }
 
 int main() {
-    char buffer[256];
-    int hours;
+    int hours, temp1, temp2, temp3;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    std::cin.getline(buffer, 256);
-    hours = std::stoi(buffer);
+    if (!(std::cin >> hours)) {
+        std::cout << "Invalid input. Please enter numeric values." << std::endl;
+        return 1; 
+    }
 
     std::cout << "Enter the initial amount of snow: ";
-    std::cin.getline(buffer, 256);
-    initialSnow = std::stof(buffer);
+    if (!(std::cin >> initialSnow)) {
+        std::cout << "Invalid input. Please enter numeric values." << std::endl;
+        return 1; 
+    }
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::cin.getline(buffer, 256);
-    rateOfSnowFall = std::stof(buffer);
+    if (!(std::cin >> rateOfSnowFall)) {
+        std::cout << "Invalid input. Please enter numeric values." << std::endl;
+        return 1; 
+    }
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin.getline(buffer, 256);
-    proportionOfSnowMeltingPerHour = std::stof(buffer);
-
-    if (!(std::cin >> hours) || !(std::cin >> initialSnow) || !(std::cin >> rateOfSnowFall) || !(std::cin >> proportionOfSnowMeltingPerHour)) {
+    if (!(std::cin >> proportionOfSnowMeltingPerHour)) {
         std::cout << "Invalid input. Please enter numeric values." << std::endl;
         return 1; 
     }
