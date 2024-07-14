@@ -1,20 +1,27 @@
 from collections import Counter
 
+
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
-        return "Invalid input. Code and Guess must be 4-character strings."
+        return str(0) + "\n" + str(0)
 
-    chars = 'ABCDEF'  
-    if not set(code).issubset(chars) or not set(guess).issubset(chars):
-        return "Invalid input. Characters must be ABCDEF only."
+    for c in code:
+        if c not in "ARBYG":
+            return str(0) + "\n" + str(0)
 
-    code_counts = dict(Counter(code).most_common())
-    guess_counts = dict(Counter(guess).most_common())
+    for g in guess:
+        if g not in "ARBYG":
+            return str(0) + "\n" + str(0)
 
-    black_pegs = sum(1 for i in range(min(len(code), len(guess))) if code[i] == guess[i])
-    
+    code_counts = Counter(code)
+    guess_counts = Counter(guess)
+
+    black_pegs = sum(
+        1 for i in range(min(len(code), len(guess))) if code[i] == guess[i]
+    )
+
     white_pegs = 0
     for c, count in guess_counts.items():
-        white_pegs += min(count, code_counts.get(c, 0)) - (code.count(c) if c in code else 0)
+        white_pegs += min(count, code_counts.get(c, 0))
 
     return str(black_pegs) + "\n" + str(white_pegs)
