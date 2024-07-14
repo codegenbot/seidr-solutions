@@ -1,4 +1,6 @@
+```c++
 #include <cstring>
+#include <iostream>
 
 int pairedDigits(const char* s) {
     int sum = 0;
@@ -8,3 +10,11 @@ int pairedDigits(const char* s) {
         }
     }
     return sum;
+}
+
+int main() {
+    const char* s = "input_string"; // replace with user input or a hardcoded string
+    int result = pairedDigits(s);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
