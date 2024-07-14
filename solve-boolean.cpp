@@ -1,22 +1,31 @@
-#include <cctype>
+```
 #include <stack>
 #include <string>
+#include <cctype>
 
 bool solveBoolean(std::string expression) {
-    stack<char> st;
+    std::stack<char> st;
     for (char c : expression) {
         if (std::isalpha(c)) {
             st.push(c);
         } else if (c == '|') {
-            while (!st.empty() && std::tolower(st.top()) == '&') {
+            while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
             st.push(c);
         } else if (c == '&') {
-            while (!st.empty() && std::tolower(st.top()) == '|') {
+            while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
             st.push(c);
         }
     }
     return !st.empty();
+}
+
+int main() {
+    std::string expression = "T|F&";
+    bool result = solveBoolean(expression);
+    std::cout << (result ? "True" : "False") << std::endl;
+    return 0;
+}
