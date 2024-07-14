@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-using namespace std;
 
 int mastermind(const char* code, const char* guess) {
     int whitePegs = 0;
@@ -21,7 +21,13 @@ int mastermind(const char* code, const char* guess) {
             }
         }
         if (!found) {
-            whitePegs++;
+            for (int j = 0; j < 4; j++) {
+                if (code[j] == guess[i]) {
+                    blackPegs++;
+                    found = true;
+                    break;
+                }
+            }
         }
     }
 
@@ -32,5 +38,6 @@ int main() {
     const char* code = "abcD";
     const char* guess = "aBcd";
     int result = mastermind(code, guess);
-    cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << endl;
+    std::cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << std::endl;
     return 0;
+}
