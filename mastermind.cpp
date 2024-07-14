@@ -5,8 +5,16 @@ int mastermind(const std::string& code, const std::string& guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-        } else if (std::find(code.begin(), code.end(), guess[i]) != code.end() && code.find(guess[i]) != i) {
-            ++whitePegs;
+        } else {
+            auto codeIter = code.begin();
+            while (codeIter != code.end()) {
+                if (*codeIter == guess[i]) {
+                    if (codeIter != code.begin() + i)
+                        ++whitePegs;
+                    break;
+                }
+                ++codeIter;
+            }
         }
     }
 
