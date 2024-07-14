@@ -21,12 +21,11 @@ int main() {
     std::cout << "Dimes: " << dimes << std::endl;
     std::cout << "Nickles: " << nickels << std::endl;
     if(pennies > 0) {
-        if(pennies >= 5)
-            pennies -= 5, --nickels;
-        else
-            pennies %= 5; // actual number of pennies required
+        pennies = (pennies % 5);
+        std::cout << "Pennies: " << pennies << std::endl;
+    } else {
+        std::cout << "Pennies: " << pennies << std::endl;
     }
-    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
