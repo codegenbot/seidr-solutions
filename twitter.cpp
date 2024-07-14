@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -7,6 +8,7 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
+    tweet.erase(std::remove_if(tweet.begin(), tweet.end(), ::isspace), tweet.end());
     if (tweet.length() >= 141) {
         return "Too many characters";
     }

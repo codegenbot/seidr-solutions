@@ -8,8 +8,12 @@ int pairedDigits(const char* s) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    return pairedDigits("123456");
+    const char* str = "123456"; 
+    int result = pairedDigits(str);
+    std::cout << "Result: " << result << std::endl; 
+    return 0;
 }
