@@ -1,10 +1,5 @@
-def mastermind(code, guess):
-    black_pegs = 0
-    white_pegs = 0
-    code_set = set(code)
-    for i in range(4):
-        if guess[i] == code[i]:
-            black_pegs += 1
-        elif guess[i] in code_set:
-            white_pegs += 1
-    return str(black_pegs) + "\n" + str(white_pegs)
+def get_peg_count(code, guess):
+    correct_positions = sum(a == b for a, b in zip(code, guess))
+    correct_colors = sum(1 for a in code for b in guess if a == b)
+
+    return str(correct_colors), str(4 - correct_positions + correct_colors)
