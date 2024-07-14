@@ -1,35 +1,32 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] == ' ') {
-            result += " ";
-            i++;
-        } else {
-            int j = i;
-            while (j < str.length() && str[j] != ' ') {
-                j++;
-            }
-            string word = str.substr(i, j - i);
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                std::reverse(word.begin(), word.end());
             }
             result += word + " ";
-            i = j;
+            word = "";
+        } else {
+            word += str[i];
         }
     }
+    
     return result;
 }
 
 int main() {
-    // Your code here
+    // Test cases
+    cout << spinWords("a") << endl;  // Output: a
+    cout << spinWords("this is a test") << endl;  // Output: this is a test
+    cout << spinWords("this is another test") << endl;  // Output: this is rehtona test
+    cout << spinWords("hi") << endl;  // Output: hi
+
     return 0;
 }
