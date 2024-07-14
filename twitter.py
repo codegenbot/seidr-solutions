@@ -7,4 +7,4 @@ def validate_tweet():
     else:
         return f"Your tweet has {len(tweet)} characters"
 
-print(f"Your tweet has {validate_tweet()} characters")
+print(validate_tweet())
