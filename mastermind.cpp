@@ -1,7 +1,4 @@
-```
-#include <string>
-using namespace std;
-
+```cpp
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -12,22 +9,19 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : guess) {
+    for (char c : code) {
         int count = 0;
-        for (char d : code) {
-            if (c == d) {
+        for (int i = 0; i < 4; ++i++) {
+            if (c == guess[i]) {
                 count++;
+                if (count == 1) {
+                    black--;
+                } else {
+                    white += count - 1;
+                }
             }
-        }
-        if (count > 1) {
-            white += count - 1;
-        } else if (count == 1) {
-            black--;
         }
     }
 
     return black + white;
-
 }
-
-int main() { return mastermind("XXXX", "XXXX"); }
