@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     leaders_list = [arr[-1]]
     max_right = arr[-1]
