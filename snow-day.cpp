@@ -9,7 +9,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float melting
             totalSnow += rateOfSnowfall;
         }
         if (meltingRate > 0) {
-            totalSnow -= meltingRate * totalSnow;
+            totalSnow -= totalSnow * meltingRate;
         }
     }
     return totalSnow;
