@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 int luhn(vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
@@ -16,24 +12,13 @@ int luhn(vector<int> digits) {
             }
         }
         
-        sum += digit;
+        int added = digit;
+        if (added > 9) {
+            added -= 9;
+        }
+        sum += added;
         doubleNext = !doubleNext;
     }
     
     return sum;
-}
-
-int main() {
-    vector<int> digits;
-    int cardNumber;
-    
-    cout << "Enter a credit card number (16 digits): ";
-    for(int i = 0; i < 16; ++i) {
-        cin >> cardNumber;
-        digits.push_back(cardNumber);
-    }
-    
-    cout << "Luhn checksum: " << luhn(digits) << endl;
-    
-    return 0;
 }
