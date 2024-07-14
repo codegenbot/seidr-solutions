@@ -1,30 +1,57 @@
-int bowlingScore(string s) {
+#include <vector>
+using namespace std;
+
+int bowlingScore(string input) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') { // strike
-            score += 10 + 10 + 10;
-            currentFrame++;
-        } else if (s[i] == '/') { // spare
+    int rolls = 0;
+    vector<int> frames;
+    
+    for (char c : input) {
+        if (c == '/') {
+            if (input[rolls] == 'X') {
+                score += 10;
+                rolls++;
+                continue;
+            }
+            int strikeOrSpare = stoi(input.substr(rolls, 2));
+            if (strikeOrSpare >= 10) {
+                score += 10;
+            } else {
+                score += strikeOrSpare;
+            }
+            rolls += 2;
+        } else if (c == 'X') {
             score += 10;
-            currentFrame++;
+            rolls++;
         } else {
-            int pins = s[i] - '0';
-            if (currentFrame < 9) {
-                if (i + 2 <= s.length() && s[i+1] == 'X' || s[i+2] == '/') { // next ball is a strike or spare
-                    score += 10;
-                    currentFrame++;
+            int frame = c - '0';
+            frames.push_back(frame);
+            if (frames.size() == 2) {
+                int total = frames[0] + frames[1];
+                if (total < 10) {
+                    score += total;
                 } else {
-                    pins += s[i+1] - '0';
-                    if (pins > 10) {
-                        pins = 10;
-                    }
-                    score += pins;
+                    score += 10;
                 }
-            } else { // last frame
-                score += pins;
+                frames.clear();
             }
         }
     }
+    
+    while (!frames.empty()) {
+        int total = 0;
+        for (int i = 0; i < 2 && i < frames.size(); i++) {
+            total += frames[i];
+        }
+        if (total < 10) {
+            score += total;
+        } else {
+            score += 10;
+        }
+        while (!frames.empty()) {
+            frames.pop_back();
+        }
+    }
+    
     return score;
 }
