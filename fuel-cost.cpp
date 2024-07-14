@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 int fuelCost(vector<int> nums) {
     int sum = 0;
