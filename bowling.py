@@ -1,5 +1,5 @@
 ```
-def bowling_score(game):
+def bowling_score(game=""):
     score = 0
     frame_index = 0
     for i in range(1, 11):
@@ -11,23 +11,28 @@ def bowling_score(game):
             frame_index += 2
         else:
             strike = False
-            first_roll = int(game[frame_index].strip())
-            second_roll = int(game[frame_index + 1].strip())
-            if game[frame_index + 1] == '/':
-                strike = True
-            elif game[frame_index + 2] == '/':
-                pass
-            else:
-                third_roll = int(game[frame_index + 2].strip())
-                first_roll, second_roll = map(int, game[frame_index:frame_index+3].split(' '))
-
+            for j in range(1, 4):
+                if game[frame_index + j - 1] != '/':
+                    if j == 1:
+                        first_roll = int(game[frame_index + j - 1])
+                    elif j == 3:
+                        second_roll = int(game[frame_index + j - 1])
+                    else:
+                        third_roll = int(game[frame_index + j - 1])
+                else:
+                    strike = True
+                    break
             if strike:
-                score += 10 + first_roll
+                score += 10 + first_roll + second_roll
                 frame_index += 2
-            elif first_roll == 10:
-                score += 10 + second_roll + third_roll if third_roll else 10 + second_roll
-                frame_index += 3
+            elif game[frame_index+1] != '/':
+                score += first_roll + int(game[frame_index+1])
+                frame_index += 2
             else:
-                score += first_roll + second_roll
+                score += first_roll
+                for j in range(1, 3):
+                    if game[frame_index+j-1] != '/':
+                        score += int(game[frame_index+j-1])
+                        break
                 frame_index += 2
     return score
