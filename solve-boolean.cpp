@@ -1,12 +1,23 @@
+```cpp
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == 'f') res = false;
-        else if ((s[i] == '|') && res) return true;
-        else if ((s[i] == '&') && !res) return false;
+    bool result = true;
+    for (char c : s) {
+        if (c == 'T') continue;
+        if (c == 'F') return false;
+        if (c == '|') {
+            result = !result;
+        } else {
+            result &= false;
+        }
     }
-    return res;
+    return result;
+}
+
+int main() {
+    string input = "TF|";
+    cout << (solveBoolean(input) ? "True" : "False") << endl;
+    return 0;
 }
