@@ -1,16 +1,15 @@
-Here is the Python code for the problem:
-
-def solveBoolean(expression):
-    if expression == 'T':
+def solve(input_str):
+    if input_str == 'T':
         return True
-    elif expression == 'F':
+    elif input_str == 'F':
         return False
-    elif '&' in expression:
-        parts = expression.split('&')
-        return all(solveBoolean(part) for part in parts)
-    elif '|' in expression:
-        parts = expression.split('|')
-        return any(solveBoolean(part) for part in parts)
-
-expression = input()
-print(solveBoolean(expression))
+    elif '&' in input_str and '|' in input_str:
+        raise Exception('Invalid operation')
+    elif '&' in input_str:
+        a, b = input_str.split('&')
+        return not (bool(a) and bool(b))
+    elif '|' in input_str:
+        a, b = input_str.split('|')
+        return bool(a) or bool(b)
+    else:
+        raise Exception('Invalid input')
