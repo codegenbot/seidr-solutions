@@ -11,3 +11,4 @@ double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
     }
     
     return sqrt(result);
+}
