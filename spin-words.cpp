@@ -3,28 +3,39 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    int start = 0;
+    std::size_t pos = 0;
     
-    for(int i = 0; i <= str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            std::string word = str.substr(start, i - start);
-            
-            if(word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            
-            result += word + " ";
-            start = i + 1;
+    while ((pos = str.find(" ")) != std::string::npos) {
+        std::size_t wordPos = str.find(" ", pos);
+        if (wordPos - pos >= 5) {
+            std::string word = str.substr(pos, wordPos - pos);
+            for (int i = word.size() - 1; i >= 0; --i)
+                result += word[i];
+        } else
+            result += str.substr(pos, wordPos - pos + 1);
+        
+        if (wordPos != std::string::npos) {
+            result += " ";
+            pos = wordPos + 1;
         }
+    }
+    
+    if (pos < str.size()) {
+        std::size_t wordPos = str.find(" ", pos);
+        if (str.size() - pos >= 5)
+            for (int i = str.substr(pos).size() - 1; i >= 0; --i)
+                result += str.substr(pos)[i];
+        else
+            result += str.substr(pos);
     }
     
     return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << spinWords(str) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << std::endl;
+    }
     return 0;
 }
