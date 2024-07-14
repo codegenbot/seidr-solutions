@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -21,10 +22,8 @@ std::string kebabToCamel(const std::string& str) {
 
 int main() {
     std::string input;
-
-    while (std::getline(std::cin, input, ' ')) {
+    while (std::getline(std::cin, input)) {
         std::cout << kebabToCamel(input) << '\n';
     }
-
     return 0;
 }
