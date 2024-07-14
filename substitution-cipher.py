@@ -8,7 +8,7 @@ def substitution_cipher(cipher1, cipher2, message):
     
     result = ""
     for char in message:
-        if char in mapping:
+        if char.isalpha() and char in mapping:
             result += mapping[char].upper() if char.isupper() else mapping[char]
         else:
             result += char
