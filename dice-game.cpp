@@ -18,4 +18,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(4) << probability(n, m) << endl;
     return 0;
-}
