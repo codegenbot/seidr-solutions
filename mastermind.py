@@ -9,4 +9,4 @@ def mastermind(code, guess):
     white = sum(1 for c, d in zip(code, guess) if c == d)
     black = sum((c == d and code.index(c) == i) for i, (c, d) in enumerate(zip(code, guess))).count(True)
 
-    return '{:01d}0'.format(white), '{:01d}'.format(black)
+    return str(white) + '0' * (4 - black), str(black)[0]
