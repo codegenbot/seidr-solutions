@@ -1,4 +1,8 @@
 ```cpp
+#include <iostream>
+
+float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour);
+
 int main() {
     int hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
