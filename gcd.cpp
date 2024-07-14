@@ -22,4 +22,5 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
+    return a;
 };
