@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -14,7 +15,7 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
 
