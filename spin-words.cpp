@@ -3,7 +3,6 @@
 using namespace std;
 
 string reverse(string str);
-
 string spinWords(string str) {
     string result = "";
     int wordStart = 0;
