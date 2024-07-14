@@ -48,7 +48,5 @@ int main() {
     }
     std::cout << std::endl;
 
-    std::cout << "Camel case: " << camelCase(str) << std::endl;
-    
     return 0;
 }
