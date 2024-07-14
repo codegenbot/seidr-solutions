@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def cut_vector(vector):
     min_diff = float('inf')
