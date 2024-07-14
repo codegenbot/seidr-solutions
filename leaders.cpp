@@ -1,8 +1,9 @@
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
+    std::vector<int> res;
     
     int maxSeenSoFar = arr.back();  
     for(int i=n-2; i>=0; i--) {  
@@ -12,6 +13,6 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
