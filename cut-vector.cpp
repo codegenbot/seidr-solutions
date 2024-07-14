@@ -23,6 +23,7 @@ int main() {
     for (auto &x : v) cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
+    
     cout << "[";
     for (const auto &x : result.first) cout << x << " ";
     cout << "]\n[";
