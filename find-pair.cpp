@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <algorithm>
 
@@ -27,4 +26,3 @@ int main() {
     std::pair<int, int> result = findPair(nums, target);
     // Print or use the result as needed
     return 0;
-}
