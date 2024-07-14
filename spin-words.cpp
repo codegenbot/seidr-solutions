@@ -1,42 +1,67 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordLength = 0;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            if (wordLength >= 5) {
-                for (int j = i - 1; j >= i - wordLength - 1; j--) {
-                    result += str[j];
-                }
-            } else {
-                result += str.substr(i - wordLength, wordLength + 1);
-            }
-            wordLength = 0;
+            result += word + " ";
+            word.clear();
         } else {
-            wordLength++;
+            word += str[i];
         }
     }
-    if (wordLength >= 5) {
-        for (int j = str.length() - 1; j >= str.length() - wordLength - 1; j--) {
-            result += str[j];
+    
+    result += word;
+    
+    std::string newResult = "";
+    int j = 0;
+    
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ') {
+            while (j < i) {
+                newResult += result[j];
+                j++;
+            }
+            newResult += " ";
+            j = i + 1;
+        } else if (j < i) {
+            newResult += result[i];
+        } else {
+            int len = 0;
+            while (i < result.length() && result[i] != ' ') {
+                i++;
+                len++;
+            }
+            if (len >= 5) {
+                for (int k = len - 1; k >= 0; k--) {
+                    newResult += result[i - k - 1];
+                }
+                i--;
+            } else {
+                while (i < result.length() && result[i] != ' ') {
+                newResult += result[i];
+                i++;
+            }
         }
-    } else {
-        result += str;
     }
-    return result;
+    
+    while (j < result.length()) {
+        newResult += result[j];
+        j++;
+    }
+    
+    return newResult;
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    
     return 0;
 }
