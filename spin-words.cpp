@@ -1,5 +1,4 @@
-```
-#include <sstream>
+#include <string>
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
@@ -13,5 +12,3 @@ std::string spinWords(std::string str) {
     }
     return result.substr(0, result.size() - 1);
 }
-
-int main() { return spinWords("your test string"); }
