@@ -1,7 +1,4 @@
-```
-import math
-
-text = int(input("Enter the text: "))
-target = int(input("Enter the target string: "))
-
-print(f"GCD: {math.gcd(text, target)}")
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
