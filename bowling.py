@@ -1,12 +1,13 @@
 ```
-def get_next_frames_score():
-    score = 0
-    for i in range(1, min(3, 10 - len(str(bowling_score(""))), 2)):
-        if i < len(str(bowling_score(""))):
-            score += int(str(bowling_score(""))[-i])
+def get_next_frames_score(score=""):
+    score = score.replace('/', '')
+    total = 0
+    for i in range(1, min(3, len(score))):
+        if i < len(score):
+            total += int(score[-i])
         else:
             break
-    return score
+    return total
 
 def bowling_score(score):
     score = score.replace('/', '')
