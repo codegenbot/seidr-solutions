@@ -6,7 +6,7 @@ def solve_boolean(expression):
     i = 0
     stack = []
     current_expression = ""
-    for char in expression + ")": 
+    for char in expression + "":
         if char.isspace():
             if current_expression:
                 stack.append(current_expression)
@@ -22,4 +22,4 @@ def solve_boolean(expression):
         else:
             current_expression += char
 
-    return eval(f"bool({current_expression})")
+    return eval("bool({0})".format(current_expression))
