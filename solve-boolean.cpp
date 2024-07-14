@@ -1,3 +1,4 @@
+```c++
 #include <stack>
 #include <string>
 #include <iostream>
@@ -12,7 +13,9 @@ bool evaluateTop(std::stack<char> &st) {
             resStack.push('(');
         } else if (c == ')') {
             while (!resStack.empty() && resStack.top() != '(') {
-                result = (result || (resStack.top() == 'T'));
+                if (resStack.top() == '|') {
+                    result = true; // reset the result for OR operation
+                }
                 resStack.pop();
             }
             if (!resStack.empty()) {
@@ -20,7 +23,9 @@ bool evaluateTop(std::stack<char> &st) {
             }
         } else if (c == 'T' || c == 'F') {
             while (!resStack.empty() && resStack.top() != '(') {
-                result = (result || (resStack.top() == 'T'));
+                if (resStack.top() == '|') {
+                    result = true; // reset the result for OR operation
+                }
                 resStack.pop();
             }
             if (!resStack.empty()) {
@@ -97,26 +102,8 @@ bool evaluateTop(std::stack<char> &st) {
 
 int main() {
     std::stack<char> st;
-    std::string input;
-    std::cout << "Enter a Boolean expression (T/F/&(|)): ";
-    std::getline(std::cin, input);
-    for (char c : input) {
-        if (c == '(') {
-            st.push('(');
-        } else if (c == ')') {
-            while (!st.empty() && st.top() != '(') {
-                st.pop();
-            }
-            if (st.empty()) {
-                std::cout << "Invalid expression" << std::endl;
-                return 1;
-            }
-            st.pop();
-        } else {
-            st.push(c);
-        }
-    }
+    // initialize stack with input string here
     bool result = evaluateTop(st);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    std::cout << (result ? "True" : "False") << std::endl;
     return 0;
 }
