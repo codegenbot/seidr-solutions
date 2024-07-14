@@ -1,8 +1,8 @@
-```
+```c++
 #include <string>
 #include <vector>
 
-std::string split(const std::string& str, char sep) {
+std::vector<std::string> split(const std::string& str, char sep) {
     std::vector<std::string> segments;
     size_t pos = 0, lastPos = 0;
     do {
@@ -14,7 +14,8 @@ std::string split(const std::string& str, char sep) {
         segments.push_back(str.substr(pos, lastPos - pos));
         pos = lastPos + 1;
     } while (true);
-    return str.substr(pos);
+    return segments;
+
 }
 
 std::string camelCase(const std::string& str) {
@@ -31,4 +32,10 @@ std::string camelCase(const std::string& str) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input = "camel-case example-test-string";
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
