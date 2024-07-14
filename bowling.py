@@ -14,6 +14,10 @@ def bowling_score(frames):
                     and int(frames[i]) + int(frames[i + 1]) + int(frames[i + 2]) >= 10
                 ):
                     score += 10 - (int(frames[i]) + int(frames[i + 1]))
+                elif (
+                    frames[i + 1].isdigit() and int(frames[i]) + int(frames[i + 1]) >= 10
+                ):
+                    score += 10 - int(frames[i])
                 else:
                     score += int(frames[i])
                 roll_count[0] -= 1
