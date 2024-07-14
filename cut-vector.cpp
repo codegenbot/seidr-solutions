@@ -1,48 +1,65 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
     vector<vector<int>> res;
     
-    if (n == 0) return {{}}; // If the input vector is empty, return a vector with an empty vector
-    
-    for (int i = 1; i < n; i++) { 
-        int diff1 = abs(v[0] - v[i]);
-        int diff2 = abs(v[i] - v[n-1]);
+    for (int i = 1; i <= n/2; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; j++) {
+            sum1 += nums[j];
+        }
+        for (int j = i; j < n; j++) {
+            sum2 += nums[j];
+        }
         
-        if (diff1 <= diff2) {
-            res.push_back({v[0]});
-            res.push_back({v[i], v[n-1]});
+        if (sum1 == sum2) {
+            res.push_back({nums.begin(), nums.begin() + i});
+            res.push_back({nums.begin() + i, nums.end()});
             return res;
+        } else {
+            int diff = abs(sum1 - sum2);
+            for (int j = 0; j < n/2; j++) {
+                if (abs((sum1 - nums[j]) - sum2) <= diff) {
+                    res.push_back({nums.begin(), nums.begin() + j});
+                    res.push_back({nums.begin() + j, nums.end()});
+                    return res;
+                }
+            }
         }
     }
     
-    res.push_back(v);
+    res.push_back({nums.begin(), nums.end()});
+    res.push_back({});
     return res;
 }
 
 int main() {
-    int n, x;
-    vector<int> v;
-
-    // Read the input from user
+    int n;
     cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> x;
-        v.push_back(x);
+        cin >> nums[i];
     }
-
-    // Call the function to get the result
-    vector<vector<int>> res = cutVector(v);
-
-    // Print the output
-    for (auto &vec : res) {
-        for (int x : vec) {
-            cout << x << " ";
+    
+    vector<vector<int>> res = cutVector(nums);
+    
+    cout << "[";
+    for (int i = 0; i < res[0].size(); i++) {
+        cout << res[0][i];
+        if (i != res[0].size() - 1) {
+            cout << ", ";
         }
-        cout << endl;
     }
-
+    cout << "], [";
+    for (int i = 0; i < res[1].size(); i++) {
+        cout << res[1][i];
+        if (i != res[1].size() - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "]" << endl;
+    
     return 0;
 }
