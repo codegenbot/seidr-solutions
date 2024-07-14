@@ -1,25 +1,41 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& vec) {
+std::vector<int> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    int cutIndex = -1;
+    int splitIndex = 0;
 
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < minDiff) {
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = vec[i] - vec[0];
+        if (diff <= minDiff) {
             minDiff = diff;
-            cutIndex = i;
+            splitIndex = i;
         }
     }
 
-    vector<int> leftVec(1, vec[0]);
-    for (int i = 0; i < cutIndex; i++) {
-        leftVec.push_back(vec[i + 1]);
+    return {std::vector<int>(vec.begin(), vec.begin() + splitIndex),
+            std::vector<int>(vec.begin() + splitIndex, vec.end())};
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
     }
 
-    vector<int> rightVec = vec;
-    rightVec.erase(rightVec.begin() + cutIndex);
+    auto res = cutVector(vec);
 
-    return {leftVec, rightVec};
+    for (const auto& x : res[0]) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+    for (const auto& x : res[1]) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
