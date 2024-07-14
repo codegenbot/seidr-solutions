@@ -3,7 +3,8 @@
 
 int main() {
     int arr[] = {1, 2, 7, 8, 5};
-    std::vector<int> leadersVec = leaders({arr.begin(), arr.end()});
+    std::vector<int> leadersVec;
+    leadersVec.push_back(arr[0]);
     for (int i : leadersVec) {
         std::cout << i << " ";
     }
