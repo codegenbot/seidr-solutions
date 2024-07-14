@@ -2,18 +2,18 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = true;
+    bool res = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'f') {
-            result = false;
+            res = false;
             break;
         } else if (s[i] == '&') {
-            result &= true;
+            res &= true;
         } else if (s[i] == '|') {
-            result |= true;
+            res |= true;
         }
     }
-    return result;
+    return res;
 }
 
 int main() {
