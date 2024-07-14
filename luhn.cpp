@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -19,12 +18,13 @@ int luhn(vector<int> card) {
 
 int main() {
     vector<int> card; 
-    for(int i = 0 ; i < 16 ; i++) {
-        int num;
-        cout << "Enter the digit at position " << i+1 << ": ";
+    int num;
+    for(int i = 0; i < 16; i++) {
+        cout << "Enter the digit at position " << (i+1) << ": ";
         cin >> num;
         card.push_back(num);
     }
-    cout << luhn(card) << endl;
+    int result = luhn(card);
+    cout << "The result is: " << result << endl;
     return 0;
 }
