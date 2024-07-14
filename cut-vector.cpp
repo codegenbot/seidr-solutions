@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
