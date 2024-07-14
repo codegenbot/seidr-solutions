@@ -1,26 +1,15 @@
-```
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
-
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-
-print(f"GCD of {a} and {b} is {gcd(min(a, b), max(a, b))}")
-
-def indices_of_substring(text, target):
-    indices = []
-    start_idx = 0
-    while start_idx < len(text):
-        pos = text.find(target, start_idx)
+def find_indices(text, target):
+    result = []
+    i = 0
+    while i < len(text):
+        pos = text.find(target)
         if pos != -1:
-            indices.append(pos)
-            start_idx = pos + 1
+            result.append(pos)
+            i = pos + 1
         else:
             break
-    return indices
+    return result
 
 text = input("Enter the text: ")
-target = input("Enter the target: ")
-print(indices_of_substring(text, target))
+target = input("Enter the target string: ")
+print(find_indices(text, target))
