@@ -1,3 +1,3 @@
-def leaders(arr):
-    leaders_list = [arr[i] for i in range(len(arr) - 1, -1, -1)]
-    return leaders_list
+def leaders(a):
+    n = len(a)
+    return [a[i] for i in range(n - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])]
