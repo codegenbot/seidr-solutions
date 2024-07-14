@@ -1,18 +1,25 @@
 #include <string>
-using namespace std;
+#include <vector>
 
-string spinWords(string s) {
-    string result = "";
-    int start = 0;
-    for(int i=0; i<=s.length(); i++) {
-        if(i == s.length() || s[i] == ' ') {
-            string word = s.substr(start, i-start);
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + (i == s.length() ? "" : " ");
-            start = i+1;
+std::string spinWords(std::string sentence) {
+    std::vector<std::string> words;
+    std::stringstream ss(sentence);
+    
+    std::string word;
+    while (ss >> word) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        words.push_back(word);
+    }
+
+    sentence = "";
+    for (int i = 0; i < words.size(); i++) {
+        sentence += words[i];
+        if (i < words.size() - 1) {
+            sentence += " ";
         }
     }
-    return result;
+
+    return sentence;
 }
