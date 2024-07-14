@@ -1,4 +1,6 @@
+```c++
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -16,4 +18,15 @@ bool solveBoolean(std::string s) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string s = "T|F&";
+    bool result = solveBoolean(s);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    return 0;
 }

@@ -1,21 +1,24 @@
+```cpp
 #include <string>
-#include <vector>
-#include <cctype>
 
-std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> segments;
+std::string split(const std::string& str, char delimiter) {
+    std::string result = "";
     size_t start = 0;
     size_t end = str.find(delimiter);
 
     while (end != std::string::npos) {
-        segments.push_back(str.substr(start, end - start));
+        if (start > 0) {
+            result += str.substr(start, end - start);
+        }
         start = end + 1;
         end = str.find(delimiter, start);
     }
 
-    segments.push_back(str.substr(start));
+    if (start < str.size()) {
+        result += str.substr(start);
+    }
 
-    return segments;
+    return result;
 }
 
 std::string camelCase(const std::string& str) {
