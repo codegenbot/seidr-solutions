@@ -1,14 +1,17 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float result = initialSnow;
-    
+    float snowAdded = rateOfSnowFall;
     for (int i = 0; i < hours; i++) {
-        result += rateOfSnowFall;
-        result *= (1 - proportionOfSnowMeltingPerHour);
+        float snowMelted = proportionOfSnowMeltingPerHour * result;
+        result += snowAdded - snowMelted;
+        if(result < 0) {
+            result = 0.0f;
+        }
+        snowAdded = rateOfSnowFall;
     }
-    
     return result;
 }
 
@@ -16,17 +19,17 @@ int main() {
     int hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
-    std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
-    std::cout << "Enter the initial amount of snow: ";
-    std::cin >> initialSnow;
-    std::cout << "Enter the rate of snow fall (in %): ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> proportionOfSnowMeltingPerHour;
+    cout << "Enter the number of hours: ";
+    cin >> hours;
+    cout << "Enter the initial amount of snow: ";
+    cin >> initialSnow;
+    cout << "Enter the rate of snow fall (in %): ";
+    cin >> rateOfSnowFall;
+    cout << "Enter the proportion of snow melting per hour: ";
+    cin >> proportionOfSnowMeltingPerHour;
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall / 100.0f, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << result << endl;
     
 }
