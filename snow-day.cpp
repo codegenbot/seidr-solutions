@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```c++
 #include <iostream>
 #include <iomanip>
 using namespace std;
