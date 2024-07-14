@@ -1,4 +1,4 @@
-'''
+```
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
         return "00"
@@ -11,4 +11,3 @@ def mastermind(code, guess):
     black = len([i for i, (c, d) in enumerate(zip(code, guess)) if c == d and c != 'Y'])
 
     return str(white) + "0" + str(black)
-'''
