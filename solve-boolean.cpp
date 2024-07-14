@@ -1,108 +1,71 @@
-#include <deque>
+#include <stack>
 #include <string>
 #include <iostream>
 
-bool evaluateTop(std::deque<char> &st) {
-    bool result = true;
-    std::deque<char> resDeque;
+bool evaluateTop(std::stack<char> &st) {
+    bool orResult = true;
+    bool andResult = false;
+
     while (!st.empty()) {
-        char c = st.back();
-        st.pop_back();
+        char c = st.top();
+        st.pop();
+
         if (c == '(') {
-            resDeque.push_back('(');
+            // push '(' to resStack
+            st.push(c);
         } else if (c == ')') {
-            while (!resDeque.empty() && resDeque.back() != '(') {
-                if (resDeque.back() == '|') {
-                    result = true; // reset the result for OR operation
+            // pop ')' and '(' from resStack until '(' is found
+            while (resStack.top() != '(') {
+                processOperand(resStack, orResult, andResult);
+
+                if (!orResult && c == '|') {
+                    orResult = true;
                 }
-                resDeque.pop_back();
+                else if (!andResult && c == '&') {
+                    andResult = false;
+                }
+
+                resStack.pop();
             }
-            if (!resDeque.empty()) {
-                resDeque.pop_back(); // pop the '('
-            }
+            // pop '(' from resStack
+            resStack.pop();
+
         } else if (c == 'T' || c == 'F') {
-            while (!resDeque.empty() && resDeque.back() != '(') {
-                if (resDeque.back() == '|') {
-                    result = true; // reset the result for OR operation
-                }
-                resDeque.pop_back();
-            }
-            if (!resDeque.empty()) {
-                resDeque.pop_back(); // pop the '('
-            }
-            if (c == 'T') {
-                result = true;
-            } else {
-                result = false;
-            }
-        } else if (c == '&') {
-            while (!st.empty() && st.back() != '(') {
-                st.pop_back();
-            }
-            if (st.empty()) {
-                return false;
-            }
-            c = st.back();
-            st.pop_back();
-            if (c == '|') {
-                result = true; // reset the result for OR operation
-            } else {
-                while (!st.empty() && st.back() != '(') {
-                    st.pop_back();
-                }
-                if (st.empty()) {
-                    return false;
-                }
-                c = st.back();
-                st.pop_back();
-                if (c == 'T') {
-                    result = true; // short-circuit
-                } else {
-                    result = false; // short-circuit
-                }
-            }
+            processOperand(st, orResult, andResult);
         } else if (c == '|') {
-            while (!st.empty() && st.back() != '(') {
-                st.pop_back();
+            // reset orResult for OR operation
+            orResult = true;
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
             }
-            if (st.empty()) {
-                return false;
+            if (!st.empty()) {
+                c = st.top();
+                st.pop();
+                // process Operand and reset orResult
+                if (c == 'T') orResult = true; else orResult = false;
             }
-            c = st.back();
-            st.pop_back();
-            if (c == '&') {
-                result = true; // reset the result for AND operation
-            } else {
-                while (!st.empty() && st.back() != '(') {
-                    st.pop_back();
-                }
-                if (st.empty()) {
-                    return false;
-                }
-                c = st.back();
-                st.pop_back();
-                if (c == 'T') {
-                    result = true; // short-circuit
-                } else {
-                    result = false; // short-circuit
-                }
+
+        } else if (c == '&') {
+            // reset andResult for AND operation
+            andResult = true;
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
             }
+            if (!st.empty()) {
+                c = st.top();
+                st.pop();
+                // process Operand and reset andResult
+                if (c == 'T') andResult = true; else andResult = false;
+            }
+
         }
     }
-    while (!resDeque.empty()) {
-        if (resDeque.back() == '(') {
-            return false;
-        }
-        result = (result || (resDeque.back() == 'T'));
-        resDeque.pop_back();
-    }
-    return result;
+    return orResult;
 }
 
-int main() {
-    std::deque<char> st;
-    // initialize stack with input string here
-    bool result = evaluateTop(st);
-    std::cout << (result ? "True" : "False") << std::endl;
-    return 0;
+void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
+    char c = st.top();
+    st.pop();
+    if (c == 'T') orResult = true; else orResult = false;
+
 }
