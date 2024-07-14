@@ -18,7 +18,7 @@ def bowling_score(frames):
             else:
                 score += int(frames[i * 2]) + int(frames[i * 2 + 1])
         if strike and i < 9:
-            score += 10 + int(frames[(i + 1) * 2])
-        elif spare and i < 9:
+            score += 10 + int(frames[(i + 1) * 2 + 1])
+        elif spare and i < 8:
             score += 10 + int(frames[(i + 1) * 2])
     return score
