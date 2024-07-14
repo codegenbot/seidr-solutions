@@ -5,25 +5,31 @@ std::string spinWords(std::string str) {
     std::string result = "";
     std::string word;
     
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i + 1] == ' ') {
+    for (char c : str) {
+        if (c == ' ') {
             if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
             result += word + " ";
             word = "";
         } else {
-            word += str[i];
+            word += c;
         }
     }
     
-    return result.substr(0, result.length() - 1);
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    result += word;
+    
+    return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << spinWords(str) << std::endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    
     return 0;
 }
