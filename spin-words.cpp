@@ -1,29 +1,40 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str.find(" ", i) == string::npos || str.find(" ", i) - i > 4) {
-            result += str.substr(i, str.find(" ", i) - i);
-            i = str.find(" ", i);
+std::string spinWords(const std::string& input) {
+    std::string output = "";
+    std::vector<std::string> words;
+    int length = 0;
+
+    for (char c : input) {
+        if (c == ' ') {
+            if (length >= 5)
+                for (int i = length - 1; i >= 0; --i)
+                    output += word[i];
+            else
+                output += word;
+            word = "";
+            length = 0;
         } else {
-            result += str.substr(i, str.find(" ", i) - i).reverse();
-            i = str.find(" ", i);
+            word += c;
+            length++;
         }
     }
-    if (i < str.length()) {
-        result += str.substr(i, str.length() - i).reverse();
-    }
-    return result;
+
+    if (length >= 5) {
+        for (int i = length - 1; i >= 0; --i)
+            output += word[i];
+    } else
+        output = word;
+
+    return output;
 }
 
 int main() {
-    string input;
-    while (cin >> input) {
-        cout << spinWords(input) << endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
     return 0;
 }
