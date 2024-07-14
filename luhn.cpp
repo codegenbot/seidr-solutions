@@ -11,5 +11,5 @@ int luhn(std::vector<int> digits) {
             sum += digits[i];
         doubleDigit = !doubleDigit; 
     }
+    
     return sum;
-}
