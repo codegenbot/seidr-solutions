@@ -1,13 +1,13 @@
-```c++
 #include <string>
+#include <iostream>
+#include <cstring>
 
-std::string validateTweet(std::string tweet) {
-    auto length = tweet.length();
+std::string validateTweet(const char* tweet) {
+    int length = static_cast<int>(tweet ? strlen(tweet) : 0);
     if (length > 140) {
         return "Too many characters";
     }
-    if (tweet.empty()) {
+    if (*tweet == '\0') {
         return "You didn't type anything";
     }
-    return "Your tweet has " + std::to_string(tweet.length()) + " characters";
-}
+    return "Your tweet has " + std::to_string(length) + " characters";
