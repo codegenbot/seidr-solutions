@@ -1,7 +1,7 @@
-import re
-
+```
+from re import reversed
 
 def spin_words(sentence):
     words = sentence.split()
-    spun = ["".join(reversed(word)) if len(word) >= 5 else word for word in words]
+    spun = [''.join(reversed(word)) if len(word) >= 5 else word for word in words]
     return " ".join(spun)
