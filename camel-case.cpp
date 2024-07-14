@@ -19,18 +19,18 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    return result;
+    return capitalize ? toupper(result[0]) + result.substr(1) : result;
 }
 
 int main() {
-    std::string input;
+    std::string user_input;
 
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
-        std::getline(std::cin, input);
+        std::getline(std::cin, user_input);
         
-        if (!input.empty()) { 
-            std::string output = camelCase(input);
+        if (!user_input.empty()) { 
+            std::string output = camelCase(user_input); // Pass the input to the function
             if(!output.empty())  
                 std::cout << "Camel Case: " << output << std::endl; 
         }
