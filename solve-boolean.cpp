@@ -1,24 +1,29 @@
-bool solveBoolean(std::string expression) {
+bool result = true;
     std::stack<char> st;
     for (char c : expression) {
-        if (std::isalpha(c)) {
+        if (c == 'T') {
+            result = false;
+            break;
+        } else if (c == 'F') {
+            result = false;
+            break;
+        } else if (c == '|') {
             st.push(c);
-        } else {
-            while (!st.empty() && st.top() != '(') { 
-                char op = st.top();
-                if (op == '|') {
-                    if (c == '&') {
-                        st.pop();  
-                    }
-                } else if (op == '&') {
-                    if (c == '|') {
-                        st.pop();  
-                    }
-                }
-                st.pop();  
+            result = true;
+        } else if (c == '&') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            st.push(c);  
+            if (st.empty()) {
+                return false;
+            }
+            bool top = evaluate(st.top());
+            if (top) {
+                st.push('&');
+            } else {
+                st.push('|');
+            }
         }
     }
-    return !st.empty();
+    return result;
 }
