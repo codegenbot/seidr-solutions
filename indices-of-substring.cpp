@@ -36,9 +36,14 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
             result.push_back(i);
             j = 0;
         } else {
-            i += lps[j - 1];
+            i += j - lps[j - 1];
             j = lps[j - 1];
         }
+    }
+
+    // Add this check
+    if (i < n) {
+        result.push_back(0);
     }
 
     return result;
