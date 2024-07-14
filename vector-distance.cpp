@@ -1,3 +1,7 @@
+#include <cmath>
+#include <iostream>
+using namespace std;
+
 double vectorDistance() {
     int n;
     cin >> n; 
@@ -9,4 +13,10 @@ double vectorDistance() {
         sumOfSquares += differenceSquared;
     }
     return sqrt(sumOfSquares);
+}
+
+int main() {
+    double result = vectorDistance();
+    cout << "The Euclidean distance is: " << result << endl;
+    return 0;
 }
