@@ -23,10 +23,9 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 }
 
 std::string camelCase(const std::string& str) {
-    std::vector<std::string> segments = split(str, '-');
     std::string result;
 
-    for (const auto& segment : segments) {
+    for (const auto& segment : split(str, '-')) {
         if (!result.empty()) {
             result += toupper(segment[0]);
         } else {
@@ -43,7 +42,11 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::string str;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, str);
+    while(std::getline(std::cin, str, '-')) { 
+        std::cout << str << " "; 
+    }
+    std::cout << std::endl;
+
     std::cout << "Camel case: " << camelCase(str) << std::endl;
     
     return 0;
