@@ -1,13 +1,13 @@
 #include <string>
 #include <iostream>
-#include <sstream>
 
 std::string squareDigits(std::string input) {
-    std::stringstream output;
+    std::string output = "";
     for (char c : input) {
-        output << std::to_string((int)(c - '0') * (int)(c - '0'));
+        int digit = c - '0';
+        output += std::to_string(digit * digit);
     }
-    return output.str();
+    return output;
 }
 
 int main() {
