@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     card_number = list(reversed(card_number))
@@ -11,4 +12,4 @@ def luhn(card_number):
                 result += doubled_num
         else:
             result += num
-    return "Valid" if result % 10 == 0 else "Invalid"
+    return result

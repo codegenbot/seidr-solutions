@@ -1,12 +1,29 @@
+#include <vector>
+#include <iostream>
+
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    int max_seen = arr[n-1]; 
     for (int i = n - 1; i >= 0; i--) { 
-        if (arr[i] >= max_seen) {
+        bool is_leader = true;
+        for (int j = 0; j < i; j++) { 
+            if (arr[i] <= arr[j]) {
+                is_leader = false;
+                break;
+            }
+        }
+        if (is_leader) {
             res.push_back(arr[i]);
-            max_seen = arr[i];
         }
     }
     return res;
+}
+
+int main() {
+    std::vector<int> arr = {18, 380, 989, 546, 355, 24, 277, 7, 827, 802, 193, 479, 225, 923, 32, 606, 909, 926, 584};
+    std::vector<int> leaders_arr = leaders(arr);
+    for (int i : leaders_arr) {
+        std::cout << i << " ";
+    }
+    return 0;
 }
