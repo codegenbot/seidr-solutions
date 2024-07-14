@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -20,17 +19,14 @@ int main() {
     std::cout << "Enter the first map: ";
     std::string input1;
     std::getline(std::cin, input1);
-    input1.erase();
 
     std::cout << "Enter the second map: ";
     std::string input2;
     std::getline(std::cin, input2);
-    input2.erase();
 
     std::cout << "Enter the message to decipher: ";
     std::string input3;
     std::getline(std::cin, input3);
-    input3.erase();
 
     std::string cipher_map1 = input1;
     std::string cipher_map2 = input2;
@@ -40,4 +36,3 @@ int main() {
 
     std::cout << "Deciphered message: " << result << std::endl;
     return 0;
-}
