@@ -1,5 +1,4 @@
-#include <iostream>
-
+```cpp
 int main() {
     int hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
