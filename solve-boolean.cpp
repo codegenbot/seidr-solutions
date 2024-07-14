@@ -1,19 +1,21 @@
 ```cpp
 #include <iostream>
-#include <string>
+using namespace std;
 
-bool solveBoolean(const std::string& s) {
+bool solveBoolean() {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'F') {
+    char c;
+    while((c=cin.get()) != '\n') {
+        if (c == 'F') {
             return false;
         }
-        else if (s[i] == '|') {
+        else if (c == '|') {
             result = !result;
         }
-        else if (s[i] == '&') {
-            i++; // increment 'i' to skip '&' and move to the next character
-            while(i+1<s.length() && s[i+1] == '&') i++;
+        else if (c == '&') {
+            while(c == '&') {
+                c = cin.get();
+            }
             if (!result) return false;
         }
     }
@@ -21,13 +23,8 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    char input[100]; 
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::cin.get(input, 100); 
-    input[std::cin.getline(input, 100)-1] = '\0'; 
-
-    std::string strinput(input);
-    bool result = solveBoolean(strinput);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    cout << "Enter a Boolean expression (T/F/|/&): ";
+    bool result = solveBoolean(); 
+    cout << "Result: " << (result ? "True" : "False") << endl;
     return 0;
 }
