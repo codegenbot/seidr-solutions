@@ -3,23 +3,17 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int index = 0;
-    
-    while (index <= text.length() - target.length()) {
-        int start = text.find(target, index);
-        
-        if (start != string::npos) {
-            result.push_back(start);
-            index = start + 1;
-        } else {
-            break;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        bool found = true;
+        for (int j = 0; j < target.length(); j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
         }
     }
-    
     return result;
-}
-
-int main() {
-    // Your code here
-    return 0;
 }
