@@ -1,5 +1,5 @@
-```python
-'''def substitution_cipher(cipher1, cipher2, message):
+```
+def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for char in message:
         if char.isalpha() and char.lower() in cipher2:  
@@ -7,4 +7,4 @@
             result += cipher1[index].upper() if char.isupper() else cipher1[index]
         else:
             result += char
-    return result'''
+    return result
