@@ -1,3 +1,4 @@
+```
 def shopping_list():
     total_price = 0
     while True:
@@ -10,7 +11,8 @@ def shopping_list():
             discount = float(input()) / 100
             total_price += sum([p * (1 - discount) for p in item_prices])
 
-            if input("Do you want to add more items? (y/n): ") != 'y':
+            response = input("Do you want to add more items? (y/n): ")
+            if response.lower() != 'y':
                 break
         except ValueError:
             print("Invalid input. Please enter a valid price.")
