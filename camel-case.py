@@ -4,6 +4,6 @@ def camel_case(s):
     result = words[0].capitalize()
     for word in words[1:]:
         result += word.capitalize()
-    return result.replace('-', '')
+    return result
 
 print(camel_case(input()))
