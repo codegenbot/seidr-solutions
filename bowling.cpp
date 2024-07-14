@@ -1,37 +1,27 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRolls = 0;
-    int previousRoll = 0;
-
-    for (char c : s) {
-        if (c == '/') {
-            if (previousRoll + 1 > 9) {
-                score += 10 - previousRoll;
-                currentRolls++;
+    int roll1, roll2, frameScore;
+    
+    for(int i=0; i<10; i++) {
+        if(s[i] == '/') { // Strike
+            score += 10 + (i < 9 ? 10 : 0);
+        } else if(i < 8 && s[i+1] == '/') { // Spare
+            roll1 = (s[i] - '0');
+            roll2 = (s[i+2] - '0');
+            frameScore = roll1 + roll2;
+            score += frameScore;
+            i++;
+        } else {
+            roll1 = (s[i*2-1] - '0');
+            if(s[i*2] == '/') { // Strike
+                score += 10;
             } else {
-                score += previousRoll;
-            }
-            currentRolls++;
-            previousRoll = 0;
-        } else if (isdigit(c)) {
-            int roll = c - '0';
-            if (previousRoll > 0) {
-                if (currentRolls < 2) {
-                    score += previousRoll + roll;
-                } else {
-                    score += max(previousRoll, roll);
-                }
-                currentRolls++;
-            } else {
-                previousRoll = roll;
-                currentRolls++;
+                roll2 = (s[i*2] - '0');
+                frameScore = roll1 + roll2;
+                score += frameScore;
             }
         }
     }
-
-    if (previousRoll > 0) {
-        score += previousRoll;
-    }
-
+    
     return score;
 }
