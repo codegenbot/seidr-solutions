@@ -1,6 +1,15 @@
+Here is the solution:
+
 def luhn(card):
-    s = sum(
-        int(d) if i % 2 == 0 else 2 * int(d) if 9 > 2 * int(d) else 2 * int(d) - 9
-        for i, d in enumerate(reversed(card))
-    )
-    return str(s)
+    card = [int(x) for x in str(card)]
+    double_digit_sum = 0
+    normal_sum = sum(card[:15])
+    
+    for i in range(1, len(card), 2):
+        digit = card[i] * 2
+        if digit > 9:
+            double_digit_sum += (digit % 10) + 9
+        else:
+            double_digit_sum += digit
+            
+    return str(normal_sum + double_digit_sum)
