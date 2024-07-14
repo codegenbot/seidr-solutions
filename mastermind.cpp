@@ -1,37 +1,47 @@
 #include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
+    
+    // Count correct colors but wrong places
+    map<char, int> codeMap;
+    for (char c : code) {
+        codeMap[c]++;
+    }
+    for (char c : guess) {
+        if (codeMap[c] > 0) {
+            white++;
+            codeMap[c]--;
         }
     }
 
-    for (char c : guess) {
+    // Count correct colors and correct places
+    int correctCount = 0;
+    vector<char> codeVector(code.begin(), code.end());
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            correctCount++;
+            codeVector[i] = '#';
+        }
+    }
+
+    // Count remaining black pegs
+    int remainingCorrectCount = 0;
+    for (char c : code) {
         bool found = false;
-        for (int i = 0; i < 4; ++i) {
-            if (code[i] == c && !found) {
+        for (int i = 0; i < 4; i++) {
+            if (codeVector[i] == c) {
                 found = true;
-            } else if (code[i] == c) {
                 break;
             }
         }
-        if (!found) white++;
+        if (!found) remainingCorrectCount++;
     }
 
-    return black << 2 | white;
-}
+    black += correctCount - remainingCorrectCount;
 
-int main() {
-    std::cout << mastermind("RRRR", "RRRR") << std::endl;  //0 4
-    std::cout << mastermind("BOYG", "GYOB") << std::endl;   //4 0
-    std::cout << mastermind("WYYW", "BBOG") << std::endl;   //0 0
-    std::cout << mastermind("GGGB", "BGGG") << std::endl;   //2 2
-    std::cout << mastermind("BBBB", "OOOO") << std::endl;   //0 0
-    return 0;
+    return make_pair(white, black).second;
 }
