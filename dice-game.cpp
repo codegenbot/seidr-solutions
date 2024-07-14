@@ -1,22 +1,16 @@
 #include <iostream>
 #include <cmath>
-#include <algorithm>
 
 double diceGame(int n, int m) {
     double total = 1.0 * (n * m);
     
     double win = 0.0;
-    for(int i = 1; i <= std::min(n - 1, m); i++) { 
-        win += (1.0 * (n - i)) / total; 
+    
+    for(int i = 1; i < m; i++) { 
+        win += ((n - i)) / total; 
     }
     
-    if (n > m) {
-        double tie = (1.0 * (n - 1)) / total;
-        return win - tie;
-    } else {
-        double tie = (1.0 * (m - 1)) / total;
-        return win;
-    }
+    return win;
 }
 
 int main() {
