@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string& str) {
+std::string spinWords(std::string str) {
     std::string result = "";
     size_t start = 0;
     while (start < str.length()) {
@@ -24,6 +24,6 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << "Spin words: " << spinWords(const_cast<const std::string&>(str)) << std::endl;
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
     return 0;
 }
