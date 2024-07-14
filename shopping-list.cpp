@@ -1,5 +1,7 @@
+```cpp
+```cpp
 double shoppingList(std::vector<std::pair<float, float>>& pricesAndDiscounts) {
-    double total = 0.0f;
+    double total = 0;
     for (const auto& pair : pricesAndDiscounts) {
         double price = pair.first;
         double discount = pair.second / 100.0f; // convert percent to decimal
@@ -7,3 +9,5 @@ double shoppingList(std::vector<std::pair<float, float>>& pricesAndDiscounts) {
         total += discountedPrice;
     }
     return total;
+}
+```
