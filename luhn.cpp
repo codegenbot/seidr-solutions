@@ -10,9 +10,9 @@ int luhn(vector<int> digits) {
         int digit = digits[i];
         
         if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+            int temp = digit * 2;
+            if (temp > 9) {
+                digit = temp - 9;
             }
         }
         
@@ -30,7 +30,7 @@ int main() {
     cout << "Enter a credit card number (16 digits): ";
     for(int i = 0; i < 16; ++i) {
         cin >> cardNumber;
-        digits.push_back(cardNumber);
+        digits.push_back(cardNumber % 10);
     }
     
     cout << "Luhn checksum: " << luhn(digits) << endl;
