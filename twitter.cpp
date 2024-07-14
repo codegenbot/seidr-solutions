@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <boost/lexical_cast.hpp>
 
 std::string validateTweet(const std::string& input) {
     if (input.empty()) {
@@ -9,4 +10,9 @@ std::string validateTweet(const std::string& input) {
     if (len > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + std::to_string(len) + " characters";
+    return "Your tweet has " + boost::lexical_cast<std::string>(len) + " characters";
+}
+
+int main() {
+    return 0;
+}
