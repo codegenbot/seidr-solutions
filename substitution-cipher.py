@@ -1,3 +1,4 @@
+```Python
 ```
 def substitution_cipher(cipher1, cipher2, message):
     mapping = {}
@@ -14,3 +15,4 @@ def substitution_cipher(cipher1, cipher2, message):
             result += char
 
     return result
+```
