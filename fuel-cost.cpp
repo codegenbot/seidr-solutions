@@ -1,21 +1,25 @@
 #include <vector>
 using namespace std;
 
-int solve(vector<int>& nums) {
-    int sum = 0;
-    for (int num : nums) {
-        sum += ((num / 3) - 2);
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int temp = num / 3;
+        if (temp >= 1)
+            temp--;
+        temp -= 2;
+        total += temp;
     }
-    return sum;
+    return total;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    cout << solve(nums) << endl;
+    vector<int> inputs; // Read input from user and store it in the vector
+    // Add your code here to read the input from user
+    
+    int result = calculateFuelCost(inputs);
+    
+    cout << "Output: " << result << endl;
+    
     return 0;
 }
