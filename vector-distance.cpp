@@ -1,20 +1,20 @@
+```cpp
 #include <iostream>
 #include <cmath>
-#include <vector>
 
 double vectorDistance() {
     int n;
     std::cin >> n; 
     double sumOfSquares = 0;
-    std::vector<double> v1, v2;
+    float* v1 = new float[n], *v2 = new float[n];
     for (int i = 0; i < n; i++) {
-        double x, y;
+        float x, y;
         std::cin >> x >> y;
-        v1.push_back(x);
-        v2.push_back(y);
 
-        double differenceSquared = pow(v2[i] - v1[i], 2);
+        double differenceSquared = pow(y - x, 2);
         sumOfSquares += differenceSquared;
     }
+    delete[] v1;
+    delete[] v2;
     return sqrt(sumOfSquares);
 }
