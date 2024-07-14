@@ -9,14 +9,3 @@ string squareDigits(string input) {
     }
     return output;
 }
-
-int main() {
-    // Read the input from user
-    string input;
-    cin >> input;
-
-    // Call the function and print the result
-    cout << squareDigits(input) << endl;
-
-    return 0;
-}
