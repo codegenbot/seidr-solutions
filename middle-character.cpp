@@ -4,9 +4,9 @@
 std::string middleCharacter(std::string s) {
     int len = s.length();
     if (len % 2 == 0) { 
-        return std::string(1, s.at(len / 2 - 1)) + std::string(1, s.at(len / 2));
+        return s.substr(len / 2 - 1, 1) + s.substr(len / 2, 1);
     } else { 
-        return std::string(1, s.at(len / 2));
+        return s.substr(len / 2, 1);
     }
 }
 
