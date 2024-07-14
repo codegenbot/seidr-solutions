@@ -2,32 +2,19 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+    int n = v.size();
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            left_sum += v[j];
-        }
-        
-        for (int j = i + 1; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
+    return {vector<int>(v.begin(), v.begin() + splitIndex), vector<int>(v.begin() + splitIndex, v.end())};
 }
 
 int main() {
@@ -40,17 +27,15 @@ int main() {
     
     pair<vector<int>, vector<int>> result = cutVector(v);
     
-    cout << "Left: ";
-    for (int num : result.first) {
-        cout << num << " ";
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
     }
-    cout << endl;
-    
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "] [" << "[";
+    for (int i = 0; i < result.second.size() - 1; i++) {
+        cout << result.second[i] << " ";
     }
-    cout << endl;
+    cout << "0]" << endl;
     
     return 0;
 }
