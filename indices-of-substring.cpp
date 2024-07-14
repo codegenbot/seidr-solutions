@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -6,11 +5,8 @@ class Solution {
 public:
     vector<int> findIndices(string text, string target) {
         vector<int> indices;
-        int n = text.length();
-        int m = target.length();
-        
-        for (int i = 0; i <= n - m; i++) {
-            if (text.substr(i, m) == target) {
+        for (int i = 0; i <= text.length() - target.length(); i++) {
+            if (text.substr(i, target.length()) == target) {
                 indices.push_back(i);
             }
         }
