@@ -7,29 +7,27 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int start = 0;
-    
     for (int i = 0; i <= str.length(); i++) {
-        if ((i == str.length()) || (str[i] == ' ')) {
+        if (i == str.length() || str[i] == ' ') {
             string word = str.substr(start, i - start);
-            
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                result += string(word.rbegin(), word.rend());
+            } else {
+                result += word;
             }
-            
-            result += word + " ";
+            if (i < str.length()) {
+                result += " ";
+            }
             start = i + 1;
         }
     }
-    
     return result;
 }
 
 int main() {
-    // test cases
-    cout << spinWords("a") << endl;  // a
-    cout << spinWords("this is a test") << endl;  // this is a test
-    cout << spinWords("this is another test") << endl;  // this is rehtona test
-    cout << spinWords("hi") << endl;  // hi
-    
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
