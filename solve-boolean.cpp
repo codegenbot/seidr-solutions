@@ -1,78 +1,28 @@
+#include <queue>
 #include <stack>
 #include <string>
 #include <iostream>
 
 bool evaluateTop(std::stack<char> &st) {
+    char c;
     bool result = true;
-    int parenthesesCount = 0;
+
     while (!st.empty()) {
-        char c = st.top();
+        c = st.top();
         st.pop();
-        if (c == '(') {
-            parenthesesCount++;
-        } else if (c == ')') {
-            parenthesesCount--;
-        } else if (c == 'T' || c == 'F') {
-            if (parenthesesCount > 0) {
-                st.push(c);
-            } else {
-                result = (c == 'T');
-            }
+
+        if (c == 'T') {
+            return true;
+        } else if (c == 'F') {
+            return false;
         } else if (c == '&') {
-            while (!st.empty() && st.top() != '(') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return false;
-            }
-            c = st.top();
-            st.pop();
-            if (c == '|') {
-                result = true; // reset the result for OR operation
-            } else {
-                while (!st.empty() && st.top() != '(') {
-                    st.pop();
-                }
-                if (st.empty()) {
-                    return false;
-                }
-                c = st.top();
-                st.pop();
-                if (c == 'T') {
-                    result = true; // short-circuit
-                } else {
-                    result = false; // short-circuit
-                }
-            }
+            return !result;
         } else if (c == '|') {
-            while (!st.empty() && st.top() != '(') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return false;
-            }
-            c = st.top();
-            st.pop();
-            if (c == '&') {
-                result = true; // reset the result for AND operation
-            } else {
-                while (!st.empty() && st.top() != '(') {
-                    st.pop();
-                }
-                if (st.empty()) {
-                    return false;
-                }
-                c = st.top();
-                st.pop();
-                if (c == 'T') {
-                    result = true; // short-circuit
-                } else {
-                    result = false; // short-circuit
-                }
-            }
+            result = true;
         }
     }
-    return result;
+
+    return true; // Default value when no more operators
 }
 
 int main() {
