@@ -1,4 +1,3 @@
-```
 def find_gcd(a, b):
     if abs(a) <= 0 and abs(b) <= 0:
         return abs(a)
