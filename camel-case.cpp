@@ -1,6 +1,6 @@
+```cpp
 #include <string>
 #include <vector>
-#include <cctype>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> segments;
@@ -8,12 +8,14 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     size_t end = str.find(delimiter);
 
     while (end != std::string::npos) {
-        segments.push_back(str.substr(start, end - start));
+        std::string segment = str.substr(start, end - start);
+        segments.push_back(segment);
         start = end + 1;
         end = str.find(delimiter, start);
     }
 
-    segments.push_back(str.substr(start));
+    std::string segment = str.substr(start);
+    segments.push_back(segment);
 
     return segments;
 }
