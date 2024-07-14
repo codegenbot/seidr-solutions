@@ -8,11 +8,11 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {nums[i], complement};
+            return std::make_pair(nums[i], complement);
         }
         numMap[nums[i]] = i;
     };
-    return {-1, -1};
+    return std::pair<int, int>(-1, -1);
 }
 
 int main() {
