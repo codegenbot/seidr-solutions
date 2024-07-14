@@ -1,28 +1,42 @@
+#include <iostream>
 #include <string>
-#include <sstream>
 
-std::string spinWords(std::string sentence) {
-    std::stringstream ss(sentence);
+std::string spinWords(std::string input) {
+    std::string output;
     std::string word;
-    
-    std::string result;
-    
-    while (ss >> word) {
-        if(word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
-        else
-            result += word + " ";
+
+    for (char c : input) {
+        if (c == ' ') {
+            output += c;
+        } else {
+            word += c;
+        }
     }
-    
-    return result.substr(0, result.size()-1);
+
+    std::string result = "";
+    size_t spacePos = 0;
+
+    for (size_t i = 0; i <= output.size(); i++) {
+        if (i == output.size() || output[i] == ' ') {
+            if (spacePos + i > word.size()) {
+                result += word.substr(spacePos) + " ";
+            } else {
+                result += word.substr(word.size() - spacePos, spacePos) + " ";
+            }
+            spacePos = 0;
+        } else {
+            spacePos++;
+        }
+    }
+
+    return result.substr(0, result.size() - 1);
 }
 
-int main(){
-    // test cases
-    cout << spinWords("a") << endl; // should print a
-    cout << spinWords("this is a test") << endl; // should print this is a test
-    cout << spinWords("this is another test") << endl; // should print this is rehtona test
-    cout << spinWords("hi") << endl; // should print hi
+int main() {
+    std::cout << spinWords("a") << std::endl; 
+    std::cout << spinWords("this is a test") << std::endl; 
+    std::cout << spinWords("this is another test") << std::endl; 
+    std::cout << spinWords("hi") << std::endl; 
 
     return 0;
 }
