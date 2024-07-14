@@ -1,14 +1,11 @@
-def bowling_score(frames):
+def bowling_score(game):
     score = 0
-    frame_count = 0
-    for frame in frames.split("/"):
-        if len(frame) == 1:
-            score += 10
-        elif int(frame) < 10:
-            score += int(frame)
+    frames = game.split("/")
+    for i, frame in enumerate(frames):
+        if frame == "X":
+            score += 30
+        elif len(frame) == 2 and int(frame[1]) > 0:
+            score += int(frame[0]) + 10
         else:
-            if frame_count < 9:
-                score += 10 + int(frame[1:])
-            else:
-                score += 10 + int(frame[1:])
+            score += sum(map(int, frame))
     return score
