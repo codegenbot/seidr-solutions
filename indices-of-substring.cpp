@@ -37,7 +37,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     lps[0] = 0;
 
     // Traverse the text and find all occurrences of target[].
-    for (int i = 0; i < n - m; ) {
+    for (int i = 0; i + m <= n; ) {
         len = 0;
         j = 0;
         while (i + len < n && j < m) {
@@ -67,13 +67,17 @@ int main() {
     string text, target;
     
     cout << "Enter the text: ";
-    if (!(cin >> text)) {
+    getline(cin, text);
+
+    if(text.empty()) {
         cout << "Text cannot be empty." << endl;
         return 1; 
     }
 
     cout << "Enter the target substring: ";
-    if (!(cin >> target)) {
+    getline(cin, target);
+
+    if(target.empty()) {
         cout << "Target cannot be empty." << endl;
         return 1; 
     }
