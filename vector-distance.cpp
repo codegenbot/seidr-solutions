@@ -7,18 +7,10 @@ using namespace std;
 
 double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
     double result = 0;
-    
-    int n = max(x1.size(), x2.size());
+    int n = min(x1.size(), x2.size());
     
     for (int i = 0; i < n; i++) {
-        if(i >= x1.size()) {
-            float diff = 0 - x2[i];
-        } else if(i >= x2.size()) {
-            float diff = x1[i] - 0;
-        } else {
-            float diff = x1[i] - x2[i];
-        }
-        
+        float diff = x1[i] - x2[i];
         result += pow(diff, 2);
     }
     
