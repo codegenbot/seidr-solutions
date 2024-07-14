@@ -1,6 +1,16 @@
 def mastermind(code, guess):
-    correct_colors = [c1 == c2 for c1, c2 in zip(code, guess)]
-    correct_places = [
-        c1 == c2 and i1 == i2 for i1, i2, c1, c2 in zip(range(4), range(4), code, guess)
-    ]
-    return sum(correct_places), sum(correct_colors) - sum(correct_places)
+    white = sum(
+        [
+            1
+            for a, b in zip(guess, code)
+            if a == b
+            and a != "R"
+            and a != "O"
+            and a != "B"
+            and a != "W"
+            and a != "Y"
+            and a != "G"
+        ]
+    )
+    black = sum([1 for i in range(len(guess)) if guess[i] == code[i]])
+    return str(white) + "\n" + str(black)
