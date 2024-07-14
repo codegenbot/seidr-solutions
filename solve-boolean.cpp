@@ -1,34 +1,34 @@
-#include <stack>
+#include <deque>
 #include <string>
 #include <iostream>
 
-bool evaluateTop(std::stack<char> &st) {
+bool evaluateTop(std::deque<char> &st) {
     bool result = true;
-    std::stack<char> resStack;
+    std::deque<char> resDeque;
     while (!st.empty()) {
-        char c = st.top();
-        st.pop();
+        char c = st.back();
+        st.pop_back();
         if (c == '(') {
-            resStack.push('(');
+            resDeque.push_back('(');
         } else if (c == ')') {
-            while (!resStack.empty() && resStack.top() != '(') {
-                if (resStack.top() == '|') {
+            while (!resDeque.empty() && resDeque.back() != '(') {
+                if (resDeque.back() == '|') {
                     result = true; // reset the result for OR operation
                 }
-                resStack.pop();
+                resDeque.pop_back();
             }
-            if (!resStack.empty()) {
-                resStack.pop(); // pop the '('
+            if (!resDeque.empty()) {
+                resDeque.pop_back(); // pop the '('
             }
         } else if (c == 'T' || c == 'F') {
-            while (!resStack.empty() && resStack.top() != '(') {
-                if (resStack.top() == '|') {
+            while (!resDeque.empty() && resDeque.back() != '(') {
+                if (resDeque.back() == '|') {
                     result = true; // reset the result for OR operation
                 }
-                resStack.pop();
+                resDeque.pop_back();
             }
-            if (!resStack.empty()) {
-                resStack.pop(); // pop the '('
+            if (!resDeque.empty()) {
+                resDeque.pop_back(); // pop the '('
             }
             if (c == 'T') {
                 result = true;
@@ -36,25 +36,25 @@ bool evaluateTop(std::stack<char> &st) {
                 result = false;
             }
         } else if (c == '&') {
-            while (!st.empty() && st.top() != '(') {
-                st.pop();
+            while (!st.empty() && st.back() != '(') {
+                st.pop_back();
             }
             if (st.empty()) {
                 return false;
             }
-            c = st.top();
-            st.pop();
+            c = st.back();
+            st.pop_back();
             if (c == '|') {
                 result = true; // reset the result for OR operation
             } else {
-                while (!st.empty() && st.top() != '(') {
-                    st.pop();
+                while (!st.empty() && st.back() != '(') {
+                    st.pop_back();
                 }
                 if (st.empty()) {
                     return false;
                 }
-                c = st.top();
-                st.pop();
+                c = st.back();
+                st.pop_back();
                 if (c == 'T') {
                     result = true; // short-circuit
                 } else {
@@ -62,25 +62,25 @@ bool evaluateTop(std::stack<char> &st) {
                 }
             }
         } else if (c == '|') {
-            while (!st.empty() && st.top() != '(') {
-                st.pop();
+            while (!st.empty() && st.back() != '(') {
+                st.pop_back();
             }
             if (st.empty()) {
                 return false;
             }
-            c = st.top();
-            st.pop();
+            c = st.back();
+            st.pop_back();
             if (c == '&') {
                 result = true; // reset the result for AND operation
             } else {
-                while (!st.empty() && st.top() != '(') {
-                    st.pop();
+                while (!st.empty() && st.back() != '(') {
+                    st.pop_back();
                 }
                 if (st.empty()) {
                     return false;
                 }
-                c = st.top();
-                st.pop();
+                c = st.back();
+                st.pop_back();
                 if (c == 'T') {
                     result = true; // short-circuit
                 } else {
@@ -89,18 +89,18 @@ bool evaluateTop(std::stack<char> &st) {
             }
         }
     }
-    while (!resStack.empty()) {
-        if (resStack.top() == '(') {
+    while (!resDeque.empty()) {
+        if (resDeque.back() == '(') {
             return false;
         }
-        result = (result || (resStack.top() == 'T'));
-        resStack.pop();
+        result = (result || (resDeque.back() == 'T'));
+        resDeque.pop_back();
     }
     return result;
 }
 
 int main() {
-    std::stack<char> st;
+    std::deque<char> st;
     // initialize stack with input string here
     bool result = evaluateTop(st);
     std::cout << (result ? "True" : "False") << std::endl;
