@@ -1,34 +1,31 @@
-int bowlingScore(string bowls) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (isdigit(bowls[i])) { // Strike
-            score += 10 + getBonusScore(&bowls[i+1]);
-        } else if (bowls[i] == '/') { // Spare
-            int bonus = getBonusScore(&bowls[i+2]);
-            score += 10 + bonus;
-        } else {
-            int first = bowls[i] - '0';
-            int second = bowls[i+1] - '0';
-            score += first + second;
+    bool first = true;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == '/') {
+            if (first) {
+                score += 10 - (s[i-1] - '0');
+                first = false;
+            } else {
+                score += 10;
+            }
+        } else if (isdigit(s[i])) {
+            int n = s[i] - '0';
+            if (!first) {
+                if (s[i+1] == '/') {
+                    score += 10 - n;
+                    first = true;
+                } else {
+                    score += n + ((i+1 < s.size() && isdigit(s[i+1])) ? s[i+1] - '0' : 0);
+                }
+            } else {
+                if (n == 10) {
+                    score += 10 + ((i+2 < s.size() && s[i+1] == '/') ? 8 : bowlingScore(s.substr(i+1)));
+                } else {
+                    score += n + ((i+1 < s.size() && isdigit(s[i+1])) ? s[i+1] - '0' : 0);
+                }
+            }
         }
     }
     return score;
-}
-
-int getBonusScore(string* bow) {
-    int sum = 0;
-    for (int i = 0; i < 2; i++) {
-        if (*bow == 'X') { // Strike
-            sum += 10;
-            bow++;
-            continue;
-        } else if (*bow == '/') { // Spare
-            sum += 5;
-            bow++;
-            break;
-        }
-        sum += *bow - '0';
-        bow++;
-    }
-    return sum;
 }
