@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -5,7 +6,8 @@
 double vectorDistance() {
     int n;
     std::cin >> n; 
-    std::vector<float>(n) v1, v2;
+    std::vector<float> v1, v2;
+    v1.resize(n), v2.resize(n);
     for (int i = 0; i < n; i++) {
         float temp1, temp2;
         std::cin >> temp1; // read one value
