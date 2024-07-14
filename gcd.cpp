@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream> 
 #include <string>
+#include <initializer_list>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
