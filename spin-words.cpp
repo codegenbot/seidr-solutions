@@ -1,30 +1,35 @@
 #include <string>
 using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    string temp = "";
+string spinWords(string str) {
+    string result = "";
+    string temp;
+    bool wordStarted = false;
 
-    for(int i = 0; i < input.length(); i++) {
-        char c = input[i];
-        if(c == ' ') {
-            if(temp.length() >= 5)
-                for(int j = temp.length()-1; j >= 0; j--)
-                    output += temp[j];
-            else
-                output += temp;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (!wordStarted || temp.length() >= 5) {
+                for (int j = temp.length() - 1; j >= 0; j--) {
+                    result += temp[j];
+                }
+            } else {
+                result += temp;
+            }
+            wordStarted = false;
             temp = "";
-        } 
-        else {
-            temp += c;
+        } else {
+            wordStarted = true;
+            temp += str[i];
         }
     }
 
-    if(temp.length() >= 5)
-        for(int i = temp.length()-1; i >= 0; i--)
-            output += temp[i];
-    else
-        output += temp;
+    if (!wordStarted || temp.length() >= 5) {
+        for (int j = temp.length() - 1; j >= 0; j--) {
+            result += temp[j];
+        }
+    } else {
+        result += temp;
+    }
 
-    return output;
+    return result;
 }
