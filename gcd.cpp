@@ -13,8 +13,8 @@ int gcd(int a, int b) {
     return a;
 }
 
-std::vector<int> indicesOfSubstring(string text, string target) {
-    std::vector<int> result;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
