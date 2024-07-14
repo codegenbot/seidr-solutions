@@ -32,35 +32,25 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     // Traverse the text and find all occurrences of target[].
-    for (int i = 0; i < n; ) {
-        if (text[i] == target[0]) {
-            j = 0;
-            len = 0;
-            while (i + len < n && j < m) {
-                if (text[i + len] == target[j]) {
-                    j++;
-                    len++;
-                }
-                else if (j != 0) {
-                    j = lps[j-1];
-                }
-                else {
-                    i += len;
-                    break;
-                }
+    for (int i = 0; i <= n - m; ) {
+        len = 0;
+        j = 0;
+        while (i + len < n && j < m) {
+            if (text[i + len] == target[j]) {
+                j++;
+                len++;
             }
-
-            if (j == m) { 
-                for (; j > 0; ) {
-                    result.push_back(i - len + 1); // Append all indices from i - len + 1 to i - 1
-                    j = lps[j-1];
-                }
+            else {
+                i = i - (len - lps[j-1]);
+                j = lps[j-1];
             }
-
-            i = i + 1; // move to the next character
         }
-        else
-            i++;
+
+        while (j > 0) {
+            result.push_back(i);
+            j = lps[j-1];
+        }
+        i += len; // move to the next character
     }
 
     delete[] lps;
