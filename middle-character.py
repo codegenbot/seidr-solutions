@@ -1,5 +1,5 @@
 ```
-def middle_char(s):
+def middle_character(s):
     s = str(s)
     length = len(s)
     if length % 2 == 0:
