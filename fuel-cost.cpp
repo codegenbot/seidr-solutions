@@ -1,11 +1,9 @@
-int fuelCost(vector<int> &vec) {
+Here is the solution:
+
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int num : vec) {
-        int result = (num / 3);
-        if (result < 1)
-            result = 0;
-        else
-            result -= 2;
+    for (int num : nums) {
+        int result = (num / 3) - 2;
         sum += result;
     }
     return sum;
