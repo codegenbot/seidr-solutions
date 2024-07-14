@@ -1,21 +1,20 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <string>
+#include <sstream>
 
-bool solveBoolean() {
+bool solveBoolean(const std::string& s) {
     bool result = true;
-    char c;
-    while((c=cin.get()) != '\n') {
-        if (c == 'F') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'F') {
             return false;
         }
-        else if (c == '|') {
+        else if (s[i] == '|') {
             result = !result;
         }
-        else if (c == '&') {
-            while(c == '&') {
-                c = cin.get();
-            }
+        else if (s[i] == '&') {
+            i++; // increment 'i' to skip '&' and move to the next character
+            while(i+1<s.length() && s[i+1] == '&') i++;
             if (!result) return false;
         }
     }
@@ -23,8 +22,16 @@ bool solveBoolean() {
 }
 
 int main() {
-    cout << "Enter a Boolean expression (T/F/|/&): ";
-    bool result = solveBoolean(); 
-    cout << "Result: " << (result ? "True" : "False") << endl;
-    return 0;
+    std::stringstream ss;
+    char input[100]; 
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
+    while (ss.get(input, 99).gcount() > 0) {
+        input[98] = '\0'; // null-terminate the string
+        if (std::string(input) == "exit") {
+            std::cout << "Goodbye!" << std::endl;
+            return 0;
+        }
+        bool result = solveBoolean(std::string(input));
+        std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    }
 }
