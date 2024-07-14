@@ -11,9 +11,15 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
-        if (found) {
-            result.push_back(i);
-        }
+        if (found) result.push_back(i);
     }
     return result;
+}
+
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) cout << i << " ";
+    return 0;
 }
