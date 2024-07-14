@@ -1,3 +1,4 @@
+```
 def indices_of_substring(text, target):
     result = []
     i = 0
@@ -8,6 +9,6 @@ def indices_of_substring(text, target):
                 if text[j:j+len(target)] != target:
                     break
                 result.append(j)
-                j += len(target)
+                j += 1
         i += 1
     return result
