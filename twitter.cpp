@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string validateTweet(string& tweet) {
+string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
