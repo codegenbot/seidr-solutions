@@ -33,6 +33,8 @@ int main() {
     std::string cipher_map2 = input2;
     std::string message = input3;
 
-    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
+    std::string result = decipher(cipher_map1, cipher_map2, message);
+
+    std::cout << "Deciphered message: " << result << std::endl;
     return 0;
 }
