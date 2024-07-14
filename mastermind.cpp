@@ -2,13 +2,21 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    // Count the number of correct colors in wrong places (white pegs)
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+        } else if(count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
     }
 
-    return black + white;
+    // Count the number of correct colors in correct places (black pegs)
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
+        }
+    }
+
+    return black, white;
 }
