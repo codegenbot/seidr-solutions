@@ -25,7 +25,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    int left_sum = 0, right_sum = 0;
+    int left_sum = 0;
     
     for (int i = 0; i < n; i++)
         left_sum += v[i];
