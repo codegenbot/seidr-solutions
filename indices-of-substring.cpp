@@ -1,12 +1,12 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <iostream>
-#include <string>
-#include <initializer_list>
 
 using namespace std;
 
-std::vector<int> computeLPSArray(const string& pat, vector<int>& lps) {
+vector<int> computeLPSArray(const string& pat, vector<int>& lps) {
     int m;
     lps.push_back(0); 
     m = 0; 
