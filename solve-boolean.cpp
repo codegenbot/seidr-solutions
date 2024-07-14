@@ -1,12 +1,10 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <cstring>
 
 bool solveBoolean(const char* s) {
     bool result = true;
-    size_t len = strlen(s);
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; s[i]; i++) {
         if (s[i] == 'F') {
             return false;
         }
@@ -14,7 +12,7 @@ bool solveBoolean(const char* s) {
             result = !result;
         }
         else if (s[i] == '&') {
-            while(i+1 < len && s[i+1] == '&') i++;
+            while(i+1 && s[i+1] == '&') i++;
             if (!result) return false;
         }
     }
