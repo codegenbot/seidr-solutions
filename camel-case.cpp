@@ -24,6 +24,5 @@ int main() {
     while (std::getline(std::cin, input)) {
         std::cout << kebabToCamel(input) << '\n';
     }
-
     return 0;
 }
