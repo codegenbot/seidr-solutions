@@ -1,22 +1,25 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+vector<vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int splitPoint = 0;
     for (int i = 1; i < v.size(); i++) {
-        if (abs(v[i] - v[0]) <= min_diff) {
-            min_diff = abs(v[i] - v[0]);
-            cut_index = i;
+        int sumLeft = 0, sumRight = 0;
+        for (int j = 0; j < i; j++) {
+            sumLeft += v[j];
+        }
+        for (int j = i; j < v.size(); j++) {
+            sumRight += v[j];
+        }
+        int diff = abs(sumLeft - sumRight);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitPoint = i;
         }
     }
-    vector<int> left = {v[0]};
-    for (int i = 1; i < cut_index; i++) {
-        left.push_back(v[i]);
-    }
-    vector<int> right = {v[cut_index]};
-    for (int i = cut_index + 1; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-    return {left, right};
+    vector<vector<int>> result(2);
+    result[0].insert(result[0].end(), v.begin(), v.begin() + splitPoint);
+    result[1].insert(result[1].begin(), v.begin() + splitPoint, v.end());
+    return result;
 }
