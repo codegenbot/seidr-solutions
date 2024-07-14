@@ -5,7 +5,7 @@ int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25;
+    int quarters = cents / 25; 
     cents %= 25; 
 
     int dimes = cents / 10; 
