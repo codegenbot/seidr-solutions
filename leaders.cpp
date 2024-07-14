@@ -11,6 +11,5 @@ vector<int> leaders(vector<int> arr) {
             max = arr[i];
         }
     }
-    res.assign(res.rbegin(), res.rend());
     return res;
 }
