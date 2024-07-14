@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <cmath> // for abs()
+#include <cmath> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
