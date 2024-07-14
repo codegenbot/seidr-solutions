@@ -3,38 +3,39 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word = "";
+    std::string word;
 
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-            } else {
-                result += word;
-            }
-            word = "";
+    for (char c : sentence) {
+        if (c == ' ') {
+            result += word + " ";
+            word.clear();
         } else {
-            word += sentence[i];
+            word += c;
         }
     }
 
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
+    result += word;
+
+    size_t pos = 0;
+    while ((pos = result.find(" ")) != std::string::npos) {
+        size_t start = pos;
+        while (result.at(pos++) != ' ') {}
+        size_t end = pos - 1;
+        if (end - start >= 5) {
+            for (size_t i = end; i > start; --i) {
+                result.replace(i, 1, result.substr(start, end - start + 1));
+            }
         }
-    } else {
-        result += word;
     }
 
     return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
     std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
     std::cout << spinWords("hi") << std::endl;
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+
     return 0;
 }
