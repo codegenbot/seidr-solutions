@@ -1,40 +1,26 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRolls = 0;
-    bool spareOrStrike = false;
-
+    int currentRoll = 0;
     for (char c : s) {
-        if (c == 'X') {
-            score += 10 + nextTwo Rolls();
-            currentRolls = 0;
-            spareOrStrike = true;
-        } else if (c == '/') {
-            score += 10 - currentRolls;
-            currentRolls = 0;
-            spareOrStrike = false;
-        } else if (isdigit(c)) {
-            int roll = c - '0';
-            if (!spareOrStrike) {
-                currentRolls++;
-                score += roll;
+        if (c == '/') {
+            if (currentRoll > 9) {
+                score += 10 + (currentRoll - 10);
             } else {
-                if (currentRolls == 1) {
-                    score += roll + nextRoll();
-                } else {
-                    score += roll + roll;
-                }
+                score += 10;
             }
+            currentRoll = 0;
+        } else if (c == 'X') {
+            score += 30;
+            currentRoll = 0;
+        } else {
+            int roll = c - '0';
+            currentRoll += roll;
         }
     }
-
+    if (currentRoll > 9) {
+        score += 10 + (currentRoll - 10);
+    } else {
+        score += currentRoll;
+    }
     return score;
-}
-
-int nextTwoRolls() {
-    return 10 - currentRolls;
-}
-
-int nextRoll() {
-    // assuming the rest of the frame is always a strike
-    return 10;
 }
