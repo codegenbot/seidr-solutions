@@ -1,29 +1,35 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    size_t prevSpaceIndex = 0;
+string spinWords(string str) {
+    string result = "";
+    string word = "";
     
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            std::string word = str.substr(prevSpaceIndex, i - prevSpaceIndex);
-            
-            if (word.length() >= 5)
-                std::reverse(word.begin(), word.end());
-            
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] != ' ') {
+            word += str[i];
+        } else {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
             result += word + " ";
-            prevSpaceIndex = i + 1;
+            word = "";
         }
     }
     
-    return result.substr(0, result.size() - 1); // remove the trailing space
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
+    
+    return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << spinWords(str) << std::endl;
-    }
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
