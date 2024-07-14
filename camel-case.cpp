@@ -1,11 +1,12 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::string buffer;
     std::vector<std::string> arr;
+    std::string buffer;
 
     for (char c : str) {
         if (c == ' ') {
@@ -18,7 +19,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         }
 
         if (c == '\0' || c == delimiter) { 
-            if (c != '\0' && !buffer.empty()) {
+            if (!buffer.empty()) {
                 arr.push_back(buffer);
                 buffer = ""; 
             }
@@ -40,7 +41,7 @@ std::string camelCase(const std::string& str) {
         if (!result.empty()) {
             result += toupper(segments[i][0]);
         } else {
-            result = tolower(segments[i]);
+            result = segments[i];
         }
         if (i < segments.size() - 1) {
             if (segments[i].size() > 1) {
