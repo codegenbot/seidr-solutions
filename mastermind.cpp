@@ -1,8 +1,8 @@
-```cpp
+#include <initializer_list>
 #include <algorithm>
 #include <string>
-
-#pragma GCC diagnostic ignored "-Werror"
+#include <iostream>
+#include <ostream>
 
 int mastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
@@ -11,7 +11,7 @@ int mastermind(const std::string& code, const std::string& guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-        } else if (code.find(guess[i]) != std::string::npos && code.find(guess[i]) != i) {
+        } else if (std::find(code.begin(), code.end(), guess[i]) != code.end() && code.find(guess[i]) != i) {
             ++whitePegs;
         }
     }
