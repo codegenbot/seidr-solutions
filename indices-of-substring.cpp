@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, int len) {
+std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps) {
     int m;
     lps.push_back(0); 
     m = 0; 
@@ -21,14 +21,14 @@ std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, 
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+    std::vector<int> result; // Initialize with 0 size
     int n = text.length();
     int m = target.length();
 
     std::vector<int> lps(m);
-    computeLPSArray(target, lps, target.length());
+    computeLPSArray(target, lps);
 
-    for (int i = 0; i < n - m + 1; i++) {
+    for (int i = 0; i <= n - m; i++) {
         int j = 0;
         while (j < m && text[i + j] == target[j]) {
             j++;
