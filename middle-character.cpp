@@ -1,16 +1,10 @@
-Here is the completed code:
+#include <string>
 
-string middleCharacter(string str) {
+std::string middleCharacter(std::string str) {
     int len = str.length();
-    string result;
-
-    if (len % 2 != 0) {
-        // Odd length, return single middle character
-        result = str.substr(len / 2, 1);
+    if(len % 2 == 0) {
+        return str.substr(len/2 - 1, 2);
     } else {
-        // Even length, return two middle characters
-        result = str.substr(len / 2 - 1, 2);
+        return str.substr(len/2, 1);
     }
-
-    return result;
 }
