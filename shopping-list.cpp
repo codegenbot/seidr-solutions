@@ -34,3 +34,5 @@ int main() {
 
     double totalPrice = shoppingList(pricesAndDiscounts);
     std::cout << "Total price: $" << totalPrice << std::endl;
+
+}
