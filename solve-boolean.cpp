@@ -1,24 +1,29 @@
-string solveBoolean(string s) {
-    stack<char> st;
-    for(int i=0; i<s.size(); i++){
-        if(s[i] == '&'){
-            char op1 = st.top();
-            st.pop();
-            char op2 = st.top();
-            st.pop();
-            st.push((op1 == 'T' && op2 == 'T') ? 'T' : 'F');
-        }
-        else if(s[i] == '|'){
-            char op1 = st.top();
-            st.pop();
-            char op2 = s[i+1];
-            s.erase(i, 2);
-            i--;
-            st.push((op1 == 'T' || op2 == 'T') ? 'T' : 'F');
-        }
-        else{
-            st.push(s[i]);
+bool solveBoolean(string booleanExpression) {
+    bool result = true;
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        switch (booleanExpression[i]) {
+            case 'T':
+                break;
+            case 'F':
+                result = false;
+                return result;
+            case '&': {
+                int j = i + 1;
+                while (j < booleanExpression.length() && booleanExpression[j] == '&') 
+                    j++;
+                if (j >= booleanExpression.length()) return false;
+                i = j - 1;
+                break;
+            }
+            case '|': {
+                int j = i + 1;
+                while (j < booleanExpression.length() && booleanExpression[j] == '|') 
+                    j++;
+                if (j >= booleanExpression.length()) return true;
+                i = j - 1;
+                break;
+            }
         }
     }
-    return (st.top() == 'T')?"True":"False";
+    return result;
 }
