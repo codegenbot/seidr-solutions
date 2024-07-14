@@ -1,7 +1,6 @@
-Here is the Python solution for the problem:
-
-```
 def camel_case(s):
-    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.split('-')))
+    return ''.join(word.capitalize() for word in s.split('-')) if '-' in s else s
 
-print(camel_case(input()))
+while True:
+    s = input()
+    print(camel_case(s))
