@@ -1,5 +1,6 @@
 #include <vector>
-#include <algorithm>
+#include <cmath>
+#include <climits>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
@@ -20,7 +21,8 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         if (std::abs(leftSum - rightSum) < minLeft) {
             minLeft = std::abs(leftSum - rightSum);
             leftCut = i;
-        } else if (std::abs(leftSum - rightSum) < minRight) {
+        }
+        if (std::abs(leftSum - rightSum) < minRight) {
             minRight = std::abs(leftSum - rightSum);
             rightCut = i;
         }
@@ -36,4 +38,6 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     } else {
         return {{v}};
     }
+    
+    return {{}}; 
 }
