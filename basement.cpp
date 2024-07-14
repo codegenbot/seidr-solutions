@@ -1,28 +1,29 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-int findFirstNegativeIndex(const vector<int>& nums) {
-    for (int i = 0; i <= nums.size() - 1; i++) {
-        int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += nums[j];
-        }
-        if (sum < 0) {
+int findFirstNegativeIndex(vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0)
             return i;
-        }
     }
-    return -1; // or any other value to indicate that no such index is found
+    return -1;
 }
 
 int main() {
+    // Read the input from user
     int n;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    cout << findFirstNegativeIndex(nums) << endl;
+
+    // Call the function to find the first negative index
+    int result = findFirstNegativeIndex(nums);
+
+    cout << result << endl;
+
     return 0;
 }
