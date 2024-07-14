@@ -1,38 +1,14 @@
-#include <string>
-using namespace std;
-
-bool solveBoolean(string s) {
-    bool result = false;
+bool solveBoolean(std::string s) {
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 't') {
-            result = true;
-        } else if (s[i] == 'f') {
+        if (s[i] == '&') {
+            int j = i + 1;
+            while (j < s.length() && s[j] != '|') j++;
+            std::string sub = s.substr(i+1, j-i-1);
+            result &= (sub == "T");
+            i = j - 1;
+        } else if (s[i] == 'F') {
             return false;
-        } else if (s[i] == '|') {
-            bool temp = result;
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't') {
-                    result = true;
-                } else if (s[j] == 'f') {
-                    return false;
-                }
-                i = j - 1;
-                break;
-            }
-            result = temp;
-        } else if (s[i] == '&') {
-            bool temp = result;
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s[j] == 't') {
-                    result = true;
-                } else if (s[j] == 'f') {
-                    return false;
-                }
-                i = j - 1;
-                break;
-            }
-            result &= temp;
         }
     }
     return result;
-}
