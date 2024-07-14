@@ -3,37 +3,36 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::vector<std::string> words;
+    int wordLength = 0;
+    bool inWord = false;
 
-    // Split the sentence into words
-    char* token = strtok(const_cast<char*>(sentence.c_str()), " ");
-    while(token != NULL) {
-        words.push_back(token);
-        token = strtok(NULL, " ");
-    }
-
-    // Reverse each word that is 5 or more characters long
-    for(int i = 0; i < words.size(); i++) {
-        if(words[i].size() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (inWord && wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += sentence[wordLength - i - 1];
+            }
+            inWord = false;
+            result += ' ';
+        } else {
+            inWord = true;
+            wordLength++;
+            result += c;
         }
     }
 
-    // Join the words back together with spaces in between
-    for(int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if(i < words.size()-1) {
-            result += " ";
-        }
+    if (inWord && wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += sentence[wordLength - i - 1];
     }
 
     return result;
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
     std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
     return 0;
 }
