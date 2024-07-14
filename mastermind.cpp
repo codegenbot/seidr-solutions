@@ -5,21 +5,21 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = 'X';
-            guess[i] = 'X';
+            code[i] = ' '; // mark as used
+            guess[i] = ' '; // mark as used
         }
     }
 
     for (int i = 0; i < 4; ++i) {
         int count = 0;
-        for (char c : code) {
-            if (c == guess[i]) {
+        for (char c : "BOYWG") {
+            if (code.find(c) != string::npos && code.find(c) != string::npos) {
                 count++;
+                code.replace(code.find(c), 1, " ");
+                guess.replace(guess.find(c), 1, " ");
             }
         }
-        if (count > 0 && code.find(guess[i]) == string::npos) {
-            white += count - 1;
-        }
+        white += count;
     }
 
     return black + white;
