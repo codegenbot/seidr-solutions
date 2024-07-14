@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int basement(const std::vector<int>& arr) {
@@ -12,6 +11,7 @@ int basement(const std::vector<int>& arr) {
 }
 
 int main() {
+    // Test your function here
     std::vector<int> arr = {-5, 1, -3, 4};
     int result = basement(arr);
     if(result == -1)

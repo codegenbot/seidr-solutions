@@ -1,6 +1,5 @@
+```cpp
 #include <string>
-#include <vector>
-
 using namespace std;
 
 int bowlingScore(const string& frames) {
@@ -17,11 +16,8 @@ int bowlingScore(const string& frames) {
             int roll = c - '0';
             score += roll;
             currentRolls++;
-            if (currentRolls == 1) {
-                int c1 = roll;
-                int c2 = 0;
-            } else if (currentRolls == 2) {
-                int c2 = roll;
+            if (currentRolls == 2) {
+                int c1 = roll, c2 = c - '0';
                 score += c1 + c2;
                 currentRolls = 0;
             }
