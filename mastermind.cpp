@@ -6,13 +6,11 @@ int mastermind(const char* code, const char* guess) {
         bool foundInCode = false;
         int correctIndex = -1; 
 
-        for (int j = 0; j < 4; ) {
+        for (int j = 0; j < 4; i++) { 
             if (code[j] == guess[i]) {
                 foundInCode = true;
                 correctIndex = j;
-                break;
             }
-            j++;
         }
 
         if (!foundInCode) continue; 
@@ -24,5 +22,5 @@ int mastermind(const char* code, const char* guess) {
         }
     }
 
-    return black + white;
+    return black;
 }
