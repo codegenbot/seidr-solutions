@@ -1,28 +1,20 @@
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int text_len = text.length();
-    int target_len = target.length();
-    
-    for(int i = 0; i <= text_len - target_len; ++i) {
-        bool found = true;
-        for(int j = 0; j < target_len; ++j) {
-            if(text[i+j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        
-        if(found) {
-            result.push_back(i);
-        }
+    int lastFound = -1;
+    while (true) {
+        size_t pos = text.find(target);
+        if (pos == string::npos) break;
+        result.push_back(pos);
+        lastFound = pos;
+        text.erase(0, pos + target.size());
     }
-    
     return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
