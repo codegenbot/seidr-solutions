@@ -1,20 +1,14 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
-    uppercase_mapping = {c: c2 for c, c2 in zip(cipher1.upper(), cipher2.upper())}
-    lowercase_mapping = {c: c2 for c, c2 in zip(cipher1.lower(), cipher2.lower())}
-    mapping = {}
-    for k, v in uppercase_mapping.items():
-        mapping[k] = v
-        mapping[k.lower()] = v.lower()
+    mapping = {c: c2 for c, c2 in zip(cipher1.lower(), cipher2.lower())}
     
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper(): 
-                result += mapping[char].upper() 
+                result += mapping[char.lower()].upper() 
             else: 
-                result += mapping[char]
+                result += mapping.get(char.lower(), char)
         else: 
             result += char
-    
-    return result
+        else:
+            result += char
