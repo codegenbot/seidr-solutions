@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int mastermind(string code, string guess) {
@@ -7,29 +6,25 @@ int mastermind(string code, string guess) {
 
     // Count the number of correct colors in the wrong places
     for (int i = 0; i < 4; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
-            if (code[j] == guess[i]) {
-                found = true;
-                code[j] = 'X';
-                break;
-            }
+        if (code[i] == guess[i]) {
+            black++;
+            code[i] = 'X';
+            guess[i] = 'X';
         }
-        if (!found) white++;
     }
 
     // Count the number of correct colors in the right places
     for (int i = 0; i < 4; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
+        int j = 0;
+        while (j < 4) {
             if (code[j] == guess[i]) {
-                found = true;
-                black++;
+                white++;
                 code[j] = 'X';
                 break;
             }
+            j++;
         }
     }
 
-    return black;
+    return black + white - black;
 }
