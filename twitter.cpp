@@ -4,6 +4,8 @@
 using namespace std;
 
 string validateTweet(string tweet) {
+    tweet.erase(0, tweet.find_first_not_of(' ') == string::npos ? 0 : tweet.find_first_not_of(' '));
+    tweet.erase(tweet.find_last_not_of(' ') + 1);
     if (tweet.empty()) {
         return "You didn't type anything";
     }
