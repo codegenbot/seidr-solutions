@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <climits>
@@ -6,8 +5,7 @@
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
-        std::vector<std::vector<int>> result = {{v}};
-        return result;
+        return {{v}};
     }
     
     int n = v.size();
@@ -37,11 +35,9 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     if (minLeft <= minRight) {
-        std::vector<std::vector<int>> result = {{v.begin(), v.begin() + leftCut}, {v.begin() + leftCut, v.end()}};
-        return result;
+        return {{v.begin(), v.begin() + leftCut}, {v.begin() + leftCut, v.end()}};
     } else {
-        std::vector<std::vector<int>> result = {{v}};
-        return result;
+        return {{v}};
     }
 }
 
