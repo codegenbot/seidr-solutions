@@ -3,8 +3,9 @@ using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     stack<char> operation;
-    bool result = false;
+    string currentTerm = "";
 
+    stack<char> operation; // Declare here
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '(') {
             operation.push('(');
@@ -12,23 +13,21 @@ bool evaluateBooleanExpression(string expression) {
             while (!operation.empty() && operation.top() != '(') {
                 char op = operation.top();
                 operation.pop();
-                result = (op == '|') ? true : false;
+                currentTerm += op;
             }
             if (!operation.empty()) {
                 operation.pop();  // Remove the '('
             }
+            currentTerm += ')';
         } else if (expression[i] == '|' || expression[i] == '&') {
             while (!operation.empty() && operation.top() != '(') {
                 char op = operation.top();
                 operation.pop();
-                result = (op == '|') ? true : false;
+                currentTerm += op;
             }
             operation.push(expression[i]);
         } else {
-            if (expression[i] == 'T')
-                result = true;
-            else
-                result = false;
+            currentTerm += expression[i];
         }
     }
 
@@ -36,8 +35,10 @@ bool evaluateBooleanExpression(string expression) {
     while (!operation.empty()) {
         char op = operation.top();
         operation.pop();
-        result = (op == '|') ? true : false;
+        currentTerm += op;
     }
+
+    bool result = (currentTerm == "T") ? true : false;
 
     return result;
 }
