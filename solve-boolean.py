@@ -12,8 +12,6 @@ def solve_boolean(expression):
                 value2 = stack.pop()
                 value1 = stack.pop() if stack else None
                 result = value1 and value2 if char == "&" else value1 or value2
-                while stack and (stack[-1] == ")" or precedence[stack[-1]] < precedence[char]):
-                    stack.pop()
                 stack.append(result)
 
     return stack[0]
@@ -33,6 +31,8 @@ def convert_to_postfix(expression):
                 while operator_stack[-1] != "(":
                     output.append(operator_stack.pop())
                 operator_stack.pop()
+                if len(operator_stack) > 0: 
+                    output.append(stack.pop()) 
             elif char in ["&", "|"]:
                 while (
                     len(operator_stack) >= 1
