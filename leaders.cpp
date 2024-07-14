@@ -18,10 +18,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 3, 7, 1, 6};
-    vector<int> res = leaders(arr);
-    for(int i:res) {
-        cout << i << " ";
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> leadersArr = leaders(arr);
+    for(int i=0; i<leadersArr.size(); i++) {
+        cout << leadersArr[i] << " ";
     }
     return 0;
 }
