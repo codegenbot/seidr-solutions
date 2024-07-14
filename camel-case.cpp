@@ -9,24 +9,23 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result.push_back(' ');
             capitalize = true; 
         } else if (c != ' ') { 
             if(capitalize) { 
-                result.push_back(std::toupper(c));
+                result.push_back(toupper(c));
                 capitalize = false; 
             } else {
-                result.push_back(std::tolower(c)); 
+                result.push_back(tolower(c)); 
             }
         } else {
             if (!capitalize && !result.empty()) {
-                result.append(" ");
+                result.push_back(' ');
+                capitalize = true;
             }
-            capitalize = true;
         }
     }
 
-    return std::toupper(result[0]) + result.substr(1);
+    return capitalize ? toupper(result[0]) + result.substr(1) : result;
 }
 
 int main() {
@@ -34,10 +33,14 @@ int main() {
 
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
-        std::getline(std::cin, user_input);
-        
-        if (!user_input.empty()) { 
-            std::string output = camelCase(user_input); // Pass the input to the function
+        std::string line;
+        while (!(std::getline(std::cin, line))) {
+            std::cout << "Invalid input. Please try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        if (!line.empty()) { 
+            std::string output = camelCase(line); // Pass the input to the function
             if(!output.empty() && !output.back() == ' ')  
                 std::cout << "Camel Case: " << output << std::endl; 
         }
