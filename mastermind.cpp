@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
@@ -14,8 +13,8 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    vector<char> codeArray(code.begin(), code.end());
     int count = 0;
+    vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             codeArray[i] = ' ';
@@ -44,4 +43,3 @@ int main() {
     cout << black << endl;
     cout << white << endl;
     return 0;
-}
