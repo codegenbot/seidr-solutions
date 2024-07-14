@@ -17,12 +17,11 @@ int luhn(vector<int> card) {
 }
 
 int main() {
-    vector<int> card; 
-    int n;
-    cout << "Enter a credit card number: ";
+    vector<int> card;
+    int num;
     for(int i = 0; i < 16; i++) {
-        cin >> n;
-        card.push_back(n);
+        cin >> num;
+        card.push_back(num);
     }
     int result = luhn(card);
     cout << "The result is: " << result << endl;
