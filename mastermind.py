@@ -1,4 +1,4 @@
-```
+```python
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
         return "00"
