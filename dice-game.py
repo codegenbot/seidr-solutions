@@ -1,7 +1,13 @@
-```
-def dice_game(n, m):
-    total = n * m
-    higher = 0
-    for i in range(1, min(n, m) + 1):
-        higher += (n - i) * (m - i)
-    return higher / total if total > 0 else 0.0
+Here is the solution:
+
+n = int(input())
+m = int(input())
+
+if n < m:
+    result = 0
+elif n > m:
+    result = 1 - (m / n)
+else:
+    result = 0.5
+
+print(f"{result:.4f}")
