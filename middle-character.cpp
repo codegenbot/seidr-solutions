@@ -4,7 +4,7 @@
 std::string middleCharacter(std::string s) {
     int len = s.length();
     std::string result = "";
-    int middleIndex = (len / 2);
+    int middleIndex = len / 2;
 
     if (len % 2 == 0)
         result = s.substr(middleIndex - 1, 2); 
