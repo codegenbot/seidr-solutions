@@ -69,7 +69,7 @@ int main() {
     getline(cin, text);
 
     if(text.empty()) {
-        cout << "Text cannot be empty." << endl;
+        cerr << "Text cannot be empty." << endl;
         return 1; 
     }
 
@@ -77,7 +77,7 @@ int main() {
     getline(cin, target);
 
     if(target.empty()) {
-        cout << "Target cannot be empty." << endl;
+        cerr << "Target cannot be empty." << endl;
         return 1; 
     }
 

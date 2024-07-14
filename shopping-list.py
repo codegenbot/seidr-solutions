@@ -1,18 +1,16 @@
-```
 def shopping_list():
+    total = 0
     while True:
         try:
-            prices = list(map(float, input().split()))
-            discounts = list(map(float, input().split()))
-            quantities = list(map(int, input().split()))
-
-            if len(prices) != len(discounts) or len(discounts) != len(quantities):
-                raise ValueError
-
-            return round(sum(p * q * (1 - d / 100) for p, q, d in zip(prices, quantities, discounts)), 2)
+            prices = list(map(float, input("Enter prices (space-separated), or 'q' to quit: ").split()))
+            if len(prices) < 1 and prices[0] != 'q':
+                print("Please provide at least one price")
+                continue
+            for i in range(len(prices)):
+                quantities = int(input(f"Enter quantity for item {i+1}: "))
+                discounts = float(input(f"Enter discount percentage for item {i+1} (or 0 to skip): "))
+                if prices[i] == 'q':
+                    return round(total, 2)
+                total += prices[i] * quantities * (1 - discounts / 100)
         except ValueError:
-            pass
-
-
-while True:
-    print(shopping_list())
+            print("Invalid input. Please provide prices and quantities as floats and discount as a percentage")
