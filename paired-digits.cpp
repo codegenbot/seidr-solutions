@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,8 +13,8 @@ int sumPairedDigits(string str) {
 }
 
 int main() {
-    string input;
-    cin >> input; // read input from user
-    cout << sumPairedDigits(input) << endl; // output the result
+    string str;
+    cin >> str;
+    cout << "Sum of paired digits: " << sumPairedDigits(str) << endl;
     return 0;
 }
