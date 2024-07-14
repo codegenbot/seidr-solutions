@@ -1,18 +1,20 @@
 ```c++
 #include <string>
-#include <iostream>
+using namespace std;
 
 int main() {
-    std::string input = "1234";
-    std::cout << squareDigits(input) << std::endl;
+    cout << "Enter a number: ";
+    string input;
+    cin >> input;
+    cout << squareDigits(input) << endl;
     return 0;
 }
 
-std::string squareDigits(std::string input) {
-    std::string output = "";
+string squareDigits(string input) {
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output += std::to_string(digit * digit);
+        output += to_string(digit * digit);
     }
     return output;
 }
