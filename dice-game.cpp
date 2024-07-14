@@ -1,6 +1,15 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-double probability(int n, int m) {
-    double total = (n + m - 1);
-    return (m * 1.0) / total;
+double diceGame(int n, int m) {
+    double total = (double)n * m;
+    return (n - 1) / total;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(6);
+    cout << diceGame(n, m) << endl;
+    return 0;
 }
