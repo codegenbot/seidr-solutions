@@ -1,4 +1,3 @@
-```
 import math
 
 text = int(input("Enter the text: "))
