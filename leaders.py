@@ -1,12 +1,8 @@
-Here is the completed code:
+Here is the solution:
 
-def leaders(arr):
-    if not arr:
-        return []
-    
-    leaders = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[-1]:
-            leaders.append(arr[i])
-            arr[-1] = arr[i]
-    return leaders[::-1]
+def leaders(vector):
+    leaders = [vector[-1]]
+    for i in range(len(vector) - 2, -1, -1):
+        if vector[i] >= vector[i + 1]:
+            leaders.insert(0, vector[i])
+    return leaders
