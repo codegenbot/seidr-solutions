@@ -14,29 +14,22 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 }
 
 int main() {
-    int hours, temp1, temp2, temp3;
+    int hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    if (!(std::cin >> hours)) {
-        std::cout << "Invalid input. Please enter numeric values." << std::endl;
-        return 1; 
-    }
+    std::cin >> hours;
 
     std::cout << "Enter the initial amount of snow: ";
-    if (!(std::cin >> initialSnow)) {
-        std::cout << "Invalid input. Please enter numeric values." << std::endl;
-        return 1; 
-    }
+    std::cin >> initialSnow;
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    if (!(std::cin >> rateOfSnowFall)) {
-        std::cout << "Invalid input. Please enter numeric values." << std::endl;
-        return 1; 
-    }
+    std::cin >> rateOfSnowFall;
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    if (!(std::cin >> proportionOfSnowMeltingPerHour)) {
+    std::cin >> proportionOfSnowMeltingPerHour;
+
+    if (!(std::cin)) {
         std::cout << "Invalid input. Please enter numeric values." << std::endl;
         return 1; 
     }
