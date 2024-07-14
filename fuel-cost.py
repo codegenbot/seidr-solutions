@@ -1,3 +1,2 @@
-```python
-def fuel_cost(nums):
-    return sum((n * 2) // 3 - 2 for n in nums)
+def fuel_cost(fuel):
+    return sum((i//3)-2 for i in map(int, input().split()))
