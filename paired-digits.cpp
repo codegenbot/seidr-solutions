@@ -5,5 +5,4 @@ int pairedDigits(std::string s) {
             sum += static_cast<int>(s[i]) - '0';
         }
     }
-    return sum;
 }
