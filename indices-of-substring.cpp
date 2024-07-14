@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -8,7 +9,7 @@ std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len
 
     for (int i = 1; i < pat.length(); i++) {
         while (m > 0 && pat[i] != pat[m-1]) { 
-            m = lps[m - 1]; 
+            m = m - 1; 
         }
 
         if (pat[i] == pat[m-1]) { 
@@ -25,6 +26,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int m = target.length();
 
     std::vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
+    lps.resize(m);  // Missing initialization
     computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
@@ -36,9 +38,8 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         if (j == m) {
             result.push_back(i);
         } else {
-            if (j < m) {
-                i = i + j - lps[j-1]; // move the start index of new substring
-            }
+            int k = lps[j-1];
+            i = i + j - k; // move the start index of new substring
         }
     }
 
