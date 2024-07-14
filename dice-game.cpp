@@ -4,10 +4,11 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (n * m);
-    int high = n - 1;
-    double probability = (double)high / total;
-    return probability;
+    double sum = 0.0;
+    for (int i = 1; i <= n - 1; i++) {
+        sum += (n - i) / (double)(n * m);
+    }
+    return sum;
 }
 
 int main() {
