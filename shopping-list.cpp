@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <utility>
-#include <iostream>
 
 double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) {
     double total = 0;

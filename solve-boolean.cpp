@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <string>
 
 bool solveBoolean(std::string s) {
@@ -19,10 +19,25 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::getline(std::cin, input);
-    bool result = solveBoolean(input);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    std::string s1 = "T";
+    bool result1 = solveBoolean(s1);
+    std::cout << "Test case 1: " << (result1 ? "True" : "False") << std::endl;
+
+    std::string s2 = "F|T";
+    bool result2 = solveBoolean(s2);
+    std::cout << "Test case 2: " << (result2 ? "True" : "False") << std::endl;
+
+    std::string s3 = "T&T";
+    bool result3 = solveBoolean(s3);
+    std::cout << "Test case 3: " << (result3 ? "True" : "False") << std::endl;
+
+    std::string s4 = "F&F";
+    bool result4 = solveBoolean(s4);
+    std::cout << "Test case 4: " << (result4 ? "True" : "False") << std::endl;
+
+    std::string s5 = "T|F&F";
+    bool result5 = solveBoolean(s5);
+    std::cout << "Test case 5: " << (result5 ? "True" : "False") << std::endl;
+
     return 0;
 }
