@@ -1,10 +1,11 @@
+```python
 def shopping_list():
     n = int(input())
     total_price = 0
 
     for _ in range(n):
         try:
-            item_prices = [float(price) for price in input().split()]
+            item_prices = list(map(float, input().split()))
             if len(item_prices) != 2: 
                 raise Exception("Invalid number of items")
             item_discount = float(input()) / 100
