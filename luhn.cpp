@@ -17,7 +17,7 @@ int luhn(vector<int> card) {
 }
 
 int main() {
-    vector<int> card; 
+    vector<int> card;
     int num;
     for(int i = 0; i < 16; i++) {
         cout << "Enter the digit at position " << (i+1) << ": ";
