@@ -14,11 +14,16 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
                 arr.push_back(buffer);
                 buffer = ""; 
             }
-        } else if (c != delimiter) {
+        } else if (c != '-' && c != delimiter) {
             buffer += c;
         }
 
-        // No need to check for '\0' here
+        if (c == '\0' || c == delimiter) { 
+            if (c != '\0' && !buffer.empty()) {
+                arr.push_back(buffer);
+                buffer = ""; 
+            }
+        }
     }
 
     if (!buffer.empty()) {
