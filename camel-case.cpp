@@ -1,42 +1,33 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string str) {
-    string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            if (i > 0 && str[i - 1] != ' ')
-                result += topper(str.substr(i + 1));
-            else
-                result += " ";
-        } else if (str[i] == ' ') {
-            if (!result.empty())
-                result += topper(str.substr(i + 1));
-            else
-                result = str.substr(0, i);
-            break;
-        } else
-            result += tolower(str[i]);
+std::string camelCase(std::string s) {
+    std::vector<std::string> tokens;
+    size_t start = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || s[i] == '-') {
+            tokens.push_back(s.substr(start, i - start));
+            start = i + 1;
+        }
     }
+
+    std::string result;
+    for (size_t i = 0; i < tokens.size(); ++i) {
+        if (i > 0)
+            result += std::toupper(tokens[i][0]);
+        else
+            result += tokens[i];
+        if (i < tokens.size() - 1)
+            result += " ";
+    }
+    
     return result;
 }
 
-string topper(string s) {
-    string res = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (i == 0)
-            res += toupper(s[i]);
-        else
-            res += tolower(s[i]);
-    }
-    return res;
-}
-
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << camelCase(str) << endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
 }
