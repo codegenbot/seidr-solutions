@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <stack>
+#include <string>
 
 bool solveBoolean(std::string s) {
     stack<char> st;
@@ -22,4 +23,3 @@ bool solveBoolean(std::string s) {
         }
     }
     return !st.empty();
-}
