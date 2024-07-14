@@ -2,22 +2,28 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipher_map1, const std::string& cipher_map2, const std::string& message) {
-    string result = "";
-    for (char c : message) {
-        for (int i = 0; i < cipher_map1.size(); i++) {
-            if (c == cipher_map1[i]) {
-                result += cipher_map2[i];
+std::string applyCipher(const std::string& cipherMap, const std::string& input) {
+    std::string output;
+    for (char c : input) {
+        size_t index = 0;
+        while (index < cipherMap.size()) {
+            if (cipherMap[index] == c) {
                 break;
             }
+            index++;
+        }
+        if (index >= cipherMap.size()) {
+            output += c; // If the character is not found in the cipher map, add it as is
+        } else {
+            output += cipherMap.substr(index, 1);
         }
     }
-    return result;
+    return output;
 }
 
 int main() {
-    string cipher_map1, cipher_map2, message;
-    cin >> cipher_map1 >> cipher_map2 >> message;
-    cout << decipher(cipher_map1, cipher_map2, message) << endl;
+    std::string cipherMap1, cipherMap2, input;
+    std::cin >> cipherMap1 >> cipherMap2 >> input;
+    std::cout << applyCipher(cipherMap1 + cipherMap2, input) << std::endl;
     return 0;
 }
