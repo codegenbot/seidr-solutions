@@ -3,10 +3,17 @@
 
 int pairedDigits(const std::string& s) {
     int sum = 0;
-    for (int i = 0; i < s.size() - 1; i++) {
-        if (i < s.size() - 1 && s[i] == s[i+1]) {
-            char c = s[i]; 
-            sum += (c - '0'); 
+    for (int i = 0; i < s.size(); i++) {
+        if(i<s.size()-1){
+            int digit = s[i] - '0'; 
+            if ((digit == (s[i+1] - '0'))) {
+                sum += digit;
+            }
+        }else{
+            //for the last pair
+            if(s[i] == s[i-1]){
+                sum += s[i] -'0';
+            }
         }
     }
     return sum;
