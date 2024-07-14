@@ -3,16 +3,19 @@
 using namespace std;
 
 void computeLPSArray(string pat, vector<int>& lps, int len) {
+    int m;
     lps[0] = 0; 
+    m = pat.length(); 
+
     for (int i = 1; i < pat.length(); i++) {
-        while (len > 0 && pat[i] != pat[len]) { 
-            len = lps[len - 1]; 
+        while (m > 0 && pat[i] != pat[m-1]) { 
+            m = lps[m - 1]; 
         }
 
-        if (pat[i] == pat[len]) { 
-            len++;
+        if (pat[i] == pat[m-1]) { 
+            m++;
         } else {
-            lps[i] = len; 
+            lps[i] = m; 
         }
     }
 }
@@ -25,7 +28,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
     int len = 0; 
 
-    computeLPSArray(target, lps, m);
+    computeLPSArray(target, lps, len);
 
     int i = 0; 
     while (i < n) {
