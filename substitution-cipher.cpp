@@ -2,21 +2,26 @@
 #include <iostream>
 #include <string>
 
-string substitutionCipher(string key1, string key2, string message) {
-    string result;
-    for (int i = 0; i < message.length(); i++) {
-        if (key1[i] == message[i]) {
-            result += key2[i];
+std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        if (c == '\0') break; // to handle null character in input
+        size_t index = 0;
+        while (index < key1.length() && c != key1[index]) {
+            ++index;
+        }
+        if (index < key2.length()) {
+            result += key2[index];
         } else {
-            result += message[i];
+            result += c; // if the character is not found in key1, add it as is
         }
     }
     return result;
 }
 
 int main() {
-    string key1, key2, message;
-    cin >> key1 >> key2 >> message;
-    cout << substitutionCipher(key1, key2, message) << endl;
+    std::string key1, key2, message;
+    std::cin >> key1 >> key2 >> message;
+    std::cout << substitutionCipher(key1, key2, message) << std::endl;
     return 0;
 }
