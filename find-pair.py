@@ -1,14 +1,10 @@
-Here is the solution:
+def find_pair(n):
+    target = int(input())
+    nums = list(map(int, input().split()))
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return "{0}\n{1}".format(nums[i], nums[j])
 
-def find_pair():
-    num_pairs = int(input())
-    pairs = []
-    for _ in range(num_pairs):
-        n = int(input())
-        nums = list(map(int, input().split()))
-        target = int(input())
-        for i in range(n-1):
-            for j in range(i+1, n):
-                if nums[i] + nums[j] == target:
-                    pairs.append((nums[i], nums[j]))
-    return pairs
+
+print(find_pair(int(input())))
