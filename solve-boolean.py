@@ -9,7 +9,7 @@ def solve_boolean(expression):
 
     i = 0
     while i < len(expression):
-        if expression[i] == "(":
+        if expression[i] == "(" or expression[i] == ")":
             j = i
             while expression[j] != ")":
                 j += 1
@@ -23,9 +23,6 @@ def solve_boolean(expression):
     if "&" in expression:
         left, right = expression.split(" & ")
         return solve_boolean(left) and solve_boolean(right)
-
-    elif "|" == expression:
-        return True
 
     elif "|" in expression:
         left, right = expression.split(" | ")
