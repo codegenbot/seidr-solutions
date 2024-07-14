@@ -6,8 +6,8 @@ int main() {
     double startHeight; 
     cin >> startHeight;
     
-    int firstBounce = static_cast<int>(startHeight) / 2; 
-    double bouncinessIndex = (double)firstBounce / startHeight;
+    string strStartHeight = "/" + to_string(int(startHeight / 2.0));
+    double bouncinessIndex = startHeight / 2.0;
 
     if (bouncinessIndex < 0.01)
         cout << "The bounciness index is: 0.00" << endl;
@@ -28,7 +28,7 @@ int main() {
     if (totalDistance * bouncinessIndex < 0.01)
         cout << "The total distance the ball travels is: 0.00" << endl;
     else
-        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << static_cast<int>(totalDistance * bouncinessIndex) << endl;
+        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << totalDistance * bouncinessIndex << endl;
 
     return 0;
 }
