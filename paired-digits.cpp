@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int pairedDigits(std::string str) {
@@ -11,6 +12,5 @@ int pairedDigits(std::string str) {
 }
 
 int main() {
-    const std::string str = "123333";
-    return pairedDigits(str);
+    return pairedDigits(std::string("123333"));
 }
