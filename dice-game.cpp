@@ -26,7 +26,9 @@ int main() {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         double result = probability(n, m);
-        std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
+        std::cout << "The probability that Peter rolls strictly higher than Colin is: ";
+        std::cout << result;
+        std::cout << std::endl; 
     }
     return 0;
 }

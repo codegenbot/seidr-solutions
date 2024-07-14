@@ -1,17 +1,25 @@
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
+    std::vector<int> res;
     
-    int maxSeenSoFar = arr.back();  
-    for(int i=n-2; i>=0; i--) {  
-        if(arr[i] >= maxSeenSoFar) {
+    for(int i=0; i<n-1; i++) {  
+        if(arr[i] >= arr[i+1]) {
             res.push_back(arr[i]);
-            maxSeenSoFar = arr[i];
         }
     }
     
-    reverse(res.begin(), res.end());
+    res.push_back(arr.back());
     return res;
+}
+
+int main() {
+    std::vector<int> arr = {16, 17, 4, 3, 5, 2};
+    std::vector<int> leadersResult = leaders(arr);
+    for(int i: leadersResult) {
+        std::cout << i << " ";
+    }
+    return 0;
 }
