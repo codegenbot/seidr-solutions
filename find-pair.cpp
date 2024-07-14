@@ -1,3 +1,5 @@
+#include <utility>
+
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
     
@@ -7,7 +9,7 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         // Start from the next element instead of i + 1 to ensure we don't miss any pair
         for (int j = i + 1; j < nums.size(); j++) {
             if (nums[j] == complement) {
-                return {nums[i], complement};
+                return {nums[i], nums[j]};
             }
             else if (nums[j] > complement) {
                 break;
