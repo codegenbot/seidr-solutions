@@ -14,12 +14,23 @@ int mastermind(const char* code, const char* guess) {
             if (code[j] == guess[i]) {
                 foundInCode = true;
                 break;
+            }
         }
 
         if (foundInCode && code[i] != guess[i]) {
             white++;
+        } else if (!foundInCode) {
+            for (int j = 0; j < 4; ++j) {
+                if (code[j] == guess[i]) {
+                    foundInCode = true;
+                    break;
+                }
+            }
+
+            if (!foundInCode) {
+                white++;
+            }
         }
     }
 
     return black + white;
-}
