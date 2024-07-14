@@ -8,6 +8,12 @@ double diceGame(int n, int m) {
     return win / total;
 }
 
-int main() { 
-    std::cout << diceGame(6, 6) << std::endl; 
-}
+int main() {
+    int n, m;
+    std::cout << "Enter the number of sides for Peter's die: ";
+    std::cin >> n;
+    std::cout << "Enter the number of sides for Colin's die: ";
+    std::cin >> m;
+    double result = diceGame(n, m);
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
+    return 0;
