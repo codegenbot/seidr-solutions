@@ -21,7 +21,8 @@ int main() {
     std::cout << "Enter the second string: ";
     getline(cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
-    getline(cin, message);
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    getline(cin, message); 
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
 }
