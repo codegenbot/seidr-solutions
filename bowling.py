@@ -1,25 +1,22 @@
-def bowling_score(games):
+```
+def bowling_score(s):
     score = 0
-    game = [0] * 3
-    for i in games:
-        if i == "X":
-            game[2] += 10
-            score += sum(game)
-            game = [0] * 3
-        elif i == "/":
-            game[1] = 10 - int(games[games.index(i) - 1])
-            score += 10 + sum(game)
-            game = [0] * 3
-        else:
-            if len(games) > i + 2 and games[i + 2] == "X" or games[i + 2] == "/":
-                game[0] = int(i)
-                game[1] = 10 - int(i)
-                score += sum(game) + 10
-                game = [0] * 3
+    frame = 1
+    for char in s + 'X':
+        if char.isdigit():
+            if len(char) == 2:
+                strike = int(char[0]) * 10 + int(char[1])
+                score += strike
+                if frame < 10:
+                    score += 10
+                frame += 1
             else:
-                game[0] = int(i)
-                if len(games) > i + 1 and games[i + 1].isdigit():
-                    game[1] = int(games[i + 1])
-                score += sum(game)
-                game = [0] * 3
+                spare = int(char)
+                score += spare
+                if frame < 9 and char != '5':
+                    score += 10 - int(s[s.index('X')-1])
+                frame += 1
+        elif char == 'X':
+            score += 10
+            frame += 1
     return score
