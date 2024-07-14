@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -10,12 +10,12 @@ int gcd(int a, int b) {
         return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices; 
+vector<size_t> indicesOfSubstring(const string& text, const string& target) {
+    vector<size_t> indices;
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         indices.push_back(pos);
-        pos += target.length(); 
+        pos += target.length(); // increment by the length of the target
     }
     return indices;
 }
@@ -27,14 +27,14 @@ int main() {
     cout << "Enter the target: ";
     cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    vector<size_t> indices = indicesOfSubstring(text, target);
 
     int max_gcd = 1;
     for (int i = 1; i < indices.size(); i++) {
         max_gcd = gcd(max_gcd, indices[i]);
     }
     cout << "Indices: ";
-    for (int i : indices) {
+    for (size_t i : indices) {
         cout << i << " ";
     }
     cout << endl;
