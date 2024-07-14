@@ -1,3 +1,4 @@
+```
 def substitution_cipher(input1, input2, input3):
     cipher = input1 + input2
     deciphered_message = ""
