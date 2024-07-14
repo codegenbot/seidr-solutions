@@ -21,8 +21,11 @@ bool solveBoolean(const std::string& s) {
 int main() {
     std::string input; 
     while (true) {
-        std::cout << "Enter a Boolean expression (T/F/|/&): "; 
-        std::getline(std::cin, input);  
+        char c;
+        input.clear();
+        while ((c = std::cin.get()) != '\n') {
+            input += static_cast<char>(c);
+        }
         bool result = solveBoolean(input);
         if(input == "exit") {
             std::cout << "Goodbye!" << std::endl;
@@ -30,7 +33,7 @@ int main() {
         }
         else {
             std::cout << "Invalid input. Please enter a valid Boolean expression or 'exit' to quit: ";
-            continue;  
+            continue;  // loop back and ask for input again
         }
         std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     }
