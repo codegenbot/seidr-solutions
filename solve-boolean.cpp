@@ -1,16 +1,38 @@
 #include <stack>
 #include <string>
 
-bool evaluate(std::string expression) {
+bool evaluateTop(std::stack<char>& st) {
+    char c = st.top();
+    st.pop();
+    if (c == '&') {
+        while (!st.empty() && st.top() != '|') {
+            st.pop();
+        }
+        bool top = st.empty();
+        st.push(c);
+        return top;
+    } else if (c == '|') {
+        while (!st.empty()) {
+            st.pop();
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool evaluate(std::stack<char> st, std::string expression) {
     bool result = true;
-    std::stack<char> st;
-    for (auto c : expression) {
+    for (char c : expression) {
         if (c == 'T') {
-            return false; // Assuming false when encountering T
+            result = false;
+            break;
         } else if (c == 'F') {
-            return false; // Assuming false when encountering F
+            result = false;
+            break;
         } else if (c == '|') {
             st.push(c);
+            result = true;
         } else if (c == '&') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
@@ -18,13 +40,12 @@ bool evaluate(std::string expression) {
             if (st.empty()) {
                 return false;
             }
-            bool top = st.top() != '&' || !result; // Assuming evaluate function returns a boolean
+            bool top = evaluateTop(st);
             if (top) {
-                st.push('|');
-            } else {
                 st.push('&');
+            } else {
+                st.push('|');
             }
-            result = top;
         }
     }
     return result;
