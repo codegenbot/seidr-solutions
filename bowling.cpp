@@ -6,13 +6,19 @@ int bowlingScore(string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            score += 10 + (frame < 9 ? 10 - ('0' - c) : 10);
+            score += 10 + (frame - 1);
             frame++;
         } else {
-            int pins = '0' - c;
-            score += pins;
+            int pins = c - '0';
             if (pins < 10) {
+                score += pins;
                 frame++;
+            } else {
+                score += 10;
+                frame++;
+                if (s.length() > s.find('/') + 2 && s[s.length() - 1] == '/') {
+                    score -= 2 * (10 - pins);
+                }
             }
         }
     }
