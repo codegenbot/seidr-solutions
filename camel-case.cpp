@@ -40,10 +40,14 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    while(std::getline(std::cin, str)) { 
-        std::cout << "Camel case: " << camelCase(str) << std::endl;
+    std::string segment;
+    std::cout << "Enter a string in kebab-case: ";
+    while (std::cin >> segment) {
+        std::cout << segment << " "; 
     }
+    std::cout << std::endl;
+
+    std::cout << "Camel case: " << camelCase(segment) << std::endl;
     
     return 0;
 }
