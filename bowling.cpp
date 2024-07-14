@@ -1,25 +1,25 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRolls = 0;
-    int frame = 1;
-
+    int roll = 0;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
-            currentRolls = 2;
+            roll++;
         } else if (c == '/') {
-            score += 10 + currentRolls;
-            currentRolls = 0;
-            frame++;
+            score += 10 + (roll * 10);
+            roll = 0;
         } else {
-            int roll = c - '0';
-            score += roll;
-            currentRolls++;
-            if (currentRolls == 2) {
-                frame++;
+            int temp = c - '0';
+            score += temp;
+            roll++;
+            if (roll < 2) {
+                string nextRolls = s.substr(s.find(c), 2);
+                if (nextRolls[1] == '/') {
+                    score += temp + 10;
+                    break;
+                }
             }
         }
     }
-
     return score;
 }
