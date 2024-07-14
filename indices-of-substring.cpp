@@ -53,8 +53,6 @@ vector<int> indicesOfSubstring(string text, string target) {
 
         while (j > 0) {
             result.push_back(i);
-            if(i <= m-1)
-                break;
             j = lps[j-1];
         }
         i += len; // move to the next character
@@ -80,6 +78,11 @@ int main() {
 
     if(target.empty()) {
         cout << "Target cannot be empty." << endl;
+        return 1; 
+    }
+
+    if (text.empty() || target.empty()) {
+        cout << "Text or target cannot be empty." << endl;
         return 1; 
     }
 
