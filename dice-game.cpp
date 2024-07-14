@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 double diceGame(int n, int m) {
     double total = (n * m);
@@ -10,12 +12,20 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     std::cout << "Enter the number of sides for Peter's die: ";
-    if (!(std::cin >> n)) {
+    std::string strN;
+    std::cin >> strN;
+    try {
+        n = stoi(strN);
+    } catch (const std::invalid_argument& e) {
         std::cerr << "Invalid input for Peter's die.\n";
         return 1;
     }
     std::cout << "Enter the number of sides for Colin's die: ";
-    if (!(std::cin >> m)) {
+    std::string strM;
+    std::cin >> strM;
+    try {
+        m = stoi(strM);
+    } catch (const std::invalid_argument& e) {
         std::cerr << "Invalid input for Colin's die.\n";
         return 1;
     }

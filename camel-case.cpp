@@ -5,25 +5,33 @@
 
 std::string camelCase(const std::string& str) {
     std::string result;
-    bool capitalize = true;
+    bool capitalize = false;
 
     for (char c : str) {
         if (c == '-') {
             result.push_back(' ');
             capitalize = true; 
-        } else if (capitalize) { 
-            result.push_back(toupper(c));
-            capitalize = false; 
         } else {
-            result.push_back(tolower(c)); 
+            if(capitalize) { 
+                result.push_back(toupper(c));
+                capitalize = false; 
+            } else {
+                result.push_back(tolower(c)); 
+            }
         }
     }
 
-    if (!result.empty() && result[0] == ' ') {
-        result.erase(0, 1);
+    if (!result.empty()) {
+        // Correctly use the `substr` method
+        if(result[0] >= 'A' && result[0] <= 'Z') {
+            return result;
+        } else {
+            result[0] = toupper(result[0]);
+            return result;
+        }
     }
 
-    return result;
+    return "";
 }
 
 int main() {
