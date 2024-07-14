@@ -1,18 +1,19 @@
+```
 #include <string>
-using namespace std;
+#include <sstream>
 
-string spinWords(string str) {
-    string result = "";
-    string word = "";
+std::string spinWords(std::string str) {
+    std::stringstream result;
+    std::string word;
 
-    for (char c : std::string(str).c_str()) {
+    for (char c : str) {
         if (c == ' ') {
             if (word.length() >= 5) {
                 for (int i = word.length() - 1; i >= 0; i--) {
-                    result += word[i];
+                    result << word[i];
                 }
             } else {
-                result += word;
+                result << word;
             }
             word = "";
         } else {
@@ -22,11 +23,11 @@ string spinWords(string str) {
 
     if (word.length() >= 5) {
         for (int i = word.length() - 1; i >= 0; i--) {
-            result += word[i];
+            result << word[i];
         }
     } else {
-        result += word;
+        result << word;
     }
 
-    return result;
+    return result.str();
 }
