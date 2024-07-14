@@ -4,3 +4,11 @@ def camel_case(s):
         if " " in s
         else s.replace("-", "").capitalize()
     )
+
+
+while True:
+    try:
+        s = input()
+        print(camel_case(s))
+    except EOFError:
+        break
