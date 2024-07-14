@@ -1,22 +1,30 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-wstring validateTweet(wstring tweet) {
+string validateTweet(string tweet) {
+    int length = 0;
+    for (char c : tweet) {
+        if (c > 0x7F) {
+            length += 2;
+        } else {
+            length++;
+        }
+    }
+    if (length > 140) {
+        return "Too many characters";
+    }
     if (tweet.empty()) {
-        return L"You didn't type anything";
+        return "You didn't type anything";
     }
-    if (tweet.length() >= 140) {
-        return L"Too many characters";
-    }
-    return L"Your tweet has " + to_wstring(tweet.size()) + L" characters";
+    return "Your tweet has " + to_string(length) + " characters";
 }
 
 int main() {
-    wstring tweet;
-    wcout << L"Enter a tweet: ";
-    getline(wcin, tweet);
-    wcout << validateTweet(tweet) << endl;
+    string tweet;
+    cout << "Enter a tweet: ";
+    getline(cin, tweet);
+    cout << validateTweet(tweet) << endl;
     return 0;
+}
