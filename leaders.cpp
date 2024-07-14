@@ -1,5 +1,4 @@
-#include <vector>
-
+```c++
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
@@ -9,3 +8,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
         }
     }
     return res;
+}
