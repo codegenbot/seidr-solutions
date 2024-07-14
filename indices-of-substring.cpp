@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void computeLPSArray(string pat, vector<int>& lps) {
+void computeLPSArray(string pat, vector<int>& lps, int len) {
     int m;
     lps[0] = 0; 
     m = 0; 
@@ -22,12 +22,12 @@ void computeLPSArray(string pat, vector<int>& lps) {
 }
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+    vector<int> result; // Initialize with default constructor
     int n = text.length();
     int m = target.length();
 
-    vector<int> lps; // Longest Proper Prefix which is also a Suffix
-    computeLPSArray(target, lps);
+    vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
+    computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
         int j = 0;
