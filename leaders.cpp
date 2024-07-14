@@ -6,11 +6,12 @@ std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
-    int maxLeft = arr[0];
-    for(int i=0; i<n; i++) {  
-        if(arr[i] >= maxLeft) {
+    int maxRight = arr[n-1];
+    res.push_back(maxRight);
+    for(int i=0; i<n-1; i++) {  
+        if(arr[i] >= maxRight) {
             res.push_back(arr[i]);
-            maxLeft = arr[i];
+            maxRight = arr[i];
         }
     }
     
