@@ -2,13 +2,13 @@
 #include <string>
 #include <map>
 
-int mastermind(const char* code, const char* guess) {
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
     std::map<char, int> codeCount;
 
-    for (char c : std::string(code)) {
+    for (auto c : code) {
         codeCount[c]++;
     }
 
@@ -23,7 +23,7 @@ int mastermind(const char* code, const char* guess) {
         }
     }
 
-    for (char c : std::string(code)) {
+    for (auto c : code) {
         if (codeCount[c] > 0 && c != guess[0] && c != guess[1] && c != guess[2] && c != guess[3]) {
             white++;
             codeCount[c]--;
@@ -37,7 +37,7 @@ int main() {
     std::string code = "abcD";
     std::string guess = "abcd";
 
-    int result = mastermind(code.c_str(), guess.c_str());
+    int result = mastermind(code, guess);
 
     std::cout << "Black pegs: " << (result / 2) << "\n";
     std::cout << "White pegs: " << (result % 2) << "\n";
