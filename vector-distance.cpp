@@ -1,25 +1,9 @@
-#include <vector>
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
 double vectorDistance(int n) {
     double sum = 0;
-    vector<double> v1(n), v2(n);
-    
     for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
-        sum += pow(v2[i] - v1[i], 2);
+        double x1, x2;
+        cin >> x1 >> x2;
+        sum += pow(x2 - x1, 2);
     }
-    
-    return sqrt(sum);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
-    return 0;
+    return sqrt(sum); 
 }
