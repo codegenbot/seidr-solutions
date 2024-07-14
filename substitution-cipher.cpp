@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
     for (int i = 0; i < message.length(); i++) {
@@ -16,12 +17,10 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string cipher_map1, cipher_map2, message;
     std::cout << "Enter the first string: ";
-    cin >> cipher_map1;
+    getline(cin, cipher_map1);
     std::cout << "Enter the second string: ";
-    cin.ignore(); // ignore newline left in input stream
     getline(cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
-    cin.ignore(); // ignore newline left in input stream
     getline(cin, message);
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
