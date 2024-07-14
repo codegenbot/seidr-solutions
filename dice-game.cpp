@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,23 +15,17 @@ int main() {
     int n, m;
     while(true) {
         std::cout << "Enter the number of sides on Peter's die: ";
-        std::string input;
-        std::cin >> input;
-        n = stoi(input);
-        if (input != to_string(n)) {
+        if (!(std::cin >> std::ws).seekg(0, std::ios::beg) >> n) {
             std::cout << "Invalid input. Please enter a number." << std::endl;
             break;
         }
         std::cout << "Enter the number of sides on Colin's die: ";
-        std::cin >> input;
-        m = stoi(input);
-        if (input != to_string(m)) {
+        if (!(std::cin >> std::ws).seekg(0, std::ios::beg) >> m) {
             std::cout << "Invalid input. Please enter a number." << std::endl;
             break;
         }
         double result = probability(n, m);
         std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
-        break;
     }
     return 0;
 }
