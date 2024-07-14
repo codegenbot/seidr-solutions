@@ -2,12 +2,10 @@
 #include <vector>
 #include <string>
 
-using std::cout;
-using std::endl;
-using std::string;
+using namespace std;
 
-std::vector<int> findIndices(string text, string target) {
-    std::vector<int> result;
+vector<int> findIndices(string text, string target) {
+    vector<int> result;
     int i = 0;
     while (i <= text.length() - target.length()) {
         int j = 0;
@@ -38,7 +36,7 @@ int main() {
 
     string text, target;
     cin >> text >> target;
-    std::vector<int> indices = findIndices(text, target);
+    vector<int> indices = findIndices(text, target);
     for (int i : indices)
         cout << i << " ";
     return 0;
