@@ -1,11 +1,12 @@
 #include <vector>
 
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int i : v) {
-        int x = i / 3;
-        x = floor(x);
-        x -= 2;
-        sum += x;
+    for (int num : nums) {
+        int res = (num / 3);
+        if(res<1)res=0;
+        else res--;
+        sum += res;
     }
     return sum;
+}
