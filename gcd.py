@@ -1,8 +1,10 @@
-```
+# Contest Problem: GCD
+# Given two integers, return the largest integer that divides each of the integers evenly.
+
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
-    return abs(a) if a != 1 else 1
+    return abs(a)
 
 a = int(input("Enter first integer: "))
 b = int(input("Enter second integer: "))
