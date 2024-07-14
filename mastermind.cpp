@@ -1,6 +1,3 @@
-#include <string>
-#include <map>
-
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -41,16 +38,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (char c : code) {
-        if (guessCount[c] > 0) {
-            white++;
-            guessCount[c]--;
-        }
-    }
-
     return black + white;
 }
 
-int main() {
-    return mastermind("ABCD", "BCAD");
-}
+int main() { return mastermind("ABCD", "BCDA"); }
