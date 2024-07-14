@@ -1,25 +1,29 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string word;
     
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if(i + 4 >= str.length() || isalpha(str[i+4]) == 0) {
-            result += str.substr(i);
-            break;
+    for (char c : sentence) {
+        if (c == ' ') {
+            result += word + " ";
+            word = "";
         } else {
-            int j = i + 4;
-            while(isalpha(str[j])) j--;
-            string temp = str.substr(i, j - i + 1);
-            reverse(temp.begin(), temp.end());
-            result += temp;
-            i = j + 1;
+            word += c;
         }
+    }
+    
+    result += word;
+    
+    size_t pos = 0;
+    while ((pos = result.find(" ")) != std::string::npos) {
+        size_t endPos = result.find(" ", pos + 1);
+        if (endPos == std::string::npos || strlen(&result[pos]) >= 5) {
+            std::reverse(&result[pos], &result[endPos]);
+        }
+        pos = endPos;
     }
     
     return result;
