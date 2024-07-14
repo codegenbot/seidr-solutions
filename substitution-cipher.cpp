@@ -3,18 +3,20 @@
 #include <string>
 
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
+    cipher1 = tolower(cipher1);
+    cipher2 = tolower(cipher2);
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
-        char c = tolower(message[i]); // Convert to lowercase or uppercase based on your requirement
+        char c = tolower(message[i]); 
         if (c >= 'a' && c <= 'z') {
             int index = c - 'a';
             if (index >= 0 && index < cipher1.length()) {
                 result += cipher2[index];
             } else {
-                result += c; // If the character is not found in the cipher, append it as it is
+                result += c; 
             }
         } else {
-            result += message[i]; // For non-alphabetic characters, just add them to the result
+            result += message[i]; 
         }
     }
     return result;
