@@ -5,8 +5,8 @@ int main() {
     int cents;
     cin >> cents;
 
-    int pennies = cents / 1; 
-    cents %= 1; 
+    int pennies = cents / 1; // always equal to cents
+    cents %= 1; // no effect, since we're not using it
 
     int quarters = cents / 25;
     cents %= 25;

@@ -9,10 +9,9 @@ def bouncing_balls():
 
     for _ in range(num_bounces):
         total_distance += (previous_height - current_height * (1 - bounciness_index))
-        previous_height = current_height
         current_height *= bounciness_index
+        previous_height = current_height
 
     return "{:.6f}\n".format(total_distance)
-
 
 print(bouncing_balls())
