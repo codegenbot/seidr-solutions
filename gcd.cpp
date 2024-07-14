@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <iostream> 
 #include <string>
-#include <initializer_list>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
@@ -17,7 +16,12 @@ int main() {
     std::cout << "Enter the second string: ";
     std::cin >> str2;
 
-    std::vector<int> result; 
+    if (str1.empty() || str2.empty()) {
+        std::cout << "Error: Both strings must be non-empty." << std::endl;
+        return 1;
+    }
+
+    std::vector<std::size_t> result; 
 
     size_t pos = 0;
     while ((pos = str1.find(str2, pos)) != std::string::npos) {
@@ -30,7 +34,7 @@ int main() {
 
     int gcdResult = 1;
     for (int i : result) {
-        gcdResult = std::gcd(gcdResult, i); 
+        gcdResult = std::__gcd(gcdResult, i); 
     }
         
     std::cout << "GCD of indices: " << gcdResult << std::endl; 

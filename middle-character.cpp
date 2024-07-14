@@ -12,9 +12,11 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::string s;
-    // get input from user or use a sample string for testing
-    s = "hello";
-    std::cout << middleCharacter(s) << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::cout << "The middle character is: " << middleCharacter(input) << std::endl;
+
     return 0;
 }
