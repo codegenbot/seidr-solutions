@@ -1,10 +1,9 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = 0;
+    double total = 0.0;
     for (int i = m + 1; i <= n; i++) {
         total += 1.0 / n;
     }
@@ -16,3 +15,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
+}
