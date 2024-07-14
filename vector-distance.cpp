@@ -6,26 +6,21 @@
 using namespace std;
 
 double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
-    double diff = 0;
+    double result = 0;
     int n = max(x1.size(), x2.size());
+    
     for (int i = 0; i < n; i++) {
-        if(i >= x1.size()) {
-            diff += pow(0 - x2[i], 2);
-        } else if(i >= x2.size()) {
-            diff += pow(x1[i], 2);
-        } else {
-            double vec1 = x1[i];
-            double vec2 = x2[i];
-            diff += pow(vec1 - vec2, 2);
-        }
+        float diff = (i >= x1.size() ? 0 : x1[i]) - (i >= x2.size() ? 0 : x2[i]);
+        result += pow(diff, 2);
     }
-    return sqrt(diff);
+    
+    return sqrt(result);
 }
 
 int main() {
-    vector<float> x1({1.0f, 2.0f});
-    vector<float> x2({3.0f, 4.0f});
+    vector<float> x1({30.045858503023396f, 9.379624659900827f, 49.338175658348405f, 52.31539128227732f, -61.22183805383865f, 4.410755481685257f});
+    vector<float> x2({-88.3673180506643f, -63.27785390696465f, 36.616477843590246f, -65.14022857021973f, 82.77332951465317f, 74.10168722657949f});
     double distance = vectorDistance(x1, x2);
-    cout << "Euclidean distance: " << fixed << setprecision(5) << distance << endl;
+    cout << "Euclidean distance: " << fixed << setprecision(10) << distance << endl;
     return 0;
 }
