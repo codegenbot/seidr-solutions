@@ -1,4 +1,7 @@
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+```
+import math
+
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
+
+print(f"GCD: {math.gcd(int(text), int(target))}")
