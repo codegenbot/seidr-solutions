@@ -4,37 +4,32 @@
 
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    if (expression == "T" || expression == "t")
-        return true;
-    else if (expression == "F" || expression == "f")
-        return false;
-    else if (expression.length() > 1) {
-        int i = 0;
-        while (i < expression.length()) {
-            if (expression[i] == '&') {
-                string left = expression.substr(0, i);
-                string right = expression.substr(i + 1);
-                return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
-            } else if (expression[i] == '|') {
-                string left = expression.substr(0, i);
-                string right = expression.substr(i + 1);
-                return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
-            }
-            i++;
+bool solveBoolean(string s) {
+    bool t = true;
+    bool f = false;
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T' || s[i] == 't') {
+            return t;
+        } else if (s[i] == 'F' || s[i] == 'f') {
+            return f;
+        } else if (s[i] == '&') {
+            bool temp = t;
+            t = f;
+            f = temp;
+        } else if (s[i] == '|') {
+            bool temp = t;
+            t = f | t;
+            f = temp;
         }
     }
-    return false;
+    
+    return t;
 }
 
 int main() {
-    string input;
-    cout << "Enter the Boolean expression (T/F/&(|)): ";
-    cin >> input;
-    bool result = evaluateBooleanExpression(input);
-    if (result)
-        cout << "True";
-    else
-        cout << "False";
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
     return 0;
 }
