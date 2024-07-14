@@ -1,13 +1,15 @@
-def solve_boolean(expression):
-    if expression == 'T':
+Here is the Python solution for the problem:
+
+def solve_boolean(bool_expr):
+    if bool_expr == 'T':
         return True
-    elif expression == 'F':
+    elif bool_expr == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid operation")
+    elif '&' in bool_expr:
+        left, right = bool_expr.split('&')
+        return not (bool(left) and bool(right))
+    elif '|' in bool_expr:
+        left, right = bool_expr.split('|')
+        return bool(left) or bool(right)
     else:
-        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
-        for op in operators:
-            if op in expression:
-                left, right = expression.split(op)
-                return operators[op](left == 'T', right == 'T')
+        raise ValueError('Invalid Boolean expression')
