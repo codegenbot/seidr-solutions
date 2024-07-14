@@ -20,7 +20,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         }
 
         if (c == delimiter || c == '\0') {
-            if (!buffer.empty()) {
+            if (c != '\0' && !buffer.empty()) {
                 arr.push_back(buffer);
                 buffer = ""; 
             }
@@ -31,11 +31,13 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     if (!buffer.empty()) {
         arr.push_back(buffer);
     }
-    if (arr.size() > 1 && arr[0].empty()) {
-        for(int j=0; j<arr.size(); j++){
-            arr[j] = arr[j+1];
+    for(int j=arr.size()-1; j>0; j--){
+        if(arr[j].empty()){
+            arr.erase(arr.begin()+j);
+            j--;
+        } else{
+            break;
         }
-        arr.erase(arr.begin()+j);
     }
 
     return arr;
@@ -68,17 +70,7 @@ int main() {
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
 
-    std::vector<std::string> segments = split(input, '-');
-    
-    // Fixing the empty string issue
-    if (segments.size() > 1 && segments[0].empty()) {
-        for(int j=0; j<segments.size(); j++){
-            segments[j] = segments[j+1];
-        }
-        segments.erase(segments.begin()+j);
-    }
-
-    std::cout << "camelCase: " << camelCase(std::string(segments.begin(), segments.end())) << std::endl;
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
 
     return 0;
 }
