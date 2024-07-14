@@ -2,13 +2,8 @@
 #include <string>
 #include <iostream>
 
-void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
-    char c = st.top();
-    st.pop();
-    if (c == 'T') orResult = true; else orResult = false;
-}
-
 bool evaluateTop(std::stack<char> &st) {
+    std::stack<char> resStack; // Declare resStack here
     bool orResult = true;
     bool andResult = false;
 
@@ -17,12 +12,12 @@ bool evaluateTop(std::stack<char> &st) {
         st.pop();
 
         if (c == '(') {
-            // push '(' to stack
-            st.push(c);
+            // push '(' to resStack
+            resStack.push(c);
         } else if (c == ')') {
-            // pop ')' and '(' from stack until '(' is found
-            while (st.top() != '(') {
-                processOperand(st, orResult, andResult);
+            // pop ')' and '(' from resStack until '(' is found
+            while (!resStack.empty() && resStack.top() != '(') {
+                processOperand(resStack, orResult, andResult);
 
                 if (!orResult && c == '|') {
                     orResult = true;
@@ -31,10 +26,10 @@ bool evaluateTop(std::stack<char> &st) {
                     andResult = false;
                 }
 
-                st.pop();
+                resStack.pop();
             }
-            // pop '(' from stack
-            st.pop();
+            // pop '(' from resStack
+            resStack.pop();
 
         } else if (c == 'T' || c == 'F') {
             processOperand(st, orResult, andResult);
@@ -67,4 +62,11 @@ bool evaluateTop(std::stack<char> &st) {
         }
     }
     return orResult;
+}
+
+void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
+    char c = st.top();
+    st.pop();
+    if (c == 'T') orResult = true; else orResult = false;
+
 }
