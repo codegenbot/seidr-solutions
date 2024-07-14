@@ -27,7 +27,9 @@ while True:
         melting_rate = float(input("Enter melting rate per hour: "))
 
         if initial_snow < 0 or rate_of_snowfall < 0 or melting_rate < 0:
-            print("Please enter a non-negative value for the amount of snow, rate of snowfall and melting rate.")
+            print(
+                "Please enter a non-negative value for the amount of snow, rate of snowfall and melting rate."
+            )
         else:
             break
     except ValueError:
