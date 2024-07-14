@@ -1,6 +1,13 @@
 ```c++
 #include <cstring>
-#include <iostream>
+#include <cstdio>
+
+int main() {
+    const char* s = "123211";
+    int result = pairedDigits(s);
+    printf("%d\n", result);
+    return 0;
+}
 
 int pairedDigits(const char* s) {
     int sum = 0;
@@ -10,11 +17,4 @@ int pairedDigits(const char* s) {
         }
     }
     return sum;
-}
-
-int main() {
-    const char* s = "123333"; 
-    int result = pairedDigits(s);
-    std::cout << result << std::endl; 
-    return 0;
 }
