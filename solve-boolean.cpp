@@ -1,26 +1,25 @@
-string solveBoolean(string expression) {
-    stack<char> s;
-    string result = "True";
-    
-    for(int i=expression.length()-1; i>=0; i--) {
-        if(expression[i] == '|') {
-            if(s.top() == '&') {
-                s.pop();
-                result = (result == "True") ? "True" : "False";
-            }
-        } else if(expression[i] == '&') {
-            if(result == "False")
-                return "False";
-        } else if(expression[i] != 'T' && expression[i] != 'F') {
-            s.push(expression[i]);
-        } else {
-            result = expression[i];
+Here is the solution:
+
+string solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            char c1 = st.top();
+            st.pop();
+            char c2 = s[i+1];
+            s.erase(i,2);
+            i--;
+            st.push((c1 == 'T' && c2 == 'T') ? 'T' : 'F');
+        } else if (s[i] == '|') {
+            char c1 = st.top();
+            st.pop();
+            char c2 = s[i+1];
+            s.erase(i,2);
+            i--;
+            st.push((c1 == 'T' || c2 == 'T') ? 'T' : 'F');
+        } else if (s[i] != '&' && s[i] != '|') {
+            st.push(s[i]);
         }
     }
-    
-    while(!s.empty()) {
-        s.pop();
-    }
-    
-    return result;
+    return st.top() == 'T'? "True": "False";
 }
