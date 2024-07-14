@@ -1,8 +1,13 @@
-def substitution_cipher():
-    cipher = [line.strip() for line in sys.stdin.readlines()]
-    if len(cipher) != 3:
-        return None
+def substitution_cipher(cipher, message):
+    deciphered = ""
+    for char in message:
+        if char.isalpha():
+            index = ord(char.upper()) - 65
+            deciphered += chr((ord(cipher[index].upper()) - 65) % 26 + 97)
+        else:
+            deciphered += char
+    return deciphered
 
-    deciphered_message = "".join([c for c in cipher[2] if c in cipher[0]])
 
-    return deciphered_message
+cipher1, cipher2, message = input().split()
+print(substitution_cipher(cipher1, message))
