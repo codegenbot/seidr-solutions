@@ -3,12 +3,12 @@
 #include <iostream>
 
 int main() {
-    std::string expression;
+    std::string expression("");
     char c;
-
     while ((c = std::getchar()) != '\n' && c != EOF) {
-        expression.push_back(c); 
+        expression += c;
     }
+    expression.pop_back();  // remove the newline character
 
     bool result = false;
 
