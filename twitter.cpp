@@ -1,7 +1,10 @@
 #include <string>
 
 std::string validateTweet(std::string tweet) {
-    auto length = tweet.length();
+    auto length = 0u;
+    for (char c : tweet) {
+        length++;
+    }
     if (length > 140) {
         return "Too many characters";
     }
