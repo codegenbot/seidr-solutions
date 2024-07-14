@@ -7,12 +7,10 @@ double probability(int n, int m) {
     double p = 0;
     
     for (int i = 1; i < n; i++) { 
-        p += ((double)(n - i)) / total;
+        p += (double)(m + 1) / total;
     }
     
-    for (int j = m; j <= n; j++) {
-        p += 1.0 / total;
-    }
+    p = 1 - (double)(m) / total;
     
     return p;
 }
