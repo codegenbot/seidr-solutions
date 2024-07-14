@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+using namespace std;
+
 int main() {
     double startHeight;
     
@@ -17,7 +19,7 @@ int main() {
         totalDistance += startHeight; 
     }
 
-    cout << "The total distance the ball travels is: " << totalDistance << endl;
+    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
     
     return 0;
 }
