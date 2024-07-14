@@ -9,4 +9,3 @@ def shopping_list():
     )
 
     return "{:.2f}".format(total_price)
-print(shopping_list())
