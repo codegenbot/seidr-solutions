@@ -1,9 +1,7 @@
-```
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)] 
-    card_number = list(reversed(card_number))  
+    card_number = [int(x) for x in str(card_number)]
     result = 0
-    for i, num in enumerate(card_number):
+    for i, num in enumerate(reversed(card_number)):
         if (i % 2 == 1): 
             doubled_num = num * 2
             if doubled_num > 9: 
@@ -12,5 +10,4 @@ def luhn(card_number):
                 result += doubled_num
         else:
             result += num
-    return str(result)[-1]  
-print(luhn(1182221412844))
+    return sum(reversed([str(int(i)) for i in str(result)]))
