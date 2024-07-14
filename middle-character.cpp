@@ -5,11 +5,10 @@ std::string middleCharacter(std::string s) {
     int len = s.length();
     int middleIndex = len / 2;
     
-    if (len % 2 != 0) {
+    if (len % 2 == 0) {
+        return s.substr(middleIndex - 1, 2);
+    } else {
         return s.substr(middleIndex, 1);
-    }
-    else {
-        return s.substr(middleIndex, 1) + s.substr(middleIndex + 1, 1);
     }
 }
 
