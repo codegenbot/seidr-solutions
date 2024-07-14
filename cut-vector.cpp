@@ -1,4 +1,8 @@
 ```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> res;
     int n = v.size();
@@ -7,6 +11,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             break;
         }
     }
+    res.first = vector<int>(vector<int>().begin(), vector<int>().end());
+    res.second = vector<int>(vector<int>().begin(), vector<int>().end());
     for (int j = 0; j < i; j++) {
         res.first.push_back(v[j]);
     }
