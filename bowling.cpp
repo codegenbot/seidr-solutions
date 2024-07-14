@@ -1,49 +1,26 @@
-Here is the solution:
-
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int currentFrame = 1;
-    int rollsRemainingInFrame = 2;
+    bool lastRollInFrame = false;
+    int frame = 0;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '/') {
-            score += getBowledPins(s, i);
-            currentFrame++;
-            rollsRemainingInFrame = 2;
-            i++;
-        } else if (isdigit(s[i])) {
-            int pins = 0;
-            while (i < s.size() && isdigit(s[i])) {
-                pins = pins * 10 + s[i] - '0';
-                i++;
-            }
-            if (rollsRemainingInFrame == 1) {
-                score += getBowledPins(s, i);
+    for (char c : input) {
+        if (c == 'X') {
+            score += 10 + (lastRollInFrame ? 10 : 0);
+            lastRollInFrame = true;
+        } else if (c == '/') {
+            int firstRoll = (input[frame*2] - '0') * 10 + (input[frame*2+1] - '0');
+            score += firstRoll;
+            lastRollInFrame = true;
+        } else {
+            int roll = (c - '0') * 10 + (input[2*frame+1] - '0');
+            if (lastRollInFrame) {
+                score += roll;
             } else {
-                rollsRemainingInFrame--;
-                if (pins >= 10) {
-                    rollsRemainingInFrame--;
-                }
+                score += min(roll, 10);
+                frame++;
             }
         }
     }
 
     return score;
-}
-
-int getBowledPins(string s, int index) {
-    int pins = 0;
-    while (index < s.size() && s[index] == 'X') {
-        pins += 10;
-        index++;
-    }
-    while (index < s.size()) {
-        if (s[index] != '/') {
-            pins += s[index] - '0';
-            index++;
-        } else {
-            break;
-        }
-    }
-    return pins;
 }
