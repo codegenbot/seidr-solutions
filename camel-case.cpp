@@ -1,17 +1,13 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string toCamelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
     
     for (char c : s) {
         if (c == '-') {
             capitalizeNext = true;
-        } else if (c == ' ') {
-            continue;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
@@ -27,6 +23,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << "CamelCase conversion: " << camelCase(input) << std::endl;
+    std::cout << toCamelCase(input) << std::endl;
     return 0;
 }
