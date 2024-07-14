@@ -1,25 +1,17 @@
-#include <string>
-
+```
 bool solveBoolean(std::string s) {
-    std::queue<bool> queue;
-    int parentheses = 0; 
-    for (char c : s) {
-        if (c == '(') {
-            queue.push(false);
-            parentheses++;
+    bool result = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'F') {
+            result = false;
+            break;
         }
-        else if (c == ')') {
-            while(parentheses > 0) {
-                bool top = queue.front();
-                queue.pop();
-                if (c == ')') queue.push(top);
-                else queue.push(!top);
-                parentheses--;
-            }
+        else if (s[i] == '|') {
+            result = !result;
         }
-        else if (c == '|') queue.push(queue.front() || queue.front());
-        else if (c == '&') queue.push(queue.front() && queue.front());
-        else if (c == 'T' || c == 'F') queue.push(c == 'T');
+        else if (s[i] == '&') {
+            if (!result) return false;
+        }
     }
-    return queue.front();
+    return result;
 }
