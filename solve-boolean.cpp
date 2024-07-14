@@ -12,6 +12,7 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         }
         else if (s[i] == '&') {
+            i++; // increment 'i' to skip '&' and move to the next character
             while(i+1<s.length() && s[i+1] == '&') i++;
             if (!result) return false;
         }
@@ -20,10 +21,13 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::string input;
+    char input[100]; 
     std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::getline(std::cin, input);
-    bool result = solveBoolean(input); 
+    std::cin.get(input, 100); 
+    input[std::cin.getline(input, 100)-1] = '\0'; 
+
+    std::string strinput(input);
+    bool result = solveBoolean(strinput);
     std::cout << "Result: " << (result ? "True" : "False") << std::endl;
     return 0;
 }
