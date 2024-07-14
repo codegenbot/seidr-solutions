@@ -1,3 +1,4 @@
+```cpp
 bool solveBoolean(std::string s) {
     std::queue<bool> queue;
     int parentheses = 0; 
