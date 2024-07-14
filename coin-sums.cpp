@@ -9,13 +9,13 @@ int main() {
     int remaining = cents % 25;
     int dimes = remaining / 10;
     remaining %= 10;
-    int nickels = remaining / 5;
+    int nickles = remaining / 5;
     remaining %= 5;
     int pennies = remaining;
 
     cout << quarters << endl;
     cout << dimes << endl;
-    cout << nickels << endl;
+    cout << nickles << endl;
     cout << pennies << endl;
 
     return 0;
