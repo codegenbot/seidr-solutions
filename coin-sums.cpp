@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 
@@ -9,19 +8,20 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    while (cents >= 25) {
+    int remainingCents = cents;
+
+    while (remainingCents >= 25) {
         ++coinCounts[0]; // update quarters count
-        cents -= 25;
+        remainingCents -= 25;
     }
 
-    int remainingCents = cents; 
     while (remainingCents >= 10) {
         ++coinCounts[1]; // update dimes count
         remainingCents -= 10;
     }
 
     while (remainingCents >= 5) {
-        ++coinCounts[2]; // update nickles count
+        ++coinCounts[2]; // update nickels count
         remainingCents -= 5;
     }
 
