@@ -1,41 +1,41 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
-    int minDiff = INT_MAX;
-    int idx = -1;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> leftSum(n), rightSum(n);
+    for (int i = 0; i < n; i++) {
+        if (i == 0)
+            leftSum[i] = nums[i];
+        else
+            leftSum[i] = leftSum[i-1] + nums[i];
 
-    for (int i = 0; i < nums.size(); ++i) {
-        if (nums[i] == 0 || i == nums.size() - 1) continue;
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; ++j) leftSum += nums[j];
-        for (int j = i + 1; j < nums.size(); ++j) rightSum += nums[j];
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            idx = i;
+        if (i == n - 1)
+            rightSum[i] = nums[i];
+        else
+            rightSum[i] = rightSum[i+1] + nums[i];
+    }
+
+    int minDiff = INT_MAX, cutIndex;
+    for (int i = 0; i < n; i++) {
+        if (i == 0)
+            continue;
+
+        int leftVal = leftSum[i-1], rightVal = rightSum[n-i-1];
+        int diff = abs(leftVal - rightVal);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
 
-    std::vector<int> left, right;
-    for (int i = 0; i <= idx; ++i) left.push_back(nums[i]);
-    for (int i = idx + 1; i < nums.size(); ++i) right.push_back(nums[i]);
+    vector<vector<int>> result(2);
+    for (int i = 0; i < cutIndex; i++) {
+        result[0].push_back(nums[i]);
+    }
+    for (int i = cutIndex; i < n; i++) {
+        result[1].push_back(nums[i]);
+    }
 
-    return {left, right};
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (auto& num : nums) std::cin >> num;
-
-    auto res = cutVector(nums);
-
-    std::cout << "Left: ";
-    for (const auto& num : res.first) std::cout << num << " ";
-    std::cout << "\nRight: ";
-    for (const auto& num : res.second) std::cout << num << " ";
-    std::cout << "\n";
-
-    return 0;
+    return result;
 }
