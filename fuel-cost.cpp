@@ -1,10 +1,10 @@
 #include <vector>
+#include <cmath>
 
-int fuelCost(std::vector<int> v) {
+int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int x = i / 3;
-        x = static_cast<int>(floor(x));
+        int x = std::floor(double(i) / 3);
         x -= 2;
         sum += x;
     }
