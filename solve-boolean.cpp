@@ -4,9 +4,10 @@ bool solveBoolean(std::string s) {
         if (c == 'T') continue;
         if (c == 'F') return false;
         else if (c == '&') {
-            res &= true;
+            res &= false; // Changed to false
         } else if (c == '|') {
-            res |= true;
+            res |= false; // Changed to false
         }
     }
     return res;
+}
