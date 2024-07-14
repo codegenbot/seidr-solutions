@@ -1,4 +1,3 @@
-```python
 def validate_tweet():
     tweet = input("Enter your tweet: ")
     if len(tweet) > 140:
@@ -8,4 +7,4 @@ def validate_tweet():
     else:
         return f"Your tweet has {len(tweet)} characters"
 
-print(validate_tweet())
+return validate_tweet()
