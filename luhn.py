@@ -5,8 +5,9 @@ def luhn(card_number):
         if (i % 2 == 0): 
             total += digit  
         else:
-            digit *= 2  
-            if digit > 9:
-                digit -= 9
-            total += digit
+            temp = digit * 2
+            if temp > 9:
+                total += temp - 9
+            else:
+                total += temp
     return total
