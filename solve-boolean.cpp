@@ -1,16 +1,21 @@
 ```cpp
 #include <string>
 #include <iostream>
+#include <stack>
+#include <sstream>
 
 int main() {
     std::stack<char> st;
     bool result = false;
 
+    std::stringstream expression;
     std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::string expression;
-    std::getline(std::cin, expression);
+    char c;
+    while ((c = getchar()) != '\n') {
+        expression << c;
+    }
 
-    for (char c : expression) {
+    for (char c : expression.str()) {
         st.push(c);
     }
 
