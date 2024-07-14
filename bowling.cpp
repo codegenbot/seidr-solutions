@@ -8,24 +8,14 @@ int bowlingScore(string bowls) {
         } else if (isdigit(bowls[i])) {
             int currentFrameScore = 0;
             int j = i;
-            while (j < i + 2 && j < bowls.length()) {
+            while (j < bowls.length() && (isdigit(bowls[j]) || bowls[j] == '/')) {
                 if (isdigit(bowls[j])) {
-                    currentFrameScore = currentFrameScore * 10 + (bowls[j] - '0');
-                    j++;
-                } else if (bowls[j] == '/') {
-                    int nextRoll = 10 - (currentFrameScore % 10);
-                    score += currentFrameScore;
-                    if (nextRoll > 0) {
-                        while (j < bowls.length() && !isdigit(bowls[j])) {
-                            j++;
-                        }
-                        currentFrameScore += nextRoll * 10;
-                    }
-                    break;
-                } else {
                     currentFrameScore += (bowls[j] - '0');
-                    j++;
+                } else if (bowls[j] == '/') {
+                    currentFrameScore += 10 - currentFrameScore;
+                    break;
                 }
+                j++;
             }
             score += currentFrameScore;
         }
