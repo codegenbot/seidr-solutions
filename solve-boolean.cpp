@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 bool solveBoolean(string expression) {
     stack<char> opStack;
     stack<string> valStack;
