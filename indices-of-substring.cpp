@@ -2,6 +2,9 @@
 #include <vector>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    if (target.length() == 0) {
+        return {};
+    }
     std::vector<int> result;
     int n = text.length();
     int m = target.length();
@@ -17,7 +20,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
         lpIndex++;
     }
-    for (int lpIndex = 1; lpIndex < m; lpIndex++) {
+    for (; lpIndex < m; lpIndex++) {
         if (target[lpIndex] == target[lps[lpIndex - 1]]) {
             lps[lpIndex] = lps[lpIndex - 1] + 1;
         } else {
