@@ -1,10 +1,9 @@
-int findFirstNegativeIndex(vector<int> vec) {
+int basement(const vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
-        if (sum < 0) {
+    for (int i = 0; i < arr.size(); ++i) {
+        sum += arr[i];
+        if (sum < 0)
             return i;
-        }
     }
-    return -1; // or any other value to indicate that no such index exists
+    return -1; // not found
 }
