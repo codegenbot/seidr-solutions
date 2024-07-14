@@ -1,28 +1,24 @@
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    for i in range(10):
-        if "/" in frames[i * 2 : i * 2 + 2]:
-            strike = False
-            spare = False
-            first_roll = int(frames[i * 2])
-            second_roll = int(frames[i * 2 + 1].split("/")[0])
-            third_roll = 10 - (first_roll + second_roll)
-            if first_roll == 10:
-                strike = True
-            elif first_roll + second_roll < 10:
-                spare = True
-        else:
-            strike = False
-            spare = False
-            first_roll = int(frames[i * 2])
-            second_roll = int(frames[i * 2 + 1].split("/")[0])
-            third_roll = int(frames[i * 2 + 1].split("/")[1])
-            if first_roll == 10:
-                strike = True
-        if strike:
-            score += 10 + first_roll + second_roll
-        elif spare:
-            score += 10 + first_roll
-        else:
-            score += first_roll + second_roll
-    return score
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i].isdigit() and s[i + 1].isdigit():
+            if int(s[i]) == 10:
+                score += 10 + (10 if i < 18 else 0)
+                frame += 1
+            elif sum(map(int, s[i : i + 2])) < 10:
+                score += sum(map(int, s[i : i + 2]))
+                frame += 1
+            else:
+                score += sum(map(int, s[i : i + 2])) + bowling_score(s[i + 2 :]).get(
+                    "bonus", 0
+                )
+                frame = min(frame + 1, 11)
+        elif s[i].isdigit():
+            if int(s[i]) == 10:
+                score += 10
+                frame += 1
+            else:
+                score += int(s[i])
+                frame += 1
+    return {"score": score, "bonus": (10 - score) if score < 10 else None}
