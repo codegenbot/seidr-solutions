@@ -1,29 +1,32 @@
-string solveBoolean(string s) {
-    stack<char> op;
-    string res = "T";
-    
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == '&') {
-            while(op.size() && op.top() == '|') {
-                op.pop();
-                res = (res == "F") ? "F" : "T";
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            char leftOp = s.top();
+            s.pop();
+            char rightOp = s.top();
+            s.pop();
+            if ((leftOp == 'T' && rightOp == 'T') || (leftOp == 'F' && rightOp == 'F')) {
+                s.push('T');
+            } else {
+                s.push('F');
             }
-            op.push('&');
-        } else if(s[i] == '|') {
-            while(op.size()) {
-                op.pop();
-                res = (res == "F") ? "F" : "T";
+        } else if (expression[i] == '&') {
+            char leftOp = s.top();
+            s.pop();
+            char rightOp = s.top();
+            s.pop();
+            if ((leftOp == 'T' && rightOp == 'T') || (leftOp == 'F' && rightOp == 'F')) {
+                s.push('T');
+            } else {
+                s.push('F');
             }
-            op.push('|');
-        } else if(s[i] == 'f' || s[i] == 't') {
-            while(op.size() && op.top() != '&') {
-                op.pop();
-                res = (res == "F") ? "F" : "T";
-            }
-            if(res == "T" && s[i] == 'f') res = "F";
-            else if(res == "F" && s[i] == 't') res = "F";
+        } else {
+            s.push(expression[i]);
         }
     }
-    
-    return res;
+    return (s.top() == 'T');
 }
