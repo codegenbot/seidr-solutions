@@ -1,25 +1,26 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    if(s == "T") return true;
-    if(s == "F") return false;
-    
-    bool a = (s[0] == 'T'), b;
-    int i = 1;
-    while(i < s.size() && s[i] != '&') i++;
-    b = (i == s.size());
-    
-    if(s[0] == 'f' || s[0] == 'F') a = false;
-    if(b) return a;
-    
-    if(s[0] == '|') {
-        while(i < s.size() && s[i] != '|') i++;
-        b = (i == s.size());
-    } else {
-        while(i < s.size() && s[i] != '&') i++;
-        b = (i == s.size());
+bool evaluateBoolean(const std::string& input) {
+    bool result = true;
+    for (char c : input) {
+        if (c == '&') {
+            result &= false;
+        } else if (c == '|') {
+            result |= true;
+        } else if (c == 'f' || c == 'F') {
+            result = false;
+        } else if (c == 't' || c == 'T') {
+            result = true;
+        }
     }
-    
-    return a || b;
+    return result;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << (evaluateBoolean(input) ? "True" : "False") << std::endl;
+    return 0;
 }
