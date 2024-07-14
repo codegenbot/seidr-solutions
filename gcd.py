@@ -1,6 +1,14 @@
+```
 import math
 
-def indices(text, target):
+
+def gcd(first_number, second_number):
+    while second_number:
+        first_number, second_number = second_number, first_number % second_number
+    return abs(first_number)
+
+
+def find_indices(text, target):
     indices = []
     i = 0
     while i < len(text):
@@ -9,15 +17,19 @@ def indices(text, target):
             break
         indices.append(j + 1)
         i = j + 1
-    print(f"Indices: {indices}")
+    return f"Indices: {indices}"
 
-def gcd():
-    first_number = int(input('Enter the first number: '))
-    second_number = int(input('Enter the second number: '))
-    print(f"GCD: {math.gcd(first_number, second_number)}")
 
-if __name__ == "__main__":
+def main():
     text = input("Enter the text: ")
     target = input("Enter the target string: ")
-    indices(text, target)
-    gcd()
+    print("Please enter the two numbers separated by a space or newline: ")
+    input_str = input()
+    nums = [int(num) for num in input_str.split()]
+    first_number, second_number = nums
+    print(find_indices(text, target))
+    print(f"GCD: {gcd(first_number, second_number)}")
+
+
+if __name__ == "__main__":
+    main()

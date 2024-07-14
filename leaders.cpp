@@ -1,18 +1,11 @@
-```cpp
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
 
     for(int i=n-1; i>=0; i--) {  
-        bool isLeader = true;
-        for(int j=i-1; j>=0; j--) {  
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
+        if(res.empty() || arr[i] >= res.back()) {
+            res.push_back(arr[i]);
         }
-        
-        if(isLeader) res.push_back(arr[i]);
     }
     
     return res;

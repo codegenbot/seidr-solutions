@@ -1,15 +1,18 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
-int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
+std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len % 2 == 0) {
-        std::cout << "Middle characters are: " << s.substr(len/2 - 1, 2) << std::endl;
+        return s.substr(len/2 - 1, 2);
     } else {
-        std::cout << "Middle character is: " << s.substr(len/2, 1) << std::endl;
+        return s.substr(len/2, 1);
     }
-    return 0;
 }
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
+    return 0;
