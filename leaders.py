@@ -6,3 +6,6 @@ def leaders(arr):
             leader = arr[i]
             leaders_list.insert(0, leader)
     return leaders_list
+
+arr = list(map(int, input("Enter the array of positive integers (space-separated): ").split()))
+print(leaders(arr))
