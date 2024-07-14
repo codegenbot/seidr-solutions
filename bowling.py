@@ -1,19 +1,28 @@
 ```
-import re
-
 def bowling_score(bowling_game):
     score = 0
-    game = [int(x) for x in re.sub('[/-X]', '', bowling_game)]
-    for i in range(10):
-        if len(game) > i:
-            if game[i] == 10:
-                score += 10 + (sum(game[i+1:i+3]) if i < 8 else 0)
-            elif sum(game[i:i+2]) >= 10:
+    game = [int(x) for x in ''.join(filter(str.isdigit, bowling_game))]
+    frame = 1
+    while frame <= 10:
+        if len(game) > frame*2 - 1:
+            if game[frame*2-1] == 10:
+                score += 10 + sum(game[frame*2:frame*2+2])
+                frame += 1
+            elif game[frame*2-1]+game[frame*2] >= 10:
                 score += 10
-                game = game[:i] + [x-10 for x in game[i:]]
+                game = game[:frame*2] + [x-10 for x in game[frame*2:]]
+                if len(game) > frame*2 - 1 and game[-1] == 10:
+                    score += 10
+                frame += 1
             else:
-                score += game[i]
+                score += sum(game[frame*2:frame*2+2])
+                frame += 2
+        else:
+            score += sum(game[:frame*2])
+            break
+
     return score
+
 
 if __name__ == "__main__":
     print(bowling_score("7-3-5-X--4-8/6-7-2-0-X"))
