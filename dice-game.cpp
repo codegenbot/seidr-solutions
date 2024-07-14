@@ -6,8 +6,8 @@ double diceGame(int n, int m) {
     
     double win = 0.0;
     
-    for(int i = 1; i <= std::min(n - 1, m); i++) { 
-        win += (1.0 * (n - i)) / total; 
+    for(int i = m + 1; i <= n; i++) { 
+        win += (1.0 * (n - i + 1)) / total; 
     }
     
     return win;
