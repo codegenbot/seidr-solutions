@@ -1,21 +1,16 @@
-```
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
-
 def find_indices(text, target):
-    indices = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
+    result = []
+    i = 0
+    while i < len(text):
+        pos = text.find(target)
         if pos != -1:
-            indices.append(pos)
-            start = pos + 1
+            result.append(pos)
+            i += len(target)
         else:
             break
-    return indices
+    print(f"Indices: {result}")
+    return result
 
 text = input("Enter the text: ")
 target = input("Enter the target string: ")
-print(find_indices(text, target))
+find_indices(text, target)
