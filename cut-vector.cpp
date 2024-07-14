@@ -1,52 +1,48 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> &nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int min_diff = INT_MAX;
-    int index = -1;
+    pair<vector<int>, vector<int>> result;
     
-    for (int i = 0; i < nums.size() - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
+    for (int i = 1; i < vec.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            left_sum += vec[j];
+        }
+        
+        for (int j = i; j < vec.size(); j++) {
+            right_sum += vec[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
         
         if (diff <= min_diff) {
             min_diff = diff;
-            index = i;
+            result.first = vector<int>(vec.begin(), vec.begin() + i);
+            result.second = vector<int>(vec.begin() + i, vec.end());
         }
     }
-
-    return {{nums.begin(), nums.begin() + index + 1}, {nums.begin() + index + 1, nums.end()}};
+    
+    return result;
 }
 
 int main() {
-    vector<int> nums;
     int n;
     cin >> n;
-    
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
+        cin >> vec[i];
     }
-    
-    vector<vector<int>> result = cutVector(nums);
-    
-    cout << "[";
-    for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i];
-        if (i != result[0].size() - 1) {
-            cout << " ";
-        }
+    pair<vector<int>, vector<int>> res = cutVector(vec);
+    cout << "First subvector: ";
+    for (auto x : res.first) {
+        cout << x << " ";
     }
-    cout << "]" << endl;
-    
-    cout << "[";
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i];
-        if (i != result[1].size() - 1) {
-            cout << " ";
-        }
+    cout << "\nSecond subvector: ";
+    for (auto x : res.second) {
+        cout << x << " ";
     }
-    cout << "]" << endl;
-    
     return 0;
 }
