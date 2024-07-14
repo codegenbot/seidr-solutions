@@ -1,13 +1,14 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 float snowDay(int hours, float snowOnGround, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        snowOnGround += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGround;
-        snowOnGround = max<float>(0.0, snowOnGround);
+        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGround;
+        snowOnGround = std::max(0.0f, snowOnGround);
     }
     
     return totalSnow;
