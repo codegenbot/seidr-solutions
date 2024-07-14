@@ -7,7 +7,7 @@ def cut_vector(vector):
         
         if left_sum == right_sum:
             return tuple(vector[:i+1]), tuple(vector[i:])
-        elif left_sum != right_sum:
+        elif abs(left_sum - right_sum) < min_diff:
             min_diff = abs(left_sum - right_sum)
             cut_index = i
             
