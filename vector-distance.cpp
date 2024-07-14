@@ -15,6 +15,6 @@ double vectorDistance() {
 }
 
 int main() {
-    cout << vectorDistance();
+    cout << vectorDistance() << endl;
     return 0;
 }
