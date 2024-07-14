@@ -1,4 +1,4 @@
-```c++
+```cpp
 int main() {
     int hours;
     float initialSnow;
