@@ -1,11 +1,10 @@
+```
 def leaders(arr):
-    leader = arr[-1]
-    leaders_list = [leader]
+    leaders_list = []
+    max_right = arr[-1]
+    leaders_list.append(max_right)
     for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= leader:
-            leader = arr[i]
-            leaders_list.insert(0, leader)
+        if arr[i] >= max_right:
+            leaders_list.insert(0, arr[i])
+            max_right = arr[i]
     return leaders_list
-
-arr = list(map(int, input("Enter the array of positive integers (space-separated): ").split()))
-print(leaders(arr))
