@@ -1,4 +1,7 @@
+```cpp
 #include <vector>
+#include <initializer_list>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -19,4 +22,11 @@ vector<int> leaders(vector<int>& arr) {
     return res;
 }
 
-int main() { return 0; }
+int main() {
+    vector<int> arr = {1, 3, 4, 2};
+    vector<int> result = leaders(arr);
+    for(int x : result) {
+        cout << x << " ";
+    }
+    return 0;
+}
