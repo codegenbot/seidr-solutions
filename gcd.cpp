@@ -9,23 +9,17 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text, target;
-    cin >> text >> target;
+    vector<int> result;
     
-    vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target)) != string::npos) {
-        indices.push_back(pos);
-        text.erase(0, pos + target.length());
-    }
+    // ...
     
-    if (!indices.empty()) {
-        int gcdResult = indices[0];
-        for (size_t i = 1; i < indices.size(); ++i) {
-            gcdResult = gcd(gcdResult, indices[i]);
+    if (!result.empty()) {
+        int start = min(result);
+        for (size_t i = 1; i < result.size(); ++i) {
+            start = gcd(start, result[i] - start);
         }
         
-        cout << "GCD of indices: " << gcdResult << endl;
+        cout << "GCD of indices: " << start + 1 << endl;
     }
 
     return 0;
