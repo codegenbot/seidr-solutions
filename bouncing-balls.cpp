@@ -18,3 +18,4 @@ int main() {
     cout << totalDistance << endl;
 
     return 0;
+}
