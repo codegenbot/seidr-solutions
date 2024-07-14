@@ -77,8 +77,8 @@ int main() {
     cout << "Enter the target substring: ";
     getline(cin, target);
 
-    if(target.empty()) {
-        cout << "Target cannot be empty." << endl;
+    if(target.empty() || target.length() > text.length()) {
+        cout << "Target cannot be empty and must not exceed the length of the text." << endl;
         return 1; 
     }
 
