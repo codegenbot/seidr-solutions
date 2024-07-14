@@ -1,3 +1,5 @@
+#include <iostream>
+
 int mastermind(const char* code, const char* guess) {
     int white = 0;
     int black = 0;
@@ -6,11 +8,13 @@ int mastermind(const char* code, const char* guess) {
         bool foundInCode = false;
         int correctIndex = -1; 
 
-        for (int j = 0; j < 4; i++) { 
+        for (int j = 0; j < 4; ) {
             if (code[j] == guess[i]) {
                 foundInCode = true;
                 correctIndex = j;
+                break;
             }
+            j++;
         }
 
         if (!foundInCode) continue; 
@@ -22,5 +26,13 @@ int mastermind(const char* code, const char* guess) {
         }
     }
 
-    return black;
+    return black + white;
+}
+
+int main() {
+    const char* code = "XXXX";  // Initialize with some value
+    const char* guess = "XXXX";  // Initialize with some value
+    int result = mastermind(code, guess);
+    std::cout << "Number of white pegs: " << (result - black) << ", Number of black pegs: " << black << std::endl;
+    return 0;
 }
