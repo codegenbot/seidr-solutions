@@ -1,48 +1,41 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-    
-    for (int i = 1; i < vec.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            left_sum += vec[j];
-        }
-        
-        for (int j = i; j < vec.size(); j++) {
-            right_sum += vec[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff <= min_diff) {
-            min_diff = diff;
-            result.first = vector<int>(vec.begin(), vec.begin() + i);
-            result.second = vector<int>(vec.begin() + i, vec.end());
-        }
-    }
-    
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> leftSum(n), rightSum(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        if (i == 0)
+            leftSum[i] = nums[i];
+        else
+            leftSum[i] = leftSum[i-1] + nums[i];
+
+        if (i == n - 1)
+            rightSum[i] = nums[i];
+        else
+            rightSum[i] = rightSum[i+1] + nums[i];
     }
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    cout << "First subvector: ";
-    for (auto x : res.first) {
-        cout << x << " ";
+
+    int minDiff = INT_MAX, cutIndex;
+    for (int i = 0; i < n; i++) {
+        if (i == 0)
+            continue;
+
+        int leftVal = leftSum[i-1], rightVal = rightSum[n-i-1];
+        int diff = abs(leftVal - rightVal);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
-    cout << "\nSecond subvector: ";
-    for (auto x : res.second) {
-        cout << x << " ";
+
+    vector<vector<int>> result(2);
+    for (int i = 0; i < cutIndex; i++) {
+        result[0].push_back(nums[i]);
     }
-    return 0;
+    for (int i = cutIndex; i < n; i++) {
+        result[1].push_back(nums[i]);
+    }
+
+    return result;
 }
