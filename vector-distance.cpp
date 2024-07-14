@@ -3,18 +3,13 @@
 
 using namespace std;
 
-double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
-    if (v1.size() != v2.size()) {
-        cout << "Error: Vectors must be of the same size." << endl;
-        return -1.0; // or any other error handling
+double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
+    double distance = 0.0;
+    for (int i = 0; i < n; i++) {
+        float diff = v1[i] - v2[i];
+        distance += pow(diff, 2);
     }
-
-    double sum = 0.0;
-    for (int i = 0; i < v1.size(); ++i) {
-        sum += pow(v1[i] - v2[i], 2);
-    }
-
-    return sqrt(sum);
+    return sqrt(distance);
 }
 
 int main() {
@@ -23,12 +18,11 @@ int main() {
 
     vector<float> v1(n), v2(n);
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
     }
 
-    double distance = vectorDistance(v1, v2);
-    cout << fixed << setprecision(10) << distance << endl;
+    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
 
     return 0;
 }
