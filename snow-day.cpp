@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+#include <limits>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
@@ -20,32 +20,18 @@ int main() {
     std::cout << "Enter the number of hours: ";
     std::cin >> hours;
 
-    std::string temp;
     std::cout << "Enter the initial amount of snow: ";
-    std::cin >> temp;
-    if (!temp || !std::cin) {
-        std::cerr << "Invalid input for initial snow. Defaulting to 0." << std::endl;
-        initialSnow = 0.0f;
-    } else {
-        initialSnow = std::stof(temp);
-    }
+    std::cin >> initialSnow;
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::cin >> temp;
-    if (!temp || !std::cin) {
-        std::cerr << "Invalid input for rate of snow fall. Defaulting to 0." << std::endl;
-        rateOfSnowFall = 0.0f;
-    } else {
-        rateOfSnowFall = std::stof(temp);
-    }
+    std::cin >> rateOfSnowFall;
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> temp;
-    if (!temp || !std::cin) {
-        std::cerr << "Invalid input for proportion of snow melting. Defaulting to 0." << std::endl;
-        proportionOfSnowMeltingPerHour = 0.0f;
-    } else {
-        proportionOfSnowMeltingPerHour = std::stof(temp);
+    std::cin >> proportionOfSnowMeltingPerHour;
+
+    if (!(std::cin >> hours) || !(std::cin >> initialSnow) || !(std::cin >> rateOfSnowFall) || !(std::cin >> proportionOfSnowMeltingPerHour)) {
+        std::cout << "Invalid input. Please enter numeric values." << std::endl;
+        return 1; 
     }
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
