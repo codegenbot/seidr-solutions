@@ -1,26 +1,20 @@
-def bowling_score(rolls):
-    frames = []
-    while len(rolls) >= 3:
-        if rolls[0] == "X":
-            frames.append(10)
-            rolls = rolls[1:]
-        elif rolls[0] == "/":
-            rolls = [str(int(rolls[:2]) + int(rolls[2]))] + rolls[2:]
-            frames.append(int(rolls[0]))
-            rolls = rolls[1:]
+```
+def bowling_score(game):
+    score = 0
+    rolls = list(map(int, re.sub('[/-]', '', game)))
+    for i in range(10):
+        if len(rolls) < i + 1:
+            break
+        if rolls[i] == 10:
+            score += 10
+            rolls.pop(i)
         else:
-            frame1 = int(rolls[0])
-            frame2 = int(rolls[1])
-            if frame1 + frame2 == 10:
-                frames.append(frame1 + frame2)
-                rolls = rolls[2:]
-            elif frame1 + frame2 < 10:
-                frames.append(frame1 + frame2)
-                rolls = rolls[2:]
+            frame_score = sum(rolls[:3])
+            rolls.pop(0)
+            rolls.pop(0)
+            if len(rolls) > 0 and rolls[0] + rolls[1] == 10:
+                rolls.pop(0)
+                score += frame_score + rolls[0]
             else:
-                frames.append(10 + int(rolls[2]))
-                rolls = rolls[3:]
-    if len(frames) < 10 or (len(frames) == 10 and sum(frames) > 200):
-        print("Invalid input")
-        return None
-    return sum(frames)
+                score += frame_score
+    return score
