@@ -19,11 +19,7 @@ std::string camelCase(const std::string& str) {
         }
     }
 
-    if (!result.empty() && result[0] == ' ') {
-        result.erase(0, 1);
-    }
-
-    return result;
+    return capitalize ? toupper(result[0]) + result.substr(1) : result;
 }
 
 int main() {
