@@ -1,5 +1,5 @@
 def luhn(card_number):
-    card_num = [int(i) for i in str(input()).zfill(16)]
+    card_num = list(map(int, input()))
     sum = 0
     for i in range(len(card_num)):
         if i % 2 == 1:
