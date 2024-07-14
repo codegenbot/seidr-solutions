@@ -32,7 +32,7 @@ int main() {
     if (result.size() == 0)
         return 0;
 
-    int gcdResult = 1;
+    int gcdResult = result[0];
     for (int i : result) {
         gcdResult = std::gcd(gcdResult, i); 
     }

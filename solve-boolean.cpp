@@ -1,4 +1,6 @@
-```bool solveBoolean(std::string s) {
+#include <string>
+
+bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
@@ -13,4 +15,5 @@
             result = false;
         }
     }
+    return result;
 }
