@@ -1,10 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    if (target.length() == 0) {
-        return {};
-    }
     std::vector<int> result;
     int n = text.length();
     int m = target.length();
@@ -20,7 +18,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
         lpIndex++;
     }
-    for (; lpIndex < m; lpIndex++) {
+    for (int lpIndex = 1; lpIndex < m; lpIndex++) {
         if (target[lpIndex] == target[lps[lpIndex - 1]]) {
             lps[lpIndex] = lps[lpIndex - 1] + 1;
         } else {
@@ -49,10 +47,23 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     std::string text, target;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
+
+    while (text.empty()) {
+        std::cout << "Enter a sentence: ";
+        std::getline(std::cin, text);
+
+        if (!text.empty())
+            break;
+    }
+
+    while (target.empty()) {
+        std::cout << "Enter the target string: ";
+        std::getline(std::cin, target);
+
+        if (!target.empty())
+            break;
+    }
+
     std::vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         std::cout << i << " ";
