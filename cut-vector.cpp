@@ -1,7 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <cmath> 
+#include <cmath>
+#include <iostream>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -18,14 +18,14 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             right_sum += v[j];
         
         if (left_sum == right_sum) {
-            return {{v[0], v[0]}, vector<int>(v.begin() + 1, v.end())};
+            return {{v[0], v[0]}, v.substr(1)};
         } else if (abs(left_sum - right_sum) < min_diff) {
             min_diff = abs(left_sum - right_sum);
             cut_idx = i;
         }
     }
     
-    int left_sum = 0;
+    int left_sum = 0, right_sum = 0;
     
     for (int i = 0; i < n; i++)
         left_sum += v[i];
@@ -39,27 +39,27 @@ int main() {
     pair<vector<int>, vector<int>> res1 = cutVector(v1);
     cout << "Input: ";
     for (int x : v1) cout << x << " ";
-    cout << std::endl;
-    cout << "Output:" << std::endl;
+    cout << endl;
+    cout << "Output:" << endl;
     cout << "Left: ";
     for (int x : res1.first) cout << x << " ";
-    cout << std::endl;
+    cout << endl;
     cout << "Right: ";
     for (int x : res1.second) cout << x << " ";
-    cout << std::endl << std::endl;
+    cout << endl << endl;
 
     vector<int> v2({1, 10});
     pair<vector<int>, vector<int>> res2 = cutVector(v2);
     cout << "Input: ";
     for (int x : v2) cout << x << " ";
-    cout << std::endl;
-    cout << "Output:" << std::endl;
+    cout << endl;
+    cout << "Output:" << endl;
     cout << "Left: ";
     for (int x : res2.first) cout << x << " ";
-    cout << std::endl;
+    cout << endl;
     cout << "Right: ";
     for (int x : res2.second) cout << x << " ";
-    cout << std::endl << std::endl;
+    cout << endl << endl;
 
     // Add more inputs as needed
     return 0;
