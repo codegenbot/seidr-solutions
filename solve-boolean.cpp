@@ -1,7 +1,8 @@
-```
+```c++
 #include <stack>
 #include <string>
 #include <cctype>
+#include <utility>
 
 bool solveBoolean(std::string expression) {
     std::stack<char> st;
@@ -24,8 +25,13 @@ bool solveBoolean(std::string expression) {
 }
 
 int main() {
-    std::string expression = "T|F&";
-    bool result = solveBoolean(expression);
-    std::cout << (result ? "True" : "False") << std::endl;
+    std::string input;
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
+    std::getline(std::cin, input);
+    bool result = solveBoolean(input);
+    if (result)
+        std::cout << "True";
+    else
+        std::cout << "False";
     return 0;
 }
