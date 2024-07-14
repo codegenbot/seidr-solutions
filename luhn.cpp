@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
@@ -10,16 +10,16 @@ int luhn(const std::vector<int>& digits) {
         }
         sum += temp;
     }
-    return sum % 10;
+    return sum % 10; 
 }
 
 int main() {
-    std::vector<int> testDigits = {4, 5, 3, 0, 4, 6, 7, 1, 3, 9, 2, 5, 8};
-    int result = luhn(testDigits);
+    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 5, 9, 3, 4};
+    int result = luhn(digits);
     if (result == 0) {
-        std::cout << "Valid credit card number\n";
+        std::cout << "The credit card number is valid." << std::endl;
     } else {
-        std::cout << "Invalid credit card number\n";
+        std::cout << "The credit card number is invalid." << std::endl;
     }
-    return 0;
+    return 0; 
 }
