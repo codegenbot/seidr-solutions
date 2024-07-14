@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     precedence = {"&": 2, "|": 1}
     stack = []
