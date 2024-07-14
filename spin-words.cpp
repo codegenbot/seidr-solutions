@@ -1,32 +1,43 @@
-#include <vector>
-#include <iostream>
 #include <string>
+#include <vector>
 
-using namespace std;
+std::string spinWords(std::string str) {
+    std::vector<std::string> words = split(str);
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5)
+            words[i] = reverse(words[i]);
+    }
+    return join(words);
+}
 
-string spinWords(string str) {
-    string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ' || i == str.length()) {
-            wordLength = i - result.length();
-            if (wordLength >= 5)
-                reverse(result.substr(0, wordLength).begin(), result.substr(0, wordLength).end());
-            result += " ";
+std::vector<std::string> split(std::string str) {
+    std::vector<std::string> words;
+    int start = 0, end = 0;
+    while (end < str.length()) {
+        if (str[end] == ' ') {
+            words.push_back(str.substr(start, end - start));
+            end++;
+            start = end;
         } else
-            result += str[i];
+            end++;
+    }
+    words.push_back(str.substr(start, end - start));
+    return words;
+}
+
+std::string join(std::vector<std::string> words) {
+    std::string result;
+    for (int i = 0; i < words.size(); i++) {
+        result += words[i];
+        if (i != words.size() - 1)
+            result += ' ';
     }
     return result;
 }
 
-int main() {
-    string str;
-    while (true) {
-        cout << "Enter a sentence: ";
-        cin >> str;
-        if(str == "exit")
-            break;
-        cout << spinWords(str) << endl;
-    }
-    return 0;
+std::string reverse(std::string str) {
+    std::string result = "";
+    for (int i = str.length() - 1; i >= 0; i--)
+        result += str[i];
+    return result;
 }
