@@ -1,15 +1,15 @@
+```cpp
 #include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> leaders;
     int n = arr.size();
-    if(n == 0) return leaders;
-    int rightmost_leader = arr.back();
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= rightmost_leader) {
+    int maxRight = arr[n-1];
+    for (int i = n - 1; i >= 0; i--) {
+        if (arr[i] >= maxRight) {
             leaders.push_back(arr[i]);
-            rightmost_leader = arr[i];
+            maxRight = arr[i];
         }
     }
     reverse(leaders.begin(), leaders.end());
@@ -17,7 +17,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {17, 11, 13, 2, 23, 19};
+    vector<int> arr = {17, 28, 4, 27, 29, 23, 12};
     vector<int> leaders = leaders(arr);
     for (int leader : leaders) {
         cout << leader << " ";
