@@ -1,7 +1,7 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <sstream>
 
 void trim(std::string &s) {
     s.erase(0, s.find_first_not_of(' ')); // remove leading spaces
@@ -9,7 +9,7 @@ void trim(std::string &s) {
 }
 
 std::string spinWords(std::string str) {
-    std::stringstream result;
+    std::string result = "";
     size_t start = 0;
     while (start < str.length()) {
         size_t spacePos = str.find(' ', start);
@@ -17,14 +17,14 @@ std::string spinWords(std::string str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5) {
-            result << std::string(word.rbegin(), word.rend()) << " ";
+            result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result << word << " ";
+            result += word + (word.length() < 5 ? " " : "") + "";
         }
         start = spacePos + 1;
     }
-    trim(result.str());
-    return result.str();
+    trim(result); // no assignment needed, just call the function
+    return result; // return the modified result
 }
 
 int main() {
@@ -33,3 +33,4 @@ int main() {
     std::getline(std::cin, str);
     std::cout << "Spin words: " << spinWords(str) << std::endl;
     return 0;
+}
