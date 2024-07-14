@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int luhn(vector<int> card) {
@@ -19,13 +17,7 @@ int luhn(vector<int> card) {
 }
 
 int main() {
-    vector<int> card; 
-    int num;
-    for(int i=0;i<16;++i){
-        cout << "Enter the digit at position " << i+1 << ": ";
-        cin >> num;
-        card.push_back(num);
-    }
-    cout << luhn(card) << endl;
+    vector<int> card = {3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9};
+    cout << luhn(card);
     return 0;
 }
