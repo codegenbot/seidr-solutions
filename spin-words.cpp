@@ -1,23 +1,24 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    int wordLen;
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += " ";
+    int wordLength;
+    for(int i = 0; i < sentence.length(); i++){
+        if(sentence[i] != ' '){
+            if(i == sentence.length() -1 || sentence[i+1] == ' '){
+                result += sentence.substr(i, wordLength = i + 1 - i);
+                int k = 0;
+                for(int j = wordLength - 1; j >= 0; --j) {
+                    result += sentence[i+j];
+                    k++;
+                }
+                result += " ";
+                i += wordLength - 1;
+            }
         } else {
-            for (wordLen = i + 1; str[wordLen] != ' '; wordLen++);
-            string word = str.substr(i, wordLen - i);
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--)
-                    result += word[j];
-            } else
-                result += word;
-            i = wordLen - 1;
+            result += ' ';
         }
     }
-
-    return result;
+    return result.substr(0,result.length() -1);
 }
