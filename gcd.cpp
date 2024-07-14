@@ -1,20 +1,17 @@
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int lastFound = -1;
-    while (true) {
-        size_t pos = text.find(target);
-        if (pos == string::npos) break;
-        result.push_back(pos);
-        lastFound = pos;
-        text.erase(0, pos + target.size());
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int index = 0;
+    while ((index = text.find(target)) != string::npos) {
+        indices.push_back(index);
+        if (text.length() - index <= target.length()) break;
+        text.erase(0, index + target.length());
     }
-    return result;
+    return indices;
 }
 
 int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
