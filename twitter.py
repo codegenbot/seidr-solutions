@@ -1,8 +1,8 @@
-```
-def validate_tweet(tweet):
-    if len(tweet.replace(" ", "")) > 140:
-        return "Too many characters"
+def validate_tweet():
+    tweet = input("Please type your tweet: ")
+    if not tweet.isprintable():
+        print("Too many characters")
     elif tweet == "":
-        return "You didn't type anything"
+        print("You didn't type anything")
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        print(f"Your tweet has {len(tweet)} characters")
