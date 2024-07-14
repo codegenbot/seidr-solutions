@@ -1,11 +1,24 @@
-def bowling_score(frames):
+```
+def bowling_score(game):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == "X":
+    roll = 0
+    frame = [0, 0]
+    for char in game:
+        if char == 'X':
             score += 30
-        elif frames[i] == "/":
-            score += 10 + int(frames[i + 1])
+            roll += 2
+        elif char == '/':
+            score += sum(frame)
+            frame = [0, 0]
+            roll = 0
         else:
-            frame_score = int(frames[i]) + int(frames[i + 1])
-            score += frame_score
+            frame[int(char)] = int(char)
+            roll += 1
+    if any(f for f in frame):
+        if all(f > 0 for f in frame):
+            score += sum(frame)
+        elif frame[0] > 0 and frame[1] == 0:
+            score += frame[0]
+        else:
+            score += min(frame[0], 10) + 10
     return score
