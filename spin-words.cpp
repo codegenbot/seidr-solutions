@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 string reverse(string str) {
     string revStr = "";
     for(int i = str.length() - 1; i >= 0; i--) {
@@ -5,9 +8,6 @@ string reverse(string str) {
     }
     return revStr;
 }
-
-#include <string>
-using namespace std;
 
 string spinWords(string str) {
     string result = "";
