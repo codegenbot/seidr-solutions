@@ -1,10 +1,16 @@
-#include <algorithm>
 #include <iostream>
-#include <numeric>
+using namespace std;
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << __gcd(std::abs(a), std::abs(b)) << std::endl;
+    cin >> a >> b;
+    cout << gcd(abs(a), abs(b)) << endl;
     return 0;
 }

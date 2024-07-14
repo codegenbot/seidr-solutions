@@ -3,14 +3,19 @@
 #include <string>
 #include <cctype>
 
-std::string camelCase(std::string& str) {
+std::string camelCase(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
     for (char c : str) {
         if (c == '-') {
-            result += ' '; 
-            capitalize = true; 
+            if (!result.empty()) {
+                if (capitalize)
+                    result += toupper(c);
+                else
+                    result += tolower(c);
+                capitalize = !capitalize; 
+            }
         } else if (capitalize) { 
             result += toupper(c);
             capitalize = false; 
@@ -19,25 +24,20 @@ std::string camelCase(std::string& str) {
         }
     }
 
-    if (!result.empty()) {
-        result.erase(0, 1);
-    }
-
     return result;
 }
 
 int main() {
     std::string input;
+
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
         std::getline(std::cin, input);
 
         if (!input.empty()) { 
-            std::string output = camelCase(input);
-            if(!output.empty())  
-                std::cout << "Camel Case: " << output << std::endl; 
-            input.clear();  // Clear the string for next iteration
+            std::cout << "Camel Case: " << camelCase(input) << std::endl; 
         }
     }
+
     return 0;
 }
