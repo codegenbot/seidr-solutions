@@ -13,4 +13,4 @@ int fuelCost(std::vector<int> v) {
     return sum;
 }
 
-int main() { return fuelCost({1, 2, 3, 4, 5}); }
+int main() { return fuelCost({(1), (2), (3), (4), (5)}); }
