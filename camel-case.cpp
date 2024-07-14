@@ -22,7 +22,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     }
 
     if (!buffer.empty()) {
-        arr.push_back(buffer + " ");
+        arr.push_back(buffer);
     }
 
     return arr;
@@ -32,22 +32,24 @@ std::string camelCase(const std::string& str) {
     std::vector<std::string> segments = split(str, '-');
     std::string result;
 
-    for (const auto& segment : segments) {
+    for (int i = 0; i < segments.size(); i++) {
         if (!result.empty()) {
-            result += toupper(segment[0]);
+            result += toupper(segments[i][0]);
         } else {
-            result += tolower(segment[0]);
+            result += tolower(segments[i][0]);
         }
-        if (segment.size() > 1) {
-            result += substring(segment, 1);
+        if (i > 0) {
+            for (char c : segments[i]) {
+                if (c >= 'a' && c <= 'z') {
+                    result += (char)(c - 'a' + 'A');
+                } else {
+                    result += c;
+                }
+            }
         }
     }
 
     return result;
-}
-
-std::string substring(const std::string& str, int start) {
-    return str.substr(start);
 }
 
 int main() {
