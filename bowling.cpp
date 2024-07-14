@@ -1,28 +1,20 @@
+#include <string>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 0;
+    int rolls = 0;
     for (char c : s) {
-        if (c == 'X') {
+        if (c == '/') {
+            score += max(10 - '0', 1);
+            rolls++;
+        } else if (c == 'X') {
             score += 30;
-            frame++;
-        } else if (c == '/') {
-            score += 10 - (frame % 2);
-            frame++;
-        } else {
-            int count = 0;
-            while (c != ' ') {
-                count *= 10 + (c - '0');
-                c = s[s.find(c) + 1];
-            }
-            if (count == 10) {
-                score += 10;
-                frame++;
-            } else {
-                score += count;
-                if (frame < 9) {
-                    frame++;
-                }
-            }
+            rolls++;
+        } else if (isdigit(c)) {
+            int roll = c - '0';
+            score += roll;
+            rolls++;
         }
     }
     return score;
