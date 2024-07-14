@@ -21,14 +21,14 @@ std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, 
 }
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result; // Initialize with 0 size
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
     std::vector<int> lps(m);
     computeLPSArray(target, lps, target.length());
 
-    for (int i = 0; i <= n - m; i++) {
+    for (int i = 0; i < n - m + 1; i++) {
         int j = 0;
         while (j < m && text[i + j] == target[j]) {
             j++;
