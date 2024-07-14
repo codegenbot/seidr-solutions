@@ -21,3 +21,4 @@ int main() {
     cout << fixed << setprecision(10) << snowDay(hours, currentSnow, snowFallRate, meltRate) << endl;
     
     return 0;
+}
