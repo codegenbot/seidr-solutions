@@ -1,25 +1,17 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int min_diff = INT_MAX;
-    int idx = 0;
-    for(int i = 1; i < nums.size(); i++){
-        if(abs(nums[i] - nums[0]) <= min_diff){
-            min_diff = abs(nums[i] - nums[0]);
-            idx = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> nums) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+
+    for (int i = 1; i < nums.size(); ++i) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
 
-    vector<int> left, right;
-    left.resize(idx + 1);
-    for(int i = 0; i <= idx; i++){
-        left[i] = nums[i];
-    }
-    right.resize(nums.size() - idx - 1);
-    for(int i = idx + 1; i < nums.size(); i++){
-        right[i-idx-1] = nums[i];
-    }
-
-    return make_pair(left, right);
+    return {{nums[0]}, {nums[0]}};
 }
