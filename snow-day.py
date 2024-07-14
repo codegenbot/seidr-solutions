@@ -1,6 +1,6 @@
+```
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    snow = format(initial_snow, ".6f")
+    snow = round(initial_snow, 2)
     for _ in range(hours):
-        new_snow = float(snow) + rate_of_snowfall - min(float(snow), melting_rate)
-        snow = format(new_snow, ".6f")  
-    return snow
+        snow += int(rate_of_snowfall) - min(int(snow), int(melting_rate))
+    return round(snow, 2)
