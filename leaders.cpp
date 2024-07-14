@@ -1,5 +1,4 @@
 #include <vector>
-#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -20,4 +19,16 @@ vector<int> leaders(vector<int>& arr) {
     return res;
 }
 
-int main() { return leaders(vector<int>()); }
+int main() {
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        arr.push_back(x);
+    }
+    return leaders(arr).size();
+}
