@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ vector<int> computeLPSArray(const string& pat) {
         if (pat[i] == pat[m-1]) { 
             m++;
         } else {
-            lps.push_back(static_cast<size_t>(m)); 
+            lps.push_back(m); 
         }
     }
     return lps;
@@ -31,7 +31,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    using std::size_type;
     vector<int> lps = computeLPSArray(target);
 
     for (int i = 0; i <= n - m; i++) {
@@ -63,4 +62,3 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-}
