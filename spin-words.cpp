@@ -3,15 +3,16 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int len;
+    int wordStart = 0;
     for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || isspace(str[i])) {
-            len = i - result.length();
-            if (len >= 5)
-                reverse(result.rbegin(), result.rend());
-            result += ' ';
-        } else
-            result += tolower(str[i]);
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(wordStart, i - wordStart);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            wordStart = i + 1;
+        }
     }
-    return result.substr(1);
+    return result.substr(0, result.length() - 1); // remove the extra space at the end
 }
