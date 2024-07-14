@@ -1,22 +1,22 @@
-Here is the solution:
-
-def bowling_game(bowling_game_input):
-    game = [int(x) for x in re.sub('/|-', '', bowling_game_input)]
+def bowling_score(rolls):
     score = 0
-    roll = 0
-    for frame in range(1, 11):
-        if game[roll] == 10:
-            score += game[roll]
-            roll += 1
+    roll_index = 0
+    for frame in range(10):
+        if rolls[roll_index] == "X":
+            score += 30
+            roll_index += 1
+        elif "/" not in rolls[roll_index]:
+            score += int(rolls[roll_index])
+            roll_index += 1
         else:
-            first_roll = game[roll]
-            if game[roll+1:roll+3].count(str(game[roll])) == 2:
-                score += game[roll] + game[roll+1]
-                roll += 2
-            elif frame < 10 and (game[roll+1] + game[roll+2]) >= 10:
-                score += first_roll + game[roll+1]+game[roll+2]
-                roll += 3
+            first_roll, second_roll = map(int, rolls[roll_index].split("/"))
+            if first_roll + second_roll == 10:
+                score += first_roll + 10
+                roll_index += 1
+            elif first_roll == 10:
+                score += 10 + second_roll
+                roll_index += 2
             else:
-                score += first_roll + game[roll+1]
-                roll += 2
+                score += first_roll + second_roll
+                roll_index += 1
     return score
