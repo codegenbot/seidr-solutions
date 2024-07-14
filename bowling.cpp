@@ -1,12 +1,11 @@
-```
 #include <string>
 
-int bowlingScore(std::string str) {
+int bowlingScore(string str) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (str[i] == '/') {
-            std::string first = str.substr(0, i);
-            std::string second = str.substr(i + 1);
+            string first = str.substr(0, i);
+            string second = str.substr(i + 1);
             int strike = 0;
             int spare = 0;
             for (char c : first) {
@@ -36,4 +35,3 @@ int bowlingScore(std::string str) {
         }
     }
     return score;
-}
