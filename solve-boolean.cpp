@@ -1,3 +1,5 @@
+#include <string>
+
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -22,4 +24,3 @@ bool solveBoolean(string s) {
         }
     }
     return !st.empty();
-}
