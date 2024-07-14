@@ -1,4 +1,3 @@
-```
 def substitution_cipher():
     global cipher_map
     cipher_map = str(input())
