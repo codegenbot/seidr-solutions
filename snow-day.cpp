@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+#include <limits>
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
@@ -14,24 +14,32 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
 }
 
 int main() {
-    std::string hoursStr, initialSnowStr, rateOfSnowFallStr, proportionOfSnowMeltingPerHourStr;
+    int hours;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
-    std::getline(std::cin, hoursStr);
+    if (!(std::cin >> hours)) {
+        std::cerr << "Invalid input for hours. Exiting.\n";
+        return 1;
+    }
 
     std::cout << "Enter the initial amount of snow: ";
-    std::getline(std::cin, initialSnowStr);
+    if (!(std::cin >> initialSnow)) {
+        std::cerr << "Invalid input for initial snow. Exiting.\n";
+        return 1;
+    }
 
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::getline(std::cin, rateOfSnowFallStr);
+    if (!(std::cin >> rateOfSnowFall)) {
+        std::cerr << "Invalid input for rate of snow fall. Exiting.\n";
+        return 1;
+    }
 
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::getline(std::cin, proportionOfSnowMeltingPerHourStr);
-
-    int hours = std::stoi(hoursStr);
-    float initialSnow = std::stof(initialSnowStr);
-    float rateOfSnowFall = std::stof(rateOfSnowFallStr);
-    float proportionOfSnowMeltingPerHour = std::stof(proportionOfSnowMeltingPerHourStr);
+    if (!(std::cin >> proportionOfSnowMeltingPerHour)) {
+        std::cerr << "Invalid input for proportion of snow melting. Exiting.\n";
+        return 1;
+    }
 
     double result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
