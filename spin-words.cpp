@@ -1,4 +1,5 @@
-#include <vector>
+Here's the solution:
+
 #include <iostream>
 #include <string>
 
@@ -6,34 +7,42 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
-    
-    for(int i=0; i<str.length(); i++) {
-        if(str[i] == ' ') {
-            if(wordLength >= 5) {
-                reverse(result.rbegin(), result.rend());
-            }
-            result += str[i];
-            wordLength = 0;
-        } else {
-            result += str[i];
-            wordLength++;
-        }
+    string temp = "";
+
+    for (int i = 0; i <= str.length(); i++) {
+        char c = str[i];
+        if (c == ' ') {
+            if (temp.length() >= 5)
+                result += newString(temp) + " ";
+            else
+                result += temp + " ";
+            temp = "";
+        } else
+            temp += c;
     }
-    
-    if(wordLength >= 5) {
-        reverse(result.rbegin(), result.rend());
-    }
-    
+
+    if (temp.length() >= 5)
+        result += newString(temp);
+    else
+        result += temp;
+
     return result;
 }
 
+string newString(string str) {
+    string rev = "";
+    for (int i = str.length() - 1; i >= 0; i--)
+        rev += str[i];
+    return rev;
+}
+
 int main() {
-    // input test cases
-    cout << spinWords("a") << endl; // a
-    cout << spinWords("this is a test") << endl; // this is a test
-    cout << spinWords("this is another test") << endl; // this is rehtona test
-    cout << spinWords("hi") << endl; // hi
-    
+    int n, m;
+    cin >> n;
+    while(n--) {
+        string s;
+        cin >> s;
+        cout << spinWords(s) << endl;
+    }
     return 0;
 }
