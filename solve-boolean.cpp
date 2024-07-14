@@ -2,48 +2,33 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> ops;
-    stack<bool> values;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-
-            values.push(b1 && b2);
-            ops.push('&');
+    bool result = false;
+    int i = 0;
+    while (i < expression.size()) {
+        if (expression[i] == 'T') {
+            return true;
+        } else if (expression[i] == 'F') {
+            return false;
         } else if (expression[i] == '|') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-
-            values.push(b1 || b2);
-            ops.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            values.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            values.push(false);
+            i++; // skip the |
+            result = (evaluateBooleanExpression(string(1, expression[i])) || evaluateBooleanExpression(string(1, expression[++i]))) && result;
+        } else if (expression[i] == '&') {
+            i++; // skip the &
+            result = (evaluateBooleanExpression(string(1, expression[i])) && evaluateBooleanExpression(string(1, expression[++i]))) && result;
         }
     }
-
-    return values.top();
+    return result;
 }
 
 int main() {
-    string expression;
+    string input;
     cout << "Enter a Boolean expression: ";
-    cin >> expression;
-
-    bool result = evaluateBooleanExpression(expression);
-
-    if (result) {
+    cin >> input;
+    bool output = evaluateBooleanExpression(input);
+    if (output) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-
     return 0;
 }
