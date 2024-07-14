@@ -37,7 +37,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     lps[0] = 0;
 
     // Traverse the text and find all occurrences of target[].
-    for (int i = 0; ; ) {
+    for (int i = 0; i + m <= n; ) {
         len = 0;
         j = 0;
         while (i + len < n && j < m) {
@@ -56,9 +56,6 @@ vector<int> indicesOfSubstring(string text, string target) {
             j = lps[j-1];
             i += len; // move to the next character
         }
-
-        if(i + len >= n)
-            break;
     }
 
     delete[] lps;
