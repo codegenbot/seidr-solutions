@@ -1,15 +1,21 @@
-```
+Here is a Python solution for the problem:
+
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        return False
+    elif '&' in expression:
+        parts = expression.split('&')
+        if all(part in ['T', 't'] for part in parts) or all(part in ['F', 'f'] for part in parts):
+            return all(part == 'T' or part == 't' for part in parts)
+        else:
+            return False
+    elif '|' in expression:
+        parts = expression.split('|')
+        if all(part in ['T', 't'] for part in parts) or all(part in ['F', 'f'] for part in parts):
+            return any(part == 'T' or part == 't' for part in parts)
+        else:
+            return False
     else:
-        left = 0
-        for i, c in enumerate(expression):
-            if c in '&|':
-                right = i
-                break
-        return (expression[:left] == 'T' or expression[:left] == '') and eval(f'True if {"&" if expression[left] == "&" else "|"}.join(map(lambda x: str(x) != "F", list(expression[left+1:right]))), {}, {})
+        return None
