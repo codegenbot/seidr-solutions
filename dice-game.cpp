@@ -6,8 +6,9 @@ double diceGame(int n, int m) {
     
     double win = 0.0;
     
-    for(int i = m + 1; i <= n; i++) { 
-        win += ((n - i + 1)) / total; 
+    for(int i = 1; i < m || i >= n; i++) { 
+        if(i < m) continue;
+        win += (1.0 / total); 
     }
     
     return win;
