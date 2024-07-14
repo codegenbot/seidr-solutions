@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -18,14 +17,13 @@ std::string spinWords(std::string str) {
         }
         pos = spacePos + 1;
     }
-    return result.substr(0, result.size()-1); // remove trailing space
+    return result.substr(0, result.find(' '));
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    str.erase(0, 1); // remove leading/trailing spaces
-    std::cout << "Spin words: " << spinWords(str) << std::endl;
+    std::cout << "Spin words: " << spinWords(str).substr(0, spinWords(str).find(' ')) << std::endl;
     return 0;
 }
