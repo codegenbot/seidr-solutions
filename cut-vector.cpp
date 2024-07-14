@@ -1,53 +1,38 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> res;
-
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j)
-            left_sum += v[j];
-        for (int j = i; j < n; ++j)
-            right_sum += v[j];
-
-        int diff = abs(left_sum - right_sum);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            res = {{}, {}};
-            for (int j = 0; j < i; ++j)
-                res.first.push_back(v[j]);
-            for (int j = i; j < n; ++j)
-                res.second.push_back(v[j]);
+vector<int> cutVector(vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int pos = 0;
+    
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs(vec[i] - vec[i-1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-
-    return res;
+    
+    vector<int> left(vec.begin(), vec.begin() + pos);
+    vector<int> right(vec.begin() + pos, vec.end());
+    
+    return {left, right};
 }
 
 int main() {
-    int n;
-    cout << "Enter the size of the vector: ";
-    cin >> n;
+    int n; cin >> n;
+    vector<int> vec(n);
+    for (auto& x : vec) cin >> x;
+
+    auto res = cutVector(vec);
+
+    cout << "Left: ";
+    for (const auto& x : res[0]) cout << x << " ";
+    cout << endl;
+
+    cout << "Right: ";
+    for (const auto& x : res[1]) cout << x << " ";
+    cout << endl;
     
-    vector<int> v(n);
-    cout << "Enter the elements of the vector: ";
-    for (auto &x : v)
-        cin >> x;
-
-    pair<vector<int>, vector<int>> res = cutVector(v);
-
-    cout << "The first subvector is: ";
-    for (int i : res.first)
-        cout << i << " ";
-    cout << endl;
-
-    cout << "The second subvector is: ";
-    for (int i : res.second)
-        cout << i << " ";
-    cout << endl;
-
     return 0;
 }
