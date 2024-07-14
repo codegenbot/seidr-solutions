@@ -1,4 +1,4 @@
-```Python
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     total = 0
@@ -13,4 +13,4 @@ def luhn(card_number):
         else:
             total += digit
         is_double = not is_double and (i + 1) % 2 == 0
-    return total % 10.
+    return total
