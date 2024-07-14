@@ -1,7 +1,9 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream> 
-#include <bits/stdc++.h>
+
+using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0) return a;
@@ -16,21 +18,21 @@ int main() {
     cin >> str2;
 
     vector<int> result; 
-    int indices = -1;
-    
+    int indices = -1; 
+
     size_t pos = 0;
     while ((pos = str1.find(str2, pos)) != string::npos) {
         result.push_back(pos);
-        pos += 1;
+        pos += 1; 
     }
 
     if (result.size() == 0)
         return 0;
-
+    
     int gcdResult = 1;
     for (int i : result) {
-        gcdResult = std::__gcd(gcdResult, i); 
-    }
+        gcdResult = gcd(gcdResult, i);
+   }
         
     cout << "GCD of indices: " << gcdResult << std::endl; 
 }
