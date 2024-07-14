@@ -9,7 +9,7 @@ std::string middleCharacter(std::string s) {
     if (len % 2 == 0) { 
         return s.substr(startMid - 1, 2);
     } else { 
-        return s.substr(len / 2, 1);
+        return std::string(1, s[len / 2]);
     }
 }
 
