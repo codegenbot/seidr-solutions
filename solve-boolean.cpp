@@ -1,13 +1,24 @@
-string solveBoolean(string s) {
-    bool res = (s == "t");
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            res &= (s.substr(0, i) == "t");
-            s = s.substr(i+1);
-        } else if(s[i] == '|') {
-            res |= (s.substr(0, i) == "t");
-            s = s.substr(i+1);
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '|') {
+            bool b1 = s.top() == 'T';
+            s.pop();
+            bool b2 = s.top() == 'T';
+            s.pop();
+            s.push(b1 || b2 ? 'T' : 'F');
+        } else if (expression[i] == '&') {
+            bool b1 = s.top() == 'T';
+            s.pop();
+            bool b2 = s.top() == 'T';
+            s.pop();
+            s.push(b1 && b2 ? 'T' : 'F');
+        } else {
+            s.push(expression[i] == 't' ? 'T' : 'F');
         }
     }
-    return res ? "True" : "False";
+    return s.top() == 'T';
 }
