@@ -1,4 +1,4 @@
-```c++
+```cpp
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;

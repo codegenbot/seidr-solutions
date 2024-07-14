@@ -1,3 +1,4 @@
+```cpp
 #include <stack>
 #include <string>
 
@@ -25,4 +26,10 @@ bool solveBoolean(std::string s) {
         else if (c == 'T' || c == 'F') stack.push(c == 'T');
     }
     return stack.top();
+}
+
+int main() {
+    std::string s = "your boolean expression here";  // replace 'here' with your actual input
+    bool result = solveBoolean(s);
+    return 0;
 }
