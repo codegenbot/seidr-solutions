@@ -8,10 +8,11 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     for (int i = 0; i <= n - 1; i++) {
         if (i > 0 && v[i] != v[0]) {
+            res.push_back({v.begin(), v.begin() + min(i, n)});
             break;
         }
         else if (i == n - 1) {
-            res.push_back(v);
+            res.push_back({v.begin(), v.end()});
             break;
         }
     }
