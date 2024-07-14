@@ -1,3 +1,4 @@
+```
 def shopping_list():
     total_price = 0
     while True:
@@ -9,10 +10,10 @@ def shopping_list():
                 raise Exception("Invalid number of items")
             discount = float(input()) / 100
             total_price += sum([p * (1 - discount) for p in item_prices])
-            while True:
-                add_more = input("Do you want to add more items? (y/n): ")
-                if add_more.lower() != 'y':
-                    break
+
+            response = input("Do you want to add more items? (y/n): ")
+            if response.lower() != 'y':
+                break
         except ValueError:
             print("Invalid input. Please enter a valid price.")
         except Exception as e:
