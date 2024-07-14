@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <string>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -17,13 +16,16 @@ int luhn(std::vector<int> digits) {
 
 int main() {
     std::vector<int> digits;
-    std::string cardNumber;
-    std::cout << "Enter your credit card number: ";
-    std::getline(std::cin, cardNumber);
-    
-    for(int i = 0; i < cardNumber.size(); ++i){
-        int digit = (cardNumber[i] - '0');
-        digits.push_back(digit);
+    while(digits.size() < 16){
+        int cardNumber;
+        std::cout << "Enter the next digit of your credit card number: ";
+        if (!(std::cin >> cardNumber)) {
+            std::cout << "Invalid input. Please enter a valid digit." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        } else {
+            digits.push_back(cardNumber);
+        }
     }
     int result = luhn(digits);
     std::cout << "Result: " << result << std::endl;
