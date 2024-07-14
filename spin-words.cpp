@@ -1,4 +1,4 @@
-#include <algorithm>
+```c++
 #include <iostream>
 #include <string>
 
