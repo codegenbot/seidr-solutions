@@ -1,26 +1,37 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::stringstream ss(str);
-    std::string word;
-    
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+std::string spinWords(const std::string& input) {
+    std::string output = "";
+    std::string word = "";
+
+    for (char c : input) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            output += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
-        result += word + " ";
     }
-    
-    return result.substr(0, result.size()-1); // remove the extra space at the end
+
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    output += word;
+
+    return output;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    
+    // Test cases
+    cout << spinWords("a") << endl;  // Should print: a
+    cout << spinWords("this is a test") << endl;  // Should print: this is a test
+    cout << spinWords("this is another test") << endl;  // Should print: this is rehtona test
+    cout << spinWords("hi") << endl;  // Should print: hi
+
     return 0;
 }
