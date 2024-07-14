@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <utility>
 #include <iostream>
@@ -6,8 +7,8 @@ double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) 
     double total = 0;
     for (const auto& pair : pricesAndDiscounts) {
         double price = pair.first;
-        double discount = pair.second / 100.0; 
-        double discountedPrice = price * (1 - discount);
+        double discount = pair.second; 
+        double discountedPrice = price * (1 - discount / 100.0f); 
         total += discountedPrice;
     }
     return total;
@@ -15,7 +16,25 @@ double shoppingList(std::vector<std::pair<double, double>>& pricesAndDiscounts) 
 }
 
 int main() {
-    std::vector<std::pair<double, double>> pricesAndDiscounts = {{10.99, 20}, {5.99, 15}, {7.99, 25}};
+    std::vector<std::pair<double, double>> pricesAndDiscounts;
+
+    while (true) {
+        double price;
+        int discount;
+
+        // Read price and discount
+        std::cin >> price >> discount;
+
+        // If the user entered 0 as the discount for an item, stop reading input
+        if (discount == 0) {
+            break;
+        }
+
+        pricesAndDiscounts.push_back(std::make_pair(price, static_cast<double>(discount)));
+    }
+
     double totalPrice = shoppingList(pricesAndDiscounts);
     std::cout << "Total price: $" << totalPrice << std::endl;
+
+    return 0;
 }
