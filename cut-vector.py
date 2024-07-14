@@ -6,8 +6,9 @@ def cut_vector(vector):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
         
-        if abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
             cut_index = i
             
     return tuple(vector[:cut_index]), tuple(vector[cut_index:])
