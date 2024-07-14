@@ -1,5 +1,4 @@
-#include <string>
-
+```
 std::string validateTweet(std::string tweet) {
     auto length = tweet.length();
     if (length > 140) {
