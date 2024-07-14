@@ -11,4 +11,6 @@ vector<int> leaders(vector<int> arr) {
             max = arr[i];
         }
     }
+    res.erase(unique(res.begin(), res.end()), res.end());
     return res;
+}
