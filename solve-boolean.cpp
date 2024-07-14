@@ -1,20 +1,20 @@
-```c++
-#include <queue>
+#include <stack>
 #include <string>
+#include <iostream>
 
-bool evaluateTop(std::queue<char>& q) {
-    char c = q.front();
-    q.pop();
+bool evaluateTop(std::stack<char>& st) {
+    char c = st.top();
+    st.pop();
     if (c == '&') {
-        while (!q.empty() && q.front() != '|') {
-            q.pop();
+        while (!st.empty() && st.top() != '|') {
+            st.pop();
         }
-        bool top = q.empty();
-        q.push(c);
+        bool top = st.empty();
+        st.push(c);
         return top;
     } else if (c == '|') {
-        while (!q.empty()) {
-            q.pop();
+        while (!st.empty()) {
+            st.pop();
         }
         return true;
     } else {
@@ -22,7 +22,7 @@ bool evaluateTop(std::queue<char>& q) {
     }
 }
 
-bool evaluate(std::queue<char> q, std::string expression) {
+bool evaluate(std::stack<char> st, std::string expression) {
     bool result = true;
     for (char c : expression) {
         if (c == 'T') {
@@ -32,20 +32,20 @@ bool evaluate(std::queue<char> q, std::string expression) {
             result = false;
             break;
         } else if (c == '|') {
-            q.push(c);
+            st.push(c);
             result = true;
         } else if (c == '&') {
-            while (!q.empty() && q.front() == '|') {
-                q.pop();
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            if (q.empty()) {
+            if (st.empty()) {
                 return false;
             }
-            bool top = evaluateTop(q);
+            bool top = evaluateTop(st);
             if (top) {
-                q.push('&');
+                st.push('&');
             } else {
-                q.push('|');
+                st.push('|');
             }
         }
     }
@@ -53,13 +53,12 @@ bool evaluate(std::queue<char> q, std::string expression) {
 }
 
 int main() {
-    std::queue<char> q;
+    std::stack<char> st;
     std::string expression = "expression"; // Replace with your desired expression
-    bool result = evaluate(q, expression);
+    bool result = evaluate(st, expression);
     if (result) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
-    return 0;
 }
