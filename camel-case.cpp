@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -38,12 +37,12 @@ int main() {
         while (!(std::getline(std::cin, line))) {
             std::cout << "Invalid input. Please try again.\n";
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.ignore(std::streamsize::max, '\n');
         }
         if (!line.empty()) { 
             std::string output = camelCase(line); // Pass the input to the function
             if(!output.empty() && !output.back() == ' ')  
-                std::cout << "Camel Case: " << output << std::endl; 
+                std::cout << "Camel Case: " << std::move(output) << std::endl; 
         }
     }
     return 0;
