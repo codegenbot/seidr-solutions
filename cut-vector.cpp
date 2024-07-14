@@ -10,12 +10,14 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
             break;
         }
     }
-    std::pair<std::vector<int>, std::vector<int>> res({}, {});
+    std::pair<std::vector<int>, std::vector<int>> res;
+    res.first.resize(i);
+    res.second.resize(v.size() - i);
     for (int j = 0; j < i; j++) {
-        res.first.push_back(v[j]);
+        res.first[j] = v[j];
     }
     for (int j = i; j < v.size(); j++) {
-        res.second.push_back(v[j]);
+        res.second[j-i] = v[j];
     }
     return res;
 }
