@@ -1,3 +1,4 @@
+````
 #include <cmath>
 #include <iostream>
 using namespace std;
@@ -14,7 +15,4 @@ double vectorDistance() {
     return sqrt(sum); 
 }
 
-int main() {
-    vectorDistance();
-    return 0;
-}
+int main() { return vectorDistance(); }
