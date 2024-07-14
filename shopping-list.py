@@ -1,3 +1,4 @@
+```
 def shopping_list():
     total = 0
     while True:
@@ -8,20 +9,28 @@ def shopping_list():
                 
             if prices_input != 'q':
                 prices = list(map(float, prices_input.split()))
-                for i in range(len(prices)):
-                    while True:
-                        try:
-                            quantity = int(input(f"Enter quantity for item {i+1}: "))
-                            break
-                        except ValueError:
-                            print("Invalid input. Please provide a number for the quantity.")
-                    while True:
-                        try:
-                            discount = float(input(f"Enter discount percentage for item {i+1} (or 0 to skip): "))
-                            total += prices[i] * quantity * (1 - discount / 100)
-                            break
-                        except ValueError:
-                            print("Invalid input. Please provide a number and a decimal point if necessary.")
-                return round(total, 2)
+                total += sum(p for p in prices)  
+                break
         except ValueError:
             print("Invalid input. Please provide prices as floats")
+    
+    while True:
+        try:
+            quantity_prices_discounts = []
+            for i in range(len(prices)):
+                item_prices_discounts = []
+                while True:
+                    try:
+                        quantity = int(input(f"Enter quantity for item {i+1}: "))
+                        discount = float(input(f"Enter discount percentage for item {i+1} (or 0 to skip): "))
+                        item_prices_discounts.append((quantity, prices[i], discount))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please provide quantities as integers and discount as a percentage")
+                quantity_prices_discounts.append(item_prices_discounts)
+            for items in quantity_prices_discounts:
+                for quantity, price, discount in items:
+                    total += quantity * price * (1 - discount / 100)
+            return round(total, 2)
+        except ValueError:
+            print("Invalid input. Please provide quantities as integers and discount as a percentage")
