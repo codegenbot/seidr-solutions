@@ -2,36 +2,23 @@ string solveBoolean(string expression) {
     stack<char> s;
     string result = "True";
     
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
+    for(int i=expression.length()-1; i>=0; i--) {
+        if(expression[i] == '|') {
+            if(s.top() == '&') {
                 s.pop();
+                result = (result == "True") ? "True" : "False";
             }
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
+        } else if(expression[i] == '&') {
+            if(result == "False")
+                return "False";
+        } else if(expression[i] != 'T' && expression[i] != 'F') {
+            s.push(expression[i]);
         } else {
-            if (s.empty()) {
-                result = "True";
-            } else {
-                if (s.top() == '&') {
-                    result = "False";
-                } else {
-                    result = "True";
-                }
-            }
-            if (expression[i] == 'T' || expression[i] == 't') {
-                s.push('T');
-            } else if (expression[i] == 'F' || expression[i] == 'f') {
-                s.push('F');
-            }
+            result = expression[i];
         }
     }
     
-    while (!s.empty()) {
+    while(!s.empty()) {
         s.pop();
     }
     
