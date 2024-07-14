@@ -1,3 +1,4 @@
+```c++
 int mastermind(const char* code, const char* guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -23,4 +24,12 @@ int mastermind(const char* code, const char* guess) {
     }
 
     return blackPegs + whitePegs;
+}
+
+int main() {
+    const char* code = "abcD";
+    const char* guess = "aBcd";
+    int result = mastermind(code, guess);
+    std::cout << "Black pegs: " << (result / 2) << ", White pegs: " << (result % 2) << std::endl;
+    return 0;
 }
