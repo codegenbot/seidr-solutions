@@ -1,6 +1,1 @@
-```
-import math
-a = int(input("Enter the first integer: "))
-b = int(input("Enter the second integer: "))
-
-print(f"GCD of {a} and {b} is {math.gcd(max(a, b), min(a, b))}")
+print(f"GCD of {a} and {b} is {gcd(min(a, b), max(a, b))}")
