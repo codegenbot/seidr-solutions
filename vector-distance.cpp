@@ -1,4 +1,3 @@
-```c++
 #include <cmath>
 #include <iostream>
 using namespace std;
@@ -17,7 +16,6 @@ double vectorDistance() {
 }
 
 int main() {
-    double result = vectorDistance();
-    cout << "The Euclidean distance is: " << result << endl;
+    vectorDistance();
     return 0;
 }
