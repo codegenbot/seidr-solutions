@@ -1,10 +1,13 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int solve(vector<int>& v) {
+int fuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int i : v) {
-        double d = static_cast<double>(i) / 3;
-        int newInt = floor(d) - 2;
-        sum += newInt;
+    for (int num : numbers) {
+        int temp = (num / 3); // divide by 3
+        temp = floor(temp); // round down to the nearest integer
+        temp -= 2; // subtract 2
+        sum += temp; // add to the sum
     }
     return sum;
+}
