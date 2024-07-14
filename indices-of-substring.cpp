@@ -1,10 +1,11 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len) {
     int m;
-    lps[0] = 0; 
+    lps.push_back(0); 
     m = 0; 
 
     for (int i = 1; i < pat.length(); i++) {
@@ -15,7 +16,7 @@ std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len
         if (pat[i] == pat[m-1]) { 
             m++;
         } else {
-            lps[i] = m; 
+            lps.push_back(m); 
         }
     }
 }
@@ -25,8 +26,7 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     int n = text.length();
     int m = target.length();
 
-    std::vector<int> lps;
-    lps.resize(m);
+    std::vector<int> lps(m);
     computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
