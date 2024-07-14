@@ -1,5 +1,5 @@
 ```
-def bowling_score(game=""):
+def bowling_score(game):
     score = 0
     frame_index = 0
     for i in range(1, 11):
