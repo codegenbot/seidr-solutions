@@ -1,10 +1,9 @@
-Here is the solution in Python:
-
 def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+    n = len(arr)
+    result = [arr[n - 1]]
 
-print(leaders([0]))
-print(leaders([1, 0]))
-print(leaders([1, 451]))
-print(leaders([2, 1000, 0]))
-print(leaders([2, 0, 1000]))
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            result.append(arr[i])
+
+    return list(reversed(result))
