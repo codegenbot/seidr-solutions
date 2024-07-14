@@ -4,21 +4,25 @@ int mastermind(const char* code, const char* guess) {
 
     for (int i = 0; i < 4; ++i) {
         bool foundInCode = false;
+        int correctIndex = -1; 
 
-        for (int j = 0; j < 4; ++j++) {
+        for (int j = 0; j < 4; ) {
             if (code[j] == guess[i]) {
                 foundInCode = true;
-                if (j == i) {
-                    black++; 
-                } else {
-                    white++; 
-                }
+                correctIndex = j;
+                break;
             }
+            j++;
         }
 
         if (!foundInCode) continue; 
 
+        if (correctIndex != -1) {
+            black++; 
+        } else {
+            white++; 
+        }
     }
 
-    return white;
+    return black + white;
 }
