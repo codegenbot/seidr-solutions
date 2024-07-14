@@ -3,9 +3,9 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double totalPossibleRolls = (double)n * m;
-    double winningRolls = n - m;
-    return winningRolls / totalPossibleRolls;
+    double totalPossibilities = n * m;
+    double peterWins = (n - 1) * (m - 1);
+    return peterWins / totalPossibilities;
 }
 
 int main() {
@@ -13,4 +13,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
-}
