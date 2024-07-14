@@ -1,40 +1,24 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string input) {
-    string output;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == ' ') {
-            output += ' ';
-        } else {
-            string word;
-            while (i < input.size() && input[i] != ' ') {
-                word += input[i];
-                i++;
-            }
-            i--; // backtracking
-            if (word.size() >= 5) {
-                string reversed = "";
-                for (int j = word.size() - 1; j >= 0; j--) {
-                    reversed += word[j];
-                }
-                output += reversed;
-            } else {
-                output += word;
-            }
-        }
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::stringstream ss(str);
+    std::string word;
+    
+    while (ss >> word) {
+        if(word.length() >= 5)
+            word = std::string(word.rbegin(), word.rend());
+        result += word + " ";
     }
-    return output;
+    
+    return result.substr(0, result.size()-1); // remove the last space
 }
 
 int main() {
-    // test cases
-    cout << spinWords("a") << endl;
-    cout << spinWords("this is a test") << endl;
-    cout << spinWords("this is another test") << endl;
-    cout << spinWords("hi") << endl;
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
     return 0;
 }
