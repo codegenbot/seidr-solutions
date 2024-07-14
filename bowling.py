@@ -5,7 +5,7 @@ def bowling_score(game):
     for i in range(10):
         if len(rolls[i]) == 1:
             score += int(rolls[i])
-        elif len(rolls[i]) > 1 and (i < 9 or (i == 9 and len(rolls[8]) != 2)):
+        elif len(rolls[i]) > 1 and (i < 9 or i == 9):
             score += 10 + int(rolls[i][0])
         else:
             first_roll = int(rolls[i][0])
