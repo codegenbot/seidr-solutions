@@ -1,10 +1,19 @@
-Here is the C++ code to solve the problem:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string middleCharacter(string s) {
-    int len = s.length();
+std::string middleCharacter(std::string str) {
+    int len = str.length();
     if (len % 2 == 0) {
-        return s.substr(len / 2 - 1, 2);
+        return str.substr(len/2-1, 2);
     } else {
-        return s.substr(len / 2, 1);
+        return str.substr(len/2, 1);
     }
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << middleCharacter(input) << std::endl;
+    return 0;
 }
