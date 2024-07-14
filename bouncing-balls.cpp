@@ -6,8 +6,9 @@ int main() {
     double startHeight; 
     cin >> startHeight;
     
-    string strStartHeight = "/" + to_string(int(startHeight / 2.0));
-    double bouncinessIndex = startHeight / 2.0;
+    std::string strStartHeight = std::to_string(static_cast<int>(startHeight)) + "/2";
+    int firstBounce = stoi(strStartHeight);
+    double bouncinessIndex = (double)firstBounce / stod(strStartHeight);
 
     if (bouncinessIndex < 0.01)
         cout << "The bounciness index is: 0.00" << endl;
