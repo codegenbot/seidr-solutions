@@ -1,5 +1,4 @@
-#include <initializer_list>
-
+```c++
 bool solveBoolean(std::string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
@@ -22,3 +21,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return !st.empty();
+}
