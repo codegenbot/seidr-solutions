@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 def validate_tweet(tweet):
     if len(tweet) == 0:
