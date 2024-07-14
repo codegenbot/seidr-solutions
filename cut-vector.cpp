@@ -11,8 +11,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
             break;
         }
     }
-    vector<int> left(v.begin(), v.begin() + i);
-    vector<int> right(v.begin() + i, v.end());
+    vector<int> left(i);
+    vector<int> right(vector<int>::size_type(v.size() - i));
     res.first = left;
     res.second = right;
     return res;
