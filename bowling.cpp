@@ -14,8 +14,6 @@ int bowlingScore(string s) {
         } else {
             int num = c - '0';
             score += num;
-            if (!strike) score++;
-            strike = false;
         }
     }
     return score;
