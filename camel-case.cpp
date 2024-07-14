@@ -15,7 +15,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
                 buffer = ""; 
             }
         } else {
-            buffer.push_back(word);
+            buffer += word;
         }
     }
 
@@ -37,7 +37,7 @@ std::string camelCase(const std::string& str) {
             result += tolower(segment[0]);
         }
         if (segment.size() > 1) {
-            result += segment.substr(1);
+            result += segment.substr(1); // Directly concatenate the rest of the segment
         }
     }
 
