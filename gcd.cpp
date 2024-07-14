@@ -14,21 +14,20 @@ int main() {
     cout << "Enter the second string: ";
     cin >> str2;
 
-    int indices = -1; // Initialize index of last found position
-    vector<int> result;
-
-    size_t pos = 0;
-    while ((pos = str1.find(str2, pos)) != string::npos) {
-        result.push_back(pos);
-        pos += 1; // Skip to the next occurrence
+    int pos = -1; // initial position
+    while (pos != string::npos) {
+        pos = str1.find(str2, pos + 1);
+        if (pos != string::npos)
+            cout << pos << " "; // print positions where the target appears in the text.
     }
-
-    if (result.size() == 0)
-        return 0;
     
-    int gcdResult = result[0];
-    for (int i = 1; i < result.size(); i++)
-        gcdResult = __gcd(gcdResult, result[i]);
-        
-    cout << "GCD of indices: " << gcdResult << endl;
+    int len1 = str1.length(), len2 = str2.length();
+    int result = gcd(0, 0); // initialize GCD
+    for(int i = 0; i < (len1 + len2) / len2; i++){
+        pos = str1.find(str2, i);
+        if(pos != string::npos)
+            result = max(result, pos % len2); // update the GCD with the maximum position where target appears.
+    }
+    
+    cout << "GCD of positions: " << result << endl;
 }
