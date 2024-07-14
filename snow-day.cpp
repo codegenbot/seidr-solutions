@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <limits>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
