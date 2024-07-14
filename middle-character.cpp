@@ -16,3 +16,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
     return 0;
+}

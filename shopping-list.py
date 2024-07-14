@@ -3,6 +3,8 @@ def shopping_list():
     total_price = 0
     for _ in range(n):
         price_and_discount = list(map(float, input().split()))
+        if len(price_and_discount) < 2:
+            return "Invalid input"
         price = price_and_discount[0]
         discount = price_and_discount[1]
         total_price += price * (1 - (discount / 100))
