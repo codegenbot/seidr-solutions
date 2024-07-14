@@ -1,3 +1,13 @@
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <string>
+
+void trim(std::string &s) {
+    s.erase(0, s.find_first_not_of(' ')); // remove leading spaces
+    s.erase(s.find_last_not_of(' ') + 1); // remove trailing spaces
+}
+
 std::string spinWords(std::string str) {
     std::string result = "";
     size_t start = 0;
@@ -13,6 +23,14 @@ std::string spinWords(std::string str) {
         }
         start = spacePos + 1;
     }
-    trim(result);
-    return result;
+    trim(result); // no assignment needed, just call the function
+    return result; // return the modified result
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
+    return 0;
 }
