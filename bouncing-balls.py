@@ -12,3 +12,6 @@ def bouncing_balls():
         height *= bounciness_index
 
     print("{:.3f}".format(total_distance))
+
+
+bouncing_balls()
