@@ -10,8 +10,7 @@ bool solveBoolean(std::string s) {
             result = true;
         } else if (s[i] == '&') {
             if (!result) return false;
-            result = false;
+            result = true;
         }
     }
     return result;
-}
