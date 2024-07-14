@@ -1,25 +1,23 @@
 #include <iostream>
-#include <stack>
-#include <string>
+using namespace std;
 
-bool solveBoolean(std::string expression) {
-    std::stack<char> operationStack;
-    std::stack<std::string> valueStack;
+bool solveBoolean(string expression) {
+    stack<char> operationStack;
+    stack<string> valueStack;
 
-    std::string boolExpression;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            std::string rightValue = valueStack.top();
+            string rightValue = valueStack.top();
             valueStack.pop();
-            std::string leftValue = valueStack.top();
+            string leftValue = valueStack.top();
             valueStack.pop();
-            valueStack.push(std::to_string((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (leftValue == "False" && rightValue == "False")).c_str());
+            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (LeftValue == "False" && rightValue == "False") ? "True" : "False");
         } else if (expression[i] == '&') {
-            std::string rightValue = valueStack.top();
+            string rightValue = valueStack.top();
             valueStack.pop();
-            std::string leftValue = valueStack.top();
+            string leftValue = valueStack.top();
             valueStack.pop();
-            valueStack.push(std::to_string((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "False")).c_str());
+            valueStack.push((leftValue == "True" && rightValue == "True") || (LeftValue == "False" && rightValue == "False") ? "True" : "False");
         } else if (expression[i] == 't' || expression[i] == 'T') {
             valueStack.push("True");
         } else if (expression[i] == 'f' || expression[i] == 'F') {
@@ -31,14 +29,14 @@ bool solveBoolean(std::string expression) {
 }
 
 int main() {
-    std::string boolExpression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> boolExpression;
-    bool result = solveBoolean(boolExpression);
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = solveBoolean(expression);
     if (result) {
-        std::cout << "True" << std::endl;
+        cout << "True" << endl;
     } else {
-        std::cout << "False" << std::endl;
+        cout << "False" << endl;
     }
     return 0;
 }
