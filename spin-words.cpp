@@ -8,6 +8,7 @@ void trim(std::string &s) {
 }
 
 std::string spinWords(std::string str) {
+    trim(str); // Trim the input string
     std::string result = "";
     size_t start = 0;
     while (start < str.length()) {
@@ -30,14 +31,6 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    
-    bool multipleWords = false;
-    size_t spacePos = str.find(' ');
-    while (spacePos != std::string::npos) {
-        multipleWords = true;
-        break;
-    }
-    
-    std::cout << "Spin words: " << spinWords(multipleWords ? str : trim(str)) << std::endl;
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
     return 0;
 }
