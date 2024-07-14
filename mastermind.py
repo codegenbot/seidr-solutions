@@ -1,12 +1,4 @@
-from collections import Counter
-
 def mastermind(code, guess):
-    code_count = Counter(code)
-    guess_count = Counter(guess)
-
-    white = sum(min(count, guess_count[c]) for c, count in zip(code, guess))
-    
-    black = sum((code.count(c) == 1 and guess.count(c) == 1) and (code.index(c) == i) 
-                for i, c in enumerate(guess)).count(True)
-
+    white = sum(c in guess for c in code) if sum(c in guess for c in code) > 0 else 0
+    black = sum(1 for c1, c2 in zip(guess.count(c) for c in code) if c1 == len(list(c2)) and c1 > 0)
     return str(white), str(black)
