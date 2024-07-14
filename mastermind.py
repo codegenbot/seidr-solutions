@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
         return "0\n0"
@@ -6,7 +7,7 @@ def mastermind(code, guess):
         if c not in "ARBYG":
             return "0\n0"
 
-    white_pegs = len(set([c for c, g in zip(code, guess) if c == g])) - sum(1 for c, g in zip(code, guess) if c == g)
-    black_pegs = sum(1 for c, g in zip(code, guess) if c == g)
+    white_pegs = sum(min(c == g, 1) for c, g in zip(code, guess)) - sum(1 for c, g in zip(code, guess) if c == g)
+    black_pegs = len([c for c, g in zip(code, guess) if c == g and code.index(c) != guess.index(g)])
 
     return "{}\n{}".format(str(black_pegs), str(white_pegs))
