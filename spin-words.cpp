@@ -1,29 +1,34 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here's the solution:
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    int wordLength;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            wordLength = i - result.length();
-            if (wordLength >= 5)
-                for (int j = wordLength - 1; j >= 0; j--)
-                    result += str[result.length() + j];
-            else
-                result += str.substr(result.length(), wordLength);
-            if (i != str.length())
-                result += ' ';
+#include <string>
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
+            } else {
+                result += word;
+            }
+            word = "";
+        } else {
+            word += str[i];
         }
     }
-    return result;
-}
 
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Result: " << spinWords(str) << std::endl;
-    return 0;
+    if (word.length() >= 5) {
+        for (int i = word.length() - 1; i >= 0; i--) {
+            result += word[i];
+        }
+    } else {
+        result += word;
+    }
+
+    return result;
 }
