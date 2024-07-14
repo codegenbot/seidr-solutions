@@ -1,8 +1,6 @@
+```python
 def leaders(arr):
-    if not arr:
-        return []
-
-    leaders_list = [arr[-1]]
+    leaders_list = []
     max_right = arr[-1]
 
     for i in range(len(arr) - 1, -1, -1):
