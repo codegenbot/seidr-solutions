@@ -1,28 +1,98 @@
-#include <queue>
 #include <stack>
 #include <string>
 #include <iostream>
 
 bool evaluateTop(std::stack<char> &st) {
-    char c;
     bool result = true;
-
+    std::stack<char> resStack;
     while (!st.empty()) {
-        c = st.top();
+        char c = st.top();
         st.pop();
-
-        if (c == 'T') {
-            return true;
-        } else if (c == 'F') {
-            return false;
+        if (c == '(') {
+            resStack.push('(');
+        } else if (c == ')') {
+            while (!resStack.empty() && resStack.top() != '(') {
+                result = (result || (resStack.top() == 'T'));
+                resStack.pop();
+            }
+            if (!resStack.empty()) {
+                resStack.pop(); // pop the '('
+            }
+        } else if (c == 'T' || c == 'F') {
+            while (!resStack.empty() && resStack.top() != '(') {
+                result = (result || (resStack.top() == 'T'));
+                resStack.pop();
+            }
+            if (!resStack.empty()) {
+                resStack.pop(); // pop the '('
+            }
+            if (c == 'T') {
+                result = true;
+            } else {
+                result = false;
+            }
         } else if (c == '&') {
-            return !result;
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return false;
+            }
+            c = st.top();
+            st.pop();
+            if (c == '|') {
+                result = true; // reset the result for OR operation
+            } else {
+                while (!st.empty() && st.top() != '(') {
+                    st.pop();
+                }
+                if (st.empty()) {
+                    return false;
+                }
+                c = st.top();
+                st.pop();
+                if (c == 'T') {
+                    result = true; // short-circuit
+                } else {
+                    result = false; // short-circuit
+                }
+            }
         } else if (c == '|') {
-            result = true;
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return false;
+            }
+            c = st.top();
+            st.pop();
+            if (c == '&') {
+                result = true; // reset the result for AND operation
+            } else {
+                while (!st.empty() && st.top() != '(') {
+                    st.pop();
+                }
+                if (st.empty()) {
+                    return false;
+                }
+                c = st.top();
+                st.pop();
+                if (c == 'T') {
+                    result = true; // short-circuit
+                } else {
+                    result = false; // short-circuit
+                }
+            }
         }
     }
-
-    return true; // Default value when no more operators
+    while (!resStack.empty()) {
+        if (resStack.top() == '(') {
+            return false;
+        }
+        result = (result || (resStack.top() == 'T'));
+        resStack.pop();
+    }
+    return result;
 }
 
 int main() {
