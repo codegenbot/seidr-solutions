@@ -1,24 +1,33 @@
-```
-def bowling_score(s):
+def bowling_score(game):
     score = 0
     frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit():
-            first_roll = int(s[i])
-            second_roll = int(s[i+1]) if i+1 < len(s) and s[i+1].isdigit() else 10 - first_roll
-            if first_roll == 10:  # strike
-                score += 10 + 10 + 10
+    for i in range(0, len(game), 2):
+        if game[i].isdigit() and game[i + 1].isdigit():
+            if int(game[i]) + int(game[i + 1]) == 10:
+                if frame < 9:
+                    score += 10
+                    continue
+                else:
+                    if i > 17:
+                        score += 10
+                    else:
+                        score += int(game[i]) + int(game[i + 1])
+            elif (
+                int(game[i]) + int(game[i + 1]) == 8
+                or int(game[i]) + int(game[i + 1]) == 7
+            ):
+                if frame < 9:
+                    score += int(game[i]) + int(game[i + 1])
+                    continue
+                else:
+                    score += int(game[i]) + int(game[i + 1])
+            elif int(game[i]) + int(game[i + 1]) > 10:
+                score += 10
+        else:
+            if game[i] == "X":
+                score += 30
                 frame += 1
-            elif first_roll + second_roll == 10:  # spare
-                score += 10 + 10
-                frame += 1
-            else:
-                score += first_roll + second_roll
-        else:  # X (strike) or -
-            if s[i] == 'X':
-                score += 10 + 10
-                frame += 1
-            elif s[i] == '-':
-                score += 10 - int(s[i-1])
+            elif game[i] == "/":
+                score += 10
                 frame += 1
     return score
