@@ -1,6 +1,8 @@
+#include <vector>
+
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
