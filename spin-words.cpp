@@ -9,31 +9,22 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int wordLength;
-    string temp = "";
-
     for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            wordLength = temp.length();
-            if (wordLength >= 5) {
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    result += temp[j];
-                }
-            } else {
-                result += temp;
-            }
-            temp = "";
-        } else {
-            temp += str[i];
-        }
+        if (i == str.length() || isspace(str[i])) {
+            wordLength = i - result.length();
+            if (wordLength >= 5)
+                reverse(result.rbegin(), result.rend());
+            result += ' ';
+        } else
+            result += tolower(str[i]);
     }
-
-    return result;
+    return result.substr(1);
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << spinWords(input) << endl;
+    string str;
+    while (cin >> str) {
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
