@@ -43,3 +43,4 @@ int main() {
     cout << black << endl;
     cout << white << endl;
     return 0;
+}
