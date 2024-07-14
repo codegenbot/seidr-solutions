@@ -10,7 +10,7 @@ int mastermind(const char* code, const char* guess) {
     }
 
     // Count correct characters that are not in the same position (white pegs)
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; ) {
         int foundInCode = false;
         for (int j = 0; j < 4; ) {
             if (code[j] == guess[i]) {
@@ -23,7 +23,12 @@ int mastermind(const char* code, const char* guess) {
         if (foundInCode && code[i] != guess[i]) {
             white++;
         }
+        i++; // increment 'i' to avoid infinite loop
     }
 
     return black + white;
+}
+
+int main() {
+    return 0;
 }
