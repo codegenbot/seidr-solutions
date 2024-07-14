@@ -1,7 +1,3 @@
-#include <string>
-
-using namespace std;
-
 bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
@@ -24,3 +20,4 @@ bool solveBoolean(string s) {
         }
     }
     return !st.empty();
+}
