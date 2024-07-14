@@ -8,9 +8,7 @@ int main() {
     int firstBounce;
     int numBounces; 
 
-    cin >> startHeight >> " " >> ws;
-    cin >> firstBounce >> " " >> ws;
-    cin >> numBounces; 
+    cin >> startHeight >> " " >> firstBounce >> " " >> numBounces; 
 
     double bouncinessIndex = (double)firstBounce / startHeight;
 
