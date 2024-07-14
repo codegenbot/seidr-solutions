@@ -9,9 +9,10 @@ int main() {
     int firstBounce;
     int numBounces; 
 
-    string line; 
-    cin >> line; 
-    istringstream iss(line); 
+    string input;
+    cin >> input;
+
+    istringstream iss(input);
     iss >> startHeight >> ' ' >> firstBounce >> ' ' >> numBounces; 
 
     double bouncinessIndex = (double)firstBounce / startHeight;
