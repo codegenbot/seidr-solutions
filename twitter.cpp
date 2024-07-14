@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -18,6 +17,7 @@ int main() {
     string tweet;
     cout << "Enter your tweet: ";
     getline(cin, tweet);
-    cout << validateTweet(tweet) << endl; 
+    cout << validateTweet(tweet) << endl;
+    cout << endl;  // Added this line
     return 0;
 }
