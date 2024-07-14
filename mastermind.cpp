@@ -1,46 +1,40 @@
-```cpp
 #include <string>
 #include <map>
 
-int main() {
-    int mastermind(std::string code, std::string guess) {
-        int black = 0;
-        int white = 0;
+int mastermind(std::string code, std::string guess) {
+    int black = 0;
+    int white = 0;
 
-        std::map<char, int> codeCount;
+    std::map<char, int> codeCount;
 
-        for (char c : code) {
-            codeCount[c]++;
-        }
-
-        for (int i = 0; i < 4; ++i) {
-            if (code[i] == guess[i]) {
-                black++;
-            } else {
-                if (codeCount[guess[i]] > 0) {
-                    white++;
-                    codeCount[guess[i]]--;
-                }
-            }
-        }
-
-        for (char c : code) {
-            if (codeCount[c] > 0 && c != guess[0] && c != guess[1] && c != guess[2] && c != guess[3]) {
-                white++;
-                codeCount[c]--;
-            }
-        }
-
-        return black + white;
+    for (char c : code) {
+        codeCount[c]++;
     }
 
-    std::string code = "abcD";
-    std::string guess = "abcd";
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            if (codeCount[guess[i]] > 0) {
+                white++;
+                codeCount[guess[i]]--;
+            }
+        }
+    }
 
-    int result = mastermind(code, guess);
+    for (char c : code) {
+        if (codeCount[c] > 0 && c != guess[0] && c != guess[1] && c != guess[2] && c != guess[3]) {
+            white++;
+            codeCount[c]--;
+        }
+    }
 
-    std::cout << "Black pegs: " << (result / 2) << "\n";
-    std::cout << "White pegs: " << (result % 2) << "\n";
+    return black + white;
+}
 
+int main() {
+    std::string code, guess;
+    // Your input and output logic goes here
+    mastermind(code, guess);
     return 0;
 }
