@@ -16,11 +16,11 @@ int fuelCost(vector<int> v) {
 
 int main() {
     int n;
-    cin >> std::cin;
+    std::cin >> n;
     vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        std::cin >> v[i];
     }
-    cout << fuelCost(v) << std::endl;
+    std::cout << fuelCost(v) << std::endl;
     return 0;
 }
