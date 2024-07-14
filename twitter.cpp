@@ -17,7 +17,7 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     tweet.erase(0, tweet.find_first_not_of(' '));
-    getline(cin, tweet);
+    getline(cin, tweet); // erase any trailing spaces
     cout << validateTweet(tweet) << endl;
     return 0;
 }
