@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-using namespace std;
-
 int mastermind(const char* code, const char* guess) {
     int white = 0;
     int black = 0;
@@ -23,13 +19,4 @@ int mastermind(const char* code, const char* guess) {
     }
 
     return black;
-}
-
-int main() {
-    const char* code = "ABCD";
-    const char* guess = "ABDC";
-    int result = mastermind(code, guess);
-    cout << "White pegs: " << 1 << endl;
-    cout << "Black pegs: " << result << endl;
-    return 0;
 }
