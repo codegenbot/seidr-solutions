@@ -22,7 +22,13 @@ int main() {
     std::string input; 
     while (true) {
         std::cout << "Enter a Boolean expression (T/F/|/&): "; 
-        std::getline(std::cin, input);  // fix: use getline instead of clear
+        input.clear(); // clear the string for new input
+        char c;
+        while ((c = std::cin.get()) != '\n' && c != ' ') {
+            if (c != ' ' && c != '\n') {
+                input += c;  // fix: use += operator instead of push_back
+            }
+        }
         bool result = solveBoolean(input);
         if(input == "exit") {
             std::cout << "Goodbye!" << std::endl;
