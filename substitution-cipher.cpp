@@ -6,7 +6,7 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
     std::string result;
     for (char c : message) {
         if (c == '\0') break; // Assuming the input strings are null-terminated
-        int index = c - 'a'; // Assuming lowercase English letters only
+        int index = c - 'a'; // Assuming lowercase letters only
         if (index >= 0 && index < cipher1.size()) {
             result += cipher2[index];
         } else {
