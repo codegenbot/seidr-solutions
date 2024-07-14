@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 int luhn(vector<int> card) {
@@ -19,11 +20,11 @@ int luhn(vector<int> card) {
 int main() {
     vector<int> card; // input your card numbers here
     cout << "Enter a credit card number: ";
-    for (int i = 0; i < 16; ++i) {
+    for(int i = 0; i < 16; i++) {
         int digit;
         cin >> digit;
         card.push_back(digit);
     }
-    cout << "The Luhn check is: " << luhn(card) << endl;
+    cout << luhn(card) << endl;
     return 0;
 }
