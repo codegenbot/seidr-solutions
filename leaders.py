@@ -1,9 +1,12 @@
-Here is the completed code:
+```
+def leaders(arr):
+    n = len(arr)
+    last_element = arr[n-1]
+    leaders_list = [last_element]
 
-def leaders(a):
-    n = len(a)
-    result = [a[n-1]]
-    for i in range(n-2, -1, -1):
-        if a[i] >= a[i+1]:
-            result.insert(0, a[i])
-    return result
+    for i in range(n-2,-1,-1):
+        if arr[i] >= last_element:
+            leaders_list.insert(0, arr[i])
+            last_element = arr[i]
+
+    return leaders_list
