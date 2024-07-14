@@ -1,22 +1,24 @@
 ```cpp
-#include <iostream>
+#include <algorithm>
+#include <cctype>
 #include <string>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::string cipher_map1_lower = cipher_map1;
-    std::transform(cipher_map1_lower.begin(), cipher_map1_lower.end(), cipher_map1_lower.begin(),
-                   [](unsigned char c){ return tolower(c); });
+    cipher_map1.erase_if([&](char c){return !isalpha(c);});
+    cipher_map2.erase_if([&](char c){return !isalpha(c);});
 
-    std::string cipher_map2_lower = cipher_map2;
-    std::transform(cipher_map2_lower.begin(), cipher_map2_lower.end(), cipher_map2_lower.begin(),
-                   [](unsigned char c){ return tolower(c); });
+    std::transform(cipher_map1.begin(), cipher_map1.end(), cipher_map1.begin(), ::tolower);
+    std::transform(cipher_map2.begin(), cipher_map2.end(), cipher_map2.begin(), ::tolower);
+
+    message.erase_if([&](char c){return !isalpha(c);});
+    std::transform(message.begin(), message.end(), message.begin(), ::tolower);
 
     std::string deciphered_message = "";
     for (int i = 0; i < message.length(); i++) {
-        char c = tolower(message[i]); 
-        int pos = cipher_map1_lower.find(c);
+        char c = message[i];
+        int pos = cipher_map1.find(c);
         if (pos != std::string::npos) {
-            deciphered_message += cipher_map2_lower[pos];
+            deciphered_message += cipher_map2[pos];
         } else {
             deciphered_message += c;
         }
