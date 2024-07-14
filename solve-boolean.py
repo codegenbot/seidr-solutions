@@ -1,16 +1,16 @@
-def solveBoolean(expression):
-    def evaluate(expr):
-        if expr == "T":
-            return True
-        elif expr == "F":
-            return False
-        elif "&" in expr and "|" in expr:
-            return evaluate(expr.replace("&", "&").replace("|", "|"))
-        else:
-            left, operator, right = expr.split(operator)
-            if operator == "&":
-                return evaluate(left) and evaluate(right)
-            else:
-                return evaluate(left) or evaluate(right)
+Here is the Python code for the problem:
 
-    return evaluate(expression)
+def solveBoolean(expression):
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression:
+        parts = expression.split('&')
+        return all(solveBoolean(part) for part in parts)
+    elif '|' in expression:
+        parts = expression.split('|')
+        return any(solveBoolean(part) for part in parts)
+
+expression = input()
+print(solveBoolean(expression))
