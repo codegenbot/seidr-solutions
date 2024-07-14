@@ -1,24 +1,17 @@
-string solveBoolean(string s) {
-    stack<char> st;
-    for(int i=0; i<s.size(); i++){
-        if(s[i] == '&'){
-            char op1 = st.top();
-            st.pop();
-            char op2 = st.top();
-            st.pop();
-            st.push((op1 == 'T' && op2 == 'T') ? 'T' : 'F');
+bool solveBoolean(string s) {
+    if(s=="T") return true;
+    else if(s=="F") return false;
+    else if(s.size()>1){
+        bool res = solveBoolean(s.substr(0,s.find('&'))); 
+        for(int i=s.find('&')+1; i<s.size(); i++) {
+            res = (res && solveBoolean(s.substr(i,1)));
         }
-        else if(s[i] == '|'){
-            char op1 = st.top();
-            st.pop();
-            char op2 = s[i+1];
-            s.erase(i, 2);
-            i--;
-            st.push((op1 == 'T' || op2 == 'T') ? 'T' : 'F');
+        return res;
+    }else{
+        for(int i=0; i<s.size();i++){
+            if(s[i]=='|') return true;
+            else if(s[i]&1) return false;
         }
-        else{
-            st.push(s[i]);
-        }
+        return true;
     }
-    return (st.top() == 'T')?"True":"False";
 }
