@@ -1,37 +1,39 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            if (i > 0 && result.back() != ' ') {
-                result += char(toupper(s[i+1]));
-                i++;
+std::string toCamelCase(const std::string& str) {
+    std::string result;
+    bool firstWord = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(c));
             }
-        } else if (s[i] == ' ') {
-            if (!result.empty()) {
-                result.push_back(char(toupper(s[i+1])));
-                i++;
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
             }
+            firstWord = true;
         } else {
-            if (i > 0 && (s[i-1] == '-' || s[i-1] == ' ')) {
-                result += char(toupper(s[i]));
+            if (!firstWord) {
+                result += c;
             } else {
-                result += s[i];
+                result += tolower(c);
             }
+            firstWord = false;
         }
     }
+
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        string str;
-        cin >> str;
-        cout << camelCase(str) << endl;
-    }
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    std::cout << toCamelCase(str) << std::endl;
+
     return 0;
 }
