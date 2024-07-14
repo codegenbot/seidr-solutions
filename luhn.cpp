@@ -9,5 +9,4 @@ int luhn(const std::vector<int>& digits) {
         }
         sum += temp;
     }
-    return sum % 10; 
-}
+    return sum % 10;
