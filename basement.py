@@ -1,5 +1,3 @@
-Here is the completed code:
-
 def basement(nums):
     total = 0
     for i, num in enumerate(nums):
