@@ -6,18 +6,20 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool nextUpper = false;
-    for (char c : s) {
-        if (c == '-') {
-            nextUpper = true;
-        } else if (c == ' ') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
             continue;
         } else {
-            if (!nextUpper) {
-                result += tolower(c);
+            if (!result.empty()) {
+                result += toupper(s[i]);
             } else {
-                result += toupper(c);
-                nextUpper = false;
+                result += tolower(s[i]);
             }
         }
     }
