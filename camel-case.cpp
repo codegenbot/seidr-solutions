@@ -1,40 +1,12 @@
-#include <iostream>
-#include <sstream>
-
-std::vector<std::string> split(const std::string& str, char sep) {
-    std::vector<std::string> segments;
-    size_t pos = 0, lastPos = 0;
-    do {
-        lastPos = str.find(sep, pos);
-        if (lastPos == std::string::npos) {
-            segments.push_back(str.substr(pos));
-            break;
-        }
-        segments.push_back(str.substr(pos, lastPos - pos));
-        pos = lastPos + 1;
-    } while (true);
-    return segments;
-
-}
-
+```cpp
 std::string camelCase(const std::string& str) {
     std::vector<std::string> segments = split(str, '-');
-    std::stringstream result;
-
+    std::string result;
     for (size_t i = 0; i < segments.size(); ++i) {
-        if (i > 0) {
-            result << toupper(segments[i][0]);
-        } else {
-            result << tolower(segments[i][0]);
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
         }
-        result << segments[i];
+        result += tolower(segments[i]);
     }
-
-    return result.str();
-}
-
-int main() {
-    std::string input = "camel-case example-test-string";
-    std::cout << camelCase(input) << std::endl;
-    return 0;
+    return result;
 }
