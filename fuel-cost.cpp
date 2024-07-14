@@ -1,9 +1,24 @@
-int fuelCost(vector<int> prices) {
+int solve(vector<int> v) {
     int sum = 0;
-    for (int price : prices) {
-        if (price < 3) continue; // edge case: no division needed
-        double result = floor((double)price / 3) - 2; // round down and subtract 2
-        sum += (result > 0) ? 1 : 0; // add 1 only if the new integer is positive
+    for (int num : v) {
+        if (num < 3) {
+            sum += 0;
+        } else {
+            sum += floor((num-2)/3);
+        }
     }
     return sum;
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        int val;
+        cin >> val;
+        input.push_back(val);
+    }
+    cout << solve(input) << endl;
+    return 0;
 }
