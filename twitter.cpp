@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+```cpp
+#include <string>
+#include <iostream>
+#include <cstddef>
 
 int main() {
     std::string input;
@@ -15,7 +18,5 @@ std::string validateTweet(const std::string& input) {
         return "You didn't type anything";
     }
     size_t len = input.length();
-    if (len > 140) {
-        return "Too many characters";
-    }
-    return "Your tweet has " + std::to_string(len) + " characters";
+    return (len <= 140 ? std::string("Your tweet has ") + std::to_string(len) + " characters" : "Too many characters");
+}
