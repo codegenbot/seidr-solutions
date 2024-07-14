@@ -1,31 +1,27 @@
-int bowling(string s) {
+int bowlingScore(string s) {
     int score = 0;
-    int frame = 0;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X' || s[i] == '/') {
-            if (frame > 0 && s[i-1] != ' ') {
-                score += calculate_frame_score(s.substr(i-1,2));
+    int roll1, roll2, frameScore;
+    
+    for(int i=0; i<10; i++) {
+        if(s[i] == '/') { // Strike
+            score += 10 + (i < 9 ? 10 : 0);
+        } else if(i < 8 && s[i+1] == '/') { // Spare
+            roll1 = (s[i] - '0');
+            roll2 = (s[i+2] - '0');
+            frameScore = roll1 + roll2;
+            score += frameScore;
+            i++;
+        } else {
+            roll1 = (s[i*2-1] - '0');
+            if(s[i*2] == '/') { // Strike
+                score += 10;
             } else {
-                score += calculate_single_roll(s[i]);
+                roll2 = (s[i*2] - '0');
+                frameScore = roll1 + roll2;
+                score += frameScore;
             }
-            frame++;
         }
     }
-
+    
     return score;
-}
-
-int calculate_frame_score(string s) {
-    int roll1 = stoi(s.substr(0,1));
-    if (s[1] == '/') {
-        return 10 + calculate_single_roll(s[2]);
-    } else {
-        int roll2 = stoi(s.substr(1,1));
-        return roll1 + roll2;
-    }
-}
-
-int calculate_single_roll(char c) {
-    return stoi(string(1,c)) + 5;
 }
