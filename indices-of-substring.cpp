@@ -26,7 +26,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
-    computeLPSArray(target, lps, 0);
+    computeLPSArray(target, lps, target.length());
 
     for (int i = 0; i < n - m + 1; i++) {
         int j = 0;
