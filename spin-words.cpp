@@ -1,27 +1,23 @@
+Here is the solution:
+
 #include <string>
 using namespace std;
 
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    int i = 0;
-    
-    while(i < str.length()) {
-        if(str.find(" ", i) == -1 || i + 1 >= str.length())
-            break;
-        
-        string word = str.substr(i, str.find(" ", i) - i);
-        if(word.length() >= 5)
-            result += string(word.rbegin(), word.rend());
-        else
-            result += word;
-        
-        i = str.find(" ", i) + 1;
+    int length = 0;
+    for (int i = sentence.length() - 1; i >= 0; i--) {
+        if (sentence[i] == ' ') {
+            result += " ";
+            length = 0;
+        } else {
+            result += sentence[i];
+            length++;
+            if (length > 4) {
+                break;
+            }
+        }
     }
-    
-    return result + (str.length() > i ? " " : "") + str.substr(i);
-}
 
-int main() {
-    // Your code here to test the function.
-    return 0;
+    return result;
 }
