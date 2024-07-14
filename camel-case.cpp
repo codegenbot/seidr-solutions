@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <vector>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> segments;
@@ -41,11 +41,14 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    getline(cin, input);
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    while(std::getline(std::cin, str, '-')) { 
+        std::cout << str << " "; 
+    }
+    std::cout << std::endl;
 
-    cout << "camelCase: " << camelCase(input) << endl;
-
+    std::cout << "Camel case: " << camelCase(str) << std::endl;
+    
     return 0;
 }
