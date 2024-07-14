@@ -1,20 +1,9 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (n * m);
-    double p = 0;
-    
-    for(int i = 1; i <= n - 1; i++) {
-        for(int j = 1; j <= m; j++) {
-            if(i > j)
-                p++;
-        }
-    }
-    
-    return p / total;
+    return (n - 1.0) / (n * m);
 }
 
 int main() {
