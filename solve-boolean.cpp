@@ -1,9 +1,37 @@
+```cpp
 #include <stack>
 #include <string>
 #include <iostream>
 
+int main() {
+    std::stack<char> st;
+    bool result = false;
+
+    std::string expression;
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
+    std::cin >> expression;
+
+    for (char c : expression) {
+        st.push(c);
+    }
+
+    result = evaluateTop(st);
+
+    if (result)
+        std::cout << "The result is TRUE." << std::endl;
+    else
+        std::cout << "The result is FALSE." << std::endl;
+
+    return 0;
+}
+
+void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
+    char c = st.top();
+    st.pop();
+    if (c == 'T') orResult = true; else orResult = false;
+}
+
 bool evaluateTop(std::stack<char> &st) {
-    std::stack<char> resStack; // Declare resStack here
     bool orResult = true;
     bool andResult = false;
 
@@ -12,12 +40,12 @@ bool evaluateTop(std::stack<char> &st) {
         st.pop();
 
         if (c == '(') {
-            // push '(' to resStack
-            resStack.push(c);
+            // push '(' to stack
+            st.push(c);
         } else if (c == ')') {
-            // pop ')' and '(' from resStack until '(' is found
-            while (!resStack.empty() && resStack.top() != '(') {
-                processOperand(resStack, orResult, andResult);
+            // pop ')' and '(' from stack until '(' is found
+            while (st.top() != '(') {
+                processOperand(st, orResult, andResult);
 
                 if (!orResult && c == '|') {
                     orResult = true;
@@ -26,10 +54,10 @@ bool evaluateTop(std::stack<char> &st) {
                     andResult = false;
                 }
 
-                resStack.pop();
+                st.pop();
             }
-            // pop '(' from resStack
-            resStack.pop();
+            // pop '(' from stack
+            st.pop();
 
         } else if (c == 'T' || c == 'F') {
             processOperand(st, orResult, andResult);
@@ -62,11 +90,4 @@ bool evaluateTop(std::stack<char> &st) {
         }
     }
     return orResult;
-}
-
-void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
-    char c = st.top();
-    st.pop();
-    if (c == 'T') orResult = true; else orResult = false;
-
 }
