@@ -51,9 +51,9 @@ vector<int> indicesOfSubstring(string text, string target) {
             }
         }
 
-        while (j > 0) {
+        while (j < m) {
             result.push_back(i);
-            j = lps[j-1];
+            j = lps[j];
             i += len; // move to the next character
         }
     }
@@ -77,8 +77,8 @@ int main() {
     cout << "Enter the target substring: ";
     getline(cin, target);
 
-    if(target.length() > text.length()) {
-        cout << "Target cannot exceed the length of the text." << endl;
+    if(target.empty() || target.length() > text.length()) {
+        cout << "Target cannot be empty and must not exceed the length of the text." << endl;
         return 1; 
     }
 
