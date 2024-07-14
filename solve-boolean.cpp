@@ -1,26 +1,47 @@
-bool solveBoolean(string boolean) {
-    stack<char> operation;
-    stack<bool> value;
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < boolean.length(); i++) {
-        if (boolean[i] == '&') {
-            bool b = value.top();
-            value.pop();
-            bool a = value.top();
-            value.pop();
-            value.push(a & b);
-        } else if (boolean[i] == '|') {
-            bool b = value.top();
-            value.pop();
-            bool a = value.top();
-            value.pop();
-            value.push(a | b);
-        } else if (boolean[i] == 't' || boolean[i] == 'T') {
-            value.push(true);
-        } else if (boolean[i] == 'f' || boolean[i] == 'F') {
-            value.push(false);
+bool evaluateBooleanExpression(const std::string& expression) {
+    bool result = false;
+    int i = 0;
+
+    while (i < expression.length()) {
+        if (expression[i] == 'T') {
+            result = true;
+            break;
+        } else if (expression[i] == 'F') {
+            result = false;
+            break;
+        } else if (expression[i] == '|') {
+            i++; // skip the '|' character
+            bool left = evaluateBooleanExpression(expression.substr(i));
+            i += 1; // skip the '&' character
+            bool right = evaluateBooleanExpression(expression.substr(i));
+            result = left || right;
+        } else if (expression[i] == '&') {
+            i++; // skip the '&' character
+            bool left = evaluateBooleanExpression(expression.substr(i));
+            i += 1; // skip the '&' character
+            bool right = evaluateBooleanExpression(expression.substr(i));
+            result = left && right;
         }
     }
 
-    return value.top();
+    return result;
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
+
+    if (expression == "t") {
+        std::cout << "True" << std::endl;
+    } else if (expression == "f") {
+        std::cout << "False" << std::endl;
+    } else {
+        std::cout << evaluateBooleanExpression(expression) << std::endl;
+    }
+
+    return 0;
 }
