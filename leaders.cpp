@@ -7,3 +7,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
         }
     }
     return res;
+}
