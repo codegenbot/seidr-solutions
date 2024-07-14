@@ -1,31 +1,15 @@
-bool solveBoolean(string s) {
-    stack<char> ops;
-    stack<bool> vals;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T' || s[i] == 't') {
-            vals.push(true);
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            vals.push(false);
-        } else if (s[i] == '&') {
-            while (!vals.empty() && !ops.empty()) {
-                bool b1 = vals.top();
-                vals.pop();
-                bool b2 = vals.top();
-                vals.pop();
-                ops.push((b1 && b2) ? '&' : '|');
-            }
-        } else if (s[i] == '|') {
-            while (!vals.empty() || !ops.empty()) {
-                if (ops.empty()) break;
-                bool b1 = vals.top();
-                vals.pop();
-                bool b2 = vals.top();
-                vals.pop();
-                ops.push((b1 || b2) ? '&' : '|');
-            }
+string solveBoolean(string s) {
+    bool result = false;
+    for (char c : s) {
+        if (c == 'T') {
+            result = true;
+        } else if (c == 'F') {
+            return "False";
+        } else if (c == '|') {
+            return (result ? "True" : "False");
+        } else if (c == '&') {
+            if (!result) return "False";
         }
     }
-
-    return vals.top();
+    return result ? "True" : "False";
 }
