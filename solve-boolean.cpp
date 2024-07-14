@@ -5,19 +5,20 @@ bool solveBoolean(string expression) {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            if (!s.empty()) {
-                s.push('&');
-            }
+            if (s.empty()) return false;
+            s.push('&');
         } else if (expression[i] == '|') {
             while (!s.empty() && s.top() == '|') {
                 s.pop();
             }
-            if (!s.empty()) {
-                s.push('|');
-            }
-        } else {
+            if (s.empty()) return true;
+            s.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
             s.push(expression[i]);
         }
     }
-    return s.top() == 'T';
+    while (!s.empty()) {
+        s.pop();
+    }
+    return s.empty() ? false : true;
 }
