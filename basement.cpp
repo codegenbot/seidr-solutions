@@ -1,12 +1,10 @@
-#include <vector>
-
-int basementIndex(const std::vector<int>& nums) {
+int findFirstNegativeIndex(vector<int> vec) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
+    for (int i = 0; i < vec.size(); i++) {
+        sum += vec[i];
         if (sum < 0) {
             return i;
         }
     }
-    return -1; // or any other value that indicates no such index exists
+    return -1; // or any other value to indicate that no such index exists
 }
