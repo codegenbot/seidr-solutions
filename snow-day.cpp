@@ -3,16 +3,16 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = 0;
+    double totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
-        double newSnow = rateOfSnowFall - initialSnow * proportionOfSnowMeltingPerHour;
-        if (newSnow > 0) {
-            totalSnow += newSnow;
-        }
+        double snowAccumulation = rateOfSnowFall - rateOfSnowFall * proportionOfSnowMeltingPerHour;
+        totalSnow += snowAccumulation;
+        initialSnow -= snowAccumulation * proportionOfSnowMeltingPerHour;
+        initialSnow = min(initialSnow + rateOfSnowFall, totalSnow);
     }
     
-    return initialSnow + totalSnow;
+    return initialSnow;
 }
 
 int main() {
