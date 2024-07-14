@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <utility>
@@ -11,13 +10,11 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     std::pair<std::vector<int>, std::vector<int>> res;
-    res.first.resize(i);
     for (int j = 0; j < i; j++) {
-        res.first[j] = v[j];
+        res.first.push_back(v[j]);
     }
-    res.second.resize(n - i);
     for (int j = i; j < n; j++) {
-        res.second[j - i] = v[j];
+        res.second.push_back(v[j]);
     }
     return res;
 }
