@@ -1,23 +1,18 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::vector<std::string> words;
-    size_t start = 0, end;
-    while ((end = s.find '-') != std::string::npos) {
-        words.push_back(s.substr(start, end - start));
-        start = end + 1;
-    }
-    words.push_back(s.substr(start));
-
+std::string camelCase(const std::string& str) {
     std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (!result.empty()) {
-            result += char(toupper(words[i][0]));
-            result += words[i].substr(1);
+    bool capitalize = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            result = words[i];
+            result += tolower(c);
         }
     }
 
@@ -25,9 +20,11 @@ std::string camelCase(std::string s) {
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << '\n';
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
+
     return 0;
 }
