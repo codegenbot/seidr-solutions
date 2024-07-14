@@ -1,9 +1,15 @@
-```
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
+def find_indices(text, target):
+    result = []
+    i = 0
+    while i < len(text):
+        pos = text.find(target)
+        if pos != -1:
+            result.append(pos)
+            i = pos + 1
+        else:
+            break
+    return result
 
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-print(f"GCD of {a} and {b} is {gcd(min(a, b), max(a, b))}")
+text = input("Enter the text: ")
+target = input("Enter the target string: ")
+print(find_indices(text, target))
