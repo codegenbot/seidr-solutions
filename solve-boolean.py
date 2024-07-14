@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     result = True
@@ -15,6 +14,8 @@ def solve_boolean(expression):
                     result = result and (value1 and value2)
                 elif operation == '|':
                     result = result or (value1 or value2)
+            if operation == '|':
+                stack.append(result)
             operation = char
         else:
             raise ValueError("Invalid expression")
