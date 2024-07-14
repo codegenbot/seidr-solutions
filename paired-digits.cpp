@@ -2,12 +2,10 @@
 using namespace std;
 
 int sumPairedDigits(string str) {
-    int current = 0, sum = 0;
+    int sum = 0;
     for(int i=0; i < str.length() - 1; i++) { 
-        current = current * 10 + (str[i] - '0'); 
-        if(str[i] == str[i+1]) {
-            sum += current;
-            current = 0;
+        if(str[i] == str[i+1]) { 
+            sum += int(str[i]) + int(str[i+1]); 
         }
     }
     return sum;
@@ -15,7 +13,10 @@ int sumPairedDigits(string str) {
 
 int main() {
     string input;
-    cin >> input; // read input from user
-    cout << sumPairedDigits(input) << endl; // output the result
+    cin >> input; 
+    cout << "Sum of paired digits: " << sumPairedDigits(input) << endl; 
+    if (input.length() < 2) {
+        cout << "Error: Input must be at least two characters long." << endl;
+    }
     return 0;
 }
