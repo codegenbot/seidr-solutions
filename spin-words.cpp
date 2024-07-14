@@ -1,35 +1,43 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        if (c == ' ') {
-            if (word.length() >= 5)
-                result += newWord(word);
-            else
-                result += word;
-            word = "";
+    string temp = "";
+    
+    for(int i=0; i<str.length(); i++) {
+        if(str[i] == ' ') {
+            if(temp.length() >= 5) {
+                for(int j=temp.length()-1; j>=0; j--) {
+                    result += temp[j];
+                }
+            } else {
+                result += temp;
+            }
+            temp = "";
         } else {
-            word += c;
+            temp += str[i];
         }
     }
-
-    if (word.length() >= 5)
-        result += newWord(word);
-    else
-        result += word;
-
+    
+    if(temp.length() >= 5) {
+        for(int i=temp.length()-1; i>=0; i--) {
+            result += temp[i];
+        }
+    } else {
+        result += temp;
+    }
+    
     return result;
 }
 
-string newWord(string str) {
-    string revStr = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        revStr += str[i];
-    }
-    return revStr;
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Spin words: " << spinWords(str) << endl;
+    return 0;
 }
