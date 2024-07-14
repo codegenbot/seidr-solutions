@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -25,4 +27,11 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    string code = "ABCD";
+    string guess = "ABDE";
+    int result = mastermind(code, guess);
+    return 0;
 }
