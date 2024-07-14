@@ -1,12 +1,13 @@
-```cpp
 int luhn(const std::vector<int>& digits) {
     int sum = 0;
-    for (int i = digits.size() - 1; i >= 0; i--) {
-        if ((i % 2 == 1) && (digits[i] * 2 > 9)) { 
-            sum += (digits[i] * 2) % 9 + 1;
-        } else {
-            sum += digits[i];
+    std::vector<int> newDigits = digits;
+    for (int i = newDigits.size() - 1; i >= 0; i--) {
+        if (i % 2 == 0) {
+            newDigits[i] *= 2;
+            if (newDigits[i] > 9)
+                newDigits[i] -= 9;
         }
+        sum += newDigits[i];
     }
     return sum;
 }
