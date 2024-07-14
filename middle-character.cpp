@@ -1,16 +1,9 @@
+Here is the solution:
+
 string middleCharacter(string s) {
-    int len = s.length();
-    string result;
-    
-    if(len % 2 == 0){
-        int mid1 = len / 2 - 1;
-        int mid2 = len / 2;
-        result += s[mid1];
-        result += s[mid2];
-    }else{
-        int mid = len / 2;
-        result = s[mid];
-    }
-    
-    return result;
+    int n = s.length();
+    if (n % 2 == 1)
+        return string(1, s[n / 2]);
+    else
+        return string(1, s[(n - 1) / 2]) + string(1, s[(n + 1) / 2]);
 }
