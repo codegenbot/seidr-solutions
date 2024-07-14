@@ -1,32 +1,40 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            char leftOp = s.top();
-            s.pop();
-            char rightOp = s.top();
-            s.pop();
-            if ((leftOp == 'T' && rightOp == 'T') || (leftOp == 'F' && rightOp == 'F')) {
-                s.push('T');
-            } else {
-                s.push('F');
+bool evaluateBooleanExpression(string expression) {
+    if (expression == "T" || expression == "t")
+        return true;
+    else if (expression == "F" || expression == "f")
+        return false;
+    else if (expression.length() > 1) {
+        int i = 0;
+        while (i < expression.length()) {
+            if (expression[i] == '&') {
+                string left = expression.substr(0, i);
+                string right = expression.substr(i + 1);
+                return evaluateBooleanExpression(left) && evaluateBooleanExpression(right);
+            } else if (expression[i] == '|') {
+                string left = expression.substr(0, i);
+                string right = expression.substr(i + 1);
+                return evaluateBooleanExpression(left) || evaluateBooleanExpression(right);
             }
-        } else if (expression[i] == '&') {
-            char leftOp = s.top();
-            s.pop();
-            char rightOp = s.top();
-            s.pop();
-            if ((leftOp == 'T' && rightOp == 'T') || (leftOp == 'F' && rightOp == 'F')) {
-                s.push('T');
-            } else {
-                s.push('F');
-            }
-        } else {
-            s.push(expression[i]);
+            i++;
         }
     }
-    return (s.top() == 'T');
+    return false;
+}
+
+int main() {
+    string input;
+    cout << "Enter the Boolean expression (T/F/&(|)): ";
+    cin >> input;
+    bool result = evaluateBooleanExpression(input);
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
+    return 0;
 }
