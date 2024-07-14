@@ -1,29 +1,29 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string sentence) {
-    string output = "";
-    int wordStart = 0;
-    for (int i = 0; i <= sentence.length(); i++) {
-        if (i == sentence.length() || sentence[i] == ' ') {
-            string word = sentence.substr(wordStart, i - wordStart);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            output += word + " ";
-            wordStart = i + 1;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    size_t prevSpaceIndex = 0;
+    
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            std::string word = str.substr(prevSpaceIndex, i - prevSpaceIndex);
+            
+            if (word.length() >= 5)
+                std::reverse(word.begin(), word.end());
+            
+            result += word + " ";
+            prevSpaceIndex = i + 1;
         }
     }
-    return output;
+    
+    return result.substr(0, result.size() - 1); // remove the trailing space
 }
 
 int main() {
-    string input;
-    while (getline(cin, input)) {
-        cout << spinWords(input) << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << spinWords(str) << std::endl;
     }
     return 0;
 }
