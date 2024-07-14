@@ -1,33 +1,29 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 string camelCase(string s) {
-    vector<string> words = split(s, '-');
-    string result;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += toupper(words[i][0]);
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            result += tolower(words[i][0]);
+            if (!result.empty()) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         }
-        result += words[i].substr(1);
     }
     return result;
-}
-
-vector<string> split(const string& s, char c) {
-    vector<string> res;
-    string t;
-    for (char x : s) {
-        if (x == c)
-            res.push_back(t), t = "";
-        else
-            t += x;
-    }
-    res.push_back(t);
-    return res;
 }
 
 int main() {
