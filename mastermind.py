@@ -7,6 +7,6 @@ def mastermind(code, guess):
             return "00"
 
     white = sum(1 for c, d in zip(code, guess) if c == d)
-    black = len([i for i, (c, d) in enumerate(zip(code, guess)) if c == d and c != 'Y']) - white
+    black = sum(1 for i, (c, d) in enumerate(zip(code, guess)) if i < 4 and c == d)
 
     return str(white) + "0" + str(black)
