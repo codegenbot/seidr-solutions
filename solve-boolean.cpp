@@ -1,21 +1,19 @@
 ```cpp
 #include <string>
 #include <iostream>
+#include <sstream>
 
 int main() {
     std::string expression;
     char c;
 
-    while ((c = getchar()) != '\n' && c != EOF) { 
-        expression.push_back(c); 
+    while ((c = std::cin.get()) != '\n' && c != EOF) {
+        expression += c; 
     }
+    bool result = false;
 
-    bool result = false;  
-
-    for (int i = 0; i < expression.length(); ++i) {
-        char e = expression[i]; 
-        if (e == 'T') result = true;
-        else if (e == 'F') result = false;
+    for (char e : expression) {
+        if (e == 'T') result = true; else if (e == 'F') result = false;
         else if (e == '|') result = !result;
         else if (e == '&') {
             bool temp = result;
