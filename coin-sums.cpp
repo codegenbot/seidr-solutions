@@ -13,13 +13,18 @@ int main() {
         cents -= 25;
     }
     while (cents >= 10) {
-        ++coinCounts[1]; 
-        cents -= 10;
+        int count = cents / 10;
+        for(int i = 0; i < count; ++i)
+            coinCounts[1]++;
+        cents %= 10;
     }
     while (cents >= 5) {
-        ++coinCounts[2]; 
-        cents -= 5;
+        int count = cents / 5;
+        for(int i = 0; i < count; ++i)
+            coinCounts[2]++;
+        cents %= 5;
     }
+
     coinCounts[3] = cents; 
 
     std::cout << "Quarters: " << coinCounts[0] << std::endl;
