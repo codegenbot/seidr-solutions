@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <limits>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -30,20 +29,17 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string user_input;
-
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
         std::string line;
-        while (!(std::getline(std::cin, line))) {
+        if (!(std::getline(std::cin, line))) {
             std::cout << "Invalid input. Please try again.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
         }
         if (!line.empty()) { 
             std::string output = camelCase(line); // Pass the input to the function
             if(!output.empty() && !output.back() == ' ')  
-                std::cout << "Camel Case: " << (output + 1) << std::endl; 
+                std::cout << "Camel Case: " << output << std::endl; 
         }
     }
     return 0;
