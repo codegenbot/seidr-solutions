@@ -1,4 +1,9 @@
-#include<bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <initializer_list>
+#include <string>
+#include <vector>
 
 int gcd(int a, int b) {
     if (b == 0)
