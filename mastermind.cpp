@@ -1,4 +1,5 @@
 #include <string>
+#include <map>
 
 int mastermind(std::string code, std::string guess) {
     if (code.length() != 4 || guess.length() != 4) {
@@ -18,11 +19,17 @@ int mastermind(std::string code, std::string guess) {
     for (char c : code) {
         codeCount[c]++;
     }
-    for (char c : guess) {
-        if (std::string::npos != code.find(c) && codeCount[c] > 0) {
+    for (int i = 0; i < 4; ++i) {
+        char c = guess[i];
+        if (c == code[i]) {
+            black++;
+        } else if (code.find(c) != std::string::npos && codeCount[c] > 0) {
             white++;
             codeCount[c]--;
+        } else if (std::string::npos != code.find(c)) {
+            white++;
         }
     }
 
     return black + white;
+}

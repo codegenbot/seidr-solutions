@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <limits>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -12,20 +13,20 @@ std::string camelCase(const std::string& str) {
             capitalize = true; 
         } else if (c != ' ') { 
             if(capitalize) { 
-                result.push_back(toupper(c));
+                result.push_back(std::toupper(c));
                 capitalize = false; 
             } else {
-                result.push_back(tolower(c)); 
+                result.push_back(std::tolower(c)); 
             }
         } else {
             if (!capitalize && !result.empty()) {
-                result.push_back(' ');
+                result += ' '; 
                 capitalize = true;
             }
         }
     }
 
-    return capitalize ? toupper(result[0]) + result.substr(1) : result;
+    return capitalize ? std::toupper(result[0]) + result.substr(1) : result;
 }
 
 int main() {
@@ -33,12 +34,15 @@ int main() {
 
     while(true) {
         std::cout << "Enter your string (in kebab-case): ";
-        std::getline(std::cin, user_input);
-        
-        if (!user_input.empty()) { 
-            std::string output = camelCase(user_input); // Pass the input to the function
-            if (!output.empty() && !output.back() == ' ')  
-                std::cout << "Camel Case: " << output << std::endl; 
+        std::string line;
+        while (!(std::getline(std::cin, line))) {
+            std::cout << "Invalid input. Please try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        if (!line.empty()) { 
+            std::string output = camelCase(line); 
+            std::cout << "Camel Case: " << output << (output.size() > 0 ? "1" : "") << std::endl; 
         }
     }
     return 0;
