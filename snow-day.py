@@ -1,13 +1,13 @@
-from decimal import Decimal, getcontext
+```
+from math import floor
 
 
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    getcontext().prec = 50
-    snow = Decimal(initial_snow)
+    snow = float(initial_snow)
     for _ in range(int(hours)):
-        snow += Decimal(str(rate_of_snowfall)).quantize(Decimal("0.01"))
-        snow -= Decimal(str(melting_rate)).quantize(Decimal("0.01"))
-    return str(snow).rstrip("0").rstrip(".").replace(".", "")
+        snow += rate_of_snowfall
+        snow -= min(snow, melting_rate)
+    return str(format(floor(snow + 0.0001), ".2f")).lstrip("0").rstrip(".")
 
 
 while True:
@@ -50,4 +50,6 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
-print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
+print(
+    snow_day(hours, initial_snow, rate_of_snowfall, melting_rate)
+)
