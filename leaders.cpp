@@ -6,15 +6,12 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
-    int lastLeader = arr.back();
-    for(int i=n-1; i>=0; i--) {
-        if(arr[i] >= lastLeader) {
+    for(int i=0; i<n-1; i++) {
+        if(res.empty() || arr[i] >= res.back()) {
             res.push_back(arr[i]);
-            lastLeader = arr[i];
         }
     }
     
-    std::reverse(res.begin(), res.end());
     return res;
 }
 
