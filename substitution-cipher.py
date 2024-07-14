@@ -1,10 +1,14 @@
-```
-def substitution_cipher(cipher1, cipher2, message):
-    result = ""
-    for char in message:
-        if char in cipher1:
-            index = cipher1.index(char)
-            result += cipher2[index]
-        else:
-            result += char
-    return result
+def substitution_cipher(cipher_keys, cipher_values, message):
+    return "".join(
+        [
+            cipher_value
+            for cipher_key, cipher_value in zip(cipher_keys, cipher_values)
+            if cipher_key in message
+        ]
+        + [
+            value
+            for key in message
+            for value in cipher_values
+            if key not in cipher_keys
+        ]
+    )
