@@ -1,5 +1,6 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
+    
     total = 0
     for i, digit in enumerate(card_number):
         if (i % 2 == 1): 
@@ -10,4 +11,5 @@ def luhn(card_number):
                 total += temp
         else:
             total += digit  
-    return total % 10
+    
+    return total
