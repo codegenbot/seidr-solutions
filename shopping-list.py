@@ -1,6 +1,6 @@
 def shopping_list():
     n = int(input())
-    total_price = 0
+    total_price = float()
 
     for _ in range(n):
         item_prices = [float(price) for price in input().split()]
