@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 std::string validateTweet(std::string tweet) {
@@ -8,4 +9,5 @@ std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    return "Your tweet has " + std::to_string(length) + " characters";
+    return "Your tweet has " + std::to_string(length) + """characters""";
+}
