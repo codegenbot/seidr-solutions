@@ -3,6 +3,8 @@ using namespace std;
 
 #include <vector>
 
+using namespace std;
+
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
@@ -24,6 +26,6 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << '\n';
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << "\n";
     return 0;
 }
