@@ -1,5 +1,6 @@
-```cpp
 #include <vector>
+#include <iostream>
+#include <string>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -15,7 +16,16 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> cardNumber = {4,3,2,1,8,7,6,5,4,3,2,1,6};
-    int result = luhn(cardNumber);
+    std::vector<int> digits;
+    std::string cardNumber;
+    std::cout << "Enter your credit card number: ";
+    std::getline(std::cin, cardNumber);
+    
+    for(int i = 0; i < cardNumber.size(); ++i){
+        int digit = (cardNumber[i] - '0');
+        digits.push_back(digit);
+    }
+    int result = luhn(digits);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
