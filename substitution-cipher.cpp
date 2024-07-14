@@ -28,13 +28,13 @@ int main() {
     std::string cipher_map1, cipher_map2, message;
 
     std::cout << "Enter the first map: ";
-    std::getline(std::cin, cipher_map1);
+    std::cin >> std::ws; getline(std::cin, cipher_map1);
 
     std::cout << "Enter the second map: ";
-    std::getline(std::cin, cipher_map2);
+    std::cin >> std::ws; getline(std::cin, cipher_map2);
 
     std::cout << "Enter the message to decipher: ";
-    std::getline(std::cin, message);
+    std::cin >> std::ws; getline(std::cin, message);
 
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
 }
