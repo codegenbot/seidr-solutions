@@ -14,27 +14,45 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     long long leftSum = 0, rightSum = sum;
-    int minDiff = INT_MAX, cutIndex = -1;
-
-    std::vector<std::vector<int>> res;
-    res.push_back(std::vector<int>());
-    res.push_back(std::vector<int>());
+    int minLeft = INT_MAX, minRight = INT_MAX;
+    int leftCut = 0, rightCut = 0;
 
     for (int i = 0; i < n; i++) {
-        long long diff = std::abs(leftSum - rightSum);
-        if ((diff <= minDiff) && (v[i] % 2 == (leftSum - rightSum) % 2)) { 
-            minDiff = diff;
-            cutIndex = i;
+        if (leftSum + v[i] <= rightSum) {
+            leftSum += v[i];
+        } else {
+            rightSum -= v[i];
         }
-        leftSum += v[i];
-        rightSum -= v[i];
+        if (std::abs(leftSum - rightSum) < minLeft) {
+            minLeft = std::abs(leftSum - rightSum);
+            leftCut = i;
+        } else if (std::abs(leftSum - rightSum) < minRight) {
+            minRight = std::abs(leftSum - rightSum);
+            rightCut = i;
+        }
     }
     
-    res[0].assign(v.begin(), v.begin() + cutIndex);
-    
-    res[1].assign(v.begin() + cutIndex, v.end());
-    
-    return res;
+    if (minLeft <= minRight) {
+        std::vector<std::vector<int>> res;
+        res.push_back(std::vector<int>());
+        res.push_back(std::vector<int>());
+
+        res[0].assign(v.begin(), v.begin() + leftCut);
+        
+        res[1].assign(v.begin() + leftCut, v.end());
+        
+        return res;
+    } else {
+        std::vector<std::vector<int>> res;
+        res.push_back(std::vector<int>());
+        res.push_back(std::vector<int>());
+
+        res[0].assign(v.begin(), v.begin() + rightCut);
+        
+        res[1].assign(v.begin() + rightCut, v.end());
+        
+        return res;
+    }
 }
 
 int main() {

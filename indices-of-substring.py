@@ -1,6 +1,6 @@
+text = ">P4X," + input()
+target = "P4X"  
 def indices_of_substring():
-    text = input()
-    target = input()  
     result = []
     i = 0
     while True:
