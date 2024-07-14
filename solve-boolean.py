@@ -1,6 +1,7 @@
+```
 def solve_boolean(expression):
     while "&| |&|" in expression:
-        expression = expression.replace("&|", "and").replace("|&", "or")
+        expression = expression.replace("&|", "&&").replace("|&", "| ")
 
     i = 0
     stack = []
@@ -21,4 +22,4 @@ def solve_boolean(expression):
         else:
             current_expression += char
 
-    return eval("bool({0})".format(current_expression))
+    return eval(f"bool({current_expression})")
