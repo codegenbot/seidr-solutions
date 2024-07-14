@@ -1,11 +1,13 @@
 #include <vector>
+#include <cmath>
 
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int new_val = (i / 3);
+        double new_val = static_cast<double>(i) / 3;
         new_val = floor(new_val);
         new_val -= 2;
-        sum += new_val;
+        sum += static_cast<int>(new_val);
     }
     return sum;
+}
