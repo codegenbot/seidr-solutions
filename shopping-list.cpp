@@ -8,4 +8,3 @@ double shoppingList(std::vector<std::pair<float, float>>& pricesAndDiscounts) {
         total += discountedPrice;
     }
     return total;
-}
