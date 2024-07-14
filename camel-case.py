@@ -1,8 +1,12 @@
 ```python
 def camel_case(input_str):
-    output = input_str.split('-')[0].capitalize()
-    for word in input_str.replace('-', ' ').split()[1:]:
-        output += word.capitalize()
+    result = input_str.split('-')
+    output = ''
+    for word in result:
+        if len(output) > 0:
+            output += word.capitalize()
+        else:
+            output += word
     return output
 
 print(camel_case("nospaceordash"))
