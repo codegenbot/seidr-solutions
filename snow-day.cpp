@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
@@ -11,20 +10,24 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 }
 
 int main() {
-    char input[256];
-    std::cout << "Enter the number of hours: ";
-    std::cin.getline(input, sizeof(input));
-    int hours = std::stoi(input);
-    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    int hours;
+    float initialSnow, rateOfSnowFallInput, proportionOfSnowMeltingPerHour;
 
+    std::cout << "Enter the number of hours: ";
+    std::cin >> hours;
     std::cout << "Enter the initial amount of snow: ";
     std::cin >> initialSnow;
     std::cout << "Enter the rate of snow fall (in %): ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> proportionOfSnowMeltingPerHour;
+    float rateOfSnowFallInput;
+    std::cin >> rateOfSnowFallInput; 
+    int rateOfSnowFall = static_cast<int>(rateOfSnowFallInput); 
+    rateOfSnowFall /= 100.0f; 
 
-    float result = snowDay(hours, initialSnow, rateOfSnowFall / 100.0f, proportionOfSnowMeltingPerHour);
+    std::cout << "Enter the proportion of snow melting per hour: ";
+    float proportionOfSnowMeltingPerHourInput;
+    std::cin >> proportionOfSnowMeltingPerHourInput;
+
+    float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
     std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
 
