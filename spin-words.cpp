@@ -1,30 +1,26 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here's the solution:
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word;
-    
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i + 1] == ' ') {
+string spinWords(string sentence) {
+    string result = "";
+    vector<string> words;
+    size_t prev = 0;
+
+    // split the sentence into words
+    for (size_t i = 0; i <= sentence.size(); i++) {
+        if ((i == sentence.size()) || (sentence[i] == ' ')) {
+            string word = sentence.substr(prev, i - prev);
             if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+                reverse(word.begin(), word.end());
             }
-            result += word + " ";
-            word = "";
-        } else {
-            word += str[i];
+            words.push_back(word);
+            prev = i + 1;
         }
     }
-    
-    return result.substr(0, result.length() - 1);
-}
 
-int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << spinWords(str) << std::endl;
+    // concatenate the words
+    for (string word : words) {
+        result += word + " ";
     }
-    return 0;
+
+    return result.substr(0, result.size() - 1); // remove trailing space
 }
