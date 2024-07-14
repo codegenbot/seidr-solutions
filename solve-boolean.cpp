@@ -3,22 +3,49 @@
 #include <iostream>
 
 bool solveBoolean(std::string s) {
-    std::stack<bool> stack;
+    std::stack<bool> boolStack;
+    std::stack<char> operatorStack;
+
     for (char c : s) {
-        if (c == 'T') stack.push(true);
-        else if (c == 'F') stack.push(false);
+        if (c == 'T' || c == 'F') {
+            boolStack.push(c == 'T');
+        } 
         else if (c == '|') {
-            bool right = stack.top(); stack.pop();
-            bool left = stack.top(); stack.pop();
-            stack.push(left || right);
+            while (!operatorStack.empty() && operatorStack.top() == '&') {
+                bool right = boolStack.top(); boolStack.pop();
+                bool left = boolStack.top(); boolStack.pop();
+                stack.push(left && right);
+                operatorStack.pop();
+            }
+            operatorStack.push('|');
         } 
         else if (c == '&') {
-            bool right = stack.top(); stack.pop();
-            bool left = stack.top(); stack.pop();
-            stack.push(left && right);
+            operatorStack.push('&');
+        } 
+        else if (c == '(') {
+            operatorStack.push('(');
+        } 
+        else if (c == ')') {
+            while (!operatorStack.empty() && operatorStack.top() != '(') {
+                char op = operatorStack.top(); operatorStack.pop();
+                bool right = boolStack.top(); boolStack.pop();
+                bool left = boolStack.top(); boolStack.pop();
+                if (op == '|') stack.push(left || right);
+                else stack.push(left && right);
+            }
+            operatorStack.pop(); // consume '('
         }
     }
-    return stack.top();
+
+    while (!operatorStack.empty()) {
+        char op = operatorStack.top(); operatorStack.pop();
+        bool right = boolStack.top(); boolStack.pop();
+        bool left = boolStack.top(); boolStack.pop();
+        if (op == '|') stack.push(left || right);
+        else stack.push(left && right);
+    }
+
+    return boolStack.top();
 }
 
 int main() {
