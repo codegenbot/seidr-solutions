@@ -13,17 +13,15 @@ def bowling_score(score):
                 total += 10
                 frame += 1
             elif second_roll == 10:
-                total += second_roll
+                total += 10
                 frame += 1
             else:
                 total += first_roll + second_roll
                 if first_roll + second_roll < 10:
-                    for _ in range(2 - (first_roll + second_roll < 10)):
-                        next_frames.append(next_frames.pop(0) if next_frames else 0)
+                    next_frames = []
                 frame += (2 if first_roll + second_roll == 10 else 1)
-    while next_frames and sum(next_frames) > 0:
-        total += sum(next_frames[:3])
-        next_frames = next_frames[3:]
+    for i in range(frame, 10):
+        total += next_frames.pop(0) if len(next_frames) > 0 else 0
     return total
 
 print(bowling_score('0'))
