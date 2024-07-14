@@ -2,6 +2,10 @@
 #include <vector>
 #include <unordered_map>
 #include <iostream>
+#include <initializer_list>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Werror"
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
