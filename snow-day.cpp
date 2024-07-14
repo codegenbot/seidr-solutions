@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <limits>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = initialSnow;
@@ -14,23 +13,21 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
 }
 
 int main() {
-    int hours, rate, proportion;
+    int hours;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
     std::cout << "Enter the number of hours: ";
     std::cin >> hours;
     std::cout << "Enter the initial amount of snow: ";
-    float initialSnow;
     std::cin >> initialSnow;
     std::cout << "Enter the rate of snow fall per hour: ";
-    std::cin >> rate; 
-    float rateOfSnowFall = static_cast<float>(rate);
+    std::cin >> rateOfSnowFall;
     std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> proportion; 
-    float proportionOfSnowMeltingPerHour = static_cast<float>(proportion);
+    std::cin >> proportionOfSnowMeltingPerHour;
 
     float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << "\n";
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << " cm\n";
 
     return 0;
 }
