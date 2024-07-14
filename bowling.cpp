@@ -1,22 +1,47 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') { // strike
-            score += 10 + (i < 9 ? 10 : 0);
-        } else if (s[i] == '/') { // spare
-            score += 10;
-        } else {
-            roll1 = s[i] - '0';
-            if (i < 8 && s[i+1] == 'X') { // strike in next frame
-                score += roll1 + 10;
-            } else if (i < 8 && s[i+1] == '/') { // spare in next frame
-                score += roll1 + 10;
+    int currentFrame = 1;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
+            string first = s.substr(0, i);
+            string second = s.substr(i + 1);
+            int firstRoll = stoi(first);
+            int secondRoll = stoi(second);
+            if (firstRoll + secondRoll >= 10) {
+                score += 10;
             } else {
-                roll2 = s[i+1] - '0';
-                score += roll1 + roll2;
+                score += firstRoll + secondRoll;
+            }
+            currentFrame++;
+        } else {
+            string roll = s.substr(0, i + 1);
+            int value = stoi(roll);
+            if (value == 10) {
+                score += 10;
+                currentFrame++;
+            } else {
+                score += value;
+                if (currentFrame < 10) {
+                    score += bowlingRoll(s.substr(i + 1));
+                    currentFrame++;
+                }
             }
         }
     }
     return score;
+}
+
+int bowlingRoll(string s) {
+    int i = 0;
+    while (i < s.length() && s[i] != '/') {
+        i++;
+    }
+    if (i == s.length()) {
+        return stoi(s);
+    } else {
+        string first = s.substr(0, i);
+        string second = s.substr(i + 1);
+        int value = stoi(first) + stoi(second);
+        return value;
+    }
 }
