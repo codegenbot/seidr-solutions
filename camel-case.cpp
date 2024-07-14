@@ -1,7 +1,8 @@
+```
 #include <string>
 #include <vector>
 
-std::vector<std::string> split(const std::string& str, char sep) {
+std::string split(const std::string& str, char sep) {
     std::vector<std::string> segments;
     size_t pos = 0, lastPos = 0;
     do {
@@ -13,8 +14,7 @@ std::vector<std::string> split(const std::string& str, char sep) {
         segments.push_back(str.substr(pos, lastPos - pos));
         pos = lastPos + 1;
     } while (true);
-    return segments;
-
+    return str.substr(pos);
 }
 
 std::string camelCase(const std::string& str) {
