@@ -1,42 +1,14 @@
-#include <vector>
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int roll = 0;
-    vector<int> rolls(10);
-
-    for (char c : s) {
+    int currentRoll = 0;
+    for (char c : input) {
         if (c == '/') {
-            if (roll == 1) {
-                if (rolls[0] + rolls[1] < 10) {
-                    score += 10 - (rolls[0] + rolls[1]);
-                } else {
-                    score += rolls[0] + rolls[1];
-                }
-                roll = 0;
-            } else {
-                rolls[9 - roll] = c == 'X' ? 10 : (c - '0');
-                roll++;
-            }
-        } else if (c == 'X') {
-            score += 10;
-            rolls[9 - roll] = 10;
-            roll++;
-        } else {
-            rolls[9 - roll] = c - '0';
-            roll++;
+            score += max(currentRoll, 10 - currentRoll);
+            currentRoll = 0;
+        } else if (isdigit(c)) {
+            currentRoll *= 10 + (c - '0');
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        if (rolls[i] == 10) {
-            score += 10 + rolls[i+1] + rolls[i+2];
-            i += 2;
-        } else {
-            score += rolls[i];
-        }
-    }
-
+    if (currentRoll > 0) score += currentRoll;
     return score;
 }
