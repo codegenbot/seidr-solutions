@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int luhn(vector<int> card) {
@@ -18,13 +18,13 @@ int luhn(vector<int> card) {
 }
 
 int main() {
-    vector<int> card; // input your card numbers here
-    cout << "Enter a credit card number: ";
-    for(int i = 0; i < 16; i++) {
-        int digit;
-        cin >> digit;
-        card.push_back(digit);
+    vector<int> card; 
+    for(int i = 0; i < 16; i++){
+        int num;
+        cout << "Enter the digit at position " << (i+1) << ": ";
+        cin >> num;
+        card.push_back(num);
     }
-    cout << luhn(card) << endl;
+    cout << luhn(card);
     return 0;
 }
