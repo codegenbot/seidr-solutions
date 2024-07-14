@@ -10,7 +10,7 @@ def solve_boolean(expression):
         elif i != -1 and (j == -1 or i < j):
             i = j = -1
         if i != -1:
-            expression = expression[:i] + str(expression[i-1] == "T") and stack.pop()
+            expression = expression[:i] + str(expression[i - 1] == "T") and stack.pop()
         if j != -1:
-            expression = expression[:j] + str(expression[j-1] == "T") | stack.pop()
+            expression = expression[:j] + str(expression[j - 1] == "T" or stack.pop())
     return stack[0]
