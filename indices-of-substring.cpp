@@ -2,22 +2,7 @@
 #include <iostream>
 using namespace std;
 
-void computeLPSArray(string pat, vector<int>& lps, int len) {
-    lps[0] = 0; // empty prefix
-    len = 0;
-
-    for (int i = 1; i < pat.length(); i++) {
-        while (len > 0 && pat[i] != pat[len]) { 
-            len = lps[len - 1]; 
-        }
-
-        if (pat[i] == pat[len]) { 
-            len++;
-        } else {
-            lps[i] = len; 
-        }
-    }
-}
+void computeLPSArray(string pat, vector<int>& lps, int len);
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -48,6 +33,23 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+void computeLPSArray(string pat, vector<int>& lps, int len) {
+    lps[0] = 0; // empty prefix
+    len = 0;
+
+    for (int i = 1; i < pat.length(); i++) {
+        while (len > 0 && pat[i] != pat[len]) { 
+            len = lps[len - 1]; 
+        }
+
+        if (pat[i] == pat[len]) { 
+            len++;
+        } else {
+            lps[i] = len; 
+        }
+    }
 }
 
 int main() {
