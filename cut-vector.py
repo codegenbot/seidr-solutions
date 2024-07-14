@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     min_diff = float('inf')
     cut_index = 0
@@ -11,16 +10,5 @@ def cut_vector(vector):
         elif abs(left_sum - right_sum) < min_diff:
             min_diff = abs(left_sum - right_sum)
             cut_index = i
-            
-    if len(vector) % 2 != 0:
-        middle = vector[len(vector)//2]
-        left_sum = sum(vector[:len(vector)//2+1])
-        right_sum = sum(vector[len(vector)//2:])
-        
-        if left_sum == right_sum:
-            return tuple(vector[:len(vector)//2+1]), tuple(vector[len(vector)//2:])
-        elif abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
-            cut_index = len(vector)//2
             
     return tuple(vector[:cut_index]), tuple(vector[cut_index:])
