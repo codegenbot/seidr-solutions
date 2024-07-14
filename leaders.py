@@ -1,6 +1,4 @@
-def leaders(integers):
-    return [
-        i
-        for i in integers[::-1]
-        if all(j <= i for j in integers[integers.index(i) + 1 :])
-    ]
+Here is the Python solution for the "leaders" problem:
+
+def leaders(input):
+    return [i for i in reversed(input) if all(i >= j for j in input[input.index(i)+1:])]
