@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -23,4 +22,3 @@ int main() {
     std::getline(std::cin, message);
     std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
     return 0;
-}
