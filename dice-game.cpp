@@ -1,12 +1,13 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 double probability(int n, int m) {
     double p = 0;
     for (int i = 1; i < m; i++) { 
         for (int j = i + 1; j <= n; j++) { 
-            p += 1.0 / (n * m);
+            p += 1 / (double)(n * m);
         }
     }
     return p;
@@ -44,6 +45,6 @@ int main() {
             return 1; 
         }
     }
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability(n, m) << std::endl;
+    std::cout << fixed << setprecision(2) << probability(n, m) << std::endl;
     return 0;
 }
