@@ -1,37 +1,34 @@
-#include <vector>
-#include <iostream>
-#include <string>
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-int countWhitePegs(const std::string& code, const std::string& guess) {
-    int whitePegs = 0;
+    // Create a frequency map for the code and the guess
+    map<char, int> code_freq, guess_freq;
+
+    for (char c : code) {
+        code_freq[c]++;
+    }
+
     for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && std::find(code.begin(), code.end(), c) != code.end()) {
-            whitePegs++;
+        guess_freq[c]++;
+    }
+
+    // Count the black pegs
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+            code_freq[code[i]]--;
+            guess_freq[guess[i]]--;
         }
     }
-    return whitePegs;
-}
 
-int countBlackPegs(const std::string& code, const std::string& guess) {
-    int blackPegs = 0;
-    for (char c : guess) {
-        if (std::count(code.begin(), code.end(), c) > 0 && &c == &code[std::find(code.begin(), code.end(), c) - code.begin()]) {
-            blackPegs++;
+    // Count the white pegs
+    for (int i = 0; i < 4; i++) {
+        if (code_freq.find(guess[i]) != code_freq.end() && code_freq[guess[i]] > 0) {
+            white++;
+            code_freq[guess[i]]--;
         }
     }
-    return blackPegs;
-}
 
-int main() {
-    std::string code, guess;
-    // Read input from user
-    std::cin >> code >> guess;
-
-    int whitePegs = countWhitePegs(code, guess);
-    int blackPegs = countBlackPegs(code, guess);
-
-    // Print output corresponding to the task description
-    std::cout << whitePegs << "\n" << blackPegs << "\n";
-
-    return 0;
+    return {white, black};
 }
