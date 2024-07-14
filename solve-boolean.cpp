@@ -1,33 +1,32 @@
-bool solveBoolean(string expression) {
-    stack<char> s;
-    
+#include <vector>
+#include <iostream>
+#include <string>
+
+bool evaluateBooleanExpression(std::string expression) {
+    bool result = true;
     for (char c : expression) {
         if (c == '&') {
-            char left = s.top();
-            s.pop();
-            char right = s.top();
-            s.pop();
-            
-            if (left == 'F' && right == 'F')
-                s.push('F');
-            else
-                s.push('T');
-        } 
-        else if (c == '|') {
-            char left = s.top();
-            s.pop();
-            char right = s.top();
-            s.pop();
-            
-            if (left == 'T' || right == 'T')
-                s.push('T');
-            else
-                s.push('F');
-        } 
-        else {
-            s.push(c);
+            result &= false;
+        } else if (c == '|') {
+            result |= true;
+        } else if (c == 'T' || c == 't') {
+            result = true;
+        } else if (c == 'F' || c == 'f') {
+            result = false;
         }
     }
-    
-    return s.top() == 'T';
+    return result;
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::getline(std::cin, expression);
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    return 0;
 }
