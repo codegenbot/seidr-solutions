@@ -1,6 +1,11 @@
+```
 def paired_digits(s):
     total_sum = 0
-    for i, (d1, d2) in enumerate(zip(s, s[1:])):
-        if i < len(s) - 1 and d1 == d2 or i == len(s) - 1:
-            total_sum += int(d1)
+    i = 0
+    while i < len(s) - 1:
+        if s[i] == s[i+1]:
+            total_sum += int(s[i]) * 2
+            i += 1
+        else:
+            i += 1
     return total_sum
