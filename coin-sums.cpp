@@ -8,19 +8,19 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    while (cents >= 25) {
-        ++coinCounts[0]; 
-        cents -= 25;
-    }
-    while (cents >= 10) {
-        ++coinCounts[1]; 
-        cents -= 10;
-    }
-    while (cents >= 5) {
-        ++coinCounts[2]; 
-        cents -= 5;
-    }
-    coinCounts[3] = cents; 
+    int quarters = cents / 25;
+    int remainder = cents % 25;
+
+    int dimes = remainder / 10;
+    remainder %= 10;
+
+    int nickels = remainder / 5;
+    remainder %= 5;
+
+    coinCounts[0] = quarters;
+    coinCounts[1] = dimes;
+    coinCounts[2] = nickels;
+    coinCounts[3] = remainder;
 
     std::cout << "Quarters: " << coinCounts[0] << std::endl;
     if(coinCounts[1] > 0)
