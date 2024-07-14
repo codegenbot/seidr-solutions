@@ -1,1 +1,3 @@
-print("".join(str(int(i) ** 2) for i in str(123)))
+```
+def square_digits(n):
+    return "".join(str(int(i) ** 2) for i in str(n))
