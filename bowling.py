@@ -1,31 +1,21 @@
-```
-def bowling_score(bowling):
+def bowling_score(frames):
     score = 0
-    rolls = [int(x) for x in re.findall(r'\d+', bowing)]
-    roll_index = 0
-    for frame in range(1, 11):
-        if frame < 10:
-            if rolls[roll_index] == 10:
-                score += rolls[roll_index]
-                roll_index += 1
-            elif rolls[roll_index] + rolls[roll_index+1] >= 10:
-                score += min(rolls[roll_index], 10) + rolls[roll_index+1]
-                roll_index += 2
-            else:
-                score += rolls[roll_index] + rolls[roll_index+1]
-                roll_index += 2
+    for frame in frames.split("/"):
+        if len(frame) == 1:
+            score += 10
+        elif frame[0] == "X":
+            score += 30
         else:
-            if rolls[roll_index] == 0 and len(rolls) > roll_index+1 and rolls[roll_index+1] != 0:
-                score += rolls[roll_index+1]
-                roll_index += 2
-            elif rolls[roll_index] == 10:
-                score += rolls[roll_index]
-                roll_index += 1
+            strike = False
+            spare = False
+            if frame[0] == "5":
+                strike = True
+            elif sum(map(int, frame)) < 10:
+                spare = True
+            if strike:
+                score += 10 + int(frame[1])
+            elif spare:
+                score += 10 + max(map(int, frame))
             else:
-                if len(rolls) > roll_index+1 and sum(rolls[roll_index:roll_index+2]) < 10:
-                    score += min(rolls[roll_index], 10)
-                    roll_index += 1
-                else:
-                    score += rolls[roll_index]
-                    roll_index += 1
+                score += sum(map(int, frame))
     return score
