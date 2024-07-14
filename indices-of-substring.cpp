@@ -1,40 +1,22 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    for (int i = 0; i <= text.length() - target.length(); ++i) {
-        bool found = true;
-        for (int j = 0; j < target.length(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
+class Solution {
+public:
+    vector<int> findIndices(string text, string target) {
+        vector<int> result;
+        for (int i = 0; i <= text.size() - target.size(); i++) {
+            bool match = true;
+            for (int j = 0; j < target.size(); j++) {
+                if (text[i + j] != target[j]) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                result.push_back(i);
             }
         }
-        if (found) {
-            indices.push_back(i);
-        }
+        return result;
     }
-    return indices;
-}
-
-int main() {
-    int numCases;
-    cin >> numCases;
-    
-    for(int i = 0; i < numCases; ++i){
-        string text;
-        cin >> text;
-        string target;
-        cin >> target;
-        
-        vector<int> indices = findIndices(text, target);
-        cout << indices.size() << endl;
-        for (int index : indices) {
-            cout << index << " ";
-        }
-        cout << endl;
-    }
-    
-    return 0;
-}
+};
