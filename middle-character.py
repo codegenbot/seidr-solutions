@@ -1,7 +1,5 @@
 def middle_character(s):
     length = len(s)
-    if length == 0:
-        return ''
     mid = length // 2
     if length % 2 != 0:
         return s[mid]
