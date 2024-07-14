@@ -2,10 +2,12 @@
 
 int basement(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
+    int i = 0;
+    while (i < nums.size()) {
         sum += nums[i];
         if (sum < 0)
-            return i + 1;
+            return i;
+        i++;
     }
     return -1;
 }
