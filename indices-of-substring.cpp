@@ -20,11 +20,12 @@ int main() {
     cin >> text;
     string target;
     cin >> target;
-    
-    vector<int> res = indicesOfSubstring(text, target);
 
-    for(int i:res)
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int i : indices) {
         cout << i << " ";
+    }
     cout << endl;
 
     return 0;
