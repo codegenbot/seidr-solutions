@@ -1,6 +1,5 @@
-#include <string>
-#include <cctype>
 #include <iostream>
+#include <string>
 
 int pairedDigits(std::string str) {
     int sum = 0;
@@ -13,6 +12,6 @@ int pairedDigits(std::string str) {
 }
 
 int main() {
-    std::cout << pairedDigits("123333") << endl;
+    std::cout << pairedDigits("123333") << std::endl;
     return 0;
 }
