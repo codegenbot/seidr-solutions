@@ -2,19 +2,19 @@
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 0; i < n - 1; i++) {
-        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i + 1);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
-            break;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
-    } else {
-        res[0] = v;
-        res[1] = {};
     }
-    return res;
+    vector<vector<int>> result(2);
+    result[0].insert(result[0].end(), v.begin(), v.begin() + cutIndex + 1);
+    result[1].insert(result[1].begin(), v.begin() + cutIndex + 1, v.end());
+    return result;
 }
 
 int main() {
@@ -24,9 +24,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    vector<vector<int>> result = cutVector(v);
-    for (auto &sub : result) {
-        for (int num : sub) {
+    vector<vector<int>> res = cutVector(v);
+    for (auto &v : res) {
+        for (int num : v) {
             cout << num << " ";
         }
         cout << endl;
