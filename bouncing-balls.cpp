@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -25,10 +24,7 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    cout << fixed << setprecision(4);
     cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
-
-    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
-
+    
     return 0;
 }
