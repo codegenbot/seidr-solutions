@@ -9,9 +9,10 @@ double vectorDistance() {
     std::vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
         float temp;
-        std::cin >> temp; // read one value
+        std::cin >> temp; 
         v1[i] = temp;
-        v2[i] = temp; // both vectors get the same value
+        std::cin >> temp; 
+        v2[i] = temp; 
     }
     return sqrt(std::inner_product(v1.begin(), v1.end(), v2.begin(), 0.0));
 }
