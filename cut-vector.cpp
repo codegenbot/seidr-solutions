@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> cutVector(vector<int>& vec) {
+vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& vec) {
     int minDiff = INT_MAX;
     int cutIndex = -1;
 
@@ -23,5 +23,5 @@ vector<int> cutVector(vector<int>& vec) {
     vector<int> rightVec = vec;
     rightVec.erase(rightVec.begin() + cutIndex);
 
-    return {leftVec, rightVec};
+    return {{leftVec}, {rightVec}};
 }
