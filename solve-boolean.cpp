@@ -1,47 +1,36 @@
-#include <iostream>
-#include <string>
-
-bool evaluateBooleanExpression(const std::string& expression) {
-    bool result = false;
-    int i = 0;
-
-    while (i < expression.length()) {
-        if (expression[i] == 'T') {
-            result = true;
-            break;
-        } else if (expression[i] == 'F') {
-            result = false;
-            break;
-        } else if (expression[i] == '|') {
-            i++; // skip the '|' character
-            bool left = evaluateBooleanExpression(expression.substr(i));
-            i += 1; // skip the '&' character
-            bool right = evaluateBooleanExpression(expression.substr(i));
-            result = left || right;
-        } else if (expression[i] == '&') {
-            i++; // skip the '&' character
-            bool left = evaluateBooleanExpression(expression.substr(i));
-            i += 1; // skip the '&' character
-            bool right = evaluateBooleanExpression(expression.substr(i));
-            result = left && right;
+bool solveBoolean(string expression) {
+    stack<char> s;
+    
+    for(int i = 0; i < expression.size(); i++) {
+        if(expression[i] == '|') {
+            while(!s.empty() && s.top() != '&') {
+                s.pop();
+            }
+            if(s.empty()) {
+                return true;
+            }
+        } else if(expression[i] == '&') {
+            s.push('&');
+        } else if(expression[i] == 'T' || expression[i] == 't') {
+            while(!s.empty() && s.top() != '&') {
+                s.pop();
+            }
+            if(s.empty()) {
+                return true;
+            }
+        } else if(expression[i] == 'F' || expression[i] == 'f') {
+            while(!s.empty()) {
+                s.pop();
+            }
+            if(s.empty()) {
+                return false;
+            }
         }
     }
-
-    return result;
-}
-
-int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression: ";
-    std::cin >> expression;
-
-    if (expression == "t") {
-        std::cout << "True" << std::endl;
-    } else if (expression == "f") {
-        std::cout << "False" << std::endl;
-    } else {
-        std::cout << evaluateBooleanExpression(expression) << std::endl;
+    
+    while(!s.empty()) {
+        s.pop();
     }
-
-    return 0;
+    
+    return true;
 }
