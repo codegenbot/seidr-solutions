@@ -1,6 +1,11 @@
-def mastermind(code, guess):
-    correct_places = sum(
-        c1 == c2 and p1 == p2 for c1, c2, p1, p2 in zip(code, guess, range(4), range(4))
-    )
-    correct_colors = sum(1 for c1, c2 in zip(code, guess) if c1 == c2)
-    return correct_colors - correct_places, correct_places
+def get_pegs(code, guess):
+    count_black = 0
+    count_white = 0
+    for i in range(4):
+        if code[i] == guess[i]:
+            count_black += 1
+        elif guess.count(guess[i]) > code.count(code[i]):
+            pass
+        else:
+            count_white += 1
+    return str(count_black) + "\n" + str(count_white)
