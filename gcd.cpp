@@ -1,27 +1,22 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
-
-int gcd(int a, int b) {
-    return b ? gcd(b, a % b) : a;
-}
+#include <iostream>
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    vector<int> indices;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.size(); j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
-        }
+    std::vector<int> indices;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos += target.size();
     }
     return indices;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
