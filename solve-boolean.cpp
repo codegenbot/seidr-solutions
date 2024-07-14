@@ -4,33 +4,19 @@
 
 bool evaluateTop(std::stack<char> &st) {
     bool result = true;
-    std::stack<char> resStack;
+    int parenthesesCount = 0;
+    bool operandProcessed = false;
+
     while (!st.empty()) {
         char c = st.top();
         st.pop();
         if (c == '(') {
-            resStack.push('(');
+            parenthesesCount++;
         } else if (c == ')') {
-            while (!resStack.empty() && resStack.top() != '(') {
-                result = (result || (resStack.top() == 'T'));
-                resStack.pop();
-            }
-            if (!resStack.empty()) {
-                resStack.pop(); // pop the '('
-            }
+            parenthesesCount--;
         } else if (c == 'T' || c == 'F') {
-            while (!resStack.empty() && resStack.top() != '(') {
-                result = (result || (resStack.top() == 'T'));
-                resStack.pop();
-            }
-            if (!resStack.empty()) {
-                resStack.pop(); // pop the '('
-            }
-            if (c == 'T') {
-                result = true;
-            } else {
-                result = false;
-            }
+            operandProcessed = true;
+            result = (c == 'T');
         } else if (c == '&') {
             while (!st.empty() && st.top() != '(') {
                 st.pop();
@@ -84,13 +70,11 @@ bool evaluateTop(std::stack<char> &st) {
                 }
             }
         }
-    }
-    while (!resStack.empty()) {
-        if (resStack.top() == '(') {
-            return false;
+
+        if (!operandProcessed) {
+            st.push(c);
         }
-        result = (result || (resStack.top() == 'T'));
-        resStack.pop();
+        operandProcessed = false;
     }
     return result;
 }
