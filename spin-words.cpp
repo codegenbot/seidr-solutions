@@ -1,53 +1,51 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
     
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += word + " ";
-            word.clear();
-        } else {
-            word += str[i];
-        }
-    }
-    
-    result += word;
-    
-    std::string newStr;
-    for (int i = 0; i < result.length(); i++) {
-        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
-            int j = i;
-            while (j > 0 && (result[j-1] >= 'a' && result[j-1] <= 'z' || result[j-1] >= 'A' && result[j-1] <= 'Z')) {
-                j--;
-            }
-            if (j - i >= 5) {
-                std::string temp = result.substr(i, j-i);
-                for (int k = temp.length() - 1; k >= 0; k--) {
-                    newStr += temp[k];
-                }
-                i = j;
-            } else {
-                newStr += result[i];
-                i++;
-            }
-        } else {
-            newStr += result[i];
+    while(i < str.length()) {
+        if(str[i] == ' ') {
+            result += " ";
             i++;
+        } else {
+            int j = i;
+            
+            // Find the length of the word
+            while(j < str.length() && str[j] != ' ') 
+                j++;
+            
+            string word = str.substr(i, j - i);
+            
+            if(word.length() >= 5) 
+                result += reverse(word) + " ";
+            else 
+                result += word + " ";
+            
+            i = j;
         }
     }
     
-    return newStr;
+    return result;
+}
+
+string reverse(string s) {
+    string rev = "";
+    for(int i = s.length() - 1; i >= 0; i--) 
+        rev += s[i];
+    return rev;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    // Test cases
+    cout << spinWords("a") << endl; // Should print: a
+    cout << spinWords("this is a test") << endl; // Should print: this is a test
+    cout << spinWords("this is another test") << endl; // Should print: this is rehtona test
+    cout << spinWords("hi") << endl; // Should print: hi
+
     return 0;
 }
