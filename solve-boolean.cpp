@@ -1,24 +1,49 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> s;
-    
-    for (int i = 0; i < expression.length(); ++i) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
-        } else {
-            s.push(expression[i]);
+bool evaluateBooleanExpression(const std::string &expression) {
+    bool result = false;
+    int i = 0;
+
+    while (i < expression.length()) {
+        if (expression[i] == 't') {
+            result = true;
+            break;
         }
+        if (expression[i] == 'f') {
+            return false;
+        }
+        if (expression[i] == '|') {
+            if (result) {
+                i++;
+                continue;
+            } else {
+                return false;
+            }
+        }
+        if (expression[i] == '&') {
+            if (!result) {
+                i++;
+                continue;
+            } else {
+                return false;
+            }
+        }
+        i++;
     }
-    
-    return s.top() == 'T';
+
+    return result;
+}
+
+int main() {
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    return 0;
 }
