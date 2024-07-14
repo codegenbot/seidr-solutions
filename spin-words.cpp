@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -11,9 +10,9 @@ std::string spinWords(std::string str) {
             spacePos = str.length();
         std::string word = str.substr(start, spacePos - start);
         if (word.length() >= 5) {
-            result += std::string(word.rbegin(), word.end()) + " ";
+            result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word + " ";
+            result += word + (word.length() < 5 ? " " : "") + "";
         }
         start = spacePos + 1;
     }
