@@ -1,16 +1,17 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
-double probability(int n, int m) {
-    if (n <= m)
-        return 1.0 - (double)n / (n + m);
-    else
-        return (double)m / (n + m);
+double game(int n, int m) {
+    double probability = 0;
+    for (int i = m + 1; i <= n; ++i) {
+        probability += (n - i + 1.0) / (n * m);
+    }
+    return probability;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(10) << probability(n, m) << endl;
+    cout << setprecision(10) << game(n, m) << endl;
     return 0;
 }
