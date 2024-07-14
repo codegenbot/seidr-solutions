@@ -1,47 +1,34 @@
+#include <string>
+
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            string first = s.substr(0, i);
-            string second = s.substr(i + 1);
-            int firstRoll = stoi(first);
-            int secondRoll = stoi(second);
-            if (firstRoll + secondRoll >= 10) {
-                score += 10;
-            } else {
-                score += firstRoll + secondRoll;
-            }
-            currentFrame++;
+    int frame = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - (2 * (frame % 2));
+            frame++;
         } else {
-            string roll = s.substr(0, i + 1);
-            int value = stoi(roll);
-            if (value == 10) {
-                score += 10;
-                currentFrame++;
-            } else {
-                score += value;
-                if (currentFrame < 10) {
-                    score += bowlingRoll(s.substr(i + 1));
-                    currentFrame++;
+            int pins = c - '0';
+            score += pins;
+            frame++;
+            if (frame < 9) {
+                if (s[frame] == 'X' || s[frame] == '/') {
+                    if (pins < 10) {
+                        score += 10 - pins;
+                    }
+                } else {
+                    int nextPins = s[frame + 1] - '0';
+                    if (pins + nextPins >= 10) {
+                        score += 10;
+                    } else {
+                        score += pins + nextPins;
+                    }
                 }
             }
         }
     }
     return score;
-}
-
-int bowlingRoll(string s) {
-    int i = 0;
-    while (i < s.length() && s[i] != '/') {
-        i++;
-    }
-    if (i == s.length()) {
-        return stoi(s);
-    } else {
-        string first = s.substr(0, i);
-        string second = s.substr(i + 1);
-        int value = stoi(first) + stoi(second);
-        return value;
-    }
 }
