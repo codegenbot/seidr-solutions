@@ -1,12 +1,7 @@
 ```c++
 #include <string>
-using namespace std;
-
-int main() {
-    string input = "1234";
-    cout << squareDigits(input) << endl;
-    return 0;
-}
+using std::to_string;
+using std::string;
 
 string squareDigits(string input) {
     string output = "";
@@ -15,4 +10,12 @@ string squareDigits(string input) {
         output += to_string(digit * digit);
     }
     return output;
+}
+
+int main() {
+    string input;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> input;
+    std::cout << squareDigits(input) << std::endl;
+    return 0;
 }
