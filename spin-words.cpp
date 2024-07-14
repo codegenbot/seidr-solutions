@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -17,13 +18,12 @@ std::string spinWords(std::string str) {
         }
     }
     
-    return result.substr(0, result.length() - 1);
+    return !result.empty() ? result.substr(0, result.length() - 1) : result;
 }
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
-        std::cout << spinWords(str) << std::endl;
-    }
+    std::getline(std::cin, str);
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
