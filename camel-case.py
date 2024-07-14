@@ -1,13 +1,13 @@
 ```python
 def camel_case(input_str):
-    input_str = input_str.replace('-', ' ').split()
-    result = ''
-    for word in input_str:
-        if not result:
-            result = word.lower()
+    words = input_str.replace('-', ' ').split()
+    camel_case_str = ''
+    for word in words:
+        if not camel_case_str:
+            camel_case_str = word.capitalize()
         else:
-            result += word.capitalize()
-    return result
+            camel_case_str += word.capitalize().swapcase()[0] + word[1:].lower()
+    return camel_case_str
 
 print(camel_case("camel-case example-test-string"))
 print(camel_case("nospaceordash"))
