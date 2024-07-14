@@ -6,20 +6,13 @@ int main() {
     cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
-    int max_gcd = 0;
-    for (int i = 1; i < indices.size(); i++) {
-        int diff = abs(indices[i] - indices[i-1]);
-        int g = gcd(diff, indices[i-1]);
-        if (g > max_gcd) {
-            max_gcd = g;
-        }
-    }
+    int g = *min_element(unique(indices.begin(), indices.end()));
     cout << "Indices: ";
     for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
-    cout << "GCD of indices: " << max_gcd << endl;
+    cout << "GCD of indices: " << g << endl;
 
     return 0;
 }
