@@ -1,4 +1,6 @@
+#include <stack>
 #include <string>
+
 bool solveBoolean(std::string expression) {
     stack<char> st;
     for (char c : expression) {
