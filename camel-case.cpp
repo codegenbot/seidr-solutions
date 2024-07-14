@@ -18,7 +18,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
             buffer += c;
         }
 
-        if (c == delimiter || c == '\0') {
+        if (c == delimiter || c == '\0') { 
             if (c != '\0' && !buffer.empty()) {
                 arr.push_back(buffer);
                 buffer = ""; 
@@ -26,17 +26,8 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         }
     }
 
-    // Added to handle empty strings
     if (!buffer.empty()) {
         arr.push_back(buffer);
-    }
-    for(int j=arr.size()-1; j>0; j--){
-        if(arr[j].empty()){
-            arr.erase(arr.begin()+j);
-            j--;
-        } else{
-            break;
-        }
     }
 
     return arr;
