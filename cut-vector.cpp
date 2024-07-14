@@ -6,13 +6,16 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res;
     int n = v.size();
-    for (int i = 0; i < n; i++) {
-        if (i == n - 1 || v[i] != v[0]) {
+    for (int i = 0; i <= n - 1; i++) {
+        if (i > 0 && v[i] != v[0]) {
+            res.push_back(vector<int>(v.begin(), v.begin() + min(i, n)));
+            break;
+        }
+        else if (i == n - 1) {
+            res.push_back(v);
             break;
         }
     }
-    res.push_back(vector<int>(v.begin(), v.begin() + i));
-    res.push_back(vector<int>(v.begin() + i, v.end()));
     return res;
 }
 
