@@ -8,4 +8,3 @@ int fuelCost(vector<int> v) {
         sum += new_val;
     }
     return sum;
-}
