@@ -1,7 +1,8 @@
 def middle_character(s):
-    s = ''.join(filter(str.isalpha, s))
-    length = len(s)
-    if length % 2 != 0:
-        return s[length // 2]
+    s = ' '.join(e for e in s if e.isalnum()).lower().strip()
+    words = s.split()
+    total_length = len(' '.join(words))
+    if total_length % 2 != 0:
+        return words[total_length // 2][0]
     else:
-        return s[length // 2 - 1:length // 2 + 1]
+        return ''.join([words[total_length // 2 - 1][-1], words[total_length // 2][0]])
