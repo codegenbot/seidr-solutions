@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& v) {
+vector<int> cutVector(vector<int>& v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
     for (int i = 1; i <= v.size(); ++i) {
@@ -20,5 +20,4 @@ vector<vector<int>> cutVector(vector<int>& v) {
             splitIndex = i;
         }
     }
-    return {{vector<int>(v.begin(), v.begin() + splitIndex)}, {vector<int>(v.begin() + splitIndex, v.end())}};
-}
+    return {vector<int>(v.begin(), v.begin() + splitIndex), vector<int>(v.begin() + splitIndex, v.end())};
