@@ -1,4 +1,3 @@
-```
 hours = int(input())
 initial_snow = float(input())
 rate_of_snowfall = float(input())
