@@ -1,31 +1,25 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <cctype>
-#include <iomanip>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> arr;
-    std::string buffer;
-
-    for (const auto& word : str) {
-        if (std::isspace(word) || word == delimiter) {
-            if (!buffer.empty()) {
-                arr.push_back(buffer);
-                buffer = ""; 
-            }
-        } else {
-            buffer.push_back(word);
+    std::vector<std::string> segments;
+    std::string tempStr = "";
+    
+    for (char c : str) {
+        if(c != ' ') {
+            tempStr += c;
+        } else if(!tempStr.empty()) {
+            segments.push_back(tempStr);
+            tempStr = "";
         }
     }
 
-    if (!buffer.empty()) {
-        arr.push_back(buffer);
+    if (!tempStr.empty()) {
+        segments.push_back(tempStr);
     }
 
-    return arr;
+    return segments;
 }
 
 std::string camelCase(const std::string& str) {
@@ -38,7 +32,7 @@ std::string camelCase(const std::string& str) {
         } else {
             result += tolower(segment[0]);
         }
-        if (segment.size() > 1) {
+        if (!result.empty() || segment.size() > 1) {
             result += segment.substr(1);
         }
     }
