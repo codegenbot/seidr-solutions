@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <initializer_list>
 #include <cmath>
 
 int fuelCost(std::vector<int> v) {
