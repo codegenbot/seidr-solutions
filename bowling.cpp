@@ -1,16 +1,24 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
+    int roll = 0;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
-            currentRoll = 0;
+            roll++;
         } else if (c == '/') {
-            score += currentRoll + 10;
-            currentRoll = 0;
+            score += 10 + (roll * 10);
+            roll++;
         } else {
-            currentRoll *= 10;
-            currentRoll += c - '0';
+            int points = c - '0';
+            if (points == 1 || points == 2 || points == 3) {
+                score += 10 + points;
+                roll++;
+            } else {
+                score += 10 + points;
+                roll++;
+                score += 10;
+                roll++;
+            }
         }
     }
     return score;
