@@ -9,8 +9,7 @@ string spinWords(string str) {
     string word = "";
 
     for (int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        if (c == ' ') {
+        if (str[i] == ' ') {
             if (word.length() >= 5) {
                 for (int j = word.length() - 1; j >= 0; j--) {
                     result += word[j];
@@ -20,7 +19,7 @@ string spinWords(string str) {
             }
             word = "";
         } else {
-            word += c;
+            word += str[i];
         }
     }
 
@@ -37,7 +36,7 @@ string spinWords(string str) {
 
 int main() {
     string str;
-    cout << "Enter a string: ";
+    cout << "Enter a sentence: ";
     cin >> str;
     cout << spinWords(str) << endl;
     return 0;
