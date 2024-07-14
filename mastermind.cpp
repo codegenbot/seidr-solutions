@@ -1,8 +1,8 @@
-```
-#include <string>
+```cpp
+#include <iostream>
 using namespace std;
 
-int mastermind(string code, string guess) {
+int mastermind(const char* code, const char* guess) {
     int white = 0;
     int black = 0;
 
@@ -27,7 +27,12 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
-
 }
 
-int main() { return mastermind("XXXX", "XXXX"); }
+int main() {
+    const char* code = "ABCD";
+    const char* guess = "ABDE";
+    int result = mastermind(code, guess);
+    cout << result;
+    return 0;
+}
