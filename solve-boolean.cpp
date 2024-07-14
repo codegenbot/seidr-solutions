@@ -42,4 +42,3 @@ bool evaluateBooleanExpression(string expression) {
     bool result = (currentTerm == "T") ? true : false;
 
     return result;
-}
