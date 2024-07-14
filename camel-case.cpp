@@ -1,9 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cctype>
-
-std::string camelCase(const std::string& str) {
+std::string camelCase(std::string str) {
     std::string result;
     bool capitalize = true;
 
@@ -11,13 +6,11 @@ std::string camelCase(const std::string& str) {
         if (c == '-') {
             result.push_back(' ');
             capitalize = true; 
-        } else if (c != ' ') { 
-            if(capitalize) { 
-                result.push_back(toupper(c));
-                capitalize = false; 
-            } else {
-                result.push_back(tolower(c)); 
-            }
+        } else if (capitalize) { 
+            result.push_back(toupper(c));
+            capitalize = false; 
+        } else {
+            result.push_back(tolower(c)); 
         }
     }
 
@@ -33,7 +26,7 @@ int main() {
         
         if (!user_input.empty()) { 
             std::string output = camelCase(user_input); // Pass the input to the function
-            if(!output.empty() && !output.back() == ' ')  
+            if(!output.empty())  
                 std::cout << "Camel Case: " << output << std::endl; 
         }
     }
