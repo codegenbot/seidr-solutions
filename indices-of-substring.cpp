@@ -22,10 +22,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    cin >> text >> target;
+    cout << "Enter the text: ";
+    cin >> text;
+    cout << "Enter the target substring: ";
+    cin >> target;
     vector<int> res = indicesOfSubstring(text, target);
     for (int i : res) {
         cout << i << endl;
     }
     return 0;
-}
