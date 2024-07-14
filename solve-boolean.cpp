@@ -1,10 +1,9 @@
-```cpp
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string s) {
     std::stack<bool> stack;
-    int parentheses = 0; // for handling parentheses
+    int parentheses = 0; 
     for (char c : s) {
         if (c == '(') parentheses++;
         else if (c == ')') {
@@ -28,8 +27,4 @@ bool solveBoolean(std::string s) {
     return stack.top();
 }
 
-int main() {
-    std::string s = "your boolean expression here";  // replace 'here' with your actual input
-    bool result = solveBoolean(s);
-    return 0;
-}
+int main() { return solveBoolean("T|F&F"); }
