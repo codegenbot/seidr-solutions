@@ -17,18 +17,15 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string cipher_map1, cipher_map2, message;
     std::cout << "Enter the first map: ";
+    std::flush(std::cout);
     std::getline(std::cin, cipher_map1);
     std::cout << "Enter the second map: ";
+    std::flush(std::cout);
     std::getline(std::cin, cipher_map2);
     std::cout << "Enter the message to decipher: ";
+    std::flush(std::cout);
     std::getline(std::cin, message);
-
-    if (!cipher_map1.empty() && !cipher_map2.empty()) {
-        std::string result = decipher(cipher_map1, cipher_map2, message);
-        std::cout << "Deciphered message: " << result << std::endl;
-    } else {
-        std::cout << "Error: Both maps must be non-empty." << std::endl;
-    }
-
+    std::string result = decipher(cipher_map1, cipher_map2, message);
+    std::cout << "Deciphered message: " << result << std::endl;
     return 0;
 }
