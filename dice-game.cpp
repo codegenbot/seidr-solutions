@@ -1,11 +1,14 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double diceGame(int n, int m) {
-    double totalRolls = (double)n * m;
-    double winningRolls = (n - 1.0);
-    return winningRolls / totalRolls;
+    double probability = 0;
+    for (int i = 1; i <= n - m; i++) {
+        probability += (n - i) * 1.0 / (n * m);
+    }
+    return probability;
 }
 
 int main() {
