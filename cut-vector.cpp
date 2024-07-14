@@ -1,48 +1,42 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res;
+pair<vector<int>, vector<int>> cutVector(vector<int> &nums) {
+    int minDiff = INT_MAX;
+    int pos = -1;
     
-    if (n == 0) return {{}}; // If the input vector is empty, return a vector with an empty vector
-    
-    for (int i = 1; i < n; i++) { 
-        int diff1 = abs(v[0] - v[i]);
-        int diff2 = abs(v[i] - v[n-1]);
-        
-        if (diff1 <= diff2) {
-            res.push_back({v[0]});
-            res.push_back({v[i], v[n-1]});
-            return res;
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int diff = abs(nums[i] - nums[i + 1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
     
-    res.push_back(v);
-    return res;
+    vector<int> left, right;
+    copy(nums.begin(), nums.begin() + pos, back_inserter(left));
+    copy(nums.begin() + pos, nums.end(), back_inserter(right));
+    
+    return make_pair(left, right);
 }
 
 int main() {
-    int n, x;
-    vector<int> v;
-
-    // Read the input from user
+    int n;
     cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> x;
-        v.push_back(x);
+        cin >> nums[i];
     }
-
-    // Call the function to get the result
-    vector<vector<int>> res = cutVector(v);
-
-    // Print the output
-    for (auto &vec : res) {
-        for (int x : vec) {
-            cout << x << " ";
-        }
-        cout << endl;
+    pair<vector<int>, vector<int>> result = cutVector(nums);
+    cout << "Left: ";
+    for (int num : result.first) {
+        cout << num << " ";
     }
-
+    cout << endl;
+    cout << "Right: ";
+    for (int num : result.second) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
