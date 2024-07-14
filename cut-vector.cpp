@@ -1,11 +1,7 @@
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res;
+    res.push_back(vector<int{})); 
     int min_diff = INT_MAX;
     int split_index = -1;
     for (int i = 1; i < n; i++) {
@@ -22,42 +18,12 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
         }
     }
-    vector<int> left;
-    vector<int> right;
     for (int i = 0; i < split_index; i++) {
-        left.push_back(v[i]);
+        res.back().push_back(v[i]);
     }
-    res.push_back(left);
-    left.clear();
+    res.push_back({});
     for (int i = split_index; i < v.size(); i++) {
-        right.push_back(v[i]);
+        res.back().push_back(v[i]);
     }
-    res.push_back(right);
     return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    vector<vector<int>> res = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < res[0].size(); i++) {
-        cout << res[0][i];
-        if (i < res[0].size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "] [";
-    for (int i = 0; i < res[1].size(); i++) {
-        cout << res[1][i];
-        if (i < res[1].size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "]" << endl;
-    return 0;
 }
