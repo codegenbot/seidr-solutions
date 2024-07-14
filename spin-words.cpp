@@ -3,21 +3,31 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int length = 0;
-    for(int i = 0; i < str.length(); i++){
-        if(str[i] != ' '){
-            length++;
-        }else{
-            if(length >= 5)
-                for(int j = length-1; j>=0; j--) result += str[i-j];
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5)
+                result += reverse(word) + " ";
             else
-                result += str.substr(i-length+1,i);
-            length = 0;
+                result += word + " ";
+            word = "";
+        } else {
+            word += str[i];
         }
     }
-    if(length >= 5) 
-        for(int i = length-1; i>=0; i--) result += str[i];
+
+    if (word.length() >= 5)
+        result += reverse(word);
     else
-        result = str;
+        result += word;
+
     return result;
+}
+
+string reverse(string str) {
+    string revStr = "";
+    for (int i = str.length() - 1; i >= 0; i--)
+        revStr += str[i];
+    return revStr;
 }
