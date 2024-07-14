@@ -1,17 +1,19 @@
-int bowlingScore(string &s) {
+int bowlingScore(string bowls) {
     int score = 0;
-    int frame = 1;
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (frame < 9 ? 10 : 0);
-            frame++;
-        } else if (c == '/') {
-            score += 10 - frame * 2;
-            frame++;
+    for (int i = 0; i < 10; i++) {
+        if (bowls[i] == '/') {
+            // If it's a split, add the points from the split
+            int split1 = std::stoi(bowls.substr(i - 1, 1));
+            int split2 = std::stoi(bowls.substr(i + 1, 1));
+            score += split1 + split2;
         } else {
-            int spare = c - '0';
-            score += spare + (frame < 9 ? spare : 0);
-            frame++;
+            // If it's not a split, add the points from that frame
+            int framePoints = 10 * (bowls[i] - '0');
+            if (i < 8 && bowls[i+1] != '/') {
+                // If there are more balls in this frame, add them to the score
+                framePoints += std::stoi(bowls.substr(i + 2, 2)) - 10;
+            }
+            score += framePoints;
         }
     }
     return score;
