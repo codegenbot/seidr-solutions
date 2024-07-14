@@ -6,13 +6,15 @@ int main() {
     double startHeight; 
     cin >> startHeight;
     
-    int firstBounce = static_cast<int>(startHeight) / 2; 
-    double bouncinessIndex = (double)firstBounce / startHeight;
+    std::string strStartHeight = std::to_string(static_cast<int>(startHeight));
+    strStartHeight += "/2";
+    int firstBounce = stoi(strStartHeight);
+    double bouncinessIndex = (double)firstBounce / stod(strStartHeight);
 
     if (bouncinessIndex < 0.01)
         cout << "The bounciness index is: 0.00" << endl;
     else
-        cout << "The bounciness index is: " << fixed << setprecision(2) << std::to_string(bouncinessIndex) << endl;
+        cout << "The bounciness index is: " << fixed << setprecision(2) << bouncinessIndex << endl;
     
     double height = startHeight; 
     double totalDistance = 0.0; 
@@ -28,7 +30,7 @@ int main() {
     if (totalDistance * bouncinessIndex < 0.01)
         cout << "The total distance the ball travels is: 0.00" << endl;
     else
-        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << std::setiosflags(std::ios_base::fixed | std::ios_base::showpoint) << totalDistance * bouncinessIndex << endl;
+        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << totalDistance * bouncinessIndex << endl;
 
     return 0;
 }
