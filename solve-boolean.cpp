@@ -1,5 +1,4 @@
-#include <stack>
-#include <string>
+#include <initializer_list>
 
 bool solveBoolean(std::string s) {
     stack<char> st;
