@@ -2,18 +2,15 @@
 def bowling_score(bowling_game):
     score = 0
     game = [int(x) for x in ''.join(filter(str.isdigit, bowling_game))]
-    for i in range(0, len(game), 2):
-        if sum([game[i], game[i+1]]) == 10:
-            if i < 18:
-                score += 10 + sum(game[i+2:i+4])
-            else:
+    for i in range(10):
+        if len(game) > i:
+            if game[i] == 10:
+                score += 10 + (sum(game[i+1:i+3]) if i < 8 else 0)
+            elif sum(game[i:i+2]) >= 10:
                 score += 10
-        elif game[i] >= 5:
-            score += 10
-            for j in range(i, len(game), 2):
-                game[j] -= 10
-        else:
-            score += sum([game[i], game[i+1]])
+                game = game[:i] + [x-10 for x in game[i:]]
+            else:
+                score += game[i]
     return score
 
 if __name__ == "__main__":
