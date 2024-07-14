@@ -1,10 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
 
 std::string spinWords(const std::string& str) {
+    std::stringstream ss(str);
+    std::string word;
     std::string result = "";
-    for (const auto& word : str + " ") {
+    while (ss >> word) {
         if (word.length() >= 5)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else

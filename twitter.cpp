@@ -1,6 +1,5 @@
-```cpp
 string validateTweet(string tweet) {
-    auto length = 0u; // Use unsigned integer to avoid overflow
+    auto length = 0u; 
     for (char c : tweet) {
         length++;
     }
