@@ -3,8 +3,7 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    pair<vector<int>, vector<int>> res;
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     for (int i = 0; i <= n - 1; i++) {
         if (i > 0 && v[i] != v[0]) {
@@ -13,9 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     }
     vector<int> left(v.begin(), v.begin() + i);
     vector<int> right(v.begin() + i, v.end());
-    res.first = left;
-    res.second = right;
-    return res;
+    return {left, right};
 }
 
 int main() {
@@ -25,18 +22,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    pair<vector<int>, vector<int>> res = cutVector(v);
+    vector<vector<int>> res = cutVector(v);
     cout << "[";
-    for (int i = 0; i < res.first.size(); i++) {
-        cout << res.first[i];
-        if (i < res.first.size() - 1) {
+    for (int i = 0; i < res[0].size(); i++) {
+        cout << res[0][i];
+        if (i < res[0].size() - 1) {
             cout << " ";
         }
     }
     cout << "] [";
-    for (int i = 0; i < res.second.size(); i++) {
-        cout << res.second[i];
-        if (i < res.second.size() - 1) {
+    for (int i = 0; i < res[1].size(); i++) {
+        cout << res[1][i];
+        if (i < res[1].size() - 1) {
             cout << " ";
         }
     }
