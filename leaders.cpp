@@ -2,19 +2,16 @@
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
-    vector<int> result;
-    int n = v.size();
+    vector<int> res;
+    int maxRight = 0;
     
-    // The rightmost element is always a leader.
-    result.push_back(v[n-1]);
-    
-    for(int i = n-2; i >= 0; i--) {
-        if(v[i] >= v[i+1]) {
-            result.push_back(v[i]);
+    for(int i = v.size() - 1; i >= 0; i--) {
+        if(v[i] >= maxRight) {
+            res.push_back(v[i]);
+            maxRight = v[i];
         }
     }
     
-    reverse(result.begin(), result.end());
-    
-    return result;
+    reverse(res.begin(), res.end());
+    return res;
 }
