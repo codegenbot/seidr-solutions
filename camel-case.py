@@ -1,4 +1,2 @@
-Here's a Python function that solves the problem:
-
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() for word in s.split('-'))
+def kebab_to_camel(kebab_str):
+    return "".join(word.capitalize() for word in kebab_str.split("-"))
