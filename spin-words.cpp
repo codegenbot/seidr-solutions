@@ -1,13 +1,7 @@
-```
+```c++
 #include <string>
 #include <sstream>
 #include <algorithm>
-
-int main() {
-    std::string result = spinWords("Hello World");
-    std::cout << result << std::endl;
-    return 0;
-}
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
@@ -19,4 +13,8 @@ std::string spinWords(std::string str) {
         result += word + " ";
     }
     return result.substr(0, result.size() - 1);
+}
+
+int main() { 
+    return 0;
 }
