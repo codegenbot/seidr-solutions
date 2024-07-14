@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     def evaluate(expression):
         if expression[0] in ['T', 'F']:
@@ -19,7 +18,7 @@ def solve_boolean(expression):
                 value2 = stack.pop()
                 value1 = stack.pop() if stack else True
                 result = result and (value1 and value2) if char == '&' else result or (value1 or value2)
-            stack.append(result)
+            stack.append(return result)
         else:
             raise ValueError("Invalid expression")
             
