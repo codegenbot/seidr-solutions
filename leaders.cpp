@@ -20,6 +20,6 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    leaders(vector<int>{16, 17, 4, 3, 5, 2, 8, 9, 1, 3});
+    leaders(vector<int>{16,17,4,3,5,2});
     return 0;
 }
