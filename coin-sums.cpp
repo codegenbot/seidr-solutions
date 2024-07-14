@@ -23,8 +23,7 @@ int main() {
         nickles++;
     }
     
-    int pennies = 0;
-    pennies = cents;
+    int pennies = cents;
     
     cout << quarters << endl;
     cout << nickles << endl;
