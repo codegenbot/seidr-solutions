@@ -1,38 +1,42 @@
-#include <iostream>
-using namespace std;
-
-bool evaluateBoolean(string s) {
-    stack<char> operation;
-    stack<bool> operands;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            bool b1 = operands.top();
-            operands.pop();
-            bool b2 = operands.top();
-            operands.pop();
-            operands.push(b1 && b2);
-            operation.pop();
-        } else if (s[i] == '|') {
-            bool b1 = operands.top();
-            operands.pop();
-            bool b2 = operands.top();
-            operands.pop();
-            operands.push(b1 || b2);
-            operation.pop();
-        } else if (s[i] == 'T' || s[i] == 't') {
-            operands.push(true);
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            operands.push(false);
+string solveBoolean(string b) {
+    stack<char> s;
+    string result = "";
+    
+    for(int i=b.length()-1; i>=0; i--){
+        if(b[i] == '&'){
+            while(!s.empty() && s.top() == '&'){
+                s.pop();
+            }
+            if(s.empty()){
+                result = "False";
+                break;
+            }else{
+                s.pop();
+                if(s.top() == 'T')result = "True";
+                else result = "False";
+                break;
+            }
+        }else if(b[i] == '|'){
+            while(!s.empty() && s.top() == '|'){
+                s.pop();
+            }
+            if(s.empty()){
+                result = "False";
+                break;
+            }else{
+                s.pop();
+                if(s.top() == 'T')result = "True";
+                else result = "False";
+                break;
+            }
+        }else{
+            s.push(b[i]);
         }
     }
-
-    return operands.top();
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << evaluateBoolean(s) << endl;
-    return 0;
+    
+    while(!s.empty()){
+        s.pop();
+    }
+    
+    return result;
 }
