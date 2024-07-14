@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -21,11 +22,12 @@ int main() {
     std::string input; 
     while (true) {
         std::cout << "Enter a Boolean expression (T/F/|/&): "; 
-        std::getline(std::cin, input);
-        bool result = solveBoolean(input);
-        while(std::cin.get() != '\n' && std::cin.peek() == ' ') {
-            std::cin.ignore();
+        input.clear(); // clear the string for new input
+        char c;
+        while ((c = std::cin.get()) != '\n' && c != ' ') {
+            input.push_back(c);
         }
+        bool result = solveBoolean(input);
         if(input == "exit") {
             std::cout << "Goodbye!" << std::endl;
             return 0;
