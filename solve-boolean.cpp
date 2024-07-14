@@ -1,26 +1,29 @@
-string solveBoolean(string booleanExpression) {
-    stack<char> expression;
+string solveBoolean(string s) {
+    stack<char> op;
+    string res = "T";
     
-    for (int i = 0; i < booleanExpression.length(); i++) {
-        if (booleanExpression[i] == '|') {
-            while (!expression.empty() && expression.top() != '&') {
-                expression.pop();
+    for(int i=0; i<s.size(); i++) {
+        if(s[i] == '&') {
+            while(op.size() && op.top() == '|') {
+                op.pop();
+                res = (res == "F") ? "F" : "T";
             }
-            if (!expression.empty()) {
-                expression.pop();
+            op.push('&');
+        } else if(s[i] == '|') {
+            while(op.size()) {
+                op.pop();
+                res = (res == "F") ? "F" : "T";
             }
-        } else if (booleanExpression[i] == '&') {
-            expression.push('&');
-        } else {
-            expression.push(booleanExpression[i]);
+            op.push('|');
+        } else if(s[i] == 'f' || s[i] == 't') {
+            while(op.size() && op.top() != '&') {
+                op.pop();
+                res = (res == "F") ? "F" : "T";
+            }
+            if(res == "T" && s[i] == 'f') res = "F";
+            else if(res == "F" && s[i] == 't') res = "F";
         }
     }
     
-    string result = "";
-    while (!expression.empty()) {
-        result = (char)(expression.top()) + result;
-        expression.pop();
-    }
-    
-    return result;
+    return res;
 }
