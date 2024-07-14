@@ -1,15 +1,28 @@
-string solveBoolean(string s) {
-    bool result = false;
-    for (char c : s) {
-        if (c == 'T') {
-            result = true;
-        } else if (c == 'F') {
-            return "False";
-        } else if (c == '|') {
-            return (result ? "True" : "False");
-        } else if (c == '&') {
-            if (!result) return "False";
+bool solveBoolean(string expression) {
+    stack<char> ops;
+    stack<bool> values;
+
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 && b2);
+            ops.push('&');
+        } else if (expression[i] == '|') {
+            bool b1 = values.top();
+            values.pop();
+            bool b2 = values.top();
+            values.pop();
+            values.push(b1 || b2);
+            ops.push('|');
+        } else if (expression[i] == 'T') {
+            values.push(true);
+        } else if (expression[i] == 'F') {
+            values.push(false);
         }
     }
-    return result ? "True" : "False";
+
+    return values.top();
 }
