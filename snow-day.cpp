@@ -3,14 +3,14 @@
 using namespace std;
 
 float snowDay(int hours, float snowOnGround, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    float totalSnow = 0;
+    float totalSnow = snowOnGround;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += max<float>(0.0, snowOnGround + rateOfSnowFall - proportionOfSnowMeltingPerHour);
-        snowOnGround = max<float>(0.0, snowOnGround + rateOfSnowFall - proportionOfSnowMeltingPerHour) - proportionOfSnowMeltingPerHour;
+        snowOnGround += rateOfSnowFall - proportionOfSnowMeltingPerHour * snowOnGround;
+        snowOnGround = max<float>(0.0, snowOnGround);
     }
     
-    return totalSnow;
+    return totalSnow + snowOnGround;
 }
 
 int main() {
