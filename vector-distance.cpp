@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -15,10 +16,10 @@ double vectorDistance(int n) {
 
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += sqrt(pow(x2[i] - x1[i], 2));
+        sum += pow(x2[i] - x1[i], 2);
     }
 
-    return sum;
+    return sqrt(sum) / n;
 }
 
 int main() {
