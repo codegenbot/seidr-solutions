@@ -27,20 +27,21 @@ std::string decipher(std::string cipher_map1, std::string cipher_map2, std::stri
 int main() {
     std::string temp, temp2, message;
 
-    std::cout << "Enter the first map: ";
-    std::cin >> std::ws;  // to remove leading whitespace
-    temp >> std::ws;
-    std::getline(std::cin, temp);
+    std::cout << "Enter the first map: "; 
+    char c;
+    while((c = cin.get()) != '\n' && !cin.fail()) {
+        temp += c;
+    }
+    std::string cipher_map1 = temp;
 
-    std::cout << "Enter the second map: ";
-    std::cin >> std::ws;  // to remove leading whitespace
-    temp2 >> std::ws;
-    std::getline(std::cin, temp2);
+    std::cout << "Enter the second map: "; 
+    while((c = cin.get()) != '\n' && !cin.fail()) {
+        temp2 += c;
+    }
+    std::string cipher_map2 = temp2;
 
     std::cout << "Enter the message to decipher: ";
-    std::cin >> std::ws;  // to remove leading whitespace
-    message >> std::ws;
-    std::getline(std::cin, message);
+    getline(cin, message);
 
-    std::cout << "Deciphered message: " << decipher(temp, temp2, message) << std::endl;
+    std::cout << "Deciphered message: " << decipher(cipher_map1, cipher_map2, message) << std::endl;
 }
