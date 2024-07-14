@@ -1,36 +1,26 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::string word;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int wordLength;
+    bool inWord = false;
     
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            result += word + " ";
-            word = "";
+    for (char c : str) {
+        if (c == ' ') {
+            inWord = false;
+            result += ' ';
+        } else if (!inWord) {
+            inWord = true;
+            result += c;
         } else {
-            word += sentence[i];
-        }
-    }
-    result += word;
-    
-    int length, start, end;
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ') {
-            start = i + 1;
-        }
-        if ((i == result.length() - 1) || (result[i] == ' ')) {
-            end = i;
-            length = end - start;
-            
-            if (length >= 5) {
-                std::string temp = "";
-                for (int j = end; j > start; j--) {
-                    temp += result[j - 1];
-                }
-                result.replace(start, length + 1, temp);
+            if ((wordLength = (result.size() - 1)) >= 5) {
+                reverse(result.begin() + 1, result.end());
             }
+            result += c;
         }
     }
     
@@ -38,10 +28,11 @@ std::string spinWords(std::string sentence) {
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    
+    // Test cases
+    cout << spinWords("a") << endl; // "a"
+    cout << spinWords("this is a test") << endl; // "this is a test"
+    cout << spinWords("this is another test") << endl; // "this is rehtona test"
+    cout << spinWords("hi") << endl; // "hi"
+
     return 0;
 }
