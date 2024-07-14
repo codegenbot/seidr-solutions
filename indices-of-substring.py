@@ -5,8 +5,8 @@ def find_indices(text, target):
         pos = text.lower().find(target.lower(), i)
         if pos == -1:
             break
-        if pos == 0 and target in text:
-            return [0]
+        if pos == 0:
+            result.append(pos) 
         result.append(pos) 
         i = pos + len(target)  
     return result
