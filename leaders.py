@@ -1,6 +1,4 @@
-def leaders(input_vector):
+def leaders(a):
     return [
-        x
-        for i, x in enumerate(reversed(input_vector))
-        if all(x >= y for y in input_vector[i + 1 :])
+        a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
     ]
