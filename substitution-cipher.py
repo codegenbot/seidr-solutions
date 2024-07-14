@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     mapping = {c: c2 for c, c2 in zip(cipher1.lower(), cipher2.lower())}
     
@@ -9,6 +10,4 @@ def substitution_cipher(cipher1, cipher2, message):
             else: 
                 result += mapping.get(char.lower(), char)
         else: 
-            result += char
-        else:
             result += char
