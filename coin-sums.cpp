@@ -1,9 +1,9 @@
+```cpp
 #include <iostream>
-using namespace std;
 
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
     int quarters = cents / 25;
     cents %= 25;
@@ -16,10 +16,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << quarters << endl; 
-    cout << dimes << endl; 
-    cout << nickels << endl; 
-    cout << pennies << endl; 
+    std::cout << quarters << endl; 
+    std::cout << dimes << endl; 
+    std::cout << nickels << endl; 
+    std::cout << pennies << endl; 
 
     return 0;
 }
