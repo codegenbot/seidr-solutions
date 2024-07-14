@@ -1,24 +1,36 @@
-bool solveBoolean(string expression) {
+string solveBoolean(string boolean) {
     stack<char> s;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
+    for (int i = 0; i < boolean.length(); i++) {
+        if (boolean[i] == '|') {
+            while (!s.empty() && s.top() != '&') {
                 s.pop();
             }
-            if (s.empty()) return false;
+            if (s.empty()) {
+                return "True";
+            } else {
+                s.pop();
+            }
+        } else if (boolean[i] == '&') {
             s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
+        } else if (boolean[i] == 't' || boolean[i] == 'T') {
+            while (!s.empty() && s.top() != '|') {
                 s.pop();
             }
-            if (s.empty()) return true;
-            s.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            s.push(expression[i]);
+            if (s.empty()) {
+                return "True";
+            } else {
+                s.pop();
+            }
+        } else if (boolean[i] == 'f' || boolean[i] == 'F') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            return "False";
         }
     }
-    while (!s.empty()) {
-        s.pop();
+    if (s.empty()) {
+        return "True";
+    } else {
+        return "False";
     }
-    return s.empty() ? false : true;
 }
