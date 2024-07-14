@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -13,3 +14,8 @@ int luhn(std::vector<int> digits) {
             sum += digits[i]; 
     }
     return sum;
+}
+
+int main() {
+    return luhn({4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5});
+}
