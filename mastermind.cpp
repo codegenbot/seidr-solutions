@@ -1,5 +1,5 @@
-```cpp
-#include <algorithm>
+#include <iostream>
+#include <string>
 
 int mastermind(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
@@ -8,8 +8,12 @@ int mastermind(const std::string& code, const std::string& guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++blackPegs;
-        } else if (std::any_of(guess.begin(), guess.end(), [c=code[i]](char cc){ return cc == c; })) {
-            ++whitePegs;
+        } else {
+            for (char c : code[i]) {
+                if (std::count(&guess[0], &guess[0] + 4, c) > 0) {
+                    ++whitePegs;
+                }
+            }
         }
     }
 
