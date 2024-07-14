@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -24,7 +25,7 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    std::cout << std::fixed << std::setprecision(4);
+    cout << fixed << setprecision(4);
     cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
 
     return 0;
