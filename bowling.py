@@ -1,7 +1,7 @@
 ```
 def bowling_score(bowling_game):
     score = 0
-    game = [int(x) for x in ''.join(filter(str.isdigit, bowling_game))]
+    game = [int(x) for x in ''.join(re.sub('[/-X]', '', bowling_game).split())]
     for i in range(10):
         if len(game) > i:
             if game[i] == 10:
