@@ -1,29 +1,24 @@
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    for i in range(10):
-        if "/" in frames[i * 2 : i * 2 + 2]:
-            strike = False
-            spare = False
-            if frames[i * 2] == "X":
-                strike = True
-            elif frames[i * 2] + frames[i * 2 + 1] == "10":
-                spare = True
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i].isdigit() and s[i + 1].isdigit():
+            if int(s[i]) == 10:
+                score += 10 + (10 if i < 18 else 0)
+                frame += 1
+            elif sum(map(int, s[i : i + 2])) < 10:
+                score += sum(map(int, s[i : i + 2]))
+                frame += 1
             else:
-                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
-        else:
-            if frames[i * 2] == "X":
-                score += 10 + 10
-                strike = True
-            elif frames[i * 2] + frames[i * 2 + 1] == "10":
+                score += sum(map(int, s[i : i + 2])) + bowling_score(s[i + 2 :]).get(
+                    "bonus", 0
+                )
+                frame = min(frame + 1, 11)
+        elif s[i].isdigit():
+            if int(s[i]) == 10:
                 score += 10
-                spare = True
+                frame += 1
             else:
-                score += int(frames[i * 2]) + int(frames[i * 2 + 1])
-        if i < 9 and not strike:
-            if frames[(i + 1) * 2] == "X" and frames[(i + 1) * 2 + 1] == "X":
-                score += 10 + 10
-            elif frames[(i + 1) * 2] + frames[(i + 1) * 2 + 1] == "20":
-                score += 10
-            else:
-                score += int(frames[(i + 1) * 2]) + int(frames[(i + 1) * 2 + 1])
-    return score
+                score += int(s[i])
+                frame += 1
+    return {"score": score, "bonus": (10 - score) if score < 10 else None}
