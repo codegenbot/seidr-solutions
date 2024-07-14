@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -12,13 +11,13 @@ bool solveBoolean(string expression) {
             valueStack.pop();
             string leftValue = valueStack.top();
             valueStack.pop();
-            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (leftValue == "False" && rightValue == "False") ? "True" : "False");
+            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "True") || (leftValue == "True" && rightValue == "False") || (LeftValue == "False" && RightValue == "False") ? "True" : "False");
         } else if (expression[i] == '&') {
             string rightValue = valueStack.top();
             valueStack.pop();
             string leftValue = valueStack.top();
             valueStack.pop();
-            valueStack.push((leftValue == "True" && rightValue == "True") || (leftValue == "False" && rightValue == "False") ? "True" : "False");
+            valueStack.push((leftValue == "True" && rightValue == "True") || (LeftValue == "False" && RightValue == "False") ? "True" : "False");
         } else if (expression[i] == 't' || expression[i] == 'T') {
             valueStack.push("True");
         } else if (expression[i] == 'f' || expression[i] == 'F') {
