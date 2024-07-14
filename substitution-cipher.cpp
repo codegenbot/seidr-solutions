@@ -3,16 +3,14 @@
 #include <string>
 
 std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        for (int j = 0; j < cipher_map1.length(); j++) {
-            if (message[i] == cipher_map1[j]) {
-                result += cipher_map2[j];
-                break;
-            }
+    for (int i = 0; i < cipher_map1.length(); i++) {
+        int pos = message.find(cipher_map1[i]);
+        while (pos != std::string::npos) {
+            message.replace(pos, 1, &cipher_map2[i]);
+            pos = message.find(cipher_map1[i], pos + 1);
         }
     }
-    return result;
+    return message;
 }
 
 int main() {
