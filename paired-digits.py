@@ -1,6 +1,14 @@
+```
 def paired_digits(s):
+    dig_dict = {}
+    for i, d in enumerate(s):
+        if d not in dig_dict:
+            dig_dict[d] = [i]
+        else:
+            dig_dict[d].append(i)
+    
     return sum(
-        int(d)
-        for i, d in enumerate(s)
-        if s.count(d) > 1 and i % len(str(s)) == int(str(s).index(d))
+        int(d) * 2
+        for digit, indices in dig_dict.items()
+        if len(indices) > 1 and indices[0] == indices[-1]
     )
