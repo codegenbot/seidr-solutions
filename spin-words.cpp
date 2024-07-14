@@ -1,17 +1,29 @@
 #include <string>
-#include <sstream>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::stringstream ss(str);
-    std::string word;
-    std::string result;
-
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    string temp = "";
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (temp.length() >= 5) {
+                for (int j = temp.length() - 1; j >= 0; j--)
+                    result += temp[j];
+            } else
+                result += temp;
+            
+            temp = "";
+        } else {
+            temp += str[i];
         }
-        result += word + " ";
     }
 
-    return result.substr(0, result.size() - 1);
+    if (temp.length() >= 5) {
+        for (int i = temp.length() - 1; i >= 0; i--)
+            result += temp[i];
+    } else
+        result += temp;
+
+    return result;
 }
