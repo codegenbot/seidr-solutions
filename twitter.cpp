@@ -16,7 +16,7 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    tweet.erase(0, tweet.find_first_not_of(' '));
+    tweet.erase(0, tweet.find_first_not_of(' ')); 
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
