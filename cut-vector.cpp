@@ -1,22 +1,20 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <utility>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
-    int n = v.size();
     int i = 0;
-    for (int j = 0; j <= n - 1; j++) {
-        if (j > 0 && v[j] != v[0]) {
+    for (; i <= v.size() - 1; i++) {
+        if (i > 0 && v[i] != v[0]) {
             break;
         }
-        i++;
     }
     std::pair<std::vector<int>, std::vector<int>> res;
     for (int j = 0; j < i; j++) {
         res.first.push_back(v[j]);
     }
-    for (int j = i; j < n; j++) {
+    for (int j = i; j < v.size(); j++) {
         res.second.push_back(v[j]);
     }
     return res;
@@ -25,9 +23,12 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> v(n);
+    std::vector<int> v;
+    v.reserve(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> v[i];
+        int val;
+        std::cin >> val;
+        v.push_back(val);
     }
     std::pair<std::vector<int>, std::vector<int>> res = cutVector(v);
     std::cout << "[";
