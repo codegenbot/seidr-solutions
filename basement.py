@@ -1,8 +1,13 @@
-Here is the completed code:
-
 def basement(arr):
-    for i in range(len(arr)):
-        total = sum(arr[:i+1])
+    total = 0
+    for i, num in enumerate(arr):
+        total += num
         if total < 0:
             return i
     return -1
+
+
+# Read input from user
+arr = list(map(int, input().split()))
+
+print(basement(arr))
