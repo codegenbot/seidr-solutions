@@ -1,4 +1,3 @@
-```cpp
 #include <bits/stdc++.h>
 
 std::string validateTweet(const std::string& input) {
@@ -17,7 +16,7 @@ int main() {
     std::string input;
     std::cout << "Enter a tweet: ";
     std::getline(std::cin, input);
-    std::string result = validateTweet(input);
+    const char* result = validateTweet(input).c_str(); 
     std::cout << result << std::endl;
     return 0;
 
