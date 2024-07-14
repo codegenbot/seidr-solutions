@@ -1,5 +1,5 @@
-```c
 #include <vector>
+#include <cmath>
 #include <climits>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
@@ -14,14 +14,15 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     long long leftSum = 0, rightSum = sum;
-    int minLeft = std::numeric_limits<int>::max(), minRight = std::numeric_limits<int>::max();
+    int minLeft = INT_MAX, minRight = INT_MAX;
     int leftCut = 0, rightCut = 0;
 
     for (int i = 0; i < n; i++) {
         if (std::abs(leftSum - rightSum) < minLeft) {
             minLeft = std::abs(leftSum - rightSum);
             leftCut = i;
-        } else if (std::abs(leftSum - rightSum) < minRight) {
+        }
+        if (std::abs(leftSum - rightSum) < minRight) {
             minRight = std::abs(leftSum - rightSum);
             rightCut = i;
         }
@@ -37,4 +38,17 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     } else {
         return {{v}};
     }
+}
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4};
+    auto result = cutVector(v);
+    // process the result
+    for (const auto& sub : result) {
+        for (int num : sub) {
+            std::cout << num << " ";
+        }
+        std::cout << "\n";
+    }
+    return 0;
 }
