@@ -1,8 +1,8 @@
-```
 def middle_character(s):
-    length = len(s)
-    middle_index = length // 2
-    if length % 2 == 0:
-        return s[middle_index - 1:middle_index + 1]
+    s = s.strip()  # Remove leading and trailing whitespace
+    if len(s) % 2 == 0:
+        return s[
+            len(s) // 2 - 1 : len(s) // 2 + 1
+        ]  # Even length, return two middle characters
     else:
-        return s[middle_index]
+        return s[len(s) // 2]  # Odd length, return the single middle character
