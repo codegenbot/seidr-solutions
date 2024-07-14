@@ -1,7 +1,6 @@
 ```
 from decimal import Decimal, getcontext
 
-
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     getcontext().prec = 50
     snow = Decimal(initial_snow)
