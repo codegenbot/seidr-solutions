@@ -1,18 +1,17 @@
 bool solveBoolean(string s) {
     stack<char> st;
-    for (char c : s) {
-        if (c == '&') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
             if (st.empty()) return false;
-        } else if (c == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-        } else {
-            st.push(c);
+            else st.pop();
+        } else if (s[i] == '|') {
+            while (!st.empty()) st.pop();
+            st.push(s[i]);
+        } else if (s[i] != ' ') {
+            st.push(s[i]);
         }
     }
     return !st.empty();
