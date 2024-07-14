@@ -1,6 +1,5 @@
 #include <string>
-
-std::string validateTweet(const char* tweet) {
+std::basic_string<char> validateTweet(const char* tweet) {
     int length = static_cast<int>(tweet ? strlen(tweet) : 0);
     if (length > 140) {
         return "Too many characters";
