@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     if len(code) != 4 or len(guess) != 4:
         return "00"
@@ -17,9 +18,16 @@ def mastermind(code, guess):
     for c in guess:
         guess_count[c] += 1
 
-    for c in set(code):
-        if code_count[c] == 4 and guess_count[c] == 4:
-            black += 4
-        elif code_count[c] > 0 and guess_count[c] > 0:
-            white = min(white, 4 - (code_count[c] + guess_count[c]))
+    code_copy = list(code)
+    guess_copy = list(guess)
+
+    for c, d in zip(code, guess):
+        if c == d:
+            black += 1
+            code_copy.remove(c)
+            guess_copy.remove(d)
+        elif code_count[c] > 0 and code_count[c] <= guess_count[d]:
+            white += 1
+            code_count[c] = 0
+
     return str(white) + str(black)
