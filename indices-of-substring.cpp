@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
     size_t pos = 0; 
@@ -12,4 +9,3 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         } else break;
     }
     return result;
-}
