@@ -4,35 +4,38 @@
 #include <cctype>
 
 std::string camelCase(const std::string& str) {
-    if(str.empty()) return "";
     std::string result;
     bool capitalize = true;
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';
+            result.push_back(' ');
             capitalize = true; 
-        } else if (capitalize) { 
-            result += toupper(c);
-            capitalize = false; 
-        } else {
-            result += tolower(c); 
+        } else if (c != ' ') { 
+            if(capitalize) { 
+                result.push_back(toupper(c));
+                capitalize = false; 
+            } else {
+                result.push_back(tolower(c)); 
+            }
         }
     }
 
-    return (result.size() > 0 ? toupper(result[0]) : '') + result.substr(1);
+    return capitalize ? toupper(result[0]) + result.substr(1) : result;
 }
 
 int main() {
-    std::string input;
+    std::string user_input;
 
-    std::cout << "Enter your string (in kebab-case): ";
-    std::getline(std::cin, input);
-    
-    if (!input.empty()) { 
-        std::string output = camelCase(input);
-        if(!output.empty())  
-            std::cout << "Camel Case: " << output << std::endl; 
+    while(true) {
+        std::cout << "Enter your string (in kebab-case): ";
+        std::getline(std::cin, user_input);
+        
+        if (!user_input.empty()) { 
+            std::string output = camelCase(user_input); // Pass the input to the function
+            if(!output.empty() && !output.back() == ' ')  
+                std::cout << "Camel Case: " << output << std::endl; 
+        }
     }
     return 0;
 }
