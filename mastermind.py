@@ -4,13 +4,9 @@ def mastermind(code, guess):
 
     for c in code:
         if c == guess[0]:
-            black_pegs += 1
-            break
-
-    for i in range(len(guess)):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess[i] in code[:i]:
-            white_pegs += 1
+            if all(c != x for x in guess[1:]):
+                black_pegs += 1
+            else:
+                white_pegs += 1
 
     return str(black_pegs) + "\n" + str(white_pegs)
