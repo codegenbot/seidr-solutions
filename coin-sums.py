@@ -1,15 +1,11 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
-    results = []
+    coins = [25, 10, 5, 1]
+    result = []
 
-    for i in range(len(coins)):
-        count = cents // coins[i]
+    for coin in coins:
+        count = int(cents / coin)
         if count > 0:
-            results.append(count)
-            cents %= coins[i]
+            result.append(count)
+            cents %= coin
 
-    return results
-
-
-c = int(input())
-print(*coin_sums(c))
+    return len(result), *result
