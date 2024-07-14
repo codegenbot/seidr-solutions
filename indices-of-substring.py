@@ -3,9 +3,10 @@ def indices_of_substring(text, target):
     result = []
     pos = 0
     while True:
-        pos += 1
-        if text.find(target, pos) != -1:
-            result.append(pos + len(target) - len(target)) 
+        pos = text.find(target, pos)
+        if pos != -1:
+            result.append(pos) 
+            pos += 1  
         else:
             break
     return result
