@@ -3,44 +3,29 @@ def bowling_score(score):
     score = score.replace('/', '')
     total = 0
     frame = 1
-    i = 0
-    while i < len(score):
+    framescores = []
+    for i in range(0, len(score), 2):
         if score[i].isdigit():
             first_roll = int(score[i])
-            i += 1
-            if i < len(score) and score[i].isdigit():
-                second_roll = int(score[i])
-                i += 1
-                if first_roll + second_roll == 10:
-                    total += 10
-                else:
-                    total += first_roll + second_roll
+            second_roll = 10 - first_roll if i + 1 < len(score) and score[i+1].isdigit() else 10 - first_roll
+            if first_roll == 10:
+                total += 10
+                framescores.append(10)
+                frame += 1
+            elif second_roll == 10:
+                total += second_roll
+                framescores.append(second_roll)
+                frame += 1
+            else:
+                total += first_roll + second_roll
+                if first_roll + second_roll < 10:
+                    next_frame = int(score[i+2:i+4]) if i+2 < len(score) and score[i+2].isdigit() and score[i+3].isdigit() else 0
+                    if next_frame > 0:
+                        total += next_frame
+                        framescores.append(next_frame)
                 frame += (2 if first_roll + second_roll == 10 else 1)
-            elif first_roll == 10:
-                total += 10
-                frame += 1
-                i += 1
-            else:
-                while i < len(score) and score[i].isdigit():
-                    total += int(score[i])
-                    i += 1
-                if i < len(score) and score[i] == 'X':
-                    total += 10
-                    frame += 1
-                    i += 1
-                elif i < len(score):
-                    total += 10 - int(score[i-1])
-                    frame += 1
-                    i += 1
-        else:
-            if score[i] == 'X':
-                total += 10
-                frame += 1
-                i += 1
-            else:
-                total += 10 - int(score[i-1])
-                frame += 1
-                i += 1
+    for i in range(frame, 10):
+        total += int(framescores[i-1])
     return total
 
 print(bowling_score('0'))
