@@ -1,4 +1,3 @@
-```
 from decimal import Decimal, getcontext
 
 
@@ -6,8 +5,9 @@ def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     getcontext().prec = 50
     snow = Decimal(initial_snow)
     for _ in range(int(hours)):
-        snow += Decimal(str(rate_of_snowfall)).quantize(Decimal('0.01'))
-        snow -= Decimal(str(melting_rate)).quantize(Decimal('0.01'))
+        new_snow_amount = (snow + Decimal(str(rate_of_snowfall)).quantize(Decimal('0.01')) - 
+                           Decimal(str(melting_rate)).quantize(Decimal('0.01')))
+        snow = float(max(float(new_snow_amount), 0.00))
     return str(snow).rstrip("0").rstrip(".").replace('.', '')
 
 
