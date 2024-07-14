@@ -1,25 +1,21 @@
 def bowling_score(frames):
     score = 0
-    for i, frame in enumerate(frames.split("/")):
-        if len(frame) == 1:
-            score += 10
-        elif "X" in frame:
-            if i < 9:
-                score += 10 + int(frames.split("/")[i + 1].split("X")[0])
-            else:
-                score += 10
-        else:
+    frame_index = 0
+    for i in range(1, 11):
+        if frames[frame_index] == "X":
+            score += 10 + (10 - i) * 10
+            frame_index += 1
+        elif frames[frame_index : frame_index + 2].isdigit():
             strike = False
-            spare = False
-            for char in frame:
-                if char == "X":
-                    strike = True
-                elif char != "X" and char != "/":
-                    if not strike:
-                        spare = True
-                    break
+            if frames[frame_index : frame_index + 2][0] == "/":
+                strike = True
+                frame_index += 3
+            else:
+                frame_index += 2
             if strike:
-                score += 10 + int(frames.split("/")[i + 1].split("X")[0])
-            elif spare:
-                score += 10
+                score += int(frames[frame_index - 2 : frame_index]) + 10
+            else:
+                score += sum(int(x) for x in frames[frame_index - 2 : frame_index])
+        else:
+            raise ValueError("Invalid input")
     return score
