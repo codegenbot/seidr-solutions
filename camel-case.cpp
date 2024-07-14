@@ -1,42 +1,30 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::vector<std::string> parts;
-    size_t start = 0;
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool capitalize = true;
 
-    while (start < str.size()) {
-        if (str[start] == '-') {
-            size_t end = start + 1;
-            while (end < str.size() && str[end] != '-') {
-                end++;
-            }
-            parts.push_back(str.substr(start + 1, end - start - 1));
-            start = end;
+    for (char c : input) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            output += toupper(c);
+            capitalize = false;
         } else {
-            if (!parts.empty()) {
-                parts.back().insert(0, 1, std::toupper(str[start]));
-                start++;
-                while (start < str.size() && str[start] != '-') {
-                    start++;
-                }
-            } else {
-                start++;
-            }
+            output += tolower(c);
         }
     }
 
-    if (!parts.empty()) {
-        parts[0][0] = std::toupper(parts[0][0]);
-    }
-
-    return std::string();
+    return output;
 }
 
 int main() {
+    std::string input;
     std::cout << "Enter a string: ";
-    std::string str;
-    std::cin >> str;
-    std::cout << camelCase(str) << std::endl;
+    std::getline(std::cin, input);
+
+    std::cout << camelCase(input) << '\n';
+
     return 0;
 }
