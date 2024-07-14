@@ -1,20 +1,29 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') { // strike
-            score += 10 + (i < 9 ? 10 : 0);
-        } else if (s[i] == '/') { // spare
-            int j = i + 1;
-            while (j < 11 && s[j] != ' ') {
-                j++;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
+            score += 30;
+            i++;
+        } else if (s[i] == '/') {
+            int next = i + 1;
+            while (next < s.length() && !isdigit(s[next])) {
+                next++;
             }
-            score += 10 - (s[i + 1] - '0') - (s[i + 2] - '0');
-        } else { // non-strike, non-spare
-            int j = i;
-            while (j < 11 && s[j] != ' ') {
-                j++;
+            int strike = stoi(string(1, s[i+1]));
+            score += strike;
+            i = next - 1;
+        } else {
+            int next = i;
+            while (next < s.length() && isdigit(s[next])) {
+                next++;
             }
-            score += (s[i] - '0') + (s[i + 1] - '0');
+            int pins = stoi(string(i + 1, s.substr(i)));
+            if (pins > 10) {
+                score += 10;
+            } else {
+                score += pins;
+            }
+            i = next - 1;
         }
     }
     return score;
