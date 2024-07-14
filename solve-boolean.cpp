@@ -1,4 +1,3 @@
-```
 #include <string>
 using namespace std;
 
@@ -19,7 +18,7 @@ bool solveBoolean(string expression) {
                 i--;
             }
             for (; i > 0 && (expression[i-1] != '&' && expression[i-1] != '|'); i--)
-                temp += string(1, expression[--i]);
+                temp = string(1, expression[--i]);
             valStack.push(temp);
         }
     }
