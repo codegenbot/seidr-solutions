@@ -41,16 +41,16 @@ def solve_boolean(expression):
 
     while ' | ' in expression:
         left, right = expression.split(" | ")
-        if eval(left):
-            expression = str(right)
+        if eval(left.replace(" ", "")):
+            expression = str(right).replace(" ", "")
         else:
             expression = "False"
 
     while ' and ' in expression:
         left, right = expression.split(' and ')
-        if eval(left):
-            expression = str(right)
+        if eval(left.replace(" ", "")):
+            expression = str(right).replace(" ", "")
         else:
             expression = "False"
 
-    return eval(expression)
+    return eval(expression.replace(" ", ""))
