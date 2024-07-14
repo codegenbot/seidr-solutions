@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm> 
+#include <algorithm>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -12,18 +11,13 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int num1, num2;
     string text, target;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    
-    vector<int> indices; 
-
     cout << "Enter the text: ";
     getline(cin, text);
     cout << "Enter the target: ";
     getline(cin, target);
     
+    vector<int> indices; 
     int start = 0;
     while (start < text.length()) {
         size_t pos = text.find(target, start);
@@ -34,7 +28,10 @@ int main() {
     }
     
     if (!indices.empty()) {
-        cout << "GCD of indices: " << gcd(*min_element(indices.begin(), indices.end()), *min_element(indices.begin(), indices.end())) << endl;
+        cout << "Enter the indices: ";
+        int num1, num2;
+        cin >> num1 >> num2;
+        cout << "GCD of indices: " << gcd(num1, num2) << endl;
     } else {
         cout << "No matching index found." << endl;
     }
