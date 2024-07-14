@@ -3,6 +3,6 @@ def leaders(arr):
     leaders = [max_right]
     for i in range(len(arr)-1, -1, -1):
         if arr[i] >= max_right:
+            leaders.insert(0, arr[i])
             max_right = arr[i]
-            leaders.append(max_right)
-    return leaders[::-1]
+    return leaders
