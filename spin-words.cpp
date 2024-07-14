@@ -1,45 +1,35 @@
-Here is the solution:
-
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string input) {
     string output = "";
-    string word = "";
-
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    output += word[j];
+    int i = 0;
+    
+    while(i < input.length()) {
+        if(input[i] == ' ') {
+            output += " ";
+            i++;
+        } else {
+            int j = i + 1;
+            
+            // find the space or the end of the string
+            while(j <= input.length() && input[j] != ' ' && j < input.length()) {
+                j++;
+            }
+            
+            // check if the word is more than 4 characters
+            if((j - i) > 5) {
+                for(int k = j - 1; k >= i; k--) {
+                    output += input[k];
                 }
             } else {
-                output += word;
+                while(i < j) {
+                    output += input[i];
+                    i++;
+                }
             }
-            word = "";
-        } else {
-            word += input[i];
         }
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; i--) {
-            output += word[i];
-        }
-    } else {
-        output += word;
-    }
-
+    
     return output;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << spinWords(input) << endl;
-    return 0;
 }
