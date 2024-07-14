@@ -8,3 +8,10 @@ int basement(std::vector<int>& nums) {
     }
     return -1;
 }
+
+int main() {
+    std::vector<int> nums = {1, 2, 3};
+    int result = basement(nums);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
