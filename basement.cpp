@@ -1,13 +1,16 @@
 #include <vector>
 using namespace std;
 
-int basement(vector<int>& v) {
-    int sum = 0;
+int basementIndex(vector<int>& v) {
     for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum < 0) return i;
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += v[j];
+            if (sum < 0)
+                return i;
+        }
     }
-    return -1; // not found
+    return -1;
 }
 
 int main() {
@@ -19,6 +22,6 @@ int main() {
         cin >> x;
         v.push_back(x);
     }
-    cout << basement(v) << endl;
+    cout << basementIndex(v) << endl;
     return 0;
 }
