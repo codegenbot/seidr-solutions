@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     stack = []
     operator_stack = []
@@ -14,7 +15,7 @@ def solve_boolean(expression):
                 stack.append(result)
             operator_stack.append(char)
         elif char == '(':
-            continue
+            operator_stack.append(char)
         elif char == ')':
             while len(operator_stack) >= 1 and (operator_stack[-1] != '('):
                 op = operator_stack.pop()
@@ -23,5 +24,12 @@ def solve_boolean(expression):
                 result = value1 and value2 if op == '&' else value1 or value2
                 stack.append(result)
             operator_stack.pop()
+
+    while len(operator_stack) >= 1:
+        op = operator_stack.pop()
+        value2 = stack.pop()
+        value1 = stack.pop() if stack else True
+        result = value1 and value2 if op == '&' else value1 or value2
+        stack.append(result)
 
     return stack[0]
