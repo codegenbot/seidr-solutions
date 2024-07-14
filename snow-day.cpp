@@ -1,4 +1,6 @@
+```c++
 #include <iostream>
+using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     for (int i = 0; i < hours; i++) {
@@ -14,18 +16,20 @@ int main() {
     int hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
 
-    std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
-    std::cout << "Enter the initial amount of snow on the ground: ";
-    std::cin >> initialSnow;
-    std::cout << "Enter the rate of snow fall per hour: ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter the proportion of snow melting per hour: ";
-    std::cin >> proportionOfSnowMeltingPerHour;
+    cout << "Enter number of hours: ";
+    cin >> hours;
 
-    float finalSnow = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    cout << "Enter initial snow (inches): ";
+    cin >> initialSnow;
 
-    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << finalSnow << std::endl;
+    cout << "Enter rate of snow fall (inches per hour): ";
+    cin >> rateOfSnowFall;
+
+    cout << "Enter proportion of snow melting per hour: ";
+    cin >> proportionOfSnowMeltingPerHour;
+
+    float result = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    cout << "Amount of snow on the ground after " << hours << " hours: " << result << endl;
 
     return 0;
 }
