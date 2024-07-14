@@ -1,22 +1,28 @@
 #include <string>
-using namespace std;
+#include <sstream>
 
-string spinWords(string str) {
-    string result = "";
-    size_t pos = 0;
-    while ((pos = str.find(' ')) != string::npos) {
-        if (str.substr(0, pos).length() >= 5) {
-            for (int i = str.substr(0, pos).length() - 1; i >= 0; i--)
-                result += str.substr(0, pos)[i];
-            result += ' ';
-        } else
-            result += str.substr(0, pos);
-        str.erase(0, pos + 1);
+std::string spinWords(std::string sentence) {
+    std::stringstream ss(sentence);
+    std::string word;
+    
+    std::string result;
+    
+    while (ss >> word) {
+        if(word.length() >= 5)
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
     }
-    if (str.length() >= 5)
-        for (int i = str.length() - 1; i >= 0; i--)
-            result += str[i];
-    else
-        result += str;
-    return result;
+    
+    return result.substr(0, result.size()-1);
+}
+
+int main(){
+    // test cases
+    cout << spinWords("a") << endl; // should print a
+    cout << spinWords("this is a test") << endl; // should print this is a test
+    cout << spinWords("this is another test") << endl; // should print this is rehtona test
+    cout << spinWords("hi") << endl; // should print hi
+
+    return 0;
 }
