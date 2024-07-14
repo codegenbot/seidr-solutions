@@ -5,24 +5,12 @@
 #include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::string buffer;
     std::vector<std::string> arr;
+    std::stringstream ss(str);
+    std::string buffer;
 
-    for (char c : str) {
-        if (c == ' ') {
-            if (!buffer.empty()) {
-                arr.push_back(buffer);
-                buffer = ""; 
-            }
-        } else if (c != delimiter) {
-            buffer += c;
-        }
-
-        // No need to check for '\0' here
-    }
-
-    if (!buffer.empty()) {
-        arr.push_back(buffer + " ");
+    while (std::getline(ss, buffer, delimiter)) {
+        arr.push_back(buffer);
     }
 
     return arr;
