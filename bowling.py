@@ -1,12 +1,12 @@
-```python
-def bowling_score(game):
+```
+def bowling_score(game=""):
     score = 0
     frame_index = 0
     for i in range(1, 11):
         if game[frame_index] == 'X':
             score += 10 + (10 - i) * 10
             frame_index += 2
-        elif game[frame_index:frame_index+2] == 'XX':
+        elif game[frame_index: frame_index+2] == 'XX':
             score += 20
             frame_index += 2
         else:
