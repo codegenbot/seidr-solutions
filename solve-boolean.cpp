@@ -1,5 +1,6 @@
 #include <stack>
 #include <string>
+#include <cctype>
 #include <iostream>
 
 bool solveBoolean(std::string expression) {
