@@ -1,8 +1,9 @@
 ```cpp
 #include <vector>
 #include <iostream>
+using namespace std;
 
-std::vector<int> computeLPSArray(const std::string& pat, std::vector<int>& lps, int len) {
+std::vector<int> computeLPSArray(std::string pat, std::vector<int>& lps, int len) {
     int m;
     lps.push_back(0); 
     m = 0; 
@@ -47,13 +48,14 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     std::string text;
-    std::cin >> text;
+    cin >> text;
     std::string target;
-    std::cin >> target;
+    cin >> target;
 
     std::vector<int> indices = indicesOfSubstring(text, target);
 
     for (int i : indices) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
+}
