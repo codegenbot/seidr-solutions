@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -11,9 +10,9 @@ int main() {
     double bouncinessIndex = (double)firstBounce / startHeight;
 
     if (bouncinessIndex < 0.01)
-        cout << "The bounciness index is: " << to_string(0.00) << endl;
+        cout << "The bounciness index is: 0.00" << endl;
     else
-        cout << "The bounciness index is: " << to_string(bouncinessIndex) << endl;
+        cout << "The bounciness index is: " << fixed << setprecision(2) << std::to_string(bouncinessIndex) << endl;
     
     double height = startHeight; 
     double totalDistance = 0.0; 
@@ -27,9 +26,9 @@ int main() {
     }
 
     if (totalDistance * bouncinessIndex < 0.01)
-        cout << "The total distance the ball travels is: " << to_string(0.00) << endl;
+        cout << "The total distance the ball travels is: 0.00" << endl;
     else
-        cout << "The total distance the ball travels is: " << to_string(totalDistance * bouncinessIndex) << endl;
+        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << std::to_string(totalDistance * bouncinessIndex) << endl;
 
     return 0;
 }
