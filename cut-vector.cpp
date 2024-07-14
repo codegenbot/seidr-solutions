@@ -2,22 +2,39 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+    int n = v.size();
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 0; i < v.size(); i++) {
-        vector<int> left(v.begin(), v.begin() + i);
-        vector<int> right(v.begin() + i, v.end());
+    for (int i = 1; i <= n/2; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; j++) {
+            sum1 += v[j];
+        }
+        for (int j = i; j < n; j++) {
+            sum2 += v[j];
+        }
         
-        int diff = abs((int)accumulate(left.begin(), left.end(), 0) - (int)accumulate(right.begin(), right.end(), 0));
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            result = make_pair(left, right);
+        if (sum1 == sum2) {
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
+        } else {
+            int diff = abs(sum1 - sum2);
+            for (int j = i; j < n-i; j++) {
+                sum1 -= v[j];
+                sum2 += v[n-j-1];
+                if (abs(sum1 - sum2) < diff) {
+                    res.first = vector<int>(v.begin(), v.begin() + j+1);
+                    res.second = vector<int>(v.begin() + j+1, v.end());
+                    return res;
+                }
+            }
         }
     }
     
-    return result;
+    res.first = v;
+    res.second = vector<int>();
+    return res;
 }
 
 int main() {
@@ -28,7 +45,15 @@ int main() {
         cin >> v[i];
     }
     pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << accumulate(res.first.begin(), res.first.end(), 0) << endl;
-    cout << accumulate(res.second.begin(), res.second.end(), 0) << endl;
+    cout << "First subvector: ";
+    for (int i : res.first) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "Second subvector: ";
+    for (int i : res.second) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
