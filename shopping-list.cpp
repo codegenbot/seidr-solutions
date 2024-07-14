@@ -1,32 +1,26 @@
 #include <vector>
 using namespace std;
 
-double totalShoppingTripPrice(vector<float> prices, vector<float> discounts) {
-    double totalPrice = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        float price = prices[i];
-        float discount = discounts[i] / 100.0f; // Convert percent to fraction
-        float discountedPrice = price * (1 - discount);
-        totalPrice += discountedPrice;
+float totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
+    float totalPrice = 0.0;
+    for (int i = 0; i < prices.size(); ++i) {
+        float discount = prices[i] * (discounts[i] / 100.0);
+        totalPrice += prices[i] - discount;
     }
     return totalPrice;
 }
 
 int main() {
-    int numItems, numDiscounts;
-    cin >> numItems >> numDiscounts;
-
-    vector<float> prices(numItems, 0.0f);
-    vector<float> discounts(numDiscounts, 0.0f);
-
-    for (int i = 0; i < numItems; i++) {
-        cin >> prices[i];
+    int n;
+    cin >> n;
+    vector<float> prices(n);
+    for (auto& price : prices) {
+        cin >> price;
     }
-    for (int i = 0; i < numDiscounts; i++) {
-        cin >> discounts[i];
+    vector<float> discounts(n);
+    for (auto& discount : discounts) {
+        cin >> discount;
     }
-
-    cout << fixed << setprecision(1) << totalShoppingTripPrice(prices, discounts) << endl;
-
+    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     return 0;
 }
