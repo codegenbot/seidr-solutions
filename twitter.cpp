@@ -4,9 +4,11 @@
 std::string validateTweet(std::string tweet) {
     std::string::size_type len = 0;
     for (char c : tweet) {
-        ++len;
-        if (len > 140) {
-            return "Too many characters";
+        len++;
+        if (c != ' ') { 
+            if (len > 140) {
+                return "Too many characters";
+            }
         }
     }
     if (tweet.empty()) {
@@ -18,7 +20,7 @@ std::string validateTweet(std::string tweet) {
 int main() {
     std::string tweet;
     std::cout << "Enter your tweet: ";
-    getline(std::cin, tweet);
+    std::getline(std::cin, tweet);
     std::cout << validateTweet(tweet) << std::endl;
 
     return 0;
