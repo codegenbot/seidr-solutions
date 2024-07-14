@@ -5,4 +5,4 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
         initialSnow += accumulation - melting;
     }
     
-    return initialSnow; }
+    return initialSnow;
