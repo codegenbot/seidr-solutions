@@ -1,12 +1,10 @@
 def find_indices(text, target):
     result = []
-    text_lower = text.lower()
-    target_lower = target.lower()
     i = 0
     while True:
-        pos = text_lower.find(target_lower, i)
+        pos = text.lower().find(target.lower(), i)
         if pos == -1:
             break
-        result.append(pos) 
-        i = 0  
+        result.append(pos + 1 if i == 0 else pos) 
+        i = pos + 1  
     return result
