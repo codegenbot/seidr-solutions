@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 
 std::string spinWords(std::string str) {
@@ -11,4 +12,12 @@ std::string spinWords(std::string str) {
             result += word + " ";
     }
     return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
+    return 0;
 }
