@@ -1,26 +1,39 @@
+#include <vector>
+#include <iostream>
 #include <string>
 
-bool solveBoolean(string expression) {
-    stack<char> operatorStack;
-    stack<string> valueStack;
-
-    for (char c : expression) {
-        if (c == 'T' || c == 'F') {
-            valueStack.push(std::to_string(c == 'T'));
-        } else if (c == '&') {
-            while (!operatorStack.empty() && operatorStack.top() == '|') {
-                operatorStack.pop();
-                valueStack.push(std::to_string("False"));
+bool solveBoolean(string booleanExp) {
+    stack<char> s;
+    
+    for (int i = 0; i < booleanExp.length(); i++) {
+        if (booleanExp[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            operatorStack.push(c);
-        } else if (c == '|') {
-            operatorStack.push(c);
+            if (!s.empty() && s.top() == '|') {
+                s.pop();
+                return false;
+            } else if (!s.empty()) {
+                s.pop();
+                return true;
+            } else {
+                return false;
+            }
+        } else if (booleanExp[i] != '&' && booleanExp[i] != '|') {
+            s.push(booleanExp[i]);
         }
     }
 
-    while (!operatorStack.empty()) {
-        operatorStack.pop();
+    while (!s.empty()) {
+        s.pop();
     }
 
-    return valueStack.top() == "True";
+    return true;
+}
+
+int main() {
+    string booleanExp;
+    cin >> booleanExp;
+    cout << (solveBoolean(booleanExp) ? "True" : "False") << endl;
+    return 0;
 }
