@@ -1,41 +1,28 @@
 def solve_boolean(expression):
-    while "&|" in expression:
-        expression = expression.replace("&|", "| &")
+    expression = expression.replace("&|", "&&").replace("|&", "| ")
 
-    i = 0
-    stack = []
-    current_expression = ""
-    open_parentheses = 0
-    for char in expression + ")": 
-        if char.isspace():
-            if current_expression:
-                stack.append(current_expression)
-                current_expression = ""
-        elif char == "(":
-            stack.append("(")
-            current_expression += char
-            open_parentheses += 1
-        elif char == ")":
-            while True:
-                if stack and (stack[-1] == "(" or not stack):
-                    stack.pop()
-                    current_expression += char
-                    open_parentheses -= 1
-                    if open_parentheses == 0:
-                        break
-                else:
-                    stack.append(char)
-                    break
-        elif char == "&":
-            while True:
-                if stack and (stack[-1] in ("|", "(")):
-                    stack.pop()
-                    current_expression += char
-                    break
-                else:
-                    stack.append(char)
-                    break
-        else:
-            current_expression += char
+    if expression == "F":
+        return False
+    elif expression == "T":
+        return True
+    
+    operators = "&|"
+    result = None
+    while operators in expression:
+        for operator in operators:
+            left, right = expression.split(operator)
+            if eval(f"({left})"):
+                expression = right
+                break
+            else:
+                expression = right
+                continue
+        if not result and eval(expression):
+            result = True
+        elif result is None and not eval(expression):
+            result = False
+        break
+    
+    return result if result is not None else eval(expression)
 
-    return eval("(" + current_expression.replace("| ", " | ").replace("& ", " & ") + ")")
+print(solve_boolean("f|f&t|t&t|t&t&f&t&t|t&t&t&f|f"))
