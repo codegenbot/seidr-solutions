@@ -1,27 +1,35 @@
+```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
     double startHeight; 
     cin >> startHeight;
     
-    double firstBounce = startHeight / 2.0; 
-    double bouncinessIndex = firstBounce / startHeight;
+    int firstBounce = static_cast<int>(startHeight) / 2; 
+    double bouncinessIndex = (double)firstBounce / startHeight;
 
-    double height = startHeight; // initialize height
+    if (bouncinessIndex < 0.01)
+        cout << "The bounciness index is: 0.00" << endl;
+    else
+        cout << "The bounciness index is: " << to_string(bouncinessIndex) << endl;
+    
+    double height = startHeight; 
     double totalDistance = 0.0; 
     int bounces; 
 
     cin >> bounces; 
 
-    cout << "The bounciness index is: " << bouncinessIndex << endl;
-    
     for (int i = 1; i <= bounces; ++i) {
         height *= 0.5; 
         totalDistance += startHeight - height;
     }
 
-    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
+    if (totalDistance * bouncinessIndex < 0.01)
+        cout << "The total distance the ball travels is: 0.00" << endl;
+    else
+        cout << "The total distance the ball travels is: " << to_string(totalDistance * bouncinessIndex) << endl;
 
     return 0;
 }
