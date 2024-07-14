@@ -1,7 +1,7 @@
 def middle_character(s):
-    s = s.replace(' ', '')
+    s = s.strip() 
     length = len(s)
-    mid = length // 2
+    mid = length // 2 + (length % 2) 
     if length % 2 != 0:
         return s[mid-1:mid+1]
     else:
