@@ -1,4 +1,6 @@
-int mastermind(std::string code, std::string guess) {
+#include <string>
+
+int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
@@ -8,8 +10,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    // Count total correct matches
-    std::map<char,int> codeCount;
+    map<char,int> codeCount;
     codeCount['A'] = 0;
     codeCount['B'] = 0;
     codeCount['C'] = 0;
@@ -17,11 +18,25 @@ int mastermind(std::string code, std::string guess) {
     for (char c : code) {
         codeCount[c]++;
     }
+    
+    map<char,int> guessCount;
+    guessCount['A'] = 0;
+    guessCount['B'] = 0;
+    guessCount['C'] = 0;
+    guessCount['D'] = 0;
+    for (char c : guess) {
+        guessCount[c]++;
+    }
+
     for (int i = 0; i < 4; ++i) {
-        char c = guess[i];
-        if (code.find(c) != std::string::npos && codeCount[c] > 0) {
-            white++;
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            char c = guess[i];
             codeCount[c]--;
+            if (codeCount[c] <= 0 && guessCount[c] > 0) {
+                white++;
+            }
         }
     }
 
