@@ -1,3 +1,4 @@
+```
 #include <string>
 using namespace std;
 
@@ -10,8 +11,8 @@ string spinWords(string str) {
             string word = str.substr(start, i - start);
             
             if(word.length() >= 5) {
-                std::vector<char> v(word.rbegin(), word.rend());
-                result += std::string(v.begin(), v.end()) + " ";
+                std::string reversedWord(word.rbegin(), word.rend());
+                result += reversedWord + " ";
             } else {
                 result += word + " ";
             }
