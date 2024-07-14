@@ -2,24 +2,20 @@
 using namespace std;
 
 int main() {
-    double start_height, first_bounce_height;
-    int num_bounces;
+    double startHeight, heightAfterFirstBounce;
+    int numBounces;
 
-    // Read input from user
-    cin >> start_height >> first_bounce_height >> num_bounces;
+    cin >> startHeight >> heightAfterFirstBounce >> numBounces;
 
-    // Calculate bounciness index
-    double bounciness_index = first_bounce_height / start_height;
+    double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
-    // Calculate total distance traveled by the ball
-    double total_distance = 0.0;
-    for (int i = 1; i <= num_bounces; i++) {
-        total_distance += (start_height * pow(bounciness_index, i));
+    double totalDistance = 0.0;
+    for(int i = 1; i <= numBounces; i++) {
+        totalDistance += (startHeight * pow(bouncinessIndex, i));
     }
 
-    // Print output to user
-    cout << fixed << setprecision(6);
-    cout << start_height + total_distance << endl;
+    cout << fixed << setprecision(5);
+    cout << totalDistance << endl;
 
     return 0;
 }
