@@ -1,43 +1,36 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int pos = 0;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res;
     
-    for(int i=1; i<v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if(diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+    for (int i = 1; i <= n; i++) {
+        if (i == n || abs(v[i-1] - v[i]) > abs(v[0] - v[i])) {
+            res.push_back(vector<int>(v.begin(), v.begin() + i));
+            v.erase(v.begin());
+            break;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + pos);
-    vector<int> right(v.begin() + pos, v.end());
+    res.push_back(v);
     
-    return {left, right};
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n+1);
-    for(int i=0; i<=n; i++) {
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "First part: ";
-    for(auto x : result.first) {
-        cout << x << " ";
+    vector<vector<int>> result = cutVector(v);
+    for (auto &vec : result) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-    cout << "Second part: ";
-    for(auto x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
-    
     return 0;
 }
