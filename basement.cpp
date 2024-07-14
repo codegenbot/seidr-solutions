@@ -13,7 +13,7 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    vector<int> input = {-2, 3, 1, -5, 4};
+    vector<int> input = {-5, 3, 2, -4};
     int result = basement(input);
     if (result == -1) {
         cout << "No such index found." << endl;
