@@ -1,20 +1,17 @@
-```c++
+```cpp
 #include <string>
-using namespace std;
+#include <iostream>
 
 int main() {
-    cout << "Enter a number: ";
-    string input;
-    cin >> input;
-    cout << squareDigits(input) << endl;
+    std::string input = "1234";
+    std::cout << squareDigits(input) << std::endl;
     return 0;
 }
 
-string squareDigits(string input) {
-    string output = "";
+std::string squareDigits(std::string input) {
+    std::string output = "";
     for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+        output += std::to_string((c - '0') * (c - '0'));
     }
     return output;
 }
