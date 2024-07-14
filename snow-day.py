@@ -50,11 +50,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
-print(
-    snow_day(
-        hours,
-        Decimal(str(initial_snow)),
-        Decimal(str(rate_of_snowfall)),
-        Decimal(str(melting_rate)),
-    )
-)
+print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
