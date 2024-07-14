@@ -8,6 +8,6 @@ def mastermind(code, guess):
             return "0\n0"
 
     white_pegs = sum(1 for c, g in zip(code, guess) if c == g and c != guess[guess.index(c)])
-    black_pegs = sum(1 for c, g in zip(code, guess) if c == g)
+    black_pegs = 4 - sum(1 for c in code if c in guess) + sum(1 for c, g in zip(code, guess) if c == g)
 
-    return "{}\n{}".format(black_pegs, white_pegs)
+    return "{}\n{}".format(str(black_pegs), str(white_pegs))
