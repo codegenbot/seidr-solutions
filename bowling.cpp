@@ -1,32 +1,30 @@
+#include <vector>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
-            score += 30;
-            i++;
-        } else if (s[i] == '/') {
-            int next_i = i + 1;
-            int strike_score = 10 - (s[next_i] - '0');
-            while (next_i < s.length() && isdigit(s[next_i])) {
-                strike_score *= 10;
-                next_i++;
+    vector<int> rolls(21);
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '/') {
+            int prev = rolls[stoi(s.substr(0, i)) - 1];
+            if (prev != 10) {
+                score += max(10 - prev, 1);
             }
-            score += 10 + strike_score;
-            i = next_i;
+            i++;
         } else {
-            int roll1 = s[i] - '0';
-            i++;
-            if (i < s.length() && s[i] == '/') {
-                int roll2 = 10 - (s[i + 1] - '0');
-                score += roll1 + roll2;
-                i++;
-            } else {
-                int roll2 = s[i] - '0';
-                score += roll1 + roll2;
-                i++;
-            }
+            rolls[stoi(s.substr(i, 1))] = 10;
         }
     }
+
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i] == 10) {
+            score += rolls[i];
+        } else if (i > 0 && rolls[i - 1] + rolls[i] == 10) {
+            score += rolls[i - 1] + min(rolls[i], 10);
+        } else {
+            score += min(rolls[i], 10);
+        }
+    }
+
     return score;
 }
