@@ -1,7 +1,7 @@
 #include <string>
-using namespace std;
+#include <map>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
