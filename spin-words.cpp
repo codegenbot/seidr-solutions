@@ -1,4 +1,4 @@
-```c++
+```cpp
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
     std::string word;
