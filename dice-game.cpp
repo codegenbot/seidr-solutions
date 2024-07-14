@@ -2,20 +2,13 @@
 #include <cmath>
 
 double diceGame(int n, int m) {
-    double total = 1.0 * (n);
+    double total = 1.0;
     
     double win = 0.0;
     
-    for(int i = 1; i <= m && i < n; i++) { 
+    for(int i = m + 1; i <= n; i++) { 
         win += ((n - i)) / total; 
         total--;
-    }
-    
-    // subtract the probability of them rolling equal
-    if(m > n) {
-        win -= (1.0 * (m - (n-1))) / total;
-    } else {
-        win -= (1.0 * (n - m)) / total;
     }
     
     return win;
@@ -33,7 +26,7 @@ int main() {
         std::cerr << "Invalid input for Colin's die.\n";
         return 1;
     }
-    double result = diceGame(n, m);
+    double result = diceGame(n, m) - (1.0 / n) * (1.0 / m);
     std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
     return 0;
 }
