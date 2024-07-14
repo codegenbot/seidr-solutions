@@ -26,19 +26,31 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     vector<int> lps(m); // Longest Proper Prefix which is also a Suffix
-    computeLPSArray(target, lps, 0);
+    int len = 0; 
 
-    for (int i = 0; i < n - m + 1; i++) {
-        int j = 0;
-        while (j < m && text[i + j] == target[j]) {
-            j++;
-        }
+    computeLPSArray(target, lps, len);
 
-        if (j == m) {
-            result.push_back(i);
+    int i = 0; 
+    while (i < n) {
+        if (text[i] == target[0]) { 
+            if (target.length() == 1 || text.substr(i, m) == target) {
+                result.push_back(i);
+                i += m;
+                for (int j = 0; j < result.size(); j++) {
+                    if (result[j] + m <= i) {
+                        i = result[j] + m;
+                        break;
+                    }
+                }
+            } else {
+                int j = 1; 
+                while (i + j < n && text.substr(i, j) == target.substr(0, j)) { 
+                    j++;
+                }
+                i += j;
+            }
         } else {
-            int k = lps[j-1];
-            i = i + j - k; // move the start index of new substring
+            i = i + 1;
         }
     }
 
