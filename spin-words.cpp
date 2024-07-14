@@ -1,31 +1,37 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here's the solution:
 
-using namespace std;
-
-string spinWords(string str) {
+string spinWords(string sentence) {
     string result = "";
-    size_t pos = 0;
-    while (pos < str.length()) {
-        size_t nextSpace = str.find(' ', pos);
-        if (nextSpace == string::npos) {
-            nextSpace = str.length();
+    int i = 0;
+    while (i < sentence.length()) {
+        if (sentence[i] == ' ') {
+            result += " ";
+            i++;
+            continue;
         }
-        string word = str.substr(pos, nextSpace - pos);
+        int j = i;
+        while (j < sentence.length() && sentence[j] != ' ') {
+            j++;
+        }
+        string word = sentence.substr(i, j - i);
         if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+            string reversedWord = "";
+            for (int k = word.length() - 1; k >= 0; k--) {
+                reversedWord += word[k];
+            }
+            result += reversedWord + " ";
+        } else {
+            result += word + " ";
         }
-        result += word + " ";
-        pos = nextSpace + 1;
+        i = j;
     }
-    return result.substr(0, result.length() - 1);
+    return result.trim();
 }
 
-int main() {
-    string str;
-    while (cin >> str) {
-        cout << spinWords(str) << endl;
-    }
-    return 0;
+string trim(const string& str) {
+    auto firstUnspaced = std::find_if_not(str.begin(), str.end(),
+                                          [](unsigned char c){return !isspace(c);});
+    auto lastUnspaced = std::find_if_not(std::reverse_iterator(str.end()), std::reverse_iterator(firstUnspaced), 
+                                          [](unsigned char c){return !isspace(c);}).base();
+    return string(firstUnspaced, lastUnspaced);
 }
