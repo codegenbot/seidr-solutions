@@ -1,32 +1,37 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-string toCamelCase(string str) {
+string camelCase(string s) {
     string result = "";
-    size_t start = 0;
-    
-    for (size_t i = 0; i <= str.size(); i++) {
-        if (i == str.size() || str[i] == '-') {
-            size_t len = i - start;
-            if (len > 0) {
-                result += toupper(str.substr(start, len)[0]);
-                if (len > 1)
-                    result += tolower(str.substr(start + 1, len - 1));
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            if (i > 0 && result.back() != ' ') {
+                result += char(toupper(s[i+1]));
+                i++;
             }
-            start = i + 1;
+        } else if (s[i] == ' ') {
+            if (!result.empty()) {
+                result.push_back(char(toupper(s[i+1])));
+                i++;
+            }
+        } else {
+            if (i > 0 && (s[i-1] == '-' || s[i-1] == ' ')) {
+                result += char(toupper(s[i]));
+            } else {
+                result += s[i];
+            }
         }
     }
-    
     return result;
 }
 
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << toCamelCase(str) << endl;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string str;
+        cin >> str;
+        cout << camelCase(str) << endl;
     }
     return 0;
 }
