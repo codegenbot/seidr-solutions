@@ -20,7 +20,7 @@ int luhn(const vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits = {4,3,2,1,0,9,8,7,6,5,4,3,2,1,0,1};
+    vector<int> digits = {4,3,2,1,1,6,7,1,8,9,4};
     cout << "Luhn value is: " << luhn(digits) << endl;
     return 0;
 }
