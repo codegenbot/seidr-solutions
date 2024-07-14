@@ -1,15 +1,12 @@
-```
 from math import floor
 
 
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     snow = float(initial_snow)
     for _ in range(int(hours)):
-        while snow > 0:
-            snow += rate_of_snowfall
-            if snow > 0:
-                snow -= min(snow, melting_rate)
-    return str(format(floor(snow + 0.0001), ".2f")).lstrip("0").rstrip(".")
+        snow += rate_of_snowfall
+        snow -= min(snow, melting_rate)
+    return str(format(snow + 0.0001, ".2f"))
 
 
 hours = int(input("Enter the number of hours: "))
