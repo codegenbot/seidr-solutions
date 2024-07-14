@@ -11,3 +11,13 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     return res;
 }
+
+int main() {
+    std::vector<int> testArr1 = {16,17,4,3,2,5};
+    std::cout << "Leaders in the array are: ";
+    for(int x : leaders(testArr1))
+        std::cout << x << " ";
+    std::cout << std::endl;
+    
+    return 0;
+}
