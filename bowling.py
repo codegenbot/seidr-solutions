@@ -1,16 +1,11 @@
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for i in range(10):
-        if "/" in s[i * 2 : i * 2 + 2]:
-            first, second = map(int, re.findall(r"\d", s[i * 2 : i * 2 + 2]))
-            score += min(first, 10) + min(second, 10)
+    for i in range(0, len(frames), 2):
+        if frames[i] == "X":
+            score += 30
+        elif frames[i] == "/":
+            score += 10 + int(frames[i + 1])
         else:
-            score += int(s[i * 2])
-        if "X" in s[i * 2 : i * 2 + 2]:
-            roll = 10
-        elif "/" not in s[i * 2 : i * 2 + 2]:
-            roll = int(s[i * 2])
-        else:
-            roll = min(first, 10) + min(second, 10)
+            frame_score = int(frames[i]) + int(frames[i + 1])
+            score += frame_score
     return score
