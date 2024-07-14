@@ -26,12 +26,11 @@ def solve_boolean(expression):
                 while len(stack) > 0 and stack[-1] != "(":
                     top = stack.pop()
                     output.append(top)
-                stack.pop()  # Remove the '('
-
+                stack.pop()  
     while len(stack) > 0:
         top = stack.pop()
         if top == "(":
-            continue  # Don't pop the opening parenthesis
+            continue  
         while len(stack) > 0 and top in precedence and precedence[top] >= precedence[stack[-1]]:
             if top != "(":
                 eval_str += top
@@ -43,5 +42,4 @@ def main():
     expression = input("Enter a Boolean expression: ")
     print(solve_boolean(expression))
 
-if __name__ == "__main__":
-    main()
+main()
