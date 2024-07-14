@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 #include <limits>
 
 double probability(int n, int m) {
@@ -14,27 +15,36 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    std::string n_str, m_str;
     std::cout << "Enter the number of sides on Peter's die: ";
-    std::cin >> n_str;
-    while (!std::cin) {
-        std::cerr << "Invalid input. Please try again.\n";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Enter the number of sides on Peter's die: ";
-        std::cin >> n_str;
+    if (!(std::cin >> n) || n <= 0) {
+        while (!(std::cin)) {
+            std::cerr << "Invalid input. Please try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Enter the number of sides on Peter's die: ";
+            if (!(std::cin >> n)) {
+                break;
+            }
+        }
+        if (n <= 0) {
+            return 1; 
+        }
     }
-    n = std::stoi(n_str);
     std::cout << "Enter the number of sides on Colin's die: ";
-    std::cin >> m_str;
-    while (!std::cin) {
-        std::cerr << "Invalid input. Please try again.\n";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Enter the number of sides on Colin's die: ";
-        std::cin >> m_str;
+    if (!(std::cin >> m) || m <= 0) {
+        while (!(std::cin)) {
+            std::cerr << "Invalid input. Please try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Enter the number of sides on Colin's die: ";
+            if (!(std::cin >> m)) {
+                break;
+            }
+        }
+        if (m <= 0) {
+            return 1; 
+        }
     }
-    m = std::stoi(m_str);
     std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability(n, m) << std::endl;
     return 0;
 }
