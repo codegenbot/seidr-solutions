@@ -1,4 +1,4 @@
 def indices_of_substring(text):
-    return [
-        i for i in range(len(text)) if text.startswith(text[i:], len(text.split()[0]))
-    ]
+    target = text.strip()
+    result = [i for i in range(len(text)) if text.startswith(target, i)]
+    return sorted(result)
