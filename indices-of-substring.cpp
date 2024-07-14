@@ -9,15 +9,18 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         pos = text.find(target, pos); 
         if (pos != std::string::npos) {
             result.push_back(pos);
-            pos += 1; 
+            pos += target.size(); 
         } else break;
     }
     return result;
 }
 
 int main() {
-    std::string text = "your_text_here";
-    std::string target = "your_target_here";
+    std::string text = "example";
+    std::string target = "ex";
     std::vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        std::cout << i << " ";
+    }
     return 0;
 }
