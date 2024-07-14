@@ -25,10 +25,10 @@ int main() {
         totalDistance += startHeight - height;
     }
 
-    if (totalDistance * bouncinessIndex < 0.01)
-        cout << "The total distance the ball travels is: " << fixed << setprecision(4) << 0.00 << endl;
-    else
-        cout << "The total distance the ball travels is: " << fixed << setprecision(2) << totalDistance * bouncinessIndex << endl;
+    cout << fixed << setprecision(4);
+    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
+
+    cout << "The total distance the ball travels is: " << totalDistance * bouncinessIndex << endl;
 
     return 0;
 }
