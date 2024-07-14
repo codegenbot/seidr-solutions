@@ -29,8 +29,10 @@ int main() {
     vector<int> indices = indicesOfSubstring(text, target);
 
     int max_gcd = 1;
-    for (int i = 1; i < indices.size(); i++) {
-        max_gcd = gcd(max_gcd, indices[i]);
+    for (int i = 0; i < indices.size(); i++) {
+        for (int j = i + 1; j < indices.size(); j++) {
+            max_gcd = gcd(max_gcd, gcd(indices[i], indices[j]));
+        }
     }
     cout << "Indices: ";
     for (int i : indices) {

@@ -11,11 +11,13 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     std::pair<std::vector<int>, std::vector<int>> res;
+    res.first.resize(i);
     for (int j = 0; j < i; j++) {
-        res.first.push_back(v[j]);
+        res.first[j] = v[j];
     }
+    res.second.resize(n - i);
     for (int j = i; j < n; j++) {
-        res.second.push_back(v[j]);
+        res.second[j - i] = v[j];
     }
     return res;
 }
