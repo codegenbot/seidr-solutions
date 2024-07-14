@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 double vectorDistance(int n, const std::vector<float>& x1, const std::vector<float>& x2) {
     double result = 0;
@@ -14,8 +14,10 @@ double vectorDistance(int n, const std::vector<float>& x1, const std::vector<flo
 
 int main() {
     int n = 3;
-    std::vector<float> x1({1, 2, 3});
-    std::vector<float> x2({4, 5, 6});
+    std::vector<float> x1(n) ; // Initialize vector with size
+    x1[0] = 1; x1[1] = 2; x1[2] = 3;
+    std::vector<float> x2(n);
+    x2[0] = 4; x2[1] = 5; x2[2] = 6;
     double distance = vectorDistance(n, x1, x2);
     std::cout << "Vector distance: " << distance << std::endl;
     return 0;
