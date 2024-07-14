@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 int main() {
@@ -8,7 +8,8 @@ int main() {
     double startHeight; 
     cin >> startHeight;
     
-    double bouncinessIndex = startHeight / 2.0;
+    double bouncinessHeight = startHeight * 0.5; // calculate height after first bounce
+    double bouncinessIndex = bouncinessHeight / startHeight;
 
     if (bouncinessIndex < 0.01)
         cout << "The bounciness index is: " << 0.00 << endl;
