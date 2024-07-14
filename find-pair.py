@@ -1,9 +1,10 @@
+```
 def find_pair(n):
-    for i in range(int(input())):
-        nums = list(map(int, input().split()))
-        target = int(input())
-        for x in range(len(nums)):
-            for y in range(x + 1, len(nums)):
-                if nums[x] + nums[y] == target:
-                    print(nums[x])
-                    print(nums[y])
+    target = int(input())
+    nums = list(map(int, input().split()))
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return str(nums[i]) + '\n' + str(nums[j])
+
+print(find_pair(int(input())))
