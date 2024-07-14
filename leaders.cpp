@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    
+
     for(int i=n-1; i>=0; i--) {  
         bool isLeader = true;
         for(int j=i+1; j<n; j++) {
@@ -17,4 +18,11 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     
     return res;
+}
+
+int main() {
+    std::vector<int> arr = {1, 3, 4, 2, 7};
+    std::vector<int> leadersResult = leaders(arr);
+    // Do something with the result
+    return 0;
 }
