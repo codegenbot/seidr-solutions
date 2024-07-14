@@ -13,7 +13,6 @@ def bouncing_balls():
         height *= bounciness_index
         if height < 1:
             break
-
     return format(total_distance, ".4f")
 
 
