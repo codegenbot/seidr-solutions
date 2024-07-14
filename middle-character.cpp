@@ -3,17 +3,14 @@
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
-    std::string result = "";
     int middleIndex = len / 2;
-    if (len % 2 != 0)
-        middleIndex++;
-
-    if (len % 2 == 0)
-        result = s.substr(middleIndex - 1, 2); 
-    else
-        result = s.substr(middleIndex, 1);
-
-    return result;
+    
+    if (len % 2 != 0) {
+        return s.substr(middleIndex, 1);
+    }
+    else {
+        return s.substr(middleIndex - 1, 2);
+    }
 }
 
 int main() {
