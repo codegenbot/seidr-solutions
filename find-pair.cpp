@@ -1,6 +1,8 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <cstdint>
+#include <initializer_list>
 
 std::pair<int, int> findPair(std::vector<int> nums, int target) {
     std::sort(nums.begin(), nums.end());
