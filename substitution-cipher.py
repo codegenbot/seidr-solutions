@@ -1,8 +1,4 @@
 ```
-cipher1 = input("Enter cipher1: ")
-cipher2 = input("Enter cipher2: ")
-message = input("Enter message: ")
-
 def substitution_cipher(cipher1, cipher2, message):
     mapping = {}
     for c1, c2 in zip(cipher1.lower(), cipher2.lower()):
@@ -18,5 +14,3 @@ def substitution_cipher(cipher1, cipher2, message):
             result += char
 
     return result
-
-print(substitution_cipher(cipher1, cipher2, message))
