@@ -9,11 +9,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    // Preprocess the target to build lps[] that will hold the lengths of longest proper prefixes which are also suffixes.
+    if(m == 0)
+        return result; // or handle this situation as per your requirement.
+
     int *lps = new int[m];
     int j = 0; // index for target[]
 
-    lps[0] = 1;
+    lps[0] = 0;
     int i, len = 0;
 
     for (i = 1; i < m; ) {
@@ -26,10 +28,13 @@ vector<int> indicesOfSubstring(string text, string target) {
             j = lps[j-1];
         }
         else {
-            lps[i] = 1;
+            lps[i] = 0;
             i++;
         }
     }
+
+    // Initialize the first element as 0
+    lps[0] = 0;
 
     // Traverse the text and find all occurrences of target[].
     for (int i = 0; i <= n - m; ) {
@@ -62,8 +67,19 @@ int main() {
     string text, target;
     cout << "Enter the text: ";
     getline(cin, text);
+
+    if(text.empty()) {
+        cout << "Text cannot be empty." << endl;
+        return 1; // or handle this situation as per your requirement.
+    }
+
     cout << "Enter the target substring: ";
     getline(cin, target);
+
+    if(target.empty()) {
+        cout << "Target cannot be empty." << endl;
+        return 1; // or handle this situation as per your requirement.
+    }
 
     vector<int> result = indicesOfSubstring(text, target);
     
