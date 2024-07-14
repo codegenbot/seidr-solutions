@@ -1,15 +1,4 @@
-def find_indices(text, target):
-    result = []
-    i = 0
-    while True:
-        pos = text.find(target, i)
-        if pos == -1:
-            break
-        result.append(pos) 
-        i = pos + len(target) if pos > 0 else 0
-    return result
-
-text = input("Enter the text: ")
-target = input("Enter the target string: ")
-
+```
+text = input()
+target = input()
 print(find_indices(text, target))
