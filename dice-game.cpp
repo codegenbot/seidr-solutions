@@ -18,9 +18,8 @@ int main() {
         std::cout << "Enter the number of sides on Peter's die: ";
         if (!(std::cin >> n)) break; 
         std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability(n, m) << std::endl;
-        int m;
-        std::cout << "Enter the number of sides on Colin's die: ";
-        std::cin >> m;
+        std::string s;
+        s = std::to_string(m);  
         while (!(std::cin)) {
             std::cout << "Invalid input. Please enter a valid integer: ";
             std::cin.clear();
