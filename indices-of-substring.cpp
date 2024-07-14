@@ -12,4 +12,3 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         } else break;
     }
     return result;
-}
