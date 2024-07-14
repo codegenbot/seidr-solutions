@@ -1,3 +1,12 @@
+#include <algorithm>
+#include <iostream>
+#include <string>
+
+void trim(std::string &s) {
+    s.erase(0, s.find_first_not_of(' ')); // remove leading spaces
+    s.erase(s.find_last_not_of(' ') + 1); // remove trailing spaces
+}
+
 std::string spinWords(std::string str) {
     std::string result = "";
     size_t start = 0;
@@ -9,9 +18,18 @@ std::string spinWords(std::string str) {
         if (word.length() >= 5) {
             result += std::string(word.rbegin(), word.rend()) + " ";
         } else {
-            result += word + (start == str.length() - 1 ? "" : " ") + "";
+            result += word + (word.length() < 5 ? " " : "") + "";
         }
         start = spacePos + 1;
     }
-    return result.substr(0, result.find(" ") == std::string::npos ? 0 : result.find(" ") + 1);
+    result = trim(result);
+    return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Spin words: " << spinWords(str) << std::endl;
+    return 0;
 }
