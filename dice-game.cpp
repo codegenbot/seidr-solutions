@@ -4,17 +4,11 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (n * m);
-    double p = 0;
-    
-    for(int i = 1; i <= n - 1; i++) {
-        for(int j = 1; j <= m; j++) {
-            if(i > j)
-                p++;
-        }
+    double sum = 0.0;
+    for (int i = 1; i <= n - 1; i++) {
+        sum += (n - i) / (double)(n * m);
     }
-    
-    return p / total;
+    return sum;
 }
 
 int main() {
