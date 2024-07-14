@@ -1,3 +1,5 @@
+```
+```
 from decimal import Decimal, getcontext
 
 
@@ -50,3 +52,4 @@ while True:
         print("Invalid input. Please enter a valid number.")
 
 print(snow_day(int(hours), initial_snow, float(rate_of_snowfall), float(melting_rate)))
+```
