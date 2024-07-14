@@ -10,7 +10,7 @@ def bouncing_balls():
     for _ in range(num_bounces):
         total_distance += 2 * current_height
         current_height *= bounciness_index
-        if current_height < 0.000001:
+        if current_height < 0.000001:  
             break
 
     return "{:.6f}\n".format(total_distance)
