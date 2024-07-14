@@ -1,14 +1,10 @@
-def find_pair(n):
-    arr = [int(x) for x in input().split()]
-    arr.sort()
-    target = int(input())
-    start, end = 0, len(arr) - 1
-    while start < end:
-        curr_sum = arr[start] + arr[end]
-        if curr_sum == target:
-            return f"{arr[start]} {arr[end]}"
-        elif curr_sum < target:
-            start += 1
-        else:
-            end -= 1
-    return "-1"
+def find_pair(n, arr, target):
+    for i in range(n):
+        for j in range(i+1, n):
+            if arr[i] + arr[j] == target:
+                return (arr[i], arr[j])
+
+n = int(input())
+arr = [int(x) for x in input().split()]
+target = int(input())
+print(find_pair(len(arr), arr, target))
