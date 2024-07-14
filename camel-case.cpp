@@ -1,26 +1,20 @@
-#include <string>
-using namespace std;
+Here is the completed code:
 
-string camelCase(string s) {
-    string result = "";
-    bool firstWord = true;
+#include <iostream>
+#include <string>
+
+std::string camelCase(std::string s) {
+    std::string result = "";
+    bool capitalizeNextLetter = true;
     
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            // Move to the next character.
-            i++;
-            if (!firstWord) {
-                result += char(toupper(s[i]));
-            } else {
-                firstWord = false;
-            }
-        } else if (s[i] != ' ') {
-            if (!firstWord) {
-                result += s[i];
-            } else {
-                firstWord = false;
-                result += toupper(s[i]);
-            }
+    for (char c : s) {
+        if (c == '-') {
+            capitalizeNextLetter = true;
+        } else if (capitalizeNextLetter) {
+            result += toupper(c);
+            capitalizeNextLetter = false;
+        } else {
+            result += tolower(c);
         }
     }
     
@@ -28,12 +22,9 @@ string camelCase(string s) {
 }
 
 int main() {
-    string input;
-    while (true) {
-        cout << "Enter a string in kebab-case or 'q' to quit: ";
-        cin >> input;
-        if (input == "q") break;
-        cout << camelCase(input) << endl;
+    std::string s;
+    while(std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
 }
