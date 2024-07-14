@@ -1,11 +1,8 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream> 
 #include <string>
-#include <initializer_list>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
@@ -24,7 +21,7 @@ int main() {
         return 1;
     }
 
-    std::vector<int> result; 
+    std::vector<std::size_t> result; 
 
     size_t pos = 0;
     while ((pos = str1.find(str2, pos)) != std::string::npos) {
