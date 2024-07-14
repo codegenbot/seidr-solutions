@@ -7,10 +7,17 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    elif '&' in expression:
-        return all(c == 'T' for c in expression)
-    elif '|' in expression:
-        return any(c == 'T' for c in expression)
-
-expression = input()
-print(solve_boolean(expression))
+    else:
+        stack = []
+        for char in expression[::-1]:
+            if char in ['&', '|']:
+                stack.append(char)
+            else:
+                while stack and stack[-1] != (char == '&' or char == '|'):
+                    if char == '&':
+                        stack.pop()
+                    elif char == '|':
+                        stack.pop()
+                if stack:
+                    stack.pop()
+        return True
