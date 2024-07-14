@@ -2,28 +2,26 @@
 #include <iostream>
 #include <string>
 
-std::string applyCipher(const std::string& cipherMap, const std::string& input) {
-    std::string output;
-    for (char c : input) {
-        size_t index = 0;
-        while (index < cipherMap.size()) {
-            if (cipherMap[index] == c) {
-                break;
-            }
-            index++;
-        }
-        if (index >= cipherMap.size()) {
-            output += c; // If the character is not found in the cipher map, add it as is
+std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& message) {
+    std::string result;
+    for (int i = 0; i < message.size(); ++i) {
+        if (key2[i] != '\0') {
+            result += key1[i];
         } else {
-            output += cipherMap.substr(index, 1);
+            result += '#';
         }
     }
-    return output;
+    return result;
 }
 
 int main() {
-    std::string cipherMap1, cipherMap2, input;
-    std::cin >> cipherMap1 >> cipherMap2 >> input;
-    std::cout << applyCipher(cipherMap1 + cipherMap2, input) << std::endl;
+    std::string key1, key2, message;
+    std::cout << "Enter the first key: ";
+    std::cin >> key1;
+    std::cout << "Enter the second key: ";
+    std::cin >> key2;
+    std::cout << "Enter the message to be deciphered: ";
+    std::cin >> message;
+    std::cout << substitutionCipher(key1, key2, message) << std::endl;
     return 0;
 }
