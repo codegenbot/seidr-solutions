@@ -2,7 +2,7 @@
 using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
-    return (groundSnow + rate * hours - melt * hours);
+    return round((groundSnow + (rate * hours)) - ((melt * hours) * groundSnow));
 }
 
 int main() {
