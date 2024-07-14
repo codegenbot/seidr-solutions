@@ -1,7 +1,6 @@
 ```cpp
 #include <string>
 #include <iostream>
-#include <cstddef>
 
 std::string validateTweet(const std::string& input) {
     if (input.empty()) {
@@ -15,5 +14,9 @@ std::string validateTweet(const std::string& input) {
 }
 
 int main() {
+    std::string input;
+    std::cout << "Enter your tweet: ";
+    std::getline(std::cin, input);
+    std::cout << validateTweet(input) << std::endl;
     return 0;
 }
