@@ -3,7 +3,7 @@ def camel_case(input_str):
     result = ""
     for word in words:
         if not result:
-            result = word
+            result = word.lower()
         else:
             result += word.capitalize()
     return result
