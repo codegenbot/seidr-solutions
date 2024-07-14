@@ -3,12 +3,18 @@
 #include <iostream>
 
 int main() {
+    std::stack<char> st;
+    bool result = false;
+
     std::string expression;
-    
     std::cout << "Enter a Boolean expression (T/F/|/&): ";
     std::cin >> expression;
 
-    bool result = evaluateTop(expression);
+    for (char c : expression) {
+        st.push(c);
+    }
+
+    result = evaluateTop(st);
 
     if (result)
         std::cout << "The result is TRUE." << std::endl;
@@ -18,37 +24,69 @@ int main() {
     return 0;
 }
 
-bool evaluateTop(std::string &expression) {
-    int i = expression.size() - 1;
+void processOperand(std::stack<char> &st, bool &orResult, bool &andResult) {
+    char c = st.top();
+    st.pop();
+    if (c == 'T') orResult = true; else orResult = false;
+}
+
+bool evaluateTop(std::stack<char> &st) {
     bool orResult = true;
     bool andResult = false;
 
-    while (i >= 0) {
-        if (expression[i] == ')') {
+    while (!st.empty()) {
+        char c = st.top();
+        st.pop();
+
+        if (c == '(') {
+            // push '(' to stack
+            st.push(c);
+        } else if (c == ')') {
             // pop ')' and '(' from stack until '(' is found
-            while (expression[i] != '(') {
-                if (expression[i] == '|') {
+            while (st.top() != '(') {
+                processOperand(st, orResult, andResult);
+
+                if (!orResult && c == '|') {
                     orResult = true;
-                } else if (expression[i] == '&') {
+                }
+                else if (!andResult && c == '&') {
                     andResult = false;
                 }
-                i--;
+
+                st.pop();
             }
             // pop '(' from stack
-            i--;
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            if (expression[i] == 'T')
-                orResult = true;
-            else
-                andResult = false;
-        } else if (expression[i] == '|') {
+            st.pop();
+
+        } else if (c == 'T' || c == 'F') {
+            processOperand(st, orResult, andResult);
+        } else if (c == '|') {
             // reset orResult for OR operation
             orResult = true;
-        } else if (expression[i] == '&') {
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                c = st.top();
+                st.pop();
+                // process Operand and reset orResult
+                if (c == 'T') orResult = true; else orResult = false;
+            }
+
+        } else if (c == '&') {
             // reset andResult for AND operation
             andResult = true;
+            while (!st.empty() && st.top() != '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                c = st.top();
+                st.pop();
+                // process Operand and reset andResult
+                if (c == 'T') andResult = true; else andResult = false;
+            }
+
         }
     }
-
     return orResult;
 }
