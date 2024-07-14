@@ -1,6 +1,7 @@
-```cpp
 #include <cmath>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
@@ -15,8 +16,9 @@ double vectorDistance(const vector<float>& x1, const vector<float>& x2) {
 }
 
 int main() {
-    vector<float> v1 = {1.0f, 2.0f};
-    vector<float> v2 = {3.0f, 4.0f};
-    cout << "The distance is: " << vectorDistance(v1, v2) << endl;
+    vector<float> x1 = {1.0, 2.0};
+    vector<float> x2 = {3.0, 4.0};
+    double distance = vectorDistance(x1, x2);
+    cout << "Euclidean distance: " << fixed << setprecision(5) << distance << endl;
     return 0;
 }
