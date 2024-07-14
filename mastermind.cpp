@@ -1,4 +1,3 @@
-```c++
 int mastermind(const char* code, const char* guess) {
     int whitePegs = 0;
     int blackPegs = 0;

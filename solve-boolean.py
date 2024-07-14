@@ -1,11 +1,12 @@
-```
 def solve_boolean(expression):
     def evaluate(expression):
         if expression[0] in ['T', 'F']:
             return expression[0] == 'T'
         elif len(expression) > 1 and expression[1] in ['&', '|']:
-            return (evaluate(expression[:2]) and evaluate(expression[2:]) if expression[1] == '&' else
-                    evaluate(expression[:2]) or evaluate(expression[2:]))
+            if expression[1] == '&':
+                return evaluate(expression[:2]) and evaluate(expression[2:])
+            else:
+                return evaluate(expression[:2]) or evaluate(expression[2:])
         else:
             raise ValueError("Invalid expression")
     stack = []
