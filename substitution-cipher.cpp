@@ -2,26 +2,34 @@
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& message) {
+std::string decipher(std::string cipherText, std::string key1, std::string key2) {
     std::string result;
-    for (int i = 0; i < message.size(); ++i) {
-        if (key2[i] != '\0') {
-            result += key1[i];
+    for (int i = 0; i < cipherText.size(); ++i) {
+        if (key1[i] == key2[i]) {
+            result += cipherText[i];
         } else {
-            result += '#';
+            int j = 0;
+            while (j < key1.size() && (key1[j] != key2[i])) {
+                j++;
+            }
+            if (j < key1.size()) {
+                result += key2[i];
+            } else {
+                result += cipherText[i];
+            }
         }
     }
     return result;
 }
 
 int main() {
-    std::string key1, key2, message;
-    std::cout << "Enter the first key: ";
+    std::string cipherText, key1, key2;
+    std::cout << "Enter the first string: ";
     std::cin >> key1;
-    std::cout << "Enter the second key: ";
+    std::cout << "Enter the second string: ";
     std::cin >> key2;
-    std::cout << "Enter the message to be deciphered: ";
-    std::cin >> message;
-    std::cout << substitutionCipher(key1, key2, message) << std::endl;
+    std::cout << "Enter the third string: ";
+    std::cin >> cipherText;
+    std::cout << "Deciphered message: " << decipher(cipherText, key1, key2) << std::endl;
     return 0;
 }
