@@ -1,25 +1,19 @@
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
-double probability(int n, int m) {
-    double total = (double)(n * m);
-    double p = 0;
-    
-    for (int i = 1; i < n; i++) { 
-        p += ((double)(n - i)) / total;
-    }
-    
-    for (int j = m; j <= n; j++) {
-        p += 1.0 / total;
-    }
-    
-    return p;
-}
-
+```cpp
 int main() {
+    double probability(int n, int m) {
+        double p = 0;
+        for (int i = 1; i < m; i++) { 
+            for (int j = i + 1; j <= n; j++) { 
+                p += 1 / (double)(n * m);
+            }
+        }
+        return p;
+    }
     int n, m;
-    cin >> n >> m; 
-    cout << fixed << setprecision(6) << probability(n, m); 
+    std::cout << "Enter the number of sides for Peter's die: ";
+    std::cin >> n;
+    std::cout << "Enter the number of sides for Colin's die: ";
+    std::cin >> m;
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability(n, m) << std::endl;
     return 0;
 }
