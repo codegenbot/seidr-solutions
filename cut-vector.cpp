@@ -36,7 +36,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     if (minLeft <= minRight) {
-        return {{v.begin(), v.begin() + leftCut}, {v.begin() + leftCut, v.end()}};
+        return {{std::vector<int>(v.begin(), v.begin() + leftCut)}, {std::vector<int>(v.begin() + leftCut, v.end())}};
     } else {
         return {{v}};
     }
