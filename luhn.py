@@ -1,10 +1,17 @@
+Here is the Python code that implements Luhn's algorithm:
+
+```
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)[1:]]
-    total = 0
-    for i in range(len(card_number)):
-        if i % 2 == 1:
-            card_number[i] *= 2
-            if card_number[i] > 9:
-                card_number[i] -= 9
-        total += card_number[i]
-    return total
+    card_number = list(map(int, str(card_number)))
+    double_even = False
+    sum_digits = 0
+    
+    for digit in card_number:
+        if double_even:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        double_even = not double_even
+        sum_digits += digit
+    
+    return sum_digits
