@@ -1,3 +1,4 @@
+```cpp
 #include <stack>
 #include <string>
 
@@ -23,3 +24,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return !st.empty();
+}
