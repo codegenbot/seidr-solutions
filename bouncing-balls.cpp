@@ -3,10 +3,9 @@
 using namespace std;
 
 int main() {
-    double startHeight; 
-    cin >> startHeight;
-    
-    int firstBounce = static_cast<int>(startHeight) / 2; 
+    double startHeight, firstBounce;
+    cin >> startHeight >> firstBounce; 
+
     double bouncinessIndex = (double)firstBounce / startHeight;
 
     double height = startHeight; // initialize height
@@ -15,8 +14,6 @@ int main() {
 
     cin >> bounces; 
 
-    cout << "The bounciness index is: " << firstBounce / startHeight << endl;
-    
     for (int i = 1; i <= bounces; ++i) {
         height *= 0.5; 
         totalDistance += startHeight - height;
