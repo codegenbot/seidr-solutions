@@ -1,12 +1,24 @@
-```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <sstream>
+
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
     std::string word;
     std::string result = "";
-    while (getline(ss, word, ' ')) {
-        if (word.length() >= 5)
+    while(getline(ss, word, ' ')) {
+        if(word.length() >= 5)
             std::reverse(word.begin(), word.end());
-        result += word + " ";
+        result += word + (word != "" ? " " : "");
     }
-    return result.substr(0, result.size() - 1);
+    return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::cin >> str;
+    std::cout << spinWords(str) << std::endl;
+    return 0;
 }
