@@ -6,36 +6,25 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (wordLength >= 5) {
-                for (int j = i - 1; j >= i - wordLength - 1; j--) {
-                    result += str[j];
-                }
-            } else {
-                result += str.substr(i - wordLength, wordLength);
-            }
-            result += ' ';
-            wordLength = 0;
-        } else {
-            wordLength++;
+    int start = 0;
+    
+    for(int i=0; i<=str.length(); i++){
+        if(i == str.length() || str[i] == ' '){
+            string word = str.substr(start, i-start);
+            if(word.length() >= 5)
+                reverse(word.begin(), word.end());
+            result += word + " ";
+            start = i+1;
         }
     }
-    if (wordLength >= 5) {
-        for (int j = str.length() - 1; j >= str.length() - wordLength - 1; j--) {
-            result += str[j];
-        }
-    } else {
-        result += str;
-    }
+    
     return result;
 }
 
-int main() {
-    string str;
+int main(){
+    string input;
     cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    getline(cin, input);
+    cout << spinWords(input) << endl;
     return 0;
 }
