@@ -2,7 +2,7 @@
 def get_next_frames_score(score=""):
     score = score.replace('/', '')
     total = 0
-    for i in range(1, min(3, len(score) + 1)):
+    for i in range(1, min(3, len(score))):
         if i < len(score):
             total += int(score[-i])
         else:
