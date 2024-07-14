@@ -1,20 +1,23 @@
+Here is the solution:
+
 #include <iostream>
-#include <string>
 using namespace std;
 
-string camelCase(string str) {
+string camelCase(string s) {
     string result = "";
-    bool capital = false;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            capital = true;
-            continue;
-        }
-        if (capital) {
-            result += toupper(str[i]);
-            capital = false;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            i++; // skip "-"
+            if (i < s.size() && s[i] != ' ')
+                result += s[i]. toupper();
+        } else if (s[i] == ' ') {
+            if (!result.empty()) 
+                result += s[i+1]. toupper();
         } else {
-            result += tolower(str[i]);
+            if (result.empty())
+                result += s[i];
+            else
+                result += s[i];
         }
     }
     return result;
@@ -22,8 +25,8 @@ string camelCase(string str) {
 
 int main() {
     string str;
-    cout << "Enter a kebab-case string: ";
-    getline(cin, str);
-    cout << "CamelCase: " << camelCase(str) << endl;
+    cout << "Enter a string in kebab-case: ";
+    cin >> str;
+    cout << "The camelCase form of the input is: " << camelCase(str) << endl;
     return 0;
 }
