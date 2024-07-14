@@ -1,38 +1,19 @@
-#include <iostream>
-using namespace std;
-
-bool evaluateBoolean(string s) {
-    stack<char> operation;
-    stack<bool> operands;
+bool solveBoolean(string s) {
+    if (s == "T" || s == "t") return true;
+    if (s == "F" || s == "f") return false;
 
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            bool b1 = operands.top();
-            operands.pop();
-            bool b2 = operands.top();
-            operands.pop();
-            operands.push(b1 && b2);
-            operation.pop();
-        } else if (s[i] == '|') {
-            bool b1 = operands.top();
-            operands.pop();
-            bool b2 = operands.top();
-            operands.pop();
-            operands.push(b1 || b2);
-            operation.pop();
-        } else if (s[i] == 'T' || s[i] == 't') {
-            operands.push(true);
-        } else if (s[i] == 'F' || s[i] == 'f') {
-            operands.push(false);
+        if (s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i + 1);
+            return solveBoolean(left) || solveBoolean(right);
+        }
+        else if (s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i + 1);
+            return solveBoolean(left) && solveBoolean(right);
         }
     }
 
-    return operands.top();
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << evaluateBoolean(s) << endl;
-    return 0;
+    return false;
 }
