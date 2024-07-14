@@ -1,25 +1,35 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+            while (i + 1 < s.length() && s[i+1] == '&') i++;
+            bool left = false, right = false;
+            if (i > 0) {
+                for (int j = i - 1; j >= 0; j--) {
+                    if (s[j] == '|') break;
+                    if (s[j] == 'T') left = true;
+                    else right = true;
+                }
+            } else {
+                left = true;
             }
-            if (st.empty()) return false;
-            else st.pop();
-        } 
-        else if (s[i] == '|') { 
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            result &= left && right;
+        } else if (s[i] == '|') {
+            while (i + 1 < s.length() && s[i+1] == '|') i++;
+            bool left = false, right = false;
+            for (int j = i + 1; j < s.length(); j++) {
+                if (s[j] == '&') break;
+                if (s[j] == 'T') left = true;
+                else right = true;
             }
-            if (st.empty()) return true;
-            else st.pop();
-        } 
-        else {
-            st.push(s[i]);
+            result |= left || right;
+        } else if (s[i] == 'T') {
+            result = true;
+        } else {
+            result = false;
         }
     }
-    return !st.empty();
+    return result;
 }
