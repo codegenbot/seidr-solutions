@@ -35,4 +35,3 @@ int main() {
         cout << camelCase(s) << endl;
     }
     return 0;
-}
