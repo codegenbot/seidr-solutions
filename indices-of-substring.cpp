@@ -9,7 +9,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         pos = text.find(target, pos);
         if (pos != std::string::npos) {
             result.push_back(pos);
-            pos++; // <--- Add this line
+            pos++; 
         } else break;
     }
     return result;
