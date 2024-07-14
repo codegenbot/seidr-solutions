@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     if(v.size() <= 1) {
@@ -36,4 +36,6 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     } else {
         return {{v}};
     }
+    
+    return {{}}; // handle the case when no cuts are made
 }
