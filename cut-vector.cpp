@@ -13,15 +13,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    vector<int> left = {v[0]};
-    for (int i = 1; i < cut_index; i++) {
-        left.push_back(v[i]);
-    }
-    
-    vector<int> right = v;
-    right.erase(right.begin() + cut_index);
-    
-    return make_pair(left, right);
+    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
 }
 
 int main() {
@@ -31,21 +23,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
+    
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
-        if (i < result.first.size() - 1) {
-            cout << ", ";
-        }
+    cout << "1 ";
+    for (int x : result.first) {
+        cout << x << " ";
     }
-    cout << "]\n[";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
-        if (i < result.second.size() - 1) {
-            cout << ", ";
-        }
+    cout << endl;
+    cout << "0 ";
+    for (int x : result.second) {
+        cout << x << " ";
     }
-    cout << "]\n0\n";
+    cout << endl;
+    
     return 0;
 }
