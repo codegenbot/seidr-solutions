@@ -1,14 +1,23 @@
+#include <iostream>
+#include <string>
+
 std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            int newChar = ((c - 'a' + 3) % 26) + 'a';
+            int newChar = ((c - 'a' + 2 * 26) % 26) + 'a';
             result += (char)newChar;
         } else if (c >= 'A' && c <= 'Z') {
-            int newChar = ((c - 'A' + 3) % 26) + 'A';
+            int newChar = ((c - 'A' + 2 * 26) % 26) + 'A';
             result += (char)newChar;
         } else {
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
+}
