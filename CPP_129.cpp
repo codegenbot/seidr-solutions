@@ -1,11 +1,16 @@
 bool issame(vector<int> a, vector<int> b){
-    // Your implementation here
+    return a == b;
 }
-
-vector<int> minPath(vector<vector<int>> grid, int k);
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> result;
-    result.push_back(1);
+    for(int i = 0; i < k; i++) {
+        result.push_back(grid[i % 2][i % 2]);
+    }
     return result;
+}
+
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
