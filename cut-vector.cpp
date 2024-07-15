@@ -36,17 +36,17 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
 }
 
 int main() {
-    int n; std::cin >> n;
+    int n; cin >> n;
     vector<int> v(n);
-    for (auto& x : v) std::cin >> x;
+    for (auto& x : v) cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    std::cout << "1 ";
-    for (auto x : result.first) std::cout << x << " ";
-    std::cout << "\n0\n";
-    std::cout << "1 ";
-    for (auto x : result.second) std::cout << x << " ";
-    std::cout << "\n0\n";
+    cout << "1 ";
+    for (auto x : result.first) cout << x << " ";
+    cout << "\n0\n";
+    cout << "1 ";
+    for (auto x : result.second) cout << x << " ";
+    cout << "\n0\n";
     
     return 0;
 }
