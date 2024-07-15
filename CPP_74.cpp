@@ -11,7 +11,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     for (const auto &str : b) {
         sum2 += str.size();
     }
-    
+
     return sum1 == sum2;
 }
 
