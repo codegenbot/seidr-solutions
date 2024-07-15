@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -10,10 +9,11 @@ double vectorDistance(int n) {
     vector<float> x1(n), x2(n);
     
     for (int i = 0; i < n; i++) {
-        float x, y;
-        cin >> x >> y;
-        x1[i] = x; 
-        x2[i] = y;
+        float val;
+        cin >> val;
+        cin >> val;
+        x1[i] = val; 
+        x2[i] = val;
     }
     
     double sum = 0.0;
