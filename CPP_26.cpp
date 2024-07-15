@@ -15,15 +15,6 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
-    std::vector<int> expected_result = {1, 4, 5};
-    std::vector<int> result = remove_duplicates(input);
-    
-    if (issame(result, expected_result)) {
-        std::cout << "Results match!" << std::endl;
-    } else {
-        std::cout << "Results do not match!" << std::endl;
-    }
-    
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
