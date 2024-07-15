@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <string>
 #include <cctype>
 
 std::string solve(std::string s) {
