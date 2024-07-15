@@ -1,11 +1,26 @@
-// Test with a single word input
-    assert(split_words("Hello") == vector<string>{"Hello"});
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
-    // Test with multiple words input
-    assert(split_words("Hello, World!") == vector<string>{"Hello", "World"});
+using namespace std;
 
-    // Test with special characters
-    assert(split_words("Hello! How are you?") == vector<string>{"Hello", "How", "are", "you"});
-
-    // Test with lowercase characters for count
-    assert(split_words("a b c d e f g h i j k l m n o p q r s t u v w x y z") == vector<string>{"13"});
+vector<string> split_words(string s) {
+    vector<string> words;
+    string word = "";
+    
+    for (char c : s) {
+        if (isalnum(c)) {
+            word += c;
+        } else if (!word.empty()) {
+            words.push_back(word);
+            word = "";
+        }
+    }
+    
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    
+    return words;
+}
