@@ -26,24 +26,32 @@ int blackPegs(std::string code, std::string guess) {
             continue;
         }
         
+        codeMap[guess[i]]--;
+        
+        bool isBlack = false;
         for(int j=0; j<4; j++) {
             if(i != j && code[j] == guess[i]) {
-                blackCount++;
+                isBlack = true;
                 break;
-            } else if (i != j && codeMap[guess[i]]-- > 0) {
+            } else if (i != j && codeMap[code[j]]-- > 0) {
+                blackCount++;
                 break;
             }
         }
+        
+        if(!isBlack) {
+            blackCount++;
+        }
     }
     
-    return blackCount - whiteCount;
+    return blackCount;
 }
 
 int main() {
     std::string code, guess;
     std::cin >> code >> guess;
     int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    std::cout << white << " " << black << std::endl;
+    std::cout << white << std::endl;
+    std::cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
