@@ -6,9 +6,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     stack = []
     
     for char in paren_string:
-        if char not in ['(', ')', ' ', '\t', '\n']:
-            return []
-        
         if char == '(':
             stack.append(char)
             current_depth = len(stack)
