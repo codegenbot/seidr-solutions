@@ -7,7 +7,8 @@ string solve(string s) {
         if (isalpha(s[i])) {
             if (islower(s[i])) {
                 s[i] = toupper(s[i]);
-            } else {
+            }
+            else {
                 s[i] = tolower(s[i]);
             }
         }
