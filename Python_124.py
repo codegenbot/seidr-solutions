@@ -1,26 +1,10 @@
 ```
 def valid_date(date):
-    day, month, year = date.split('-')
-    if len(day) == 1:
-        day = '0' + day
-    if len(month) == 1:
-        month = '0' + month
-    if int(month) < 1 or int(month) > 12:
+    day, month, year = map(int, date.split('-'))
+    if len(str(day)) > 1 or len(str(month)) > 2:
         return False
-    if int(month) in [4,6,9,11] and int(day) > 30:
-        return False
-    if int(month) == 2 and (int(day) > 29 or not is_leap_year(int(year))):
-        return False
-    if int(month) in [1,3,5,7,8,10,12] and int(day) > 31:
+    if (month < 1 or month > 12) or ((month in [1,3,5,7,8,10,12] and day > 31) or 
+                                       (month in [4,6,9,11] and day > 30) or 
+                                       (month == 2 and day > 29)):
         return False
     return True
-
-def is_leap_year(year):
-    if year % 4 != 0:
-        return False
-    elif year % 100 != 0:
-        return True
-    elif year % 400 != 0:
-        return False
-    else:
-        return True
