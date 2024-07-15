@@ -25,7 +25,7 @@ bool CustomVectorFunctions::issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), vector<int>{}));
+    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
     
     return 0;
 }
