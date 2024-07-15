@@ -18,24 +18,27 @@ int main() {
     int b = 426691; 
     cout << "GCD: " << gcd(a, b) << endl;
 
-    string text;
+    string text = "";
     cout << "Enter the text: ";
-    getline(cin, text);
+    cin >> text;
 
-    string target;
+    string target = "";
     cout << "Enter the target: ";
-    getline(cin, target);
+    cin >> target;
 
     vector<int> result;
-    int idx = text.find(target);
-    while (idx != string::npos) {
+    int idx = 0;
+    while (idx < text.size()) {
+        idx = text.find(target, idx);
+        if (idx == string::npos) break;
         result.push_back(idx);
-        idx = text.find(target, idx + 1);
+        idx += target.size();
     }
-
-    cout << "Indices at which the target appears in the text: ";
-    for (int i : result)
+    
+    cout << "Indices: ";
+    for (int i : result) {
         cout << i << " ";
+    }
     cout << endl;
 
     return 0;
