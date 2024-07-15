@@ -1,7 +1,5 @@
 #include <string>
 #include <vector>
-#include <cassert>
-using namespace std;
 
 std::string match_parens(std::vector<std::string> lst) {
     int cnt = 0;
@@ -19,5 +17,3 @@ std::string match_parens(std::vector<std::string> lst) {
     }
     return cnt == 0 ? "Yes" : "No";
 }
-
-assert(match_parens({"(", ")"}) == "Yes");
