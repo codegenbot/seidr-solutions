@@ -1,15 +1,13 @@
 #include <vector>
 #include <string>
-using namespace std;
+#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
     std::string numStr = std::to_string(std::abs(num));
-    for(char c : numStr) {
+    for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             result[0]++;
         } else {
@@ -20,11 +18,11 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Test even_odd_count function
-    int num = 1234567;
-    std::vector<int> count = even_odd_count(num);
-    for (int i = 0; i < count.size(); ++i) {
-        cout << "Count of " << (i % 2 == 0 ? "even" : "odd") << " digits: " << count[i] << endl;
-    }
+    int number = 12345;
+    std::vector<int> counts = even_odd_count(number);
+
+    cout << "Even count: " << counts[0] << endl;
+    cout << "Odd count: " << counts[1] << endl;
+
     return 0;
 }
