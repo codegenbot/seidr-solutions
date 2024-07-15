@@ -5,15 +5,15 @@ def encode(message):
         if char.isalpha():
             if char.lower() in 'aeiou':
                 if char.lower() == 'a':
-                    result += 'y'
+                    result += 'c'
                 elif char.lower() == 'e':
-                    result += 'h'
+                    result += 'g'
                 elif char.lower() == 'i':
-                    result += 'j'
+                    result += 'k'
                 elif char.lower() == 'o':
-                    result += 's'
+                    result += 'q'
                 elif char.lower() == 'u':
-                    result += 'w'
+                    result += 'y'
             else:
                 if char.isupper():
                     result += chr((ord(char) - 65 + 3) % 26 + 65)
