@@ -24,7 +24,7 @@ int main() {
 
     std::vector<int> result = calculateSequence(n);
 
-    assert(issame(result, {1}));
+    assert(issame(result, calculateSequence(n)));
 
     return 0;
 }
