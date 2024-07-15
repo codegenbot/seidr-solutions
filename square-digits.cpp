@@ -1,5 +1,5 @@
 #include <string>
-using namespace std;
+#include <sstream>
 
 string squareDigits(string input) {
     string output = "";

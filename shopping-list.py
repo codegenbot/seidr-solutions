@@ -1,11 +1,12 @@
-```
-n = int(input())
-items = int(input())
+def shopping_list():
+    n = int(input())
+    input_str = input()
+    prices = list(map(float, input_str.split()))
+    discounts = list(map(float, (input_str + " ") * n).split()[:len(prices)])
+    total_price = 0
+    for i in range(n):
+        total_price += (1 - discounts[i] / 100) * prices[i]
+    return format(total_price, ".1f")
 
-prices = [float(x) for x in input().split()]
-discounts = [int(x) for x in input().split()]
 
-total_price = 0
-for i in range(items):
-    total_price += (1 - discounts[i] / 100) * prices[i]
-print(format(total_price, ".1f"))
+print(shopping_list())
