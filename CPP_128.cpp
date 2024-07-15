@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) {
     if(arr.empty()) return -32768;
 
     int product = 1;
@@ -19,19 +19,19 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> test_arr = {1, -2, 3, -4, 5};
-    assert(prod_signs(test_arr) == 27);
+    std::vector<int> test1 = {2, -3, 4, -5, 6};
+    assert(prod_signs(test1) == 10);
+    
+    std::vector<int> test2 = {1, 2, 3, 4, 5};
+    assert(prod_signs(test2) == 15);
 
-    test_arr = {10, 20, 30};
-    assert(prod_signs(test_arr) == 60);
+    std::vector<int> test3 = {-1, -2, -3, -4, -5};
+    assert(prod_signs(test3) == 15);
+    
+    std::vector<int> test4 = {};
+    assert(prod_signs(test4) == -32768);
 
-    test_arr = {-1, -2, -3, -4};
-    assert(prod_signs(test_arr) == -10);
-
-    test_arr = {};
-    assert(prod_signs(test_arr) == -32768);
-
-    std::cout << "All tests passed successfully." << std::endl;
+    std::cout << "All tests passed!" << std::endl;
 
     return 0;
 }
