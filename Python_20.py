@@ -9,8 +9,14 @@ def find_min_difference(numbers):
             result = (numbers[i], numbers[i + 1])
     return result
 
-# Input numbers
-numbers = [float(input()) for _ in range(int(input("Enter the number of inputs: "))]
-# Call the function with input numbers
+
+numbers = []
+try:
+    while True:
+        number = float(input())
+        numbers.append(number)
+except EOFError:
+    pass
+
 output = find_min_difference(numbers)
 print(output)
