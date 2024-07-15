@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-std::string solve(std::string s) {
-    std::string result = "";
+string solve(string s) {
+    string result = "";
     bool hasLetters = false;
 
     for (char c : s) {
