@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 bool triples_sum_to_zero(vector<int>& l) {
     sort(l.begin(), l.end());
     int n = l.size();
@@ -22,4 +16,10 @@ bool triples_sum_to_zero(vector<int>& l) {
         }
     }
     return false;
+}
+
+int main() {
+    vector<int> test_case = {1, -2, 1, 0, 5};
+    cout << triples_sum_to_zero(test_case) << endl;
+    return 0;
 }
