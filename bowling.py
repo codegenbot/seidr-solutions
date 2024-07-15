@@ -11,28 +11,17 @@ def bowling_score(frames):
                 next_frame = frames_list[i + 1] + frames_list[i + 2]
                 if int(next_frame) == 10:
                     score += (frame * 3)
-                    roll = 2
+                    roll = 0
                 else:
                     score += frame
                     roll = 2
-                if i < 7 and len(str(frames_list[i+2])) == 1:
-                    next_next_frame = frames_list[i+3] + frames_list[i+4]
-                    if int(next_next_frame) == 10:
-                        score += (frames_list[i+1] * 3)
-                    else:
-                        score += (frame + frames_list[i+1])
-                elif i < 8 and len(str(frames_list[i+2])) > 1:
-                    score += frame
             else:
                 if i == 9:
-                    if roll == 2:
-                        score += (frames_list[8] * 2)
-                    else:
-                        score += (frames_list[8] + frames_list[9])
+                    score += (frames_list[8] * 3) + frames_list[9]
         else:
             if frame == 10:
                 score += frame * 2
-                roll = 2
+                roll = 3
             elif int(str(frame)[0]) + int(str(frame)[1]) < 11:
                 score += frame
                 roll = 2
@@ -44,4 +33,6 @@ def bowling_score(frames):
                     score += (first_roll + second_roll * 2)
                 elif i < 8 and len(str(frames_list[i+1])) > 1:
                     score += frame
+        if roll == 3:
+            roll = 0
     return score
