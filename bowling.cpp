@@ -1,8 +1,8 @@
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
-    std::vector<int> rolls(21);
+    vector<int> rolls(21);
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             rolls[i / 2] = 10;
@@ -14,13 +14,13 @@ int bowlingScore(std::string s) {
             while (next < s.size() && !isdigit(s[next])) {
                 next++;
             }
-            int roll = 10 - stoi(std::string(1, s[i + 1]) + std::string(1, s[next]));
+            int roll = 10 - stoi(string(1, s[i + 1]) + string(1, s[next]));
             rolls[i / 2] = roll;
             score += roll;
         } else {
             int roll = 0;
             while (i < s.size() && isdigit(s[i])) {
-                roll = roll * 10 + stoi(std::string(1, s[i]));
+                roll = roll * 10 + stoi(string(1, s[i]));
                 i++;
             }
             if (i > 0) {
