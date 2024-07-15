@@ -1,2 +1,2 @@
 n = int(input())
-numbers = [int(input()) for _ in range(n)]
+numbers = list(map(int, input().split()))
