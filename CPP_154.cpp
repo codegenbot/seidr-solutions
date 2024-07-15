@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool cycpattern_check(const std::string& a, const std::string& b) {
     int n = a.size();
@@ -9,9 +10,3 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
     new_a.append(a);
     return new_a.find(b) != std::string::npos;
 }
-
-cycpattern_check("winemtt", "tinem");
-cycpattern_check("abcdef", "defabc");
-cycpattern_check("hellohello", "hello");
-cycpattern_check("software", "soft");
-cycpattern_check("programming", "ingpro");
