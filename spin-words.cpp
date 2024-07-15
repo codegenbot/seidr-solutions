@@ -1,3 +1,4 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -5,31 +6,41 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] != ' ') {
-            int j = i;
-            while (j < str.length() && str[j] != ' ') {
-                j++;
-            }
-            string word = str.substr(i, j - i);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            i = j;
+    vector<string> words;
+    bool inWord = false;
+
+    for (char c : str) {
+        if (c == ' ') {
+            inWord = false;
         } else {
-            result += str[i];
-            i++;
+            inWord = true;
+            result += c;
+        }
+        
+        if (!inWord && !result.empty()) {
+            words.push_back(result);
+            result.clear();
         }
     }
-    return result;
+
+    if (!result.empty())
+        words.push_back(result);
+
+    for (int i = 0; i < words.size(); ++i) {
+        int wordLength = words[i].length();
+        if (wordLength >= 5)
+            cout << words[i].reverse() << ' ';
+        else
+            cout << words[i] << ' ';
+    }
+
+    return str;
 }
 
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << spinWords(str) << endl;
-    }
+    string input;
+    cin >> input;
+
+    cout << spinWords(input);
+
     return 0;
-}
