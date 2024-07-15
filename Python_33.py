@@ -1,9 +1,9 @@
 ```
-def sort_third(l: list):
+def sort_third(lst):
     result = []
-    for i in range(len(l)):
+    for i in range(len(lst)):
         if i % 3 == 0:
-            result.append(sorted([x for x in l[i//3*3+min(i%3,3-1):] if x % 3 == 0])[::-1])
+            result.append(sorted([x for x in lst[i//3*3+min(i%3,3-1):] if x % 3 == 0]))
         else:
-            result.append(l[i])
+            result.append(lst[i])
     return result
