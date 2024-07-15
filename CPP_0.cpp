@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
@@ -13,11 +12,6 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    // Test the function
-    std::vector<float> test_numbers = {1.2, 3.4, 5.6, 7.8};
-    float test_threshold = 2.0;
-
-    std::cout << "Result: " << has_close_elements(test_numbers, test_threshold) << std::endl;
-    
+    // Test the function here if needed
     return 0;
 }
