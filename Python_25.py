@@ -5,11 +5,6 @@ def factorize(n):
             factors.append(i)
     return factors
 
-try:
-    n = int(input("Enter a positive integer: "))
-    if n <= 0:
-        raise ValueError("Input should be a positive integer")
-    result = factorize(n)
-    print(result)
-except ValueError as e:
-    print(e)
+n = int(input())  # Change this line to n = int(input())
+result = factorize(n)
+print(result)
