@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,6 +12,7 @@ int bowlingScore(char c) {
         while (c >= '1' && c <= '9') {
             count *= 10;
             count += c - '0';
+            if(c == '/') break;
             c = (c < '7') ? ++c : '/';
         }
         score += count;
@@ -30,5 +30,4 @@ int main() {
         totalScore += bowlingScore(c);
     }
     std::cout << "The total score is: " << totalScore << std::endl;
-    return 0;
 }
