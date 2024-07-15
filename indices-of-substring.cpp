@@ -1,17 +1,19 @@
-```cpp
 #include <vector>
 #include <string>
-#include <iostream> 
+#include <iostream>
 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0; // initialize position to 0
+    int n = text.length();
+    int m = target.length();
 
-    while ((pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos);
-        pos += target.length(); // skip the matched substring for next search
+    int i = 0; 
+    for(; i <= n - m; i += m) { 
+        if(text.find(target, i) != string::npos) {
+            result.push_back(i);
+        }
     }
 
     return result;

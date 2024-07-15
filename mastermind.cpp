@@ -1,23 +1,14 @@
-#include <iostream>
-#include <string>
-
-int whitePegs(std::string code, std::string guess) {
+int whitePegs(string code, string guess) {
+    int count = 0;
     int codeCount[6] = {0};
-    int guessCount[6] = {0};
-    int blackPegsCount = 0;
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            blackPegsCount++;
+            // Black peg
         } else {
-            codeCount[code[i]-'0']++;
-            guessCount[guess[i]-'0']++;
+            codeCount[code[i]-'A']++;
+            if(codeCount[code[i]-'A'] == 1) count++; // White peg
         }
     }
-    int whitePegsCount = 0;
-    for(int i=0; i<6; i++) {
-        if(codeCount[i] > 0 && guessCount[i] > 0) {
-            whitePegsCount += std::min(codeCount[i], guessCount[i]);
-        }
-    }
-    return blackPegsCount + (4 - blackPegsCount - whitePegsCount);
+    
+    return count;
 }
