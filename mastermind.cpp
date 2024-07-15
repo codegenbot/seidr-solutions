@@ -1,11 +1,10 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <utility> // For pair
 
 using namespace std;
 
-pair<int,int> mastermind(string code, string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
     
@@ -30,13 +29,14 @@ pair<int,int> mastermind(string code, string guess) {
         white += min(codeLeft, guessLeft);
     }
     
-    return make_pair(white, black);
+    return black;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << mastermind(code, guess).first << endl;
-    cout << mastermind(code, guess).second << endl;
+    int whiteAndBlack = mastermind(code, guess);
+    cout << whiteAndBlack - 4 + mastermind(code, guess) << endl;
+    cout << whiteAndBlack << endl;
     return 0;
 }
