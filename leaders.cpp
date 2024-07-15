@@ -1,5 +1,5 @@
+```c
 #include <vector>
-#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -22,3 +22,4 @@ int main() {
         cout << leader << " ";
     }
     return 0;
+}
