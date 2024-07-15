@@ -1,15 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    // Main function
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
@@ -19,4 +12,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
         }
     }
     return result;
+}
+
+int main() {
+    // Main function code goes here
+    return 0;
 }
