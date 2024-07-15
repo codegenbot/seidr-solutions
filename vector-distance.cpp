@@ -1,26 +1,44 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 int main() {
     int n;
-    std::cin >> n;
-    
-    std::vector<float> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+    if (!(std::cin >> n) || n <= 0) {
+        return 1;
     }
 
-    std::vector<float> vec2(n);
+    std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        if (!(std::cin >> vec1[i])) {
+            return 1;
+        }
     }
 
-    float sum = 0;
+    for (int i = 0; i < n; ++i) {
+        if (!std::cin) {
+            return 1;
+        }
+    }
+
+    std::vector<double> vec2(n);
+    for (int i = 0; i < n; ++i) {
+        if (!(std::cin >> vec2[i])) {
+            return 1;
+        }
+    }
+
+    double sum = 0;
     for (int i = 0; i < n; ++i) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    std::cout << sum << std::endl;
+    double result = std::sqrt(sum);
+    std::cout << result << std::endl;
+
+    if (std::cin.peek() != EOF) {
+        return 1;
+    }
 
     return 0;
 }
