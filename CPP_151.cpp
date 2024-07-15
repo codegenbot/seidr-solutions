@@ -1,17 +1,11 @@
 #include <vector>
 
-long long double_the_difference(std::vector<float> lst){
-    long long odd_sum = 0;
+long double dif_square_sum(const std::vector<float>& lst) {
+    long double sum = 0;
     for (float num : lst) {
-        if (num > 0 && (int)num == num && (int)num % 2 != 0) {
-            odd_sum += num * num;
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            sum += static_cast<double>(num * num);
         }
     }
-    return odd_sum;
-}
-
-int main() {
-    std::vector<float> lst = {1.5, 2, 3.5, 4, 5.5};
-    assert(double_the_difference(lst) == 44);
-    return 0;
+    return sum;
 }
