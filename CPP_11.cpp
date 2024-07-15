@@ -13,3 +13,8 @@ string string_xor(const string& a, const string& b) {
     }
     return result;
 }
+
+int main() {
+    // Main function code here (if needed)
+    return 0;
+}
