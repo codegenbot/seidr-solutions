@@ -1,11 +1,15 @@
+```
 def luhn(card):
+    card = [int(x) for x in str(card)]
     sum = 0
-    for i in range(len(str(card)) - 1, -1, -1):
-        if (i % 2) == 0:
-            digit = int(str(card)[i]) * 2
-            if digit > 9:
-                digit -= 9
+    is_second = False
+    for i in range(len(card)):
+        if is_second:
+            card[i] *= 2
+            if card[i] > 9:
+                card[i] -= 9
+            is_second = False
         else:
-            digit = int(str(card)[i])
-        sum += digit
-    return str(sum)
+            sum += card[i]
+            is_second = True
+    return sum
