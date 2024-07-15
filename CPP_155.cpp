@@ -3,7 +3,15 @@
 #include <cmath>
 
 bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> even_odd_count(int num) {
@@ -17,9 +25,4 @@ vector<int> even_odd_count(int num) {
         }
     }
     return counts;
-}
-
-int main() {
-    // Test your even_odd_count function here
-    return 0;
 }
