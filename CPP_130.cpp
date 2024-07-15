@@ -2,7 +2,7 @@
 #include <cassert>
 
 std::vector<int> tri(int n) {
-    return {1, n + 2};
+    return {1, n+2};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
