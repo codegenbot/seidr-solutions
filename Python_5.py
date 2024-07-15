@@ -1,5 +1,11 @@
-```
+```Python
 from typing import List
 
 def intersperse(numbers: List[int], delimeter: str) -> list:
-    return [str(num) for num in numbers]
+    if len(numbers) == 0:
+        return []
+    result = [str(numbers[0])]
+    for i in range(1, len(numbers)):
+        result.extend([delimeter, str(numbers[i])])
+    result.append(delimeter)
+    return result
