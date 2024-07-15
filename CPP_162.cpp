@@ -3,18 +3,16 @@
 #include <sstream>
 #include <iomanip>
 #include <functional>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& str) {
-    std::hash<std::string> hasher;
-    size_t hash = hasher(str);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)str.c_str(), str.length(), digest);
 
     std::stringstream ss;
-    ss << std::hex << std::setw(16) << std::setfill('0') << hash;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << std::hex << std::setw(2) << std::setfill('0') << (int)digest[i];
+    }
 
-    return ss.str().substr(0, 32); // Keep only first 32 characters for compatibility
-}
-
-int main() {
-    std::string test_string = "password";
-    assert(string_to_md5(test_string) == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return ss.str();
 }
