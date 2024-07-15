@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
@@ -10,4 +14,9 @@ vector<int> rolling_max(vector<int> numbers) {
         result.push_back(max_num);
     }
     return result;
+}
+
+int main() {
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    return 0;
 }
