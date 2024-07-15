@@ -9,9 +9,11 @@ string concatenate(vector<string> strings){
     return result;
 }
 
-int main(){
-    vector<string> strings = {"Hello", "World", "!"};
-    string result = concatenate(strings);
-    cout << result << endl;
+int main() {
+    vector<string> words = {"Hello", "World", "from", "C++"};
+    string concatenated = concatenate(words);
+    
+    cout << concatenated << endl;
+    
     return 0;
 }
