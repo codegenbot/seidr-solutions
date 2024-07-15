@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+std::vector<std::string> separate_paren_groups(const std::string &paren_string) {
     std::vector<std::string> result;
     std::string current_group;
     int open_braces = 0;
@@ -33,5 +33,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
 }
