@@ -5,24 +5,28 @@ vector<string> select_words(string s, int n) {
     }
     
     string word;
-    int consonant_count = 0;
-    
     for (char c : s) {
-        if (c == ' ') {
-            if (consonant_count == n) {
-                result.push_back(word);
+        if (isalpha(c) || c == ' ') {
+            if (isalpha(c)) {
+                word += c;
+            } else { // space encountered, check word for number of consonants
+                int consonantCount = count_if(word.begin(), word.end(), [](char ch) {
+                    return !strchr("aeiouAEIOU", ch) && isalpha(ch);
+                });
+                if (consonantCount == n) {
+                    result.push_back(word);
+                }
+                word = "";
             }
-            word.clear();
-            consonant_count = 0;
-        } else if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
-            consonant_count++;
         }
-        word.push_back(c);
     }
     
-    if (!word.empty() && consonant_count == n) {
+    int consonantCount = count_if(word.begin(), word.end(), [](char ch) {
+        return !strchr("aeiouAEIOU", ch) && isalpha(ch);
+    });
+    if (!word.empty() && consonantCount == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
