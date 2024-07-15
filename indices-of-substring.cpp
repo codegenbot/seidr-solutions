@@ -15,3 +15,17 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     return res;
 }
+
+int main() {
+    string text = "example";  // provide example input
+    string target = "ex";     // provide example target
+
+    vector<int> result = indicesOfSubstring(text, target);
+    cout << "Result: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
