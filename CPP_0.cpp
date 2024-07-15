@@ -1,10 +1,10 @@
 #include <vector>
 #include <cassert>
 
-bool has_close_elements(std::vector<float> nums, float target) {
-    for (int i = 0; i < nums.size(); ++i) {
-        for (int j = i + 1; j < nums.size(); ++j) {
-            if (abs(nums[i] - nums[j]) <= target) {
+bool has_close_elements(const std::vector<float>& vec, float threshold) {
+    for (size_t i = 0; i < vec.size(); ++i) {
+        for (size_t j = i + 1; j < vec.size(); ++j) {
+            if (std::abs(vec[i] - vec[j]) <= threshold) {
                 return true;
             }
         }
