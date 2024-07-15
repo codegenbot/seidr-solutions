@@ -1,1 +1,1 @@
-value = int(input_string)
+input_string = input("Enter your input: ").strip()
