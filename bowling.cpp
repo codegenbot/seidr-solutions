@@ -34,10 +34,4 @@ int scoreBowlingRound(const std::string& bowls) {
     }
     return score;
 }
-
-int main() {
-    std::string bowls;
-    std::cin >> bowls;
-    std::cout << scoreBowlingRound(bowls) << std::endl;
-    return 0;
-}
+```
