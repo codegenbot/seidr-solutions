@@ -1,32 +1,53 @@
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    if (s.empty()) {
-        return result;
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> select_words(string s, int n);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    
-    string word;
-    for (char c : s) {
-        if (isalpha(c) || c == ' ') {
-            if (isalpha(c)) {
-                word += c;
-            } else { // space encountered, check word for number of consonants
-                int consonantCount = count_if(word.begin(), word.end(), [](char ch) {
-                    return !strchr("aeiouAEIOU", ch) && isalpha(ch);
-                });
-                if (consonantCount == n) {
-                    result.push_back(word);
-                }
-                word = "";
-            }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    
-    int consonantCount = count_if(word.begin(), word.end(), [](char ch) {
-        return !strchr("aeiouAEIOU", ch) && isalpha(ch);
-    });
+
+    return true;
+}
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
+    int consonantCount = 0;
+
+    for (char c : s) {
+        if (c == ' ') {
+            if (consonantCount == n) {
+                result.push_back(word);
+            }
+            word = "";
+            consonantCount = 0;
+        } else if (isalpha(c)) {
+            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+                consonantCount++;
+            }
+            word += c;
+        }
+    }
+
     if (!word.empty() && consonantCount == n) {
         result.push_back(word);
     }
 
     return result;
+}
+
+int main() {
+    // Add main function logic if needed
+    return 0;
 }
