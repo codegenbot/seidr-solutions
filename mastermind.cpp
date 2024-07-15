@@ -1,34 +1,33 @@
 #include <iostream>
 #include <string>
-#include <map>
+#include <algorithm>
 
 using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    map<char, int> codeMap;
-
+    sort(code.begin(), code.end());
+    sort(guess.begin(), guess.end());
     for(int i=0; i<4; i++) {
-        codeChar = code.substr(i,1);
-        guessChar = guess.substr(i,1);
-
-        if(code.find(guessChar) != string::npos && codeChar != guessChar) {
+        if(code[i] == guess[i]) {
+            count++;
+        } 
+        else if(find(code.begin(), code.end(), guess[i]) != code.end()) {
             count++;
         }
     }
-
     return count;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    
+    sort(code.begin(), code.end());
+    sort(guess.begin(), guess.end());
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             count++;
         }
     }
-    
     return count;
 }
 
