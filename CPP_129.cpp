@@ -7,7 +7,13 @@ bool issame(const vector<int>& a, const vector<int>& b){
 
 vector<int> minPath(const vector<vector<int>>& grid, int k){
     vector<int> result;
-    // Your code for finding minimum path here
+    for (int i = 0; i < k / grid.size(); ++i) {
+        for (const auto& row : grid) {
+            for (int val : row) {
+                result.push_back(val);
+            }
+        }
+    }
     return result;
 }
 
