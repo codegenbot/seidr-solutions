@@ -4,19 +4,13 @@
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
-    vector<pair<int, int>> sortedNums;
-    for (int i = 0; i < nums.size(); ++i) {
-        sortedNums.push_back({nums[i], i});
-    }
-    sort(sortedNums.begin(), sortedNums.end());
-
-    int left = 0;
-    int right = sortedNums.size() - 1;
+    sort(nums.begin(), nums.end());
+    int left = 0, right = nums.size() - 1;
     while (left < right) {
-        int sum = sortedNums[left].first + sortedNums[right].first;
-        if (sum == target) {
-            return make_pair(sortedNums[left].second, sortedNums[right].second);
-        } else if (sum < target) {
+        int currentSum = nums[left] + nums[right];
+        if (currentSum == target) {
+            return make_pair(left, right);
+        } else if (currentSum < target) {
             left++;
         } else {
             right--;
@@ -26,8 +20,8 @@ pair<int, int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = {2, 7, 11, 15};
-    int target = 9;
+    vector<int> nums = {7044, 1615, -931, 6250, 5319};
+    int target = 6250;
     pair<int, int> result = findPair(nums, target);
 
     if (result.first != -1 && result.second != -1) {
