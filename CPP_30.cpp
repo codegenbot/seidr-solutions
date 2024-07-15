@@ -11,17 +11,21 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool is_same(vector<float> a, vector<float> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
-    vector<float> v1 = {1.5, -2.0, 3.7, -4.2};
-    vector<float> v2 = {1.5, 3.7};
-    
-    vector<float> positive_v1 = get_positive(v1);
-    vector<float> positive_v2 = get_positive(v2);
-    
-    bool same = is_same(positive_v1, positive_v2);
-    
+    vector<float> list1 = {1.5, -2.0, 3.7, 0.0, 5.2};
+    vector<float> list2 = {1.5, -2.0, 3.7, 0.0, 5.2};
+
+    bool same = is_same(list1, list2);
     return 0;
 }
