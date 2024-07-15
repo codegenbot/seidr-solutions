@@ -23,7 +23,7 @@ int main() {
     int n = 2;
     std::vector<std::string> actual_result = select_words(s, n);
     std::vector<std::string> expected_result = {"hello", "world", "alice"};
-
+    
     assert(issame(actual_result, expected_result));
 
     return 0;
