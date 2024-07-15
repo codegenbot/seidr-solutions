@@ -1,15 +1,35 @@
 #include <vector>
-#include <algorithm>
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 1) {
-            result.push_back(n);
+bool issame(int a, int b);
+
+vector<int> get_odd_collatz(int n);
+
+bool issame(int a, int b){
+    return a == b;
+}
+
+vector<int> get_odd_collatz(int n){
+    vector<int> result;
+    while(n != 1){
+        result.push_back(n);
+        if(n % 2 == 0){
+            n = n / 2;
         }
-        n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
+        else{
+            n = 3 * n + 1;
+        }
     }
     result.push_back(1);
-    std::sort(result.begin(), result.end());
-    return result;
+    vector<int> odd_numbers;
+    for(int num : result){
+        if(num % 2 != 0){
+            odd_numbers.push_back(num);
+        }
+    }
+    sort(odd_numbers.begin(), odd_numbers.end());
+    return odd_numbers;
+}
+
+int main() {
+    return 0;
 }
