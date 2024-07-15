@@ -5,3 +5,4 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
         result -= melt;
     }
     return result;
+}
