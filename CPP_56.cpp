@@ -1,4 +1,7 @@
-int count = 0;
+#include <string_view>
+
+bool correct_bracketing(std::string_view brackets) {
+    int count = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
             count++;
