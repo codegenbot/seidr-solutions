@@ -13,4 +13,6 @@ int main() {
     } else {
         std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
     }
-    std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
+
+    return 0;
+}
