@@ -1,49 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(const std::string &s) {
-    for (size_t i = 0; i < s.size() / 2; ++i) {
-        if (s[i] != s[s.size() - i - 1]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int count_consonants(const std::string &word) {
+int count_consonants(string word) {
     int count = 0;
+    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
     for (char c : word) {
-        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+        if (consonants.find(c) != string::npos) {
             count++;
         }
     }
     return count;
 }
 
-std::vector<std::string> select_words(std::string s, int n);
-
-int main() {
-    std::string input;
-    int n;
-    std::getline(std::cin, input);
-    std::cin >> n;
-    
-    std::vector<std::string> result = select_words(input, n);
-    
-    for (const std::string &word : result) {
-        std::cout << word << std::endl;
-    }
-    
-    return 0;
+bool issame(string s1, string s2) {
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+    return s1 == s2;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word;
+vector<string> select_words(string s, int n);
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
     for (char c : s) {
         if (c == ' ') {
-            if (count_consonants(word) == n && issame(word)) {
+            if (count_consonants(word) == n && issame(word, "contest")) {
                 result.push_back(word);
             }
             word = "";
@@ -51,8 +30,21 @@ std::vector<std::string> select_words(std::string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && count_consonants(word) == n && issame(word)) {
+    if (!word.empty() && count_consonants(word) == n && issame(word, "contest")) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    string input_str;
+    int n;
+    cin >> input_str;
+    cin >> n;
+    vector<string> output = select_words(input_str, n);
+    for (string word : output) {
+        cout << word << " ";
+    }
+    cout << endl;
+    return 0;
 }
