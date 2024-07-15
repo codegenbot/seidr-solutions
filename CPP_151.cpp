@@ -6,15 +6,19 @@ double double_the_difference(double a, double b) {
     return 2 * (a - b);
 }
 
-long long main_function(std::vector<float> lst) {
+long long CPP_151(std::vector<float> lst) {
     double double_the_difference;
     long long odd_sum = 0;
-
+    
     for (float num : lst) {
         if (num > 0 && fmod(num, 1) == 0 && ((int)num) % 2 != 0) {
             odd_sum += (long long)pow(num, 2);
         }
     }
-
     return odd_sum;
+}
+
+int main() {
+    // Test your function here
+    return 0;
 }
