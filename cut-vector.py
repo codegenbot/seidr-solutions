@@ -1,7 +1,9 @@
+```
 def cut_vector(vector):
-    min_diff = float('inf')
     left_sum = 0
     right_sum = sum(vector)
+    min_diff = float('inf')
+    split_index = 0
     
     for i in range(len(vector)):
         if left_sum <= right_sum:
