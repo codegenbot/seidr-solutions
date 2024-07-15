@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
-#include <cassert>
 
 using namespace std;
 
