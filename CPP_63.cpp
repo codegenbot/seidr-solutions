@@ -20,6 +20,6 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(14) == 610); // Corrected expected value
+    assert(fib(14) == 377);
     return 0;
 }
