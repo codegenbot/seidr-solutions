@@ -1,12 +1,12 @@
 #include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
             score += 30;
         } else if (s[i] == '/') {
-            score += (s[i - 1] - '0') * 10 + s[i + 1] - '0';
             continue;
         } else {
             int strikeOrSpare = s[i] - '0';
