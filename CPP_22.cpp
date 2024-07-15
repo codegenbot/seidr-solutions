@@ -3,15 +3,17 @@
 #include <any>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<int> &a, const vector<int> &b){
     return a == b;
 }
 
-std::vector<int> filter_integers(const std::list<std::any>& values) {
-    std::vector<int> result;
-    for (const auto& val : values) {
+vector<int> filter_integers(list<any> &values){
+    vector<int> result;
+    for (const auto &val : values) {
         if (val.type() == typeid(int)) {
-            result.push_back(std::any_cast<int>(val));
+            result.push_back(any_cast<int>(val));
         }
     }
     return result;
@@ -19,5 +21,6 @@ std::vector<int> filter_integers(const std::list<std::any>& values) {
 
 int main() {
     assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    
     return 0;
 }
