@@ -1,4 +1,4 @@
-pair<float, float> find_closest_elements(vector<float>& numbers) {
+pair<float, float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     pair<float, float> result = make_pair(numbers[0], numbers[1]);
