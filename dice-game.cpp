@@ -7,7 +7,7 @@ double probability(int n, int m) {
     for (int i = 1; i <= m; i++) {
         total += 1.0 / m;
     }
-    return 1.0 - (n / (double)n * (m / (double)m));
+    return 1.0 - (n / static_cast<double>(n) * m / static_cast<double>(m));
 }
 
 int main() {
