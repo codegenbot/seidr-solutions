@@ -1,13 +1,5 @@
+```
 from typing import List
-
-
-def is_prime(num: int) -> bool:
-    if num < 2:
-        return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
 
 
 def factorize(n: int) -> List[int]:
@@ -18,9 +10,11 @@ def factorize(n: int) -> List[int]:
             i += 1
         else:
             n //= i
+            count = 0
             while n % i == 0:
                 n //= i
-            factors.append(i)
+                count += 1
+            factors.extend([i] * count)
     if n > 1:
         factors.append(n)
     return factors
