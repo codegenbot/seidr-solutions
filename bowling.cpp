@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -7,7 +8,7 @@ int main() {
     std::cin >> bowls;
     int score = 0, frame = 0, ball = 0;
     int frames[10] = {0};
-    
+
     for (char c : bowls) {
         if (c == 'X') {
             frames[frame] = 10;
