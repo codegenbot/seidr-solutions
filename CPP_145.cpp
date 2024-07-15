@@ -1,9 +1,9 @@
 bool isSame(vector<int> nums a, vector<int> nums b) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = abs(a), sumB = abs(b);
-        while (sumA >= 10) sumA = sumA / 10 + sumA % 10;
-        while (sumB >= 10) sumB = sumB / 10 + sumB % 10;
-        return sumA == sumB ? a < b : sumA < sumB;
+    sort(nums.begin(), nums.end(), [](int x, int y) {
+        int sumX = abs(x), sumY = abs(y);
+        while (sumX >= 10) sumX = sumX / 10 + sumX % 10;
+        while (sumY >= 10) sumY = sumY / 10 + sumY % 10;
+        return sumX == sumY ? x < y : sumX < sumY;
     });
     return nums;
 }
