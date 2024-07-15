@@ -24,8 +24,8 @@ int score(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << score(s) << std::endl;
     return 0;
 }
