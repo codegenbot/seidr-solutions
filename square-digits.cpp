@@ -1,6 +1,7 @@
-Here is the modified code:
+#include <iostream>
+#include <string>
+#include <sstream>
 
-```c++
 using namespace std;
 
 int main() {
@@ -14,8 +15,8 @@ int main() {
 
 }
 
-string squareDigits(string input) {
-    stringstream output;
+std::string squareDigits(std::string input) {
+    std::stringstream output;
     for (char c : input) {
         int digit = c - '0';
         output << to_string(digit * digit);
