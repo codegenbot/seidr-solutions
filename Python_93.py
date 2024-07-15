@@ -6,6 +6,6 @@ def encode(message):
                 if char.lower() not in vowels
                 else chr(ord(char) ^ 32)
         )
-        if char.isalpha() or char.isspace() else char
+        if char.isalpha() else char
         for char in message
     ])
