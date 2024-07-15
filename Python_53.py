@@ -1,7 +1,10 @@
 def add(x: int, y: int) -> int:
-    try:
-        x = int(input())
-        y = int(input())
-    except ValueError:
-        return "Invalid input"
     return x + y
+
+# Read input from user
+x = int(input())
+y = int(input())
+
+# Call the function with user input
+result = add(x, y)
+print(result)
