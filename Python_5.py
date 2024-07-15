@@ -5,3 +5,7 @@ def concatenate_numbers(numbers, delimeter):
     if numbers:
         result.append(numbers[-1])
     return result
+
+
+# Call the function with appropriate arguments
+concatenate_numbers([1, 2, 3, 4], "-")
