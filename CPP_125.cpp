@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> split_words(const string& txt) {
     vector<string> words;
     string word = "";
@@ -44,5 +40,10 @@ vector<string> split_words(const string& txt) {
 
 int main() {
     assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words("Hello, World!"), {"Hello", "World!"}));
+    assert(issame(split_words("The quick brown fox"), {"The", "quick", "brown", "fox"}));
+    assert(issame(split_words("12345"), {"12345"}));
+    assert(issame(split_words("abc def 12345"), {"abc", "def", "12345"}));
+
     return 0;
 }
