@@ -25,7 +25,15 @@ int main() {
     while (std::getline(std::cin, input)) {
         std::istringstream iss(input);
         std::string word;
-        std::cout << kebabToCamel(iss.str()) << std::endl;
+        while (std::getline(iss, word, '-')) {
+            if (!word.empty()) {
+                if (input.find(word) == 0)
+                    result = toupper(word[0]) + word.substr(1).tolower();
+                else
+                    result += word[0] + word.substr(1).tolower();
+            }
+            std::cout << kebabToCamel(result) << " ";
+        }
     }
     return 0;
 }
