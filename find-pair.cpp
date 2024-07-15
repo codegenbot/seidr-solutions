@@ -1,17 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
 int main() {
     int n, target;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    cin >> target;
+    std::cin >> target;
     
-    map<int, int> seen;
+    std::map<int, int> seen;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (seen.find(complement) != seen.end()) {
-            cout << complement << endl << nums[i] << endl;
+        if (seen.find(target - nums[i]) != seen.end()) {
+            std::cout << nums[i] << std::endl;
+            std::cout << target - nums[i] << std::endl;
             break;
         }
         seen[nums[i]] = i;
