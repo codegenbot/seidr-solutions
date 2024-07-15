@@ -1,26 +1,13 @@
-Here is the modified code:
-
 std::string spinWords(std::string str) {
-    std::string result = "";
-    size_t pos = 0;
+    std::vector<std::string> words;
+    std::stringstream ss(str);
+    std::string word;
 
-    while ((pos = str.find(" ")) != std::string::npos) {
-        size_t len = str.find(" ", pos + 1);
-        if (len == std::string::npos)
-            len = str.length();
-
-        if (len - pos > 4) {
-            std::string temp = str.substr(pos, len - pos);
-            std::reverse(temp.begin(), temp.end());
-            result += temp + " ";
-        } else
-            result += str.substr(pos, len - pos) + " ";
-
-        pos = len;
+    while (ss >> word) {
+        if (word.length() >= 5)
+            std::reverse(word.begin(), word.end());
+        words.push_back(word);
     }
 
-    if (!str.empty())
-        result += str;
-
-    return result;
+    return std::join(words, " ");
 }

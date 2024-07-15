@@ -1,4 +1,6 @@
 ```cpp
+#include <string>
+
 std::string camelCase(std::string input) {
     std::string output;
     size_t start = 0;
@@ -11,7 +13,7 @@ std::string camelCase(std::string input) {
             }
             if (i < input.size()) {
                 if (input[i + 1] == '-') continue;
-                output.push_back(std::tolower(input[i]));
+                output += std::tolower(input[i]);
                 start = i + 1;
             } else {
                 return output;

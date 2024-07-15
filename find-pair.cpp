@@ -7,8 +7,8 @@ using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    vector<int> sortedNums = nums; 
-    sort(sortedNums.begin(), sortedNums.end()); 
+    vector<int> sortedNums = nums; // create a copy of the original array
+    sort(sortedNums.begin(), sortedNums.end()); // sort the array
 
     for (int i = 0; i < sortedNums.size(); i++) {
         int complement = target - sortedNums[i];
