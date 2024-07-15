@@ -1,4 +1,3 @@
-````
 def basement(nums):
     total = 0
     for i in range(len(nums)):
@@ -6,4 +5,3 @@ def basement(nums):
         if total < 0:
             return i + 1
     return -1
-"""
