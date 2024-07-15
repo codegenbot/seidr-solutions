@@ -12,3 +12,16 @@ int modp(int n, int p) {
     }
     return result;
 }
+
+int main() {
+    int n, p;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    std::cout << "Enter the value of p: ";
+    std::cin >> p;
+
+    int result = modp(n, p);
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
