@@ -1,6 +1,7 @@
 int main() {
-    vector<int> lst = {5, 2, 7, 2, 4, 1, 9, 7};
-    cout << next_smallest(lst) << endl;
+    vector<int> lst = {3, 1, 4, 1, 5, 9, 2, 6};
+    int result = next_smallest(lst);
+    cout << "Next smallest number: " << result << endl;
     
     return 0;
 }
