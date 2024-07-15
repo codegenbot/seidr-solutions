@@ -12,10 +12,8 @@ int fib(int n) {
 }
 
 int main() {
-    // Add the missing function declaration
     int fib(int n);
     
-    // Test the fib function
     assert(fib(12) == 144);
     
     return 0;
