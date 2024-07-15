@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {0, 0};
+    vector<int> result = {INT_MIN, INT_MAX}; // Initialize with correct values
     int max_neg = INT_MIN;
     int min_pos = INT_MAX;
     
