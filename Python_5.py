@@ -1,4 +1,4 @@
-```python
+```
 def intersperse(numbers, delimiter):
     while True:
         try:
@@ -24,5 +24,3 @@ def intersperse(numbers, delimiter):
         result.pop()
 
     return "".join(result)
-
-print(intersperse([], '/'))
