@@ -5,7 +5,6 @@ def factorize(n):
             factors.append(i)
     return factors
 
-
 try:
     n = int(input())
     if n <= 0:
