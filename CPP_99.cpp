@@ -9,3 +9,8 @@ int find_closest_integer(std::string value) {
     }
     return closest_int;
 }
+
+int main() {
+    assert(find_closest_integer("0") == 0);
+    return 0;
+}
