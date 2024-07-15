@@ -1,4 +1,4 @@
-```
+```python
 def bowling_score(frames):
     frames_list = [int(x) for x in frames.replace('/', '-').split('-')]
 
@@ -11,13 +11,25 @@ def bowling_score(frames):
                 next_frame = frames_list[i + 1] + frames_list[i + 2]
                 if int(next_frame) == 10:
                     score += (frame * 3)
-                    roll = 0
                 else:
-                    score += frame
-                    roll = 2
+                    if frame == 10 or (int(next_frame[0]) + int(next_frame[1])) < 11:
+                        score += (frame + frames_list[i+1])
+                    else:
+                        score += frame
             else:
                 if i == 9:
-                    score += (frames_list[8] * 3) + frames_list[9]
+                    if len(str(frames_list[8])) == 2 and str(frames_list[8])[0] != '0':
+                        score += (frames_list[8] * 3) + frames_list[9]
+                    elif frames_list[9] == 10 or (int(str(frames_list[8])[0]) + int(str(frames_list[8])[1])) < 11:
+                        if len(str(frames_list[8])) == 2 and str(frames_list[8])[0] != '0':
+                            score += (frames_list[7] * 3) + frames_list[8] + frames_list[9]
+                        else:
+                            score += (frames_list[8] * 2) + frames_list[9]
+                    else:
+                        if len(str(frames_list[8])) == 1:
+                            score += (frames_list[7] * 3)
+                        else:
+                            score += (frames_list[8] * 2)
         else:
             if frame == 10:
                 score += frame * 2
