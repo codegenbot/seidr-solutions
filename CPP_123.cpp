@@ -1,10 +1,8 @@
-vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 1) {
-            result.push_back(n);
-        }
-        n = n % 2 == 0 ? n / 2 : 3 * n + 1;
-    }
-    result.push_back(1);
-    sort(result.begin(), result.end());
-    return result;
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
+}
