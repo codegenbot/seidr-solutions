@@ -19,7 +19,7 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-bool is_same(vector<string> a, vector<string> b) {
+bool are_same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,7 +32,7 @@ bool is_same(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(is_same(odd_count({"271", "137", "314"}), {
+    assert(are_same(odd_count({"271", "137", "314"}), {
         "the number of odd elements 1 in the string 271 of the input.",
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
