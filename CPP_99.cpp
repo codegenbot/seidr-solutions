@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-int closest_integer(std::string value) {
+int closest_integer(const std::string& value) {
     double num = std::stod(value);
     int rounded_num = static_cast<int>(num + (num >= 0 ? 0.5 : -0.5));
     return rounded_num;

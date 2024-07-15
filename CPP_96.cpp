@@ -1,6 +1,10 @@
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> count_up_to(int n) {
     vector<int> primes;
-    for (int num = 2; num <= n; ++num) {
+    for (int num = 2; num < n; ++num) {
         bool is_prime = true;
         for (int i = 2; i * i <= num; ++i) {
             if (num % i == 0) {
@@ -15,6 +19,7 @@ vector<int> count_up_to(int n) {
     return primes;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+int main() {
+    vector<int> result = count_up_to(20);
+    return 0;
 }
