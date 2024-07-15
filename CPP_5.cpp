@@ -1,18 +1,16 @@
 #include <vector>
 #include <cassert>
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b){
-        if(a.size() != b.size()){
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
             return false;
         }
-        for(int i = 0; i < a.size(); ++i){
-            if(a[i] != b[i]){
-                return false;
-            }
-        }
-        return true;
     }
+    return true;
 }
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
