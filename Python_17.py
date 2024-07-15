@@ -1,5 +1,6 @@
-```Python
 def parse_music(music_string: str) -> list:
+    if not music_string:
+        return []
     music_list = []
     i = 0
     while i < len(music_string):
@@ -13,5 +14,3 @@ def parse_music(music_string: str) -> list:
             music_list.append([8, 4, 2])
             i += 3
     return music_list
-
-print(parse_music('ooo.ooo.|o'))
