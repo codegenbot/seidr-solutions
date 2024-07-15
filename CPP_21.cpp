@@ -1,4 +1,5 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
+bool rescaled_numbers(vector<float>& numbers) {
+    float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
     
     vector<float> rescaled_numbers;
@@ -7,5 +8,5 @@ float min_num = *min_element(numbers.begin(), numbers.end());
         rescaled_numbers.push_back(rescaled_num);
     }
     
-    return rescaled_numbers;
+    return true;
 }
