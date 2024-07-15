@@ -19,8 +19,6 @@ int fib(int n) {
     return result;
 }
 
-int main() {
-    assert(fib(14) == 610);
+assert(fib(14) == 610);
 
-    return 0;
-}
+return 0;
