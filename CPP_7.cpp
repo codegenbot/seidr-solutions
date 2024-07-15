@@ -2,12 +2,23 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::string& a, const std::string& b) {
+vector<string> filter_by_substring(vector<string> strings, string substring);
+
+bool issame(auto a, auto b){
     return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for (const auto &str : strings) {
+        if (str.find(substring) != string::npos) {
+            result.push_back(str);
+        }
+    }
+    return result;
+}
 
 int main() {
-    // Main function code here
+    // Main function code, if any
+    return 0;
 }
