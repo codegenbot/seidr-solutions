@@ -1,6 +1,10 @@
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    partial_sort(arr.begin(), arr.begin() + k, arr.end());
-    copy_n(arr.begin() + (arr.size() - k), k, res.begin());
-    return res;
+#include <vector>
+#include <algorithm>
+
+bool issame() {
+    // remove this function altogether
+}
+
+int main() {
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, 1, 2}));
 }
