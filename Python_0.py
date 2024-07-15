@@ -6,3 +6,4 @@ numbers = list(map(int, input().split()))
 threshold = int(input("Enter threshold: "))
 
 result = check_threshold(numbers, threshold)
+print(result)
