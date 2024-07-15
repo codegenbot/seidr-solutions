@@ -1,2 +1,3 @@
+```
 def fuel_cost(vector):
-    return sum((i-2) for i in vector // 3)
+    return sum((int(i/3)) - 2 for i in map(int, vector.split()))
