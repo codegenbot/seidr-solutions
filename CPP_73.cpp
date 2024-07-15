@@ -1,5 +1,6 @@
 #include <vector>
-#include <algorithm>
+#include <string>
+using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -16,4 +17,10 @@ int smallest_change(vector<int> arr) {
         }
     }
     return count;
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3};
+    cout << smallest_change(arr) << endl;
+    return 0;
 }
