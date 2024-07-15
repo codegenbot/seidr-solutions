@@ -1,7 +1,7 @@
 #include <iostream>
 #include <unordered_map>
-#include <cctype>
 #include <cassert>
+#include <cctype>
 
 using namespace std;
 
