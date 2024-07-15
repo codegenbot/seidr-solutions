@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> even_odd_count(int num) {
@@ -22,7 +22,5 @@ vector<int> even_odd_count(int num) {
     return count;
 }
 
-int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
-    return 0;
-}
+assert(issame(even_odd_count(0), {1, 0}));
+return 0;
