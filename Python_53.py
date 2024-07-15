@@ -5,9 +5,9 @@ while True:
     try:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
-        break
     except ValueError:
         print("Invalid input. Please enter integers only.")
-
-result = add(x, y)
-print(result)
+    else:
+        result = add(x, y)
+        print(result)
+        break
