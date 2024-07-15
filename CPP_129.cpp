@@ -1,23 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <cassert>  // Add this line for assert function
+#include <cassert>
 
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
-    for (int i = 0; i < k / grid.size(); i++) {
-        for (int j = 0; j < grid.size(); j++) {
-            for (int l = 0; l < grid[j].size(); l++) {
-                result.push_back(grid[j][l]);
+    int totalElements = 0;
+    for (int i = 0; i < grid.size(); i++) {
+        totalElements += grid[i].size();
+    }
+
+    if (k >= 0 && k < totalElements) {
+        int count = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[i].size(); j++) {
+                if (count == k) {
+                    result.push_back(grid[i][j]);
+                    return result;
+                }
+                count++;
             }
         }
     }
+
     return result;
-}
-
-int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});  // Use 'assert' for testing
-
-    return 0;
 }

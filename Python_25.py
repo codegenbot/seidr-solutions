@@ -1,3 +1,5 @@
+import sys
+
 def factorize(n):
     factors = []
     for i in range(1, n + 1):
@@ -5,15 +7,6 @@ def factorize(n):
             factors.append(i)
     return factors
 
-while True:
-    try:
-        n = int(input("Enter a positive integer: "))
-        if n > 0:
-            break
-        else:
-            print("Please enter a positive integer.")
-    except ValueError:
-        print("Invalid input. Please enter a valid positive integer.")
-
+n = int(sys.stdin.readline().strip())
 result = factorize(n)
 print(result)
