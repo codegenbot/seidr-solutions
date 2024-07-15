@@ -10,7 +10,7 @@ size_t count_distinct_characters(const std::string& str) {
     return std::distance(temp.begin(), it);
 }
 
-int main() {
+int main(){
     assert(count_distinct_characters(std::string("Jerry jERRY JeRRRY")) == 5);
     return 0;
 }
