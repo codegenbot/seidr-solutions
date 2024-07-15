@@ -1,5 +1,3 @@
-#include <cassert>
-
 int fib(int n) {
     if (n == 0) {
         return 0;
@@ -20,6 +18,5 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(14) == 610); // Corrected expected value
-    return 0;
+    assert(fib(14) == 610);
 }
