@@ -13,11 +13,10 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     string input;
     cin >> input;
-
     vector<string> result = separate_paren_groups(input);
 
     for (string group : result) {
-        cout << group << endl;
+        cout << group << " ";
     }
 
     return 0;
