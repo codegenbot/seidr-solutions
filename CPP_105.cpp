@@ -1,9 +1,8 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <map>
-
-bool issame(int a, int b) {
-    return a == b;
-}
+using namespace std;
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -16,7 +15,7 @@ vector<string> by_length(vector<int> arr){
         }
     }
     
-    sort(sorted_arr.begin(), sorted_arr.end(), issame);
+    sort(sorted_arr.begin(), sorted_arr.end());
     reverse(sorted_arr.begin(), sorted_arr.end());
     
     for (int num : sorted_arr) {
@@ -24,4 +23,15 @@ vector<string> by_length(vector<int> arr){
     }
     
     return result;
+}
+
+int main() {
+    vector<string> a = by_length({9, 4, 8});
+    vector<string> b = {"Nine", "Eight", "Four"};
+    
+    bool same = a == b;
+    
+    cout << "Are vectors a and b the same: " << same << endl;
+    
+    return 0;
 }
