@@ -5,5 +5,5 @@ def substitution_cipher(cipher_string1, cipher_string2, message):
         if char in cipher_map:
             deciphered_message += cipher_map[char]
         else:
-            deciphered_message += char  
+            deciphered_message += char
     return deciphered_message
