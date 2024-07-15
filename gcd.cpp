@@ -1,6 +1,6 @@
-# include <vector>
-# include <string>
-# include <iostream>
+#include <vector>
+#include <string>
+#include <iostream>
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
