@@ -1,16 +1,18 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+template<typename T>
+bool issame(std::vector<T> a, std::vector<T> b){
     return a == b;
 }
 
-std::vector<int> intersperse(const std::vector<int>& vec, int val) {
-    std::vector<int> result;
+template<typename T>
+std::vector<T> intersperse(std::vector<T> vec, T value) {
+    std::vector<T> result;
     for (size_t i = 0; i < vec.size(); ++i) {
         result.push_back(vec[i]);
-        if (i != vec.size() - 1) {
-            result.push_back(val);
+        if (i < vec.size() - 1) {
+            result.push_back(value);
         }
     }
     return result;
