@@ -9,7 +9,7 @@ namespace custom {
     }
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
+std::vector<std::pair<int, int>> minPath(std::vector<std::vector<int>> grid, int k){
     int n = grid.size();
     int m = grid[0].size();
     std::vector<std::vector<int>> dp(n, std::vector<int>(m, INT_MAX));
@@ -39,10 +39,27 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
         }
     }
     
-    return dp[n - 1][m - 1] > k ? std::vector<int>{-1, -1} : std::vector<int>{n - 1, m - 1};
+    std::vector<std::pair<int, int>> path;
+    int x = n - 1, y = m - 1;
+    while (x != 0 || y != 0) {
+        path.push_back({x, y});
+        for (auto dir : dirs) {
+            int nx = x - dir[0];
+            int ny = y - dir[1];
+            if (nx >= 0 && nx < n && ny >= 0 && ny < m && dp[nx][ny] == dp[x][y] - 1) {
+                x = nx;
+                y = ny;
+                break;
+            }
+        }
+    }
+    path.push_back({0, 0});
+    std::reverse(path.begin(), path.end());
+    
+    return dp[n - 1][m - 1] > k ? std::vector<std::pair<int, int>>{{-1, -1}} : path;
 }
 
 int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == std::vector<int>{1, 3});
+    assert(minPath({{1, 3}, {3, 2}}, 10) == std::vector<std::pair<int, int>>{{0, 0}, {1, 0}, {1, 1}});
     return 0;
 }
