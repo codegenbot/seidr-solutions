@@ -16,7 +16,7 @@ int Solution::smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(Solution::smallest_change({0, 1, 2, 1, 0}) == 2);
+    assert(Solution::smallest_change({0, 1}) == 1);
     
     std::vector<int> input;
     int value;
