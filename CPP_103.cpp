@@ -1,4 +1,12 @@
-if (n > m) {
+#include <iostream>
+#include <string>
+#include <bitset>
+#include <cmath>
+
+using namespace std;
+
+string rounded_avg(int n, int m) {
+    if (n > m) {
         return "-1";
     }
 
