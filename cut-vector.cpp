@@ -1,10 +1,10 @@
-#include <vector>
 #include <iostream>
-#include <utility>
+#include <vector>
+#include <pair>
 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+vector<int> cutVector(vector<int>& v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
     
@@ -27,25 +27,24 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
     }
     
-    pair<vector<int>, vector<int>> result;
-    result.first = vector<int>(v.begin(), v.begin() + splitIndex);
-    result.second = vector<int>(v.begin() + splitIndex, v.end());
+    vector<int> left(v.begin(), v.begin() + splitIndex);
+    vector<int> right(v.begin() + splitIndex, v.end());
     
-    return result;
+    return {left, right};
 }
 
 int main() {
-    int n; std::cin >> n;
+    int n; cin >> n;
     vector<int> v(n);
     for (auto& x : v) std::cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    std::cout << "1 ";
-    for (auto x : result.first) std::cout << x << " ";
-    std::cout << "\n0\n";
-    std::cout << "1 ";
-    for (auto x : result.second) std::cout << x << " ";
-    std::cout << "\n0\n";
+    cout << "1 ";
+    for (auto x : result.first) cout << x << " ";
+    cout << "\n0\n";
+    cout << "1 ";
+    for (auto x : result.second) cout << x << " ";
+    cout << "\n0\n";
     
     return 0;
 }
