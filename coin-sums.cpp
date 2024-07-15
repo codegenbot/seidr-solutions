@@ -20,9 +20,7 @@ int main() {
 
     cout << (nickles > 0 ? nickles + " nickels" : "") << endl;
 
-    int pennies = cents;
-
-    cout << (pennies > 0 ? pennies + " pennies" : "") << endl;
+    cout << (cents > 0 ? cents + " pennies" : " no pennies needed") << endl;
 
     return 0;
 }
