@@ -5,24 +5,13 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
+    int maxright = arr[n-1];
     for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[i] < arr[j]) {
-                leader = false;
-                break;
-            }
-        }
-        
-        if(leader) {
+        if(arr[i] >= maxright) {
             leaders.push_back(arr[i]);
+            maxright = arr[i];
         }
     }
     
     return leaders;
-}
-
-vector<int> result = leaders({16, 17, 4, 3, 5, 2});
-for(int num : result){
-    cout << num << " ";
 }
