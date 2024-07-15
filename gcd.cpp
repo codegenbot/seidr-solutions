@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,22 +32,20 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    
-    while(true) {
-        cin >> a >> b;
-        if(a <= INT_MAX && b <= INT_MAX) break;
-        cout << "Error: Input values are too large. Please enter values that fit within the range of an integer.\n";
-    }
+    cin >> a >> b;
     cout << std::endl;
+    
+    // Check if the values of a and b are within the limits.
+    // If not, ask for valid input from the user.
+    while(a > INT_MAX/b) {
+        cout << "Invalid input. Please enter a number that does not exceed the maximum limit." << endl;
+        cin >> a >> b;
+    }
+    
     cout << gcd(a, b) << std::endl;
 
     string text, target;
-    
-    while(true) {
-        cin >> text >> target;
-        if(text.length() <= INT_MAX && target.length() <= INT_MAX) break;
-        cout << "Error: Input values are too large. Please enter values that fit within the range of an integer.\n";
-    }
+    cin >> text >> target;
     vector<int> indices = findIndices(text, target);
     for(int i : indices)
         cout << i << " ";
