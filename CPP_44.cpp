@@ -1,22 +1,21 @@
 #include <iostream>
-#include <string>
 #include <cassert>
+#include <string>
 
-std::string to_string(int val){
-    return std::to_string(val);
-}
-
-std::string change_base(int x, int base){
+std::string change_base(int num, int base) {
     std::string result = "";
-    while(x > 0){
-        result = (char)((x % base) + '0') + result;
-        x /= base;
+    while (num > 0) {
+        int remainder = num % base;
+        result = std::to_string(remainder) + result;
+        num /= base;
     }
     return result;
 }
 
 int main(){
     int x = 2;
-    assert(change_base(x, x + 1) == to_string(x)); 
+    for(int i = 2; i <= 10; ++i){
+        std::cout << "Base " << i << ": " << change_base(x, i) << std::endl;
+    }
     return 0;
 }
