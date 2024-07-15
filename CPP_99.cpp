@@ -1,7 +1,11 @@
-double num = stod(value);
-    int closestInt = round(num);
-    if (num - closestInt == 0.5 || num - closestInt == -0.5) {
-        closestInt = (num > 0) ? ceil(num) : floor(num);
+#include <cmath>
+#include <string>
+
+int closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    int closest_integer = std::round(num);
+    if (std::abs(num - closest_integer) == 0.5) {
+        closest_integer = (num > 0) ? std::ceil(num) : std::floor(num);
     }
-    return closestInt;
+    return closest_integer;
 }
