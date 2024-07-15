@@ -12,6 +12,10 @@ std::string remove_vowels(std::string text) {
 
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
-    // Add more test cases here
+    
+    assert(remove_vowels("Hello World") == "Hll Wrld");
+    
+    assert(remove_vowels("Programming") == "Prgrmmng");
+
     return 0;
 }
