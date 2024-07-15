@@ -14,12 +14,12 @@ double diceGame(int n, int m) {
         }
     }
 
-    return count / total;
+    return setprecision(6) << fixed << (count / total);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
+    cout << diceGame(n, m) << endl;
     return 0;
 }
