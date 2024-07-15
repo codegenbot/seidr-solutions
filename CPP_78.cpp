@@ -1,13 +1,14 @@
 #include <string>
-#include <algorithm>
 
-int hex_key(string num){
+int hex_key(std::string num){
     int count = 0;
-    string primes = "2357BD";
+    std::string primes = "2357BD";
     for(char c : num){
-        if(primes.find(c) != string::npos){
+        if(primes.find(c) != std::string::npos){
             count++;
         }
     }
     return count;
 }
+
+assert(hex_key("") == 0);
