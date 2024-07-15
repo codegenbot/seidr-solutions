@@ -1,9 +1,12 @@
-vector<string> all_prefixes(string str) {
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
+
+vector<string> all_prefixes(string str){
     vector<string> result;
-    string prefix;
-    for (char c : str) {
-        prefix += c;
-        result.push_back(prefix);
+    for (int i = 1; i <= str.size(); ++i) {
+        result.push_back(str.substr(0, i));
     }
     return result;
 }
