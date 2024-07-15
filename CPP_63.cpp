@@ -10,5 +10,5 @@ if (n == 0 || n == 1) {
         b = c;
         c = d;
     }
-    return d;
+    return c;
 }
