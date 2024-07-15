@@ -3,21 +3,29 @@
 #include <cassert>
 
 std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> words;
+    std::vector<std::string> result;
     std::string word;
-    for (char c : s) {
-        if (c != ' ') {
-            word += c;
+    
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == ' ') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word.clear();
+            }
         } else {
-            words.push_back(word);
-            word = "";
+            word += s[i];
         }
     }
-    words.push_back(word);
+
+    if (!word.empty()) {
+        result.push_back(word);
+    }
 
     std::vector<std::string> selected_words;
-    if (n <= words.size() && n >= 1) {
-        selected_words.push_back(words[n]);
+    if (n <= result.size() - 2) {
+        for (int i = 1; i <= n; i++) {
+            selected_words.push_back(result[i]);
+        }
     }
 
     return selected_words;
