@@ -1,50 +1,51 @@
 #include <vector>
+#include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
     
-    for (int i = 1; i <= v.size(); ++i) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; ++j)
-            left_sum += v[j];
-        for (int j = i; j < v.size(); ++j)
-            right_sum += v[j];
-        
-        if (left_sum == right_sum) {
-            result.first = vector<int>(v.begin(), v.begin() + i);
-            result.second = vector<int>(v.begin() + i, v.end());
-            return result;
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            result.first = vector<int>(v.begin(), v.begin() + i);
-            result.second = vector<int>(v.begin() + i, v.end());
+    for(int i = 0; i < n; i++) {
+        if(i == 0 || i == n-1)
+            res[0].push_back(v[i]);
+        else {
+            if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
+                res[0].clear();
+                for(int j = 0; j < i; j++)
+                    res[0].push_back(v[j]);
+                res[0].push_back(v[i]);
+                break;
+            }
+            else {
+                res[0].clear();
+                for(int j = i; j < n; j++)
+                    res[0].push_back(v[j]);
+                break;
+            }
         }
     }
     
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i)
-        cin >> v[i];
+    if(res[0].size() != n) {
+        for(int i = 0; i < n; i++) {
+            if(i == 0 || i == n-1)
+                res[1].push_back(v[i]);
+            else {
+                if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
+                    res[1].clear();
+                    for(int j = i; j < n; j++)
+                        res[1].push_back(v[j]);
+                    break;
+                }
+                else {
+                    res[1].clear();
+                    for(int j = 0; j < i; j++)
+                        res[1].push_back(v[j]);
+                    break;
+                }
+            }
+        }
+    }
     
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for (int x : res.first) 
-        cout << x << " ";
-    cout << "] [";
-    for (int x : res.second) 
-        cout << x << " ";
-    cout << "]\n";
-    
-    return 0;
+    return res;
 }
