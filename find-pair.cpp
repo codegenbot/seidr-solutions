@@ -1,8 +1,7 @@
+using namespace std;
+
 #include <iostream>
 #include <unordered_map>
-#include <vector>
-
-using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
