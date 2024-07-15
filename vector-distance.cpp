@@ -15,6 +15,12 @@ int main() {
         }
     }
 
+    for (int i = 0; i < n; ++i) {
+        if (!(std::cin >> vec1[i])) {
+            return 1;
+        }
+    }
+
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         if (!(std::cin >> vec2[i])) {
