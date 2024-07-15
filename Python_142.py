@@ -1,5 +1,5 @@
-```
-def sum_squares(lst):
+def sum_squares():
+    lst = [int(i) for i in input("Enter numbers (space-separated): ").split()]
     if len(lst) == 0:
         return 0
     total = 0
@@ -9,7 +9,3 @@ def sum_squares(lst):
         else:
             raise ValueError("The list must contain only integers.")
     return total
-
-numbers = input("Enter a list of numbers (separated by space): ")
-numbers_list = [int(i) for i in numbers.split()]
-print(sum_squares(numbers_list))
