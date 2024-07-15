@@ -1,10 +1,11 @@
-```
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
-using namespace std;
+using std::cout;
+using std::setprecision;
+using std::fixed;
+using std::endl;
 
 double vectorDistance(int n) {
     float x1[n], x2[n];
