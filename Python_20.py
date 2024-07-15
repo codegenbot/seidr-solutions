@@ -1,4 +1,4 @@
-numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").split()[:-1]))
+numbers = list(map(int, input().split()))
 numbers.sort()
 min_diff = float("inf")
 result = (0, 0)
