@@ -15,6 +15,5 @@ bool simplify(const string& x, const string& n) {
 
 int main() {
     assert(simplify("1/5", "1/5") == false);
-
     return 0;
 }
