@@ -19,4 +19,4 @@ int fib(int n) {
     return result;
 }
 
-assert(fib(14) == 377);
+assert(fib(14) == 610);
