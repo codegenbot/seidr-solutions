@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <cassert>
 
 std::string match_parens(std::vector<std::string> lst) {
     int cnt = 0;
@@ -7,7 +8,7 @@ std::string match_parens(std::vector<std::string> lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
-            } else {
+            } else if (c == ')') {
                 if (cnt == 0) {
                     return "No";
                 }
