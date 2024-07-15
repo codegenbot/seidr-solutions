@@ -1,6 +1,4 @@
-```python
 def dice_game(n, m):
-    peter_rolls = set(range(1, n+1))
-    colin_rolls = set(range(1, m+1))
-    higher_than_colin = sum(1 for _ in peter_rolls if int(_) > max(colin_rolls)) / (n * m)
-    return higher_than_colin
+    total = n * m
+    higher_than_colin = sum(1 for i in range(max(m+1, n), n+1) for _ in range(m))
+    return (higher_than_colin / total)
