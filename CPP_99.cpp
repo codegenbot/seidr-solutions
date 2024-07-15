@@ -1,5 +1,5 @@
-#include <cmath>
 #include <string>
+#include <cmath>
 
 int find_closest_integer(std::string value) {
     double num = stod(value);
@@ -8,4 +8,9 @@ int find_closest_integer(std::string value) {
         closest_int = (num > 0) ? ceil(num) : floor(num);
     }
     return closest_int;
+}
+
+int main() {
+    assert(find_closest_integer("0") == 0);
+    return 0;
 }
