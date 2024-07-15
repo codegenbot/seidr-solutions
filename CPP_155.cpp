@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> countEvenOddDigits(int num) {
     std::vector<int> counts(2, 0);
@@ -20,6 +21,6 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
 }
 
 int main() {
-    assert(issame(countEvenOddDigits(0) , {1, 0}));
+    assert(issame(countEvenOddDigits(0), {1, 0}));
     return 0;
 }
