@@ -23,15 +23,25 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> v1, vector<string> v2) {
-    return v1 == v2;
+bool issame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main() {
-    vector<string> test_case = separate_paren_groups("( ) (( )) (( )( ))");
-    vector<string> expected_result = {"", "", "(( ))", "(( )( ))"};
+    vector<string> expected_result = {"", "", ""};
+    vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    if (issame(test_case, expected_result)) {
+    if (issame(expected_result, result)) {
         cout << "Test case passed." << endl;
     } else {
         cout << "Test case failed." << endl;
