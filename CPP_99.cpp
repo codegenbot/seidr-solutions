@@ -1,8 +1,7 @@
-double num = stod(value);
-    int rounded = static_cast<int>(round(num));
-    if (num - rounded == 0.5) {
-        return (num > 0) ? ceil(num) : floor(num);
-    } else {
-        return round(num);
-    }
+#include <cmath>
+#include <string>
+
+int closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    return static_cast<int>(std::round(num));
 }
