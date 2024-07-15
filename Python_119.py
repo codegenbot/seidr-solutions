@@ -2,19 +2,16 @@
 def match_parens(lst):
     stack = []
     for s in lst:
-        if not isinstance(s, str):
-            return 'No'
         parens_count = sum(1 for c in s if c in ['(', ')'])
         if parens_count == 0:
-            continue
+            return 'Yes'
         for c in s:
             if c == '(':
                 stack.append(c)
             elif c == ')':
                 if len(stack) == 0:
                     return 'No'
-                while stack and stack.pop() != '(':
-                    pass
+                stack.pop()
     if len(stack) > 0:
         return 'No'
     else:
