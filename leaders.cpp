@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 std::vector<int> leaders(std::vector<int>& vec) {
     std::vector<int> result;
     int maxRight = vec.back();
@@ -11,7 +14,11 @@ std::vector<int> leaders(std::vector<int>& vec) {
 
 }
 
-std::vector<int> result = leaders({5, 690, 325, 768, 314});
-for (int num : result) {
-    std::cout << num << " ";
+int main() {
+    std::vector<int> vec = {5, 690, 325, 768, 314};
+    std::vector<int> result = leaders(vec);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
