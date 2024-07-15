@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -8,8 +8,20 @@ vector<int> leaders(vector<int>& arr) {
     int max_right = arr.back();
     for (int i = arr.size() - 1; i >= 0; i--) {
         if (arr[i] >= max_right) {
-            result.push_back(arr[i]);
             max_right = arr[i];
+            result.push_back(max_right);
+        }
+    }
+    return result;
+}
+
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int leader = arr.back();
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= leader) {
+            leader = arr[i];
+            result.push_back(leader);
         }
     }
     return result;
