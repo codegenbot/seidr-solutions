@@ -5,7 +5,9 @@
 
 std::vector<std::string> select_words(std::string s, int n);
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    // implementation of issame function
+}
 
 int main() {
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
