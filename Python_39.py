@@ -1,5 +1,3 @@
 def complete_code(n: int) -> int:
-    if n % 2 == 0:
-        return n // 2
-    else:
-        return n * 3 + 1
+    sum_digits = sum(int(digit) for digit in str(n))
+    return sum_digits
