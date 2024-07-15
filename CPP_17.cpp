@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -16,10 +16,13 @@ std::vector<int> parse_music(std::string music_string) {
             } else {
                 beats.push_back(2);
             }
+            note = "";
         } else if (c == '.') {
             beats.push_back(1);
         } else if (c == '|') {
-            note = "";  // Reset note string
+            note = "";
+        } else {
+            note += c;
         }
     }
     return beats;
