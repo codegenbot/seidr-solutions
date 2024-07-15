@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -14,12 +15,12 @@ double diceGame(int n, int m) {
         }
     }
 
-    std::cout << std::fixed << std::setprecision(6) << (count / total);
+    return count / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    diceGame(n, m);
+    std::cout << fixed << setprecision(6) << diceGame(n, m);
     return 0;
 }
