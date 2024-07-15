@@ -1,25 +1,22 @@
-#include <vector>
-#include <string>
-
-bool issame(const std::string& str1, const std::string& str2) {
-    return str1.size() == str2.size();
+bool issame(char c1, char c2) {
+    return (c1 == '(' && c2 == ')');
 }
 
-std::vector<std::string> separateParenGroups(const std::string& paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(const string& paren_string) {
+    vector<string> result;
+    string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
-        if (c == '(') {
+        if (issame(c, '(')) {
             if (open_braces > 0) {
-                current_group.push_back(c);
+                current_group += c;
             }
             open_braces++;
-        } else if (c == ')') {
+        } else if (issame(c, ')')) {
             open_braces--;
             if (open_braces > 0) {
-                current_group.push_back(c);
+                current_group += c;
             } else {
                 result.push_back(current_group);
                 current_group = "";
