@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```
 def bouncing_balls():
     h = float(input())
     b = float(input())
