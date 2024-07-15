@@ -21,9 +21,9 @@ int main() {
     bool result = issame(vec1, vec2);
     std::vector<int> increased = incr_list(vec1);
     
-    std::cout << result << std::endl;
+    std::cout << result << std::endl; // Print the boolean result
     for (int num : increased) {
-        std::cout << num << " ";
+        std::cout << num << " "; // Print each element of the increased vector
     }
     
     return 0;
