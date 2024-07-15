@@ -18,5 +18,5 @@ def prime_fib(n: int):
         if is_prime(fib_list[-1]) and len(fib_list) == n:
             return fib_list[-1]
 
-n = int(input("Enter value of n: "))
+n = int(input())
 print(prime_fib(n))
