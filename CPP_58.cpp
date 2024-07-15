@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
+#include <cassert>
 #include <set>
 
 namespace CustomVectorFunctions {
@@ -16,4 +17,10 @@ namespace CustomVectorFunctions {
         result.erase(std::unique(result.begin(), result.end()), result.end());
         return result;
     }
+}
+
+int main() {
+    using namespace CustomVectorFunctions;
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    return 0;
 }
