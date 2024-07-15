@@ -2,32 +2,32 @@
 #include <iostream>
 #include <string>
 
-std::string applySubstitutionCipher(std::string key1, std::string key2, std::string message) {
-    std::string result = "";
+string substitutionCipher(string cipher1, string cipher2, string message) {
+    string decipheredMessage;
     
-    for (char c : message) {
-        if (c != '\0') {
-            int index = key1.find(c);
-            if (index != -1) {
-                result += key2[index];
-            } else {
-                result += c;
-            }
+    for (int i = 0; i < message.length(); i++) {
+        if (message[i] == ' ') {
+            decipheredMessage += ' ';
         } else {
-            result += ' ';
+            int index = message[i];
+            if (index >= 97 && index <= 122) {
+                // Convert ASCII value to lowercase
+                index -= 97;
+                decipheredMessage += cipher2[index];
+            } else if (index >= 65 && index <= 90) {
+                // Convert ASCII value to uppercase
+                index -= 65;
+                decipheredMessage += toupper(cipher2[index]);
+            }
         }
     }
-
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
-    std::string key1, key2, message;
-    
-    // Read input from user
-    cin >> key1 >> key2 >> message;
-
-    std::cout << applySubstitutionCipher(key1, key2, message) << endl;
-
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << substitutionCipher(cipher1, cipher2, message) << endl;
     return 0;
 }
