@@ -1,21 +1,20 @@
 ```cpp
+#include <iostream>
 #include <iomanip>
-#include <ostream>
 
-int snowDay(int hours, float groundSnow, float rate, float melt) {
-    for(int i = 0; i < hours; ++i) {
-        groundSnow += rate - melt;
+float snowDay(int hours, float groundSnow, float rate, float melt) {
+    for (int i = 0; i < hours; ++i) {
+        groundSnow += rate;
+        groundSnow -= melt;
     }
-    return static_cast<int>(groundSnow);
+    return groundSnow;
 }
 
 int main() {
-    std::string line;
-    cin >> line;
-    int h;
-    std::stringstream ss(line);
-    ss >> h;
+    int hours;
+    cin >> hours;
     float groundSnow, rate, melt;
-    ss >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(h, groundSnow, rate, melt) << endl;
+    cin >> groundSnow >> rate >> melt;
+    cout << std::fixed << std::setprecision(10) << snowDay(hours, groundSnow, rate, melt) << std::endl;
     return 0;
+}
