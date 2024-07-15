@@ -1,6 +1,6 @@
 ```python
 def bowling_score(frames):
-    frames_list = [int(x) for x in frames.replace('/', '-').split('-')]
+    frames_list = list(map(int, frames.replace('/', '-').split('-')))
 
     score = 0
     roll = 0
@@ -10,10 +10,10 @@ def bowling_score(frames):
             if i < 8:
                 next_frame = frames_list[i + 1] + frames_list[i + 2]
                 if int(next_frame) == 10:
-                    score += (frame * 3)
+                    score += frame * 3
                 else:
                     if frame == 10 or (int(next_frame[0]) + int(next_frame[1])) < 11:
-                        score += (frame + frames_list[i+1])
+                        score += frame + frames_list[i+1]
                     else:
                         score += frame
             else:
@@ -30,21 +30,20 @@ def bowling_score(frames):
                             score += (frames_list[7] * 3)
                         else:
                             score += (frames_list[8] * 2)
+        elif frame == 10:
+            score += frame * 2
+            roll = 3
+        elif int(str(frame)[0]) + int(str(frame)[1]) < 11:
+            score += frame
+            roll = 2
         else:
-            if frame == 10:
-                score += frame * 2
-                roll = 3
-            elif int(str(frame)[0]) + int(str(frame)[1]) < 11:
+            first_roll = int(str(frame)[0])
+            second_roll = int(str(frame)[1])
+            if i == 8 and len(str(frames_list[9])) == 1:
+                next_frame = frames_list[9] + frames_list[10]
+                score += (first_roll + second_roll * 2)
+            elif i < 8 and len(str(frames_list[i+1])) > 1:
                 score += frame
-                roll = 2
-            else:
-                first_roll = int(str(frame)[0])
-                second_roll = int(str(frame)[1])
-                if i == 8 and len(str(frames_list[9])) == 1:
-                    next_frame = frames_list[9] + frames_list[10]
-                    score += (first_roll + second_roll * 2)
-                elif i < 8 and len(str(frames_list[i+1])) > 1:
-                    score += frame
         if roll == 3:
             roll = 0
     return score
