@@ -1,3 +1,8 @@
+#include <string>
+using namespace std;
+
+string circular_shift(int x, int shift);
+
 string circular_shift(int x, int shift) {
     string num = to_string(x);
     int n = num.size();
