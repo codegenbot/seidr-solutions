@@ -1,9 +1,9 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <cassert>
 
-bool is_same(std::vector<int> a, std::vector<int> b){ // Change function name from issame to is_same
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -20,7 +20,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert (is_same(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32})); // Fix function call and format
+    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
     
     return 0;
 }
