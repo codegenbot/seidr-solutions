@@ -1,4 +1,3 @@
-```
 def basement(nums):
     total = 0
     basement_reached = False
