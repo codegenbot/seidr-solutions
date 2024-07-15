@@ -12,9 +12,10 @@ bool is_palindrome(std::string text) {
 }
 
 int main() {
-    assert(is_palindrome("radar") == true);
+    // Test cases to verify the correctness of the is_palindrome function
+    assert(is_palindrome("madam") == true);
     assert(is_palindrome("hello") == false);
-    assert(is_palindrome("level") == true);
+    assert(is_palindrome("racecar") == true);
     
     return 0;
 }
