@@ -8,12 +8,9 @@ int scoreBowlingRound(const std::string& bowls) {
         if (frame == 10) break;
         if (bowls[i] == 'X') {
             score += 10;
-            if (bowls[i + 2] == 'X')
-                score += 10;
-            else if (bowls[i + 3] == '/')
-                score += 10;
-            else
-                score += (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0') + (bowls[i + 2] == 'X' ? 10 : bowls[i + 2] - '0');
+            if (bowls[i + 2] == 'X') score += 10;
+            else if (bowls[i + 3] == '/') score += 10;
+            else score += (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0') + (bowls[i + 2] == 'X' ? 10 : bowls[i + 2] - '0');
             ++frame;
             continue;
         }
