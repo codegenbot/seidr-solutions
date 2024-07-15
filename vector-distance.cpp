@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -8,9 +9,7 @@ double vectorDistance(int n) {
     vector<float> x1(n), x2(n);
     
     for (int i = 0; i < n; i++) {
-        float x, y;
-        cin >> x >> y;
-        x1[i] = x; x2[i] = y;
+        cin >> x1[i] >> x2[i];
     }
     
     double sum = 0.0;
