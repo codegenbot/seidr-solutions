@@ -1,4 +1,9 @@
-string result = "";
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string anti_shuffle(string s){
+    string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
@@ -9,7 +14,9 @@ string result = "";
             word += c;
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
+    if (!word.empty()) {
+        sort(word.begin(), word.end());
+        result += word;
+    }
     return result;
 }
