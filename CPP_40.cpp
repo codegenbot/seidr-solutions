@@ -1,7 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool triples_sum_to_zero(std::vector<int>& l) {
+using namespace std;
+
+bool triples_sum_to_zero(vector<int>& l) {
     sort(l.begin(), l.end());
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
