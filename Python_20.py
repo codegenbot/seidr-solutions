@@ -1,8 +1,15 @@
 try:
-    numbers = [int(input()) for _ in range(int(input("Enter the number of elements: "))]
-    result = min(numbers, key=lambda x: abs(int(x)))
-    print(result)
+    numbers = list(
+        map(int, input("Enter numbers separated by space (e.g. 1 -2 3): ").split())
+    )
+    if numbers:
+        result = min(numbers, key=lambda x: abs(int(x)))
+        print(result)
+    else:
+        print("No numbers entered. Please enter valid numbers separated by spaces.")
 except ValueError:
-    print("Invalid input. Please enter valid numbers.")
+    print("Invalid input. Please enter valid numbers separated by spaces.")
 except EOFError:
-    print("No input provided. Please enter valid numbers.")
+    print("No input provided. Please enter valid numbers separated by spaces.")
+except KeyboardInterrupt:
+    print("Input interrupted. Please try again.")
