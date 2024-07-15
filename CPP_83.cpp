@@ -4,13 +4,20 @@ using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1)
+    for (long long i = 1; i <= 9LL; i++) {
+        if (i % 10 == 1 || i / 10 == 1) {
             count++;
-        for (int j = 1; j < n - 1; j++) {
-            int num = i * 10 + j;
-            if (num >= 10 && (num % 10 == 1 || num / 10 == 1))
+        }
+        if (i < 10 && i == 1) {
+            count++;
+        }
+        for (long long j = i + 1; j <= pow(10, n - 1); j++) {
+            if (j % 10 == 1 || j / 10 == 1) {
                 count++;
+            }
+            if (j < 10 && j == 1) {
+                count++;
+            }
         }
     }
     return count;
