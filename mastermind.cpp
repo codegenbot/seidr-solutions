@@ -1,36 +1,42 @@
-#include <iostream>
-#include <string>
-
-int mastermind(char* code, char* guess) {
-    int white = 0;
-    int black = 0;
-
-    for(int i = 0; i < 4; i++) {
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            black++;
+            count++;
         }
     }
+    return count;
+}
 
-    for(int i = 0; i < 6; i++) {
-        int countCode = 0, countGuess = 0;
-        char c = (char)(i + 'A');
-        for(int j = 0; j < 4; j++) {
-            if(code[j] == c) countCode++;
-            if(guess[j] == c) countGuess++;
-        }
-        white += min(countCode, countGuess);
+int blackPegs(string code, string guess) {
+    int count = 0;
+    map<char,int> codeMap;
+    for(int i=0; i<4; i++) {
+        codeMap[code[i]]++;
     }
-
-    return black + white;
+    
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            codeMap[code[i]]--;
+        } else if(codeMap.find(guess[i]) != codeMap.end()) {
+            codeMap[guess[i]]--;
+            count++;
+        }
+    }
+    
+    for(auto it : codeMap) {
+        if(it.second > 0) {
+            return 0;
+        }
+    }
+    
+    return count;
 }
 
 int main() {
-    char* code = "ABCD";
-    char* guess = "BCDE";
-
-    int result = mastermind(code, guess);
-
-    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
-
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
