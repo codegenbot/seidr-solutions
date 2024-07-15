@@ -14,4 +14,3 @@ int luhn(std::vector<int> numbers) {
         }
     }
     return sum;
-}
