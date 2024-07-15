@@ -1,4 +1,3 @@
-```
 def parse_music(music_string: str) -> list:
     if not music_string:
         return []
@@ -12,7 +11,7 @@ def parse_music(music_string: str) -> list:
                     i += 3
                 elif music_string[i:i+5] == 'o. | .|':
                     music_list.append(6)
-                    i += 4
+                    i += 5
                 else:
                     if music_string[i+1] == '.':
                         if i+2 < len(music_string) and music_string[i+2] in ['|', '.']:
@@ -22,13 +21,6 @@ def parse_music(music_string: str) -> list:
                             elif music_string[i:i+6] == 'o. | . .|':
                                 music_list.append(6)
                                 i += 5
-                            else:
-                                if music_string[i+2] == '.':
-                                    music_list.append(2)
-                                    i += 2
-                                else:
-                                    music_list.append(4)
-                                    i += 1
                         else:
                             if music_string[i+1] == '.':
                                 music_list.append(2)
@@ -43,7 +35,7 @@ def parse_music(music_string: str) -> list:
                                 i += 3
                             elif music_string[i:i+5] == 'o. | .|':
                                 music_list.append(6)
-                                i += 4
+                                i += 5
                         else:
                             if music_string[i+1] == '.':
                                 music_list.append(2)
@@ -51,8 +43,8 @@ def parse_music(music_string: str) -> list:
                             else:
                                 music_list.append(4)
                                 i += 1
-        elif music_string[i:i+7] == '.|..|.||.|':
+        elif music_string[i:i+6] == '.|..|.||':
             music_list.extend([8, 4, 2])
-            i += 6
+            i += 5
         i += 1
     return music_list
