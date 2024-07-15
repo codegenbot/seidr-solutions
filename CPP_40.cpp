@@ -20,6 +20,10 @@ bool triples_sum_to_zero(vector<int>& l) {
 
 int main() {
     vector<int> test_case = {1, -2, 1, 0, 5};
-    cout << triples_sum_to_zero(test_case) << endl;
+    if (triples_sum_to_zero(test_case)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
