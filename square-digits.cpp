@@ -1,28 +1,29 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string squareDigits(std::string input) {
-    std::string output = "";
+    std::stringstream output;
     for (char c : input) {
         if(c != ' ') { 
-            int digit = std::stoi(std::string(1, c)) * std::stoi(std::string(1, c));
-            output += to_string(digit);
+            int digit = c - '0';
+            output << std::to_string(digit * digit);
         }
     }
-    return output;
+    return output.str();
 }
 
 int main() {
+    std::string input;
     while(true) {
-        std::cout << "Enter a positive integer as string: ";
-        std::string input;
+        std::cout << "Enter a positive integer: ";
         std::cin >> input;  
         if(input.find_first_not_of("0123456789") == std::string::npos) { 
             break;
         }
         std::cout << "Invalid input. Please enter a positive integer.\n";
     }
-
+    std::cin.ignore();  // <--- Add this line
     std::string result = squareDigits(input);
 
     return 0;
