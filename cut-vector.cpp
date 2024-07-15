@@ -1,23 +1,60 @@
+```c++
 #include <vector>
-#include <climits>
-#include <cmath>
-
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+int main() {
+    vector<int> v = {1,2,3,4,5}; 
+    vector<vector<int>> res = cutVector(v);
+    for(int i=0;i<2;i++) {
+        for(auto x:res[i]) cout<<x<<" ";
+        cout<<endl;
+    }
+}
+
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    int min_diff = INT_MAX;
-    int pos = 0;
+    vector<vector<int>> res(2);
     
-    for (int i = 1; i < n; i++) {
-        if (abs(v[i] - v[0]) <= min_diff) {
-            min_diff = abs(v[i] - v[0]);
-            pos = i;
+    for(int i = 0; i < n; i++) {
+        if(i == 0 || i == n-1)
+            res[0].push_back(v[i]);
+        else {
+            if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
+                res[0].clear();
+                for(int j = 0; j < i; j++)
+                    res[0].push_back(v[j]);
+                res[0].push_back(v[i]);
+                break;
+            }
+            else {
+                res[0].clear();
+                for(int j = i; j < n; j++)
+                    res[0].push_back(v[j]);
+                break;
+            }
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + pos);
-    vector<int> right(v.begin() + pos, v.end());
+    if(res[0].size() != n) {
+        for(int i = 0; i < n; i++) {
+            if(i == 0 || i == n-1)
+                res[1].push_back(v[i]);
+            else {
+                if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
+                    res[1].clear();
+                    for(int j = i; j < n; j++)
+                        res[1].push_back(v[j]);
+                    break;
+                }
+                else {
+                    res[1].clear();
+                    for(int j = 0; j < i; j++)
+                        res[1].push_back(v[j]);
+                    break;
+                }
+            }
+        }
+    }
     
-    return {left, right};
+    return res;
 }
