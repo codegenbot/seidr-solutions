@@ -17,17 +17,13 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 int main() {
     int n;
     cin >> n;
-    vector<float> prices(n);
+    vector<float> prices(n, 0);
     for (int i = 0; i < n; i++) {
         cin >> prices[i];
     }
-    int dummy;
-    cin >> dummy; 
-    for (int i = 0; i < 3; i++) {
-        cin.ignore(); // Ignore any remaining whitespace characters
-    }
+    cin.ignore();
     cin >> n;
-    vector<float> discounts(n);
+    vector<float> discounts(n, 0);
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
