@@ -1,4 +1,6 @@
-```
+Here is the corrected code:
+
+```python
 def match_parens(lst):
     stack = []
     for s in lst:
