@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -6,12 +7,13 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    vector<float> x1, x2;
+    vector<float> x1(n), x2(n);
     
-    float a, b;
-    for (int i = 0; i < n; i++) {
-        cin >> a >> b;
-        x1.push_back(a); x2.push_back(b);
+    for (int i = 0; i < n; ) {
+        float x, y;
+        cin >> x >> y;
+        x1[i] = x; x2[i] = y;
+        i++;
     }
     
     double sum = 0.0;
