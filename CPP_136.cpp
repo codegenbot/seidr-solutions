@@ -5,21 +5,8 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> largest_smallest_integers(vector<int> lst);
-
-int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
-    return 0;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {INT_MIN, INT_MAX};
+    vector<int> result = {0, 0};
     int max_neg = INT_MIN;
     int min_pos = INT_MAX;
     
@@ -39,4 +26,9 @@ vector<int> largest_smallest_integers(vector<int> lst){
     }
     
     return result;
+}
+
+int main() {
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
+    return 0;
 }
