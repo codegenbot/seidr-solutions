@@ -1,10 +1,10 @@
+#include <iostream>
 #include <string>
+#include <cmath>
 
-using namespace std;
-
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for(int i=0; i<sentence.length(); i++){
         if(sentence[i] != ' '){
             word += sentence[i];
@@ -38,6 +38,6 @@ string words_in_sentence(string sentence){
 }
 
 int main(){
-    assert (words_in_sentence("here is") == "is");
+    assert(words_in_sentence("here is") == "is");
     return 0;
 }
