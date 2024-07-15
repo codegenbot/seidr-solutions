@@ -1,11 +1,20 @@
-int even_count = 0, odd_count = 0;
-    string num_str = to_string(abs(num));
-    for(char c : num_str){
-        if((c - '0') % 2 == 0){
-            even_count++;
+#include <vector>
+#include <cassert>
+
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> counts(2, 0);
+    std::string num_str = std::to_string(std::abs(num));
+    for (char c : num_str) {
+        if (c % 2 == 0) {
+            counts[0]++;
         } else {
-            odd_count++;
+            counts[1]++;
         }
     }
-    return {even_count, odd_count};
+    return counts;
+}
+
+int main() {
+    // Call even_odd_count function here
+    return 0;
 }
