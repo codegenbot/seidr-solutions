@@ -1,4 +1,4 @@
-map<string, int> num_dict = {
+map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,25 +11,23 @@ map<string, int> num_dict = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
-    stringstream ss(numbers);
-    string word;
-    vector<string> num_vec;
-
-    while (ss >> word) {
-        num_vec.push_back(word);
-    }
-
-    sort(num_vec.begin(), num_vec.end(),
-        [&num_dict](const string& a, const string& b) {
-            return num_dict[a] < num_dict[b];
-        });
-
+string sort_numbers(string numbers){
     string result = "";
-    for (const string& num : num_vec) {
-        result += num + " ";
-    }
+    map<int, string> reverse_map;
 
-    result.pop_back();  // Remove trailing space
+    size_t pos = 0;
+    while ((pos = numbers.find(' ')) != string::npos) {
+        string word = numbers.substr(0, pos);
+        numbers.erase(0, pos + 1);
+
+        reverse_map[number_map[word]] = word;
+    }
+    reverse_map[number_map[numbers]] = numbers;
+
+    for (const auto& num : reverse_map) {
+        result += num.second + " ";
+    }
+    result.pop_back(); // Remove the extra space at the end
+
     return result;
 }
