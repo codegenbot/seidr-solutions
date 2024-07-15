@@ -25,5 +25,5 @@ vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    // Main function code
+    // main function code here
 }
