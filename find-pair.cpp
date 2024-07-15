@@ -14,20 +14,14 @@ int main() {
     cin >> target;
 
     unordered_map<int, int> mp;
-    bool found = false;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << endl;
-            cout << nums[i] << endl;
-            found = true;
-            break;
+            cout << mp[target - nums[i]] << " " << i << endl;
+            return 0;
         }
         mp[nums[i]] = i;
     }
 
-    if (!found) {
-        cout << "No such pair found" << endl;
-    }
-
+    cout << "No such pair found" << endl;
     return 0;
 }
