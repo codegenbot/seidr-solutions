@@ -18,3 +18,5 @@ int fib(int n) {
     
     return result;
 }
+
+assert(fib(14) == 927);
