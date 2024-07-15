@@ -1,7 +1,10 @@
-#include <string>
+#include <iostream>
+#include <vector>
 #include <cassert>
 
-bool issame(const string &a, const string &b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
@@ -13,4 +16,9 @@ vector<string> all_prefixes(string str){
         prefixes.push_back(prefix);
     }
     return prefixes;
+}
+
+int main(){
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    return 0;
 }
