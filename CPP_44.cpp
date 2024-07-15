@@ -1,9 +1,9 @@
-#include <string> // Include string header
-#include <cassert> // Include assert header
 
-using namespace std; // Use std namespace
+#include <string>
+#include <cassert>
 
-// Function signature
+using namespace std;
+
 string change_base(int x, int base) {
     string result = "";
     while (x > 0) {
@@ -14,8 +14,7 @@ string change_base(int x, int base) {
 }
 
 int main() {
-    // Sample test case
     int x = 10;
-    assert(change_base(x, x + 1) == to_string(x)); // Compare result
+    assert(change_base(x, x + 1) == to_string(x));
     return 0;
 }
