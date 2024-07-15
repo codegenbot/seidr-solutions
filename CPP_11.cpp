@@ -15,6 +15,6 @@ string string_xor(const string& a, const string& b) {
 }
 
 int main() {
-    // Main function code here (if needed)
+    // Your code logic here
     return 0;
 }
