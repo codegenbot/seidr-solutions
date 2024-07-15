@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 pair<float, float> find_closest_elements(vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
