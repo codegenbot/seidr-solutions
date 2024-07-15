@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
@@ -7,4 +8,4 @@ def coin_sums(cents):
             result[i] += 1
             cents -= coins[i]
 
-    return result
+    return result```
