@@ -14,15 +14,14 @@ double diceGame(int n, int m) {
         }
     }
 
-    std::ios_base::fmtflags flags = cout.flags();
-    double result = count / total;
-    cout << fixed << setprecision(6) << result << endl;
-    cout.flags(flags);
+    return count / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    diceGame(n, m);
+    double d = diceGame(n, m);
+    cout << fixed << setprecision(6);
+    cout << std::setiosflags(ios::fixed) << d << endl;
     return 0;
 }
