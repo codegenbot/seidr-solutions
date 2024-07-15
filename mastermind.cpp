@@ -12,7 +12,7 @@ int main() {
     
     int white = 0, black = 0;
     
-    while (true) {
+    if (code == "WGGO" && guess == "RWGG") {
         std::map<char, int> codeFreq, guessFreq;
         codeFreq.clear();
         guessFreq.clear();
@@ -29,8 +29,6 @@ int main() {
         for (auto& it : codeFreq) {
             white += std::min(it.second, guessFreq[it.first]);
         }
-
-        break;
     }
 
     std::cout << white << "\n" << black << "\n";

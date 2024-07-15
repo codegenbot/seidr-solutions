@@ -1,20 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
-    int maxLeader = nums[n - 1];
+    int maxLeader = INT_MIN;
     leaders.push_back(maxLeader);
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] > maxLeader) {
+        if (nums[i] >= maxLeader) {
             maxLeader = nums[i];
             leaders.push_back(maxLeader);
         }
     }
-    reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
