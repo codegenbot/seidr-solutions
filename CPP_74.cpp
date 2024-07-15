@@ -8,5 +8,5 @@ int count1 = 0, count2 = 0;
     if (count1 < count2) {
         return lst1;
     } else {
-        return count1 == count2 ? lst1 : lst2;
+        return lst2;
     }
