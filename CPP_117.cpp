@@ -1,22 +1,22 @@
-int count_consonants(string word) {
-    int count = 0;
-    string vowels = "aeiouAEIOU";
-    for (char c : word) {
-        if (isalpha(c) && vowels.find(c) == string::npos) {
-            count++;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
+    for (char c : s) {
+        if (c == ' ') {
+            if (count_consonants(word) == n) {
+                result.push_back(word);
+            }
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return count;
-}
-
-bool issame(string s1, string s2) {
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
-    return s1 == s2;
-}
-
-vector<string> select_words(string s, int n);
-
-int main() {
-    // main function logic here
+    if (!word.empty() && count_consonants(word) == n) {
+        result.push_back(word);
+    }
+    return result;
 }
