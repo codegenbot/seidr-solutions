@@ -1,16 +1,15 @@
-#include <iostream>
-#include <vector>
 #include <cassert>
+#include <vector>
 
-int prod_signs(const std::vector<int>& nums) {
+int prod_signs(std::vector<int> nums) {
     int product = 1;
     for (int num : nums) {
-        product = (num > 0) ? product : (num < 0) ? -product : 0;
+        product *= (num > 0) ? 1 : (num < 0) ? -1 : 0;
     }
     return product;
 }
 
 int main() {
-    assert (prod_signs({-1, 1, 1, 0}) == 0);
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
