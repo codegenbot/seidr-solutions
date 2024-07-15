@@ -1,11 +1,10 @@
 def add_delimiter(numbers, delimiter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimiter])
-    result.pop()
-    return result
+    return delimiter.join(str(num) for num in numbers)
 
-numbers = [1, 2, 3, 4]
-delimiter = ","
-output = add_delimiter(numbers, delimiter)
+def check(s):
+    numbers = [1, 2, 3, 4]
+    delimiter = ","
+    return add_delimiter(numbers, delimiter)
+
+output = check("Test")
 print(output)
