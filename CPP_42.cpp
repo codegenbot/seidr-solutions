@@ -15,38 +15,17 @@ std::vector<int> incr_list(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> a, b;
-    int n;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        a.push_back(num);
-    }
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        b.push_back(num);
-    }
-
-    if (issame(a, b)) {
-        std::cout << "Vectors are the same\n";
-    } else {
-        std::cout << "Vectors are different\n";
-    }
-
-    std::vector<int> c;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        c.push_back(num);
-    }
-
-    std::vector<int> result = incr_list(c);
-    for (int num : result) {
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
+    
+    bool result = issame(vec1, vec2);
+    std::vector<int> increased = incr_list(vec1);
+    
+    // Output the result
+    std::cout << result << std::endl;
+    for (int num : increased) {
         std::cout << num << " ";
     }
-
+    
     return 0;
 }
