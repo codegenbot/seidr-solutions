@@ -1,6 +1,6 @@
 def leaders(input):
-    leaders = [input[-1]]
-    for num in input[:-1][::-1]:
-        if num >= leaders[-1]:
-            leaders.insert(0, num)
+    leaders = []
+    for i in range(len(input)):
+        if i == len(input) - 1 or input[i] >= max(input[i+1:]):
+            leaders.append(input[i])
     return leaders
