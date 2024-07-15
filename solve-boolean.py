@@ -1,25 +1,31 @@
 ```
 def solve_boolean(expression):
-    def evaluate(tokens):
-        if not tokens:
+    def parseBoolean(s):
+        if s[0] == '(':
+            end = s.find(')')
+            if end != -1:
+                return parseBoolean(s[1:end])
+        if s.startswith("T"):
             return True
-        token = next(token for _ in range(len(tokens)), None)
-        if token == '(':
-            i = 1
-            for t in tokens[1:]:
-                if t == '(':
-                    i += 1
-                elif t == ')':
-                    i -= 1
-                if i == 0:
-                    return evaluate(tokens[1:tokens.index(t)+1])
-            return evaluate(tokens[1:])
-        token = ''.join(token for token in (token for _ in range(len(tokens))))[0]
-        if token.lower() in 'tf':
-            return {'T': True, 'F': False}[token.upper()]
-        elif token in 'orand':
-            op = {'or': lambda a, b: a or b, 'and': lambda a, b: a and b}[token]
-            return op(evaluate(tokens[1]), evaluate(tokens[2:-1]))
-    expression = expression.replace("T", "True").replace("F", "False")
-    tokens = iter(expression.replace('(', ' ( ').replace(')', ' ) ').split())
-    return bool(evaluate(tokens))
+        if s.startswith("F"):
+            return False
+        if s == 'T':
+            return True
+        if s == 'F':
+            return False
+        if s in ['|', '&']:
+            return {'|': lambda a, b: a or b, '&': lambda a, b: a and b}[s]
+        return None
+
+    def evaluateBoolean(stack):
+        result = parseBoolean(stack.pop(0))
+        while stack:
+            op = stack.pop()
+            operand = parseBoolean(stack.pop(0))
+            if op == '|':
+                result = lambda x, y: x or y(result)
+            elif op == '&':
+                result = lambda x, y: x and y(result)
+        return result
+
+    return bool(evaluateBoolean(expression.replace("T", "True").replace("F", "False").split()))
