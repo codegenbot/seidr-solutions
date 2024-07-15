@@ -7,14 +7,20 @@ int bowlingScore(std::string s, int i) {
     if (s[i] == 'X') {
         score += 30;
     } else if (s[i] == '/') {
-        for (++i; i < s.length() && (s[i] < '7' || s[i] > '9'); i++) {}
-        score += 10 + (i - 1) * 1;
+        int next = i + 1;
+        while ((s[next] < '7' || s[next] > '9') && next < s.length()) {
+            next++;
+        }
+        score += 10 + (next - i) * 1;
     } else {
         int count = 0;
         while (s[i] >= '1' && s[i] <= '9') {
-            count = count * 10 + (s[i++] - '0');
+            count *= 10;
+            count += s[i] - '0';
+            if (i < s.length() - 1 && s[i + 1] == '\n') break;
+            i++;
         }
-        score += count;
+        score = count;
     }
     return score;
 }
