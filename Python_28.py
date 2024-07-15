@@ -1,4 +1,8 @@
-def check(concatenate_strings):
-    def check(concatenate):
-        return concatenate_strings(concatenate)
-    return check
+def concatenate_strings(strings):
+    return "".join(strings)
+
+def check(function):
+    if callable(function):
+        print("Function is callable")
+    else:
+        print("Function is not callable")
