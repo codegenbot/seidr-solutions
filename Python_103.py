@@ -1,7 +1,7 @@
 def rounded_avg(n, m):
-    if m == 0:
-        return -1
     if n > m:
         return -1
-    avg = (n + m) // 2
-    return bin(round(avg)).replace("0b", "")
+    n_bin = bin(int(bin(n)[2:]))[2:]
+    m_bin = bin(int(bin(m)[2:]))[2:]
+    total_bin = bin((int(n_bin, 2) + int(m_bin, 2)) // 2)[2:]
+    return str(int(total_bin, 2))
