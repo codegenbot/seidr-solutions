@@ -1,13 +1,25 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1;
-    
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    
-    int smallest = sorted_lst[0];
-    for(int num : sorted_lst){
-        if(num > smallest) return num;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+int next_smallest(std::vector<int> lst) {
+    std::sort(lst.begin(), lst.end());
+    int count = 0;
+    int prev = lst[0];
+    for (int num : lst) {
+        if (num != prev) {
+            count++;
+            if (count == 2) {
+                return num;
+            }
+            prev = num;
+        }
     }
-    
     return -1;
+}
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
 }
