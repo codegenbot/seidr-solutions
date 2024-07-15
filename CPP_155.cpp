@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 int main() {
@@ -10,9 +10,9 @@ int main() {
     vector<int> counts = even_odd_count(num);
     vector<int> expectedCounts = {2, 2};
     if (issame(counts, expectedCounts)) {
-        cout << "Counts are the same" << endl;
+        cout << "Counts are correct";
     } else {
-        cout << "Counts are different" << endl;
+        cout << "Counts are incorrect";
     }
     return 0;
 }
