@@ -1,22 +1,15 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(const string& a, const string& b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(const string& paren_string);
-
-void test() {
-    vector<string> test_input = {"(a(b))", "(c(d))"};
-
-    assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
-    assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
-}
-
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -39,7 +32,14 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-int solve_cpp_1() {
+void test() {
+    assert(issame({"abc"}, {"abc"}));
+    assert(!issame({"abc"}, {"def"}));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+}
+
+int main() {
     test();
+
     return 0;
 }
