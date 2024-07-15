@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -14,8 +13,8 @@ double vectorDistance(int n) {
     }
     
     double sum = 0.0;
-    for (int i = 0; i < n; i++) {
-        sum += pow(x2[i] - x1[i], 2);
+    for (float a : x2, b : x1) {
+        sum += pow(a - b, 2);
     }
     
     return sqrt(sum);
