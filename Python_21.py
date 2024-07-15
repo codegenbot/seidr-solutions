@@ -1,6 +1,4 @@
 def normalize_numbers(numbers):
-    norm = []
-    total = sum(numbers)
-    for num in numbers:
-        norm.append(num / total)
-    return norm
+    max_num = max(numbers)
+    normalized = [num / max_num for num in numbers]
+    return normalized
