@@ -5,18 +5,19 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == '-') {
             if (start < i) {
-                if (!output.empty()) {
-                    output.push_back(std::toupper(input[start]));
-                } else {
+                if (start > 0) {
                     output += std::string(1, input[start]).toupper();
                 }
+                output += std::string(&input[start + 1], i - start).substr(0, 1).toupper() + &input[start + 1].substr(1);
                 start = i + 1;
-            }
-            if (i < input.size() && input[i + 1] != '-') {
-                output.push_back(std::tolower(input[i]));
-                start = i + 1;
-            } else if (i == input.size()) {
-                return output;
+            } else {
+                if (i < input.size()) {
+                    if (input[i + 1] == '-') continue;
+                    output.push_back(std::tolower(input[i]));
+                    start = i + 1;
+                } else {
+                    return output;
+                }
             }
         }
     }
