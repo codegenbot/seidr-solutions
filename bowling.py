@@ -7,11 +7,34 @@ def bowling_score(frames):
 
     for i, frame in enumerate(frames_list[:10]):
         if len(str(frame)) == 1:
-            score += frame
-            if i < 9 and (i == 7 or sum([int(x) for x in str(frames_list[i+2])])) > 10:
-                roll = 0
+            if i < 8:
+                next_frame = frames_list[i + 1] + frames_list[i + 2]
+                if int(next_frame) == 10:
+                    score += (frame * 3)
+                    roll = 0
+                else:
+                    score += frame
+                    roll = 2
+            else:
+                if i < 9 and len(str(frames_list[i+1])) > 1:
+                    score += (frame + frames_list[i+1])
+                else:
+                    score += (frame * 3) + frames_list[9]
         else:
-            first_roll = int(str(frame)[0])
-            second_roll = int(str(frame)[1])
-            score += (first_roll + (second_roll if first_roll + second_roll <= 10 else second_roll - 10))
+            if frame == 10:
+                score += frame * 2
+                roll = 2
+            elif int(str(frame)[0]) + int(str(frame)[1]) < 11:
+                score += frame
+                roll = 2
+            else:
+                first_roll = int(str(frame)[0])
+                second_roll = int(str(frame)[1])
+                if i == 8 and len(str(frames_list[9])) == 1:
+                    next_frame = frames_list[9] + frames_list[10]
+                    score += (first_roll + second_roll * 2)
+                    roll = 0
+                elif i < 8 and len(str(frames_list[i+1])) > 1:
+                    score += frame
+                    roll = 0
     return score
