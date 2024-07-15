@@ -7,9 +7,10 @@ using namespace std;
 int fuelCost(vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
-        int result = static_cast<int>(floor(double(i)/3));
-        result -= 2; 
-        sum += result;
+        double result = static_cast<double>(i)/3;
+        int newResult = lround(result);
+        newResult -= 2; 
+        sum += newResult;
     }
     return sum;
 }
