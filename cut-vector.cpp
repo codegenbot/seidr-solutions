@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <utility>
@@ -48,6 +49,3 @@ int main() {
     std::cout << "1 ";
     for (auto x : result.second) std::cout << x << " ";
     std::cout << "\n";
-    
-    return 0;
-}
