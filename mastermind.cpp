@@ -36,7 +36,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int whiteAndBlack = mastermind(code, guess);
-    cout << whiteAndBlack - 4 + mastermind(code, guess) << endl;
-    cout << whiteAndBlack << endl;
+    cout << whiteAndBlack - mastermind(code, guess) << endl;
+    cout << mastermind(code, guess) << endl;
     return 0;
 }
