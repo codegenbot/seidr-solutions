@@ -8,7 +8,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 # Accept input from the user
-numbers = list(map(int, input().split()))
+numbers = []
+while True:
+    try:
+        num = int(input())
+        numbers.append(num)
+    except EOFError:
+        break
 
 # Call the function with user input and print the result
 print(sum_product(numbers))
