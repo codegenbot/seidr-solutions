@@ -1,3 +1,7 @@
+```c++
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -12,7 +16,7 @@ int main() {
 
     cout << quarters << endl;
     cout << nickles << endl;
-    cout << (cents / 10) << endl;
+    cout << (cents / 1) << endl;
     cout << pennies << endl;
 
     return 0;
