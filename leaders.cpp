@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 
@@ -15,14 +16,14 @@ std::vector<int> leaders(std::vector<int>& vec) {
 
 int main() {
     std::vector<int> vec = {7, 5, 2, 4};
-    std::vector<int> result; // Initialize with default allocator
-    for (int num : result) {
-        std::cout << "No leaders found in the input vector.\n";
-        return 0;
-    }
-    result = leaders(vec);
-    for (int num : result) {
-        std::cout << num << " ";
+    if (vec.empty()) {
+        std::cout << "Error: Input vector is empty." << std::endl;
+    } else {
+        std::vector<int> result = leaders(vec);
+        for (int num : result) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
     }
     return 0;
 }
