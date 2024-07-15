@@ -22,7 +22,7 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 // Correct the issame function signature
-bool issame(vector<int>& a, vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
