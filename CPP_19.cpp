@@ -1,11 +1,7 @@
-#include <iostream>
+#include <string>
 #include <map>
-#include <vector>
-#include <algorithm>
-#include <sstream>
-#include <cassert>
 
-using namespace std;
+string sort_numbers(string numbers);
 
 map<string, int> number_map = {
     {"zero", 0},
@@ -21,30 +17,23 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers){
+    string result = "";
     map<int, string> reverse_map;
-    for(auto const& pair : number_map){
-        reverse_map[pair.second] = pair.first;
+    
+    size_t pos = 0;
+    string token;
+    while ((pos = numbers.find(" ")) != string::npos) {
+        token = numbers.substr(0, pos);
+        reverse_map[number_map[token]] = token;
+        numbers.erase(0, pos + 1);
     }
     
-    vector<int> nums;
-    stringstream ss(numbers);
-    string num;
-    while(ss >> num){
-        nums.push_back(number_map[num]);
+    reverse_map[number_map[numbers]] = numbers;
+    
+    for (const auto& pair : reverse_map) {
+        result += pair.second + " ";
     }
     
-    sort(nums.begin(), nums.end());
-    
-    string result;
-    for(int n : nums){
-        result += reverse_map[n] + " ";
-    }
-    
-    return result.substr(0, result.size() - 1);
-}
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    
-    return 0;
+    result.pop_back(); // Remove the extra space at the end
+    return result;
 }
