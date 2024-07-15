@@ -2,16 +2,6 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst);
-
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    
-    // Additional test cases can be added here
-    
-    return 0;
-}
-
 vector<string> sorted_list_sum(vector<string> lst) {
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
@@ -21,4 +11,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
         return a.length() < b.length();
     });
     return lst;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    
+    // Additional test cases can be added here
+    
+    return 0;
 }
