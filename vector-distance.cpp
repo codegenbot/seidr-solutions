@@ -20,7 +20,7 @@ int main() {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    double result = std::sqrt(sum);
+    float result = std::sqrt(sum);
     std::cout << result << std::endl;
 
     return 0;
