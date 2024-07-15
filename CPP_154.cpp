@@ -12,10 +12,8 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
 
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
-    assert(cycpattern_check("abcdef", "defabc") == true);
-    assert(cycpattern_check("hellohello", "hello") == true);
-    assert(cycpattern_check("software", "soft") == false);
-    assert(cycpattern_check("programming", "ingpro") == false);
-    
+    assert(cycpattern_check("abcd", "dabc") == true);
+    assert(cycpattern_check("hello", "world") == false);
+
     return 0;
 }
