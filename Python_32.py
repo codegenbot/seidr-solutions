@@ -5,7 +5,7 @@ def find_zero(xs: list) -> float:
         return "undefined"
     return -b / a
 
-user_input = input("Enter two numbers separated by a space: ").strip().split()
-xs = list(map(float, user_input))
+user_input = input("Enter two numbers separated by a space: ").strip()
+xs = list(map(float, user_input.split()))
 result = find_zero(xs)
 print(result)
