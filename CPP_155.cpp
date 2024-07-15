@@ -35,6 +35,6 @@ int main() {
     cout << "Are vectors a and b same? " << (issame(a, b) ? "Yes" : "No") << endl;
 
     assert(issame(even_odd_count(0), {1, 0}));
-    
+
     return 0;
 }
