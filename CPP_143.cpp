@@ -2,7 +2,7 @@ string result = "";
     string word = "";
     for (char c : sentence) {
         if (c == ' ') {
-            if (is_prime(word.size())) {
+            if (is_prime(word.length())) {
                 result += word + " ";
             }
             word = "";
@@ -10,7 +10,7 @@ string result = "";
             word += c;
         }
     }
-    if (is_prime(word.size())) {
+    if (is_prime(word.length())) {
         result += word;
     }
     return result;
