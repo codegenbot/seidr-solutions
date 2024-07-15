@@ -1,4 +1,4 @@
-a, b = map(float, input().split())
+a, b = map(float, input().strip().split())
 
 def find_zero(a: float, b: float) -> float:
     if a == 0:
