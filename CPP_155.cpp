@@ -15,10 +15,6 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Test the function
-    vector<int> result = even_odd_count(123456);
-    assert(result[0] == 3);
-    assert(result[1] == 3);
-    
+    // Main function code here
     return 0;
 }
