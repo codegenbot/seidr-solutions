@@ -16,7 +16,7 @@ int main() {
 
     vector<string> result = separate_paren_groups(input);
 
-    for (const string& group : result) {
+    for (string group : result) {
         cout << group << endl;
     }
 
