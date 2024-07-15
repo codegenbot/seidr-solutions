@@ -1,14 +1,16 @@
-int maxFreq = -1;
+#include <vector>
+#include <unordered_map>
+
+int findUnique(std::vector<int> lst) {
+    int result = -1;
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (num == freq && num > maxFreq) {
-            maxFreq = num;
+        freq[num]++;
+    }
+    for (auto it = freq.begin(); it != freq.end(); ++it) {
+        if (it->first > it->second && it->second >= it->first) {
+            result = std::max(result, it->first);
         }
     }
-    return maxFreq;
+    return result;
 }
