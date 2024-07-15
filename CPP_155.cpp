@@ -14,4 +14,4 @@ bool issame(int num) {
     }
     
     return result;
-}
+} 
