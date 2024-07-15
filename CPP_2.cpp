@@ -1,5 +1,5 @@
 #include <cmath>
-#include <cassert>
+#include <cassert> 
 
 double truncate_number(double number) {
     return number - floor(number);
