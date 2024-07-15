@@ -3,9 +3,9 @@ guess = input()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
-code = ''.join(c if c != g else '' for c, g in zip(code, guess))
-guess = ''.join(c if c != g else '' for c, g in zip(guess, code))
+code_tmp = [c for c, g in zip(code, guess) if c != g]
+guess_tmp = [g for c, g in zip(code, guess) if c != g]
 
-white_pegs = sum(min(code.count(c), guess.count(c)) for c in set(code) if c not in guess)
+white_pegs = sum(min(code_tmp.count(c), guess_tmp.count(c)) for c in set(code_tmp))
 
 print(white_pegs, black_pegs)
