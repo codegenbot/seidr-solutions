@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int modp(int n, int p) {
     if (p == 1) return 0;
@@ -15,9 +14,10 @@ int modp(int n, int p) {
 }
 
 int main() {
-    int n = 5; // Example input value for n
-    int p = 3; // Example input value for p
+    int n, p;
+    std::cin >> n >> p;
     int result = modp(n, p);
-    cout << "Result: " << result << endl;
+    std::cout << result << std::endl;
+    
     return 0;
 }
