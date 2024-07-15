@@ -17,7 +17,7 @@ int main() {
         for (int j = 0; j < i; ++j) {
             leftSum += nums[j];
         }
-        for (int j = i; j < n; ++j) {
+        for (int j = i; j < n; ++j) { // Corrected loop condition
             rightSum += nums[j];
         }
         int currentDiff = abs(leftSum - rightSum);
