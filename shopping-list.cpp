@@ -17,16 +17,14 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<float> prices(n);
-    std::fill(prices.begin(), prices.end(), 0.0);
     for (int i = 0; i < n; i++) {
         std::cin >> prices[i];
     }
     std::cin.ignore();
-    int m;
-    std::cin >> m;
-    std::vector<float> discounts(m);
+    std::cin >> n;
+    std::vector<float> discounts(n);
     std::fill(discounts.begin(), discounts.end(), 0.0);
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         std::cin >> discounts[i];
     }
     std::cout << std::fixed << std::setprecision(6) << shoppingList(prices, discounts) << std::endl;
