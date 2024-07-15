@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 double getProbability(int n, int m) {
@@ -12,6 +14,6 @@ double getProbability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << std::setprecision(10) << getProbability(n, m);
+    cout << fixed << setprecision(10) << getProbability(n, m);
     return 0;
 }
