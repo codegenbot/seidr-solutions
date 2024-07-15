@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -21,7 +19,11 @@ int bowlingScore(std::string s) {
         }
 
         if (currentRolls == 2) {
-            score += currentScore;
+            if (currentScore >= 10) {
+                score += 10;
+            } else {
+                score += currentScore;
+            }
             currentScore = 0;
             inFrame = false;
             currentRolls = 0;
@@ -29,13 +31,4 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling score: ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return 0;
 }
