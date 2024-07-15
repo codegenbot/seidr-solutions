@@ -7,7 +7,7 @@ def fix_spaces(text: str) -> str:
     text = text.replace(hyphen_placeholder, '-')
     return text
 
-def input_text_source() -> str:
+def input_text_source():
     return input()
 
 input_text = input_text_source()
