@@ -10,16 +10,16 @@ std::string camelCase(std::string input) {
             if (start < i) {
                 output += std::string(1, (input[start] >= 'a' && input[start] <= 'z') ? std::tolower(input[start]) : std::toupper(input[start]));
                 for (size_t j = start + 1; j < i; ++j) {
-                    if (start == 0) {
-                        output += input[j];
-                    } else {
-                        output += std::string(1, (input[j] >= 'a' && input[j] <= 'z') ? std::tolower(input[j]) : std::toupper(input[j]));
+                    if (input[j] == '-') {
+                        start = j;
+                        continue;
                     }
+                    output += input[j];
                 }
             }
             if (i < input.size()) {
                 if (start >= i || input[i] != '-') {
-                    output.push_back(std::string(1, (input[i] >= 'a' && input[i] <= 'z') ? std::tolower(input[i]) : std::toupper(input[i])));
+                    output.push_back((input[i] >= 'a' && input[i] <= 'z') ? std::tolower(input[i]) : std::toupper(input[i]));
                     start = i + 1;
                 } else {
                     start = i + 1;
