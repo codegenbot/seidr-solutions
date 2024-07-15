@@ -1,3 +1,4 @@
+'''Python
 def cut_vector(vector):
     left_sum = 0
     right_sum = sum(vector)
@@ -15,3 +16,4 @@ def cut_vector(vector):
             right_sum -= vector[i]
 
     return vector[:split_index + 1], vector[split_index + 1:]
+'''
