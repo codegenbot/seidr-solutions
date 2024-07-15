@@ -7,17 +7,17 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == '-') {
             if (start < i) {
-                output += std::string(std::tolower(input.substr(start, i - start)));
+                output += std::string(std::tolower(input[start]), i - start);
             }
             if (i < input.size()) {
-                if (input[i + 1] == '-') continue;
-                output.push_back(toupper(input[i]));
-                start = i + 1;
-            } else {
-                return output;
+                if (input[i + 1] != '-') {
+                    output.push_back(toupper(input[i]));
+                } else {
+                    ++i;
+                }
             }
+            start = i + 1;
         }
     }
 
     return output;
-}
