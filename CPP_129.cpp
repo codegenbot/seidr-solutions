@@ -1,12 +1,10 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> solve(vector<vector<int>> grid, int k) {
+std::vector<int> solveProblem(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
-    vector<int> result;
+    std::vector<int> result;
     int x = 0, y = 0;
     for (int i = 0; i < k; ++i) {
         result.push_back(grid[x][y]);
@@ -37,4 +35,4 @@ vector<int> solve(vector<vector<int>> grid, int k) {
         }
     }
     return result;
-}
+}  
