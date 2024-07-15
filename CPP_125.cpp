@@ -1,12 +1,14 @@
-vector<string> words;
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    // code implementation here
+}
+
+vector<string> split_words(const string& txt) {
+    vector<string> words;
     string word = "";
     for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else if (c == ',') {
+        if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
                 word = "";

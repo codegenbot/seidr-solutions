@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -33,7 +34,7 @@ int main() {
 
     std::vector<int> result = calculateSequence(n);
     
-    assert(issame(result, calculateSequence(n)));
+    assert(issame(result, std::vector<int>{1}));
 
     return 0;
 }
