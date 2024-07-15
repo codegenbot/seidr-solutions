@@ -1,3 +1,4 @@
+```
 import math
 
 def bouncing_balls():
@@ -12,4 +13,4 @@ def bouncing_balls():
         total_distance += distance_traveled
         h, b = b, (b - h) * i
 
-    return "{:.6f}".format(total_distance)
+    return format(total_distance, ".6f")
