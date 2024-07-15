@@ -1,4 +1,8 @@
-if (n <= 1) {
+#include <cassert>
+#include <iostream>
+
+bool is_prime(long long n) {
+    if (n <= 1) {
         return false;
     }
     for (long long i = 2; i * i <= n; i++) {
