@@ -1,26 +1,49 @@
-map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> reverse_number_map;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+#include <map>
+#include <cassert>
 
-for(const auto &pair : number_map){
-    reverse_number_map[pair.second] = pair.first;
+using namespace std;
+
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers){
+    string result;
+    vector<string> num_list;
+    stringstream ss(numbers);
+    string word;
+    
+    while (ss >> word) {
+        num_list.push_back(word);
+    }
+    
+    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b){
+        return num_map[a] < num_map[b];
+    });
+    
+    for (const string& num : num_list) {
+        result += num + " ";
+    }
+    
+    return result;
 }
 
-stringstream ss(numbers);
-string token;
-vector<int> number_vals;
-
-while (ss >> token) {
-    number_vals.push_back(number_map[token]);
-}
-
-sort(number_vals.begin(), number_vals.end());
-
-string result;
-for(const auto &val : number_vals){
-    result += reverse_number_map[val] + " ";
-}
-
-result.pop_back(); // Remove trailing space
-
-return result;
+int main() {
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
 }
