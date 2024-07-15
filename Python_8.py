@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     sum_result = sum(numbers)
     product_result = 1
@@ -7,10 +8,11 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
-# Accept input from the user
-numbers = []
-for _ in range(2):
-    numbers.extend(map(int, input().split()))
 
-# Call the function with user input and print the result
+try:
+    numbers = list(map(int, input("Enter integers separated by spaces: ").split()))
+except:
+    print("Invalid input. Please provide valid integers separated by spaces.")
+    exit()
+
 print(sum_product(numbers))
