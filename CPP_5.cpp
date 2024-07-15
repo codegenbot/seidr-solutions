@@ -1,6 +1,8 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,8 +16,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
-    std::vector<int> result;
+vector<int> intersperse(vector<int> numbers, int delimiter) {
+    vector<int> result;
 
     for (int i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
