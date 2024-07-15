@@ -16,3 +16,4 @@ int main() {
     cout << fixed << setprecision(6);
     cout << snowDay(h, g, r, m) << endl;
     return 0;
+}
