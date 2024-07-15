@@ -22,9 +22,8 @@ std::string fix_spaces(std::string text){
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::string result = fix_spaces(input);
-    std::cout << result << std::endl;
+    std::string input = "Hello      world     from     C++";
+    std::string output = fix_spaces(input);
+    std::cout << output << "\n";
     return 0;
 }
