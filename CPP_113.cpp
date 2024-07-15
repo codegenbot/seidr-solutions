@@ -7,11 +7,11 @@ using namespace std;
 
 vector<string> odd_count(vector<string> lst);
 
-bool issame(vector<string> a,vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-int main(){
+int main() {
     assert(issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2\n the str2ng 2 of the 2nput.",
         "the number of odd elements 3\n the str3ng 3 of the 3nput.",
@@ -21,7 +21,7 @@ int main(){
     return 0;
 }
 
-vector<string> odd_count(vector<string> lst){
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (string s : lst) {
         int count = 0;
