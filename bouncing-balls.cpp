@@ -15,9 +15,9 @@ int main() {
     cout << "Enter the number of bounces: ";
     cin >> numBounces;
 
-    double bouncinessIndex = (firstBounceHeight / startingHeight);
+    double bouncinessIndex = firstBounceHeight / startingHeight;
 
-    double totalDistance = (numBounces * 2) + (bouncinessIndex * 2 - 1);
+    double totalDistance = (numBounces * 2) + bouncinessIndex;
 
     cout << fixed << setprecision(5) << totalDistance << endl;
 
