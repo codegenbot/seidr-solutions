@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,13 +7,13 @@ std::string decipher(std::string key1, std::string key2, std::string message) {
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
         if (i < key1.length()) {
-            int index = key2.find(message[i]);
+            int index = key1.find(message[i]);
             if (index != std::string::npos)
-                result += key1[index];
+                result += key2[index];
             else
-                result += message[i]; 
+                result += message[i]; // If the character is not in the cipher, add it to the result as is.
         } else {
-            result += message[i]; 
+            result += message[i]; // If the character is beyond the length of the key, add it to the result as is.
         }
     }
     return result;

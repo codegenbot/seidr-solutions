@@ -1,18 +1,44 @@
+```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
+    
+    def evaluate(tokens):
+        if len(tokens) == 0:
+            return bool(eval(tokens[0]))
+        elif tokens[0] in ["|", "&"]:
+            operator_ = tokens.pop(0)
+            operand2 = evaluate(tokens)
+            if operator_ == "|":
+                return eval(f"{operand2} or {tokens[0]}")
+            else:
+                return eval(f"{operand2} and {tokens[0]}")
+        
+    def solve(stack):
+        result = None
+        while len(stack) > 1:
+            operand2 = stack.pop()
+            operator_ = stack.pop()
+            if operator_ == "|":
+                result = eval(f"{result} or {operand2}")
+            else:
+                result = eval(f"{result} and {operand2}")
+        return bool(result)
+
+    tokens = expression.replace("|", " | ").replace("&", " & ").split()
+    while "|" in tokens:
+        tokens = [part.strip() for part in " | ".join(tokens).split("|")]
     stack = []
-    tokens = expression.split("|")
+    a = None
     for token in tokens:
-        if '&' in token:
-            operator_, *operands = token.split('&')
-            ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
-            operator_ = ops[operator_]
-            for operand in operands: stack.append(bool(operand))
-        else:
+        if token not in ["|", "&"]:
             stack.append(eval(token))
-    result = None
-    while len(stack) > 1:
-        operand2 = stack.pop()
-        operator_ = stack.pop()
-        result = operator_(result, operand2)
-    return bool(result)
+        else:
+            while len(stack) > 1:
+                operand2 = stack.pop()
+                operator_ = stack.pop()
+                if operator_ == "|":
+                    result = eval(f"{operand2} or {stack[0]}")
+                else:
+                    result = eval(f"{operand2} and {stack[0]}")
+            stack.append(result)
+    return solve(stack)
