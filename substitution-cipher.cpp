@@ -6,15 +6,15 @@
 std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& message) {
     std::string result;
     for (char c : message) {
-        if (c == '\0') break;  
+        if (c == '\0') break;  // Assuming the input strings are null-terminated
         size_t pos = 0;
         while (pos < key1.size() && key1[pos] != c) {
             pos++;
         }
         if (pos >= key1.size()) {
-            result += c;  
+            result += c;  // If character is not in key, leave it as is
         } else {
-            result += key2[pos];  
+            result += key2[pos];  // Replace with corresponding character from key2
         }
     }
     return result;
