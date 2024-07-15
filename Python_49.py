@@ -1,3 +1,2 @@
-```
-def modp(n: int = 1, p: int = 2):
+def modp(n: int = 0, p: int = 0):
     return pow(n, p, p)
