@@ -1,14 +1,10 @@
 ```
+import numpy as np
+
 n = int(input())
-vec1 = [float(i) for i in input().split()]
-vec2 = [float(i) for i in input().split()]
+vec1 = list(map(float, input().split()))
+vec2 = list(map(float, input().split()))
 
-total_distance = 0
+distance = round(np.linalg.norm([a - b for a, b in zip(vec1, vec2)]), 10)
 
-for a, b in zip(vec1, vec2):
-    distance = (a - b) ** 2
-    total_distance += distance
-
-distance = total_distance ** 0.5
-
-print(round(distance, 10))
+print(distance)
