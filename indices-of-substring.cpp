@@ -10,9 +10,14 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for(int i=0; i<=n-m; i++) {
-        if(text.substr(i,m) == target) {
-            result.push_back(i);
-            i += (m-1);  // Start searching from the end of the previous match
+        int j = 0;
+        if(i >= m - 1 && text.substr(i,j) == target) {
+            while((i+j) <= n) {
+                if(text.substr(i,j) != target)
+                    break;
+                result.push_back(i);
+                j++;
+            }
         }
     }
 
