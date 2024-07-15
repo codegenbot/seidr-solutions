@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool inFrame = false;
@@ -12,12 +14,7 @@ int bowlingScore(std::string s) {
             if (!inFrame) {
                 currentScore += c - '0';
             } else {
-                if (c == '/') {
-                    // spare, so add next roll's value (or 0 if none)
-                    currentScore += currentRolls > 1 ? 10 : (currentScore + c - '0');
-                } else {
-                    currentScore += c - '0' + (currentRolls > 1);
-                }
+                currentScore += c - '0' + (currentRolls > 1);
             }
         }
 
@@ -30,4 +27,3 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
