@@ -16,7 +16,7 @@ int whitePegs(string code, string guess) {
         }
         if(!found) count++;
         else {
-            code.erase(remove(code.begin(), code.end(), guess[i]), code.end());
+            code.erase(remove(find(code.begin(), code.end(), guess[i]), code.end()), code.end());
             count++;
         }
     }
@@ -39,4 +39,3 @@ int main() {
     cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
     return 0;
-}
