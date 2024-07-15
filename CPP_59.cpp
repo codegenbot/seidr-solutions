@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 #include <cmath>
 
 int largest_prime_factor(int n) {
@@ -20,8 +19,4 @@ int largest_prime_factor(int n) {
     return maxPrime;
 }
 
-int main() {
-    assert (largest_prime_factor(13195) == 29);
-    // Add more test cases here if needed
-    return 0;
-}
+std::cout << largest_prime_factor(13195) << std::endl;
