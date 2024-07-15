@@ -10,8 +10,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for(int i=0; i<=n-m; i++) {
-        if(i <= n - m && text.substr(i,m) == target) {
+        if(text.substr(i,m) == target) {
             result.push_back(i);
+            // keep searching from the next position of last match
+            i += (m-1); 
         }
     }
 
