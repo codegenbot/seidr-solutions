@@ -9,12 +9,9 @@ def main():
         try:
             n = int(input("Enter first number: "))
             m = int(input("Enter second number: "))
-            if n != 0 and m != 0:
-                result = rounded_avg(n, m)
-                print(result)
-                break
-            else:
-                print("Invalid input! Please enter integer values.")
+            result = rounded_avg(n, m)
+            print(result)
+            break
         except ValueError:
             print("Invalid input! Please enter integers.")
 
