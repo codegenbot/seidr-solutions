@@ -14,16 +14,17 @@ std::vector<int> gcd(int a, int b) {
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
-    size_t targetSize = target.size();
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + targetSize);
+        pos = text.find(target, pos + target.length());
     }
     return indices;
 }
 
 int main() {
-    // Your code logic here
-    
+    std::vector<int> result = indicesOfSubstring("845523458710", "458710");
+    for (int index : result) {
+        std::cout << index << " ";
+    }
     return 0;
 }
