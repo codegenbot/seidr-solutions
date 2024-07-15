@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return (a[0] == b[0] && a[1] == b[1]);
