@@ -1,10 +1,12 @@
 ```
 def find_max(words):
-    max_length = 0
+    max_len = 0
     result = ""
     for word in words:
-        length = len(set(word))
-        if length > max_length or (length == max_length and word < result):
-            max_length = length
+        word_set = set(word)
+        if len(word_set) > max_len:
+            max_len = len(word_set)
             result = word
+        elif len(word_set) == max_len:
+            result = min(result, word)
     return result
