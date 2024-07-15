@@ -13,7 +13,7 @@ while True:
         else:
             print("Please enter a positive integer.")
     except ValueError:
-        print("Please enter a valid positive integer.")
+        print("Invalid input. Please enter a valid positive integer.")
 
 result = factorize(n)
 print(result)
