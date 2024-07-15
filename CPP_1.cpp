@@ -13,7 +13,7 @@ vector<string> separate_paren_groups(string paren_string) {
             open_count--;
             if (open_count == 0) {
                 result.push_back(current_group);
-                current_group.clear();
+                current_group = "";
             } else {
                 current_group += c;
             }
