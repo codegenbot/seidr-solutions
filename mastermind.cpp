@@ -1,22 +1,16 @@
+```c++
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
-        bool found = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) count++;
-        else {
-            code.erase(remove(find(code.begin(), code.end(), guess[i]), code.end()), code.end());
+        if(code[i] == guess[i]) {
+            count++;
+        } 
+        else if(find(code.begin(), code.end(), guess[i]) != code.end()) {
             count++;
         }
     }
@@ -39,3 +33,4 @@ int main() {
     cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
     return 0;
+}
