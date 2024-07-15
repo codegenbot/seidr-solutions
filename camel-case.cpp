@@ -8,10 +8,11 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || (input[i] == '-' && input[i - 1] != ' ')) {
             if (start < i) {
-                output += std::string(std::tolower(input[start]), i - start);
+                output += std::string(1, std::tolower(input[start]));
+                start = i + 1;
             }
             if (i < input.size()) {
-                output.push_back(toupper(input[i]));
+                output.push_back(std::toupper(input[i]));
                 start = i + 1;
             } else {
                 return output;
