@@ -9,17 +9,19 @@ void addCharacter(string& str, char c) {
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    for(int i=0; i<4; i++) { 
-        bool found = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) count++; 
+    int codeCount[6] = {0};
+    for(int i=0; i<4; i++) {
+        codeCount[code[i]-'0']++;
     }
-    return 4 - blackPegs(code, guess) - count;
+    
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) continue;
+        if(codeCount[guess[i]-'0']) {
+            count++;
+            codeCount[guess[i]-'0']--;
+        }
+    }
+    return count;
 }
 
 int blackPegs(string code, string guess) {
