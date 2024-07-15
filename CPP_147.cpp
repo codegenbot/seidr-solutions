@@ -20,7 +20,6 @@ int get_matrix_triples(int n) {
 }
 
 int main() {
-    // Example test case
-    assert(get_matrix_triples(100) == 53361);
+    assert (get_matrix_triples(100) == 53361);
     return 0;
 }
