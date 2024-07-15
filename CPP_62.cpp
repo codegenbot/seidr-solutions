@@ -2,6 +2,15 @@
 #include <cassert>
 
 vector<float> derivative(vector<float> xs);
+
+vector<float> derivative(vector<float> xs){
+    vector<float> result;
+    for(int i = 1; i < xs.size(); i++){
+        result.push_back(xs[i] * i);
+    }
+    return result;
+}
+
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -12,17 +21,4 @@ bool issame(vector<float> a, vector<float> b){
         }
     }
     return true;
-}
-
-vector<float> derivative(vector<float> xs){
-    vector<float> result;
-    for(int i = 1; i < xs.size(); i++){
-        result.push_back(xs[i] * i);
-    }
-    return result;
-}
-
-int main() {
-    // Your main function code here
-    return 0;
 }
