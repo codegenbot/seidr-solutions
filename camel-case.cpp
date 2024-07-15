@@ -2,41 +2,39 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& s) {
-    if (s.empty()) return s;
+using namespace std;
+
+string camelCase(string s) {
+    string result = "";
+    bool upperCaseNext = true;
     
-    std::vector<std::string> words = {""};
-    for (char c : s + " ") {
+    for (char c : s) {
         if (c == '-') {
-            words.back().pop_back();
-            words.push_back("");
+            upperCaseNext = true;
         } else if (c == ' ') {
-            words.push_back("");
+            continue;
         } else {
-            words.back() += c;
+            if (upperCaseNext) {
+                result += toupper(c);
+                upperCaseNext = false;
+            } else {
+                result += tolower(c);
+            }
         }
     }
-
-    std::string result = "";
-    for (int i = 0; i < words.size(); i++) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
-        }
-        result += words[i];
-    }
-
+    
     return result;
 }
 
 int main() {
-    int t;
-    std::cin >> t;
-    
-    while (t--) {
-        std::string s;
-        std::cin >> s;
-        cout << kebabToCamel(s) << endl;
+    int numCases;
+    cin >> numCases;
+
+    for (int i = 0; i < numCases; ++i) {
+        string s;
+        cin >> s;
+        cout << camelCase(s) << endl;
     }
-    
+
     return 0;
 }
