@@ -17,21 +17,3 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
     return rescaled;
 }
-
-int main() {
-    int n;
-    cin >> n;
-
-    vector<float> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> numbers[i];
-    }
-
-    vector<float> rescaled = rescale_to_unit(numbers);
-
-    for (float num : rescaled) {
-        cout << num << " ";
-    }
-
-    return 0;
-}
