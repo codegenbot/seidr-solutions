@@ -17,6 +17,5 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return b;
     }
 }
-
 return "None";
 }
