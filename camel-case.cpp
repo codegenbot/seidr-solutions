@@ -1,27 +1,33 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(std::string s) {
-    std::string result = "";
-    for (char c : s) {
+std::string camelCase(std::string input) {
+    std::string output;
+    bool first = true;
+
+    for (char c : input) {
         if (c == '-') {
-            result += char(toupper(s[++s.find(c)]));
-            while (s.find(c) != s.npos) {
-                s.erase(s.find(c), 1);
-                c = s[0];
-                s.erase(0, 1);
+            if (!first) {
+                output.push_back(char(toupper(c)));
             }
-        } else if (c != ' ') {
-            result += c;
+            first = false;
+        } else if (c == ' ') {
+            first = true;
+        } else {
+            output.push_back(char(tolower(c)));
         }
     }
-    return result;
+
+    return output;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
     std::cin >> input;
-    std::cout << "The output in camelCase is: " << kebabToCamel(input) << std::endl;
+    std::cout << camelCase(input) << std::endl;
+
     return 0;
 }
