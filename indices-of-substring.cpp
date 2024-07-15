@@ -7,10 +7,16 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
+    if (target.size() > text.size()) {
+        return 0;
+    }
+
     std::vector<int> indices;
 
-    if (target.empty() && text.empty()) {
-        indices.push_back(0);
+    if (target.empty()) {
+        for (int i = 0; i < static_cast<int>(text.size()); ++i) {
+            indices.push_back(i);
+        }
     } else {
         size_t pos = text.find(target, 0);
         while (pos != std::string::npos) {
