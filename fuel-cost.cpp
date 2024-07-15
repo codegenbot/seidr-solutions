@@ -1,3 +1,4 @@
+Here is the modified code:
 ```cpp
 int fuelCost(vector<int> vec) {
     int sum = 0;
