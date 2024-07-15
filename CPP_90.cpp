@@ -1,8 +1,10 @@
-if(lst.size() < 2) return None;
-    sort(lst.begin(), lst.end());
-    int smallest = lst[0];
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] > smallest) return lst[i];
+sort(lst.begin(), lst.end());
+    int prev = lst[0];
+    for (int num : lst) {
+        if (num > prev) {
+            return num;
+        }
+        prev = num;
     }
-    return None;
+    return -1; // None
 }
