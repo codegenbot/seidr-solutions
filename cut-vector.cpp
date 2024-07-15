@@ -36,6 +36,6 @@ int main() {
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
