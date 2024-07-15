@@ -1,25 +1,8 @@
-if(dict.empty()){
-    return false;
+if(dict.empty()) return false;
+bool lower = true, upper = true;
+for(const auto& entry : dict){
+    if(entry.first != tolower(entry.first[0])) upper = false;
+    if(entry.first != toupper(entry.first[0])) lower = false;
 }
-
-bool all_lower = true;
-bool all_upper = true;
-
-for(auto const& pair : dict){
-    string key = pair.first;
-    bool is_lower = true;
-    bool is_upper = true;
-    for(char c : key){
-        if(!islower(c)){
-            is_lower = false;
-        }
-        if(!isupper(c)){
-            is_upper = false;
-        }
-    }
-    all_lower = all_lower && is_lower;
-    all_upper = all_upper && is_upper;
-}
-
-return all_lower || all_upper;
+return lower || upper;
 }
