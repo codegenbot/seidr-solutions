@@ -19,8 +19,8 @@ int fib(int n) {
     return result;
 }
 
+// Ensure the main function is declared
 int main() {
     assert(fib(14) == 610); // Should pass
-
     return 0;
 }
