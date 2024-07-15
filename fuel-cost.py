@@ -1,2 +1,3 @@
-total = sum(max(int(x) // 3 - 2, 0) for x in input().split())
-print(total)
+numbers = list(map(int, input().split()))
+result = sum([(num // 3 - 2) for num in numbers])
+print(result)
