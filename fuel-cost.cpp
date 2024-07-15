@@ -1,16 +1,16 @@
 #include <vector>
 #include <cmath>
 #include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
 int fuelCost(vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
-        double result = static_cast<double>(i)/3;
-        int newResult = lround(result);
-        newResult -= 2; 
-        sum += newResult;
+        int result = static_cast<int>(floor(double(i)/3));
+        result -= 2; 
+        sum += result;
     }
     return sum;
 }
