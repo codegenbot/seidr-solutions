@@ -1,4 +1,5 @@
 #include <cassert>
+#include <iostream>
 
 bool is_prime(long long n) {
     if (n <= 1) {
@@ -13,6 +14,14 @@ bool is_prime(long long n) {
 }
 
 int main() {
-    assert(is_prime(13441 * 19) == false);
+    long long n;
+    std::cin >> n;
+
+    if (is_prime(n)) {
+        std::cout << "Prime\n";
+    } else {
+        std::cout << "Not Prime\n";
+    }
+
     return 0;
 }
