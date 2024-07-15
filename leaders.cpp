@@ -5,10 +5,11 @@
 std::vector<int> leaders(std::vector<int>& vec) {
     std::vector<int> result;
     int maxRight = vec.back();
-    for (int i = vec.size() - 2; i >= 0; --i) {
-        if (vec[i] >= maxRight) {
-            result.push_back(vec[i]);
+    for (int i = vec.size() - 1; i >= 0; --i) {
+        if (vec[i] > maxRight) {
             maxRight = vec[i];
+        } else if (maxRight == vec[i]) {
+            result.push_back(maxRight);
         }
     }
     return result;
