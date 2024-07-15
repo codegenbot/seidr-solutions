@@ -19,8 +19,13 @@ namespace CustomVectorFunctions {
     }
 }
 
-int main() {
+int main_task() {
     using namespace CustomVectorFunctions;
     assert(issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
+    
     return 0;
+}
+
+int main() {
+    return main_task();
 }
