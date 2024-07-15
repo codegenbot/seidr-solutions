@@ -15,4 +15,4 @@ except ValueError:
     exit()
 
 # Call the function with user input and print the result
-print(sum_product(list(map(int, input().split()))) )
+print(sum_product(list(map(int, input().split())))
