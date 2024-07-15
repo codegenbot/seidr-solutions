@@ -2,7 +2,6 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 std::vector<int> incr_list(std::vector<int> l);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
