@@ -1,3 +1,4 @@
-string temp = a + a;
-    return temp.find(b) != string::npos;
+bool cycpattern_check(const string& a, const string& b) {
+    string combined = a + a;
+    return combined.find(b) != string::npos;
 }
