@@ -1,9 +1,9 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <cassert>
+#include <vector>
 
-int next_smallest(std::vector<int>& lst) {
-    sort(lst.begin(), lst.end());
+int next_smallest(const std::vector<int>& lst) {
+    std::sort(lst.begin(), lst.end());
     int count = 1;
     int prev = lst[0];
     for (int i = 1; i < lst.size(); ++i) {
