@@ -1,6 +1,7 @@
 #include <string>
 #include <set>
-using namespace std;
+
+namespace std;
 
 string find_max(const vector<string>& words) {
     string max_word = "";
