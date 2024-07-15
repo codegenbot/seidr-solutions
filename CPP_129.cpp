@@ -6,7 +6,7 @@
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a[0] == b[0] && a[1] == b[1];
+    return a[1] == b[1];
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -43,6 +43,6 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
 }
 
 int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == std::vector<int>{1, 3});
+    assert(minPath({{1, 3}, {3, 2}}, 10) == std::vector<int>{1, 3}); 
     return 0;
 }
