@@ -1,17 +1,38 @@
-vector<float> even_elements;
-    vector<float> sorted_even_elements;
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+vector<float> sort(vector<float> l) {
+    vector<float> even_indices;
+    vector<float> sorted_even_indices;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_elements.push_back(l[i]);
+            even_indices.push_back(l[i]);
+            sorted_even_indices.push_back(l[i]);
         }
     }
 
-    sort(even_elements.begin(), even_elements.end());
+    sort(sorted_even_indices.begin(), sorted_even_indices.end());
 
-    for (int i = 0, j = 0; i < l.size(); i++) {
+    int sorted_index = 0;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_elements[j++];
+            l[i] = sorted_even_indices[sorted_index];
+            sorted_index++;
         }
     }
 
