@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total = 0
     for num in lst:
@@ -6,7 +5,7 @@ def sum_squares(lst):
             total += num**2
         else:
             raise ValueError("The list must contain only integers.")
-    return total if len(lst) > 0 else None
+    return total
 
 
 print(sum_squares([1, 4, 9]))
