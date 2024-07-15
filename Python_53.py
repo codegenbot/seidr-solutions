@@ -1,12 +1,10 @@
 def add(x: int, y: int) -> int:
     return x + y
 
+# Read input from the user
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
 
-try:
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-except ValueError:
-    print("Invalid input. Please enter integers only.")
-else:
-    result = add(x, y)
-    print(result)
+# Call the add function with input values
+result = add(x, y)
+print(result)
