@@ -1,10 +1,6 @@
 ```
 def is_equal_to_sum_even(n):
     for i in range(2, n+1, 2):
-        remaining = n - i
-        if remaining % 2 != 0:
-            return False
-        for j in range(i+2, remaining+1, 2):
-            if remaining - j > i and not is_equal_to_sum_even(remaining - j):
-                return False
-    return True
+        if sum(j for j in range(2, i+1, 2) if i == j + (n - i)) and len([j for j in range(2, i+1, 2) if i == j + (n - i)]) == 4:
+            return True
+    return False
