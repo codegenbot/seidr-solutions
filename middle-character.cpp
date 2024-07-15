@@ -1,3 +1,9 @@
+```cpp
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 string middleCharacter(string str) {
     int length = str.length();
     if (length % 2 == 0) {
@@ -8,9 +14,6 @@ string middleCharacter(string str) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << "Middle character is: " << middleCharacter(input) << endl;
+    cout << middleCharacter("Hello World");
     return 0;
 }
