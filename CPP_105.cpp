@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b);
 
