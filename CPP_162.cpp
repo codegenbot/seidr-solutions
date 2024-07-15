@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 #include <openssl/md5.h>
+#include <string>
+#include <cstdio>
 #include <cassert>
 
 std::string string_to_md5(const std::string& text);

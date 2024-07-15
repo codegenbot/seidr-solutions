@@ -1,5 +1,7 @@
 #include <vector>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 std::vector<int> even_odd_count(int num) {
@@ -16,6 +18,11 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> result = even_odd_count(123456);
+    int number = 12345;
+    std::vector<int> counts = even_odd_count(number);
+
+    cout << "Even count: " << counts[0] << endl;
+    cout << "Odd count: " << counts[1] << endl;
+
     return 0;
 }
