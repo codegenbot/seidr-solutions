@@ -2,25 +2,29 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> select_words(std::string sentence, int n) {
+std::vector<std::string> select_words(std::string phrase, int n) {
     std::vector<std::string> words;
     std::string word;
-    for (char c : sentence) {
-        if (c != ' ') {
-            word += c;
-        } else {
+    for (char c : phrase) {
+        if (c == ' ') {
             if (!word.empty()) {
                 words.push_back(word);
+                word.clear();
             }
-            word.clear();
+        } else {
+            word.push_back(c);
         }
     }
     if (!word.empty()) {
         words.push_back(word);
     }
     std::vector<std::string> result;
-    for (int i = n; i < words.size(); i += n) {
-        result.push_back(words[i]);
+    for (int i = 0; i < words.size(); i += n) {
+        if (i + n <= words.size()) {
+            for (int j = i; j < i + n; ++j) {
+                result.push_back(words[j]);
+            }
+        }
     }
     return result;
 }
