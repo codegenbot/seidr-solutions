@@ -1,13 +1,14 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int pos = text.find(target, 0);
-    while (pos != std::string::npos) {
+    int pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+        pos += 1; // Move to the next character after the found substring
     }
     return indices;
 }
