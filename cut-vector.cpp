@@ -48,7 +48,9 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    if(res[0].size() == 0) throw runtime_error("Invalid input");
+    if(res[0].size() != n) {
+        cout << "Error: The input vector should be cut at a single point." << endl;
+    }
     
     return res;
 }
