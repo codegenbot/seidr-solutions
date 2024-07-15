@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,18 +6,12 @@ std::string camelCase(std::string str) {
     bool capitalizeNext = true;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
-            if (capitalizeNext) {
-                result += toupper(str[i + 1]);
-                i++;
-            } else {
-                result += str.substr(i + 1, 1);
-            }
             capitalizeNext = true;
-        } else if (str[i] != ' ') {
-            result += (capitalizeNext ? tolower(str[i]) : toupper(str[i]));
+        } else if (capitalizeNext) {
+            result += toupper(str[i]);
             capitalizeNext = false;
         } else {
-            capitalizeNext = true;
+            result += tolower(str[i]);
         }
     }
     return result;
