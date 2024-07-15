@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -19,7 +20,7 @@ double find_zero(const vector<double>& xs) {
 }
 
 int main() {
-    vector<double> coeffs = {1, -2, 1}; // example coefficients
+    vector<double> coeffs = {1, -2, 1};
     double solution;
     solution = find_zero(coeffs);
     assert(fabs(poly(coeffs, solution)) < 1e-3);
