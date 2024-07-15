@@ -1,12 +1,11 @@
-```cpp
 #include <string>
 
-int bowlingScore(const std::string& input) {
+int bowlingScore(std::string s) {
     int score = 0;
     int currentRolls = 0;
     int currentScore = 0;
 
-    for (char c : input) {
+    for (char c : s) {
         if (c == '/') {
             if (currentScore < 10) {
                 score += currentScore + 10 - currentScore;
