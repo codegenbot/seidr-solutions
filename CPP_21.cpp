@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -19,9 +18,19 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 int main() {
-    assert(std::equal(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}).begin(), 
-                      rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}).end(), 
-                      vector<float>{0.25, 0.0, 1.0, 0.5, 0.75}.begin());
+    vector<float> input_numbers;
+    float num;
+    while (cin >> num) {
+        input_numbers.push_back(num);
+    }
+
+    vector<float> rescaled_numbers = rescale_to_unit(input_numbers);
+
+    for (float num : rescaled_numbers) {
+        cout << num << " ";
+    }
+
+    cout << endl;
 
     return 0;
 }
