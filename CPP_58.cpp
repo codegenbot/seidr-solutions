@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
-#include <cassert>
 #include <set>
+#include <cassert>
 
 namespace CustomVectorFunctions {
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
