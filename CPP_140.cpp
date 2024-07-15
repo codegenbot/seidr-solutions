@@ -1,12 +1,13 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
+int count = 0;
+    string result = "";
+    for(char c : text){
+        if(c == ' '){
             count++;
-            if (count > 2) {
+            if(count > 2){
                 result.pop_back();
                 result.pop_back();
                 result += "-";
+                count = 1;
             } else {
                 result += '_';
             }
