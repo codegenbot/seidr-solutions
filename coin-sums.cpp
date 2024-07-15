@@ -6,7 +6,7 @@ int main() {
     cin >> cents;
 
     int pennies = cents / 1;
-    int remainder = cents % 100; 
+    int remainder = cents % 100; // remaining cents
 
     int nickels = remainder / 5;
     remainder %= 5;
