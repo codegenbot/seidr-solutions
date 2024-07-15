@@ -3,32 +3,26 @@ def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
     def evaluate(tokens):
         if len(tokens) == 0:
-            return bool(eval(tokens[0]))
-        elif tokens[0] in ["|", "&"]:
+            return eval(tokens[0])
+        elif tokens[0] in ["and", "or"]:
             operator_ = tokens.pop(0)
             operand2 = evaluate(tokens)
-            return eval(f"({operand2} {operator_} a)")
-        
+            stack.append(lambda a, b: (operator_ == 'and') and a or b)
+            return None
+        else:
+            stack.append(eval(tokens[0]))
+            return None
+
     def solve(stack):
-        result = None
         while len(stack) > 1:
             operand2 = stack.pop()
-            operator_ = stack.pop()
-            if operator_ == "|":
-                result = eval(f"a or {operand2}")
-            else:
-                result = eval(f"a and {operand2}")
+            operator_ = stack.pop(0)
+            result = (operator_ == 'and') and (result and operand2) or (operator_ == 'or') and (result or operand2)
         return bool(result)
 
-    tokens = expression.split()
-    while "|" in tokens:
-        tokens = [part.strip() for part in " | ".join(tokens).split("|")]
     stack = []
-    a = None
+    tokens = expression.split("|")
     for token in tokens:
-        if token not in ["|", "&"]:
-            a = eval(token)
-        else:
-            stack.append(a)
-            a = None
-    return solve(stack)
+        evaluate(token.split())
+    result = solve(stack)
+    return result
