@@ -1,6 +1,7 @@
-Here is the solution:
-
 #include <vector>
+#include <unordered_map>
+#include <iostream>
+
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
@@ -19,7 +20,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < nums.size(); i++) {
         cin >> nums[i];
     }
     int target;
