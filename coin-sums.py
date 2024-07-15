@@ -1,6 +1,5 @@
-```
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]  
+    coins = [25, 10, 5, 1]
     coin_counts = [0, 0, 0, 0]
 
     for i, coin_value in enumerate(reversed(coins)):
