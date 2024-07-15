@@ -1,4 +1,3 @@
-```
 def find_pair():
     target = int(input())
     input_list = list(map(int, input().split()))
