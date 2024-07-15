@@ -1,10 +1,10 @@
 #include <iostream>
-#include <cassert>
 #include <string>
 #include <openssl/md5.h>
+#include <cassert>
 
 std::string string_to_md5(const std::string& text) {
-    if (text.empty()) {
+    if(text.empty()) {
         return "None";
     }
 
@@ -15,6 +15,7 @@ std::string string_to_md5(const std::string& text) {
     for(int i = 0; i < 16; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
+    mdString[32] = '\0'; // Add null terminator at the end
 
     return mdString;
 }
