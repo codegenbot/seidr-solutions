@@ -1,3 +1,2 @@
-vec = list(map(int, input().split()))
-result = sum(map(lambda x: max(0, x // 3 - 2), vec))
-print(result)
+total = sum(max(int(x) // 3 - 2, 0) for x in input().split())
+print(total)
