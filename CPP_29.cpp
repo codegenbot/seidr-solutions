@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <string> // Add this line to fix string typedef error
 
 bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
     return a == b;
