@@ -14,7 +14,9 @@ std::vector<int> remove_duplicates(const std::vector<int>& vec) {
 }
 
 int main() {
-    assert(is_same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>{1, 4, 5}));
+    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
+    input = remove_duplicates(input);
+    assert(is_same(input, std::vector<int>{1, 4, 5}));
     
     return 0;
 }
