@@ -1,11 +1,6 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
-
-using namespace std;
-
-std::string concatenate(std::vector<std::string> strings);
 
 std::string concatenate(std::vector<std::string> strings){
     std::string result;
