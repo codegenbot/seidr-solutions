@@ -1,12 +1,13 @@
 #include <vector>
 #include <cassert>
+#include <algorithm> 
 
-std::vector<int> tri(int n){
-    return {1, n+2};
+std::vector<int> tri(int n) {
+    return {1, n + 2};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main(){
