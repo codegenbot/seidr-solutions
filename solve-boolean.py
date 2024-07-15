@@ -5,8 +5,7 @@ def solve_boolean(expression):
     for token in tokens:
         if '&' in token:
             operator_, *operands = token.split('&')
-            ops = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
-            operator_ = ops[operator_]
+            operator_ = eval(f"lambda {operand1}, {operand2}: {operand1} and {operand2}")
             for operand in operands: stack.append(bool(operand))
         else:
             stack.append(eval(token))
