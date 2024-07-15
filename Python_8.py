@@ -7,6 +7,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
-numbers = list(map(int, input("Enter a list of numbers separated by space: ").split()))
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
 output = sum_product(numbers)
 print(output)
