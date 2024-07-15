@@ -4,19 +4,16 @@
 
 std::vector<float> find_closest_elements(const std::vector<float>& arr) {
     std::vector<float> closest_elements;
-    if (arr.size() < 2) {
-        return closest_elements;
-    }
-    
-    float min_diff = std::abs(arr[1] - arr[0]);
+    float min_diff = std::numeric_limits<float>::max();
+
     for (size_t i = 0; i < arr.size() - 1; ++i) {
-        float diff = std::abs(arr[i + 1] - arr[i]);
+        float diff = std::abs(arr[i] - arr[i + 1]);
         if (diff < min_diff) {
             min_diff = diff;
             closest_elements = {arr[i], arr[i + 1]};
         }
     }
-    
+
     return closest_elements;
 }
 
