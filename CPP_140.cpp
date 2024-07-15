@@ -1,24 +1,21 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string fix_spaces(const string& text) {
-    string result;
-    int count = 0;
+std::string fix_spaces(const std::string& text) {
+    std::string result = "";
+    int consecutiveSpaces = 0;
     for (char c : text) {
         if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back();
-                result.pop_back();
-                result.push_back('-');
+            consecutiveSpaces++;
+            if (consecutiveSpaces > 2) {
+                result += "-";
+                consecutiveSpaces = 1;
             } else {
-                result.push_back('_');
+                result += "_";
             }
         } else {
-            count = 0;
-            result.push_back(c);
+            result += c;
+            consecutiveSpaces = 0;
         }
     }
     return result;
