@@ -3,19 +3,12 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    
-    return true;
+    return a == b;
 }
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     std::string note = "";
-    
     for (char c : music_string) {
         if (c == 'o') {
             if (note == "") {
@@ -26,10 +19,7 @@ std::vector<int> parse_music(std::string music_string) {
         } else if (c == '.') {
             beats.push_back(1);
         } else if (c == '|') {
-            beats.push_back(0); // Add this line
-            note = "";          // Reset note string
-        } else {
-            note = c;           // Update note string
+            note = "";  // Reset note string
         }
     }
     return beats;
