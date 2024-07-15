@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -19,4 +18,3 @@ int main() {
     int result = basement(nums);
     cout << "Basement index: " << result << endl;
     return 0;
-}
