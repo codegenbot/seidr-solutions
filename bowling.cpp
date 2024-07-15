@@ -1,22 +1,37 @@
 int score(string s) {
     int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '/') ? 10 - (s[i + 2] - '0') : s[i + 1] - '0';
-            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - (s[i + 3] - '0') : s[i + 2] - '0';
+    int frame = 1;
+    int bowl = 0;
+    vector<int> scores(21, 0);
+
+    for (char c : s) {
+        if (c == 'X') {
+            scores[bowl] = 10;
+            if (frame < 10) {
+                scores[bowl + 1] = 10;
+                scores[bowl + 2] = 10;
+            }
             frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            total += (s[i + 1] == 'X') ? 10 : s[i + 1] - '0';
-            frame++;
+        } else if (c == '/') {
+            scores[bowl] = 10 - scores[bowl - 1];
+        } else if (c == '-') {
+            scores[bowl] = 0;
         } else {
-            total += s[i] - '0';
-            if (s[i] == '-') frame++;
+            scores[bowl] = c - '0';
         }
-        if (frame == 10) break;
+        bowl++;
     }
+
+    for (int i = 0; i < 10; i++) {
+        if (scores[i * 2] == 10) {
+            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 4];
+        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
+            total += 10 + scores[i * 2 + 2];
+        } else {
+            total += scores[i * 2] + scores[i * 2 + 1];
+        }
+    }
+
     return total;
 }
 
