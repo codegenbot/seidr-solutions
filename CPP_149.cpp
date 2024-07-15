@@ -1,8 +1,4 @@
-bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
-}
-
-vector<string> sorted_list_sum(const vector<string>& lst){
+vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> result;
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
@@ -18,7 +14,11 @@ vector<string> sorted_list_sum(const vector<string>& lst){
     return result;
 }
 
-int main(){
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) , {"cc", "dd", "aaaa", "bbbb"}));
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
