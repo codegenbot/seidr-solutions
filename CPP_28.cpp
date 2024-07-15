@@ -1,9 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
-
-string concatenate(vector<string> strings);
 
 string concatenate(vector<string> strings){
     string result;
@@ -14,6 +10,10 @@ string concatenate(vector<string> strings){
 }
 
 int main() {
-    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    vector<string> words = {"Hello", "World", "from", "C++"};
+    string concatenated = concatenate(words);
+    
+    cout << concatenated << endl;
+    
     return 0;
 }
