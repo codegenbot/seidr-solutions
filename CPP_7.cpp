@@ -15,8 +15,23 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int run(){
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
-
+int main(){
+    int n;
+    cin >> n;
+    vector<string> strings(n);
+    
+    for(int i=0; i<n; i++){
+        cin >> strings[i];
+    }
+    
+    string substring;
+    cin >> substring;
+    
+    vector<string> result = filter_by_substring(strings, substring);
+    
+    for(const auto& str : result){
+        cout << str << endl;
+    }
+    
     return 0;
 }
