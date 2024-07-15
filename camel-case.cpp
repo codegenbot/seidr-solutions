@@ -1,36 +1,41 @@
+```c++
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
-    std::string output;
+using namespace std;
 
-    for (char c : input) {
-        if (c == '-') {
-            continue;
-        }
-        else if (c == ' ') {
-            output += " ";
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            for (++i; i <= s.size() && s[i] != '-'; i++) {
+                if (i == s.size()) break;
+            }
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            result += toupper(s[i]);
+            for (int k = i + 1; k < s.size(); k++) {
+                if (s[k] != ' ')
+                    result += tolower(s[k]);
+                else
+                    break;
+            }
         } else {
-            output += toupper(c);
+            if (i > 0) {
+                result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+            }
         }
     }
-
-    // Convert first letter to lower
-    if (!output.empty()) {
-        for (char &c : output) {
-            c = tolower(c);
-        }
-        // Make first character of the string uppercase
-        output[0] = toupper(output[0]);
-    }
-
-    return output;
+    return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
+    string s;
+    while (cin >> s) {
+        cout << camelCase(s) << endl;
+    }
     return 0;
 }
