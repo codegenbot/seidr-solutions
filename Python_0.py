@@ -1,4 +1,7 @@
-numbers = list(map(int, input().split()))
-threshold = int(input())
+numbers = list(map(int, input().strip().split()))
+threshold = int(input().strip())
+
 result = [num for num in numbers if num > threshold]
-print(*result, sep="\n")
+
+for num in result:
+    print(num)
