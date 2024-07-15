@@ -20,19 +20,21 @@ int main() {
     string substring;
     string input;
 
-    getline(cin, input);
-    istringstream iss(input);
-    string temp;
-    
-    while(iss >> temp){
-        strings.push_back(temp);
+    // Read strings from user input
+    cout << "Enter the strings (type 'done' to finish input):" << endl;
+    while (getline(cin, input) && input != "done") {
+        strings.push_back(input);
     }
 
+    // Read substring from user input
+    cout << "Enter the substring to filter by:" << endl;
     cin >> substring;
-    
+
     vector<string> result = filter_by_substring(strings, substring);
-    
-    for(auto& str : result){
+
+    // Output the filtered strings
+    cout << "Filtered strings:" << endl;
+    for (const auto& str : result) {
         cout << str << endl;
     }
 
