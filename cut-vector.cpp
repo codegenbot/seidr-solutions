@@ -1,27 +1,8 @@
-#include <vector>
-#include <iostream>
-#include <utility>
-#include <climits>
-#include <numeric>
-
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    if (v.size() == 1) {
-        pair<vector<int>, vector<int>> result;
-        result.first = v;
-        result.second = {};
-        return result;
-    }
-    
     int minDiff = INT_MAX;
     int splitIndex = 0;
     
     for (int i = 1; i < v.size(); ++i) {
-        if (v.size() % 2 == 0 && i == v.size() / 2) {
-            continue;
-        }
-        
         int leftSum = accumulate(v.begin(), v.begin() + i, 0);
         int rightSum = accumulate(v.begin() + i, v.end(), 0);
         
@@ -29,6 +10,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         
         if (diff <= minDiff) {
             minDiff = diff;
+            splitIndex = i;
+        } else if (leftSum == rightSum) { 
             splitIndex = i;
         }
     }
