@@ -1,9 +1,7 @@
-Here is the modified code:
-
 ```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
-
+    
     def evaluate(tokens):
         if len(tokens) == 0:
             return eval(tokens[0])
@@ -42,4 +40,4 @@ def solve_boolean(expression):
                 else:
                     result = eval(f"{operand2} and {stack[0]}")
             stack.append(result)
-    return solve(stack)
+    return str(solve(stack))

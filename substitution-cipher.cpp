@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,15 +5,12 @@
 std::string decipher(std::string key1, std::string key2, std::string message) {
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
-        int index = key2.find(message[i]);
-        if (index != std::string::npos) {
-            if(i < key1.length())
-                result += key1[index];
-            else
-                result += message[i]; 
-        } else {
-            result += message[i]; 
-        }
+        char c = message[i];
+        int index = key2.find(c);
+        if (index != std::string::npos)
+            result += key1[index]; 
+        else
+            result += c;
     }
     return result;
 }
