@@ -1,24 +1,9 @@
-bool issame(vector<int>& a, vector<int>& b) {
-    return a == b;
-}
-
-vector<int> order_by_points(vector<int> nums) {
+bool isSame(vector<int> nums a, vector<int> nums b) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
-        while (a > 0) {
-            sum_a += a % 10;
-            a /= 10;
-        }
-        while (b > 0) {
-            sum_b += b % 10;
-            b /= 10;
-        }
-        if (sum_a == sum_b) {
-            return sum_a < sum_b;
-        }
-        return a < b;
+        int sumA = abs(a), sumB = abs(b);
+        while (sumA >= 10) sumA = sumA / 10 + sumA % 10;
+        while (sumB >= 10) sumB = sumB / 10 + sumB % 10;
+        return sumA == sumB ? a < b : sumA < sumB;
     });
     return nums;
 }
