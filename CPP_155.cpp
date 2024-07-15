@@ -1,13 +1,16 @@
+#include <iostream>
 #include <vector>
-#include <string>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> even_odd_count(int num){
-    std::vector<int> result(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+vector<int> even_odd_count(int num){
+    vector<int> result(2, 0);
+    string numStr = to_string(abs(num));
     for(char c : numStr){
         if((c - '0') % 2 == 0){
             result[0]++;
@@ -19,14 +22,19 @@ std::vector<int> even_odd_count(int num){
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-    
-    std::vector<int> counts = even_odd_count(num);
-    
-    for(int count : counts){
-        std::cout << count << " ";
+    // Test the even_odd_count function
+    vector<int> input = {12345, 2468, 13579};
+    for(int num : input){
+        vector<int> count = even_odd_count(num);
+        cout << "Number: " << num << " | Even Count: " << count[0] << " | Odd Count: " << count[1] << endl;
     }
-    
+
+    // Test the issame function
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    cout << "Are vectors a and b same? " << (issame(a, b) ? "Yes" : "No") << endl;
+
+    assert(issame(even_odd_count(0), {1, 0}));
+
     return 0;
 }
