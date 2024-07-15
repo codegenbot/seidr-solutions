@@ -1,5 +1,5 @@
 bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+    return a == b; // Assuming comparison should be based on equality of vectors
 }
 
 vector<float> sort_even(vector<float> l) {
