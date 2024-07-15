@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,13 +7,13 @@ std::string spinWords(std::string str) {
     std::size_t start = 0;
     for (std::size_t end = 0; end <= str.length(); ++end) {
         if ((end == str.length() || isspace(str[end])) && end - start >= 5) {
-            std::reverse(str.substr(start, end - start).begin(), str.substr(start, end - start).end());
             result += str.substr(start, end - start);
-            start = end;
+            std::reverse(result.begin() + start, result.begin() + end);
+            start = end + (str[end] != ' ' ? 1 : 0);
+        } else if (end == str.length()) {
+            result += str.substr(start);
+            break;
         }
-    }
-    if (start < str.length()) {
-        result += str.substr(start);
     }
     return result;
 }
