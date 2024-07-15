@@ -1,4 +1,3 @@
-```cpp
 int basement(vector<int> v) {
     int sum = 0;
     sum += v[0]; // Add the first element to sum
