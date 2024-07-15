@@ -1,5 +1,25 @@
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> groups;
+    std::string group;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    int count = 0;
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (count > 0) {
+                group += c;
+            }
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                group += c;
+            }
+            if (count == 0) {
+                groups.push_back(group);
+                group = "";
+            }
+        }
+    }
+
+    return groups;
 }
