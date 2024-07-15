@@ -1,10 +1,11 @@
+```cpp
 #include <vector>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp;
-    dp.resize(n, vector<int>(n, 0)); 
-
+    dp.resize(n, vector<int>(n, 0));
+    
     for (int i = 0; i < n; i++) {
         dp[i][i] = 0;
     }
@@ -22,3 +23,4 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n - 1];
+}
