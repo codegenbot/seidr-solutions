@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include <cmath>
 
 double triangle_area(double a, double h) {
@@ -6,5 +7,12 @@ double triangle_area(double a, double h) {
 }
 
 int main() {
-    assert(std::abs(triangle_area(10, 8) - 40.0)<1e-4);
+    double base, height;
+    std::cout << "Enter base length and height of the triangle: ";
+    std::cin >> base >> height;
+    
+    double area = triangle_area(base, height);
+    std::cout << "Area of the triangle: " << area << std::endl;
+    
+    return 0;
 }
