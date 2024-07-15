@@ -1,4 +1,4 @@
-def bouncing_balls():
+def calculate_bouncing_balls():
     h = float(input())
     b = float(input())
     i = b / h
