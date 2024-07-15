@@ -1,8 +1,8 @@
 try:
-    n, *numbers = [int(x) for x in input().split()]
+    n, *numbers = map(int, input().strip().split())
     if len(numbers) != n:
         raise ValueError
-    res = sum(num for num in numbers if num % 2 == 0)
-    print(res)
-except (ValueError, TypeError):
+    res = [num for num in numbers if num % 2 == 0]
+    print(sum(res))
+except ValueError:
     print("Input error. Please enter valid input.")
