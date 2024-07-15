@@ -8,5 +8,4 @@ int sum_squares(std::vector<float> lst){
     return sum;
 }
 
-// Call the function with float type explicitly specified for each element
 sum_squares({-1.0f, 1.0f, 0.0f});
