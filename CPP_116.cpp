@@ -4,3 +4,4 @@ sort(arr.begin(), arr.end(), [](int a, int b) {
     return count_a == count_b ? a < b : count_a < count_b;
 });
 return arr;
+}
