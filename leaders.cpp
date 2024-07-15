@@ -10,7 +10,6 @@ std::vector<int> leaders(std::vector<int>& vec) {
             maxRight = vec[i];
         }
     }
-    result.push_back(vec.back());
     return result;
 }
 
