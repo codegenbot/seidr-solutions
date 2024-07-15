@@ -1,7 +1,3 @@
-#include <string>
-
-std::string squareDigits(std::string input); 
-
 std::string squareDigits(std::string input) {
     std::string result;
     for(char c : input) {
