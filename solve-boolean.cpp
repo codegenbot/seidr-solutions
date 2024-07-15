@@ -33,3 +33,4 @@ int main() {
         cout << (result ? "True" : "False") << endl;
     }
     return 0;
+}
