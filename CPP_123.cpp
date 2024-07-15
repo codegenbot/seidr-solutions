@@ -1,8 +1,23 @@
 #include <vector>
 #include <algorithm>
 
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
+    while (n != 1) {
+        if (n % 2 == 1) {  // Odd number
+            result.push_back(n);
+        }
+        if (n % 2 == 0) {  // Even number
+            n = n / 2;
+        } else {
+            n = 3 * n + 1;
+        }
+    }
+    result.push_back(1);
+    sort(result.begin(), result.end());
+    return result;
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return (a == b);
+    // Implement the comparison logic here
 }
