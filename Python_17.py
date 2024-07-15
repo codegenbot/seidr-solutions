@@ -4,7 +4,6 @@ while True:
         if not music_input:
             break
         result = parse_music(music_input)
-        if result is not None:
-            print(result)
-    except EOFError:
+        print(result)
+    except (EOFError, KeyboardInterrupt):
         break
