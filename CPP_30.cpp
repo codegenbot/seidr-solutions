@@ -1,6 +1,6 @@
-#include <algorithm> // Add this header
 #include <vector>
+#include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) { // Correct function signature
+bool issame(std::vector<float> a, std::vector<float> b) {
     return std::is_permutation(a.begin(), a.end(), b.begin());
 }
