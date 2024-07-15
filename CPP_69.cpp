@@ -1,7 +1,9 @@
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
+#include <cassert>
 
-int findUnique(std::vector<int> lst) {
+int search(std::vector<int> lst) {
     int result = -1;
     std::unordered_map<int, int> freq;
     for (int num : lst) {
@@ -13,4 +15,9 @@ int findUnique(std::vector<int> lst) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
