@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,6 +18,9 @@ std::string camelCase(std::string str) {
                 i = j;
             }
         } else if (str[i] != ' ') {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
             result += tolower(str[i]);
         } else {
             if (!result.empty()) {
