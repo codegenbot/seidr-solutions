@@ -1,4 +1,4 @@
-input_string = input("Enter the text to decode: ") 
+input_string = input().strip()
 
 def decode_shift(input_string):
     input_string = input_string.lower()
