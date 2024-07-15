@@ -1,23 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 namespace Solution {
-    int smallest_change(const std::vector<int>& arr) {
-        int changes = 0;
-        std::vector<int> temp = arr;
-        std::reverse(temp.begin(), temp.end());
-        for (int i = 0; i < arr.size(); ++i) {
-            changes += (arr[i] != temp[i]);
-        }
-        return changes;
-    }
+    int smallest_change(const std::vector<int>& arr);
 }
 
-using namespace Solution;
+int Solution::smallest_change(const std::vector<int>& arr) {
+    int n = arr.size();
+    int changes = 0;
+    for (int i = 0; i < n / 2; ++i) {
+        changes += (arr[i] != arr[n - i - 1]);
+    }
+    return changes;
+}
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
+    std::vector<int> input;
+    int value;
+    while (std::cin >> value) {
+        input.push_back(value);
+    }
+    
+    std::cout << Solution::smallest_change(input) << std::endl;
+
     return 0;
 }
