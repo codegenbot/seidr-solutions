@@ -8,12 +8,12 @@ bool issame(std::vector<float> a, std::vector<float> b){
 std::vector<float> derivative(std::vector<float> xs){
     std::vector<float> result;
     for(size_t i=1; i<xs.size(); i++){
-        result.push_back(xs[i] * static_cast<float>(i - 1));
+        result.push_back(xs[i] * (i - 1));
     }
     return result;
 }
 
 int main(){
-    assert(issame(derivative({1.0f}), std::vector<float>{}));
+    assert(issame(derivative({1.0f}), {}));
     return 0;
 }
