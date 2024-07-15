@@ -21,8 +21,3 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
     }
     return result;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
