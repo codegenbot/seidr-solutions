@@ -2,14 +2,14 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool are_same(const std::vector<std::string>& v1, const std::vector<std::string>& v2){
+    return v1 == v2;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, const std::string& prefix) {
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
-    for (const std::string& str : strings) {
-        if (str.find(prefix) == 0) {
+    for(const std::string& str : strings){
+        if(str.find(prefix) == 0){
             result.push_back(str);
         }
     }
@@ -17,6 +17,12 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, cons
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> input = {"apple", "banana", "cherry", "apricot", "pear"};
+    std::vector<std::string> expected_output = {"apple", "apricot"};
+    
+    std::vector<std::string> result = filter_by_prefix(input, "ap");
+    
+    assert(are_same(result, expected_output));
+    
     return 0;
 }
