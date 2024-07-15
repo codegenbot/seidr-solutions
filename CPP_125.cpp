@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+vector<string> split_words(string txt);
+
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
@@ -31,6 +33,6 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main() {
-    // Your solution code here
+bool issame(vector<string> a, vector<string> b){
+    // implementation of issame function
 }
