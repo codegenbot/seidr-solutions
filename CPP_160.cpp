@@ -1,3 +1,9 @@
+#include <vector>
+#include <string>
+#include <cmath>
+#include <cassert>
+using namespace std;
+
 int do_algebra(vector<string> operato, vector<int> operand){
     int result = operand[0];
     for (int i = 0; i < operato.size(); ++i) {
