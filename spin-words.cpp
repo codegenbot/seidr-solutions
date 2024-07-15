@@ -7,7 +7,7 @@ std::string spinWords(std::string str) {
     std::string result = "";
     std::size_t start = 0;
     for (std::size_t end = 0; end <= str.length(); ++end) {
-        if ((end == str.length() || isspace(str[end])) && end - start >= 5) {
+        if ((end == str.length() || ::isspace(str[end])) && end - start >= 5) {
             std::reverse(str.substr(start, end - start).begin(), str.substr(start, end - start).end());
             result += str.substr(start, end - start);
             start = end;
