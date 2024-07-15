@@ -1,8 +1,11 @@
+```
 def gcd(a, b):
-    if a == 0:
-        return abs(b)
-    if b == 0:
-        return abs(a)
+    if a < 0:
+        a = -a
+    if b < 0:
+        b = -b
+    if a == 0 and b == 0:
+        return float('inf')
     while b != 0:
         a, b = b, a % b
     return abs(a)
