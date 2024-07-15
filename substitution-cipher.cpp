@@ -1,31 +1,12 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-std::string decipher(std::string key1, std::string key2, std::string message) {
-    std::string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        if (i < key1.length()) {
-            int index = key2.find(message[i]);
-            if (index != std::string::npos)
-                result += key1[index];
-            else
-                result += message[i]; 
-        } else {
-            result += message[i]; 
+std::string applyCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        for (int i = 0; i < cipher1.size(); i++) {
+            if (cipher1[i] == c) {
+                result += cipher2[i];
+                break;
+            }
         }
     }
     return result;
-}
-
-int main() {
-    std::string key1, key2, message;
-    std::cout << "Enter the first string (key): ";
-    std::cin >> key1;
-    std::cout << "Enter the second string: ";
-    std::cin >> key2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(key1, key2, message) << std::endl;
-    return 0;
 }

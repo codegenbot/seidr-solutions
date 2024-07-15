@@ -1,18 +1,21 @@
+```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+const int MAX_CHARS = 140;
+
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    else if (tweet.length() > 140) {
+    
+    if (tweet.length() > MAX_CHARS) {
         return "Too many characters";
     }
-    else {
-        return "Your tweet has " + to_string(tweet.length()) + " characters";
-    }
+    
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
 
 int main() {

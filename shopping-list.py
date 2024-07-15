@@ -1,18 +1,12 @@
+Here is the corrected code:
+
 ```
 def shopping_list():
     n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
-    
-    while len(prices) < n or len(discounts) < n:
-        print("Invalid input. Please provide {} prices and {} discounts.".format(n, n))
-        n = int(input())
-        prices = list(map(float, input().split()))
-        discounts = list(map(float, input().split()))
-
-    total_price = 0
-    for i in range(min(n, len(prices))):
-        total_price += (1 - discounts[i] / 100) * prices[i]
+    input_str = input()
+    prices = list(map(float, input_str.split()))
+    discounts = [float(i) / 100 for i in input().split() for _ in range(n)]
+    total_price = sum((1 - d) * p for p, d in zip(prices, discounts))
     return format(total_price, ".1f")
 
 

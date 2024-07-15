@@ -1,23 +1,41 @@
 #include <iostream>
 #include <string>
+#include <map>
 
-int whitePegs(std::string code, std::string guess) {
-    int codeCount[6] = {0};
-    int guessCount[6] = {0};
-    int blackPegsCount = 0;
+using namespace std;
+
+int whitePegs(string code, string guess) {
+    int count = 0;
+    map<char, int> codeMap;
+
+    for(int i=0; i<4; i++) {
+        codeChar = code.substr(i,1);
+        guessChar = guess.substr(i,1);
+
+        if(code.find(guessChar) != string::npos && codeChar != guessChar) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            blackPegsCount++;
-        } else {
-            codeCount[code[i]-'0']++;
-            guessCount[guess[i]-'0']++;
+            count++;
         }
     }
-    int whitePegsCount = 0;
-    for(int i=0; i<6; i++) {
-        if(codeCount[i] > 0 && guessCount[i] > 0) {
-            whitePegsCount += std::min(codeCount[i], guessCount[i]);
-        }
-    }
-    return blackPegsCount + (4 - blackPegsCount - whitePegsCount);
+    
+    return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    return 0;
 }
