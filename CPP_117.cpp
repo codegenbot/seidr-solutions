@@ -1,48 +1,48 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+int count_consonants(string word) {
+    int count = 0;
+    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    for (char c : word) {
+        if (consonants.find(c) != string::npos) {
+            count++;
+        }
+    }
+    return count;
+}
 
-using namespace std;
+bool issame(string a, string b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
+}
 
 vector<string> select_words(string s, int n);
 
-bool issame(vector<string> a, vector<string> b);
-
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    // Add more test cases if needed
-    cout << "All test cases passed successfully!" << endl;
+    string s;
+    int n;
+    cin >> s >> n;
+    vector<string> result = select_words(s, n);
+    for (string word : result) {
+        cout << word << " ";
+    }
     return 0;
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string current_word;
-    int consonant_count = 0;
-    
+    string word;
     for (char c : s) {
-        if (c != ' ') {
-            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
-                consonant_count++;
+        if (c == ' ') {
+            if (count_consonants(word) == n && issame(word, "contest")) {
+                result.push_back(word);
             }
-            current_word += c;
+            word = "";
         } else {
-            if (consonant_count == n) {
-                result.push_back(current_word);
-            }
-            current_word = "";
-            consonant_count = 0;
+            word += c;
         }
     }
-    
-    if (consonant_count == n) {
-        result.push_back(current_word);
+    if (!word.empty() && count_consonants(word) == n && issame(word, "contest")) {
+        result.push_back(word);
     }
-    
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
 }
