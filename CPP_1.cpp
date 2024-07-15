@@ -1,10 +1,14 @@
-bool issame(const string& a, const string& b) {
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(const std::string &a, const std::string &b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(const std::string &paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -25,4 +29,18 @@ vector<string> separate_paren_groups(const string& paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string with parentheses: ";
+    std::cin >> input;
+
+    std::vector<std::string> groups = separate_paren_groups(input);
+
+    for (const std::string &group : groups) {
+        std::cout << group << std::endl;
+    }
+
+    return 0;
 }
