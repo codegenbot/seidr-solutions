@@ -1,16 +1,17 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-double getProbability(int n, int m) {
-    double p = 0;
-    for (int i = 1; i <= n; i++) {
-        p += (n - i + 1.0) / n * (m - (i % m)) / m;
+double probability(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m; i++) {
+        total += 1.0 / m;
     }
-    return p;
+    return 1.0 - (n / (double)n * (m / (double)m));
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << getProbability(n, m) << endl;
+    cout << fixed << setprecision(2) << probability(n, m) << endl;
     return 0;
 }
