@@ -20,13 +20,15 @@ vector<string> select_words(string s, int n);
 
 int main() {
     string input;
-    int n;
     getline(cin, input);
+    int n;
     cin >> n;
 
     vector<string> words = select_words(input, n);
 
-    // Rest of the main function
+    for (string word : words) {
+        cout << word << " ";
+    }
 
     return 0;
 }
