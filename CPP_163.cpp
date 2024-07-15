@@ -4,11 +4,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (unsigned int i = 0; i < a.size(); ++i) {
+    
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -19,3 +21,6 @@ std::vector<int> generate_integers(int a, int b) {
     }
     return result;
 }
+
+// Adjusted assert statement
+assert(issame(generate_integers(1, 10), {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
