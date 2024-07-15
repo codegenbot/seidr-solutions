@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -12,6 +14,5 @@ int gcd(int a, int b) {
 int main() {
     int a = 48;
     int b = 18;
-    std::cout << "GCD: " << gcd(a, b) << std::endl;
+    cout << "GCD: " << gcd(a, b) << endl;
     return 0;
-}
