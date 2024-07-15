@@ -6,4 +6,4 @@ def sort_third(l: list):
             if i + 2 < len(l)
         ],
         key=lambda x: x[2],
-    )
+    ) 
