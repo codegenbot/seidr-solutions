@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -16,7 +17,6 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     string text, target;
 
-    // Get input from user
     cout << "Enter the text: ";
     getline(cin, text);
 
@@ -27,5 +27,6 @@ int main() {
     for (int i : res) {
         cout << i << " ";
     }
+    
     return 0;
 }
