@@ -1,7 +1,11 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_denom = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_denom = stoi(n.substr(n.find('/') + 1));
+#include <string>
+using namespace std;
 
-    return (x_num * n_num) % (x_denom * n_denom) == 0;
+bool simplify(string x, string n) {
+    int numerator1 = stoi(x.substr(0, x.find('/')));
+    int denominator1 = stoi(x.substr(x.find('/') + 1));
+    int numerator2 = stoi(n.substr(0, n.find('/')));
+    int denominator2 = stoi(n.substr(n.find('/') + 1));
+
+    return (numerator1 * denominator2 == numerator2 * denominator1);
 }
