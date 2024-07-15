@@ -12,9 +12,12 @@ int main() {
     // Calculate actual first bounce
     double firstBounce = startHeight; 
 
-    do {
-        firstBounce *= 0.8; 
-    } while (firstBounce > 0);
+    while (true) {
+        if(firstBounce <= 0.8 * startHeight)
+            break;
+        startHeight = firstBounce;
+        firstBounce = 0.2 * startHeight; 
+    }
 
     double bouncinessIndex = firstBounce / startHeight;
 
