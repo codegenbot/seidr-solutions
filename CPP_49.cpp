@@ -13,7 +13,7 @@ int modp(int n, int p) {
     return result;
 }
 
-int contest_main() {
+int main() {
     int n, p;
     std::cout << "Enter n and p: ";
     std::cin >> n >> p;
