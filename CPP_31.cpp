@@ -12,17 +12,7 @@ bool is_prime(long long n) {
     return true;
 }
 
-#include <iostream>
-
 int main() {
-    long long n;
-    std::cin >> n;
-
-    if (is_prime(n)) {
-        std::cout << "Prime\n";
-    } else {
-        std::cout << "Not Prime\n";
-    }
-
+    assert(is_prime(13441 * 19) == false);
     return 0;
 }
