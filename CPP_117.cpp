@@ -1,60 +1,48 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
+using namespace std;
 
 vector<string> select_words(string s, int n);
 
+bool issame(vector<string> a, vector<string> b);
+
 int main() {
-    string input;
-    int n;
-    getline(cin, input);
-    cin >> n;
-
-    vector<string> result = select_words(input, n);
-    for (string word : result) {
-        cout << word << endl;
-    }
-
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    // Add more test cases if needed
+    cout << "All test cases passed successfully!" << endl;
     return 0;
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    int consonantCount = 0;
-
+    string current_word;
+    int consonant_count = 0;
+    
     for (char c : s) {
-        if (c == ' ') {
-            if (consonantCount == n) {
-                result.push_back(word);
+        if (c != ' ') {
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+                consonant_count++;
             }
-            word = "";
-            consonantCount = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonantCount++;
+            current_word += c;
+        } else {
+            if (consonant_count == n) {
+                result.push_back(current_word);
             }
-            word += c;
+            current_word = "";
+            consonant_count = 0;
         }
     }
-
-    if (!word.empty() && consonantCount == n) {
-        result.push_back(word);
+    
+    if (consonant_count == n) {
+        result.push_back(current_word);
     }
-
+    
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
