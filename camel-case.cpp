@@ -1,20 +1,36 @@
+#include <iostream>
+#include <string>
+
 std::string camelCase(std::string input) {
     std::string output;
-    size_t start = 0;
 
-    for (size_t i = 0; i <= input.size(); ++i) {
-        if (i == input.size() || (input[i] == '-' && input[i - 1] != ' ')) {
-            if (start < i) {
-                output += tolower(input.substr(start, i - start));
-            }
-            if (i < input.size()) {
-                output.push_back(toupper(input[i]));
-                start = i + 1;
-            } else {
-                return output;
-            }
+    for (char c : input) {
+        if (c == '-') {
+            continue;
+        }
+        else if (c == ' ') {
+            output += " ";
+        } else {
+            output += toupper(c);
         }
     }
 
+    // Convert first letter to lower
+    if (!output.empty()) {
+        for (char &c : output) {
+            c = tolower(c);
+        }
+        // Make first character of the string uppercase
+        output[0] = toupper(output[0]);
+    }
+
     return output;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
