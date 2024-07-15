@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-using namespace std;
+#include <cctype>
 
-string solve(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     bool hasLetters = false;
 
     for (char c : s) {
