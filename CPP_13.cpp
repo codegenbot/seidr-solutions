@@ -1,2 +1,9 @@
-return b == 0 ? a : greatest_common_divisor(b, a % b);
+while (a != b) {
+    if (a > b) {
+        a = a - b;
+    } else {
+        b = b - a;
+    }
+}
+return a;
 }
