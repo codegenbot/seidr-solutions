@@ -1,15 +1,29 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> rev_num_map;
-for (auto const& pair : num_map) {
-    rev_num_map[pair.second] = pair.first;
-}
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-string result = "";
-for (int i = 0; i <= 9; ++i) {
-    if (numbers.find(rev_num_map[i]) != string::npos) {
-        result += rev_num_map[i] + " ";
+string sort_numbers(string numbers){
+    map<int, string> rev_num_map;
+    for(auto it : num_map){
+        rev_num_map[it.second] = it.first;
     }
-}
 
-result.pop_back(); // remove the extra space at the end
-return result;
+    string result;
+    for(auto it : rev_num_map){
+        if(numbers.find(it.second) != string::npos){
+            result += it.second + " ";
+        }
+    }
+    
+    result.pop_back(); // Remove the extra space at the end
+    return result;
+}
