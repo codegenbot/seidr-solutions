@@ -25,13 +25,10 @@ int bowlingScore(std::string s) {
         }
     }
 
-    // Add this to close the for loop
-    if (inFrame || currentRolls > 0) {
-        if (currentRolls == 1) {
-            score += 10 + currentScore;
-        } else {
-            score += 10 + currentScore;
-        }
+    // Add this line
+    if (inFrame || currentScore > 0) {
+        if (inFrame) score += 10 + currentScore;
+        else score += currentScore;
     }
 
     return score;
