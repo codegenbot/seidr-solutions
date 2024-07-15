@@ -10,10 +10,12 @@ int snowDay(int hours, float groundSnow, float rate, float melt) {
 }
 
 int main() {
-    std::string input;
-    getline(cin, input);
-    int hours = std::stoi(input);
+    std::string line;
+    cin >> line;
+    int h;
+    std::stringstream ss(line);
+    ss >> h;
     float groundSnow, rate, melt;
-    cin >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
+    ss >> groundSnow >> rate >> melt;
+    cout << fixed << setprecision(10) << snowDay(h, groundSnow, rate, melt) << endl;
     return 0;
