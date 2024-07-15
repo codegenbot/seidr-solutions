@@ -40,7 +40,7 @@ int blackPegs(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    std::cout << whitePegs(code, guess) << std::endl;
-    std::cout << blackPegs(code, guess) << std::endl;
+    cout << std::whitePegs(code, guess) << std::endl; // Fix: Declare and use these as functions
+    cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
