@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -27,6 +28,5 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    double total = 0; // Declare total before use
     cout << fixed << setprecision(6) << shoppingList(prices, discounts) << endl;
 }
