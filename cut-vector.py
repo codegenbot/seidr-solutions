@@ -1,5 +1,6 @@
+```
 def cut_vector(vector):
-    median = sorted([x for x in vector])[len(vector) // 2]
+    median = sorted([x for x in vector])[len(vector)//2]
     left_sum = right_sum = sum(vector)
     min_diff = float("inf")
     split_index = -1
@@ -14,4 +15,4 @@ def cut_vector(vector):
         else:
             right_sum -= vector[i]
 
-    return vector[: split_index + 1], vector[split_index + 1 :]
+    return vector[:split_index + 1], vector[split_index + 1:]
