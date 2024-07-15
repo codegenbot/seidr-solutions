@@ -1,13 +1,31 @@
-sort(arr.begin(), arr.end());
-arr.erase(remove_if(arr.begin(), arr.end(), [](int num) { return num < 1 || num > 9; }), arr.end());
-reverse(arr.begin(), arr.end());
+vector<string> by_length(vector<int> arr){
+    vector<int> sorted_arr;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sorted_arr.push_back(num);
+        }
+    }
 
-map<int, string> numToString = {
-    {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
-};
+    sort(sorted_arr.begin(), sorted_arr.end());
 
-vector<string> result;
-for (int num : arr) {
-    result.push_back(numToString[num]);
+    reverse(sorted_arr.begin(), sorted_arr.end());
+
+    map<int, string> num_names = {
+        {1, "One"},
+        {2, "Two"},
+        {3, "Three"},
+        {4, "Four"},
+        {5, "Five"},
+        {6, "Six"},
+        {7, "Seven"},
+        {8, "Eight"},
+        {9, "Nine"}
+    };
+
+    vector<string> result;
+    for (int num : sorted_arr) {
+        result.push_back(num_names[num]);
+    }
+
+    return result;
 }
-return result;
