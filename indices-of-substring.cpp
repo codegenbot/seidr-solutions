@@ -17,4 +17,9 @@ int main() {
     string text = "Hello World";
     string target = "World";
     vector<int> res = indicesOfSubstring(text, target);
+    cout << "Indices: ";
+    for (int i : res) {
+        cout << i << " ";
+    }
+    cout << endl;
 }
