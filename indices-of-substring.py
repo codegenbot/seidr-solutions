@@ -1,4 +1,4 @@
-```
+''' 
 def indices_of_substring(text, target):
     result = []
     last_found_index = 0
@@ -10,3 +10,4 @@ def indices_of_substring(text, target):
         else:
             break
     return result
+'''
