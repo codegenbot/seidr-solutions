@@ -12,3 +12,6 @@ def bouncing_balls():
         b = round(b * i)
 
     return total_distance
+
+if __name__ == "__main__":
+    print(bouncing_balls())
