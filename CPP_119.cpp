@@ -7,15 +7,15 @@ using namespace std;
 
 string match_parens(vector<string> lst);
 
-int main() {
+int main(){
     assert(match_parens({")", "("}) == "Yes");
     return 0;
 }
 
-string match_parens(vector<string> lst) {
+string match_parens(vector<string> lst){
     int cnt = 0;
-    for (string s : lst) {
-        for (char c : s) {
+    for(string s : lst) {
+        for(char c : s) {
             if (c == '(') {
                 cnt++;
             } else {
