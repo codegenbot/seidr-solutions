@@ -1,12 +1,11 @@
-```cpp
 #include <iomanip>
 #include <ostream>
 
-float snowDay(int hours, float groundSnow, float rate, float melt) {
-    for (int i = 0; i < hours; i++) {
+int snowDay(int hours, float groundSnow, float rate, float melt) {
+    for(int i = 0; i < hours; ++i) {
         groundSnow += rate - melt;
     }
-    return groundSnow;
+    return static_cast<int>(groundSnow);
 }
 
 int main() {
@@ -14,5 +13,7 @@ int main() {
     cin >> hours;
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
-    return 0; }
+    cout << std::fixed << std::setprecision(6); 
+    cout << snowDay(hours, groundSnow, rate, melt) << endl;
+    cout << std::resetiosflags(std::ios_base::floatfield);
+    return 0;
