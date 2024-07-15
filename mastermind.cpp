@@ -29,13 +29,14 @@ int mastermind(string code, string guess) {
         white += min(codeLeft, guessLeft);
     }
     
-    return {white, black};
+    return black;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << mastermind(code, guess)[0] << endl;
-    cout << mastermind(code, guess)[1] << endl;
+    int whiteAndBlack = mastermind(code, guess);
+    cout << whiteAndBlack - 4 + mastermind(code, guess) << endl;
+    cout << whiteAndBlack << endl;
     return 0;
 }
