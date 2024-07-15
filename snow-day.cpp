@@ -9,10 +9,10 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
 int main() {
     int h;
     cin >> h;
-    if (!(cin >> g >> r >> m)) {
-        cout << "Invalid input. Please enter correct values." << endl;
-        return 1; // Return an error code
-    }
+    float g, r, m;
+    cin >> g; 
+    cin >> r; 
+    cin >> m; 
     cout << fixed << setprecision(10) << snowDay(h, g, r, m) << endl;
     return 0;
 }
