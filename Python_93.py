@@ -10,8 +10,8 @@ def encode(message):
                     if char.lower() not in vowels
                     else (
                         chr(ord(char) ^ 32)
-                        if char.islower()
-                        else char.swapcase().lower()
+                        if char.isalpha()
+                        else char
                     )
                 )
                 if char.isalpha()
