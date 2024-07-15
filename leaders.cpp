@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& vec) {
     std::vector<int> result;
@@ -13,11 +12,7 @@ std::vector<int> leaders(std::vector<int>& vec) {
     return result;
 }
 
-int main() {
-    std::vector<int> input = {16, 17, 4, 3, 5, 2};
-    std::vector<int> result = leaders(input);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+std::vector<int> result = leaders({7, 5, 2, 4});
+for (int num : result) {
+    std::cout << num << " ";
 }
