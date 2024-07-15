@@ -12,7 +12,7 @@ string string_to_md5(const string& text) {
     EVP_MD_CTX *mdctx;
     const EVP_MD *md;
     char mdString[33];
-    unsigned int n;
+    int n;
     
     OpenSSL_add_all_algorithms();
     md = EVP_get_digestbyname("md5");
@@ -20,7 +20,7 @@ string string_to_md5(const string& text) {
     EVP_DigestInit_ex(mdctx, md, NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     unsigned char digest[EVP_MD_size(md)];
-    EVP_DigestFinal_ex(mdctx, digest, &n);
+    EVP_DigestFinal_ex(mdctx, (unsigned char*)digest, (unsigned int*)&n);
     EVP_MD_CTX_destroy(mdctx);
 
     for(int i = 0; i < EVP_MD_size(md); i++) {
