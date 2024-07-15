@@ -1,26 +1,26 @@
-vector<string> result;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> split_words(string s) {
+    vector<string> words;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
+    
+    for (char c : s) {
+        if (isalnum(c)) {
             word += c;
+        } else if (!word.empty()) {
+            words.push_back(word);
+            word = "";
         }
     }
+    
     if (!word.empty()) {
-        result.push_back(word);
+        words.push_back(word);
     }
-    if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
-            }
-        }
-        result.push_back(to_string(count));
-    }
-    return result;
+    
+    return words;
 }
