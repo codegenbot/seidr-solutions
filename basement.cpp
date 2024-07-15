@@ -5,5 +5,4 @@ int basement(const std::vector<int>& nums) {
         if (sum < 0)
             return i;
     }
-    return -1; 
-}
+    return -1;
