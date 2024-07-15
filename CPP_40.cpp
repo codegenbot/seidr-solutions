@@ -1,4 +1,3 @@
-
 bool triples_sum_to_zero(vector<int> l) {
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
