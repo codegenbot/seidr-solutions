@@ -1,8 +1,9 @@
 vector<char> chars;
     for(char c : str){
-        chars.push_back(tolower(c));
+        char lc = tolower(c);
+        if(find(chars.begin(), chars.end(), lc) == chars.end()){
+            chars.push_back(lc);
+        }
     }
-    sort(chars.begin(), chars.end());
-    chars.erase(unique(chars.begin(), chars.end()), chars.end());
     return chars.size();
 }
