@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> filtered_strings;
     for (const auto& str : strings) {
@@ -14,8 +12,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return filtered_strings;
 }
 
-int main() {
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
-    
-    return 0;
-}
+assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
