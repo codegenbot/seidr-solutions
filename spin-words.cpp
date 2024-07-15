@@ -12,29 +12,29 @@ string spinWords(string str) {
     for (char c : str) {
         if (c == ' ') {
             inWord = false;
-            if (!result.empty()) {
-                wordLength = result.length();
-                if (wordLength >= 5) {
-                    for (int i = wordLength - 1; i >= 0; --i)
-                        result += result[i];
-                } else
-                    result += result;
-                result.clear();
-            }
+            result += c;
         } else {
             inWord = true;
             result += c;
         }
 
         if (!inWord && !result.empty()) {
-            result = (wordLength = result.length(), wordLength >= 5 ? string(result.rbegin(), result.rend()) : result) + (inWord ? " " : "");
-            result.clear();
+            wordLength = result.length();
+            if (wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result = result.substr(0, i) + (inWord ? " " : "") + result substr(i);
+            } else
+                result = result + (inWord ? " " : "");
         }
     }
 
     if (!result.empty()) {
         wordLength = result.length();
-        result = (wordLength >= 5 ? string(result.rbegin(), result.rend()) : result) + (inWord ? " " : "");
+        if (wordLength >= 5) {
+            for (int i = wordLength - 1; i >= 0; --i)
+                result = result.substr(0, i) + (inWord ? " " : "") + result substr(i);
+        } else
+            result = result + (inWord ? " " : "");
     }
 
     return result;
