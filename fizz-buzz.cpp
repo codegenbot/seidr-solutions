@@ -22,4 +22,3 @@ int main() {
     std::cin >> num;
     std::cout << solution.fizzBuzz(num) << std::endl;
     return 0;
-}
