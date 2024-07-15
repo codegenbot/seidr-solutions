@@ -23,8 +23,8 @@ int main() {
     int n;
     cin >> n;
     vector<int> result = make_a_pile(n);
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
+    for (int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
