@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -24,9 +20,11 @@ int main() {
     getline(cin, input);
     cin >> n;
 
-    vector<string> selectedWords = select_words(input, n);
+    vector<string> result = select_words(input, n);
 
-    // Your code logic here
+    for (string word : result) {
+        cout << word << endl;
+    }
 
     return 0;
 }
