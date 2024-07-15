@@ -9,4 +9,4 @@ for i in range(len(numbers) - 1):
         min_diff = diff
         result = (numbers[i], numbers[i + 1])
 
-result
+print(result)
