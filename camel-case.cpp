@@ -1,37 +1,28 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            if (result != "") {
-                result += result[0];
-                for (int j = 1; j < result.length(); j++)
-                    result[j] = toupper(result[j]);
-            }
-            result += " ";
-        } else if (str[i] == ' ') {
-            if (result != "") {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            result += s.substr(i + 1, 1).toupper();
+            i++;
+        } else if (s[i] != ' ') {
+            if (result.length() > 0) {
                 result[0] = toupper(result[0]);
             }
-            result += str.substr(i + 1);
-            break;
-        } else {
-            if (i > 0 && str[i - 1] == '-') {
-                result += " ";
-            }
-            result += tolower(str[i]);
+            result += s[i];
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> str;
-    std::cout << "The camelCase representation is: " << camelCase(str) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << '\n';
+    }
     return 0;
 }
