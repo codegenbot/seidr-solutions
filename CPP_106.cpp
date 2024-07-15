@@ -2,7 +2,11 @@
 #include <cassert>
 
 std::vector<int> f(int size) {
-    return std::vector<int>(size, 1);
+    std::vector<int> result(size);
+    for (int i = 0; i < size; ++i) {
+        result[i] = i + 1;
+    }
+    return result;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -10,5 +14,5 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(f(3), {1, 1, 1}));
+    assert(issame(f(3), {1, 2, 3}));
 }
