@@ -8,12 +8,13 @@ std::string match_parens(std::vector<std::string> lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
-            } else if (c == ')' && cnt == 0) {
-                return "No";
             } else {
+                if (cnt == 0) {
+                    return "No";
+                }
                 cnt--;
             }
         }
     }
-    return cnt == 0 ? "Yes" : "No";
+    return (cnt == 0 && cnt != 0) ? "Yes" : "No";
 }
