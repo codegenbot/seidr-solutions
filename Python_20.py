@@ -8,3 +8,7 @@ def find_min_difference(numbers):
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+numbers = list(map(float, input().split()))
+output = find_min_difference(numbers)
+print(output)
