@@ -1,29 +1,29 @@
 ```cpp
 #include <iostream>
-#include <vector>
 #include <iomanip>
+using namespace std;
 
-float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
+float shoppingList(const vector<float>& prices, const vector<float>& discounts) {
     float total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100.0f);
+        float priceAfterDiscount = prices[i] * (1 - discounts[i] / 100);
+        total += priceAfterDiscount;
     }
     return total;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<float> prices(n);
+    cin >> n;
+    vector<float> prices(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> prices[i];
-        std::cin >> std::noskipws;
+        cin >> prices[i];
     }
-    std::cin.ignore();
-    std::cin >> n;
-    std::vector<float> discounts(n);
+    cin.ignore();
+    cin >> n;
+    vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> discounts[i];
+        cin >> discounts[i];
     }
-    std::cout << std::fixed << std::setprecision(6) << shoppingList(prices, discounts) << std::endl;
+    cout << fixed << setprecision(6) << shoppingList(prices, discounts) << endl;
 }
