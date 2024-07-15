@@ -1,13 +1,5 @@
-```cpp
 #include <string>
 using namespace std;
-
-int main() {
-    string input = "hello world spin";
-    string result = spinWords(input); 
-    cout << result; 
-    return 0;
-}
 
 string spinWords(string str) {
     string result = "";
@@ -16,7 +8,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (length >= 5) {
                 for (int j = length - 1; j >= 0; j--) {
-                    result += str.substr(i - length, length).at(j);
+                    result += str[i - j];
                 }
             } else {
                 result += " ";
@@ -29,8 +21,15 @@ string spinWords(string str) {
     }
     if (length >= 5) {
         for (int i = length - 1; i >= 0; i--) {
-            result += str.substr(str.length() - length, length).at(i);
+            result += str[i];
         }
     }
     return result;
+}
+
+int main() {
+    string str;
+    cin >> str;
+    cout << spinWords(str) << endl;
+    return 0;
 }

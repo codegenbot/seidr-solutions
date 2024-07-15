@@ -4,12 +4,20 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> res;
-    int index = 0;
-    while (index <= text.length() - target.length()) {
-        if (text.substr(index, target.length()).compare(target) == 0)
-            res.push_back(index);
-        index++;
+    vector<int> result;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        bool found = true;
+        int j = 0;
+        while (j < target.length()) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+            j++;
+        }
+        if (found) {
+            result.push_back(i);
+        }
     }
-    return res;
+    return result;
 }
