@@ -1,3 +1,4 @@
+```cpp
 std::vector<int> leaders(std::vector<int>& vec) {
     std::vector<int> result;
     int maxRight = vec.back();
