@@ -1,9 +1,9 @@
 ```cpp
-#include <iostream>
 #include <iomanip>
+#include <ostream>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
-    for (int i = 0; i < hours; ++i) {
+    for (int i = 0; i < hours; i++) {
         groundSnow += rate - melt;
     }
     return groundSnow;
@@ -14,6 +14,5 @@ int main() {
     cin >> hours;
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << std::endl;
-    return 0;
-}
+    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
+    return 0; }
