@@ -1,11 +1,13 @@
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <climits>
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
     int diff = INT_MAX;
@@ -15,7 +17,7 @@ int main() {
         for (int j = 0; j < i; ++j) {
             leftSum += nums[j];
         }
-        for (int j = i; j < n; ++j) {
+        for (int j = i; j < n-1; ++j) {
             rightSum += nums[j];
         }
         int currentDiff = abs(leftSum - rightSum);
@@ -26,11 +28,11 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
     return 0;
