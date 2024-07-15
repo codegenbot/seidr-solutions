@@ -14,7 +14,7 @@ int main() {
     cin >> target;
     
     map<int, int> numIndex;
-    pair<int, int> result;
+    pair<int, int> result = make_pair(-1, -1); // Initialize with values indicating pair not found
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
@@ -24,11 +24,11 @@ int main() {
         numIndex[nums[i]] = i;
     }
     
-    if(result.first != 0 || result.second != 0) {
+    if (result.first != -1 && result.second != -1) {
         cout << nums[result.first] << endl;
         cout << nums[result.second] << endl;
     } else {
-        cout << "No pair found." << endl;
+        cout << "Pair not found." << endl;
     }
     
     return 0;
