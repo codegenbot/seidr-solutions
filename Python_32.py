@@ -1,10 +1,9 @@
-def find_zero(a: str, b: str) -> str:
-    a = float(a)
-    b = float(b)
+def find_zero() -> float:
+    a, b = map(float, input().strip().split())
     if a == 0:
         return "undefined"
     return -b / a
 
-a, b = input().split()
-result = find_zero(a, b)
+
+result = find_zero()
 print(result)
