@@ -1,4 +1,7 @@
-int basement(vector<int> v) { 
+```cpp
+#include <vector>
+
+int basement(std::vector<int> v) {
     int sum = 0; 
     int i = 0;
     for (auto num : v) {

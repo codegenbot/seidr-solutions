@@ -10,3 +10,4 @@ int luhn(std::vector<int> numbers) {
         sum += digit;
     }
     return sum % 10 == 0;
+}
