@@ -1,10 +1,3 @@
-if (x == 1) {
-        return true;
-    }
-    for (int i = 2; i <= sqrt(x); i++) {
-        if (pow(i, n) == x) {
-            return true;
-        }
-    }
-    return false;
+bool is_simple_power(int x, int n) {
+    return (x > 0 && n > 0 && log(x) / log(n) == (int)(log(x) / log(n)));
 }
