@@ -3,5 +3,3 @@ try:
 except ValueError:
     print("Invalid input. Please provide valid integers separated by spaces.")
     exit()
-
-print(sum_product(numbers))
