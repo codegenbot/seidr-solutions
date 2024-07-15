@@ -1,6 +1,5 @@
 #include <string>
-
-std::string compare(std::any a, std::any b);
+#include <any>
 
 std::string compare(std::any a, std::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
