@@ -2,25 +2,32 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::string result;
+string substitutionCipher(string cipher1, string cipher2, string message) {
+    string decipheredMessage;
+    
     for (int i = 0; i < message.length(); i++) {
-        int index = 0;
-        while (index < cipher1.length() && message[i] != cipher1[index]) {
-            index++;
-        }
-        if (index >= cipher2.length()) {
-            result += '?';
+        if (message[i] == ' ') {
+            decipheredMessage += ' ';
         } else {
-            result += cipher2[index];
+            int index = message[i];
+            if (index >= 97 && index <= 122) {
+                // Convert ASCII value to lowercase
+                index -= 97;
+                decipheredMessage += cipher2[index];
+            } else if (index >= 65 && index <= 90) {
+                // Convert ASCII value to uppercase
+                index -= 65;
+                decipheredMessage += toupper(cipher2[index]);
+            }
         }
     }
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
+    string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
-    cout << decipher(cipher1, cipher2, message) << endl;
+    cout << substitutionCipher(cipher1, cipher2, message) << endl;
     return 0;
 }
