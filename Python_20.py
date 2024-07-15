@@ -1,5 +1,7 @@
 try:
-    numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
+    numbers = list(
+        map(int, input("Enter a list of numbers separated by spaces: ").split())
+    )
 except EOFError:
     pass
 numbers.sort()
