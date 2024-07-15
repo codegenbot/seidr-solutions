@@ -1,10 +1,5 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
 std::string spinWords(std::string str) {
-    std::reverse(str.begin(), str.end());
-    
+    std::string result = "";
     std::size_t pos = 0;
     
     while ((pos = str.find(" ")) != std::string::npos) {
@@ -22,16 +17,8 @@ std::string spinWords(std::string str) {
         pos = len;
     }
     
-    if (str.length() > 0)
+    if (!str.empty())
         result += str;
 
     return result;
-}
-
-int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << spinWords(str) << std::endl;
-    }
-    return 0;
 }
