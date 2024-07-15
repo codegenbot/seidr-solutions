@@ -6,24 +6,21 @@ int gcd(int a, int b) {
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
-    int textLen = text.length();
-    int targetLen = target.length();
-    
-    for (int i = 0; i <= textLen - targetLen; ++i) {
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (int j = 0; j < targetLen; ++j) {
+        for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
-        
         if (found) {
-            for (int k = 0; k < targetLen; ++k) {
-                indices.push_back(i + k);
-            }
+            indices.push_back(i);
         }
     }
-    
+
     return indices;
 }
