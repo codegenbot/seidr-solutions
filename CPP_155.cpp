@@ -17,3 +17,10 @@ std::vector<int> even_odd_count(int num) {
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
+
+int main() {
+    assert(issame(even_odd_count(12345), {3, 2}));
+    assert(issame(even_odd_count(-9876543), {4, 4}));
+    
+    return 0;
+}
