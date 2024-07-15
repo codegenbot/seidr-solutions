@@ -1,10 +1,18 @@
-Here is the solution:
+```
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double square(double n) {
+    return pow(n, 2);
+}
 
 int sum_squares(vector<float> lst){
-    int total = 0;
-    for(float x : lst) {
-        double ceil_x = ceil(x);
-        total += (ceil_x * ceil_x);
+    int sum = 0;
+    for(float num : lst){
+        int ceil_num = ceil(num);
+        sum += (int)square(ceil_num);
     }
-    return total;
+    return sum;
 }
