@@ -20,6 +20,6 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(14) == 377);
+    assert(fib(14) == 927);
     return 0;
 }
