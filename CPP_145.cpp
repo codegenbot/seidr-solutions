@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b);
-
 // Define order_by_points function
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
@@ -28,6 +21,7 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
+// Correct the issame function signature
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
