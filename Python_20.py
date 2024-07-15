@@ -14,5 +14,5 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             result = (numbers[i], numbers[i + 1])
     return result
 
-numbers = list(map(float, input("Enter numbers separated by spaces: ").split()))
+numbers = list(map(float, input().strip().split()))
 print(find_closest_elements(numbers))
