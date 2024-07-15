@@ -1,0 +1,2 @@
+def odd_count(lst):
+    return ["the number of odd elements {}n the str{}ng {} of the {}nput.".format(sum(int(digit) % 2 != 0 for digit in string), i, i, i) for i, string in enumerate(lst, start=1)]
