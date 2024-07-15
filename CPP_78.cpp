@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert> // Add this line for assert function
+#include <cassert> 
 
 int hex_key(std::string num){
     int count = 0;
@@ -15,8 +15,8 @@ int hex_key(std::string num){
 
 int main(){
     std::string input;
-    std::cin >> input; // Read input from user
-    int result = hex_key(input); // Call your function with the input
-    std::cout << result << std::endl; // Output the result
+    std::cin >> input;
+    int result = hex_key(input);
+    std::cout << result << std::endl;
     return 0;
 }
