@@ -5,6 +5,9 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input().strip()
-result = decode_cyclic(input_string)
-print(result)
+input_string = input('Enter the input string: ').strip()
+if len(input_string) < 1:
+    print("Input string must have a length of at least 1.")
+else:
+    result = decode_cyclic(input_string)
+    print(result)
