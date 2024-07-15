@@ -1,42 +1,66 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string toCamelCase(string str) {
-    string result = "";
-    int i = 0;
+std::string toCamelCase(std::string str) {
+    std::vector<std::string> parts = split(str, "-");
+    std::string result;
     
-    while (i < str.length()) {
-        if (str[i] != '-') {
-            if (!result.empty())
-                result[0] -= 32; // convert first letter to uppercase in the result
-            else
-                result += str[i];
-        } else if (!result.empty() || str[i+1] == ' ') {
-            i++;
-            continue;
+    for (int i = 0; i < parts.size(); i++) {
+        if (!i) {
+            result += toUpper(parts[i]);
+        } else {
+            result += toLower(parts[i].substr(0, 1)) + parts[i].substr(1);
         }
-        
-        while (i < str.length() && str[i] != '-') {
-            i++;
+        if (i < parts.size() - 1) {
+            result += " ";
         }
-        i++; // skip '-'
     }
     
+    return result;
+}
+
+std::vector<std::string> split(const std::string& str, char c) {
+    std::vector<std::string> tokens;
+    size_t lastPos = 0;
+    size_t pos = 0;
+    
+    do {
+        pos = str.find(c, lastPos);
+        if (pos != std::string::npos) {
+            tokens.push_back(str.substr(lastPos, pos - lastPos));
+            lastPos = pos + 1;
+        } else {
+            tokens.push_back(str.substr(lastPos));
+            break;
+        }
+    } while (pos != std::string::npos);
+    
+    return tokens;
+}
+
+std::string toUpper(const std::string& str) {
+    std::string result = str;
+    for (char &c : result) {
+        c = toupper(c);
+    }
+    return result;
+}
+
+std::string toLower(const std::string& str) {
+    std::string result = str;
+    for (char &c : result) {
+        c = tolower(c);
+    }
     return result;
 }
 
 int main() {
     int n;
     cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        string str;
-        cin >> str;
-        cout << toCamelCase(str) << endl;
+    while(n--) {
+        string s;
+        cin >> s;
+        cout << toCamelCase(s) << endl;
     }
-
     return 0;
 }
