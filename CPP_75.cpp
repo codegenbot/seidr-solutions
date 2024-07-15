@@ -31,14 +31,5 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
-int main() {
-    int num;
-    cout << "Enter a number less than 100: ";
-    cin >> num;
-    if (is_multiply_prime(num)) {
-        cout << "true" << endl;
-    } else {
-        cout << "false" << endl;
-    }
-    return 0;
-}
+int main();
+```
