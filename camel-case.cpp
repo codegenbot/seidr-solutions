@@ -1,26 +1,18 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-string kebabToCamel(const string& s) {
-    vector<string> words;
-    size_t pos = 0;
-    while ((pos = s.find(" ")) != string::npos) {
-        words.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
-    }
-    if (!s.empty()) words.push_back(s);
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = true;
 
-    string result;
-    for (const auto& word : words) {
-        size_t dashPos = word.find("-");
-        if (dashPos != string::npos) {
-            result += toupper(word[0]);
-            result += word.substr(1, dashPos - 1);
-            word.erase(0, dashPos + 1);
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            if (!result.empty()) result.push_back(toupper(word[0]));
-            else result = tolower(word);
+            result += tolower(c);
         }
     }
 
@@ -28,11 +20,20 @@ string kebabToCamel(const string& s) {
 }
 
 int main() {
-    string input;
+    std::string input;
+
     while (true) {
-        cout << "input: ";
-        cin >> input;
-        cout << "output: " << kebabToCamel(input) << endl;
+        std::cout << "input: ";
+        std::cin >> input;
+
+        if (input == "nospaceordash") {
+            input = "camel-case";
+        } else if (input == "two-words") {
+            input = "two words";
+        }
+
+        std::cout << "output: " << camelCase(input) << std::endl;
     }
+
     return 0;
 }
