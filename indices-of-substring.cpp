@@ -1,16 +1,23 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 int main() {
     std::string text, target;
     std::cin >> text >> target;
     
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, pos + 1);
+    
+    if (target.empty()) {
+        for (int i = 0; i < static_cast<int>(text.size()); ++i) {
+            indices.push_back(i);
+        }
+    } else {
+        size_t pos = text.find(target, 0);
+        while (pos != std::string::npos) {
+            indices.push_back(static_cast<int>(pos));
+            pos = text.find(target, pos + 1);
+        }
     }
     
     for (int i = 0; i < static_cast<int>(indices.size()); ++i) {
