@@ -1,5 +1,4 @@
-```
-def sort_third(l):
+def sort_third(l: list):
     return [
         (
             i
