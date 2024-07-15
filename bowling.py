@@ -14,7 +14,7 @@ def bowling_score(frames):
                 roll += 3
             elif second_roll == 10: 
                 # spare
-                score += 10 + int(frames.split("/")[frames.split("/").index(frame)+1].split(max)[0]) if len(frames.split("/")[framesplit"/".index(frame)+1]) > 1 else 10
+                score += 10 + int(frames.split("/")[frames.split("/").index(frame)+1].split(max)[0]) if len(frames.split("/")[framesplit("/").index(frame)+1]) > 1 else 10
                 roll += 2
             else:
                 score += first_roll + second_roll
