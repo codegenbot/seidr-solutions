@@ -1,3 +1,12 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+bool is_palindrome(string str) {
+    return str == string(str.rbegin(), str.rend());
+}
+
 string make_palindrome(string str){
     string rev_str(str.rbegin(), str.rend());
     for (int i = str.size(); i >= 0; i--) {
@@ -6,4 +15,9 @@ string make_palindrome(string str){
         }
     }
     return str;
+}
+
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+    return 0;
 }
