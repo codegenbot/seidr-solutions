@@ -1,4 +1,5 @@
+```
 def mastermind(code, guess):
-    black = sum(1 for a, b in zip(guess, code) if a == b)
-    white = len(set(guess) & set(code)) - black
+    white = sum(1 for c1, c2 in zip(guess, code) if c1 != c2 and c1 in code)
+    black = sum(1 for c1, c2 in zip(guess, code) if c1 == c2)
     return str(black) + "\n" + str(white)
