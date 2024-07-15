@@ -1,15 +1,12 @@
-```cpp
 #include <vector>
 #include <string>
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
+std::vector<int> findIndices(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     size_t pos = 0;
-
     while ((pos = text.find(target, pos)) != std::string::npos) {
-        result.push_back(pos);
-        pos += 1; // move forward one character to avoid overlapping matches
+        indices.push_back(pos);
+        pos += 1; // if we found an overlapping match
     }
-
-    return result;
+    return indices;
 }
