@@ -1,4 +1,4 @@
-string sort_numbers(const string& numbers) {
+string sort_numbers(string numbers) {
     map<string, int> numMap = {
         {"zero", 0},
         {"one", 1},
@@ -13,8 +13,7 @@ string sort_numbers(const string& numbers) {
     };
 
     vector<string> nums = split(numbers, ' ');
-    
-    sort(nums.begin(), nums.end(), [&numMap](const string& a, const string& b) {
+    sort(nums.begin(), nums.end(), [&numMap](const string &a, const string &b) {
         return numMap[a] < numMap[b];
     });
 
