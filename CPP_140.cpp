@@ -19,10 +19,3 @@ string fix_spaces(const string& text) {
     }
     return result;
 }
-
-string fix_spaces(const string& text);
-
-int main() {
-    // Main function code (if any)
-    return 0;
-}
