@@ -1,7 +1,7 @@
-int count_upper(std::string s) {
+int count_upper(const string &s) {
     int count = 0;
-    for (int i = 0; i < s.length(); i += 2) {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
+    for (size_t i = 0; i < s.length(); i += 2) {
+        if (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
             count++;
         }
     }
