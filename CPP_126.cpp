@@ -10,18 +10,10 @@ bool is_sorted(const std::vector<int>& lst) {
         }
     }
 
-    for (int i = 0; i < lst.size(); i++) {
-        int count = 0;
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[i] == lst[j]) {
-                count++;
-                if (count > 1) {
-                    return false;
-                }
-            }
-        }
-    }
-    return true;
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
+
+    return sorted_lst == lst;
 }
 
 int main() {
