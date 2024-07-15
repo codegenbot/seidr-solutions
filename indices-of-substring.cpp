@@ -13,8 +13,19 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return res;
 }
 
-int main() {
-    string text = "Hello World";
-    string target = "World";
-    vector<int> res = indicesOfSubstring(text, target);
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> result;
+    size_t pos = 0;
+
+    while (true) {
+        size_t foundPos = text.find(target, pos);
+
+        if (foundPos == string::npos)
+            break; // no more matches
+
+        result.push_back(foundPos);
+        pos = foundPos + target.size();
+    }
+
+    return result;
 }
