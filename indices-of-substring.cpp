@@ -6,6 +6,7 @@ int main() {
     string text = "example";
     string target = "ple";
     vector<int> res = indicesOfSubstring(text, target);
+    // Do something with res
     return 0;
 }
 
@@ -17,5 +18,4 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
         pos += target.size();
     }
     return res;
-
 }
