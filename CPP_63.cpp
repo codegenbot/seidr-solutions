@@ -19,7 +19,7 @@ int fib(int n) {
     return result;
 }
 
-int solve_cpp_63() {
+int main() {
     assert(fib(14) == 610);
 
     return 0;
