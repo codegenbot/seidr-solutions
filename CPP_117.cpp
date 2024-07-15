@@ -1,25 +1,28 @@
 vector<string> select_words(string s, int n) {
-    vector<string> words;
-    string current_word;
+    vector<string> result;
+    if (s.empty()) {
+        return result;
+    }
+    
+    string word;
+    int consonant_count = 0;
     
     for (char c : s) {
-        if (isalpha(c)) {
-            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
-                current_word.clear();
-            } else {
-                current_word.push_back(c);
+        if (c == ' ') {
+            if (consonant_count == n) {
+                result.push_back(word);
             }
-        } else if (!current_word.empty()) {
-            if (count_if(current_word.begin(), current_word.end(), [](char c){ return isalpha(c); }) == n) {
-                words.push_back(current_word);
-            }
-            current_word.clear();
+            word.clear();
+            consonant_count = 0;
+        } else if (isalpha(c) && !strchr("aeiouAEIOU", c)) {
+            consonant_count++;
         }
+        word.push_back(c);
     }
     
-    if (!current_word.empty() && count_if(current_word.begin(), current_word.end(), [](char c){ return isalpha(c); }) == n) {
-        words.push_back(current_word);
+    if (!word.empty() && consonant_count == n) {
+        result.push_back(word);
     }
     
-    return words;
+    return result;
 }
