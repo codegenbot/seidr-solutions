@@ -3,7 +3,7 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = static_cast<double>(n * m);
+    double total = (double)n * m;
     double count = 0.0;
     
     for(int i = 1; i <= n; i++) {
@@ -14,12 +14,12 @@ double diceGame(int n, int m) {
         }
     }
 
-    return count / total;
+    return (long long)round(count / total * 10000.0) / 10000.0;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
     return 0;
 }
