@@ -20,9 +20,11 @@ std::string string_to_md5(const std::string& text) {
 
 int main() {
     std::string input_text;
+    std::cout << "Enter text to calculate MD5: ";
     std::cin >> input_text;
 
-    std::cout << string_to_md5(input_text) << std::endl;
+    std::string md5_result = string_to_md5(input_text);
+    std::cout << "MD5 value of the text is: " << md5_result << std::endl;
 
     return 0;
 }
