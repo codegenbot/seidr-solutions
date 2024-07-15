@@ -1,6 +1,5 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
@@ -14,7 +13,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if temp:
         result.append(temp)
     return result
-
 
 # Read input
 paren_string = input()
