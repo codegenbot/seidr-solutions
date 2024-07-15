@@ -1,8 +1,4 @@
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
-
-void sort_even(vector<float>& l) {
+vector<float> issame(vector<float> a, vector<float> b) {
     vector<float> even_indices;
     vector<float> sorted_even_indices;
 
@@ -22,6 +18,6 @@ void sort_even(vector<float>& l) {
             j++;
         }
     }
-}
 
-```
+    return l;
+}
