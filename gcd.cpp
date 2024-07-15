@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 using namespace std;
@@ -17,4 +16,3 @@ int main() {
     int b = 18;
     cout << "GCD: " << gcd(a, b) << endl;
     return 0;
-}
