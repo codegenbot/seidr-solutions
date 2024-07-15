@@ -1,11 +1,11 @@
 #include <vector>
 #include <set>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b){
     return a == b;
 }
 
-std::vector<int> unique_digits(const std::vector<int>& x){
+std::std::vector<int> unique_digits(const std::std::vector<int>& x){
     std::set<int> uniqueSet;
     for (int num : x) {
         while (num > 0) {
@@ -13,5 +13,5 @@ std::vector<int> unique_digits(const std::vector<int>& x){
             num /= 10;
         }
     }
-    return std::vector<int>(uniqueSet.begin(), uniqueSet.end());
+    return std::std::vector<int>(uniqueSet.begin(), uniqueSet.end());
 }
