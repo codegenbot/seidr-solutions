@@ -9,31 +9,13 @@ int count_consonants(string word) {
     return count;
 }
 
-bool issame(string word1, string word2) {
-    return word1 == word2;
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    // Main function implementation
-}
-
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word;
-    for (char c : s) {
-        if (c == ' ') {
-            if (count_consonants(word) == n) {
-                result.push_back(word);
-            }
-            word = "";
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty() && count_consonants(word) == n) {
-        result.push_back(word);
-    }
-    return result;
+    // main function code here
+    return 0;
 }
