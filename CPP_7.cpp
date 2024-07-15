@@ -13,7 +13,7 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 int main() {
-    // main function code
+    // Main function implementation
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
