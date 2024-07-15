@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     median = sum(vector) // len(vector)
     left_sum = 0
