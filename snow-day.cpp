@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -12,19 +13,19 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
 
 int main() {
     int hours;
-    cout << "Enter number of hours: ";
+    cout << "Enter the number of hours: ";
     cin >> hours;
 
     float initialSnow;
-    cout << "Enter the amount of snow on the ground initially (in cm): ";
+    cout << "Enter the initial snow: ";
     cin >> initialSnow;
 
     float rateOfSnowfall;
-    cout << "Enter the rate of snow fall per hour (in cm): ";
+    cout << "Enter the rate of snow fall: ";
     cin >> rateOfSnowfall;
 
     float proportionMelting;
-    cout << "Enter the proportion of snow melting per hour: ";
+    cout << "Enter the proportion melting per hour: ";
     cin >> proportionMelting;
 
     double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionMelting);
