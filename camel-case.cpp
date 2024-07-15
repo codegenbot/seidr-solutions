@@ -9,8 +9,15 @@ std::string camelCase(std::string s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalizeNext = true;
-            word += toupper(c);
+            if (!word.empty()) {
+                if (capitalizeNext) {
+                    result += toupper(word[0]);
+                    word.erase(0, 1);
+                    capitalizeNext = false;
+                }
+                result += word;
+                word.clear();
+            }
         } else if (capitalizeNext) {
             word += toupper(c);
             capitalizeNext = false;
@@ -19,8 +26,13 @@ std::string camelCase(std::string s) {
         }
     }
 
-    for (char c : word) {
-        result += c;
+    if (!word.empty()) {
+        if (capitalizeNext) {
+            result += toupper(word[0]);
+            word.erase(0, 1);
+            capitalizeNext = false;
+        }
+        result += word;
     }
 
     return result;
