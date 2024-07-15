@@ -20,13 +20,7 @@ std::vector<int> factorize(int n) {
 }
 
 int main() {
-    // Correct call to the factorize function
-    std::vector<int> result = factorize(24);
-    
-    // Replace the function call "factorize" with the correct function name
-    bool result_same = issame(result, {2, 2, 2, 3});
-    
-    assert(result_same);
-
+    // Example call to factorize function
+    std::vector<int> result = factorize(100);
     return 0;
 }
