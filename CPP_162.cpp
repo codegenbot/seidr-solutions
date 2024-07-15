@@ -10,18 +10,21 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    unsigned char digest[EVP_MAX_MD_SIZE];
+    EVP_MD_CTX *mdctx;
+    const EVP_MD *md;
+    unsigned char md_value[EVP_MAX_MD_SIZE];
     unsigned int md_len;
 
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
+    md = EVP_md5();
+    EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, md, NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, &md_len);
+    EVP_DigestFinal_ex(mdctx, md_value, &md_len);
     EVP_MD_CTX_free(mdctx);
 
-    char md5_hash[2 * EVP_MAX_MD_SIZE + 1];
-    for (unsigned int i = 0; i < md_len; i++) {
-        sprintf(&md5_hash[i * 2], "%02x", (unsigned int)digest[i]);
+    char md5_hash[2 * md_len + 1];
+    for (int i = 0; i < md_len; i++) {
+        sprintf(&md5_hash[i * 2], "%02x", (unsigned int)md_value[i]);
     }
 
     return std::string(md5_hash);
