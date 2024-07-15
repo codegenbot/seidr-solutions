@@ -1,4 +1,5 @@
-vector<string> result;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string current_group;
     int open_braces = 0;
 
@@ -14,7 +15,7 @@ vector<string> result;
                 current_group += c;
             } else if (open_braces == 0) {
                 result.push_back(current_group);
-                current_group = "";
+                current_group.clear();
             }
         }
     }
