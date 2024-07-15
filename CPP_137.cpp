@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 
-std::string compare_one(boost::any a, boost::any b) {
+std::string compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int num1 = boost::any_cast<int>(a);
         int num2 = boost::any_cast<int>(b);
