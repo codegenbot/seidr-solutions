@@ -1,21 +1,24 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-vector<float> get_positive(vector<float> l){
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for(auto num : l){
-        if(num > 0){
+    for(float num : l) {
+        if(num > 0) {
             result.push_back(num);
         }
     }
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    // Function to compare two vectors for equality
-}
-
-int main(){
-    assert (issame(get_positive({}), {}));
-    // Add more test cases here
+int main() {
+    assert(issame(get_positive({}), {}));
     return 0;
 }
