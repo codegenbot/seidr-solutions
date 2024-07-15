@@ -5,7 +5,7 @@ def parse_music(music_input):
         return music_input.replace("Title:", "").strip()
     return None
 
-music_input = input().strip()
-result = parse_music(music_input)
-if result is not None:
-    print(result)
+for music_input in sys.stdin:
+    result = parse_music(music_input.strip())
+    if result is not None:
+        print(result)
