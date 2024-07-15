@@ -1,7 +1,8 @@
 def check_threshold(numbers, threshold):
-    for num in numbers:
-        if num > threshold:
-            return True
-    return False
+    return [num for num in numbers if num > threshold]
+
+
+numbers = list(map(int, input().split()))
+threshold = int(input())
 
 result = check_threshold(numbers, threshold)
