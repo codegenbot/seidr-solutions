@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     roll = 0
@@ -17,3 +18,10 @@ def bowling_score(frames):
             roll += 2
 
     return score
+
+
+def next_frames(i):
+    if i < 8:
+        return [0]
+    elif i == 9:
+        return [10]
