@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
+vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> filtered_strings;
     for (const auto& str : strings) {
         if (str.find(substring) != string::npos) {
@@ -16,6 +16,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 
 int main() {
     assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
-    
+
     return 0;
 }
