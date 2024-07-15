@@ -4,7 +4,8 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        result[i] = cents // coins[i]
+        count = cents // coins[i]
         cents %= coins[i]
+        result[i] = count
 
     return result
