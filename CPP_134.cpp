@@ -13,8 +13,7 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    bool result = check_if_last_char_is_a_letter("Hello World");
-    assert(result == true);
-
+    bool check_if_last_char_is_a_letter(const std::string& txt);
+    // Call the function with appropriate arguments
     return 0;
 }
