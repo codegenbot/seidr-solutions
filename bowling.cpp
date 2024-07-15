@@ -7,20 +7,21 @@ int bowlingScore(std::string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (currentScore < 10) {
+            if (currentScore + (currentRolls == 1 ? 10 : 0) < 10) {
                 score += currentScore + 10 - currentScore;
             } else {
                 score += currentScore;
             }
             currentScore = 0;
             currentRolls = 0;
-        } else {
+        } else if (c >= '0' && c <= '9') {
             currentScore += c - '0';
             currentRolls++;
         }
 
         if (currentRolls == 2) {
-            score += currentScore;
+            if (currentRolls == 1) score += min(currentScore + 10, 10);
+            else score += currentScore;
             currentScore = 0;
             currentRolls = 0;
         }
