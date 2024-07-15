@@ -1,17 +1,17 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> get_positive(const std::vector<float>& l){
-    std::vector<float> result;
-    for(float num : l){
-        if(num > 0){
-            result.push_back(num);
+std::vector<float> get_positive(std::vector<float> v) {
+    std::vector<float> positive_elements;
+    for (float element : v) {
+        if (element > 0) {
+            positive_elements.push_back(element);
         }
     }
-    return result;
+    return positive_elements;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
