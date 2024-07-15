@@ -1,10 +1,10 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
-vector<int> incr_list(vector<int> l);
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> incr_list(std::vector<int> l);
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,7 +12,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> incr_list(vector<int> l) {
+std::vector<int> incr_list(std::vector<int> l) {
     for (int i = 0; i < l.size(); i++) {
         l[i]++;
     }
