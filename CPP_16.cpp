@@ -1,13 +1,11 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> char_set(256, false);
-    int count = 0;
-    
-    for(char c : str){
-        if(!char_set[c]){
-            char_set[c] = true;
-            count++;
+int count_distinct_characters(string str){ 
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<char> seen;
+
+    for (char c : str) {
+        if (find(seen.begin(), seen.end(), c) == seen.end()) {
+            seen.push_back(c);
         }
     }
-    
-    return count;
+    return seen.size();
 }
