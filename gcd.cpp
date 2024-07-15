@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <string>
+#include <string> // Include this header file.
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -11,7 +11,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i = 0; i <= n - m; i++) {
         if(text.substr(i, m) == target) {
             result.push_back(i);
-            //i += (m - 1); // Remove this line
+            // You can remove this line. If you want to skip overlapping indices, consider another logic.
         }
     }
 
