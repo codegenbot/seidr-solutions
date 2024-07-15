@@ -1,5 +1,4 @@
-transform(str.begin(), str.end(), str.begin(), ::toupper);
+transform(str.begin(), str.end(), str.begin(), ::tolower);
     sort(str.begin(), str.end());
-    auto uniqueChars = unique(str.begin(), str.end());
-    return distance(str.begin(), uniqueChars);
+    return distance(str.begin(), unique(str.begin(), str.end()));
 }
