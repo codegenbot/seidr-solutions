@@ -14,13 +14,17 @@ double median(std::vector<int> l) {
     }
 }
 
-int main() {
-    // Test cases to verify the median function
-    std::vector<int> arr1 = {1, 3, 5, 7, 9};
-    std::cout << "Median of arr1: " << median(arr1) << std::endl;
-
-    std::vector<int> arr2 = {2, 4, 6, 8};
-    std::cout << "Median of arr2: " << median(arr2) << std::endl;
-
+int main2() {
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> numbers[i];
+    }
+    
+    double result = median(numbers);
+    std::cout << result << std::endl;
+    
     return 0;
 }
