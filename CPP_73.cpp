@@ -15,8 +15,6 @@ int Solution::smallest_change(const std::vector<int>& arr) {
     return changes;
 }
 
-using namespace Solution;
-
 int main() {
     if (std::cin.peek() == EOF) {
         std::cout << "No input provided." << std::endl;
