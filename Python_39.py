@@ -17,6 +17,6 @@ def prime_fib(n: int):
         fib_list.append(fib_list[-1] + fib_list[-2])
         if is_prime(fib_list[-1]) and len(fib_list) == n:
             return fib_list[-1]
-        
+
 n = int(input())
 print(prime_fib(n))
