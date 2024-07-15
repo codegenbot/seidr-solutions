@@ -1,13 +1,13 @@
-Here is the solution:
-
-```cpp
 int prod_signs(vector<int> arr) {
-    int sign = 1;
-    long long sum = 0;
-    for (int i : arr) {
-        if (i == 0) continue;
-        sign *= i > 0 ? 1 : -1;
-        sum += abs(i);
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
+
+    for (int num : arr) {
+        if (num == 0) continue;
+        int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
+        sign_product *= sign;
+        sum_of_magnitudes += abs(num);
     }
-    return sign * sum ?: -32768;
+
+    return (arr.empty()) ? INT_MIN : sign_product * sum_of_magnitudes;
 }
