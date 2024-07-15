@@ -12,11 +12,8 @@ std::vector<int> leaders(std::vector<int>& vec) {
     return result;
 }
 
-int main() {
-    std::vector<int> vec = {7, 5, 2, 4};
-    std::vector<int> result = leaders(vec);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+std::vector<int> vec = {7, 5, 2, 4};
+std::vector<int> result = leaders(vec);
+for (int num : result) {
+    std::cout << num << " ";
 }
