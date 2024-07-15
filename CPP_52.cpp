@@ -1,3 +1,10 @@
-bool below_threshold(const vector<int>& l, int t) {
-    return all_of(begin(l), end(l), [t](int num) { return num < t; });
-}
+auto below_threshold = [](const std::vector<int>& l, int t) -> bool {
+    for(int num : l){
+        if(num >= t){
+            return false;
+        }
+    }
+    return true;
+};
+
+assert(not(below_threshold({1, 8, 4, 10}, 10)));
