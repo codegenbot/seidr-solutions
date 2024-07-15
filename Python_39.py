@@ -7,14 +7,11 @@ def prime_fib(n):
                 return False
         return True
 
-    def is_fib(num):
-        return ((5 * num * num + 4) ** 0.5).is_integer() or ((5 * num * num - 4) ** 0.5).is_integer()
+    def fibonacci(n):
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a
 
-    return "Yes" if is_prime(n) and is_fib(n) else "No"
-
-try:
-    n = int(input("Enter a number: "))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
-else:
-    print(prime_fib(n))
+    fib_n = fibonacci(n)
+    return is_prime(fib_n)
