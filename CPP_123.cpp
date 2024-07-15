@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -24,7 +24,7 @@ int main() {
 
     std::vector<int> result = calculateSequence(n);
 
-    assert(isSame(result, calculateSequence(n)));
+    assert(issame(result, calculateSequence(n)));
 
     return 0;
 }
