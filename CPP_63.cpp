@@ -20,7 +20,7 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(14) == 610); // Updated to use correct function name and expected result
+    assert(fib(14) == 610); // Should pass
 
     return 0;
 }
