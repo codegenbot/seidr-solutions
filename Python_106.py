@@ -1,5 +1,12 @@
 def f(n):
-    return [
-        1 if i == 1 else i * f(i - 1) if i % 2 != 0 else i + f(i // 2)
-        for i in range(1, n + 1)
-    ]
+    def helper(i):
+        if i == 1:
+            return 1
+        elif i % 2 != 0:
+            return i * helper(i - 1)
+        elif i == 2:
+            return i + helper(i - 2)
+        else:
+            return i + helper(i - 1)
+
+    return [helper(i) for i in range(1, n + 1)]
