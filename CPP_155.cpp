@@ -9,7 +9,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
+
     return equal(a.begin(), a.end(), b.begin());
 }
 
@@ -26,8 +26,9 @@ vector<int> even_odd_count(int num) {
     return count;
 }
 
-int main() {
-    if (issame(even_odd_count(0), vector<int>{1, 0})) {
+int test_main() {
+    vector<int> testResult = even_odd_count(0);
+    if (issame(testResult, {1, 0})) {
         cout << "Test Passed!";
     } else {
         cout << "Test Failed!";
