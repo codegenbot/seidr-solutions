@@ -30,8 +30,3 @@ vector<float> sort_even(vector<float> l) {
 
     return result;
 }
-
-int main() {
-    // Code for testing the functions can be added here, if needed
-    return 0;
-}
