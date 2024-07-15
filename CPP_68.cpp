@@ -7,6 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>({7, 9, 7, 1}), std::vector<int>{}));
+    assert(issame(std::vector<int>{7, 9, 7, 1}, std::vector<int>{}));
+    
     return 0;
 }
