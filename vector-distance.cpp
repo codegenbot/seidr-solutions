@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -23,6 +24,9 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    
+
+    std::vector<float> x1(n), x2(n);
+
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+
 }
