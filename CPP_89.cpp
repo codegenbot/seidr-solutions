@@ -1,25 +1,18 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+using namespace std;
 
-std::string encrypt(std::string s);
-
-int main() {
-    assert(encrypt("a") == "e");
-    // Add more test cases if needed
-    return 0;
-}
-
-std::string encrypt(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (std::isalpha(c)) {
-            char encrypted = c + 2 * 2;
-            if (std::islower(c)) {
-                if (encrypted > 'z') {
+string encrypt(string s) {
+    string result = "";
+    for(char c : s) {
+        if(isalpha(c)) {
+            char encrypted = c + 4; // 2 * 2 = 4
+            if(islower(c)) {
+                if(encrypted > 'z') {
                     encrypted = 'a' + (encrypted - 'z' - 1);
                 }
             } else {
-                if (encrypted > 'Z') {
+                if(encrypted > 'Z') {
                     encrypted = 'A' + (encrypted - 'Z' - 1);
                 }
             }
@@ -29,4 +22,9 @@ std::string encrypt(std::string s) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
