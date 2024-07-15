@@ -1,13 +1,9 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    // Compare vectors a and b
-    return a == b;
-}
-
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+std::vector<float> get_positive(const std::vector<float>& l){
+    std::vector<float> result;
     for(const auto &num : l){
         if(num > 0){
             result.push_back(num);
@@ -16,6 +12,11 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-int main(){
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
+    return a == b;
+}
+
+int main() {
     assert(issame(get_positive({}), {}));
+    return 0;
 }
