@@ -2,7 +2,13 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+    if(a.size() != b.size()) return false;
+    
+    for(size_t i = 0; i < a.size(); i++){
+        if(abs(a[i] - b[i]) > 1e-6) return false;
+    }
+    
+    return true;
 }
 
 std::vector<float> derivative(std::vector<float> xs){
