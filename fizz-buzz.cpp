@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -24,4 +23,3 @@ int main() {
     cin >> num;
     cout << solution.fizzBuzz(num) << endl;
     return 0;
-}
