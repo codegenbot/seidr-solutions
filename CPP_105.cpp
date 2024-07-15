@@ -1,4 +1,4 @@
-#include <string> 
+#include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     // Function definition remains the same
@@ -12,8 +12,8 @@ std::vector<std::string> by_length(std::vector<int> arr){
             sorted_arr.push_back(num);
         }
     }
-    sort(sorted_arr.begin(), sorted_arr.end());
-    reverse(sorted_arr.begin(), sorted_arr.end());
+    std::sort(sorted_arr.begin(), sorted_arr.end());
+    std::reverse(sorted_arr.begin(), sorted_arr.end());
     std::vector<std::string> result;
     for (int num : sorted_arr) {
         result.push_back(names[num - 1]);
