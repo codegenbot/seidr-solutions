@@ -1,11 +1,19 @@
+import collections
+
 code = input()
 guess = input()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
-code_remaining = [c for c, g in zip(code, guess) if c != g]
-guess_remaining = [g for c, g in zip(code, guess) if c != g]
-
-white_pegs = sum(min(code_remaining.count(c), guess_remaining.count(c)) for c in set(code_remaining)
+code_char_count = collections.Counter(code)
+guess_char_count = collections.Counter(guess)
+white_pegs = (
+    sum(
+        min(code_char_count[c], guess_char_count[c])
+        for c in code_char_count
+        if c in guess_char_count
+    )
+    - black_pegs
+)
 
 print(white_pegs, black_pegs)
