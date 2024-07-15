@@ -1,46 +1,47 @@
-```
 #include <vector>
+#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
-    int index = -1;
-    
-    for(int i = 0; i < v.size(); i++) {
-        if(i == 0 || i == v.size()-1)
-            continue;
-        int diff1 = abs(v[0] - v[i]);
-        int diff2 = abs(v[v.size()-1] - v[i]);
-        
-        if(diff1 <= diff2 && diff1 < minDiff) {
-            minDiff = diff1;
-            index = i;
+
+    if(n <= 1)
+        return {{v[0]}};
+
+    for(int i = 0; i < n; i++) {
+        vector<int> left, right;
+        for(int j = 0; j <= i; j++)
+            left.push_back(v[j]);
+        for(int j = i + 1; j < n; j++)
+            right.push_back(v[j]);
+
+        int minDiff = abs(left.back() - right.front());
+        bool isMinDiff = true;
+
+        for(int k = 0; k < i; k++) {
+            if(abs(left[k] - left.back()) > minDiff) {
+                isMinDiff = false;
+                break;
+            }
         }
-        else if(diff2 < minDiff) {
-            minDiff = diff2;
-            index = v.size() - 1 - i;
+
+        if(isMinDiff) {
+            res[0] = left;
+            res[1] = right;
+            return res;
         }
     }
-    
-    res[0].clear();
-    for(int i = 0; i <= index; i++)
-        res[0].push_back(v[i]);
-        
-    res[1].clear();
-    for(int i = index + 1; i < v.size(); i++)
-        res[1].push_back(v[i]);
-        
-    return res;
+
+    return {{v}};
 }
 
 int main() {
-    vector<int> v = {1,2,3,4};
-    vector<vector<int>> result = cutVector(v);
-    
-    for(auto &vec : result) {
-        for(int num : vec)
-            cout << num << " ";
+    vector<int> v = {1, 3, 5};
+    auto result = cutVector(v);
+    for(auto &sub : result) {
+        for(int x : sub)
+            cout << x << " ";
         cout << endl;
     }
 }
