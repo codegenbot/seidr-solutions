@@ -1,6 +1,14 @@
 #include <vector>
 #include <cassert>
 
+namespace std {
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+}
+
 std::vector<int> f(int size) {
     std::vector<int> result(size);
     for (int i = 0; i < size; ++i) {
@@ -9,10 +17,6 @@ std::vector<int> f(int size) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(f(3), {1, 2, 3}));
+    assert(std::issame(f(3), {1, 2, 3}));
 }
