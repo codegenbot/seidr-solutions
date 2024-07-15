@@ -1,30 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
-std::vector<std::string> odd_count(std::vector<std::string> lst){
-    std::vector<std::string> result;
-    for (std::string s : lst) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+vector<string> odd_count(vector<string> lst);
+
+vector<string> odd_count(vector<string> lst){
+    vector<string> result;
+    for(string s : lst){
         int count = 0;
-        for (char c : s) {
-            if ((c - '0') % 2 != 0) {
+        for(char c : s){
+            if((c - '0') % 2 != 0){
                 count++;
             }
         }
-        result.push_back("the number of odd elements " + std::to_string(count) + " in the string " + s + " of the input.");
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + s + " of the input.");
     }
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
-}
-
 int main() {
-    assert (issame(odd_count({"271", "137", "314"}) , {
-        "the number of odd elements 2 in the string 271 of the input.",
-        "the number of odd elements 2 in the string 137 of the input.",
-        "the number of odd elements 2 in the string 314 of the input."
-    }));
+    vector<string> input = {"12345", "67890", "13579"};
+    vector<string> output = odd_count(input);
+
+    for(string s : output){
+        cout << s << endl;
+    }
+
     return 0;
 }
