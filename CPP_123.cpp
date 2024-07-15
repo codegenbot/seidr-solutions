@@ -23,10 +23,10 @@ std::vector<int> calculateSequence(int n) {
 int main() {
     int n;
     std::cin >> n;
-    
+
     std::vector<int> result = calculateSequence(n);
 
-    assert(issame(result, calculateSequence(n));
+    assert(issame(result, calculateSequence(n)));
 
     return 0;
 }
