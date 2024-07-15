@@ -1,7 +1,5 @@
 try:
     input_str = input().strip()
-    if not input_str:
-        raise ValueError("Empty input")
     # Continue with your code here
-except ValueError:
-    print("Input should not be empty")
+except Exception as e:
+    print(f"An error occurred: {e}")
