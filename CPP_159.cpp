@@ -2,20 +2,19 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> eat(int number, int need, int remaining) {
+vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
     return {eaten, left};
 }
 
-int main() {
-    // Test your function
-    assert(issame(eat(4, 5, 1), {5, 0}));
+assert(issame(eat(4, 5, 1), {5, 0}));
 
-    return 0;
-}
+return 0;
