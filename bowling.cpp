@@ -1,35 +1,40 @@
-int main() {
-    string bowls;
-    cin >> bowls;
-    
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 1;
     int ball = 0;
-    
-    for (char c : bowls) {
+    int rolls[22];
+    for (char c : s) {
         if (c == 'X') {
-            score += 10;
+            rolls[ball++] = 10;
             if (frame < 10) {
-                score += 10;
-                ball = 0;
-                frame++;
+                rolls[ball++] = 0;
             }
         } else if (c == '/') {
-            score += 10 - (bowls[ball - 1] - '0');
+            rolls[ball - 1] = 10 - rolls[ball - 2];
         } else if (c == '-') {
-            // do nothing
+            rolls[ball++] = 0;
         } else {
-            score += c - '0';
-            if (ball % 2 != 0) {
-                ball++;
-                frame++;
-            } else {
-                ball++;
-            }
+            rolls[ball++] = c - '0';
         }
     }
-    
-    cout << score << endl;
-    
+    for (int i = 0; i < 10; i++) {
+        if (rolls[frame * 2 - 2] == 10) {
+            total += 10 + rolls[frame * 2] + rolls[frame * 2 + 1];
+            frame++;
+        } else if (rolls[frame * 2 - 2] + rolls[frame * 2 - 1] == 10) {
+            total += 10 + rolls[frame * 2];
+            frame++;
+        } else {
+            total += rolls[frame * 2 - 2] + rolls[frame * 2 - 1];
+            frame++;
+        }
+    }
+    return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
