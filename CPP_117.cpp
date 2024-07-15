@@ -2,29 +2,42 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> select_words(std::string s, int n) {
-    // Implement your logic for selecting words here
+std::vector<std::string> select_words(std::string sentence, int n) {
+    std::vector<std::string> words;
+    std::string word;
+    for (char c : sentence) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            if (!word.empty()) {
+                words.push_back(word);
+            }
+            word.clear();
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    std::vector<std::string> result;
+    for (int i = n; i < words.size(); i += n) {
+        result.push_back(words[i]);
+    }
+    return result;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 int main() {
-    std::string s = "hello world my name is alice";
-    int n = 2;
-    std::vector<std::string> actual_result = select_words(s, n);
-    std::vector<std::string> expected_result = {"hello", "world", "alice"};
-    
-    assert(issame(actual_result, expected_result));
+    std::vector<std::string> result = select_words("hello world, welcome to coding", 3);
+    std::vector<std::string> expected = {"hello", "world,", "welcome"};
+
+    assert(issame(result, expected));
 
     return 0;
 }
