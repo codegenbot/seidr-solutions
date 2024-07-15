@@ -1,7 +1,7 @@
 #include <vector>
 
-bool issame(int n, int m) {
-    return n == m;
+bool issame(int x, int y) {
+    return x == y;
 }
 
 std::vector<int> tri(int n) {
