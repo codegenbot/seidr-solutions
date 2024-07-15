@@ -3,8 +3,6 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 vector<string> separate_paren_groups(string paren_string);
 bool issame(vector<string> a, vector<string> b);
 
@@ -34,25 +32,15 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 int main() {
-    string paren_string = "((group1)(group2)(group3))";
-    vector<string> result = separate_paren_groups(paren_string);
+    string input_string = "((group1)(group2)(group3))";
+    vector<string> expected_groups = {"(group1)", "(group2)", "(group3)"};
 
-    vector<string> expected_result = {"(group1)", "(group2)", "(group3)"};
-    assert(issame(result, expected_result));
+    vector<string> actual_groups = separate_paren_groups(input_string);
+    assert(issame(actual_groups, expected_groups));
 
     return 0;
 }
