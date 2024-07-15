@@ -1,5 +1,8 @@
+#include <vector>
+#include <string>
+
 bool issame(const string& a, const string& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
