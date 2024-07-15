@@ -1,1 +1,1 @@
-input_string = input()
+input_number = int(input())
