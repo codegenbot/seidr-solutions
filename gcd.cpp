@@ -32,8 +32,7 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cout << std::endl;
-    cout << gcd(a, b) << std::endl;
+    cout << gcd(a, b) << endl;
 
     string text, target;
     cin >> text >> target;
