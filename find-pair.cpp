@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -12,8 +12,8 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-    
-    map<int, int> mp;
+
+    unordered_map<int, int> mp;
     bool found = false;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
@@ -26,7 +26,7 @@ int main() {
     }
 
     if (!found) {
-        cout << "Pair not found." << endl;
+        cout << "No such pair found" << endl;
     }
 
     return 0;
