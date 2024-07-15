@@ -5,11 +5,9 @@ def find_zero(xs: list) -> float:
         return "undefined"
     return -b / a
 
-
-user_input = input("Enter two numbers separated by a space (e.g., 2 3): ").strip()
+user_input = input("Enter two numbers separated by a space: ").strip()
+while len(user_input.split()) != 2:
+    user_input = input("Please enter exactly two numbers separated by a space: ").strip()
 xs = list(map(float, user_input.split()))
-if len(xs) < 2:
-    print("Please input two numbers separated by a space.")
-else:
-    result = find_zero(xs)
-    print(result)
+result = find_zero(xs)
+print(result)
