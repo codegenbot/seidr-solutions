@@ -4,21 +4,27 @@
 #include <cassert>
 
 double median(std::vector<int> l) {
-    std::sort(l.begin(), l.end());
+    sort(l.begin(), l.end());
     int n = l.size();
+    assert(abs((l[n / 2 - 1] + l[n / 2]) / 2.0 - 7) < 1e-4);
     if (n % 2 == 0) {
-        return (double)(l[n / 2 - 1] + l[n / 2]) / 2.0;
+        return (l[n / 2 - 1] + l[n / 2]) / 2.0;
     } else {
-        return (double)l[n / 2];
+        return l[n / 2];
     }
 }
 
 int main() {
-    std::vector<int> numbers = {8, 1, 3, 9, 9, 2, 7};
-    double result = median(numbers);
-    std::cout << "Median of the numbers is: " << result << std::endl;
+    int n;
+    std::cin >> n;
     
-    assert (std::abs(result - 7) < 1e-4);
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> numbers[i];
+    }
+    
+    double result = median(numbers);
+    std::cout << result << std::endl;
     
     return 0;
 }
