@@ -1,12 +1,26 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+#include <iostream>
+#include <algorithm>
+#include <cctype>
+
+std::string solve(std::string s) {
+    for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
         }
     }
-
-    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
         reverse(s.begin(), s.end());
     }
-
     return s;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << solve(input) << std::endl;
+    return 0;
 }
