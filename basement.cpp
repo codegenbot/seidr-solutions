@@ -8,7 +8,7 @@ int basement(std::vector<int> nums) {
             return i + 1;
         }
     }
-    return nums.size();
+    return -1;
 }
 
 int main() {
