@@ -6,3 +6,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     for num in numbers:
         product_result *= num
     return sum_result, product_result
+
+numbers = []
+while True:
+    try:
+        num = int(input())
+        numbers.append(num)
+    except EOFError:
+        break
+
+print(sum_product(numbers))
