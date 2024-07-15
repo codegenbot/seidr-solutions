@@ -3,10 +3,10 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a[0] == b[0] && a[1] == b[1];
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b){
+        return a[1] == b[1];
+    }
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -29,7 +29,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
             int y = curr[1] + dir[1];
             
             if (x >= 0 && x < n && y >= 0 && y < m) {
-                int cost = issame(grid[curr[0]], grid[x]) ? 0 : 1;
+                int cost = std::issame(grid[curr[0]], grid[x]) ? 0 : 1;
                 
                 if (dp[x][y] > dp[curr[0]][curr[1]] + cost) {
                     dp[x][y] = dp[curr[0]][curr[1]] + cost;
