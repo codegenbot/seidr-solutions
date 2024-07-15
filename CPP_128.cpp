@@ -1,5 +1,5 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 int prod_signs(const vector<int>& arr) {
     if (arr.empty()) {
