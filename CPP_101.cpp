@@ -1,6 +1,7 @@
-Here is the completed code:
+#include <vector>
+#include <string>
+using namespace std;
 
-```cpp
 vector<string> words_string(string s) {
     vector<string> result;
     string word = "";
