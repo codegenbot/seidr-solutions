@@ -11,7 +11,6 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 
     for (const auto& ext : extensions) {
         int cap_count = 0, sm_count = 0;
-        
         for (char c : ext) {
             if (isupper(c)) {
                 cap_count++;
@@ -21,7 +20,6 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
         }
 
         int strength = cap_count - sm_count;
-        
         if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
             max_strength = strength;
             strongest_extension = ext;
