@@ -2,8 +2,7 @@ import re
 
 def fix_spaces(text: str) -> str:
     hyphen_placeholder = '###'
-    text = re.sub(r'\s+', '_', text)
-    text = re.sub(r'-+', '-', text)
+    text = re.sub(r'\s+|-{2,}', '-', text)
     text = text.replace(hyphen_placeholder, '-')
     return text
 
