@@ -2,24 +2,26 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 class CustomVectorFunctions {
 public:
-    static std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
-        std::vector<int> result;
+    static vector<int> common(const vector<int>& a, const vector<int>& b) {
+        vector<int> result;
         for (int num : a) {
-            if (std::find(b.begin(), b.end(), num) != b.end()) {
+            if (find(b.begin(), b.end(), num) != b.end()) {
                 result.push_back(num);
             }
         }
         return result;
     }
 
-    static bool issame(const std::vector<int>& a,const std::vector<int>& b){
+    static bool issame(const vector<int>& a, const vector<int>& b) {
         return a == b;
     }
 };
 
 int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, std::vector<int>{}), std::vector<int>{}));
+    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, vector<int>{}), vector<int>{}));
     return 0;
 }
