@@ -1,7 +1,7 @@
-#include <algorithm>
-#include <cassert>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     std::vector<int> result = numbers;
