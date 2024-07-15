@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert> // Add this header
+#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -13,6 +13,6 @@ std::vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), std::vector<int>{5, 0})); // Specify vector<int> for the expected result
+    assert(issame(eat(4, 5, 1), std::vector<int>{5, 0}));
     return 0;
 }
