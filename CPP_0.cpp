@@ -1,13 +1,12 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+#include <iostream>
 
 bool has_close_elements(const std::vector<float>& arr, float target) {
-    for (std::size_t i = 0; i < arr.size(); ++i) {
-        for (std::size_t j = i + 1; j < arr.size(); ++j) {
-            if (std::abs(arr[i] - arr[j]) <= target)
-                return true;
-        }
+    for (std::size_t i = 0; i < arr.size() - 1; ++i) {
+        if (std::abs(arr[i] - arr[i + 1]) <= target)
+            return true;
     }
     return false;
 }
