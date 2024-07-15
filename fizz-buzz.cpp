@@ -1,12 +1,14 @@
+```cpp
 #include <string>
+using namespace std;
 
-std::string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0)
+string fizzBuzz(int x) {
+    if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        return (x % 5 == 0) ? "FizzBuzz" : "Fizz";
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x);
+        return to_string(x);
 }
