@@ -1,7 +1,9 @@
-int n = a.length();
-    int m = b.length();
-    if (n != m) return false;
-    
-    string temp = b + b;
-    return (temp.find(a) != string::npos);
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+bool cycpattern_check(string a, string b) {
+    string s = a + a;
+    return s.find(b) != string::npos;
 }
