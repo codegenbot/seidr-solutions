@@ -1,5 +1,8 @@
 def snow_day(hours, ground_snow, rate_of_snow_fall, melting_rate):
-    return round((ground_snow + hours * rate_of_snow_fall) * (1 - melting_rate) ** hours, 5)
+    return round(
+        (ground_snow + hours * rate_of_snow_fall) * (1 - melting_rate) ** hours, 5
+    )
+
 
 hours = int(input())
 ground_snow = float(input())
