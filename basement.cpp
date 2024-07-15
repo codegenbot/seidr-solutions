@@ -1,7 +1,4 @@
-#include <vector>
-#include <initializer_list>
-using namespace std;
-
+```c++
 int basement(vector<int> v) {
     int sum = 0;
     int i = 0;
@@ -15,5 +12,6 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    return basement({1,2,-4}); 
+    vector<int> v = {1};
+    return basement(v);
 }
