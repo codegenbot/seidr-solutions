@@ -1,9 +1,6 @@
 #include <openssl/evp.h>
 #include <string>
 #include <cassert>
-#include <openssl/opensslconf.h>
-
-#include <cstdio>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -15,8 +12,8 @@ std::string string_to_md5(const std::string& text) {
     OpenSSL_add_all_algorithms();
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
 
-    EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
-    EVP_DigestUpdate(mdctx, reinterpret_cast<const unsigned char*>(text.c_str()), text.length());
+    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
+    EVP_DigestUpdate(mdctx, (const unsigned char *)text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
     EVP_MD_CTX_free(mdctx);
 
