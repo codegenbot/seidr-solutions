@@ -1,16 +1,11 @@
-#include <iostream>
-#include <string>  
-#include <vector>
-using namespace std;
-
-long long gcd(long long a, long long b) {
+int gcd(int a, int b) {
     if (b == 0) {
         return a;
     }
     return gcd(b, a % b);
 }
 
-vector<int> findSubstringIndices(string text, string target) {
+vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     int n = text.size();
     int m = target.size();
@@ -27,22 +22,4 @@ vector<int> findSubstringIndices(string text, string target) {
         }
     }
     return indices;
-}
-
-int main() {
-    long long a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    cin.ignore(); // Clear input buffer
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findSubstringIndices(text, target);
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
