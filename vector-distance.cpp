@@ -1,42 +1,31 @@
-#include <vector>
 #include <iostream>
-#include <cmath>
+#include <vector>
 
-std::vector<float> vector1(int n) {
-    std::vector<float> x1(n);
-    for (int i = 0; i < n; i++) {
-        float num;
-        cin >> num;
-        x1[i] = num;
-    }
-    return x1;
-}
+using namespace std;
 
-std::vector<float> vector2(int n) {
-    std::vector<float> x2(n);
-    for (int i = 0; i < n; i++) {
-        float num;
-        cin >> num;
-        x2[i] = num;
-    }
-    return x2;
-}
-
-double vectorDistance(int n, std::vector<float> v1, std::vector<float> v2) {
-    double sum = 0.0;
-    for (int i = 0; i < n; i++) {
-        sum += pow((v2[i] - v1[i]), 2);
+double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
+    double sum = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        sum += pow(v2[i] - v1[i], 2);
     }
     return sqrt(sum);
 }
 
 int main() {
     int n;
-    std::cout << "Enter the number of dimensions: ";
-    std::cin >> n;
-    std::vector<float> v1 = vector1(n);
-    std::vector<float> v2 = vector2(n);
-    
-    std::cout << "Euclidean distance is: " << fixed << setprecision(10) << vectorDistance(n, v1, v2) << std::endl;
+    cin >> n;
+
+    vector<float> v1(n), v2(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
+    }
+
+    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
+
     return 0;
 }
