@@ -1,10 +1,10 @@
-string result;
-    string word;
+string result = "";
+    string word = "";
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
             result += word + ' ';
-            word.clear();
+            word = "";
         } else {
             word += c;
         }
