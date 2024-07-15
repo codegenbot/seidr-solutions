@@ -1,3 +1,5 @@
+Here is your corrected code:
+
 ```python
 def cut_vector(vector):
     median = sum(vector) // len(vector)
