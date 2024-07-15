@@ -8,9 +8,7 @@ def prime_fib(n):
         return True
 
     def is_fib(num):
-        return ((5 * num * num + 4) ** 0.5).is_integer() or (
-            (5 * num * num - 4) ** 0.5
-        ).is_integer()
+        return ((5 * num * num + 4) ** 0.5).is_integer() or ((5 * num * num - 4) ** 0.5).is_integer()
 
     return "Yes" if is_prime(n) and is_fib(n) else "No"
 
