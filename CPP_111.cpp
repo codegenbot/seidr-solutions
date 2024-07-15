@@ -1,4 +1,5 @@
 #include <map>
+#include <cassert>
 
 std::map<char, int> histogram(std::string test);
 
@@ -27,4 +28,10 @@ std::map<char, int> histogram(std::string test) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    
+    return 0;
 }
