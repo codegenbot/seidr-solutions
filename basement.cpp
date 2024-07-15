@@ -1,29 +1,8 @@
-#include <vector>
-using namespace std;
-
-int basement(vector<int> v) {
+int basement(std::vector<int>& arr) {
     int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum < 0)
-            return i + 1;
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
+        if (sum < 0) return i;
     }
-    return -1;
-}
-
-int main() {
-    vector<int> v;
-    int n;
-    cout << "Enter the size of the vector: ";
-    cin >> n;
-    
-    for(int i = 0; i<n; i++) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        v.push_back(x);
-    }
-    
-    cout << "The basement index is: " << basement(v) << endl;
-    return 0;
+    return -1; // or throw an exception, depending on the requirements
 }
