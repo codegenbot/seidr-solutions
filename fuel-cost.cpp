@@ -11,5 +11,5 @@ int fuelCost(std::vector<int> vec) {
 }
 
 int main() {
-    return fuelCost({10,20,30});
+    return fuelCost({1, 2, 3, 4, 5});
 }
