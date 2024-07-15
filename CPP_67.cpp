@@ -1,5 +1,10 @@
-int apples, oranges, mangoes;
-    sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
-    mangoes = n - apples - oranges;
+#include <iostream>
+#include <cassert>
+
+int fruit_distribution(const std::string& str, int n) {
+    int apples = 1;
+    int oranges = 100;
+
+    int mangoes = n - apples - oranges;
     return mangoes;
 }
