@@ -4,5 +4,6 @@ def normalize(numbers):
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
 # Call the function with required input
-numbers = [5, 10, 15, 20]
-print(normalize(numbers))
+input_numbers = [3, 9, 12, 6, 2]
+output = normalize(input_numbers)
+print(output)
