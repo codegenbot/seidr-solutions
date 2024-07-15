@@ -2,37 +2,22 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-int countTotalChars(const vector<string>& lst) {
+int countTotalChars(const std::vector<std::string>& lst) {
     int total = 0;
-    for (const string& str : lst) {
+    for (const std::string& str : lst) {
         total += str.size();
     }
     return total;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
 
-bool issame(const string a, const string b){
-    return a == b;
+int issame(std::string s1, std::string s2) {
+    assert(s1.size() == s2.size());
+    return s1 == s2;
 }
 
-int main() {
-    vector<string> lst1 = {"hello", "world"};
-    vector<string> lst2 = {"cpp", "contest"};
-    
-    vector<string> result = total_match(lst1, lst2);
-    
-    for (const string& s : result) {
-        cout << s << " ";
-    }
-    cout << endl;
-    
-    return 0;
-}
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int total_chars_lst1 = countTotalChars(lst1);
     int total_chars_lst2 = countTotalChars(lst2);
     
@@ -41,4 +26,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
+}
+
+int main() {
+    // Testing the functions if needed
+    return 0;
 }
