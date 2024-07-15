@@ -1,7 +1,8 @@
 int count_consonants(string word) {
     int count = 0;
+    string vowels = "aeiouAEIOU";
     for (char c : word) {
-        if (isalpha(c) && !isvowel(tolower(c))) {
+        if (isalpha(c) && vowels.find(c) == string::npos) {
             count++;
         }
     }
