@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -13,14 +12,14 @@ int whitePegs(string code, string guess) {
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    for(int i=0; i<6; i++) {
+    for(int c='0'; c<='F'; c++) {
         int codeCount = 0;
         int guessCount = 0;
-        for(int j=0; j<4; j++) {
-            if(code[j] == i+'0' || code[j] == i+'A'-10) {
+        for(int i=0; i<4; i++) {
+            if(code[i] == c) {
                 codeCount++;
             }
-            if(guess[j] == i+'0' || guess[j] == i+'A'-10) {
+            if(guess[i] == c) {
                 guessCount++;
             }
         }
