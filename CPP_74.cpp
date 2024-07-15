@@ -1,7 +1,7 @@
 int total_chars(const vector<string>& lst) {
     int total = 0;
-    for (const string& s : lst) {
-        total += s.size();
+    for (const string& str : lst) {
+        total += str.size();
     }
     return total;
 }
