@@ -9,10 +9,12 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
         double price = prices[i];
-        double discount = price * discounts[i] / 100.0;
-        if (discount > price) discount = price; 
+        double discount = price * (discounts[i] / 100.0);
         double discountedPrice = price - discount;
-        total += price; 
+        if (discountedPrice < 0) {
+            discountedPrice = 0;
+        }
+        total += discountedPrice;
     }
     return total;
 }
