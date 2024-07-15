@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    
+
     for(int i = 0; i < n; i++) {
         if(i == 0 || i == n-1)
             res[0].push_back(v[i]);
@@ -26,7 +26,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
         }
     }
-    
+
     if(res[0].size() != n) {
         for(int i = 0; i < n; i++) {
             if(i == 0 || i == n-1)
@@ -47,10 +47,12 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
         }
     }
-    
-    if(res[0].size() != n) {
-        cout << "Error: The input vector should be cut at a single point." << endl;
-    }
-    
+
     return res;
+}
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    vector<vector<int>> res = cutVector(v);
+    return 0;
 }
