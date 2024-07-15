@@ -16,10 +16,8 @@ int main() {
     
     map<int, int> mp;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (mp.find(complement) != mp.end() && mp[complement] != i) {
-            cout << nums[i] << endl;
-            cout << complement << endl;
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << nums[i] << " " << target - nums[i] << endl;
             break;
         }
         mp[nums[i]] = i;
