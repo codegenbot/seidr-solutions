@@ -19,9 +19,10 @@ int largest_prime_factor(int n) {
     return maxPrime;
 }
 
-int main() {
+void get_user_input_and_calculate() {
     int input;
+    std::cout << "Enter a number: ";
     std::cin >> input;
-    std::cout << largest_prime_factor(input) << std::endl;
-    return 0;
+    int result = largest_prime_factor(input);
+    std::cout << "Largest prime factor: " << result << std::endl;
 }
