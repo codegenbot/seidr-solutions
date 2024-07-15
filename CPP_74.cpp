@@ -1,6 +1,5 @@
-#include <cassert>
+#include <iostream>
 #include <vector>
-#include <string>
 
 int countTotalChars(const std::vector<std::string>& lst) {
     int total = 0;
@@ -13,7 +12,8 @@ int countTotalChars(const std::vector<std::string>& lst) {
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
 
 int main() {
-    // Main function code (if any)
+    // Your main function implementation
+    return 0;
 }
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
