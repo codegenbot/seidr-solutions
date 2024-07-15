@@ -1,3 +1,12 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void addCharacter(string& str, char c) {
+    str.push_back(c);
+}
+
 int whitePegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
@@ -11,19 +20,18 @@ int whitePegs(string code, string guess) {
 int blackPegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<6; i++) {
+        char ch = (i < 3 ? '0' + i : 'A' - 10);
         int codeCount = 0;
         int guessCount = 0;
         for(int j=0; j<4; j++) {
-            if(code[j] == i+'0' || code[j] == i+'A'-10) {
+            if(code[j] == ch) {
                 codeCount++;
             }
-            if(guess[j] == i+'0' || guess[j] == i+'A'-10) {
+            if(guess[j] == ch) {
                 guessCount++;
             }
         }
-        if(codeCount > 0 && guessCount > 0) {
-            count += min(codeCount, guessCount);
-        }
+        count += min(codeCount, guessCount);
     }
     return count;
 }
