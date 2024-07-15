@@ -1,20 +1,19 @@
 def separate_paren_groups(input_str):
     stack = []
     result = []
-    current_group = []
-
+    current_sequence = ''
+    
     for char in input_str:
         if char == '(':
             stack.append('(')
-            current_group.append(char)
+            current_sequence += '('
         elif char == ')' and stack:
             stack.pop()
-            current_group.append(char)
+            current_sequence += ')'
             if not stack:
-                result.append(''.join(current_group))
-                current_group = []
+                result.append(current_sequence)
         else:
             stack = []
-            current_group = []
-
+            current_sequence = ''  # Reset current_sequence here
+            
     return result
