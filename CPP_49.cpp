@@ -15,13 +15,9 @@ int modp(int n, int p) {
 
 int main() {
     int n, p;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "Enter the value of p: ";
-    std::cin >> p;
-
+    std::cin >> n >> p;
     int result = modp(n, p);
-    std::cout << "Result: " << result << std::endl;
-
+    std::cout << result << std::endl;
+    
     return 0;
 }
