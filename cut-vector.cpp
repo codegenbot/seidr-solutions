@@ -1,3 +1,4 @@
+#include <iostream>
 int main() {
     vector<int> nums;
     int num;
