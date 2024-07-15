@@ -1,9 +1,6 @@
-a_value, b_value, c_value = map(int, input().split())
-
-
+a, b, c = map(int, input().split())
 def check_pythagorean_triplet(a, b, c):
-    return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
+    return a ** 2 + b ** 2 == c ** 2 or a ** 2 + c ** 2 == b ** 2 or b ** 2 + c ** 2 == a ** 2
 
-
-result = check_pythagorean_triplet(a_value, b_value, c_value)
+result = check_pythagorean_triplet(a, b, c)
 print(result)
