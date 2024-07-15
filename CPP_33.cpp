@@ -8,10 +8,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0 && i + 3 <= l.size()) {
-            std::sort(l_copy.begin() + i, l_copy.begin() + i + 3);
-        }
+    for (int i = 0; i < l.size(); i += 3) {
+        std::sort(l_copy.begin() + i, l_copy.begin() + std::min(i + 3, static_cast<int>(l.size())));
     }
     return l_copy;
 }
