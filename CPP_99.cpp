@@ -9,5 +9,6 @@ int closest_integer(const std::string& value) {
 
 int main() {
     assert(closest_integer("0") == 0);
+    // Add more test cases as needed
     return 0;
 }
