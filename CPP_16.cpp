@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <cassert>  // Added include for assert
 
 int count_distinct_characters(const std::string& str) {
     std::string temp = str;
@@ -11,6 +12,9 @@ int count_distinct_characters(const std::string& str) {
 }
 
 int main() {
-    std::cout << (count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    std::string str;
+    std::getline(std::cin, str);
+    int result = count_distinct_characters(str);
+    std::cout << result << std::endl;
     return 0;
 }
