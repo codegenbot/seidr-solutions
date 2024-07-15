@@ -13,3 +13,11 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
     
     return {result, result == reverse_result ? "True" : "False"};
 }
+
+bool issame(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+}
