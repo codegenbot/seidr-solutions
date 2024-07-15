@@ -21,7 +21,7 @@ int main() {
     for (int& x : numbers) cin >> x;
     int target;
     cin >> target;
-
+    
     pair<int, int> result = findPair(numbers, target);
     if (!result.empty()) {
         cout << result.first << endl;

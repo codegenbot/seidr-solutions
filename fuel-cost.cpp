@@ -2,13 +2,6 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<int> v = {1, 2, 3}; 
-    int result = fuelCost(v);
-    cout << "Fuel cost: " << result << endl;
-    return 0;
-}
-
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
@@ -16,4 +9,8 @@ int fuelCost(vector<int> v) {
         sum += new_val;
     }
     return sum;
+}
+
+int main() { 
+    return fuelCost(vector<int>{1, 2, 3}); 
 }
