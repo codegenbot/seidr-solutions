@@ -1,4 +1,4 @@
-int basement(vector<int> v) {
+int basement(vector<int> v) { 
     int sum = 0; 
     int i = 0;
     for (auto num : v) {
