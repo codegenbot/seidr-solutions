@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool is_sorted(const std::vector<int>& lst) {
     for (int i = 0; i < lst.size() - 1; i++) {
