@@ -1,21 +1,21 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-void remove_duplicates(std::vector<int> vec) {
+std::vector<int> remove_duplicates(std::vector<int> vec) {
     std::sort(vec.begin(), vec.end());
     vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
+    return vec;
+}
+
+int main() {
+    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
+    input = remove_duplicates(input);
+    assert(issame(input, std::vector<int>{1, 4, 5}));
+    
+    return 0;
 }
