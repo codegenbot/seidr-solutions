@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 int score(std::string input) {
     int total = 0;
