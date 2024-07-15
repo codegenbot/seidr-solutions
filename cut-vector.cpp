@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <climits>
+# include <iostream>
+# include <vector>
+# include <climits>
 
 int main() {
     int n;
@@ -9,7 +9,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-    
+
     int diff = INT_MAX;
     int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
@@ -26,7 +26,7 @@ int main() {
             cutIndex = i;
         }
     }
-    
+
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
@@ -34,6 +34,6 @@ int main() {
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    
+
     return 0;
 }
