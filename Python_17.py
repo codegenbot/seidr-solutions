@@ -1,12 +1,15 @@
 def parse_music(music_input):
     if music_input.startswith("Title:"):
-        return music_input.replace("Title:", "", 1).strip()  # Removing only the first occurrence of "Title:"
+        return music_input.replace("Title:", "").strip()
     return None
 
 while True:
-    music_input = input("Enter music title: ").strip()
-    if music_input == "":
+    try:
+        music_input = input("Enter music title: ").strip()
+        if music_input == "":
+            break
+        result = parse_music(music_input)
+        if result is not not None:
+            print(result)
+    except EOFError:
         break
-    result = parse_music(music_input)
-    if result is not None:
-        print(result)
