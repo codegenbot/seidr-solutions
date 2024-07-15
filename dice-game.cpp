@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
+#include <limits>
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -15,12 +16,12 @@ double diceGame(int n, int m) {
         }
     }
 
-    return (long long)round(count / total * 10000.0) / 10000.0;
+    return count / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
+    cout << std::fixed << std::setprecision(std::numeric_limits<double>::max_digits10) << diceGame(n, m) << endl;
     return 0;
 }
