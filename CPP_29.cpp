@@ -4,15 +4,13 @@
 #include <algorithm>
 
 bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string> &strings, const std::string &prefix){
     std::vector<std::string> result;
-    for (const auto &str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
-        }
-    }
+    std::copy_if(strings.begin(), strings.end(), std::back_inserter(result), [&prefix](const std::string &str){
+        return str.find(prefix) == 0;
+    });
     return result;
 }
