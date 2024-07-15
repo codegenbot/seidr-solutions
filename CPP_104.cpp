@@ -12,7 +12,6 @@ std::vector<int> unique_digits(std::vector<int> x){
     for(int num : x){
         bool hasEvenDigit = false;
         int temp = num;
-    
         while(temp > 0){
             if(temp % 2 == 0){
                 hasEvenDigit = true;
@@ -20,12 +19,10 @@ std::vector<int> unique_digits(std::vector<int> x){
             }
             temp /= 10;
         }
-    
         if(!hasEvenDigit){
             result.push_back(num);
         }
     }
-    
     std::sort(result.begin(), result.end());
     return result;
 }
