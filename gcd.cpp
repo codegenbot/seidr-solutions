@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 using namespace std;
 
 int gcd(int a, int b) {
@@ -27,4 +26,4 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
         }
     }
     return indices;
-}  
+}
