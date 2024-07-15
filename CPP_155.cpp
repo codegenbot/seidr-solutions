@@ -1,18 +1,20 @@
-#include <vector>
+#include <vector> 
 
-bool issame(vector<int> a, vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-int main() {
-    int num;
-    cin >> num;
-    vector<int> even_odd_count = count_even_odd_digits(num);
-    vector<int> counts = count_even_odd_digits(num);
-    if (issame(even_odd_count, counts)) {
-        cout << "Counts are the same" << endl;
-    } else {
-        cout << "Counts are different" << endl;
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> counts = {0, 0};
+    std::string numStr = std::to_string(std::abs(num));
+    
+    for (char c : numStr) {
+        if (c % 2 == 0) {
+            counts[0]++;
+        } else {
+            counts[1]++;
+        }
     }
-    return 0;
+    
+    return counts;
 }
