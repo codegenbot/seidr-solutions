@@ -3,7 +3,7 @@
 
 class Solution {
 public:
-    string fizzBuzz(int n) {
+    std::string fizzBuzz(int n) {
         for (int i = 1; i <= n; ++i) {
             if (i % 3 == 0 && i % 5 == 0)
                 std::cout << "FizzBuzz" << std::endl;
