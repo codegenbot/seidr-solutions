@@ -1,4 +1,4 @@
-def find_zero(xs: list):
-    for i, num in enumerate(xs):
-        if num == 0:
-            return i
+def find_zero():
+    xs = list(map(float, input().split()))
+    x = -xs[0] / xs[1]
+    return x
