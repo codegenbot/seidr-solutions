@@ -2,7 +2,7 @@ from typing import List
 
 def parse_music(music_string: str) -> List[int]:
     notes_duration = {"o": 4, "o|": 2, ".": 1}
-    notes = music_string.strip().split()
+    notes = music_string.split()
     
     if len(notes) % 2 != 0:
         raise ValueError("Incorrect music string format")
@@ -18,7 +18,7 @@ def parse_music(music_string: str) -> List[int]:
     return durations
 
 try:
-    music_string = input("Enter the music string (separate notes by spaces): ").strip()
+    music_string = input().strip("Enter the music string: ")
     durations = parse_music(music_string)
     print(durations)
 except ValueError as e:
