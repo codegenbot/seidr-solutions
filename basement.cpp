@@ -3,12 +3,10 @@ using namespace std;
 
 int basement(vector<int> v) {
     int sum = 0;
-    int i = 0;
-    while (i < v.size()) {
+    for (int i = 0; i < v.size(); i++) {
         sum += v[i];
         if (sum < 0)
             return i;
-        i++;
     }
     return -1;
 }
