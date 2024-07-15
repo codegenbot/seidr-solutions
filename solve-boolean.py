@@ -9,10 +9,10 @@ def solve_boolean(expression):
             operator_ = tokens.pop(0)
             operand2 = evaluate(tokens)
             if operator_ == "|":
-                return eval(f"{operand2} or {tokens[0]}")
+                return str(eval(f"{operand2} or {tokens[0]}"))
             else:
-                return eval(f"{operand2} and {tokens[0]}")
-        
+                return str(eval(f"{operand2} and {tokens[0]}"))
+
     def solve(stack):
         result = None
         while len(stack) > 1:
@@ -40,4 +40,4 @@ def solve_boolean(expression):
                 else:
                     result = eval(f"{operand2} and {stack[0]}")
             stack.append(result)
-    return solve(stack)
+    return str(solve(stack))
