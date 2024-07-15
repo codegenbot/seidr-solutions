@@ -13,7 +13,7 @@ int main() {
     cin >> hours;
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
-    cout << std::fixed << std::setprecision(6); 
+    cout << std::fixed << std::setprecision(6); // Set precision to 6 decimal places.
     cout << snowDay(hours, groundSnow, rate, melt) << endl;
     cout << std::resetiosflags(std::ios_base::floatfield);
     return 0;
