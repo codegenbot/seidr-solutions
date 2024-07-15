@@ -1,36 +1,20 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
 
 string sort_numbers(string numbers){
-    map<int, string> reverse_map;
-    for (auto const& pair : number_map) {
-        reverse_map[pair.second] = pair.first;
+    map<int, string> revNumMap;
+    for(auto const& pair : numMap) {
+        revNumMap[pair.second] = pair.first;
     }
-
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        sorted_numbers.push_back(number_map[token]);
-    }
-
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-
+    
     string result;
-    for (int num : sorted_numbers) {
-        result += reverse_map[num] + " ";
+    string token;
+    size_t pos = 0;
+    while ((pos = numbers.find(' ')) != string::npos) {
+        token = numbers.substr(0, pos);
+        result += revNumMap[numMap[token]] + " ";
+        numbers.erase(0, pos + 1);
     }
-
-    result.pop_back(); // Remove extra space at the end
+    result += revNumMap[numMap[numbers]];
+    
     return result;
 }
