@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -11,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
-        int temp_a = std::abs(a), temp_b = std::abs(b);
+        int temp_a = abs(a), temp_b = abs(b);
         while (temp_a) {
             sum_a += temp_a % 10;
             temp_a /= 10;
