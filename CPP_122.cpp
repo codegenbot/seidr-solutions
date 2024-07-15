@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -13,6 +12,21 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(add_elements({1}, 1) == 0);
+    int n, k;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> arr(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+
+    std::cout << "Enter the value of k: ";
+    std::cin >> k;
+
+    int result = add_elements(arr, k);
+    std::cout << "Sum of elements between 10 and 99: " << result << std::endl;
+
     return 0;
 }
