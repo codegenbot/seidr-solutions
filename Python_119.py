@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```
+```python
 def match_parens(lst):
     for s in lst:
         count = 0
