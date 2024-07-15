@@ -1,9 +1,9 @@
-num = float(input("Enter a number: "))
+a, b = map(float, input().strip().split())
 
-def find_zero(num: float) -> float:
-    if num == 0:
+def find_zero(a: float, b: float) -> float:
+    if a == 0:
         return "undefined"
-    return -num
+    return -b / a
 
-result = find_zero(num)
+result = find_zero(a, b)
 print(result)
