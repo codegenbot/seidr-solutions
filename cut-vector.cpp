@@ -1,50 +1,31 @@
 #include <vector>
-#include <cmath>
+#include <cmath>  // Include this header for abs function
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    
-    for(int i = 0; i < n; i++) {
-        if(i == 0 || i == n-1)
-            res[0].push_back(v[i]);
-        else {
-            if(abs(v[0] - v[i]) <= abs(v[n-1] - v[i])) {
-                res[0].clear();
-                for(int j = 0; j < i; j++)
-                    res[0].push_back(v[j]);
-                res[0].push_back(v[i]);
-                break;
-            }
-            else {
-                res[0].clear();
-                for(int j = i; j < n; j++)
-                    res[0].push_back(v[j]);
-                break;
-            }
+
+    if (n == 1) {
+        return {{v[0]}, {v[0]}};
+    }
+
+    int diff = INT_MAX, idx = -1;
+    for (int i = 0; i < n; i++) {
+        int temp_diff = abs(v[i] - v[0]);
+        if (temp_diff <= diff) {
+            diff = temp_diff;
+            idx = i;
         }
     }
-    
-    if(res[0].size() != n) {
-        for(int i = 0; i < n; i++) {
-            if(i == 0 || i == n-1)
-                res[1].push_back(v[i]);
-            else {
-                if(abs(v[0] - v[i]) <= abs(v[n-1] - v[i])) {
-                    res[1].clear();
-                    for(int j = i; j < n; j++)
-                        res[1].push_back(v[j]);
-                    break;
-                }
-                else {
-                    res[1].clear();
-                    for(int j = 0; j < i; j++)
-                        res[1].push_back(v[j]);
-                    break;
-                }
-            }
-        }
-    }
-    
+
+    res[0].assign(v.begin(), v.end() - idx);
+    res[1].assign(v.begin() + idx, v.end());
+
     return res;
+}
+
+int main() {
+    // Your code here
+    return 0;
+}
