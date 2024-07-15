@@ -1,8 +1,7 @@
 ```
 def shopping_list():
     n = int(input())
-    input_str = input()
-    prices = list(map(float, input_str.split()))
+    prices = list(map(float, input().split()))
     discounts = [float(i) / 100 for i in input() for _ in range(n)]
     total_price = 0
     for i in range(n):
