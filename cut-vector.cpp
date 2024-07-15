@@ -2,30 +2,49 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
     
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+    for (int i = 1; i <= v.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; ++j)
+            left_sum += v[j];
+        for (int j = i; j < v.size(); ++j)
+            right_sum += v[j];
+        
+        if (left_sum == right_sum) {
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
+            return result;
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
     
-    return {{v.begin(), v.begin() + splitIndex}, {v.begin() + splitIndex, v.end()}};
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (auto &x : v) cin >> x;
+    for (int i = 0; i < n; ++i)
+        cin >> v[i];
+    
     pair<vector<int>, vector<int>> res = cutVector(v);
     cout << "[";
-    for (const auto &x : res.first) cout << x << " ";
-    cout << "]\n[";
-    for (const auto &x : res.second) cout << x << " ";
-    cout << "]\n0\n";
+    for (int x : res.first) 
+        cout << x << " ";
+    cout << "] [";
+    for (int x : res.second) 
+        cout << x << " ";
+    cout << "]\n";
+    
     return 0;
 }
