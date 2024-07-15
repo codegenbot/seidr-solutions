@@ -4,7 +4,7 @@ def rounded_avg(n, m):
     elif n == m:
         avg = (n + m) / 2.0
         int_avg = round(avg)
-        return format(int_avg, 'b')[2:]
+        return format(int_avg, 'b')
     avg = (n + m) / 2.0
     int_avg = round(avg)
     if int_avg % 2 != 0:
