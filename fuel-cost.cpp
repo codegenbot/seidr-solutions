@@ -1,6 +1,7 @@
 #include <vector>
+#include <cmath> 
 
-int fuelCost(vector<int> vec) {
+int fuelCost(std::vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
         int result = static_cast<int>(floor(double(i)/3));

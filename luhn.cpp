@@ -1,10 +1,7 @@
-#include <vector>
-using namespace std;
-
 int luhn(vector<int> numbers) {
     int sum = 0;
     bool doubleNext = false;
-    
+
     for (int i : numbers) {
         if (doubleNext) {
             i *= 2;
@@ -12,20 +9,14 @@ int luhn(vector<int> numbers) {
                 i -= 9;
             }
         }
-        sum += i;
+        if (i > 9) {
+            sum += (i - 9);
+        } else {
+            sum += i;
+        }
         doubleNext = !doubleNext;
     }
-    
-    return sum;
-}
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> numbers[i];
-    }
-    cout << luhn(numbers) << endl;
-    return 0;
+    return sum;
+
 }
