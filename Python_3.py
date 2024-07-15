@@ -1,6 +1,5 @@
 from typing import List
 
-
 def below_zero(operations: list[int]) -> bool:
     balance = 0
     for op in operations:
