@@ -1,14 +1,44 @@
 def bowling_score(frames):
     score = 0
-    frame_number = 1
-    for roll in frames.replace("/", ""):
-        if int(roll) == 10:  
-            score += 10 + (2 if frame_number < 9 else 1)*10
-            frame_number += 1
-        elif int(roll) < 5 or (int(roll) >= 5 and len(frames.replace("/", "")) - len(rolls) <= 1):
-            score += sum(map(int, rolls))
-            if len(rolls) == 2:
-                frame_number += 1
-        else:  
-            score += int(roll)
+    roll = 0
+    frames_list = [int(x) for x in frames.split("/")]
+
+    for i, frame in enumerate(frames_list[:10]):
+        if len(str(frame)) == 1:
+            if frame == 10:  # strike
+                if i < 8:
+                    score += (frame + next_frames(i)) * 2 + 10
+                elif i == 9:
+                    score += (frame + frames_list[9]) * 2
+                roll += 3
+            else:
+                score += frame * 10
+                roll += 2
+        elif len(str(frame)) == 2:
+            first_roll = int(str(frame)[0])
+            second_roll = int(str(frame)[1])
+            if first_roll == 10:  # strike
+                if i < 8:
+                    score += (frame + next_frames(i)) * 2 + 10
+                elif i == 9:
+                    score += (frame + frames_list[9]) * 2
+                roll += 3
+            else:
+                if second_roll == 0:  # spare
+                    if i < 8:
+                        score += frame + next_frames(i)
+                    else:
+                        score += frame + frames_list[9]
+                    roll += 2
+                else:
+                    score += first_roll + second_roll
+                    roll += 2
+
     return score
+
+
+def next_frames(i):
+    if i < 8:
+        return [frames_list[i + 1][0]]
+    elif i == 9:
+        return [10]
