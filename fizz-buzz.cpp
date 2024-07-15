@@ -18,6 +18,6 @@ public:
 
 int main() {
     Solution sol;
-    cout << sol.fizzBuzz(15) << endl;
+    cout << sol.fizzBuzz(15) << endl; 
     return 0;
 }
