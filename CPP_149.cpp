@@ -1,25 +1,26 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst);
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst);
 
-vector<string> sorted_list_sum(const vector<string>& lst){
-    vector<string> result;
-    for (const string& str : lst) {
+int main() {
+    // Add test cases here if needed
+    return 0;
+}
+
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
+    std::vector<std::string> result;
+    for (const std::string& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end(), [](const string& a, const string& b) {
+    std::sort(result.begin(), result.end(), [](const std::string& a, const std::string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
