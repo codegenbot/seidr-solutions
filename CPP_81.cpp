@@ -2,15 +2,10 @@
 #include <string>
 
 bool issame(float a, float b);
-
 vector<string> numerical_letter_grade(vector<float> grades);
 
 bool issame(float a, float b) {
-    if (a == b) {
-        return true;
-    } else {
-        return false;
-    }
+    return a == b;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
