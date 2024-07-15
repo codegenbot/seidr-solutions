@@ -1,11 +1,10 @@
-if (n == 1 && x == 1) {
+if (x == 1) {
         return true;
     }
-    
-    if (n == 1) {
-        return false;
+    for (int i = 2; i <= sqrt(x); i++) {
+        if (pow(i, n) == x) {
+            return true;
+        }
     }
-    
-    double result = log(x) / log(n);
-    return (result == (int)result);
+    return false;
 }
