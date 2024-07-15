@@ -1,3 +1,7 @@
+#include <iostream>
+using namespace std;
+
+int main() {
 string squareDigits(int n) {
     string str = to_string(n);
     for (char &c : str) {
@@ -6,3 +10,4 @@ string squareDigits(int n) {
     }
     return str;
 }
+return 0;
