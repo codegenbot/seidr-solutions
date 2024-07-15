@@ -1,12 +1,12 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <utility>
+#include <climits>
 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = 0;
+    int minDiff = INT_MAX;
     int splitIndex = 0;
     
     for (int i = 1; i < v.size(); ++i) {
@@ -16,13 +16,13 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
             leftSum += v[j];
         }
         
-        for (int j = i; j < v.size(); j++) {
+        for (int j = i; j < v.size(); ++j) {
             rightSum += v[j];
         }
         
         int diff = abs(leftSum - rightSum);
         
-        if ((leftSum == rightSum) || (diff < minDiff)) {
+        if (diff <= minDiff) {
             minDiff = diff;
             splitIndex = i;
         }
