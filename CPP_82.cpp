@@ -14,7 +14,7 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(string str) {
+bool prime_length(const std::string& str) {
     int length = str.length();
     return is_prime(length);
 }
