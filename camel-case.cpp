@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -16,12 +15,12 @@ std::string camelCase(const std::string& str) {
     words.push_back(str.substr(start));
 
     std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
+    for (const auto& word : words) {
         if (!result.empty()) {
-            result += char(toupper(words[i][0]));
-            result += words[i].substr(1);
+            result += char(toupper(word[0]));
+            result.erase(1);
         } else {
-            result += words[i];
+            result += word;
         }
     }
 
