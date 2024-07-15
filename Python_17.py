@@ -56,6 +56,3 @@ def parse_music(music_string: str) -> list:
             i += 5
         i += 1
     return music_list
-
-music_string = input("Enter music string: ")
-print(parse_music(music_string))
