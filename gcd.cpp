@@ -10,13 +10,13 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int n = static_cast<int>(text.size());
-    int m = static_cast<int>(target.size());
+    size_t n = text.size();
+    size_t m = target.size();
     
-    for (int i = 0; i <= n - m; ++i) {
+    for (size_t i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (int j = 0; j < m; ++j) {
-            if (text[i + j] != target[j]) {
+        for (size_t j = 0; j < m; ++j) {
+            if (text.at(i + j) != target.at(j)) {
                 found = false;
                 break;
             }
@@ -27,4 +27,9 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
     
     return indices;
+}
+
+int main() {
+    // Call your functions here for testing
+    return 0;
 }
