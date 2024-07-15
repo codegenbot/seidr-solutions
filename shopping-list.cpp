@@ -22,7 +22,7 @@ int main() {
         cin >> prices[i];
     }
     int dummy;
-    cin >> dummy; 
+    cin >> dummy; // Read and discard the number
     for (int i = 0; i < 3; i++) {
         cin.ignore(); // Ignore any remaining whitespace characters
     }
