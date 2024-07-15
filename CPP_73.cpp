@@ -16,8 +16,13 @@ int Solution::smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
+    if (std::cin.peek() == EOF) {
+        std::cout << "No input provided." << std::endl;
+        return 0;
+    }
+
     assert(Solution::smallest_change({0, 1}) == 1);
-    
+
     std::vector<int> input;
     int value;
     while (std::cin >> value) {
