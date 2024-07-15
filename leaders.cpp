@@ -1,3 +1,4 @@
+#include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& vec) {
@@ -9,4 +10,5 @@ vector<int> leaders(vector<int>& vec) {
             maxRight = vec[i];
         }
     }
+    return result;
 }
