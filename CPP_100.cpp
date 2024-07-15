@@ -2,8 +2,10 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> stones;
+using namespace std;
+
+vector<int> make_a_pile(int n) {
+    vector<int> stones;
     stones.push_back(n);
     for (int i = 1; i < n; ++i) {
         if (n % 2 == 0) {
@@ -16,11 +18,22 @@ std::vector<int> make_a_pile(int n) {
     return stones;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool compare_vectors(vector<int>& a, vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
+    vector<int> result = make_a_pile(8);
+    assert(compare_vectors(result, expected));
+    cout << "Test passed successfully!";
     return 0;
 }
