@@ -1,28 +1,19 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
+std::string camelCase(const std::string &input) {
     std::string result;
-    bool firstWord = true;
+    bool capitalizeNext = true;
 
     for (char c : input) {
         if (c == '-') {
-            // Start of a new word
-            if (!firstWord)
-                result += std::toupper(c);
-            else
-                firstWord = false;
-        } else if (c == ' ') {
-            // New line, just add the space to the output string
-            result += c;
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            // Just a normal character, check if it's the start of a new word
-            if (!firstWord)
-                result += std::tolower(c);
-            else
-                firstWord = false;
+            result += tolower(c);
         }
     }
 
@@ -31,8 +22,8 @@ std::string camelCase(std::string input) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-    std::cout << "camelCase version of the input is: " << camelCase(input) << std::endl;
+    while (std::cout << "Enter a string in kebab-case: ", std::getline(std::cin, input)) {
+        std::cout << "camelCase: " << camelCase(input) << std::endl;
+    }
     return 0;
 }
