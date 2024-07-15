@@ -5,7 +5,10 @@ def add_delimiter(numbers, delimiter):
     result.pop()
     return result
 
-numbers = [1, 2, 3, 4]
-delimiter = ","
-output = add_delimiter(numbers, delimiter)
-print(output)
+def check():
+    numbers = [1, 2, 3, 4]
+    delimiter = ","
+    output = add_delimiter(numbers, delimiter)
+    print(output)
+
+check()
