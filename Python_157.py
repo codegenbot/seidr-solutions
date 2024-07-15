@@ -5,7 +5,7 @@ def check_pythagorean_triplet(a, b, c):
         return a**2 == b**2 + c**2
     elif b > a and b > c:
         return b**2 == a**2 + c**2
-    else:
+    else: 
         return c**2 == a**2 + b**2
 
 result = check_pythagorean_triplet(a, b, c)
