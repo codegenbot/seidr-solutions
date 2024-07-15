@@ -1,3 +1,4 @@
+```cpp
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string result;
     std::map<char, char> substitutions;
