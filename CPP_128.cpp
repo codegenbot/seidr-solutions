@@ -1,37 +1,26 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <cmath>
 
-int prod_signs(std::vector<int> arr) {
-    if(arr.empty()) return -32768;
+using namespace std;
 
-    int product = 1;
-    int sum = 0;
-
-    for(int num : arr){
-        if(num > 0) product *= 1;
-        else if(num < 0) product *= -1;
-
-        sum += abs(num);
+int prod_signs(const vector<int>& arr) {
+    if (arr.empty()) {
+        return -32768;
     }
 
-    return product * sum;
-}
+    int product = 1;
+    int sum_magnitudes = 0;
 
-int main() {
-    std::vector<int> test1 = {2, -3, 4, -5, 6};
-    assert(prod_signs(test1) == 10);
-    
-    std::vector<int> test2 = {1, 2, 3, 4, 5};
-    assert(prod_signs(test2) == 15);
+    for (int num : arr) {
+        if (num > 0) {
+            product *= 1;
+            sum_magnitudes += num;
+        } else if (num < 0) {
+            product *= -1;
+            sum_magnitudes += abs(num);
+        }
+    }
 
-    std::vector<int> test3 = {-1, -2, -3, -4, -5};
-    assert(prod_signs(test3) == 15);
-    
-    std::vector<int> test4 = {};
-    assert(prod_signs(test4) == -32768);
-
-    std::cout << "All tests passed!" << std::endl;
-
-    return 0;
+    return product * sum_magnitudes;
 }
