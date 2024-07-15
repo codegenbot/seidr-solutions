@@ -34,6 +34,8 @@ int prime_fib(int n) {
     return next;
 }
 
+int main();
+
 int main() {
     int n;
     std::cin >> n;
