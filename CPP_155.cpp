@@ -1,13 +1,11 @@
 #include <vector>
 #include <string>
-#include <iostream>
-
 using namespace std;
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
     std::string numStr = std::to_string(std::abs(num));
-    for(char c : numStr) {
+    for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             result[0]++;
         } else {
@@ -18,11 +16,7 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    int number = 12345;
-    std::vector<int> counts = even_odd_count(number);
-
-    cout << "Even count: " << counts[0] << endl;
-    cout << "Odd count: " << counts[1] << endl;
-
+    std::vector<int> result = even_odd_count(123456);
+    // Add code to display or process the 'result' vector
     return 0;
 }
