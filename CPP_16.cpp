@@ -1,10 +1,10 @@
-int count = 0;
-    vector<char> distinct_chars;
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<bool> visited(26, false);
+    int count = 0;
     
     for(char c : str){
-        if(find(distinct_chars.begin(), distinct_chars.end(), tolower(c)) == distinct_chars.end() && 
-           find(distinct_chars.begin(), distinct_chars.end(), toupper(c)) == distinct_chars.end()){
-            distinct_chars.push_back(tolower(c));
+        if(isalpha(c) && !visited[c - 'a']){
+            visited[c - 'a'] = true;
             count++;
         }
     }
