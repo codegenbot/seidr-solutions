@@ -1,13 +1,13 @@
 #include <vector>
 #include <string>
 
-bool issame(char a, char b) {
-    return a == b;
+bool issame(const std::string& str1, const std::string& str2) {
+    return str1.size() == str2.size();
 }
 
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separateParenGroups(const std::string& paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
