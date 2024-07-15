@@ -27,6 +27,7 @@ def solve_boolean(expression):
     tokens = expression.split()
     while "|" in tokens:
         tokens = [part.strip() for part in " | ".join(tokens).split("|")]
+
     stack = []
     for token in tokens:
         if token not in ["|", "&"]:
