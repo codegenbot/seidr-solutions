@@ -1,24 +1,32 @@
 #include <vector>
-#include <iostream>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
-
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> result;
-    for(float num : l) {
-        if(num > 0) {
+    for(float num : l){
+        if(num > 0){
             result.push_back(num);
         }
     }
     return result;
 }
 
-int main() {
-    assert(issame(get_positive({}), {}));
+bool is_same(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    vector<float> list1 = {1.2, -3.4, 5.6};
+    vector<float> list2 = {1.2, -3.4, 5.6};
+    
+    bool result = is_same(list1, list2);
+    
     return 0;
 }
