@@ -15,7 +15,7 @@ int luhn(vector<int> numbers) {
         }
         sum += i;
         doubleNext = !doubleNext;
-   }
+    }
     
     return sum;
 
