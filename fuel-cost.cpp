@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int fuelCost(vector<int> vec) {
 }
 
 int main() {
-    vector<int> vec({1, 2, 3});
+    vector<int> vec = {1, 2, 3};
     int result = fuelCost(vec);
     cout << "Result: " << result << endl;
     return 0;

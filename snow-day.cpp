@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
@@ -9,9 +10,9 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
 int main() {
     int h;
     cin >> h;
-    float g, r, m;
-    cin >> g >> r >> m;
-    cout << std::setiosflags(std::ios_base::fixed) << std::setprecision(10);
-    cout << std::to_string(snowDay(h, g, r, m)) << endl;
+    string gStr, rStr, mStr;
+    cin >> gStr >> rStr >> mStr;
+    float g = stof(gStr), r = stof(rStr), m = stof(mStr);
+    cout << fixed << setprecision(6);
+    cout << snowDay(h, g, r, m) << endl;
     return 0;
-}
