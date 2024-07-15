@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -14,7 +13,6 @@ int whitePegs(std::string code, std::string guess) {
 }
 
 int blackPegs(std::string code, std::string guess) {
-    int blackCount = 0;
     int whiteCount = whitePegs(code, guess);
     
     std::unordered_map<char,int> codeMap;
@@ -22,14 +20,13 @@ int blackPegs(std::string code, std::string guess) {
         codeMap[code[i]]++;
     }
     
-    int correctPlace = 0;
+    int blackCount = 4 - whiteCount;
     for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            correctPlace++;
+        if(codeMap.find(guess[i]) != codeMap.end()) {
+            blackCount++;
+            codeMap[guess[i]]--;
         }
     }
-
-    blackCount = correctPlace - whiteCount;
     return blackCount;
 }
 
