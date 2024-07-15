@@ -2,25 +2,29 @@
 #include <iostream>
 #include <string>
 
-int bowlingScore(std::string s, int i) {
+int bowlingScore(char c) {
     int score = 0;
-    if (s[i] == 'X') {
+    if (c == 'X') {
         score += 30;
-    } else if (s[i] == '/') {
-        int next = i + 1;
-        while ((s[next] < '7' || s[next] > '9') && next < s.length()) {
-            next++;
-        }
-        score += 10 + (next - i) * 1;
+    } else if (c == '/') {
+        return score + 10; 
     } else {
         int count = 0;
-        while (s[i] >= '1' && s[i] <= '9') {
+        size_t len = s.length();
+        size_t i = 0;
+        while (c >= '1' && c <= '9') {
             count *= 10;
-            count += s[i] - '0';
-            if (i < s.length() - 1 && s[i + 1] == '\n') break;
-            i++;
+            count += c - '0';
+            if (++i < len - 1) {
+                if (s[i] == '/') {
+                    break;
+                }
+                c = s[i];
+            } else {
+                break;
+            }
         }
-        score = count;
+        score += count;
     }
     return score;
 }
@@ -30,10 +34,9 @@ int main() {
     std::cout << "Enter the input string: ";
     std::getline(std::cin, s);
     
-    int i = 0;
     int totalScore = 0;
-    for (; i < s.length(); i++) {
-        totalScore += bowlingScore(s, i);
+    for (char c : s) {
+        totalScore += bowlingScore(c);
     }
     std::cout << "The total score is: " << totalScore << std::endl;
 }
