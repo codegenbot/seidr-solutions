@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <sstream>
-
 std::string squareDigits(std::string input) {
     std::stringstream output;
     for (char c : input) {
@@ -10,14 +5,4 @@ std::string squareDigits(std::string input) {
         output << std::to_string(digit * digit);
     }
     return output.str() + (output >> std::ws).str();
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
-
-    std::string result = squareDigits(input);
-
-    return 0;
 }
