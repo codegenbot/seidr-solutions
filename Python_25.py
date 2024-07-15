@@ -1,3 +1,5 @@
 try:
-    except ValueError as e:
-        print("Invalid input. Please enter a positive integer.")
+    # Write your code logic here
+    pass
+except ValueError:
+    print("Invalid input. Please enter a positive integer.")
