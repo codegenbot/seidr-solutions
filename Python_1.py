@@ -1,1 +1,1 @@
-input_string = input()
+input_string = input("Please enter your input: ")
