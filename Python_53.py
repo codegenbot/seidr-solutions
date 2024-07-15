@@ -1,2 +1,4 @@
 def add(x: int, y: int) -> int:
-    return int(x) + int(y)
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
+    return x + y
