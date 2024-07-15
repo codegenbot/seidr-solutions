@@ -31,10 +31,7 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    std::cin >> file_name;
-
-    std::cout << file_name_check(file_name);
-
+    string file_name = "example.txt";
+    cout << file_name_check(file_name) << endl;
     return 0;
 }
