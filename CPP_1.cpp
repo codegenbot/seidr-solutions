@@ -1,19 +1,35 @@
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
-    int balance = 0;
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (balance > 0) {
+            if (open_braces > 0) {
                 current_group += c;
             }
-            balance++;
+            open_braces++;
         } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
+            open_braces--;
+            if (open_braces > 0) {
                 current_group += c;
-            } else if (balance == 0) {
+            } else if (open_braces == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -21,4 +37,17 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<std::string> test_input = separate_paren_groups("((group1)(group2)(group3))");
+    std::vector<std::string> expected_output = {"group1", "group2", "group3"};
+
+    if (issame(test_input, expected_output)) {
+        std::cout << "Test Passed!" << std::endl;
+    } else {
+        std::cout << "Test Failed!" << std::endl;
+    }
+
+    return 0;
 }
