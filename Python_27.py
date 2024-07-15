@@ -1,8 +1,9 @@
 def swap_case(string):
     return "".join(char.lower() if char.isupper() else char.upper() for char in string)
 
-def check(s):
-    return swap_case(s)
+def check():
+    input_string = input()
+    result = swap_case(input_string)
+    print(result)
 
-# Sample function call to check
-# print(check("Hello World"))
+check()
