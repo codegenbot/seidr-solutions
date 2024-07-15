@@ -1,8 +1,2 @@
-def concatenate_strings(strings):
+def join_strings(strings):
     return "".join(strings)
-
-# Input
-strings = ['hello', 'world', '!']
-
-# Function Call
-print(concatenate_strings(strings))
