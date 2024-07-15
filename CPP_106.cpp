@@ -1,13 +1,12 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
 
 std::vector<int> f(int n){
-    std::vector<int> result(n);
-    for(int i = 0; i < n; ++i){
-        result[i] = i + 1;
+    std::vector<int> res;
+    for(int i=1; i<=n; i++){
+        res.push_back(i);
     }
-    return result;
+    return res;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
@@ -16,6 +15,4 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 int main(){
     assert(issame(f(3), {1, 2, 3}));
-    
-    return 0;
 }
