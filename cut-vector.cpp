@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <cmath>
 
 int main() {
     std::vector<int> nums;
@@ -7,36 +9,35 @@ int main() {
         nums.push_back(num);
     }
 
-    int totalSum = 0;
-    for (int n : nums) {
-        totalSum += n;
+    int sum = 0;
+    for (int x : nums) {
+        sum += x;
     }
 
-    int leftSum = 0;
-    int minDiff = totalSum;
-    int cutIndex = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        leftSum += nums[i];
-        int rightSum = totalSum - leftSum;
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int target = sum / 2;
+    int curr_sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        curr_sum += nums[i];
+        if (curr_sum >= target) {
+            if (curr_sum - target <= target - (curr_sum - nums[i])) {
+                for (int j = 0; j <= i; j++) {
+                    std::cout << nums[j] << " ";
+                }
+            } else {
+                for (int j = 0; j < i; j++) {
+                    std::cout << nums[j] << " ";
+                }
+            }
+            std::cout << std::endl;
+
+            for (int j = i + 1; j < nums.size(); j++) {
+                std::cout << nums[j] << " ";
+            }
+            std::cout << std::endl;
+
+            break;
         }
     }
-
-    std::vector<int> firstSubvector(nums.begin(), nums.begin() + cutIndex + 1);
-    std::vector<int> secondSubvector(nums.begin() + cutIndex + 1, nums.end());
-
-    for (int num : firstSubvector) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    for (int num : secondSubvector) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
 
     return 0;
 }
