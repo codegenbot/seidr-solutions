@@ -39,7 +39,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
             }
         }
     }
-    
+
     return result;
 }
 
