@@ -1,4 +1,7 @@
-```c++
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 std::string spinWords(std::string str) {
     std::string result = "";
     std::size_t pos = 0;
@@ -8,7 +11,7 @@ std::string spinWords(std::string str) {
         if (len == std::string::npos)
             len = str.length();
         
-        if (len - pos > 4) {
+        if (std::stoi(str.substr(pos, len - pos).erase()) > 4) {
             std::string temp = str.substr(pos, len - pos);
             std::reverse(temp.begin(), temp.end());
             result += temp + " ";
@@ -18,8 +21,16 @@ std::string spinWords(std::string str) {
         pos = len;
     }
     
-    if (!str.empty())
+    if (str.length() > 0)
         result += str;
 
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << spinWords(str) << std::endl;
+    }
+    return 0;
 }
