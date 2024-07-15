@@ -1,14 +1,11 @@
-if (txt.empty()) {
+int len = txt.length();
+    if(len == 0)
         return false;
-    }
     
-    char lastChar = txt.back();
+    char last_char = txt[len-1];
     
-    if(isalpha(lastChar)) {
-        if(txt.find_last_of(" ") == txt.size()-1) {
-            return true;
-        }
-    }
+    if(isalpha(last_char) && (len - txt.find_last_of(' ') == 1))
+        return true;
     
     return false;
 }
