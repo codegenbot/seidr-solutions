@@ -5,13 +5,10 @@ def cut_vector(vector):
     for i in range(len(vector)):
         left_sum = sum(vector[:i + 1])
         right_sum = sum(vector[i + 1:])
-
-        if abs(left_sum - right_sum) < min_diff:
-            while i + 1 < len(vector) and (left_sum == right_sum or abs(left_sum - right_sum) <= min_diff):
-                i += 1
-                left_sum += vector[i]
-                right_sum = sum(vector[i + 1:])
-
+        
+        if left_sum == right_sum:
+            return vector[:i + 1], vector[i + 1:]
+        elif abs(left_sum - right_sum) < min_diff:
             min_diff = abs(left_sum - right_sum)
             split_index = i
 
