@@ -1,4 +1,5 @@
-#include <string>
+#include <iostream>
+#include <sstream>
 
 std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
@@ -6,6 +7,8 @@ std::string validateTweet(std::string tweet) {
     } else if (tweet.size() > 140) {
         return "Too many characters";
     } else {
-        return "Your tweet has " + std::to_string(tweet.size()) + " characters";
+        std::stringstream ss;
+        ss << "Your tweet has " << tweet.size() << " characters";
+        return ss.str();
     }
 }
