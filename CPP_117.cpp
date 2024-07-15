@@ -1,18 +1,15 @@
 #include <vector>
-#include <iostream>
-#include <cassert> 
+#include <string>
+#include <cassert>
+#include <cctype>
 
-using namespace std;
-
-vector<string> select_words(string s, int n);
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int consonants = 0;
 
     for (char c : s) {
@@ -22,8 +19,8 @@ vector<string> select_words(string s, int n) {
             }
             word = "";
             consonants = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+        } else if (std::isalpha(c)) {
+            if (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u') {
                 consonants++;
             }
             word += c;
@@ -37,17 +34,9 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main2() {
-    string s = "hello world programming is fun";
-    vector<string> output = select_words(s, 3);
-    vector<string> expected = {"hello", "world", "is"};
-
-    assert(issame(output, expected));
-
-    // Additional test cases
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-
-    cout << "All tests passed" << endl;
-
+int main() {
+    std::vector<std::string> expected = {"b", "c", "d", "f"};
+    std::vector<std::string> result = select_words("a b c d e f", 1);
+    assert(issame(result, expected));
     return 0;
 }
