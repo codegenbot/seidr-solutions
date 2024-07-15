@@ -1,12 +1,14 @@
 sort(numbers.begin(), numbers.end());
-    float min_diff = numbers[1] - numbers[0];
-    pair<float, float> closest = {numbers[0], numbers[1]};
-    for (int i = 2; i < numbers.size(); ++i) {
-        float diff = numbers[i] - numbers[i - 1];
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest = {numbers[i - 1], numbers[i]};
-        }
+pair<float, float> closestPair = {numbers[0], numbers[1]};
+float minDiff = numbers[1] - numbers[0];
+
+for (int i = 1; i < numbers.size() - 1; ++i) {
+    float diff = numbers[i + 1] - numbers[i];
+    if (diff < minDiff) {
+        minDiff = diff;
+        closestPair = {numbers[i], numbers[i + 1]};
     }
-    return {closest.first, closest.second};
+}
+
+return {closestPair.first, closestPair.second};
 }
