@@ -1,18 +1,6 @@
-```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
     
-    def evaluate(tokens):
-        if len(tokens) == 0:
-            return eval(tokens[0])
-        elif tokens[0] in ["|", "&"]:
-            operator_ = tokens.pop(0)
-            operand2 = evaluate(tokens)
-            if operator_ == "|":
-                return str(eval(f"{operand2} or {tokens[0]}"))
-            else:
-                return str(eval(f"{operand2} and {tokens[0]}"))
-
     def solve(stack):
         result = None
         while len(stack) > 1:
@@ -24,9 +12,8 @@ def solve_boolean(expression):
                 result = eval(f"{result} and {operand2}")
         return bool(result)
 
-    tokens = expression.split()
-    while "|" in tokens:
-        tokens = [part.strip() for part in " | ".join(tokens).split("|")]
+    tokens = expression.replace("|", " | ").replace("&", " & ")
+    tokens = [part.strip() for part in tokens.split()]
     stack = []
     for token in tokens:
         if token not in ["|", "&"]:
