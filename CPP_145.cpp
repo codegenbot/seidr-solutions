@@ -16,9 +16,9 @@ vector<int> order_by_points(vector<int> nums) {
             b /= 10;
         }
         if (sum_a == sum_b) {
-            return a < b;
+            return sum_a < sum_b;
         }
-        return sum_a < sum_b;
+        return a < b;
     });
     return nums;
 }
