@@ -1,1 +1,1 @@
-n = int(input())  # Remove input prompt message
+n = int(input("Enter a positive integer: "))
