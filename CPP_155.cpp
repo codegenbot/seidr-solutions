@@ -1,13 +1,14 @@
 #include <vector>
+
 bool issame(std::vector<int> a, std::vector<int> b) {
-    int n = a.size();
-    if (n != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < n; i++) {
-        if (a[i] != b[i]) {
-            return false;
+    std::vector<int> count(2, 0);
+    while(num != 0){
+        if(abs(num % 10) % 2 == 0){
+            count[0]++;
+        } else {
+            count[1]++;
         }
+        num /= 10;
     }
-    return true;
+    return count;
 }
