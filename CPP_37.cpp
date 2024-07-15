@@ -15,7 +15,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
             sorted_even_values.push_back(l[i]);
         }
     }
-    sort(sorted_even_values.begin(), sorted_even_values.end());
+    std::sort(sorted_even_values.begin(), sorted_even_values.end());
     int sorted_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
