@@ -4,4 +4,4 @@ def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
         snow += snow_fall_rate
         snow_melted = min(snow, snow * snow_melt_rate)
         snow -= snow_melted
-    return snow
+    return round(snow, 15)
