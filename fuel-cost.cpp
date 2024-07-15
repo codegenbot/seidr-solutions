@@ -1,13 +1,11 @@
-```
-#include <vector>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 int calculateFuelCost(vector<int>& numbers) {
     int total = 0;
     for (int num : numbers) {
-        int result = (num / 3) - 2;
+        int result = floor((double)num / 3) - 2;
         total += result;
     }
     return total;
@@ -23,7 +21,7 @@ int main() {
         numbers.push_back(num);
     }
 
-    cout << calculateFuelCost(numbers) << endl;
+    cout << calculateFuelCost(numbers) << std::endl;
 
     return 0;
 }
