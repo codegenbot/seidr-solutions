@@ -1,6 +1,6 @@
 ```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -33,8 +33,9 @@ int bowlingScore(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter the bowling string: ";
-    std::cin >> input;
-    std::cout << "The bowling score is: " << bowlingScore(input) << std::endl;
+    std::cout << "Enter the bowling score: ";
+    std::getline(std::cin, input);
+    int result = bowlingScore(input);
+    std::cout << "The total score is: " << result << std::endl;
     return 0;
 }
