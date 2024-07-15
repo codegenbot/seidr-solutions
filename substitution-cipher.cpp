@@ -1,33 +1,20 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-std::string applySubstitutionCipher(std::string key1, std::string key2, std::string message) {
-    std::string result = "";
+string substitutionCipher(string key1, string key2, string message) {
+    string result = "";
     
-    for (char c : message) {
-        if (c != '\0') {
-            int index = key1.find(c);
-            if (index != -1) {
-                result += key2[index];
-            } else {
-                result += c;
+    for (int i = 0; i < message.length(); i++) {
+        if (key1[i] != key2[i]) {
+            int pos = 0;
+            while (pos < key1.length()) {
+                if (key1[pos] == message[i]) {
+                    result += key2[pos];
+                    break;
+                }
+                pos++;
             }
         } else {
-            result += ' ';
+            result += message[i];
         }
     }
-
-    return result;
-}
-
-int main() {
-    std::string key1, key2, message;
     
-    // Read input from user
-    cin >> key1 >> key2 >> message;
-
-    std::cout << applySubstitutionCipher(key1, key2, message) << endl;
-
-    return 0;
+    return result;
 }

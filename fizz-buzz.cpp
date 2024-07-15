@@ -45,7 +45,7 @@ public:
             else if (i % 5 == 0)
                 cout << "Buzz" << endl;
             else
-                cout << to_string(i) << endl;
+                cout << i << endl;
         }
     }
 };
