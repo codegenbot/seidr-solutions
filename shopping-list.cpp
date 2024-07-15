@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 using namespace std;
 
@@ -23,6 +22,6 @@ int main() {
     }
     
     cout << fixed << total << '\n';
-    
+
     return 0;
 }
