@@ -11,6 +11,16 @@ std::vector<float_t> derivative(const std::vector<float_t>& v){
     return result;
 }
 
-bool issame(std::vector<float_t> a, std::vector<float_t> b){
-    return derivative(a) == derivative(b);
+bool issame(const std::vector<float_t>& a, const std::vector<float_t>& b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
