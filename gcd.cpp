@@ -31,9 +31,5 @@ int main() {
     int a = 48;
     int b = 18; 
     cout << "GCD: " << gcd(a, b) << endl;
-    vector<int> indices = indicesOfSubstring("Hello world", "ll");
-    for (auto i : indices) {
-        cout << i << endl;
-    }
     return 0;
 }
