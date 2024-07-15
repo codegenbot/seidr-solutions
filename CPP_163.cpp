@@ -4,7 +4,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -18,10 +18,4 @@ std::vector<int> generate_integers(int a, int b) {
         result.push_back(i);
     }
     return result;
-}
-
-int main() {
-    std::vector<int> generated = generate_integers(1, 10);
-    std::vector<int> expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    assert(issame(generated, expected));
 }
