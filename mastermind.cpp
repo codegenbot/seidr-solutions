@@ -13,15 +13,14 @@ int main() {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            if (code[i] >= 'A' && code[i] <= 'F' && guess[i] >= 'A' && guess[i] <= 'F') {
-                ++codeFreq[code[i]];
-                ++guessFreq[guess[i]];
-            }
+            ++codeFreq[code[i]];
+            ++guessFreq[guess[i]];
         }
     }
 
     for (auto& it : codeFreq) {
-        white += std::min(codeFreq[it.first], guessFreq[it.first]);
+        white += std::min(it.second, guessFreq[it.first]);
+        guessFreq.erase(it.first); // Remove the characters already counted for white pegs
     }
 
     std::cout << white << std::endl << black << std::endl;
