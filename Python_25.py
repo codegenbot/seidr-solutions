@@ -1,4 +1,7 @@
-```
+from typing import List
+import math
+
+
 def factorize(n: int) -> List[int]:
     if n < 2:
         return [[n]]
