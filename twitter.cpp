@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     string tweet;
     getline(cin, tweet);
-    cin.ignore();
+    tweet.erase(remove(tweet.begin(), tweet.end(), '\n'), tweet.end());
 
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
