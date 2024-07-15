@@ -1,27 +1,42 @@
-int count_consonants(string word) {
+#include <iostream>
+#include <vector>
+#include <string>
+
+int count_consonants(const std::string& word) {
     int count = 0;
-    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
     for (char c : word) {
-        if (consonants.find(c) != string::npos) {
+        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
+            c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U' && isalpha(c)) {
             count++;
         }
     }
     return count;
 }
 
-bool issame(string s1, string s2) {
+bool issame(const std::string& s1, const std::string& s2) {
     return s1 == s2;
 }
 
-vector<string> select_words(string s, int n);
+std::vector<std::string> select_words(std::string s, int n);
 
 int main() {
-    // Main function code here
+    std::string input;
+    int n;
+    std::getline(std::cin, input);
+    std::cin >> n;
+    
+    std::vector<std::string> result = select_words(input, n);
+    
+    for (const std::string& word : result) {
+        std::cout << word << " ";
+    }
+    
+    return 0;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word;
     for (char c : s) {
         if (c == ' ') {
             if (count_consonants(word) == n) {
