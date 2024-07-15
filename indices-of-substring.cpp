@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+
+using namespace std;
 
 int main() {
-    using namespace std;
-
     string text, target;
     cin >> text >> target;
 
@@ -16,9 +16,9 @@ int main() {
     }
 
     for (int i = 0; i < indices.size(); ++i) {
-        std::cout << indices[i] << " ";
+        cout << indices[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
