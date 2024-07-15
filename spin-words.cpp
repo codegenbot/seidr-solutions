@@ -4,7 +4,7 @@
 #include <algorithm>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
+    std::reverse(str.begin(), str.end());
     std::size_t pos = 0;
     
     while ((pos = str.find(" ")) != std::string::npos) {
@@ -30,7 +30,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    while (std::getline(std::cin, str)) {  
+    while (std::cin >> str) {
         std::cout << spinWords(str) << std::endl;
     }
     return 0;
