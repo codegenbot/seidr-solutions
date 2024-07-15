@@ -1,24 +1,20 @@
-string encrypt(string s) {
+string encrypt(string s){
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (isalpha(c)) {
-            if (islower(c)) {
-                if ((c - 'a' + 4 * 2) > 'z') {
-                    result += (char)(((c - 'a' + 4 * 2) % 26) + 'a');
-                } else {
-                    result += (char)(c + 4 * 2);
-                }
-            } else if (isupper(c)) {
-                if ((c - 'A' + 4 * 2) > 'Z') {
-                    result += (char)(((c - 'A' + 4 * 2) % 26) + 'A');
-                } else {
-                    result += (char)(c + 4 * 2);
-                }
-            }
-        } else {
-            result += c;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] >= 'a' && s[i] <= 'i'){
+            result += (char)(((s[i]-'a'+2*2)%26+'a'));
         }
+        else if(s[i] >= 'j' && s[i] <= 'o'){
+            result += (char)(((s[i]-'j'+2*2)%26+'j')-1);
+        }
+        else if(s[i] >= 'p' && s[i] <= 'x'){
+            result += (char)(((s[i]-'p'+2*2)%26+'p'));
+        }
+        else if(s[i] >= 'y' && s[i] <= 'z'){
+            result += (char)(((s[i]-'y'+2*2)%26+'y')-1);
+        }
+        else
+            result += s[i];
     }
     return result;
 }
