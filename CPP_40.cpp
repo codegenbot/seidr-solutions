@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert> // Include the <cassert> header for assert function
+#include <cassert>
 
 bool triples_sum_to_zero(const std::vector<int>& l) {
     int n = l.size();
