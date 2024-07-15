@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+vector<int> issame(vector<int> a, vector<int> b) {
     vector<int> result(2, 0);
     
     string num_str = to_string(abs(num));
