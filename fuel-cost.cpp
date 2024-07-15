@@ -2,11 +2,10 @@
 #include <cmath>
 #include <initializer_list>
 #include <iostream>
-#include <ostream>
 
 using namespace std;
 
-int fuelCost(vector<int> vec) {
+int fuelCost(initializer_list<int> vec) {
     int sum = 0;
     for (int i : vec) {
         int result = static_cast<int>(floor(double(i)/3));
