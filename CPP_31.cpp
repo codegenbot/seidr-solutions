@@ -12,16 +12,3 @@ bool is_prime(long long n) {
     }
     return true;
 }
-
-int main() {
-    long long n;
-    std::cin >> n;
-
-    if (is_prime(n)) {
-        std::cout << "Prime\n";
-    } else {
-        std::cout << "Not Prime\n";
-    }
-
-    return 0;
-}
