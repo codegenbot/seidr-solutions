@@ -1,8 +1,14 @@
-int luhn(int numbers[16]) {
+```cpp
+int luhn(std::vector<int> numbers) {
     int sum = 0;
-    for (int i = 0; i < 16; ++i) {
-        if ((16 - i) % 2 == 1) { 
-            int temp = numbers[i] * 2; 
+    for (int i = 0; i < numbers.size(); ++i) {
+        if ((numbers.size() - i) % 2 == 1) { 
+            int temp = 0;
+            int digit = numbers[i] * 2;
+            while (digit > 0) {
+                temp += digit % 10;
+                digit /= 10;
+            }
             if (temp > 9) { 
                 temp -= 9;
             }
@@ -11,5 +17,5 @@ int luhn(int numbers[16]) {
             sum += numbers[i]; 
         }
     }
-    return sum;
+    return sum % 10 == 0;
 }
