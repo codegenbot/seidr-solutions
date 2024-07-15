@@ -5,8 +5,6 @@ using namespace std;
 
 vector<int> generate_integers(int a, int b);
 
-bool issame(const vector<int>& a, const vector<int>& b);
-
 bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
