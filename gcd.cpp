@@ -1,6 +1,6 @@
 #include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -12,22 +12,18 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 48;
-    int b = 18;
-    cout << "GCD: " << gcd(a, b) << endl;
-
-    string text = "Hello World!";
-    string target = "o";
-    vector<int> indices;
+    std::string text = "Hello World!";
+    std::string target = "o";
+    std::vector<int> indices;
 
     int index = 0;
-    while ((index = text.find(target)) != string::npos) {
+    while ((index = text.find(target)) != std::string::npos) {
         indices.push_back(index);
         text.erase(index, target.length());
     }
 
     for (int i : indices) {
-        cout << "Target appears at index: " << i << endl;
+        std::cout << "Target appears at index: " << i << std::endl;
     }
     return 0;
 }
