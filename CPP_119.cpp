@@ -1,7 +1,11 @@
-int match_parens(vector<string> lst) {
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
+string match_parens(vector<string> lst){
     int open = 0;
     int close = 0;
-    for (const string& str : lst) {
+    for (string str : lst) {
         for (char c : str) {
             if (c == '(') {
                 open++;
