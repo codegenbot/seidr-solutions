@@ -1,6 +1,5 @@
-#include <string>
-
-int bowlingScore(std::string s) {
+```c++
+int bowlingScore(const std::string& s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
@@ -24,4 +23,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
