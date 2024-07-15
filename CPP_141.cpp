@@ -1,4 +1,6 @@
-string checkFileName(string file_name) {
+#include <cassert>
+
+string file_name_check(string file_name) {
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
@@ -28,4 +30,12 @@ string checkFileName(string file_name) {
     }
 
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    assert(file_name_check("test.txt") == "Yes");
+    assert(file_name_check("file.exe") == "Yes");
+    assert(file_name_check("data123.dll") == "No");
+    return 0;
 }
