@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,8 +7,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"271", "137", "314"},
-                  std::vector<std::string>{"271", "137", "314"}));
-    
-    return 0;
+    assert(issame({"271", "137", "314"}, {"the number of odd elements 2 in the string 2 of the input.",
+                                          "the number of odd elements 3 in the string 3 of the input.",
+                                          "the number of odd elements 2 in the string 2 of the input."}));
 }
