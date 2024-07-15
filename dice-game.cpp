@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <iomanip>
-#include <limits>
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -22,6 +20,7 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << std::setprecision(std::numeric_limits<double>::max_digits10) << diceGame(n, m) << endl;
+    double d = diceGame(n, m);
+    cout << fixed << setprecision(6) << d << endl;
     return 0;
 }
