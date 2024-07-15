@@ -1,33 +1,20 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-string substitutionCipher(string cipher1, string cipher2, string message) {
-    string decipheredMessage;
+string substitutionCipher(string key1, string key2, string message) {
+    string result = "";
     
     for (int i = 0; i < message.length(); i++) {
-        if (message[i] == ' ') {
-            decipheredMessage += ' ';
-        } else {
-            int index = message[i];
-            if (index >= 97 && index <= 122) {
-                // Convert ASCII value to lowercase
-                index -= 97;
-                decipheredMessage += cipher2[index];
-            } else if (index >= 65 && index <= 90) {
-                // Convert ASCII value to uppercase
-                index -= 65;
-                decipheredMessage += toupper(cipher2[index]);
+        if (key1[i] != key2[i]) {
+            int pos = 0;
+            while (pos < key1.length()) {
+                if (key1[pos] == message[i]) {
+                    result += key2[pos];
+                    break;
+                }
+                pos++;
             }
+        } else {
+            result += message[i];
         }
     }
     
-    return decipheredMessage;
-}
-
-int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
-    return 0;
+    return result;
 }
