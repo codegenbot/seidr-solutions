@@ -2,14 +2,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(const string& a, const string& b) {
+    return a == b;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const string& str : strings) {
-        if (str.find(substring) != string::npos) {
+        if (issame(str, substring)) {
             result.push_back(str);
         }
     }
