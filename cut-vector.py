@@ -4,10 +4,10 @@ def cut_vector(vector):
 
     left_sum = 0
     for i in range(len(vector)):
-        right_sum = sum(vector[i+1:])
-        diff = abs(left_sum - right_sum) if left_sum != right_sum else 0
+        right_sum = sum(vector[i:]) if i < len(vector) - 1 else 0
+        diff = abs(left_sum - right_sum)
 
-        if diff <= min_diff:
+        if (diff <= min_diff and (left_sum == right_sum or diff == min_diff)):
             min_diff = diff
             split_index = i
 
