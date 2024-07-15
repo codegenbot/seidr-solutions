@@ -1,28 +1,58 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-std::string spinWords(std::string str) {
+bool isSpace(char c);
+std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::size_t start = 0;
-    for (std::size_t end = 0; end <= str.length(); ++end) {
-        if ((end == str.length() || isspace(str[end])) && end - start >= 5) {
-            std::string reversed = std::string(str.substr(start, end - start));
-            std::reverse(reversed.begin(), reversed.end());
-            result += reversed;
-            start = end;
+    std::string word;
+    
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            for (int j = i - 1; j >= 0; j--) {
+                if (!isSpace(sentence[j])) {
+                    result += sentence[j];
+                    break;
+                }
+            }
+            result += " ";
+        } else if (i == sentence.length() - 1) {
+            for (int j = i; j >= 0; j--) {
+                if (!isSpace(sentence[j])) {
+                    result += sentence[j];
+                    break;
+                }
+            }
+        } else {
+            word += sentence[i];
+        }
+        
+        if (word.length() >= 5) {
+            std::string revWord = "";
+            for (int i = word.length() - 1; i >= 0; i--) {
+                revWord += word[i];
+            }
+            result += revWord + " ";
+            word = "";
+        } else {
+            if (!word.empty()) {
+                result += word + " ";
+                word = "";
+            }
         }
     }
-    if (start < str.length()) {
-        result += str.substr(start);
-    }
+    
     return result;
 }
 
+bool isSpace(char c) {
+    return c == ' ';
+}
+
 int main() {
-    std::string input;
-    while (std::cout << "input: ", std::getline(std::cin, input)) {
-        std::cout << "output: " << spinWords(input) << std::endl;
-    }
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    std::cout << spinWords(sentence) << std::endl;
     return 0;
 }

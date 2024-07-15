@@ -24,7 +24,7 @@ def solve_boolean(expression):
                 result = eval(f"{result} and {operand2}")
         return bool(result)
 
-    tokens = expression.split()
+    tokens = expression.replace("|", " | ").replace("&", " & ").split()
     while "|" in tokens:
         tokens = [part.strip() for part in " | ".join(tokens).split("|")]
     stack = []
