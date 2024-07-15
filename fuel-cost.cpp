@@ -1,6 +1,3 @@
-#include <vector>
-#include <cmath>
-
 namespace std {
 int fuelCost(vector<int> vec) {
     int sum = 0;
