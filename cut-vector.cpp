@@ -10,13 +10,20 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin.peek() != EOF) {
-        cin >> num;
-        if (cin.fail()) break;
+    while (cin >> num) {
         nums.push_back(num);
+        if (cin.eof()) {
+            break;
+        }
     }
     
     int n = nums.size();
+    if (n == 1) {
+        cout << nums[0] << endl;
+        cout << endl;
+        return 0;
+    }
+    
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
