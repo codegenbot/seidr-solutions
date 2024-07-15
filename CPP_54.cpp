@@ -1,5 +1,9 @@
-bool same_chars(const std::string& s0, const std::string& s1) {
-    std::sort(s0.begin(), s0.end());
-    std::sort(s1.begin(), s1.end());
-    return s0 == s1;
+bool same_chars(const char* s0, const char* s1) {
+    return sorted_string(s0) == sorted_string(s1);
+}
+
+string sorted_string(const char* s) {
+    string sorted = s;
+    sort(sorted.begin(), sorted.end());
+    return sorted;
 }
