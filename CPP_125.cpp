@@ -1,22 +1,23 @@
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else if (c == ',') {
-            words.push_back(word);
-            word = "";
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if (word != "") {
+    if (!word.empty()) {
         words.push_back(word);
     }
     if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
@@ -29,15 +30,4 @@ vector<string> split_words(string txt) {
         words[0] = to_string(count);
     }
     return words;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Your implementation here
-}
-
-int main() {
-    vector<string> result = split_words("");
-    // Calling the split_words function correctly with an empty string argument
-
-    return 0;
 }
