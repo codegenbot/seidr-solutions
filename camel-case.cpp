@@ -4,30 +4,21 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
+    bool capitalizeNext = true;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
-            if (i > 0 && str[i - 1] != ' ') {
+            if (capitalizeNext) {
                 result += toupper(str[i + 1]);
                 i++;
             } else {
-                int j = i;
-                while (j < str.length() && str[j] == '-') {
-                    j++;
-                }
-                result += str.substr(i + 1, j - i - 1);
-                i = j;
+                result += str.substr(i + 1, 1);
             }
+            capitalizeNext = true;
         } else if (str[i] != ' ') {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += tolower(str[i]);
+            result += (capitalizeNext ? tolower(str[i]) : toupper(str[i]));
+            capitalizeNext = false;
         } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
-            }
-            result += str.substr(i, str.find(' ', i) - i);
-            i = str.find(' ', i) - 1;
+            capitalizeNext = true;
         }
     }
     return result;
