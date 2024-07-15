@@ -1,22 +1,38 @@
-string camelCase(string s) {
-    string result = "";
-    int j = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            result += toupper(s[++i]);
-            while (++i <= s.size() && s[i] != '-' && s[i] != ' ') {
-                result += tolower(s[i]);
+#include <iostream>
+#include <string>
+
+std::string camelCase(std::string input) {
+    std::string output;
+    size_t start = 0;
+
+    for (size_t i = 0; i <= input.size(); ++i) {
+        if (i == input.size() || (input[i] == '-' && input[i - 1] != ' ')) {
+            if (start < i) {
+                output += std::string(1, std::tolower(input[start].cctype()));
+                for (size_t j = start + 1; j < i; ++j) {
+                    output += input[j];
+                }
             }
-        } else if (s[i] == ' ') {
-            for (; i < s.size() && s[i] == ' '; i++) {}
-            j = i;
-        } else {
-            if (!result.size()) {
-                result += toupper(s[i]);
+            if (i < input.size()) {
+                if (start >= i || input[i] != '-') {
+                    output.push_back(toupper(input[i]));
+                    start = i + 1;
+                } else {
+                    start = i + 1;
+                }
             } else {
-                result += tolower(s[i]);
+                return output;
             }
         }
     }
-    return result;
+
+    return output;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << camelCase(input) << std::endl;
+    return 0;
 }
