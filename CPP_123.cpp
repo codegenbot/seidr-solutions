@@ -19,7 +19,10 @@ std::vector<int> get_odd_collatz(int n){
     return odd_result;
 }
 
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> get_odd_collatz(int n);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
