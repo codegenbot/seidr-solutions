@@ -1,13 +1,15 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None
+    if (lst.size() < 2) return -1; // Return None in Python term
+    
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
+    
+    for (int i = 1; i < sorted.size(); i++) {
+        if (sorted[i] != sorted[0]) {
+            auto it = find(lst.begin(), lst.end(), sorted[i]);
+            return *it;
         }
     }
-    return -1; // Return None
+    
+    return -1; // Return None in Python term
 }
