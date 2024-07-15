@@ -5,8 +5,8 @@ def match_parens(lst):
         if not isinstance(s, str):
             return 'No'
         parens_count = sum(1 for c in s if c in ['(', ')'])
-        if parens_count == 0 and s not in ['(', ')']:
-            return 'No'
+        if parens_count == 0:
+            continue
         for c in s:
             if c == '(':
                 stack.append(c)
@@ -16,4 +16,5 @@ def match_parens(lst):
                 stack.pop()
     if len(stack) > 0:
         return 'No'
-    return 'Yes' if len(stack) == 0 else 'No'
+    else:
+        return 'Yes'
