@@ -7,10 +7,10 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    OpenSSL_add_all_algorithms();
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len = 0;
-    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
+    EVP_MD_CTX *mdctx;
+    mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
