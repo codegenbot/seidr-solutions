@@ -15,10 +15,5 @@ def prime_fib(n):
             count += 1
     return a
 
-try:
-    n = int(input())
-    if n <= 0:
-        raise ValueError
-    print(prime_fib(n))
-except ValueError:
-    print("Invalid input. Please enter a positive integer.")
+n = int(input())
+print(prime_fib(n))
