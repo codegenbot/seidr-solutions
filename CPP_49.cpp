@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int modp(int n, int p) {
     if (p == 1) return 0;
     int result = 1;
