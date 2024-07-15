@@ -1,9 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```
 string spinWords(string str) {
     string result = "";
     int wordLength;
@@ -22,9 +17,10 @@ string spinWords(string str) {
             wordLength = result.length();
             if (wordLength >= 5) {
                 for (int i = wordLength - 1; i >= 0; --i)
-                    result = result.substr(0, i) + result.substr(i + 1) + " ";
+                    result = result.substr(0, i) + result.substr(i + 1);
             } else
-                result += " ";
+                result = "";
+            result += ' ';
         }
     }
 
@@ -32,18 +28,10 @@ string spinWords(string str) {
         wordLength = result.length();
         if (wordLength >= 5) {
             for (int i = wordLength - 1; i >= 0; --i)
-                result = result.substr(0, i) + result.substr(i + 1) + " ";
-        }
+                result = result.substr(0, i) + result.substr(i + 1);
+        } else
+            result = "";
     }
 
     return result;
-}
-
-int main() {
-    string input;
-    cin >> input;
-
-    cout << spinWords(input);
-
-    return 0;
 }
