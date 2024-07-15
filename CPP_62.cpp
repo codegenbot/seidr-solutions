@@ -4,8 +4,11 @@
 using float_t = float;
 
 std::vector<float_t> derivative(const std::vector<float_t>& v){
-    // Implement the derivative calculation for a vector of floats
-    return {}; // Placeholder return value
+    std::vector<float_t> result;
+    for(size_t i=1; i<v.size(); i++) {
+        result.push_back(v[i] - v[i-1]);
+    }
+    return result;
 }
 
 bool issame(const std::vector<float_t>& a, const std::vector<float_t>& b){
@@ -13,7 +16,7 @@ bool issame(const std::vector<float_t>& a, const std::vector<float_t>& b){
 }
 
 int main(){
-    assert(issame({1}, {}));
+    assert (issame({1}, {}));
     
     return 0;
 }
