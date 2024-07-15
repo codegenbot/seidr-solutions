@@ -1,12 +1,10 @@
-Here is the completed code:
-
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            c = ('a' + ((c - 'a' + 4) % 26));
+            c = ('a' + ((c - 'a' + 2 * 2) % 26));
         } else if (c >= 'A' && c <= 'Z') {
-            c = ('A' + ((c - 'A' + 4) % 26));
+            c = ('A' + ((c - 'A' + 2 * 2) % 26));
         }
         result += c;
     }
