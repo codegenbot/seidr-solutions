@@ -1,9 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 bool is_sorted(std::vector<int> lst) {
-    for (int i = 0; i < lst.size() - 1; i++) {
+    for (size_t i = 0; i < lst.size() - 1; i++) {
         if (lst[i] >= lst[i + 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
             return false;
         }
@@ -13,5 +13,6 @@ bool is_sorted(std::vector<int> lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
+    // Add more test cases here
     return 0;
 }
