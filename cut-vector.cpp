@@ -1,8 +1,12 @@
 #include <vector>
+#include <iostream>
+#include <utility>
+#include <limits>
+
 using namespace std;
 
-vector<int> cutVector(vector<int>& v) {
-    int minDiff = INT_MAX;
+pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+    int minDiff = numeric_limits<int>::max();
     int splitIndex = 0;
     
     for (int i = 1; i < v.size(); ++i) {
