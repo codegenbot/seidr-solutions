@@ -13,5 +13,5 @@ string solve(const string &s) {
 
 int main() {
     assert(solve("#ccc") == "#CCC");
-    return 0;
+    return 0;  
 }
