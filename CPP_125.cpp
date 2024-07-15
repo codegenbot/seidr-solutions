@@ -1,10 +1,5 @@
 #include <string>
-
 bool issame(vector<string> a, vector<string> b) {
-    // Code for checking if two vectors of strings are the same
-}
-
-vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
