@@ -20,11 +20,7 @@ int bowlingScore(std::string s) {
         }
 
         if (currentRolls == 2) {
-            if (currentScore + (c - '0') < 10) {
-                score += currentScore + 10 - currentScore;
-            } else {
-                score += currentScore + c - '0';
-            }
+            score += currentScore;
             currentScore = 0;
             currentRolls = 0;
         }
@@ -39,4 +35,3 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
