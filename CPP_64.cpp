@@ -15,6 +15,6 @@ int vowels_count(std::string s) {
 }
 
 int main() {
-    std::cout << vowels_count("ACEDY") << std::endl; // 3
+    std::cout << vowels_count("ACEDY") << std::endl; 
     return 0;
 }
