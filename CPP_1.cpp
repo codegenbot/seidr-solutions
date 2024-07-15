@@ -1,33 +1,31 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 bool issame(char a, char b) {
     return (a == '(' && b == ')') || (a == '[' && b == ']') || (a == '{' && b == '}');
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
-        if (open_braces > 0 || current_group.empty()) {
-            current_group.push_back(c);
-        } else {
-            if (issame(current_group.front(), c)) {
+        if (c == '(' || c == '[' || c == '{') {
+            if (open_braces > 0) {
                 current_group.push_back(c);
-                if (current_group.size() == 2 * open_braces) {
-                    result.push_back(current_group);
-                    current_group = "";
-                }
+            }
+            open_braces++;
+        } else if (c == ')' || c == ']' || c == '}') {
+            open_braces--;
+            if (open_braces > 0 || !current_group.empty()) {
+                current_group.push_back(c);
             } else {
                 result.push_back(current_group);
                 current_group = "";
-                current_group.push_back(c);
-                open_braces = 1;
             }
         }
-    }
-
-    if (!current_group.empty()) {
-        result.push_back(current_group);
     }
 
     return result;
