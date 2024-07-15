@@ -2,9 +2,9 @@ using namespace std;
 
 bool issame(int num) {
     vector<int> result(2, 0);
-
+    
     string num_str = to_string(abs(num));
-
+    
     for (char digit : num_str) {
         if ((digit - '0') % 2 == 0) {
             result[0]++;
@@ -12,6 +12,6 @@ bool issame(int num) {
             result[1]++;
         }
     }
-
+    
     return result;
 }
