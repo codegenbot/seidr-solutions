@@ -1,6 +1,7 @@
-def complete_code(numbers, delimiter):
-    return [
-        val
-        for pair in zip(numbers, [delimiter] * (len(numbers) - 1) + [0])
-        for val in pair
-    ]
+def concatenate_numbers(numbers, delimeter):
+    result = []
+    for num in numbers[:-1]:
+        result.extend([num, delimeter])
+    if numbers:
+        result.append(numbers[-1])
+    return result
