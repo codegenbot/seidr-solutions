@@ -16,7 +16,6 @@ std::string camelCase(std::string s) {
             result += tolower(c);
         }
     }
-    
     return result;
 }
 
