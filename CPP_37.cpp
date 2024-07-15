@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -5,11 +6,13 @@ bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
+    
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -24,7 +27,7 @@ vector<float> sort(vector<float> l) {
         }
     }
 
-    std::sort(sorted_even_indices.begin(), sorted_even_indices.end());
+    sort(sorted_even_indices.begin(), sorted_even_indices.end());
 
     int sorted_index = 0;
     for (int i = 0; i < l.size(); i++) {
