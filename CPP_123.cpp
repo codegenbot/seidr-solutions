@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-#include <iostream>
-
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
@@ -22,7 +20,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(get_odd_collatz(1) == vector<int>{1});
-    cout << "Test Passed!" << endl;
+    assert(issame(get_odd_collatz(1), {1}));
     return 0;
 }
