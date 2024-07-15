@@ -1,5 +1,6 @@
 int gcd(int a, int b) {
-    if (b == 0) return a;
+    if (b == 0)
+        return a;
     return gcd(b, a % b);
 }
 
@@ -17,7 +18,9 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             }
         }
         if (found) {
-            indices.push_back(i);
+            for (int k = 0; k < m; ++k) {
+                indices.push_back(i + k);
+            }
         }
     }
     
