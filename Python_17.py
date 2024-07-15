@@ -13,19 +13,9 @@ def parse_music(music_string: str) -> list:
                 elif music_string[i:i+5] == 'o. | .|':
                     music_list.append(6)
                     i += 5
-                elif music_string[i:i+4] == 'o..|':
+                elif music_string[i:i+7] == 'o o| o o|':
                     music_list.extend([8, 4, 2])
-                    i += 3
-                elif music_string[i:i+6] == 'o. | . .|':
-                    music_list.append(6)
-                    i += 5
-            else:
-                if music_string[i+1] == '.':
-                    music_list.append(2)
-                    i += 2
-                else:
-                    music_list.append(4)
-                    i += 1
+                    i += 6
         elif music_string[i:i+6] == '.|..|.||':
             music_list.extend([8, 4, 2])
             i += 5
