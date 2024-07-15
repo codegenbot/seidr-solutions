@@ -11,7 +11,6 @@ const std::vector<int>& get_row(const std::vector<std::vector<int>>& lst, int x)
 }
 
 int main() {
-    std::vector<int> expected = {1, 2, 3};
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), expected));
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {1, 2, 3}));
     return 0;
 }
