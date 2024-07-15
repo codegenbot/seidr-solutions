@@ -9,6 +9,6 @@ vector<int> eat(int number, int need, int remaining) {
     return {eaten, max(0, total - remaining)};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
