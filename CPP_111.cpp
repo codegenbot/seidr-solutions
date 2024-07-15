@@ -1,7 +1,6 @@
+#include <iostream>
 #include <map>
-
-map<char, int> histogram(string test);
-bool issame(map<char, int> a, map<char, int> b);
+#include <cassert>
 
 bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
@@ -28,4 +27,8 @@ map<char, int> histogram(string test) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
 }
