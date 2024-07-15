@@ -11,4 +11,3 @@ vector<int> leaders(vector<int>& vec) {
         }
     }
     return result;
-}
