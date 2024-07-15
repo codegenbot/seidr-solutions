@@ -2,7 +2,6 @@
 #include <vector>
 #include <numeric>
 #include <cmath>
-
 using namespace std;
 
 int main() {
@@ -32,11 +31,11 @@ int main() {
     vector<int> subvector2(nums.begin() + cut_index + 1, nums.begin() + nums.size());
     
     for (int num : subvector1) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     
     for (int num : subvector2) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     
     return 0;
