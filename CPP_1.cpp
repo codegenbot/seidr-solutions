@@ -13,14 +13,16 @@ vector<string> separate_paren_groups(const string& paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             open_braces++;
-            if (open_braces >= 1) {
+            if (open_braces > 1) {
                 current_group += c;
             }
-        } else if (c == ')') {
+        }
+        else if (c == ')') {
             open_braces--;
             if (open_braces > 0) {
                 current_group += c;
-            } else {
+            }
+            else {
                 result.push_back(current_group);
                 current_group = "";
             }
