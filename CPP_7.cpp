@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -15,10 +15,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main(){
-    vector<string> expected_result = {"grunt", "prune"};
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(result == expected_result);
-
-    return 0;
-}
+assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
