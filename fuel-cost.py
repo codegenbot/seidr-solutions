@@ -1,3 +1,2 @@
-n = int(input())
-total = sum(max(0, num // 3 - 2) for num in range(n))
+total = sum(max(int(x) // 3 - 2, 0) for x in input().split())
 print(total)
