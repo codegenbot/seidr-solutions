@@ -1,13 +1,11 @@
 import re
 
 def fix_spaces(text: str) -> str:
-    hyphen_placeholder = '###'
     text = re.sub(r'\s+', '_', text)
-    text = re.sub(r'-{2,}', hyphen_placeholder, text)
-    text = '-'.join(text.split('-'))
-    text = text.replace(hyphen_placeholder, '-')
+    text = re.sub(r'-+', '-', text)
     return text
 
-input_text = input("Enter the text: ")
-result = fix_spaces(input_text)
-print(result)
+# Read input from user
+input_text = input()
+# Call the fix_spaces function and output the result
+print(fix_spaces(input_text))
