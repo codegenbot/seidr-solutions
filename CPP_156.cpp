@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Add this line for 'assert' function
+#include <cassert> // Include the <cassert> header
+
 using namespace std;
 
 string int_to_mini_roman(int number) {
@@ -23,6 +24,6 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    assert(int_to_mini_roman(1000) == "m"); // Fixed function name typo 'int_to_mini_romank'
+    assert(int_to_mini_roman(1000) == "m");
     return 0;
 }
