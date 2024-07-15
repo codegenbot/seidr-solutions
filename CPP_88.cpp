@@ -1,15 +1,17 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-std::vector<int> sort_array(std::vector<int> array) {
-	if(array.empty()) return array;
+vector<int> sort_array(vector<int> array) {
+    if(array.empty()) return array;
     
     int sum = array.front() + array.back();
     
     if(sum % 2 == 0){
-        sort(array.begin(), array.end(), std::greater<int>());
+        sort(array.begin(), array.end(), greater<int>());
     } else {
         sort(array.begin(), array.end());
     }
