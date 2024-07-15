@@ -1,43 +1,40 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+int rows = grid.size();
+int cols = grid[0].size();
 
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> result;
-    int N = grid.size();
-    int M = grid[0].size();
-    
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>> > pq;
-    pq.push({0, {0, 0}});
-    
-    vector<vector<int>> dist(N, vector<int>(M, INT_MAX));
-    dist[0][0] = 0;
-    
-    vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    
-    while (!pq.empty()) {
-        auto curr = pq.top();
-        pq.pop();
-        
-        int x = curr.second.first;
-        int y = curr.second.second;
-        
-        for (auto dir : dirs) {
-            int nx = x + dir[0];
-            int ny = y + dir[1];
-            
-            if (nx >= 0 && nx < N && ny >= 0 && ny < M) {
-                int new_dist = dist[x][y] + grid[nx][ny];
-                
-                if (new_dist < dist[nx][ny]) {
-                    dist[nx][ny] = new_dist;
-                    pq.push({new_dist, {nx, ny}});
-                }
-            }
+vector<vector<int>> dp(rows, vector<int>(cols, INT_MAX));
+dp[0][0] = 0;
+
+vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+queue<vector<int>> q;
+q.push({0, 0, 0});
+
+while (!q.empty()){
+    vector<int> cur = q.front();
+    q.pop();
+
+    int x = cur[0];
+    int y = cur[1];
+    int cost = cur[2];
+
+    if (x == rows - 1 && y == cols - 1){
+        result.push_back(cost);
+        continue;
+    }
+
+    for (auto dir : dirs){
+        int nx = x + dir[0];
+        int ny = y + dir[1];
+
+        if (nx < 0 || ny < 0 || nx >= rows || ny >= cols){
+            continue;
+        }
+
+        int new_cost = cost + grid[nx][ny];
+        if (new_cost < dp[nx][ny] && new_cost <= k){
+            dp[nx][ny] = new_cost;
+            q.push({nx, ny, new_cost});
         }
     }
-    
-    result.push_back(dist[N-1][M-1] <= k ? dist[N-1][M-1] : -1);
-    
-    return result;
 }
+
+return result;
