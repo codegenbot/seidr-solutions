@@ -15,26 +15,8 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main() {
-    vector<string> strings;
-    string substring;
-    string input;
-
-    getline(cin, input);
-    istringstream iss(input);
-    string temp;
-    
-    while(iss >> temp){
-        strings.push_back(temp);
-    }
-
-    cin >> substring;
-    
-    vector<string> result = filter_by_substring(strings, substring);
-    
-    for(auto& str : result){
-        cout << str << endl;
-    }
+int main(){
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
 
     return 0;
 }
