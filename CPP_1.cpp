@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool is_same(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -48,7 +48,7 @@ void test() {
     vector<string> expected = {"()", "(())", "(()())"};
     vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    assert(issame(expected, result));
+    assert(is_same(expected, result));
 }
 
 int main() {
