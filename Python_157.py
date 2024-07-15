@@ -1,4 +1,8 @@
-a_value, b_value, c_value = map(int, input().strip().split())
+try:
+    a_value, b_value, c_value = map(int, input("Enter three integers separated by space: ").strip().split())
+except ValueError:
+    print("Invalid input. Please enter three integers separated by space.")
+    exit()
 
 def check_pythagorean_triplet(a, b, c):
     return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
