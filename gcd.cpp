@@ -1,10 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
 
-// Your existing functions
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -29,18 +26,18 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text = "your_text_string";
-    string target = "your_target_string";
+    int a = 10;
+    int b = 20;
 
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+
+    string text = "Hello World";
+    string target = "World";
+    vector<int> result = indicesOfSubstring(text, target);
+
+    for (int i : result) {
         cout << i << endl;
     }
-
-    int a = 12; 
-    int b = 15;  
-    int g = gcd(a, b);
-    cout << "GCD: " << g << endl;
 
     return 0;
 }
