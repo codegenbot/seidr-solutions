@@ -1,19 +1,18 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
+#include <iomanip>#include <initializer_list>
 
 using namespace std;
 
 double vectorDistance(int n) {
     vector<float> x1(n), x2(n);
     
-    for (int i = 0; i < n; ) {
+    for (int i = 0; i < n; i++) {
         float x, y;
         cin >> x >> y;
-        x1[i] = x; x2[i] = y;
-        i++;
+        x1[i] = x; 
+        x2[i] = y;
     }
     
     double sum = 0.0;
