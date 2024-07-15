@@ -15,5 +15,7 @@ bool issame(const std::pair<int, int>& a, const std::vector<int>& b) {
     return a == sum_product(b);
 }
 
-assert(issame(sum_product({10}), {10, 10}));
-return 0;
+int main() {
+    assert(issame(sum_product({10}), std::make_pair(10, 10)));
+    return 0;
+}
