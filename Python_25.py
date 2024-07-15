@@ -1,12 +1,20 @@
 ```
 from typing import List
+import math
 
-def get_largest_divisor(n: int) -> int:
-    largest_divisor = 1
+
+def factorize(n: int) -> List[int]:
+    factors = []
     i = 2
-    while i <= n:
-        if n % i == 0:
-            if i > largest_divisor:
-                largest_divisor = i
-        i += 1
-    return largest_divisor
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                count += 1
+                n //= i
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
