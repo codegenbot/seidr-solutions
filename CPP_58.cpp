@@ -22,6 +22,6 @@ public:
 };
 
 int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
+    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, vector<int>{}), vector<int>{}));
     return 0;
 }
