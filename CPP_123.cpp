@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool is_same_vectors(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -17,9 +17,4 @@ std::vector<int> get_odd_collatz(int n){
     std::copy_if(result.begin(), result.end(), std::back_inserter(odd_result), [](int num){ return num % 2 != 0; });
     std::sort(odd_result.begin(), odd_result.end());
     return odd_result;
-}
-
-int contest_main() {
-    assert(is_same_vectors(get_odd_collatz(1), {1}));
-    return 0;
 }
