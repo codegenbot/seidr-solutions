@@ -6,7 +6,7 @@ def process_numbers(numbers, delimiter):
     return result
 
 # Call the function with the required input
-numbers = [1, 2, 3, 4]
-delimiter = "-"
+numbers = [5, 10, 15, 20]
+delimiter = "/"
 output = process_numbers(numbers, delimiter)
 print(output)
