@@ -1,2 +1,2 @@
 def read_integer() -> int:
-    return int(input().strip())
+    return int(input())
