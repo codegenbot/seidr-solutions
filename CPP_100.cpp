@@ -19,10 +19,6 @@ vector<int> make_a_pile(int n) {
     return stones;
 }
 
-int main() {
-    vector<int> expected{8, 10, 12, 14, 16, 18, 20, 22};
-    vector<int> result = make_a_pile(8);
-    assert(equal(expected.begin(), expected.end(), result.begin()));
-    cout << "Test passed successfully!";
-    return 0;
-}
+vector<int> expected{8, 10, 12, 14, 16, 18, 20, 22};
+vector<int> result = make_a_pile(8);
+assert(std::equal(expected.begin(), expected.end(), result.begin()));
