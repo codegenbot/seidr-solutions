@@ -1,3 +1,4 @@
+```c
 #include <vector>
 #include <iostream>
 #include <string>
@@ -13,7 +14,7 @@ std::string substitutionCipher(std::string cipher1, std::string cipher2, std::st
             if (index >= 65 && index <= 90) {
                 // Convert ASCII value to uppercase
                 index -= 65;
-                decipheredMessage += toupper(cipher2[index]);
+                decipheredMessage += cipher2[index];
             } else if (index >= 97 && index <= 122) {
                 // Convert ASCII value to lowercase
                 index -= 97;
@@ -28,6 +29,6 @@ std::string substitutionCipher(std::string cipher1, std::string cipher2, std::st
 int main() {
     std::string cipher1, cipher2, message;
     std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << std::substitutionCipher(cipher1, cipher2, message) << std::endl;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
