@@ -12,8 +12,8 @@ std::vector<std::string> by_length(std::vector<int> arr){
             sorted_arr.push_back(num);
         }
     }
-    std::sort(sorted_arr.begin(), sorted_arr.end());
-    std::reverse(sorted_arr.begin(), sorted_arr.end());
+    sort(sorted_arr.begin(), sorted_arr.end());
+    reverse(sorted_arr.begin(), sorted_arr.end());
     std::vector<std::string> result;
     for (int num : sorted_arr) {
         result.push_back(names[num - 1]);
