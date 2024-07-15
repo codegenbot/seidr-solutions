@@ -1,8 +1,6 @@
 import collections
-import sys
 
-code = sys.stdin.readline().strip()
-guess = sys.stdin.readline().strip()
+code, guess = input().split()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
