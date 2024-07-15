@@ -14,20 +14,14 @@ int main() {
     cin >> target;
     
     map<int, int> mp;
-    bool found = false;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << endl;
             cout << nums[i] << endl;
-            found = true;
+            cout << target - nums[i] << endl;
             break;
         }
         mp[nums[i]] = i;
     }
-
-    if (!found) {
-        cout << "Pair not found." << endl;
-    }
-
+    
     return 0;
 }
