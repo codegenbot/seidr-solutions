@@ -1,13 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cstring>
-#include <cassert>
-
-using namespace std;
-
-vector<string> select_words(string s, int n);
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -42,5 +32,5 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("hello world goodbye", 2), vector<string>{"hello", "goodbye"}));
+    assert(issame(select_words("hello world goodbye", 2), {"hello", "goodbye"}));
 }
