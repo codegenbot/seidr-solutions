@@ -1,3 +1,6 @@
 def decode_shift():
     s = input("Enter the string to decode: ")
-    return "".join([chr(((ord(ch.lower()) - ord("a") - 5) % 26) + ord("a")) if ch.isalpha() and ch.islower() else ch for ch in s])
+    if not s.islower():
+        print("Input string should contain only lowercase letters.")
+        return
+    return "".join([chr(((ord(ch) - ord("a") - 5) % 26) + ord("a")) for ch in s])
