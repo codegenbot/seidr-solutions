@@ -1,8 +1,8 @@
-int num = x;
-string res = "";
-while(num > 0){
-    res = to_string(num % base) + res;
-    num /= base;
-}
-return res.empty() ? "0" : res;
+string change_base(int x, int base){
+    string result = "";
+    while(x > 0){
+        result = to_string(x % base) + result;
+        x /= base;
+    }
+    return result == "" ? "0" : result;
 }
