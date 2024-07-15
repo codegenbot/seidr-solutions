@@ -12,8 +12,7 @@ std::string camelCase(std::string input) {
                 start = i + 1;
             }
             if (i < input.size()) {
-                output.push_back(std::toupper(input[i]));
-                start = i + 1;
+                output.push_back(toupper(input[i]));
             } else {
                 return output;
             }
