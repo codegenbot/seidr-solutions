@@ -1,10 +1,9 @@
-#include <string>
-
-string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0)
+```cpp
+int fizzBuzz(int x) {
+    if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        return (x % 5 == 0) ? "FizzBuzz" : "Fizz";
     else if (x % 5 == 0)
         return "Buzz";
     else
