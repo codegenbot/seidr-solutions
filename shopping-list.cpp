@@ -1,4 +1,4 @@
-```
+```cpp
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
@@ -22,5 +22,5 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    cout << fixed << setprecision(6) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(6) << shoppingList(vector<float>(prices.begin(), prices.end()), vector<float>(discounts.begin(), discounts.end())) << endl;
 }
