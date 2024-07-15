@@ -3,20 +3,6 @@
 #include <cassert>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-  if (a.size() != b.size()) {
-      return false;
-  }
-
-  for (size_t i = 0; i < a.size(); i++) {
-      if (a[i] != b[i]) {
-          return false;
-      }
-  }
-
-  return true;
-}
-
 vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> groups;
     string group;
@@ -43,4 +29,20 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return groups;
 }
 
-assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+vector<string> combine(const vector<string>& groups) {
+    vector<string> result;
+    for (const string& group : groups) {
+        string combined_group = "(" + group + ")";
+        result.push_back(combined_group);
+    }
+    return result;
+}
+
+int main() {
+    vector<string> separated_groups = separate_paren_groups("( ) (( )) (( )( ))");
+    vector<string> combined_groups = combine(separated_groups);
+
+    assert(combined_groups == vector<string>{"()", "(())", "(()())"});
+
+    return 0;
+}
