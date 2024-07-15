@@ -7,8 +7,5 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Input parsing 
 operations = list(map(int, input().split(','))) 
-
-# Call the function and output the result
 print(below_zero(operations))
