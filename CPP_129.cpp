@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> minPath(std::vector<std::vector<int>> matrix, int n){
     std::vector<int> result;
     
