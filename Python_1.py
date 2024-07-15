@@ -1,6 +1,4 @@
-import sys
 from typing import List
-
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -16,14 +14,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(temp)
     return result
 
-
-# Check if input argument is provided
-if len(sys.argv) < 2:
-    print("Please provide the paren_string as a command line argument.")
-    sys.exit(1)
-
-# Get the input from command line argument
-paren_string = sys.argv[1]
+# Read input
+paren_string = input().strip()
 
 # Call the function and print the result
 print(separate_paren_groups(paren_string))
