@@ -1,41 +1,58 @@
 bool issame(vector<int> a, vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
-    int n = grid.size();
-    int m = grid[0].size();
-    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
-    dp[0][0] = 0;
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> result;
+    if (grid.empty() || grid[0].empty()) {
+        return result;
+    }
     
-    vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    int m = grid.size();
+    int n = grid[0].size();
     
-    queue<vector<int>> q;
-    q.push({0, 0});
+    vector<vector<int>> dp(m, vector<int>(n, INT_MAX));
+    dp[0][0] = grid[0][0];
     
-    while (!q.empty()) {
-        vector<int> curr = q.front();
-        q.pop();
-        
-        for (auto dir : dirs) {
-            int x = curr[0] + dir[0];
-            int y = curr[1] + dir[1];
-            
-            if (x >= 0 && x < n && y >= 0 && y < m) {
-                int cost = issame(grid[curr[0]], grid[x]) ? 0 : 1;
-                
-                if (dp[x][y] > dp[curr[0]][curr[1]] + cost) {
-                    dp[x][y] = dp[curr[0]][curr[1]] + cost;
-                    q.push({x, y});
-                }
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i > 0) {
+                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
+            }
+            if (j > 0) {
+                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
             }
         }
     }
     
-    return dp[n - 1][m - 1] > k ? vector<int>{-1, -1} : vector<int>{n - 1, m - 1};
-}
-
-int main() {
-    // Test the minPath function
-    return 0;
+    int x = m - 1, y = n - 1;
+    result.push_back(grid[x][y]);
+    
+    while (x > 0 || y > 0) {
+        if (x > 0 && dp[x][y] - grid[x][y] == dp[x - 1][y]) {
+            result.push_back(grid[x - 1][y]);
+            --x;
+        } else {
+            result.push_back(grid[x][y - 1]);
+            --y;
+        }
+    }
+    
+    reverse(result.begin(), result.end());
+    
+    if (result.size() <= k) {
+        return result;
+    } else {
+        return vector<int>();
+    }
 }
