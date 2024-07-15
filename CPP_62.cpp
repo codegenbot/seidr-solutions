@@ -14,7 +14,6 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    // Test case to check if issame works correctly
     assert(issame({1.0f}, {0.0f}));
     
     return 0;
