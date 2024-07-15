@@ -3,25 +3,17 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+    vector<int> compare(vector<int> game, vector<int> guess);
+
+    vector<int> compare(vector<int> game, vector<int> guess) {
+        vector<int> result;
+        for (int i = 0; i < game.size(); ++i) {
+            result.push_back(abs(game[i] - guess[i]));
         }
+        return result;
     }
-    return true;
-}
 
-vector<int> compare(vector<int> game, vector<int> guess);
-
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
-    for (int i = 0; i < game.size(); ++i) {
-        result.push_back(abs(game[i] - guess[i]));
-    }
-    return result;
-}
-
-int main() {
-    // Main function implementation can be added here if needed
-    return 0;
-}
+    int main() {
+        // Main function implementation
+        return 0;
+   }
