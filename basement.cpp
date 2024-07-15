@@ -1,10 +1,9 @@
 #include <vector>
 
-int basementIndex(std::vector<int> num) {
+int findBasementIndex(const std::vector<int>& numbers) {
     int sum = 0;
-    for (int i = 0; ; ++i) {
-        if (i >= num.size()) break;
-        sum += num[i];
+    for (int i = 0; i < numbers.size(); ++i) {
+        sum += numbers[i];
         if (sum < 0)
             return i;
     }
