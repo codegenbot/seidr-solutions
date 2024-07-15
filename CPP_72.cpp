@@ -1,11 +1,2 @@
-int sum = 0;
-    for(int i=0; i<q.size(); i++) {
-        sum += q[i];
-    }
-    
-    if(sum <= w && equal(q.begin(), q.begin() + q.size()/2, q.rbegin())) {
-        return true;
-    }
-    
-    return false;
+return equal(q.begin(), q.end(), q.rbegin()) && accumulate(q.begin(), q.end(), 0) <= w;
 }
