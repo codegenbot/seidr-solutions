@@ -1,6 +1,6 @@
 #include <vector>
 
-int basement(std::vector<int> v) {
+int basement(vector<int> v) {
     int sum = 0;
     int i = 0;
     while (i < v.size()) {
@@ -10,3 +10,4 @@ int basement(std::vector<int> v) {
         i++;
     }
     return -1;
+}
