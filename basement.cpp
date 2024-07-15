@@ -2,13 +2,14 @@
 
 int basement(std::vector<int> nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    size_t i; // Declare i outside the for loop
+    for (i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
             return i;
         }
     }
-    return 0;
+    return 1;
 }
 
 int main() {
