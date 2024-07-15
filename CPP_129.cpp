@@ -1,47 +1,65 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int m = grid.size(), n = grid[0].size();
-    vector<vector<int>> dp(m, vector<int>(n, INT_MIN));
-    dp[0][0] = grid[0][0];
-    for (int i = 1; i < m; ++i) {
-        dp[i][0] = dp[i - 1][0] + grid[i][0];
-    }
-    for (int j = 1; j < n; ++j) {
-        dp[0][j] = dp[0][j - 1] + grid[0][j];
-    }
-    for (int i = 1; i < m; ++i) {
-        for (int j = 1; j < n; ++j) {
-            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
-        }
-    }
-    if (dp[m - 1][n - 1] <= k) {
-        return {};
-    }
+vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> path;
-    int x = m - 1, y = n - 1;
-    while (x != 0 || y != 0) {
-        path.insert(path.begin(), grid[x][y]);
-        if (x == 0) {
-            --y;
-        } else if (y == 0) {
-            --x;
-        } else {
-            if (dp[x - 1][y] >= dp[x][y - 1]) {
-                --x;
-            } else {
-                --y;
+    int m = grid.size();
+    int n = grid[0].size();
+
+    queue<pair<int, int>> q;
+    q.push({0, 0});
+    vector<vector<int>> dist(m, vector<int>(n, INT_MAX));
+    dist[0][0] = 0;
+
+    vector<vector<int>> dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    while (!q.empty()) {
+        auto cur = q.front();
+        q.pop();
+
+        int x = cur.first;
+        int y = cur.second;
+
+        for (const auto& dir : dirs) {
+            int nx = x + dir[0];
+            int ny = y + dir[1];
+
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                int new_dist = dist[x][y] + (grid[nx][ny] == k ? 0 : 1);
+
+                if (new_dist < dist[nx][ny]) {
+                    dist[nx][ny] = new_dist;
+                    q.push({nx, ny});
+                }
             }
         }
     }
-    path.insert(path.begin(), grid[0][0]);
-    return path;
-}
 
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
-    return 0;
+    if (dist[m - 1][n - 1] == INT_MAX) {
+        return {};
+    }
+
+    int x = m - 1;
+    int y = n - 1;
+    path.push_back(grid[x][y]);
+
+    while (x != 0 || y != 0) {
+        for (const auto& dir : dirs) {
+            int nx = x + dir[0];
+            int ny = y + dir[1];
+
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                if (dist[nx][ny] + (grid[x][y] == k ? 0 : 1) == dist[x][y]) {
+                    x = nx;
+                    y = ny;
+                    path.push_back(grid[x][y]);
+                    break;
+                }
+            }
+        }
+    }
+
+    reverse(path.begin(), path.end());
+    return path;
 }
