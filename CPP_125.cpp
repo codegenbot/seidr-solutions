@@ -1,4 +1,9 @@
-vector<string> result;
+bool issame(vector<string> a, vector<string> b){
+    // Function implementation here
+}
+
+vector<string> split_words(string txt) {
+    vector<string> result;
     string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
