@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,32 +24,38 @@ vector<int> findIndices(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    while(b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
     int a, b;
-    cin >> a >> b;
-
-    if(a < 0 || b < 0) {
-        cout << "Please enter positive integers." << endl;
-        return -1;
+    cout << "Enter two integers: ";
+    while (!(cin >> a >> b)) {
+        cout << "Invalid input. Please enter two integers: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> a >> b;
+    }
+    if (a > INT_MAX / b) {
+        cout << "Error: The result of the GCD operation exceeds the maximum allowed integer size." << endl;
+        return 1; // or exit()
     }
 
     string text, target;
-    cin >> text >> target;
-
+    cout << "Enter text and target: ";
+    while (!(cin >> text >> target)) {
+        cout << "Invalid input. Please enter two strings: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> text >> target;
+    }
+    
     vector<int> indices = findIndices(text, target);
     for(int i : indices)
         cout << i << " ";
-    cout << endl;
 
-    cout << gcd(a, b) << endl;
-    
     return 0;
 }
