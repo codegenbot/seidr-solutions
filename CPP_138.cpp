@@ -1,5 +1,2 @@
-if ((n % 2 == 0) && (n > 7 || n == 4)) 
-    return true;
-else 
-    return false;
+return (n >= 8 && (n % 2 == 0));
 }
