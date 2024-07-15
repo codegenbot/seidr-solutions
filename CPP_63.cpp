@@ -19,8 +19,8 @@ int fib(int n) {
     return result;
 }
 
-int main() {
-    assert(fib(14) == 610); // Should pass
+int solve() {
+    assert(fib(14) == 610);
 
     return 0;
 }
