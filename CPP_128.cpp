@@ -1,3 +1,6 @@
+#include <cassert>
+#include <vector>
+
 int prod_signs(const vector<int>& arr) {
     if (arr.empty()) {
         return -32768;
