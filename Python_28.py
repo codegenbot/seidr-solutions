@@ -1,9 +1,4 @@
-def concatenate_strings(strings):
-    return "".join(strings)
-
-def check(func):
-    strings = ["hello", "world"]
-    result = func(strings)
-    return result
-
-check(concatenate_strings)
+def check(concatenate_strings):
+    def check(concatenate):
+        return concatenate_strings(concatenate)
+    return check
