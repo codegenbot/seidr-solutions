@@ -1,15 +1,9 @@
 #include <vector>
 
-using namespace std;
+std::vector<int> even_odd_count(int num);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-std::vector<int> even_odd_count(int num);
-
-int main() {
-    // Add main function code here if needed
 }
 
 std::vector<int> even_odd_count(int num) {
