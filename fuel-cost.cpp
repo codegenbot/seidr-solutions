@@ -1,10 +1,10 @@
-int fuelCost(vector<int> vec) {
-    int sum = 0;
-    for (int i : vec) {
-        int result = (i / 3);
-        result = floor(result); // round down to nearest integer
-        result -= 2; 
-        sum += result;
+int calculateFuelCost(vector<int> &numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int result = (num / 3);
+        result = floor(result);
+        result -= 2;
+        total += result;
     }
-    return sum;
+    return total;
 }
