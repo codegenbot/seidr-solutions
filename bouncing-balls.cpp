@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    double startingHeight, firstBounceHeight, bouncinessIndex;
+    double startingHeight, firstBounceHeight;
     int numBounces;
 
     cout << "Enter the starting height: ";
@@ -14,7 +15,7 @@ int main() {
     cout << "Enter the number of bounces: ";
     cin >> numBounces;
 
-    bouncinessIndex = firstBounceHeight / startingHeight;
+    double bouncinessIndex = firstBounceHeight / startingHeight;
 
     double totalDistance = (numBounces * 2) + bouncinessIndex;
 
