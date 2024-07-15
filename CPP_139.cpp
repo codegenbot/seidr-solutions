@@ -1,10 +1,11 @@
 long long result = 1;
-    for (int i = 1; i <= n; ++i) {
+    while (n > 0) {
         long long factorial = 1;
-        for (int j = 1; j <= i; ++j) {
-            factorial *= j;
+        for (int i = n; i > 0; --i) {
+            factorial *= i;
         }
         result *= factorial;
+        n--;
     }
     return result;
 }
