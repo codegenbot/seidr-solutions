@@ -13,6 +13,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    string text = "Hello World";
-    string target = "World";
+    string text = "ps8Bs8B";
+    string target = "s8B";
     vector<int> res = indicesOfSubstring(text, target);
+}
