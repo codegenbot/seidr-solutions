@@ -1,27 +1,36 @@
 #include <string>
 #include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-        
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
+bool issame(vector<string> a, vector<string> b);
+
+void test_all_prefixes() {
+    vector<string> result = all_prefixes("hello");
+    assert(result.size() == 5);
+    assert(result[0] == "h");
+    assert(result[1] == "he");
+    assert(result[2] == "hel");
+    assert(result[3] == "hell");
+    assert(result[4] == "hello");
 }
 
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
-    for (int i = 1; i <= str.size(); ++i) {
-        prefixes.push_back(str.substr(0, i));
+    string prefix = "";
+    for (char c : str) {
+        prefix += c;
+        prefixes.push_back(prefix);
     }
     return prefixes;
 }
 
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 int main() {
-    // Your main function code here...
+    test_all_prefixes();
+    vector<string> vec1 = {"apple", "banana", "cherry"};
+    vector<string> vec2 = {"apple", "banana", "cherry"};
+    assert(issame(vec1, vec2));
     return 0;
 }
