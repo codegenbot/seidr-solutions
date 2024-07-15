@@ -1,15 +1,13 @@
-```
 def bouncing_balls():
     h = float(input())
     b = float(input())
-    i = b / h
+    i = (b * h)**0.5
 
     n = int(input())
     total_distance = 0
     for _ in range(n):
-        b /= i
-        distance_traveled = h + b
+        distance_traveled = 2 * (h + b)
         total_distance += distance_traveled
-        h = round(b)
+        b = round(b * i)
 
     return total_distance
