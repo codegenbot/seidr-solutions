@@ -11,6 +11,6 @@ int prod_signs(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    assert (prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
