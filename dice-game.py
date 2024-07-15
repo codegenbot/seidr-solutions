@@ -1,2 +1,2 @@
 n, m = map(int, input().split())
-print(f"{(n - 1) / n * (m / (2 * m)):.8f}")
+print(f"{(n * (m - 1)) / (2 * n * m):.8f}")
