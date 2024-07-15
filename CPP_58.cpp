@@ -13,13 +13,13 @@ public:
         }
         return result;
     }
-
+    
     static bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         return a == b;
     }
 };
 
 int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
