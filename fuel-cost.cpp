@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int calculateFuelCost(vector<int>& numbers) {
@@ -14,7 +15,7 @@ int calculateFuelCost(vector<int>& numbers) {
 int main() {
     vector<int> numbers;
     int n, num;
-    
+
     cin >> n;
     for(int i=0; i<n; i++) {
         cin >> num;
