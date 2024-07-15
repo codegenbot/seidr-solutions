@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
+#include <algorithm>
 
 std::vector<int> countEvenOddDigits(int num) {
     std::vector<int> counts(2, 0);
