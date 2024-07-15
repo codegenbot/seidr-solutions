@@ -1,6 +1,5 @@
 #include <string>
 #include <cassert>
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
