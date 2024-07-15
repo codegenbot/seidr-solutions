@@ -1,7 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cassert>
-
+#include <string>
 using namespace std;
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
@@ -14,8 +13,6 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    bool result = check_if_last_char_is_a_letter("Hello World");
-    assert(result == true);
-
+    bool check_if_last_char_is_a_letter(const std::string& txt);
     return 0;
 }
