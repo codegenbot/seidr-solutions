@@ -1,10 +1,12 @@
 #include <vector>
 #include <cassert>
-#include <cstddef>
+#include <iostream>
+
+using namespace std;
 
 bool pairs_sum_to_zero(const std::vector<int>& l) {
     size_t i, j;
-    for (i = 0; i < l.size(); ++i) {
+    for (i = 0; i < l.size() - 1; ++i) {
         for (j = i + 1; j < l.size(); ++j) {
             if (l[i] + l[j] == 0) {
                 return true;
