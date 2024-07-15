@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cassert>
+#include <string>
 
 int vowels_count(std::string s);
 
