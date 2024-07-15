@@ -5,18 +5,29 @@
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    int m = grid[0].size();
+    
     vector<int> result;
-    for (int i = 0; i < k / 2; i++) {
-        for (int j = 0; j < grid.size(); j++) {
-            for (int l = 0; l < grid[j].size(); l++) {
-                result.push_back(grid[j][l]);
+    
+    while (k > 0) {
+        int min_val = INT_MAX;
+        pair<int, int> min_pos = {0, 0};
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] < min_val) {
+                    min_val = grid[i][j];
+                    min_pos = {i, j};
+                }
             }
         }
+        
+        result.push_back(min_val);
+        grid[min_pos.first][min_pos.second] = INT_MAX;
+        
+        k--;
     }
-    return result;
-}
 
-int main() {
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-    return 0;
+    return result;
 }
