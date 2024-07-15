@@ -12,9 +12,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         else {
             if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
                 res[0].clear();
-                for(int j = 0; j < i; j++)
+                for(int j = 0; j <= i; j++)
                     res[0].push_back(v[j]);
-                res[0].push_back(v[i]);
                 break;
             }
             else {
@@ -39,7 +38,7 @@ vector<vector<int>> cutVector(vector<int> v) {
                 }
                 else {
                     res[1].clear();
-                    for(int j = 0; j < i; j++)
+                    for(int j = 0; j <= i; j++)
                         res[1].push_back(v[j]);
                     break;
                 }
