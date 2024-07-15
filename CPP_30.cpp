@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -8,7 +7,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     }
     
     for (size_t i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 0.0001) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -16,26 +15,35 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> v) {
-    std::vector<float> result;
-    for (float elem : v) {
-        if (elem > 0) {
-            result.push_back(elem);
+std::vector<float> get_positive(std::vector<float> numbers) {
+    std::vector<float> positive_numbers;
+    
+    for (float num : numbers) {
+        if (num > 0) {
+            positive_numbers.push_back(num);
         }
     }
-    return result;
+    
+    return positive_numbers;
 }
 
 int main() {
-    // Example usage
-    std::vector<float> vec1 = {1.1, 2.2, 3.3};
-    std::vector<float> vec2 = {1.1, 2.21, 3.3};
-
+    std::vector<float> vec1 = {1.5, -2.3, 3.4, 0.0, 5.2};
+    std::vector<float> vec2 = {1.5, -2.3, 3.4, 0.0, 5.2};
+    
     if (issame(vec1, vec2)) {
         std::cout << "Vectors are the same." << std::endl;
     } else {
-        std::cout << "Vectors are not the same." << std::endl;
+        std::cout << "Vectors are different." << std::endl;
     }
     
+    std::vector<float> positive_nums = get_positive(vec1);
+    
+    std::cout << "Positive numbers: ";
+    for (float num : positive_nums) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
