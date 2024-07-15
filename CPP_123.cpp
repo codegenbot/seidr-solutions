@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-bool issamestd(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -24,7 +24,7 @@ int main() {
 
     std::vector<int> result = get_odd_collatz(n);
 
-    assert(issamestd(result, {1}));
+    assert(issame(result, {1}));
 
     return 0;
 }
