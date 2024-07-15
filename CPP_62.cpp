@@ -2,7 +2,6 @@
 #include <cassert>
 
 vector<float> derivative(vector<float> xs);
-
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
@@ -24,6 +23,6 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main() {
-    // Add your main function code here
+    // Your main function code here
     return 0;
 }
