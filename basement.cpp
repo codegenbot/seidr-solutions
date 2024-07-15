@@ -1,10 +1,6 @@
-```c++
-#include <vector>
-using namespace std;
-
 int basement(vector<int> v) {
     int sum = 0;
-    int i = 1; // start from the second element
+    int i = 1; 
     while (i <= v.size()) {
         sum += v[i-1]; 
         if (sum < 0)
@@ -13,5 +9,3 @@ int basement(vector<int> v) {
     }
     return -1;
 }
-
-int main() { return basement(vector<int>{}); }
