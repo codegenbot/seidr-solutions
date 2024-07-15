@@ -1,10 +1,11 @@
+
 #include <vector>
 #include <string>
 #include <cassert>
 #include <cmath>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> even_odd_count(int num) {
