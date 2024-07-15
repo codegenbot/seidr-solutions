@@ -1,26 +1,38 @@
-string words_in_sentence(string sentence){
-    string result = "";
+string result = "";
     string word = "";
-    int n = sentence.size();
-    
-    for(int i=0; i<=n; i++){
-        if(i == n || sentence[i] == ' '){
-            int word_length = word.size();
-            bool is_prime = true;
-            for(int j=2; j*j <= word_length; j++){
-                if(word_length % j == 0){
-                    is_prime = false;
+    int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}; // List of prime numbers up to 37
+
+    for (char c : sentence) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            int word_len = word.length();
+            bool is_prime = false;
+            for (int prime : primes) {
+                if (word_len == prime) {
+                    is_prime = true;
                     break;
                 }
             }
-            if(is_prime && word_length > 1){
+            if (is_prime) {
                 result += word + " ";
             }
             word = "";
-        } else {
-            word += sentence[i];
         }
     }
-    
+
+    // Check the last word
+    int word_len = word.length();
+    bool is_prime = false;
+    for (int prime : primes) {
+        if (word_len == prime) {
+            is_prime = true;
+            break;
+        }
+    }
+    if (is_prime) {
+        result += word;
+    }
+
     return result;
 }
