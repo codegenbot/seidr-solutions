@@ -1,3 +1,4 @@
+```
 def validate_tweet(tweet):
     if not tweet:
         return "You didn't type anything"
