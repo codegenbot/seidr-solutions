@@ -1,31 +1,43 @@
-int score(string bowling) {
-    int totalScore = 0;
-    int frame = 0;
-    for (int i = 0; i < bowling.size() && frame < 10; ++i) {
-        if (bowling[i] == 'X') {
-            totalScore += 10;
-            totalScore += (bowling[i+1] == 'X') ? 10 : (bowling[i+1] == '/' ? 10 - (bowling[i+2] - '0') : (bowling[i+1] - '0') + (bowling[i+2] == '/' ? 10 - (bowling[i+3] - '0') : (bowling[i+2] - '0')));
-            ++frame;
-        } else if (bowling[i] == '/') {
-            totalScore += 10 - (bowling[i-1] - '0');
-            totalScore += (bowling[i+1] == 'X') ? 10 : (bowling[i+1] - '0');
-            ++i;
-            ++frame;
-        } else {
-            totalScore += (bowling[i] - '0');
-            if (bowling[i+1] == '/') {
-                totalScore += 10 - (bowling[i+2] - '0');
-                ++i;
+#include <string>
+
+int score(string input) {
+    int total = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> scores(21, 0);
+
+    for (char c : input) {
+        if (c == 'X') {
+            scores[ball] = 10;
+            if (frame < 10) {
+                scores[ball + 1] = -1;
             }
-            ++frame;
+        } else if (c == '/') {
+            scores[ball] = 10 - scores[ball - 1];
+            if (frame < 10) {
+                scores[ball + 1] = -1;
+            }
+        } else if (c == '-') {
+            scores[ball] = 0;
+        } else {
+            scores[ball] = c - '0';
+        }
+
+        ball++;
+        if (frame < 10 && (c == 'X' || ball % 2 == 0)) {
+            frame++;
         }
     }
-    return totalScore;
-}
 
-int main() {
-    string bowling;
-    cin >> bowling;
-    cout << score(bowling);
-    return 0;
+    for (int i = 0; i < 10; i++) {
+        if (scores[i * 2] == 10) {
+            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
+        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
+            total += 10 + scores[i * 2 + 2];
+        } else {
+            total += scores[i * 2] + scores[i * 2 + 1];
+        }
+    }
+
+    return total;
 }
