@@ -6,6 +6,12 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+vector<string> select_words(string s, int n);
+
+int main() {
+    assert(issame(select_words("hello world goodbye", 2), {"hello", "goodbye"}));
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word;
@@ -29,8 +35,4 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     return result;
-}
-
-int main() {
-    assert(issame(select_words("hello world goodbye", 2), {"hello", "goodbye"}));
 }
