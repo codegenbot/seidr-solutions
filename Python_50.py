@@ -1,7 +1,4 @@
-import sys
-
-input_string = sys.stdin.readline().strip()
-
+input_string = input("Enter the input string: ")
 def decode_shift(input_string):
     input_string = input_string.lower()
     decoded_text = ""
@@ -11,6 +8,3 @@ def decode_shift(input_string):
         else:
             decoded_text += char
     return decoded_text
-
-output = decode_shift(input_string)
-print(output)
