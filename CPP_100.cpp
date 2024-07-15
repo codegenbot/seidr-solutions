@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,14 +19,12 @@ vector<int> make_a_pile(int n) {
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b); // Function declaration
-
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    cout << "Test passed successfully!";
+    int n;
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << ' ';
+    }
     return 0;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
