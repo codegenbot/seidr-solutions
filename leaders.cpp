@@ -1,14 +1,15 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int maxRight = arr.back();
+    int max_right = arr.back();
     for (int i = arr.size() - 1; i >= 0; i--) {
-        if (arr[i] >= maxRight) {
+        if (arr[i] >= max_right) {
             result.push_back(arr[i]);
-            maxRight = arr[i];
+            max_right = arr[i];
         }
     }
     return result;
