@@ -1,7 +1,7 @@
 ```
 def spin_words(text):
     words = text.split()
-    result = [' '.join([word[::-1] if len(word) > 4 else word for word in word.split()]) for word in words]
+    result = [word[::-1] if len(word) > 4 else word for word in words]
     return ' '.join(result).strip()
 
 text = input("Enter a string: ")
