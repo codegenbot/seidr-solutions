@@ -1,10 +1,9 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> solveProblem(std::vector<std::vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    std::vector<int> result;
+    vector<int> result;
     int x = 0, y = 0;
     for (int i = 0; i < k; ++i) {
         result.push_back(grid[x][y]);
@@ -35,4 +34,14 @@ std::vector<int> solveProblem(std::vector<std::vector<int>> grid, int k) {
         }
     }
     return result;
-}  
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
+}
