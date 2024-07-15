@@ -11,7 +11,7 @@ def main():
 
 
 def rounded_avg(a, b):
-    return round((a + b) / 2)
+    return round((a + b) / 2.0)
 
 
 main()
