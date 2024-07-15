@@ -1,13 +1,12 @@
-Here is the completed Python function:
-
-```python
+```
 from typing import List
+import math
 
 
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
-    while i * i <= n:
+    while i <= math.isqrt(n):
         if n % i:
             i += 1
         else:
