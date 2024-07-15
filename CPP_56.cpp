@@ -1,4 +1,3 @@
-#include <string>
 #include <cassert>
 
 bool is_bracketing_correct(std::string brackets) {
