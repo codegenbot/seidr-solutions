@@ -29,6 +29,7 @@ int main() {
     vector<string> a = by_length({9, 4, 8});
     vector<string> b = {"Nine", "Eight", "Four"};
     
+    // Compare the two vectors element-wise
     bool same = a == b;
     
     cout << "Are vectors a and b the same: " << same << endl;
