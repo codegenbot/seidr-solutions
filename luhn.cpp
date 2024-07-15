@@ -1,3 +1,4 @@
+```cpp
 int luhn(int cardNumber) {
     int sum = 0;
     bool doubleNext = false;
@@ -13,3 +14,4 @@ int luhn(int cardNumber) {
         cardNumber /= 10;
     }
     return sum;
+}
