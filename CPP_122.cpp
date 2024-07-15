@@ -12,9 +12,9 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> elements = {5, 15, 25, 100, 50, 30};
-    int k = 6;
-    int result = add_elements(elements, k);
-    std::cout << result << std::endl;
+    std::vector<int> arr = {5, 12, 75, 47, 88};
+    int k = 5;
+    std::cout << "Sum of elements between 10 and 99: " << add_elements(arr, k) << std::endl;
+    
     return 0;
 }
