@@ -1,13 +1,13 @@
 from typing import List
+import math
 
 
 def factorize(n: int) -> List[int]:
-    i = 2
     factors = []
-    while n > 1:
-        if n % i:
-            i += 1
-        else:
-            n //= i
+    for i in range(2, math.isqrt(n) + 1):
+        while n % i == 0:
             factors.append(i)
-    return [factor ** (factors.count(factor)) for factor in set(factors)]
+            n //= i
+    if n > 1:
+        factors.append(n)
+    return [factors.count(f) * f for f in set(factors)]
