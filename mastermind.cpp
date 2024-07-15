@@ -1,14 +1,10 @@
+#include <iostream>
+#include <string>
+
 int whitePegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
-        bool found = false;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
-                found = true;
-                break;
-            }
-        }
-        if(found) {
+        if(code[i] == guess[i]) {
             count++;
         }
     }
@@ -16,48 +12,29 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int whiteCount = 0;
-    for(int i=0; i<4; i++) {
-        bool codeFound = false;
-        bool guessFound = false;
-        char ch = guess[i];
+    int count = 0;
+    for(int i='0'; i<='F'; i++) {
+        int codeCount = 0;
+        int guessCount = 0;
         for(int j=0; j<4; j++) {
-            if(code[j] == ch) {
-                codeFound = true;
+            if(code[j] == i) {
+                codeCount++;
             }
-            if(guess[j] == ch) {
-                guessFound = true;
+            if(guess[j] == i) {
+                guessCount++;
             }
         }
-        if(codeFound && guessFound) {
-            whiteCount++;
-        } else if(codeFound || guessFound) {
-            if(codeFound) {
-                for(int j=0; j<4; j++) {
-                    if(code[j] == ch) {
-                        whiteCount++;
-                        code[j] = '\0'; // mark as found
-                        break;
-                    }
-                }
-            } else {
-                for(int j=0; j<4; j++) {
-                    if(guess[j] == ch) {
-                        whiteCount++;
-                        guess[j] = '\0'; // mark as found
-                        break;
-                    }
-                }
-            }
+        if(codeCount > 0 && guessCount > 0) {
+            count += min(codeCount, guessCount);
         }
     }
-    return whiteCount;
+    return count;
 }
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
+    std::cin >> code >> guess;
+    std::cout << whitePegs(code, guess) << std::endl;
+    std::cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
