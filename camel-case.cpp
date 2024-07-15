@@ -19,7 +19,9 @@ std::string camelCase(std::string str) {
                 result += std::tolower(words[i][j]);
             }
         } else {
-            result += words[i];
+            for (char c : words[i]) {
+                result += std::tolower(c);
+            }
         }
     }
     return result;
