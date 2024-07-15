@@ -12,7 +12,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         return std::any_cast<std::string>(a) > std::any_cast<std::string>(b) ? a : b;
     }
-    return nullptr; // Return nullptr if types are not matched
+    return nullptr;
 }
 
 int main() {
