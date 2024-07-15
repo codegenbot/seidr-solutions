@@ -17,6 +17,5 @@ std::vector<int> even_odd_count(int num) {
 
 int main() {
     std::vector<int> result = even_odd_count(123456);
-    // Add code to display or process the 'result' vector
     return 0;
 }
