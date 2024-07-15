@@ -1,6 +1,10 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 int main() {
-    string bowls;
-    cin >> bowls;
+    std::string bowls;
+    std::cin >> bowls;
     int score = 0, frame = 0, ball = 0;
     int frames[10] = {0};
 
@@ -28,7 +32,7 @@ int main() {
         score += frames[i];
     }
 
-    cout << score << endl;
+    std::cout << score << std::endl;
 
     return 0;
 }
