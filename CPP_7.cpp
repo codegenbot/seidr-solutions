@@ -16,5 +16,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    return filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+
+    return 0;
 }
