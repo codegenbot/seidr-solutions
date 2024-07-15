@@ -1,13 +1,13 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cassert>
 #include <cmath>
 
-bool has_close_elements(std::vector<float> numbers, float threshold) {
-    std::sort(numbers.begin(), numbers.end());
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        if (std::abs(numbers[i] - numbers[i + 1]) < threshold) {
-            return true;
+bool has_close_elements(const std::vector<float>& numbers, float threshold) {
+    for (int i = 0; i < numbers.size(); ++i) {
+        for (int j = i + 1; j < numbers.size(); ++j) {
+            if (std::fabs(numbers[i] - numbers[j]) < threshold) {
+                return true;
+            }
         }
     }
     return false;
