@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<int> even_odd_count(int num) {
+std::vector<int> countEvenOddDigits(int num) {
     std::vector<int> counts(2, 0);
     std::string numStr = std::to_string(std::abs(num));
     for (char c : numStr) {
@@ -21,6 +21,6 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0) , {1, 0}));
+    assert(issame(countEvenOddDigits(0), {1, 0}));
     return 0;
 }
