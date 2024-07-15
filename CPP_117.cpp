@@ -1,8 +1,8 @@
 int count_consonants(string word) {
     int count = 0;
-    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    string vowels = "aeiouAEIOU";
     for (char c : word) {
-        if (consonants.find(c) != string::npos) {
+        if (isalpha(c) && vowels.find(c) == string::npos) {
             count++;
         }
     }
@@ -10,12 +10,13 @@ int count_consonants(string word) {
 }
 
 bool issame(string s1, string s2) {
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
     return s1 == s2;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    // main function code here
-    return 0;
+    // main function logic here
 }
