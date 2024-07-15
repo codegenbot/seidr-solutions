@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cctype>
+#include <climits>
+
+using namespace std;
+
 string Strongest_Extension(string class_name, vector<string> extensions){
     string strongest_extension = "";
     int max_strength = INT_MIN;
