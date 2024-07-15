@@ -1,7 +1,6 @@
 #include <vector>
 #include <unordered_map>
 #include <iostream>
-#include <ostream>
 
 using namespace std;
 
@@ -14,7 +13,6 @@ vector<vector<int>> findPair(vector<int>& nums, int target) {
             for (int j = 0; j <= i; j++) {
                 if (nums[j] + nums[i] == target) {
                     vector<int> pair = {nums[j], nums[i]};
-                    sort(pair.begin(), pair.end());
                     result.push_back(pair);
                 }
             }
@@ -28,12 +26,13 @@ int main() {
     vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
     auto pairs = findPair(nums, target);
-    for (auto& pair : pairs) {
-        cout << "The pair is: ";
-        for (int num : pair) {
-            cout << num << ", ";
+    if (!pairs.empty()) {
+        cout << "The pairs are: ";
+        for (const auto& pair : pairs) {
+            cout << pair[0] << ", " << pair[1] << endl;
         }
-        cout << endl;
+    } else {
+        cout << "No such pair found." << endl;
     }
     return 0;
 }
