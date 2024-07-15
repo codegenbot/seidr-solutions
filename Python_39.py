@@ -1,17 +1,27 @@
-def prime_fib(n):
-    def is_prime(num):
-        if num < 2:
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
             return False
-        for i in range(2, int(num ** 0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
+    return True
 
-    def fibonacci(n):
-        a, b = 0, 1
-        for _ in range(n):
-            a, b = b, a + b
-        return a
+def is_fibonacci(num):
+    return (5*num*num + 4) ** 0.5 % 1 == 0 or (5*num*num - 4) ** 0.5 % 1 == 0
 
-    fib_n = fibonacci(n)
-    return is_prime(fib_n)
+def prime_fib(n):
+    if is_prime(n) and is_fibonacci(n):
+        return "Prime Fibonacci"
+    elif is_prime(n):
+        return "Prime"
+    elif is_fibonacci(n):
+        return "Fibonacci"
+    else:
+        return "Neither"
+
+try:
+    n = int(input("Enter a number: "))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+else:
+    print(prime_fib(n))
