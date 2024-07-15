@@ -8,6 +8,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
         max_numbers.append(max_num)
     return max_numbers
 
-input_numbers = list(map(int, input().split()))
-output = rolling_max(input_numbers)
-print(output)
+numbers = list(map(int, input("Enter space-separated integers: ").split()))
+result = rolling_max(numbers)
+print(result)
