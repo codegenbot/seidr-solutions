@@ -1,12 +1,10 @@
 #include <string>
 
-vector<string> words;
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -14,7 +12,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-string split_words(string txt) {
+vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
