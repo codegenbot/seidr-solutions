@@ -1,3 +1,12 @@
-input_string = input()
-decoded_text = decode_shift(input_string)
-print(decoded_text)
+def decode_shift(input_string):
+    decoded_text = ""
+    for char in input_string:
+        if char.isalpha():
+            decoded_text += chr((ord(char) - 3 - ord('a')) % 26 + ord('a'))
+        else:
+            decoded_text += char
+    return decoded_text
+
+input_string = input("Enter the input string: ")
+decoded_output = decode_shift(input_string)
+print(decoded_output)
