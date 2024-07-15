@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -24,7 +24,7 @@ int main() {
 
     std::vector<int> result = get_odd_collatz(n);
 
-    assert(issame(result, get_odd_collatz(n)));
+    assert(issame(result, {1}));
 
     return 0;
 }
