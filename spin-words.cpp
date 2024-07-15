@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -11,7 +12,7 @@ std::string spinWords(std::string str) {
         if (len == std::string::npos)
             len = str.length();
         
-        if (str.substr(pos, len - pos).length() > 4) {
+        if (len - pos > 4) {
             std::string temp = str.substr(pos, len - pos);
             std::reverse(temp.begin(), temp.end());
             result += temp + " ";
@@ -29,7 +30,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
+    while (std::getline(std::cin, str)) {  
         std::cout << spinWords(str) << std::endl;
     }
     return 0;
