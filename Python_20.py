@@ -1,5 +1,3 @@
-import sys
-
 def find_min_difference(numbers):
     numbers.sort()
     min_diff = float("inf")
@@ -11,6 +9,6 @@ def find_min_difference(numbers):
             result = (numbers[i], numbers[i + 1])
     return result
 
-numbers = list(map(float, sys.stdin.readline().split()))
+numbers = list(map(float, input("Enter numbers separated by space: ").strip().split()))
 output = find_min_difference(numbers)
 print(output)
