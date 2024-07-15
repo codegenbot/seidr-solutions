@@ -15,5 +15,5 @@ def separate_paren_groups(input_str):
         else:
             stack = []
             current_sequence = ''  # Reset current_sequence here
-    
+            
     return result
