@@ -2,30 +2,30 @@
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& message) {
-    std::string result;
-    for (char c : message) {
-        if (!isalpha(c)) {  
-            result += c;  
+std::string substitutionCipher(std::string cipher1, std::string cipher2, std::string message) {
+    std::string decipheredMessage;
+    
+    for (int i = 0; i < message.length(); i++) {
+        if (message[i] == ' ') {
+            decipheredMessage += ' ';
         } else {
-            char base = isupper(c) ? 'A' : 'a';
-            size_t pos = 0;
-            while (pos < key1.size() && key1[pos] != c - base) {
-                pos++;
-            }
-            if (pos >= key1.size()) {  
-                result += c;  
-            } else {
-                result += key2[pos] + base;  
+            int index = message[i];
+            if (index >= 65 && index <= 90) {
+                index -= 65;
+                decipheredMessage += std::toupper(cipher2[index]);
+            } else if (index >= 97 && index <= 122) {
+                index -= 97;
+                decipheredMessage += cipher2[index];
             }
         }
     }
-    return result;
+    
+    return decipheredMessage;
 }
 
 int main() {
-    std::string key1, key2, message;
-    std::cin >> key1 >> key2 >> message;
-    std::cout << substitutionCipher(key1, key2, message) << std::endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << std::substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
