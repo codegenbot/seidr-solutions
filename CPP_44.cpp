@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 #include <cassert>
+#include <string> // Include this header
+#include <sstream> // Include this header for std::to_string
 
 std::string change_base(int num, int base) {
     std::string result = "";
