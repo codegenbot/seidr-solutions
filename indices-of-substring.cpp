@@ -2,14 +2,6 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string text = "example";
-    string target = "ple";
-    vector<int> res = indicesOfSubstring(text, target);
-    // Do something with res
-    return 0;
-}
-
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> res;
     size_t pos = 0;
@@ -18,4 +10,16 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
         pos += target.size();
     }
     return res;
+
+}
+
+int main() {
+    string text = "Hello, world! Hello, C++!";
+    string target = "Hello";
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int index : indices) {
+        cout << index << " ";
+    }
+    return 0;
 }
