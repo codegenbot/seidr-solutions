@@ -1,7 +1,9 @@
 #include <vector>
 
+std::vector<float> derivative(const std::vector<float>& xs);
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
-    return std::derivative(a) == std::derivative(b);
+    return derivative(a) == derivative(b);
 }
 
 std::vector<float> derivative(const std::vector<float>& xs){
