@@ -1,20 +1,21 @@
 #include <vector>
-#include <string>
-#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
-    for (char c : numStr) {
-        if ((c - '0') % 2 == 0) {
-            counts[0]++;
-        } else {
-            counts[1]++;
-        }
+int main() {
+    int num;
+    cin >> num;
+
+    vector<int> counts = even_odd_count(num);
+
+    vector<int> expectedCounts = {2, 2};
+    if (issame(counts, expectedCounts)) {
+        cout << "Counts are correct." << endl;
+    } else {
+        cout << "Counts are incorrect." << endl;
     }
-    return counts;
+
+    return 0;
 }
