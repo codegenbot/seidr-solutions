@@ -1,12 +1,16 @@
-#include <vector>
-#include <string>
-
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += 1; // if we found an overlapping match
+```c++
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    return indices;
+    return a;
+}
+
+int main() {
+    int a = 48;
+    int b = 18;
+    std::cout << "GCD: " << gcd(a, b) << std::endl;
+    return 0;
 }
