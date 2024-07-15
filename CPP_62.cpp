@@ -1,9 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
 float derivative(const std::vector<float>& v){
-    // Implement derivative calculation
-    return 0.0f; // Placeholder return value
+    return 0.0f;
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
@@ -11,8 +11,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b){
 }
 
 int main(){
-    // Test case to check if issame works correctly
-    assert(issame( {1.0f} , {}) );
+    assert(issame({1.0f}, {}));
     
     return 0;
 }
