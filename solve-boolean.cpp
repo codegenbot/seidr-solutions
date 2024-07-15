@@ -4,29 +4,29 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> s;
+    stack<char> st;
     
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            if (s.empty()) return false;
+            if (st.empty()) return false;
         } else if (s[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
-                s.pop();
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            if (s.empty()) return true;
+            if (st.empty()) return true;
         } else {
-            s.push(s[i]);
+            st.push(s[i]);
         }
     }
     
-    while (!s.empty()) {
-        s.pop();
+    while (!st.empty()) {
+        st.pop();
     }
     
-    return s.empty();
+    return stack<char>::empty();
 }
 
 int main() {
