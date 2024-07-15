@@ -6,7 +6,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 const std::vector<int>& get_row(const std::vector<std::vector<int>>& lst, int x) {
-    return lst[x];
+    return lst.at(x);
 }
 
 int main() {
