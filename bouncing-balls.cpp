@@ -1,16 +1,22 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
-    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
+    double startingHeight, firstBounceHeight;
     int numBounces;
 
-    cin >> startingHeight >> firstBounceHeight >> numBounces;
+    cout << "Enter the starting height: ";
+    cin >> startingHeight;
 
-    bouncinessIndex = firstBounceHeight / startingHeight;
+    cout << "Enter the height after the first bounce: ";
+    cin >> firstBounceHeight;
 
-    totalDistance = 2.0 * (1 + bouncinessIndex) * numBounces * startingHeight;
+    cout << "Enter the number of bounces: ";
+    cin >> numBounces;
+
+    double bouncinessIndex = firstBounceHeight / startingHeight;
+
+    double totalDistance = (numBounces * 2) + bouncinessIndex;
 
     cout << fixed << setprecision(5) << totalDistance << endl;
 
