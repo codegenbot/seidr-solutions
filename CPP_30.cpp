@@ -22,7 +22,3 @@ std::vector<float> get_positive(std::vector<float> l) {
     }
     return result;
 }
-
-int main() {
-    assert(issame(std::vector<float>{}, std::vector<float>{}));
-}
