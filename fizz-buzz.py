@@ -1,5 +1,5 @@
-Here is the modified code:
-```
+Here is the corrected code:
+
 def fizz_buzz(x):
     x = int(x)
     if x % 3 == 0 and x % 5 == 0:
