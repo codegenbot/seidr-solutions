@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -8,7 +7,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         res.push_back(pos);
-        pos += target.length(); 
+        pos += target.length();
     }
     return res;
 }
