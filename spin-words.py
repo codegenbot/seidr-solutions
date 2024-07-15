@@ -3,8 +3,8 @@ def spin_words(sentence):
     result = []
     for word in words:
         if len(word) >= 5:
-            middle_index = (len(str(word)) // 2)
-            result.append(' '.join([word[:middle_index]] + [word[middle_index:][::-1]] + [word[middle_index:]]))
+            half = (len(word)+1)//2
+            result.append(' '.join([word[:half], word[half:][::-1]]))
         else:
             result.append(word)
     return ' '.join(result)
