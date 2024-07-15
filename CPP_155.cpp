@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 vector<int> even_odd_count(int num) {
     vector<int> count(2, 0);
     string numStr = to_string(abs(num));
@@ -22,5 +18,9 @@ vector<int> even_odd_count(int num) {
     return count;
 }
 
-assert(issame(even_odd_count(0), {1, 0}));
-return 0;
+int main() {
+    vector<int> expected = {1, 0};
+    vector<int> result = even_odd_count(0);
+    assert(result == expected);
+    return 0;
+}
