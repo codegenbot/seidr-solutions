@@ -1,8 +1,8 @@
-def intersperse(numbers: List[int], delimiter: str) -> list:
+def intersperse(numbers: list[int], delimiter: str) -> list:
+    if not numbers:
+        return []
     result = [str(numbers[0])]
-    for i, num in enumerate(numbers[1:], 1):
+    for num in numbers[1:]:
+        result.append(str(num))
         result.extend([delimiter])
-        result.extend([str(num)])
-    if len(numbers) > 1:
-        result.append(delimiter)
     return result
