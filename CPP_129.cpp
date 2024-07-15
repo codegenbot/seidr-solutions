@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> minPath(std::vector<std::vector<int>> matrix, int n) {
+std::vector<int> minPath(std::vector<std::vector<int>> matrix, int n){
     std::vector<int> result;
     
     for (int i = 0; i < n; ++i) {
