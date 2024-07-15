@@ -5,24 +5,30 @@ using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
-    for(int i=0, j=0; i<4 && j<4; i++, j++) {
-        if(code[i] == guess[j]) {
-            continue; // Correct position, counted in black pegs
-        } 
-        else if(code.find(guess[j]) != string::npos) {
+    string codeChar, guessChar;
+    
+    // Count correct colors
+    for(int i=0; i<4; i++) {
+        codeChar = code.substr(i,1);
+        guessChar = guess.substr(i,1);
+        if(code.find(guessChar) != string::npos && codeChar != guessChar) {
             count++;
         }
     }
+
     return count;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    for(int i=0, j=0; i<4 && j<4; i++, j++) {
-        if(code[i] == guess[j]) {
+    
+    // Count correct places
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             count++;
         }
     }
+    
     return count;
 }
 
@@ -32,4 +38,3 @@ int main() {
     cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
     return 0;
-}
