@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool issame(const std::string& s1, const std::string& s2) {
-    return std::equal(s1.begin(), s1.end(), s2.begin(), s2.end());
+bool issame(const std::vector<std::string>& words) {
+    return words.size() == 1 && words[0] == "same";
 }
 
 std::vector<std::string> split_words(const std::string& txt) {
