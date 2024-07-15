@@ -6,22 +6,29 @@ def bowling_score(frames):
 
     for i, frame in enumerate(frames_list[:10]):
         if frame == 10:
-            score += 10 * 2
-            roll += 3
+            score += 10
+            roll += 1
             if i < 8:
-                next_two_frames = sum(frames_list[i + 1:i + 3])
-                score += next_two_frames
-        else:
-            first_roll = frame
-            second_roll = frames_list[roll + 1] if roll + 1 < len(frames_list) else 0
-            if first_roll + second_roll == 10:
-                score += 10
-                roll += 2
-            elif first_roll == 10:
-                score += first_roll * 2
-                roll += 2
+                next_frame = frames_list[i + 1] + frames_list[i + 2]
+                score += next_frame * 2
+        elif len(str(frame)) == 1 or (len(str(frame)) == 2 and int(str(frame)[0]) + int(str(frame)[1]) < 11):
+            if roll == 0:
+                score += frame * 10
+                roll = 2
+            else:
+                score += frame
+                roll -= 1
+        elif len(str(frame)) == 2:
+            first_roll = int(str(frame)[0])
+            second_roll = int(str(frame)[1])
+            if first_roll + second_roll < 11:
+                score += frame
+                roll = 2
             else:
                 score += first_roll + second_roll
-                roll += 2
+                roll -= 1
+
+    if roll > 0:
+        score += 10 * (roll - 1)
 
     return score
