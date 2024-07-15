@@ -6,6 +6,10 @@ int main() {
     std::string code, guess;
     std::cin >> code >> guess;
     
+    if (code.length() != 4 || guess.length() != 4) {
+        return 1;
+    }
+    
     int white = 0, black = 0;
     std::map<char, int> codeFreq, guessFreq;
     
@@ -20,10 +24,9 @@ int main() {
 
     for (auto& it : codeFreq) {
         white += std::min(it.second, guessFreq[it.first]);
-        guessFreq.erase(it.first); // Remove the characters already counted for white pegs
     }
 
-    std::cout << white << std::endl << black << std::endl;
+    std::cout << white << "\n" << black << "\n";
     
     return 0;
 }
