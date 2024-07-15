@@ -1,4 +1,4 @@
-def encode(message):
+```def encode(message):
     encoded_message = """"
     for char in message:
         if char.isalpha():
@@ -20,4 +20,4 @@ def encode(message):
                     encoded_message += chr((ord(char) - 97 + 3) % 26 + 97)
         else:
             encoded_message += char
-    return encoded_message
+    return encoded_message```
