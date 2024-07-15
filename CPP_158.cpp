@@ -1,5 +1,6 @@
 #include <string>
 #include <set>
+#include <vector>
 
 using namespace std;
 
@@ -17,3 +18,6 @@ string find_max(const vector<string>& words) {
 
     return max_word;
 }
+
+// Test the function
+assert(find_max({"apple", "banana", "orange", "grape"}) == "banana");
