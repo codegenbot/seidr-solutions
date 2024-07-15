@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <cmath>
+
 using namespace std;
 
 int fuelCost(vector<int> vec) {
