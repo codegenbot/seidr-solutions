@@ -1,10 +1,14 @@
 sort(lst.begin(), lst.end());
-    int prev = lst[0];
-    for (int num : lst) {
-        if (num > prev) {
-            return num;
-        }
-        prev = num;
+if (lst.size() < 2)
+    return -1;
+int prev = lst[0], cnt = 1;
+for (int i = 1; i < lst.size(); ++i) {
+    if (lst[i] != prev) {
+        cnt++;
+        if (cnt == 2)
+            return lst[i];
+        prev = lst[i];
     }
-    return -1; // None
+}
+return -1;
 }
