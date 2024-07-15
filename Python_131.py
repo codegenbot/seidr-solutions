@@ -5,4 +5,4 @@ def digits(n):
         if digit % 2 != 0:
             result *= digit
         n //= 10
-    return result
+    return result if result != 1 else 0
