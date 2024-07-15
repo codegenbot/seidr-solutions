@@ -1,9 +1,6 @@
 #include <vector>
 #include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+#include <cassert>
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
@@ -37,4 +34,8 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         }
     }
     return letter_grades;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
