@@ -1,11 +1,12 @@
-int basement(vector<int>& v) {
+#include <vector>
+
+int basement(vector<int> v) {
     int sum = 0;
-    int index = -1;
-    for (int i = 0; i < v.size(); i++) {
+    int i = 0;
+    while (i < v.size()) {
         sum += v[i];
-        if (sum < 0) {
-            return i + 1;
-        }
+        if (sum < 0)
+            return i;
+        i++;
     }
     return -1;
-}
