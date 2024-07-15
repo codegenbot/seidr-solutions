@@ -1,18 +1,29 @@
-for(int i=0; i<text.length(); ++i) {
-        if(text[i] == ' ') {
-            text[i] = '_';
-            int count = 1;
-            while(i+1 < text.length() && text[i+1] == ' ') {
-                count++;
-                i++;
+#include <iostream>
+#include <cassert>
+
+std::string fix_spaces(const std::string& text) {
+    std::string result = "";
+    int count = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
+            if (count > 2) {
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+                count = 1;
+            } else {
+                result += "_";
             }
-            if(count > 2) {
-                text[i-count+1] = '-';
-                for(int j=i-count+2; j<=i; ++j) {
-                    text[j] = '_';
-                }
-            }
+        } else {
+            result += c;
+            count = 0;
         }
     }
-    return text;
+    return result;
+}
+
+int main() {
+    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    return 0;
 }
