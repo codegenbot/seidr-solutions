@@ -7,12 +7,16 @@ string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    else if (tweet.length() > 140) {
+    
+    if (tweet.find('@') != string::npos) {
+        return "You cannot use '@' symbol";
+    }
+    
+    if (tweet.length() > 140) {
         return "Too many characters";
     }
-    else {
-        return "Your tweet has " + to_string(tweet.length()) + " characters";
-    }
+    
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
 
 int main() {
