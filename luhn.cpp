@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> numbers) {
@@ -10,3 +11,4 @@ int luhn(std::vector<int> numbers) {
         sum += digit;
     }
     return sum % 10;
+}
