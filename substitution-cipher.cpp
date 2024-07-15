@@ -1,11 +1,7 @@
 #include <iostream>
 #include <string>
 
-std::string decipherMessage(const std::string& cipher1, const std::string& cipher2, std::string message) {
-    if (cipher1.length() != cipher2.length()) {
-        return "Error: Cipher strings must have the same length.";
-    }
-
+std::string decipherMessage(const std::string& cipher1, const std::string& cipher2, std::string& message) {
     for (char &c : message) {
         size_t index = cipher1.find(c);
         if (index != std::string::npos) {
