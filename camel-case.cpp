@@ -1,6 +1,5 @@
-#include <iostream>
+```cpp
 #include <string>
-#include <cctype>
 
 std::string camelCase(std::string input) {
     std::string output;
@@ -9,16 +8,16 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == '-') {
             if (start < i) {
-                output += std::string(std::tolower(input[start]), i - start);
+                output.append(std::string(1, input[start]).toupper());
+                start = i + 1;
             }
             if (i < input.size()) {
-                if (input[i + 1] != '-') {
-                    output.push_back(toupper(input[i]));
-                } else {
-                    ++i;
-                }
+                if (input[i + 1] == '-') continue;
+                output.push_back(std::tolower(input[i]));
+                start = i + 1;
+            } else {
+                return output;
             }
-            start = i + 1;
         }
     }
 
