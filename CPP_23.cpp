@@ -1,6 +1,10 @@
 #include <string>
 
+int getStringLength(const std::string& str) {
+    return str.length();
+}
+
 int main() {
-    assert(std::strlen("asdasnakj") == 9);
+    assert(getStringLength("asdasnakj") == 9);
     return 0;
 }
