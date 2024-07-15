@@ -1,4 +1,3 @@
-
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -6,8 +5,11 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
-# Get user input
+# Read input from the user
 strings = input("Enter a list of strings separated by spaces: ").split()
 
-# Call the function and print the result
-print(longest(strings))
+# Call the function with the input list of strings
+result = longest(strings)
+
+# Display the result
+print(result)
