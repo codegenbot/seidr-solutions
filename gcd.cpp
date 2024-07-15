@@ -24,6 +24,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     // Your code logic here
-
+    
     return 0;
 }
