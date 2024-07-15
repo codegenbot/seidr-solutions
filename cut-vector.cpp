@@ -12,12 +12,12 @@ int main() {
     
     int diff = INT_MAX;
     int cutIndex = -1;
-    for (int i = 1; i < n - 1; ++i) {
+    for (int i = 1; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; ++j) {
             leftSum += nums[j];
         }
-        for (int j = i; j < n; ++j) {
+        for (int j = i; j < n - 1; ++j) {
             rightSum += nums[j];
         }
         int currentDiff = abs(leftSum - rightSum);
