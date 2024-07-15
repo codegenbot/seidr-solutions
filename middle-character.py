@@ -7,5 +7,3 @@ def middle_character(s):
     else:
         if s_len % 4 != 3:  
             return s[mid_idx]
-        else:
-            return s[mid_idx]
