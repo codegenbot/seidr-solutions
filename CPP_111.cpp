@@ -3,10 +3,6 @@
 
 std::map<char, int> histogram(std::string test);
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    return a == b;
-}
-
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> counts;
     for (char c : test) {
@@ -28,6 +24,10 @@ std::map<char, int> histogram(std::string test) {
     }
     
     return result;
+}
+
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+    return a == b;
 }
 
 int main() {
