@@ -8,11 +8,11 @@ int basement(const vector<int>& numbers) {
         if (sum < 0) return i;
     }
     return -1;
+
 }
 
 int main() {
-    vector<int> numbers = {1, -2, 3, -4};
-    int result = basement(numbers);
-    cout << "Basement index: " << result << endl;
+    vector<int> numbers = {1, -2, 3, 10, -4, 3, 2};
+    cout << basement(numbers) << endl;
     return 0;
 }
