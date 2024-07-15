@@ -1,10 +1,11 @@
 def substitution_cipher(cipher_string1, cipher_string2, message):
-    cipher_string1 = ''.join(filter(str.isalpha, cipher_string1))
-    cipher_string2 = ''.join(filter(str.isalpha, cipher_string2))
     if len(cipher_string1) != len(cipher_string2):
         return ""
     cipher_map = {cipher_string1[i]: cipher_string2[i] for i in range(len(cipher_string1))}
     deciphered_message = ""
     for char in message:
-        deciphered_message += cipher_map.get(char, char)
+        if char in cipher_map:
+            deciphered_message += cipher_map[char]
+        else:
+            deciphered_message += char
     return deciphered_message
