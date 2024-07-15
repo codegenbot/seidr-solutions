@@ -1,56 +1,31 @@
-int score(string s) {
-    int frame = 1;
-    int total = 0;
-    int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (s[i+2] == 'X') {
-                total += 10;
-                if (s[i+4] == 'X') {
-                    total += 10;
-                } else if (s[i+4] == '-') {
-                    total += 0;
-                } else {
-                    total += s[i+4] - '0';
-                }
-                i++;
-            } else if (s[i+2] == '/') {
-                total += 10;
-            } else if (s[i+2] == '-') {
-                total += 0;
-            } else {
-                total += s[i+2] - '0';
-            }
-            i++;
-        } else if (s[i+1] == '/') {
-            total += 10;
-            if (s[i+2] == 'X') {
-                total += 10;
-            } else if (s[i+2] == '-') {
-                total += 0;
-            } else {
-                total += s[i+2] - '0';
-            }
-            i += 2;
-        } else if (s[i+2] == '/') {
-            total += 10;
-            i += 3;
-        } else if (s[i] == '-') {
-            i++;
+int score(string bowling) {
+    int totalScore = 0;
+    int frame = 0;
+    for (int i = 0; i < bowling.size() && frame < 10; ++i) {
+        if (bowling[i] == 'X') {
+            totalScore += 10;
+            totalScore += (bowling[i+1] == 'X') ? 10 : (bowling[i+1] == '/' ? 10 - (bowling[i+2] - '0') : (bowling[i+1] - '0') + (bowling[i+2] == '/' ? 10 - (bowling[i+3] - '0') : (bowling[i+2] - '0')));
+            ++frame;
+        } else if (bowling[i] == '/') {
+            totalScore += 10 - (bowling[i-1] - '0');
+            totalScore += (bowling[i+1] == 'X') ? 10 : (bowling[i+1] - '0');
+            ++i;
+            ++frame;
         } else {
-            total += s[i] - '0';
-            total += s[i+1] - '0';
-            i += 2;
+            totalScore += (bowling[i] - '0');
+            if (bowling[i+1] == '/') {
+                totalScore += 10 - (bowling[i+2] - '0');
+                ++i;
+            }
+            ++frame;
         }
-        frame++;
     }
-    return total;
+    return totalScore;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string bowling;
+    cin >> bowling;
+    cout << score(bowling);
     return 0;
 }
