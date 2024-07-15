@@ -1,7 +1,9 @@
+Here is the modified code:
+
 ```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
-    
+
     def evaluate(tokens):
         if len(tokens) == 0:
             return eval(tokens[0])
