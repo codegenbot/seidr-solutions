@@ -1,4 +1,13 @@
-starting_height, bounce_height, num_bounces = map(float, input().split())
-bounciness_index = bounce_height / starting_height
-total_distance = starting_height + bounce_height + 2 * bounce_height * (1 - bounciness_index) ** num_bounces
-print(total_distance)
+def calculate_total_distance(starting_height, bounce_height, num_bounces):
+    bounciness_index = bounce_height / starting_height
+    total_distance = starting_height + 2 * starting_height * sum(
+        [bounciness_index**n for n in range(num_bounces)]
+    )
+    return total_distance
+
+
+starting_height = float(input())
+bounce_height = float(input())
+num_bounces = int(input())
+result = calculate_total_distance(starting_height, bounce_height, num_bounces)
+print(result)
