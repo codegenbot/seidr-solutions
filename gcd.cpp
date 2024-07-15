@@ -28,7 +28,7 @@ int gcd(int a, int b) {
 
 int main() {
     int a = 48;
-    int b = 18; 
+    int b = 18;
     cout << "GCD: " << gcd(a, b) << endl;
 
     return 0;
