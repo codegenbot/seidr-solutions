@@ -1,6 +1,7 @@
+```cpp
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int i = 0;
     while (i < s.length()) {
@@ -23,3 +24,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
