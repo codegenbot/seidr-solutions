@@ -1,6 +1,6 @@
 try:
-    n = int(input())
-    numbers = list(map(int, input().split()))
-    # Your additional code here
+    n = int(input().strip())
+    numbers = list(map(int, input().strip().split()))
+    # Add your code logic here
 except ValueError:
-    print("Invalid input. Please enter valid integers.")
+    print("Input error. Please enter valid input.")
