@@ -1,4 +1,4 @@
-```Python
+```
 def bouncing_balls():
     h = float(input())
     b = float(input())
@@ -12,6 +12,3 @@ def bouncing_balls():
         b = round(b * i)
 
     return total_distance
-
-if __name__ == "__main__":
-    print(bouncing_balls())
