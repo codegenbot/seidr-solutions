@@ -1,7 +1,9 @@
+#include <climits>
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <climits>
+#include <cmath>
+
 using namespace std;
 
 int main() {
@@ -16,11 +18,11 @@ int main() {
     int leftSum = 0, rightSum = totalSum;
     int minDiff = INT_MAX;
     int cutIndex = -1;
-    
+
     for (int i = 0; i < n; i++) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
+        int diff = std::abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -28,11 +30,11 @@ int main() {
     }
 
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << "\n";
     }
-    cout << endl;
+    cout << "\n";
     for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << endl;
+        cout << nums[i] << "\n";
     }
 
     return 0;
