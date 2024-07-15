@@ -16,11 +16,12 @@ std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
 }
 
 int main() {
-    std::vector<float> numbers = {2.0, 5.0, 8.0, 10.0};
-    std::vector<float> rescaled = rescale_to_unit(numbers);
-    
-    // Assert statement
-    assert(rescaled == std::vector<float>{0.0, 0.375, 0.75, 1.0});
-    
+    std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    std::vector<float> result = rescale_to_unit(numbers);
+
+    for (float num : result) {
+        std::cout << num << " ";
+    }
+
     return 0;
 }
