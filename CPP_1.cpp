@@ -29,20 +29,9 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return groups;
 }
 
-vector<string> combine(const vector<string>& groups) {
-    vector<string> result;
-    for (const string& group : groups) {
-        string combined_group = "(" + group + ")";
-        result.push_back(combined_group);
-    }
-    return result;
-}
-
 int main() {
-    vector<string> separated_groups = separate_paren_groups("( ) (( )) (( )( ))");
-    vector<string> combined_groups = combine(separated_groups);
-
-    assert(combined_groups == vector<string>{"()", "(())", "(()())"});
-
+    vector<string> expectedResult = {"()", "(())", "(()())"};
+    assert(separate_paren_groups("( ) (( )) (( )( ))") == expectedResult);
+    
     return 0;
 }
