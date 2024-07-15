@@ -13,7 +13,7 @@ std::vector<int> parse_music(std::string music_string) {
         if (music_string[i] == 'o' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
             beats.push_back(2);
             i += 2;
-        } else if (i + 1 < music_string.size() && music_string[i] == '|' && music_string[i + 1] == 'o') {
+        } else if (i + 1 < music_string.size() && music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
         } else {
@@ -24,7 +24,11 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
+void main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 4, 2, 4, 2}));
+}
+
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 1, 2, 1, 2}));
+    main();
     return 0;
 }
