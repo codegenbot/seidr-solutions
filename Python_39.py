@@ -6,17 +6,22 @@ def prime_fib(n):
             if num % i == 0:
                 return False
         return True
-
-    def fibonacci(num):
+    
+    def is_fibonacci(num):
+        if num == 0:
+            return True
         a, b = 0, 1
-        for _ in range(num):
-            yield a
+        while b < num:
             a, b = b, a + b
-
-    fibonacci_gen = fibonacci(n)
-    prime_fib_list = [num for num in fibonacci_gen if is_prime(num)]
-
-    return prime_fib_list
+        return b == num
+    
+    result = []
+    i = 2
+    while len(result) < n:
+        if is_prime(i) and is_fibonacci(i):
+            result.append(i)
+        i += 1
+    return result
 
 try:
     n = int(input())
