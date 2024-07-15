@@ -8,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
+std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::vector<int> result;
     std::sort(l1.begin(), l1.end());
     std::sort(l2.begin(), l2.end());
