@@ -1,5 +1,6 @@
 from typing import List
-def separate_paren_groups(paren_string: str) -> List[str]:
+
+def separate_paren_groups(paren_string: List[str]) -> List[str]:
     result = []
     current_group = ""
     count = 0
