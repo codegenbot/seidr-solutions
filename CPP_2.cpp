@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath> // for floor function
-#include <cassert> // for assert function
+#include <cmath>
+#include <cassert>
 
 double truncate_number(double number) {
     return number - std::floor(number);
