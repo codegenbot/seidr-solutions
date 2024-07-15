@@ -20,8 +20,8 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> numbers = {3.5, 1.2, 4.7, 2.1, 5.3};
-    auto closest_elements = find_closest_elements(numbers);
+    std::vector<float> numbers = {3.5, 1.2, 6.8, 2.3, 9.1};
+    std::pair<float, float> closest_elements = find_closest_elements(numbers);
     std::cout << "Closest elements are: " << closest_elements.first << " and " << closest_elements.second << std::endl;
     return 0;
 }
