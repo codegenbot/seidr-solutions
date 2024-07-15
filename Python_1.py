@@ -29,5 +29,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-output = separate_paren_groups(input("Enter a string of parentheses: ").strip())
-print(output)
+input_str = input().strip()
+if all(char in "() " for char in input_str):
+    output = separate_paren_groups(input_str)
+    print(output)
+else:
+    print(["Invalid input: Input string must contain only parentheses"])
