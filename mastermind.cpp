@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,14 +6,12 @@ int mastermind(std::string code, std::string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
 
-    // Count black pegs (correct color and correct place)
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
 
-    // Count white pegs (correct color, wrong place)
     std::vector<int> codeCount(6, 0);
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i] - 'A']++;
@@ -32,4 +29,13 @@ int mastermind(std::string code, std::string guess) {
     return blackPegs << 2 | whitePegs;
 }
 
-int main() { std::cout << mastermind("XXXX", "XXXX"); return 0; }
+int main() {
+    std::string code = "AAAA";
+    std::string guess = "ABCD";
+
+    int result = mastermind(code, guess);
+
+    std::cout << "Black pegs: " << (result >> 2) << ", White pegs: " << result & 3 << std::endl;
+
+    return 0;
+}
