@@ -28,7 +28,7 @@ int main() {
     while (std::cin >> value) {
         input.push_back(value);
     }
-    
+
     std::cout << Solution::smallest_change(input) << std::endl;
 
     return 0;
