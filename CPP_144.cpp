@@ -1,7 +1,20 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+#include <string>
+#include <iostream>
 
-    return (x_num * n_num) % (x_den * n_den) == 0;
+using namespace std;
+
+bool simplify(string x, string n) {
+    int num1 = stoi(x.substr(0, x.find('/')));
+    int den1 = stoi(x.substr(x.find('/') + 1));
+    int num2 = stoi(n.substr(0, n.find('/')));
+    int den2 = stoi(n.substr(n.find('/') + 1));
+
+    return (num1 * den2 == num2 * den1);
+}
+
+int main() {
+    string x, n;
+    cin >> x >> n;
+    cout << (simplify(x, n) ? "true" : "false") << endl;
+    return 0;
 }
