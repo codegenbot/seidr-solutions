@@ -1,23 +1,28 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
+std::string camelCase(std::string input) {
     std::string result;
     bool firstWord = true;
 
-    for (char c : str) {
+    for (char c : input) {
         if (c == '-') {
-            if (!firstWord) {
-                result[0] -= 32; // Convert to uppercase
-            }
-            firstWord = false;
-            result += " ";
-        } else if (c != ' ') {
-            if (!firstWord) {
-                result[0] -= 32; // Convert to uppercase
-            }
+            // Start of a new word
+            if (!firstWord)
+                result += std::toupper(c);
+            else
+                firstWord = false;
+        } else if (c == ' ') {
+            // New line, just add the space to the output string
             result += c;
-            firstWord = true;
+        } else {
+            // Just a normal character, check if it's the start of a new word
+            if (!firstWord)
+                result += std::tolower(c);
+            else
+                firstWord = false;
         }
     }
 
@@ -25,10 +30,9 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
-    std::string str;
+    std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> str;
-    std::cout << "CamelCase: " << kebabToCamel(str) << std::endl;
-
+    std::cin >> input;
+    std::cout << "camelCase version of the input is: " << camelCase(input) << std::endl;
     return 0;
 }
