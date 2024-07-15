@@ -8,7 +8,7 @@ std::string sort_numbers(std::string numbers);
 std::string sort_numbers(std::string numbers) {
     std::string result = "";
     std::map<int, std::string> reverse_map;
-
+    
     size_t pos = 0;
     std::string token;
     while ((pos = numbers.find(" ")) != std::string::npos) {
@@ -16,13 +16,13 @@ std::string sort_numbers(std::string numbers) {
         reverse_map[number_map[token]] = token;
         numbers.erase(0, pos + 1);
     }
-
+    
     reverse_map[number_map[numbers]] = numbers;
-
+    
     for (const auto& pair : reverse_map) {
         result += pair.second + " ";
     }
-
+    
     result.pop_back(); // Remove the extra space at the end
     return result;
 }
@@ -41,11 +41,11 @@ int main() {
         {"nine", 9}
     };
 
-    std::string numbers;
-    std::cout << "Enter a list of numbers in words separated by spaces: ";
-    std::getline(std::cin, numbers);
+    std::string input;
+    std::cout << "Enter numbers: ";
+    std::getline(std::cin, input);
 
-    std::string sorted_numbers = sort_numbers(numbers);
+    std::string sorted_numbers = sort_numbers(input);
     std::cout << "Sorted numbers: " << sorted_numbers << std::endl;
 
     return 0;
