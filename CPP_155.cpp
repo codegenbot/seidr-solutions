@@ -1,11 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+using namespace std;
 
-std::vector<int> even_odd_count(int num) {
+std::vector<int> countEvenOddDigits(int num) {
     std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+    string numStr = to_string(abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
@@ -16,10 +15,12 @@ std::vector<int> even_odd_count(int num) {
     return counts;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    int num;
+    cin >> num;
+    std::vector<int> result = countEvenOddDigits(num);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
