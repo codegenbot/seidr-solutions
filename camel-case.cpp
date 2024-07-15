@@ -1,34 +1,20 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            int start = str.find(c);
-            str = str.substr(start + 1);
-            result += toupper(str[0]);
-            str.erase(0, 1);
-        } else if (c == ' ') {
-            int start = str.find(c);
-            str = str.substr(start + 1);
-            result += toupper(str[0]);
-            str.erase(0, 1);
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            result += toupper(s[i]);
+        } else if (!result.empty() && isalpha(s[i])) {
+            result[0] = tolower(s[i]);
+            break;
         } else {
-            result += c;
+            result += s[i];
         }
     }
     return result;
-}
-
-int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string in kebab-case or 'exit' to stop: ";
-        std::cin >> input;
-        if (input == "exit")
-            break;
-        std::cout << camelCase(input) << std::endl;
-    }
-    return 0;
 }
