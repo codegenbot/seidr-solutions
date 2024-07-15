@@ -1,9 +1,19 @@
 def fizz_buzz(x):
-    if x % 15 == 0: 
+    result = ""
+    
+    if x % 15 == 0:  
         return "FizzBuzz"
-    elif x % 5 == 0: 
-        return "Buzz" if x % 3 != 0 else "FizzBuzz"
-    elif x % 3 == 0: 
-        return "Fizz"
-    else:
-        return str(x)
+        
+    if x % 3 == 0:  
+        if result:
+            return result + "Fizz"
+        else:
+            return "Fizz"
+
+    if x % 5 == 0 and not (x % 3 == 0):
+        if result:
+            return result + "Buzz"
+        else:
+            return "Buzz"
+
+    return str(x)
