@@ -1,9 +1,3 @@
-#include<iostream>
-#include<vector>
-#include<assert.h>
-
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
