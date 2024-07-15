@@ -1,38 +1,20 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <sstream>
+std::string camelCase(std::string input) {
+    std::string output;
+    size_t start = 0;
 
-std::string camelCase(const std::string& str) {
-    std::vector<std::string> words;
-    std::stringstream ss(str);
-    std::string word;
-
-    while (ss >> word) {
-        if (!word.empty()) {
-            words.push_back(word);
+    for (size_t i = 0; i <= input.size(); ++i) {
+        if (i == input.size() || (input[i] == '-' && input[i - 1] != ' ')) {
+            if (start < i) {
+                output += tolower(input.substr(start, i - start));
+            }
+            if (i < input.size()) {
+                output.push_back(toupper(input[i]));
+                start = i + 1;
+            } else {
+                return output;
+            }
         }
     }
 
-    std::string result;
-    for (int i = 0; i < words.size(); ++i) {
-        if (i > 0) {
-            result += char(std::toupper(words[i][0]));
-            result.erase(0, 1);
-        } else {
-            result += words[i];
-        }
-        if (i < words.size() - 1) {
-            result += " ";
-        }
-    }
-
-    return result;
+    return output;
 }
-
-int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
-    return 0;
