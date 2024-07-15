@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
@@ -9,8 +9,10 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
 int main() {
     int h;
     cin >> h;
-    float g, r, m;
-    cin >> g >> r >> m;
+    if (!(cin >> g >> r >> m)) {
+        cout << "Invalid input. Please enter correct values." << endl;
+        return 1; // Return an error code
+    }
     cout << fixed << setprecision(10) << snowDay(h, g, r, m) << endl;
     return 0;
 }
