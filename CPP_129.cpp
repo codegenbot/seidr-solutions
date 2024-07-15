@@ -1,27 +1,33 @@
+#include <iostream>
 #include <vector>
 #include <queue>
 #include <climits>
 #include <cassert>
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a[0] == b[0] && a[1] == b[1];
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3}));
+    return 0;
+}
+
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     int n = grid.size();
     int m = grid[0].size();
-    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
+    std::vector<std::vector<int>> dp(n, std::vector<int>(m, INT_MAX));
     dp[0][0] = 0;
     
-    vector<vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    std::vector<std::vector<int>> dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     
-    queue<vector<int>> q;
+    std::queue<std::vector<int>> q;
     q.push({0, 0});
     
     while (!q.empty()) {
-        vector<int> curr = q.front();
+        std::vector<int> curr = q.front();
         q.pop();
         
         for (auto dir : dirs) {
@@ -39,11 +45,5 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         }
     }
     
-    return dp[n - 1][m - 1] > k ? vector<int>{-1, -1} : vector<int>{n - 1, m - 1};
-}
-
-int main() {
-    assert(issame({1, 3}, {1, 3})); // Test issame function
-    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3}); // Test minPath function
-    return 0;
+    return dp[n - 1][m - 1] > k ? std::vector<int>{-1, -1} : std::vector<int>{n - 1, m - 1};
 }
