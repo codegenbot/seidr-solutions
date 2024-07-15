@@ -1,4 +1,9 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    return unique(str.begin(), str.end()) - str.begin();
+    vector<char> distinctChars;
+    for(char c : str){
+        if(find(distinctChars.begin(), distinctChars.end(), c) == distinctChars.end()){
+            distinctChars.push_back(c);
+        }
+    }
+    return distinctChars.size();
 }
