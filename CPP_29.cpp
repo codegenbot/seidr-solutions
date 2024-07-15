@@ -1,7 +1,7 @@
 #include <cassert>
 
-bool are_same(const vector<string>& v1, const vector<string>& v2){
-    return v1 == v2;
+bool are_same(vector<string> vec1, vector<string> vec2){
+    return vec1 == vec2;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -14,12 +14,12 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main() {
+int main(){
     vector<string> input = {"apple", "banana", "apricot", "orange"};
     vector<string> expected_output = {"apple", "apricot"};
-    vector<string> result = filter_by_prefix(input, "ap");
-
-    assert(are_same(expected_output, result));
+    
+    vector<string> filtered_strings = filter_by_prefix(input, "a");
+    assert(are_same(filtered_strings, expected_output));
 
     return 0;
 }
