@@ -12,9 +12,9 @@ vector<float> sort_even(const vector<float>& l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_values.push_back(l[i]);
+            sorted_even_values.push_back(l[i]);
         }
     }
-    sorted_even_values = even_values;
     sort(sorted_even_values.begin(), sorted_even_values.end());
     int sorted_index = 0;
     for (int i = 0; i < l.size(); i++) {
