@@ -5,6 +5,8 @@
 #include <climits>
 #include <cassert>
 
+using namespace std;
+
 string Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = INT_MIN;
     string strongest_extension = "";
