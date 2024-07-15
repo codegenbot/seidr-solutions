@@ -1,11 +1,14 @@
-int even = 0, odd = 0;
-    string num_str = to_string(abs(num));
+int num_abs = abs(num);
+    string num_str = to_string(num_abs);
+    vector<int> count(2, 0);
+    
     for (char c : num_str) {
-        if ((c - '0') % 2 == 0) {
-            even++;
+        if (c - '0' % 2 == 0) {
+            count[0]++;
         } else {
-            odd++;
+            count[1]++;
         }
     }
-    return {even, odd};
+    
+    return count;
 }
