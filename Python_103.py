@@ -1,4 +1,4 @@
-```
+```python
 def main():
     while True:
         try:
@@ -14,4 +14,5 @@ def rounded_avg(a, b):
     return round((a + b) / 2.0)
 
 
-main()
+if __name__ == "__main__":
+    main()
