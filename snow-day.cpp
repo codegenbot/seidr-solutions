@@ -9,9 +9,15 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
 int main() {
     int h;
     cin >> h;
+    
     float g, r, m;
-    cin >> g >> r >> m;
-    cout << std::setiosflags(std::ios_base::fixed) << std::setprecision(10);
-    cout << std::to_string(snowDay(h, g, r, m)) << endl;
+    cin >> g;
+    cout << " ";  // Add a space for better readability
+    cin >> r;
+    cout << "\n";  // Add a new line to separate inputs
+    cin >> m;
+
+    cout << fixed << setprecision(6);
+    cout << snowDay(h, g, r, m) << endl;
     return 0;
 }
