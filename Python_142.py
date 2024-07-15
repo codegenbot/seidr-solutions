@@ -1,10 +1,11 @@
+Here is the modified code:
+
+```python
 def sum_squares(lst):
     total = 0
-    for i in range(len(lst)):
-        if i % 3 == 0 and i % 4 != 0:
-            total += lst[i] ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            total += lst[i] ** 3
+    for num in lst:
+        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
+            total += num ** 2
+        elif isinstance(num, float) and ((num - int(num)) % 0.1 < 0.05 and (int(num) % 3 == 0 or int(num) % 4 == 0)):
+            total += num ** 2
     return total
-
-print(sum_squares([1, 2, 3, 4, 5, 6]))
