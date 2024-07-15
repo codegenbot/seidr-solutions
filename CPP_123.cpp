@@ -17,6 +17,5 @@ vector<int> result;
     }
 
     sort(odd_numbers.begin(), odd_numbers.end());
-
     return odd_numbers;
 }
