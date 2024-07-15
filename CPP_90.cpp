@@ -1,9 +1,16 @@
 Here is the completed code:
 
+#include <algorithm>
+using namespace std;
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
-    vector<int> vec(lst);
-    sort(vec.begin(), vec.end());
-    int res = vec[1];
-    return res;
+    if (lst.size() < 2)
+        return -1; // or return None as per your requirement
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size()-1; i++) {
+        if (v[i] != v[i+1])
+            return v[i];
+    }
+    return -1; // or return None as per your requirement
 }
