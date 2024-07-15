@@ -1,6 +1,10 @@
+```
 def leaders(input):
-    leaders = []
-    for i in range(len(input)):
-        if i == len(input) - 1 or input[i] >= max(input[i+1:]):
-            leaders.append(input[i])
-    return leaders
+    leader = input[-1]
+    leaders = [leader]
+    for num in input[:-1][::-1]:
+        if num < leader:
+            break
+        leader = num
+        leaders.append(num)
+    return list(reversed(leaders))
