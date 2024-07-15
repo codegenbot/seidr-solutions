@@ -1,29 +1,36 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+bool issame(vector<string> a, vector<string> b) {
+    unordered_map<char, int> freq_a, freq_b;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    for (const string& s : a) {
+        for (char c : s) {
+            freq_a[c]++;
+        }
+    }
+
+    for (const string& s : b) {
+        for (char c : s) {
+            freq_b[c]++;
+        }
+    }
+
+    return freq_a == freq_b;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
-    std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> result = lst;
+
+    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
+    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
+    
     return lst;
 }
 
 int main() {
-    std::vector<std::string> input_list = {"apple", "banana", "pear", "kiwi", "mango"};
-    std::vector<std::string> result = sorted_list_sum(input_list);
-
-    for (const auto& elem : result) {
-        std::cout << elem << " ";
-    }
-
+    // Main function implementation
     return 0;
 }
