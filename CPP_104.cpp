@@ -1,11 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 std::vector<int> unique_digits(std::vector<int> x){
     std::vector<int> result;
     for(int num : x){
@@ -24,14 +16,4 @@ std::vector<int> unique_digits(std::vector<int> x){
     }
     std::sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    std::vector<int> input = {123, 456, 789};
-    std::vector<int> output = unique_digits(input);
-    for(int num : output){
-        std::cout << num << " ";
-    }
-    
-    return 0;
 }
