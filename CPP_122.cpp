@@ -12,9 +12,21 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> elements = {5, 15, 25, 100, 50, 30};
-    int k = 6;
-    int result = add_elements(elements, k);
-    std::cout << result << std::endl;
+    int n, k;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> arr(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+
+    std::cout << "Enter the value of k: ";
+    std::cin >> k;
+
+    int result = add_elements(arr, k);
+    std::cout << "Sum of elements between 10 and 99: " << result << std::endl;
+
     return 0;
 }
