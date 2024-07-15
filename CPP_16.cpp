@@ -1,11 +1,8 @@
-int count_distinct_characters(string str){
-    vector<bool> charExists(26, false);
-    int count = 0;
+vector<char> distinctChars;
     for (char c : str) {
-        if (isalpha(c) && !charExists[toupper(c) - 'A']) {
-            charExists[toupper(c) - 'A'] = true;
-            count++;
+        if (isalpha(c) && find(distinctChars.begin(), distinctChars.end(), tolower(c)) == distinctChars.end()) {
+            distinctChars.push_back(tolower(c));
         }
     }
-    return count;
+    return distinctChars.size();
 }
