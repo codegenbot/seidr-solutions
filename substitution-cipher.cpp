@@ -14,7 +14,7 @@ int main() {
             if (index != string::npos) {
                 c = cipher1[index];
             } else {
-                c = c;
+                // Add condition to keep characters unchanged
             }
         }
     }
