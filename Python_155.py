@@ -1,4 +1,3 @@
-```
 def even_odd_count(num):
     num = str(abs(num))
     even_count = sum(1 for digit in num if int(digit) % 2 == 0)
