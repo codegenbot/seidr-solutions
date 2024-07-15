@@ -1,3 +1,5 @@
+Here is the completed code:
+
 ```
 def encode(message):
     result = ''
@@ -9,4 +11,4 @@ def encode(message):
                 result += char.swapcase()
         else:
             result += char
-    return result```
+    return result
