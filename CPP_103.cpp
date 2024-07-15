@@ -1,19 +1,18 @@
 if (n > m) {
-        return "-1";
-    }
+    return "-1";
+}
 
-    int sum = 0;
-    for (int i = n; i <= m; ++i) {
-        sum += i;
-    }
+int sum = 0;
+for (int i = n; i <= m; i++) {
+    sum += i;
+}
 
-    int avg = round((double)sum / (m - n + 1));
-    string binary_avg = bitset<32>(avg).to_string();
-    
-    size_t found = binary_avg.find('1');
-    if (found != string::npos) {
-        return binary_avg.substr(found);
-    }
-    
-    return "0";
+int average = round((double)sum / (m - n + 1));
+string binary_avg;
+while (average > 0) {
+    binary_avg = to_string(average % 2) + binary_avg;
+    average /= 2;
+}
+
+return binary_avg;
 }
