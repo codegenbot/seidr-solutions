@@ -2,9 +2,9 @@
 #include <cassert>
 
 std::vector<std::vector<int>> minPath(const std::vector<std::vector<int>>& matrix, int n) {
-    std::vector<std::vector<int>> result(n, std::vector<int>(matrix[0].size(), 0));
+    std::vector<std::vector<int>> result;
     for (int i = 0; i < n; ++i) {
-        result[i] = matrix[0];
+        result.push_back(matrix[0]);
     }
     return result;
 }
@@ -15,6 +15,5 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<std::vector<int>>(10, std::vector<int>{1, 3}));
-
     return 0;
 }
