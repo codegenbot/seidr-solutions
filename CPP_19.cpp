@@ -1,29 +1,35 @@
-map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> reverse_map;
-for(auto itr = number_map.begin(); itr != number_map.end(); ++itr) {
-    reverse_map[itr->second] = itr->first;
-}
+map<string, int> num_dict = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-sort(numbers.begin(), numbers.end());
+string sort_numbers(string numbers) {
+    stringstream ss(numbers);
+    string word;
+    vector<string> num_vec;
 
-vector<int> nums;
-string result;
-string current_number;
-for(char c : numbers) {
-    if (c == ' ') {
-        nums.push_back(number_map[current_number]);
-        current_number = "";
-    } else {
-        current_number += c;
+    while (ss >> word) {
+        num_vec.push_back(word);
     }
-}
 
-nums.push_back(number_map[current_number]);
-sort(nums.begin(), nums.end());
+    sort(num_vec.begin(), num_vec.end(),
+        [&num_dict](const string& a, const string& b) {
+            return num_dict[a] < num_dict[b];
+        });
 
-for(int num : nums) {
-    result += reverse_map[num] + " ";
-}
-result.pop_back(); // remove extra space at the end
-return result;
+    string result = "";
+    for (const string& num : num_vec) {
+        result += num + " ";
+    }
+
+    result.pop_back();  // Remove trailing space
+    return result;
 }
