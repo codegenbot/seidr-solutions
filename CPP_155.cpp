@@ -1,12 +1,12 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> even_odd_count(int num){
-    std::vector<int> result(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+vector<int> even_odd_count(int num){
+    vector<int> result(2, 0);
+    string numStr = to_string(abs(num));
     for(char c : numStr){
         if((c - '0') % 2 == 0){
             result[0]++;
@@ -18,6 +18,17 @@ std::vector<int> even_odd_count(int num){
 }
 
 int main() {
-    // code using even_odd_count function
+    // Test the even_odd_count function
+    vector<int> input = {12345, 2468, 13579};
+    for(int num : input){
+        vector<int> count = even_odd_count(num);
+        cout << "Number: " << num << " | Even Count: " << count[0] << " | Odd Count: " << count[1] << endl;
+    }
+
+    // Test the issame function
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    cout << "Are vectors a and b same? " << (issame(a, b) ? "Yes" : "No") << endl;
+
     return 0;
 }
