@@ -12,10 +12,3 @@ bool is_prime(long long n){
     }
     return true;
 }
-
-int main() {
-    long long n;
-    cin >> n;
-    cout << (is_prime(n) ? "true" : "false") << endl;
-    return 0;
-}
