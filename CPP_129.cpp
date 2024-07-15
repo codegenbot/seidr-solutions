@@ -10,5 +10,4 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     return result;
 }
 
-// Example usage:
 // assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
