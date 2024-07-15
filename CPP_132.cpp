@@ -1,10 +1,9 @@
 int count = 0;
-    for (char bracket : str) {
-        if (bracket == '[') {
-            count++;
-        } else if (bracket == ']' && count > 0) {
-            count--;
+        for (char c : str) {
+            if (c == '[') {
+                count++;
+            } else if (c == ']' && count > 0) {
+                count--;
+            }
         }
-    }
-    return count < 0 || count > 0 ? true : false;
-}
+        return count < str.size() && count > 0;
