@@ -1,14 +1,17 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> sum_product(std::vector<int> a, std::vector<int> b) {
+vector<int> sum_product(vector<int> nums) {
     int sum = 0;
     int product = 1;
-    for (int num : a) {
+    for (int num : nums) {
         sum += num;
         product *= num;
     }
@@ -16,6 +19,7 @@ std::vector<int> sum_product(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(sum_product({10, 0}, {10, 0})));
+    assert(issame(sum_product({10}), {10, 10}));
+    
     return 0;
 }
