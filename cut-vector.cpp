@@ -14,7 +14,7 @@ int main() {
     int diff = INT_MAX;
     int cutIndex = -1;
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 1; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j <= i; ++j) {
             leftSum += nums[j];
@@ -32,11 +32,9 @@ int main() {
     for (int i = 0; i <= cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << std::endl;
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << std::endl;
 
     return 0;
 }
