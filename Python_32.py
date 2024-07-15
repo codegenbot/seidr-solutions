@@ -5,6 +5,5 @@ def find_zero(xs: list):
     return -b / a
 
 input_list = list(map(int, input().split()))
-
 result = find_zero(input_list)
 print(result)
