@@ -1,14 +1,13 @@
-int res = -1;
-    vector<int> freq(105, 0);
-    for (int num : lst) {
-        freq[num]++;
-    }
-    
-    for (int i = 1; i < 105; ++i) {
-        if (freq[i] >= i) {
-            res = i;
+for(int num : lst){
+        int freq = 0;
+        for(int i = 0; i < lst.size(); i++){
+            if(num == lst[i]){
+                freq++;
+            }
+        }
+        if(num > 0 && freq >= num){
+            return num;
         }
     }
-
-    return res;
+    return -1;
 }
