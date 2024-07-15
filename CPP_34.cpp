@@ -8,10 +8,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> unique(const std::vector<int>& l) {
     std::vector<int> temp = l;
-
-    auto last = std::unique(temp.begin(), temp.end());
-    temp.erase(last, temp.end());
-
+    std::sort(temp.begin(), temp.end());
+    temp.erase(std::unique(temp.begin(), temp.end()), temp.end());
     return temp;
 }
 
