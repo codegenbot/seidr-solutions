@@ -1,15 +1,17 @@
-int luhn(int numbers[16]) {
+```cpp
+int luhn(std::vector<int> numbers) {
     int sum = 0;
-    for (int i = 0; i < 16; ++i) {
-        if ((16 - i) % 2 == 1) { 
-            int temp = numbers[i] * 2; 
-            if (temp > 9) { 
-                temp -= 9;
+    bool isDouble = false;
+    for (int i = 0; i < numbers.size(); ++i) {
+        int digit = numbers[i];
+        if (isDouble) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += temp;
-        } else {
-            sum += numbers[i]; 
         }
+        sum += digit;
+        isDouble = !isDouble;
     }
-    return sum;
+    return sum % 10 == 0;
 }
