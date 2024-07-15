@@ -1,9 +1,9 @@
-try:
-    while True:
+while True:
+    try:
         music_input = input().rstrip()
-        if music_input == '':
+        if not music_input:
             break
         result = parse_music(music_input)
         print(result)
-except EOFError:
-    pass
+    except (EOFError, KeyboardInterrupt):
+        break
