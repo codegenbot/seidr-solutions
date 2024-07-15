@@ -15,10 +15,11 @@ int bowlingScore(char c, std::string& s) {
     } else {
         int count = 0;
         int i = 0;
-        while (c >= '1' && c <= '9') {
+        while (c >= '1' && c <= '9') { 
             count *= 10;
             count += c - '0';
-            c = s[i++];
+            if (++i < s.length()) c = s[i];
+            else break;
         }
         score += count;
     }
@@ -32,7 +33,7 @@ int main() {
     
     int totalScore = 0;
     for (char c : s) {
-        totalScore += bowlingScore(c, s);
+        totalScore += bowlingScore(c, s); 
     }
     std::cout << "The total score is: " << totalScore << std::endl;
 }
