@@ -1,8 +1,8 @@
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 bool issame(vector<string> a, vector<string> b){
-    // Your implementation here
-    // Make sure to compare the vectors and return true/false accordingly
+    bool result = (a.size() == b.size() && equal(a.begin(), a.end(), b.begin()));
+    return result;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
