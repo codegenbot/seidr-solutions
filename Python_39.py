@@ -1,4 +1,4 @@
-def prime_check(num):
+def is_prime(num):
     if num < 2:
         return False
     for i in range(2, int(num ** 0.5) + 1):
@@ -6,23 +6,17 @@ def prime_check(num):
             return False
     return True
 
-def fibonacci(n):
-    a, b = 1, 1
-    for _ in range(n - 2):
-        a, b = b, a + b
-    return a
-    
 def prime_fib(n):
+    a, b = 1, 1
     count = 0
-    num = 1
     while count < n:
-        num += 1
-        if prime_check(num) and prime_check(fibonacci(num)):
+        a, b = b, a + b
+        if is_prime(a):
             count += 1
-    return fibonacci(num)
+    return a
 
 try:
-    n = int(input())
+    n = int(input("Enter a number: "))
     print(prime_fib(n))
 except ValueError:
     print("Invalid input. Please enter a valid integer.")
