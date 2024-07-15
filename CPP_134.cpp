@@ -1,10 +1,8 @@
-if (txt.empty()) 
+if (txt.empty()) {
         return false;
+    }
     
-    char last_char = txt.back();
+    char lastChar = txt.back();
     
-    if (isalpha(last_char) && txt.find_last_of(' ') == txt.size() - 2)
-        return true;
-    
-    return false;
+    return isalpha(lastChar) && txt.find_last_of(" ") == txt.size() - 1;
 }
