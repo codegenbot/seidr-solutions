@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <utility>
@@ -29,24 +28,25 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + splitIndex);
-    vector<int> right(v.begin() + splitIndex, v.end());
+    pair<vector<int>, vector<int>> result;
+    result.first = vector<int>(v.begin(), v.begin() + splitIndex);
+    result.second = vector<int>(v.begin() + splitIndex, v.end());
     
-    return {left, right};
+    return result;
 }
 
 int main() {
-    int n; cin >> n;
+    int n; std::cin >> n;
     vector<int> v(n);
-    for (auto& x : v) cin >> x;
+    for (auto& x : v) std::cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "1 ";
-    for (auto x : result.first) cout << x << " ";
-    cout << "\n0\n";
-    cout << "1 ";
-    for (auto x : result.second) cout << x << " ";
-    cout << "\n0\n";
+    std::cout << "1 ";
+    for (auto x : result.first) std::cout << x << " ";
+    std::cout << "\n0\n";
+    std::cout << "1 ";
+    for (auto x : result.second) std::cout << x << " ";
+    std::cout << "\n0\n";
     
     return 0;
 }
