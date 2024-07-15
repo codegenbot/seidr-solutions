@@ -7,4 +7,6 @@ def coin_sums(cents):
         cents %= coins[i]
         result[i] = quotient
 
-    return result
+    return "Quarters: {}, Nickels: {}, Dimes: {}, Pennies: {}".format(result[0], result[1], result[2], result[3])
+
+print(coin_sums(int(input("Enter the amount in cents: "))))
