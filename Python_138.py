@@ -2,10 +2,8 @@
 def is_equal_to_sum_even(n):
     for i in range(2, n+1, 2):
         total = 0
-        for j in range(i):
-            if total + 2*j == n:
+        for j in range(i, n+1, 2):
+            if j + total == n:
                 return True
-            elif total + 2*j > n:
-                break
-            total += 2*j
+            total += j
     return False
