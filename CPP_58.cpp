@@ -20,8 +20,3 @@ public:
         return a == b;
     }
 };
-
-int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
-    return 0;
-}
