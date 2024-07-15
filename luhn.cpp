@@ -1,3 +1,5 @@
+#include <vector>
+
 int luhn(std::vector<int> numbers) {
     int sum = 0;
     for (int i = 0; i < numbers.size(); ++i) {
@@ -7,4 +9,4 @@ int luhn(std::vector<int> numbers) {
         }
         sum += digit;
     }
-    return (sum % 10 == 0);
+    return (sum % 10 == 0);;
