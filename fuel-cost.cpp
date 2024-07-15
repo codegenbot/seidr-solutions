@@ -1,4 +1,3 @@
-#include <vector>
 #include <cmath>
 
 int fuelCost(std::vector<int> vec) {
