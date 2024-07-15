@@ -1,3 +1,4 @@
+```cpp
 int luhn(vector<int> numbers) {
     int sum = 0;
     bool doubleNext = false;
