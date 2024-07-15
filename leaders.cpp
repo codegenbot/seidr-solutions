@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& vec) {
     std::vector<int> result;
