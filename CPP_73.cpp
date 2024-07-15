@@ -20,11 +20,8 @@ int main() {
     
     std::vector<int> input;
     int value;
-    while (!std::cin.fail()) {
-        std::cin >> value;
-        if (!std::cin.fail()) {
-            input.push_back(value);
-        }
+    while (std::cin >> value) {
+        input.push_back(value);
     }
     
     std::cout << Solution::smallest_change(input) << std::endl;
