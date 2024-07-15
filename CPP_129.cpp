@@ -1,30 +1,16 @@
-bool issame(vector<vector<int>>& grid, int k) {
-    int N = grid.size();
-    return (k % N == 0);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int N = grid.size();
-    vector<int> result;
-    for (int i = 0; i < k; ++i) {
-        int row = i % N;
-        int col = i / N;
-        if (col % 2 == 0) {
-            result.push_back(grid[row][col]);
-        } else {
-            result.push_back(grid[N - row - 1][col]);
-        }
-    }
-    return result;
+vector<int> minPath(vector<vector<int>> grid, int k){
+    // Your code here
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 6;
-    
-    bool same = issame(grid, k);
-    
-    vector<int> result = minPath(grid, k);
-    
+vector<int> minPath(vector<vector<int>> grid, int k){
+    // Your code here
+}
+
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     return 0;
 }
