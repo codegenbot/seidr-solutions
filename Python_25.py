@@ -1,16 +1,8 @@
-from typing import List
+try:
+    n = int(input("Enter a number: "))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+    exit(1)
 
-def factorize(n: int) -> List[int]:
-    factors = []
-    divisor = 2
-    while n > 1:
-        if n % divisor == 0:
-            factors.append(divisor)
-            n //= divisor
-        else:
-            divisor += 1
-    return factors
-
-n = int(input().strip())
 result = factorize(n)
 print(result)
