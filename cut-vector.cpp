@@ -13,24 +13,16 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
             rightSum += v[j];
         }
         
-        if (leftSum == rightSum) {
-            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
-        } else {
-            int diff = abs(leftSum - rightSum);
-            
-            if (diff < minDiff) {
-                minDiff = diff;
-                splitIndex = i;
-            }
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    pair<vector<int>, vector<int>> result({{v.begin(), v.begin()}, {v.begin() + 1, v.end()}});
-    if(splitIndex > 0)
-    {
-        result.first = vector<int>(v.begin(), v.begin() + splitIndex);
-        result.second = vector<int>(v.begin() + splitIndex, v.end());
-    }
+    pair<vector<int>, vector<int>> result;
+    result.first = vector<int>(v.begin(), v.begin() + splitIndex);
+    result.second = vector<int>(v.begin() + splitIndex, v.end());
     
     return result;
-}
