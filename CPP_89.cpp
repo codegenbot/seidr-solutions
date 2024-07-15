@@ -1,15 +1,15 @@
-Here is the solution:
-
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2) % 26 + 'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2) % 26 + 'A';
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            char newC = (c - 'a' + 2 * 26) % 26 + 'a';
+            result += newC;
+        } else if (c >= 'A' && c <= 'Z') {
+            char newC = (c - 'A' + 2 * 26) % 26 + 'A';
+            result += newC;
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
