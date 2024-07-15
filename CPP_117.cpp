@@ -1,26 +1,24 @@
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    int consonant_count = 0;
+#include <vector>
 
-    for (char c : s) {
-        if (c != ' ') {
-            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
-                consonant_count++;
-            }
-            word += c;
-        } else {
-            if (consonant_count == n) {
-                result.push_back(word);
-            }
-            word = "";
-            consonant_count = 0;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-
-    if (consonant_count == n) {
-        result.push_back(word);
-    }
-
-    return result;
+    return true;
 }
+
+int main() {
+    string s = "hello world my name is alice";
+    int n = 2;
+    vector<string> actual_result = select_words(s, n);
+    vector<string> expected_result = {"hello", "world", "alice"};
+    
+    assert(issame(actual_result, expected_result));
+
+    return 0;
+} 
