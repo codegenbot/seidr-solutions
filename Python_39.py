@@ -19,4 +19,4 @@ def prime_fib(n: int):
         if is_prime(fib_list[-1]) and len(fib_list) == n:
             return fib_list[-1]
 
-print(prime_fib(n))
+prime_fib(n)
