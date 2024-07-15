@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 std::string spinWords(std::string str) {
     std::string result = "";
     std::size_t pos = 0;
@@ -7,12 +10,11 @@ std::string spinWords(std::string str) {
         if (len == std::string::npos)
             len = str.length();
         
-        if (len - pos > 4) {
-            std::string reversed = std::string(str.substr(pos, len - pos)).rbegin();
-            reversed.insert(0, 1); // Add a space at the beginning
-            result += reversed + " ";
-        } else
-            result += str.substr(pos, len - pos) + " ";
+        std::string temp = str.substr(pos, len - pos);
+        if(temp.size() > 4)
+            result += std::string(temp.rbegin(), temp.rend()) + " ";
+        else
+            result += temp + " ";
         
         pos = len;
     }
