@@ -1,15 +1,15 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int n){
-    std::vector<int> res;
-    for(int i=1; i<=n; i++){
-        res.push_back(i);
+std::vector<int> f(int size){
+    std::vector<int> result(size);
+    for(int i=0; i<size; ++i){
+        result[i] = i + 1;
     }
-    return res;
+    return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
