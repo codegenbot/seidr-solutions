@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
 int main() {
     string text, target;
     cin >> text >> target;
