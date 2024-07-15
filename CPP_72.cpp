@@ -1,6 +1,11 @@
 int sum = 0;
-    for (int num : q) {
-        sum += num;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
     }
-    return (q == vector<int>(q.rbegin(), q.rend())) && (sum <= w);
+    
+    if (q.size() == 1 || (q.size() % 2 == 0 && equal(q.begin(), q.begin() + q.size() / 2, q.rbegin()))) {
+        return sum <= w;
+    }
+    
+    return false;
 }
