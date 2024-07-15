@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     n = len(grid)
     total_water = sum(sum(min(c, 1) for c in row) for row in grid)
