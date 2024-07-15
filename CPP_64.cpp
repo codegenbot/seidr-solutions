@@ -1,11 +1,12 @@
-int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            count++;
+int vowels_count(string s){
+    int count = 0;
+    string vowels = "aeiouAEIOUyY";
+    if (s.length() > 0 && s.find_last_of("yY") == s.length() - 1) {
+        for (char c : s) {
+            if (vowels.find(c) != string::npos) {
+                count++;
+            }
         }
-    }
-    if (!s.empty() && (s.back() == 'y' || s.back() == 'Y')) {
-        count++;
     }
     return count;
 }
