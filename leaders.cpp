@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<int> leaders(vector<int>& vec) {
-    vector<int> result;
+std::vector<int> leaders(std::vector<int>& vec) {
+    std::vector<int> result;
     int maxRight = vec.back();
     for (int i = vec.size() - 2; i >= 0; --i) {
         if (vec[i] >= maxRight) {
@@ -11,3 +12,13 @@ vector<int> leaders(vector<int>& vec) {
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<int> input = {7, 5, 2, 4};
+    std::vector<int> result = leaders(input);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    return 0;
+}
