@@ -12,6 +12,5 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1};
-    return basement(v);
+    return basement({1});
 }
