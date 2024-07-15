@@ -17,13 +17,8 @@ bool triples_sum_to_zero(vector<int>& l) {
     }
     return false;
 }
-
 int main() {
-    vector<int> test_case = {-1, 0, 1, 2, -1, -4};
-    if (triples_sum_to_zero(test_case)) {
-        cout << "Triple with sum zero exists." << endl;
-    } else {
-        cout << "No triple with sum zero exists." << endl;
-    }
+    vector<int> test_case = {1, -2, 1, 0, 5};
+    bool result = triples_sum_to_zero(test_case);
     return 0;
 }
