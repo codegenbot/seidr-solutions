@@ -16,6 +16,7 @@ int main() {
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += pow(bouncinessIndex, i) * startingHeight * 2.0;
     }
+
     cout << totalDistance << endl;
 
     return 0;
