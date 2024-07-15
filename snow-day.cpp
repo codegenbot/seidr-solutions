@@ -1,7 +1,8 @@
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float result = groundSnow;
     for (int i = 0; i < hours; i++) {
-        result += rate * (i + 1);
-        result -= melt;
+        result += rate; // add new snow
+        result -= min(result, melt); // subtract melted snow
     }
     return result;
+}
