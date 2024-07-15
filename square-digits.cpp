@@ -4,9 +4,11 @@
 
 std::string squareDigits(std::string input) {
     std::stringstream output;
-    for (char c : input.erase(0, input.find_first_of(" "))) { 
-        int digit = c - '0';
-        output << (c - '0') * (c - '0');
+    int num = stoi(input);
+    while(num > 0) {
+        int digit = num % 10;
+        output << std::to_string(digit * digit);
+        num /= 10;
     }
     return output.str();
 }
