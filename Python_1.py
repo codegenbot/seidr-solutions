@@ -1,6 +1,5 @@
-paren_string = input()
-
 from typing import List
+
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -15,3 +14,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if temp:
         result.append(temp)
     return result
+
+
+# Read input
+paren_string = input()
+
+# Call the function and print the result
+print(separate_paren_groups(paren_string))
