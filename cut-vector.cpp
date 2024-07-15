@@ -1,5 +1,14 @@
 #include <vector>
+
 using namespace std;
+
+vector<vector<int>> cutVector(vector<int> v);
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    vector<vector<int>> res = cutVector(v);
+    return 0;
+}
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
@@ -47,10 +56,4 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
 
     return res;
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    vector<vector<int>> res = cutVector(v);
-    return 0;
 }
