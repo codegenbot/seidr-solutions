@@ -1,30 +1,28 @@
+def prime_check(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def fibonacci(n):
+    a, b = 1, 1
+    for _ in range(n - 2):
+        a, b = b, a + b
+    return a
+    
+def prime_fib(n):
+    count = 0
+    num = 1
+    while count < n:
+        num += 1
+        if prime_check(num) and prime_check(fibonacci(num)):
+            count += 1
+    return fibonacci(num)
+
 try:
     n = int(input())
     print(prime_fib(n))
 except ValueError:
     print("Invalid input. Please enter a valid integer.")
-
-def prime_fib(n):
-    def is_prime(num):
-        if num < 2:
-            return False
-        for i in range(2, int(num ** 0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-    
-    def is_fibonacci(num):
-        if num == 0:
-            return True
-        a, b = 0, 1
-        while b < num:
-            a, b = b, a + b
-        return b == num
-    
-    result = []
-    i = 2
-    while len(result) < n:
-        if is_prime(i) and is_fibonacci(i):
-            result.append(i)
-        i += 1
-    return result
