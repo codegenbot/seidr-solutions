@@ -1,24 +1,36 @@
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+vector<string> separate_paren_groups(const string& paren_string) {
+    vector<string> groups;
     string group;
     int count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (count > 0) {
+            count++;
+            if (count > 1) {
                 group += c;
             }
-            count++;
         } else if (c == ')') {
             count--;
             if (count > 0) {
                 group += c;
-            } else if (count == 0 && !group.empty()) {
-                result.push_back(group);
-                group.clear();
+            }
+            if (count == 0) {
+                groups.push_back(group);
+                group = "";
             }
         }
     }
 
-    return result;
+    return groups;
+}
+
+int main() {
+    string input;
+    cin >> input;
+    vector<string> groups = separate_paren_groups(input);
+    return 0;
 }
