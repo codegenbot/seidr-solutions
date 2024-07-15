@@ -2,10 +2,6 @@
 #include <string>
 using namespace std;
 
-int main() {
-    return 0;
-}
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -18,4 +14,21 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+int main() {
+    string text, target;
+    cout << "Enter the text: ";
+    cin >> text;
+    cout << "Enter the target: ";
+    cin >> target;
+
+    vector<int> result = indicesOfSubstring(text, target);
+
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
