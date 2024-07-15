@@ -5,6 +5,9 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input("Enter the input string: ").strip()
-result = decode_cyclic(input_string)
-print(result)
+try:
+    input_string = input("Enter the input string to decode cyclically: ").strip()
+    result = decode_cyclic(input_string)
+    print(result)
+except:
+    print("Invalid input format. Please provide a valid input string.")
