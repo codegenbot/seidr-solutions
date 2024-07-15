@@ -1,12 +1,12 @@
-```cpp
 #include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    std::string::size_type pos = 0;
+    std::size_t pos = 0;
     
     while ((pos = str.find(" ")) != std::string::npos) {
-        std::string::size_type len = str.find(" ", pos + 1);
+        std::size_t len = str.find(" ", pos + 1);
         if (len == std::string::npos)
             len = str.length();
         

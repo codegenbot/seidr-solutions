@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
-#include <vector> // include vector header file
+#include <vector>
+
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
@@ -16,7 +17,7 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
+    std::vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
     auto pair = findPair(nums, target);
     if (!pair.empty()) {
