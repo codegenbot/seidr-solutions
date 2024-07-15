@@ -1,21 +1,12 @@
-int count = 0;
-        int rows = grid.size();
-        int cols = grid[0].size();
-        
-        for (int j = 0; j < cols; ++j) {
-            for (int i = 0; i < rows; ++i) {
-                if (grid[i][j] == 1) {
-                    int diff = capacity - grid[i][j];
-                    count += diff;
-                    
-                    for (int k = i; k < rows && diff > 0; ++k) {
-                        if (grid[k][j] == 1) {
-                            grid[k][j] = 0;
-                            diff--;
-                        }
-                    }
-                }
-            }
+#include <vector>
+
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+    int total_water = 0;
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[i].size(); j++) {
+            total_water += grid[i][j];
         }
-        return count;
     }
+    int num_buckets = total_water / capacity + (total_water % capacity != 0);
+    return num_buckets;
+}
