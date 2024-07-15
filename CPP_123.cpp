@@ -27,4 +27,4 @@ int main() {
     assert(issame(result, calculateSequence(n)));
 
     return 0;
-}
+} 
