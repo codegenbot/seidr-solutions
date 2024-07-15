@@ -1,4 +1,7 @@
-```c++
+```cpp
+#include <string>
+#include <iostream>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool inFrame = false;
@@ -26,4 +29,12 @@ int bowlingScore(std::string s) {
     }
 
     return score;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter the bowling string: ";
+    std::cin >> input;
+    std::cout << "The bowling score is: " << bowlingScore(input) << std::endl;
+    return 0;
 }
