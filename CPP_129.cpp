@@ -1,18 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <queue>
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
-}
-
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
 
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3}));
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -46,4 +40,9 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     }
     
     return dp[n - 1][m - 1] > k ? std::vector<int>{-1, -1} : std::vector<int>{n - 1, m - 1};
+}
+
+int main() {
+    assert(minPath({{1, 3}, {3, 2}}, 10) == std::vector<int>{1, 3}); // Test minPath function
+    return 0;
 }
