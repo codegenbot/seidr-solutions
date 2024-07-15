@@ -3,6 +3,6 @@ def find_zero(xs: list) -> float:
     b = xs[1]
     return -b / a
 
-xs = list(map(float, input().split()))
+xs = list(map(float, input().strip().split()))
 result = find_zero(xs)
 print(result)
