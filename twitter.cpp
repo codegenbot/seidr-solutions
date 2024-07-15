@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -10,8 +11,9 @@ int main() {
         std::cout << "You didn't type anything" << std::endl;
     } else if (tweet.length() > 140) {
         std::cout << "Too many characters" << std::endl;
-    } else 
-    {
+    } else {
         std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
     }
+    std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
+    
 }
