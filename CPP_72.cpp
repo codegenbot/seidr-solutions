@@ -1,9 +1,11 @@
 int sum = 0;
-    for (const auto &elem : q) {
-        sum += elem;
+    for(int i=0; i<q.size(); i++) {
+        sum += q[i];
     }
-    if (sum > w || q != vector<int>(q.rbegin(), q.rend())) {
-        return false;
+    
+    if(sum <= w && equal(q.begin(), q.begin() + q.size()/2, q.rbegin())) {
+        return true;
     }
-    return true;
+    
+    return false;
 }
