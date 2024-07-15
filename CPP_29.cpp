@@ -20,6 +20,7 @@ vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix)
 }
 
 int main() {
-    assert(issame({{"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}}, {"xxx", "xxxAAA", "xxx"}));
+    assert({issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"),
+            vector<string>{"xxx", "xxxAAA", "xxx"})});
     return 0;
 }
