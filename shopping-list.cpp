@@ -1,22 +1,7 @@
-```cpp
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<float> prices(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> prices[i];
+int shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
+    float total = 0;
+    for (size_t i = 0; i < prices.size(); ++i) {
+        total += prices[i] * (1 - discounts[i] / 100);
     }
-    std::cin >> n;
-    std::vector<float> discounts(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> discounts[i];
-    }
-    float total = 0.0;
-    for (int i = 0; i < n; i++) {
-        float originalPrice = prices[i];
-        float discountPercentage = discounts[i];
-        float priceAfterDiscount = originalPrice - (originalPrice * discountPercentage / 100);
-        total += priceAfterDiscount;
-    }
-    std::cout << std::fixed << std::setprecision(6) << total << std::endl;
+    return total;
 }
