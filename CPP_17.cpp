@@ -2,9 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool issame(const std::vector<int>&, const std::vector<int>&);
 
 std::vector<int> parse_music(std::string music_string){
     std::vector<int> beats;
@@ -22,6 +20,10 @@ std::vector<int> parse_music(std::string music_string){
         }
     }
     return beats;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
 int main(){
