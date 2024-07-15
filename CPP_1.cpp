@@ -10,6 +10,19 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
+int main() {
+    string input;
+    cin >> input;
+
+    vector<string> result = separate_paren_groups(input);
+
+    for (const string& group : result) {
+        cout << group << endl;
+    }
+
+    return 0;
+}
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -33,17 +46,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    string input;
-    cin >> input;
-
-    vector<string> groups = separate_paren_groups(input);
-
-    for (string group : groups) {
-        cout << group << endl;
-    }
-
-    return 0;
 }
