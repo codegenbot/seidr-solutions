@@ -4,10 +4,14 @@ int greatest_common_divisor(int a, int b) {
     return greatest_common_divisor(b, a % b);
 }
 
-#include <cassert>
+#include <iostream>
+
+using namespace std;
 
 int main() {
-    assert(greatest_common_divisor(144, 60) == 12);
+    int a, b;
+    cin >> a >> b;
+    cout << greatest_common_divisor(a, b) << endl;
     
     return 0;
 }
