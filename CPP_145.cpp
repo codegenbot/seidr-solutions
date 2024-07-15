@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
@@ -26,4 +26,9 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         return sum_a < sum_b;
     });
     return nums;
+}
+
+int main(){
+    assert(std::issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
