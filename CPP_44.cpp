@@ -10,11 +10,8 @@ std::string change_base(int x, int base){
     return result;
 }
 
-using namespace std;
-
 int main() {
-    int x = 10;
+    int x = 123;
     assert(change_base(x, x + 1) == std::to_string(x));
-    
     return 0;
 }
