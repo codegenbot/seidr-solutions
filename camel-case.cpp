@@ -9,11 +9,13 @@ std::string camelCase(std::string s) {
     for (char c : s) {
         if (c == '-') {
             capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
         } else {
-            result += tolower(c);
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
+            } else {
+                result += tolower(c);
+            }
         }
     }
     
