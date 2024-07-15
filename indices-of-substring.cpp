@@ -8,15 +8,15 @@ int main() {
     
     std::vector<int> indices;
     
-    if (!target.empty()) {
+    if (target.empty() && !text.empty()) {
+        for (int i = 0; i < static_cast<int>(text.size()); ++i) {
+            indices.push_back(i);
+        }
+    } else {
         size_t pos = text.find(target, 0);
         while (pos != std::string::npos) {
             indices.push_back(static_cast<int>(pos));
             pos = text.find(target, pos + 1);
-        }
-    } else {
-        for (int i = 0; i <= static_cast<int>(text.size()); ++i) {
-            indices.push_back(i);
         }
     }
     
