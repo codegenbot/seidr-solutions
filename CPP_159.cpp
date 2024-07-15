@@ -1,8 +1,16 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+
+bool issame(int x, int y);
 
 std::vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = std::min(total, remaining);
-    return {eaten, std::max(0, total - remaining)};
+    int totalCarrots = number + need;
+    int eatenCarrots = totalCarrots > remaining ? remaining : totalCarrots;
+    int carrotsLeft = remaining - eatenCarrots;
+    return {eatenCarrots, carrotsLeft};
+}
+
+int main() {
+    // Main function implementation goes here
+    return 0;
 }
