@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <string>
+using namespace std;
+
 bool is_happy(string s) {
     if (s.length() < 3)
         return false;
@@ -6,8 +10,8 @@ bool is_happy(string s) {
         bool unique = true;
         for (char c : temp) {
             int count = 0;
-            for (int j = 0; j < temp.length(); j++) {
-                if (temp[j] == c)
+            for (int j = i; j < i + 3; j++) {
+                if (s[j] == c)
                     count++;
             }
             if (count > 1) {
