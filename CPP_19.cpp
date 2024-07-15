@@ -1,32 +1,15 @@
-map<string, int> numMap = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
-
-string sort_numbers(string numbers) {
-    vector<string> numWords;
-    stringstream ss(numbers);
-    string word;
-    while (ss >> word) {
-        numWords.push_back(word);
-    }
-
-    sort(numWords.begin(), numWords.end(), [&](const string &a, const string &b) {
-        return numMap[a] < numMap[b];
-    });
-
-    string result;
-    for (const auto &word : numWords) {
-        result += word + " ";
-    }
-    result.pop_back(); // Remove extra space at the end
-    return result;
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+map<int, string> rev_num_map;
+for (auto const& pair : num_map) {
+    rev_num_map[pair.second] = pair.first;
 }
+
+string result = "";
+for (int i = 0; i <= 9; ++i) {
+    if (numbers.find(rev_num_map[i]) != string::npos) {
+        result += rev_num_map[i] + " ";
+    }
+}
+
+result.pop_back(); // remove the extra space at the end
+return result;
