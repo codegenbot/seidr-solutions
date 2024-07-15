@@ -11,9 +11,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             count += 1
         elif char == ")":
             count -= 1
-            if count >= 0:
+            if count > 0:
                 current_group += char
             if count == 0:
                 result.append(current_group)
                 current_group = ""
+    if current_group:  # Add this to handle the case when the last group is not closed
+        result.append(current_group)
     return result
