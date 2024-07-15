@@ -5,9 +5,9 @@ def cut_vector(vector):
     for i in range(len(vector)):
         left_sum = sum(vector[:i + 1])
         right_sum = sum(vector[i + 1:])
-        
-        if abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
+        diff = abs(left_sum - right_sum)
+        if diff == 0 or (diff < min_diff and any(x == y for x, y in zip(vector[:i], vector[i:]))):
+            min_diff = diff
             split_index = i
 
     return vector[:split_index + 1], vector[split_index + 1:]
