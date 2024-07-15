@@ -1,31 +1,34 @@
 #include <vector>
-#include <cmath> 
+#include <climits>
+#include <iostream>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for(int i = 0; i < n-1; i++) {
-        if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
-            res[0].clear();
-            for(int j = 0; j <= i; j++)
-                res[0].push_back(v[j]);
-            res[0].push_back(v[i]);
-            break;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    int i = n - 2;
-    while(i >= 0) {
-        if(abs(v[n-1] - v[i]) <= abs(v[n-1] - v[0])) {
-            res[1].clear();
-            for(int j = i+1; j <= n-1; j++)
-                res[1].push_back(v[j]);
-            break;
-        }
-        i--;
-    }
-    
-    return res;
+    return {{v.begin(), v.begin() + splitIndex}, {v.begin() + splitIndex, v.end()}};
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) std::cin >> x;
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
+    for (const auto &x : res.first) cout << x << " ";
+    cout << "]\n[";
+    for (const auto &x : res.second) cout << x << " ";
+    cout << "]\n0\n";
+    return 0;
 }
