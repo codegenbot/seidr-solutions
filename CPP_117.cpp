@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
 
-vector<string> select_words(string s, int n);
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -16,6 +14,8 @@ bool issame(vector<string> a, vector<string> b) {
     
     return true;
 }
+
+vector<string> select_words(string s, int n);
 
 vector<string> select_words(string s, int n) {
     vector<string> words;
