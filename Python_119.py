@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     for s in lst:
         count = 0
@@ -12,6 +13,3 @@ def match_parens(lst):
         if count > 0:
             return "No"
     return "Yes"
-
-input_list = input("Enter a list of strings separated by commas: ").split(",")
-print(match_parens(input_list))
