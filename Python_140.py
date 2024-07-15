@@ -2,7 +2,7 @@ import re
 
 def fix_spaces(text: str) -> str:
     text = re.sub(r'\s+', '_', text)
-    text = re.sub(r'\-{2,}', '-', text)
+    text = re.sub(r'-{2,}', '_', text)
     return text
 
 input_text = input("Enter the text: ").strip()
