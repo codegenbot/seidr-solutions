@@ -1,5 +1,4 @@
 #include <cmath>
-
 int closest_integer(const std::string& value) {
     double number = stod(value);
     int rounded = static_cast<int>(round(number));
