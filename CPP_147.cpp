@@ -18,8 +18,3 @@ int get_matrix_triples(int n) {
     }
     return count;
 }
-
-int main() {
-    assert(get_matrix_triples(100) == 53361);
-    return 0;
-}
