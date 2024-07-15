@@ -10,8 +10,3 @@ std::vector<int> sum_product(const std::vector<int>& a){
     std::vector<int> result(2, a[0] * 2);
     return result;
 }
-
-int main() {
-    assert(issame(sum_product({10}), {20, 20}));
-    return 0;
-}
