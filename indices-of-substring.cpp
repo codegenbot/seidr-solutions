@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <initializer_list>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
@@ -13,19 +14,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     return res;
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    size_t pos = 0;
-
-    while (true) {
-        size_t foundPos = text.find(target, pos);
-
-        if (foundPos == string::npos)
-            break; // no more matches
-
-        result.push_back(foundPos);
-        pos = foundPos + target.size();
-    }
-
-    return result;
-}
+int main() {
+    string text = "Hello World";
+    string target = "World";
+    vector<int> res = indicesOfSubstring(text, target);

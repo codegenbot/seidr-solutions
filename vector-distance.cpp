@@ -9,10 +9,7 @@ double vectorDistance(int n) {
     vector<float> x1(n), x2(n);
     
     for (int i = 0; i < n; i++) {
-        float a, b;
-        cin >> a >> b;
-        x1[i] = a;
-        x2[i] = b;
+        cin >> x1[i] >> x2[i];
     }
     
     double sum = 0.0;
