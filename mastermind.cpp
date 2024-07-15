@@ -1,13 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
 
 using namespace std;
-
-void addCharacter(string& str, char c) {
-    str.push_back(c);
-}
 
 int whitePegs(string code, string guess) {
     int count = 0;
