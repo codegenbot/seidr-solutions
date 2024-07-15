@@ -3,13 +3,13 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool capitalizeNext = true;
+    bool capitalizeNextLetter = false;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
+            capitalizeNextLetter = true;
+        } else if (capitalizeNextLetter) {
             result += toupper(str[i]);
-            capitalizeNext = false;
+            capitalizeNextLetter = false;
         } else {
             result += tolower(str[i]);
         }
