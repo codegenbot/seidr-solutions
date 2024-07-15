@@ -1,21 +1,9 @@
+```c++
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-        }
-    }
-
-    return result;
-}
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -27,12 +15,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 48;
-    int b = 18;
+    int a = 71065;
+    int b = 426691; 
     cout << "GCD: " << gcd(a, b) << endl;
-    vector<int> indices = indicesOfSubstring("Hello World", "ll");
-    for (int i : indices) {
-        cout << i << " ";
-    }
+
     return 0;
 }
