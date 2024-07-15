@@ -13,3 +13,26 @@ vector<int> leaders(vector<int>& arr) {
     result.push_back(arr.back());
     return result;
 }
+
+int main() {
+    try {
+        vector<int> inputVector;
+        int n;
+        cin >> n;
+        for(int i=0; i<n; i++){
+            int val;
+            cin >> val;
+            inputVector.push_back(val);
+        }
+        
+        vector<int> outputVector = leaders(inputVector);
+        
+        cout << "Leaders: ";
+        for (int leader : outputVector) {
+            cout << leader << " ";
+        }
+        cout << endl;
+    }catch(const std::exception& e){
+        cerr << "Error: " << e.what() << endl;
+    }
+}
