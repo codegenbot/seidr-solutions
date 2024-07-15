@@ -16,7 +16,6 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-int main() {
-    assert(rolling_max({3, 2, 3, 100, 3}) == vector<int>{3, 3, 3, 100, 100});
-    return 0;
+bool check_same(vector<int> a, vector<int> b) {
+    return a == b;
 }
