@@ -1,1 +1,1 @@
-n = int(input())  
+n = int(input())  # Remove input prompt message
