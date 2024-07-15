@@ -1,7 +1,21 @@
-int main() {
-    vector<int> lst = {5, 3, 7, 1, 3, 8};
-    int result = next_smallest(lst);
-    cout << "Next smallest element is: " << result << endl;
+int next_smallest(vector<int>& lst) {
+    if (lst.empty()) {
+        return -1;
+    }
     
-    return 0;
+    sort(lst.begin(), lst.end());
+    int count = 0;
+    int prev = lst[0];
+    
+    for (int num : lst) {
+        if (num != prev) {
+            count++;
+            if (count == 2) {
+                return num;
+            }
+            prev = num;
+        }
+    }
+    
+    return -1;
 }
