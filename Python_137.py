@@ -7,7 +7,7 @@ def compare_one(a, b):
 
     if a > b:
         return a
-    elif b > a:
+    elif a < b:
         return b
     else:
         return None
