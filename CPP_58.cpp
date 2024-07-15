@@ -20,6 +20,6 @@ public:
 };
 
 int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), std::vector<int>{}));
+    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, std::vector<int>{}), std::vector<int>{}));
     return 0;
 }
