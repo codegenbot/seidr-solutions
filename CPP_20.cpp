@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     std::pair<float, float> closest_elements = {numbers[0], numbers[1]};
     for (int i = 1; i < numbers.size() - 1; ++i) {
