@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     while True:
         try:
