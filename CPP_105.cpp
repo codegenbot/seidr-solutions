@@ -1,21 +1,30 @@
 vector<string> by_length(vector<int> arr){
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-
-    vector<int> validIntegers;
+    vector<int> sorted_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            validIntegers.push_back(num);
+            sorted_arr.push_back(num);
         }
     }
 
-    sort(validIntegers.begin(), validIntegers.end());
+    sort(sorted_arr.begin(), sorted_arr.end());
 
-    vector<int> reversedValidIntegers(validIntegers.rbegin(), validIntegers.rend());
+    reverse(sorted_arr.begin(), sorted_arr.end());
 
-   
+    map<int, string> num_names = {
+        {1, "One"},
+        {2, "Two"},
+        {3, "Three"},
+        {4, "Four"},
+        {5, "Five"},
+        {6, "Six"},
+        {7, "Seven"},
+        {8, "Eight"},
+        {9, "Nine"}
+    };
+
     vector<string> result;
-    for (int num : reversedValidIntegers) {
-        result.push_back(names[num - 1]);
+    for (int num : sorted_arr) {
+        result.push_back(num_names[num]);
     }
 
     return result;
