@@ -1,6 +1,10 @@
+def find_min_max(numbers):
+    return min(numbers), max(numbers)
+
+
 try:
     numbers = list(map(float, input("Enter space-separated numbers: ").strip().split()))
-    sum_numbers = sum(numbers)
-    print(f"Sum of the numbers is: {sum_numbers}")
-except ValueError:
+    result = find_min_max(numbers)
+    print(result)
+except:
     print("Invalid input. Please enter space-separated numbers.")
