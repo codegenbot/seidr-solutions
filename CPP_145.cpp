@@ -1,28 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> order_by_points(const vector<int>& nums) {
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
-        while (a > 0) {
-            sum_a += a % 10;
-            a /= 10;
-        }
-        while (b > 0) {
-            sum_b += b % 10;
-            b /= 10;
-        }
-        if (sum_a == sum_b) {
-            return a < b;
-        }
-        return sum_a < sum_b;
+        int sumA = abs(a), sumB = abs(b);
+        while (sumA >= 10) sumA = sumA / 10 + sumA % 10;
+        while (sumB >= 10) sumB = sumB / 10 + sumB % 10;
+        return sumA == sumB ? a < b : sumA < sumB;
     });
     return nums;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 }
