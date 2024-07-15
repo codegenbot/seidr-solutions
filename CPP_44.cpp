@@ -19,7 +19,7 @@ int main() {
         std::cout << "Base " << i << ": " << change_base(x, i) << std::endl;
     }
 
-    assert(std::to_string(x) == std::to_string(x + 1));
+    assert(change_base(x, x + 1) == std::to_string(x));
 
     return 0;
 }
