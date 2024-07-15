@@ -1,17 +1,23 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-namespace CustomVectorFunctions {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
-
-    std::vector<int> common(std::vector<int> a, std::vector<int> b) {
+class CustomVectorFunctions {
+public:
+    static std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
         std::vector<int> result;
-        // Logic to find common elements between a and b
+        for (int num : a) {
+            if (std::find(b.begin(), b.end(), num) != b.end()) {
+                result.push_back(num);
+            }
+        }
         return result;
     }
-}
+
+    static bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
+    }
+};
 
 int main() {
     assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
