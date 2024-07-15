@@ -1,4 +1,7 @@
 def check_threshold(numbers, threshold):
-    return [num for num in numbers if num > threshold]
+    for num in numbers:
+        if num > threshold:
+            return True
+    return False
 
 result = check_threshold(numbers, threshold)
