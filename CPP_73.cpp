@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -10,4 +11,9 @@ namespace Solution {
         }
         return changes;
     }
+}
+
+int main() {
+    std::cout << Solution::smallest_change({0, 1}) << std::endl;
+    return 0;
 }
