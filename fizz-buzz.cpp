@@ -1,25 +1,14 @@
-#include <iostream>
-
-class Solution {
-public:
-    string fizzBuzz(int num) {
-        if (num % 3 == 0 && num % 5 == 0) {
-            return "FizzBuzz";
-        } else if (num % 3 == 0) {
-            return "Fizz";
-        } else if (num % 5 == 0) {
-            return "Buzz";
-        } else {
-            return to_string(num);
-        }
+string fizzBuzz(int num) {
+    if (num % 15 == 0) {
+        return "FizzBuzz";
     }
-};
-
-int main() {
-    Solution solution;
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << solution.fizzBuzz(num) << std::endl;
-    return 0;
+    else if (num % 5 == 0) {
+        return "Buzz";
+    }
+    else if (num % 3 == 0) {
+        return "Fizz";
+    }
+    else {
+        return std::to_string(num);
+    }
 }
