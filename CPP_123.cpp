@@ -4,36 +4,24 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    
-    for(int i = 0; i < a.size(); ++i){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
     }
-    
     return true;
 }
 
 vector<int> get_odd_collatz(int n);
 
 int main() {
-    int n;
-    cin >> n;
+    vector<int> result = get_odd_collatz(20);
+    vector<int> expected = {1, 3, 5, 9};
     
-    vector<int> result = get_odd_collatz(n);
-    
-    for(int num : result){
-        cout << num << " ";
-    }
-    
-    vector<int> a = {1, 2, 3, 4};
-    vector<int> b = {1, 2, 3, 4};
-    
-    if(issame(a, b)){
-        cout << "Same" << endl;
+    if(issame(result, expected)){
+        cout << "Test Passed" << endl;
     } else {
-        cout << "Different" << endl;
+        cout << "Test Failed" << endl;
     }
-    
     return 0;
 }
