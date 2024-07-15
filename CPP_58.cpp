@@ -7,6 +7,7 @@ using namespace std;
 class CustomVectorFunctions {
 public:
     static vector<int> common(const vector<int>& a, const vector<int>& b);
+    static vector<int> common(const vector<int>& a, const vector<int>& b);
     static bool issame(const vector<int>& a, const vector<int>& b);
 };
 
