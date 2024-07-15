@@ -48,8 +48,7 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    if(res[0].size() == 0) 
-        throw runtime_error("Error: The input vector is empty!");
+    if(res[0].size() == 0) throw runtime_error("Invalid input");
     
     return res;
 }
