@@ -1,12 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <cassert>
-
 double poly(vector<double> coeffs, double x){
     double result = 0;
     for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
+        result += coeffs[i]*pow(x, i);
     }
     return result;
 }
@@ -21,12 +16,7 @@ vector<double> coeffs;
 double solution;
 
 // Read coefficients input from user into coeffs vector
-for(int i=0; i<2; i++){
-    double coeff;
-    std::cin >> coeff;
-    coeffs.push_back(coeff);
-}
 
 solution = find_zero(coeffs);
 
-assert(abs(poly(coeffs, solution)) < 1e-3;
+assert(abs(poly(coeffs, solution)) < 1e-3);
