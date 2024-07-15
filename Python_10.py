@@ -4,4 +4,4 @@ def make_palindrome(string: str) -> str:
         if string[:i] == string[:i][::-1]:
             break
         i -= 1
-    return string + string[i - (i % 2):][::-1] if i >= 0 else string
+    return string + string[i - (i % 2) - 1::-1] if i > 0 else string
