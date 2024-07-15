@@ -1,2 +1,5 @@
-def check(n):
-    return n < 1000 and sum_squares(range(1, int(n**0.5) + 1)) == n
+```
+def sum_squares(lst):
+    return sum(i**2 for i in lst if isinstance(i, int))
+
+print(sum_squares([1, 2, 3]))
