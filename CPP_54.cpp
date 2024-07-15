@@ -1,9 +1,13 @@
-bool same_chars(const char* s0, const char* s1) {
-    return sorted_string(s0) == sorted_string(s1);
-}
+#include <string>
+#include <algorithm>
+#include <cassert>
 
-string sorted_string(const char* s) {
-    string sorted = s;
-    sort(sorted.begin(), sorted.end());
-    return sorted;
+// bool same_chars(const std::string& s0, const std::string& s1);
+
+bool same_chars(const std::string& s0, const std::string& s1) {
+    std::string str0 = s0;
+    std::string str1 = s1;
+    std::sort(str0.begin(), str0.end());
+    std::sort(str1.begin(), str1.end());
+    return str0 == str1;
 }
