@@ -4,7 +4,7 @@ def parse_music(music_input):
     return None
 
 while True:
-    music_input = input("Enter music details: ").strip()
+    music_input = input("Enter music title: ").strip()
     if music_input == "":
         break
     result = parse_music(music_input)
