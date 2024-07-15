@@ -3,10 +3,10 @@ from collections import deque
 def minPath(grid, k):
     n = len(grid)
     start = min((grid[i][j], i, j) for i in range(n) for j in range(n))[1:]
-    path = [grid[start[0]][start[1]]
-    visited = {(start[0], start[1])
-    queue = deque([(start[0], start[1])
-    
+    path = [grid[start[0]][start[1]]]
+    visited = {(start[0], start[1])}
+    queue = deque([(start[0], start[1])])
+
     while len(path) < k and queue:
         x, y = queue.popleft()
         for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
