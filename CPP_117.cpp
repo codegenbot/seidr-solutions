@@ -2,22 +2,37 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> select_words(string s, int n);
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
 
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
 
     return true;
+}
+
+vector<string> select_words(string s, int n);
+
+int main() {
+    string sentence;
+    int n;
+
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+
+    cout << "Enter N: ";
+    cin >> n;
+
+    vector<string> words = select_words(sentence, n);
+
+    // Additional code can be added here to display or use the result accordingly
+
+    return 0;
 }
 
 vector<string> select_words(string s, int n) {
@@ -45,9 +60,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    // Add main function logic if needed
-    return 0;
 }
