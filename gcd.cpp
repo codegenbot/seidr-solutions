@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 
 using namespace std;
@@ -31,6 +30,5 @@ int main() {
     int a = 48;
     int b = 18; 
     cout << "GCD: " << gcd(a, b) << endl;
-
     return 0;
 }
