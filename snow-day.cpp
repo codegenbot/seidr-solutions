@@ -1,14 +1,14 @@
 Here is the modified code:
 
 ```cpp
+#include <iostream>
 #include <iomanip>
-#include <ostream>
 
-int snowDay(int hours, float groundSnow, float rate, float melt) {
-    for(int i = 0; i < hours; ++i) {
+float snowDay(int hours, float groundSnow, float rate, float melt) {
+    for(int i=0; i<hours; i++) {
         groundSnow += rate - melt;
     }
-    return static_cast<int>(groundSnow);
+    return groundSnow;
 }
 
 int main() {
