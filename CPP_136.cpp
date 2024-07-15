@@ -1,32 +1,23 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
+    int largest_neg = lst[0], smallest_pos = lst[0];
+    for (int num : lst) {
+        if (num < 0 && num < largest_neg) {
+            largest_neg = num;
+        } else if (num > 0 && (num < smallest_pos || smallest_pos < 0)) {
+            smallest_pos = num;
+        }
+    }
+    return {largest_neg, smallest_pos};
+}
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst);
-
-void annual_income(); 
-
-bool issame(std::vector<int> a, std::vector<int> b){
+bool is_same(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int max_neg = 0, min_pos = 0;
-    
-    for(int num : lst){
-        if(num < 0 && num < max_neg){
-            max_neg = num;
-        }
-        if(num > 0 && (num < min_pos || min_pos == 0)){
-            min_pos = num;
-        }
-    }
-    
-    return {max_neg, min_pos};
-}
-
-int main() {
-    // Main function content here
+int main(){
+    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
     return 0;
 }
