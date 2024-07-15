@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num >= 0 && num == (int)num && (int)num % 2 != 0) {
@@ -12,8 +13,15 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
-    long long expected_odd_sum = 35; // Sum of squares of odd integers in the list
-    assert(double_the_difference(lst) == expected_odd_sum);
+    int n;
+    std::cin >> n;
+    std::vector<float> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> numbers[i];
+    }
+    
+    long long result = double_the_difference(numbers);
+    std::cout << result << std::endl;
+
     return 0;
 }
