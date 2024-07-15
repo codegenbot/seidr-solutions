@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <cassert>
-using namespace std;
 
 std::string match_parens(std::vector<std::string> lst) {
     int cnt = 0;
