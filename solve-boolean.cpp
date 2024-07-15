@@ -21,7 +21,7 @@ bool solveBoolean(string s) {
         return a || b;
     }
     
-    return false; 
+    return false; // should not reach here
 }
 
 int main() {
