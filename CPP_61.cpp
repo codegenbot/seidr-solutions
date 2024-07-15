@@ -1,14 +1,11 @@
-int balance = 0;
-    for(char c : brackets){
-        if(c == '('){
-            balance++;
-        }
-        else{
-            if(balance == 0){
-                return false;
-            }
-            balance--;
-        }
+int opened = 0;
+for (char c : brackets) {
+    if (c == '(') {
+        opened++;
+    } else if (c == ')' && opened > 0) {
+        opened--;
+    } else {
+        return false;
     }
-    return balance == 0;
 }
+return opened == 0;
