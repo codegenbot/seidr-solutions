@@ -2,7 +2,7 @@ int count = 0;
     for (char c : brackets) {
         if (c == '<') {
             count++;
-        } else {
+        } else if (c == '>') {
             count--;
         }
         if (count < 0) {
