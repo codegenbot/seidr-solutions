@@ -1,17 +1,23 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <cassert> 
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
-    std::vector<int> difference;
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
     for (int i = 0; i < game.size(); ++i) {
-        difference.push_back(abs(game[i] - guess[i]));
+        result.push_back(abs(game[i] - guess[i]));
     }
-    return difference;
+    return result;
 }
 
 int main() {
