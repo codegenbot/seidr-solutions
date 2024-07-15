@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline()
+
 def check_threshold(numbers, threshold):
     return [num for num in numbers if num > threshold]
 
