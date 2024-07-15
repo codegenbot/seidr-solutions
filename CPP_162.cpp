@@ -1,7 +1,10 @@
+#include <iostream>
 #include <openssl/md5.h>
+#include <string>
 #include <cstdio>
 #include <cassert>
-#include <string>
+
+std::string string_to_md5(const std::string& text);
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -9,11 +12,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
-    EVP_MD_CTX_free(mdctx);
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
 
     char md5_hash[2 * MD5_DIGEST_LENGTH + 1];
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
