@@ -3,10 +3,6 @@
 
 string int_to_mini_romank(int number);
 
-int main() {
-    // main function body can be added if needed
-}
-
 string int_to_mini_romank(int number){
     vector<string> roman = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
     vector<int> values = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
@@ -22,3 +18,5 @@ string int_to_mini_romank(int number){
     }
     return result;
 }
+
+int main() { }
