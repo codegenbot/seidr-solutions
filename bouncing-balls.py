@@ -4,8 +4,9 @@ num_bounces = int(input())
 
 bounciness_index = first_bounce_height / start_height
 
-total_distance = 0
 current_height = start_height
+total_distance = 0 
+
 for i in range(num_bounces):
     distance = current_height * 2
     total_distance += distance
