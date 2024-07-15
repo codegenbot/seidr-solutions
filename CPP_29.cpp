@@ -1,13 +1,11 @@
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
+bool issame(vector<string> a, vector<string> b); // Function declaration
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b){ // Function definition
+    return a == b;
+}
+
+#include <cassert> // Include the assert header
+
+int main(){
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 }
