@@ -1,9 +1,9 @@
-```
 def sort_third(l: list) -> list:
-    """
-    The function takes a list of integers as input and sorts the elements at 
-    indices that are multiples of three in reverse order. The remaining 
-    elements are left unchanged.
+"""
+This function sorts the third elements of sublists within a main list.
+If the index is multiple of three, it sorts all subsequent multiples of three
+in reverse order and assigns to the original index.
+
     """
     return [
         (
