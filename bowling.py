@@ -1,4 +1,4 @@
-Here is the solution for the bowling problem in Python:
+Here is the corrected code:
 
 ```
 def bowling_score(frames):
