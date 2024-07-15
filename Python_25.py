@@ -4,7 +4,7 @@ def factorize(n: int) -> List[int]:
     while n > 1:
         if n % divisor == 0:
             factors.append(divisor)
-            n = n // divisor
+            n //= divisor
         else:
             divisor += 1
     return factors
