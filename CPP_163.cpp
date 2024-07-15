@@ -1,18 +1,11 @@
 #include <vector>
-#include <cassert>
-#include <iostream>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> generate_integers(int a, int b);
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert (issame(generate_integers(17, 89), {}));
-    return 0;
+    assert(issame(generate_integers(17, 89), vector<int>{}));
 }
 
 vector<int> generate_integers(int a, int b) {
@@ -23,4 +16,8 @@ vector<int> generate_integers(int a, int b) {
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
