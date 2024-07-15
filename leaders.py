@@ -1,4 +1,3 @@
-```
 def leaders(input):
     leader = input[-1]
     leaders = [leader]
