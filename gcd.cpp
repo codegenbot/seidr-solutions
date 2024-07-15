@@ -3,9 +3,26 @@ int gcd(int a, int b) {
         return a;
     return gcd(b, a % b);
 }
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b);
-    return 0;
+
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> indices;
+    int n = text.length();
+    int m = target.length();
+    
+    for (int i = 0; i <= n - m; ++i) {
+        bool found = true;
+        for (int j = 0; j < m; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            for (int k = 0; k < m; ++k) {
+                indices.push_back(i + k);
+            }
+        }
+    }
+    
+    return indices;
 }
