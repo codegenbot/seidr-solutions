@@ -1,14 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(const std::string &a, const std::string &b) {
-    return a == b;
-}
-
-std::vector<std::string> separate_paren_groups(const std::string &paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -31,15 +23,26 @@ std::vector<std::string> separate_paren_groups(const std::string &paren_string) 
     return result;
 }
 
+bool issame(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    std::string input;
-    std::cout << "Enter a string with parentheses: ";
-    std::cin >> input;
+    vector<string> test_case = separate_paren_groups("( ) (( )) (( )( ))");
+    vector<string> expected_result = {"", "", "(( ))", "(( )( ))"};
 
-    std::vector<std::string> groups = separate_paren_groups(input);
-
-    for (const std::string &group : groups) {
-        std::cout << group << std::endl;
+    if (issame(test_case, expected_result)) {
+        cout << "Test case passed." << endl;
+    } else {
+        cout << "Test case failed." << endl;
     }
 
     return 0;
