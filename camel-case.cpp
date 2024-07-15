@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
