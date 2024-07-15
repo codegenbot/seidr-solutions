@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <iostream>
 
@@ -32,4 +33,5 @@ int main() {
         bool result = solveBoolean(s);
         cout << (result ? "True" : "False") << endl;
     }
+    return 0;
 }
