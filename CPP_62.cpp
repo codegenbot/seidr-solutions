@@ -6,7 +6,15 @@ bool issame(vector<float> a, vector<float> b);
 vector<float> derivative(vector<float> xs);
 
 bool issame(vector<float> a, vector<float> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<float> derivative(vector<float> xs){
@@ -18,6 +26,9 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main(){
-    assert(issame({1, 2, 3}, {1, 2, 3}));
+    // Add your test cases here
+    assert(issame({1.0, 2.0, 3.0}, {1.0, 2.0, 3.0}));
+    assert(!issame({1.0, 2.0, 3.0}, {1.0, 2.0, 4.0}));
+
     return 0;
 }
