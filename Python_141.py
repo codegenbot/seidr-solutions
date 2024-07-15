@@ -6,7 +6,7 @@ def file_name_check(file_name):
         return 'No'
     if file_name.split('.')[0][0].lower() not in 'abcdefghijklmnopqrstuvwxyz':
         return 'No'
-    extension = file_name.split('.')[-1]
-    if extension not in ['txt', 'exe', 'dll']:
+    ext = file_name.split('.')[-1]
+    if ext not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
