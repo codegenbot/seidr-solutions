@@ -1,24 +1,18 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
-    dp = [[[] for _ in range(n)] for _ in range(n)]
-    dp[0][0] = [m[0][0]]
-
-    for i in range(1, n):
-        dp[i][0] = dp[i - 1][0] + [m[i][0]]
-    for j in range(1, n):
-        dp[0][j] = dp[0][j - 1] + [m[0][j]]
-
-    for i in range(1, n):
-        for j in range(1, n):
-            if m[i][j] < m[i - 1][j]:
-                dp[i][j] = dp[i - 1][j] + [m[i][j]]
-            elif m[i][j] < m[i][j - 1]:
-                dp[i][j] = dp[i][j - 1] + [m[i][j]]
-            else:
-                if len(dp[i - 1][j]) > len(dp[i][j - 1]):
-                    dp[i][j] = dp[i - 1][j]
-                else:
-                    dp[i][j] = dp[i][j - 1]
-
-    return dp[-1][-1]
+    visited = set()
+    queue = [(0, 0, [m[0][0]])]
+    res = None
+    while queue:
+        x, y, path = queue.pop(0)
+        if len(path) == k:
+            if not res or path < res:
+                res = path
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < n and 0 <= ny < n and m[nx][ny] not in path and (nx, ny) not in visited:
+                queue.append(((nx, ny), path + [m[nx][ny]]))
+                visited.add((nx, ny))
+    return res
