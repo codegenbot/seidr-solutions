@@ -1,1 +1,1 @@
-return ''.join(strings)
+return "".join(strings)
