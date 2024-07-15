@@ -4,14 +4,14 @@
 
 std::vector<int> incr_list(const std::vector<int>& l) {
     std::vector<int> result = l;
-    for (int &num : result) {
+    for (int& num : result) {
         num++;
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
 
 int main() {
