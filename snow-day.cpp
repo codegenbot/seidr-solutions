@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <iomanip>
 
@@ -8,7 +7,7 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
     float totalSnow = groundSnow;
     for (int i = 0; i < hours; i++) {
         totalSnow += rate;
-        if (melt > 0.0) {
+        if (melt > 0.0f) {
             totalSnow -= min(totalSnow, melt);
         }
     }
@@ -21,4 +20,4 @@ int main() {
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
     cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
-    return 0;
+    return 0; }
