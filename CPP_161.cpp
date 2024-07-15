@@ -1,7 +1,5 @@
-#include <algorithm>
-#include <cctype>
-#include <iostream>
 #include <string>
+#include <cctype>
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -10,16 +8,11 @@ std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
             hasLetters = true;
-            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
+            result += (s[i] >= 'a' && s[i] <= 'z') ? std::toupper(s[i]) : std::tolower(s[i]);
         } else {
             result += s[i];
         }
     }
 
     return hasLetters ? result : std::string(result.rbegin(), result.rend());
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
 }
