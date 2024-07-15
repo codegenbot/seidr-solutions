@@ -11,9 +11,6 @@ string concatenate(vector<string> strings){
 
 int main() {
     vector<string> strings = {"Hello, ", "world!"};
-    string concatenatedString = concatenate(strings);
-
-    cout << concatenatedString;
-
+    cout << concatenate(strings);
     return 0;
 }
