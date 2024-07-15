@@ -1,19 +1,13 @@
-```cpp
+#include <vector>
+
 int luhn(vector<int> numbers) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (int i : numbers) {
-        sum += i;
-        if (doubleNext) {
-            i *= 2;
-            if (i > 9) {
-                i -= 9;
-            }
+    for (int i = 0; i < numbers.size(); ++i) {
+        int num = numbers[i] * ((i % 2) + 1);
+        if (num > 9) { 
+            num -= 9;
         }
-        doubleNext = !doubleNext;
+        sum += num; 
     }
-
     return sum;
-
 }
