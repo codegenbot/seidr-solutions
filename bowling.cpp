@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -38,7 +36,7 @@ int bowlingScore(std::string s) {
                 score += rolls[i + 1];
             }
         } else if (rolls[i] > 0) {
-            score += std::min(rolls[i], 10);
+            score += min(rolls[i], 10);
         }
     }
 
