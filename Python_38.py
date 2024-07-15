@@ -9,5 +9,6 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 s = input()
+
 print(encode_cyclic(s))
 print(decode_cyclic(s))
