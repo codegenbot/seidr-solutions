@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -15,5 +14,3 @@ int main() {
         std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
     }
     std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
-    
-}
