@@ -1,2 +1,3 @@
-```python
-return " ".join(' '.join([word[::-1] if len(word) >= 5 else word for word in w.split()]) if w.isspace() else w for w in sentence.split())
+```
+def spin_words(sentence): 
+    return " ".join(word[::-1] if len(word) > 4 else word for word in sentence.split())
