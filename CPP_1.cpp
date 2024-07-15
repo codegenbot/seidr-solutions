@@ -34,7 +34,7 @@ void test() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
     std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    assert(result == expected);
+    assert(expected == result);
 }
 
 int main() {
