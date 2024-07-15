@@ -13,6 +13,8 @@ int main() {
             index = cipher2.find(c);
             if (index != string::npos) {
                 c = cipher1[index];
+            } else {
+                // Add condition to keep characters unchanged
             }
         }
     }
