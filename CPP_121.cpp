@@ -11,7 +11,7 @@ int solution(std::vector<int> lst){
 }
 
 int main(){
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-    int result = solution(numbers);
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    int result = solution(input);
     return 0;
 }
