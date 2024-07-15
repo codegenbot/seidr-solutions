@@ -14,7 +14,7 @@ bool is_same(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
+    for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -23,10 +23,14 @@ bool is_same(vector<float> a, vector<float> b){
 }
 
 int main(){
-    vector<float> list1 = {1.2, -3.4, 5.6};
-    vector<float> list2 = {1.2, -3.4, 5.6};
+    vector<float> a = {1.2, 3.4, -5.6, 7.8};
+    vector<float> b = {1.2, 3.4, -5.6, 7.8};
     
-    bool result = is_same(list1, list2);
+    if(is_same(a, b)){
+        cout << "Vectors are the same" << endl;
+    } else {
+        cout << "Vectors are different" << endl;
+    }
     
     return 0;
 }
