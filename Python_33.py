@@ -1,4 +1,4 @@
 def sort_third(l: list):
     if len(l) % 3 != 0:
-        l += [float("inf")] * (3 - len(l) % 3)  # Pad the list with infinity values
-    return [sorted(l[i : i + 3]) for i in range(0, len(l), 3)]
+        l += [float('inf')] * (3 - len(l) % 3)
+    return [sorted(l[i : i + 3]) for i in range(0, len(l), 3]
