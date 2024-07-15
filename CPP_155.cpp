@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,7 +26,7 @@ vector<int> even_odd_count(int num) {
     return count;
 }
 
-int test_main() {
+int main() {
     vector<int> testResult = even_odd_count(0);
     if (issame(testResult, {1, 0})) {
         cout << "Test Passed!";
