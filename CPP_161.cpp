@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cctype>
 
 std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
@@ -12,8 +11,8 @@ std::string solve(std::string s) {
             }
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if (std::count_if(s.begin(), s.end(), isalpha) == 0) {
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
