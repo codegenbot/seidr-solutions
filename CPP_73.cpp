@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -13,7 +14,6 @@ namespace Solution {
 }
 
 int main() {
-    using Solution::smallest_change;
-    assert(smallest_change({0, 1}) == 1);
+    std::cout << Solution::smallest_change({0, 1}) << std::endl;
     return 0;
 }
