@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits>
 #include <cmath>
-#include <climits>  // Add this line
+#include <climits>
 
 using namespace std;
 
@@ -36,10 +36,16 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << "\n";
+        cout << nums[i] << " ";
     }
     
-    cout << 0 << "\n";
+    cout << endl;
+    
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << " ";
+    }
+    
+    cout << endl;
     
     return 0;
 }
