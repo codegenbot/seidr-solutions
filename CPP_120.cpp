@@ -2,8 +2,10 @@
 #include <algorithm>
 
 bool issame() {
-    // or remove this function altogether
+    // this function is not used anywhere in the given problem description, 
+    // so we will leave it blank for now.
+}
 
 int main() {
-    assert(std::equal(maximum({1, 2, 3, -23, 243, -400, 0}, 7).begin(), maximum({1, 2, 3, -23, 243, -400, 0}, 7).end(), int())); // adjust the input size and values as needed
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, -23, 1, 2, 3})); 
 }
