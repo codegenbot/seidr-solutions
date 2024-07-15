@@ -17,14 +17,3 @@ std::string string_to_md5(const std::string& text) {
 
     return mdString;
 }
-
-int main() {
-    std::string input_text;
-    std::cout << "Enter a text: ";
-    std::cin >> input_text;
-
-    std::string md5_hash = string_to_md5(input_text);
-    std::cout << "MD5 Hash: " << md5_hash << std::endl;
-
-    return 0;
-}
