@@ -12,18 +12,10 @@ int main() {
     
     while (cin >> num) {
         nums.push_back(num);
-        if (cin.eof()) {
-            break;
-        }
+        if(cin.eof()) break;  // Check for end-of-file (EOF)
     }
     
     int n = nums.size();
-    if (n == 1) {
-        cout << nums[0] << endl;
-        cout << endl;
-        return 0;
-    }
-    
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
