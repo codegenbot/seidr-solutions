@@ -15,3 +15,4 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 assert(issame(eat(4, 5, 1), vector<int>{5, 0}));
+return 0;
