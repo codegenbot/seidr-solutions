@@ -1,7 +1,6 @@
-while (b != 0){
-        int temp = b;
-        b = a % b;
-        a = temp;
+int greatest_common_divisor(int a, int b){
+    if (b == 0) {
+        return a;
     }
-    return a;
+    return greatest_common_divisor(b, a % b);
 }
