@@ -14,6 +14,7 @@ std::string compare(std::string a, std::string b) {
 }
 
 int main() {
+    // Input from user
     std::string input1, input2;
     std::cin >> input1 >> input2;
 
