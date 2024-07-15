@@ -5,7 +5,6 @@
 #include <iterator>
 
 using namespace std;
-using namespace std;
 
 vector<int> make_a_pile(int n) {
     vector<int> stones;
