@@ -1,26 +1,18 @@
-#include <iostream>
 #include <vector>
+#include <string>
 
-int countTotalChars(const std::vector<std::string>& lst) {
-    int total = 0;
-    for (const std::string& str : lst) {
-        total += str.size();
+bool issame(const vector<string>& lst1, const vector<string>& lst2);
+
+vector<string>& issame(vector<string>& lst1, vector<string>& lst2) {
+    int totalChars1 = 0, totalChars2 = 0;
+    for (const string& str : lst1) {
+        totalChars1 += str.size();
     }
-    return total;
-}
-
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
-
-int main() {
-    // Your main function implementation
-    return 0;
-}
-
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    int total_chars_lst1 = countTotalChars(lst1);
-    int total_chars_lst2 = countTotalChars(lst2);
+    for (const string& str : lst2) {
+        totalChars2 += str.size();
+    }
     
-    if (total_chars_lst1 < total_chars_lst2) {
+    if (totalChars1 < totalChars2) {
         return lst1;
     } else {
         return lst2;
