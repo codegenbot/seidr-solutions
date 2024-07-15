@@ -3,16 +3,10 @@
 using namespace std;
 
 int main() {
-    vector<int> v = {1, 2, 3}; 
-    int result = fuelCost(v);
-    cout << "Fuel cost: " << result << endl;
-    return 0;
-}
-
-int fuelCost(vector<int> v) {
     int sum = 0;
+    vector<int> v = {1, 2, 3};
     for (int i : v) {
-        int new_val = (i / 3) - 2;
+        int new_val = static_cast<int>(i / 3.0) - 2;
         sum += new_val;
     }
     return sum;
