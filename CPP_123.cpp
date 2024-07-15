@@ -2,11 +2,11 @@
 #include <iostream>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issamestd(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> calculateSequence(int n) {
+std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
 
     while (n != 1) {
@@ -22,9 +22,9 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> result = calculateSequence(n);
+    std::vector<int> result = get_odd_collatz(n);
 
-    assert(issame(result, std::vector<int>{1}));
+    assert(issamestd(result, get_odd_collatz(n)));
 
     return 0;
 }
