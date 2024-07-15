@@ -9,7 +9,7 @@ current_height = start_height
 for i in range(num_bounces):
     distance = 2 * current_height
     total_distance += distance
-    if i < num_bounces - 1:
+    if i < num_bounces - 1:  
         current_height *= bounciness_index
     
 print(total_distance)
