@@ -1,29 +1,46 @@
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iostream>
+
+using namespace std;
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> groups;
-    string group;
-    bool inGroup = false;
+    string current_group;
+    bool in_group = false;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (!group.empty()) {
-                groups.push_back(group);
-                group.clear();
+            if (in_group) {
+                groups.push_back(current_group);
+                current_group = "";
             }
-            inGroup = true;
+            in_group = true;
         } else if (c == ')') {
-            if (inGroup) {
-                groups.push_back("(" + group + ")");
-                group.clear();
-                inGroup = false;
-            }
-        } else if (inGroup) {
-            group += c;
+            in_group = false;
+        } else if (in_group) {
+            current_group += c;
         }
     }
 
-    if (!group.empty()) {
-        groups.push_back(group);
+    if (!current_group.empty()) {
+        groups.push_back(current_group);
     }
 
     return groups;
+}
+
+int main() {
+    string input;
+    cout << "Enter the string with nested parentheses: ";
+    getline(cin, input);
+
+    vector<string> result = separate_paren_groups(input);
+
+    for (const auto& group : result) {
+        cout << group << endl;
+    }
+
+    return 0;
 }
