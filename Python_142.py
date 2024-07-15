@@ -1,7 +1,2 @@
-```
-def sum_squares(lst):
-    total = 0
-    for num in lst:
-        if isinstance(num, int) and num > 0:
-            total += num ** len(str(num))
-    return total
+numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
+print(sum_squares(numbers))
