@@ -1,6 +1,3 @@
-Here is the corrected and modified code:
-
-```python
 def sort_third(l):
     return [
         (
