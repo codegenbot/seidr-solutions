@@ -1,6 +1,3 @@
-#include <vector>
-#include <algorithm>
-
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
@@ -10,4 +7,8 @@ vector<float> rescale_to_unit(vector<float> numbers) {
         rescaled_numbers.push_back(rescaled_num);
     }
     return rescaled_numbers;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b; // This checks if vectors a and b are equal
 }
