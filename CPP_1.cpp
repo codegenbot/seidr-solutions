@@ -7,8 +7,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string& paren_string);
-
 std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> groups;
     std::string group;
