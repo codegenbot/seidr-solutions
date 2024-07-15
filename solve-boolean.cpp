@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -27,9 +28,10 @@ bool solveBoolean(string s) {
 int main() {
     string s;
     cout << "Enter the Boolean expression: ";
-    cin >> s;
+    cin >> ws >> s;
     if (s.size() > 0) {
         bool result = solveBoolean(s);
         cout << (result ? "True" : "False") << endl;
     }
+    return 0;
 }
