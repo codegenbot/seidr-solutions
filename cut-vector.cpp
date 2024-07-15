@@ -25,10 +25,10 @@ int main() {
     vector<int> v(n);
     for (auto &x : v) std::cin >> x;
     pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for (const auto &x : res.first) cout << x << " ";
-    cout << "]\n[";
-    for (const auto &x : res.second) cout << x << " ";
-    cout << "]\n0\n";
+    std::cout << "["; 
+    for (const auto &x : res.first) std::cout << x << " ";
+    std::cout << "]]\n[";
+    for (const auto &x : res.second) std::cout << x << " ";
+    std::cout << "]\n0\n";
     return 0;
 }

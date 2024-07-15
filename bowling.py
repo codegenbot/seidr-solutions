@@ -1,29 +1,19 @@
-```python
-def bowling_score(frames):
-    score = 0
-    frame_count = 1
-    last_roll = 0
-    last_roll_type = 'X' if frames[0] == 'X' else '5'
-
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            score += 10 + (last_roll * 2)
-            frame_count -= 1
-        elif frames[i] == '5':
-            score += 5 + last_roll
-            frame_count -= 1
-        else:
-            first, second = int(frames[i-1]), int(frames[i])
-            if first + second == 10:
-                score += 10
-                frame_count -= 1
-            elif first == 'X' or second == 'X':
-                score += sum([int(x) for x in frames[:i]]) + (last_roll * 2)
-                frame_count = 0
+def bowling_score(score):
+    score = score.replace("/", "-0")
+    total_score = 0
+    frame_score = 0
+    for i in range(0, len(score), 2):
+        if score[i].isdigit():
+            temp = int(score[i:])
+            if temp == 10:
+                frame_score += 30
+            elif temp >= 10 and score[i+1] == "X":
+                frame_score += 20 + int(score[:i])
             else:
-                score += sum([int(x) for x in frames[:i]]) + first + second
-        last_roll, last_roll_type = int(frames[i]), frames[i]
-
-    if frame_count > 1:
-        score += sum([int(x) for x in frames[-frame_count:]])
-    return score
+                frame_score += temp
+        elif score[i] == "X":
+            frame_score += 30
+        total_score += frame_score
+        if i < len(score):
+            frame_score = 0
+    return total_score
