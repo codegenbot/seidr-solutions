@@ -1,2 +1,2 @@
-n = int(input("Enter the number of elements: "))
-numbers = list(map(int, input("Enter the elements separated by space: ").split()))
+n = int(input())
+numbers = list(map(int, input().split()))
