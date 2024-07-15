@@ -1,8 +1,8 @@
+#include <climits> // Include for INT_MAX
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <climits> // Include for INT_MAX
 using namespace std;
 
 int main() {
