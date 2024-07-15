@@ -5,8 +5,11 @@ int bowlingScore(char c, int& i) {
     int score = 0;
     if (c == 'X') {
         score += 30;
+        if (i + 1 >= s.length() || s[i+1] != '\n') {
+            score -= 20;
+        }
     } else if (c == '/') {
-        int next = std::find(std::next(s.begin(), i), s.end(), '\n') - s.begin();
+        int next = i + 1;
         while ((s[next] < '7' || s[next] > '9') && next < s.length()) {
             next++;
         }
@@ -16,7 +19,12 @@ int bowlingScore(char c, int& i) {
         while (c >= '1' && c <= '9') {
             count *= 10;
             count += c - '0';
-            c = s[i++];
+            if (++i < s.length()) {
+                c = s[i];
+            }
+            else {
+                break;
+            }
         }
         score += count;
     }
