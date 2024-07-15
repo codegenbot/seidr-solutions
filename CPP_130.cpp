@@ -1,7 +1,3 @@
-#include <vector>
-
-bool issame(int a, int b);
-
 vector<int> tri(int n) {
     vector<int> result;
     if (n == 0) {
