@@ -1,4 +1,3 @@
-input_string = input()
 def decode_shift(input_string):
     input_string = input_string.lower()
     decoded_text = ""
@@ -8,3 +7,7 @@ def decode_shift(input_string):
         else:
             decoded_text += char
     return decoded_text
+
+input_string = input()
+result = decode_shift(input_string)
+print(result)
