@@ -1,26 +1,43 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <string> // Include this header file.
-using namespace std;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for(int i = 0; i <= n - m; i++) {
-        if(text.substr(i, m) == target) {
-            result.push_back(i);
-            // You can remove this line. If you want to skip overlapping indices, consider another logic.
-        }
-    }
-
-    return result;
-}
+#include <string>
 
 int gcd(int a, int b) {
     if(b == 0)
         return a;
     else
         return gcd(b, a % b);
+}
+
+std::vector<int> findIndices(std::string text, std::string target) {
+    std::vector<int> indices;
+    int target_len = target.length();
+    for(int i = 0; i <= text.length() - target_len; i++) {
+        bool found = true;
+        for(int j = 0; j < target_len; j++) {
+            if(text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if(found) {
+            indices.push_back(i);
+        }
+    }
+    return indices;
+}
+
+int main() {
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << std::endl;
+    std::cout << gcd(a, b) << std::endl;
+
+    std::string text, target;
+    std::cin >> text >> target;
+    std::vector<int> indices = findIndices(text, target);
+    for(int i : indices)
+        std::cout << i << " ";
+    return 0;
 }
