@@ -26,21 +26,16 @@ int main() {
     
     int totalScore = 0;
     for (char c : s) {
-        if (c == 'X') {
-            totalScore += bowlingScore(c);
-        } else if (c == '/') {
-            // Split this frame into two rolls, the first is 10 and the second is whatever.
-            // You already know how to handle this in your code.
-            totalScore += bowlingScore(c) + bowlingScore(s[1]);
-            s.erase(0, 2);
-        } else if (isdigit(c)) {
+        if (isdigit(c)) {
             int frameNumber = c - '0';
             if (frameNumber >= 7) {
-                totalScore += 10;
+                score += 10;
             } else {
-                totalScore += frameNumber + bowlingScore(s[1]);
+                score += frameNumber + bowlingScore(s[1]);
                 s.erase(0, 2);
             }
+        } else {
+            totalScore += bowlingScore(c);
         }
     }
     std::cout << "The total score is: " << totalScore << std::endl;
