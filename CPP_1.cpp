@@ -1,26 +1,29 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::string& str1, const std::string& str2) {
-    return str1.size() == str2.size();
-}
+using namespace std;
 
-std::vector<std::string> separateParenGroups(const std::string& paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
-    int open_braces = 0;
+vector<string> separate_paren_groups(string paren_string);
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
+    int balance = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_braces > 0) {
-                current_group.push_back(c);
+            if (balance > 0) {
+                current_group += c;
             }
-            open_braces++;
+            balance++;
         } else if (c == ')') {
-            open_braces--;
-            if (open_braces > 0) {
-                current_group.push_back(c);
-            } else {
+            balance--;
+            if (balance > 0) {
+                current_group += c;
+            }
+            if (balance == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -28,4 +31,18 @@ std::vector<std::string> separateParenGroups(const std::string& paren_string) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
