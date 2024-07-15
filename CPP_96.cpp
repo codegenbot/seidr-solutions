@@ -15,7 +15,7 @@ std::vector<int> count_up_to(int n) {
             result.push_back(i);
         }
     }
-    return result;  
+    return result;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
