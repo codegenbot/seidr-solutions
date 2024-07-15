@@ -15,5 +15,5 @@ bool same_chars(const string& s0, const string& s1) {
 int main() {
     assert(same_chars("aabb", "aaccc") == false);
 
-    return 0;
+    return 0;    
 }
