@@ -5,8 +5,8 @@ def cut_vector(vector):
     split_index = -1
 
     for i in range(len(vector)):
-        if left_sum <= right_sum / 2:
-            diff = abs(left_sum - (right_sum - left_sum))
+        if left_sum <= right_sum:
+            diff = abs(left_sum - right_sum)
             if diff < min_diff:
                 min_diff = diff
                 split_index = i
