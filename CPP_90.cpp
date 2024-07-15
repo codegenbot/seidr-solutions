@@ -4,7 +4,7 @@
 #include <cassert>
 
 int next_smallest(std::vector<int> lst) {
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
     int count = 0;
     int prev = lst[0];
     for (int num : lst) {
