@@ -1,12 +1,13 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> filter_by_prefix(vector<string> a, string prefix) {
-    vector<string> result;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> a, std::string prefix) {
+    std::vector<std::string> result;
     for (const auto &str : a) {
         if (str.substr(0, prefix.size()) == prefix) {
             result.push_back(str);
