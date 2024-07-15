@@ -12,7 +12,7 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-    
+
     map<int, int> mp;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
@@ -22,6 +22,6 @@ int main() {
         }
         mp[nums[i]] = i;
     }
-    
+
     return 0;
 }
