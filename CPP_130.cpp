@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> tri(int n){
+std::vector<int> tri(int n) {
     return {1, n+2};
 }
 
