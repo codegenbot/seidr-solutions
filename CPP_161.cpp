@@ -1,4 +1,6 @@
 #include <string>
+#include <cassert>
+#include <algorithm> // Add this for using reverse
 
 std::string solve(std::string s){
     bool hasLetter = false;
@@ -9,7 +11,7 @@ std::string solve(std::string s){
         }
     }
     if(!hasLetter){
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end()); // Correctly call the reverse function
     }
     return s;
 }
