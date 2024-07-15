@@ -1,10 +1,10 @@
-```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
 
 std::string spinWords(std::string str) {
     std::reverse(str.begin(), str.end());
+    
     std::size_t pos = 0;
     
     while ((pos = str.find(" ")) != std::string::npos) {
