@@ -1,7 +1,6 @@
 try:
-    n = int(input())
-    numbers = [int(x) for x in input().split()]
-    if len(numbers) != n:
+    n, *numbers = [int(x) for x in input().split()]
+    if len(numbers) != n - 1:
         raise ValueError
     res = sum(num for num in numbers if num % 2 == 0)
     print(res)
