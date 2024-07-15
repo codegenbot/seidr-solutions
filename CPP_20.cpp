@@ -5,6 +5,10 @@
 
 using namespace std;
 
+pair<float, float> find_closest_elements(const vector<float>& numbers);
+
+bool issame(vector<float> a, vector<float> b);
+
 pair<float, float> find_closest_elements(const vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
@@ -18,7 +22,7 @@ pair<float, float> find_closest_elements(const vector<float>& numbers) {
     return {result.first, result.second};
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
 
