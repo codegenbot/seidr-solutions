@@ -7,3 +7,4 @@ int basement(std::vector<int>& arr) {
         if (sum < 0) return i;
     }
     return -1;
+}
