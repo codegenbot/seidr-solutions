@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <algorithm>
 
 using namespace std;
 
@@ -13,22 +12,24 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
+    
     map<int, int> mp;
     bool found = false;
+    int num1, num2;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
-            int num1 = min(nums[i], target - nums[i]);
-            int num2 = max(nums[i], target - nums[i]);
-            cout << num1 << endl;
-            cout << num2 << endl;
+            num1 = min(target - nums[i], nums[i]);
+            num2 = max(target - nums[i], nums[i]);
             found = true;
             break;
         }
         mp[nums[i]] = i;
     }
 
-    if (!found) {
+    if (found) {
+        cout << num1 << endl;
+        cout << num2 << endl;
+    } else {
         cout << "Pair not found." << endl;
     }
 
