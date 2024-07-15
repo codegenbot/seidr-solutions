@@ -11,8 +11,8 @@ std::string spinWords(std::string str) {
             len = str.length();
         
         if (len - pos > 4) {
-            std::string reversed = str.substr(pos, len - pos).rbegin()->str();
-            result += reversed + " ";
+            std::vector<char> reversed = str.substr(pos, len - pos).rbegin()->reverse();
+            result += std::string(reversed.begin(), reversed.end()) + " ";
         } else
             result += str.substr(pos, len - pos) + " ";
         
