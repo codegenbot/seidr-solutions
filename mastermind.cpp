@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <map>
+
 using namespace std;
 
 int whitePegs(string code, string guess) {
