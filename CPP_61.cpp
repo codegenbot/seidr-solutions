@@ -1,13 +1,14 @@
-int count = 0;
-for (char bracket : brackets) {
-    if (bracket == '(') {
-        count++;
-    } else if (bracket == ')') {
-        if (count == 0) {
-            return false;
+bool correct_bracketing(const string& brackets) {
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count < 0) {
+                return false;
+            }
         }
-        count--;
     }
-}
-return count == 0;
+    return count == 0;
 }
