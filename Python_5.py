@@ -1,5 +1,9 @@
 def add_delimiter(numbers, delimiter):
-    return delimiter.join(str(num) for num in numbers)
+    result = []
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop()
+    return result
 
 # Call the function with appropriate arguments
 numbers = [1, 2, 3, 4]
