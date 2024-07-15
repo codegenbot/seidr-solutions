@@ -34,7 +34,7 @@ bool issame_vectors(vector<string> a, vector<string> b) {
         return false;
     }
 
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -44,8 +44,8 @@ bool issame_vectors(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> result = separate_paren_groups("((hello)(world))");
-    vector<string> expected_result = {"(hello)", "(world)"};
+    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
+    vector<string> expected_result = {"(group1)", "(group2)", "(group3)"};
 
     if (issame_vectors(result, expected_result)) {
         cout << "Test Passed" << endl;
