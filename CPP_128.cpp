@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
+
+using namespace std;
 
 int prod_signs(const vector<int>& arr) {
     if (arr.empty()) {
@@ -19,7 +21,7 @@ int prod_signs(const vector<int>& arr) {
         } else {
             product *= 0;
         }
-        sum += std::abs(num);
+        sum += abs(num);
     }
 
     return product * sum;
