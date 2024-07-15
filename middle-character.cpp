@@ -1,7 +1,5 @@
 #include <string>
 
-using namespace std;
-
 string middleCharacter(string str) {
     int length = str.length();
     if (length % 2 == 0) {
