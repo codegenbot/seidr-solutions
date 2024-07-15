@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 
-int whitePegs(std::string code, std::string guess) {
+int whitePegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
@@ -12,9 +12,9 @@ int whitePegs(std::string code, std::string guess) {
     return count;
 }
 
-int blackPegs(std::string code, std::string guess) {
+int blackPegs(string code, string guess) {
     int count = 0;
-    std::map<char,int> codeMap;
+    map<char,int> codeMap;
     for(int i=0; i<4; i++) {
         codeMap[code[i]]++;
     }
@@ -38,9 +38,9 @@ int blackPegs(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    std::cout << whitePegs(code, guess) << std::endl;
-    std::cout << blackPegs(code, guess) << std::endl;
+    string code, guess;
+    cin >> code >> guess;
+    cout << std::whitePegs(code, guess) << std::endl; // Fix: Declare and use these as functions
+    cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
