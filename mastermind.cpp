@@ -3,10 +3,6 @@
 
 using namespace std;
 
-void addCharacter(string& str, char c) {
-    str.push_back(c);
-}
-
 int mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
