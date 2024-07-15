@@ -8,6 +8,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 # Read input from user
-numbers = list(map(int, input("Enter numbers separated by commas: ").split(',')))
-result = sum_product(numbers)
-print(result)
+numbers = list(map(int, input().split()))
+result_sum, result_product = sum_product(numbers)
+print(result_sum, result_product)
