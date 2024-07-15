@@ -2,9 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool triples_sum_to_zero(vector<int>& l) {
+bool triples_sum_to_zero(std::vector<int>& l) {
     sort(l.begin(), l.end());
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
@@ -22,4 +20,9 @@ bool triples_sum_to_zero(vector<int>& l) {
         }
     }
     return false;
+}
+
+int main() {
+    // Input reading and further processing
+    return 0;
 }
