@@ -8,4 +8,4 @@ def luhn(card):
         else:
             digit = int(str(card)[i-1])
         sum += digit
-    return str(sum).zfill(2)
+    return str(sum)
