@@ -10,8 +10,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for(int i=0; i<=n-m; i++) {
-        if(text.find(target, i) != string::npos) {
+        if(text.substr(i,m).find(target) != string::npos) {
             result.push_back(i);
+            i++;
         }
     }
 
@@ -19,7 +20,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    vector<int> result = indicesOfSubstring("}{:'z*C.{=", "{");
+    vector<int> result = indicesOfSubstring("hello world", "world");
     for (int i : result) {
         cout << i << endl;
     }

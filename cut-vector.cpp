@@ -20,15 +20,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
             rightSum += v[j];
         }
         
-        if (leftSum != rightSum) {
+        if (leftSum == rightSum) {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+        } else {
             int diff = abs(leftSum - rightSum);
-
+            
             if (diff < minDiff) {
                 minDiff = diff;
                 splitIndex = i;
             }
-        } else {
-            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
     

@@ -1,41 +1,27 @@
-```cpp
-int bowlingScore(std::string s) {
-    int score = 0;
-    bool inFrame = false;
-    int currentRolls = 0;
-
-    for (char c : s) {
-        if (c == '/') {
-            inFrame = true;
-            currentRolls++;
-        } else if (c == 'X') {
-            score += 10;
-            inFrame = false;
-            currentRolls = 0;
-        } else {
-            int value = c - '0';
-            if (!inFrame) {
-                currentScore = value;
-                currentRolls = 1;
-            } else {
-                if (value == 1 || value == 2) {
-                    score += 10 - value;
-                } else {
-                    score += 10 + value;
-                }
-                inFrame = false;
-                currentRolls = 0;
-            }
-        }
-
-        if (currentRolls == 2) {
-            if (!inFrame) {
-                score += currentScore;
-            }
-            inFrame = false;
-            currentRolls = 0;
-        }
+if (currentRolls == 1 && currentScore > 9) {
+    score += 10 + strikeBonus;
+    inFrame = false;
+    currentScore = 0;
+    currentRolls = 0;
+} else if (currentRolls == 2) {
+    if (currentScore >= 10) {
+        score += 10;
+        currentScore = 0;
+        currentRolls = 0;
+        inFrame = false;
+    } else {
+        score += currentScore;
+        currentScore = 0;
+        currentRolls = 0;
+        inFrame = false;
     }
-
-    return score;
+} else if (currentRolls == 2 && !inFrame) {
+    if (frameValue >= 10) {
+        score += 10;
+    } else {
+        score += frameValue;
+    }
+    inFrame = false;
+    currentScore = 0;
+    currentRolls = 0;
 }
