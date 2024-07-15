@@ -19,7 +19,7 @@ std::vector<int> parse_music(std::string music_string) {
         } else if (c == '.') {
             beats.push_back(1);
         } else if (c == '|') {
-            note = "";
+            note = "";  
         }
     }
     return beats;
