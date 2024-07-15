@@ -1,14 +1,15 @@
 #include <vector>
 
-bool issame(int a, int b){
-    return a == b;
-}
-
-vector<int> get_odd_collatz(int n);
-
-int main() {
-    // Main function logic here
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> get_odd_collatz(int n){
@@ -31,4 +32,9 @@ vector<int> get_odd_collatz(int n){
     }
     sort(odd_numbers.begin(), odd_numbers.end());
     return odd_numbers;
+}
+
+int main(){
+    assert(issame(get_odd_collatz(1), vector<int>{1}));
+    return 0;
 }
