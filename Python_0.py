@@ -3,11 +3,11 @@ def filter_numbers(numbers, threshold):
     return result
 
 numbers = []
-n = int(input("Enter the number of elements: "))
+n = int(input())
 for _ in range(n):
     numbers.append(int(input()))
 
-threshold = int(input("Enter the threshold: "))
+threshold = int(input())
 
 for num in filter_numbers(numbers, threshold):
     print(num)
