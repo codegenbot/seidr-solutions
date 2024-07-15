@@ -1,3 +1,15 @@
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <string>
+#include <cassert>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> by_length(vector<int> arr);
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
