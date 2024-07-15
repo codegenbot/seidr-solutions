@@ -2,11 +2,11 @@ from typing import List
 
 def parse_music(music_string: str) -> List[int]:
     notes = {"o": 4, "o|": 2, ".|": 1}
-    if all(note in notes for note in music_string):
-        return [notes[note] for note in music_string]
+    if all(note in notes for note in music_string.strip().split()):
+        return [notes[note] for note in music_string.strip().split()]
     else:
-        return "Invalid input format. Please provide music notes without spaces."
+        return "Invalid input format. Please provide music notes separated by spaces."
 
-music_string = input("Enter the music notes: ")
+music_string = input()
 result = parse_music(music_string)
 print(result)
