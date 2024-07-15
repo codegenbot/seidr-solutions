@@ -32,6 +32,6 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 
 int main() {
     assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-
+    
     return 0;
 }
