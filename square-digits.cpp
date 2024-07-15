@@ -1,13 +1,17 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-string squareDigits(int n) {
-    string str = to_string(n);
-    for (char &c : str) {
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        c = (char)(digit * digit + '0');
+        output += to_string(digit * digit);
     }
-    return str;
+    return output;
 }
-return 0;
+
+int main() {
+    string test = "493193";
+    cout << squareDigits(test) << endl;  
+    return 0;
+}
