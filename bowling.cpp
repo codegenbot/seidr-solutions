@@ -9,12 +9,7 @@ int bowlingScore(char c) {
     } else if (c == '/') {
         return score + 10; 
     } else {
-        int count = 0;
-        while (c >= '1' && c <= '9') {
-            count *= 10;
-            count += c - '0';
-            c = (c < '7') ? ++c : '/';
-        }
+        int count = c - '0';
         score += count;
     }
     return score;
