@@ -2,57 +2,50 @@
 #include <algorithm>
 using namespace std;
 
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<pair<int, int>> diff(n);
+    
+    for(int i = 1; i < n; i++) {
+        diff[i].first = abs(v[i] - v[0]);
+        diff[i].second = i;
+        
+        if(abs(v[n-1] - v[i]) < diff[i].first) {
+            diff[i].first = abs(v[n-1] - v[i]);
+        }
+    }
+    
+    pair<int, int> minDiff = make_pair(INT_MAX, 0);
+    for(int i = 1; i < n; i++) {
+        if(diff[i].first <= minDiff.first) {
+            minDiff = diff[i];
+        }
+    }
+    
+    vector<vector<int>> res(2);
+    res[0].insert(res[0].end(), v.begin(), v.begin() + minDiff.second);
+    res[1].insert(res[1].begin(), v.begin() + minDiff.second, v.end());
+    
+    return res;
+}
+
 int main() {
     vector<int> input;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int val;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> val;
-        input.push_back(val);
+    cout << "Enter the elements of the vector separated by spaces: ";
+    string s;
+    cin >> s;
+    istringstream iss(s);
+    int x;
+    while (iss >> x) {
+        input.push_back(x);
     }
     vector<vector<int>> result = cutVector(input);
-    
-    // Print the result
+    cout << "Cutting point is at index: " << result[1].size() - 1 << endl;
     for(int i = 0; i < 2; i++) {
         cout << "Subvector " << i + 1 << ": ";
         for(auto x : result[i])
             cout << x << " ";
         cout << endl;
     }
-    
     return 0;
-}
-
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    
-    int minDiff = INT_MAX, index = -1;
-    for(int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        for(int j = 0; j <= i; j++)
-            leftSum += v[j];
-        for(int j = i; j < n; j++)
-            rightSum += v[j];
-        
-        int diff = abs(leftSum - rightSum);
-        if(diff < minDiff) {
-            minDiff = diff;
-            index = i;
-        }
-    }
-    
-    vector<int> leftVec, rightVec;
-    for(int i = 0; i <= index; i++)
-        leftVec.push_back(v[i]);
-    for(int i = index + 1; i < n; i++)
-        rightVec.push_back(v[i]);
-    
-    res[0] = leftVec;
-    res[1] = rightVec;
-    
-    return res;
 }
