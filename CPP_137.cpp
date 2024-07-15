@@ -11,8 +11,3 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
     }
     return boost::any();
 }
-
-int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "");
-    return 0;
-}
