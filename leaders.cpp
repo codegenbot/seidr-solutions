@@ -16,6 +16,18 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int max_right = arr.back();
+    for (int i = 0; i < arr.size(); i++) {
+        if (i == arr.size() - 1 || arr[i] >= max_right) {
+            max_right = arr[i];
+            result.push_back(max_right);
+        }
+    }
+    return result;
+}
+
 int main() {
     vector<int> arr = {11, 823, 993, 413, 170, 694, 357, 233, 736, 573, 159, 746};
     vector<int> leaders_result = leaders(arr);
