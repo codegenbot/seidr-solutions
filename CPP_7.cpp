@@ -19,6 +19,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 
 int main(){
     assert(are_equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
+
     return 0;
 }
