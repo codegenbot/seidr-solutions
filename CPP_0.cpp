@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 bool has_close_elements(const std::vector<float>& arr, float threshold) {
     for (size_t i = 0; i < arr.size(); ++i) {
