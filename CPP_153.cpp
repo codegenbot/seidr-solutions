@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = "";
     int max_strength = INT_MIN;
