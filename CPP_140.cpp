@@ -1,11 +1,11 @@
-int count = 0;
-    string result = "";
-    for(char c : text){
-        if(c == ' '){
+string result = "";
+    int count = 0;
+    for (char c : text) {
+        if (c == ' ') {
             count++;
-            if(count > 2){
-                result.pop_back();
-                result.pop_back();
+            if (count > 2) {
+                result.pop_back(); // remove the last space
+                result.pop_back(); // remove the space before that
                 result += "-";
                 count = 1;
             } else {
