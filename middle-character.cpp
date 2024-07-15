@@ -16,6 +16,6 @@ int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input); 
-    cout << middleCharacter(input) << endl; 
+    cout << "Middle character(s): " << middleCharacter(input) << endl; 
     return 0;
 }
