@@ -1,4 +1,6 @@
-string solve(string s){
+#include <string>
+
+std::string solve(std::string s){
     bool hasLetter = false;
     for(char &c : s){
         if(isalpha(c)){
@@ -10,4 +12,8 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
 }
