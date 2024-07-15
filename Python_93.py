@@ -1,8 +1,7 @@
-```
 def encode(message):
     result = ""
     for char in message:
-        if char == " ": 
+        if char == " ":  
             result += char
         elif char.isalpha():
             if char.isupper():
