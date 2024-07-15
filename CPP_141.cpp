@@ -1,11 +1,13 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-string file_name_check(string file_name) {
+std::string file_name_check(const std::string& file_name) {
     int num_digits = 0;
     int dot_pos = -1;
     
     for (int i = 0; i < file_name.size(); ++i) {
-        if (file_name[i] >= '0' && file_name[i] <= '9') {
+        if (std::isdigit(file_name[i])) {
             num_digits++;
         } else if (file_name[i] == '.') {
             dot_pos = i;
@@ -16,10 +18,10 @@ string file_name_check(string file_name) {
         return "No";
     }
     
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
+    std::string before_dot = file_name.substr(0, dot_pos);
+    std::string after_dot = file_name.substr(dot_pos + 1);
     
-    if (!isalpha(before_dot[0])) {
+    if (!(std::isalpha(before_dot[0]))) {
         return "No";
     }
     
@@ -31,10 +33,7 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
-    
-    cout << file_name_check(file_name);
+    assert (file_name_check("s.") == "No");
     
     return 0;
 }
