@@ -1,38 +1,41 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-bool issame(const std::string& str1, const std::string& str2) {
-    int count[2] = {0};
-    for (char c : str1) {
-        count[c - 'a']++;
+bool issame(string str) {
+    int count = 0; 
+    for (char c : str) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+        }
     }
-    for (char c : str2) {
-        count[c - 'a']--;
-    }
-    return count[0] == 0 && count[1] == 0;
+
+    return count == 0;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    std::vector<std::string> separate_paren_groups(std::string paren_string);
+    string input;
+    cout << "Enter a string with parentheses: ";
+    cin >> input;
 
-    std::string input;
-    std::cin >> input;
+    vector<string> result = separate_paren_groups(input);
 
-    std::vector<std::string> result = separate_paren_groups(input);
-
-    for (const std::string& group : result) {
-        std::cout << group << "\n";
+    cout << "Groups of parentheses: ";
+    for (string group : result) {
+        cout << group << " ";
     }
 
     return 0;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
     int balance = 0;
 
     for (char c : paren_string) {
@@ -46,12 +49,14 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
             if (balance > 0) {
                 current_group += c;
             }
-            if (balance == 0 && !issame(current_group, "")) {
-                result.push_back(current_group);
+            if (balance == 0) {
+                if (issame(current_group)) {
+                    result.push_back(current_group);
+                }
                 current_group = "";
             }
         }
     }
-    
+
     return result;
 }
