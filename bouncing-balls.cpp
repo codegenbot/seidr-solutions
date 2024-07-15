@@ -1,16 +1,16 @@
-```cpp
 #include <iostream>
-#include <cmath>
-#include <iomanip>
+#include <string>
 
 int main() {
-    double startHeight;
-    double firstBounceHeight;
-    int numBounces;
+    std::string startHeightStr;
+    std::string firstBounceHeightStr;
+    std::string numBouncesStr;
 
-    cin >> startHeight >> ' ';
-    cin >> firstBounceHeight >> ' ';
-    cin >> numBounces;
+    std::cin >> startHeightStr >> firstBounceHeightStr >> numBouncesStr;
+
+    double startHeight = std::stod(startHeightStr);
+    double firstBounceHeight = std::stod(firstBounceHeightStr);
+    int numBounces = std::stoi(numBouncesStr);
 
     double bouncinessIndex = firstBounceHeight / startHeight;
 
@@ -19,7 +19,7 @@ int main() {
         totalDistance += pow(bouncinessIndex, i);
     }
 
-    cout << fixed << setprecision(5) << totalDistance << endl;
+    std::cout << std::fixed << std::setprecision(5) << totalDistance << std::endl;
 
     return 0;
 }
