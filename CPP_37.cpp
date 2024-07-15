@@ -3,20 +3,20 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> even_indices;
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> even_indices;
     for (size_t i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_indices.push_back(l[i]);
         }
     }
-    sort(even_indices.begin(), even_indices.end());
+    std::sort(even_indices.begin(), even_indices.end());
 
-    vector<float> result;
+    std::vector<float> result;
     size_t even_index = 0;
     for (size_t i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
