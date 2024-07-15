@@ -41,6 +41,6 @@ vector<string> find_planets_between(const string& planet1, const string& planet2
 
 int main() {
     assert(issame(find_planets_between("Jupiter", "Makemake"), {}));
-
+  
     return 0;
 }
