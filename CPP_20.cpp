@@ -1,8 +1,3 @@
-#include <vector>
-#include <cassert>
-#include <algorithm>
-#include <cmath>
-
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
@@ -26,4 +21,4 @@ std::vector<float> find_closest_elements(const std::vector<float>& arr) {
 }
 
 auto result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-assert(issame(result, {2.2, 3.1}));
+assert(std::issame(result, {2.2, 3.1}));
