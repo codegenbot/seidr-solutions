@@ -10,7 +10,7 @@ sort(nums.begin(), nums.end(), [](int a, int b) {
         temp_b /= 10;
     }
     if (sum_a == sum_b) {
-        return issame(find(nums.begin(), nums.end(), a), find(nums.begin(), nums.end(), b)) ? a < b : a > b;
+        return issame(a, b) ? b < a : a < b;
     }
     return sum_a < sum_b;
 });
