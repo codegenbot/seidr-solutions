@@ -1,16 +1,16 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <iostream>
 
-int prod_signs(std::vector<int> arr) {
-    if(arr.empty()) return -32768;
+int prod_signs(vector<int> arr) {
+    if (arr.empty()) return -32768;
 
     int product = 1;
     int sum = 0;
 
-    for(int num : arr){
-        if(num > 0) product *= 1;
-        else if(num < 0) product *= -1;
+    for (int num : arr) {
+        if (num > 0) product *= 1;
+        else if (num < 0) product *= -1;
 
         sum += abs(num);
     }
@@ -19,19 +19,17 @@ int prod_signs(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> test1 = {2, -3, 4, -5, 6};
-    assert(prod_signs(test1) == 10);
-    
-    std::vector<int> test2 = {1, 2, 3, 4, 5};
-    assert(prod_signs(test2) == 15);
+    std::vector<int> testArr = {2, -3, 4, -5};
+    assert(prod_signs(testArr) == -14);
 
-    std::vector<int> test3 = {-1, -2, -3, -4, -5};
-    assert(prod_signs(test3) == 15);
-    
-    std::vector<int> test4 = {};
-    assert(prod_signs(test4) == -32768);
+    testArr = {1, 2, 3, 4, 5};
+    assert(prod_signs(testArr) == 15);
 
-    std::cout << "All tests passed!" << std::endl;
+    testArr = {-1, -2, -3};
+    assert(prod_signs(testArr) == -6);
+
+    testArr = {};
+    assert(prod_signs(testArr) == -32768);
 
     return 0;
 }
