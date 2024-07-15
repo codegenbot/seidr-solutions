@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 using namespace std;
@@ -32,6 +31,8 @@ int blackPegs(std::string code, std::string guess) {
     for(auto it : codeMap) {
         if(it.second > 1) {
             remainingBlackPegs += it.second - 1;
+        } else if(it.second == 1 && codeMap.find(guess[0]) != codeMap.end()) {
+            remainingBlackPegs++;
         }
     }
     
@@ -43,6 +44,6 @@ int main() {
     std::cin >> code >> guess;
     std::cout << whitePegs(code, guess) << std::endl;
     int blackPeg = blackPegs(code, guess);
-    std::cout << blackPeg << std::endl; 
+    std::cout << blackPeg << std::endl;
     return 0;
 }
