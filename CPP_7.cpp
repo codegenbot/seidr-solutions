@@ -1,5 +1,3 @@
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring){
     vector<string> filtered_strings;
     for(const string& str : strings){
