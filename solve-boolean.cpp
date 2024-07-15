@@ -1,19 +1,17 @@
-```cpp
-#include <string>
-using namespace std;
-
 bool solveBoolean(string expression) {
     bool result = true;
-    for (char c : expression) {
-        if (c == 'T') {
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == 'T') {
+            return true;
+        }
+        else if (expression[i] == 'F') {
+            return false;
+        }
+        else if (expression[i] == '&') {
             result &= true;
-        } else if (c == 'F') {
-            result = false;
-        } else if (c == '|') {
-            result = !result;
-        } else if (c == '&') {
-            bool temp = result;
-            result = temp && result;
+        }
+        else if (expression[i] == '|') {
+            result |= true;
         }
     }
     return result;
