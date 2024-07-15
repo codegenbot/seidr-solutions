@@ -24,12 +24,11 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
-int main() {
-    vector<int> input = {123, 456, 789};
-    vector<int> output = unique_digits(input);
-    for(int num : output){
+int main(){
+    vector<int> nums = {123, 456, 789, 246, 135};
+    vector<int> uniqueNums = unique_digits(nums);
+    for(int num : uniqueNums){
         cout << num << " ";
     }
-    
     return 0;
 }
