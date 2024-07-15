@@ -1,8 +1,14 @@
-int result = -1;
+int res = -1;
+    vector<int> freq(105, 0);
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            result = max(result, num);
+        freq[num]++;
+    }
+    
+    for (int i = 1; i < 105; ++i) {
+        if (freq[i] >= i) {
+            res = i;
         }
     }
-    return result;
+
+    return res;
 }
