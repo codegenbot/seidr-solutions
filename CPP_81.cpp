@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
 
-bool issame(int a, int b);
+bool issame(float a, float b);
 
 vector<string> numerical_letter_grade(vector<float> grades);
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(float a, float b) {
+    return (a == b);
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
