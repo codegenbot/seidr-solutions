@@ -6,7 +6,7 @@ def encode(message):
             chr(((ord(char.upper()) - ord("A") + 2) % 26) + ord("A")).swapcase()
             if char.lower() not in vowels
             else (
-                chr((ord(char) ^ 32))
+                chr(ord(char) ^ 32)
                 if char.isalpha()
                 else char
             )
