@@ -1,39 +1,35 @@
-#include <iostream>
-#include <vector>
-#include <numeric>
-#include <cmath>
-#include <limits>
-
-using namespace std;
-
 int main() {
-    vector<int> input;
-    int num;
-
-    while (cin >> num) {
-        input.push_back(num);
+    int n;
+    cin >> n;
+    
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
-
-    int diff = numeric_limits<int>::max();
+    
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    
+    int halfSum = sum / 2;
+    int currSum = 0;
     int idx = 0;
     
-    for (int i = 1; i < input.size(); ++i) {
-        int left_sum = accumulate(input.begin(), input.begin() + i, 0);
-        int right_sum = accumulate(input.begin() + i, input.end(), 0);
-        
-        if (abs(left_sum - right_sum) < diff || abs(left_sum - right_sum) == 0) {
-            diff = abs(left_sum - right_sum);
-            idx = i;
-        }
+    while (currSum <= halfSum) {
+        currSum += nums[idx];
+        idx++;
     }
-
-    for (int i = 0; i <= idx; ++i) {
-        cout << input[i] << endl;
+    
+    vector<int> subvector1(nums.begin(), nums.begin() + idx);
+    vector<int> subvector2(nums.begin() + idx, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
     }
-    cout << endl;
-    for (int i = idx;  i < input.size(); ++i) {
-        cout << input[i] << endl;
+    for (int num : subvector2) {
+        cout << num << endl;
     }
-
+    
     return 0;
 }
