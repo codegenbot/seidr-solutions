@@ -28,7 +28,7 @@ std::vector<int> unique_digits(std::vector<int> x){
 
 int main(){
     std::vector<int> input = {123, 456, 789};
-    std::vector<int> output = issame_digits(input);
+    std::vector<int> output = unique_digits(input);
     for(int num : output){
         std::cout << num << " ";
     }
