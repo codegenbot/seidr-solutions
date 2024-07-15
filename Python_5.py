@@ -1,4 +1,4 @@
-def process_numbers(numbers, delimiter):
+def modify_numbers(numbers, delimiter):
     result = []
     for num in numbers:
         result.extend([num, delimiter])
