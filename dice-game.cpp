@@ -7,9 +7,7 @@ int main() {
     long double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                probability += 1.0L / (n * m);
-            }
+            probability += static_cast<long double>(n - i) / n * static_cast<long double>(m) / (n * m);
         }
     }
     
