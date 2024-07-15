@@ -1,5 +1,10 @@
 def find_zero(xs: list):
-    for i in range(len(xs) - 1):
-        if xs[i] != 0 and xs[i + 1] != 0:
-            break
-    return -xs[i] / xs[i + 1]
+    if len(xs) % 2 != 0:
+        raise ValueError("Expected an even number of coefficients.")
+    degree = len(xs) - 1
+    leading_coefficient = max(xs, key=abs)
+    modified_xs = [coeff / leading_coefficient for coeff in xs]
+    for i in range(degree):
+        if modified_xs[i] == 0:
+            return i
+    return -modified_xs[degree] / modified_xs[degree - 1]
