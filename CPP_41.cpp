@@ -1,2 +1,5 @@
-return n * (n - 1) / 2;
+#include <iostream>
+
+int car_race_collision(int n) {
+    return n * (n - 1) / 2;
 }
