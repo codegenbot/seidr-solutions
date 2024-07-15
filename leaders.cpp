@@ -1,4 +1,5 @@
-```cpp
+```c++
+#include <iostream>
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& vec) {
@@ -11,11 +12,12 @@ std::vector<int> leaders(std::vector<int>& vec) {
         }
     }
     return result;
+
 }
 
 int main() {
-    std::vector<int> input = {7, 5, 2, 4};
-    std::vector<int> result = leaders(input);
+    std::vector<int> vec = {7, 5, 2, 4};
+    std::vector<int> result = leaders(vec);
     for (int num : result) {
         std::cout << num << " ";
     }
