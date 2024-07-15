@@ -1,6 +1,8 @@
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    partial_sort(arr.begin(), arr.begin() + k, arr.end());
-    copy_n(arr.begin() + (arr.size() - k), k, res.begin());
-    return res;
+#include <vector>
+#include <algorithm>
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result(arr.begin(), arr.begin() + k);
+    std::sort(result.begin(), result.end());
+    return result;
 }
