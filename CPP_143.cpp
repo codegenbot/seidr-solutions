@@ -1,21 +1,24 @@
+#include <cassert>
 #include <string>
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
-    std::string word = "";
-    for (char c : sentence) {
-        if (c != ' ') {
-            word += c;
+using namespace std;
+
+string words_in_sentence(string sentence){
+    string result = "";
+    string word = "";
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] != ' '){
+            word += sentence[i];
         } else {
             int len = word.length();
             bool isPrime = true;
-            for (int i = 2; i * i <= len; i++) {
-                if (len % i == 0) {
+            for(int j=2; j*j<=len; j++){
+                if(len % j == 0){
                     isPrime = false;
                     break;
                 }
             }
-            if (isPrime && len > 1) {
+            if(isPrime && len > 1){
                 result += word + " ";
             }
             word = "";
@@ -23,19 +26,19 @@ std::string words_in_sentence(std::string sentence){
     }
     int len = word.length();
     bool isPrime = true;
-    for (int i = 2; i * i <= len; i++) {
-        if (len % i == 0) {
+    for(int j=2; j*j<=len; j++){
+        if(len % j == 0){
             isPrime = false;
             break;
         }
     }
-    if (isPrime && len > 1) {
+    if(isPrime && len > 1){
         result += word;
     }
     return result;
 }
 
-int main() {
-    assert(words_in_sentence("here is") == "is");
+int main(){
+    assert (words_in_sentence("here is") == "is");
     return 0;
 }
