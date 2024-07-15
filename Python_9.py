@@ -1,2 +1,11 @@
 def rolling_max(numbers):
-    return [max(numbers[i : i + 3]) for i in range(len(numbers) - 2)]
+    result = []
+    max_num = float("-inf")
+    for num in numbers:
+        max_num = max(max_num, num)
+        result.append(max_num)
+    return result
+
+numbers = list(map(int, input().split()))
+output = rolling_max(numbers)
+print(output)
