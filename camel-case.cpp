@@ -1,4 +1,6 @@
 ```cpp
+#include <string>
+
 std::string camelCase(std::string input) {
     std::string output;
     size_t start = 0;
