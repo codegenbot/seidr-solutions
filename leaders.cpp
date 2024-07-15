@@ -1,25 +1,36 @@
-```cpp
 #include <vector>
-#include <algorithm>
+#include <iostream>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& vec) {
-    std::vector<int> result;
+vector<int> leaders(vector<int>& vec) {
+    vector<int> result;
     int maxRight = vec.back();
-    for (int i = vec.size() - 1; i >= 0; --i) {
-        if (vec[i] > maxRight) {
+    for (int i = vec.size() - 2; i >= 0; --i) {
+        if (vec[i] >= maxRight) {
+            result.push_back(vec[i]);
             maxRight = vec[i];
-        } else if (maxRight == vec[i]) {
-            result.push_back(maxRight);
         }
     }
     return result;
 }
 
+vector<int> leaders(vector<int>& vec) {
+    vector<int> leaders;
+    int rightMax = vec.back();
+    for(int i = vec.size() - 1; i >= 0; i--) {
+        if(vec[i] >= rightMax) {
+            leaders.push_back(vec[i]);
+            rightMax = vec[i];
+        }
+    }
+    return leaders;
+}
+
 int main() {
-    std::vector<int> input = {7, 5, 2, 4};
-    std::vector<int> result = leaders(input);
-    for (int num : result) {
-        std::cout << num << " ";
+    vector<int> input = {16, 17, 4, 3, 5, 2};
+    vector<int> result = leaders(input);
+    for(int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
