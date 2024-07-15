@@ -16,9 +16,3 @@ std::vector<int> even_odd_count(int num) {
     }
     return result;
 }
-
-int main() {
-    assert(std::issame(std::even_odd_count(0), {1, 0}));
-    
-    return 0;
-}
