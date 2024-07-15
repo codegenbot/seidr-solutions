@@ -16,7 +16,7 @@ int main() {
 
     for (int i = 1; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; ++j) {
+        for (int j = 0; j < i; ++j) {
             leftSum += nums[j];
         }
         for (int j = i; j < n; ++j) {
@@ -29,14 +29,13 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= cutIndex; ++i) {
+    for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
     std::cout << 0 << std::endl;
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << std::endl;
 
     return 0;
-}   
+}
