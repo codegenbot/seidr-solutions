@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -10,15 +9,18 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;
 
-    double bouncinessIndex = firstBounce / startHeight;
+    double bouncinessIndex = pow(firstBounce / startHeight, -1);
 
     double totalDistance = 0.0;
 
+    double currentHeight = startHeight;
+
     for(int i = 1; i <= numBounces; i++) {
-        totalDistance += (2 * startHeight) * pow(bouncinessIndex, i) * i;
+        totalDistance += currentHeight * 2;
+        currentHeight *= bouncinessIndex;
     }
 
-    cout << fixed << setprecision(5) << totalDistance << endl;
+    cout << fixed << setprecision(10) << totalDistance << endl;
 
     return 0;
 }
