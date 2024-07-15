@@ -4,16 +4,11 @@ def encode(message):
     result = ''
     for char in message:
         if char.isalpha():
-            if char.upper() in vowels:
-                index = vowels.index(char.upper()) + 2
-                if index >= len(vowels):
-                    result += vowels[index % len(vowels)]
-                else:
-                    result += vowels[index]
-            elif char.isupper():
-                result += chr(ord(char) + 32)
+            if char.lower() in vowels:
+                index = ord(vowels[vowels.index(char.lower())]) - 97
+                result += chr((index + 2) % 26 + 97).upper() if char.isupper() else chr((index + 2) % 26 + 97)
             else:
-                result += chr(ord(char) - 32)
+                result += char.upper() if char.islower() else char
         else:
             result += char
     return result
