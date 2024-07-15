@@ -1,4 +1,4 @@
-bool will_it_fly(vector<int> q, int w) {
+bool will_it_fly(std::vector<int> q, int w) {
     int sum = 0;
     for (int num : q) {
         sum += num;
@@ -16,3 +16,4 @@ bool will_it_fly(vector<int> q, int w) {
     
     return sum <= w;
 }
+```
