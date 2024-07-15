@@ -1,4 +1,20 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool issame_vector(vector<float> a, vector<float> b){
+    if(a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
     
     vector<float> rescaled_numbers;
