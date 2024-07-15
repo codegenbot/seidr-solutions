@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int n){
+std::vector<int> f(int n) {
     return {1, 2, 6};
 }
 
