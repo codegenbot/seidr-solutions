@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -16,7 +15,7 @@ int main() {
         if (!input.empty()) break; // If there is no space character in the line, we can exit the loop.
         std::cout << "Invalid input. Please enter a string of characters." << std::endl;
     }
-    while (std::cin.peek() == '\n'); cin.ignore(); // Read until newline
+    while (std::cin.get() != '\n'); // Consume the newline left over
     std::getline(std::cin, input); // Read the rest of the line
     std::cout << validateTweet(input) << std::endl;
     return 0;
