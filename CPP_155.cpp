@@ -1,4 +1,9 @@
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
     return a == b;
@@ -17,18 +22,8 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-int main() {
-    // Test the even_odd_count function
-    vector<int> input = {12345, 2468, 13579};
-    for(int num : input){
-        vector<int> count = even_odd_count(num);
-        cout << "Number: " << num << " | Even Count: " << count[0] << " | Odd Count: " << count[1] << endl;
-    }
-
-    // Test the issame function
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
-    cout << "Are vectors a and b same? " << (issame(a, b) ? "Yes" : "No") << endl;
-
+int main(){
+    assert(issame(even_odd_count(0), {1, 0}));
+  
     return 0;
 }
