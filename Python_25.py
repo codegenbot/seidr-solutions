@@ -8,9 +8,8 @@ def factorize(n):
 try:
     n = int(input("Enter a positive integer: "))
     if n <= 0:
-        raise ValueError("Please enter a positive integer.")
-    
+        raise ValueError("Input should be a positive integer")
     result = factorize(n)
     print(result)
-except ValueError as ve:
-    print(ve)
+except ValueError:
+    print("Invalid input. Please enter a positive integer.")
