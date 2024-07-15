@@ -19,7 +19,7 @@ public:
             words += numberToWords(q) + " thousand ";
             num %= 1000;
         }
-        if (num == 0) return words;
+        if (num == 0) return words.trim();
         if (num < 20) {
             static string v[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
             words = v[num] + " ";
@@ -33,7 +33,7 @@ public:
             num %= 100;
             if (num > 0) words += numberToWords(num);
         }
-        return words;
+        return words.trim();
     }
 
     string fizzBuzz(int n) {
@@ -45,7 +45,7 @@ public:
             else if (i % 5 == 0)
                 cout << "Buzz" << endl;
             else
-                cout << to_string(i) << endl;
+                cout << i << endl;
         }
     }
 };
