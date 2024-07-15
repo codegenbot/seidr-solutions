@@ -4,6 +4,8 @@
 
 using namespace std;
 
+vector<string> all_prefixes(string str);
+
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
     for (int i = 1; i <= str.size(); ++i) {
