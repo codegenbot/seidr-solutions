@@ -1,6 +1,7 @@
+```
 def fizz_buzz(x):
     x = int(x)
-    if isinstance(x,int):
+    if isinstance(x, int):
         if x % 3 == 0 and x % 5 == 0:
             return "FizzBuzz"
         elif x % 3 == 0:
