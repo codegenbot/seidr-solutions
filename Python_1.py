@@ -18,10 +18,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-# Read input from the user
-input_string = input().strip()
-
-# Split input if needed
-for s in input_string.split():
-    result = separate_paren_groups(s)
-    print(result)
+input_string = input("Enter the string to separate: ")
+output = separate_paren_groups(input_string)
+print(output)
