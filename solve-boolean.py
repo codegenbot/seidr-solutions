@@ -12,7 +12,7 @@ def solve_boolean(expression):
                 return eval(f"{operand2} or {tokens[0]}")
             else:
                 return eval(f"{operand2} and {tokens[0]}")
-
+        
     def solve(stack):
         result = None
         while len(stack) > 1:
