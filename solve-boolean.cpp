@@ -1,9 +1,10 @@
+#include <iostream>
 #include <string>
 
 bool solveBoolean(std::string expression) {
     bool result = true;
     int i = 0;
-
+    
     while (i < expression.length()) {
         if (expression[i] == 'T') {
             return true;
@@ -12,19 +13,24 @@ bool solveBoolean(std::string expression) {
             return false;
         }
         else if (expression[i] == '&') {
-            i++; // Move to the next character
-            bool operand1 = expression[i] == 'T';
-            bool operand2 = !!(i < expression.length() && expression[++i] == 'T');
-            result &= operand2;
+            i++; // skip &
+            if (expression[i] == '&') {
+                result &= true;
+            } else {
+                result = false; // & expects another &
+                break;
+            }
         }
         else if (expression[i] == '|') {
-            i++; // Move to the next character
-            bool operand1 = expression[i] == 'T';
-            bool operand2 = !!i;
-            result |= operand2;
+            i++; // skip |
+            while(i < expression.length() && expression[i] != '&' && expression[i] != '|') i++;
+            if(expression[i] == 'F' || i == expression.length()) {
+                result = false; // | expects F or another |
+                break;
+            }
         }
         i++;
     }
-
+    
     return result;
 }
