@@ -1,17 +1,19 @@
+```cpp
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= m; i++) {
-        total += 1.0 / m;
+double getProbability(int n, int m) {
+    double p = 0.0;
+    for (int i = m + 1; i <= n; i++) {
+        p += 1.0 / n;
     }
-    return 1.0 - (n / (double)n * (m / (double)m));
+    return p;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << probability(n, m) << endl;
+    cout << setprecision(10) << getProbability(n, m);
     return 0;
 }
