@@ -1,3 +1,5 @@
+#include <string>
+
 string longest(vector<string> strings){
     if(strings.empty()) return "";
     string result = strings[0];
