@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     code_freq = {c: code.count(c) for c in set(code)}
     guess_freq = {c: guess.count(c) for c in set(guess)}
