@@ -1,7 +1,6 @@
-#include <string> 
+#include <string>
 
 int main() {
-    assert(strlen("asdasnakj") == 9); 
-    std::string str = "example"; 
-    return str.length(); 
+    assert(std::strlen("asdasnakj") == 9);
+    return 0;
 }
