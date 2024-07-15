@@ -1,7 +1,9 @@
-numbers = list(map(int, input().split()))
-threshold = int(input())
+def filter_numbers(numbers, threshold):
+    result = [num for num in numbers if num > threshold]
+    return result
 
-result = [num for num in numbers if num > threshold]
+numbers = list(map(int, input().strip().split()))
+threshold = int(input().strip())
 
-for num in result:
+for num in filter_numbers(numbers, threshold):
     print(num)
