@@ -1,21 +1,14 @@
-int consecutive_spaces = 0;
-    string result = "";
-    
-    for(char c : text){
-        if(c == ' '){
-            consecutive_spaces++;
-            if(consecutive_spaces > 2){
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            if (i+2 < text.size() && text[i+1] == ' ' && text[i+2] == ' ') {
+                while (i < text.size() && text[i] == ' ') {
+                    text[i++] = '-';
+                }
+                --i;
             } else {
-                result += "_";
+                text[i] = '_';
             }
-        } else {
-            consecutive_spaces = 0;
-            result += c;
         }
     }
-    
-    return result;
+    return text;
 }
