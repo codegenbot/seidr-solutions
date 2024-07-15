@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,6 +17,22 @@ vector<int> findIndices(string text, string target) {
         }
         if (found) {
             indices.push_back(i);
+            int k = i;
+            while (k + targetLength <= text.length()) {
+                k++;
+                found = true;
+                for (int j = 0; j < targetLength; j++) {
+                    if (text[k + j] != target[j]) {
+                        found = false;
+                        break;
+                    }
+                }
+                if (found) {
+                    indices.push_back(k);
+                } else {
+                    break;
+                }
+            }
         }
     }
     return indices;
