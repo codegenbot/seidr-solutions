@@ -1,7 +1,14 @@
+Here is the completed code:
+
+```cpp
 int prod_signs(vector<int> arr){
-    int product = 1;
-    for(int x : arr){
-        product *= (x > 0) - (x < 0);
+    if(arr.empty()) return -32768;
+    int sign = 1;
+    long long sum = 0;
+    for(int i : arr){
+        if(i < 0) sign *= -1;
+        else if(i > 0) sign *= 1;
+        sum += abs(i);
     }
-    return product == 0 ? 0 : (product ? arr.size() * product : -32768);
+    return (long long)(sign * sum);
 }
