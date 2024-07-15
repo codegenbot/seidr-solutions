@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
 #include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
@@ -8,25 +7,29 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
     EVP_MD_CTX *mdctx;
-    mdctx = EVP_MD_CTX_create();
-    EVP_DigestInit(mdctx, EVP_md5());
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex (mdctx, digest, NULL);
-    EVP_MD_CTX_destroy(mdctx);
+    const EVP_MD *md = EVP_md5();
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digest_len;
 
-    char mdString[33];
-    for(int i = 0; i < 16; i++) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+    mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
+    EVP_DigestFinal_ex(mdctx, digest, &digest_len);
+    EVP_MD_CTX_free(mdctx);
+
+    char mdString[(EVP_MAX_MD_SIZE * 2) + 1];
+    for(unsigned int i = 0; i < digest_len; i++) {
+        sprintf(&mdString[i*2], "%02x", digest[i]);
     }
-    mdString[32] = '\0'; // Add null terminator at the end
+    mdString[digest_len * 2] = '\0';
 
     return mdString;
 }
 
 int main() {
-    string_to_md5("password");
+    string result = string_to_md5("password");
+    std::cout << result << std::endl;
 
     return 0;
 }
