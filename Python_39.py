@@ -1,1 +1,1 @@
-n = int(input("Enter a number: "))
+n = int(input("Enter a number: "))  # Fixed by adding input statement
