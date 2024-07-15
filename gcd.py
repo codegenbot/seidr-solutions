@@ -1,5 +1,12 @@
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    if a == 0: return abs(b)
-    return abs(a) if a >= 0 else -abs(a)
+```
+def find_indices(text, target):
+    result = []
+    i = 0
+    while True:
+        try:
+            i = text.index(target, i)
+            result.append(i)
+            i += len(target)
+        except ValueError:
+            break
+    return result

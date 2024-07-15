@@ -1,4 +1,10 @@
-```
+#include <vector>
+#include <iostream>
+#include <utility>
+#include <climits>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
@@ -14,11 +20,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
             rightSum += v[j];
         }
         
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+        if (leftSum != rightSum) {
+            int diff = abs(leftSum - rightSum);
+
+            if (diff < minDiff) {
+                minDiff = diff;
+                splitIndex = i;
+            }
+        } else {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
     
@@ -37,10 +47,11 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "1 ";
     for (auto x : result.first) cout << x << " ";
-    cout << "\n" << result.first.size() << "\n";
+    cout << "\n0 " << result.second.size() << "\n";
+    cout << "0 1\n";
     cout << "1 ";
     for (auto x : result.second) cout << x << " ";
-    cout << "\n" << result.second.size() << "\n";
+    cout << "\n";
     
     return 0;
 }
