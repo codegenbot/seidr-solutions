@@ -1,7 +1,5 @@
 #include <string>
 
-string string_xor(const string& a, const string& b);
-
 string string_xor(const string& a, const string& b) {
     string result = "";
     for(size_t i=0; i<a.size(); i++){
@@ -12,9 +10,4 @@ string string_xor(const string& a, const string& b) {
         }
     }
     return result;
-}
-
-int main() {
-    // Your code logic here
-    return 0;
 }
