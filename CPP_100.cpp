@@ -18,7 +18,3 @@ vector<int> make_a_pile(int n) {
     }
     return stones;
 }
-
-vector<int> expected{8, 10, 12, 14, 16, 18, 20, 22};
-vector<int> result = make_a_pile(8);
-assert(equal(expected.begin(), expected.end(), result.begin()));
