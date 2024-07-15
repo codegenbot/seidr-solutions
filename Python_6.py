@@ -1,7 +1,7 @@
+import sys
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
-    max_depth = 0
     current_depth = 0
     stack = []
     
@@ -9,7 +9,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if char == '(':
             stack.append(char)
             current_depth = len(stack)
-            max_depth = max(max_depth, current_depth)
         elif char == ')':
             if not stack:
                 return []
@@ -19,7 +18,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     if stack:
         return []
     
-    return [max_depth]
+    return [current_depth]
 
-paren_string = input("Enter a string of nested parentheses: ")
+paren_string = sys.stdin.readline().strip()
 print(parse_nested_parens(paren_string))
