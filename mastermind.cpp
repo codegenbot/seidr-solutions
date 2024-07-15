@@ -13,17 +13,17 @@ int main() {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++codeFreq[code[i]];
-            ++guessFreq[guess[i]];
+            if (code[i] >= 'A' && code[i] <= 'F' && guess[i] >= 'A' && guess[i] <= 'F') {
+                ++codeFreq[code[i]];
+                ++guessFreq[guess[i]];
+            }
         }
     }
-    
-    for (auto it : codeFreq) {
-        if (guessFreq.find(it.first) != guessFreq.end()) {
-            white += std::min(it.second, guessFreq[it.first]);
-        }
+
+    for (auto& it : codeFreq) {
+        white += std::min(codeFreq[it.first], guessFreq[it.first]);
     }
-    
+
     std::cout << white << std::endl << black << std::endl;
     
     return 0;
