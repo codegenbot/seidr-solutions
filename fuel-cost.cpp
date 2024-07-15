@@ -1,17 +1,10 @@
-```
-#include <vector>
-#include <initializer_list>
-#include <cmath>
-using namespace std;
-
-int fuelCost(std::vector<int> prices) {
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int price : prices) {
-        int new_price = static_cast<int>(floor((double)price / 3));
-        if (new_price >= 1)
-            new_price -= 2;
-        else
-            new_price = 0;
-        sum += new_price;
+    for (int i : vec) {
+        int result = (i / 3);
+        result = floor(result); // round down to nearest integer
+        result -= 2; 
+        sum += result;
     }
     return sum;
+}
