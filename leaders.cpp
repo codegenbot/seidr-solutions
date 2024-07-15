@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& vec) {
@@ -14,8 +14,23 @@ vector<int> leaders(vector<int>& vec) {
     return result;
 }
 
+vector<int> leaders(vector<int>& vec) {
+    vector<int> result;
+    int maxRight = vec.back();
+    for(int i=vec.size()-1; i>=0; --i){
+        if(i==vec.size()-1 || vec[i]<maxRight)
+            continue;
+        else
+        {
+            result.push_back(vec[i]);
+            maxRight = vec[i];
+        }
+    }
+    return result;
+}
+
 int main() {
-    vector<int> input = {7, 5, 2, 4};
+    vector<int> input = {16, 17, 4, 3, 5, 2};
     vector<int> result = leaders(input);
     for (int num : result) {
         cout << num << " ";
