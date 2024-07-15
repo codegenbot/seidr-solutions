@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -46,8 +48,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     
-    if(res[0].size() == 0) {
-        throw runtime_error("Error: The input vector cannot be divided into two equal subvectors.");
-    }
+    if(res[0].size() == 0) 
+        throw runtime_error("Error: The input vector is empty!");
+    
     return res;
 }
