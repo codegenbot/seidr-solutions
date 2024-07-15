@@ -1,4 +1,4 @@
-print("Enter two numbers separated by space:")
+print("Enter a list of numbers separated by spaces:")
 xs = list(map(float, input().strip().split()))
 
 def find_zero(xs: list) -> float:
