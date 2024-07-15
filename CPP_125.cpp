@@ -1,42 +1,11 @@
-#include <algorithm>
-#include <cctype>
-#include <cassert>
-#include <vector>
-#include <string>
+// Test with a single word input
+    assert(split_words("Hello") == vector<string>{"Hello"});
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
-                count++;
-            }
-        }
-        result.push_back(std::to_string(count));
-    }
-    return result;
-}
+    // Test with multiple words input
+    assert(split_words("Hello, World!") == vector<string>{"Hello", "World"});
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+    // Test with special characters
+    assert(split_words("Hello! How are you?") == vector<string>{"Hello", "How", "are", "you"});
 
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
-}
+    // Test with lowercase characters for count
+    assert(split_words("a b c d e f g h i j k l m n o p q r s t u v w x y z") == vector<string>{"13"});
