@@ -21,7 +21,6 @@ int main() {
     bool result = issame(vec1, vec2);
     std::vector<int> increased = incr_list(vec1);
     
-    // Output the result
     std::cout << result << std::endl;
     for (int num : increased) {
         std::cout << num << " ";
