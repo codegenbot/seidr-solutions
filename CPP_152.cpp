@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> 
 
 using namespace std;
 
@@ -12,4 +12,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-assert(issame(compare({1,2,3,5}, {-1,2,3,4}), {2,0,0,1}));
+// Main function to test the implementation
+
+int main() {
+    assert(issame(compare({1,2,3,5}, {-1,2,3,4}), {2,0,0,1}));
+    return 0;
+}
