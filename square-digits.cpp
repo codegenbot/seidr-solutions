@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 std::string squareDigits(std::string input) {
     std::string result;
