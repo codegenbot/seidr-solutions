@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <iterator>
@@ -21,5 +22,6 @@ namespace CustomVectorFunctions {
 
 int main() {
     assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
+    
     return 0;
 }
