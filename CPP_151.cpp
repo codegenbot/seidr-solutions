@@ -2,24 +2,21 @@
 #include <vector>
 #include <cmath>
 
-double double_the_difference(double a, double b) {
-    return 2 * (a - b);
+long long double_the_difference(const std::vector<float>& lst);
+
+int main() {
+    std::vector<float> lst = {1.5, 2.3, -3.4, 4.0, 5.5};
+    long long result = double_the_difference(lst);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
 
-long long problemFunction(std::vector<float> lst) {
-    double double_the_difference;
+long long double_the_difference(const std::vector<float>& lst) {
     long long odd_sum = 0;
-    
     for (float num : lst) {
         if (num > 0 && fmod(num, 1) == 0 && ((int)num) % 2 != 0) {
             odd_sum += (long long)pow(num, 2);
         }
     }
-    
-    return odd_sum;
-}
-
-int main() {
-    // Your main function code here
-    return 0;
+    return 2 * odd_sum;
 }
