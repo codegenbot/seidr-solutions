@@ -1,11 +1,12 @@
 #include <iostream>
-using namespace std;
 
 int main() {
+    using namespace std;
+
     double start_height, first_bounce_height, total_distance = 0.0, bounciness_index;
     int num_bounces;
     
-    cin >> start_height >> first_bounce_height >> num_bounces;
+    std::cin >> start_height >> first_bounce_height >> num_bounces;
     
     bounciness_index = first_bounce_height / start_height;
     
@@ -16,7 +17,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
     
-    cout << total_distance << endl;
+    std::cout << total_distance << std::endl;
     
     return 0;
 }
