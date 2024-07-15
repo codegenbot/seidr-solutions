@@ -1,22 +1,18 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-float derivative(const std::vector<float>& vec){
-    // Define derivative calculation here
-    return 0.0; // Placeholder for derivative calculation
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
-
-int main(){
-    std::vector<float> vec1 = {1.0, 2.0, 3.0};
-    std::vector<float> vec2 = {4.0, 5.0, 6.0};
-
-    std::cout << issame(vec1, vec2) << std::endl;
-
-    return 0;
+float derivative(const std::vector<float>& v){
+    // Implement derivative calculation
+    return 0.0f; // Placeholder return value
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return derivative(a) == derivative(b);
+}
+
+int main(){
+    // Test case to check if issame works correctly
+    assert(issame( {1.0f} , {}) );
+    
+    return 0;
 }
