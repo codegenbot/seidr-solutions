@@ -19,7 +19,7 @@ int main() {
         totalDistance += pow(bouncinessIndex, i);
     }
     
-    cout.precision(6); // to avoid printing too many decimal places
+    cout.precision(6); 
     cout << fixed;
     cout << totalDistance << endl;
     
