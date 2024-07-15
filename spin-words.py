@@ -1,7 +1,11 @@
-```
-def spin_words(sentence):
-    words = sentence.split()
+def spin_words(text):
     result = []
+    words = text.split()
     for word in words:
-        result.append(word[::-1] if len(word) >= 5 else word)
+        if len(word) >= 5:
+            result.append(word[::-1])
+        else:
+            result.append(word)
     return ' '.join(result).strip()
+
+print(spin_words("This is a test string."))
