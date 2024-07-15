@@ -1,23 +1,23 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int bowlingScore(char c, std::string& s) {
+int bowlingScore(char c) {
     int score = 0;
     if (c == 'X') {
         score += 30;
     } else if (c == '/') {
-        int i = 0;
-        while ((s[i] < '7' || s[i] > '9') && i < s.length()) {
+        score += 10;
+        i++;
+        while (s[i] >= '1' && s[i] <= '9') {
+            score += s[i] - '0';
             i++;
         }
-        score += 10 + (i - 1) * 1;
     } else {
         int count = 0;
-        int i = 0;
         while (c >= '1' && c <= '9') {
             count *= 10;
             count += c - '0';
+            if (i < s.length() - 1 && s[i] == '\n') break;
             c = s[i++];
         }
         score += count;
@@ -30,9 +30,14 @@ int main() {
     std::cout << "Enter the input string: ";
     std::getline(std::cin, s);
     
+    int i = 0;
     int totalScore = 0;
     for (char c : s) {
-        totalScore += bowlingScore(c, s);
+        if (c == '\n') {
+            i++;
+        } else {
+            totalScore += bowlingScore(c);
+        }
     }
     std::cout << "The total score is: " << totalScore << std::endl;
 }

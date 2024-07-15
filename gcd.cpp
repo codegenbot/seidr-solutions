@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -24,4 +25,32 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
+
+int main() {
+    string text; 
+    cout << "Enter the text: ";
+    cin >> text;
+
+    string target;
+    cout << "Enter the target substring: ";
+    cin >> target;
+
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int i : indices) {
+        cout << i << endl;
+    }
+
+    int a;
+    cout << "Enter the first integer: ";
+    cin >> a;
+
+    int b;
+    cout << "Enter the second integer: ";
+    cin >> b;
+
+    int g = gcd(a, b);
+    cout << "GCD: " << g << endl;
+
+    return 0;
 }
