@@ -2,7 +2,12 @@
 #include <climits>
 #include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+struct pair_vector_int {
+    vector<int> first;
+    vector<int> second;
+};
+
+pair_vector_int cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
 
@@ -19,11 +24,12 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 
 int main() {
     using namespace std;
+
     int n;
     cin >> n;
     vector<int> v(n);
     for (auto &x : v) cin >> x;
-    pair<vector<int>, vector<int>> res = cutVector(v);
+    pair_vector_int res = cutVector(v);
     cout << "[";
     for (const auto &x : res.first) cout << x << " ";
     cout << "]\n[";
