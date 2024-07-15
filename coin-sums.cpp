@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -23,10 +22,10 @@ int main() {
 
     int pennies = cents;
 
-    cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << endl;
-    cout << dimes << " dime" << (dimes > 1 ? "s" : "") << endl;
-    cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << endl;
-    cout << pennies << " penny" << (pennies > 1 ? "s" : "") << endl;
+    cout << quarters << " quarters" << endl;
+    cout << dimes << " dimes" << endl;
+    cout << nickles << " nickels" << endl;
+    cout << (pennies == 1 ? " penny" : pennies + " pennies") << endl;
 
     return 0;
 }
