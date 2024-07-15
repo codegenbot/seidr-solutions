@@ -14,8 +14,7 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
 }
 
 int main() {
-    std::vector<std::vector<int>> expected = {{1, 3}, {1, 3}, {1, 3}, {1, 3}, {1, 3}, {1, 3}, {1, 3}, {1, 3}, {1, 3}, {1, 3}};
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), expected);
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<std::vector<int>>(10, {1, 3})));
 
     return 0;
 }
