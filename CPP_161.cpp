@@ -1,10 +1,27 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+#include <string>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
+std::string solve(std::string s) {
+    int n = s.length();
+    bool hasLetters = false;
+
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            hasLetters = true;
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
         }
     }
-    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+
+    if (!hasLetters) {
         reverse(s.begin(), s.end());
     }
+
     return s;
 }
