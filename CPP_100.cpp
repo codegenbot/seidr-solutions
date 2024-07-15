@@ -18,22 +18,8 @@ vector<int> make_a_pile(int n) {
     return stones;
 }
 
-bool compare_vectors(vector<int>& a, vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
-    vector<int> result = make_a_pile(8);
-    assert(compare_vectors(result, expected));
+    assert(make_a_pile(8) == vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
     cout << "Test passed successfully!";
     return 0;
 }
