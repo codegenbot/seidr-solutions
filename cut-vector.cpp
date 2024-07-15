@@ -10,13 +10,17 @@ int main() {
     vector<int> nums;
     int num;
 
-    while (nums.size() < 6) {
-        cin >> num;
+    while (cin >> num) {
         nums.push_back(num);
     }
 
     int n = nums.size();
     
+    if (n == 1) {
+        cout << nums[0] << endl << endl;
+        return 0;
+    }
+
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -31,7 +35,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
 
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
@@ -43,9 +47,11 @@ int main() {
 
     cout << endl;
 
-    for (int i = cutIndex + 1; i < n; i++) {
+    for (int i = cutIndex; i < n; i++) {
         cout << nums[i] << " ";
     }
+
+    cout << endl;
 
     return 0;
 }
