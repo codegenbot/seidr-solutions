@@ -1,4 +1,2 @@
-sort(s0.begin(), s0.end());
-    sort(s1.begin(), s1.end());
-    return s0 == s1;
-}
+assert(same_chars("abc", "bca") == true);
+assert(same_chars("", "") == true);
