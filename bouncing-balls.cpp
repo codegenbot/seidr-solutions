@@ -9,7 +9,7 @@ int main() {
     int numBounces;
 
     cin >> startHeight;
-    cin >> firstBounceHeight >> std::ws >> ' ';
+    cin >> firstBounceHeight >> ' ';
     cin >> numBounces;
 
     double bouncinessIndex = firstBounceHeight / startHeight;
