@@ -1,16 +1,5 @@
-```
-#include <iostream>
 #include <iomanip>
-
-using namespace std;
-
-float snowDay(int hours, float groundSnow, float rate, float melt) {
-    float totalSnow = groundSnow;
-    for (int i = 0; i < hours; i++) {
-        totalSnow += rate - min(totalSnow + rate, melt);
-    }
-    return totalSnow;
-}
+#include <ostream>
 
 int main() {
     int hours;
