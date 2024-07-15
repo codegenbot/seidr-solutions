@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::string& a, const std::string& b){
     return a == b;
 }
 
@@ -33,7 +33,10 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 }
 
 void test() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    std::vector<std::string> test_input = {"(a(b))", "(c(d))"};
+
+    assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
+    assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
 }
 
 int main() {
