@@ -1,11 +1,15 @@
-int left = 0;
-    int right = text.length() - 1;
-    while (left < right) {
-        if (text[left] != text[right]) {
+
+bool is_palindrome(const string& text) {
+    int n = text.size();
+    for(int i=0; i<n/2; i++){
+        if(text[i] != text[n-1-i]){
             return false;
         }
-        left++;
-        right--;
     }
     return true;
+}
+
+int main() {
+    assert (is_palindrome("xywzx") == false);
+    return 0;
 }
