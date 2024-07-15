@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -29,7 +28,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text = "abcabc"; 
-    string target = "abc"; 
+    string target = "abc";
 
     cout << "GCD: " << gcd(12, 15) << endl;
 
