@@ -17,22 +17,20 @@ vector<int> findIndices(string text, string target) {
         }
         if (found) {
             indices.push_back(i);
-            // Check for overlapping targets
-            int k = i + targetLength;
-            while (k <= text.length()) {
+            while (i + targetLength <= text.length()) {
+                i++;
                 found = true;
                 for (int j = 0; j < targetLength; j++) {
-                    if (text[k - targetLength + j] != target[j]) {
+                    if (text[i + j] != target[j]) {
                         found = false;
                         break;
                     }
                 }
                 if (found) {
-                    indices.push_back(k - targetLength);
+                    indices.push_back(i);
                 } else {
                     break;
                 }
-                k++;
             }
         }
     }
