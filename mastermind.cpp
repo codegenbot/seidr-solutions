@@ -40,7 +40,7 @@ int blackPegs(std::string code, std::string guess) {
 int main() {
     std::string code, guess;
     std::cin >> code >> guess;
-    std::cout << blackPegs(code, guess) << std::endl;
     std::cout << whitePegs(code, guess) << std::endl;
+    std::cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
