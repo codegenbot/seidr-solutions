@@ -1,7 +1,7 @@
 #include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
