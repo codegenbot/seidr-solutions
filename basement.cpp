@@ -1,10 +1,12 @@
+```cpp
 int basement(vector<int> v) {
-    int sum = 0;
+    int sum = 0; 
     int i = 0;
     for (auto num : v) {
         sum += num;
         if (sum < 0)
-            return i;
+            return i + 1;
         i++;
     }
-    return i;
+    return -1;
+}
