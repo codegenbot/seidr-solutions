@@ -16,7 +16,7 @@ vector<string> by_length(vector<int> arr){
         }
     }
     
-    sort(sorted_arr.begin(), sorted_arr.end(), issame); // Update the sorting function to issame
+    sort(sorted_arr.begin(), sorted_arr.end(), issame);
     reverse(sorted_arr.begin(), sorted_arr.end());
     
     for (int num : sorted_arr) {
