@@ -1,7 +1,6 @@
+#include <openssl/md5>
+#include <cstdio>
 #include <cassert>
-#include <string>
-
-std::string string_to_md5(const std::string& text);
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
