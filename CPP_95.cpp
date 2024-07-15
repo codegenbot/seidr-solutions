@@ -1,20 +1,34 @@
-bool check_dict_case(map<string,string> dict){
-    if(dict.empty()){
-        return false;
-    }
-    
+#include <unordered_map>
+#include <algorithm>
+#include <cassert>
+
+bool check_dict_case(const unordered_map<string, int>& dict) {
+    if(dict.empty()) return false;
+
     bool all_lower = true;
     bool all_upper = true;
-    
-    for(auto const& pair : dict){
+
+    for(auto const &pair : dict) {
         string key = pair.first;
-        
-        if(!key.empty() && islower(key[0])){
-            all_upper = false;
-        } else if(!key.empty() && isupper(key[0])){
-            all_lower = false;
+        bool is_lower = true;
+        bool is_upper = true;
+
+        for(char c : key) {
+            if(islower(c)) {
+                is_upper = false;
+            } else if(isupper(c)) {
+                is_lower = false;
+            }
         }
+
+        if(!is_lower) all_lower = false;
+        if(!is_upper) all_upper = false;
     }
-    
+
     return all_lower || all_upper;
+}
+
+int main() {
+    assert (check_dict_case({}) == false);
+    return 0;
 }
