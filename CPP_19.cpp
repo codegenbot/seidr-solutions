@@ -11,26 +11,22 @@ map<string, int> numMap = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> revNumMap;
-    for(auto const &pair : numMap) {
-        revNumMap[pair.second] = pair.first;
-    }
-
-    vector<int> numList;
+string sort_numbers(string numbers) {
+    vector<string> numWords;
     stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        numList.push_back(numMap[token]);
+    string word;
+    while (ss >> word) {
+        numWords.push_back(word);
     }
 
-    sort(numList.begin(), numList.end());
+    sort(numWords.begin(), numWords.end(), [&](const string &a, const string &b) {
+        return numMap[a] < numMap[b];
+    });
 
     string result;
-    for (int num : numList) {
-        result += revNumMap[num] + " ";
+    for (const auto &word : numWords) {
+        result += word + " ";
     }
-
     result.pop_back(); // Remove extra space at the end
     return result;
 }
