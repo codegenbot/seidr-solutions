@@ -1,9 +1,13 @@
-import math
-
 n = int(input())
-vec1 = list(map(float, input().split()))
-vec2 = list(map(float, input().split()))
+vec1 = [float(i) for i in input().split()]
+vec2 = [float(i) for i in input().split()]
 
-total_distance = sum((a - b) ** 2 for a, b in zip(vec1, vec2)) ** 0.5
+total_distance = 0
 
-print(round(total_distance, 10))
+for a, b in zip(vec1, vec2):
+    distance = (a - b) ** 2
+    total_distance += distance
+
+distance = total_distance ** 0.5
+
+print(round(distance, 10))
