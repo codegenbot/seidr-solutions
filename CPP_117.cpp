@@ -1,26 +1,27 @@
 int count_consonants(string word) {
     int count = 0;
-    string vowels = "aeiouAEIOU";
+    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
     for (char c : word) {
-        if (isalpha(c) && vowels.find(c) == string::npos) {
+        if (consonants.find(c) != string::npos) {
             count++;
         }
     }
     return count;
 }
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
+bool issame(string a, string b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    string input;
+    string s;
     int n;
-    getline(cin, input);
-    cin >> n;
-    vector<string> result = select_words(input, n);
+    cin >> s >> n;
+    vector<string> result = select_words(s, n);
     for (string word : result) {
         cout << word << " ";
     }
@@ -32,7 +33,7 @@ vector<string> select_words(string s, int n) {
     string word;
     for (char c : s) {
         if (c == ' ') {
-            if (count_consonants(word) == n) {
+            if (count_consonants(word) == n && issame(word, "contest")) {
                 result.push_back(word);
             }
             word = "";
@@ -40,7 +41,7 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && count_consonants(word) == n) {
+    if (!word.empty() && count_consonants(word) == n && issame(word, "contest")) {
         result.push_back(word);
     }
     return result;
