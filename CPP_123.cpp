@@ -1,14 +1,16 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
-bool issame(vector<int>& a, vector<int>& b){
+vector<int> get_odd_collatz(int);
+bool issame(const vector<int>& a, const vector<int>& b);
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
-
-vector<int> get_odd_collatz(int n);
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
