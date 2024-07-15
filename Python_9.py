@@ -1,4 +1,6 @@
 from typing import List
+
+
 def rolling_max(numbers: List[int]) -> List[int]:
     max_numbers = []
     max_num = float("-inf")
@@ -7,6 +9,12 @@ def rolling_max(numbers: List[int]) -> List[int]:
         max_numbers.append(max_num)
     return max_numbers
 
-numbers = list(map(int, input().split()))
-result = rolling_max(numbers)
-print(result)
+
+# Read input from the user
+input_numbers = list(map(int, input().split()))
+
+# Call the rolling_max function with the input
+output = rolling_max(input_numbers)
+
+# Print the output
+print(output)
