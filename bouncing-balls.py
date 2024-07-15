@@ -1,7 +1,7 @@
-def calculate_bouncing_balls():
+def bouncing_balls():
     h = float(input())
     b = float(input())
-    i = b / h
+    i = (b * h)**0.5
 
     n = int(input())
     total_distance = 0
