@@ -11,7 +11,7 @@ std::string change_base(int x, int base){
 }
 
 int main(){
-    int x = 5; // Change x value
-    assert(change_base(x, x + 1) == std::__cxx11::to_string(x)); // Use std::__cxx11::to_string
+    int x = 2; 
+    assert(change_base(x, x + 1) == std::to_string(x)); 
     return 0;
 }
