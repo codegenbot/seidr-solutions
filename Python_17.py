@@ -3,10 +3,9 @@ def parse_music(music_input):
         return music_input.replace("Title:", "").strip()
     return None
 
-
 while True:
-    music_input = input("Enter music title: ").strip()
-    if not music_input:
+    music_input = input("Enter music details: ").strip()
+    if music_input == "":
         break
     result = parse_music(music_input)
     if result is not None:
