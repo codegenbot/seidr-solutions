@@ -1,9 +1,7 @@
-#include <iostream>
-
 int main() {
-    int num;
-    cin >> num;
-    cout << int_to_mini_roman(num) << endl;
-    
+    int number;
+    cin >> number;
+    string result = int_to_mini_roman(number);
+    cout << result << "\n";
     return 0;
 }
