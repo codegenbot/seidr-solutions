@@ -1,10 +1,18 @@
 string encrypt(string s){
     string result = "";
+    int shift = 2 * 2;
     for(char c : s){
         if(isalpha(c)){
-            char encrypted = (c - 'a' + 2 * 2) % 26 + 'a';
+            char encrypted = c + shift;
+            if(islower(c) && encrypted > 'z'){
+                encrypted = 'a' + (encrypted - 'z' - 1);
+            }
+            else if(isupper(c) && encrypted > 'Z'){
+                encrypted = 'A' + (encrypted - 'Z' - 1);
+            }
             result += encrypted;
-        } else {
+        }
+        else{
             result += c;
         }
     }
