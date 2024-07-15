@@ -23,3 +23,8 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     return boost::any("None");
 }
+
+int main() {
+    std::string string;
+    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+}
