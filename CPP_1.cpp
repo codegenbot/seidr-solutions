@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -13,7 +14,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             open_braces++;
-            if (open_braces >= 1) {
+            if (open_braces > 1) {
                 current_group += c;
             }
         }
@@ -36,7 +37,10 @@ void test() {
     vector<string> expected = {"()", "(())", "(()())"};
     vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    assert(expected == result);
+    assert(std::equal(expected.begin(), expected.end(), result.begin()));
 }
 
-``` 
+int main() {
+    test();
+    return 0;
+}
