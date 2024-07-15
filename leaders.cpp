@@ -1,10 +1,10 @@
 ```cpp
-#include <vector>
-using namespace std;
-
 int main() {
     return 0;
 }
+
+#include <vector>
+using namespace std;
 
 vector<int> leaders(vector<int>& vec) {
     vector<int> result;
@@ -15,5 +15,6 @@ vector<int> leaders(vector<int>& vec) {
             maxRight = vec[i];
         }
     }
+    result.push_back(vec.back());
     return result;
 }
