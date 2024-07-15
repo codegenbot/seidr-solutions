@@ -1,4 +1,3 @@
-#include <string>
 using namespace std;
 
 string fizzBuzz(int x) {
@@ -10,8 +9,3 @@ string fizzBuzz(int x) {
         return "Buzz";
     else
         return to_string(x);
-}
-
-int main() {
-    return 0;
-}
