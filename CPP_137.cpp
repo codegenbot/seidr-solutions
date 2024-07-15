@@ -1,32 +1,33 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
+#include <cassert>
 
-std::any compare_one(const std::any &a, const std::any &b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
-            return a;
-        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
-            return b;
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
-            return a;
-        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
-            return b;
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
-            return a;
-        } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
-            return b;
-        } else {
-            return "None";
-        }
-    } else {
-        return "None";
+template <typename T>
+T parse(const std::string& s) {
+    std::string temp = s;
+    size_t found = temp.find(',');
+    if (found != std::string::npos) {
+        temp.replace(found, 1, ".");
     }
+    return static_cast<T>(std::stof(temp));
+}
+
+template <typename T>
+T compare(const T& a, const T& b) {
+    if (a > b) {
+        return a;
+    } else if (a < b) {
+        return b;
+    } else {
+        return T();
+    }
+}
+
+int main() {
+    assert(compare<int>(10, 5) == 10);
+    assert(compare<float>(3.5, 6.2) == 6.2);
+    assert(compare<float>(parse<float>("1,5"), parse<float>("2.3")) == 2.3);
+    assert(compare(std::string("abc"), std::string("def")) == "def");
+
+    return 0;
 }
