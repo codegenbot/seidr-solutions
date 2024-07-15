@@ -1,17 +1,11 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-int gcd(int a, int b) {
-    if(b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
+using namespace std;
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int target_len = target.length();
     for(int i = 0; i <= text.length() - target_len; i++) {
         bool found = true;
@@ -28,16 +22,33 @@ std::vector<int> findIndices(std::string text, std::string target) {
     return indices;
 }
 
+int gcd(int a, int b) {
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << std::endl;
-    std::cout << gcd(a, b) << std::endl;
+    
+    while(true) {
+        cin >> a >> b;
+        if(a <= INT_MAX && b <= INT_MAX) break;
+        cout << "Error: Input values are too large. Please enter values that fit within the range of an integer.\n";
+    }
+    cout << std::endl;
+    cout << gcd(a, b) << std::endl;
 
-    std::string text, target;
-    std::cin >> text >> target;
-    std::vector<int> indices = findIndices(text, target);
+    string text, target;
+    
+    while(true) {
+        cin >> text >> target;
+        if(text.length() <= INT_MAX && target.length() <= INT_MAX) break;
+        cout << "Error: Input values are too large. Please enter values that fit within the range of an integer.\n";
+    }
+    vector<int> indices = findIndices(text, target);
     for(int i : indices)
-        std::cout << i << " ";
+        cout << i << " ";
     return 0;
 }
