@@ -3,11 +3,11 @@
 #include <vector>
 
 int basement(const std::vector<int>& nums) {
-    int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) {
-            return i;
+    for (int i = 0; i < nums.size(); i++) {
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += nums[j];
+            if (sum < 0) return j;
         }
     }
     return -1; // not found
