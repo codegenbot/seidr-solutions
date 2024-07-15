@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -15,10 +20,10 @@ int main() {
     }
     
     for (auto& it : codeFreq) {
-        white += min(it.second, guessFreq[it.first]);
+        white += std::min(it.second, guessFreq[it.first]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << "\n" << black << "\n";
     
     return 0;
 }
