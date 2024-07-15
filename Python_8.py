@@ -1,2 +1,5 @@
-n = int(input("Enter the value of n: "))
-numbers = list(map(int, input("Enter the list of numbers separated by space: ").split()))
+try:
+    n = int(input())
+    numbers = list(map(int, input().split()))
+except:
+    pass

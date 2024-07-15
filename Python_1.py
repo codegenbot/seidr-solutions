@@ -1,9 +1,6 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if set(paren_string) <= set("()"):
-        return ["Invalid input: Input string must contain only parentheses"]
-
     result = []
     current_group = ""
     depth = 0
@@ -30,8 +27,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 input_str = input().strip()
-if set(input_str).issubset(set("()")):
-    output = separate_paren_groups(input_str)
-    print(output)
-else:
-    print("Invalid input: Input string must contain only parentheses")
+output = separate_paren_groups(input_str)
+print(output)
