@@ -1,5 +1,5 @@
 #include <string>
-#include <cctype> 
+#include <cctype>
 
 int vowels_count(std::string s) {
     int count = 0;
