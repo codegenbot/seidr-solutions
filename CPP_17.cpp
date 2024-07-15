@@ -19,13 +19,13 @@ std::vector<int> parse_music(std::string music_string) {
         } else if (c == '.') {
             beats.push_back(1);
         } else if (c == '|') {
-            note = "";
+            note = "";  
         }
     }
     return beats;
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 1, 4, 2}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
