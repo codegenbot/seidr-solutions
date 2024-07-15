@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -19,5 +20,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     
     return [current_depth]
 
-paren_string = input()
+paren_string = sys.stdin.readline().strip()
 print(parse_nested_parens(paren_string))
