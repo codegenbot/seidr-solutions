@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher_string1, cipher_string2, message):
     cipher_map = {cipher_string2[i]: char for i, char in enumerate(cipher_string1)}
     deciphered_message = ""
