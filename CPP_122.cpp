@@ -8,6 +8,7 @@ int add_elements(std::vector<int> arr,int k){
         if(log10(arr[i])<3) sum+=arr[i];
     }
     return sum;
+
 }
 
 int main() {
