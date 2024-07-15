@@ -1,8 +1,5 @@
 def find_zero(xs: list) -> float:
-    a = xs[-1]
-    b = xs[-2]
+    n = xs[0]
+    a = xs[n]
+    b = xs[n-1]
     return -b / a
-
-xs = list(map(float, input().split()))
-result = find_zero(xs)
-print(result)
