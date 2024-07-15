@@ -7,7 +7,7 @@ def encode(message):
                 if char.lower() == 'a':
                     result += 'y'
                 elif char.lower() == 'e':
-                    result += 'g'
+                    result += 'h'
                 elif char.lower() == 'i':
                     result += 'k'
                 elif char.lower() == 'o':
