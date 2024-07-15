@@ -1,6 +1,6 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return std::is_permutation(a.begin(), a.end(), b.begin());
 }
