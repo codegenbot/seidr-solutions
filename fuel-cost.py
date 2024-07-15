@@ -1,3 +1,3 @@
-input_list = [int(input()) for _ in range(int(input()))]
-result = sum((x // 3) - 2 for x in input_list)
+vec = list(map(int, input().split()))
+result = sum(map(lambda x: max(0, x // 3 - 2), vec))
 print(result)
