@@ -29,5 +29,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-output = separate_paren_groups(input("Enter a string of parentheses: ").strip())
+output = separate_paren_groups(input().strip())
 print(output)
