@@ -1,7 +1,4 @@
-try:
-    n = int(input().strip())
-    numbers = list(map(int, input().strip().split()))
-    res = [num for num in numbers if num % 2 == 0]
-    print(sum(res))
-except ValueError:
-    print("Input error. Please enter valid input.")
+n = int(input())
+numbers = list(map(int, input().split()))
+res = sum(num for num in numbers if num % 2 == 0)
+print(res)
