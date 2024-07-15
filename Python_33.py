@@ -5,5 +5,5 @@ def sort_third(l: list):
             for i in range(0, len(l), 3)
             if i + 2 < len(l)
         ],
-        key=lambda x: x[2],
-    ) 
+        key=lambda x: x,
+    )
