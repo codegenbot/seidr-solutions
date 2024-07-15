@@ -1,14 +1,17 @@
-// Define the issame function
-bool issame(const vector<int>& a, const vector<int>& b) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-// Define the sort_third function
-vector<int> sort_third(vector<int> l) {
-    vector<int> res = l;
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> res = l;
     for (int i = 0; i < l.size(); ++i) {
         if ((i + 1) % 3 == 0) {
-            sort(res.begin() + i - 2, res.begin() + i + 1);
+            std::sort(res.begin() + i - 2, res.begin() + i + 1);
         }
     }
     return res;
