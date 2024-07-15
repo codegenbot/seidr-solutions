@@ -1,20 +1,20 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> generate_integers(int a, int b);
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> result;
+vector<int> generate_integers(int a, int b) {
+    vector<int> result;
     for (int i = a; i <= b; ++i) {
         if (i % 2 == 0) {
             result.push_back(i);
         }
     }
     return result;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
