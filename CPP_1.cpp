@@ -7,29 +7,32 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> separate_paren_groups(const std::string& input) {
-    std::vector<std::string> groups;
+    std::vector<std::string> result;
     int count = 0;
-    std::string current_group;
-
+    std::string group;
+    
     for (char c : input) {
         if (c == '(') {
             if (count > 0) {
-                current_group += c;
+                result.push_back(group);
             }
+            group.clear();
             count++;
         } else if (c == ')') {
             count--;
             if (count > 0) {
-                current_group += c;
+                result.push_back(group);
             }
-            if (count == 0) {
-                groups.push_back(current_group);
-                current_group = "";
+            group.clear();
+            if (count == 0 && !result.empty()) {
+                result.back() = "(" + result.back() + ")";
             }
+        } else {
+            group.push_back(c);
         }
     }
-
-    return groups;
+    
+    return result;
 }
 
 int main() {
