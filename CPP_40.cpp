@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool triples_sum_to_zero(std::vector<int>& l) {
-    sort(l.begin(), l.end());
+    std::sort(l.begin(), l.end());
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
         int left = i + 1;
