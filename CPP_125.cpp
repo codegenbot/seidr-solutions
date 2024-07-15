@@ -2,24 +2,17 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> words, std::string word){
-    for(const auto& w : words){
-        if(w == word){
-            return true;
-        }
-    }
-    return false;
+bool issame(char c) {
+    return islower(c) && (c - 'a') % 2 == 1;
 }
 
-std::vector<std::string> split_words(std::string txt){
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
-                if(!issame(result, word)){
-                    result.push_back(word);
-                }
+                result.push_back(word);
                 word = "";
             }
         } else {
@@ -27,31 +20,27 @@ std::vector<std::string> split_words(std::string txt){
         }
     }
     if(!word.empty()){
-        if(!issame(result, word)){
-            result.push_back(word);
-        }
+        result.push_back(word);
     }
     if(result.empty()){
         int count = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+            if(issame(c)){
                 count++;
             }
         }
-        result.push_back(std::to_string(count));
+        result.push_back(to_string(count));
     }
     return result;
 }
 
 int main() {
-    std::string text;
-    std::cout << "Enter a text: ";
-    std::getline(std::cin, text);
-    
-    std::vector<std::string> words = split_words(text);
-    for(const auto& word : words){
-        std::cout << word << " ";
+    string input;
+    getline(cin, input);
+    vector<string> words = split_words(input);
+    for(const string& word : words){
+        cout << word << " ";
     }
-    
+    cout << endl;
     return 0;
 }
