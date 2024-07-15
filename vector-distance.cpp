@@ -4,27 +4,15 @@
 
 int main() {
     int n;
-    
-    if (!(std::cin >> n)) {
-        return 1;
-    }
-
-    if (n <= 0) {
-        return 1;
-    }
-
+    std::cin >> n;
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        if (!(std::cin >> vec1[i])) {
-            return 1;
-        }
+        std::cin >> vec1[i];
     }
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        if (!(std::cin >> vec2[i])) {
-            return 1;
-        }
+        std::cin >> vec2[i];
     }
 
     double sum = 0;
