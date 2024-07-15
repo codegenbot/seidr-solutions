@@ -1,7 +1,8 @@
-```
 def match_parens(lst):
     stack = []
     for s in lst:
+        if not isinstance(s, str):
+            return 'No'
         for c in s:
             if c == '(':
                 stack.append(c)
@@ -11,4 +12,4 @@ def match_parens(lst):
                 stack.pop()
     if len(stack) > 0:
         return 'No'
-    return 'Yes'
+    return 'Yes' if len(stack) == 0 else 'No'
