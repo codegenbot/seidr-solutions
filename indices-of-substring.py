@@ -1,4 +1,4 @@
-'''def indices_of_substring(text, target):
+def indices_of_substring(text, target):
     result = []
     last_found_index = 0
     while last_found_index < len(text):
@@ -8,4 +8,4 @@
             last_found_index = pos + 1
         else:
             break
-    return result'''
+    return result
