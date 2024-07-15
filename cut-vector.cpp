@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <utility>
@@ -18,12 +17,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
     }
     
-    pair<vector<int>, vector<int>> result;
     vector<int> left, right;
     for(int i=0; i<pos; i++) left.push_back(v[i]);
     for(int i=pos; i<n; i++) right.push_back(v[i]);
     
-    return make_pair(left, right);
+    return {left, right};
 }
 
 int main() {
