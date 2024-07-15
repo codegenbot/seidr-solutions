@@ -1,6 +1,6 @@
-```
 def add(x: int, y: int):
     return x + y
+
 
 def main():
     try:
@@ -10,6 +10,7 @@ def main():
         print(f"The sum of {x} and {y} is {result}")
     except ValueError:
         print("Invalid input. Please enter integers.")
+
 
 if __name__ == "__main__":
     main()
