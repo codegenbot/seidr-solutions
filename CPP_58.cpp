@@ -4,9 +4,9 @@
 #include <cassert>
 #include <set>
 
-namespace CustomFunctions {
+namespace CustomVectorFunctions {
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
+        return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
     }
 
     std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
@@ -20,7 +20,7 @@ namespace CustomFunctions {
 }
 
 int main() {
-    using namespace CustomFunctions;
+    using namespace CustomVectorFunctions;
     assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
