@@ -1,9 +1,17 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
@@ -16,12 +24,12 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             result = std::make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return {result.first, result.second};
+    return result;
 }
 
 int main() {
-    std::vector<float> numbers = {3.5, 1.2, 6.8, 2.3, 9.1};
-    std::pair<float, float> closest_elements = find_closest_elements(numbers);
-    std::cout << "Closest elements are: " << closest_elements.first << " and " << closest_elements.second << std::endl;
+    std::vector<float> numbers = {5.1, 2.3, 7.8, 1.9, 3.4};
+    auto closest_pair = find_closest_elements(numbers);
+    std::cout << closest_pair.first << " " << closest_pair.second << std::endl;
     return 0;
 }
