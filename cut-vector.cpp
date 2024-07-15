@@ -12,18 +12,8 @@ int main() {
         nums.push_back(num);
     }
     
-    if (nums.size() == 1) {
-        std::vector<int> subvector1(nums.begin(), nums.end());
-        std::vector<int> subvector2;
-        
-        for (int num : subvector1) {
-            std::cout << num << std::endl;
-        }
-        
-        for (int num : subvector2) {
-            std::cout << num << std::endl;
-        }
-        
+    if (nums.empty()) {
+        std::cout << "Empty input vector" << std::endl;
         return 0;
     }
     
