@@ -1,12 +1,5 @@
-#include <vector>
-#include <iostream>
-#include <utility>
-#include <climits>
-
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int splitIndex = 0;
     
     for (int i = 1; i < v.size(); ++i) {
@@ -28,11 +21,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
     }
     
-    pair<vector<int>, vector<int>> result;
-    result.first = vector<int>(v.begin(), v.begin() + splitIndex);
-    result.second = vector<int>(v.begin() + splitIndex, v.end());
+    vector<int> left(v.begin(), v.begin() + splitIndex);
+    vector<int> right(v.begin() + splitIndex, v.end());
     
-    return result;
+    return {left, right};
 }
 
 int main() {
@@ -43,8 +35,7 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "1 ";
     for (auto x : result.first) cout << x << " ";
-    cout << "\n0\n";
-    cout << "1 ";
+    cout << "\n0 1 ";
     for (auto x : result.second) cout << x << " ";
     cout << "\n0\n";
     

@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-#include <iostream>
 using namespace std;
 
 string fizzBuzz(int x) {
@@ -10,4 +10,13 @@ string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x);
+        return to_string(x);
+}
+
+int main() {
+    int x;
+    cout << "Enter a number: ";
+    cin >> x;
+    cout << fizzBuzz(x) << endl;
+    return 0;
+}
