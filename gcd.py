@@ -17,3 +17,6 @@ def find_indices(text, target):
         else:
             break
     return indices
+
+print(gcd(4, 6))
+print(find_indices("hello world", "o"))
