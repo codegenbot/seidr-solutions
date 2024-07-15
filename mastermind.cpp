@@ -3,35 +3,25 @@
 
 using namespace std;
 
-void addCharacter(string& str, char c) {
-    str.push_back(c);
-}
-
 int whitePegs(string code, string guess) {
     int count = 0;
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    for(int i=0, j=0; i<4 && j<4; i++, j++) {
+        if(code[i] == guess[j]) {
+            continue; // Correct position, counted in black pegs
+        } 
+        else if(code.find(guess[j]) != string::npos) {
             count++;
         }
     }
-    return 4 - count;
+    return count;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    for(int i=0; i<6; i++) {
-        char ch = (i < 3 ? '0' + i : 'A' - 10);
-        int codeCount = 0;
-        int guessCount = 0;
-        for(int j=0; j<4; j++) {
-            if(code[j] == ch) {
-                codeCount++;
-            }
-            if(guess[j] == ch) {
-                guessCount++;
-            }
+    for(int i=0, j=0; i<4 && j<4; i++, j++) {
+        if(code[i] == guess[j]) {
+            count++;
         }
-        count += min(codeCount, guessCount);
     }
     return count;
 }
