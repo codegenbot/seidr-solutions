@@ -12,7 +12,7 @@ std::vector<int> calculateValues(int n) {
     return {};
 }
 
-int main(){
+int main() {
     assert(issame(calculateValues(3), {1, 2, 6}));
     return 0;
 }
