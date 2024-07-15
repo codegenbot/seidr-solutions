@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    double startingHeight, firstBounceHeight;
+    double startingHeight, firstBounceHeight, bouncinessIndex;
     int numBounces;
 
     cout << "Enter the starting height: ";
@@ -14,7 +14,7 @@ int main() {
     cout << "Enter the number of bounces: ";
     cin >> numBounces;
 
-    double bouncinessIndex = firstBounceHeight / startingHeight;
+    bouncinessIndex = firstBounceHeight / startingHeight;
 
     double totalDistance = (numBounces * 2) + bouncinessIndex;
 
