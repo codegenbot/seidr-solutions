@@ -1,4 +1,3 @@
-```
 def luhn(card):
     sum = 0
     for i in range(len(str(card)) - 1, -1, -1):
