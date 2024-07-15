@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
@@ -17,11 +13,4 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
         }
     }
     return {result.first, result.second};
-}
-
-int main() {
-    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.6};
-    pair<float, float> closest_elements = find_closest_elements(numbers);
-    cout << "Closest elements are: " << closest_elements.first << " and " << closest_elements.second << endl;
-    return 0;
 }
