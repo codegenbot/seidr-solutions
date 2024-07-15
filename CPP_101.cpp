@@ -1,6 +1,5 @@
 Here is the completed code:
 
-```cpp
 vector<string> words_string(string s) {
     vector<string> result;
     string word = "";
@@ -18,4 +17,3 @@ vector<string> words_string(string s) {
         result.push_back(word);
     }
     return result;
-}
