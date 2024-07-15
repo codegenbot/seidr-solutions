@@ -1,10 +1,8 @@
-Here is the completed code:
-
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && std::distance(s.begin(), find(s.begin(), s.end(), c)) == s.size() - 1)) {
+    for(int i=0; i<s.length(); i++){
+        if((s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') 
+           && (i == s.length() - 1 || !isalpha(toupper(s[i+1])))) {
             count++;
         }
     }
