@@ -6,12 +6,14 @@ int mastermind(std::string code, std::string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
 
+    // Count black pegs (correct color and correct place)
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
 
+    // Count white pegs (correct color, wrong place)
     std::vector<int> codeCount(6, 0);
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i] - 'A']++;
