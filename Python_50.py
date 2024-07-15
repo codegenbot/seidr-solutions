@@ -1,8 +1,8 @@
 def decode_shift(input_string):
-    decoded_text = ""
+    decoded = ""
     for char in input_string:
-        if char.isalpha():
-            decoded_text += chr((ord(char) - 3 - ord('a')) % 26 + ord('a'))
-        else:
-            decoded_text += char
-    return decoded_text
+        decoded += chr(ord(char) - 3)
+    return decoded
+
+input_string = input()
+print(decode_shift(input_string))
