@@ -1,10 +1,10 @@
-int openCount = 0;
+int count = 0;
     for(char c : str){
         if(c == '['){
-            openCount++;
-        }else if(c == ']' && openCount > 0){
-            openCount--;
+            count++;
+        } else if (c == ']' && count > 0){
+            count--;
         }
     }
-    return openCount < str.size()/2 && openCount > 0;
+    return count < 0;
 }
