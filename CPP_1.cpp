@@ -1,6 +1,19 @@
 #include <string>
 #include <vector>
 
+bool issame(const string& a, const string& b){
+    return a == b;
+}
+
+vector<string> separate_paren_groups(const string& paren_string);
+
+void test() {
+    vector<string> test_input = {"(a(b))", "(c(d))"};
+
+    assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
+    assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
+}
+
 vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
@@ -26,11 +39,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-vector<string> test_input = {"(a(b))", "(c(d))"};
-
-assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
-assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
-
-int main() {
+int solve_cpp_1() {
+    test();
     return 0;
 }
