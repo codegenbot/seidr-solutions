@@ -1,10 +1,10 @@
-#include <vector>
 #include <iostream>
-#include <utility>
+#include <vector>
+#include <pair>
 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+vector<int> cutVector(vector<int>& v) {
     int n = v.size();
     int minDiff = INT_MAX;
     int pos = -1;
@@ -31,13 +31,15 @@ int main() {
     vector<int> v(n);
     for(auto &x : v) cin >> x;
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    vector<pair<vector<int>, vector<int>>> result;
+    result.push_back({cutVector(v)});
+    
     cout << "Left: ";
-    for(int x : result.first) cout << x << ' ';
+    for(int x : result[0].first) cout << x << ' ';
     cout << '\n';
     cout << "Right: ";
-    for(int x : result.second) cout << x << ' ';
+    for(int x : result[0].second) cout << x << ' ';
     cout << '\n';
-    
+
     return 0;
 }
