@@ -11,8 +11,12 @@ double vectorDistance(int n) {
     for (int i = 0; i < n; i++) {
         float val;
         cin >> val;
-        cin >> val;
         x1[i] = val; 
+    }
+    
+    for (int i = 0; i < n; i++) {
+        float val;
+        cin >> val;
         x2[i] = val;
     }
     
