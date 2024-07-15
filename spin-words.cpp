@@ -1,12 +1,5 @@
-```cpp
 #include <string>
 using namespace std;
-
-int main() {
-    string result = spinWords("your_input_string_here"); // test with a sample input
-    cout << result; // print the result
-    return 0;
-}
 
 string spinWords(string str) {
     string result = "";
@@ -32,4 +25,11 @@ string spinWords(string str) {
         }
     }
     return result;
+}
+
+int main() {
+    string str;
+    cin >> str;
+    cout << spinWords(str) << endl;
+    return 0;
 }
