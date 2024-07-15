@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cassert>
 
 int fib(int n) {
