@@ -1,5 +1,4 @@
 numbers = list(map(int, input().split()))
-
 numbers.sort()
 min_diff = float("inf")
 result = (0, 0)
