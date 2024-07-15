@@ -5,11 +5,9 @@ def bouncing_balls():
 
     n = int(input())
     total_distance = 0
-    prev_height = h
     for _ in range(n):
-        distance_traveled = 2 * abs(b - prev_height)
+        distance_traveled = 2 * b
         total_distance += distance_traveled
-        b = (1 - i) * prev_height
-        prev_height = b
+        b = round(b * i)
 
     return total_distance
