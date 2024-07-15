@@ -1,9 +1,7 @@
 def factorize(n):
-    factors = []
-    for i in range(1, n + 1):
-        if n % i == 0:
-            factors.append(i)
+    factors = [i for i in range(1, n + 1) if n % i == 0]
     return factors
 
-result = factorize(int(input()))
+n = int(input("Enter a number: "))
+result = factorize(n)
 print(result)
