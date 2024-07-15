@@ -2,18 +2,20 @@
 #include <string>
 using namespace std;
 
+int main() {
+    string text = "example";
+    string target = "ple";
+    vector<int> res = indicesOfSubstring(text, target);
+    return 0;
+}
+
 vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> res;
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         res.push_back(pos);
-        pos += (pos + target.size() <= text.size()) ? target.size() : 0;
+        pos += target.size();
     }
     return res;
-}
 
-int main() {
-    string text = "Hello World";
-    string target = "World";
-    vector<int> res = indicesOfSubstring(text, target);
 }
