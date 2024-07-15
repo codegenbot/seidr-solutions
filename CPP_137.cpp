@@ -1,20 +1,27 @@
 #include <boost/any.hpp>
 #include <string>
 
-template<typename T>
-const boost::any compare_one(const boost::any& a, const boost::any& b) {
+template <typename T>
+T compare_one(const boost::any& a, const boost::any& b) {
+    if (a.empty() || b.empty()) {
+        return "None";
+    }
+    
     if (a.type() == typeid(T) && b.type() == typeid(T)) {
-        if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
-            return a;
-        } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
-            return b;
+        T val_a = boost::any_cast<T>(a);
+        T val_b = boost::any_cast<T>(b);
+        
+        if (val_a > val_b) {
+            return val_a;
+        } else if (val_a < val_b) {
+            return val_b;
         } else {
             return "None";
         }
+    } else {
+        return "None";
     }
-    return "None";
 }
 
-const boost::any compare(const boost::any& a, const boost::any& b) {
-    return compare_one<int>(a, b), compare_one<float>(a, b), compare_one<std::string>(a, b);
-}
+// Usage example:
+// auto result = compare_one<int>(a, b);
