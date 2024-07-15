@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <string> 
+#include <string>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -16,6 +16,22 @@ vector<int> findIndices(string text, string target) {
         }
         if (found) {
             indices.push_back(i);
+            // Check for overlapping targets
+            while (i + targetLength <= text.length()) {
+                i++;
+                found = true;
+                for (int j = 0; j < targetLength; j++) {
+                    if (text[i + j] != target[j]) {
+                        found = false;
+                        break;
+                    }
+                }
+                if (found) {
+                    indices.push_back(i);
+                } else {
+                    break;
+                }
+            }
         }
     }
     return indices;
