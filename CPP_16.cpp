@@ -1,9 +1,5 @@
-vector<char> distinct;
-    for (char c : str) {
-        if (std::find(distinct.begin(), distinct.end(), tolower(c)) == distinct.end() &&
-            std::find(distinct.begin(), distinct.end(), toupper(c)) == distinct.end()) {
-            distinct.push_back(tolower(c));
-        }
-    }
-    return distinct.size();
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    str.erase(unique(str.begin(), str.end()), str.end());
+    return str.size();
 }
