@@ -1,2 +1,2 @@
 def words_string(s):
-    return ','.join(s.split()[0].split(','))
+    return ', '.join([word.capitalize() for word in s.split()[0].split(', ') if word])
