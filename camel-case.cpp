@@ -1,20 +1,39 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] == ' ') {
-                i++;
+std::string toCamelCase(std::string s) {
+    std::string result = "";
+    bool firstWord = true;
+
+    for (char c : s) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(c));
             }
-            result += toupper(s[i]);
-        } else if (!result.empty() && isalpha(s[i])) {
-            result[0] = tolower(s[i]);
-            break;
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
         } else {
-            result += s[i];
+            if (firstWord) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+            }
+            firstWord = false;
         }
     }
+
     return result;
+}
+
+int main() {
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << toCamelCase(s) << '\n';
+    }
+    return 0;
 }
