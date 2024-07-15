@@ -1,23 +1,17 @@
-#include<string>
+#include <string>
+#include <sstream>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(split(x)[0]);
-    int b = stoi(split(x)[2]);
-    int c = stoi(split(n)[0]);
-    int d = stoi(split(n)[2]);
+    int numerator1 = 0, denominator1 = 0;
+    int numerator2 = 0, denominator2 = 0;
 
-    return (a * d == b * c);
-}
+    stringstream ss(x);
+    ss >> numerator1 >> denominator1;
 
-string split(string s) {
-    string result[3];
-    size_t pos = 0;
-    size_t prev = 0;
-    while ((pos = s.find('/')) != string::npos) {
-        result[1] = s.substr(prev, pos - prev);
-        prev = pos + 1;
-    }
-    result[2] = s.substr(prev);
-    return result[0] + "/" + result[2];
+    stringstream sn(n);
+    sn >> numerator2 >> denominator2;
+
+    return (double)numerator1 / denominator1 == (double)numerator2 / denominator2;
 }
