@@ -5,3 +5,4 @@ std::string squareDigits(std::string input) {
         result += char(digit * digit + '0');
     }
     return result;
+}
