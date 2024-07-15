@@ -8,9 +8,9 @@ def solve_boolean(expression):
             operator_ = tokens.pop(0)
             operand2 = evaluate(tokens)
             if operator_ == "|":
-                return str(eval(f"{' '.join(map(str, [operand2, 'True']))}"))
+                return str(eval(f"{operand2} or True"))
             else:
-                return str(eval(f"{' '.join(map(str, [operand2, 'False']))}"))
+                return str(eval(f"{operand2} and False"))
 
     def solve(stack):
         result = None
