@@ -1,7 +1,12 @@
-int fuelCost(vector<int> &v) {
+Here is the solution:
+
+int solve(vector<int>& v) {
     int sum = 0;
     for (int i : v) {
-        sum += ((i / 3) - 2);
+        int x = i / 3;
+        x = floor(x);
+        x -= 2;
+        sum += x;
     }
     return sum;
 }
