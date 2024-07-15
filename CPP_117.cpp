@@ -1,15 +1,10 @@
-vector<string> issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
 
-vector<string> select_words(string s, int n);
-
-int main() {
-    assert(issame(select_words("apple banana orange", 2), {"apple", "orange"}));
-    assert(issame(select_words("hello world", 3), {"world"}));
-    assert(issame(select_words("cpp code contest", 4), {"contest"}));
-    return 0;
-}
+using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -34,4 +29,13 @@ vector<string> select_words(string s, int n) {
         result.push_back(word);
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    return 0;
 }
