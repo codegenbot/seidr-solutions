@@ -2,9 +2,7 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string string_to_md5(const string& text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -17,9 +15,10 @@ string string_to_md5(const string& text) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
-    return string(mdString);
+    return std::string(mdString);
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
