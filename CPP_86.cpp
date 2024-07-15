@@ -1,15 +1,24 @@
-string result = "";
+#include <stdio.h>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string anti_shuffle(string s) {
+    string orderedString = "";
     string word = "";
+
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + ' ';
+            orderedString += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
+
     sort(word.begin(), word.end());
-    result += word;
-    return result;
+    orderedString += word;
+
+    return orderedString;
 }
