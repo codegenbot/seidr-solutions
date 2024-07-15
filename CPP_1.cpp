@@ -44,13 +44,13 @@ bool issame_vectors(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
-    vector<string> expected_result = {"(group1)", "(group2)", "(group3)"};
+    vector<string> result = separate_paren_groups("((hello)(world))");
+    vector<string> expected_result = {"(hello)", "(world)"};
 
     if (issame_vectors(result, expected_result)) {
-        cout << "The separated groups match the expected result." << endl;
+        cout << "Test Passed" << endl;
     } else {
-        cout << "The separated groups do not match the expected result." << endl;
+        cout << "Test Failed" << endl;
     }
 
     return 0;
