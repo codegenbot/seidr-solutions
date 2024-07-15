@@ -1,6 +1,10 @@
-#include <string>
+#include <cassert>
 #include <vector>
+#include <string>
+
 using namespace std;
+
+string intersection(vector<int> interval1, vector<int> interval2);
 
 int isPrime(int n) {
     if (n <= 1) return 0;
@@ -25,7 +29,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     }
 }
 
-int main() {
+int main(){
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
     return 0;
 }
