@@ -1,11 +1,9 @@
-int main() {
-    int a, b;
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
+````
+int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    return gcd(a, b);
 }
+```

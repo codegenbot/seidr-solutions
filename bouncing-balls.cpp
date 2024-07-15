@@ -3,22 +3,21 @@
 using namespace std;
 
 int main() {
-    double startHeight, firstBounceHeight;
+    double startingHeight, firstBounceHeight, bouncinessIndex, totalDistance;
     int numBounces;
 
-    cout << "Enter starting height: ";
-    cin >> startHeight;
-
-    cout << "Enter height after the first bounce: ";
+    cout << "Enter the starting height: ";
+    cin >> startingHeight;
+    cout << "Enter the height after the first bounce: ";
     cin >> firstBounceHeight;
-
-    double bouncinessIndex = firstBounceHeight / startHeight;
-
-    cout << "Enter number of bounces: ";
+    cout << "Enter the number of bounces: ";
     cin >> numBounces;
 
-    totalDistance = 0.5 * (2 * startHeight + firstBounceHeight) * numBounces * (1 - pow(bouncinessIndex, numBounces));
+    bouncinessIndex = firstBounceHeight / startingHeight;
+
+    totalDistance = (numBounces * 2) + bouncinessIndex;
 
     cout << fixed << setprecision(5) << totalDistance << endl;
+
     return 0;
 }
