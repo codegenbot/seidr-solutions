@@ -1,6 +1,4 @@
-Here is your corrected code:
-
-```python
+```
 def cut_vector(vector):
     median = sum(vector) // len(vector)
     left_sum = 0
@@ -18,4 +16,4 @@ def cut_vector(vector):
         else:
             right_sum -= vector[i]
 
-    return vector[:split_index + 1], vector[split_index + 1 :]
+    return vector[:split_index + 1], vector[split_index + 1:]
