@@ -10,4 +10,4 @@ def bouncing_balls():
         distance_traveled = 2 * abs(b - h)
         total_distance += distance_traveled
         h, b = b, (b - h) * i
-    print(total_distance)
+    return total_distance
