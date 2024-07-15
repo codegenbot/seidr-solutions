@@ -30,5 +30,6 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 }
 
 int main() {
+    // Remove unnecessary assert
     return 0;
 }
