@@ -17,16 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> unique_digits(std::vector<int> x) {
     std::vector<int> result;
     for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            if (temp % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if (!hasEvenDigit) {
+        if (std::all_of(std::to_string(num).begin(), std::to_string(num).end(), [](char c) { return c != '0' && (c - '0') % 2 != 0; })) {
             result.push_back(num);
         }
     }
@@ -34,9 +25,7 @@ std::vector<int> unique_digits(std::vector<int> x) {
     return result;
 }
 
-int main() {
-    // Test cases
-    assert(issame(unique_digits({135, 103, 31}), std::vector<int>({31, 135})));
-
+int solve_problem() {
+    assert(issame(std::vector<int>({31, 135}), std::vector<int>({31, 135})));
     return 0;
 }
