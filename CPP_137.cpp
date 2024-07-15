@@ -1,6 +1,7 @@
 #include <any>
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -17,9 +18,9 @@ std::any compare(std::any a, std::any b) {
 }
 
 int main() {
-    std::any val1, val2;
-    cin >> any_cast<int>(val1) >> any_cast<int>(val2);
-    cout << any_cast<int>(compare(val1, val2)) << endl;
+    int int1, int2;
+    cin >> int1 >> int2;
+    assert(std::any_cast<int>(compare(int1, int2)) == int1);
 
     return 0;
 }
