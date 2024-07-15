@@ -1,10 +1,21 @@
-vector<int> findPair(vector<int>& nums, int target) {
-    map<int, int> numIndex;
-    for (int i = 0; i < nums.size(); ++i) {
-        if (numIndex.find(target - nums[i]) != numIndex.end()) {
-            return {nums[i], target - nums[i]};
-        }
-        numIndex[nums[i]] = i;
+int main() {
+    int n, target;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
-    return {};
+    cin >> target;
+    
+    map<int, int> mp;
+    for (int i = 0; i < n; ++i) {
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << nums[i] << endl;
+            cout << target - nums[i] << endl;
+            break;
+        }
+        mp[nums[i]] = i;
+    }
+    
+    return 0;
 }
