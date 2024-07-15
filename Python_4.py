@@ -1,11 +1,8 @@
 from typing import List
-import ast
-
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(x - mean) for x in numbers) / len(numbers)
+    return sum(abs(x - (sum(numbers) / len(numbers))) for x in numbers) / len(numbers)
 
-input_str = input()
-numbers = ast.literal_eval(input_str)
+# Read input as space-separated numbers
+numbers = list(map(float, input().split()))
 result = mean_absolute_deviation(numbers)
 print(result)
