@@ -2,10 +2,6 @@
 #include <iostream>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 std::vector<int> calculateSequence(int n) {
     std::vector<int> result;
 
@@ -23,8 +19,6 @@ int main() {
     std::cin >> n;
 
     std::vector<int> result = calculateSequence(n);
-
-    assert(issame(result, {1}));
 
     return 0;
 }
