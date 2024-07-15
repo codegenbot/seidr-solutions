@@ -2,10 +2,16 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<float> sort_even(const std::vector<float>& l);
-
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
+}
+
+std::vector<float> sort_even(const std::vector<float>& l);
+
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    // Add more test cases here
+    return 0;
 }
 
 std::vector<float> sort_even(const std::vector<float>& l) {
@@ -17,7 +23,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
             sorted_even_values.push_back(l[i]);
         }
     }
-    std::sort(sorted_even_values.begin(), sorted_even_values.end());
+    sort(sorted_even_values.begin(), sorted_even_values.end());
     int sorted_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
