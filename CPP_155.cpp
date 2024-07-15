@@ -1,4 +1,5 @@
 #include <vector>
+
 using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -8,8 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> even_odd_count(int num);
 
 int main() {
-    // code goes here
-    return 0;
+    // Add main function code here if needed
 }
 
 std::vector<int> even_odd_count(int num) {
