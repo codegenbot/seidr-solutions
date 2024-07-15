@@ -1,4 +1,8 @@
-bool simplify(const string& x, const string& n) {
+#include <string>
+
+bool checkDivisibility(string x) {
+    string n = "some_string_value";
+    
     int num1 = stoi(x.substr(0, x.find('/')));
     int den1 = stoi(x.substr(x.find('/') + 1));
     int num2 = stoi(n.substr(0, n.find('/')));
