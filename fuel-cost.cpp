@@ -1,12 +1,12 @@
+```cpp
 #include <vector>
-#include <cmath>
 
 int calculateFuelCost(vector<int> &numbers) {
     int total = 0;
     for (int num : numbers) {
-        double result = (double)num / 3;
-        int roundedResult = static_cast<int>(floor(result));
-        int calculatedResult = roundedResult - 2;
-        total += calculatedResult;
+        int result = static_cast<int>(floor((double)num / 3));
+        result -= 2;
+        total += result;
     }
     return total;
+}
