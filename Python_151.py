@@ -1,7 +1,7 @@
 def double_the_difference(lst):
-    return sum(x ** 2 for x in lst if x > 0 and x % 2 != 0)
+    return sum(x**2 for x in lst if x > 0 and x % 2 != 0)
 
-# Example list to test the function
-lst = [1, 2, 3, 4, 5]
+
+lst = [3, 5, 7, 9, 2]
 result = double_the_difference(lst)
 print(result)
