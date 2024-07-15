@@ -1,13 +1,11 @@
-int count = 0;
+int opened = 0;
 for (char c : brackets) {
     if (c == '(') {
-        count++;
-    } else if (c == ')') {
-        if (count == 0) {
-            return false;
-        }
-        count--;
+        opened++;
+    } else if (c == ')' && opened > 0) {
+        opened--;
+    } else {
+        return false;
     }
 }
-return count == 0;
-}
+return opened == 0;
