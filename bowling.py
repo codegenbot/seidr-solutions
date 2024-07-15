@@ -4,7 +4,7 @@ def bowling_score(frames):
     roll = 0
     for frame in frames.split('/'):
         if len(frame) == 1:
-            score += 10
+            score += 10 + (10 - int(frame)) * 2
             roll += 2
         elif len(frame) > 1:
             strike = True if frame[0] == 'X' else False
