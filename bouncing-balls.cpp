@@ -1,10 +1,10 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    double startingHeight;
-    double firstBounceHeight;
-    int numBounces;
+    double startingHeight, firstBounceHeight;
+    int numBounces;  
 
     cout << "Enter the starting height: ";
     cin >> startingHeight;
