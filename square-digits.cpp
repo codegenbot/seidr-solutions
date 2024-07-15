@@ -8,3 +8,4 @@
         output += to_string(digit * digit);
     }
     return output;
+}
