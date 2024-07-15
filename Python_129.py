@@ -21,7 +21,7 @@ def minPath(grid, k):
 
         if next_cell is None:
             return []
-        
+
         return [grid[i][j]] + dfs(next_cell[0], next_cell[1], path + [min_val])
 
     min_val = float("inf")
