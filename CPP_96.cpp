@@ -1,21 +1,21 @@
 #include <vector>
 #include <cassert>
-#include <cmath>
 
-std::vector<int> count_up_to(int n) {
+std::vector<int> count_up_to(int limit) {
     std::vector<int> primes;
-    for (int i = 2; i <= n; ++i) {
+    
+    for (int num = 2; num <= limit; ++num) {
         bool is_prime = true;
-        for (int j = 2; j <= std::sqrt(i); ++j) {
-            if (i % j == 0) {
+        for (int i = 2; i * i <= num; ++i) {
+            if (num % i == 0) {
                 is_prime = false;
                 break;
             }
         }
-        if (is_prime) {
-            primes.push_back(i);
-        }
+        if (is_prime)
+            primes.push_back(num);
     }
+    
     return primes;
 }
 
