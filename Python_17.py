@@ -18,7 +18,7 @@ def parse_music(music_string: str) -> List[int]:
     return durations
 
 try:
-    music_string = input("Enter the music string separated by space: ").replace(" ","")
+    music_string = input("Enter the music string separated by space: ").replace(" ", "")
     durations = parse_music(music_string)
     print(durations)
 except ValueError as e:
