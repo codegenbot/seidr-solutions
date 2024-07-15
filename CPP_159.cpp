@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -10,5 +11,5 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
