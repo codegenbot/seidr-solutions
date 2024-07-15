@@ -1,63 +1,37 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<string> select_words(string s, int n);
 
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 int main() {
-    string sentence;
-    int n;
-
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-
-    cout << "Enter N: ";
-    cin >> n;
-
-    vector<string> words = select_words(sentence, n);
-
-    // Additional code can be added here to display or use the result accordingly
-
+    assert (issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    int consonantCount = 0;
-
+    string current_word;
+    int consonant_count = 0;
+    
     for (char c : s) {
-        if (c == ' ') {
-            if (consonantCount == n) {
-                result.push_back(word);
+        if (c != ' ') {
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+                consonant_count++;
             }
-            word = "";
-            consonantCount = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonantCount++;
+            current_word += c;
+        } else {
+            if (consonant_count == n) {
+                result.push_back(current_word);
             }
-            word += c;
+            current_word = "";
+            consonant_count = 0;
         }
     }
-
-    if (!word.empty() && consonantCount == n) {
-        result.push_back(word);
+    
+    if (consonant_count == n) {
+        result.push_back(current_word);
     }
-
+    
     return result;
 }
