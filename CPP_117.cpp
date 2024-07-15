@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
 
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -16,26 +17,26 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> select_words(string s, int n);
+std::vector<std::string> select_words(std::string s, int n);
 
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
     int n;
-    cin >> n;
+    std::getline(std::cin, input);
+    std::cin >> n;
 
-    vector<string> words = select_words(input, n);
+    std::vector<std::string> words = select_words(input, n);
 
-    for (string word : words) {
-        cout << word << " ";
+    for (const std::string& word : words) {
+        std::cout << word << std::endl;
     }
 
     return 0;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int consonantCount = 0;
 
     for (char c : s) {
