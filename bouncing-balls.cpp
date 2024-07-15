@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip> 
@@ -17,7 +17,8 @@ int main() {
     double totalDistance = 0.0;
 
     for(int i = 1; i <= numBounces; i++) {
-        totalDistance += 2 * startHeight * pow(bouncinessIndex, i);
+        startHeight *= bouncinessIndex;
+        totalDistance += startHeight * 2.0;
     }
 
     cout << setprecision(5) << totalDistance << endl;
