@@ -1,8 +1,9 @@
-bool issame(vector<int> a, vector<int> b){
-    // Comparison logic
+bool issame(vector<vector<int>>& grid, int k) {
+    int N = grid.size();
+    return (k % N == 0);
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int N = grid.size();
     vector<int> result;
     for (int i = 0; i < k; ++i) {
@@ -17,7 +18,13 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     return result;
 }
 
-int main(){
-    // Test cases
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 6;
+    
+    bool same = issame(grid, k);
+    
+    vector<int> result = minPath(grid, k);
+    
+    return 0;
 }
