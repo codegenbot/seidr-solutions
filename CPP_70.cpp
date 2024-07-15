@@ -1,12 +1,20 @@
-vector<int> strange_sort_list(vector<int> lst){
-    sort(lst.begin(), lst.end());
-    vector<int> result;
-    int left = 0, right = lst.size() - 1;
-    while (left <= right) {
-        result.push_back(lst[left++]);
-        if (left <= right) {
-            result.push_back(lst[right--]);
-        }
+#include <vector>
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+
+using namespace std;
+
+bool is_same(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
-    return result;
+    return true;
+}
+
+vector<int> strange_sort_list(vector<int> v){
+    sort(v.begin(), v.end());
+    return v;
 }
