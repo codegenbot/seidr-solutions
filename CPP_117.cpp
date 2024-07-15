@@ -6,13 +6,13 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
+    
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
+    
     return true;
 }
 
@@ -23,11 +23,17 @@ int main() {
     int n;
     getline(cin, input);
     cin >> n;
-
+    
     vector<string> selectedWords = select_words(input, n);
-
-    // Your code logic here
-
+    
+    // Test the select_words function
+    vector<string> testWords = {"hello", "world"};
+    if (issame(selectedWords, testWords)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+    
     return 0;
 }
 
