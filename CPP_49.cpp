@@ -12,12 +12,3 @@ int modp(int n, int p) {
     }
     return result;
 }
-
-int main() {
-    int n, p;
-    std::cin >> n >> p;
-    int result = modp(n, p);
-    std::cout << result << std::endl;
-    
-    return 0;
-}
