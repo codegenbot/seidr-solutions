@@ -10,10 +10,10 @@ string concatenate(vector<string> strings){
 }
 
 int main() {
-    vector<string> words = {"Hello", "World", "from", "C++"};
-    string concatenated = concatenate(words);
-    
-    cout << concatenated << endl;
-    
+    vector<string> strings = {"Hello, ", "world!"};
+    string concatenatedString = concatenate(strings);
+
+    cout << concatenatedString;
+
     return 0;
 }
