@@ -1,3 +1,10 @@
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <cassert>
+
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     stringstream ss(test);
@@ -9,17 +16,15 @@ map<char, int> histogram(string test) {
         }
     }
     
-    int maxCount = 0;
-    for (const auto& pair : result) {
-        maxCount = max(maxCount, pair.second);
-    }
+    return result;
+}
+
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
     
-    map<char, int> maxChars;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            maxChars[pair.first] = pair.second;
-        }
-    }
-    
-    return maxChars;
+    return 0;
 }
