@@ -1,1 +1,1 @@
-music_string = sorted(input("Enter the music string separated by space: ").split(), key=lambda x: (x[0], x[1] if len(x) > 1 else ''))
+music_string = sorted(input("Enter the music string separated by space: ").split(), key=lambda x: (x.split()[0], int(x.split()[1])))
