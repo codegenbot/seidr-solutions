@@ -30,7 +30,7 @@ def solve_boolean(expression):
     stack = []
     for token in tokens:
         if token not in ["|", "&"]:
-            stack.append(eval(token))
+            stack.append(token)
         else:
             while len(stack) > 1:
                 operand2 = stack.pop()
