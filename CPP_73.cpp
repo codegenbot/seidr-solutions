@@ -24,8 +24,6 @@ int main() {
         input.push_back(value);
     }
     
-    input.pop_back(); // Remove the last element to indicate the end of input
-    
     std::cout << Solution::smallest_change(input) << std::endl;
 
     return 0;
