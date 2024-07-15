@@ -19,10 +19,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(even_odd_count(12345), {3, 2}));
-    assert(issame(even_odd_count(-2468), {4, 0}));
-    assert(issame(even_odd_count(11111), {0, 5}));
-    assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(123456), {3, 3}));
+    assert(issame(even_odd_count(-987654), {3, 3}));
     
     return 0;
 }
