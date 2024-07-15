@@ -1,18 +1,2 @@
 def parse_music(music_input):
-    stack = []
-    for note in music_input:
-        if note == '(':
-            stack.append('(')
-        elif note == ')':
-            if stack and stack[-1] == '(':
-                stack.pop()
-            else:
-                return False
-    return len(stack) == 0
-
-try:
-    music_input = input().rstrip()
-    result = parse_music(music_input)
-    print(result)
-except EOFError:
-    pass
+    # Add your code to parse the music_input here
