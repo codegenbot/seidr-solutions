@@ -18,8 +18,6 @@ vector<int> make_a_pile(int n) {
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b);
-
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
