@@ -1,10 +1,20 @@
-for(auto &c : s){
-        if(isalpha(c)){
-            c = islower(c) ? toupper(c) : tolower(c);
+for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
         }
     }
-    if(count_if(s.begin(), s.end(), isalpha) == 0){
-        reverse(s.begin(), s.end());
+    
+    int left = 0;
+    int right = s.length() - 1;
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
     }
+    
     return s;
 }
