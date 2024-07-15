@@ -1,16 +1,18 @@
-bool isSumOdd(int first, int last) {
-    return (first + last) % 2 != 0;
-}
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_array(vector<int> array){
-    vector<int> sorted_array = array;
-    if(array.size() < 2) return sorted_array;
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> sort_array(std::vector<int> array) {
+    if(array.empty()) return array;
     
-    if(isSumOdd(array.front(), array.back())) {
-        sort(sorted_array.begin(), sorted_array.end());
+    int sum = array.front() + array.back();
+    
+    if(sum % 2 == 0){
+        std::sort(array.begin(), array.end(), std::greater<int>());
     } else {
-        sort(sorted_array.rbegin(), sorted_array.rend());
+        std::sort(array.begin(), array.end());
     }
     
-    return sorted_array;
+    return array;
 }
