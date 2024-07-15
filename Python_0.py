@@ -4,6 +4,7 @@ def filter_numbers(numbers, threshold):
 
 n = int(input())
 numbers = [int(input()) for _ in range(n)]
+
 threshold = int(input())
 
 for num in filter_numbers(numbers, threshold):
