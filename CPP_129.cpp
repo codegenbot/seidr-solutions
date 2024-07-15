@@ -6,8 +6,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     std::vector<int> result;
+    
     // Your code for finding minimum path here
+    
     return result;
 }
-
-// assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
