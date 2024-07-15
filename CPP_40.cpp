@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-bool triples_sum_to_zero(std::vector<int>& l) {
+bool triples_sum_to_zero(vector<int>& l) {
     sort(l.begin(), l.end());
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
@@ -19,4 +16,10 @@ bool triples_sum_to_zero(std::vector<int>& l) {
         }
     }
     return false;
+}
+
+int main() {
+    vector<int> test_case = {-1, 0, 1, 2, -1, -4};
+    bool result = triples_sum_to_zero(test_case);
+    return 0;
 }
