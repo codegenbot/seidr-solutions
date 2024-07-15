@@ -1,3 +1,3 @@
 ```
 def words_string(s):
-    return [word for word in s.split() if ',' in word]
+    return [sub_str for sub_str in s.split() if sub_str]
