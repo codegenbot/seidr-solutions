@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string> // Added <string> header for string type
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
