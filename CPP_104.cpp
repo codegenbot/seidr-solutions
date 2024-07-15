@@ -36,6 +36,7 @@ std::vector<int> unique_digits(std::vector<int> x){
 
 int main(){
     assert (issame(unique_digits({135, 103, 31}) , {31, 135}));
-    // Additional test cases
+    assert (issame(unique_digits({246, 789, 101}) , {101}));
+    assert (issame(unique_digits({111, 222, 333}) , {111, 222, 333}));
     return 0;
 }
