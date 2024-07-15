@@ -1,3 +1,4 @@
+
 int prod_signs(const vector<int>& arr) {
     if (arr.empty()) return -32768;
     
@@ -14,3 +15,4 @@ int prod_signs(const vector<int>& arr) {
     
     return product * sum;
 }
+```
