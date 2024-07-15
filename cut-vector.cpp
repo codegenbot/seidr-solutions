@@ -19,7 +19,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     for (int i = 1; i < v.size(); ++i) {
         if (v.size() % 2 == 0 && i == v.size() / 2) {
-            continue;
+            return {vector<int>(v.begin(), v.end()), {}};
         }
         
         int leftSum = accumulate(v.begin(), v.begin() + i, 0);
