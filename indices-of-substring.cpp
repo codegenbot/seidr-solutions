@@ -1,19 +1,8 @@
 ```c++
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
-
-// Declare the function before using it
-vector<int> indicesOfSubstring(string text, string target);
-
-int main() {
-    vector<int> result = indicesOfSubstring("hello world", "world");
-    for (int i : result) {
-        cout << i << endl; 
-    }
-    return 0;
-}
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -27,4 +16,12 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+}
+
+int main() {
+    vector<int> result = indicesOfSubstring("hello world", "world");
+    for (int i : result) {
+        cout << i << endl;
+    }
+    return 0;
 }
