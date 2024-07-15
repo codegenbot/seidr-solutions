@@ -1,10 +1,8 @@
 #include <vector>
+using namespace std;
 
 vector<int> pluck(vector<int> arr);
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> pluck(vector<int> arr){
     vector<int> result;
@@ -24,6 +22,10 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 assert (issame(pluck({7, 9, 7, 1}), {}));
