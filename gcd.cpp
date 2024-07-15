@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Your existing functions
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
@@ -28,27 +29,16 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text; 
-    cout << "Enter the text: ";
-    cin >> text;
-
-    string target;
-    cout << "Enter the target substring: ";
-    cin >> target;
+    string text = "your_text_string";
+    string target = "your_target_string";
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         cout << i << endl;
     }
 
-    int a;
-    cout << "Enter the first integer: ";
-    cin >> a;
-
-    int b;
-    cout << "Enter the second integer: ";
-    cin >> b;
-
+    int a = 12; 
+    int b = 15;  
     int g = gcd(a, b);
     cout << "GCD: " << g << endl;
 
