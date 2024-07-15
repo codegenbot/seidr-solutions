@@ -27,7 +27,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
 int main(){
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     assert(issame(intersperse({1, 3, 5, 7}, 0), {1, 0, 3, 0, 5, 0, 7}));
-    assert(issame(intersperse({4, 4, 4, 4}, 9), {4, 9, 4, 9, 4, 9, 4}));
+    assert(issame(intersperse({-1, -2, -3}, -5), {-1, -5, -2, -5, -3}));
     
     return 0;
 }
