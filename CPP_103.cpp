@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 #include <cmath>
 
 std::string average_binary(int n, int m) {
@@ -22,10 +20,4 @@ std::string average_binary(int n, int m) {
     }
     
     return binary_avg;
-}
-
-int main() {
-    assert(average_binary(5, 5) == "101");
-    
-    return 0;
 }
