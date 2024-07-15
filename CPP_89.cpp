@@ -1,10 +1,15 @@
 #include <string>
 #include <cassert>
 
-std::string encrypt(std::string s) {
+std::string encrypt(std::string s);
+
+int main() {
     assert(encrypt("a") == "e");
     // Add more test cases if needed
+    return 0;
+}
 
+std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (std::isalpha(c)) {
