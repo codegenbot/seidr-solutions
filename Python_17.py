@@ -5,14 +5,9 @@ def parse_music(music_input):
 
 while True:
     try:
-        try:
-            music_input = input().rstrip()
-        except EOFError:
-            break
-        if music_input == "EOF":
-            break
+        music_input = input().strip()
         result = parse_music(music_input)
         if result is not None:
             print(result)
-    except KeyboardInterrupt:
+    except (EOFError, KeyboardInterrupt):
         break
