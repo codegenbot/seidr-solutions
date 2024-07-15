@@ -10,10 +10,3 @@ string flip_case(string str){
     }
     return str;
 }
-
-int main(){
-    string input_string;
-    getline(cin, input_string);
-    cout << flip_case(input_string);
-    return 0;
-}
