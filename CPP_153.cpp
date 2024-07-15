@@ -3,8 +3,7 @@
 #include <string>
 #include <cctype>
 #include <climits>
-#include <cassert> // Add this include for the assert function
-
+#include <cassert>
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
