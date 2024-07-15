@@ -11,18 +11,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 48;
-    int b = 18;
-    cout << "GCD: " << gcd(a, b) << endl;
-    
-    int num1 =stoi(cin >> a);
-    int num2 = stoi(cin >> b);
-    
-    cout << "Indices at which the target appears in the text: ";
-    for(int i =0; i < num1.size();i++){
-        if(num1.substr(i,2) == num2){
-            cout << i << " ";
-        }
-    }cout<<endl;
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "GCD: " << gcd(num1, num2) << endl;
     return 0;
 }
