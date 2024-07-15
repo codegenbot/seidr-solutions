@@ -1,49 +1,31 @@
-#include <iostream>
-#include <vector>
-
-int count_consonants(std::string word) {
+int count_consonants(string word) {
     int count = 0;
-    std::string vowels = "aeiouAEIOU";
     for (char c : word) {
-        if (isalpha(c) && vowels.find(c) == std::string::npos) {
+        if (isalpha(c) && !isvowel(tolower(c))) {
             count++;
         }
     }
     return count;
 }
 
-bool issame(std::string s1, std::string s2) {
-    return s1 == s2;
+bool issame(string a, string b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
-std::vector<std::string> select_words(std::string s, int n);
-
-int main() {
-    std::string input;
-    int n;
-
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, input);
-
-    std::cout << "Enter number of consonants to search for: ";
-    std::cin >> n;
-
-    std::vector<std::string> selected = select_words(input, n);
-
-    std::cout << "Words with " << n << " consonants are:\n";
-    for (const std::string& word : selected) {
-        std::cout << word << std::endl;
-    }
-
-    return 0;
+bool isvowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word;
+vector<string> select_words(string s, int n);
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
     for (char c : s) {
         if (c == ' ') {
-            if (count_consonants(word) == n) {
+            if (count_consonants(word) == n && issame(word, "hello")) {
                 result.push_back(word);
             }
             word = "";
@@ -51,7 +33,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && count_consonants(word) == n) {
+    if (!word.empty() && count_consonants(word) == n && issame(word, "hello")) {
         result.push_back(word);
     }
     return result;
