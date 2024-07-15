@@ -2,7 +2,7 @@ from typing import List
 
 def parse_music(music_string: str) -> List[int]:
     notes_duration = {"o": 4, "o|": 2, ".": 1}
-    notes = music_string.split()
+    notes = music_string.split("|")
     
     if len(notes) % 2 != 0:
         raise ValueError("Incorrect music string format")
@@ -10,7 +10,7 @@ def parse_music(music_string: str) -> List[int]:
     durations = []
     for i in range(0, len(notes), 2):
         note = notes[i]
-        if notes[i + 1] != "|":
+        if note not in notes_duration:
             raise ValueError("Incorrect music string format")
         duration = notes_duration[note]
         durations.append(duration)
@@ -18,7 +18,7 @@ def parse_music(music_string: str) -> List[int]:
     return durations
 
 try:
-    music_string = input().strip("Enter the music string: ")
+    music_string = input("Enter the music string: ")
     durations = parse_music(music_string)
     print(durations)
 except ValueError as e:
