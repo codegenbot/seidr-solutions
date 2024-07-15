@@ -12,6 +12,6 @@ string remove_vowels(string text) {
 
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
-    
+
     return 0;
 }
