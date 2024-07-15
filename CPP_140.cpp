@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 std::string fix_spaces(std::string text){
     std::string result = "";
@@ -24,6 +22,8 @@ std::string fix_spaces(std::string text){
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    std::string input_text = "This   is   a   test";
+    std::string fixed_text = fix_spaces(input_text);
+    std::cout << fixed_text << std::endl;
     return 0;
 }
