@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -10,11 +9,4 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<float> numbers = {1.5, 2.0, -3.0, 4.0, 5.5};
-    long long result = double_the_difference(numbers);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
 }
