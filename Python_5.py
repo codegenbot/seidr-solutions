@@ -8,23 +8,10 @@ def intersperse(numbers: list[int], delimiter: str) -> list[str]:
     if result[-1] == str(delimiter):
         result.pop()
 
-    numbers_input = input("Enter the list of numbers (space-separated): ")
-    while True:
-        try:
-            numbers = [int(i) for i in numbers_input.split()]
-            break
-        except ValueError:
-            print("Invalid input. Please enter valid integers.")
-            numbers_input = input("Enter the list of numbers (space-separated): ")
-
-    delimiter_input = input("Enter the delimiter: ")
-    while True:
-        if len(delimiter_input) == 1 and delimiter_input.isalpha():
-            delimiter = str(delimiter_input)
-            break
-        else:
-            print("Invalid delimiter. Please enter a single character.")
-            delimiter_input = input("Enter the delimiter: ")
+    numbers_input = input("Enter a space-separated list of integers: ")
+    numbers_input = numbers_input.strip()
+    numbers = [int(i) for i in numbers_input.split()]
+    delimiter = input("Enter the delimiter: ")
 
     output = intersperse(numbers, delimiter)
 
