@@ -4,7 +4,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 vector<string> sorted_list_sum(const vector<string>& lst);
 
-vector<string> sorted_list_sum(const vector<string>& lst){
+vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> result;
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
