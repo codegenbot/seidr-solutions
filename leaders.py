@@ -1,9 +1,8 @@
 def leaders(input):
-    leader = input[-1]
-    leaders = [leader]
-    for num in input[:-1][::-1]:
-        if num < leader:
-            break
-        leader = num
-        leaders.append(num)
+    max_r = input[-1]
+    leaders = [max_r]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= max_r:
+            leaders.append(input[i])
+            max_r = input[i]
     return list(reversed(leaders))
