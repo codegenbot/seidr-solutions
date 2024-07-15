@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <climits>
+#include <climits> // Include for INT_MAX
 using namespace std;
 
 int main() {
@@ -18,6 +18,21 @@ int main() {
     int prefix_sum = 0;
     int min_diff = INT_MAX;
     int cut_index = -1;
+    
+    if (nums.size() == 1) {
+        std::vector<int> subvector1(nums.begin(), nums.end());
+        std::vector<int> subvector2;
+        
+        for (int num : subvector1) {
+            std::cout << num << std::endl;
+        }
+        
+        for (int num : subvector2) {
+            std::cout << num << std::endl;
+        }
+        
+        return 0;
+    }
     
     for (int i = 0; i < nums.size(); ++i) {
         prefix_sum += nums[i];
