@@ -1,7 +1,7 @@
 import collections
 
-code = input().strip()
-guess = input().strip()
+code = input("Enter the Mastermind code: ").strip()
+guess = input("Enter your guess: ").strip()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
