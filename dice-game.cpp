@@ -21,7 +21,7 @@ int main() {
     int n, m;
     cin >> n >> m;
     double d = diceGame(n, m);
-    cout << fixed << setprecision(6);
-    cout << std::setiosflags(ios::fixed) << d << endl;
+    std::cout << fixed << setprecision(2);
+    std::cout << d << endl;
     return 0;
 }
