@@ -2,8 +2,6 @@
 #include <climits>
 #include <iostream>
 
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
@@ -20,15 +18,16 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
+    using namespace std;
     int n;
-    std::cin >> n;
+    cin >> n;
     vector<int> v(n);
-    for (auto &x : v) std::cin >> x;
+    for (auto &x : v) cin >> x;
     pair<vector<int>, vector<int>> res = cutVector(v);
-    std::cout << "["; 
-    for (const auto &x : res.first) std::cout << x << " ";
-    std::cout << "]]\n[";
-    for (const auto &x : res.second) std::cout << x << " ";
-    std::cout << "]\n0\n";
+    cout << "[";
+    for (const auto &x : res.first) cout << x << " ";
+    cout << "]\n[";
+    for (const auto &x : res.second) cout << x << " ";
+    cout << "]\n0\n";
     return 0;
 }
