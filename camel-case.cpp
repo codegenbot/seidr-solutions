@@ -2,24 +2,23 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    for (const auto& word : str.split("-")) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
+    for (char c : s) {
+        if (c == '-') {
+            result += c + c;
+        } else if (c == ' ') {
+            result += c;
+        } else {
+            result += toupper(c);
         }
-        result += word;
     }
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    while (n--) {
-        std::string str;
-        cin >> str;
-        cout << camelCase(str) << endl;
-    }
+    std::string input;
+    std::cin >> input;
+    std::cout << camelCase(input) << std::endl;
     return 0;
 }
