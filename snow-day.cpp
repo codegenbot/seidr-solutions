@@ -18,5 +18,5 @@ int main() {
     cin >> hours;
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << std::showpoint << snowDay(hours, groundSnow, rate, melt) << endl;
-    return 0; }
+    cout << fixed << setprecision(10) << showpoint << snowDay(hours, groundSnow, rate, melt) << endl;
+    return 0;
