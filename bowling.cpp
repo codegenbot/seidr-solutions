@@ -13,7 +13,9 @@ int main() {
             frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - frames[frame - 1];
+            frames[frame] = 10 - frames[frame-1];
+            if (frame > 1 && bowls[2 * frame - 3] == '/')
+                frames[frame-1] = 10 - frames[frame - 2];
             frame++;
             ball = 0;
         } else if (c == '-') {
