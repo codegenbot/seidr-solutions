@@ -5,9 +5,7 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
     vector<string> filtered;
@@ -19,7 +17,12 @@ vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix)
     return filtered;
 }
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), vector<string>{"xxx", "xxxAAA", "xxx"}));
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"),
+                  vector<string>{"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
