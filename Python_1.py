@@ -1,19 +1,13 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    stack = []
     result = []
-    current_group = ""
-
+    group = ""
     for char in paren_string:
         if char == "(":
-            stack.append("(")
+            group += char
         elif char == ")":
-            stack.pop()
-            if not stack:
-                result.append(current_group)
-                current_group = ""
-        elif stack:
-            current_group += char
-
+            group += char
+            result.append(group)
+            group = ""
     return result
