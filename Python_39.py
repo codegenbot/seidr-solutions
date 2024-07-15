@@ -1,1 +1,1 @@
-nums = list(map(int, input().split()))  # Read a list of integers input from the user
+n = int(input())  # Read an integer input from the user.
