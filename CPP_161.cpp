@@ -1,6 +1,6 @@
 #include <iostream>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
 std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
