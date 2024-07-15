@@ -1,11 +1,11 @@
-int open = 0, close = 0;
-    for (char c : str) {
-        if (c == '[') {
-            open++;
-        } else if (c == ']' && open > 0) {
-            open--;
-            close++;
-        }
-    }
-    return open > 0 && close > 0;
+int count = 0;
+	for (char c : str) {
+		if (c == '[') {
+			count++;
+		} else if (c == ']' && count > 0) {
+			count--;
+		}
+	}
+	
+	return count < 0;
 }

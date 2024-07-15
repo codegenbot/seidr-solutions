@@ -1,39 +1,36 @@
-int n = grid.size();
-    vector<int> dx = {0, 0, -1, 1};
-    vector<int> dy = {-1, 1, 0, 0};
-    vector<vector<int>> visited(n, vector<int>(n, 0));
-    vector<int> path(k, 0);
+#include<iostream>
+#include<vector>
+#include<algorithm>
 
-    auto comparePaths = [&](const vector<int>& pathA, const vector<int>& pathB) {
-        for (int i = 0; i < k; ++i) {
-            if (pathA[i] < pathB[i]) return true;
-            if (pathA[i] > pathB[i]) return false;
-        }
-        return false;
-    };
+using namespace std;
 
-    function<void(int, int, int)> dfs = [&](int x, int y, int step) {
-        visited[x][y] = 1;
-        path[step] = grid[x][y];
+vector<int> minPath(vector<vector<int>> grid, int k){
+    int n = grid.size();
+    vector<int> path;
+    int row = 0, col = 0;
 
-        if (step == k - 1) return;
-
-        for (int i = 0; i < 4; ++i) {
-            int nx = x + dx[i], ny = y + dy[i];
-            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                dfs(nx, ny, step + 1);
+    for(int i = 0; i < k; ++i){
+        path.push_back(grid[row][col]);
+        if((row + col) % 2 == 0){
+            if(col == n - 1){
+                row++;
+            } else if(row == 0){
+                col++;
+            } else {
+                col++;
+                row--;
             }
-        }
-
-        visited[x][y] = 0;
-    };
-
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            dfs(i, j, 0);
+        } else {
+            if(row == n - 1){
+                col++;
+            } else if(col == 0){
+                row++;
+            } else {
+                row++;
+                col--;
+            }
         }
     }
 
-    vector<int> result = path;
-    return result;
+    return path;
 }
