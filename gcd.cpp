@@ -1,11 +1,11 @@
-#include <vector>
-#include <string>
-#include <iostream>
+# include <vector>
+# include <string>
+# include <iostream>
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int pos = text.find(target, -1);
-    while (pos != std::string::npos) {
+    int pos = text.find(target, 0);
+    while (pos + 1 <= text.size() - target.size()) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
