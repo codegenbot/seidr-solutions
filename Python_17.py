@@ -4,10 +4,13 @@ def parse_music(music_input):
     return None
 
 while True:
-    music_input = input("Enter music title: ").strip()
-    if music_input == "EOF":
-        break
     try:
+        try:
+            music_input = input().strip()
+        except EOFError:
+            break
+        if music_input == "EOF":
+            break
         result = parse_music(music_input)
         if result is not None:
             print(result)
