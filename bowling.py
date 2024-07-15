@@ -1,29 +1,43 @@
-```
-def bowling_score(frames):
+```Python
+def bowling_score(game):
     score = 0
-    frame_count = 1
-    last_roll = 0
-    last_roll_type = 'X' if frames[0] == 'X' else '5'
-
-    for i in range(len(frames)):
-        if frames[i] == 'X':
-            score += 10 + (last_roll * 2)
-            frame_count -= 1
-        elif frames[i] == '5':
-            score += 5 + last_roll
-            frame_count -= 1
-        else:
-            first, second = int(frames[i-1]), int(frames[i])
-            if first + second == 10:
-                score += 10
-                frame_count -= 1
-            elif first == 'X' or second == 'X':
-                score += sum([int(x) for x in frames[:i]]) + (last_roll * 2)
-                frame_count = 0
+    frame = 1
+    while frame <= 10:
+        if game[frame - 1] == "X":
+            if frame < 10:
+                score += 30
+                if game[frame] in 'XY' or game[frame].isdigit():
+                    score += int(game[frame])
+                    frame += 1
             else:
-                score += sum([int(x) for x in frames[:i]]) + first + second
-        last_roll, last_roll_type = int(frames[i]), frames[i]
-
-    if frame_count > 1:
-        score += sum([int(x) for x in frames[-frame_count:]])
+                score += 30
+        elif game[frame - 1].isdigit():
+            total = int(game[frame - 1]) + int(game[frame])
+            if total == 10:
+                if frame < 10:
+                    if game[frame] in 'XY' or game[frame].isdigit():
+                        score += 10 + int(game[frame])
+                        frame += 2
+                    else:
+                        score += 10
+                        frame += 1
+                else:
+                    score += 10
+            else:
+                score += total
+                frame += 1
+        else:
+            total = 0
+            for i in range(3):
+                if i < len(game) and game[frame - 1 + i].isdigit():
+                    total += int(game[frame - 1 + i])
+            if total == 10:
+                if frame < 10:
+                    score += 10
+                    frame += 1
+                else:
+                    score += 10
+            else:
+                score += total
+                frame += 1
     return score
