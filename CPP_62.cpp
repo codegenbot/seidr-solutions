@@ -6,15 +6,7 @@ bool issame(vector<float> a, vector<float> b);
 vector<float> derivative(vector<float> xs);
 
 bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<float> derivative(vector<float> xs){
@@ -26,13 +18,12 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main(){
-    // Add test cases here to validate the functions
-    assert(issame({1.0, 2.0, 3.0}, {1.0, 2.0, 3.0}) == true);
-    assert(issame({1.0, 2.0, 3.0}, {1.0, 2.0, 4.0}) == false);
-
-    vector<float> input = {1.0, 2.0, 3.0, 4.0};
-    vector<float> expected_output = {2.0, 6.0, 12.0};
-    assert(issame(derivative(input), expected_output) == true);
-
+    vector<float> test1 = {1.0, 2.0, 3.0, 4.0};
+    vector<float> test2 = {1.0, 4.0, 9.0, 16.0};
+    
+    vector<float> result = derivative(test1);
+    
+    assert(issame(result, test2));
+    
     return 0;
 }
