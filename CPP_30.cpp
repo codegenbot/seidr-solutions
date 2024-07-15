@@ -1,7 +1,7 @@
-vector<float> result;
+vector<float> res;
     for (float num : l) {
         if (num > 0) {
-            result.push_back(num);
+            res.push_back(num);
         }
     }
-    return result;
+    return res;
