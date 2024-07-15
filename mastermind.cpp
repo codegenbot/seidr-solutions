@@ -1,36 +1,39 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < code.size(); ++i) {
-        if (code[i] != guess[i]) {
-            count++;
+int countWhitePegs(string code, string guess) {
+    int whitePegs = 0;
+    map<char, int> codeFreq;
+    map<char, int> guessFreq;
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            whitePegs++;
+        } else {
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
         }
     }
-    return count;
+    
+    int blackPegs = 0;
+    for (auto& it : codeFreq) {
+        blackPegs += min(it.second, guessFreq[it.first]);
+    }
+    
+    return whitePegs;
 }
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeCount, guessCount;
-    for (int i = 0; i < code.size(); ++i) {
-        if (code[i] == guess[i]) {
-            count++;
-        } else {
-            codeCount[code[i]]++;
-            guessCount[guess[i]]++;
-        }
+int countBlackPegs(string code, string guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; ++i) {
+        blackPegs += (code[i] == guess[i]) ? 1 : 0;
     }
-    for (auto& pair : codeCount) {
-        count += min(pair.second, guessCount[pair.first]);
-    }
-    return count;
+    return blackPegs;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
     
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
-
+    cout << countWhitePegs(code, guess) << endl;
+    cout << countBlackPegs(code, guess) << endl;
+    
     return 0;
 }
