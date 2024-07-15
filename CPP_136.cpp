@@ -1,17 +1,23 @@
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int max_neg = INT_MIN, min_pos = INT_MAX;
-    
-    for(int num : lst){
-        if(num < 0 && num > max_neg){
-            max_neg = num;
-        }
-        if(num > 0 && num < min_pos){
-            min_pos = num;
+    int largest_neg = lst[0], smallest_pos = lst[0];
+    for (int num : lst) {
+        if (num < 0 && num < largest_neg) {
+            largest_neg = num;
+        } else if (num > 0 && (num < smallest_pos || smallest_pos < 0)) {
+            smallest_pos = num;
         }
     }
-    
-    return {max_neg, min_pos};
+    return {largest_neg, smallest_pos};
+}
+
+bool is_same(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main(){
+    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
+    return 0;
 }
