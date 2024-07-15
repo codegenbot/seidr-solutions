@@ -4,7 +4,7 @@
 #include <cassert>
 
 int next_smallest(std::vector<int> lst) {
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     int count = 0;
     int prev = lst[0];
     for (int num : lst) {
@@ -20,6 +20,6 @@ int next_smallest(std::vector<int> lst) {
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -45);
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
