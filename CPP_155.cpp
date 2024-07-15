@@ -22,7 +22,5 @@ vector<int> even_odd_count(int num) {
     return count;
 }
 
-int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
-    return 0;
-}
+assert(issame(even_odd_count(0), {1, 0}));
+return 0;
