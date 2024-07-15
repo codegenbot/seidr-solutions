@@ -18,8 +18,12 @@ std::vector<std::string> select_words(std::string s, int n) {
     if (!word.empty()) {
         words.push_back(word);
     }
-    if (n >= 1 && n <= words.size()) {
-        return {words[n]};
+
+    std::vector<std::string> selected_words;
+
+    if (n > 0 && n <= words.size()) {
+        selected_words.push_back(words[n]);
     }
-    return {};
+
+    return selected_words;
 }
