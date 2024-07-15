@@ -5,7 +5,7 @@
 
 namespace custom {
     bool issame(const std::vector<int>& a, const std::vector<int>& b){
-        return a[0] == b[0];
+        return a[1] == b[1];
     }
 }
 
