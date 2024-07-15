@@ -1,15 +1,15 @@
-string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == ' ') {
-            string word = s.substr(start, i - start);
+string new_word = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word;
-            if (i != s.length()) {
-                result += ' ';
-            }
-            start = i + 1;
+            new_word += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return result;
+    sort(word.begin(), word.end());
+    new_word += word;
+    return new_word;
 }
