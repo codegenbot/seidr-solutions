@@ -1,19 +1,17 @@
 string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back();
+    bool prev_space = false;
+    for(char &c : text){
+        if(c == ' '){
+            if(prev_space){
                 result.pop_back();
                 result += "-";
-                count = 1;
             } else {
                 result += "_";
             }
+            prev_space = true;
         } else {
             result += c;
-            count = 0;
+            prev_space = false;
         }
     }
     return result;
