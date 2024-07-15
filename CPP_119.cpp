@@ -18,8 +18,3 @@ std::string match_parens(std::vector<std::string> lst) {
     }
     return cnt == 0 ? "Yes" : "No";
 }
-
-int main() {
-    assert(match_parens({"(", ")"}) == "Yes");
-    return 0;
-}
