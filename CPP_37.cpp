@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert> 
+#include <cassert>
 
 bool is_same(std::vector<float> a, std::vector<float> b) {
     return a == b;
