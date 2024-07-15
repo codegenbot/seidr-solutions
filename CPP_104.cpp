@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -26,11 +26,12 @@ std::vector<int> unique_digits(std::vector<int> x){
     return result;
 }
 
-int main(){
-    std::vector<int> nums = {123, 456, 789, 246, 135};
-    std::vector<int> uniqueNums = unique_digits(nums);
-    for(int num : uniqueNums){
+int main() {
+    std::vector<int> input = {123, 456, 789};
+    std::vector<int> output = unique_digits(input);
+    for(int num : output){
         std::cout << num << " ";
     }
+    
     return 0;
 }
