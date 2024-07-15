@@ -1,6 +1,5 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
@@ -19,15 +18,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if depth == 0:
                 result.append(current_group)
                 current_group = ""
-
     if depth > 0:
         return ["Invalid input: Unmatched opening parenthesis"]
-    if depth < 0:
-        return ["Invalid input: Unmatched closing parenthesis"]
-
     return result
 
-
-paren_string = input("Enter the string with parenthesis: ")
+paren_string = input("Enter the string with balanced parenthesis: ")
 output = separate_paren_groups(paren_string)
 print(output)
