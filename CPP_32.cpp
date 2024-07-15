@@ -1,7 +1,12 @@
-double poly(vector<double> coeffs, double x){
-    double result = 0;
-    for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i]*pow(x, i);
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+double poly(vector<double> coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
@@ -12,11 +17,11 @@ double find_zero(vector<double> coeffs){
     return -b/a;
 }
 
-vector<double> coeffs;
-double solution;
-
-// Read coefficients input from user into coeffs vector
-
-solution = find_zero(coeffs);
-
-assert(abs(poly(coeffs, solution)) < 1e-3);
+int main() {
+    vector<double> coeffs = {1, -3, 2}; // Example coefficients
+    double solution;
+    solution = find_zero(coeffs);
+    assert (abs(poly(coeffs, solution)) < 1e-3);
+    
+    return 0;
+}
