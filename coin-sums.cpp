@@ -7,12 +7,12 @@ int main() {
 
     // Available coins in descending order
     int quarters = cents / 25;
-    int remaining_cents = cents % 25;
-    int dimes = remaining_cents / 10;
-    remaining_cents %= 10;
-    int nickels = remaining_cents / 5;
-    remaining_cents %= 5;
-    int pennies = remaining_cents;
+    int remainingCents = cents % 25;
+    int dimes = remainingCents / 10;
+    remainingCents %= 10;
+    int nickels = remainingCents / 5;
+    remainingCents %= 5;
+    int pennies = remainingCents;
 
     cout << quarters << endl;
     cout << dimes << endl;
