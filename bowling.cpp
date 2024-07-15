@@ -22,10 +22,10 @@ int bowlingScore(char c) {
 int main() {
     std::string s;
     std::cout << "Enter the input string: ";
-    std::cin >> s;  // Read a line of input
+    std::cin >> s;
     
     int totalScore = 0;
-    for (char c : s) {  // Process each character separately
+    for (char c : s) {
         totalScore += bowlingScore(c);
     }
     std::cout << "The total score is: " << totalScore << std::endl;
