@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -8,7 +9,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (length >= 5) {
                 for (int j = length - 1; j >= 0; j--) {
-                    result += str[i - j];
+                    result += str[i-length+j];
                 }
             } else {
                 result += " ";
