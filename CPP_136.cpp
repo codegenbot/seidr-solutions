@@ -6,9 +6,9 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {0, 0};
-    int max_neg = INT_MIN + 1;
-    int min_pos = INT_MAX - 1;
+    vector<int> result = {INT_MIN, INT_MAX}; // Initialize with correct values
+    int max_neg = INT_MIN;
+    int min_pos = INT_MAX;
     
     for (int num : lst) {
         if (num < 0 && num > max_neg) {
@@ -18,10 +18,10 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
     
-    if (max_neg != INT_MIN + 1) {
+    if (max_neg != INT_MIN) {
         result[0] = max_neg;
     }
-    if (min_pos != INT_MAX - 1) {
+    if (min_pos != INT_MAX) {
         result[1] = min_pos;
     }
     
