@@ -1,5 +1,5 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    a, b = xs[0], max(xs[1:])
-    if n % 2 == 0 and b != 0:
-        return -a / b
+    for i in range(len(xs) - 1):
+        if xs[i] != 0 and xs[i + 1] != 0:
+            break
+    return -xs[i] / xs[i + 1]
