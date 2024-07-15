@@ -22,6 +22,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    // Your main function implementation here
+    // Main function content goes here
     return 0;
 }
