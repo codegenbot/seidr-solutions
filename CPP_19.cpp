@@ -1,4 +1,11 @@
-map<string, int> num_map = {
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
+
+std::map<std::string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,20 +18,22 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    string result = "";
-    map<int, string> rev_num_map;
+std::string sort_numbers(std::string numbers);
+
+std::string sort_numbers(std::string numbers){
+    std::string result = "";
+    std::map<int, std::string> rev_num_map;
     for(auto const& pair : num_map){
         rev_num_map[pair.second] = pair.first;
     }
     
-    vector<int> sorted_nums;
-    stringstream ss(numbers);
-    string token;
+    std::vector<int> sorted_nums;
+    std::stringstream ss(numbers);
+    std::string token;
     while(getline(ss, token, ' ')){
         sorted_nums.push_back(num_map[token]);
     }
-    sort(sorted_nums.begin(), sorted_nums.end());
+    std::sort(sorted_nums.begin(), sorted_nums.end());
     
     for(int num : sorted_nums){
         result += rev_num_map[num] + " ";
