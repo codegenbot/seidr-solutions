@@ -11,4 +11,4 @@ def find_min_difference(numbers):
 
 numbers = list(map(float, input().split()))
 output = find_min_difference(numbers)
-print(output)
+print(*output)
