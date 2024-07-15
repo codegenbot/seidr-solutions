@@ -1,9 +1,9 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int size){
-    std::vector<int> result(size);
-    for(int i=0; i<size; ++i){
+std::vector<int> f(int n){
+    std::vector<int> result(n);
+    for(int i = 0; i < n; ++i){
         result[i] = i + 1;
     }
     return result;
