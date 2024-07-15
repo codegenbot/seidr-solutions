@@ -3,9 +3,11 @@
 #include <string>
 #include <cassert>
 
-std::string match_parens(std::vector<std::string> lst) {
+using namespace std;
+
+string match_parens(vector<string> lst) {
     int cnt = 0;
-    for (std::string s : lst) {
+    for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
@@ -21,6 +23,6 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(match_parens({"(", ")"}) == "Yes");
+    assert(match_parens({")", "("}) == "Yes");
     return 0;
 }
