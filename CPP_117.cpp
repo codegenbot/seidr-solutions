@@ -24,9 +24,11 @@ int main() {
     getline(cin, input);
     cin >> n;
 
-    vector<string> selectedWords = select_words(input, n);
+    vector<string> result = select_words(input, n);
 
-    // Your code logic here
+    for (const string& word : result) {
+        cout << word << " ";
+    }
 
     return 0;
 }
