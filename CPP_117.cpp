@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -7,6 +8,20 @@ vector<string> select_words(string s, int n);
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
+}
+
+int main() {
+    string s = "hello world programming is fun";
+    vector<string> output = select_words(s, 3);
+    vector<string> expected = {"hello", "world", "is"};
+
+    if (issame(output, expected)) {
+        cout << "Test passed" << endl;
+    } else {
+        cout << "Test failed" << endl;
+    }
+
+    return 0;
 }
 
 vector<string> select_words(string s, int n) {
@@ -34,18 +49,4 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
-}
-
-int main() {
-    string s = "hello world programming is fun";
-    vector<string> output = select_words(s, 3);
-    vector<string> expected = {"hello", "world", "is"};
-
-    if(issame(output, expected)){
-        cout << "Test passed" << endl;
-    } else {
-        cout << "Test failed" << endl;
-    }
-
-    return 0;
 }
