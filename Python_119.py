@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     stack = []
     for s in lst:
@@ -10,4 +11,4 @@ def match_parens(lst):
                 stack.pop()
     if len(stack) > 0:
         return 'No'
-    return 'Yes' if len(stack) == 0 else 'No'
+    return 'Yes'
