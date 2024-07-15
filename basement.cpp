@@ -4,7 +4,7 @@ int basement(const std::vector<int>& nums) {
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0)
-            targetIndex = i;
+            return i;
     }
-    return targetIndex;
+    return -1;
 }
