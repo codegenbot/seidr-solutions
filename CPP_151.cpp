@@ -6,9 +6,8 @@ double double_the_difference(double a, double b) {
     return 2 * (a - b);
 }
 
-long long main_function(std::vector<float> lst) {
-    std::vector<float> lst;
-    double double_the_difference;
+long long problem_solution(std::vector<float> lst) {
+    double double_the_difference(double a, double b);
     long long odd_sum = 0;
 
     for (float num : lst) {
@@ -17,4 +16,9 @@ long long main_function(std::vector<float> lst) {
         }
     }
     return odd_sum;
+}
+
+int main() {
+    // Input handling and calling problem_solution function
+    return 0;
 }
