@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
-#include <iostream>
+#include <cassert>
+#include <algorithm>
 
 std::vector<int> countEvenOddDigits(int num) {
     std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(abs(num));
+    std::string numStr = std::to_string(std::abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
@@ -20,15 +21,6 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
 }
 
 int main() {
-    int num = 123456;
-    std::vector<int> result = countEvenOddDigits(num);
-    std::vector<int> expected = {3, 3};
-
-    if (issame(result, expected)) {
-        std::cout << "Output matches the expected result." << std::endl;
-        return 0;
-    } else {
-        std::cout << "Output does not match the expected result." << std::endl;
-        return 1;
-    }
+    assert(issame(countEvenOddDigits(0) , {1, 0}));
+    return 0;
 }
