@@ -15,7 +15,8 @@ def prime_fib(n: int):
         num += 1
         if is_prime(num) and num == fibonacci(num):
             count += 1
-    return num
+    result = num
+    return result
 
 result = prime_fib(n)
 print(result)
