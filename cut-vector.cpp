@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <utility>
@@ -9,19 +10,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = numeric_limits<int>::max();
     int splitIndex = 0;
     
-    for (int i = 1; i <= v.size(); ++i) { // modified condition
+    for (int i = 1; i < v.size(); ++i) {
         int leftSum = 0, rightSum = 0;
         
-        if (i > 0) {
-            for (int j = 0; j < i; ++j) {
-                leftSum += v[j];
-            }
+        for (int j = 0; j < i; ++j) {
+            leftSum += v[j];
         }
         
-        if (i < v.size()) {
-            for (int j = i; j < v.size(); ++j) {
-                rightSum += v[j];
-            }
+        for (int j = i; j < v.size(); ++j) {
+            rightSum += v[j];
         }
         
         int diff = abs(leftSum - rightSum);
@@ -29,9 +26,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         if (diff < minDiff) {
             minDiff = diff;
             splitIndex = i;
-            if (leftSum == rightSum) { 
-                return {{v}}, {{}}; // equal sums, no need to cut
-            }
         }
     }
     
@@ -49,8 +43,7 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "1 ";
     for (auto x : result.first) cout << x << " ";
-    cout << "\n0\n";
-    cout << "1 ";
+    cout << "\n0 1 ";
     for (auto x : result.second) cout << x << " ";
     cout << "\n0\n";
     
