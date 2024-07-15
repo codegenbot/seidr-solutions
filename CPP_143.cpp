@@ -1,6 +1,8 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+#include <string>
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     int n = sentence.length();
     bool is_prime[101] = {false};
     is_prime[2] = is_prime[3] = is_prime[5] = is_prime[7] = is_prime[11] = is_prime[13] = true;
