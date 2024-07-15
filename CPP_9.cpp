@@ -19,7 +19,7 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-int main() {
+int execute_test() {
     assert(compare_vectors(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
