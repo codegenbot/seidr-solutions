@@ -1,6 +1,10 @@
-
 #include <vector>
+#include <iostream>
 #include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> generate_integers(int start, int end){
     std::vector<int> result;
@@ -8,10 +12,6 @@ std::vector<int> generate_integers(int start, int end){
         result.push_back(i);
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.empty() && b.empty() || a.size() == b.size();
 }
 
 int main() {
