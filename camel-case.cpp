@@ -1,21 +1,34 @@
-Here is the solution:
+#include <iostream>
+#include <string>
+using namespace std;
 
-string camelCase(string s) {
+string toCamelCase(string s) {
     string result = "";
     int i = 0;
-    while (i < s.size()) {
+    
+    while (i < s.length()) {
         if (s[i] == '-') {
             i++;
-            while (i < s.size() && s[i] != ' ') {
-                i++;
-            }
+            while (i < s.length() && s[i] == '-') i++;
+            continue;
+        }
+        
+        if (s[i] != ' ') {
+            result += toupper(s[i]);
+            i++;
         } else {
-            if (result.empty()) {
-                result += toupper(s[i]);
-            } else {
-                result += tolower(s[i]);
-            }
+            result += " ";
+            i++;
         }
     }
+    
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Input: ";
+    getline(cin, input);
+    cout << "Output: " << toCamelCase(input) << endl;
+    return 0;
 }
