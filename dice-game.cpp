@@ -1,14 +1,13 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+using namespace std;
 
 double probability(int n, int m) {
     double total = 1.0;
     for (int i = 1; i <= m; i++) {
         total += 1.0 / m;
     }
-    return 1.0 - (n / (double)n * (m / (double)m));
+    return 1.0 - (n * m) / (n * m);
 }
 
 int main() {
