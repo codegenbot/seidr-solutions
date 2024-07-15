@@ -1,7 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
@@ -29,6 +28,4 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
     return "None";
 }
 
-int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
-}
+assert(boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
