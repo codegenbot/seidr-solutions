@@ -15,7 +15,16 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec
     return result;
 }
 
-int main() {
-    // Your code goes here
+int main()
+{
+    std::vector<std::string> data = {"apple", "banana", "orange", "grape", "melon"};
+    std::string searchTerm = "an";
+
+    std::vector<std::string> filteredData = filter_by_substring(data, searchTerm);
+
+    for(const auto& str : filteredData){
+        std::cout << str << std::endl;
+    }
+
     return 0;
 }
