@@ -1,10 +1,9 @@
-```c++
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = n * m;
+    double total = static_cast<double>(n * m);
     double count = 0.0;
     
     for(int i = 1; i <= n; i++) {
