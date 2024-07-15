@@ -5,10 +5,12 @@ int main() {
     std::cin >> n >> m;
     
     long double probability = 0.0;
-    if (n > m) {
-        probability = (n - 1) / (2.0 * n);
-    } else {
-        probability = (m + 1) / (2.0 * m);
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            if (i > j) {
+                probability += 1.0L / (n * m);
+            }
+        }
     }
     
     std::cout << probability << std::endl;
