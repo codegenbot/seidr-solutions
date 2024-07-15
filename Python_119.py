@@ -1,10 +1,9 @@
-```
 def match_parens(lst):
     stack = []
     for s in lst:
         parens_count = sum(1 for c in s if c in ['(', ')'])
         if parens_count == 0:
-            continue
+            return 'Yes'
         for c in s:
             if c == '(':
                 stack.append(c)
