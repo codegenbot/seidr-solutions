@@ -1,10 +1,7 @@
-#include <iostream>
-#include <string>
 #include <openssl/evp.h>
-#include <cassert>
 
 std::string string_to_md5(const std::string& text) {
-    if(text.empty()) {
+    if (text.empty()) {
         return "None";
     }
 
@@ -24,16 +21,10 @@ std::string string_to_md5(const std::string& text) {
     EVP_MD_CTX_free(ctx);
 
     char mdString[33];
-    for(int i = 0; i < 16; i++) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)md_value[i]);
+    for (int i = 0; i < 16; i++) {
+        sprintf(&mdString[i * 2], "%02x", (unsigned int)md_value[i]);
     }
     mdString[32] = '\0'; // Add null terminator at the end
 
     return mdString;
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-
-    return 0;
 }
