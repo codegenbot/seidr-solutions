@@ -6,16 +6,13 @@ int bowlingScore(char c) {
     if (c == 'X') {
         score += 30;
     } else if (c == '/') {
-        static char prevChar = '\0';
-        int count = 10 - (prevChar - '0');
-        score += count;
-        prevChar = c; 
+        return score + 10; 
     } else {
         int count = 0;
         while (c >= '1' && c <= '9') {
             count *= 10;
             count += c - '0';
-            c = '\0'; 
+            c = (c < '7') ? ++c : '/';
         }
         score += count;
     }
@@ -23,13 +20,12 @@ int bowlingScore(char c) {
 }
 
 int main() {
-    std::string s; 
+    std::string s;
     std::cout << "Enter the input string: ";
-    std::getline(std::cin, s);
+    s = "";
     
     int totalScore = 0;
-    for (char c : s) { 
+    for (char c : s) {
         totalScore += bowlingScore(c);
     }
     std::cout << "The total score is: " << totalScore << std::endl;
-}
