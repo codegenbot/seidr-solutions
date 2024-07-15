@@ -1,16 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 string int_to_mini_romank(int number){
-    string roman = "";
-    vector<pair<int, string>> romanMap = {
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"}, {90, "xc"},
-        {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
+    vector<pair<int, string>> roman_map = {
+        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"},
+        {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"},
+        {5, "v"}, {4, "iv"}, {1, "i"}
     };
-    
-    for(const auto &pair : romanMap){
-        while(number >= pair.first){
-            roman += pair.second;
-            number -= pair.first;
+
+    string result = "";
+    for (const auto &rm : roman_map) {
+        while (number >= rm.first) {
+            result += rm.second;
+            number -= rm.first;
         }
     }
-    
-    return roman;
+
+    return result;
+}
+
+int main() {
+    assert (int_to_mini_romank(1000) == "m");
+    return 0;
 }
