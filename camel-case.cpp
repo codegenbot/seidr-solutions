@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string input) {
     std::string output;
     size_t start = 0;
@@ -28,12 +24,4 @@ std::string camelCase(std::string input) {
     }
 
     return output;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << camelCase(input) << std::endl;
-    return 0;
 }
