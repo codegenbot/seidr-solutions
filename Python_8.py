@@ -1,9 +1,9 @@
 try:
     print("Enter the numbers separated by space:")
-    numbers = [int(x) for x in input().split()]
-    
+    numbers = [int(x) for x in raw_input().split()]
+
     n = len(numbers)
-    
+
     res = sum(num for num in numbers if num % 2 == 0)
     print(res)
 except (ValueError, TypeError):
