@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher_string1, cipher_string2, message):
     if len(cipher_string1) != len(cipher_string2):
         return ""
