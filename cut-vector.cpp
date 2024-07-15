@@ -1,19 +1,14 @@
 ```c++
 #include <vector>
-#include <cmath>
 using namespace std;
 
 int main() {
     vector<int> v = {1,2,3,4,5}; 
     vector<vector<int>> res = cutVector(v);
-    for(auto i:res){
-        cout<<"[";
-        for(int j:i){
-            cout<<j<<", ";
-        }
-        cout<<"]"<<endl;
+    for(int i=0;i<2;i++) {
+        for(auto x:res[i]) cout<<x<<" ";
+        cout<<endl;
     }
-    return 0;
 }
 
 vector<vector<int>> cutVector(vector<int> v) {
