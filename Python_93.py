@@ -5,11 +5,10 @@ def encode(message):
             char
             if not char.isalpha()
             else (
-                chr(((ord(char.upper()) - ord("A") + 2) % 26) + ord("A")).swapcase()
+                chr(((ord(char.upper()) - ord("A") + 20) % 26) + ord("A")).swapcase()
                 if char.lower() not in vowels
                 else chr(ord(char) ^ 32)
             )
-        )
+         )
         for char in message
-        if char.isalpha() or char.isspace()
     ])
