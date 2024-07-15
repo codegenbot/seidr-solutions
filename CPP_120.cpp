@@ -1,5 +1,8 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    return result;
+    vector<int> res(k);
+    partial_sort(arr.begin(), arr.end() - k + 1, arr.end());
+    for (int i = 0; i < k; ++i) {
+        res[i] = arr[arr.size() - k + i];
+    }
+    return res;
 }
