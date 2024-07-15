@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+```cpp
 class Solution {
 public:
     string fizzBuzz(int num) {
@@ -15,12 +13,3 @@ public:
         }
     }
 };
-
-int main() {
-    Solution solution;
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << solution.fizzBuzz(num) << endl;
-    return 0;
-}
