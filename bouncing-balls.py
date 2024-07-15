@@ -1,13 +1,23 @@
+```
 def bouncing_balls():
+    """
+    Calculates the total distance a ball travels after 'n' bounces, given its initial height and the first bounce height.
+    
+    Args: 
+        None (inputs expected)
+    
+    Returns:
+        The total distance traveled
+    """
     h = float(input())
     b = float(input())
     i = b / h
 
     n = int(input())
-    total_distance = (h - b) * 2  # initial distance traveled
+    total_distance = 0
     for _ in range(n):
-        distance_traveled = (h - b) * 2
+        distance_traveled = 2 * b
         total_distance += distance_traveled
-        h, b = b, round(b * i)
+        b = round(b * i)
 
     return total_distance

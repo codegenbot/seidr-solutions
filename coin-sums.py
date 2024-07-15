@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
@@ -9,4 +8,4 @@ def coin_sums(cents):
             result[i] += quotient
             cents -= coins[i] * quotient
 
-    return "Quarters: {}, Nickles: {}, Dimes: {}, Pennies: {}".format(result[0], result[1], result[2], result[3])
+    return result
