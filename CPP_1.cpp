@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::string& a, const std::string& b) {
     return a == b;
 }
 
@@ -23,7 +23,8 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             open_braces--;
             if (open_braces > 0) {
                 current_group += c;
-            } else {
+            }
+            else {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -34,10 +35,12 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 }
 
 void test() {
-    std::vector<std::string> test_input = {"(a(b))", "(c(d))"};
+    std::vector<std::string> expected = {"()", "(())", "(()())"};
+    std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    assert(is_same(separate_paren_groups(test_input[0]), std::vector<std::string>{"(b)"}));
-    assert(is_same(separate_paren_groups(test_input[1]), std::vector<std::string>{"(d)"}));
+    for (size_t i = 0; i < expected.size(); ++i) {
+        assert(issame(expected[i], result[i]));
+    }
 }
 
 int main() {
