@@ -3,10 +3,6 @@
 #include <algorithm>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> collatz_seq;
     collatz_seq.push_back(n);
@@ -21,6 +17,10 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     return collatz_seq;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
