@@ -1,3 +1,4 @@
+```c++
 int pennies = cents;
 int quarters = 0;
 int dimes = 0;
