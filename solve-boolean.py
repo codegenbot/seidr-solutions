@@ -1,6 +1,6 @@
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
-    
+
     def solve(stack):
         result = None
         while len(stack) > 1:
