@@ -20,9 +20,11 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    vector<int> expected{8, 10, 12, 14, 16, 18, 20, 22};
-    vector<int> result = make_a_pile(8);
-    assert(equal(expected.begin(), expected.end(), result.begin()));
-    cout << "Test passed successfully!";
+    int n;
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << ' ';
+    }
     return 0;
 }
