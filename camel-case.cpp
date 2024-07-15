@@ -1,7 +1,4 @@
-```
-#include <string>
-#include <cctype>
-
+```cpp
 std::string camelCase(std::string input) {
     std::string output;
     size_t start = 0;
@@ -9,16 +6,12 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == '-') {
             if (start < i) {
-                if (i > start) {
-                    output += std::string(input.substr(start, i - start)).erase(0, 1);
-                } else {
-                    output += input.substr(start, i - start).erase(0, 1);
-                }
-                output = std::string(std::tolower(output));
+                output += std::string(1, input[start]).toupper();
+                start = i + 1;
             }
             if (i < input.size()) {
                 if (input[i + 1] == '-') continue;
-                output.push_back(toupper(input[i]));
+                output.push_back(std::tolower(input[i]));
                 start = i + 1;
             } else {
                 return output;

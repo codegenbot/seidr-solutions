@@ -22,7 +22,7 @@ int bowlingScore(char c) {
 int main() {
     std::string s;
     std::cout << "Enter the input string: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
     
     int totalScore = 0;
     for (char c : s) {
