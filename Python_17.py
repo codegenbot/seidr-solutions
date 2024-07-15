@@ -1,4 +1,5 @@
-```def parse_music(music_string: str) -> list:
+```
+def parse_music(music_string: str) -> list:
     if not music_string:
         return []
     music_list = []
@@ -30,4 +31,4 @@
             music_list.extend([8, 4, 2])
             i += 5
         i += 1
-    return music_list```
+    return music_list
