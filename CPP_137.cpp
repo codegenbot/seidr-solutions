@@ -16,3 +16,8 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
     } 
     return boost::any(); // Return default-constructed boost::any for "None"
 }
+
+int main() {
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == ""); // Use appropriate value for comparison
+    return 0;
+}
