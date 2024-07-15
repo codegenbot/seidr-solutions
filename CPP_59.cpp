@@ -19,4 +19,7 @@ int largest_prime_factor(int n) {
     return maxPrime;
 }
 
-std::cout << largest_prime_factor(13195) << std::endl;
+int main() {
+    std::cout << largest_prime_factor(13195) << std::endl;
+    return 0;
+}
