@@ -1,13 +1,16 @@
-vector<string> odd_count(vector<string> lst){
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool check_odd_size(vector<string> a, vector<string> b) {
+    return a.size() % 2 == 1 && b.size() % 2 == 1;
+}
+
+vector<string> odd_count(initializer_list<const char*> args) {
     vector<string> result;
-    for(string s : lst){
-        int odd_count = 0;
-        for(char c : s){
-            if((c - '0') % 2 != 0){
-                odd_count++;
-            }
-        }
-        result.push_back("the number of odd elements " + to_string(odd_count) + "n the str" + to_string(odd_count) + "ng " + s + " of the " + to_string(odd_count) + "nput.");
+    for (auto arg : args) {
+        result.push_back(string(arg));
     }
     return result;
 }
