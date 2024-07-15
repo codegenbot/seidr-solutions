@@ -1,5 +1,12 @@
+#include <vector>
+#include <iostream>
+#include <utility>
+#include <climits>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = numeric_limits<int>::max();
+    int minDiff = INT_MAX;
     int splitIndex = 0;
     
     for (int i = 1; i < v.size(); ++i) {
@@ -21,23 +28,26 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + splitIndex);
-    vector<int> right(v.begin() + splitIndex, v.end());
+    pair<vector<int>, vector<int>> result;
+    result.first = vector<int>(v.begin(), v.begin() + splitIndex);
+    result.second = vector<int>(v.begin() + splitIndex, v.end());
     
-    return {left, right};
+    return result;
 }
 
 int main() {
-    int n; cin >> n;
+    int n; std::cin >> n;
     vector<int> v(n);
-    for (auto& x : v) cin >> x;
+    for (auto& x : v) std::cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "1 ";
-    for (auto x : result.first) cout << x << " ";
-    cout << "\n0 1 ";
-    for (auto x : result.second) cout << x << " ";
-    cout << "\n0\n";
+    std::cout << "1 ";
+    for (auto x : result.first) std::cout << x << " ";
+    std::cout << "\n0 " << result.second.size() << "\n";
+    std::cout << "0 1\n";
+    std::cout << "1 ";
+    for (auto x : result.second) std::cout << x << " ";
+    std::cout << "\n";
     
     return 0;
 }
