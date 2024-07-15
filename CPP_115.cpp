@@ -21,6 +21,6 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
 }
 
 int main() {
-    // Main function implementation
+    // Code for providing input, calling max_fill function and printing output here
     return 0;
 }
