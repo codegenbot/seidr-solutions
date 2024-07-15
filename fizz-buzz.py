@@ -1,3 +1,4 @@
+```
 def fizz_buzz(x):
     result = ""
     
