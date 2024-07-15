@@ -1,18 +1,18 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
-    visited = set()
-    queue = [(0, 0, [m[0][0]])]
+    visited = [[False]*n for _ in range(n)]
+    queue = [(0, 0, [])]  # (row, col, path)
     res = None
     while queue:
-        x, y, path = queue.pop(0)
+        row, col, path = queue.pop(0)
         if len(path) == k:
-            if not res or path < res:
+            if res is None or path < res:
                 res = path
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and m[nx][ny] not in path and (nx, ny) not in visited:
-                queue.append(((nx, ny), path + [m[nx][ny]]))
-                visited.add((nx, ny))
+        elif len(path) < k:
+            for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                nr, nc = row + dr, col + dc
+                if 0 <= nr < n and 0 <= nc < n and not visited[nr][nc]:
+                    queue.append((nr, nc, path + [grid[nr][nc]]))
+                    visited[nr][nc] = True
     return res
