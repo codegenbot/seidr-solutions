@@ -1,23 +1,29 @@
-
+#include <iostream>
+#include <vector>
 #include <string>
 #include <cassert>
 
-std::string int_to_mini_roman(int number){
-    std::string roman[] = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
-    int value[] = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-    std::string result = "";
+using namespace std;
+
+string int_to_mini_roman(int number) {
+    vector<pair<int, string>> roman_map = {
+        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
+        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
+        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
+    };
     
-    for(int i = 12; i >= 0; i--){
-        while(number >= value[i]){
-            result += roman[i];
-            number -= value[i];
+    string result = "";
+    for (const auto& pair : roman_map) {
+        while (number >= pair.first) {
+            result += pair.second;
+            number -= pair.first;
         }
     }
     
     return result;
 }
 
-int main(){
-    assert (int_to_mini_roman(1000) == "m");
+int main() {
+    assert(int_to_mini_roman(1000) == "m");
     return 0;
 }
