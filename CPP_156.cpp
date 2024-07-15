@@ -1,5 +1,7 @@
 #include <vector>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 string int_to_mini_roman(int number){
