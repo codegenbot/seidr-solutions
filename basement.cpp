@@ -1,11 +1,9 @@
 int basement(vector<int> v) {
     int sum = 0;
-    int i = 1; 
-    while (i <= v.size()) {
-        sum += v[i-1]; 
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i];
         if (sum < 0)
-            return i - 1;
-        i++;
+            return i;
     }
     return -1;
 }
