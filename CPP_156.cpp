@@ -18,10 +18,8 @@ std::string int_to_mini_roman(int number){
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-    std::string result = int_to_mini_roman(num);
-    std::cout << result;
-
+    int number;
+    std::cin >> number;
+    std::cout << int_to_mini_roman(number) << std::endl;
     return 0;
 }
