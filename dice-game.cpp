@@ -21,7 +21,6 @@ int main() {
     int n, m;
     cin >> n >> m;
     double d = diceGame(n, m);
-    std::cout << fixed << setprecision(2);
+    std::cout << std::fixed << setprecision(2);
     std::cout << d << endl;
     return 0;
-}
