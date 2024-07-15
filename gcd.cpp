@@ -4,7 +4,7 @@
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    int pos = text.find(target);
+    int pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
