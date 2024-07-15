@@ -1,15 +1,14 @@
-from collections import Counter
-
 code = input()
 guess = input()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
-code_counter = Counter(code)
-guess_counter = Counter(guess)
+code_temp = ''.join(c if c != g else 'X' for c, g in zip(code, guess))
+guess_temp = ''.join(c if c != g else 'X' for c, g in zip(guess, code))
 
-white_pegs = sum(min(code_counter[c], guess_counter[c]) for c in set(code) if c in guess)
+code_remaining = [c for c, g in zip(code, guess) if c != g and g != 'X']
+guess_remaining = [g for c, g in zip(code, guess) if c != g and g != 'X']
 
-white_pegs -= black_pegs
+white_pegs = sum(min(code.count(c), guess.count(c)) - min(code_remaining.count(c), guess_remaining.count(c)) for c in set(code))
 
-print(max(white_pegs, 0), black_pegs)
+print(white_pegs, black_pegs)
