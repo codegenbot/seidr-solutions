@@ -1,16 +1,12 @@
-```
+```python
 def find_pair():
+    n = int(input())
+    nums = [int(x) for x in input().split()]
     target = int(input())
-    input_list = list(map(int, input().split()))
-    num_dict = {}
-    for num in input_list:
-        if (target - num) in num_dict:
-            return str(target - num) + "\n" + str(num)
-        else:
-            num_dict[target - num] = True
-    return "No pair found"
+    
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return '\n'.join(map(str, [nums[i], nums[j]]))
 
-
-input_size = int(input())
-for _ in range(input_size):
-    print(find_pair())
+print(find_pair())
