@@ -1,5 +1,7 @@
 #include <cassert>
 
+string match_parens(vector<string> lst);
+
 string match_parens(vector<string> lst) {
     int cnt = 0;
     for (string s : lst) {
