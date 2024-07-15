@@ -1,14 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-using namespace std;
+using std::vector;
+using std::string;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.empty() && b.empty()) {
-        return true;
-    }
     return a == b;
 }
 
@@ -35,7 +32,7 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        words.push_back(to_string(count));
+        words.push_back(std::to_string(count));
     }
     return words;
 }
