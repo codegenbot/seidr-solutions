@@ -1,24 +1,17 @@
-Here is the completed code:
+Here is the Python solution:
 
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
     return abs(a)
 
 def indices_of_substring(text, target):
-    indices = []
-    index = 0
+    result = []
+    start = 0
     while True:
-        index = text.find(target)
-        if index == -1:
+        pos = text.find(target, start)
+        if pos == -1:
             break
-        indices.append(index + 1)
-        text = text[index+1:]
-    return indices
-
-# Testing the code
-print(gcd(1, 1))
-print(gcd(4, 4000000))
-print(gcd(54, 24))
-print(gcd(4200, 3528))
-print(gcd(820000, 63550))
+        result.append(pos)
+        start = pos + 1
+    return result
