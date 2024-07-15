@@ -26,4 +26,3 @@ int main() {
     pair<int, int> result = findPair(nums, target);
     cout << result.first << "\n" << result.second << endl;
     return 0;
-}
