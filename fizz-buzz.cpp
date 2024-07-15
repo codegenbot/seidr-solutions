@@ -5,7 +5,7 @@ using namespace std;
 class Solution {
 public:
     string fizzBuzz(int num) {
-        if (num % 15 == 0)
+        if (num % 3 == 0 && num % 5 == 0)
             return "FizzBuzz";
         else if (num % 3 == 0)
             return "Fizz";
