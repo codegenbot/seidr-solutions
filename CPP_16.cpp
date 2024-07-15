@@ -1,5 +1,13 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    str.erase(unique(str.begin(), str.end()), str.end());
-    return str.size();
+    vector<bool> char_set(256, false);
+    int count = 0;
+    
+    for(char c : str){
+        if(!char_set[c]){
+            char_set[c] = true;
+            count++;
+        }
+    }
+    
+    return count;
 }
