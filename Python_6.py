@@ -20,5 +20,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     
     return [current_depth]
 
-paren_string = sys.stdin.readline().strip()
+paren_string = sys.argv[1]
 print(parse_nested_parens(paren_string))
