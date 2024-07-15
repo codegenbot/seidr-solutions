@@ -1,19 +1,20 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back();
-                result.pop_back();
+#include <string>
+
+std::string fix_spaces(std::string text){
+    std::string result = "";
+    int consecutiveSpaces = 0;
+    for(char c : text){
+        if(c == ' '){
+            consecutiveSpaces++;
+            if(consecutiveSpaces > 2){
                 result += "-";
-                count = 1;
+                consecutiveSpaces = 1;
             } else {
                 result += "_";
             }
         } else {
             result += c;
-            count = 0;
+            consecutiveSpaces = 0;
         }
     }
     return result;
