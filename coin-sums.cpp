@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
@@ -16,10 +15,10 @@ int main() {
     cents %= 5;
     int penny = cents;
 
-    cout << "Quarters: " << quarter << endl;
-    cout << "Dimes: " << dime << endl;
-    cout << "Nickels: " << nickel << endl;
-    cout << "Pennies: " << penny << endl;
+    cout << quarter << endl;
+    cout << dime << endl;
+    cout << nickel << endl;
+    cout << penny << endl;
 
     return 0;
 }
