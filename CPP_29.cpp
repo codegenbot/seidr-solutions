@@ -3,13 +3,13 @@ namespace std {
         return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
     }
     
-    std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
-        std::vector<std::string> filteredVec;
-        for(const std::string& str : vec){
-            if(str.substr(0, prefix.size()) == prefix){
-                filteredVec.push_back(str);
+    std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix){
+        std::vector<std::string> result;
+        for (const auto& str : vec){
+            if (str.find(prefix) == 0){
+                result.push_back(str);
             }
         }
-        return filteredVec;
+        return result;
     }
 }
