@@ -1,7 +1,15 @@
-for(auto &word : s){
-        if (word != ' ') {
+string result = "";
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
-    return s;
+    sort(word.begin(), word.end());
+    result += word;
+    return result;
 }
