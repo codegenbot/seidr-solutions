@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```cpp
 #include <string>
 
