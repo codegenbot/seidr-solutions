@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string kebabToCamel(const std::string& str) {
     std::string result;
