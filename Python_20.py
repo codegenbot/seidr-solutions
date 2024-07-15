@@ -8,11 +8,3 @@ def find_min_difference(numbers):
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
-
-
-# Read input from the user
-numbers = input("Enter numbers separated by space: ").split()
-numbers = [float(num) for num in numbers]
-
-# Call the function and print the result
-print(find_min_difference(numbers))
