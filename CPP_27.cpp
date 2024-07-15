@@ -1,19 +1,21 @@
+#include <iostream>
 #include <string>
+#include <cctype>
+#include <cassert>
 
-string flip_case(string str){
+std::string flip_case(std::string str){
     for(char &c : str){
-        if(islower(c)){
-            c = toupper(c);
-        } else if(isupper(c)){
-            c = tolower(c);
+        if(std::islower(c)){
+            c = std::toupper(c);
+        } else if(std::isupper(c)){
+            c = std::tolower(c);
         }
     }
     return str;
 }
 
-int main(){
-    string input;
-    getline(cin, input);
-    cout << flip_case(input) << endl;
+int run_main() {
+    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    
     return 0;
 }
