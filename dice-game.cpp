@@ -1,8 +1,15 @@
+```c
 double diceGame(int n, int m) {
-    double totalPossibleRolls = n * m;
-    double peterWins = 1.0; // Peter wins when he rolls a value strictly higher than Colin's roll
-    for (int i = 1; i < n; i++) {
-        peterWins += (n - i) * (m / (double)(totalPossibleRolls));
+    double totalPossibilities = n * m;
+    double peterWins = 0;
+
+    for(int i = 1; i <= n - 1; i++) {
+        for(int j = 1; j <= m; j++) {
+            if(i > j) {
+                peterWins++;
+            }
+        }
     }
-    return peterWins;
+
+    return peterWins / totalPossibilities;
 }
