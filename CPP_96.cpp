@@ -12,8 +12,9 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> count_up_to(int n);
 
-int main() {
-    // Your main function code here
+int main(){
+    // Add test cases here if needed
+    return 0;
 }
 
 vector<int> count_up_to(int n){
