@@ -2,22 +2,13 @@
 #include <cassert>
 
 bool is_same(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 vector<string> sort_numbers_by_length(vector<int> arr){
     vector<string> result;
     vector<int> sorted_arr;
+    
     map<int, string> num_to_word = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
