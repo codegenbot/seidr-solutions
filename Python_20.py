@@ -1,4 +1,4 @@
-def find_min_difference_pair(numbers):
+def find_min_difference(numbers):
     numbers.sort()
     min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
     result = [
