@@ -2,17 +2,15 @@
 #include <vector>
 #include <cassert>
 
-int main() {
-    auto below_threshold = [](const std::vector<int>& l, int t) -> bool {
-        for(int num : l){
-            if(num >= t){
-                return false;
-            }
+auto below_threshold = [](const std::vector<int>& l, int t) -> bool {
+    for(int num : l){
+        if(num >= t){
+            return false;
         }
-        return true;
-    };
+    }
+    return true;
+};
 
-    assert(!below_threshold({1, 8, 4, 10}, 10));
-
-    return 0;
+int main() {
+    assert(!below_threshold(std::vector<int>{1, 8, 4, 10}, 10));
 }
