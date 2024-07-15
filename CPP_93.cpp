@@ -1,11 +1,11 @@
-string encode(string message){
-    for(char &c : message){
+transform(message.begin(), message.end(), message.begin(), [](char c) {
         if(isalpha(c)){
-            c = isupper(c) ? tolower(c) : toupper(c);
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c += 2;
+            if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
+                return isupper(c) ? toupper((c - 'A' + 2) % 26 + 'A') : (c - 'a' + 2) % 26 + 'a';
             }
+            return isupper(c) ? tolower(c) : toupper(c);
         }
-    }
+        return c;
+    });
     return message;
 }
