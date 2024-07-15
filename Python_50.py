@@ -1,5 +1,4 @@
 input_string = input()
-
 def decode_shift(input_string):
     input_string = input_string.lower()
     decoded_text = ""
