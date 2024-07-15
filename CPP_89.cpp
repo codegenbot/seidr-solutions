@@ -1,16 +1,22 @@
+#include <cctype>
 #include <string>
+
+using namespace std;
 
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            int newChar = ((c - 'a' + 26) % 26) + 'a';
-            result += (char)newChar;
-        } else if (c >= 'A' && c <= 'Z') {
-            int newChar = ((c - 'A' + 26) % 26) + 'A';
-            result += (char)newChar;
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            result += ((c - base + 2 * 26) % 26 + base);
         } else {
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
+}
