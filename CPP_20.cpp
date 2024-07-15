@@ -29,11 +29,11 @@ std::vector<float> find_closest_elements(const std::vector<float>& arr) {
     return closest_elements;
 }
 
-int solve_problem() {
+std::vector<float> solve_problem() {
     std::vector<float> result = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
     assert(issame(result, {2.2f, 3.1f}));
 
-    return 0;
+    return result;
 }
 
 int main() {
@@ -45,7 +45,17 @@ int main() {
         input_arr.push_back(temp);
     }
 
-    solve_problem();
-    
+    std::vector<float> closest_elements = solve_problem();
+
+    if (closest_elements.empty()) {
+        std::cout << "No closest elements found." << std::endl;
+    } else {
+        std::cout << "Closest elements: ";
+        for (const auto& element : closest_elements) {
+            std::cout << element << " ";
+        }
+        std::cout << std::endl;
+    }
+
     return 0;
 }
