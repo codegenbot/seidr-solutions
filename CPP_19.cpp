@@ -1,4 +1,3 @@
-#include <iostream>
 #include <map>
 #include <string>
 #include <cassert>
@@ -18,13 +17,6 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers);
-
-int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    return 0;
-}
-
 string sort_numbers(string numbers) {
     map<int, string> sorted_numbers;
     string result;
@@ -43,4 +35,9 @@ string sort_numbers(string numbers) {
 
     result.pop_back(); // Remove the extra space at the end
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
