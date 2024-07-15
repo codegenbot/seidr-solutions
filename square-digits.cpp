@@ -1,17 +1,10 @@
-```
 #include <string>
-#include <sstream>
+using namespace std;
 
-int main() {
-    std::cout << squareDigits("54321") << std::endl;
-    return 0;
-}
-
-std::string squareDigits(std::string input) {
-    std::stringstream output;
+string squareDigits(string input) {
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output << std::to_string(digit * digit);
+        output += to_string(digit * digit);
     }
-    return output.str();
-}
+    return output;
