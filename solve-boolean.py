@@ -1,6 +1,4 @@
-```python
-
-
+```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
     
@@ -42,4 +40,4 @@ def solve_boolean(expression):
                 else:
                     result = eval(f"{operand2} and {stack[0]}")
             stack.append(result)
-    return solve(stack)
+    return solve(stack)''
