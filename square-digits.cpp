@@ -1,18 +1,24 @@
-std::string squareDigits(std::string input) {
-    std::stringstream output;
-    for (char c : input) {
-        int digit = c - '0';
-        output << std::to_string(digit * digit);
-    }
-    return output.str();
-}
+Here is the modified code:
+
+```c++
+using namespace std;
 
 int main() {
-    std::string input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
 
-    std::string result = squareDigits(input);
+    string result = squareDigits(input);
 
     return 0;
+
+}
+
+string squareDigits(string input) {
+    stringstream output;
+    for (char c : input) {
+        int digit = c - '0';
+        output << to_string(digit * digit);
+    }
+    return output.str();
 }
