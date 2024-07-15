@@ -16,13 +16,13 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
-    auto pair = findPair(nums, target);
-    if (!pair.empty()) {
-        cout << "The pair is: " << pair[0] << ", " << pair[1] << endl;
+    vector<int> nums = {1, 2, 3, 4};
+    int target = 5;
+    vector<int> result = findPair(nums, target);
+    if (result.size() > 0) {
+        cout << "The pair is: " << result[0] << ", " << result[1] << endl;
     } else {
-        cout << "No such pair found." << endl;
+        cout << "No pair found." << endl;
     }
     return 0;
 }
