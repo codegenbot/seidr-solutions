@@ -13,7 +13,7 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     return {sum, product};
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::pair<int, int> b_sum_product = sum_product(b);
-    return sum_product(a) == b_sum_product;
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+    std::pair<int, int> b_sum_product = sum_product({b.first});
+    return a == b_sum_product;
 }
