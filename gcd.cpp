@@ -5,8 +5,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     int n = text.size();
     int m = target.size();
     
