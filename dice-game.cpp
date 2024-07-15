@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <limits>
-
 using namespace std;
 
 double diceGame(int n, int m) {
