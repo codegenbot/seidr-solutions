@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <algorithm>
 #include <cassert>
 
@@ -20,7 +20,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    assert (issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
     
     return 0;
 }
