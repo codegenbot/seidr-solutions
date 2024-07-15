@@ -29,4 +29,3 @@ int main() {
     std::cout << camelCase("two words") << std::endl;
     std::cout << camelCase("all separate words") << std::endl;
     return 0;
-}
