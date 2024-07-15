@@ -20,6 +20,8 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
-    std::cout << largest_prime_factor(13195) << std::endl;
+    int input;
+    std::cin >> input;
+    std::cout << largest_prime_factor(input) << std::endl;
     return 0;
 }
