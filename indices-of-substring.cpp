@@ -1,20 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> res;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
-        res.push_back(pos);
+        result.push_back(pos);
         pos += target.size();
     }
-    return res;
+    return result;
 }
 
 int main() {
     string text = "Hello World";
     string target = "World";
     vector<int> res = indicesOfSubstring(text, target);
-    // Now 'res' contains the indices of substring "World" in the given text.
 }
