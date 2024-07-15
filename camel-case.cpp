@@ -4,22 +4,22 @@
 
 using namespace std;
 
-string camelCase(string s) {
+string kebabToCamel(const string& str) {
     string result = "";
-    bool upperCaseNext = true;
+    int start = 0;
     
-    for (char c : s) {
-        if (c == '-') {
-            upperCaseNext = true;
-        } else if (c == ' ') {
-            continue;
-        } else {
-            if (upperCaseNext) {
-                result += toupper(c);
-                upperCaseNext = false;
+    for (int i = 0; i <= str.size(); i++) {
+        if (i == str.size() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            
+            if (!result.empty()) {
+                result += char(toupper(word[0]));
+                result.erase(1, 1);
             } else {
-                result += tolower(c);
+                result += word;
             }
+            
+            start = i + 1;
         }
     }
     
@@ -27,14 +27,16 @@ string camelCase(string s) {
 }
 
 int main() {
-    int numCases;
-    cin >> numCases;
-
-    for (int i = 0; i < numCases; ++i) {
-        string s;
-        cin >> s;
-        cout << camelCase(s) << endl;
+    string str;
+    
+    while (true) {
+        cout << "Enter a kebab-case string (or 'quit' to exit): ";
+        cin >> str;
+        
+        if (str == "quit") break;
+        
+        cout << "CamelCase: " << kebabToCamel(str) << endl;
     }
-
+    
     return 0;
 }
