@@ -9,7 +9,6 @@ int whitePegs(std::string code, std::string guess) {
 }
 
 int blackPegs(std::string code, std::string guess) {
-    int blackCount = 0;
     int whiteCount = whitePegs(code, guess);
     
     std::unordered_map<char,int> codeMap;
@@ -24,8 +23,7 @@ int blackPegs(std::string code, std::string guess) {
             codeMap[code[i]]--;
         }
     }
-    blackCount = correctPosition;
-    return blackCount;
+    return correctPosition;
 }
 
 int main() {
