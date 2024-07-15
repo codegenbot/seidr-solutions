@@ -2,25 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+namespace std {
+    using ::vector;
 }
 
-std::vector<float> sort_even(const std::vector<float>& l) {
-    std::vector<float> even_values, sorted_even_values;
-    for (std::size_t i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-            sorted_even_values.push_back(l[i]);
-        }
-    }
-    std::sort(sorted_even_values.begin(), sorted_even_values.end());
-    int sorted_index = 0;
-    for (std::size_t i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = sorted_even_values[sorted_index];
-            sorted_index++;
-        }
-    }
-    return l;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    // Function implementation here
 }
+
+std::vector<float> sort_even(const std::vector<float>& l);
