@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+std::vector<std::string> parts;
+
 std::string camelCase(const std::string& str) {
     std::vector<std::string> parts;
     size_t start = 0;
