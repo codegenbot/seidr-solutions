@@ -1,4 +1,13 @@
-vector<string> bf(string planet1, string planet2) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -6,7 +15,8 @@ vector<string> bf(string planet1, string planet2) {
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
-        } else if (planets[i] == planet2) {
+        }
+        if (planets[i] == planet2) {
             end = i;
         }
     }
@@ -24,4 +34,10 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    
+    return 0;
 }
