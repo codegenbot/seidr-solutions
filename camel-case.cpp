@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string kebabToCamel(const std::string& str) {
     std::string result;
@@ -27,13 +28,10 @@ int main() {
         std::string word;
         while (std::getline(iss, word, '-')) {
             if (!word.empty()) {
-                if (input.find(word) == 0)
-                    result = toupper(word[0]) + word.substr(1).tolower();
-                else
-                    result += word[0] + word.substr(1).tolower();
+                std::cout << kebabToCamel(word) << " ";
             }
-            std::cout << kebabToCamel(result) << " ";
         }
+        std::cout << std::endl;
     }
     return 0;
 }
