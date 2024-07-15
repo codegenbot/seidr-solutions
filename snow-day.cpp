@@ -1,5 +1,8 @@
+```c++
 #include <iostream>
 using namespace std;
+
+#include<iomanip>
 
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     return initialSnow + rateOfSnowFall * hours - proportionOfSnowMeltingPerHour * hours;
