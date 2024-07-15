@@ -6,13 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     std::vector<int> result;
-    for (int i = 0; i < k / grid.size(); i++) {
-        for (const auto& row : grid) {
-            for (int num : row) {
-                result.push_back(num);
-            }
-        }
-    }
+    // Your code for finding minimum path here
     return result;
 }
 
