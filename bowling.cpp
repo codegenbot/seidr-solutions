@@ -1,41 +1,43 @@
-int calculateBowlingScore(string bowls) {
-    int frame = 0;
-    int score = 0;
-    vector<int> rolls;
-    for (char c : bowls) {
-        if (c == 'X') {
-            rolls.push_back(10);
-            frame++;
-        } else if (c == '/') {
-            rolls.push_back(10 - rolls.back());
-        } else if (c == '-') {
-            rolls.push_back(0);
-            if (frame % 2 == 1) {
-                frame++;
-            }
-        } else {
-            rolls.push_back(c - '0');
-            if (rolls.size() % 2 == 0 || c == '5') {
-                frame++;
-            }
-        }
-    }
-    for (int i = 0; i < rolls.size(); i++) {
-        if (rolls[i] == 10) {
-            score += 10 + rolls[i + 1] + rolls[i + 2];
-        } else if (i % 2 == 1 && rolls[i] + rolls[i - 1] == 10) {
-            score += 10 + rolls[i + 1];
-        } else {
-            score += rolls[i];
-        }
-    }
-    return score;
-}
+#include <string>
 
-int main() {
-    string bowls;
-    getline(cin, bowls);
-    int score = calculateBowlingScore(bowls);
-    cout << score << endl;
-    return 0;
+int score(string input) {
+    int total = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> scores(21, 0);
+
+    for (char c : input) {
+        if (c == 'X') {
+            scores[ball] = 10;
+            if (frame < 10) {
+                scores[ball + 1] = -1;
+            }
+        } else if (c == '/') {
+            scores[ball] = 10 - scores[ball - 1];
+            if (frame < 10) {
+                scores[ball + 1] = -1;
+            }
+        } else if (c == '-') {
+            scores[ball] = 0;
+        } else {
+            scores[ball] = c - '0';
+        }
+
+        ball++;
+        if (frame < 10 && (c == 'X' || ball % 2 == 0)) {
+            frame++;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        if (scores[i * 2] == 10) {
+            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
+        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
+            total += 10 + scores[i * 2 + 2];
+        } else {
+            total += scores[i * 2] + scores[i * 2 + 1];
+        }
+    }
+
+    return total;
 }
