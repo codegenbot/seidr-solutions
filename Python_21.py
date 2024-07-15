@@ -3,9 +3,6 @@ def normalize_numbers(numbers):
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-# Take input from user
 numbers = list(map(int, input().split()))
-
-# Call the function
 result = normalize_numbers(numbers)
 print(result)
