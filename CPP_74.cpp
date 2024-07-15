@@ -2,14 +2,8 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-void assert(bool expression) {
-    if (!expression) {
-        throw "Assertion failed";
-    }
-}
-
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    assert(issame(lst1, lst2));
+    assert(total_chars(lst1) == total_chars(lst2));
     if (total_chars(lst1) < total_chars(lst2)) {
         return lst1;
     }
