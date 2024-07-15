@@ -19,7 +19,10 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(8) == vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
+    vector<int> result = make_a_pile(8);
+    vector<int> expected{8, 10, 12, 14, 16, 18, 20, 22};
+    
+    assert(result == expected);
     cout << "Test passed successfully!";
     return 0;
 }
