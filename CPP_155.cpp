@@ -2,7 +2,7 @@
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
-} 
+}
 
 vector<int> even_odd_count(int num) {
     vector<int> result(2, 0);
