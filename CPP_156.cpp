@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 using namespace std;
 
 string int_to_mini_romank(int number){
@@ -21,6 +23,6 @@ string int_to_mini_romank(int number){
 }
 
 int main() {
-    assert (int_to_mini_romank(1000) == "m");
+    assert(int_to_mini_romank(1000) == "m");
     return 0;
 }
