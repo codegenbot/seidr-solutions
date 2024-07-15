@@ -2,9 +2,8 @@ def filter_numbers(numbers, threshold):
     result = [num for num in numbers if num > threshold]
     return result
 
-print("Enter a list of numbers separated by spaces:")
-numbers = list(map(int, input().strip().split()))
-threshold = int(input("Enter a threshold number: "))
+numbers = [int(x) for x in input().split()]
+threshold = int(input("Enter the threshold: "))
 
 for num in filter_numbers(numbers, threshold):
     print(num)
