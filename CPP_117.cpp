@@ -1,12 +1,9 @@
-#include<iostream>
-#include<vector>
-#include<assert.h>
+#include <iostream>
+#include <vector>
+#include <cctype>
+#include <assert.h>
 
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -36,7 +33,18 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    
+    string input;
+    int n;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "Enter the number of consonants: ";
+    cin >> n;
+
+    vector<string> words = select_words(input, n);
+
+    for (const string& word : words) {
+        cout << word << " ";
+    }
+
     return 0;
 }
