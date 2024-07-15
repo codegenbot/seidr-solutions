@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
+int do_algebra(vector<string> operato, vector<int> operand){
     int result = operand[0];
     for (int i = 0; i < operato.size(); i++) {
         if (operato[i] == "+") {
@@ -10,10 +10,10 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
-            result = std::pow(result, operand[i + 1]);
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
