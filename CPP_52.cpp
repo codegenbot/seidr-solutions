@@ -1,4 +1,7 @@
-auto below_threshold = [](const auto& l, int t) -> bool {
+#include <vector>
+#include <cassert>
+
+auto below_threshold = [](std::initializer_list<int> l, int t) -> bool {
     for(int num : l){
         if(num >= t){
             return false;
