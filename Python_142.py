@@ -1,11 +1,8 @@
-```
-def sum_squares(lst):
+``` 
+def sum_squares():
+    lst = input("Enter the list of integers (space separated): ")
+    lst = [int(num) for num in lst.split()]
     if len(lst) == 0:
         return 0
-    total = 0
-    for num in lst:
-        if isinstance(num, int):
-            total += num**2
-        else:
-            raise ValueError("The list must contain only integers.")
+    total = sum([num**2 for num in lst])
     return total
