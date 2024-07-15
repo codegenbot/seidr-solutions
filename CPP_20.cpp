@@ -1,13 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
-
-pair<float, float> find_closest_elements(const vector<float>& numbers);
-
-bool issame(vector<float> a, vector<float> b);
 
 pair<float, float> find_closest_elements(const vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
