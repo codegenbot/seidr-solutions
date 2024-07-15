@@ -1,10 +1,10 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 #include <cassert>
 
-std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> result = numbers;
+std::vector<int> unique(const std::vector<int>& l) {
+    std::vector<int> result = l;
     std::sort(result.begin(), result.end());
     result.erase(std::unique(result.begin(), result.end()), result.end());
     return result;
@@ -14,7 +14,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int problem_main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>{1, 4, 5}));
+int main() {
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    std::cout << "Test passed successfully!\n";
     return 0;
 }
