@@ -9,8 +9,9 @@ std::string camelCase(std::string input) {
         if (i == input.size() || (input[i] == '-' && input[i - 1] != ' ')) {
             if (start < i) {
                 output += std::tolower((input.substr(start, i - start)).c_str()[0]);
-                for (size_t j = 1; j < i - start; ++j)
+                for(size_t j = 1; j < i - start; ++j){
                     output += (input.substr(start, i - start)).c_str()[j];
+                }
             }
             if (i < input.size()) {
                 output.push_back(toupper(input[i]));
