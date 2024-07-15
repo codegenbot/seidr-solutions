@@ -4,10 +4,10 @@
 int fuelCost(vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
-        int result = (i / 3);
-        result = floor(result); // round down to nearest integer
-        result -= 2; 
-        sum += result;
+        double result = static_cast<double>(i) / 3.0;
+        result = floor(result);
+        int newResult = static_cast<int>(result - 2);
+        sum += newResult;
     }
     return sum;
 }
