@@ -16,5 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             count -= 1
         
-    result.append(current_group)
+    result.append(current_group)  # Append the final group if any
     return result
