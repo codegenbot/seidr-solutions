@@ -1,4 +1,4 @@
-def check(concatenate_strings):
-    def check(concatenate):
-        return concatenate_strings(concatenate)
-    return check
+def concatenate_strings(strings):
+    return "".join(strings)
+
+check(concatenate_strings)
