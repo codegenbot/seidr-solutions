@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 bool triples_sum_to_zero(const std::vector<int>& l) {
     int n = l.size();
@@ -17,7 +16,18 @@ bool triples_sum_to_zero(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> input = {100, 3, 5, -100};
-    std::cout << std::boolalpha << triples_sum_to_zero(input) << std::endl;
+    std::vector<int> nums;
+    int num;
+    
+    while (std::cin >> num) {
+        nums.push_back(num);
+    }
+
+    if (triples_sum_to_zero(nums)) {
+        std::cout << "True\n";
+    } else {
+        std::cout << "False\n";
+    }
+
     return 0;
 }
