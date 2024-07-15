@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,9 +16,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort(std::vector<float> l) {
-    std::vector<float> even_indices;
-    std::vector<float> sorted_even_indices;
+vector<float> sort(vector<float> l) {
+    vector<float> even_indices;
+    vector<float> sorted_even_indices;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -27,7 +27,7 @@ std::vector<float> sort(std::vector<float> l) {
         }
     }
 
-    std::sort(sorted_even_indices.begin(), sorted_even_indices.end());
+    sort(sorted_even_indices.begin(), sorted_even_indices.end());
 
     int sorted_index = 0;
     for (int i = 0; i < l.size(); i++) {
