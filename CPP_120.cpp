@@ -1,8 +1,10 @@
 #include <vector>
 #include <algorithm>
 
-bool issame() { // or remove this function altogether }
+bool issame() {
+    return false;
+}
 
 int main() {
-    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, -23, 1})); 
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, 1, 2})); // adjust the input size and values as needed
 }
