@@ -1,3 +1,4 @@
+```Python
 def fizz_buzz(x):
     x = int(x)
     if isinstance(x,int):
