@@ -1,3 +1,4 @@
+```
 `````python
 def leaders(input):
     leaders = [input[-1]]
@@ -5,4 +6,4 @@ def leaders(input):
         if input[i] >= leaders[-1]:
             leaders.append(input[i])
     return list(reversed(leaders))
-```
+````
