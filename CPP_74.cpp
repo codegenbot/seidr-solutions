@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& lst1, const vector<string>& lst2) {
+bool issame(const vector<string>& lst1, const vector<string>& lst2);
+vector<string>& issame(vector<string>& lst1, vector<string>& lst2) {
     int totalChars1 = 0, totalChars2 = 0;
     for (const string& str : lst1) {
         totalChars1 += str.size();
