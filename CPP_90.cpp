@@ -1,14 +1,13 @@
-sort(lst.begin(), lst.end());
-if (lst.size() < 2)
-    return -1;
-int prev = lst[0], cnt = 1;
-for (int i = 1; i < lst.size(); ++i) {
-    if (lst[i] != prev) {
-        cnt++;
-        if (cnt == 2)
-            return lst[i];
-        prev = lst[i];
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2)
+        return -1;
+
+    sort(lst.begin(), lst.end());
+    int smallest = lst[0];
+    for(int num : lst){
+        if(num > smallest)
+            return num;
     }
-}
-return -1;
+
+    return -1;
 }
