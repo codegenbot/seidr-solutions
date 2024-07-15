@@ -1,7 +1,8 @@
 from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     levels = []
-    for group in list(paren_string):
+    formatted_string = " ".join(paren_string.replace(") (", ")(").split())
+    for group in formatted_string.split(" "):
         curr_level = 0
         max_level = 0
         for char in group:
