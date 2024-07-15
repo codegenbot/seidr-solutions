@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cmath>
+#include <climits> // for INT_MAX
+#include <cmath>   // for abs
 
 int main() {
     int n;
@@ -33,7 +33,7 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
 
-    std::cout << std::endl;
+    std::cout << std::endl; // Print empty line to separate subvectors
 
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
