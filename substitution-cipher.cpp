@@ -14,7 +14,7 @@ std::string substitutionCipher(std::string cipher1, std::string cipher2, std::st
             if (index >= 65 && index <= 90) {
                 // Convert ASCII value to uppercase
                 index -= 65;
-                decipheredMessage += cipher2[index];
+                decipheredMessage += std::toupper(cipher2[index]);
             } else if (index >= 97 && index <= 122) {
                 // Convert ASCII value to lowercase
                 index -= 97;
@@ -29,6 +29,7 @@ std::string substitutionCipher(std::string cipher1, std::string cipher2, std::st
 int main() {
     std::string cipher1, cipher2, message;
     std::cin >> cipher1 >> cipher2 >> message;
-    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
+    std::cout << std::endl; // add std::
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl; // add std::
     return 0;
 }
