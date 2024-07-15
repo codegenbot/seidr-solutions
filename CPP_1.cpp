@@ -23,8 +23,7 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             open_braces--;
             if (open_braces > 0) {
                 current_group += c;
-            }
-            else {
+            } else {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -32,6 +31,13 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
     }
 
     return result;
+}
+
+void test() {
+    std::vector<std::string> test_input = {"(a(b))", "(c(d))"};
+
+    assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
+    assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
 }
 
 int main() {
