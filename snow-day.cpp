@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,18 +10,13 @@ int main() {
     int h;
     cin >> h;
     
-    float g;
-    cout << "Enter ground snow: ";
+    float g, r, m;
     cin >> g;
-    
-    float r;
-    cout << "\nEnter rate of snow fall: ";
+    cout << " ";  // Add a space for better readability
     cin >> r;
-    
-    float m;
-    cout << "\nEnter proportion of snow melting per hour: ";
+    cout << "\n";  // Add a new line to separate inputs
     cin >> m;
-    
+
     cout << fixed << setprecision(6);
     cout << snowDay(h, g, r, m) << endl;
     return 0;
