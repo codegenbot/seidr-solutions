@@ -5,21 +5,11 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+vector<string> by_length(vector<int> arr);
 
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
+bool issame(vector<string> a, vector<string> b);
 
-    return true;
-}
-
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -41,4 +31,15 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(by_length({3, 7, 2, 5}), {"Seven", "Five", "Three", "Two"}));
+    assert(issame(by_length({9, 1, 5, 8, 10}), {"Nine", "Eight", "Five", "One"}));
+
+    return 0;
 }
