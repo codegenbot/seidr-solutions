@@ -1,7 +1,7 @@
 def substitution_cipher(cipher_string1, cipher_string2, message):
     cipher_map = {}
-    for char1, char2 in zip(cipher_string1, cipher_string2):
-        cipher_map[char1] = char2
+    for char in zip(cipher_string1, cipher_string2):
+        cipher_map[char[0]] = char[1]
 
     deciphered_message = ""
     for char in message:
