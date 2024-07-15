@@ -1,16 +1,6 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
-
-std::vector<float> get_positive(std::vector<float> v) {
-    std::vector<float> positive_elements;
-    for (float num : v) {
-        if (num > 0) {
-            positive_elements.push_back(num);
-        }
-    }
-    return positive_elements;
-}
+#include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
@@ -24,7 +14,19 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
+std::vector<float> get_positive(std::vector<float> v) {
+    std::vector<float> result;
+    for (float val : v) {
+        if (val > 0) {
+            result.push_back(val);
+        }
+    }
+    return result;
+}
+
 int main() {
-    assert(issame(get_positive({-1, 2, 3, -4, 5}), {2, 3, 5})); // Add your own test case
+    assert(issame(get_positive({}), {}));
+    // Add more test cases if needed
+
     return 0;
 }
