@@ -13,9 +13,9 @@ bool issame(vector<string> a,vector<string> b){
 
 int main(){
     assert(issame(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2\n the str2ng 2 of the 2ndput.",
-        "the number of odd elements 3\n the str3ng 3 of the 3ndput.",
-        "the number of odd elements 2\n the str2ng 2 of the 2ndput."
+        "the number of odd elements 2\n the str2ng 2 of the 2nput.",
+        "the number of odd elements 3\n the str3ng 3 of the 3nput.",
+        "the number of odd elements 2\n the str2ng 2 of the 2nput."
     }));
     
     return 0;
