@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     h = float(input())
     b = float(input())
@@ -9,6 +10,6 @@ def bouncing_balls():
         b /= i
         distance_traveled = h + b
         total_distance += distance_traveled
-        b = round(b * i)
+        h = round(b)
 
     return total_distance
