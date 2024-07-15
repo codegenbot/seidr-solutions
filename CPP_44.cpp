@@ -17,5 +17,9 @@ int main(){
     for(int i = 2; i <= 10; ++i){
         std::cout << "Base " << i << ": " << change_base(x, i) << std::endl;
     }
+
+    // Fix assert statement
+    assert (change_base(x, x + 1) == std::to_string(x));
+
     return 0;
 }
