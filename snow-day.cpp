@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float result = groundSnow;
