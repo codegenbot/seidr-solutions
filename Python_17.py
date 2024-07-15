@@ -1,1 +1,1 @@
-music_string = input("Enter the music string separated by space: ").split()
+music_string = input().split()
