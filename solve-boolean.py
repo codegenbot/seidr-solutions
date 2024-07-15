@@ -1,18 +1,13 @@
-```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
-    stack = []
-    tokens = expression.split("|")
-    for token in tokens:
-        if '&' in token:
-            operator_, *operands = token.split('&')
-            operator_ = eval('lambda ' + operand1.__class__.__name__ + ',' + operand2.__class__.__name__ + ': ' + operand1 and operand2' 
-            for operand in operands: stack.append(bool(operand))
+
+    def evaluate(tokens, operator="or"):
+        if len(tokens) == 0:
+            return eval(tokens[0])
+        elif tokens[0] in ["and", "or"]:
+            operand2 = evaluate(tokens[1:], "or" if operator == "and" else "and")
+            return eval("lambda a: {} {}". .format(operator, "a" if operator == "and" else "a or"))
         else:
-            stack.append(eval(token))
-    result = None
-    while len(stack) > 1:
-        operand2 = stack.pop()
-        operator_ = stack.pop()
-        result = operator_(result, operand2)
-    return bool(result)
+            return eval(tokens[0])
+
+    return bool(evaluate(expression.split("|")))
