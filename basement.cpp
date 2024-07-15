@@ -8,6 +8,7 @@ int basement(const vector<int>& numbers) {
         if (sum < 0) return i;
     }
     return -1;
+
 }
 
 int main() {
