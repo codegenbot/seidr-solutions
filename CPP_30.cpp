@@ -1,20 +1,6 @@
+#include <algorithm> // Add this header
 #include <vector>
-#include <cassert>
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(float num : l){
-        if(num > 0){
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
+bool issame(const std::vector<float>& a, const std::vector<float>& b) { // Correct function signature
+    return std::is_permutation(a.begin(), a.end(), b.begin());
 }
