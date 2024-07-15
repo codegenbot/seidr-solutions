@@ -1,2 +1,8 @@
-assert(below_threshold({1, 3, 5, 7}, 8));
-assert(!below_threshold({2, 4, 6, 8}, 3));
+bool below_threshold(std::vector<int> l, int t) {
+    for (int num : l) {
+        if (num >= t) {
+            return false;
+        }
+    }
+    return true;
+}
