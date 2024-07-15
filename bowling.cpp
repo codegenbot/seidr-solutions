@@ -1,10 +1,10 @@
 #include <string>
 
-int score(string input) {
+int score(std::string input) {
     int total = 0;
     int frame = 1;
     int ball = 0;
-    vector<int> scores(21, 0);
+    std::vector<int> scores(21, 0);
 
     for (char c : input) {
         if (c == 'X') {
