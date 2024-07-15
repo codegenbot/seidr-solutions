@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -23,6 +22,6 @@ int main() {
     cin >> n >> m;
     double d = diceGame(n, m);
     cout << fixed << setprecision(6);
-    cout << std::setiosflags(std::ios::fixed) << d << endl;
+    cout << std::setiosflags(ios::fixed) << d << endl;
     return 0;
 }
