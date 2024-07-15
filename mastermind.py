@@ -1,15 +1,7 @@
-import collections
-def mastermind(code, guess):
-    black_pegs = sum(c == g for c, g in zip(code, guess))
-    code_count = collections.Counter(code)
-    guess_count = collections.Counter(guess)
-    white_pegs = (
-        sum(min(code_count[c], guess_count[c]) for c in code_count) - black_pegs
-    )
-    return white_pegs, black_pegs
-
 code = input()
 guess = input()
-white_pegs, black_pegs = mastermind(code, guess)
-print(white_pegs)
-print(black_pegs)
+
+black_pegs = sum(c1 == c2 for c1, c2 in zip(code, guess))
+white_pegs = sum(min(code.count(c), guess.count(c)) for c in set(code)) - black_pegs
+
+print(white_pegs, black_pegs)
