@@ -1,21 +1,25 @@
 #include <vector>
 #include <cassert>
 
+bool is_prime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> count_up_to(int limit) {
     std::vector<int> primes;
-    
-    for (int num = 2; num <= limit; ++num) {
-        bool is_prime = true;
-        for (int i = 2; i * i <= num; ++i) {
-            if (num % i == 0) {
-                is_prime = false;
-                break;
-            }
+    for (int i = 2; i <= limit; i++) {
+        if (is_prime(i)) {
+            primes.push_back(i);
         }
-        if (is_prime)
-            primes.push_back(num);
     }
-    
     return primes;
 }
 
