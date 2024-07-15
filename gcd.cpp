@@ -1,6 +1,5 @@
-#include <string>
 #include <iostream>
-#include <ostream>
+#include <string>
 
 using namespace std;
 
@@ -31,6 +30,9 @@ int main() {
     int a = 48;
     int b = 18;
     cout << "GCD: " << gcd(a, b) << endl;
-
+    vector<int> indices = indicesOfSubstring("Hello World", "ll");
+    for (int i : indices) {
+        cout << i << " ";
+    }
     return 0;
 }

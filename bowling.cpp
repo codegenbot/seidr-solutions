@@ -3,20 +3,21 @@
 int bowlingScore(char c) {
     int score = 0;
     if (c == 'X') {
-        return 30;
+        score += 30;
     } else if (c == '/') {
-        return 10; 
+        return score + 10; 
     } else {
-        return c - '0';
+        int count = c - '0';
+        score += count;
     }
+    return score;
 }
 
 int main() {
     std::cout << "Enter the input string: ";
-    char c;
-    int totalScore = 0;
-    while ((c = std::cin.get()) != '\n') {
-        totalScore += bowlingScore(c);
-    }
+    char s;
+    std::cin >> s;
+    
+    int totalScore = bowlingScore(s);
     std::cout << "The total score is: " << totalScore << std::endl;
 }

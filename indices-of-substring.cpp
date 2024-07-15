@@ -7,13 +7,19 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         res.push_back(pos);
-        pos += (pos + target.size() <= text.size()) ? target.size() : 0;
+        pos += target.size();
     }
     return res;
+
 }
 
 int main() {
-    string text = "Hello World";
-    string target = "World";
-    vector<int> res = indicesOfSubstring(text, target);
+    string text = "Hello, world! Hello, C++!";
+    string target = "Hello";
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int index : indices) {
+        cout << index << " ";
+    }
+    return 0;
 }
