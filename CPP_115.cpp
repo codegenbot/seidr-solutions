@@ -6,5 +6,11 @@ int total_fill = 0;
             }
             total_fill += well_fill;
         }
-        return (total_fill + capacity - 1) / capacity;
+
+        int buckets_needed = total_fill / capacity;
+        if (total_fill % capacity != 0) {
+            buckets_needed++;
+        }
+
+        return buckets_needed;
     }
