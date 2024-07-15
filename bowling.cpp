@@ -1,34 +1,41 @@
-
 #include <iostream>
 #include <string>
 
-int score(std::string s) {
-    int total = 0;
-    int frame = 1;
-    int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i + 2] - '0') : s[i + 1] - '0'));
-            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0'));
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10;
-            total += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
-            i += 2;
-        } else {
-            total += (s[i] == '-' ? 0 : s[i] - '0');
-            total += (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+int scoreBowlingRound(const std::string& bowls) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < bowls.size(); ++i) {
+        if (frame == 10) break;
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (bowls[i + 1] == 'X' && bowls[i + 2] == 'X') score += 10 + 10 + 10;
+            else if (bowls[i + 1] == 'X') score += 10 + 10 + (bowls[i + 2] == 'X' ? 10 : bowls[i + 2] - '0');
+            else if (bowls[i + 2] == '/') score += 10 + 10;
+            else score += 10 + (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0') + (bowls[i + 2] == 'X' ? 10 : bowls[i + 2] - '0');
+            ++frame;
         }
-        frame++;
+        else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            score += (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0');
+            ++frame;
+        }
+        else if (bowls[i] == '-') {
+            continue;
+        }
+        else {
+            score += bowls[i] - '0';
+            if (bowls[i + 1] == '/') {
+                score += 10 - (bowls[i] - '0');
+                ++frame;
+            }
+        }
     }
-    return total;
+    return score;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << score(s) << std::endl;
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << scoreBowlingRound(bowls) << std::endl;
     return 0;
 }
