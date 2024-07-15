@@ -1,13 +1,21 @@
-sort(numbers.begin(), numbers.end());
-float min_diff = numbers[1] - numbers[0];
-int idx1 = 0, idx2 = 1;
+#include <vector>
+#include <algorithm>
 
-for (int i = 1; i < numbers.size() - 1; ++i) {
-    if (numbers[i + 1] - numbers[i] < min_diff) {
-        min_diff = numbers[i + 1] - numbers[i];
-        idx1 = i;
-        idx2 = i + 1;
-    }
+using namespace std;
+
+bool issame(const pair<float, float>& a, const pair<float, float>& b){
+    return a.first == b.first && a.second == b.second;
 }
 
-return {numbers[idx1], numbers[idx2]};
+pair<float, float> find_closest_elements(vector<float> numbers){
+    sort(numbers.begin(), numbers.end());
+    float minDiff = numbers[1] - numbers[0];
+    pair<float, float> result = {numbers[0], numbers[1]};
+    for(int i = 1; i < numbers.size() - 1; i++){
+        if(numbers[i+1] - numbers[i] < minDiff){
+            minDiff = numbers[i+1] - numbers[i];
+            result = {numbers[i], numbers[i+1]};
+        }
+    }
+    return {result.first, result.second};
+}
