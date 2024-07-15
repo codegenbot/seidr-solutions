@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-
+    
     return equal(a.begin(), a.end(), b.begin());
 }
 
@@ -26,13 +27,9 @@ vector<int> even_odd_count(int num) {
     return count;
 }
 
-int test_main() {
+int main1() {
     vector<int> testResult = even_odd_count(0);
-    if (issame(testResult, {1, 0})) {
-        cout << "Test Passed!";
-    } else {
-        cout << "Test Failed!";
-    }
-
+    assert(issame(testResult, {1, 0}));
+    
     return 0;
 }
