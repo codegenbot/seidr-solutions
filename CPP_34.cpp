@@ -3,17 +3,15 @@
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return unique(a) == unique(b);
+    return a == b;
 }
 
-std::vector<int> unique(const std::vector<int>& l) {
-    std::vector<int> temp = l;
-    std::sort(temp.begin(), temp.end());
-    temp.erase(std::unique(temp.begin(), temp.end()), temp.end());
-    return temp;
+std::vector<int> unique(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
+    l.erase(std::unique(l.begin(), l.end()), l.end());
+    return l;
 }
 
-int main() {
-    assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
-    return 0;
+int main_task_cpp34() {
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), std::vector<int>{0, 2, 3, 5, 9, 123}));
 }
