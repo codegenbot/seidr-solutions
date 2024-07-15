@@ -2,28 +2,18 @@
 #include <algorithm>
 #include <string>
 
-bool issame(const string& a, const string& b) {
-    return a == b;
+bool issame(const std::string& s1, const std::string& s2) {
+    return s1 == s2;
 }
 
-vector<int> even_odd_palindrome(int n);
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> result = even_odd_palindrome(n);
-    cout << result[0] << " " << result[1];
-    return 0;
-}
-
-vector<int> even_odd_palindrome(int n){
-    vector<int> result(2, 0);
-    for(int i=1; i<=n; ++i){
-        string num = to_string(i);
-        string rev_num = num;
-        reverse(rev_num.begin(), rev_num.end());
-        if(issame(num, rev_num)){
-            if(i % 2 == 0){
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result(2, 0);
+    for (int i = 1; i <= n; ++i) {
+        std::string num = std::to_string(i);
+        std::string rev_num = num;
+        std::reverse(rev_num.begin(), rev_num.end());
+        if (issame(num, rev_num)) {
+            if (i % 2 == 0) {
                 result[0]++;
             } else {
                 result[1]++;
@@ -31,4 +21,12 @@ vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<int> res = even_odd_palindrome(100);
+    for (int i = 0; i < res.size(); ++i) {
+        std::cout << res[i] << " ";
+    }
+    return 0;
 }
