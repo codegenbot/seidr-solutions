@@ -1,55 +1,42 @@
-#include <vector>
-#include <string>
-
-int bowlingScore(const std::string& input) {
+int bowlingScore(string s) {
     int score = 0;
-    bool firstRollInFrame = true;
-    int currentFrame = 1;
-
-    for (char c : input) {
-        if (c == '/') {
-            if (firstRollInFrame) {
-                score += 10 - currentFrame;
-                currentFrame++;
-                firstRollInFrame = false;
-            } else {
+    vector<int> rolls(21);
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            rolls[i / 2] = 10;
+            if (i % 2 != 0) {
                 score += 10;
-                currentFrame++;
-                firstRollInFrame = true;
             }
-        } else if (isdigit(c)) {
-            int roll = c - '0';
-            if (firstRollInFrame) {
+        } else if (s[i] == '/') {
+            int next = i + 1;
+            while (next < s.size() && !isdigit(s[next])) {
+                next++;
+            }
+            int roll = 10 - stoi(string(1, s[i + 1]) + string(1, s[next]));
+            rolls[i / 2] = roll;
+            score += roll;
+        } else {
+            int roll = 0;
+            while (i < s.size() && isdigit(s[i])) {
+                roll = roll * 10 + stoi(string(1, s[i]));
+                i++;
+            }
+            if (i > 0) {
                 score += roll;
-                if (roll == 10) {
-                    currentFrame++;
-                    firstRollInFrame = false;
-                }
-            } else {
-                if (currentFrame < 10 && roll + getFirstRollOfNextFrame(input, currentFrame) >= 10) {
-                    score += 10 - currentFrame;
-                    currentFrame++;
-                    firstRollInFrame = true;
-                } else {
-                    score += roll;
-                    currentFrame++;
-                    firstRollInFrame = false;
-                }
             }
+            rolls[i / 2] = roll;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i] == 10) {
+            if (i + 1 < 10 && rolls[i + 1] != 0) {
+                score += rolls[i + 1];
+            }
+        } else if (rolls[i] > 0) {
+            score += min(rolls[i], 10);
         }
     }
 
     return score;
-}
-
-int getFirstRollOfNextFrame(const std::string& input, int frame) {
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '/') {
-            if (frame + 1 == i / 2 + 1) {
-                return input[i - 1] - '0';
-            }
-        }
-    }
-
-    return 0;
 }
