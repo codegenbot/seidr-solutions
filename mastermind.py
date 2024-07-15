@@ -3,8 +3,11 @@ guess = input()
 
 black_pegs = sum(c == g for c, g in zip(code, guess))
 
-code_remaining = [c for c in code if c not in guess]
-guess_remaining = [g for g in guess if g not in code]
+code_temp = ''.join(c if c != g else 'X' for c, g in zip(code, guess))
+guess_temp = ''.join(c if c != g else 'X' for c, g in zip(guess, code))
+
+code_remaining = [c for c, g in zip(code, guess) if c != g and g != 'X']
+guess_remaining = [g for c, g in zip(code, guess) if c != g and g != 'X']
 
 white_pegs = sum(min(code_remaining.count(c), guess_remaining.count(c)) for c in set(code_remaining))
 
