@@ -3,18 +3,23 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
-    std::vector<int> filtered_indices;
-    for (size_t i = 0; i < vec.size(); ++i) {
-        if (vec[i].find(prefix) == 0) {
-            filtered_indices.push_back(i);
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
+    vector<string> filtered;
+    for (const auto &str : vec) {
+        if (str.find(prefix) == 0) {
+            filtered.push_back(str);
         }
     }
-    return filtered_indices;
+    return filtered;
 }
 
 int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") ==
-           std::vector<int>{0, 4, 5});
+    assert(issame({{"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}}, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
