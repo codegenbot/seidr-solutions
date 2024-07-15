@@ -13,7 +13,7 @@ bool is_prime(long long n) {
     return true;
 }
 
-void main() {
+int main(int argc, char* argv[]) {
     long long n;
     std::cin >> n;
 
@@ -22,4 +22,6 @@ void main() {
     } else {
         std::cout << "Not Prime\n";
     }
+
+    return 0;
 }
