@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,8 +7,9 @@ std::string spinWords(std::string str) {
     std::size_t start = 0;
     for (std::size_t end = 0; end <= str.length(); ++end) {
         if ((end == str.length() || isspace(str[end])) && end - start >= 5) {
-            std::reverse(str.substr(start, end - start).begin(), str.substr(start, end - start).end());
-            result += str.substr(start, end - start);
+            std::string reversed = std::string(str.substr(start, end - start));
+            std::reverse(reversed.begin(), reversed.end());
+            result += reversed;
             start = end;
         }
     }
