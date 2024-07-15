@@ -1,7 +1,15 @@
 ```
-def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    a = xs[-1]
-    b = -sum(x for x in xs[:-1])
-    return round(-b / (2 * a), 2)
+def find_zero(xs):
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("xs must have even number of coefficients")
+    x = -xs[1] / xs[3]
+    return round(x, 2)
+
+xs = list(map(float, input().split()))
+
+try:
+    result = find_zero(xs)
+    print(result)
+except ValueError as ve:
+    print(ve)
