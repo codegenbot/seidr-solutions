@@ -2,21 +2,21 @@
 #include <vector>
 #include <cassert>
 
-int countTotalChars(const vector<string>& lst) {
+int countTotalChars(const std::vector<std::string>& lst) {
     int total = 0;
-    for (const string& str : lst) {
+    for (const std::string& str : lst) {
         total += str.size();
     }
     return total;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
 
-bool issame(const string& a, const string& b) {
+bool issame(const std::string a, const std::string b) {
     return a == b;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int total_chars_lst1 = countTotalChars(lst1);
     int total_chars_lst2 = countTotalChars(lst2);
     
