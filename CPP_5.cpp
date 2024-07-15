@@ -27,7 +27,3 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
 
     return result;
 }
-
-int main() {
-    return 0;
-}
