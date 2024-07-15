@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -16,7 +16,7 @@ std::vector<int> parse_nested_parens(std::string s) {
         } else if (c == ')') {
             count--;
             if (count == 0) {
-                result.push_back(count);
+                result.push_back(count + 1);
             }
         }
     }
