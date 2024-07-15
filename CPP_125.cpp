@@ -1,8 +1,8 @@
-#include <cassert>
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 using namespace std;
 
@@ -39,7 +39,7 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame({"0"}, {"0"}));
-    
+    assert(issame(split_words(""), {"0"}));
+
     return 0;
 }
