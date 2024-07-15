@@ -9,8 +9,6 @@ def find_min_difference(numbers):
             result = (numbers[i], numbers[i + 1])
     return result
 
-# Input numbers
 numbers = list(map(float, input("Enter space-separated numbers: ").split()))
-# Call the function with input numbers
 output = find_min_difference(numbers)
 print(output)
