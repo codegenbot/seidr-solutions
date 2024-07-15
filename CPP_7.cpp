@@ -1,4 +1,4 @@
-bool vector_compare(vector<string> a, vector<string> b){
+bool vector_compare(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -14,6 +14,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 
 int main() {
     assert(vector_compare(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
+
     return 0;
 }
