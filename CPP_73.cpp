@@ -20,7 +20,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3};
-    cout << smallest_change(arr) << endl;
+    vector<int> arr = {1,2,3};
+    cout << smallest_change(arr);
     return 0;
 }
