@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-using namespace std;
 
-string encode(string message) {
+std::string encode(std::string message) {
     for (int i = 0; i < message.length(); i++) {
         if (isalpha(message[i])) {
             if (isupper(message[i])) {
