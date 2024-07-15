@@ -1,31 +1,15 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the completed code:
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    for (int i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == '-') {
-            if (result.empty()) {
-                result = toUpper(s.substr(i));
-            } else {
-                result += toLower(s.substr(i).substr(1));
-            }
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            result += s[++i]. toupper();
+        } else if (result.empty()) {
+            result += s[i];
+        } else {
+            result += tolower(s[i]);
         }
     }
     return result;
-}
-
-std::string toUpper(std::string s) {
-    for (int i = 0; i < s.size(); i++) {
-        s[i] = toupper(s[i]);
-    }
-    return s;
-}
-
-std::string toLower(std::string s) {
-    for (int i = 0; i < s.size(); i++) {
-        s[i] = tolower(s[i]);
-    }
-    return s;
 }
