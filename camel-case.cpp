@@ -2,7 +2,7 @@
 #include <string>
 
 std::string camelCase(std::string input) {
-    input.erase(remove(input.begin(), input.end(), ' '), input.end()); // Remove spaces
+    input.erase-remove(' '); // Remove spaces
 
     std::string output;
     size_t start = 0;
