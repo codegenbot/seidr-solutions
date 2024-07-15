@@ -1,3 +1,9 @@
+#include <vector>
+#include <cmath>
+#include <initializer_list>
+
+using namespace std;
+
 int fuelCost(std::vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
