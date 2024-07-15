@@ -3,11 +3,9 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -30,7 +28,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
