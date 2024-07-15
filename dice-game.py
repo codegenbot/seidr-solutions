@@ -1,4 +1,3 @@
-```
 def dice_game(n, m):
     p_win = 0
     for i in range(1, n):
