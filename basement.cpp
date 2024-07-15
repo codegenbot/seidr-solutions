@@ -1,22 +1,12 @@
-#include <vector>
-#include <initializer_list>
-#include <iostream>
-
-using namespace std;
-
+```cpp
 int basement(vector<int> v) {
-    int sum = 0;
+    int sum = 0; 
     int i = 0;
-    for (int num : v) {
+    for (auto num : v) {
         sum += num;
         if (sum < 0)
-            return i;
+            return i + 1;
         i++;
     }
     return -1;
-}
-
-int main() {
-    vector<int> v = {1};
-    cout << basement(v);
 }
