@@ -1,15 +1,15 @@
-string ordered_word = s;
-    string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.size(); i++) {
-        if (s[i] == ' ' || i == s.size()) {
-            string word = s.substr(start, i - start);
-            sort(word.begin(), word.end());
-            result += word;
-            if (i != s.size()) {
-                result += ' ';
+string result = "";
+    string current_word = "";
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == ' ' || i == s.size() - 1) {
+            if (i == s.size() - 1) {
+                current_word += s[i];
             }
-            start = i + 1;
+            sort(current_word.begin(), current_word.end());
+            result += current_word + " ";
+            current_word = "";
+        } else {
+            current_word += s[i];
         }
     }
     return result;
