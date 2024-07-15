@@ -18,9 +18,9 @@ def solve_boolean(expression):
             operand2 = stack.pop()
             operator_ = stack.pop()
             if operator_ == "|":
-                result = eval(f"{result or operand2} or {True}")
+                result = eval(f"{result or operand2} or True")
             else:
-                result = eval(f"{result and operand2} and {False}")
+                result = eval(f"{result and operand2} and False")
         return bool(result)
 
     tokens = expression.split()
