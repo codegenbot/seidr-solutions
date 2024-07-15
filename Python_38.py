@@ -1,11 +1,6 @@
-def decode_cyclic(s: str):
-    groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
-    groups = [
-        (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
-    ]
-    return "".join(groups)
-
-
-input_string = str(input("Enter the input string: "))
-result = decode_cyclic(input_string)
-print(result)
+input_string = input("Enter the input string: ")
+if len(input_string) % 3 != 0:
+    print("Input string length should be a multiple of three.")
+else:
+    result = decode_cyclic(input_string)
+    print(result)
