@@ -1,8 +1,11 @@
-string encrypt(string s){
-    string result = "";
+#include <string>
+#include <cctype>
+
+std::string encrypt(const std::string& s){
+    std::string result = "";
     for(char c : s){
-        if(isalpha(c)){
-            char encrypted = 'a' + (c - 'a' + 2 * 2) % 26;
+        if(std::isalpha(c)){
+            char encrypted = 'a' + (c - 'a' + 4) % 26;
             result += encrypted;
         } else {
             result += c;
