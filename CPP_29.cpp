@@ -1,25 +1,29 @@
-#include <cassert>
+#include <vector>
+#include <string>
 
-bool are_same(vector<string> vec1, vector<string> vec2){
-    return vec1 == vec2;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
-    for(const string& str : strings){
-        if(str.find(prefix) == 0){
+    for (const auto &str : strings) {
+        if (str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
     return result;
 }
 
-int main(){
-    vector<string> input = {"apple", "banana", "apricot", "orange"};
-    vector<string> expected_output = {"apple", "apricot"};
-    
-    vector<string> filtered_strings = filter_by_prefix(input, "a");
-    assert(are_same(filtered_strings, expected_output));
-
+int main() {
+    // Add your test code here if needed
     return 0;
 }
