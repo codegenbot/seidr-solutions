@@ -1,17 +1,19 @@
 #include <iostream>
 #include <cassert>
+#include <openssl/md5.h>
 #include <sstream>
 #include <iomanip>
-#include <functional>
 
 std::string string_to_md5(const std::string& str) {
-    std::hash<std::string> hasher;
-    size_t hash = hasher(str);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)str.c_str(), str.length(), digest);
 
     std::stringstream ss;
-    ss << std::hex << std::setw(16) << std::setfill('0') << hash;
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << std::hex << std::setw(2) << std::setfill('0') << (int)digest[i];
+    }
 
-    return ss.str().substr(0, 32); // Keep only first 32 characters for compatibility
+    return ss.str();
 }
 
 int main() {
