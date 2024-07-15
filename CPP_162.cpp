@@ -1,4 +1,5 @@
 #include <openssl/evp.h>
+#include <openssl/err.h>
 #include <string>
 #include <cassert>
 
@@ -9,8 +10,15 @@ std::string string_to_md5(const std::string& text) {
 
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len = 0;
+    
     OpenSSL_add_all_algorithms();
+    OPENSSL_config(nullptr);
+
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
+    if (mdctx == nullptr) {
+        ERR_print_errors_fp(stderr);
+        return "Failed to create MD context";
+    }
 
     EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
     EVP_DigestUpdate(mdctx, reinterpret_cast<const unsigned char*>(text.c_str()), text.length());
