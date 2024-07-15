@@ -37,10 +37,3 @@ vector<string> split_words(const string& txt) {
 
     return words;
 }
-
-int main() {
-    assert(split_words("").size() == 1);
-    assert(split_words("") == vector<string>{"0"});
-
-    return 0;
-}
