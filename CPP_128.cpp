@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cmath>
+#include <cassert> // Add this header for assert
 
 int prod_signs(const std::vector<int>& arr) {
     if (arr.empty()) {
@@ -19,13 +20,14 @@ int prod_signs(const std::vector<int>& arr) {
             product *= 0;
         }
         
-        sum += abs(num);
+        sum += std::abs(num);
     }
     
     return product * sum;
 }
 
 int main() {
-    std::cout << prod_signs({-1, 1, 1, 0}) << std::endl;
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    
     return 0;
 }
