@@ -1,12 +1,9 @@
-#include <vector>
-#include <initializer_list>
-using namespace std;
-
+```c++
 int basement(vector<int> v) {
     int sum = 0;
     int i = 0;
-    for (int num : v) {
-        sum += num;
+    while (i < v.size()) {
+        sum += v[i];
         if (sum < 0)
             return i;
         i++;
@@ -16,5 +13,5 @@ int basement(vector<int> v) {
 
 int main() {
     vector<int> v = {1};
-    cout << basement(v);
+    return basement(v);
 }
