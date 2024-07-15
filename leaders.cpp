@@ -13,3 +13,12 @@ vector<int> leaders(vector<int>& vec) {
     }
     return result;
 }
+
+int main() {
+    vector<int> input = {7, 5, 2, 4};
+    vector<int> result = leaders(input);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
+}

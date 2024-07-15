@@ -1,7 +1,5 @@
 ```cpp
-using namespace std;
-
-int luhn(vector<int> numbers) {
+int luhn(const std::vector<int>& numbers) {
     int sum = 0;
     for (int i = 0; i < numbers.size(); ++i) {
         if ((numbers.size() - i) % 2 == 1) { 
@@ -9,9 +7,8 @@ int luhn(vector<int> numbers) {
             if (temp > 9) { 
                 temp -= 9;
             }
-            sum += temp;
         } else {
-            sum += numbers[i]; 
+            sum += numbers[i];
         }
     }
     return sum;
