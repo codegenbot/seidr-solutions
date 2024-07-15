@@ -14,7 +14,7 @@ double median(std::vector<int> l) {
     }
 }
 
-int main() {
+int main2() {
     int n;
     std::cin >> n;
     
