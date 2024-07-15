@@ -1,12 +1,14 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    // Your implementation...
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> result;
+    // Your implementation for minPath function...
+    return result;
 }
 
 int main() {
