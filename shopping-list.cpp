@@ -1,6 +1,6 @@
-```c++
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 float shoppingList(float price[], int n, float discount[]) {
