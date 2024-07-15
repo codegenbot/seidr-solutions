@@ -1,4 +1,7 @@
+input_string = input()
+
 def decode_shift(input_string):
+    input_string = input_string.lower()
     decoded_text = ""
     for char in input_string:
         if char.isalpha():
@@ -6,7 +9,3 @@ def decode_shift(input_string):
         else:
             decoded_text += char
     return decoded_text
-
-input_string = input("Enter the input string: ")
-decoded_output = decode_shift(input_string)
-print(decoded_output)
