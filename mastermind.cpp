@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -38,4 +37,3 @@ int main() {
     std::cout << whitePegs(code, guess) << std::endl;
     std::cout << blackPegs(code, guess) << std::endl;
     return 0;
-}
