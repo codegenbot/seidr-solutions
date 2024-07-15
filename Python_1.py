@@ -1,8 +1,8 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if "(" not in paren_string or ")" not in paren_string:
-        return ["Input should include parentheses"]
+    if not isinstance(paren_string, str):
+        return "Input must be a string"
     
     result = []
     temp = ""
