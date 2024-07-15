@@ -1,13 +1,13 @@
 #include <vector>
 #include <algorithm>
 
-std::pair<int, int> eat(int number, int remaining, int need) {
+std::vector<int> eat(int number, int remaining, int need) {
     int totalEaten = number + std::min(remaining, need);
     int carrotsLeft = std::max(0, remaining - need);
     return {totalEaten, carrotsLeft};
 }
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
