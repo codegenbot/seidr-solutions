@@ -27,7 +27,6 @@ int main() {
     assert(int_to_mini_roman(1000) == "m");
     assert(int_to_mini_roman(349) == "cccxlix");
     assert(int_to_mini_roman(2022) == "mmxxii");
-    // Add more test cases as needed
     
     return 0;
 }
