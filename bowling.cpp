@@ -1,40 +1,33 @@
 #include <iostream>
-#include <cctype>
+#include <string>
 
 int bowlingScore(char c) {
     int score = 0;
-    
     if (c == 'X') {
         score += 30;
-        if (std::isdigit(c + 1) || ((c + 1) == '/' && std::isdigit(c + 2))) {
-            score -= 20;
-        }
     } else if (c == '/') {
-        int next = c + 2;
-        while (!std::isdigit(next)) {
-            next++;
-        }
-        score += 10 + (next - '0') * 1;
+        int count = 10 - (s[0] - '0');
+        score += count;
     } else {
         int count = 0;
-        while (std::isdigit(c)) {
+        while (c >= '1' && c <= '9') {
             count *= 10;
             count += c - '0';
-            c++;
+            c = '\0'; 
         }
         score += count;
     }
-    
     return score;
 }
 
 int main() {
-    std::string s;
+    std::string s; 
     std::cout << "Enter the input string: ";
     std::getline(std::cin, s);
     
-    for (char c : s) {
-        int score = bowlingScore(c);
-        std::cout << "The score is: " << score << std::endl;
+    int totalScore = 0;
+    for (char c : s) { 
+        totalScore += bowlingScore(c);
     }
+    std::cout << "The total score is: " << totalScore << std::endl;
 }

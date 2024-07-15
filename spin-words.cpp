@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -11,8 +12,7 @@ std::string spinWords(std::string str) {
             len = str.length();
         
         if (len - pos > 4) {
-            std::string reversed = str.substr(pos, len - pos).rbegin()->str();
-            result += reversed + " ";
+            result += std::string(std::reverse(str.substr(pos, len - pos)).rbegin(), std::reverse(str.substr(pos, len - pos)).rend()) + " ";
         } else
             result += str.substr(pos, len - pos) + " ";
         
