@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 int main() {
     std::string bowls;
@@ -12,14 +11,15 @@ int main() {
         if (c == 'X') {
             frames[frame] = 10;
             frame++;
-        } else if (c == '/') {
-            frames[frame] = 10 - frames[frame-1];
-            frame++;
             ball = 0;
+        } else if (c == '/') {
+            frames[frame] = 10 - frames[frame-1] + (bowls[ball+1] - '0');
+            frame++;
+            ball++;
         } else if (c == '-') {
             ball++;
         } else {
-            frames[frame] += (c == '-') ? 0 : c - '0';
+            frames[frame] += c - '0';
             ball++;
             if (ball == 2) {
                 frame++;
