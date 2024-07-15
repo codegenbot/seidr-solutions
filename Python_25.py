@@ -1,14 +1,19 @@
-Here is the solution:
+```
+from typing import List
 
 def factorize(n: int) -> List[int]:
-    i = 2
     factors = []
-    while n > 1:
-        count = 0
-        while n % i == 0:
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
             n //= i
-            count += 1
-        if count > 0:
-            factors.extend([i] * count)
-        i += 1
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.append(i) * count
+    if n > 1:
+        factors.append(n)
     return factors
