@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <initializer_list>
 #include <iostream>
@@ -18,6 +17,6 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {-3, 2, 5, -4, 3};
+    vector<int> v = {1};
     cout << basement(v);
 }
