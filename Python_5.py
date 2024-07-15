@@ -1,16 +1,27 @@
-def intersperse(delimiter: str) -> None:
-    numbers_input = input("Enter the list of numbers (space-separated): ")
+```
+def intersperse(numbers, delimiter):
     while True:
         try:
-            numbers = [int(i) for i in numbers_input.split()]
+            numbers = [int(i) for i in str(numbers).split()]
             break
         except ValueError:
             print("Invalid input. Please enter valid integers.")
-            numbers_input = input("Enter the list of numbers (space-separated): ")
+            numbers = input("Enter the list of numbers (space-separated): ")
 
-    output = [str(x) + delimiter for x in numbers]
-    if len(output) > 1 and output[0] == delimiter:
-        output.pop(0)
-    elif len(output) > 1 and output[-1] == delimiter:
-        output.pop()
-    print(delimiter.join(map(str, numbers)))
+    if len(delimiter) == 0:
+        delimiter = ""
+    else:
+        while True:
+            if len(delimiter) == 1 and delimiter.isalpha():
+                break
+            else:
+                print("Invalid delimiter. Please enter a single character.")
+                delimiter = input("Enter the delimiter: ")
+
+    result = [str(delimiter)]
+    for i in range(len(numbers)):
+        result.extend([str(numbers[i]), str(delimiter)])
+    if result[-1] == str(delimiter):
+        result.pop()
+
+    return "".join(result)
