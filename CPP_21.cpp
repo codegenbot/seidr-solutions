@@ -1,3 +1,7 @@
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
@@ -9,16 +13,4 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     }
     
     return rescaled_numbers;
-}
-
-int main() {
-    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
-    vector<float> rescaled_numbers = rescale_to_unit(numbers);
-    
-    assert(rescaled_numbers.size() == numbers.size());
-    for (int i = 0; i < numbers.size(); ++i) {
-        assert(rescaled_numbers[i] >= 0.0 && rescaled_numbers[i] <= 1.0);
-    }
-    
-    return 0;
 }
