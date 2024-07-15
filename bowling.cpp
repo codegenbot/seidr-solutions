@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -6,7 +6,11 @@ int bowlingScore(string s) {
     for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
-                score += 10 - (9 - roll);
+                if (roll == 1) {
+                    score += 10 - (9 - roll);
+                } else {
+                    score += 10;
+                }
             }
             roll = 0;
         } else if (isdigit(c)) {
