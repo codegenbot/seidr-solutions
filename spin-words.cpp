@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -11,7 +12,9 @@ std::string spinWords(std::string str) {
             len = str.length();
         
         if (len - pos > 4) {
-            result += std::string(str.substr(pos, len - pos)).rbegin()->reverse() + " ";
+            std::string temp = str.substr(pos, len - pos);
+            std::reverse(temp.begin(), temp.end());
+            result += temp + " ";
         } else
             result += str.substr(pos, len - pos) + " ";
         
