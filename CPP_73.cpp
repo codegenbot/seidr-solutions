@@ -14,6 +14,6 @@ namespace Solution {
 }
 
 int main() {
-    std::cout << Solution::smallest_change({0, 1}) << std::endl;
+    assert(Solution::smallest_change({0, 1}) == 1);
     return 0;
 }
