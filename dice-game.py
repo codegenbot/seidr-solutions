@@ -1,3 +1,4 @@
+```python
 def dice_game(n, m):
     peter_rolls = set(range(1, n+1))
     colin_rolls = set(range(1, m+1))
