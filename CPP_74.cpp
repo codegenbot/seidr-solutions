@@ -12,7 +12,7 @@ int countTotalChars(const std::vector<std::string>& lst) {
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2);
 
-bool issame(const std::string a, const std::string b) {
+bool issame(const std::string& a, const std::string& b) {
     return a == b;
 }
 
