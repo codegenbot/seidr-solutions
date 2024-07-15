@@ -1,3 +1,4 @@
+```
 def dice_game(n, m):
     total = n * m
     higher_than_or_equal_to_colin = sum(1 for colin in range(m) 
