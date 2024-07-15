@@ -1,3 +1,4 @@
+```cpp
 #include <iomanip>
 #include <ostream>
 
@@ -9,11 +10,10 @@ int snowDay(int hours, float groundSnow, float rate, float melt) {
 }
 
 int main() {
-    int hours;
-    cin >> hours;
+    std::string input;
+    getline(cin, input);
+    int hours = std::stoi(input);
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
-    cout << std::fixed << std::setprecision(6); // Set precision to 6 decimal places.
-    cout << snowDay(hours, groundSnow, rate, melt) << endl;
-    cout << std::resetiosflags(std::ios_base::floatfield);
+    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
     return 0;
