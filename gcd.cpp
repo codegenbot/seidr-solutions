@@ -1,4 +1,8 @@
+```cpp
+#include <iostream>
 #include <vector>
+#include <string>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -29,7 +33,8 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    cout << std::endl;
+    cout << gcd(a, b) << std::endl;
 
     string text, target;
     cin >> text >> target;
