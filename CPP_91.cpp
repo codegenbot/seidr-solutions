@@ -1,4 +1,7 @@
-int count = 0;
+#include <string>
+
+int is_bored(std::string S) {
+    int count = 0;
     int n = S.size();
     for (int i = 0; i < n; ++i) {
         if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
