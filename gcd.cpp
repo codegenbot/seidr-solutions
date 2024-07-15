@@ -13,35 +13,29 @@ int gcd(int a, int b) {
     return a;
 }
 
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        bool found = true;
-        for (int j = 0; j < target.size(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-
 int main() {
     int a = 71065;
     int b = 426691; 
     cout << "GCD: " << gcd(a, b) << endl;
 
-    string text = "your_text_here";
-    string target = "your_target_here";
+    string text;
+    cout << "Enter the text: ";
+    getline(cin, text);
 
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << " ";
+    string target;
+    cout << "Enter the target: ";
+    getline(cin, target);
+
+    vector<int> result;
+    int idx = text.find(target);
+    while (idx != string::npos) {
+        result.push_back(idx);
+        idx = text.find(target, idx + 1);
     }
+
+    cout << "Indices at which the target appears in the text: ";
+    for (int i : result)
+        cout << i << " ";
     cout << endl;
 
     return 0;
