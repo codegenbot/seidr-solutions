@@ -23,12 +23,12 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> vec1, vector<string> vec2) {
-    if (vec1.size() != vec2.size()) {
+bool issame(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) {
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
             return false;
         }
     }
@@ -36,10 +36,10 @@ bool issame(vector<string> vec1, vector<string> vec2) {
 }
 
 int main() {
-    vector<string> expected_result = {"", "", ""};
-    vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
-    
-    if (issame(expected_result, result)) {
+    vector<string> test_case = separate_paren_groups("( ) (( )) (( )( ))");
+    vector<string> expected_result = {"", "", "(( ))", "(( )( ))"};
+
+    if (issame(test_case, expected_result)) {
         cout << "Test case passed." << endl;
     } else {
         cout << "Test case failed." << endl;
