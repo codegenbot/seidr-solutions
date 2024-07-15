@@ -1,3 +1,5 @@
-bool issame(const std::vector<float_t>& a, const std::vector<float_t>& b){
+#include <vector>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return derivative(a) == derivative(b);
 }
