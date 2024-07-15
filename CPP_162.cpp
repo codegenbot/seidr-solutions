@@ -9,7 +9,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), digest);
+    MD5((const unsigned char*)text.c_str(), text.length(), digest);
 
     char mdString[33];
     for(int i = 0; i < 16; i++) {
@@ -21,12 +21,7 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    std::string password_md5 = string_to_md5("password");
-    if(password_md5 == "5f4dcc3b5aa765d61d8327deb882cf99") {
-        std::cout << "MD5 hash is correct." << std::endl;
-    } else {
-        std::cout << "MD5 hash is incorrect." << std::endl;
-    }
-
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    
     return 0;
 }
