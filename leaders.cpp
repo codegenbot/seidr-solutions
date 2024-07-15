@@ -15,11 +15,9 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2};
-    vector<int> leaders_result = leaders(arr);
-    for (int leader : leaders_result) {
-        cout << leader << " ";
-    }
-    return 0;
+vector<int> arr = {16, 17, 4, 3, 5, 2};
+vector<int> leaders_result = leaders(arr);
+for (int leader : leaders_result) {
+    cout << leader << " ";
 }
+return 0;
