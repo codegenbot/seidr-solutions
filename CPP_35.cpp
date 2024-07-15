@@ -1,17 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <cassert>
 
-float max_element(std::vector<float> l) {
-    float max = l[0];
+float max_element(const std::vector<float>& l) {
+    float max_val = l[0];
     for (int i = 1; i < l.size(); i++) {
-        if (l[i] > max) {
-            max = l[i];
+        if (l[i] > max_val) {
+            max_val = l[i];
         }
     }
-    return max;
+    return max_val;
 }
 
 int main() {
