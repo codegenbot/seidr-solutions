@@ -10,7 +10,7 @@ def parse_music(music_string: str) -> List[int]:
     durations = []
     for i in range(0, len(notes), 2):
         note = notes[i]
-        if notes[i + 1] != "|":
+        if len(notes[i + 1]) != 1 or notes[i + 1] != "|":
             raise ValueError("Incorrect music string format")
         duration = notes_duration[note]
         durations.append(duration)
