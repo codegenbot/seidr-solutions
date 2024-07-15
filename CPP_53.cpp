@@ -5,7 +5,6 @@
 using namespace std;
 
 int add(int x, int y) {
-    // Your implementation goes here
     return x + y;
 }
 
