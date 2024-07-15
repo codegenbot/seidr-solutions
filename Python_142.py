@@ -1,3 +1,2 @@
 def sum_squares(lst):
-    total = sum(num ** len(str(num)) for num in lst)
-    return total
+    return sum([num ** len(str(num)) for num in lst])
