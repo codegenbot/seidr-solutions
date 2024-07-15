@@ -1,15 +1,21 @@
-sort(numbers.begin(), numbers.end());
-    pair<float, float> closestPair;
-    float minDiff = abs(numbers[1] - numbers[0]);
-    
-    for(int i = 1; i < numbers.size(); i++){
-        float diff = abs(numbers[i] - numbers[i-1]);
-        if(diff < minDiff){
-            minDiff = diff;
-            closestPair.first = numbers[i-1];
-            closestPair.second = numbers[i];
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+pair<float, float> find_closest_elements(const vector<float>& numbers) {
+    sort(numbers.begin(), numbers.end());
+    float min_diff = numbers[1] - numbers[0];
+    pair<float, float> result = {numbers[0], numbers[1]};
+    for (int i = 1; i < numbers.size() - 1; ++i) {
+        if (numbers[i + 1] - numbers[i] < min_diff) {
+            min_diff = numbers[i + 1] - numbers[i];
+            result = {numbers[i], numbers[i + 1]};
         }
     }
-    
-    return {closestPair.first, closestPair.second};
+    return {result.first, result.second};
+}
+
+bool issame(pair<float, float> a, pair<float, float> b) {
+    return a.first == b.first && a.second == b.second;
 }
