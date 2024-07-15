@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -37,10 +36,5 @@ void test() {
     vector<string> expected = {"()", "(())", "(()())"};
     vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    assert(std::equal(expected.begin(), expected.end(), result.begin()));
-}
-
-int main() {
-    test();
-    return 0;
+    assert(expected == result);
 }
