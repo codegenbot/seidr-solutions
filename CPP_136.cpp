@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cassert>
 
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst){
     vector<int> result = {0, 0};
-    int max_neg = INT_MIN;
-    int min_pos = INT_MAX;
+    int max_neg = INT_MIN + 1;
+    int min_pos = INT_MAX - 1;
     
     for (int num : lst) {
         if (num < 0 && num > max_neg) {
@@ -17,27 +18,12 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
     
-    if (max_neg != INT_MIN) {
+    if (max_neg != INT_MIN + 1) {
         result[0] = max_neg;
     }
-    if (min_pos != INT_MAX) {
+    if (min_pos != INT_MAX - 1) {
         result[1] = min_pos;
     }
     
     return result;
-}
-
-int main() {
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-    }
-
-    vector<int> result = largest_smallest_integers(input);
-
-    cout << "Largest Negative: " << result[0] << endl;
-    cout << "Smallest Positive: " << result[1] << endl;
-
-    return 0;
 }
