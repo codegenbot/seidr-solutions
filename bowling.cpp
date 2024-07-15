@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -7,20 +8,20 @@ int bowlingScore(std::string s) {
 
     for (char c : s) {
         if (c == '/') {
-            if (currentScore < 10) {
+            if (currentScore + (currentRolls == 1 ? 10 : 0) < 10) {
                 score += currentScore + 10 - currentScore;
             } else {
                 score += currentScore;
             }
             currentScore = 0;
             currentRolls = 0;
-        } else {
+        } else if (c >= '0' && c <= '9') {
             currentScore += c - '0';
             currentRolls++;
         }
 
         if (currentRolls == 2) {
-            score += currentScore;
+            score += std::min(currentScore + 10, 10);
             currentScore = 0;
             currentRolls = 0;
         }
@@ -35,13 +36,4 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the string representing the individual bowls: ";
-    std::getline(std::cin, input);
-    int result = bowlingScore(input);
-    std::cout << "The score is: " << result << std::endl;
-    return 0;
 }
