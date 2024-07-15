@@ -1,19 +1,22 @@
 vector<string> by_length(vector<int> arr){
-    vector<string> result;
-    
-    sort(arr.begin(), arr.end());
-    reverse(arr.begin(), arr.end());
-    
-    map<int, string> numToStr = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
-    };
-    
+    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+
+    vector<int> validIntegers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            result.push_back(numToStr[num]);
+            validIntegers.push_back(num);
         }
     }
-    
+
+    sort(validIntegers.begin(), validIntegers.end());
+
+    vector<int> reversedValidIntegers(validIntegers.rbegin(), validIntegers.rend());
+
+   
+    vector<string> result;
+    for (int num : reversedValidIntegers) {
+        result.push_back(names[num - 1]);
+    }
+
     return result;
 }
