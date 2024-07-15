@@ -1,11 +1,9 @@
 #include <vector>
 
-bool issame(int x, int y) {
-    return x == y;
-}
+bool issame(int a, int b);
 
-std::vector<int> tri(int n) {
-    std::vector<int> result;
+vector<int> tri(int n) {
+    vector<int> result;
     if (n == 0) {
         result.push_back(0);
         return result;
