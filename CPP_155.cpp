@@ -3,9 +3,11 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> count(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+using namespace std;
+
+vector<int> even_odd_count(int num) {
+    vector<int> count(2, 0);
+    string numStr = to_string(abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             count[0]++;
@@ -16,11 +18,9 @@ std::vector<int> even_odd_count(int num) {
     return count;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
     assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(2468), {4, 0}));
+    assert(issame(even_odd_count(13579), {0, 5}));
     return 0;
 }
