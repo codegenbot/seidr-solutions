@@ -36,11 +36,11 @@ string sort_numbers(string numbers) {
         result += pair.second + " ";
     }
 
-    result.pop_back(); 
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
 
 int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
     return 0;
 }
