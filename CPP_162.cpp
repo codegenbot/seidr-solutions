@@ -1,4 +1,4 @@
-#include <openssl/evp.h>
+#include <openssl/md5.h>
 #include <string>
 #include <cassert>
 
@@ -9,21 +9,11 @@ string string_to_md5(const string& text) {
         return "None";
     }
 
-    EVP_MD_CTX *mdctx;
-    const EVP_MD *md;
-    char mdString[33];
-    int n;
     unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
 
-    OpenSSL_add_all_algorithms();
-    md = EVP_get_digestbyname("md5");
-    mdctx = EVP_MD_CTX_create();
-    EVP_DigestInit_ex(mdctx, md, NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, &n);
-    EVP_MD_CTX_destroy(mdctx);
-
-    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    char mdString[33];
+    for(int i = 0; i < 16; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
