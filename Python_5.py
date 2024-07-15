@@ -1,6 +1,11 @@
+```
 def intersperse(numbers: list[int], delimiter: str) -> list[str]:
-    result = [str(numbers[0])]
-    for num in numbers[1:]:
-        result.append(delimiter)
-        result.append(str(num))
+    if len(numbers) == 0:
+        return []
+    
+    result = [str(delimiter)]
+    for i in range(len(numbers)):
+        result.extend([str(numbers[i]), str(delimiter)])
+    if result[-1] == str(delimiter):
+        result.pop()
     return result
