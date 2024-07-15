@@ -3,36 +3,28 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool firstWord = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = false;
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = true;
-        } else {
-            if (firstWord) {
-                result += tolower(c);
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == '-') {
+            if (result.length() > 0) {
+                result[0] = toupper(str[i]);
             } else {
-                result += c;
+                result += str[i];
             }
-            firstWord = false;
+        } else if (str[i] != '-') {
+            if (!result.empty()) {
+                result[0] = tolower(str[i]);
+            } else {
+                result += tolower(str[i]);
+            }
         }
     }
-    
     return result;
 }
 
 int main() {
     std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> str;
+    std::cout << "The camelCase representation is: " << camelCase(str) << std::endl;
     return 0;
 }
