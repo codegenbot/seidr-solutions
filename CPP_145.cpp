@@ -1,4 +1,4 @@
-bool isSame(vector<int> nums, vector<int> nums2) {
+bool isSame(vector<int> nums a, vector<int> nums b) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = abs(a), sumB = abs(b);
         while (sumA >= 10) sumA = sumA / 10 + sumA % 10;
