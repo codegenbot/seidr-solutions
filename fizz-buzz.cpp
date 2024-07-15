@@ -1,16 +1,7 @@
-#include <string>
-using namespace std;
-
-int main() {
-    int x;
-    cin >> x;
-    if(x % 3 == 0 && x % 5 == 0)
-        cout << "FizzBuzz";
-    else if(x % 3 == 0)
-        cout << "Fizz";
-    else if(x % 5 == 0)
-        cout << "Buzz";
-    else
-        cout << to_string(x);
-    return 0;
+int fizzBuzz(int x) {
+    if (x % 15 == 0) return std::to_string(x);
+    else if (x % 3 == 0 && x % 5 != 0) return "Fizz";
+    else if (x % 5 == 0 && x % 3 != 0) return "Buzz";
+    else if (x % 3 == 0 && x % 5 == 0) return "FizzBuzz";
+    else return std::to_string(x);
 }
