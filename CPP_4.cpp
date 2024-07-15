@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cassert>
+#include <cmath>
+#include <cassert> // Added include for assert
 
 float mean_absolute_deviation(const std::vector<float>& numbers) {
     float sum = std::accumulate(numbers.begin(), numbers.end(), 0.0f);
