@@ -1,25 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-int next_smallest(std::vector<int> lst) {
-    sort(lst.begin(), lst.end());
-    int count = 0;
-    int prev = lst[0];
-    for (int num : lst) {
-        if (num != prev) {
-            count++;
-            if (count == 2) {
-                return num;
-            }
-            prev = num;
-        }
-    }
-    return -1;
-}
-
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    vector<int> lst = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+    int result = next_smallest(lst);
+    cout << "The second smallest element is: " << result << endl;
     return 0;
 }
