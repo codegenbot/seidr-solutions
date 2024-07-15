@@ -1,9 +1,15 @@
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> sort_third(vector<int> l) {
-    vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); i += 3) {
-        if (i + 2 < l.size()) {
-            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+    vector<int> result = l;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            sort(result.begin() + i, result.begin() + i + 3);
         }
     }
-    return l_copy;
+    return result;
 }
+
+assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
