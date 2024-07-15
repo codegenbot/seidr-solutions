@@ -1,6 +1,12 @@
-def process_numbers(numbers, delimeter):
+def generate_result(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     result.pop()
     return result
+
+# Call the function with appropriate inputs
+numbers = [1, 2, 3, 4, 5]
+delimiter = ","
+output = generate_result(numbers, delimiter)
+print(output)
