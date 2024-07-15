@@ -1,13 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <algorithm>
-
-namespace std {
-    using std::vector;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
