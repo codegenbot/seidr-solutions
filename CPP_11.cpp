@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 std::string string_xor(const std::string& a, const std::string& b) {
