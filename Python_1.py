@@ -1,1 +1,1 @@
-input_string = input("Enter the string to separate: ")
+input_string = input("Please enter the string to separate: ")
