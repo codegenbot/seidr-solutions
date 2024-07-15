@@ -1,9 +1,8 @@
-#include <iostream>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 #include <cctype>
 
-std::string solve(std::string s) {
+string solve(string s) {
     for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
             if (islower(s[i])) {
@@ -17,11 +16,4 @@ std::string solve(std::string s) {
         reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << solve(input) << std::endl;
-    return 0;
 }
