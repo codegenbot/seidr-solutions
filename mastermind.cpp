@@ -14,36 +14,30 @@ int whitePegs(std::string code, std::string guess) {
 
 int blackPegs(std::string code, std::string guess) {
     int blackCount = 0;
-    int whiteCount = whitePegs(code, guess);
-    
     std::unordered_map<char,int> codeMap;
+    
     for(int i=0; i<4; i++) {
-        codeMap[code[i]]++;
+        if(code[i] != ' ') {
+            codeMap[code[i]]++;
+        }
     }
     
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            continue;
-        }
-        
-        for(int j=0; j<4; j++) {
-            if(i != j && code[j] == guess[i]) {
-                blackCount++;
-                break;
-            } else if (i != j && codeMap[guess[i]]-- > 0) {
-                break;
-            }
+            blackCount++;
+        } else if(codeMap.find(guess[i]) != codeMap.end() && codeMap[guess[i]] > 0) {
+            blackCount++;
+            codeMap[guess[i]]--;
         }
     }
     
-    return blackCount - whiteCount;
+    return blackCount;
 }
 
 int main() {
     std::string code, guess;
     std::cin >> code >> guess;
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    std::cout << white << " " << black << std::endl;
+    std::cout << whitePegs(code, guess) << std::endl;
+    std::cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
