@@ -33,7 +33,7 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
 
-    std::cout << std::endl; // Print empty line to separate subvectors
+    std::cout << std::endl;
 
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
