@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -12,4 +16,9 @@ std::string encrypt(std::string s) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "d");
+    return 0;
 }
