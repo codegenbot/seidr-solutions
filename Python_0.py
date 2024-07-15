@@ -1,7 +1,11 @@
-import sys
-
-numbers = list(map(int, sys.argv[1].split()))
-threshold = int(sys.argv[2])
+try:
+    numbers = list(map(int, input().split()))
+    threshold = int(input())
+except ValueError:
+    print(
+        "Input format is incorrect. Please provide space-separated integers followed by the threshold integer on a new line."
+    )
+    exit()
 
 
 def check_threshold(numbers, threshold):
