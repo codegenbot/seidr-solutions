@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) { 
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
