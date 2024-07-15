@@ -3,25 +3,25 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+using namespace std;
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for(const auto& str : strings){
-        if(str.find(substring) != std::string::npos){
+        if(str.find(substring) != string::npos){
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool have_same_elements(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()) return false;
-    
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    
-    return a == b;
+bool issame(vector<string> a, vector<string> b){
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 int main(){
-    assert(have_same_elements(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    cout << "Test passed successfully." << endl;
+    
+    return 0;
 }
