@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -7,24 +8,21 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    return 4 - count;
+    return count;
 }
 
 int blackPegs(string code, string guess) {
     int count = 0;
-    for(int c='0'; c<='F'; c++) {
-        int codeCount = 0;
-        int guessCount = 0;
-        for(int i=0; i<4; i++) {
-            if(code[i] == c) {
-                codeCount++;
-            }
-            if(guess[i] == c) {
-                guessCount++;
-            }
-        }
-        if(codeCount > 0 && guessCount > 0) {
-            count += min(codeCount, guessCount);
+    map<char, int> codeMap, guessMap;
+    for(int i=0; i<4; i++) {
+        codeMap[code[i]]++;
+        guessMap[guess[i]]++;
+    }
+    for(map<pair<char,int>,int>::iterator it=codeMap.begin(); it!=codeMap.end(); ++it) {
+        if(it->second > 0 && guessMap.find(it->first) != guessMap.end() && guessMap[it->first] == it->second) {
+            count++;
+            codeMap.erase(it);
+            guessMap.erase(guessMap.find(it->first));
         }
     }
     return count;
