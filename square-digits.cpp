@@ -1,7 +1,7 @@
-```c++
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <bits/basic_string.h>
 
 std::string squareDigits(std::string input) {
     std::stringstream output;
@@ -15,7 +15,10 @@ std::string squareDigits(std::string input) {
 int main() {
     std::string input;
     std::cout << "Enter a positive integer: ";
-    std::getline(std::cin, input);  
+    std::cin >> input;  // Remove leading/trailing whitespace
+    input.erase(0, input.find_first_not_of(' '));  // Remove leading whitespace
+    input.erase(input.find_last_not_of(' ') + 1);  // Remove trailing whitespace
+
     std::string result = squareDigits(input);
 
     return 0;
