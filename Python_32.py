@@ -1,3 +1,5 @@
+import sys
+
 def find_zero(xs: list) -> float:
     a = xs[0]
     b = xs[1]
@@ -5,6 +7,6 @@ def find_zero(xs: list) -> float:
         return "undefined"
     return -b / a
 
-xs = list(map(float, input("Enter two numbers separated by a space: ").split()))
+xs = list(map(float, sys.stdin.readline().rstrip().split()))
 result = find_zero(xs)
 print(result)
