@@ -1,11 +1,9 @@
-xs = [float(x) for x in input("Enter two space-separated values: ").strip().split()]
-
+a, b = map(float, input().strip().split())
 
 def find_zero(a: float, b: float) -> float:
     if a == 0:
         return "undefined"
     return -b / a
 
-
-result = find_zero(*xs)
+result = find_zero(a, b)
 print(result)
