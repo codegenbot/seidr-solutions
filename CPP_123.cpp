@@ -24,7 +24,7 @@ int main() {
 
     std::vector<int> result = get_odd_collatz(n);
 
-    assert(issamestd(result, get_odd_collatz(n)));
+    assert(issamestd(result, {1}));
 
     return 0;
 }
