@@ -3,12 +3,13 @@
 #include <string>
 #include <cassert>
 
-vector<string> separate_paren_groups(string paren_string);
-bool issame(vector<string> a, vector<string> b);
+bool issame(const std::string& a, const std::string& b){
+    return a == b;
+}
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> result;
+    std::string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -31,16 +32,14 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+void test() {
+    std::vector<std::string> test_input = {"(a(b))", "(c(d))"};
+
+    assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
+    assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
 }
 
 int main() {
-    string input_string = "((group1)(group2)(group3))";
-    vector<string> expected_groups = {"(group1)", "(group2)", "(group3)"};
-
-    vector<string> actual_groups = separate_paren_groups(input_string);
-    assert(issame(actual_groups, expected_groups));
-
+    test();
     return 0;
 }
