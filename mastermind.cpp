@@ -13,6 +13,7 @@ int whitePegs(std::string code, std::string guess) {
 }
 
 int blackPegs(std::string code, std::string guess) {
+    int blackCount = 0;
     int whiteCount = whitePegs(code, guess);
     
     std::unordered_map<char,int> codeMap;
@@ -20,7 +21,7 @@ int blackPegs(std::string code, std::string guess) {
         codeMap[code[i]]++;
     }
     
-    int blackCount = 4 - whiteCount;
+    blackCount = 4 - whiteCount;
     for(int i=0; i<4; i++) {
         if(codeMap.find(guess[i]) != codeMap.end()) {
             blackCount++;
