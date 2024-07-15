@@ -1,9 +1,9 @@
 #include <vector>
-#include <cassert>
+#include <cmath>
 
-int count_nums(std::vector<int> n){
+int count_nums(const std::vector<int>& nums) {
     int count = 0;
-    for (int num : n) {
+    for (int num : nums) {
         int sum = 0;
         int temp = std::abs(num);
         while (temp != 0) {
