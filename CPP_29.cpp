@@ -1,11 +1,11 @@
-bool issame(vector<string> a, vector<string> b); // Function declaration
+#include <vector>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b){ // Function definition
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-#include <cassert> // Include the assert header
-
-int main(){
-	assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
