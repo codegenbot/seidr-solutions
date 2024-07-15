@@ -1,8 +1,3 @@
-```
-#include <iostream>
-#include <string>
-#include <sstream>
-
 std::string squareDigits(std::string input) {
     std::stringstream output;
     for (char c : input) {
@@ -20,5 +15,4 @@ int main() {
     std::string result = squareDigits(input);
 
     return 0;
-
 }
