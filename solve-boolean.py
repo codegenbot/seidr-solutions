@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
     stack = []
@@ -5,8 +6,8 @@ def solve_boolean(expression):
     for token in tokens:
         if '&' in token:
             operator_, *operands = token.split('&')
-            operator_ = eval(f"lambda {operand1}, {operand2}: {operand1} and {operand2}")
-            for operand in operands: stack.append(bool(operand))
+            operator_ = eval(f"lambda {operands[0]}, {operands[1]}: {operands[0]} and {operands[1]}")
+            for operand in operands: stack.append(eval(operand))
         else:
             stack.append(eval(token))
     result = None
