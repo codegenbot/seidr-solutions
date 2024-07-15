@@ -5,7 +5,7 @@ def normalize_numbers(numbers):
     return [num // min_num for num in numbers if num % min_num == 0]
 
 try:
-    numbers = list(map(int, input().split()))
+    numbers = list(map(int, input('Enter numbers separated by space: ').split()))
     result = normalize_numbers(numbers)
     print(result)
 except (ValueError, ZeroDivisionError):
