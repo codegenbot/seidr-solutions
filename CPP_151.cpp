@@ -9,8 +9,6 @@ int main() {
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0};
     long long odd_sum = double_the_difference(lst);
 
-    assert(double_the_difference(lst) == odd_sum);
-
     std::cout << "Output: " << odd_sum << std::endl;
 
     return 0;
@@ -19,8 +17,8 @@ int main() {
 long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)pow(num, 2);
+        if (num > 0 && num == std::floor(num) && (int)num % 2 != 0) {
+            sum += static_cast<long long>(std::pow(num, 2));
         }
     }
     return sum;
