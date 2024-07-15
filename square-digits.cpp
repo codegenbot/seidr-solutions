@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <sstream>
 
@@ -9,7 +10,6 @@ int main() {
     std::string result = squareDigits(input);
     
     return 0;
-
 }
 
 std::string squareDigits(std::string input) {
