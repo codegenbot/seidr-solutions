@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -19,9 +18,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-if len(sys.argv) != 2:
-    print("Usage: python script.py <paren_string>")
-else:
-    input_string = sys.argv[1]
-    output = separate_paren_groups(input_string)
-    print(output)
+paren_string = input("Enter the string to separate: ")
+output = separate_paren_groups(paren_string)
+print(output)
