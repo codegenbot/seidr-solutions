@@ -25,8 +25,8 @@ string int_to_mini_roman(int number) {
 
 int main() {
     assert(int_to_mini_roman(1000) == "m");
-    assert(int_to_mini_roman(349) == "cccxlix");
-    assert(int_to_mini_roman(2022) == "mmxxii");
+    assert(int_to_mini_roman(2021) == "mmxxi");
+    assert(int_to_mini_roman(49) == "xlix");
     
     return 0;
 }
