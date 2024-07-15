@@ -23,8 +23,3 @@ bool triples_sum_to_zero(vector<int>& l) {
     }
     return false;
 }
-
-int main() {
-    // Input reading and processing here
-    return 0;
-}
