@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -20,9 +19,4 @@ bool triples_sum_to_zero(std::vector<int>& l) {
         }
     }
     return false;
-}
-
-int main() {
-    // Input reading and further processing
-    return 0;
 }
