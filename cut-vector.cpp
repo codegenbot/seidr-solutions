@@ -32,8 +32,8 @@ int main() {
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
-
-    std::cout << std::endl;
+    
+    std::cout << std::endl; // Print empty line to separate subvectors
 
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
