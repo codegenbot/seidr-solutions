@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <cassert> 
+#include <cassert>
 
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
@@ -12,7 +14,10 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-int main() {
-    assert(issame(compare({1,2,3,5}, {-1,2,3,4}), {2,0,0,1}));
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
