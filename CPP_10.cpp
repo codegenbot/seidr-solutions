@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 bool is_palindrome(const std::string& str) {
     return std::equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
@@ -15,5 +16,7 @@ std::string make_palindrome(std::string str) {
     return str;
 }
 
-assert (make_palindrome("jerry") == "jerryrrej");
-return 0;
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+    return 0;
+}
