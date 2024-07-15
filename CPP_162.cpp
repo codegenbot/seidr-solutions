@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5>
-#include <cassert> // Added
+#include <cassert>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& text) {
     if(text.empty()) {
@@ -15,14 +15,18 @@ std::string string_to_md5(const std::string& text) {
     for(int i = 0; i < 16; i++) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
-    mdString[32] = '\0';
+    mdString[32] = '\0'; // Add null terminator at the end
 
     return mdString;
 }
 
 int main() {
-    std::string md5Result = string_to_md5("password");
-    std::cout << "MD5 of 'password': " << md5Result << std::endl;
+    std::string password_md5 = string_to_md5("password");
+    if(password_md5 == "5f4dcc3b5aa765d61d8327deb882cf99") {
+        std::cout << "MD5 hash is correct." << std::endl;
+    } else {
+        std::cout << "MD5 hash is incorrect." << std::endl;
+    }
 
     return 0;
 }
