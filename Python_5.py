@@ -1,10 +1,13 @@
-```python
 from typing import List
 
-def intersperse(numbers: List[int], delimeter: str) -> list:
+
+def intersperse(numbers: List[int], delimiter: str) -> list:
     if len(numbers) == 0:
         return []
-    result = [str(numbers[0])]
+    if len(numbers) > 1:
+        result = [str(numbers[0])]
+    else:
+        result = [str(numbers[0])]
     for i in range(1, len(numbers)):
-        result.extend([delimeter + str(numbers[i])])
-    return [''.join(result)]
+        result.extend([delimiter + str(numbers[i])])
+    return result
