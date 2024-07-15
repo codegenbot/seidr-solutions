@@ -15,19 +15,19 @@ int Solution::smallest_change(const std::vector<int>& arr) {
     return changes;
 }
 
-std::vector<int> read_input() {
+int main() {
+    if (std::cin.peek() == EOF) {
+        std::cout << "No input provided." << std::endl;
+        return 0;
+    }
+
+    assert(Solution::smallest_change({0, 1}) == 1);
+
     std::vector<int> input;
     int value;
     while (std::cin >> value) {
         input.push_back(value);
     }
-    return input;
-}
-
-int main() {
-    assert(Solution::smallest_change({0, 1}) == 1);
-    
-    std::vector<int> input = read_input();
     
     std::cout << Solution::smallest_change(input) << std::endl;
 
