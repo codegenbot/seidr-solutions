@@ -1,2 +1,14 @@
-cout << nums[result.first] << endl;
-cout << nums[result.second] << endl;
+int main() {
+    vector<int> nums = {2, 7, 11, 15};
+    int target = 9;
+    pair<int, int> result = findPair(nums, target);
+
+    if (result.first != -1 && result.second != -1) {
+        cout << nums[result.first] << endl;
+        cout << nums[result.second] << endl;
+    } else {
+        cout << "Pair not found." << endl;
+    }
+
+    return 0;
+}
