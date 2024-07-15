@@ -8,7 +8,7 @@ def parse_music(music_string: str) -> list:
     while i < len(music_string):
         if music_string[i] == 'o':
             if i+1 < len(music_string) and music_string[i+1] in ['|', '.']:
-                if music_string[i:i+3] == 'o.|':
+                if music_string[i:i+3] == 'o.|': 
                     music_list.extend([8, 4, 2])
                     i += 3
                 elif music_string[i:i+3] == 'o. |':
