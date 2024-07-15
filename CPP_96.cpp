@@ -1,20 +1,9 @@
-#include <iostream>
-#include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> count_up_to(int n) {
-    std::vector<int> primes;
+vector<int> count_up_to(int n) {
+    vector<int> primes;
     for (int num = 2; num < n; ++num) {
         bool is_prime = true;
         for (int i = 2; i * i <= num; ++i) {
@@ -31,13 +20,6 @@ std::vector<int> count_up_to(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> prime_numbers = count_up_to(n);
-    for (int prime : prime_numbers) {
-        std::cout << prime << " ";
-    }
-    std::cout << std::endl;
-
+    vector<int> result = count_up_to(20);
     return 0;
 }
