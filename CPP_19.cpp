@@ -20,12 +20,6 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers);
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-}
-
 string sort_numbers(string numbers){
     map<int, string> reverse_map;
     for(auto const& pair : number_map){
@@ -47,4 +41,10 @@ string sort_numbers(string numbers){
     }
     
     return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
 }
