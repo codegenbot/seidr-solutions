@@ -1,43 +1,47 @@
-```
 def bowling_score(frames):
     score = 0
     roll = 0
-    previous_frame = []
-    for frame in frames.split("/"):
-        if len(frame) == 1:
-            first_roll = int(frame)
-            if roll < 9 and first_roll + previous_frame[0] <= 10:
-                score += first_roll + previous_frame[0]
-                previous_frame = []
-                roll += 2
-            else:
-                score += first_roll * 10 + 10
-                previous_frame = [first_roll]
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            if roll < 9 and (first_roll + second_roll) <= 10:
-                score += first_roll + second_roll
-                previous_frame = []
-                roll += 2
-            elif first_roll == 10:  
-                score += 10 + 10 + 10
-                previous_frame = [10]
+    frames_list = [int(x) for x in frames.split("/")]
+
+    for i, frame in enumerate(frames_list[:10]):
+        if len(str(frame)) == 1:
+            if frame == 10:
+                if i < 8:
+                    score += (frame + next_frames(i)) * 2 + 10
+                elif i == 9:
+                    score += (frames_list[8] + frames_list[9]) * 2
                 roll += 3
             else:
-                score += first_roll + second_roll
-                previous_frame = [first_roll, second_roll]
+                score += frame * 10
                 roll += 2
-        else:
-            if len(previous_frame) > 0 and previous_frame[0] == 10:
-                score += 10 + 10
-            elif previous_frame[0] > 0:
-                score += previous_frame[0] + int(frame[0])
+        elif len(str(frame)) == 2:
+            first_roll = int(str(frame)[0])
+            second_roll = int(str(frame)[1])
+            if first_roll == 10:
+                if i < 8:
+                    score += (frame + next_frames(i)) * 2 + 10
+                elif i == 9:
+                    score += (frames_list[8] + frames_list[9]) * 2
+                roll += 3
             else:
-                score += int(frame[0]) * 10 + 10
-        if len(previous_frame) > 0 and sum(previous_frame) < 10:
-            if roll < 9:
-                score += int(frame)
-            else:
-                score -= previous_frame.pop()
+                if second_roll == 0:
+                    if i < 8:
+                        score += frame + next_frames(i)
+                    else:
+                        if i == 9:
+                            score += frame + frames_list[9]
+                        else:
+                            score += frame
+                    roll += 2
+                else:
+                    score += first_roll + second_roll
+                    roll += 2
+
     return score
+
+
+def next_frames(i):
+    if i < 8:
+        return [frames_list[i + 1][0]]
+    elif i == 9:
+        return [10]
