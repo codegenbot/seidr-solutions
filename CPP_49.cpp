@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 
 int modp(int a, int b) {
@@ -5,7 +6,9 @@ int modp(int a, int b) {
 }
 
 int main() {
-    assert(modp(31, 5) == 3);
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << modp(a, b) << std::endl;
 
     return 0;
 }
