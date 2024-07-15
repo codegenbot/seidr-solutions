@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -14,15 +15,19 @@ int main() {
     int a = 48;
     int b = 18;
     cout << "GCD: " << gcd(a, b) << endl;
-    
-    int num1 =stoi(cin >> a);
-    int num2 = stoi(cin >> b);
-    
-    cout << "Indices at which the target appears in the text: ";
-    for(int i =0; i < num1.size();i++){
-        if(num1.substr(i,2) == num2){
-            cout << i << " ";
-        }
-    }cout<<endl;
+
+    string text = "Hello World!";
+    string target = "o";
+    vector<int> indices;
+
+    int index = 0;
+    while ((index = text.find(target)) != string::npos) {
+        indices.push_back(index);
+        text.erase(index, target.length());
+    }
+
+    for (int i : indices) {
+        cout << "Target appears at index: " << i << endl;
+    }
     return 0;
 }
