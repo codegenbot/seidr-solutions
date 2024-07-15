@@ -2,6 +2,7 @@
 #include <cassert>
 #include <numeric>
 #include <vector>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
