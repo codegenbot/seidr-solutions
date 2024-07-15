@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
-#include <iostream>
+#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -22,11 +23,6 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    if (issame(even_odd_count(0), {1, 0})) {
-        cout << "Test Passed!";
-    } else {
-        cout << "Test Failed!";
-    }
-
+    assert(issame(even_odd_count(0), {1, 0}));
     return 0;
 }
