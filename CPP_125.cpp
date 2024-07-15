@@ -30,3 +30,7 @@ vector<string> split_words(string txt){
     }
     return result;
 }
+
+bool issame(vector<string> a, vector<string> b){
+    // Function definition for issame can go here if needed
+}
