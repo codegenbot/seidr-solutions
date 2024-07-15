@@ -4,7 +4,7 @@
 using namespace std;
 
 void addCharacter(string& str, char c) {
-    str.push_back(c);
+    str += to_string(c);
 }
 
 int whitePegs(string code, string guess) {
@@ -42,4 +42,3 @@ int main() {
     cout << whitePegs(code, guess) << endl;
     cout << blackPegs(code, guess) << endl;
     return 0;
-}
