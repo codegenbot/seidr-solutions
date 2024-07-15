@@ -1,12 +1,13 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 vector<float> sort_even(const vector<float>& l);
 
 bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<float> sort_even(const vector<float>& l) {
