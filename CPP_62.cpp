@@ -1,6 +1,7 @@
-#include <vector>
+#include <vector> 
 
 bool issame(vector<float> a, vector<float> b){
+    // add your implementation here
 }
 
 vector<float> derivative(vector<float> xs){
@@ -12,5 +13,8 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main(){
-    assert(issame(derivative({1}), {}));
+    // Add test cases here
+    assert (issame(derivative({1}), {}));
+    
+    return 0;
 }
