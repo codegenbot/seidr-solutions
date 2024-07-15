@@ -13,15 +13,9 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<float> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> numbers[i];
-    }
-    
+    std::vector<float> numbers = {1.5, 2.0, 3.0, 4.5, 5.0};
     long long result = double_the_difference(numbers);
-    std::cout << result << std::endl;
+    std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
