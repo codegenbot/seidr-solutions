@@ -2,16 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-int count_distinct_characters(const std::string& str) {
+int count_distinct_characters(std::string str) {
     std::vector<char> distinct_chars;
-    
     for (char c : str) {
         char lower_case_c = std::tolower(c);
         if (std::find(distinct_chars.begin(), distinct_chars.end(), lower_case_c) == distinct_chars.end()) {
             distinct_chars.push_back(lower_case_c);
         }
     }
-    
     return distinct_chars.size();
 }
 
