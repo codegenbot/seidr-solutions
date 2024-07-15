@@ -1,10 +1,10 @@
-```cpp
+```c++
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
+    double total = n * m;
     double count = 0.0;
     
     for(int i = 1; i <= n; i++) {
@@ -15,7 +15,7 @@ double diceGame(int n, int m) {
         }
     }
 
-    return setprecision(6) (count / total);
+    return count / total;
 }
 
 int main() {
