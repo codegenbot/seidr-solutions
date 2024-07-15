@@ -29,7 +29,7 @@ std::vector<std::string> split_words(std::string txt) {
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        words.push_back(to_string(count));
     }
     return words;
 }
