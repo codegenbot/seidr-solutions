@@ -3,21 +3,29 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] == '-') {
-            i++; // skip the '-'
-            while (i < str.size() && str[i] == ' ') {
-                i++; // skip the spaces
+    bool firstWord = true;
+    
+    for (char c : str) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(c));
             }
-            result += std::toupper(str[i]);
-        } else if (str[i] != ' ') {
-            if (!result.empty()) {
-                result += std::tolower(str[i]);
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
+        } else {
+            if (firstWord) {
+                result += tolower(c);
             } else {
-                result += std::toupper(str[i]);
+                result += c;
             }
+            firstWord = false;
         }
     }
+    
     return result;
 }
 
