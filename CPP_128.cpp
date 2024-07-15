@@ -30,10 +30,10 @@ int main() {
     int n;
     std::vector<int> arr;
 
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of elements in the array: ";
     std::cin >> n;
 
-    std::cout << "Enter the elements: ";
+    std::cout << "Enter the elements of the array:\n";
     for (int i = 0; i < n; ++i) {
         int num;
         std::cin >> num;
