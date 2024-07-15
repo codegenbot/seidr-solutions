@@ -2,10 +2,10 @@
 #include <string>
 using namespace std;
 
-vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    string numStr = to_string(abs(num));
-    for(char c : numStr) {
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result(2, 0);
+    std::string numStr = std::to_string(std::abs(num));
+    for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             result[0]++;
         } else {
@@ -16,10 +16,7 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // code goes here
+    std::vector<int> result = even_odd_count(123456);
+    // Add code to display or process the 'result' vector
     return 0;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
