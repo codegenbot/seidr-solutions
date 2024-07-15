@@ -7,7 +7,6 @@ double double_the_difference(double a, double b) {
 }
 
 long long main_function(std::vector<float> lst) {
-    std::vector<float> lst;
     double double_the_difference;
     long long odd_sum = 0;
 
