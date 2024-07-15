@@ -5,6 +5,7 @@
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
+bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -13,10 +14,13 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     string input;
     cin >> input;
+
     vector<string> result = separate_paren_groups(input);
+
     for (string group : result) {
         cout << group << endl;
     }
+
     return 0;
 }
 
