@@ -1,5 +1,1 @@
-#include <cstring>
-
-int countStringLength(const char* str) {
-    return strlen(str);
-}
+std::string str = "asdasnakj";
