@@ -1,6 +1,6 @@
 #include <string>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 std::string solve(std::string s){
     bool hasLetter = false;
@@ -16,6 +16,6 @@ std::string solve(std::string s){
     return s;
 }
 
-int main(){
+int main() {
     assert(solve("#ccc") == "#CCC");
 }
