@@ -2,10 +2,6 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    return 0;
-}
-
 vector<int> leaders(vector<int>& vec) {
     vector<int> result;
     int maxRight = vec.back();

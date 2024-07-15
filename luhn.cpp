@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 int luhn(vector<int> numbers) {
     int sum = 0;
@@ -8,10 +9,8 @@ int luhn(vector<int> numbers) {
             if (temp > 9) { 
                 temp -= 9;
             }
-            sum += temp;
-        } else {
-            sum += numbers[i];
         }
+        sum += numbers[i]; 
     }
     return sum;
 }
