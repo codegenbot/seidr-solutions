@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <algorithm>
+#include <algorithm> 
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -12,6 +12,7 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(max_right);
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
 

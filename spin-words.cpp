@@ -1,56 +1,26 @@
-Here is the corrected code:
-
-```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <algorithm>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    std::string word;
-    
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            for (int j = i - 1; j >= 0; j--) {
-                if (!std::isspace(sentence[j])) {
-                    result += sentence[j];
-                    break;
-                }
-            }
-            result += " ";
-        } else if (i == sentence.length() - 1) {
-            for (int j = i; j >= 0; j--) {
-                if (!std::isspace(sentence[j])) {
-                    result += sentence[j];
-                    break;
-                }
-            }
-        } else {
-            word += sentence[i];
-        }
-        
-        if (word.length() >= 5) {
-            std::string revWord = "";
-            for (int i = word.length() - 1; i >= 0; i--) {
-                revWord += word[i];
-            }
-            result += revWord + " ";
-            word = "";
-        } else {
-            if (!word.empty()) {
-                result += word + " ";
-                word = "";
-            }
+    std::size_t start = 0;
+    for (std::size_t end = 0; end <= str.length(); ++end) {
+        if ((end == str.length() || isspace(str[end])) && end - start >= 5) {
+            std::reverse(str.substr(start, end - start).begin(), str.substr(start, end - start).end());
+            result += str.substr(start, end - start);
+            start = end;
         }
     }
-    
+    if (start < str.length()) {
+        result += str.substr(start);
+    }
     return result;
 }
 
 int main() {
-    std::string sentence;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, sentence);
-    std::cout << spinWords(sentence) << std::endl;
+    std::string input;
+    while (std::cout << "input: ", std::getline(std::cin, input)) {
+        std::cout << "output: " << spinWords(input) << std::endl;
+    }
     return 0;
-}
