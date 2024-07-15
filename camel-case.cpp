@@ -1,29 +1,56 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    bool capitalize = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += std::toupper(c);
-            capitalize = false;
+string camelCase(string s) {
+    vector<string> parts;
+    string part = "";
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            parts.push_back(part);
+            part = "";
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            result += std::tolower(c);
+            part += tolower(s[i]);
         }
     }
-
+    
+    if (!part.empty()) parts.push_back(part);
+    
+    string result = topperCase(parts[0]);
+    
+    for (int i = 1; i < parts.size(); i++) {
+        result += firstUpper(parts[i]);
+    }
+    
     return result;
 }
 
-int main() {
-    std::string input;
-    std::cin >> input;
+string topperCase(string s) {
+    if (s.length() == 0)
+        return s;
+    string str = s.substr(0, 1);
+    for (int i = 1; i < s.length(); i++) {
+        if (isupper(s[i])) {
+            str += '-';
+            str += toupper(s[i]);
+        } else
+            str += tolower(s[i]);
+    }
+    
+    return str;
+}
 
-    std::cout << kebabToCamel(input) << std::endl;
-
-    return 0;
+string firstUpper(string s) {
+    if (s.length() == 0)
+        return s;
+    string str = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (i == 0)
+            str += toupper(s[i]);
+        else
+            str += tolower(s[i]);
+    }
+    
+    return str;
 }
