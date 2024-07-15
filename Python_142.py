@@ -5,4 +5,4 @@ def sum_squares(lst):
             total += num**2
         else:
             raise ValueError("The list must contain only integers.")
-    return total if len(lst) > 0 else float('nan')
+    return total
