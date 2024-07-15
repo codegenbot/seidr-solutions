@@ -20,6 +20,7 @@ namespace CustomVectorFunctions {
 }
 
 int main() {
-    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
+    using namespace CustomVectorFunctions;
+    assert(issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
