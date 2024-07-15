@@ -5,7 +5,7 @@ int basement(const std::vector<int>& inputVector) {
     for (int i = 0; i <= inputVector.size(); ++i) {
         sum += i;
         if (sum < 0)
-            return i - 1;
+            return i - 1; 
     }
     return -1;
 }
