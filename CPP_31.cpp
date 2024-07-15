@@ -1,4 +1,4 @@
-#include <cassert>
+#include <iostream>
 
 bool is_prime(long long n) {
     if (n <= 1) {
