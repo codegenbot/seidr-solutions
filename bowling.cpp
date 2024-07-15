@@ -2,28 +2,28 @@
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
             score += 30;
-            i++;
         } else if (s[i] == '/') {
-            int strikeOrSpare = std::stoi(s.substr(i + 1, 2)) - 10;
-            score += strikeOrSpare;
-            i += 3;
+            score += (s[i - 1] - '0') * 10 + s[i + 1] - '0';
+            continue;
         } else {
             int strikeOrSpare = s[i] - '0';
-            if (s[i + 1] == 'X') {
-                score += strikeOrSpare * 10 + 30;
-                i += 2;
-            } else if (s[i + 1] == '/') {
-                score += strikeOrSpare * 10;
-                i += 2;
+            if (i < 9) {
+                char nextChar = s[i + 1];
+                if (nextChar == 'X') {
+                    score += strikeOrSpare * 10 + 30;
+                } else if (nextChar == '/') {
+                    score += strikeOrSpare * 10;
+                } else {
+                    int nextStrikeOrSpare = nextChar - '0';
+                    score += strikeOrSpare * 10 + nextStrikeOrSpare;
+                }
             } else {
-                int nextStrikeOrSpare = s[i + 1] - '0';
-                score += strikeOrSpare * 10 + nextStrikeOrSpare;
-                i += 2;
+                score += strikeOrSpare * 10;
             }
         }
     }
     return score;
+}
