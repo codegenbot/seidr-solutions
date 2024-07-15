@@ -1,9 +1,4 @@
-#include <vector>
-#include <cmath>
-#include <initializer_list>
-
-using namespace std;
-
+```cpp
 int fuelCost(vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
@@ -11,3 +6,4 @@ int fuelCost(vector<int> vec) {
         sum += val;
     }
     return sum;
+}
