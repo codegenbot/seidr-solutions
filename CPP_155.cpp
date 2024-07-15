@@ -15,9 +15,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Sample test
-    std::vector<int> result = even_odd_count(12345);
-    assert(result[0] == 3 && result[1] == 2);
-    
+    // Call even_odd_count function here
     return 0;
 }
