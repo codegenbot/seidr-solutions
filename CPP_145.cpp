@@ -14,4 +14,3 @@ sort(nums.begin(), nums.end(), [](int a, int b) {
     }
     return sumA < sumB;
 });
-```
