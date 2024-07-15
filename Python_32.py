@@ -1,8 +1,11 @@
-xs = list(map(float, input("Enter two numbers separated by space: ").strip().split()))
+xs = [float(x) for x in input().strip().split()]
 
-def find_zero(xs: list) -> float:
-    a, b = xs
-    return "undefined" if a == 0 else -b / a
 
-result = find_zero(xs)
+def find_zero(a: float, b: float) -> float:
+    if a == 0:
+        return "undefined"
+    return -b / a
+
+
+result = find_zero(*xs)
 print(result)
