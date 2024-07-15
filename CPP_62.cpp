@@ -1,10 +1,8 @@
 #include <vector>
 #include <cassert>
 
-namespace std {
-    bool issame(std::vector<float> a, std::vector<float> b){
-        return a == b;
-    }
+bool issame(std::vector<float> a, std::vector<float> b){
+    return a == b;
 }
 
 std::vector<float> derivative(std::vector<float> xs){
