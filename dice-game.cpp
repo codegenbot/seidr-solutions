@@ -1,19 +1,22 @@
-```cpp
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 double diceGame(int n, int m) {
-    double p = 1.0;
-    for (int i = 1; i <= m; i++) {
-        p -= (i / (double)n);
+    if (n > m) {
+        double p = (m * (m - 1)) / ((double)n * (n + 1));
+        return 1.0 - p;
+    } else if (n < m) {
+        double p = (n * (n - 1)) / ((double)m * (m + 1));
+        return p;
+    } else {
+        return 0.5; // Both dice have the same number of sides, so probability is 1/2
     }
-    return p;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
     double d = diceGame(n, m);
-    cout << fixed << setprecision(2) << d << endl;
+    std::cout << fixed << setprecision(6) << d << endl;  
     return 0;
 }
