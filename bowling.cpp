@@ -1,41 +1,36 @@
-```cpp
-int bowlingScore(std::string s) {
+```c++
+int calculateBowlingScore(string input) {
     int score = 0;
-    bool inFrame = false;
     int currentRolls = 0;
+    int currentScore = 0;
+    bool inFrame = false;
 
-    for (char c : s) {
+    for (char c : input) {
         if (c == '/') {
-            inFrame = true;
-            currentRolls++;
-        } else if (c == 'X') {
-            score += 10;
             inFrame = false;
-            currentRolls = 0;
-        } else {
-            int value = c - '0';
+            currentRolls = 2;
+            currentScore = 0;
+        } else if (isdigit(c)) {
+            currentScore = currentScore * 10 + (c - '0');
+            currentRolls++;
             if (!inFrame) {
-                currentScore = value;
-                currentRolls = 1;
-            } else {
-                if (value == 1 || value == 2) {
-                    score += 10 - value;
-                } else {
-                    score += 10 + value;
-                }
-                inFrame = false;
-                currentRolls = 0;
+                inFrame = true;
             }
         }
-
         if (currentRolls == 2) {
-            if (!inFrame) {
+            if (currentScore >= 10) {
+                score += 10;
+            } else {
                 score += currentScore;
             }
+            currentScore = 0;
             inFrame = false;
             currentRolls = 0;
         }
     }
 
+    if (!inFrame && currentScore > 0) {
+        score += currentScore;
+    }
     return score;
 }
