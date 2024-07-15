@@ -21,10 +21,10 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
         }
         else if (c == ')') {
             open_braces--;
-            if (open_braces >= 1) {
+            if (open_braces >= 0) {
                 current_group += c;
             }
-            else {
+            if (open_braces == 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
