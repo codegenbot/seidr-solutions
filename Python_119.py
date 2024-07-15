@@ -3,5 +3,5 @@ def match_parens(lst):
         open_count = s.count('(')
         close_count = s.count(')')
         if open_count != close_count:
-            return 
-    return
+            return """No"""
+    return """Yes"""
