@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -16,5 +17,4 @@ int main() {
     string text = "Hello World";
     string target = "World";
     vector<int> res = indicesOfSubstring(text, target);
-    return 0;
 }
