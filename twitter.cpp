@@ -1,18 +1,17 @@
+```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+const int MAX_CHARS = 140;
 
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
     
-    if (tweet.find('@') != string::npos) {
-        return "You cannot use '@' symbol";
-    }
-    
-    if (tweet.length() > 140) {
+    if (tweet.length() > MAX_CHARS) {
         return "Too many characters";
     }
     
