@@ -16,6 +16,6 @@ std::string solve(std::string s){
     return s;
 }
 
-int main(){
+int main() {
     assert(solve("#ccc") == "#CCC");
 }
