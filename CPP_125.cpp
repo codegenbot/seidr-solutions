@@ -21,8 +21,7 @@ vector<string> split_words(string txt) {
                 words.push_back(word);
                 word = "";
             }
-        }
-        else {
+        } else {
             word += c;
         }
     }
@@ -40,4 +39,9 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
-```
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    
+    return 0;
+}
