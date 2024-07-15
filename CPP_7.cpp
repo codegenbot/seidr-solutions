@@ -1,10 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-bool issame(string a, string b) {
+bool issame(auto a, auto b){
     return a == b;
 }
 
@@ -19,6 +19,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    // main function code here
+    // Main function code, if any
     return 0;
 }
