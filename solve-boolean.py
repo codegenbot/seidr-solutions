@@ -4,7 +4,7 @@ def solve_boolean(expression):
     
     def evaluate(tokens):
         if len(tokens) == 0:
-            return bool(eval(tokens[0]))
+            return eval(tokens[0])
         elif tokens[0] in ["|", "&"]:
             operator_ = tokens.pop(0)
             operand2 = evaluate(tokens)
