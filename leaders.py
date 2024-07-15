@@ -1,3 +1,6 @@
-```
 def leaders(input):
-    return [input[i] for i in range(len(input)-1, -1, -1) if input[i] >= max(input[i+1:])]
+    leaders = [input[-1]]
+    for num in input[:-1][::-1]:
+        if num >= leaders[-1]:
+            leaders.append(num)
+    return leaders[::-1]
