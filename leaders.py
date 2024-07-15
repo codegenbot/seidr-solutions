@@ -1,6 +1,8 @@
 def leaders(input):
-    output = []
+    max_seen_so_far = input[-1]
+    leaders = []
     for i in range(len(input) - 1, -1, -1):
-        if all(x <= input[i] for x in input[i+1:]):
-            output.append(input[i])
-    return list(reversed(output))
+        if input[i] >= max_seen_so_far:
+            leaders.append(input[i])
+            max_seen_so_far = input[i]
+    return list(reversed(leaders))
