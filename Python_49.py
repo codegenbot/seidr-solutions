@@ -1,4 +1,3 @@
 ```
-def modp(p: int = None, n: int = None):
-    if p and n:
-        return pow(n, p, p)
+def modp(n: int = 1, p: int = 2):
+    return pow(n, p, p)
