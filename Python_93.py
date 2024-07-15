@@ -1,4 +1,4 @@
-Here is the completed code:
+Here's the completed Python code:
 
 ```
 def encode(message):
