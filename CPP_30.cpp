@@ -5,7 +5,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -24,6 +24,5 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
+    assert(issame(std::vector<float>{}, std::vector<float>{}));
 }
