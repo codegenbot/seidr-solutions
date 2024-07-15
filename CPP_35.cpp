@@ -1,7 +1,9 @@
-float max_val = l[0];
-    for (float num : l) {
-        if (num > max_val) {
-            max_val = num;
+#include <vector>
+float max_element(std::vector<float> l){
+    float max_val = l[0];
+    for(int i = 1; i < l.size(); i++){
+        if(std::abs(l[i]) > std::abs(max_val)){
+            max_val = l[i];
         }
     }
     return max_val;
