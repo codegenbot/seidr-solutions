@@ -2,11 +2,11 @@
 #include <cassert>
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_neg = 0, smallest_pos = 0;
+    int largest_neg = lst[0], smallest_pos = lst[0];
     for (int num : lst) {
         if (num < 0 && num < largest_neg) {
             largest_neg = num;
-        } else if (num > 0 && (num < smallest_pos || smallest_pos == 0)) {
+        } else if (num > 0 && (num < smallest_pos || smallest_pos < 0)) {
             smallest_pos = num;
         }
     }
@@ -18,6 +18,6 @@ bool is_same(std::vector<int> a, std::vector<int> b){
 }
 
 int main(){
-    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
     return 0;
 }
