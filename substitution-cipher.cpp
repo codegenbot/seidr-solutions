@@ -1,14 +1,14 @@
-std::string applyCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string result;
+std::string decipher(std::string key1, std::string key2, std::string message) {
+    std::string result = "";
     for (char c : message) {
-        int cipherIndex = 0;
-        while (cipherIndex < cipher1.size() && cipher1[cipherIndex] != c) {
-            cipherIndex++;
+        int index = 0;
+        while (index < key2.length() && c != key2[index]) {
+            index++;
         }
-        if (cipherIndex >= cipher1.size()) {
-            result += c; // character not found in cipher, leave it as is
+        if (index < key2.length()) {
+            result += key1[index];
         } else {
-            result += cipher2[cipherIndex]; // substitute with corresponding character from cipher2
+            result += c; 
         }
     }
     return result;
