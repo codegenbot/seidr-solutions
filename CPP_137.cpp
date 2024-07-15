@@ -1,23 +1,33 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
-#include <cassert>
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
-            return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-            return a;
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
-            return b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b)))
-            return a;
-        else if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b)))
-            return b;
+std::string compare(int a, int b) {
+    return (a >= b) ? std::to_string(a) : std::to_string(b);
+}
+
+std::string compare(float a, float b) {
+    return (a >= b) ? std::to_string(a) : std::to_string(b);
+}
+
+std::string compare(std::string a, std::string b) {
+    return (std::stof(a) >= std::stof(b)) ? a : b;
+}
+
+int main() {
+    std::string input1, input2;
+    std::cin >> input1 >> input2;
+
+    if (std::isdigit(input1[0])) {
+        int int1 = std::stoi(input1);
+        int int2 = std::stoi(input2);
+        std::cout << compare(int1, int2) << std::endl;
+    } else if (std::isdigit(input1[0])) {
+        float float1 = std::stof(input1);
+        float float2 = std::stof(input2);
+        std::cout << compare(float1, float2) << std::endl;
+    } else {
+        std::cout << compare(input1, input2) << std::endl;
     }
-    return boost::any();
+
+    return 0;
 }
