@@ -1,16 +1,13 @@
 Here is the completed code:
 
-#include <algorithm>
-using namespace std;
-
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2)
-        return -1; // or return None as per your requirement
-    vector<int> v = lst;
-    sort(v.begin(), v.end());
-    for (int i = 0; i < v.size()-1; i++) {
-        if (v[i] != v[i+1])
-            return v[i];
+vector<int> next_smallest(vector<int> lst) {
+    vector<int> temp = lst;
+    if(temp.size() < 2){
+        return {};
     }
-    return -1; // or return None as per your requirement
+    sort(temp.begin(),temp.end());
+    if(temp[1] == temp[0]){
+        return {};
+    }
+    return {temp[1]};
 }
