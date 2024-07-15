@@ -1,6 +1,7 @@
 #include <vector>
+#include <cassert>
 
-int solution(std::vector<int> lst){
+int solutions(vector<int> lst){
     int sum = 0;
     for(int i=0; i<lst.size(); i++){
         if(i % 2 == 0 && lst[i] % 2 != 0){
@@ -11,7 +12,6 @@ int solution(std::vector<int> lst){
 }
 
 int main(){
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-    int result = solution(numbers);
+    assert (solutions({3, 13, 2, 9}) == 3);
     return 0;
 }
