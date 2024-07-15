@@ -21,7 +21,3 @@ vector<float> sort_even(vector<float> l) {
 
     return l;
 }
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
