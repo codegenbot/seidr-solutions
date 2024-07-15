@@ -1,12 +1,19 @@
 ```
+import operator
+
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression:
-        a, b = expression.split("&")
-        return solve_boolean(a) and solve_boolean(b)
-    elif "|" in expression:
-        a, b = expression.split("|")
-        return solve_boolean(a) or solve_boolean(b)
+    expression = expression.replace("T", "True").replace("F", "False")
+    stack = []
+    for token in expression.split():
+        if token == "and":
+            stack.append(operator.and_)
+        elif token == "or":
+            stack.append(operator.or_)
+        else:
+            stack.append(eval(token))
+    result = stack[0]
+    while len(stack) > 1:
+        operand2 = stack.pop()
+        operator_ = stack.pop()
+        result = operator_.result(result, operand2)
+    return result
