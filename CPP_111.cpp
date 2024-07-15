@@ -22,3 +22,7 @@ map<char,int> histogram(string test){
     return res;
 }
 
+int main() {
+    // Main function code here for testing if needed
+    return 0;
+}
