@@ -11,7 +11,7 @@ int bowlingScore(char c) {
     } else {
         int count = 0;
         size_t len = s.length();
-        size_t i = 0;
+        int i = 0;
         while (c >= '1' && c <= '9') {
             count *= 10;
             count += c - '0';
