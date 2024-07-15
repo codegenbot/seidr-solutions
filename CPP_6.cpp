@@ -16,13 +16,7 @@ std::vector<int> parse_nested_parens(std::string s) {
         } else if (c == ')') {
             count--;
             if (count == 0) {
-                int level = 0;
-                for (char p : s) {
-                    if (p == '(') {
-                        level++;
-                    }
-                }
-                result.push_back(level);
+                result.push_back(count);
             }
         }
     }
