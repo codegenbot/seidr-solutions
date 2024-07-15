@@ -2,13 +2,13 @@
 #include <string>
 #include <cmath>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a[0] == b[0] && a[1] == b[1];
 }
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+vector<int> even_odd_count(int num) {
+    vector<int> counts(2, 0);
+    string numStr = to_string(abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
@@ -20,11 +20,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-    std::vector<int> result = even_odd_count(num);
-    for (int count : result) {
-        std::cout << count << " ";
-    }
+    // Your main function logic here
     return 0;
 }
