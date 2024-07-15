@@ -6,5 +6,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
+    // Add appropriate code here or remove the assertion related to get_positive function
     return 0;
 }
