@@ -4,7 +4,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> solve(vector<vector<int>> grid, int k) {
+vector<int> YourFunctionName(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<int> result;
     int x = 0, y = 0;
