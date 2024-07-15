@@ -1,7 +1,11 @@
-import sys
+def parse_music(music_input):
+    if music_input.startswith("Title:"):
+        return music_input.replace("Title:", "").strip()
+    return None
 
-for music_input in sys.stdin:
-    music_input = music_input.strip()
+
+while True:
+    music_input = input("Enter music title: ").strip()
     if not music_input:
         break
     result = parse_music(music_input)
