@@ -13,7 +13,7 @@ int main() {
             frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - (frames[frame-1] + (frames[frame-1] == 10));
+            frames[frame] = 10 - (frames[frame - 1] + (frames[frame - 1] == 10));
             frame++;
             ball = 0;
         } else if (c == '-') {
