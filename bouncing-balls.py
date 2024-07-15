@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     h = float(input())
     b = float(input())
@@ -6,8 +7,8 @@ def bouncing_balls():
     n = int(input())
     total_distance = 0
     for _ in range(n):
-        distance_traveled = 2 * abs(b - h)
+        distance_traveled = math.log((h + b) / (2 * h)) * abs(b - h)
         total_distance += distance_traveled
-        h, b = b, (b - h) * i
+        h, b = (b - h) * i, abs(b - h)
 
     return format(total_distance, ".6f")
