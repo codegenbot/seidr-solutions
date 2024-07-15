@@ -1,12 +1,10 @@
-```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                result += chr((ord(char.lower()) + 2) % 26 + ord('a'))
+            if char.islower():
+                char = chr((ord(char) - 97 + 3) % 26 + 97)
             else:
-                result += char.upper() if char.islower() else char.lower()
-        else:
-            result += char
+                char = chr((ord(char) - 65 + 3) % 26 + 65)
+        result += char
     return result
