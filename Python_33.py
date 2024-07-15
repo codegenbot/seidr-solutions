@@ -3,4 +3,4 @@ def sort_third(l: list):
         sorted(l[i:i+3], key=lambda x: x)
         for i in range(0, len(l), 3)
         if i + 2 < len(l)
-    ], key=lambda x: x) 
+    ], key=lambda x: x)
