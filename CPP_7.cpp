@@ -15,8 +15,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main(){
-    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
-
-    return 0;
-}
+assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
