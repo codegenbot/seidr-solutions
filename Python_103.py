@@ -1,12 +1,10 @@
 def main():
     while True:
         try:
-            n = input("Enter first number: ")
-            m = input("Enter second number: ")
-            if n and m:
-                num1 = int(n)
-                num2 = int(m)
-                print(rounded_avg(num1, num2))
+            n = int(input("Enter first number: "))
+            m = int(input("Enter second number: "))
+            if isinstance(n, int) and isinstance(m, int):
+                print(rounded_avg(n, m))
                 break
             else:
                 print("Invalid input! Please enter integer values.")
