@@ -20,7 +20,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = std::sqrt(sum);
+    double result = std::sqrt(std::abs(sum));
     std::cout << result << std::endl;
 
     return 0;
