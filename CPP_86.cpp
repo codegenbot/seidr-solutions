@@ -1,11 +1,12 @@
-for (int i = 0; i < s.length(); ++i) {
-        if (s[i] != ' ') {
-            size_t wordStart = i;
-            while (i < s.length() && s[i] != ' ') {
-                ++i;
-            }
-            sort(s.begin() + wordStart, s.begin() + i);
+// Sort each word in the string based on ascii value
+    for (int i = 0; i < s.size(); ++i) {
+        int j = i;
+        while (j < s.size() && s[j] != ' ') {
+            j++;
         }
+        sort(s.begin() + i, s.begin() + j);
+        i = j;
     }
+
     return s;
 }
