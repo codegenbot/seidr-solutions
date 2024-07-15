@@ -1,14 +1,13 @@
-import sys
-
-def process_input(input_str):
-    if not input_str:
-        raise ValueError("Empty input")
-    # Continue with your code here
-
-try:
-    input_str = sys.stdin.readline().strip()
-    process_input(input_str)
-except ValueError:
-    print("Input should not be empty")
-except EOFError:
-    print("No more input data")
+def separate_paren_groups(input_str):
+    stack = []
+    result = []
+    for char in input_str:
+        if char == '(':
+            stack.append('(')
+        elif char == ')' and stack:
+            stack.pop()
+            if not stack:
+                result.append(''.join(stack))
+        else:
+            stack = []
+    return result
