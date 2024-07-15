@@ -8,29 +8,27 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    EVP_MD_CTX *mdctx;
-    const EVP_MD *md;
-    unsigned char md_value[EVP_MAX_MD_SIZE];
-    unsigned int md_len;
+    EVP_MD_CTX* md_context = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(md_context, EVP_md5(), NULL);
+    EVP_DigestUpdate(md_context, text.c_str(), text.length());
 
-    md = EVP_md5();
-    mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, md, NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, md_value, &md_len);
-    EVP_MD_CTX_free(mdctx);
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digest_length;
+    EVP_DigestFinal_ex(md_context, digest, &digest_length);
+
+    EVP_MD_CTX_free(md_context);
 
     char mdString[33];
-    for(int i = 0; i < md_len; i++) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)md_value[i]);
+    for(int i = 0; i < digest_length; i++) {
+        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
     mdString[32] = '\0'; // Add null terminator at the end
 
     return mdString;
 }
 
-int contest_main() {
+int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    
+
     return 0;
 }
