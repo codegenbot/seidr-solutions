@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <string>;
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"this"}, std::vector<std::string>{}) == true);
-    assert(issame(std::vector<std::string>{"hello", "world"}, std::vector<std::string>{"hello", "world"}) == true);
-    assert(issame(std::vector<std::string>{"apple", "orange"}, std::vector<std::string>{"banana", "grape"}) == false);
+    assert(issame(vector<string>{"this"}, vector<string>{}) == true);
+    assert(issame(vector<string>{"hello", "world"}, vector<string>{"hello", "world"}) == true);
+    assert(issame(vector<string>{"apple", "orange"}, vector<string>{"banana", "grape"}) == false);
 
     return 0;
 }
