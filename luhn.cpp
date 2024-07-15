@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 
 int luhn(vector<int> numbers) {
@@ -9,7 +10,7 @@ int luhn(vector<int> numbers) {
                 temp -= 9;
             }
         } else {
-            sum += numbers[i]; 
+            sum += numbers[i];
         }
     }
     return sum;
