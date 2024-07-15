@@ -24,5 +24,3 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     }
     return l;
 }
-
-```
