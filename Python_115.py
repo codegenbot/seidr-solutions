@@ -1,5 +1,6 @@
 import math
 
 def max_fill(grid, capacity):
-    total_water = sum(min(cell, capacity) for row in grid for cell in row)
-    return max(0, math.ceil(total_water / capacity) * len(grid) - total_water)
+    total_water = sum(sum(row) for row in grid)
+    required_water = capacity * len(grid) - total_water
+    return max(required_water, 0)
