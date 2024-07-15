@@ -27,4 +27,14 @@ std::vector<int> unique_digits(std::vector<int> x){
     return result;
 }
 
-assert(issame_digits(unique_digits({135, 103, 31}), {31, 135}));
+int main(){
+    std::vector<int> input = {123, 456, 789};
+    std::vector<int> output = unique_digits(input);
+    for(int num : output){
+        std::cout << num << " ";
+    }
+    
+    assert(issame_digits(unique_digits({135, 103, 31}), {31, 135}));
+
+    return 0;
+}
