@@ -1,11 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <utility>
-#include <limits>
-
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = numeric_limits<int>::max();
     int splitIndex = 0;
