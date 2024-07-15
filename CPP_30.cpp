@@ -1,4 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
@@ -10,15 +14,13 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool is_same(vector<float> a, vector<float> b){
-    return a == b;
-}
+bool issame(vector<float> a, vector<float> b);
 
 int main() {
-    vector<float> input1 = {1.1, 2.2, 3.3};
-    vector<float> input2 = {1.1, 4.4, 5.5};
-    
-    bool result = is_same(input1, input2);
-
+    assert(issame(get_positive({}), {}));
     return 0;
+}
+
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
 }
