@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(std::vector<float> a, std::vector<float> b){
+    return a == b;
+}
+
 std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> result;
     for(const auto &num : l){
@@ -9,11 +13,6 @@ std::vector<float> get_positive(std::vector<float> l){
         }
     }
     return result;
-}
-
-bool issame(std::vector<float> a, std::vector<float> b){
-    // Compare vectors a and b
-    return a == b;
 }
 
 int main(){

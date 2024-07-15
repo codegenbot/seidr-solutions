@@ -2,9 +2,10 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <string> // Add this line to fix string typedef error
 
 bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
-    return std::vector<std::string>(a.begin(), a.end()) == std::vector<std::string>(b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string> &strings, const std::string &prefix){
@@ -15,4 +16,9 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string> &string
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
