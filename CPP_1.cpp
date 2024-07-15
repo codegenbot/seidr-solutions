@@ -4,34 +4,6 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame_vectors(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string with parentheses: ";
-    cin >> input;
-
-    vector<string> result = separate_paren_groups(input);
-
-    for (const string& group : result) {
-        cout << group << endl;
-    }
-
-    return 0;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string group;
@@ -55,4 +27,29 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+bool issame_vectors(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
+    vector<string> expected = {"(group1)", "(group2)", "(group3)"};
+
+    if (issame_vectors(result, expected)) {
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+
+    return 0;
 }
