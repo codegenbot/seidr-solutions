@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cctype>
-#include <climits>
+#include <algorithm>
+
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
