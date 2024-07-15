@@ -12,11 +12,6 @@ int main() {
         return 0;
     }
 
-    if (target.size() >= text.size()) {
-        std::cout << "0";
-        return 0;
-    }
-
     std::vector<int> indices;
 
     size_t pos = text.find(target, 0);
