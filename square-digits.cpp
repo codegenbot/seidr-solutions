@@ -5,8 +5,8 @@ std::string squareDigits(std::string input) {
     std::string output = "";
     for (char c : input) {
         if(c != ' ') { 
-            int digit = c - '0';
-            output += to_string(digit * digit);
+            int digit = std::stoi(std::string(1, c)) * std::stoi(std::string(1, c));
+            output += to_string(digit);
         }
     }
     return output;
