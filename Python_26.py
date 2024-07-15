@@ -1,4 +1,14 @@
 from typing import List
 
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [x for x in numbers if numbers.count(x) == 1]
+    unique_numbers = set()
+    duplicates = set()
+
+    for num in numbers:
+        if num in unique_numbers:
+            duplicates.add(num)
+        else:
+            unique_numbers.add(num)
+
+    return [num for num in numbers if num not in duplicates]
