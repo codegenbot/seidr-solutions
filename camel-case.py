@@ -1,4 +1,3 @@
-```
 def camel_case(s):
     result = ""
     for i, word in enumerate(map(str.split, s.replace("-", " ").split()), 1):
