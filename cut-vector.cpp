@@ -12,13 +12,6 @@ int main() {
         nums.push_back(num);
     }
     
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int half_sum = sum / 2;
-    
-    int prefix_sum = 0;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
     if (nums.size() == 1) {
         std::vector<int> subvector1(nums.begin(), nums.end());
         std::vector<int> subvector2;
@@ -33,6 +26,13 @@ int main() {
         
         return 0;
     }
+    
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int half_sum = sum / 2;
+    
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
     for (int i = 0; i < nums.size(); ++i) {
         prefix_sum += nums[i];
