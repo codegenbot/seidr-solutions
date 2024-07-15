@@ -15,5 +15,13 @@ std::vector<int> factorize(int n){
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){ 
-    // Your implementation for issame function here
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
