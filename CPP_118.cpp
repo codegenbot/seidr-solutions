@@ -1,4 +1,8 @@
-string get_closest_vowel(string word){
+#include <string>
+
+using namespace std;
+
+std::string get_closest_vowel(string word){
     string vowels = "aeiouAEIOU";
     int n = word.length();
     for (int i = n - 3; i > 0; --i) {
