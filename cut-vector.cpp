@@ -28,3 +28,19 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     return result;
 }
+
+int main() {
+    int n; cin >> n;
+    vector<int> v(n);
+    for (auto& x : v) cin >> x;
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "1 ";
+    for (auto x : result.first) cout << x << " ";
+    cout << "\n" << result.first.size() << "\n";
+    cout << "1 ";
+    for (auto x : result.second) cout << x << " ";
+    cout << "\n" << result.second.size() << "\n";
+    
+    return 0;
+}
