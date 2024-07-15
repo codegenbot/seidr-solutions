@@ -1,30 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
-}
-
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& vec, const std::string& substr){
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
-    for(const auto& str : vec){
-        if(str.find(substr) != std::string::npos){
+    for(const auto& str : strings){
+        if(str.find(substring) != std::string::npos){
             result.push_back(str);
         }
     }
     return result;
 }
 
-int main()
-{
-    std::vector<std::string> data = {"apple", "banana", "orange", "grape", "melon"};
-    std::string searchTerm = "an";
+bool have_same_elements(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()) return false;
+    
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    
+    return a == b;
+}
 
-    std::vector<std::string> filteredData = filter_by_substring(data, searchTerm);
-
-    for(const auto& str : filteredData){
-        std::cout << str << std::endl;
-    }
-
-    return 0;
+int main(){
+    assert(have_same_elements(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
