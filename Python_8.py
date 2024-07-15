@@ -7,6 +7,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
+# Accept input from the user
 numbers = []
 while True:
     try:
@@ -15,4 +16,5 @@ while True:
     except EOFError:
         break
 
+# Call the function with user input and print the result
 print(sum_product(numbers))
