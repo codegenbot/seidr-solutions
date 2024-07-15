@@ -16,5 +16,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 # Take input from user
 paren_string = input("Enter a string of nested parentheses: ")
 
-# Call the function with user input
+# Print the result
 print(parse_nested_parens(paren_string))
