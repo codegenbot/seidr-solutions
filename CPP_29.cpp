@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -20,23 +20,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    vector<string> strings;
-    string prefix;
-    int n;
-    
-    cin >> n;
-    strings.resize(n);
-    for(int i=0; i<n; i++){
-        cin >> strings[i];
-    }
-    
-    cin >> prefix;
-    
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
-    
-    for(const auto& s : filtered_strings) {
-        cout << s << " ";
-    }
-    
+    assert(is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), vector<string>{"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
