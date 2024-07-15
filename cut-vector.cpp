@@ -34,7 +34,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    using namespace std;
     int n;
     cin >> n;
     vector<int> v(n);
