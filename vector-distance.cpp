@@ -23,7 +23,7 @@ int main() {
     int n;
     cin >> n;
 
-    std::cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+    std::cout << std::fixed << std::setprecision(10) << vectorDistance(n) << std::endl;
 
     return 0;
 }
