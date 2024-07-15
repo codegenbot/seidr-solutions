@@ -8,8 +8,8 @@ string words_in_sentence(string sentence);
 
 int main() {
     assert(words_in_sentence("here is") == "is");
-    assert(words_in_sentence("there are many words") == "there many ");
-    assert(words_in_sentence("prime nonprime prime") == "prime prime ");
+    assert(words_in_sentence("hello world") == "world");
+    assert(words_in_sentence("prime numbers are 1, 2, 3, 5, 7") == "numbers 2 3 5 7");
     return 0;
 }
 
