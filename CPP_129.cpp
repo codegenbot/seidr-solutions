@@ -2,9 +2,9 @@
 #include <cassert>
 
 std::vector<std::vector<int>> minPath(const std::vector<std::vector<int>>& matrix, int n) {
-    std::vector<std::vector<int>> result;
+    std::vector<std::vector<int>> result(n, std::vector<int>(matrix[0].size(), 0));
     for (int i = 0; i < n; ++i) {
-        result.push_back(matrix[0]);
+        result[i] = matrix[0];
     }
     return result;
 }
