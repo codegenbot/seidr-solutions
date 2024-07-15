@@ -11,3 +11,10 @@ namespace Solution {
         return changes;
     }
 }
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    int result = Solution::smallest_change(arr);
+    assert(Solution::smallest_change({0, 1}) == 1);
+    return 0;
+}
