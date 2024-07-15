@@ -5,8 +5,8 @@
 
 long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
-    for (size_t i = 1; i < lst.size(); ++i) {
-        sum += 2 * std::abs(lst[i] - lst[i - 1]);
+    for (size_t i = 0; i < lst.size() - 1; ++i) {
+        sum += 2 * std::abs(lst[i] - lst[i + 1]);
     }
     return sum;
 }
