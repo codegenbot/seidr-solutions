@@ -1,7 +1,7 @@
 #include <cmath>
 
 double truncate_number(double number) {
-    return number - std::floor(number);
+    return number - floor(number);
 }
 
 int main() {
