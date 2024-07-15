@@ -1,22 +1,28 @@
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    int sum1 = 0, sum2 = 0;
-    for (const auto &str : a) {
-        sum1 += str.size();
+int total_chars(const vector<string>& lst) {
+    int total = 0;
+    for (const string& str : lst) {
+        total += str.size();
     }
-    for (const auto &str : b) {
-        sum2 += str.size();
-    }
-    
-    return sum1 == sum2;
+    return total;
 }
 
+bool total_match(const vector<string>& lst1, const vector<string>& lst2);
+
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> lst1 = {"apple", "banana", "cherry"};
+    vector<string> lst2 = {"pear", "orange"};
+    total_match(lst1, lst2);
     return 0;
+}
+
+bool total_match(const vector<string>& lst1, const vector<string>& lst2) {
+    if (total_chars(lst1) < total_chars(lst2)) {
+        return true;
+    } else {
+        return total_chars(lst1) == total_chars(lst2) ? true : false;
+    }
 }
