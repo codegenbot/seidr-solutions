@@ -1,3 +1,9 @@
+#include<iostream>
+#include<vector>
+#include<assert.h>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
