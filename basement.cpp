@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 
-using namespace std;
+using std::vector;
+using std::cout;
 
 int basement(vector<int>& nums) {
     int sum = 0;
@@ -11,7 +11,6 @@ int basement(vector<int>& nums) {
         if (sum < 0) return i;
     }
     return -1;
-
 }
 
 int main() {
@@ -19,3 +18,4 @@ int main() {
     int result = basement(nums);
     cout << "Basement index: " << result << endl;
     return 0;
+}
