@@ -1,5 +1,9 @@
 #include <vector>
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -27,20 +31,9 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    string s = "hello world programming is fun";
-    vector<string> output = select_words(s, 3);
-    vector<string> expected = {"hello", "world", "is"};
-
-    if(issame(output, expected)){
-        cout << "Test passed" << endl;
-    } else {
-        cout << "Test failed" << endl;
-    }
-
+    vector<string> expected = {"str", "ng"};
+    vector<string> result = select_words("This is a string", 3);
+    assert(issame(result, expected));
     return 0;
 }
