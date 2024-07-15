@@ -2,25 +2,30 @@
 #include <vector>
 #include <map>
 
+using namespace std;
+
 int main() {
     int n, target;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
-    std::cin >> target;
+    cin >> target;
     
-    std::map<int, int> numIndex;
+    map<int, int> numIndex;
+    pair<int, int> result;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            std:cout << complement << std::endl;
-            std::cout << nums[i] << std::endl;
+            result = make_pair(numIndex[complement], i);
             break;
         }
         numIndex[nums[i]] = i;
     }
+    
+    cout << nums[result.first] << endl;
+    cout << nums[result.second] << endl;
     
     return 0;
 }
