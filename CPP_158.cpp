@@ -1,3 +1,9 @@
+#include <string>
+#include <set>
+#include <vector>
+
+using namespace std;
+
 string find_max(vector<string> words){
     string result = "";
     int max_unique_chars = 0;
