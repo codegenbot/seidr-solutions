@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 std::string longest(std::vector<std::string> strings){
     if(strings.empty()){
