@@ -1,19 +1,23 @@
-def separate_paren_groups(paren_string: str) -> List[str]:
+from typing import List
+
+def separate_paren_groups(parentheses_string: str) -> List[str]:
     result = []
     current_group = ""
-    stack = []
-    
-    for char in paren_string:
+    count = 0
+    for char in parentheses_string:
         if char == "(":
-            if stack:
+            if count > 0:
                 current_group += char
-            stack.append("(")
+            count += 1
         elif char == ")":
-            if stack:
+            count -= 1
+            if count > 0:
                 current_group += char
-            stack.pop()
-            if not stack:
+            if count == 0:
                 result.append(current_group)
                 current_group = ""
-    
     return result
+
+input_string = input("Enter a string with parentheses: ")
+output = separate_paren_groups(input_string)
+print(output)
