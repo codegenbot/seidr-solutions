@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -14,7 +13,7 @@ int main() {
             frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - frames[frame-1];
+            frames[frame] = 10 - (frames[frame-1]);
             frame++;
             ball = 0;
         } else if (c == '-') {
