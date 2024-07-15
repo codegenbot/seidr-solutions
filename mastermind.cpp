@@ -1,6 +1,6 @@
 #include <iostream>
-#include <map>
-using namespace std;
+#include <string>
+#include <unordered_map>
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
@@ -14,36 +14,36 @@ int whitePegs(std::string code, std::string guess) {
 
 int blackPegs(std::string code, std::string guess) {
     int blackCount = 0;
-    map<char,int> codeMap;
+    int whiteCount = whitePegs(code, guess);
+    
+    std::unordered_map<char,int> codeMap;
     for(int i=0; i<4; i++) {
         codeMap[code[i]]++;
     }
     
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            blackCount++;
-        } else if(codeMap.find(guess[i]) != codeMap.end()) {
-            codeMap[guess[i]]--;
+            continue;
+        }
+        
+        for(int j=0; j<4; j++) {
+            if(i != j && code[j] == guess[i]) {
+                blackCount++;
+                break;
+            } else if (i != j && codeMap[guess[i]]-- > 0) {
+                break;
+            }
         }
     }
     
-    int remainingBlackPegs = 0;
-    for(auto it : codeMap) {
-        if(it.second > 1) {
-            remainingBlackPegs += it.second - 1;
-        } else if(it.second == 1 && codeMap.find(guess[0]) != codeMap.end()) {
-            remainingBlackPegs++;
-        }
-    }
-    
-    return blackCount + remainingBlackPegs;
+    return blackCount - whiteCount;
 }
 
 int main() {
     std::string code, guess;
     std::cin >> code >> guess;
-    std::cout << whitePegs(code, guess) << std::endl;
-    int blackPeg = blackPegs(code, guess);
-    std::cout << blackPeg << std::endl;
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+    std::cout << white << " " << black << std::endl;
     return 0;
 }
