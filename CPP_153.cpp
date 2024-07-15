@@ -3,8 +3,7 @@
 #include <string>
 #include <cctype>
 #include <climits>
-#include <cassert>
-using namespace std;
+#include <cassert> 
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = INT_MIN;
