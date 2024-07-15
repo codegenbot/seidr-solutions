@@ -1,3 +1,1 @@
-def sum_squares(lst):
-    total = sum(num ** len(str(num)) for num in lst)
-    return total % 2 == 0
+print(sum_squares([1, 2, 3]))
