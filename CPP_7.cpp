@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
+vector<string> filter_by_substring(vector<string> strings, string substring);
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -14,12 +12,6 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
-int main() {
-    // Main function implementation
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const string& str : strings) {
@@ -28,4 +20,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
         }
     }
     return result;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
