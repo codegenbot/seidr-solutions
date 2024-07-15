@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<int> count_up_to(int limit) {
