@@ -11,6 +11,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
+    
+    cin.ignore();
     cin >> target;
 
     unordered_map<int, int> mp;
@@ -20,6 +22,7 @@ int main() {
             cout << target - nums[i] << endl;
             cout << nums[i] << endl;
             found = true;
+            break;
         }
         mp[nums[i]] = i;
     }
