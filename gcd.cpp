@@ -14,8 +14,22 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 42;
-    int b = 14;
-    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
+    string text = "banana";
+    string target = "an";
+    vector<int> result;
+
+    for(int i=0; i<=text.length()-target.length();i++){
+        int j=0;
+        while(j<target.length()){
+            if(text[i+j] != target[j])break;
+            j++;
+        }
+        if(j==target.length())result.push_back(i);
+    }
+
+    cout << "Indices of substring: ";
+    for(auto x:result)cout << x << " ";
+    cout << endl;
+
     return 0;
 }
