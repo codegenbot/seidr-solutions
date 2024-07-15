@@ -1,6 +1,6 @@
-using namespace std;
-
 #include <string>
+
+using namespace std;
 
 string fizzBuzz(int x) {
     if (x % 15 == 0)
