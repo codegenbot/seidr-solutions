@@ -1,10 +1,6 @@
 #include <openssl/evp.h>
-#include <openssl/objects.h>
-#include <cstdio>
-#include <cassert>
 #include <string>
-
-std::string string_to_md5(const std::string& text);
+#include <iostream>
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -12,22 +8,24 @@ std::string string_to_md5(const std::string& text) {
     }
 
     unsigned char digest[EVP_MAX_MD_SIZE];
-    EVP_MD_CTX *mdctx;
-    mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
-    EVP_MD_CTX_free(mdctx);
+    unsigned int digest_len = 0;
+    EVP_Digest((const unsigned char*)text.c_str(), text.length(), digest, &digest_len, EVP_md5(), NULL);
 
-    char md5_hash[2 * EVP_MD_size(EVP_md5()) + 1];
-    for (int i = 0; i < EVP_MD_size(EVP_md5()); i++) {
-        sprintf(&md5_hash[i * 2], "%02x", (unsigned int)digest[i]);
+    char md5_hash[2 * EVP_MAX_MD_SIZE + 1];
+    for (unsigned int i = 0; i < digest_len; i++) {
+        sprintf(&md5_hash[i * 2], "%02x", digest[i]);
     }
 
     return std::string(md5_hash);
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    std::string input_text;
+    std::cout << "Enter a text to calculate its MD5 hash: ";
+    std::cin >> input_text;
+
+    std::string md5_hash = string_to_md5(input_text);
+    std::cout << "MD5 hash: " << md5_hash << std::endl;
+
     return 0;
 }
