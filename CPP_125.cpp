@@ -1,24 +1,23 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    // Code for checking if two vectors of strings are the same
+    return a == b;
 }
 
 vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else if (c == ',') {
-            words.push_back(word);
-            word = "";
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if (word != "") {
+    if (!word.empty()) {
         words.push_back(word);
     }
     if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
