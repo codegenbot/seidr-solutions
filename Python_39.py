@@ -17,9 +17,8 @@ def prime_fib(n):
 
 try:
     n = int(input())
-    if n < 1:
-        print("Invalid input. Please enter a valid positive integer.")
-    else:
-        print(prime_fib(n))
+    if n <= 0:
+        raise ValueError
+    print(prime_fib(n))
 except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+    print("Invalid input. Please enter a positive integer.")
