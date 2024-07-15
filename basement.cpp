@@ -1,17 +1,10 @@
 #include <vector>
-using namespace std;
 
 int basement(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0) return i;
+        if (sum < 0) return i + 1;
     }
     return -1;
-}
-
-int main() {
-    vector<int> testVec = {2, -3, 4, -1};
-    cout << basement(testVec) << endl; 
-    return 0;
 }
