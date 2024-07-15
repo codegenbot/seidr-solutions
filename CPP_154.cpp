@@ -18,5 +18,9 @@ int main() {
     assert(cycpattern_check("software", "soft") == false);
     assert(cycpattern_check("programming", "ingpro") == false);
     
+    assert(cycpattern_check("12345", "34512") == true);
+    assert(cycpattern_check("abc", "abcd") == false);
+    assert(cycpattern_check("abc123", "123abc") == true);
+
     return 0;
 }
