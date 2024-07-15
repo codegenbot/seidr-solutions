@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
     int max_num = INT_MIN;
