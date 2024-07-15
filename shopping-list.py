@@ -1,4 +1,3 @@
-```
 def shopping_list():
     n = int(input())
     input_str = input()
@@ -8,6 +7,4 @@ def shopping_list():
     for i in range(min(n, len(prices))):
         total_price += (prices[i] * (1 - discounts[i]/100))
     return format(total_price, ".2f")
-
-
 print(shopping_list())
