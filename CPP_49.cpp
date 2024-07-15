@@ -10,3 +10,11 @@ int modp(int n, int p) {
     }
     return result;
 }
+
+int main() {
+    int n = 5; // Example input value for n
+    int p = 3; // Example input value for p
+    int result = modp(n, p);
+    cout << "Result: " << result << endl;
+    return 0;
+}
