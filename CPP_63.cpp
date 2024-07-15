@@ -21,4 +21,6 @@ int fib(int n) {
 
 int main() {
     assert(fib(14) == 610); // Should pass
+
+    return 0;
 }
