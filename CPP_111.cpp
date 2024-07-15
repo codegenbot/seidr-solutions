@@ -1,3 +1,11 @@
+#include <iostream>
+#include <map>
+#include <cassert>
+
+bool issame(map<char, int> a, map<char, int> b) {
+    return a == b;
+}
+
 map<char, int> histogram(string test) {
     map<char, int> counts;
     for (char c : test) {
@@ -19,4 +27,8 @@ map<char, int> histogram(string test) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
 }
