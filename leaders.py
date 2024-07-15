@@ -1,7 +1,10 @@
 ```
 def leaders(input):
-    leaders = [input[-1]]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= leaders[-1]:
-            leaders.append(input[i])
-    return list(reversed(leaders))```
+    leader = input[-1]
+    leaders = [leader]
+    for num in input[:-1][::-1]:
+        if num < leader:
+            break
+        leader = num
+        leaders.append(num)
+    return list(reversed(leaders))
