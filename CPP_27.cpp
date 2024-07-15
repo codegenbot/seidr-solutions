@@ -1,4 +1,6 @@
-string flip_case(string str){
+#include <string>
+
+std::string flip_case(std::string str){
     for(char &c : str){
         if(islower(c)){
             c = toupper(c);
