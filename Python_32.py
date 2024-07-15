@@ -4,3 +4,8 @@ def find_zero(xs: list) -> float:
     if a == 0:
         return "undefined"
     return -b / a
+
+
+xs = list(map(float, input("Enter two numbers separated by a space: ").strip().split()))
+result = find_zero(xs)
+print(result)

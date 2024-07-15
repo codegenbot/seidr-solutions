@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> eat(int number, int need, int remaining) {
@@ -12,7 +13,9 @@ std::vector<int> eat(int number, int need, int remaining) {
     return {eaten, left};
 }
 
-// Test your function
-assert(issame(eat(4, 5, 1), {5, 0}));
+int main() {
+    // Test your function
+    assert(issame(eat(4, 5, 1), {5, 0}));
 
-return 0;
+    return 0;
+}
