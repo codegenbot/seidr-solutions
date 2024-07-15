@@ -1,18 +1,23 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
-    // Your implementation for minPath function...
+    for (int i = 0; i < k / 2; i++) {
+        for (int j = 0; j < grid.size(); j++) {
+            for (int l = 0; l < grid[j].size(); l++) {
+                result.push_back(grid[j][l]);
+            }
+        }
+    }
     return result;
 }
 
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
     // Add more test cases...
 
     return 0;
