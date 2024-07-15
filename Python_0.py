@@ -1,4 +1,3 @@
-print("Enter space-separated numbers and a threshold:")
 numbers, threshold = map(int, input().split())
 
 def check_threshold(numbers, threshold):
