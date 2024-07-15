@@ -1,29 +1,43 @@
+#include <iostream>
+#include <vector>
 #include <string>
-bool issame(vector<string> a, vector<string> b) {
-    vector<string> words;
-    string word = "";
+#include <cctype>
+#include <cassert>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    std::string word = "";
     for (char c : txt) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else if (c == ',') {
-            words.push_back(word);
-            word = "";
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if (word != "") {
+    if (!word.empty()) {
         words.push_back(word);
     }
-    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+    if (words.empty()) {
         int count = 0;
-        for (char c : words[0]) {
+        for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        words[0] = to_string(count);
+        words.push_back(std::to_string(count));
     }
     return words;
+}
+
+int main() {
+    assert(issame(split_words(""), std::vector<std::string>{"0"}));
+    
+    return 0;
 }
