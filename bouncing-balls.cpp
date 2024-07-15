@@ -2,8 +2,9 @@
 using namespace std;
 
 int main() {
-    double startingHeight, firstBounceHeight;
-    int numBounces;  
+    double startingHeight;
+    double firstBounceHeight;
+    int numBounces;
 
     cout << "Enter the starting height: ";
     cin >> startingHeight;
