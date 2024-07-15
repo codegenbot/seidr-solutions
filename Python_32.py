@@ -1,9 +1,10 @@
 def find_zero(xs: list) -> float:
     a = xs[0]
     b = xs[1]
+    if a == 0:
+        return "undefined"
     return -b / a
 
-
-xs = list(map(float, input("Enter values of a and b separated by space: ").split()))
+xs = list(map(float, input("Enter two numbers separated by a space: ").split()))
 result = find_zero(xs)
 print(result)
