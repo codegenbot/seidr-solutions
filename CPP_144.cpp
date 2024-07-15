@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool simplify(string x, string n) {
+bool simplify(std::string x, std::string n) {
     int num1 = std::stoi(x.substr(0, x.find('/')));
     int den1 = std::stoi(x.substr(x.find('/') + 1));
     int num2 = std::stoi(n.substr(0, n.find('/')));
