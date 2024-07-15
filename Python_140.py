@@ -1,2 +1,13 @@
 def fix_spaces(text):
-    return '_'.join('-' if len(group) > 2 else group for group in text.split())
+    result = ''
+    count = 0
+    for char in text:
+        if char == ' ':
+            count += 1
+            if count > 2:
+                result = result.rstrip('_')
+                result += '-'
+        else:
+            result += '_' * count + char
+            count = 0
+    return result.rstrip('_')
