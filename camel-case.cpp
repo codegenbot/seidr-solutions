@@ -2,10 +2,10 @@
 #include <cctype>
 
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
+    std::getline(std::cin, input);
     
-    string result = "";
+    std::string result = "";
     bool capitalize = false;
     
     for (char c : input) {
@@ -16,7 +16,7 @@ int main() {
             result += c;
         } else {
             if (capitalize) {
-                result += toupper(c);
+                result += std::toupper(c);
             } else {
                 result += c;
             }
@@ -24,7 +24,7 @@ int main() {
         }
     }
     
-    cout << result << endl;
+    std::cout << result << std::endl;
     
     return 0;
 }
