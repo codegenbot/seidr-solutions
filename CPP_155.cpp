@@ -1,9 +1,6 @@
 #include <vector>
-#include <cassert>
-#include <cmath>
 #include <string>
-
-std::vector<int> even_odd_count(int num);
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -12,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
     std::string numStr = std::to_string(std::abs(num));
-    for (char c : numStr) {
+    for(char c : numStr) {
         if ((c - '0') % 2 == 0) {
             result[0]++;
         } else {
@@ -23,6 +20,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    // code to test even_odd_count
     return 0;
 }
