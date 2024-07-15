@@ -4,11 +4,7 @@ def minPath(grid, k):
     path = [grid[start[0]][start[1]]]
     visited = {(start[0], start[1])}
 
-    while len(path) < k and any(
-        (x + dx, y + dy) not in visited
-        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        for x, y in visited
-    ):
+    while len(path) < k and any((x + dx, y + dy) not in visited for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)] for x, y in visited):
         x, y = visited.pop()
         for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             nx, ny = x + dx, y + dy
