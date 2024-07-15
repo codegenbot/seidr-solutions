@@ -27,13 +27,3 @@ std::vector<float> sort_even(std::vector<float> l) {
 
     return result;
 }
-
-int main() {
-    std::vector<float> a = {1.2, 2.5, 3.7, 4.8};
-    std::vector<float> b = {1.2, 2.5, 3.7, 4.8};
-
-    bool same = is_same(a, b);
-    std::vector<float> sorted_even = sort_even(a);
-
-    return 0;
-}
