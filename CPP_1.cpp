@@ -3,8 +3,16 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::string& a, const std::string& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
@@ -21,10 +29,10 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
         }
         else if (c == ')') {
             open_braces--;
-            if (open_braces >= 0) {
+            if (open_braces > 0) {
                 current_group += c;
             }
-            if (open_braces == 0) {
+            else {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -38,9 +46,7 @@ void test() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
     std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
 
-    for (size_t i = 0; i < expected.size(); ++i) {
-        assert(issame(expected[i], result[i]));
-    }
+    assert(issame(expected, result));
 }
 
 int main() {
