@@ -1,19 +1,31 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame(vector<string> a, vector<string> b) {
-    // Check if vectors a and b are the same
+bool issame(char a, char b) {
     return a == b;
 }
 
-int main() {
-    // Add forward declaration for separate_paren_groups
-    vector<string> separate_paren_groups(string paren_string);
+vector<string> separate_paren_groups(const string& paren_string) {
+    vector<string> result;
+    string current_group;
+    int open_braces = 0;
 
-    // Check equality of results using issame function
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (open_braces > 0) {
+                current_group.push_back(c);
+            }
+            open_braces++;
+        } else if (c == ')') {
+            open_braces--;
+            if (open_braces > 0) {
+                current_group.push_back(c);
+            } else {
+                result.push_back(current_group);
+                current_group = "";
+            }
+        }
+    }
+
+    return result;
 }
