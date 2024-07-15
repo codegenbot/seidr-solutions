@@ -1,12 +1,9 @@
 ```
-from typing import List
-
-
-def intersperse(numbers: List[int], delimiter: str) -> list:
-    result = [delimiter]
-    for i, num in enumerate(numbers):
-        if i > 0:
-            result.extend([delimiter])
+def intersperse(numbers: list[int], delimiter: str) -> list:
+    if not numbers:
+        return []
+    result = [str(numbers[0])]
+    for i, num in enumerate(numbers[1:], 1):
+        result.extend([delimiter])
         result.extend([str(num)])
-    result.append(']')
-    return [ '[' ] + result
+    return result
