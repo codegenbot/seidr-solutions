@@ -1,33 +1,38 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
-    std::string output;
-    bool first = true;
-
+std::string camelCase(const std::string& input) {
+    std::vector<std::string> words;
+    std::string word = "";
+    
     for (char c : input) {
         if (c == '-') {
-            if (!first) {
-                output.push_back(char(toupper(c)));
-            }
-            first = false;
+            words.push_back(word);
+            word = "";
         } else if (c == ' ') {
-            first = true;
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
-            output.push_back(char(tolower(c)));
+            word += c;
         }
     }
-
-    return output;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << camelCase(input) << std::endl;
-
-    return 0;
+    
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    
+    std::string result = "";
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            result += std::toupper(words[i][0]);
+        } else {
+            result += std::tolower(words[i][0]);
+        }
+        result += &words[i][1];
+    }
+    
+    return result;
 }
