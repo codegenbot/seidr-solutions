@@ -1,11 +1,10 @@
-def sum_squares(lst):
-    total = 0
-    for num in lst:
-        if isinstance(num, int):
-            total += num**2
-        else:
-            raise ValueError("The list must contain only integers.")
-    return total
+```
+def calculate_rectangle_area(length, width):
+    if not (isinstance(length, int) and isinstance(width, int)):
+        raise ValueError("The length and width must be integers.")
+    return length * width
 
+length = int(input("Enter the length: "))
+width = int(input("Enter the width: "))
 
-print(sum_squares([1, 4, 9]))
+print(f"The area of the rectangle is {calculate_rectangle_area(length, width)}")
