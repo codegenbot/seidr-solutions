@@ -1,14 +1,14 @@
-int result = -1;
+int maxFreq = -1;
     for (int num : lst) {
-        int frequency = 0;
+        int freq = 0;
         for (int n : lst) {
             if (n == num) {
-                frequency++;
+                freq++;
             }
         }
-        if (num > 0 && frequency >= num && num > result) {
-            result = num;
+        if (num == freq && num > maxFreq) {
+            maxFreq = num;
         }
     }
-    return result;
+    return maxFreq;
 }
