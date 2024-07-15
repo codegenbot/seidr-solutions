@@ -25,7 +25,7 @@ vector<int> largest_smallest_integers(vector<int> lst){
         result[1] = min_pos;
     }
     
-    return result; 
+    return result;
 }
 
 int main() {
