@@ -1,31 +1,16 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
-#include <iterator>
 
-using namespace std;
-
-vector<int> make_a_pile(int n) {
-    vector<int> result;
-    for(int i = 0; i < n; ++i) {
-        result.push_back(8 + i*2);
-    }
-    return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
+std::vector<int> make_a_pile(int size) {
+    std::vector<int> pile;
+    for (int i = 0; i < size; ++i) {
+        pile.push_back(8 + 2 * i);
     }
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return pile;
 }
 
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-}
+assert (issame(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
