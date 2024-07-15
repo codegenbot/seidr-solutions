@@ -1,0 +1,1 @@
+numbers = list(map(float, input().strip().split()))
