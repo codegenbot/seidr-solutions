@@ -1,4 +1,4 @@
-bool issame(string a, string b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -27,15 +27,13 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-void test() {
-    assert(issame("abc", "abc"));
-    assert(!issame("abc", "def"));
-}
-
 int main() {
-    test();
-
-    // Add your main program logic here
-
+    string paren_string = "((group1)(group2)(group3))";
+    vector<string> expected_result = {"group1", "group2", "group3"};
+    
+    vector<string> result = separate_paren_groups(paren_string);
+    
+    assert(issame(result, expected_result));
+    
     return 0;
 }
