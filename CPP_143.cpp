@@ -1,21 +1,42 @@
 string words_in_sentence(string sentence){
     string result = "";
     string word = "";
-    int n = sentence.length();
-    bool is_prime[101] = {false};
-    is_prime[2] = is_prime[3] = is_prime[5] = is_prime[7] = is_prime[11] = is_prime[13] = true;
-
-    for(int i = 0; i < n; i++){
-        if(sentence[i] != ' '){
-            word += sentence[i];
-        }
-        if(sentence[i] == ' ' || i == n - 1){
-            if(is_prime[word.length()]){
+    for (char c : sentence) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            int len = word.size();
+            bool isPrime = true;
+            if (len <= 1) {
+                isPrime = false;
+            } else {
+                for (int i = 2; i <= len / 2; i++) {
+                    if (len % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+            if (isPrime) {
                 result += word + " ";
             }
             word = "";
         }
     }
-
-    return result.substr(0, result.length() - 1);
+    int len = word.size();
+    bool isPrime = true;
+    if (len <= 1) {
+        isPrime = false;
+    } else {
+        for (int i = 2; i <= len / 2; i++) {
+            if (len % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    if (isPrime) {
+        result += word;
+    }
+    return result;
 }
