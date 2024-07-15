@@ -1,3 +1,4 @@
+
 int closest_integer(string value) {
     double num = stod(value);
     int rounded = static_cast<int>(round(num));
