@@ -1,14 +1,14 @@
+```
 def fix_spaces(text):
     result = ""
-    for i in range(len(text)):
-        if text[i] == " ":
-            if i < len(text) - 1 and text[i + 1] == " ":
-                if i < len(text) - 2 and text[i + 2] == " ":
-                    result += "-"
-                else:
-                    result += "-"
+    for char in text:
+        if char == " " and len(result) > 0 and result[-1] == " ":
+            if len(result) < 3:
+                return "Error: More than two consecutive spaces"
             else:
-                result += "_"
+                result += "-"
+        elif char != " ":
+            result += char
         else:
-            result += text[i]
+            result += "_"
     return result
