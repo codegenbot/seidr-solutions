@@ -1,5 +1,5 @@
 def mastermind(code, guess):
-    code_counts = [0]*6  # Counts of each color in the code
+    code_counts = [0]*6  
     for c in code:
         code_counts[ord(c)-65] += 1
 
