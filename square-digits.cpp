@@ -1,7 +1,11 @@
-std::string squareDigits(const std::string& input) {
+```cpp
+#include <string>
+
+std::string squareDigits(std::string input) {
     std::string result;
-    for (char c : input) {
+    for(char c : input) {
         int digit = c - '0';
-        result += static_cast<char>(digit * digit + '0');
+        result += std::to_string(digit * digit);
     }
     return result;
+}
