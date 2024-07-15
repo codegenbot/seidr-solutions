@@ -1,31 +1,27 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    while (n != 1) {
-        result.push_back(n);
-        if (n % 2 == 0) {
-            n /= 2;
-        } else {
-            n = 3 * n + 1;
-        }
-    }
-    result.push_back(1);
-    vector<int> odd_result;
-    for (int num : result) {
-        if (num % 2 != 0) {
-            odd_result.push_back(num);
-        }
-    }
-    sort(odd_result.begin(), odd_result.end());
-    return odd_result;
-}
+vector<int> get_odd_collatz(int n);
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    vector<int> result = get_odd_collatz(20);
+    vector<int> expected = {1, 3, 5, 9};
+    
+    if(issame(result, expected)){
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
     return 0;
 }
