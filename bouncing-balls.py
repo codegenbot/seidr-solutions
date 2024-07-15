@@ -1,6 +1,11 @@
-h0, h1, n = map(float, input().split())
-r = h1 / h0
-d = h0 + h1
-for i in range(1, n):
-    d += h0 * r**i * 2
-print(d)
+starting_height = float(input())
+first_bounce_height = float(input())
+num_bounces = int(input())
+
+bounciness_index = first_bounce_height / starting_height
+total_distance = starting_height + 2 * first_bounce_height
+
+for _ in range(2, num_bounces):
+    total_distance += total_distance * bounciness_index
+
+print(total_distance)
