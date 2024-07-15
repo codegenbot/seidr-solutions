@@ -1,41 +1,45 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
+using namespace std;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+void addCharacter(string& str, char c) {
+    str.push_back(c);
+}
+
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            count++;
         }
     }
+    return 4 - count;
+}
 
-    std::vector<int> codeCount(6, 0);
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i] - 'A']++;
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != code[i]) {
-            if (codeCount[guess[i] - 'A'] > 0) {
-                whitePegs++;
-                codeCount[guess[i] - 'A']--;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<6; i++) {
+        char ch = (i < 3 ? '0' + i : 'A' - 10);
+        int codeCount = 0;
+        int guessCount = 0;
+        for(int j=0; j<4; j++) {
+            if(code[j] == ch) {
+                codeCount++;
+            }
+            if(guess[j] == ch) {
+                guessCount++;
             }
         }
+        count += min(codeCount, guessCount);
     }
-
-    return blackPegs << 2 | whitePegs;
+    return count;
 }
 
 int main() {
-    std::string code = "AAAA";
-    std::string guess = "ABCD";
-
-    int result = mastermind(code, guess);
-
-    std::cout << "Black pegs: " << (result >> 2) << ", White pegs: " << result & 3 << std::endl;
-
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
