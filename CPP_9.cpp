@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm> // Add this header for std::max
+#include <algorithm>
+#include <climits>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -9,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
-    int max_num = std::numeric_limits<int>::min(); // Include <limits> for INT_MIN
+    int max_num = INT_MIN;
     for (int i = 0; i < numbers.size(); ++i) {
         max_num = std::max(max_num, numbers[i]);
         result.push_back(max_num);
