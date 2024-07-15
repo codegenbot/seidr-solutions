@@ -1,32 +1,44 @@
-#include <vector>
+```c++
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
+using namespace std;
 
-    // Count black pegs (correct color and correct place)
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            count++;
         }
     }
+    return 4 - count;
+}
 
-    // Count white pegs (correct color, wrong place)
-    std::vector<int> codeCount(6, 0);
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i] - 'A']++;
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        if (guess[i] != code[i]) {
-            if (codeCount[guess[i] - 'A'] > 0) {
-                whitePegs++;
-                codeCount[guess[i] - 'A']--;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for(int i=0; i<6; i++) {
+        int codeCount = 0;
+        int guessCount = 0;
+        char ch = (i < 3 ? '0' + i : 'A' - 10);
+        for(int j=0; j<4; j++) {
+            if(code[j] == ch) {
+                codeCount++;
+            }
+            if(guess[j] == ch) {
+                guessCount++;
             }
         }
+        if(codeCount > 0 && guessCount > 0) {
+            count += min(codeCount, guessCount);
+        }
     }
+    return count;
+}
 
-    return blackPegs << 2 | whitePegs;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    return 0;
 }
