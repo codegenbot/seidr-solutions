@@ -1,8 +1,9 @@
-Here is the solution:
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.size());
-    partial_sort(result.begin(), result.begin() + k, result.end(),
-                  [](int a, int b) { return a > b; });
-    return vector<int>(result.begin(), result.begin() + k);
+    vector<int> result;
+    for(int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
 }
