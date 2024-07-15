@@ -13,7 +13,7 @@ int std::whitePegs(std::string code, std::string guess) {
 }
 
 int std::blackPegs(std::string code, std::string guess) {
-    int blackCount = 0;
+    int count = 0;
     map<char,int> codeMap;
     for(int i=0; i<4; i++) {
         codeMap[code[i]]++;
@@ -21,19 +21,20 @@ int std::blackPegs(std::string code, std::string guess) {
     
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            blackCount++;
+            codeMap[code[i]]--;
         } else if(codeMap.find(guess[i]) != codeMap.end()) {
             codeMap[guess[i]]--;
+            count++;
         }
     }
     
     for(auto it : codeMap) {
         if(it.second > 0) {
-            return blackCount;
+            return 0;
         }
     }
     
-    return blackCount;
+    return count;
 }
 
 int main() {
