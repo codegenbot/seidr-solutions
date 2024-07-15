@@ -1,37 +1,34 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-string camelCase(string s) {
-    string result = "";
-    bool capitalizeNext = true;
-    
-    for (char c : s) {
+#include <iostream>
+#include <string>
+
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool first = true;
+
+    for (char c : input) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (c == ' ') {
-            if (capitalizeNext) {
-                result += char(toupper(c));
-                capitalizeNext = false;
-            } else {
-                result += c;
-            }
+            // skip the hyphen
+            continue;
+        }
+        if (first) {
+            output += c;
+            first = false;
         } else {
-            if (capitalizeNext) {
-                result += toupper(c);
-                capitalizeNext = false;
-            } else {
-                result += tolower(c);
-            }
+            output[0] = toupper(output[0]);
+            output.insert(1, 1, c);
         }
     }
-    
-    return result;
+
+    return output;
 }
 
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << camelCase(s) << endl;
+    std::string input;
+    while (std::cout << "input: ") {
+        std::cin >> input;
+        std::cout << "output: " << camelCase(input) << std::endl;
     }
     return 0;
 }
