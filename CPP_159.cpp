@@ -1,14 +1,16 @@
 #include <vector>
-#include <cassert> // Added for assert
+#include <cassert>
 
-std::vector<int> solve(int number, int need, int remaining) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
     return {eaten, left};
 }
 
-int main() {
-    assert(issame(solve(4, 5, 1), {5, 0})); // Corrected function name from eat to solve
-    return 0;
-}
+assert(issame(eat(4, 5, 1), {5, 0}));
+return 0;
