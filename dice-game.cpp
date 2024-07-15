@@ -1,11 +1,10 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-#include <limits>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
+    double total = n * m;
     double count = 0.0;
     
     for(int i = 1; i <= n; i++) {
@@ -22,6 +21,6 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << std::setprecision(std::numeric_limits<double>::max_digits10) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(6) << std::setprecision(6) << diceGame(n, m) << endl;
     return 0;
 }
