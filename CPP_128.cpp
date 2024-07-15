@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert> // Add this header for assert
+#include <cassert>
 
 int prod_signs(const std::vector<int>& arr) {
     if (arr.empty()) {
