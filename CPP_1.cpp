@@ -2,21 +2,21 @@
 #include <string>
 
 bool issame(char a, char b) {
-    return a == b;
+    return (a == '(' && b == ')');
 }
 
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
-        if (c == '(') {
+        if (issame(c, '(')) {
             if (open_braces > 0) {
                 current_group.push_back(c);
             }
             open_braces++;
-        } else if (c == ')') {
+        } else if (issame(c, ')')) {
             open_braces--;
             if (open_braces > 0) {
                 current_group.push_back(c);
