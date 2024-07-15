@@ -10,13 +10,6 @@ def find_min_difference(numbers):
     return result
 
 
-numbers = []
-try:
-    while True:
-        number = float(input())
-        numbers.append(number)
-except EOFError:
-    pass
-
+numbers = list(map(float, input("Enter numbers separated by space: ").split()))
 output = find_min_difference(numbers)
 print(output)
