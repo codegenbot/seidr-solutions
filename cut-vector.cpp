@@ -1,42 +1,42 @@
 #include <iostream>
-#include <vector>
-#include <numeric>
-#include <cmath>
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
-    
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int half_sum = sum / 2;
-    
-    int prefix_sum = 0;
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
+
+    int totalSum = 0;
+    for (int n : nums) {
+        totalSum += n;
+    }
+
+    int leftSum = 0;
+    int minDiff = totalSum;
+    int cutIndex = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        prefix_sum += nums[i];
-        int diff = abs(prefix_sum - half_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        leftSum += nums[i];
+        int rightSum = totalSum - leftSum;
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    
-    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    vector<int> subvector2(nums.begin() + cut_index + 1, nums.begin() + nums.size());
-    
-    for (int num : subvector1) {
-        std::cout << num << std::endl;
+
+    std::vector<int> firstSubvector(nums.begin(), nums.begin() + cutIndex + 1);
+    std::vector<int> secondSubvector(nums.begin() + cutIndex + 1, nums.end());
+
+    for (int num : firstSubvector) {
+        std::cout << num << " ";
     }
-    
-    for (int num : subvector2) {
-        std::cout << num << std::endl;
+    std::cout << std::endl;
+
+    for (int num : secondSubvector) {
+        std::cout << num << " ";
     }
-    
+    std::cout << std::endl;
+
     return 0;
 }
