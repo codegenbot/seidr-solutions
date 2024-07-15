@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     n = len(grid)
     m = len(grid[0])
@@ -20,5 +19,5 @@ def max_fill(grid, capacity):
             if container_volume >= capacity:
                 filled_containers += 1
                 container_volume = 0
-            
+    
     return filled_containers
