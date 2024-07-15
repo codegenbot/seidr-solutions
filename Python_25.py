@@ -5,6 +5,15 @@ def factorize(n):
             factors.append(i)
     return factors
 
-n = int(input("Enter a positive integer: "))
+while True:
+    try:
+        n = int(input("Enter a positive integer: "))
+        if n > 0:
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Please enter a valid positive integer.")
+
 result = factorize(n)
 print(result)
