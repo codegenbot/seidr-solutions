@@ -1,3 +1,9 @@
+try:
+    n = int(input())
+    print(prime_fib(n))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+
 def prime_fib(n):
     def is_prime(num):
         if num < 2:
@@ -22,9 +28,3 @@ def prime_fib(n):
             result.append(i)
         i += 1
     return result
-
-try:
-    n = int(input())
-    print(prime_fib(n))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
