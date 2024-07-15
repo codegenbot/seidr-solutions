@@ -1,5 +1,5 @@
-def sum_squares():
-    lst = [int(i) for i in input("Enter numbers (space-separated): ").split()]
+```
+def sum_squares(lst):
     if len(lst) == 0:
         return 0
     total = 0
