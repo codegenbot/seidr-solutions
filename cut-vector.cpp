@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <pair>
 
 using namespace std;
@@ -34,17 +34,17 @@ vector<int> cutVector(vector<int>& v) {
 }
 
 int main() {
-    int n; cin >> n;
+    int n; std::cin >> n;
     vector<int> v(n);
     for (auto& x : v) std::cin >> x;
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "1 ";
-    for (auto x : result.first) cout << x << " ";
-    cout << "\n0\n";
-    cout << "1 ";
-    for (auto x : result.second) cout << x << " ";
-    cout << "\n0\n";
+    std::cout << "1 ";
+    for (auto x : result.first) std::cout << x << " ";
+    std::cout << "\n0\n";
+    std::cout << "1 ";
+    for (auto x : result.second) std::cout << x << " ";
+    std::cout << "\n0\n";
     
     return 0;
 }
