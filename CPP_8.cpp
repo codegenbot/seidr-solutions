@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> sum_product(const std::vector<int>& a){
