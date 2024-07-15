@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <map>
 
-bool issame(int a, int b) {
+bool issame(int a, int b){
     return a == b;
 }
 
@@ -24,4 +24,16 @@ vector<string> by_length(vector<int> arr){
     }
     
     return result;
+}
+
+int main() {
+    vector<int> input_arr = {3, 1, 7, 9, 4, 2, 6, 5};
+    
+    vector<string> output = by_length(input_arr);
+    
+    for (string str : output) {
+        cout << str << " ";
+    }
+    
+    return 0;
 }
