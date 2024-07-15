@@ -1,4 +1,6 @@
 ```
+import math
+
 def bouncing_balls():
     h = float(input())
     b = float(input())
@@ -9,6 +11,6 @@ def bouncing_balls():
     for _ in range(n):
         distance_traveled = math.log((h + b) / (2 * h)) * abs(b - h)
         total_distance += distance_traveled
-        h, b = (b - h) * i, abs(b - h)
+        h, b = b, (b - h) * i
 
-    return format(total_distance, ".6f")
+    return "{:.6f}".format(total_distance)
