@@ -3,9 +3,8 @@
 using namespace std;
 
 int main() {
-    string input = "hello world spin";
-    string result = spinWords(input); 
-    cout << result; 
+    string result = spinWords("your_input_string_here"); // test with a sample input
+    cout << result; // print the result
     return 0;
 }
 
@@ -16,7 +15,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (length >= 5) {
                 for (int j = length - 1; j >= 0; j--) {
-                    result += str.substr(i - length, length).at(j);
+                    result += str[i - j];
                 }
             } else {
                 result += " ";
@@ -29,7 +28,7 @@ string spinWords(string str) {
     }
     if (length >= 5) {
         for (int i = length - 1; i >= 0; i--) {
-            result += str.substr(str.length() - length, length).at(i);
+            result += str[i];
         }
     }
     return result;
