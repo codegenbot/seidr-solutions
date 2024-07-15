@@ -5,7 +5,21 @@
 bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> parse_music(std::string music_string) {
-    // Existing implementation remains the same
+    std::vector<int> beats;
+    int i = 0;
+    while (i < music_string.size()) {
+        if (music_string[i] == 'o' && i + 1 < music_string.size() && music_string[i + 1] == '|') {
+            beats.push_back(2);
+            i += 2;
+        } else if (i + 1 < music_string.size() && music_string[i] == '|' && music_string[i + 1] == 'o') {
+            beats.push_back(1);
+            i += 2;
+        } else {
+            beats.push_back(4);
+            i++;
+        }
+    }
+    return beats;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
