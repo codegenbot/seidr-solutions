@@ -6,7 +6,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> groups;
     string group;
     int count = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             count++;
@@ -24,13 +24,17 @@ vector<string> separate_paren_groups(const string& paren_string) {
             }
         }
     }
-
+    
     return groups;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    vector<string> groups = separate_paren_groups(input);
+    string input_string;
+    cin >> input_string;
+
+    vector<string> result = separate_paren_groups(input_string);
+
+    // Code to use result vector here
+
     return 0;
 }
