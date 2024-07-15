@@ -1,5 +1,5 @@
 def make_palindrome(string: str) -> str:
-    i = len(string) - 1
+    i = len(string)
     while i > 0:
         if string[:i] == string[:i][::-1]:
             break
