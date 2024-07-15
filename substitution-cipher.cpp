@@ -3,16 +3,16 @@
 #include <string>
 
 std::string decipher(std::string key1, std::string key2, std::string message) {
-    string result = "";
+    std::string result = "";
     for (int i = 0; i < message.length(); i++) {
         if (i < key1.length()) {
-            int index = key1.find(message[i]);
+            int index = key2.find(message[i]);
             if (index != std::string::npos)
-                result += key2[index];
+                result += key1[index];
             else
-                result += message[i]; // If the character is not in the cipher, add it to the result as is.
+                result += message[i]; 
         } else {
-            result += message[i]; // If the character is beyond the length of the key, add it to the result as is.
+            result += message[i]; 
         }
     }
     return result;
