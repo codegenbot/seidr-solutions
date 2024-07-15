@@ -2,10 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(const auto& str : strings){
@@ -16,7 +12,16 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b, string sub){
+    return filter_by_substring(a, sub) == filter_by_substring(b, sub);
+}
+
 int main(){
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    vector<string> a = {"apple", "banana", "orange", "grape"};
+    vector<string> b = {"banana", "grape", "cherry", "pear"};
+    string substring = "an";
+    
+    assert(issame(a, b, substring) == true);
+
     return 0;
 }
