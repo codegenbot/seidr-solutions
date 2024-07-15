@@ -1,15 +1,16 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    if (n % 3 == 0 && n % 5 == 0)
-        cout << "FizzBuzz";
-    else if (n % 3 == 0)
-        cout << "Fizz";
-    else if (n % 5 == 0)
-        cout << "Buzz";
-    else
-        cout << to_string(n);
-    return 0;
-}
+class Solution {
+public:
+    string fizzBuzz(int x) {
+        if(x % 3 == 0 && x % 5 == 0)
+            return "FizzBuzz";
+        else if(x % 3 == 0)
+            return "Fizz";
+        else if(x % 5 == 0)
+            return "Buzz";
+        else
+            return to_string(x);
+    }
+};
