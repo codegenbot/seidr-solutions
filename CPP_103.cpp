@@ -27,7 +27,7 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     
-    std::cout << find_binary_avg(n, m) << std::endl;
+    std::cout << find_binary_avg(n, m);
     
     return 0;
 }
