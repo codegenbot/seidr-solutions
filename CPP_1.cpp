@@ -3,34 +3,14 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+using namespace std;
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
+vector<string> separate_paren_groups(string paren_string);
+bool issame(vector<string> a, vector<string> b);
 
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    std::string input = "((group1)(group2)(group3))";
-    std::vector<std::string> output = separate_paren_groups(input);
-    std::vector<std::string> expected_output = {"(group1)", "(group2)", "(group3)"};
-    assert(issame(output, expected_output));
-
-    return 0;
-}
-
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
@@ -51,4 +31,28 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    string paren_string = "((group1)(group2)(group3))";
+    vector<string> result = separate_paren_groups(paren_string);
+
+    vector<string> expected_result = {"(group1)", "(group2)", "(group3)"};
+    assert(issame(result, expected_result));
+
+    return 0;
 }
