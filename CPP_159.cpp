@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 class eat {
@@ -18,22 +17,6 @@ private:
     int remaining;
 };
 
-namespace contest {
-    std::vector<int> issame(std::vector<int> v1, std::vector<int> v2) {
-        return v1 == v2;
-    }
-}
-
-int main() {
-    int number, need, remaining;
-    std::cin >> number >> need >> remaining;
-
-    eat e(number, need, remaining);
-    std::vector<int> result = e.calculate();
-
-    for (int val : result) {
-        std::cout << val << " ";
-    }
-
-    return 0;
+bool issame(std::vector<int> vec1, std::vector<int> vec2) {
+    return vec1 == vec2;
 }
