@@ -9,8 +9,3 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     result.push_back(1);
     return result;
 }
-
-int main() {
-    // Your test cases here
-    return 0;
-}
