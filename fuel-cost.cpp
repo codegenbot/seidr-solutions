@@ -1,14 +1,17 @@
 #include <vector>
 #include <cmath>
 
-namespace std {
 int fuelCost(std::vector<int> vec) {
     int sum = 0;
     for (int i : vec) {
-        int val = static_cast<int>(floor(double(i) / 3)) - 2;
+        int val = static_cast<int>(i / 3) - 2;
+        if(val<0)val=0; // adjust here
         sum += val;
     }
     return sum; 
 }
 
-int main() { std::cout << fuelCost({10,15,20,5}) << std::endl; return 0; }
+int main() {
+    std::cout << fuelCost({10,20,30})<<std::endl; 
+    return 0;
+}
