@@ -1,17 +1,12 @@
-```
+```cpp
 #include <string>
+#include <algorithm>
 
 std::string squareDigits(std::string input) {
-    for(int i = 0; i < input.length(); i++) {
+    std::string output = "";
+    for(int i=0; i<input.length(); i++) {
         int digit = input[i] - '0';
-        std::string squared = std::to_string(digit * digit);
-        input.replace(i, 1, squared);
+        output += std::to_string(digit * digit);
     }
-    return input;
-}
-
-int main() { 
-    std::string input; 
-    input = "34"; 
-    std::cout << squareDigits(input) << std::endl; 
+    return output;
 }

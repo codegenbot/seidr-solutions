@@ -8,11 +8,22 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || (input[i] == '-' && input[i - 1] != ' ')) {
             if (start < i) {
-                output += std::string(std::tolower(input[start]), i - start);
+                output += std::string(1, (input[start] >= 'a' && input[start] <= 'z') ? std::tolower(input[start]) : std::toupper(input[start]));
+                for (size_t j = start + 1; j < i; ++j) {
+                    if (start == 0) {
+                        output += input[j];
+                    } else {
+                        output += std::string(1, (input[j] >= 'a' && input[j] <= 'z') ? std::tolower(input[j]) : std::toupper(input[j]));
+                    }
+                }
             }
             if (i < input.size()) {
-                output.push_back(toupper(input[i]));
-                start = i + 1;
+                if (start >= i || input[i] != '-') {
+                    output.push_back(std::string(1, (input[i] >= 'a' && input[i] <= 'z') ? std::tolower(input[i]) : std::toupper(input[i])));
+                    start = i + 1;
+                } else {
+                    start = i + 1;
+                }
             } else {
                 return output;
             }
