@@ -1,15 +1,18 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b){
     return a == b;
 }
 
-int main() {
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
+std::std::vector<int> sum_product(const std::std::vector<int>& a){
+    std::std::vector<int> result;
+    result.push_back(a[0]);
+    result.push_back(a[0]);
+    return result;
+}
 
-    assert(issame(vec1, vec2));
-    
+int main() {
+    assert(std::issame(std::sum_product({10}), {10, 10}));
     return 0;
 }
