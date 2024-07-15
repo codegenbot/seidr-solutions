@@ -37,7 +37,8 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 void test() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
     std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
-    for (int i = 0; i < expected.size(); ++i) {
+
+    for (size_t i = 0; i < expected.size(); ++i) {
         assert(issame(expected[i], result[i]));
     }
 }
