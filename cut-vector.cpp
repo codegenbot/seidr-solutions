@@ -1,47 +1,46 @@
 ```
 #include <vector>
-#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
     vector<vector<int>> res(2);
-    
     int minDiff = INT_MAX;
-    int pos = -1;
+    int index = -1;
     
-    for(int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
+    for(int i = 0; i < v.size(); i++) {
+        if(i == 0 || i == v.size()-1)
+            continue;
+        int diff1 = abs(v[0] - v[i]);
+        int diff2 = abs(v[v.size()-1] - v[i]);
         
-        if(i > 0)
-            leftSum = accumulate(v.begin(), v.begin() + i, 0);
-        else
-            leftSum = v[0];
-        
-        for(int j = i+1; j <= n-1; j++)
-            rightSum += v[j];
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if(diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+        if(diff1 <= diff2 && diff1 < minDiff) {
+            minDiff = diff1;
+            index = i;
+        }
+        else if(diff2 < minDiff) {
+            minDiff = diff2;
+            index = v.size() - 1 - i;
         }
     }
     
-    res[0] = vector<int>(v.begin(), v.begin() + pos);
-    res[1] = vector<int>(v.begin() + pos, v.end());
-    
+    res[0].clear();
+    for(int i = 0; i <= index; i++)
+        res[0].push_back(v[i]);
+        
+    res[1].clear();
+    for(int i = index + 1; i < v.size(); i++)
+        res[1].push_back(v[i]);
+        
     return res;
 }
 
-int main() { 
-    vector<int> v = {5, 8, 9, 10};
+int main() {
+    vector<int> v = {1,2,3,4};
     vector<vector<int>> result = cutVector(v);
-    for(auto &sub : result) {
-        cout << "[";
-        for(int i : sub)
-            cout << i << " ";
-        cout << "] ";
+    
+    for(auto &vec : result) {
+        for(int num : vec)
+            cout << num << " ";
+        cout << endl;
     }
 }
