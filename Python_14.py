@@ -1,8 +1,10 @@
-# Read input from user
-input_string = input()
+from typing import List
 
-# Call the all_prefixes function with the input string
+
+def all_prefixes(string: str) -> List[str]:
+    return [string[:i] for i in range(1, len(string) + 1)]
+
+
+input_string = input("Enter a string: ")
 result = all_prefixes(input_string)
-
-# Print the result
 print(result)
