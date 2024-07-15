@@ -41,4 +41,4 @@ int main() {
     std::cin >> code >> guess;
     std::cout << whitePegs(code, guess) << std::endl;
     std::cout << blackPegs(code, guess) << std::endl;
-    return 0; }
+    return 0;
