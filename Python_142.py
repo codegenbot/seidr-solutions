@@ -1,6 +1,7 @@
+```
 def sum_squares(lst):
-    lst = list(map(int, input("Enter space-separated integers: ").split()))
     total = 0
+    lst = list(map(int, input("Enter space-separated integers: ").split()))
     for i in range(len(lst)):
         if i % 3 == 0 and i % 4 != 0:
             total += lst[i]**2
