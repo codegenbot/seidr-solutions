@@ -1,11 +1,12 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
-string match_parens(vector<string> lst) {
+std::string match_parens(const std::vector<std::string>& lst) {
     int cnt = 0;
-    for (string s : lst) {
+    
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
@@ -17,10 +18,12 @@ string match_parens(vector<string> lst) {
             }
         }
     }
+    
     return cnt == 0 ? "Yes" : "No";
 }
 
 int main() {
     assert(match_parens({")", "("}) == "Yes");
+    
     return 0;
 }
