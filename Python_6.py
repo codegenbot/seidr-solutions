@@ -3,26 +3,20 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     max_depth = 0
     current_depth = 0
-    stack = []
+    total_count = 0  # Added variable
     
     for char in paren_string:
-        if char not in ['(', ')']:
-            return []
-        
         if char == '(':
-            stack.append(char)
-            current_depth = len(stack)
+            current_depth += 1
             max_depth = max(max_depth, current_depth)
+            total_count += 1  # Increment total count
         elif char == ')':
-            if not stack:
-                return []
-            stack.pop()
-            current_depth = len(stack)
+            current_depth -= 1
     
-    if stack:
-        return []
-    
-    return [max_depth]
+    return [max_depth, total_count]  # Return both max depth and total count
 
+# Take input from user
 paren_string = input("Enter a string of nested parentheses: ")
+
+# Print the result
 print(parse_nested_parens(paren_string))
