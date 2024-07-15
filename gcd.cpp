@@ -1,6 +1,6 @@
 int main() {
-    int a = 71065;
-    int b = 426691; 
+    int a, b;
+    cin >> a >> b;
     while (b != 0) {
         int temp = b;
         b = a % b;

@@ -8,8 +8,3 @@ int fuelCost(std::vector<int> vec) {
         sum += result;
     }
     return sum;
-}
-
-int main() {
-    return fuelCost({1, 2, 3, 4, 5});
-}

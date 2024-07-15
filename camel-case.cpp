@@ -6,12 +6,12 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == '-') {
             if (start < i) {
-                output += std::string(1, input.substr(start, 1)).toupper();
+                output += toupper(input[start]);
                 start = i + 1;
             }
             if (i < input.size()) {
                 if (input[i + 1] == '-') continue;
-                output.push_back(std::tolower(input[i]));
+                output.push_back_tolower(input[i]);
                 start = i + 1;
             } else {
                 return output;
