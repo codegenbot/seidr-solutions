@@ -4,7 +4,7 @@ def increment_list(l):
 # Sample input
 input_list = [1, 2, 3, 4]
 
-# Function call - Corrected function name
+# Corrected function call
 output_list = increment_list(input_list)
 
 # Output
