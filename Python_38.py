@@ -3,7 +3,6 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-# Read input from user
-input_string = input("Enter the string to decode: ")
+input_string = input().strip()
 result = decode_cyclic(input_string)
 print(result)
