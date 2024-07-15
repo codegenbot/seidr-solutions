@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -16,4 +17,9 @@ std::vector<int> get_odd_collatz(int n){
     std::copy_if(result.begin(), result.end(), std::back_inserter(odd_result), [](int num){ return num % 2 != 0; });
     std::sort(odd_result.begin(), odd_result.end());
     return odd_result;
+}
+
+int main() {
+    assert(is_same(get_odd_collatz(1), std::vector<int>{1}));
+    return 0;
 }
