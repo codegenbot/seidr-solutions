@@ -1,7 +1,11 @@
 def spin_words(text):
+    result = []
     words = text.split()
-    result = [''.join(word[::-1]) if len(word) > 4 else word for word in words]
+    for word in words:
+        if len(word) >= 5:
+            result.append(word[::-1])
+        else:
+            result.append(word)
     return ' '.join(result).strip()
 
-text = input("Enter a string: ")
-print(spin_words(text))
+print(spin_words("This is a test string."))
