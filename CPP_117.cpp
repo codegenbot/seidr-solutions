@@ -6,17 +6,22 @@ std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> words;
     std::string word;
     for (char c : s) {
-        if (c != ' ') {
-            word += c;
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
         } else {
-            words.push_back(word);
-            word = "";
+            word += c;
         }
     }
-    words.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
+    }
 
     std::vector<std::string> selected_words;
-    if (n <= words.size() && n >= 1) {
+
+    if (n > 0 && n <= words.size()) {
         selected_words.push_back(words[n]);
     }
 
