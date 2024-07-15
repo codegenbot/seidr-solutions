@@ -14,4 +14,12 @@ std::vector<int> incr_list(const std::vector<int>& l) {
     return result;
 }
 
-int main();
+int main() {
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    std::vector<int> expected = {2, 3, 4, 5, 6};
+
+    std::vector<int> result = incr_list(input);
+    assert(issame(result, expected));
+
+    return 0;
+}
