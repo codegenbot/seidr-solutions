@@ -6,9 +6,6 @@ def factorize(n):
     return factors
 
 
-try:
-    n = int(input("Enter a positive integer: "))
-    result = factorize(n)
-    print(result)
-except ValueError:
-    print("Please enter a valid positive integer.")
+n = int(input("Enter a positive integer: "))
+result = factorize(n)
+print(result)
