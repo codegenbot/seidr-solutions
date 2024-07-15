@@ -1,1 +1,2 @@
-n = int(input())  # Read an integer input from the user.
+def read_integer() -> int:
+    return int(input())
