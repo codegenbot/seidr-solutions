@@ -6,18 +6,18 @@ int bowlingScore(char c) {
     
     if (c == 'X') {
         score += 30;
-        if (c + 1 < 2 || (c + 1 >= '/' && (c + 2) == 'X')) {
+        if (std::isdigit(c + 1) || ((c + 1) == '/' && std::isdigit(c + 2))) {
             score -= 20;
         }
     } else if (c == '/') {
         int next = c + 2;
-        while (next > '9' || next < '7') {
+        while (!std::isdigit(next)) {
             next++;
         }
-        score += 10 + (next - c - 1) * 1;
+        score += 10 + (next - '0') * 1;
     } else {
         int count = 0;
-        while (c >= '1' && c <= '9') {
+        while (std::isdigit(c)) {
             count *= 10;
             count += c - '0';
             c++;
@@ -34,11 +34,7 @@ int main() {
     std::getline(std::cin, s);
     
     for (char c : s) {
-        int total = 0;
-        while(c != '\0') {
-            total += bowlingScore(c);
-            c++;
-        }
-        std::cout << "The score is: " << total << std::endl;
+        int score = bowlingScore(c);
+        std::cout << "The score is: " << score << std::endl;
     }
 }
