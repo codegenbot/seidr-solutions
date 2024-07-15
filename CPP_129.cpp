@@ -1,8 +1,16 @@
 bool issame(vector<int> a, vector<int> b){
-    return a == b;
+    // Your implementation here
 }
 
+vector<int> minPath(vector<vector<int>> grid, int k);
+
 vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> result = {1, 2, 3}; // Example result, replace with actual code
+    vector<int> result;
+    result.push_back(1);
     return result;
+}
+
+int main() {
+    // Your test cases here
+    return 0;
 }
