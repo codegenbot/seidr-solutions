@@ -1,7 +1,10 @@
+```cpp
 #include <vector>
-#include <initializer_list>
-
 using namespace std;
+
+int main() {
+    return 0;
+}
 
 vector<int> leaders(vector<int>& vec) {
     vector<int> result;
@@ -13,3 +16,4 @@ vector<int> leaders(vector<int>& vec) {
         }
     }
     return result;
+}

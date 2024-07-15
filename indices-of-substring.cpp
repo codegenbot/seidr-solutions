@@ -11,9 +11,3 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
     return res;
 }
-
-int main() {
-    string text = "Hello World";
-    string target = "World";
-    vector<int> res = indicesOfSubstring(text, target);
-}
