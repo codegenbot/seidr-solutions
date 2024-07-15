@@ -1,9 +1,12 @@
+#include <iostream>
+#include <vector>
+
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
     
     int black = 0, white = 0;
-    vector<int> freq(6, 0);
+    std::vector<int> freq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -20,7 +23,7 @@ int main() {
         }
     }
     
-    cout << white << "\n" << black << "\n";
+    std::cout << white << "\n" << black << "\n";
     
     return 0;
 }
