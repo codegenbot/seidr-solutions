@@ -26,9 +26,7 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main(){
-    // Add your test cases here
-    assert(issame({1.0, 2.0, 3.0}, {1.0, 2.0, 3.0}));
-    assert(!issame({1.0, 2.0, 3.0}, {1.0, 2.0, 4.0}));
-
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {1, 2, 4}));
     return 0;
 }
