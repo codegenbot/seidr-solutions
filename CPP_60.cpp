@@ -10,8 +10,6 @@ int sum_to_n(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::cout << sum_to_n(n) << std::endl;
+    assert(sum_to_n(100) == 5050);
     return 0;
 }
