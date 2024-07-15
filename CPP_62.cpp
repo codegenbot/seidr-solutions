@@ -1,24 +1,21 @@
 #include <vector>
 #include <cassert>
 
-float derivative(const std::vector<float>& v);
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
-
-float derivative(const std::vector<float>& v){
-    if(v.size() <= 1) {
+float derivative(const std::vector<float>& v) {
+    if (v.size() <= 1) {
         return 0.0f;
     }
-    
+
     return v[1] - v[0];
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b){
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return derivative(a) == derivative(b);
 }
 
-int main(){
+int main() {
     // Test case to check if issame works correctly
-    assert(issame( {1.0f} , {} ));
+    assert(issame({1.0f}, {0.0f}));
     
     return 0;
 }
