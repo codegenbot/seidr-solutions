@@ -1,12 +1,12 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
+} 
 
-vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    string numStr = to_string(abs(num));
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result(2, 0);
+    std::string numStr = std::to_string(abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             result[0]++;
