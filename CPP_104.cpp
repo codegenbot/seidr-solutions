@@ -17,7 +17,8 @@ std::vector<int> unique_digits(const std::vector<int>& x){
     return std::vector<int>(uniqueSet.begin(), uniqueSet.end());
 }
 
-int main() {
+int main(){
     assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    
     return 0;
 }
