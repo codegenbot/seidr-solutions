@@ -1,12 +1,16 @@
-vector<string> words;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> split_words(const string& txt) {
+    vector<string> words;
     string word = "";
+
     for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else if (c == ',') {
+        if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
                 word = "";
@@ -15,9 +19,11 @@ vector<string> words;
             word += c;
         }
     }
+
     if (!word.empty()) {
         words.push_back(word);
     }
+
     if (words.empty()) {
         int count = 0;
         for (char c : txt) {
@@ -25,7 +31,9 @@ vector<string> words;
                 count++;
             }
         }
+
         words.push_back(to_string(count));
     }
+
     return words;
 }
