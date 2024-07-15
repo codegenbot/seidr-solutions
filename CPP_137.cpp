@@ -1,37 +1,26 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <boost/any.hpp>
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-            return a;
-        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-            return b;
-        } else {
-            return "None";
-        }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-            return a;
-        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-            return b;
-        } else {
-            return "None";
-        }
-    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        if(std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))){
-            return a;
-        } else if(std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))){
-            return b;
-        } else {
-            return "None";
-        }
-    } else if((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))){
-        return "None";
+using namespace std;
+
+boost::any compare(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (boost::any_cast<int>(a) >= boost::any_cast<int>(b)) ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return (boost::any_cast<float>(a) >= boost::any_cast<float>(b)) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (stof(boost::any_cast<string>(a)) >= stof(boost::any_cast<string>(b))) ? a : b;
     }
+
+    return a; // Handle other types, return the first argument by default
 }
 
 int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    // Input from user
+    int int1, int2;
+    cin >> int1 >> int2;
+    cout << boost::any_cast<int>(compare(int1, int2)) << endl;
+
+    return 0;
 }
