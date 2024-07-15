@@ -1,4 +1,10 @@
-double num = stod(value);
-    int rounded_num = static_cast<int>(num + (num >= 0 ? 0.5 : -0.5));
-    return rounded_num;
+#include <cmath>
+
+int closest_integer(std::string value) {
+    double num = stod(value);
+    int closest_integer = round(num);
+    if (num - closest_integer == 0.5 || num - closest_integer == -0.5) {
+        closest_integer = (num > 0) ? ceil(num) : floor(num);
+    }
+    return closest_integer;
 }
