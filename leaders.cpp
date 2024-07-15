@@ -7,7 +7,6 @@ std::vector<int> leaders(std::vector<int>& vec) {
     for (int i = vec.size() - 1; i >= 0; --i) {
         if (vec[i] > maxRight) {
             maxRight = vec[i];
-            result.clear();
             result.push_back(maxRight);
         } else if (maxRight == vec[i]) {
             result.push_back(maxRight);
