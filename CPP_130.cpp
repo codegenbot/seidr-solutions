@@ -1,10 +1,14 @@
 #include <vector>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> tri(int n){
     std::vector<int> result;
     result.push_back(3);
     if(n == 0) return result;
-    
+
     result.push_back(1);
     if(n == 1) return result;
 
