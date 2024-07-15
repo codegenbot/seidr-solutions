@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -32,30 +32,12 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    cout << "Enter two integers: ";
-    while (!(cin >> a >> b)) {
-        cout << "Invalid input. Please enter two integers: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> a >> b;
-    }
-    if (a > INT_MAX / b) {
-        cout << "Error: The result of the GCD operation exceeds the maximum allowed integer size." << endl;
-        return 1; // or exit()
-    }
+    cin >> a >> b;
+    cout << gcd(a, b);
 
     string text, target;
-    cout << "Enter text and target: ";
-    while (!(cin >> text >> target)) {
-        cout << "Invalid input. Please enter two strings: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> text >> target;
-    }
-    
+    cin >> text >> target;
     vector<int> indices = findIndices(text, target);
     for(int i : indices)
-        cout << i << " ";
-
-    return 0;
+        cout << " " << i;
 }
