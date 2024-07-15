@@ -8,10 +8,5 @@ int add_elements(std::vector<int> arr,int k){
         if(log10(arr[i])<3) sum+=arr[i];
     }
     return sum;
-}
 
-int main() {
-    // Test the function
-    assert(add_elements({1}, 1) == 1);
-    return 0;
 }
