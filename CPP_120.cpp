@@ -3,8 +3,11 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    // your comparison logic here
-    return (a.size() == b.size()) && (a == b);
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
