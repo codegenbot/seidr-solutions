@@ -1,8 +1,10 @@
+Here is the corrected code:
+
 ```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
-bool isSpace(char c);
 std::string spinWords(std::string sentence) {
     std::string result = "";
     std::string word;
@@ -10,7 +12,7 @@ std::string spinWords(std::string sentence) {
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == ' ') {
             for (int j = i - 1; j >= 0; j--) {
-                if (!isSpace(sentence[j])) {
+                if (!std::isspace(sentence[j])) {
                     result += sentence[j];
                     break;
                 }
@@ -18,7 +20,7 @@ std::string spinWords(std::string sentence) {
             result += " ";
         } else if (i == sentence.length() - 1) {
             for (int j = i; j >= 0; j--) {
-                if (!isSpace(sentence[j])) {
+                if (!std::isspace(sentence[j])) {
                     result += sentence[j];
                     break;
                 }
@@ -43,10 +45,6 @@ std::string spinWords(std::string sentence) {
     }
     
     return result;
-}
-
-bool isSpace(char c) {
-    return c == ' ';
 }
 
 int main() {
