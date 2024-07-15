@@ -20,8 +20,8 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = std::sqrt(std::abs(sum));
-    std::cout << result << std::endl;
+    double result = std::sqrt(sum);
+    std::cout << std::fixed << std::setprecision(15) << result << std::endl;
 
     return 0;
 }
