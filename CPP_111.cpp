@@ -13,7 +13,6 @@ map<char, int> histogram(string test);
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    // Add more test cases here
     return 0;
 }
 
