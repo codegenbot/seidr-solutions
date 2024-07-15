@@ -1,6 +1,5 @@
 try:
-    n = int(input("Enter the total count of numbers: "))
-    print("Enter the numbers separated by space:")
+    n = int(input())
     numbers = [int(x) for x in input().split()]
     
     if len(numbers) != n:
