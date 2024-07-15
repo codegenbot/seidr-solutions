@@ -17,24 +17,19 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    cin >> text;
-    cout << "Enter the target substring: ";
-    cin >> target;
-
-    vector<int> indices = indicesOfSubstring(text, target);
-
-    if (indices.size() == 0) {
-        cout << "Target not found in the text." << endl;
-    } else {
-        cout << "Indices at which the target appears in the text are: ";
-        for (int i : indices) {
-            cout << i << " ";
-        }
-        cout << endl;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+    return a;
+}
+
+int main() {
+    int a = 48;
+    int b = 18; 
+    cout << "GCD: " << gcd(a, b) << endl;
 
     return 0;
 }
