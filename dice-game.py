@@ -1,6 +1,4 @@
-```
 def dice_game(n, m):
     total = n * m
-    higher_than_or_equal_to_colin = sum(1 for colin in range(m) 
-                                         for p in range(max(colin+1, 1), n+1)) + (m-1)
-    return higher_than_or_equal_to_colin / total
+    peter_higher = sum(min(i, j) for i in range(1, n+1) for j in range(1, m+1)) + (n*m - min(m, n))
+    return peter_higher / total
