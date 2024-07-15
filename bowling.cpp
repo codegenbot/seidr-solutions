@@ -1,4 +1,5 @@
-```
+#include <string>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool inFrame = false;
@@ -23,12 +24,6 @@ int bowlingScore(std::string s) {
             inFrame = false;
             currentRolls = 0;
         }
-    }
-
-    // Add this line
-    if (inFrame || currentScore > 0) {
-        if (inFrame) score += 10 + currentScore;
-        else score += currentScore;
     }
 
     return score;
