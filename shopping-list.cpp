@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -28,5 +27,10 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
+    char c;
+    cin.get(c);
+    if (c != '\n') {
+        cin.ignore();
+    }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
-}
+    return 0;
