@@ -2,9 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b); // Forward declaration
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,9 +14,4 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
     return l_copy;
-}
-
-int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), std::vector<int>{2, 6, 3, 4, 8, 9, 5, 1}));
-    return 0;
 }
