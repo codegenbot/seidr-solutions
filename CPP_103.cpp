@@ -1,7 +1,8 @@
+#include <iostream>
 #include <string>
 #include <cmath>
 
-std::string find_binary_avg(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -11,7 +12,7 @@ std::string find_binary_avg(int n, int m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = std::round(static_cast<double>(sum) / (m - n + 1));
     
     std::string binary_avg = "";
     while (avg > 0) {
@@ -23,9 +24,7 @@ std::string find_binary_avg(int n, int m) {
 }
 
 int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << find_binary_avg(n, m);
+    assert (rounded_avg(5, 5) == "101");
     
     return 0;
 }
