@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <cassert>
+#include <cstdlib>
 
 std::string change_base(int num, int base) {
     std::string result = "";
@@ -15,7 +16,7 @@ std::string change_base(int num, int base) {
 
 int main() {
     int x = 2;
-    for (int i = 2; i <= 10; ++i) {
+    for(int i = 2; i <= 10; ++i){
         std::cout << "Base " << i << ": " << change_base(x, i) << std::endl;
     }
 
