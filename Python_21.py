@@ -1,9 +1,12 @@
 def normalize_numbers(numbers):
-    numbers.sort()
-    min_num = numbers[0]
-    max_num = numbers[-1]
-    return [(x - min_num) / (max_num - min_num) for x in numbers]
+    if any(num <= 0 for num in numbers):
+        return [0]
+    min_num = min(numbers)
+    return [num // min_num for num in numbers if num % min_num == 0]
 
-numbers = list(map(int, input('Enter numbers separated by space: ').split()))
-result = normalize_numbers(numbers)
-print(result)
+try:
+    numbers = list(map(int, input('Enter numbers separated by space: ').split()))
+    result = normalize_numbers(numbers)
+    print(result)
+except (ValueError, ZeroDivisionError):
+    print("Invalid input. Please enter valid numbers separated by spaces.")
