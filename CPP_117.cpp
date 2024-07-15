@@ -2,42 +2,38 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> select_words(string s, int n);
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
+    
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
+    
     return true;
 }
 
+vector<string> select_words(string s, int n);
+
 int main() {
-    // Test issame function
-    vector<string> test1 = {"apple", "banana", "cherry"};
-    vector<string> test2 = {"apple", "banana", "cherry"};
-    vector<string> test3 = {"apple", "orange", "cherry"};
-
-    std::cout << issame(test1, test2) << std::endl; // Output: 1 (true)
-    std::cout << issame(test1, test3) << std::endl; // Output: 0 (false)
-
-    // Test select_words function
-    string input = "hello world apple orange";
-    int n = 2;
-    vector<string> result = select_words(input, n);
-
-    for (const string& word : result) {
-        std::cout << word << " ";
+    string input;
+    int n;
+    getline(cin, input);
+    cin >> n;
+    
+    vector<string> selectedWords = select_words(input, n);
+    
+    // Test the select_words function
+    vector<string> testWords = {"hello", "world"};
+    if (issame(selectedWords, testWords)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
     }
-
+    
     return 0;
 }
 
