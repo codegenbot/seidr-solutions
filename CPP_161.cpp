@@ -1,4 +1,4 @@
-std::string solve(std::string s) {
+string solve(string &s) {
     for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
@@ -10,4 +10,9 @@ std::string solve(std::string s) {
     }
     
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
