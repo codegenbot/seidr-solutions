@@ -1,7 +1,5 @@
-#include <vector>
-#include <iostream>
 #include <string>
-#include <initializer_list>
+#include <algorithm>
 
 using namespace std;
 
