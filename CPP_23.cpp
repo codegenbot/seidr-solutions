@@ -1,7 +1,6 @@
-#include <cstring>
 #include <cassert>
+#include <cstring>
 
-int main() {
-    assert(strlen("asdasnakj") == 9);
-    return strlen("asdasnakj");
+int countChars(const char* str) {
+    return strlen(str);
 }
