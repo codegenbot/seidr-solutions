@@ -13,7 +13,7 @@ int main() {
             frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - (c - '0'); // Updated calculation for spare
+            frames[frame] = 10 - (frames[frame-1] + c - '0');
             frame++;
             ball = 0;
         } else if (c == '-') {
