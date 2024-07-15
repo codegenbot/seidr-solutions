@@ -1,6 +1,5 @@
 #include <string>
 #include <set>
-#include <vector>
 
 string find_max(const vector<string>& words) {
     string max_word = "";
@@ -14,5 +13,5 @@ string find_max(const vector<string>& words) {
         }
     }
 
-return max_word;
+    return max_word;
 }
