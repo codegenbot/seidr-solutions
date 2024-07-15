@@ -1,19 +1,17 @@
-#include <string>
-#include <algorithm>
-#include <cctype>
-
-string solve(string s) {
-    for (int i = 0; i < s.length(); i++) {
-        if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+string solve(const string &s) {
+    string result = s;
+    for(char &c : result){
+        if(isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if(count_if(result.begin(), result.end(), isalpha) == 0){
+        reverse(result.begin(), result.end());
     }
-    return s;
+    return result;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
