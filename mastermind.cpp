@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
