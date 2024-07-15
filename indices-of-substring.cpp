@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -17,4 +18,5 @@ int main() {
     string target = "s8B";
     vector<int> res = indicesOfSubstring(text, target);
     cout << to_string(res[0]) + " " << to_string(res.size()) << endl; 
-    // prints 1 2
+    // prints 1 4
+}
