@@ -16,6 +16,11 @@ int Solution::smallest_change(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(Solution::smallest_change({0, 1}) == 1);
+    std::vector<int> arr;
+    int num;
+    while (std::cin >> num) {
+        arr.push_back(num);
+    }
+    std::cout << Solution::smallest_change(arr) << std::endl;
     return 0;
 }
