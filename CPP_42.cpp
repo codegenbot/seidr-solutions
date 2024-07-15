@@ -15,17 +15,20 @@ std::vector<int> incr_list(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
-    
-    bool result = issame(vec1, vec2);
-    std::vector<int> increased = incr_list(vec1);
-    
-    // Output the result
-    std::cout << result << std::endl;
-    for (int num : increased) {
+    std::vector<int> l1 = {1, 2, 3};
+    std::vector<int> l2 = {1, 2, 4};
+
+    if (issame(l1, l2)) {
+        std::cout << "Lists are the same" << std::endl;
+    } else {
+        std::cout << "Lists are not the same" << std::endl;
+    }
+
+    std::vector<int> incremented_list = incr_list(l1);
+    for (int num : incremented_list) {
         std::cout << num << " ";
     }
-    
+    std::cout << std::endl;
+
     return 0;
 }
