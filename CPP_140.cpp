@@ -1,4 +1,5 @@
 #include <string>
+
 std::string fix_spaces(std::string text){
     std::string result = "";
     int consecutive_spaces = 0;
@@ -21,8 +22,9 @@ std::string fix_spaces(std::string text){
 }
 
 int main() {
-    std::string input_text = "hello   world";  // Test input text
-    std::string fixed_text = fix_spaces(input_text);
-    std::cout << fixed_text << std::endl;  // Output the fixed text
+    std::string input;
+    std::getline(std::cin, input);
+    std::string result = fix_spaces(input);
+    std::cout << result << std::endl;
     return 0;
 }
