@@ -9,9 +9,8 @@ int luhn(vector<int> numbers) {
             if (temp > 9) { 
                 temp -= 9;
             }
-        } else {
-            sum += numbers[i]; 
         }
+        sum += numbers[i]; 
     }
     return sum;
 }

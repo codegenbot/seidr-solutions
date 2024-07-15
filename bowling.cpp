@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include <cctype>
 
 int bowlingScore(char c) {
     int score = 0;
-
+    
     if (c == 'X') {
         score += 30;
-        if ((c + 1 >= '/' && (c + 2) == 'X')) {
+        if (c + 1 < 2 || (c + 1 >= '/' && (c + 2) == 'X')) {
             score -= 20;
         }
     } else if (c == '/') {
@@ -25,7 +24,7 @@ int bowlingScore(char c) {
         }
         score += count;
     }
-
+    
     return score;
 }
 
@@ -33,11 +32,13 @@ int main() {
     std::string s;
     std::cout << "Enter the input string: ";
     std::getline(std::cin, s);
-
-    int score = 0;
+    
     for (char c : s) {
-        score += bowlingScore(c);
+        int total = 0;
+        while(c != '\0') {
+            total += bowlingScore(c);
+            c++;
+        }
+        std::cout << "The score is: " << total << std::endl;
     }
-    std::cout << "The total score is: " << score << std::endl;
-    return 0;
 }
