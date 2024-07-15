@@ -11,6 +11,6 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
     return filtered_vec;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
