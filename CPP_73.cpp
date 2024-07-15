@@ -1,4 +1,4 @@
-int smallest_change(const vector<int>& arr) {
+int smallest_change(vector<int>& arr) {
     int n = arr.size();
     int changes = 0;
     
@@ -9,4 +9,9 @@ int smallest_change(const vector<int>& arr) {
     }
     
     return changes;
+}
+
+int main() {
+    // Main function code here
+    return 0;
 }
