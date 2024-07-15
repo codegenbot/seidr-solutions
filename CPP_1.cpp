@@ -1,11 +1,11 @@
-#include <iostream>
+#include <string>
 #include <vector>
 #include <cassert>
 
-using string = std::string;
+using namespace std;
 
-std::vector<string> separate_paren_groups(const string &paren_string) {
-    std::vector<string> result;
+vector<string> separate_paren_groups(const string &paren_string) {
+    vector<string> result;
     string current_group;
     int open_braces = 0;
 
@@ -29,10 +29,10 @@ std::vector<string> separate_paren_groups(const string &paren_string) {
     return result;
 }
 
-bool issame(std::vector<string> a, std::vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<string>{"()", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
 }
