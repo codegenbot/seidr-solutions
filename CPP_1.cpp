@@ -21,7 +21,7 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
         }
         else if (c == ')') {
             open_braces--;
-            if (open_braces >= 1) {
+            if (open_braces > 0) {
                 current_group += c;
             }
             else {
@@ -36,9 +36,9 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 
 void test() {
     std::vector<std::string> expected = {"()", "(())", "(()())"};
-    auto result = separate_paren_groups("( ) (( )) (( )( ))");
-    for (size_t i = 0; i < expected.size(); ++i) {
-        assert(issame(result[i], expected[i]));
+    std::vector<std::string> result = separate_paren_groups("( ) (( )) (( )( ))");
+    for (int i = 0; i < expected.size(); ++i) {
+        assert(issame(expected[i], result[i]));
     }
 }
 
