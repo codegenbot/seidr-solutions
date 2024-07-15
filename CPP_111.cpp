@@ -11,7 +11,7 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
-    assert (issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
     cout << "Test passed!" << endl;
 
     return 0;
