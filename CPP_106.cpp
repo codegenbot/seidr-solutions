@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> f(int n) {
+std::vector<int> calculateValues(int n) {
     if (n == 1) {
         return {1};
     } else if (n == 2) {
@@ -21,6 +21,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(issame(calculateValues(3), {1, 2, 6}));
     return 0;
 }
