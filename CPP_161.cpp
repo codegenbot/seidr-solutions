@@ -1,6 +1,6 @@
 #include <string>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 std::string solve(std::string s){
     bool hasLetter = false;
