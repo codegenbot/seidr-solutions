@@ -6,14 +6,7 @@ string spinWords(string str) {
     for (char c : str) {
         if (c == ' ') {
             inWord = false;
-            if (!result.empty()) {
-                wordLength = result.length();
-                if (wordLength >= 5)
-                    result = string(result.rbegin(), result.rend());
-                else
-                    result = result;
-                result += " ";
-            }
+            result += c;
         } else {
             inWord = true;
             result += c;
@@ -23,9 +16,9 @@ string spinWords(string str) {
             wordLength = result.length();
             if (wordLength >= 5) {
                 for (int i = wordLength - 1; i >= 0; --i)
-                    result = string(1, result[i]) + result;
+                    result = result.substr(0, i) + result.substr(i + 1) + " ";
             } else
-                result = result;
+                result += " ";
         }
     }
 
@@ -33,9 +26,8 @@ string spinWords(string str) {
         wordLength = result.length();
         if (wordLength >= 5) {
             for (int i = wordLength - 1; i >= 0; --i)
-                result = string(1, result[i]) + result;
-        } else
-            result = result;
+                result = result.substr(0, i) + result.substr(i + 1) + " ";
+        }
     }
 
     return result;
