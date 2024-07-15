@@ -5,7 +5,7 @@ int main() {
     int cents;
     cin >> cents;
 
-    int totalCoins = 0; // To keep track of the total number of coins
+    int totalCoins = 0; 
     int quarters = cents / 25;
     totalCoins += quarters;
     cents %= 25;
@@ -25,7 +25,8 @@ int main() {
     cout << dimes << " dimes" << endl;
     cout << nickles << " nickels" << endl;
     cout << pennies << " pennies" << endl;
-    cout << "Total number of coins: " << totalCoins << endl;
+    
+    cout << "Total Coins: " << totalCoins << endl;
 
     return 0;
 }
