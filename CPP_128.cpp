@@ -1,4 +1,10 @@
-if (arr.empty()) {
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cassert> // Add this header for assert
+
+int prod_signs(const std::vector<int>& arr) {
+    if (arr.empty()) {
         return -32768;
     }
     
@@ -14,7 +20,7 @@ if (arr.empty()) {
             product *= 0;
         }
         
-        sum += abs(num);
+        sum += std::abs(num);
     }
     
     return product * sum;
