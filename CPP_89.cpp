@@ -1,7 +1,8 @@
+```
 #include <string>
 
-string encrypt(string s) {
-    string result = "";
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
             int newChar = ((c - 'a' + 2 * 26) % 26) + 'a';
