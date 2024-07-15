@@ -1,39 +1,49 @@
-#include <cctype>
-#include <cassert>
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-vector<string> split_words(string txt) {
-    vector<string> result;
+vector<string> split_words(string s) {
+    vector<string> words;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
+    
+    for (char c : s) {
+        if (isalnum(c)) {
             word += c;
+        } else if (!word.empty()) {
+            words.push_back(word);
+            word = "";
         }
     }
+    
     if (!word.empty()) {
-        result.push_back(word);
+        words.push_back(word);
     }
-    if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
-            }
+    
+    return words;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
-        result.push_back(to_string(count));
     }
-    return result;
+    
+    return true;
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words("Hello"), vector<string>{"Hello"}));
+    assert(issame(split_words("Hello, World!"), vector<string>{"Hello", "World"}));
+    assert(issame(split_words("Hello! How are you?"), vector<string>{"Hello", "How", "are", "you"}));
+    assert(issame(split_words("a b c d e f g h i j k l m n o p q r s t u v w x y z"), vector<string>{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}));
+    
     return 0;
 }
