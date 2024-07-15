@@ -1,33 +1,21 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(const std::string& str) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            words.push_back(str.substr(start, i - start));
-            start = i + 1;
-        }
-    }
-
-    std::string result;
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += std::toupper(word[0]);
-            result += std::string(word.begin() + 1, word.end());
+string camelCase(string s) {
+    string result = "";
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.size() && s[i] != ' ') {
+                i++;
+            }
         } else {
-            result = std::string(word);
+            if (result.empty()) {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         }
     }
-
     return result;
-}
-
-int main() {
-    std::cout << camelCase("nospaceordash") << "\n";
-    std::cout << camelCase("two-words") << "\n";
-    std::cout << camelCase("two words") << "\n";
-    std::cout << camelCase("all separate words") << "\n";
-    return 0;
 }
