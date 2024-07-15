@@ -2,32 +2,26 @@
 #include <iostream>
 #include <string>
 
-string substitutionCipher(string cipher1, string cipher2, string message) {
-    string decipheredMessage;
-    
-    for (int i = 0; i < message.length(); i++) {
-        if (message[i] == ' ') {
-            decipheredMessage += ' ';
+std::string substitutionCipher(const std::string& key1, const std::string& key2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        if (c == '\0') break;  // Assuming the input strings are null-terminated
+        size_t pos = 0;
+        while (pos < key1.size() && key1[pos] != c) {
+            pos++;
+        }
+        if (pos >= key1.size()) {
+            result += c;  // If character is not in key, leave it as is
         } else {
-            int index = message[i];
-            if (index >= 97 && index <= 122) {
-                // Convert ASCII value to lowercase
-                index -= 97;
-                decipheredMessage += cipher2[index];
-            } else if (index >= 65 && index <= 90) {
-                // Convert ASCII value to uppercase
-                index -= 65;
-                decipheredMessage += toupper(cipher2[index]);
-            }
+            result += key2[pos];  // Replace with corresponding character from key2
         }
     }
-    
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
+    std::string key1, key2, message;
+    std::cin >> key1 >> key2 >> message;
+    std::cout << substitutionCipher(key1, key2, message) << std::endl;
     return 0;
 }
