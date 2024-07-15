@@ -22,6 +22,11 @@ vector<float> sort_even(vector<float> l) {
     return l;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+int main() {
+    vector<float> l = {3.5, 1.5, 4.2, 2.1, 5.8};
+    vector<float> expected_output = {1.5, 3.5, 2.1, 4.2, 5.8};
+    
+    assert(sort_even(l) == expected_output);
+    
+    return 0;
 }
