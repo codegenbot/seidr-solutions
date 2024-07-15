@@ -2,11 +2,11 @@
 #include <set>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::set<int>(a.begin(), a.end()) == std::set<int>(b.begin(), b.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
-std::vector<int> unique_digits(const std::vector<int>& x) {
+std::vector<int> unique_digits(const std::vector<int>& x){
     std::set<int> uniqueSet;
     for (int num : x) {
         while (num > 0) {
