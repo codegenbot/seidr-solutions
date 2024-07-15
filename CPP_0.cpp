@@ -10,3 +10,8 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     }
     return false;
 }
+
+int main() {
+    // Test has_close_elements function
+    return 0;
+}
