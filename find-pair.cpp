@@ -17,7 +17,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < nums.size(); std::cout << "Enter a number:"); {
+    for (int i = 0; i < nums.size(); i++) {
         cin >> nums[i];
     }
     int target;
