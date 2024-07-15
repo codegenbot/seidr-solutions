@@ -27,7 +27,7 @@ std::vector<std::string> split_words(std::string txt) {
     if (words.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::tolower(c) >= 'a' && std::tolower(c) <= 'z' && ((std::tolower(c) - 'a') % 2 == 1)) {
                 count++;
             }
         }
@@ -37,7 +37,7 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), std::vector<std::string>{"0"}));
+    assert(issame(split_words(""), {"0"}));
     
     return 0;
 }
