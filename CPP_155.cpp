@@ -20,8 +20,11 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Example usage
-    int inputNum = 1234567;
-    std::vector<int> result = even_odd_count(inputNum);
+    int num;
+    std::cin >> num;
+    std::vector<int> result = even_odd_count(num);
+    for (int i : result) {
+        std::cout << i << " ";
+    }
     return 0;
 }
