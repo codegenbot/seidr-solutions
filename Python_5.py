@@ -5,7 +5,6 @@ def generate_result(numbers, delimiter):
     result.pop()
     return result
 
-# Call the function with appropriate inputs
 numbers = [1, 2, 3, 4, 5]
 delimiter = ","
 output = generate_result(numbers, delimiter)
