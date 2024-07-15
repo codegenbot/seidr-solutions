@@ -4,7 +4,7 @@
 bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) return array;
+	if(array.empty()) return array;
     
     int sum = array.front() + array.back();
     
