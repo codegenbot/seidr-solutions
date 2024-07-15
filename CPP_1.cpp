@@ -26,7 +26,7 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             } 
             else {
                 result.push_back(current_group);
-                current_group.clear();
+                current_group = "";
             }
         }
     }
