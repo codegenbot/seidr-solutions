@@ -6,13 +6,12 @@ def factorize(n):
     return factors
 
 
-while True:
-    try:
-        n = int(input("Enter a positive integer: "))
-        if n <= 0:
-            raise ValueError("Input should be a positive integer")
-        result = factorize(n)
-        print(result)
-        break
-    except ValueError:
-        print("Invalid input. Please enter a positive integer.")
+try:
+    n = int(input("Enter a positive integer: "))
+    if n <= 0:
+        raise ValueError("Input should be a positive integer")
+except ValueError:
+    print("Invalid input. Please enter a positive integer.")
+else:
+    result = factorize(n)
+    print(result)
