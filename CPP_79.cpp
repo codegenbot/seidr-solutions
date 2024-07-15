@@ -1,8 +1,9 @@
+#include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string decimal_to_binary(int decimal){
-    string binary = "db";
+std::string decimal_to_binary(int decimal){
+    std::string binary = "db";
     if(decimal == 0){
         binary += "0";
     } else {
