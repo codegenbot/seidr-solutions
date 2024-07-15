@@ -1,8 +1,8 @@
 int count_consonants(string word) {
     int count = 0;
-    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    string vowels = "aeiouAEIOU";
     for (char c : word) {
-        if (consonants.find(c) != string::npos) {
+        if (isalpha(c) && vowels.find(c) == string::npos) {
             count++;
         }
     }
@@ -16,6 +16,5 @@ bool issame(string s1, string s2) {
 vector<string> select_words(string s, int n);
 
 int main() {
-    // main function code here
-    return 0;
+    // Main function implementation
 }
