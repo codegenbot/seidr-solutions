@@ -4,8 +4,8 @@ using namespace std;
 
 int main() {
     vector<int> result = indicesOfSubstring("hello world", "world");
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        cout << *it << endl;
+    for (int i : result) {
+        cout << i << endl;
     }
     return 0;
 
@@ -20,7 +20,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
     }
 
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        return *result;
+    vector<int> r;
+    for (int i = 0; i < result.size(); i++) {
+        r.push_back(result[i]);
     }
+    return r;
 }
