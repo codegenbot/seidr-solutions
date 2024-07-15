@@ -1,6 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
@@ -17,8 +18,8 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
             return b;
         }
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        float a_float = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
-        float b_float = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+        float a_float = stof(boost::any_cast<string>(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, ".")));
+        float b_float = stof(boost::any_cast<string>(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, ".")));
         if (a_float > b_float) {
             return a;
         } else if (a_float < b_float) {
