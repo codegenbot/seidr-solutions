@@ -9,10 +9,8 @@ int main() {
 
     std::vector<int> indices;
 
-    if (target.empty()) {
-        for (int i = 0; i < static_cast<int>(text.size()); ++i) {
-            indices.push_back(i);
-        }
+    if (target.empty() && text.empty()) {
+        indices.push_back(0);
     } else {
         size_t pos = text.find(target, 0);
         while (pos != std::string::npos) {
