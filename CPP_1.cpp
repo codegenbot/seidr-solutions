@@ -1,22 +1,20 @@
 vector<string> result;
-    string group = "";
+    string temp;
     int count = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
+            if (count) temp += c;
             count++;
-            if (count > 1) {
-                group += c;
-            }
         } else if (c == ')') {
             count--;
-            if (count > 0) {
-                group += c;
-            }
+            if (count) temp += c;
             if (count == 0) {
-                result.push_back(group);
-                group = "";
+                result.push_back(temp);
+                temp.clear();
             }
         }
     }
+
     return result;
 }
