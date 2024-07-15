@@ -1,12 +1,8 @@
 ```
 def find_indices(text, target):
     result = []
-    i = 0
-    while True:
-        try:
-            i = text.index(target, i)
+    target_len = len(target)
+    for i in range(len(text)):
+        if text[i:i+target_len] == target:
             result.append(i)
-            i += len(target)
-        except ValueError:
-            break
     return result
