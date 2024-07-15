@@ -1,18 +1,22 @@
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result(2, 0);
-    int largest_neg = 0, smallest_pos = 0;
+    vector<int> result = {0, 0};
+    int max_negative = INT_MIN;
+    int min_positive = INT_MAX;
     
     for (int num : lst) {
-        if (num < 0 && num < largest_neg) {
-            largest_neg = num;
-        }
-        if (num > 0 && (num < smallest_pos || smallest_pos == 0)) {
-            smallest_pos = num;
+        if (num < 0 && num > max_negative) {
+            max_negative = num;
+        } else if (num > 0 && num < min_positive) {
+            min_positive = num;
         }
     }
     
-    result[0] = largest_neg;
-    result[1] = smallest_pos;
+    if (max_negative != INT_MIN) {
+        result[0] = max_negative;
+    }
+    if (min_positive != INT_MAX) {
+        result[1] = min_positive;
+    }
     
     return result;
 }
