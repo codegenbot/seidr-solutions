@@ -24,12 +24,6 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int number;
-    cout << "Enter a number: ";
-    cin >> number;
-    
-    string roman = int_to_mini_roman(number);
-    cout << "Roman Numeral: " << roman << endl;
-    
+    assert(int_to_mini_roman(1000) == "m");
     return 0;
 }
