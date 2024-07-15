@@ -21,3 +21,12 @@ std::string spinWords(std::string str) {
         result += str;
 
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << spinWords(str) << std::endl;
+    }
+    return 0;
+}
