@@ -19,3 +19,9 @@ std::vector<int> generate_integers(int a, int b) {
     }
     return result;
 }
+
+int main() {
+    std::vector<int> generated = generate_integers(1, 10);
+    std::vector<int> expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    assert(issame(generated, expected));
+}
