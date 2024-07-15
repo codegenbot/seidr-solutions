@@ -1,9 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int i = 0;
     while (i < s.length()) {
@@ -26,4 +23,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
