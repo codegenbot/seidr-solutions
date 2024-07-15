@@ -1,8 +1,7 @@
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
-}
+#include <vector>
+#include <algorithm>
 
-vector<float> rescale_to_unit(const vector<float>& numbers);
+bool issame(const vector<float>& a, const vector<float>& b);
 
 vector<float> rescale_to_unit(const vector<float>& numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
