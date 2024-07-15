@@ -1,6 +1,11 @@
 def rounded_avg(n, m):
     if n > m:
         return -1
+    elif n == m:
+        return "0b1"
     avg = (n + m) / 2.0
-    avg_int = int(avg + 0.5)
-    return bin(avg_int)[2:]
+    int_avg = round(avg)
+    if int_avg % 2 == 0: 
+        return bin(int_avg)[2:]
+    else:
+        return bin(int_avg+1)[2:]
