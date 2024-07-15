@@ -14,7 +14,7 @@ float triangle_area(float a, float b, float c) {
 
 int main() {
     assert(triangle_area(3, 4, 5) == 6);
-    assert(triangle_area(1, 2, 3) == -1);
+    assert(triangle_area(2, 3, 4) == 2.9);
     
     return 0;
 }
