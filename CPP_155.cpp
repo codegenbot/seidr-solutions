@@ -12,4 +12,14 @@ vector<int> even_odd_count(int num) {
         }
     }
     return counts;
+} 
+
+int main() {
+    // Example usage:
+    vector<int> result = even_odd_count(12345);
+
+    assert(result[0] == 2);
+    assert(result[1] == 3);
+
+    return 0;
 }
