@@ -17,7 +17,6 @@ std::any compare(std::any a, std::any b) {
 }
 
 int main() {
-    // Input from user
     int int1, int2;
     cin >> int1 >> int2;
     cout << std::any_cast<int>(compare(int1, int2)) << endl;
