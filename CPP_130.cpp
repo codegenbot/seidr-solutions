@@ -1,10 +1,6 @@
 #include<vector>
 #include<assert.h>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 std::vector<int> tri(int n) {
     std::vector<int> result;
     if (n >= 0) {
@@ -18,6 +14,10 @@ std::vector<int> tri(int n) {
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main() {
