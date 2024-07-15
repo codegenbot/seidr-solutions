@@ -1,4 +1,6 @@
+```cpp
 bool check_dict_case(const map<string, int> &dict) {
+```cpp
     if (dict.empty()) {
         return false;
     }
@@ -20,3 +22,4 @@ bool check_dict_case(const map<string, int> &dict) {
 
     return all_lower || all_upper;
 }
+```
