@@ -5,27 +5,31 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-
-    if (n == 1) {
-        return {{v[0]}, {v[0]}};
-    }
-
-    int diff = INT_MAX, idx = -1;
-    for (int i = 0; i < n; i++) {
-        int temp_diff = abs(v[i] - v[0]);
-        if (temp_diff <= diff) {
-            diff = temp_diff;
-            idx = i;
+    
+    if(n == 1)
+        return {{v[0]}};
+    
+    bool equal = true;
+    int diff = INT_MAX, left_diff = INT_MAX, right_diff = INT_MAX;
+    for(int i = 1; i < n - 1; i++) {
+        if(v[i] != v[0])
+            equal = false;
+        
+        if(abs(v[i] - v[0]) < diff) {
+            diff = abs(v[i] - v[0]);
+            left_diff = right_diff = diff;
         }
+        else if(abs(v[n-1] - v[i]) < right_diff) 
+            right_diff = abs(v[n-1] - v[i]);
+        
+        res[0].clear();
+        for(int j = 0; j <= i; j++)
+            res[0].push_back(v[j]);
+        
+        res[1].clear();
+        for(int j = i+1; j <= n-1; j++)
+            res[1].push_back(v[j]);
     }
-
-    res[0].assign(v.begin(), v.end() - idx);
-    res[1].assign(v.begin() + idx, v.end());
-
+    
     return res;
-}
-
-int main() {
-    // Your code here
-    return 0;
 }
