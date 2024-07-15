@@ -1,8 +1,5 @@
-vector<char> distinctChars;
-    for (char c : str) {
-        if (isalpha(c) && find(distinctChars.begin(), distinctChars.end(), tolower(c)) == distinctChars.end()) {
-            distinctChars.push_back(tolower(c));
-        }
-    }
-    return distinctChars.size();
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    str.erase(unique(str.begin(), str.end()), str.end());
+    return str.size();
 }
