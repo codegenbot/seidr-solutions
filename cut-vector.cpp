@@ -1,17 +1,28 @@
+#include <vector>
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = INT_MAX;
+    int minDiff = 0;
     int splitIndex = 0;
     
     for (int i = 1; i < v.size(); ++i) {
-        int leftSum = accumulate(v.begin(), v.begin() + i, 0);
-        int rightSum = accumulate(v.begin() + i, v.end(), 0);
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            leftSum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); ++j) {
+            rightSum += v[j];
+        }
         
         int diff = abs(leftSum - rightSum);
         
         if (diff <= minDiff) {
             minDiff = diff;
-            splitIndex = i;
-        } else if (leftSum == rightSum) { 
             splitIndex = i;
         }
     }

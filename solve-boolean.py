@@ -1,7 +1,9 @@
+Here is the modified code:
+
 ```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
-    
+
     def evaluate(tokens):
         if len(tokens) == 0:
             return eval(tokens[0])
@@ -30,7 +32,7 @@ def solve_boolean(expression):
     stack = []
     for token in tokens:
         if token not in ["|", "&"]:
-            stack.append(token)
+            stack.append(eval(token))
         else:
             while len(stack) > 1:
                 operand2 = stack.pop()
