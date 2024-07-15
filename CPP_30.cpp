@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<float> get_positive(const std::vector<float>& l){
+std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> result;
     for(const auto &num : l){
         if(num > 0){
