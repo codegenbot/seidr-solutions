@@ -12,4 +12,4 @@ def minPath(grid, k):
                 visited.add((nx, ny))
                 path.append(grid[nx][ny])
 
-    return path[:k]
+    return path[:k]  
