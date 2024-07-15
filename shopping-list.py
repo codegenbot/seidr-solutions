@@ -4,7 +4,6 @@ def shopping_list():
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
     
-    # Check if inputs have enough values
     while len(prices) < n or len(discounts) < n:
         print("Invalid input. Please provide {} prices and {} discounts.".format(n, n))
         n = int(input())
