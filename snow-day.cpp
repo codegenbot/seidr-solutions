@@ -1,11 +1,11 @@
-Here is the corrected code:
 ```cpp
 #include <iostream>
 #include <iomanip>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
-    for (int i = 0; i < hours; ++i) {
-        groundSnow += rate - melt;
+    for (int i = 0; i < hours; i++) {
+        groundSnow += rate;
+        groundSnow -= melt;
     }
     return groundSnow;
 }
