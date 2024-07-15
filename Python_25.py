@@ -1,4 +1,4 @@
-try:
-    # Existing code that may raise a ValueError
-except ValueError:
-    print("Invalid input. Please enter a positive integer.")
+n = int(input())
+if n <= 0:
+    raise ValueError
+print("Input is a positive integer.")
