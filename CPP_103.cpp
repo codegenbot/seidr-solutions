@@ -9,5 +9,11 @@ if (n > m) {
     
     int avg = round((double)sum / (m - n + 1));
     
-    return bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
+    string binary = "";
+    while (avg > 0) {
+        binary = to_string(avg % 2) + binary;
+        avg /= 2;
+    }
+    
+    return binary;
 }
