@@ -14,8 +14,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if count > 0:
                 current_group += char
             if count == 0:
-                result.append(current_group)
+                result.append(current_group + ")")
                 current_group = ""
-    if count > 0:
-        result.append(current_group)
     return result
