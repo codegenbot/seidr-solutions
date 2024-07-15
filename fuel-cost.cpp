@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int fuelCost(vector<int> &v) {
@@ -6,3 +7,4 @@ int fuelCost(vector<int> &v) {
         sum += ((i / 3) - 2);
     }
     return sum;
+}
