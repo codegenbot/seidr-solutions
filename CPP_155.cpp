@@ -7,11 +7,12 @@ bool issame(vector<int> a, vector<int> b) {
 int main() {
     int num;
     cin >> num;
-    vector<int> counts = even_odd_count(num);
-    if (issame(counts, {2, 2})) {
-        cout << "Same counts of even and odd digits";
+    vector<int> even_odd_count = count_even_odd_digits(num);
+    vector<int> counts = count_even_odd_digits(num);
+    if (issame(even_odd_count, counts)) {
+        cout << "Counts are the same" << endl;
     } else {
-        cout << "Different counts of even and odd digits";
+        cout << "Counts are different" << endl;
     }
     return 0;
 }
