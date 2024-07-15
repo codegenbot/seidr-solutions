@@ -17,11 +17,13 @@ int main() {
             ++guessFreq[guess[i]];
         }
     }
-
-    for (auto& it : codeFreq) {
-        white += std::min(it.second, guessFreq[it.first]);
+    
+    for (auto it : codeFreq) {
+        if (guessFreq.find(it.first) != guessFreq.end()) {
+            white += std::min(it.second, guessFreq[it.first]);
+        }
     }
-
+    
     std::cout << white << std::endl << black << std::endl;
     
     return 0;
