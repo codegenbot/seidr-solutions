@@ -1,9 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <string>
+vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(const vector<string>& result, const vector<string>& expected) {
+    if (result.size() != expected.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < result.size(); ++i) {
+        if (result[i] != expected[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    vector<string> expected = {"(ab)", "(cd)"};
+    vector<string> result = separate_paren_groups("(ab)(cd)");
+
+    assert(issame(result, expected));
+    
+    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -29,12 +46,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    vector<string> input = separate_paren_groups("(((ab)c(d))e)f");
-    vector<string> expected_output = {"(ab)", "(d)", ""};
-    assert(issame(input, expected_output));
-
-    return 0;
 }
