@@ -1,6 +1,4 @@
-def parse_music(music_input):
-    # your parsing logic here
-    pass
+import sys
 
 while True:
     music_input = input().strip()
