@@ -8,7 +8,6 @@ class CustomVectorFunctions {
 public:
     static vector<int> common(const vector<int>& a, const vector<int>& b);
     static bool issame(const vector<int>& a, const vector<int>& b);
-    using CustomVectorFunctions;
 };
 
 vector<int> CustomVectorFunctions::common(const vector<int>& a, const vector<int>& b) {
@@ -25,8 +24,8 @@ bool CustomVectorFunctions::issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-int main_problem() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
+int main() {
+    assert(CustomVectorFunctions::issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
     
     return 0;
 }
