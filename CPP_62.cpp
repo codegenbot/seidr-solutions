@@ -14,3 +14,9 @@ std::vector<float_t> derivative(const std::vector<float_t>& v){
 bool issame(const std::vector<float_t>& a, const std::vector<float_t>& b){
     return derivative(a) == derivative(b);
 }
+
+int main(){
+    assert(issame({1}, {}));
+
+    return 0;
+}
