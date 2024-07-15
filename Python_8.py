@@ -7,6 +7,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
+
 # Accept input from the user
 numbers = []
 while True:
