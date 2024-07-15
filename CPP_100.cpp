@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 #include <iterator>
 
 using namespace std;
