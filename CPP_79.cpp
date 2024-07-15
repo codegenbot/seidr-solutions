@@ -1,7 +1,8 @@
-string result = "db";
-    while(decimal > 0) {
-        result = (decimal % 2 == 0 ? '0' : '1') + result;
+string decimal_to_binary(int decimal){
+    string binary = "db";
+    while (decimal > 0) {
+        binary = char(decimal % 2 + '0') + binary;
         decimal /= 2;
     }
-    return result + "db";
+    return binary + "db";
 }
