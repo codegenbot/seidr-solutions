@@ -13,7 +13,11 @@ std::string flip_case(std::string str){
     return str;
 }
 
-int unique_main(){
+int assert_test(){
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
+}
+
+int main(){
+    return assert_test();
 }
