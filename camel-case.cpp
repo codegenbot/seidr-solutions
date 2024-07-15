@@ -5,37 +5,15 @@
 std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
-    std::string word = "";
     
     for (char c : s) {
         if (c == '-') {
-            if (!word.empty()) {
-                if (capitalizeNext) {
-                    result += toupper(word[0]);
-                    word.erase(0, 1);
-                    capitalizeNext = false;
-                } else {
-                    result += word;
-                    word.clear();
-                }
-            }
-        } else {
-            if (capitalizeNext) {
-                word += toupper(c);
-                capitalizeNext = false;
-            } else {
-                word += tolower(c);
-            }
-        }
-    }
-    
-    if (!word.empty()) {
-        if (capitalizeNext) {
-            result += toupper(word[0]);
-            word.erase(0, 1);
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += word;
+            result += tolower(c);
         }
     }
     
