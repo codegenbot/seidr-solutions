@@ -1,3 +1,11 @@
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
@@ -12,9 +20,7 @@ vector<string> by_length(vector<int> arr){
         }
     }
 
-    sort(sorted_arr.begin(), sorted_arr.end());
-
-    reverse(sorted_arr.begin(), sorted_arr.end());
+    sort(sorted_arr.begin(), sorted_arr.end(), greater<int>());
 
     for (int num : sorted_arr) {
         result.push_back(num_to_name[num]);
