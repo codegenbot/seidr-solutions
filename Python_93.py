@@ -1,6 +1,3 @@
-Here is the completed code:
-
-```
 def encode(message):
     result = ''
     for char in message:
