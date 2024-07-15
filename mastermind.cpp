@@ -3,34 +3,33 @@
 
 using namespace std;
 
-int mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-
-    // Count correct color with correct position
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            blackPegs++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for(int i=0, j=0; i<4 && j<4; i++, j++) {
+        if(code[i] == guess[j]) {
+            continue; // Correct position, counted in black pegs
+        } 
+        else if(code.find(guess[j]) != string::npos) {
+            count++;
         }
     }
+    return count;
+}
 
-    // Count correct color but wrong position
-    string codeCopy, guessCopy;
-    addCharacter(codeCopy, code[0]);
-    addCharacter(guessCopy, guess[0]);
-
-    for(int i=1; i<4; i++) {
-        if(codeCopy.find(code[i]) != string::npos && guessCopy.find(guess[i]) != string::npos) {
-            whitePegs++;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for(int i=0, j=0; i<4 && j<4; i++, j++) {
+        if(code[i] == guess[j]) {
+            count++;
         }
     }
-
-    return blackPegs + whitePegs;
+    return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << mastermind(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
