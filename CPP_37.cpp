@@ -1,21 +1,23 @@
-vector<float> even_indices;
-    vector<float> result(l);
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
+}
 
+vector<float> sort_even(const vector<float>& l) {
+    vector<float> even_values;
+    vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_indices.push_back(l[i]);
+            even_values.push_back(l[i]);
+            sorted_even_values.push_back(l[i]);
         }
     }
-
-    sort(even_indices.begin(), even_indices.end());
-
-    int even_index = 0;
+    sort(sorted_even_values.begin(), sorted_even_values.end());
+    int sorted_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result[i] = even_indices[even_index];
-            even_index++;
+            l[i] = sorted_even_values[sorted_index];
+            sorted_index++;
         }
     }
-
-    return result;
+    return l;
 }
