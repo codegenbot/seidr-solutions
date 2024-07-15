@@ -3,7 +3,6 @@ def parse_music(music_input):
         return music_input.replace("Title:", "").strip()
     return None
 
-
 while True:
     try:
         music_input = input("Enter music title: ").strip()
