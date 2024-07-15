@@ -6,18 +6,12 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    vector<float> x1(n), x2(n);
+    vector<float> x1, x2;
     
+    float a, b;
     for (int i = 0; i < n; i++) {
-        float val;
-        cin >> val;
-        x1[i] = val; 
-    }
-    
-    for (int i = 0; i < n; i++) {
-        float val;
-        cin >> val;
-        x2[i] = val;
+        cin >> a >> b;
+        x1.push_back(a); x2.push_back(b);
     }
     
     double sum = 0.0;
