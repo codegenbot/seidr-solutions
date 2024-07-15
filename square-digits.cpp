@@ -1,11 +1,9 @@
 #include <string>
-#include <sstream>
 
-std::string squareDigits(std::string input) {
-    std::stringstream output;
+string squareDigits(string input) {
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output << std::to_string(digit * digit);
+        output += to_string(digit * digit);
     }
-    return output.str();
-}
+    return output;
