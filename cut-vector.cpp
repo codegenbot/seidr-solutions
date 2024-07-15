@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits> // for INT_MAX
-#include <cmath>   // for abs
+#include <climits>
+#include <cmath>
 
 int main() {
     int n;
@@ -14,9 +14,9 @@ int main() {
     int diff = INT_MAX;
     int cutIndex = -1;
 
-    for (int i = 1; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; ++j) {
+        for (int j = 0; j <= i; ++j) {
             leftSum += nums[j];
         }
         for (int j = i; j < n; ++j) {
@@ -29,10 +29,9 @@ int main() {
         }
     }
 
-    for (int i = 0; i < cutIndex; ++i) {
+    for (int i = 0; i <= cutIndex; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    std::cout << nums[cutIndex] << std::endl;
     for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
