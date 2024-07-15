@@ -1,4 +1,8 @@
-int maxPrime = -1;
+#include <iostream>
+#include <cmath>
+
+int largest_prime_factor(int n) {
+    int maxPrime = -1;
     while (n % 2 == 0) {
         maxPrime = 2;
         n /= 2;
@@ -13,4 +17,12 @@ int maxPrime = -1;
         maxPrime = n;
     }
     return maxPrime;
+}
+
+void get_user_input_and_calculate() {
+    int input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    int result = largest_prime_factor(input);
+    std::cout << "Largest prime factor: " << result << std::endl;
 }
