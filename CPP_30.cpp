@@ -12,9 +12,10 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
+
 }
 
 int main(){
-    assert(issame(get_positive({}), {}));
+    assert(issame(get_positive({}), {})); // Ensure to use the correct function for comparison
     return 0;
 }
