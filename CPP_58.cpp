@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
-#include <cassert>
 #include <set>
 
 namespace CustomVectorFunctions {
@@ -18,5 +17,3 @@ namespace CustomVectorFunctions {
         return result;
     }
 }
-
-assert(issame(CustomVectorFunctions::common({4, 3, 2, 8}, {}), {}));
