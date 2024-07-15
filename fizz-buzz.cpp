@@ -1,12 +1,12 @@
+```c++
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 class Solution {
 public:
     string numberToWords(int num) {
-        if (num == 0) return "0";
+        if (num == 0) return "zero";
         
         string words = "";
         
@@ -29,24 +29,26 @@ public:
             if (!words.empty()) {
                 words += " ";
             }
-            if (temp == 1) {
-                words += "one";
-            } else if (temp == 2) {
-                words += "two";
-            } else if (temp == 3) {
-                words += "three";
-            } else if (temp == 4) {
-                words += "four";
-            } else if (temp == 5) {
-                words += "five";
-            } else if (temp == 6) {
-                words += "six";
-            } else if (temp == 7) {
-                words += "seven";
-            } else if (temp == 8) {
-                words += "eight";
-            } else if (temp == 9) {
-                words += "nine";
+            switch (temp % 10) {
+                case 1: 
+                    words += (temp == 11 ? "eleven" : temp == 12 ? "twelve" : temp == 13 ? "thirteen" : temp == 14 ? "fourteen" : temp == 15 ? "fifteen" : temp == 16 ? "sixteen" : temp == 17 ? "seventeen" : temp == 18 ? "eighteen" : temp == 19 ? "nineteen" : "one") + (temp > 1 ? " one" : "");
+                    break;
+                case 2: words += "two";
+                    break;
+                case 3: words += "three";
+                    break;
+                case 4: words += "four";
+                    break;
+                case 5: words += "five";
+                    break;
+                case 6: words += "six";
+                    break;
+                case 7: words += "seven";
+                    break;
+                case 8: words += "eight";
+                    break;
+                case 9: words += "nine";
+                    break;
             }
         }
         
@@ -59,26 +61,17 @@ public:
             return oneDigit(num);
         }
         if (num < 20) {
-            if (num == 10) {
-                return "ten";
-            } else if (num == 11) {
-                return "eleven";
-            } else if (num == 12) {
-                return "twelve";
-            } else if (num == 13) {
-                return "thirteen";
-            } else if (num == 14) {
-                return "fourteen";
-            } else if (num == 15) {
-                return "fifteen";
-            } else if (num == 16) {
-                return "sixteen";
-            } else if (num == 17) {
-                return "seventeen";
-            } else if (num == 18) {
-                return "eighteen";
-            } else if (num == 19) {
-                return "nineteen";
+            switch (num) {
+                case 10: return "ten";
+                case 11: return "eleven";
+                case 12: return "twelve";
+                case 13: return "thirteen";
+                case 14: return "fourteen";
+                case 15: return "fifteen";
+                case 16: return "sixteen";
+                case 17: return "seventeen";
+                case 18: return "eighteen";
+                case 19: return "nineteen";
             }
         }
         if (num < 30) {
@@ -106,10 +99,28 @@ public:
     }
     
     string twoDigit(int num) {
-        if (num < 20) {
-            return oneDigit(num);
+        switch (num) {
+            case 0: return "zero";
+            case 1: return "one";
+            case 2: return "two";
+            case 3: return "three";
+            case 4: return "four";
+            case 5: return "five";
+            case 6: return "six";
+            case 7: return "seven";
+            case 8: return "eight";
+            case 9: return "nine";
+            case 10: return "ten";
+            case 11: return "eleven";
+            case 12: return "twelve";
+            case 13: return "thirteen";
+            case 14: return "fourteen";
+            case 15: return "fifteen";
+            case 16: return "sixteen";
+            case 17: return "seventeen";
+            case 18: return "eighteen";
+            case 19: return "nineteen";
         }
-        return "twenty" + oneDigit(num - 20);
     }
     
     string oneDigit(int num) {
