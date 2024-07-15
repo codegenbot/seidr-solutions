@@ -1,4 +1,3 @@
-
 #include <openssl/md5.h>
 #include <cstdio>
 #include <cassert>
