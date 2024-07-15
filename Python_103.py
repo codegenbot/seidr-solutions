@@ -1,6 +1,4 @@
-def rounded_avg(a, b):
-    return round((a + b) / 2.0)
-
+```
 def main():
     while True:
         try:
@@ -10,6 +8,10 @@ def main():
             break
         except ValueError:
             print("Invalid input! Please enter integer values.")
+
+
+def rounded_avg(a, b):
+    return round((a + b) / 2.0)
 
 
 main()
