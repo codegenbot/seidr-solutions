@@ -1,19 +1,44 @@
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> result;
-    for(float gpa : grades){
-        if(gpa == 4.0) result.push_back("A+");
-        else if(gpa > 3.7) result.push_back("A");
-        else if(gpa > 3.3) result.push_back("A-");
-        else if(gpa > 3.0) result.push_back("B+");
-        else if(gpa > 2.7) result.push_back("B");
-        else if(gpa > 2.3) result.push_back("B-");
-        else if(gpa > 2.0) result.push_back("C+");
-        else if(gpa > 1.7) result.push_back("C");
-        else if(gpa > 1.3) result.push_back("C-");
-        else if(gpa > 1.0) result.push_back("D+");
-        else if(gpa > 0.7) result.push_back("D");
-        else if(gpa > 0.0) result.push_back("D-");
-        else result.push_back("E");
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), std::vector<std::string>{"E", "D-"}));
+}
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
+    for (float gpa : grades) {
+        if (gpa == 4.0) {
+            letter_grades.push_back("A+");
+        } else if (gpa > 3.7) {
+            letter_grades.push_back("A");
+        } else if (gpa > 3.3) {
+            letter_grades.push_back("A-");
+        } else if (gpa > 3.0) {
+            letter_grades.push_back("B+");
+        } else if (gpa > 2.7) {
+            letter_grades.push_back("B");
+        } else if (gpa > 2.3) {
+            letter_grades.push_back("B-");
+        } else if (gpa > 2.0) {
+            letter_grades.push_back("C+");
+        } else if (gpa > 1.7) {
+            letter_grades.push_back("C");
+        } else if (gpa > 1.3) {
+            letter_grades.push_back("C-");
+        } else if (gpa > 1.0) {
+            letter_grades.push_back("D+");
+        } else if (gpa > 0.7) {
+            letter_grades.push_back("D");
+        } else if (gpa > 0.0) {
+            letter_grades.push_back("D-");
+        } else {
+            letter_grades.push_back("E");
+        }
     }
-    return result;
+    return letter_grades;
 }
