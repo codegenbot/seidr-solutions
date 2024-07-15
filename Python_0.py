@@ -1,3 +1,7 @@
+import sys
+
+numbers, threshold = map(int, sys.stdin.readline().strip().split())
+
 def check_threshold(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -5,9 +9,5 @@ def check_threshold(numbers, threshold):
             return True
     return False
 
-numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
-threshold = int(input("Enter threshold: "))
-
 result = check_threshold(numbers, threshold)
-
 print(result)
