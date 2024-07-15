@@ -3,9 +3,11 @@
 #include <climits>
 
 int main() {
-    std::vector<int> nums;
+    using namespace std;
+    
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
 
@@ -21,7 +23,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
-        int diff = std::abs(prefixSum - suffixSum);
+        int diff = abs(prefixSum - suffixSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -29,10 +31,10 @@ int main() {
     }
 
     for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     for (int i = cutIndex + 1; i < n; i++) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
 
     return 0;
