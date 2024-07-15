@@ -6,7 +6,7 @@ bool is_same(vector<string> a, vector<string> b){
         return false;
     }
 
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
