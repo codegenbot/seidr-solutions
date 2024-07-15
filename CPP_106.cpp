@@ -12,4 +12,7 @@ std::vector<int> calculateValues(int n) {
     return {};
 }
 
-assert(isSame(calculateValues(3), {1, 2, 6}));
+int main() {
+    assert(isSame(calculateValues(3), {1, 2, 6}));
+    return 0;
+}
