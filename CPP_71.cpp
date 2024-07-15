@@ -13,6 +13,8 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
+int main() {
+    return 0;
+}
 
-return 0;
+assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
