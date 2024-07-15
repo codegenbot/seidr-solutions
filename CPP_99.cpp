@@ -1,5 +1,9 @@
-#include <cmath>
-double num = stod(value);
-int lower = floor(num);
-int upper = ceil(num);
-return (num - lower < upper - num) ? lower : upper;
+
+int closest_integer(string value) {
+    double num = stod(value);
+    int rounded = static_cast<int>(round(num));
+    if (abs(num - floor(num)) == 0.5) {
+        return (num > 0) ? ceil(num) : floor(num);
+    }
+    return rounded;
+}
