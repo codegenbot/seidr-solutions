@@ -1,42 +1,23 @@
+```cpp
 #include <iostream>
-#include <string>
 
 int bowlingScore(char c) {
     int score = 0;
     if (c == 'X') {
-        score += 30;
+        return 30;
     } else if (c == '/') {
-        return score + 10; 
+        return 10; 
     } else {
-        int count = 0;
-        while (c >= '1' && c <= '9') {
-            count *= 10;
-            count += c - '0';
-            c = (c < '7') ? ++c : '/';
-        }
-        score += count;
+        return c - '0';
     }
-    return score;
 }
 
 int main() {
-    std::string s;
     std::cout << "Enter the input string: ";
-    std::getline(std::cin, s);
-    
+    char c;
     int totalScore = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            int frameNumber = c - '0';
-            if (frameNumber >= 7) {
-                score += 10;
-            } else {
-                score += frameNumber + bowlingScore(s[1]);
-                s.erase(0, 2);
-            }
-        } else {
-            totalScore += bowlingScore(c);
-        }
+    while ((c = std::cin.get()) != '\n') {
+        totalScore += bowlingScore(c);
     }
     std::cout << "The total score is: " << totalScore << std::endl;
 }
