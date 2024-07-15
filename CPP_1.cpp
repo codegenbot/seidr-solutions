@@ -1,7 +1,12 @@
 #include <vector>
 #include <string>
-using namespace std;
+#include <cassert>
 
-bool issame(std::vector<std::string> vec_a, std::vector<std::string> vec_b) {
-    return vec_a == vec_b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(std::vector<std::string>{"()", "(())", "(()())"}, separate_paren_groups("( ) (( )) (( )( ))")));
+    return 0;
 }
