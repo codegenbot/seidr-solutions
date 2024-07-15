@@ -1,16 +1,12 @@
 def main():
-    while True:
-        try:
-            n = int(input("Enter first number: "))
-            m = int(input("Enter second number: "))
-            print(rounded_avg(n, m))
-            break
-        except ValueError:
-            print("Invalid input! Please enter integer values.")
+    n = int(input("Enter first number: "))
+    m = int(input("Enter second number: "))
+    print(rounded_avg(n, m))
 
 
 def rounded_avg(a, b):
-    return round((a + b) / 2)
+    avg = (a + b) / 2
+    return round(avg)
 
 
 main()
