@@ -13,7 +13,7 @@ bool is_prime(long long n) {
     return true;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     long long n;
     std::cin >> n;
 
