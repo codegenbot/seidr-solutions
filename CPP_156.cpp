@@ -25,8 +25,5 @@ string int_to_mini_roman(int number) {
 
 int main() {
     assert(int_to_mini_roman(1000) == "m");
-
-    // additional test cases can be added here
-
     return 0;
 }
