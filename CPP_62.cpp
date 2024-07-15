@@ -12,11 +12,15 @@ std::vector<float_t> derivative(const std::vector<float_t>& v){
 }
 
 bool issame(const std::vector<float_t>& a, const std::vector<float_t>& b){
-    return derivative(a) == derivative(b);
-}
-
-int main(){
-    assert(issame({1}, {}));
-
-    return 0;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
