@@ -1,12 +1,15 @@
-#include<bits/stdc++.h>
-using namespace std;
-
-vector<string> select_words(string s, int n);
-
 bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> select_words(string s, int n) {
