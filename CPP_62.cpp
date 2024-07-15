@@ -1,4 +1,5 @@
 #include <vector>
+#include <assert.h>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
