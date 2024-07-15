@@ -1,7 +1,4 @@
-Here is the solution:
-
 #include <iostream>
-
 using namespace std;
 
 int main() {
