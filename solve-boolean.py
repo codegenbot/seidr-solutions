@@ -1,7 +1,7 @@
 ```
 def solve_boolean(expression):
     expression = expression.replace("T", "True").replace("F", "False")
-
+    
     def evaluate(tokens):
         if len(tokens) == 0:
             return eval(tokens[0])
@@ -27,7 +27,6 @@ def solve_boolean(expression):
     tokens = expression.split()
     while "|" in tokens:
         tokens = [part.strip() for part in " | ".join(tokens).split("|")]
-
     stack = []
     for token in tokens:
         if token not in ["|", "&"]:
