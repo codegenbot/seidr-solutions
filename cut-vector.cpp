@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <cmath>
 using namespace std;
@@ -10,21 +11,16 @@ vector<vector<int>> cutVector(vector<int> v) {
         if(i == 0 || i == n-1)
             res[0].push_back(v[i]);
         else {
-            int firstSum = 0, secondSum = 0;
-            for(int j = 0; j <= i; j++)
-                firstSum += v[j];
-            for(int j = i+1; j < n; j++)
-                secondSum += v[j];
-            
-            if(abs(firstSum - secondSum) <= abs((n-1)*v[0] - (n-i-1)*v[i])) {
+            if(abs(v[i] - v[0]) <= abs(v[n-1] - v[i])) {
                 res[0].clear();
-                for(int j = 0; j <= i; j++)
+                for(int j = 0; j < i; j++)
                     res[0].push_back(v[j]);
+                res[0].push_back(v[i]);
                 break;
             }
             else {
                 res[0].clear();
-                for(int j = i+1; j < n; j++)
+                for(int j = i; j < n; j++)
                     res[0].push_back(v[j]);
                 break;
             }
@@ -32,36 +28,30 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     if(res[0].size() != n) {
-        res[1] = v;
-        for(int i = 0; i < n-1; i++) {
-            int firstSum = 0, secondSum = 0;
-            for(int j = 0; j <= i; j++)
-                firstSum += v[j];
-            for(int j = i+1; j < n; j++)
-                secondSum += v[j];
-            
-            if(abs(firstSum - secondSum) >= abs((n-1)*v[0] - (n-i-1)*v[i])) {
-                res[1].clear();
-                for(int j = 0; j <= i; j++)
-                    res[1].push_back(v[j]);
-                break;
+        int diffMin = INT_MAX;
+        int cutIndex = 0;
+        
+        for(int i = 1; i < n-1; i++) {
+            int diff1 = abs(v[i] - v[0]);
+            int diff2 = abs(v[n-1] - v[i]);
+            if(min(diff1, diff2) <= diffMin) {
+                diffMin = min(diff1, diff2);
+                cutIndex = i;
             }
         }
+        
+        for(int i = 0; i < cutIndex; i++)
+            res[1].push_back(v[i]);
+        for(int i = cutIndex; i < n; i++)
+            res[0].push_back(v[i]);
     }
     
-    return {res[0], res[1]};
+    return res;
 }
 
 int main() {
-    vector<int> input = {1, 2, 3, 4, 5}; 
-    auto result = cutVector(input);
-    for(auto& v : result) {
-        cout << "[";
-        for(int i = 0; i < v.size(); i++) {
-            cout << v[i];
-            if(i < v.size() - 1)
-                cout << ", ";
-        }
-        cout << "]"<< endl;
-    }
+    vector<int> v = {1, 2, 3, 4, 5};
+    vector<vector<int>> result = cutVector(v);
+    // process the result here
+    return 0;
 }
