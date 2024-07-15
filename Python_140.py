@@ -1,4 +1,5 @@
 import re
+import sys
 
 def fix_spaces(text: str) -> str:
     hyphen_placeholder = '###'
@@ -7,6 +8,6 @@ def fix_spaces(text: str) -> str:
     text = text.replace(hyphen_placeholder, '-')
     return text
 
-input_text = input()
+input_text = sys.stdin.readline().strip()
 result = fix_spaces(input_text)
 print(result)
