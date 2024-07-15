@@ -10,13 +10,14 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (!cin.fail()) {
+    int n;
+    cin >> n; // read the number of elements in the vector
+    
+    for (int i = 0; i < n; i++) {
         cin >> num;
-        if (cin.fail()) break;
         nums.push_back(num);
     }
     
-    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
