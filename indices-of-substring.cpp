@@ -7,12 +7,7 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
-    if (target.empty()) {
-        std::cout << "0";
-        return 0;
-    }
-
-    if (target.size() >= text.size()) {
+    if (target.size() > text.size() || text.empty() || target.empty()) {
         return 0;
     }
 
