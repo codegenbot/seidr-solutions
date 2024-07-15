@@ -1,14 +1,11 @@
-def leaders(input):
-    leader = []
-    max_left = input[0]
-    max_right = input[-1]
-    for i in range(len(input)):
-        if i >= len(input) // 2:
-            if input[i] <= max_right:
-                return []
-            max_right = input[i]
-        else:
-            if input[i] >= max_left:
-                leader.append(input[i])
-                max_left = input[i]
+def leaders():
+    input_vector = list(map(int, input("Enter a vector of positive integers: ").split()))
+    leader = [input_vector[-1]]
+    max_right = input_vector[-1]
+    for i in range(len(input_vector) - 2, -1, -1):
+        if input_vector[i] >= max_right:
+            leader.append(input_vector[i])
+            max_right = input_vector[i]
     return leader
+
+print(leaders())
