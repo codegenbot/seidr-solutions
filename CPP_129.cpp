@@ -1,20 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-std::vector<std::vector<int>> minPath(const std::vector<std::vector<int>>& matrix, int n) {
-    std::vector<std::vector<int>> result(n, std::vector<int>(matrix[0].size(), 0));
-    for (int i = 0; i < n; ++i) {
-        result[i] = matrix[0];
-    }
+std::vector<int> minPath(std::vector<std::vector<int>> matrix, int n){
+    std::vector<int> result;
+    // Implement minPath function logic here
     return result;
 }
 
-bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Implement issame function logic here
     return a == b;
 }
 
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<std::vector<int>>(10, std::vector<int>{1, 3}));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 
     return 0;
 }
