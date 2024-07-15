@@ -1,3 +1,3 @@
-string = input()
-result = all_prefixes(string)
+input_string = input()
+result = all_prefixes(input_string)
 print(result)
