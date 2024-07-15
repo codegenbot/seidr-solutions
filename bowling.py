@@ -1,9 +1,9 @@
 def bowling_score(frames):
     frames_list = [int(x) for x in frames.replace('/', '-').split('-')]
-
+    
     score = 0
     roll = 0
-
+    
     for i, frame in enumerate(frames_list[:10]):
         if len(str(frame)) == 1:
             if i < 8:
