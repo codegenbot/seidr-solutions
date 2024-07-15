@@ -1,7 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> strange_sort_list(vector<int> input);
+
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,6 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    assert(issame(std::vector<int>({111111}), std::vector<int>({111111})));
+    assert(issame(strange_sort_list({111111}), {111111}));
+
     return 0;
 }
