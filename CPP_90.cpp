@@ -1,12 +1,9 @@
 sort(lst.begin(), lst.end());
-int count = 0, prev = lst[0];
-for (int i = 1; i < lst.size(); i++) {
-    if (lst[i] != prev) {
-        count++;
-        if (count == 1) {
-            return lst[i];
+    int smallest = lst[0];
+    for (int num : lst) {
+        if (num > smallest) {
+            return num;
         }
     }
-    prev = lst[i];
+    return -1;
 }
-return None;
