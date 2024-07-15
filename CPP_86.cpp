@@ -1,4 +1,5 @@
-string result = "";
+string anti_shuffle(const string &s) {
+    string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
