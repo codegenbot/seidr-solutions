@@ -1,22 +1,13 @@
-Here is the solution:
+#include <cctype>
 
-```cpp
-#include<string>
-using namespace std;
-
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
-    for(char c : s){
-        if(isalpha(c)){
-            char base = 'a';
-            if(islower(c))
-                base = 'a';
-            else
-                base = 'A';
-            result += (char)((c - base + 2 * 26) % 26 + base);
+    for (char c : s) {
+        if (std::isalpha(c)) {
+            char base = std::isupper(c) ? 'A' : 'a';
+            c = ((c - base + 2 * 26) % 26) + base;
         }
-        else
-            result += c;
+        result += c;
     }
     return result;
 }
