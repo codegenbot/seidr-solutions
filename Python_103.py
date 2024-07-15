@@ -3,4 +3,6 @@ def rounded_avg(n, m):
     if n > m:
         return -1
     avg = (n + m) / 2
-    return format(int(round(avg)), 'b')
+    rounded_avg = round(avg)
+    binary_avg = bin(rounded_avg)[2:]
+    return "0b" + binary_avg.zfill(len(binary_avg))
