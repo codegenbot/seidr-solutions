@@ -1,1 +1,2 @@
-`return std::fixed << std::setprecision(2) << total;`
+```cpp
+return std::fixed << std::setprecision(2) << total;
