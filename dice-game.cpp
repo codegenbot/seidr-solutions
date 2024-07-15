@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -15,12 +14,15 @@ double diceGame(int n, int m) {
         }
     }
 
-    return count / total;
+    std::ios_base::fmtflags flags = std::cout.flags();
+    double result = count / total;
+    std::cout << fixed << setprecision(6) << result << endl;
+    std::cout.flags(flags);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    std::cout << fixed << setprecision(6) << diceGame(n, m);
+    diceGame(n, m);
     return 0;
 }
