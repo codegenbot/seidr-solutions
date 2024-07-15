@@ -16,7 +16,7 @@ std::vector<int> parse_nested_parens(std::string s) {
         } else if (c == ')') {
             count--;
             if (count == 0) {
-                result.push_back(count);
+                result.push_back(0);
             }
         }
     }
