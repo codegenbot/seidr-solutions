@@ -1,45 +1,35 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += nums[i];
-    }
-    
+    int sum = accumulate(nums.begin(), nums.end(), 0);
     int half_sum = sum / 2;
-    int prefix_sum = 0;
-    int cut_idx = -1;
     
-    for (int i = 0; i < n; ++i) {
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
+    for (int i = 0; i < nums.size(); ++i) {
         prefix_sum += nums[i];
-        if (prefix_sum >= half_sum) {
-            cut_idx = i;
-            break;
+        int diff = abs(prefix_sum - half_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    if (std::abs(sum - 2 * prefix_sum) < std::abs(sum - 2 * (prefix_sum - nums[cut_idx]))) {
-        std::cout << "1\n";
-        for (int i = 0; i <= cut_idx; ++i) {
-            std::cout << nums[i] << "\n";
-        }
-        std::cout << "0\n";
-    } else {
-        std::cout << "1\n";
-        for (int i = 0; i < cut_idx; ++i) {
-            std::cout << nums[i] << "\n";
-        }
-        std::cout << nums[cut_idx] << "\n0\n";
+    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
+    vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
+    
+    for (int num : subvector1) {
+        cout << num << endl;
+    }
+    
+    for (int num : subvector2) {
+        cout << num << endl;
     }
     
     return 0;
