@@ -13,5 +13,7 @@ std::vector<int> unique(const std::vector<int>& l) {
     return temp;
 }
 
-assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-return 0;
+int main() {
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    return 0;
+}
