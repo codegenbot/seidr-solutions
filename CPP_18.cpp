@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 int how_many_times(string str, string substring) {
     if (substring.empty()) {
         return 0;
