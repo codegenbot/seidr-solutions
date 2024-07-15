@@ -1,7 +1,7 @@
-#include <string>
+#include <cassert>
+#include <cstring>
 
 int main() {
-    std::string str = "your_input_string_here";
-    // Add your code here
-    return str.length();
+    assert(strlen("asdasnakj") == 9);
+    return strlen("asdasnakj");
 }
