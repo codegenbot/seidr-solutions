@@ -6,9 +6,7 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr);
-
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -22,8 +20,7 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    sort(sorted_arr.begin(), sorted_arr.end());
-    reverse(sorted_arr.begin(), sorted_arr.end());
+    sort(sorted_arr.begin(), sorted_arr.end(), greater<int>());
 
     for (int num : sorted_arr) {
         result.push_back(num_to_name[num]);
@@ -33,7 +30,5 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<string> expected = {"Nine", "Eight", "Four"};
-    vector<string> result = by_length({9, 4, 8});
-    assert(result == expected);
+    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Eight", "Four"});
 }
