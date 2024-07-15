@@ -3,7 +3,7 @@
 
 std::vector<float> get_positive(std::vector<float> v) {
     std::vector<float> positive_elements;
-    for (float element : v) {
+    for (const auto& element : v) {
         if (element > 0) {
             positive_elements.push_back(element);
         }
