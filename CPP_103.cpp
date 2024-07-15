@@ -1,9 +1,9 @@
-#include <cassert>
 #include <string>
+#include <cassert>
 
-std::string calculateBinaryAvg(int n, int m) {
+std::string calculateBinaryAverage(int n, int m) {
     assert(n <= m);
-    
+
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
