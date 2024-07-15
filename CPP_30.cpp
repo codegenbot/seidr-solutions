@@ -1,6 +1,7 @@
-using namespace std;
 #include <vector>
 #include <cassert>
+
+using namespace std;
 
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
