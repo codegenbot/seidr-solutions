@@ -14,4 +14,3 @@ string encrypt(string s) {
         }
     }
     return result;
-}
