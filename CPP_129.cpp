@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert>  // Add this line for assert function
 
 using namespace std;
 
@@ -16,7 +16,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return result;
 }
 
-assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});  
-// Add more test cases...
+int main() {
+    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});  // Use 'assert' for testing
 
-return 0;
+    return 0;
+}
