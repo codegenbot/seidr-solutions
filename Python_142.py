@@ -1,9 +1,4 @@
-```python
+```
 def sum_squares(lst):
-    total = 0
-    for num in lst:
-        if num % 3 == 0 and num % 4 != 0:
-            total += num ** 2
-        elif num % 4 == 0 and num % 3 != 0:
-            total += num ** 3
+    total = sum(num ** len(str(num)) for num in lst)
     return total
