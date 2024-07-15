@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 vector<string> separate_paren_groups(const string& paren_string) {
@@ -42,7 +43,7 @@ int main() {
     vector<string> separated_groups = separate_paren_groups("( ) (( )) (( )( ))");
     vector<string> combined_groups = combine(separated_groups);
 
-    assert(combined_groups == vector<string>{"()", "(())", "(()())"});
+    std::assert(combined_groups == vector<string>{"()", "(())", "(()())"});
 
     return 0;
 }
