@@ -1,19 +1,27 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
-    depth = 1
-    for char in paren_string[1:-1]:
+    depth = 0
+    for char in paren_string:
         if char == "(":
+            if depth > 0:
+                current_group += char
             depth += 1
-            current_group += char
         elif char == ")":
+            if depth == 0:
+                return ["Invalid input: Unmatched closing parenthesis"]
             depth -= 1
+            if depth > 0:
+                current_group += char
             if depth == 0:
                 result.append(current_group)
                 current_group = ""
-            else:
-                current_group += char
+    if depth > 0:
+        return ["Invalid input: Unmatched opening parenthesis"]
     return result
+
+paren_string = input("Enter the string with parenthesis: ")
+output = separate_paren_groups(paren_string)
+print(output)
