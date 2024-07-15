@@ -11,10 +11,13 @@ std::string camelCase(std::string input) {
             }
             if (i < input.size()) {
                 if (input[i + 1] == '-') continue;
-                output.push_back(std::tolower(input[i]));
+                output += std::tolower(input[i]);
                 start = i + 1;
+            } else {
+                return output;
             }
         }
     }
 
     return output;
+}
