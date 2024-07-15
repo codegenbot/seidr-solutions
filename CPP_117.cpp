@@ -10,11 +10,13 @@ int count_consonants(string word) {
 }
 
 bool issame(string s1, string s2) {
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
     return s1 == s2;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    // Main function implementation
+    // main function logic here
 }
