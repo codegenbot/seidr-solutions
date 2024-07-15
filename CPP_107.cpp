@@ -23,5 +23,6 @@ vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    vector<int> expected = {0, 1};
+    assert(even_odd_palindrome(1) == expected);
 }
