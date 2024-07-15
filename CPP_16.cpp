@@ -1,14 +1,13 @@
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <cassert>
 
-int count_distinct_characters(const std::string& str) {
-    std::string s = str;
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-    std::sort(s.begin(), s.end());
-    s.erase(std::unique(s.begin(), s.end()), s.end());
-    return s.size();
+int count_distinct_characters(std::string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    str.erase(std::unique(str.begin(), str.end()), str.end());
+    return str.size();
 }
 
 int main() {
