@@ -1,10 +1,8 @@
-bool issame(string a, string b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+bool issame(const string& a, const string& b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
