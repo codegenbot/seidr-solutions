@@ -1,30 +1,32 @@
+#include <stack>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
-    
+    stack<char> sStack;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+            while (!sStack.empty() && sStack.top() == '&') {
+                sStack.pop();
             }
-            if (st.empty()) return false;
+            if (sStack.empty()) return false;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            while (!sStack.empty() && sStack.top() == '|') {
+                sStack.pop();
             }
-            if (st.empty()) return true;
+            if (sStack.empty()) return true;
         } else {
-            st.push(s[i]);
+            sStack.push(s[i]);
         }
     }
     
-    while (!st.empty()) {
-        st.pop();
+    while (!sStack.empty()) {
+        sStack.pop();
     }
     
-    return st.empty();
+    return !sStack.empty();
 }
 
 int main() {
