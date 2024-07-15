@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool are_equal(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -18,7 +18,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
+    assert(are_equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), std::vector<std::string>{"grunt", "prune"}));
 
     return 0;
 }
