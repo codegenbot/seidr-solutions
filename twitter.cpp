@@ -1,14 +1,16 @@
 #include <iostream>
 #include <string>
-#include <regex>
+#include <cctype>
 
 using namespace std;
 
 string validateTweet(string tweet) {
     if(tweet.empty()) return "You didn't type anything";
-    regex special_chars("[^a-zA-Z0-9 ]");
-    string new_tweet = regex_replace(tweet, special_chars, "");
-    int length = new_tweet.length();
+    string no_special_chars = "";
+    for(char c : tweet) {
+        if(!ispunct(c)) no_special_chars += c;
+    }
+    int length = no_special_chars.length();
     if(length > 140) return "Too many characters";
     return "Your tweet has " + to_string(length) + " characters";
 }
