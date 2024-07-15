@@ -12,6 +12,6 @@ int main() {
     cin >> h;
     float g, r, m;
     cin >> g >> r >> m;
-    cout << fixed << setprecision(10) << noskipws << showpoint << snowDay(h, g, r, m) << endl;
+    cout << fixed << setprecision(0) << snowDay(h, g, r, m) << endl;
     return 0;
 }
