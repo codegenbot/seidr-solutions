@@ -1,13 +1,13 @@
 #include <vector>
 #include <iostream> 
-#include <iomanip>  
+#include <iomanip> 
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
         double price = prices[i];
-        double discount = discounts[i] / 100.0; 
+        double discount = discounts[i] / 100.0; // convert percent to decimal
         double discountedPrice = price * (1 - discount);
         total += discountedPrice;
     }
