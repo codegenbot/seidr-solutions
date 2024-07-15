@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> odd_count(vector<string> lst);
 
 vector<string> odd_count(vector<string> lst){
@@ -15,5 +21,6 @@ vector<string> odd_count(vector<string> lst){
 }
 
 bool issame(vector<string> a, vector<string> b){
+    // Implementation of issame function
     return a == b;
 }
