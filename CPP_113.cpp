@@ -1,14 +1,7 @@
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+#include <iostream>
+#include <vector>
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> odd_count(vector<string> lst){
     vector<string> result;
@@ -26,7 +19,7 @@ vector<string> odd_count(vector<string> lst){
 
 int main(){
     vector<string> result = odd_count({"271", "137", "314"});
-    for(auto s : result){
+    for(string s : result){
         cout << s << endl;
     }
     return 0;
