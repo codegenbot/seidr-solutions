@@ -6,8 +6,8 @@ class Solution {
 public:
     string fizzBuzz(int x) {
         return (x % 15 == 0) ? "FizzBuzz" : 
-               (x % 3 && !x % 5) ? "Fizz" :
-               (x % 5 && !x % 3) ? "Buzz" : 
+               (x % 3 == 0 && x % 5 != 0) ? "Fizz" :
+               (x % 5 == 0 && x % 3 != 0) ? "Buzz" : 
                to_string(x);
     }
 };
