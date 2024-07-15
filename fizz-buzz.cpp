@@ -10,7 +10,7 @@ public:
         } else if (num % 5 == 0) {
             return "Buzz";
         } else {
-            return to_string(num);
+            return std::to_string(num);
         }
     }
 };
