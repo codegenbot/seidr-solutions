@@ -1,6 +1,7 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,4 +13,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     }
     
     return true;
+}
+
+void remove_duplicates(std::vector<int>& vec) {
+    std::sort(vec.begin(), vec.end());
+    vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
 }
