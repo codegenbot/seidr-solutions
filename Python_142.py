@@ -1,11 +1,12 @@
-```python
+```
 def sum_squares(lst):
     total = 0
     for num in lst:
-        if isinstance(num, str):
-            raise ValueError("The list must contain only integers.")
+        if isinstance(num, int):
+            total += num**2
         else:
-            total += int(num)**2
+            print("Error: The list contains a non-integer value.")
+    
     return total
 
 
