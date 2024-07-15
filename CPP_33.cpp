@@ -2,23 +2,21 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> l_copy = l;
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> l_copy = l;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0 && i + 3 <= l.size()) {
-            sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+            std::sort(l_copy.begin() + i, l_copy.begin() + i + 3);
         }
     }
     return l_copy;
 }
 
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), vector<int>{2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), std::vector<int>{2, 6, 3, 4, 8, 9, 5, 1}));
     return 0;
 }
