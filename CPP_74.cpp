@@ -12,7 +12,7 @@ bool issame(vector<string> a, vector<string> b) {
     for (const auto &str : b) {
         sum2 += str.size();
     }
-
+    
     return sum1 == sum2;
 }
 
