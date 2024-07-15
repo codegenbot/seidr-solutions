@@ -1,9 +1,7 @@
 #include <algorithm>
-#include <string>
-#include <iostream>
-#include <cassert>  // Added include for assert
+#include <iterator>
 
-int count_distinct_characters(const std::string& str) {
+size_t count_distinct_characters(const std::string& str) {
     std::string temp = str;
     std::transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
     std::sort(temp.begin(), temp.end());
@@ -12,6 +10,6 @@ int count_distinct_characters(const std::string& str) {
 }
 
 int main() {
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);  // Added assert function call
+    assert(count_distinct_characters(std::string("Jerry jERRY JeRRRY")) == 5);
     return 0;
 }
