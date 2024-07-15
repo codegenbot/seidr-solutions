@@ -1,4 +1,10 @@
-def sort_third(l):
+```
+def sort_third(l: list) -> list:
+    """
+    The function takes a list of integers as input and sorts the elements at 
+    indices that are multiples of three in reverse order. The remaining 
+    elements are left unchanged.
+    """
     return [
         (
             i
@@ -7,6 +13,3 @@ def sort_third(l):
         )
         for i in range(len(l))
     ]
-
-my_list = [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150]
-print(sort_third(my_list))
