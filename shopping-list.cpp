@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -22,7 +21,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> prices[i];
     }
-    cin.ignore();
+    int dummy;
+    cin >> dummy; 
+    for (int i = 0; i < 3; i++) {
+        cin.ignore(); // Ignore any remaining whitespace characters
+    }
     cin >> n;
     vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
