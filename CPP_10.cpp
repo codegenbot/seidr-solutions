@@ -15,7 +15,7 @@ std::string make_palindrome(std::string str) {
     return str;
 }
 
-int main() {
+int main_task_CPP_10() {
     std::string result = make_palindrome("jerry");
     assert(result == "jerryrrej");
     return 0;
