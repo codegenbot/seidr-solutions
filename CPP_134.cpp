@@ -1,22 +1,20 @@
 #include <iostream>
-#include <string>
-#include <cctype>
 #include <cassert>
+#include <string>
+using namespace std;
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
     if(txt.empty()) return false;
-    
     char lastChar = txt.back();
-    
-    if(std::isalpha(lastChar)) {
+    if(isalpha(lastChar)){
         if(txt.find_last_of(" ") == txt.length()-1) return true;
     }
-    
     return false;
 }
 
 int main() {
-    assert (check_if_last_char_is_a_letter("apple pi e ") == false);
-   
+    bool result = check_if_last_char_is_a_letter("Hello World");
+    assert(result == true);
+
     return 0;
 }
