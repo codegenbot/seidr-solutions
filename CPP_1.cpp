@@ -1,9 +1,3 @@
-bool issame(string a, string b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -27,4 +21,21 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+bool issame(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
+}
+
+int main() {
+    vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
+    vector<string> expected_result = {"", "", "(( ))", "(( )( ))"};
+
+    if (issame(result, expected_result)) {
+        cout << "Test case passed." << endl;
+    } else {
+        cout << "Test case failed." << endl;
+    }
+
+    return 0;
 }
