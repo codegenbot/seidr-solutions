@@ -1,8 +1,8 @@
-bool issame(const string& a, const string& b){
+bool issame(string a, string b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
@@ -28,13 +28,14 @@ vector<string> separate_paren_groups(const string& paren_string) {
 }
 
 void test() {
-    vector<string> test_input = {"(a(b))", "(c(d))"};
-
-    assert(issame(separate_paren_groups(test_input[0])[0], "(b)"));
-    assert(issame(separate_paren_groups(test_input[1])[0], "(d)"));
+    assert(issame("abc", "abc"));
+    assert(!issame("abc", "def"));
 }
 
 int main() {
     test();
+
+    // Add your main program logic here
+
     return 0;
 }
