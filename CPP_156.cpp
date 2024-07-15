@@ -4,7 +4,7 @@
 string int_to_mini_romank(int number);
 
 int main() {
-    // Main function code can be added here
+    return 0;
 }
 
 string int_to_mini_romank(int number){
