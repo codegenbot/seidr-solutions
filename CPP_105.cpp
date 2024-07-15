@@ -1,20 +1,6 @@
 #include <string>
 #include <cassert>
 
-bool is_same(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<string> sort_numbers_by_length(vector<int> arr){
     vector<string> result;
     vector<int> sorted_arr;
@@ -37,4 +23,8 @@ vector<string> sort_numbers_by_length(vector<int> arr){
     }
 
     return result;
+}
+
+bool is_same(vector<string> a, vector<string> b) {
+    return a == b;
 }
