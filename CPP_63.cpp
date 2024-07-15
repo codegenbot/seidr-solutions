@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cassert>
-
 int fib(int n) {
     if (n == 0) {
         return 0;
@@ -20,4 +17,7 @@ int fib(int n) {
     return result;
 }
 
-assert(fib(14) == 927);
+int main() {
+    assert(fib(14) == 927);
+    return 0;
+}
