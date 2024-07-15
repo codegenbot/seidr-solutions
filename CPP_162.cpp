@@ -1,13 +1,15 @@
-if (text.empty()) {
-    return "None";
+if(text.empty())
+        return "None";
+    
+    MD5_CTX mdContext;
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_Init(&mdContext);
+    MD5_Update(&mdContext, text.c_str(), text.size());
+    MD5_Final(md, &mdContext);
+
+    char mdString[33];
+    for(int i = 0; i < 16; i++)
+        sprintf(&mdString[i*2], "%02x", (unsigned int)md[i]);
+
+    return mdString;
 }
-
-unsigned char result[MD5_DIGEST_LENGTH];
-MD5((unsigned char*)text.c_str(), text.length(), result);
-
-char md5string[MD5_DIGEST_LENGTH*2+1];
-for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-    sprintf(&md5string[i*2], "%02x", (unsigned int)result[i]);
-}
-
-return string(md5string);
