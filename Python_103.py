@@ -1,3 +1,4 @@
+```
 def rounded_avg(num1, num2):
     if not isinstance(num1, int) or not isinstance(num2, int):
         return "Invalid input! Please enter integer values."
