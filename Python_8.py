@@ -1,8 +1,10 @@
 try:
-    n = int(input("Enter the total number of elements: "))
-    numbers = [int(x) for x in input(f"Enter {n-1} numbers separated by space: ").split()]
-    if len(numbers) != n - 1:
+    n = int(input("Enter the total count of numbers: "))
+    numbers = [int(x) for x in input().split()]
+    
+    if len(numbers) != n:
         raise ValueError
+        
     res = sum(num for num in numbers if num % 2 == 0)
     print(res)
 except (ValueError, TypeError):
