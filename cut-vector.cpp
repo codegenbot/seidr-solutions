@@ -1,10 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <utility>
-#include <climits>
-
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
@@ -22,7 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         
         int diff = abs(leftSum - rightSum);
         
-        if (diff < minDiff) {
+        if ((leftSum == rightSum) || (diff < minDiff)) {
             minDiff = diff;
             splitIndex = i;
         }
@@ -33,21 +26,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     result.second = vector<int>(v.begin() + splitIndex, v.end());
     
     return result;
-}
-
-int main() {
-    int n; std::cin >> n;
-    vector<int> v(n);
-    for (auto& x : v) std::cin >> x;
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    std::cout << "1 ";
-    for (auto x : result.first) std::cout << x << " ";
-    std::cout << "\n0 " << result.second.size() << "\n";
-    std::cout << "0 1\n";
-    std::cout << "1 ";
-    for (auto x : result.second) std::cout << x << " ";
-    std::cout << "\n";
-    
-    return 0;
 }
