@@ -1,10 +1,9 @@
 import re
 
 def fix_spaces(text: str) -> str:
-    hyphen_placeholder = '###'
+    hyphen_placeholder = '-'
     text = re.sub(r'\s+', hyphen_placeholder, text)
-    text = re.sub(r'-{2,}', '-', text)
-    text = text.replace(hyphen_placeholder, '-')
+    text = re.sub(rf'{hyphen_placeholder}{{2,}}', hyphen_placeholder, text)
     return text
 
 input_text = input().strip()
