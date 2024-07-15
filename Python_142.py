@@ -1,4 +1,4 @@
-```python
+```
 def sum_squares(lst):
     if len(lst) == 0:
         return 0
