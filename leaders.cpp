@@ -1,8 +1,4 @@
 ```cpp
-int main() {
-    return 0;
-}
-
 #include <vector>
 using namespace std;
 
@@ -15,6 +11,14 @@ vector<int> leaders(vector<int>& vec) {
             maxRight = vec[i];
         }
     }
-    result.push_back(vec.back());
     return result;
+}
+
+int main() {
+    vector<int> input = {7, 5, 2, 4};
+    vector<int> result = leaders(input);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
 }
