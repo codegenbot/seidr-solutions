@@ -1,6 +1,4 @@
-#include <vector>
-#include <cmath>
-
+```c++
 namespace std {
 int fuelCost(std::vector<int> vec) {
     int sum = 0;
