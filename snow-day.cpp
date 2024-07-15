@@ -8,8 +8,9 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
+        double snow_to_melt = snow_on_ground * snow_melt_rate;
         snow_on_ground += snow_fall_rate;
-        snow_on_ground -= min(snow_on_ground, snow_fall_rate * (1 - snow_melt_rate));
+        snow_on_ground -= min(snow_on_ground, snow_to_melt);
     }
 
     cout << fixed << setprecision(15) << snow_on_ground << endl;
