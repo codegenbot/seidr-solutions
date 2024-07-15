@@ -7,9 +7,8 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
 
     for (char &c : message) {
-        size_t index = cipher1.find(c);
-        if (index != string::npos) {
-            c = cipher2[index];
+        if (c == cipher1[0]) {
+            c = cipher2[0];
         }
     }
 
