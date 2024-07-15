@@ -1,21 +1,31 @@
-```
 #include <vector>
+using namespace std;
 
-int luhnHelper(const std::vector<int>& numbers, int pos);
-int luhn(const std::vector<int>& numbers) {
-    return luhnHelper(numbers, numbers.size() - 1);
+int luhn(vector<int> numbers) {
+    int sum = 0;
+    bool doubleNext = false;
+    
+    for (int i : numbers) {
+        if (doubleNext) {
+            i *= 2;
+            if (i > 9) {
+                i -= 9;
+            }
+        }
+        sum += i;
+        doubleNext = !doubleNext;
+    }
+    
+    return sum;
 }
 
-int luhnHelper(const std::vector<int>& numbers, int pos) {
-    if (pos < 0)
-        return 0;
-    int digit = numbers[pos];
-    if ((pos + 1) % 2 != 0) {
-        if ((digit * 2) >= 10)
-            return digit * 2 - 9 + luhnHelper(numbers, pos - 1);
-        else
-            return digit * 2 + luhnHelper(numbers, pos - 1);
-    } else {
-        return digit + luhnHelper(numbers, pos - 1);
+int main() {
+    int n;
+    cin >> n;
+    vector<int> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> numbers[i];
     }
+    cout << luhn(numbers) << endl;
+    return 0;
 }
