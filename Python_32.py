@@ -1,11 +1,9 @@
-xs = [float(x) for x in input().strip().split()]
+num = float(input("Enter a number: "))
 
-
-def find_zero(a: float, b: float) -> float:
-    if a == 0:
+def find_zero(num: float) -> float:
+    if num == 0:
         return "undefined"
-    return -b / a
+    return -num
 
-
-result = find_zero(*xs)
+result = find_zero(num)
 print(result)
