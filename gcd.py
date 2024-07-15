@@ -1,3 +1,4 @@
+```"""
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -14,3 +15,4 @@ def find_indices(text, target):
         else:
             break
     return indices
+"""
