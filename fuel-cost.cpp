@@ -6,3 +6,4 @@ int fuelCost(std::vector<int> &v) {
         sum += ((i / 3) - 2);
     }
     return sum;
+}
