@@ -1,15 +1,15 @@
-#include <cassert>
 #include <cstdio>
 #include <string>
+#include <cassert>
 
 int fruit_distribution(std::string s, int n) {
-    int apples, oranges, mangoes;
-    sscanf(s.c_str(), "1 apples and %d oranges", &apples, &oranges);
-    mangoes = n - apples - oranges;
-    return mangoes;
+    int apples = 0, oranges = 0;
+    sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
+    return n - apples - oranges;
 }
 
 int main() {
     assert(fruit_distribution("1 apples and 100 oranges", 120) == 19);
+    
     return 0;
 }
