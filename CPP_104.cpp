@@ -33,7 +33,7 @@ int main(){
     for(int num : output){
         std::cout << num << " ";
     }
-
+    
     assert(issame_digits(unique_digits({135, 103, 31}), {31, 135}));
 
     return 0;
