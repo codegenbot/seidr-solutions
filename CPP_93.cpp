@@ -1,4 +1,10 @@
-for (int i = 0; i < message.length(); i++) {
+#include <iostream>
+#include <string>
+#include <cassert>
+using namespace std;
+
+string encode(string message) {
+    for (int i = 0; i < message.length(); i++) {
         if (isalpha(message[i])) {
             if (isupper(message[i])) {
                 message[i] = tolower(message[i]);
@@ -11,4 +17,9 @@ for (int i = 0; i < message.length(); i++) {
         }
     }
     return message;
+}
+
+int main() {
+    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    return 0;
 }
