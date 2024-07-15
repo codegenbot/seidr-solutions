@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -24,3 +25,4 @@ int main() {
         std::cout << "output: " << spinWords(input) << std::endl;
     }
     return 0;
+}
