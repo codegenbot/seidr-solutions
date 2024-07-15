@@ -5,6 +5,6 @@ def find_zero(xs: list) -> float:
         return "undefined"
     return -b / a
 
-xs = list(map(float, input().strip().split()))
+xs = list(map(float, input("Enter two real numbers separated by a space: ").strip().split()))
 result = find_zero(xs)
 print(result)
