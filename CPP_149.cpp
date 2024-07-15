@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
+namespace std {
 
 bool issame(vector<string> a, vector<string> b){
     return a == b;
@@ -19,7 +20,9 @@ vector<string> sorted_list_sum(vector<string> lst){
     return lst;
 }
 
+}
+
 int main(){
-    sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+    assert(std::issame(std::sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
