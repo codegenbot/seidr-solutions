@@ -14,5 +14,6 @@ std::vector<int> pluck(std::vector<int> v) {
     return result;
 }
 
+#include <cassert>
 assert(issame(pluck(std::vector<int>{7, 9, 7, 1}), std::vector<int>{7, 7}));
 return 0;
