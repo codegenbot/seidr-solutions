@@ -1,7 +1,5 @@
-#include <iostream>
 #include <string>
 #include <unordered_set>
-#include <cassert>
 
 std::string find_max(const std::vector<std::string>& words) {
     std::string max_word;
@@ -16,10 +14,4 @@ std::string find_max(const std::vector<std::string>& words) {
     }
     
     return max_word;
-}
-
-int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
-    
-    return 0;
 }
