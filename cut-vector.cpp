@@ -20,7 +20,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    std::int cin >> n;
+    int n;
+    std::cin >> n;
     vector<int> v(n);
     for (auto &x : v) std::cin >> x;
     pair<vector<int>, vector<int>> res = cutVector(v);
