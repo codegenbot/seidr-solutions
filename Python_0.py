@@ -1,5 +1,5 @@
-numbers = list(map(int, input().strip().split()))
-threshold = int(input().strip())
+numbers = list(map(int, input().split()))
+threshold = int(input())
 
 result = [num for num in numbers if num > threshold]
 
