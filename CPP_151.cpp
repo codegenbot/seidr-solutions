@@ -3,7 +3,15 @@
 #include <cmath>
 #include <cassert>
 
-long long double_the_difference(const std::vector<float>& lst);
+long long double_the_difference(const std::vector<float>& lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            sum += (long long)pow(num, 2);
+        }
+    }
+    return sum;
+}
 
 int main() {
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0};
@@ -14,14 +22,4 @@ int main() {
     std::cout << "Output: " << odd_sum << std::endl;
 
     return 0;
-}
-
-long long double_the_difference(const std::vector<float>& lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)pow(num, 2);
-        }
-    }
-    return sum;
 }
