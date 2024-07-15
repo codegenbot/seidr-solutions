@@ -7,13 +7,13 @@ int main() {
     std::cin >> bowls;
     int score = 0, frame = 0, ball = 0;
     int frames[10] = {0};
-
+    
     for (char c : bowls) {
         if (c == 'X') {
             frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            frames[frame] = 10 - (frames[frame-1] + (c - '0'));
+            frames[frame] = 10 - frames[frame-1];
             frame++;
             ball = 0;
         } else if (c == '-') {
