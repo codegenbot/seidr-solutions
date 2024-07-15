@@ -3,9 +3,9 @@ int sum = 0;
         sum += q[i];
     }
     
-    if (q.size() == 1 || (q.size() % 2 == 0 && equal(q.begin(), q.begin() + q.size() / 2, q.rbegin()))) {
-        return sum <= w;
+    if (q == vector<int>(q.rbegin(), q.rend()) && sum <= w) {
+        return true;
+    } else {
+        return false;
     }
-    
-    return false;
 }
