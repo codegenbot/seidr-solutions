@@ -18,6 +18,10 @@ vector<float> derivative(vector<float> xs){
 }
 
 int main(){
-    assert(issame({1, 2, 3}, {1, 2, 3}));
+    vector<float> test1 = {1.0, 2.0, 3.0};
+    vector<float> test2 = {1.0, 4.0, 9.0};
+
+    assert(issame(derivative(test1), test2));
+    
     return 0;
 }
