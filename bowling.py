@@ -1,4 +1,4 @@
-```
+```Python
 def bowling_score(frames):
     frames_list = [int(x) for x in frames.replace('/', '-').split('-')]
     
