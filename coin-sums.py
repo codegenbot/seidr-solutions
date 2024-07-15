@@ -3,9 +3,9 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        quotient = cents // coins[i] if cents >= coins[i] else 0
-        remainder = cents % coins[i]
-        result[i] += quotient
-        cents = remainder
+        while cents >= coins[i]:
+            quotient = int(cents / coins[i])
+            result[i] += quotient
+            cents -= coins[i] * quotient
 
     return result
