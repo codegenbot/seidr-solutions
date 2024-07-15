@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -6,11 +7,15 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     std::vector<int> result;
-    while (k > 0) {
-        result.push_back(grid[0][0]);
-        result.push_back(grid[0][1]);
-        k -= 1;
+    
+    for (int i = 0; i < k; ++i) {
+        for (const auto& row : grid) {
+            for (const auto& num : row) {
+                result.push_back(num);
+            }
+        }
     }
+    
     return result;
 }
 
