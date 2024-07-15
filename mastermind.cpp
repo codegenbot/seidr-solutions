@@ -1,6 +1,5 @@
 #include <iostream>
-#include <string>
-#include <unordered_map>
+#include <map>
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
@@ -14,7 +13,7 @@ int whitePegs(std::string code, std::string guess) {
 
 int blackPegs(std::string code, std::string guess) {
     int blackCount = 0;
-    std::unordered_map<char,int> codeMap;
+    std::map<char,int> codeMap;
     for(int i=0; i<4; i++) {
         codeMap[code[i]]++;
     }
@@ -27,13 +26,14 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     
+    int remainingBlackPegs = 0;
     for(auto it : codeMap) {
-        if(it.second > 0) {
-            return blackCount;
+        if(it.second > 1) {
+            remainingBlackPegs += it.second - 1;
         }
     }
     
-    return blackCount;
+    return blackCount + remainingBlackPegs;
 }
 
 int main() {
@@ -41,5 +41,4 @@ int main() {
     std::cin >> code >> guess;
     std::cout << whitePegs(code, guess) << std::endl;
     std::cout << blackPegs(code, guess) << std::endl;
-    return 0;
-}
+    return 0; }
