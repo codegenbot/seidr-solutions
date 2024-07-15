@@ -1,6 +1,4 @@
-Here is the solution for the bowling problem in Python:
-
-```
+```python
 def bowling_score(frames):
     score = 0
     frame_count = 1
