@@ -27,7 +27,11 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return nums;
 }
 
+bool comp_vectors(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    assert(comp_vectors(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
