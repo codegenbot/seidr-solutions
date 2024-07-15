@@ -1,11 +1,5 @@
-try:
-    numbers = list(map(int, input().split()))
-    threshold = int(input())
-except ValueError:
-    print(
-        "Input format is incorrect. Please provide space-separated integers followed by the threshold integer on a new line."
-    )
-    exit()
+numbers = list(map(int, input().split()))
+threshold = int(input())
 
 
 def check_threshold(numbers, threshold):
@@ -17,5 +11,4 @@ def check_threshold(numbers, threshold):
 
 
 result = check_threshold(numbers, threshold)
-
 print(result)
