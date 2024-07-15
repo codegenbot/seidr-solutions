@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <climits>
+#include <algorithm>
 
 using namespace std;
 
