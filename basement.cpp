@@ -1,11 +1,16 @@
 #include <vector>
 using namespace std;
 
-int basement(const vector<int>& numbers) {
+int basement(vector<int> v) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        sum += numbers[i];
-        if (sum < 0) return i;
+    int i = 0;
+    while (i < v.size()) {
+        sum += v[i];
+        if (sum < 0)
+            return i;
+        i++;
     }
     return -1;
 }
+
+int main() { return basement(vector<int>{}); }
