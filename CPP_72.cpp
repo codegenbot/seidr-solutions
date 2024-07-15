@@ -1,15 +1,26 @@
-bool will_it_fly(vector<int> q, int w) {
+#include <vector>
+#include <algorithm>
+
+bool will_it_fly(const std::vector<int>& q, int w) {
     int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
+    for (size_t i = 0; i < q.size(); i++) {
         sum += q[i];
     }
-    if (sum > w) {
-        return false;
-    }
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - 1 - i]) {
-            return false;
+    
+    if (sum <= w) {
+        std::vector<int> reversed_q = q;
+        std::reverse(reversed_q.begin(), reversed_q.end());
+        
+        if (q == reversed_q) {
+            return true;
         }
     }
-    return true;
+    
+    return false;
+}
+
+// Test cases
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
