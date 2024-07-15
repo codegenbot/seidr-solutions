@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -24,9 +25,8 @@ int main() {
     std::cout << "Enter the input string: ";
     std::cin >> s;  
     int totalScore = 0;
-    for (char c : s) {
+    for (char c : s) {  
         totalScore += bowlingScore(c);
     }
     std::cout << "The total score is: " << totalScore << std::endl;
-    return 0;
 }

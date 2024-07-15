@@ -1,4 +1,3 @@
-```
 std::string spinWords(std::string str) {
     std::string result = "";
     std::size_t pos = 0;
