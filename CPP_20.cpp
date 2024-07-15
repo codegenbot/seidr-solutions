@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -18,7 +17,7 @@ pair<float, float> find_closest_elements(const vector<float>& numbers) {
     return {result.first, result.second};
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b){
     return a == b;
 }
 
