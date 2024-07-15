@@ -19,4 +19,3 @@ int main() {
     cin >> num;
     cout << solution.fizzBuzz(num) << endl;
     return 0;
-}
