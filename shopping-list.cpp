@@ -1,9 +1,1 @@
-using namespace std;
-
-float shoppingList(vector<float> prices, vector<float> discounts) {
-    float total = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] / 100);
-    }
-    return total;
-}
+std::cout << std::fixed << std::setprecision(6) << (round(total * 1000.0)/1000.0) << std::endl;
