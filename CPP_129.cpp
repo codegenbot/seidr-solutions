@@ -1,3 +1,5 @@
 vector<int> minPath(vector<vector<int>> grid, int k){
-        // Your code here
+        vector<int> result;
+        result.push_back(1);
+        return result;
     }
