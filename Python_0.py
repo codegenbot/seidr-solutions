@@ -5,7 +5,5 @@ def check_threshold(numbers, threshold):
             return True
     return False
 
-numbers = [3, 5, 7, 2, 8]
-threshold = 2
-result = check_threshold(numbers, threshold)
-print(result)
+has_close_elements = check_threshold([3, 7, 1, 9, 5], 2)
+print(has_close_elements)
