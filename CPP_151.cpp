@@ -1,9 +1,12 @@
-```cpp
-long long double_the_difference(vector<float> lst) {
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && isfinite(num) && floor(num) == num) {
-            sum += pow(num, 2);
+        if (num >= 0 && std::floor(num) == num) {
+            sum += std::pow(num, 2);
         }
     }
     return sum;
