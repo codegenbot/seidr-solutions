@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -20,13 +19,11 @@ std::vector<int> even_odd_count(int num){
 }
 
 int main() {
-    // Example usage of even_odd_count function
-    int num = 123456;
+    int num;
+    std::cin >> num;
     std::vector<int> counts = even_odd_count(num);
-    for (int count : counts) {
+    for(int count : counts){
         std::cout << count << " ";
     }
-    std::cout << std::endl;
-
     return 0;
 }
