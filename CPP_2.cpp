@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-double truncate_number(double number) {
+int truncate_number(double number) {
     return number - floor(number);
 }
 
