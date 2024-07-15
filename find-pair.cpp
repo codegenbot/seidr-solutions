@@ -11,14 +11,13 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cin.ignore(); // Clearing the input buffer
     cin >> target;
 
     unordered_map<int, int> mp;
     bool found = false;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << endl;
+            cout << nums[mp[target - nums[i]]] << endl;
             cout << nums[i] << endl;
             found = true;
             break;
