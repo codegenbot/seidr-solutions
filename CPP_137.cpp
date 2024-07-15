@@ -1,6 +1,5 @@
 #include <string>
-
-std::string compare(std::any a, std::any b);
+#include <any>
 
 std::string compare(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -11,7 +10,7 @@ std::string compare(std::any a, std::any b) {
         } else {
             return "None";
         }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)) {
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
             return std::to_string(std::any_cast<float>(a));
         } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
