@@ -1,8 +1,8 @@
-float max_val = l[0];
+float max_num = l[0];
     for (float num : l) {
-        if (num > max_val) {
-            max_val = num;
+        if (num > max_num) {
+            max_num = num;
         }
     }
-    return max_val;
+    return max_num;
 }
