@@ -1,8 +1,7 @@
 #include <string>
-#include <vector>
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your implementation here
+    // Code for checking if two vectors of strings are the same
 }
 
 vector<string> split_words(string txt) {
@@ -32,10 +31,4 @@ vector<string> split_words(string txt) {
         words[0] = to_string(count);
     }
     return words;
-}
-
-int main() {
-    vector<string> result = split_words("");
-    // Remaining main() code
-    return 0;
 }
