@@ -1,6 +1,4 @@
-n = int(input("Enter first number: "))
-m = int(input("Enter second number: "))
-
+```
 def rounded_avg(n, m):
     if n > m:
         return -1
@@ -15,4 +13,5 @@ def rounded_avg(n, m):
     else:
         return format(int_avg, "b")[2:]
 
-print(rounded_avg(n, m))
+
+print(rounded_avg(5, 6))
