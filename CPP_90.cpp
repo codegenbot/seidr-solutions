@@ -1,11 +1,16 @@
-```c++
+Here is the completed code:
+
+#include <algorithm>
+using namespace std;
+
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2)
-        return -1; // return None
-    sort(lst.begin(), lst.end());
-    vector<int>::iterator it = upper_bound(lst.begin(), lst.end(), lst[1]);
-    if (it == lst.end())
-        return -1;
-    else
-        return *it;
+        return -1; // or return None as per your requirement
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size()-1; i++) {
+        if (v[i] != v[i+1])
+            return v[i];
+    }
+    return -1; // or return None as per your requirement
 }
