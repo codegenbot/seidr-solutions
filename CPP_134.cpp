@@ -13,6 +13,11 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    bool check_if_last_char_is_a_letter(const std::string& txt);
+    bool result = check_if_last_char_is_a_letter("Hello World");
+    assert(result == false);
+
+    result = check_if_last_char_is_a_letter("Hello World ");
+    assert(result == true);
+
     return 0;
 }
