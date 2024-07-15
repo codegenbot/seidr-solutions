@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -26,8 +22,8 @@ int main() {
 
     vector<string> result = select_words(input, n);
 
-    for (const string& word : result) {
-        cout << word << " ";
+    for (string word : result) {
+        cout << word << endl;
     }
 
     return 0;
