@@ -8,7 +8,9 @@ vector<string> separate_paren_groups(const string& paren_string) {
     int open_braces = 0;
 
     for (char c : paren_string) {
-        if (c == '(') {
+        if (issame(current_group.back(), c)) {
+            current_group += c;
+        } else if (c == '(') {
             if (open_braces > 0) {
                 current_group += c;
             }
@@ -18,7 +20,7 @@ vector<string> separate_paren_groups(const string& paren_string) {
             if (open_braces > 0) {
                 current_group += c;
             } else {
-                result.push_back(current_group);
+                result.push_back('(' + current_group + ')');
                 current_group = "";
             }
         }
