@@ -4,5 +4,5 @@ def intersperse(numbers: list[int], delimiter: str) -> list[str]:
     result = [str(delimiter)]
     for num in numbers:
         result.extend([str(num), str(delimiter)])
-    result.append(str(delimiter))
+    result.pop()
     return result
