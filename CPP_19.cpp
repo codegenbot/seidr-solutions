@@ -1,4 +1,12 @@
-map<string, int> num_map = {
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+#include <cassert>
+
+std::map<std::string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,21 +19,23 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    string result;
-    vector<string> num_list;
-    stringstream ss(numbers);
-    string word;
+std::string sort_numbers(std::string numbers);
+
+std::string sort_numbers(std::string numbers){
+    std::string result;
+    std::vector<std::string> num_list;
+    std::stringstream ss(numbers);
+    std::string word;
     
     while (ss >> word) {
         num_list.push_back(word);
     }
     
-    sort(num_list.begin(), num_list.end(), [&](const string& a, const string& b){
+    std::sort(num_list.begin(), num_list.end(), [&](const std::string& a, const std::string& b){
         return num_map[a] < num_map[b];
     });
     
-    for (const string& num : num_list) {
+    for (const std::string& num : num_list) {
         result += num + " ";
     }
     
