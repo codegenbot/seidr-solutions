@@ -19,8 +19,12 @@ namespace CustomVectorFunctions {
     }
 }
 
-int main() {
+int solveProblem() {
     using namespace CustomVectorFunctions;
     assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
+}
+
+int main() {
+    return solveProblem();
 }
