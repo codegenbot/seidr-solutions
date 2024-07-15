@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame_digits(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -33,5 +34,7 @@ int main(){
         std::cout << num << " ";
     }
     
+    assert(issame_digits(unique_digits({135, 103, 31}), {31, 135}));
+
     return 0;
 }
