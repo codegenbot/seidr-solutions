@@ -1,45 +1,57 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
-
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    vector<string> result = separate_paren_groups(input);
-    for (string group : result) {
-        cout << group << endl;
-    }
-    return 0;
-}
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
-    int open_braces = 0;
+    string group;
+    int count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_braces > 0) {
-                current_group += c;
+            if (count > 0) {
+                group += c;
             }
-            open_braces++;
+            count++;
         } else if (c == ')') {
-            open_braces--;
-            if (open_braces == 0) {
-                result.push_back(current_group);
-                current_group = "";
-            } else {
-                current_group += c;
+            count--;
+            if (count > 0) {
+                group += c;
+            } else if (count == 0) {
+                result.push_back(group);
+                group = "";
             }
         }
     }
 
     return result;
+}
+
+bool issame_vectors(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
+    vector<string> expected_result = {"(group1)", "(group2)", "(group3)"};
+
+    if (issame_vectors(result, expected_result)) {
+        cout << "The separated groups match the expected result." << endl;
+    } else {
+        cout << "The separated groups do not match the expected result." << endl;
+    }
+
+    return 0;
 }
