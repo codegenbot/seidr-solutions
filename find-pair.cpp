@@ -11,8 +11,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    
-    cin.ignore();
+    cin.ignore(); // Clearing the input buffer
     cin >> target;
 
     unordered_map<int, int> mp;
