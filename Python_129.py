@@ -1,6 +1,6 @@
 def minPath(grid, k):
     n = len(grid)
-    start = min((grid[i][j], i, j) for i in range(n) for j in range(n))     
+    start = min((grid[i][j], i, j) for i in range(n) for j in range(n))
     
     path = [grid[start[1]][start[2]]]
     visited = {(start[1], start[2])}
