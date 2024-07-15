@@ -1,3 +1,4 @@
+```
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int max_right = arr.back();
