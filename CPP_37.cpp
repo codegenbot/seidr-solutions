@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
+std::vector<float> sort_even(const std::vector<float>& l);
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
-
-std::vector<float> sort_even(const std::vector<float>& l);
 
 std::vector<float> sort_even(const std::vector<float>& l) {
     std::vector<float> even_values;
