@@ -5,13 +5,12 @@ def factorize(n):
             factors.append(i)
     return factors
 
+
 try:
-    n = int(input("Enter a positive integer: "))
-except ValueError:
-    print("Input should be a positive integer")
-else:
+    n = int(input())
     if n <= 0:
-        print("Input should be a positive integer")
-    else:
-        result = factorize(n)
-        print(result)
+        raise ValueError("Input should be a positive integer")
+    result = factorize(n)
+    print(result)
+except ValueError as e:
+    print(e)
