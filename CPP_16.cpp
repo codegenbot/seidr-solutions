@@ -1,9 +1,5 @@
-vector<char> chars;
-    for(char c : str){
-        char lc = tolower(c);
-        if(find(chars.begin(), chars.end(), lc) == chars.end()){
-            chars.push_back(lc);
-        }
-    }
-    return chars.size();
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    str.erase(unique(str.begin(), str.end()), str.end());
+    return str.length();
 }
