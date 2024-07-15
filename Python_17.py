@@ -10,9 +10,12 @@ def parse_music(music_input):
                 return False
     return len(stack) == 0
 
-try:
-    music_input = input().rstrip()
-    result = parse_music(music_input)
-    print(result)
-except EOFError:
-    pass
+while True:
+    try:
+        music_input = input().rstrip()
+        if music_input == '':
+            break
+        result = parse_music(music_input)
+        print(result)
+    except EOFError:
+        break
