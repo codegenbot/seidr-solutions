@@ -8,7 +8,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != string::npos) {
         res.push_back(pos);
-        pos += 1; 
+        pos += (pos + target.size() <= text.size()) ? target.size() : 0;
     }
     return res;
 }
