@@ -1,11 +1,24 @@
-#include <vector> // Include the necessary header
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Fix the function signature
-    return a == b; // Check if the vectors are the same
-}
+namespace Contest {
+    class Eat {
+    public:
+        Eat(int number, int need, int remaining) : number(number), need(need), remaining(remaining) {}
 
-int main() {
-    assert (issame(eat(4, 5, 1), {5, 0})); // Call the eat function in main
+        std::vector<int> calculate() {
+            int total = number + need;
+            int eaten = total <= remaining ? total : remaining;
+            int left = remaining - eaten;
+            return {eaten, left};
+        }
 
-    return 0;
+    private:
+        int number;
+        int need;
+        int remaining;
+    };
+
+    bool issame(std::vector<int> v1, std::vector<int> v2) {
+        return v1 == v2;
+    }
 }
