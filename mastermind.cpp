@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <map>
+using namespace std;
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
@@ -13,7 +15,7 @@ int whitePegs(std::string code, std::string guess) {
 
 int blackPegs(std::string code, std::string guess) {
     int blackCount = 0;
-    std::map<char,int> codeMap;
+    map<char,int> codeMap;
     for(int i=0; i<4; i++) {
         codeMap[code[i]]++;
     }
@@ -40,5 +42,7 @@ int main() {
     std::string code, guess;
     std::cin >> code >> guess;
     std::cout << whitePegs(code, guess) << std::endl;
-    std::cout << blackPegs(code, guess) << std::endl;
+    int blackPeg = blackPegs(code, guess);
+    std::cout << blackPeg << std::endl; 
     return 0;
+}
