@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <utility>
@@ -21,17 +20,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
             rightSum += v[j];
         }
         
-        if (leftSum == rightSum) {
-            result.first = vector<int>(v.begin(), v.begin() + i);
-            result.second = vector<int>(v.begin() + i, v.end());
-            return result;
-        } else {
+        if (leftSum != rightSum) {
             int diff = abs(leftSum - rightSum);
-            
-            if (diff <= minDiff) {
+
+            if (diff < minDiff) {
                 minDiff = diff;
                 splitIndex = i;
             }
+        } else {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
     
@@ -50,10 +47,11 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "1 ";
     for (auto x : result.first) cout << x << " ";
-    cout << "\n0\n";
+    cout << "\n0 " << result.second.size() << "\n";
+    cout << "0 1\n";
     cout << "1 ";
     for (auto x : result.second) cout << x << " ";
-    cout << "\n0\n";
+    cout << "\n";
     
     return 0;
 }
