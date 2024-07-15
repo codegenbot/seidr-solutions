@@ -1,8 +1,8 @@
 #include <string>
 #include <cassert>
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
+bool issame(const string &a, const string &b) {
+    return a == b;
 }
 
 vector<string> all_prefixes(string str){
