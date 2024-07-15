@@ -1,14 +1,10 @@
-#include <cassert>
 #include <vector>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-string match_parens(vector<string> lst);
-
-string match_parens(vector<string> lst) {
+std::string match_parens(std::vector<std::string> lst) {
     int cnt = 0;
-    for (string s : lst) {
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
