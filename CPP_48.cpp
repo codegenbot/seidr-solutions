@@ -12,7 +12,7 @@ bool is_palindrome(std::string text) {
 }
 
 int main() {
-    assert(is_palindrome("radar") == true);
+    assert(is_palindrome("racecar") == true);
     assert(is_palindrome("hello") == false);
     assert(is_palindrome("level") == true);
     
