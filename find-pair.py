@@ -1,13 +1,14 @@
-```
-def find_pair(n, nums):
-    seen = set()
-    for num in nums:
-        if num * 2 == n:
-            return str(num)
-        elif n - num in seen:
-            return '{} {}'.format(n - num, num)
+def find_pair(input_list):
+    num_dict = {}
+    for num in input_list:
+        if (target - num) in num_dict:
+            return str(target - num) + "\n" + str(num)
         else:
-            seen.add(num)
+            num_dict[num] = True
+    return "No pair found"
 
-n = int(input())
-print(find_pair(n, [int(x) for x in input().split()]))
+target = int(input())
+input_size = int(input())
+for _ in range(input_size):
+    nums = list(map(int, input().split()))
+    print(find_pair(nums))
