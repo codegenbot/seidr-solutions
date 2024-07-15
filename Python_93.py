@@ -1,9 +1,8 @@
 def encode(message):
+    vowels = set('aeiou')
     return ''.join([
-        chr((((ord(char.upper()) - ord('A')) + 1) % 26) + ord('A'))
-        if char.isalpha() and char.lower() not in set('aeiou')
-        else char.swapcase() 
-        if char.isalpha() 
-        else char
-        for char in message.replace('\n', '').replace('\r', '')
+        char if not char.isalpha() else ' '
+        else chr(((ord(char.upper()) - ord('A') + 2) % 26) + ord('A')).swapcase() if char.lower() not in vowels
+        else chr(ord(char) ^ 32)
+        for char in message
     ])
