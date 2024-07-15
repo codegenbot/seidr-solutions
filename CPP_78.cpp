@@ -13,7 +13,7 @@ int hex_key(std::string num){
     return count;
 }
 
-int main() {
+int main(){
     std::string input;
     std::cin >> input; // Read input from user
     int result = hex_key(input); // Call your function with the input
