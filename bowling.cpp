@@ -8,7 +8,8 @@ int scoreBowlingRound(const std::string& bowls) {
         if (frame == 10) break;
         if (bowls[i] == 'X') {
             score += 10;
-            if (bowls[i + 2] == '/')
+
+            if (bowls[i + 2] == '/') 
                 score += 10 - (bowls[i + 1] - '0');
             else
                 score += (bowls[i + 1] == 'X' ? 10 : bowls[i + 1] - '0') + (bowls[i + 2] == 'X' ? 10 : bowls[i + 2] - '0');
