@@ -20,8 +20,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         total += prices[i] - (prices[i] * discounts[i] / 100.0);
     }
-
+    
     cout << total << '\n';
-
+    
     return 0;
 }
