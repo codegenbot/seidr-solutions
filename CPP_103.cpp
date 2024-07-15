@@ -1,13 +1,9 @@
 #include <string>
 #include <cassert>
 
-std::string solve(int n, int m) {
-    assert(n >= 0 && m >= 0);
-    
-    if (n > m) {
-        return "-1";
-    }
-    
+std::string calculateBinaryAverage(int n, int m) {
+    assert(n <= m);
+
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
