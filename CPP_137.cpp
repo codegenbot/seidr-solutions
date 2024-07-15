@@ -1,5 +1,5 @@
-#include <iostream>
 #include <boost/any.hpp>
+#include <string>
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -21,5 +21,5 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
             return b;
         }
     }
-    return std::string("None");
+    return boost::any();
 }
