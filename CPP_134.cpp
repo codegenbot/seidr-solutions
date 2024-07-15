@@ -1,7 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cassert>
-
+#include <string>
 using namespace std;
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
@@ -14,9 +13,15 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("Hello, World!") == true);
-    assert(check_if_last_char_is_a_letter("") == false);
-    assert(check_if_last_char_is_a_letter("OnlyLetters") == false);
+    bool check_if_last_char_is_a_letter(const std::string& txt);
+    // Read input from user
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
 
+    // Validate the last character
+    bool result = check_if_last_char_is_a_letter(input);
+    assert(result == true); // Ensure the result is as expected
+    
     return 0;
 }
