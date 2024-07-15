@@ -1,6 +1,8 @@
-for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || count(lst.begin(), lst.end(), lst[i]) > 1)
-            return false;
+vector<int> unique_lst = lst;
+    sort(unique_lst.begin(), unique_lst.end());
+    unique_lst.erase(unique(unique_lst.begin(), unique_lst.end()), unique_lst.end());
+    if (lst.size() != unique_lst.size()) {
+        return false;
     }
-    return true;
+    return is_sorted(lst.begin(), lst.end());
 }
