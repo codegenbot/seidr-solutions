@@ -1,12 +1,11 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
 
-    vector<int> coins = {25, 10, 5, 1}; 
+    vector<int> coins = {25, 10, 5, 1}; // values of quarters, dimes, nickels, and pennies in cents
 
     int quarter = cents / 25;
     cents %= 25;
@@ -16,10 +15,10 @@ int main() {
     cents %= 5;
     int penny = cents;
 
-    cout << "Quarters: " << quarter << endl;
-    cout << "Dimes: " << dime << endl;
-    cout << "Nickels: " << nickel << endl;
-    cout << "Pennies: " << penny << endl;
+    cout << quarter << endl;
+    cout << dime << endl;
+    cout << nickel << endl;
+    cout << penny << endl;
 
     return 0;
 }
