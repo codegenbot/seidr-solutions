@@ -1,1 +1,1 @@
-music_string = sorted(map(int, input().strip().split()))
+music_string = sorted(map(int, input("Enter numbers separated by spaces: ").split()))
