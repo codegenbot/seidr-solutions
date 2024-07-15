@@ -1,15 +1,14 @@
-float mean_absolute_deviation(vector<float> numbers){
-    float sum = 0;
-    float mean;
-    for (float num : numbers) {
+float sum = 0;
+    for(float num : numbers){
         sum += num;
     }
-    mean = sum / numbers.size();
-
-    float total_diff = 0;
-    for (float num : numbers) {
-        total_diff += abs(num - mean);
+    float mean = sum / numbers.size();
+    
+    float sum_abs_diff = 0;
+    for(float num : numbers){
+        sum_abs_diff += abs(num - mean);
     }
-
-    return total_diff / numbers.size();
+    float mad = sum_abs_diff / numbers.size();
+    
+    return mad;
 }
