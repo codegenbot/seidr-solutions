@@ -1,3 +1,11 @@
 n = int(input())
 m = int(input())
-print(round(sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (n * m), 8))
+
+if n > m:
+    probability = round((n - 1) / n / m, 8)
+elif n < m:
+    probability = 0.0
+else:
+    probability = 0.5
+
+print(probability)
