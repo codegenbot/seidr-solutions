@@ -2,18 +2,11 @@ from typing import List
 import math
 
 
-def factorize(n: int) -> List[int]:
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            count = 0
-            while n % i == 0:
-                count += 1
-                n //= i
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-    return factors
+def find_lcm(m: int, n: int) -> int:
+    def gcd(a: int, b: int) -> int:
+        while b:
+            a, b = b, a % b
+        return a
+
+    lcm = (m * n) // gcd(m, n)
+    return lcm
