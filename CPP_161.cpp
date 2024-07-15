@@ -1,6 +1,10 @@
+#include <iostream>
+#include <algorithm>
 #include <string>
 
-std::string solve(std::string s){
+using namespace std;
+
+string solve(string s){
     bool hasLetter = false;
     for(char &c : s){
         if(isalpha(c)){
@@ -15,5 +19,6 @@ std::string solve(std::string s){
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
+    assert (solve("#ccc") == "#CCC");
+    return 0;
 }
