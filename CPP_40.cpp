@@ -19,8 +19,7 @@ bool triples_sum_to_zero(vector<int>& l) {
 }
 
 int main() {
-    vector<int> test_case = {1, -2, 1, 0, 5, -5};
-    bool result = triples_sum_to_zero(test_case);
-    cout << (result ? "true" : "false") << endl;
+    vector<int> test_case = {1, -2, 1, 4, 0, 2};
+    cout << triples_sum_to_zero(test_case); // Expected output: 1 (true)
     return 0;
 }
