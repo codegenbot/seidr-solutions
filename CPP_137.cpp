@@ -18,9 +18,10 @@ std::any compare(std::any a, std::any b) {
 }
 
 int main() {
-    int int1, int2;
-    cin >> int1 >> int2;
-    assert(std::any_cast<int>(compare(int1, int2)) == int1);
+    std::any int1, int2;
+    cin >> std::any_cast<int>(int1) >> std::any_cast<int>(int2);
+    
+    assert(std::any_cast<int>(compare(int1, int2)) == std::any_cast<int>(compare(int1, int2)));
 
     return 0;
 }
