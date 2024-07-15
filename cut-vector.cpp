@@ -1,7 +1,6 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <climits>
 
 int main() {
     std::vector<int> nums;
