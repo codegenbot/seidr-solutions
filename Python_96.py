@@ -1,15 +1,13 @@
-```
 def count_up_to(n):
-    def is_prime(k):
-        if k < 2:
-            return False
-        for i in range(2, int(k**0.5) + 1):
-            if k % i == 0:
-                return False
-        return True
-
     result = []
     for i in range(2, n):
-        if is_prime(i):
+        is_prime = True
+        if i < 2:
+            continue
+        for j in range(2, int(i**0.5) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
             result.append(i)
     return result
