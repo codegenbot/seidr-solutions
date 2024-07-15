@@ -1,7 +1,9 @@
-def find_closest_elements(numbers):
-    numbers.sort()
-    return numbers[:2]
+import sys
 
-numbers = list(map(float, input("Enter space-separated numbers: ").split()))
+def find_closest_elements(numbers):
+    closest = min(numbers, key=lambda x: abs(x - 0))
+    return closest
+
+numbers = list(map(float, sys.stdin.readline().strip().split()))
 result = find_closest_elements(numbers)
 print(result)
