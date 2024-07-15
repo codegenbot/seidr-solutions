@@ -10,4 +10,3 @@ int basement(vector<int> v) {
         i++;
     }
     return -1;
-}
