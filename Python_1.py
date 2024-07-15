@@ -1,3 +1,4 @@
+paren_string = input("Enter the string with parenthesis: ")
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -11,7 +12,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             count += 1
         elif char == ")":
             count -= 1
-            if count >= 0:
+            if count > 0:
                 current_group += char
             if count == 0:
                 result.append(current_group)
