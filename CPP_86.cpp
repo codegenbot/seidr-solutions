@@ -1,12 +1,18 @@
-// Sort each word in the string based on ascii value
-    for (int i = 0; i < s.size(); ++i) {
-        int j = i;
-        while (j < s.size() && s[j] != ' ') {
-            j++;
+string result = "";
+    string word = "";
+    
+    for (char c : s) {
+        if (c == ' ') {
+            sort(word.begin(), word.end());
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
-        sort(s.begin() + i, s.begin() + j);
-        i = j;
     }
-
-    return s;
+    
+    sort(word.begin(), word.end());
+    result += word;
+    
+    return result;
 }
