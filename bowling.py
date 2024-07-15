@@ -1,26 +1,38 @@
 ```
 def bowling_score(frames):
-    frames_list = list(map(int, ''.join(filter(str.isdigit, frames.replace('/', '-'))).split('-')[:10]))
-    
+    frames_list = [int(x) for x in frames.replace('/', '-').split('-')]
+
     score = 0
-    
-    for i, frame in enumerate(frames_list):
+    roll = 0
+
+    for i, frame in enumerate(frames_list[:10]):
         if len(str(frame)) == 1:
-            if i < 8 and (frame + frames_list[i+1] + frames_list[i+2]) == 10:
-                score += 30
-            elif i < 9:
-                score += 10
+            if i < 8:
+                next_frame = frames_list[i + 1] + frames_list[i + 2]
+                if int(next_frame) == 10:
+                    score += (frame * 3)
+                    roll = 0
+                else:
+                    score += frame
+                    roll = 2
             else:
-                score += frame * 3
-        elif frame == 10:
-            score += 20
-            roll = 0
+                if i == 9:
+                    score += (frames_list[8] * 3) + frames_list[9]
         else:
-            if i > 0 and (frame + frames_list[i-1]) == 10:
-                score += 20
+            if frame == 10:
+                score += frame * 2
+                roll = 3
+            elif int(str(frame)[0]) + int(str(frame)[1]) < 11:
+                score += frame
+                roll = 2
             else:
                 first_roll = int(str(frame)[0])
                 second_roll = int(str(frame)[1])
-                score += first_roll + second_roll * 2 - 10
-    
+                if i == 8 and len(str(frames_list[9])) == 1:
+                    next_frame = frames_list[9] + frames_list[10]
+                    score += (first_roll + second_roll * 2)
+                elif i < 8 and len(str(frames_list[i+1])) > 1:
+                    score += frame
+        if roll == 3:
+            roll = 0
     return score
