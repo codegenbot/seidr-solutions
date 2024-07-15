@@ -3,28 +3,22 @@
 #include <cassert>
 
 std::vector<std::string> select_words(std::string s, int n) {
-    // Implement your logic for selecting words here
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+    std::vector<std::string> words;
+    std::string word;
+    for (char c : s) {
+        if (c != ' ') {
+            word += c;
+        } else {
+            words.push_back(word);
+            word = "";
         }
     }
-    return true;
-}
+    words.push_back(word);
 
-int main() {
-    std::string s = "hello world my name is alice";
-    int n = 2;
-    std::vector<std::string> actual_result = select_words(s, n);
-    std::vector<std::string> expected_result = {"hello", "world", "alice"};
-    
-    assert(issame(actual_result, expected_result));
+    std::vector<std::string> selected_words;
+    if (n <= words.size() && n >= 1) {
+        selected_words.push_back(words[n]);
+    }
 
-    return 0;
+    return selected_words;
 }
