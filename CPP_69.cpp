@@ -1,19 +1,16 @@
-#include <algorithm>
-#include <cassert>
 #include <vector>
+#include <unordered_map>
 
-int search(const vector<int>& lst) {
+int search(std::vector<int> lst) {
     int res = -1;
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            res = std::max(res, num);
+        freq[num]++;
+    }
+    for (auto it = freq.begin(); it != freq.end(); ++it) {
+        if (it->first > it->second && it->second >= it->first) {
+            res = std::max(res, it->first);
         }
     }
     return res;
-}
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    // Add more test cases if needed
-    return 0;
 }
