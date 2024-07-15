@@ -2,7 +2,6 @@
 #include <cmath>
 
 int do_algebra(std::vector<std::string> operators, std::vector<int> operands){
-    assert(operators.size() == operands.size() - 1);
     int result = operands[0];
     for (int i = 0; i < operators.size(); i++) {
         if (operators[i] == "+") {
