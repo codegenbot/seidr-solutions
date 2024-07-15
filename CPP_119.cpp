@@ -1,10 +1,11 @@
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
+using namespace std;
 
 std::string match_parens(std::vector<std::string> lst) {
     int cnt = 0;
-    for (const std::string& s : lst) {
+    for (std::string s : lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
@@ -19,7 +20,9 @@ std::string match_parens(std::vector<std::string> lst) {
     return cnt == 0 ? "Yes" : "No";
 }
 
+// Old duplicate definition removed
+
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
+    assert(match_parens({"(", ")"}) == "Yes");
     return 0;
 }
