@@ -2,7 +2,7 @@
 #include <string>
 #include <openssl/md5.h>
 
-std::string string_to_md5(const std::string& text) {
+std::string string_to_md5(std::string text) {
     if(text.empty()) {
         return "None";
     }
@@ -24,7 +24,7 @@ int main() {
     std::cin >> input;
 
     std::string result = string_to_md5(input);
-    std::cout << "MD5 hash: " << result << std::endl;
+    std::cout << "MD5 Hash: " << result << std::endl;
 
     return 0;
 }
