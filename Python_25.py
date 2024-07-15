@@ -1,10 +1,12 @@
 def factorize(n: int) -> List[int]:
     factors = []
-    div = 2
-    while n > 1:
-        if n % div == 0:
-            factors.append(div)
-            n //= div
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            factors.append(d)
+            n //= d
         else:
-            div += 1
+            d += 1
+    if n > 1:
+        factors.append(n)
     return factors
