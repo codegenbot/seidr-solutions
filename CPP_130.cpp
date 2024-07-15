@@ -1,35 +1,37 @@
-#include <vector> 
-#include <cassert> 
+#include <vector>
+#include <cassert>
 
-using namespace std; 
+using namespace std;
 
-vector<int> tri(int n) { 
-    vector<int> result; 
-    if (n == 0) { 
-        result.push_back(0); 
-        return result; 
-    } 
-    result.push_back(3); 
-    int a = 0, b = 0, c = 3; 
-    for (int i = 1; i <= n; ++i) { 
-        result.push_back(c); 
-        if (i % 2 == 0) { 
-            c = 1 + i / 2; 
-        } else { 
-            int temp = c; 
-            c = a + b + c; 
-            a = b; 
-            b = temp; 
-        } 
-    } 
-    return result; 
-} 
+vector<int> tri(int n) {
+    vector<int> result;
+    if (n >= 0) {
+        result.push_back(3);
+        for (int i = 1; i <= n; ++i) {
+            if (i % 2 == 0) {
+                result.push_back(1 + i / 2);
+            } else {
+                result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
+            }
+        }
+    }
+    return result;
+}
 
-bool issame(vector<int> a, vector<int> b) { 
-    return a == b; 
-} 
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-int main() { 
-    assert(issame(tri(1), {1, 3})); 
-    return 0; 
+int main() {
+    assert(issame(tri(1), {1, 3}));
+    // Additional test cases can be added here
+    return 0;
 }
