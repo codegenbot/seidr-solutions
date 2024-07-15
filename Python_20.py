@@ -7,5 +7,3 @@ def find_min_difference(numbers):
         if numbers[i + 1] - numbers[i] == min_diff
     ][0]
     return result
-
-# Call the function with the appropriate input here
