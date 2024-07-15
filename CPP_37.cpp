@@ -24,8 +24,8 @@ std::vector<float> sort_even(const std::vector<float>& l) {
             even_idx++;
         } else {
             result.push_back(l[i]);
-        }
-    }
+  }
+}
     
     return result;
 }
