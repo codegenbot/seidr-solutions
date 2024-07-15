@@ -1,10 +1,10 @@
-// Complete the code
-    vector<char> distinct_chars;
-    for (char c : str) {
-        char lower_case_c = tolower(c);
-        if (find(distinct_chars.begin(), distinct_chars.end(), lower_case_c) == distinct_chars.end()) {
-            distinct_chars.push_back(lower_case_c);
-        }
-    }
-    return distinct_chars.size();
+#include <algorithm>
+#include <string>
+
+int count_distinct_characters(const std::string& str) {
+    std::string s = str;
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    sort(s.begin(), s.end());
+    auto last = unique(s.begin(), s.end());
+    return distance(s.begin(), last);
 }
