@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cmath>
 #include <cassert>
 
@@ -21,6 +20,9 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
+    assert(largest_prime_factor(56) == 7);
     assert(largest_prime_factor(13195) == 29);
+    assert(largest_prime_factor(600851475143) == 6857);
+
     return 0;
 }
