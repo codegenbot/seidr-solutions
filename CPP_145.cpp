@@ -1,24 +1,17 @@
-bool issame(int a, int b) {
-    return a == b;
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        int temp_a = abs(a), temp_b = abs(b);
-        while (temp_a) {
-            sum_a += temp_a % 10;
-            temp_a /= 10;
-        }
-        while (temp_b) {
-            sum_b += temp_b % 10;
-            temp_b /= 10;
-        }
-        if (sum_a == sum_b) {
-            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
-        }
-        return sum_a < sum_b;
-    });
-
-    return nums;
-}
+sort(nums.begin(), nums.end(), [](int a, int b) {
+    int sumA = 0, sumB = 0;
+    int tempA = abs(a), tempB = abs(b);
+    while (tempA > 0) {
+        sumA += tempA % 10;
+        tempA /= 10;
+    }
+    while (tempB > 0) {
+        sumB += tempB % 10;
+        tempB /= 10;
+    }
+    if (sumA == sumB) {
+        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
+    }
+    return sumA < sumB;
+});
+return nums;
