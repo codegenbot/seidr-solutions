@@ -1,7 +1,7 @@
-#include <iostream>
-#include <cassert>
 #include <vector>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 string int_to_mini_roman(int number){
@@ -20,9 +20,12 @@ string int_to_mini_roman(int number){
 }
 
 int main() {
-    int number;
-    cin >> number;
-    assert(int_to_mini_roman(number) == "XXXIV");
+    int input_number;
+    cout << "Enter a number: ";
+    cin >> input_number;
+
+    string result = int_to_mini_roman(input_number);
+    cout << "Mini Roman Numeral: " << result << endl;
 
     return 0;
 }
