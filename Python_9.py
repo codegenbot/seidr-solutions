@@ -11,8 +11,8 @@ def rolling_max(numbers: List[int]) -> List[int]:
 numbers = []
 while True:
     try:
-        num = int(input())
-        numbers.append(num)
+        number = int(input())
+        numbers.append(number)
     except:
         break
 
