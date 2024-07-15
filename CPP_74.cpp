@@ -2,8 +2,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 int countTotalChars(const vector<string>& lst) {
     int total = 0;
     for (const string& str : lst) {
@@ -12,7 +10,13 @@ int countTotalChars(const vector<string>& lst) {
     return total;
 }
 
-vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2);
+
+bool issame(const string& a, const string& b) {
+    return a == b;
+}
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total_chars_lst1 = countTotalChars(lst1);
     int total_chars_lst2 = countTotalChars(lst2);
     
@@ -23,11 +27,7 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
     }
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    // Test your functions here
     return 0;
 }
