@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <numeric>
+#include <cmath>
+
 using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
     while (cin >> num) {
         nums.push_back(num);
@@ -27,15 +28,15 @@ int main() {
         }
     }
     
-    std::vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    std::vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
+    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
+    vector<int> subvector2(nums.begin() + cut_index + 1, nums.begin() + nums.size());
     
     for (int num : subvector1) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     for (int num : subvector2) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
