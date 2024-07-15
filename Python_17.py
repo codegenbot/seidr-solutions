@@ -9,6 +9,6 @@ def parse_music(music_string: str) -> List[int]:
     else:
         return "Invalid input format. Please provide valid music notes."
 
-music_string = input("Enter the music notes: ")
+music_string = input("Enter music notes: ")
 result = parse_music(music_string)
 print(result)
