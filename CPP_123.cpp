@@ -1,5 +1,5 @@
-#include <stdio>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -20,7 +20,7 @@ std::vector<int> calculateSequence(int n) {
 
 int main() {
     int n;
-    scanf("%d", &n);
+    std::cin >> n;
 
     std::vector<int> result = calculateSequence(n);
 
