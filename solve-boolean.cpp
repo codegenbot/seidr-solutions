@@ -1,6 +1,10 @@
+#include <string>
+
 bool solveBoolean(std::string expression) {
     bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
+    int i = 0;
+
+    while (i < expression.length()) {
         if (expression[i] == 'T') {
             return true;
         }
@@ -8,11 +12,19 @@ bool solveBoolean(std::string expression) {
             return false;
         }
         else if (expression[i] == '&') {
-            result &= true;
+            i++; // Move to the next character
+            bool operand1 = expression[i] == 'T';
+            bool operand2 = !!(i < expression.length() && expression[++i] == 'T');
+            result &= operand2;
         }
         else if (expression[i] == '|') {
-            result |= true;
+            i++; // Move to the next character
+            bool operand1 = expression[i] == 'T';
+            bool operand2 = !!i;
+            result |= operand2;
         }
+        i++;
     }
+
     return result;
 }
