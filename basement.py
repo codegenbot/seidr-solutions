@@ -1,4 +1,3 @@
-```
 def basement(nums):
     total = 0
     basement_reached = False
@@ -8,4 +7,4 @@ def basement(nums):
             basement_reached = True
         elif basement_reached:
             return i + 1
-    return -1
+    return -1 if basement_reached else len(nums)
