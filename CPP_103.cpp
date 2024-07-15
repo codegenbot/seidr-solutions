@@ -1,19 +1,30 @@
-#include <cstddef>
+#include <iostream>
+#include <string>
+#include <cmath>
 
-if (n > m) {
-    return "-1";
+std::string rounded_avg(int n, int m) {
+    if (n > m) {
+        return "-1";
+    }
+    
+    int sum = 0;
+    for (int i = n; i <= m; ++i) {
+        sum += i;
+    }
+    
+    int avg = std::round(static_cast<double>(sum) / (m - n + 1));
+    
+    std::string binary_avg = "";
+    while (avg > 0) {
+        binary_avg = std::to_string(avg % 2) + binary_avg;
+        avg /= 2;
+    }
+    
+    return binary_avg;
 }
 
-int sum = 0;
-for (int i = n; i <= m; i++) {
-    sum += i;
-}
-
-int avg = round(sum / (m - n + 1));
-string binary_avg = bitset<32>(avg).to_string();
-std::size_t pos = binary_avg.find('1');
-else if (pos != string::npos) {
-    return binary_avg.substr(pos);
-} else {
-    return "0";
+int main() {
+    assert (rounded_avg(5, 5) == "101");
+    
+    return 0;
 }
