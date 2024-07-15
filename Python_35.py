@@ -1,3 +1,2 @@
-```
-def max_element(l: list):
-    return max(l)
+def max_element(lst):
+    return max(lst)
