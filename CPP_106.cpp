@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
@@ -12,7 +12,7 @@ std::vector<int> calculateValues(int n) {
     return {};
 }
 
-int main() {
+int main(){
     assert(issame(calculateValues(3), {1, 2, 6}));
     return 0;
 }
