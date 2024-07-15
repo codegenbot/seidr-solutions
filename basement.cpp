@@ -17,6 +17,6 @@ int basement(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {-1, -2, -3, -4};
+    vector<int> v = {1};
     cout << basement(v);
 }
