@@ -3,4 +3,5 @@ threshold = int(input())
 
 result = [num for num in numbers if num > threshold]
 
-print(result)
+for num in result:
+    print(num)
