@@ -1,1 +1,2 @@
-return "".join("1" if x != y else "0" for x, y in zip(a, b))
+def string_xor(a: str, b: str) -> str:
+    return "".join(str(int(char_a) ^ int(char_b)) for char_a, char_b in zip(a, b))
