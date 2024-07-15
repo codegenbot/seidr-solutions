@@ -1,6 +1,7 @@
+```
 def next_frames(i):
     if i < 8:
-        return int(frames.split('/')[i+1][0])
+        return [int(x) for x in frames.split('/')[i+1]][0]
     elif i == 9:
         return 10
 
@@ -8,7 +9,7 @@ def bowling_score(frames):
     score = 0
     roll = 0
     frames_list = [int(x) for x in frames.split('/')]
-    
+
     for i, frame in enumerate(frames_list[:10]):
         if len(str(frame)) == 1:
             if frame == 10:  
