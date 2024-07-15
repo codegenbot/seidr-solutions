@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 int countTotalChars(const std::vector<std::string>& lst) {
@@ -28,6 +28,6 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    // Test your functions here if needed
+    // Main function content if needed
     return 0;
 }
