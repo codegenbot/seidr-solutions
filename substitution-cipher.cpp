@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -22,8 +21,8 @@ std::string substitutionCipher(const std::string& key1, const std::string& key2,
 
 int main() {
     std::string key1, key2, message;
-    std::getline(std::cin, key1); 
-    std::getline(std::cin, key2); 
+    std::getline(std::cin, key1);
+    std::getline(std::cin, key2);
     std::getline(std::cin, message);
     std::cout << substitutionCipher(key1, key2, message) << std::endl;
     return 0;
