@@ -1,14 +1,20 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
-using namespace std;
+using std::cout;
+using std::setprecision;
+using std::fixed;
+using std::endl;
 
-double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
-    double sum = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        sum += pow(v2[i] - v1[i], 2);
+double vectorDistance(int n) {
+    float x1[n], x2[n];
+    for (int i = 0; i < n; i++) {
+        cin >> x1[i] >> x2[i];
+    }
+    double sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        sum += pow(x2[i] - x1[i], 2);
     }
     return sqrt(sum);
 }
@@ -16,18 +22,6 @@ double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
 int main() {
     int n;
     cin >> n;
-
-    vector<float> v1(n), v2(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
-    }
-
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-
-    cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
-
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
 }
