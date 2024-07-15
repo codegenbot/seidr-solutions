@@ -1,17 +1,14 @@
 Here is the completed code:
 
-```cpp
-#include <cctype>
-
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            result += ((c - base + 2 * 26) % 26 + base);
-        } else {
-            result += c;
+        if (c >= 'a' && c <= 'z') {
+            c = ('a' + ((c - 'a' + 4) % 26));
+        } else if (c >= 'A' && c <= 'Z') {
+            c = ('A' + ((c - 'A' + 4) % 26));
         }
+        result += c;
     }
     return result;
 }
