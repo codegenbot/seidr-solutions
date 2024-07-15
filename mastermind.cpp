@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -24,17 +25,15 @@ int blackPegs(string code, string guess) {
                 guessCount++;
             }
         }
-        if(codeCount > 0 && guessCount > 0) {
-            count += min(codeCount, guessCount);
-        }
+        count += min(codeCount, guessCount);
     }
     return count;
 }
 
 int main() {
     string code, guess;
-    std::cin >> code >> guess;
-    std::cout << whitePegs(code, guess) << std::endl;
-    std::cout << blackPegs(code, guess) << std::endl;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << std::endl;
+    cout << blackPegs(code, guess) << std::endl;
     return 0;
 }
