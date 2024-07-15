@@ -6,11 +6,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> remove_duplicates(const std::vector<int>& vec) {
-    std::vector<int> temp = vec;
-    std::sort(temp.begin(), temp.end());
-    temp.erase(std::unique(temp.begin(), temp.end()), temp.end());
-    return temp;
+std::vector<int> remove_duplicates(std::vector<int> vec) {
+    std::sort(vec.begin(), vec.end());
+    vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
+    return vec;
 }
 
 int main() {
