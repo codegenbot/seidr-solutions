@@ -1,6 +1,8 @@
-```cpp
+```
 #include <iostream>
 #include <iomanip>
+
+using namespace std;
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float totalSnow = groundSnow;
@@ -18,5 +20,5 @@ int main() {
     cin >> hours;
     float groundSnow, rate, melt;
     cin >> groundSnow >> rate >> melt;
-    cout << fixed << setprecision(10) << showpoint << snowDay(hours, groundSnow, rate, melt) << endl;
+    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rate, melt) << endl;
     return 0;
