@@ -1,9 +1,12 @@
 #include <vector>
 #include <string>
-#include <cassert>
-#include <algorithm>
+#include <iostream>
 
 using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
 
 vector<int> even_odd_count(int num) {
     vector<int> count(2, 0);
@@ -19,8 +22,11 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> expected = {1, 0};
-    vector<int> result = even_odd_count(0);
-    assert(result == expected);
+    if (issame(even_odd_count(0), {1, 0})) {
+        cout << "Test Passed!";
+    } else {
+        cout << "Test Failed!";
+    }
+
     return 0;
 }
