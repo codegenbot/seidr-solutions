@@ -1,31 +1,17 @@
+```c++
 #include <vector>
-using namespace std;
 
 int luhn(vector<int> numbers) {
     int sum = 0;
-    bool doubleNext = false;
-    
-    for (int i : numbers) {
-        if (doubleNext) {
-            i *= 2;
-            if (i > 9) {
-                i -= 9;
+    for (int i = 0; i < numbers.size(); ++i) {
+        if ((numbers.size() - i) % 2 == 1) { 
+            int temp = numbers[i] * 2; 
+            if (temp > 9) { 
+                temp -= 9;
             }
+        } else {
+            sum += numbers[i];
         }
-        sum += i;
-        doubleNext = !doubleNext;
     }
-    
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> numbers[i];
-    }
-    cout << luhn(numbers) << endl;
-    return 0;
 }
