@@ -1,5 +1,4 @@
-from typing import List, Tuple
-
+from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     max_numbers = []
