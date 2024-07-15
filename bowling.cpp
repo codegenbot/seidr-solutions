@@ -3,7 +3,6 @@
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-
     for(int i=0; i<s.length(); i++) {
         if(s[i] == 'X') {
             score += 10 + (roll < 1 ? 10 : 10 - roll);
@@ -20,6 +19,4 @@ int bowlingScore(string s) {
             }
         }
     }
-
     return score;
-}
