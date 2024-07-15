@@ -9,6 +9,7 @@ int count_distinct_characters(const std::string& str) {
     return distance(s.begin(), last);
 }
 
+// Example test case
 int main() { 
     assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
 }
