@@ -1,7 +1,3 @@
-#include <iostream>
-#include <string>
-#include <map>
-
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
     for(int i=0; i<4; i++) {
@@ -27,13 +23,14 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     
+    int remainingBlackPegs = 0;
     for(auto it : codeMap) {
-        if(it.second > 0) {
-            return blackCount;
+        if(it.second > 1) {
+            remainingBlackPegs += it.second - 1;
         }
     }
     
-    return blackCount;
+    return blackCount + remainingBlackPegs;
 }
 
 int main() {
@@ -42,4 +39,3 @@ int main() {
     std::cout << whitePegs(code, guess) << std::endl;
     std::cout << blackPegs(code, guess) << std::endl;
     return 0;
-}
