@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -18,7 +23,7 @@ int main() {
     }
 
     float result = sqrt(sum);
-    cout << result << endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
