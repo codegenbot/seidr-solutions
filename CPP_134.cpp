@@ -14,5 +14,6 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 
 int main() {
     bool check_if_last_char_is_a_letter(const std::string& txt);
+    // Call the function with appropriate input
     return 0;
 }
