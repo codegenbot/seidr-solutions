@@ -1,4 +1,4 @@
-```c++
+```c
 #include <vector>
 #include <string>
 #include <initializer_list>
