@@ -1,14 +1,14 @@
-vector<int> result;
+vector<int> odd_collatz;
     while (n != 1) {
-        if (n % 2 == 1) {  // Odd number
-            result.push_back(n);
+        if (n % 2 != 0) {
+            odd_collatz.push_back(n);
         }
-        if (n % 2 == 0) {  // Even number
+        if (n % 2 == 0) {
             n = n / 2;
         } else {
             n = 3 * n + 1;
         }
     }
-    result.push_back(1);
-    sort(result.begin(), result.end());
-    return result;
+    odd_collatz.push_back(1);
+    sort(odd_collatz.begin(), odd_collatz.end());
+    return odd_collatz;
