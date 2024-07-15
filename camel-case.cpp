@@ -1,33 +1,39 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words = {};
-    size_t start = 0, end;
+std::string kebabToCamel(std::string input) {
+    std::string output = "";
+    bool capitalizeNext = true;
 
-    while ((end = str.find('-')) != std::string::npos) {
-        words.push_back(str.substr(start, end - start));
-        start = end + 1;
-    }
-    words.push_back(str.substr(start));
-
-    std::string result = "";
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (!result.empty()) {
-            result += char(toupper(words[i][0]));
-            result += words.substr(1);
+    for (char c : input) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (c == ' ') {
+            output += " ";
+            capitalizeNext = false;
         } else {
-            result += words[i];
+            if (capitalizeNext) {
+                output += std::toupper(c);
+                capitalizeNext = false;
+            } else {
+                output += c;
+            }
         }
     }
 
-    return result;
+    return output;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << kebabToCamel(str) << '\n';
+    int t;
+    cin >> t;
+
+    while(t--){
+        string s;
+        cin >> s;
+        cout << kebabToCamel(s) << endl;
     }
+    
     return 0;
 }
