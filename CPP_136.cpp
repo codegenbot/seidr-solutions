@@ -1,18 +1,32 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <climits>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> largest_smallest_integers(std::vector<int> lst);
+
+void annual_income(); 
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int max_neg = INT_MIN, min_pos = INT_MAX;
+    int max_neg = 0, min_pos = 0;
     
     for(int num : lst){
-        if(num < 0 && num > max_neg){
+        if(num < 0 && num < max_neg){
             max_neg = num;
         }
-        if(num > 0 && num < min_pos){
+        if(num > 0 && (num < min_pos || min_pos == 0)){
             min_pos = num;
         }
     }
     
     return {max_neg, min_pos};
+}
+
+int main() {
+    // Main function content here
+    return 0;
 }
