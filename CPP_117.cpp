@@ -1,21 +1,18 @@
 int count_consonants(string word) {
     int count = 0;
+    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
     for (char c : word) {
-        if (isalpha(c) && !isvowel(tolower(c))) {
+        if (consonants.find(c) != string::npos) {
             count++;
         }
     }
     return count;
 }
 
-bool issame(string a, string b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-bool isvowel(char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+bool issame(string s1, string s2) {
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+    return s1 == s2;
 }
 
 vector<string> select_words(string s, int n);
@@ -25,7 +22,7 @@ vector<string> select_words(string s, int n) {
     string word;
     for (char c : s) {
         if (c == ' ') {
-            if (count_consonants(word) == n && issame(word, "hello")) {
+            if (count_consonants(word) == n && issame(word, "contest")) {
                 result.push_back(word);
             }
             word = "";
@@ -33,8 +30,21 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && count_consonants(word) == n && issame(word, "hello")) {
+    if (!word.empty() && count_consonants(word) == n && issame(word, "contest")) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    string input_str;
+    int n;
+    cin >> input_str;
+    cin >> n;
+    vector<string> output = select_words(input_str, n);
+    for (string word : output) {
+        cout << word << " ";
+    }
+    cout << endl;
+    return 0;
 }
