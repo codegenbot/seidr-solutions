@@ -7,8 +7,7 @@ std::string camelCase(std::string input) {
     for (size_t i = 0; i <= input.size(); ++i) {
         if (i == input.size() || input[i] == '-') {
             if (start < i) {
-                output += std::string(1, std::toupper(input[start])) + 
-                          std::string(std::to_string(i - start).size(), std::tolower(input.substr(start, i - start)));
+                output += std::string(1, std::toupper(input[start])) + std::string(std::to_string(i - start).size(), std::tolower(input.substr(start, i - start)));
             }
             if (i < input.size()) {
                 if (input[i + 1] == '-') continue;
