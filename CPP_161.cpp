@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <cctype>
 
 std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
