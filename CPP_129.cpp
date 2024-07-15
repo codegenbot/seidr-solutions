@@ -2,19 +2,24 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
+std::vector<int> minPath(std::vector<std::vector<int>> matrix, int n){
+    std::vector<int> result;
+    
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < matrix.size(); ++j) {
+            result.push_back(matrix[j][i % matrix[j].size()]);
+        }
+    }
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<vector<int>> minPath(vector<vector<int>> input, int n) {
-    // Implement the logic to find the minimum path
-    return input; // Placeholder return, implement actual logic
-}
-
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), vector<vector<int>>(10, vector<int>{1, 3})));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 
     return 0;
 }
