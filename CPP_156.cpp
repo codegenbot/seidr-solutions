@@ -1,8 +1,7 @@
+#include <iostream>
 #include <string>
 #include <vector>
-#include <utility>
 #include <cassert>
-#include <iostream>
 
 std::string int_to_mini_romank(int number){
     std::vector<std::pair<int, std::string>> roman_map = {
@@ -24,6 +23,5 @@ std::string int_to_mini_romank(int number){
 
 int main() {
     assert(int_to_mini_romank(1000) == "m");
-
     return 0;
 }
