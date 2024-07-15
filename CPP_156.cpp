@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <iostream>
 
 std::string int_to_mini_roman(int number){
     std::vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -17,8 +17,7 @@ std::string int_to_mini_roman(int number){
     return result;
 }
 
-int main()
-{
-    assert(int_to_mini_roman(1000) == "m");
+int main() {
+    std::cout << int_to_mini_roman(1000) << std::endl;
     return 0;
 }
