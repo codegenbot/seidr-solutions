@@ -1,9 +1,21 @@
 int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
-            return true;
-        }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+    if (n == 0) {
+        return true;
     }
-    return false;
+    
+    int start = 0;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < arr[i - 1]) {
+            start = i;
+            break;
+        }
+    }
+    
+    for (int i = start + 1; i < n; ++i) {
+        if (arr[i] < arr[i - 1]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
