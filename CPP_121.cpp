@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <ostream>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
@@ -11,5 +11,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-std::cout << solution({3, 13, 2, 9}) << std::endl;
-return 0;
+int driver() {
+    std::cout << solution({3, 13, 2, 9}) << std::endl;
+    return 0;
+}
