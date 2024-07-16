@@ -19,7 +19,7 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-vector<string> issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
