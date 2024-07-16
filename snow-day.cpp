@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -21,8 +20,10 @@ int main() {
         snowOnGround += newSnow;
     }
 
-    cout << "Amount of snow on ground after " << to_string(hours) << " hours.\n";
-    cout << "The amount of snow is " << fixed << setprecision(2) << snowOnGround << " inches.\n";
+    cout << "Hours: " << std::to_string(hours) << "\n";
+    std::stringstream ss;
+    ss << fixed << setprecision(2) << snowOnGround;
+    cout << "The amount of snow is " << ss.str() << " inches.\n";
 
     return 0;
 }
