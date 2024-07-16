@@ -13,7 +13,7 @@ def solve_boolean(expression):
                 return False
         elif char == "|":
             if solve_boolean(expression[:expression.index(char)]):
-                return True
+                continue
             elif solve_boolean(expression[expression.index(char) + 1:]):
                 return True
             else:
