@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 int vowels_count(std::string s){
     int count = 0;
