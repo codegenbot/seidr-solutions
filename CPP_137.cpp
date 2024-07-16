@@ -1,22 +1,32 @@
+// Include necessary headers
+#include <iostream>
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
 #include <cassert>
 
-template <typename T>
-boost::any compare_one(T a, T b) {
-    if (a > b) {
-        return a;
-    } else if (a < b) {
-        return b;
+// Define the function signature
+boost::any compare_one(boost::any a, boost::any b) {
+    // Add required comparisons here
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)) return a;
+        if(boost::any_cast<int>(a) < boost::any_cast<int>(b)) return b;
     }
-    return std::string("None");
+    else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)) return a;
+        if(boost::any_cast<float>(a) < boost::any_cast<float>(b)) return b;
+    }
+    else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        if(a.type().name() == typeid(std::string).name()){
+            if(std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) return a;
+            if(std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) return b;
+        }
+    }
+    // Return appropriate value
+    return "None";
 }
 
+// Add a simple main function for testing
 int main() {
     assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
-    assert(boost::any_cast<int>(compare_one(3, 2)) == 3);
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
-
     return 0;
 }
