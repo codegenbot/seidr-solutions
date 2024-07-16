@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-bool issame(pair<string, string> a, pair<string, string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
