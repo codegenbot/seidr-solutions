@@ -11,9 +11,8 @@ bool same_chars(std::string s0, std::string s1) {
 
 int main() {
     assert(same_chars("aabb", "aaccc") == false);
-    assert(same_chars("hello", "olelh") == true);
-    assert(same_chars("123", "312") == true);
+    assert(same_chars("hello", "ohell") == true);
+    assert(same_chars("12345", "54321") == true);
     assert(same_chars("abc", "def") == false);
-    
     return 0;
 }
