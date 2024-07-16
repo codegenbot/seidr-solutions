@@ -1,15 +1,11 @@
 ```
 def solve_boolean(expression):
-    def evaluate(expression):
-        if expression == 'T':
-            return True
-        elif expression == 'F':
-            return False
-        elif '&' in expression:
-            a, b = map(evaluate, expression.split('&'))
-            return a and b
-        elif '|' in expression:
-            a, b = map(evaluate, expression.split('|'))
-            return a or b
-
-    return evaluate(expression)
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    else:
+        while "&" in expression or "|" in expression:
+            expression = expression.replace(" & ", "&")
+            expression = expression.replace("|", "| |")
+        return eval("(&)&(|(not )?T|(?T))".replace("?T", lambda x: " not T" if x == "F" else "" ).replace("T", "True").replace("F", "False").replace("not ", "not ").replace("|", "|").replace("&", "&") % expression)
