@@ -1,7 +1,8 @@
 ```cpp
-#include <boost/variant.hpp>
 #include <iostream>
 #include <string>
+#include <boost/variant.hpp>
+#include <boost/any.hpp>
 
 boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -37,9 +38,8 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         int i2 = boost::get<int>(b.convert_to<boost::any>());
         return i2 > i1 ? boost::variant<int, float, std::string>(i2) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i1);
     }
-    else {
-        return boost::variant<int, float, std::string>("None");
-    }
+    else
+        return boost::variant<int, float, std::string>();
 }
 
 int main() {
