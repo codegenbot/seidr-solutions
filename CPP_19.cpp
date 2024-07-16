@@ -11,7 +11,7 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
     vector<string> number_list;
     stringstream ss(numbers);
     string token;
@@ -21,10 +21,11 @@ string sort_numbers(string numbers){
     sort(number_list.begin(), number_list.end(), [&](const string &a, const string &b) {
         return number_map[a] < number_map[b];
     });
+
     string result;
     for (const auto &num : number_list) {
         result += num + " ";
     }
-    result.pop_back(); // Remove extra space at the end
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
