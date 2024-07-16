@@ -18,6 +18,6 @@ bool issame(int a, int b) {
 }
 
 int main() {
-    // Your main function code here
+    // Main function code here
     return 0;
 }
