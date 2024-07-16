@@ -8,10 +8,10 @@ int main() {
         while (i < str.length()) {
             if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
                 string word = str.substr(i);
-                if (word.length() >= 5) {
+                if (word.length() >= 5)
                     for (int k = word.length() - 1; k >= 0; --k)
                         result += word[k];
-                } else
+                else
                     result += word;
                 break;
             }
