@@ -1,43 +1,32 @@
 #include <any>
+#include <string>
 #include <algorithm>
-
-using namespace std;
+#include <cassert>
+using std::any;
+using std::string;
 
 any compare_one(any a, any b) {
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(any_cast<int>(a) > any_cast<int>(b)){
-            return a;
-        } else if(any_cast<int>(a) < any_cast<int>(b)){
-            return b;
-        } else {
-            return "None";
-        }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(any_cast<float>(a) > any_cast<float>(b)){
-            return a;
-        } else if(any_cast<float>(a) < any_cast<float>(b)){
-            return b;
-        } else {
-            return "None";
-        }
-    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        float num1, num2;
-        if(any_cast<string>(a).find(",") != string::npos){
-            replace(any_cast<string&>(a).begin(), any_cast<string&>(a).end(), ',', '.');
-        }
-        if(any_cast<string>(b).find(",") != string::npos){
-            replace(any_cast<string&>(b).begin(), any_cast<string&>(b).end(), ',', '.');
-        }
-        num1 = stof(any_cast<string>(a));
-        num2 = stof(any_cast<string>(b));
-        if(num1 > num2){
-            return a;
-        } else if(num1 < num2){
-            return b;
-        } else {
-            return "None";
-        }
-    } else {
-        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return any_cast<int>(a) > any_cast<int>(b) ? a : b;
     }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return any_cast<float>(a) > any_cast<float>(b) ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str_a = any_cast<string>(a);
+        string str_b = any_cast<string>(b);
+        
+        if (str_a.find(",") != string::npos) {
+            std::replace(str_a.begin(), str_a.end(), ',', '.');
+        }
+        if (str_b.find(",") != string::npos) {
+            std::replace(str_b.begin(), str_b.end(), ',', '.');
+        }
+        
+        float num1 = std::stof(str_a);
+        float num2 = std::stof(str_b);
+        
+        return num1 > num2 ? a : (num1 < num2 ? b : any());
+    }
+    return any();
 }
