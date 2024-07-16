@@ -11,8 +11,10 @@ def get_valid_input():
                 print("Invalid input. Please enter comma-separated numbers.\n")
         except ValueError:
             print("Invalid input. Please enter comma-separated numbers.\n")
-        except (EOFError, KeyboardInterrupt):
-            print("\nInvalid input. Please enter comma-separated numbers.\n")
+        except EOFError:
+            print("Invalid input. Please enter comma-separated numbers.\n")
+        except KeyboardInterrupt:
+            print("\nProgram exited. Please enter comma-separated numbers to continue.\n")
 
 input_numbers = get_valid_input()
 print(f"Input numbers: {input_numbers}")
