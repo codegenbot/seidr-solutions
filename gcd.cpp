@@ -1,5 +1,4 @@
 #include <vector>
-
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -10,7 +9,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
     int m = text.length();
     int n = target.length();
-
+    
     for (int i = 0; i <= m - n; ++i) {
         int j;
         for (j = 0; j < n; ++j) {
@@ -20,6 +19,6 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (j == n)
             indices.push_back(i);
     }
-
+    
     return indices;
 }
