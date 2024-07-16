@@ -1,9 +1,9 @@
 #include <vector>
 #include <string>
 #include <initializer_list>
-using namespace std;
+using std::size_t;
 
-using size_t = decltype(size(0));
+using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
