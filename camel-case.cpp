@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -14,7 +15,7 @@ std::string kebabToCamel(const std::string& str) {
             result += std::toupper(c);  // Capitalize first letter of each word
             capitalize = false;
         } else {
-            result += c;
+            result += std::tolower(c);
         }
     }
 
@@ -23,8 +24,8 @@ std::string kebabToCamel(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cin >> input;  // Input to a string variable
     std::cout << "Enter a string in kebab-case: ";
-    std::cout << kebabToCamel(input) << std::endl;
+    std::cin >> input;  // Fix: Use std::cin instead of std::getline()
+    std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
 }
