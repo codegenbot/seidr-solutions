@@ -23,8 +23,7 @@ bool triples_sum_to_zero(const vector<int>& l) {
 }
 
 int main() {
-    vector<int> input = {0, -1, 2, -3, 1};
+    vector<int> input = {3, -1, -7, -4, 2, 9, -6, 8, 1};
     assert(triples_sum_to_zero(input) == true);
-
     return 0;
 }
