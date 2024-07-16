@@ -1,7 +1,12 @@
-```Python
+```
+import base64
+
 def solve(N):
     if isinstance(N, str):
-        return N
+        try:
+            N = int(base64.b64decode(N.encode()).decode())
+        except (ValueError, TypeError):
+            pass
     elif N < 0:
         result = "-" + solve(-N)
     else:
