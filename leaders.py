@@ -1,12 +1,6 @@
-Here is the Python code for the problem:
-
-```
-def leaders(a):
-    n = len(a)
-    leaders_list = [a[n-1]]
-    
-    for i in range(n-2,-1,-1):
-        if a[i] >= a[i+1]:
-            leaders_list.insert(0, a[i])
-            
-    return leaders_list
+def leaders(arr):
+    leaders = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[i+1]:
+            leaders.insert(0, arr[i])
+    return leaders
