@@ -1,10 +1,10 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
     int quarters = cents / 25;
     cents %= 25;
@@ -25,12 +25,10 @@ int main() {
 
     pennies = cents;
 
-    cout << quarters << " quarters" << endl;
-    if (dimes > 0) cout << dimes << " dime";
-    else if (dimes == 1) cout << " 1 dime" << endl;
-    if (nickles > 0) cout << nickles << " nickel";
-    else if (nickles == 1) cout << " 1 nickel" << endl;
-    cout << pennies << " pennies" << endl;
+    std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
+    if (dimes > 0) std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
+    if (nickles > 0) std::cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << std::endl;
+    std::cout << pennies << " penny" << (pennies > 1 ? "s" : "") << std::endl;
 
     return 0;
 }
