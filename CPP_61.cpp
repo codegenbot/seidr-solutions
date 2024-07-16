@@ -1,12 +1,13 @@
-int count = 0;
+int cnt = 0;
 for (char c : brackets) {
     if (c == '(') {
-        count++;
+        cnt++;
     } else if (c == ')') {
-        count--;
-    }
-    if (count < 0) {
-        return false;
+        if (cnt == 0) {
+            return false;
+        }
+        cnt--;
     }
 }
-return count == 0;
+return cnt == 0;
+}
