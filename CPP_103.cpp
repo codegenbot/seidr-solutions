@@ -1,17 +1,14 @@
-#include <string>
-#include <cmath>
-
-string rounded_avg(int n, int m) {
-    if(n > m) {
+if (n > m) {
         return "-1";
     }
-    
     int sum = 0;
-    for(int i = n; i <= m; i++) {
+    int count = 0;
+    for (int i = n; i <= m; i++) {
         sum += i;
+        count++;
     }
-    
-    int avg = round((double)sum / (m - n + 1));
-    
-    return bitset<32>(avg).to_string().substr(32 - (int)log2(avg) - 1);
+    int average = round((double)sum / count);
+    string binary_avg = bitset<32>(average).to_string();
+    size_t found = binary_avg.find('1');
+    return (found != string::npos) ? binary_avg.substr(found) : "0";
 }
