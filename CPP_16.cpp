@@ -3,14 +3,17 @@
 #include <string>
 
 int count_distinct_characters(std::string str) {
-    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
-    std::sort(str.begin(), str.end());
-    auto it = std::unique(str.begin(), str.end());
-    return std::distance(str.begin(), it);
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    sort(str.begin(), str.end());
+    auto it = unique(str.begin(), str.end());
+    return distance(str.begin(), it);
 }
 
 int main() {
-    std::string input_str = "SampleString";
-    int result = count_distinct_characters(input_str);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    int result = count_distinct_characters(input);
+    std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
 }
