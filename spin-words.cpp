@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <sstream>
-
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
     std::string word;
@@ -14,9 +10,8 @@ std::string spinWords(std::string str) {
             result += word + " ";
     }
 
-    return result.substr(0, result.find_last_of(" ")).substr(1);
-}
+    if (result.back() == ' ') 
+        result.pop_back();
 
-int main() {
-    return 0;
+    return result;
 }
