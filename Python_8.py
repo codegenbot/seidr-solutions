@@ -5,19 +5,18 @@ results = []
 
 try:
     while True:
+        numbers_input = input().split()
+        if not numbers_input or numbers_input == ['']:
+            break
         try:
-            numbers_input = list(map(int, input().strip().split()))
-            if not numbers_input:
-                break
-            if len(numbers_input) < 2:
-                continue
-            result = sum_product(numbers_input)
-            results.append(result)
+            numbers_input = list(map(int, numbers_input))
         except ValueError:
             break
-
-    for result in results:
-        print(result)
+        if len(numbers_input) < 2:
+            continue
+        result = sum_product(numbers_input)
+        results.append(result)
 
 except EOFError:
-    pass
+    for result in results:
+        print(result)
