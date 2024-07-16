@@ -1,6 +1,6 @@
 #include <initializer_list>
-#include <ostream>
 #include <iostream>
+#include <vector>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
