@@ -1,6 +1,6 @@
 ```cpp
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
 
 int gcd(int a, int b) {
     a = abs(a);
@@ -15,9 +15,11 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
+    std::cout << "Enter first number: ";
+    std::cin >> a;
+    std::cout << "Enter second number: ";
+    std::cin >> b;
     int result = gcd(a, b);
-    std::cout << "GCD of the input numbers is: " << result << std::endl;
+    std::cout << "GCD of the numbers is: " << result << std::endl;
     return 0;
 }
