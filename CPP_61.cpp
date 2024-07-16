@@ -16,8 +16,9 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("((()))"));
-    assert(!correct_bracketing("(()"));
-    assert(!correct_bracketing("))(("));
+    assert(correct_bracketing("((()))") == true);
+    assert(correct_bracketing("()()()") == true);
+    assert(correct_bracketing("(()") == false);
+    assert(correct_bracketing("())") == false);
     return 0;
 }
