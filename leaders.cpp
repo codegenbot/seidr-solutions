@@ -5,7 +5,7 @@ using namespace std;
 vector<int> leaders(vector<int>& v) {
     int n = v.size();
     vector<int> res;
-    int max_right = v[n-1];
+    int max_right = v.back();
     for(int i=n-1; i>=0; i--) {
         if(v[i] >= max_right) {
             res.push_back(v[i]);
