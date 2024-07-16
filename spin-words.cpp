@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 string spinWords(string str) {
@@ -10,16 +9,16 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += " ";
             i++;
-        } else if ((int)str[i + 1] >= 122 || (int)str[i + 1] <= 96) {
-            string temp = str.substr(i);
-            for (auto it = temp.rbegin(); it != temp.rend(); ++it) {
-                result += *it;
+        } else if ((int)str[i + tmp.size() - 1] >= 122 || (int)str[i + tmp.size() - 1] <= 96) {
+            for (int j = tmp.size(); j > 0; j--) {
+                result += tmp[j - 1];
             }
-            i += temp.size();
+            i += tmp.size();
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
-                result += str[i];
+                ch = str[i];
+                result += ch;
                 i++;
                 k++;
             }
@@ -29,13 +28,16 @@ string spinWords(string str) {
                 }
                 i--;
             } else {
-                result += str.substr(i);
+                result += tmp;
                 i++;
             }
         }
     }
     return result;
 }
+
+std::string ch;
+std::string tmp;
 
 int main() {
     cout << spinWords("Hello World") << endl;
