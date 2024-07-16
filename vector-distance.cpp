@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 int main() {
-    int n;
+    double n;
     std::cin >> n;
 
     std::vector<double> vec1(n);
@@ -23,7 +22,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
