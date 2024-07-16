@@ -1,64 +1,28 @@
+Here's the solution:
+
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string sentence) {
-    string result = "";
-    string word;
-    
-    for (char c : sentence) {
-        if (c == ' ') {
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
+std::string spinWords(std::string input) {
+    std::string output = "";
+    int start = 0;
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i] == ' ') {
+            std::string word = input.substr(start, i - start);
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            output += word + " ";
+            start = i + 1;
         }
     }
-    
-    result += word;
-    
-    int len;
-    string revWord;
-    
-    for (string s : split(result, " ")) {
-        len = s.length();
-        
-        if (len >= 5) {
-            revWord = s;
-            reverse(revWord.begin(), revWord.end());
-            result = replace(result, s, revWord);
-        }
-    }
-    
-    return result;
-}
-
-string replace(string &str, string oldVal, string newVal) {
-    size_t pos = 0;
-    while((pos = str.find(oldVal)) != string::npos) {
-        str.replace(pos, oldVal.length(), newVal);
-        pos += newVal.length();
-    }
-    return str;
-}
-
-vector<string> split(const string &s, char delim) {
-    vector<string> result;
-    size_t pos = 0;
-    size_t lastPos = s.find(delim);
-
-    while (string::npos != lastPos) {
-        result.push_back(s.substr(pos, lastPos - pos));
-        pos = lastPos + 1;
-        lastPos = s.find(delim, pos);
-    }
-    result.push_back(s.substr(pos));
-    return result;
+    return output;
 }
 
 int main() {
-    cout << spinWords("a") << endl; // a
-    cout << spinWords("this is a test") << endl; // this is a test
-    cout << spinWords("this is another test") << endl; // this is rehtona test
-    cout << spinWords("hi") << endl; // hi
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << spinWords(s) << std::endl;
+    }
     return 0;
 }
