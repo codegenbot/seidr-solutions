@@ -9,14 +9,29 @@ bool solveBoolean(string expression) {
         if (expression[i] == 'f') {
             result = false;
             break;
-        } else if (expression[i] == '|') {
-            result = !result;
-        } else if (expression[i] == '&') {
-            if (!result) {
-                result = false;
-                while (i < expression.length() && expression[i] != '|') {
-                    i++;
+        }
+        else if (expression[i] == '|') {
+            if (expression[i + 1] != '\0' && expression[i + 2] != '\0') {
+                bool temp = solveBoolean(expression.substr(i + 1));
+                if (!temp) {
+                    result = false;
+                    break;
                 }
+            } else {
+                return false;
+            }
+        }
+        else if (expression[i] == '&') {
+            if (expression[i + 1] != '\0' && expression[i + 2] != '\0') {
+                bool temp = solveBoolean(expression.substr(i + 1));
+                if (temp) {
+                    result = true;
+                    break;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
             }
         }
         i++;
