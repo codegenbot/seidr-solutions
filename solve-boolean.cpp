@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return false;
@@ -17,6 +18,36 @@ bool solveBoolean(const std::string& s) {
         } else if (c == 'F' || c == 'f') {
             result = result && false;
             operand = 0;
+        } else {
+            if (operand == 1) {
+                if (c == 'T' || c == 't') {
+                    operand = 1;
+                } else {
+                    result = false;
+                    break;
+                }
+            } else {
+                if (c == 'F' || c == 'f') {
+                    operand = 0;
+                } else {
+                    result = true;
+                    break;
+                }
+            }
         }
     }
     return result;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> s;
+    bool result = solveBoolean(s);
+    if (result) {
+        std::cout << "The result is true." << std::endl;
+    } else {
+        std::cout << "The result is false." << std::endl;
+    }
+    return 0;
+}
