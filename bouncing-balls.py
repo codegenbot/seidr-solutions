@@ -11,4 +11,5 @@ def bouncing_balls():
     total_distance = 2 * (1 - math.pow(bi, 2)) ** bounces
     print(total_distance)
 
+
 bouncing_balls()
