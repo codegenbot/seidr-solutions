@@ -1,4 +1,3 @@
-```
 def luhn(card_num):
     card_num = [int(digit) for digit in str(card_num)]
     total_sum = 0
