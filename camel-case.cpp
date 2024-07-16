@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <vector>
 
@@ -25,19 +26,24 @@ std::string split(const std::string& str, char delimiter) {
 
 std::string camelCase(const std::string& str) {
     std::string result;
-    bool capitalizeNext = true;
+    size_t pos = 0;
+    bool capitalizeNext = (str[0] >= 'a' && str[0] <= 'z');
     for (const auto& c : split(str, '-')) {
         if (!result.empty()) {
             if (capitalizeNext) {
-                result += toupper(c.at(0));
+                result += std::string(1, toupper(c[0])) + c.substr(1);
                 capitalizeNext = false;
             } else {
-                result += tolower(c.at(0));
+                result += std::string(1, tolower(c[0])) + c.substr(1);
             }
-            result += c.substr(1);
         } else {
-            result += tolower(c.at(0));
-            capitalizeNext = true;
+            if (c[0] >= 'A' && c[0] <= 'Z') {
+                result += "abcdefghijklmnopqrstuvwxyz" + c;
+                capitalizeNext = true;
+            } else {
+                result += c;
+                capitalizeNext = (c[0] >= 'a' && c[0] <= 'z');
+            }
         }
     }
     return result;
