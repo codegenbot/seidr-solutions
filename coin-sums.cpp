@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,15 +5,8 @@ int main() {
     int cents;
     cin >> cents;
 
-    int totalQuarters = cents / 25;
-    while (totalQuarters > 0) {
-        if (totalQuarters + (cents % 25) >= 25) {
-            break;
-        }
-        totalQuarters--;
-        cents += 25;
-    }
-    quarters = totalQuarters;
+    int quarters = cents / 25;
+    cents %= 25;
 
     int dimes = cents / 10;
     cents %= 10;
