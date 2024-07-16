@@ -4,13 +4,13 @@
 #include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::string result = std::string();
+    std::string result = "";
     std::string temp = "";
 
     for (char c : sentence) {
         if (c == ' ') {
             if (temp.length() >= 5)
-                result += std::string(temp).substr(0, temp.length()) + " ";
+                result += std::string(temp).reverse(); // reverse the word
             else
                 result += temp + " ";
             temp = "";
@@ -20,8 +20,7 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        std::reverse(temp.begin(), temp.end());
-        result += temp;
+        result += std::string(temp).reverse(); // reverse the last word
     } else
         result += temp;
 
