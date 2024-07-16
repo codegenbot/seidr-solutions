@@ -3,7 +3,7 @@
 #include <iostream>
 
 std::string fizzBuzz(int x) {
-    if (x % 5 == 0) { 
+    if (x % 5 == 0) { // Buzz
         if (x % 3 == 0) {
             return "FizzBuzz";
         } else {
