@@ -1,10 +1,10 @@
 from typing import List
 
 def separate_paren_groups() -> List[str]:
-    paren_string = input("Enter a string with parentheses: ")
+    paren_string = input("Enter a string with parentheses (e.g. '(abc)(def)(ghi)'): ").strip()
 
     if paren_string[0] != "(" or paren_string[-1] != ")":
-        return []
+        return ["Input string must start and end with parentheses."]
 
     result = []
     current_group = ""
