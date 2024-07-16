@@ -1,8 +1,2 @@
-if (txt.empty()) {
-    return false;
+return (!txt.empty() && isalpha(txt.back()) && txt.find_last_of(" ") == txt.length() - 1);
 }
-char lastChar = txt.back();
-if (isalpha(lastChar) && (txt.size() == 1 || txt[txt.size() - 2] == ' ')) {
-    return true;
-}
-return false;
