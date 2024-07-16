@@ -38,7 +38,7 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words(""), {"0}));
     // Add more test cases here
     return 0;
 }
