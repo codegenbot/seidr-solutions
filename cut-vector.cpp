@@ -1,70 +1,31 @@
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
+vector<vector<int>> cutVector(vector<int> arr) {
+    int n = arr.size();
     vector<vector<int>> res(2);
     
+    if (n == 0) return res;
+    if (n == 1) {
+        res[0] = arr;
+        res[1] = {};
+        return res;
+    }
+    
     for (int i = 0; i < n; ++i) {
-        if (i == 0 || i == n - 1) {
-            res[0].push_back(nums[i]);
-            res[1].push_back(nums[i]);
-        } else {
-            int leftSum = 0, rightSum = 0;
-            for (int j = 0; j < i; ++j) {
-                leftSum += nums[j];
-            }
-            for (int j = i; j < n; ++j) {
-                rightSum += nums[j];
-            }
-            
-            if (leftSum == rightSum) {
-                res[0].push_back(nums[i]);
-                res[1].push_back(nums[i]);
-            } else {
-                int diff = abs(leftSum - rightSum);
-                for (int j = i; j < n; ++j) {
-                    if (abs(leftSum + nums[j] - rightSum) <= diff) {
-                        res[0].push_back(nums[i]);
-                        res[1].push_back(nums[j]);
-                        return res;
-                    }
-                }
-            }
+        vector<int> left(arr.begin(), arr.begin() + i);
+        vector<int> right(arr.begin() + i, arr.end());
+        
+        if ((left.size() == 1 && right.size() == 1) || 
+            (left.size() > 0 && right.size() > 0 && abs(left.back() - right.front()) <= 1)) {
+            res[0] = left;
+            res[1].clear();
+            res[1].insert(res[1].end(), right.begin(), right.end());
+            return res;
         }
     }
     
+    res[0] = arr;
+    res[1] = {};
     return res;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    
-    vector<vector<int>> res = cutVector(nums);
-    
-    cout << "[";
-    for (int i = 0; i < res[0].size(); ++i) {
-        cout << res[0][i];
-        if (i != res[0].size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "], [";
-    
-    for (int i = 0; i < res[1].size(); ++i) {
-        cout << res[1][i];
-        if (i != res[1].size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
-    
-    return 0;
 }

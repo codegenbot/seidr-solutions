@@ -1,8 +1,3 @@
-def convert_to_camel_case(input_string):
-    result = ""
-    for word in input_string.split():
-        if not result:
-            result += word.capitalize()
-        else:
-            result += word.capitalize().replace("-", "")
-    return result
+```Python
+def camel_case(s):
+    return "".join(word.capitalize() if i else word for i, word in zip((True,) * (len(s.split("-")) - 1), s.replace("-", " ").split(" "))))
