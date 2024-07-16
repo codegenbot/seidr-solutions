@@ -15,6 +15,9 @@ string string_xor(string a, string b){
 }
 
 int main() {
-    // Your main function code here
+    string input1, input2;
+    cin >> input1 >> input2;
+    string output = string_xor(input1, input2);
+    cout << output << endl;
     return 0;
 }
