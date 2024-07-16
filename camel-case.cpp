@@ -9,10 +9,9 @@ std::string camelCase(std::string str) {
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += toupper(str[i + 1]);
+                result += char(toupper(str[++i]));
             }
             firstWord = false;
-            i++;
         } else if (c == ' ') {
             if (!firstWord) {
                 result += char(toupper(c));
