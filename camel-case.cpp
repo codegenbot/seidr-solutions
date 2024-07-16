@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string s) {
     std::string result = "";
@@ -17,5 +18,5 @@ std::string camelCase(std::string s) {
         }
     }
 
-    return result;
+    return result.erase(result.find_last_not_of(" ")+1);  // remove trailing space
 }
