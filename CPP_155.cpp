@@ -1,6 +1,6 @@
-vector<int> result = {0, 0};
-    string numStr = to_string(abs(num));
-    for (char c : numStr) {
+vector<int> result(2, 0);
+    string num_str = to_string(abs(num));
+    for (char c : num_str) {
         if (c % 2 == 0) {
             result[0]++;
         } else {
