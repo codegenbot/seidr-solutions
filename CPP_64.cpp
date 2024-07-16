@@ -1,9 +1,7 @@
 #include <string>
-#include <algorithm>
-#include <cassert>
 
 int vowels_count(std::string s){
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
     int count = 0;
     for(char c : s){
         if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
@@ -16,6 +14,8 @@ int vowels_count(std::string s){
     return count;
 }
 
-int main(){
-    // Your existing code here
+int main() {
+    assert (vowels_count("ACEDY") == 3);
+    // additional test cases can be added here
+    return 0;
 }
