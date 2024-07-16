@@ -1,35 +1,37 @@
-int bowlingScore(string input) {
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int calculateBowlingScore(const string& bowls) {
     int score = 0;
-    int frame = 0;
-    int throws[22];
-    for (char c : input) {
-        if (c == 'X') {
-            throws[frame++] = 10;
-            throws[frame++] = 0;
-        } else if (c == '/') {
-            throws[frame-1] = 10 - throws[frame-2];
-        } else if (c == '-') {
-            throws[frame++] = 0;
-        } else {
-            throws[frame++] = c - '0';
-        }
-    }
+    int frame = 1;
+    int bowlIndex = 0;
+    
     for (int i = 0; i < 10; ++i) {
-        if (throws[i*2] == 10) {
-            score += 10 + throws[i*2+2] + throws[i*2+3];
-            if (throws[i*2+2] == 10) score += throws[i*2+4];
-        } else if (throws[i*2] + throws[i*2+1] == 10) {
-            score += 10 + throws[i*2+2];
+        if (bowls[bowlIndex] == 'X') {
+            score += 10;
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 10);
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/' ? 10 - (bowls[bowlIndex + 1] - '0') : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10));
+            bowlIndex += 1;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            score += 10;
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
+            bowlIndex += 2;
         } else {
-            score += throws[i*2] + throws[i*2+1];
+            score += (isdigit(bowls[bowlIndex]) ? bowls[bowlIndex] - '0' : 0);
+            score += (isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 0);
+            bowlIndex += 2;
         }
     }
+    
     return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << bowlingScore(input) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << calculateBowlingScore(bowls) << endl;
+    
     return 0;
 }
