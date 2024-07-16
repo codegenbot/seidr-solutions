@@ -18,16 +18,28 @@ vector<vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
+    vector<int> v;
+    int num;
+    
+    cout << "Enter the number of elements in the vector: ";
+    cin >> num;
+    
+    cout << "Enter the elements of the vector (space-separated): ";
+    for(int i=0; i<num; i++) {
+        cin >> v.push_back(i);
+    }
+    
     vector<vector<int>> result = cutVector(v);
-    cout << "The first subvector is: ";
-    for (int x : result[0]) {
+    
+    cout << "Left subvector: ";
+    for(auto x : result[0]) 
         cout << x << " ";
-    }
     cout << endl;
-    cout << "The second subvector is: ";
-    for (int x : result[1]) {
+    
+    cout << "Right subvector: ";
+    for(auto x : result[1])
         cout << x << " ";
-    }
+    cout << endl;
+    
     return 0;
 }
