@@ -1,4 +1,4 @@
-```#include <string>
+#include <string>
 
 int bowling(string s) {
     int score = 0;
@@ -10,7 +10,7 @@ int bowling(string s) {
             score += 10 + (current_frame < 9 ? 10 : 0);
             current_frame++;
         } else if (c == '/') {
-            score += 10 - frames.back();
+            score += 10 - *max_element(frames.begin(), frames.end());
             current_frame++;
             frames.pop_back();
         } else {
@@ -21,4 +21,4 @@ int bowling(string s) {
     }
 
     return score;
-}```
+}
