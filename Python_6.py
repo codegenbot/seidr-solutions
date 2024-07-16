@@ -1,7 +1,6 @@
 import ast
-import sys
 
-input_str = sys.stdin.read().strip()
+input_str = input().strip()
 paren_strings = ast.literal_eval(input_str)
 
 def parse_nested_parens(paren_strings):
