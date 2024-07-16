@@ -1,5 +1,4 @@
 import sys
-sys.stdin = sys.stdin.detach()
 
 from typing import List
 
