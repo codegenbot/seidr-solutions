@@ -3,7 +3,6 @@
 #include <string>
 using namespace std;
 
-// Function to square each digit
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
@@ -20,5 +19,4 @@ int main() {
     string result = squareDigits(input); 
     cin.ignore(); // To clear the input buffer
     cout << "Squared digits: " << result << endl;
-    return 0;
 }
