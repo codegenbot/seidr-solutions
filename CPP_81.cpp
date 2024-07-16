@@ -1,6 +1,9 @@
+#include <vector>
+#include <string>
+
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
-    for(auto gpa : grades){
+    for(float gpa : grades){
         if(gpa == 4.0) letter_grades.push_back("A+");
         else if(gpa > 3.7) letter_grades.push_back("A");
         else if(gpa > 3.3) letter_grades.push_back("A-");
