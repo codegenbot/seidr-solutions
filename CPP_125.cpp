@@ -1,4 +1,23 @@
 #include <string>
+#include <vector>
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+vector<string> split_words(string txt);
+
+int main(){
+    string text;
+    getline(cin, text);
+    vector<string> words = split_words(text);
+
+    for(string word : words){
+        cout << word << " ";
+    }
+
+    return 0;
+}
 
 vector<string> split_words(string txt){
     vector<string> result;
