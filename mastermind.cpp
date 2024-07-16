@@ -21,11 +21,19 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        white += std::min(codeCount[i], guessCount[i]) - black;
+    int white = 0;
+    for (int i = 0; i < 4; i++) {
+        bool foundInCode = false;
+        for (char c : code) {
+            if (c == guess[i]) {
+                foundInCode = true;
+                break;
+            }
+        }
+        if (!foundInCode) {
+            white++;
+        }
     }
-
-    white -= black;
 
     return std::make_tuple(white, black);
 }
