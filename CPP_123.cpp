@@ -1,7 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> collatzSequence(int n) {
+bool issame(vector<int> v1, vector<int> v2) {
+    return v1 == v2;
+}
+
+vector<int> solve(int n) {
     vector<int> result;
     while(n != 1){
         if(n % 2 == 1)
