@@ -1,4 +1,4 @@
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -10,7 +10,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-bool is_prime(int n) {
+bool isPrime(int n) {
     if (n < 2) {
         return false;
     }
@@ -25,7 +25,7 @@ bool is_prime(int n) {
 vector<int> count_up_to(int n) {
     vector<int> result;
     for (int i = 2; i < n; ++i) {
-        if (is_prime(i)) {
+        if (isPrime(i)) {
             result.push_back(i);
         }
     }
