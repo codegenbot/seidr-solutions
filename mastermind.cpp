@@ -22,5 +22,6 @@ int main() {
     }
 
     mastermind("XXXX", "XXXX");
+    
     return 0;
 }
