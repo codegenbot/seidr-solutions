@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <string>
-#include <initializer_list>
-
+```cpp
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
@@ -36,3 +33,4 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
+}
