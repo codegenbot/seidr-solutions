@@ -2,23 +2,6 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> words = split(s, '-');
-    std::string result;
-    bool capitalize = true;
-
-    for (const auto& word : words) {
-        if (capitalize) {
-            result += toupper(word[0]);
-            capitalize = false;
-        } else {
-            result += tolower(word[0]) + &word[1];
-        }
-    }
-
-    return result;
-}
-
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> words;
     size_t pos = 0;
@@ -31,6 +14,23 @@ std::vector<std::string> split(const std::string& s, char c) {
     words.push_back(s);
 
     return words;
+}
+
+std::string kebabToCamel(const std::string& s) {
+    std::vector<std::string> words = split(s, '-');
+    std::string result;
+    bool capitalize = true;
+
+    for (const auto& word : words) {
+        if (capitalize) {
+            result += toupper(word[0]);
+            capitalize = false;
+        } else {
+            result += tolower(word[0]) + &word.substr(1);
+        }
+    }
+
+    return result;
 }
 
 int main() {
