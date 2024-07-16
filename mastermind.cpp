@@ -1,4 +1,15 @@
-std::pair<int, int> mastermind(string code, string guess) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Result {
+    int white;
+    int black;
+};
+
+Result mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -18,5 +29,19 @@ std::pair<int, int> mastermind(string code, string guess) {
         white += min(codeCount[i], guessCount[i]);
     }
 
-    return std::make_pair(white, black);
+    return {white, black};
+}
+
+int main() {
+    string code;
+    cin >> code;
+    string guess;
+    cin >> guess;
+
+    Result result = mastermind(code, guess);
+
+    cout << result.white << endl;
+    cout << result.black << endl;
+
+    return 0;
 }
