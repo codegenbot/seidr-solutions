@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,7 +14,7 @@ std::string f(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v(3); // Initialize the vector with size 3 and all elements set to 0.
+    std::vector<int> v(3);
     v[0] = 127;
     v[1] = 97;
     v[2] = 8192;
