@@ -2,20 +2,28 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> minPath(const std::vector<std::pair<int, int>>& pairs, int num) {
-    std::vector<int> result;
-    for (const auto& p : pairs) {
-        result.push_back(p.first + p.second + num);
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid) {
+    vector<int> result = {grid[0][0]};
+    for (int i = 1; i < grid.size(); ++i) {
+        result.push_back(result.back() + grid[i][0]);
+    }
+    for (int j = 1; j < grid[0].size(); ++j) {
+        result[0] += grid[0][j];
+        for (int i = 1; i < grid.size(); ++i) {
+            result[i] = min(result[i - 1], result[i]) + grid[i][j];
+        }
     }
     return result;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 3), {7, 10}));
+    assert(issame(minPath({{1, 3}, {3, 2}}), {1, 4, 4, 6}));
     
     return 0;
 }
