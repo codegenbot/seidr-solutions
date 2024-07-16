@@ -1,1 +1,1 @@
-inputs = [input().strip() for _ in range(3)]
+inputs = [int(input()) for _ in range(3)]
