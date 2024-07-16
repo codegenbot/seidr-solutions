@@ -1,8 +1,10 @@
+def remove_duplicates():
+    # Add your remove_duplicates logic here
+    pass
+
+
 def check(func):
     return func()
 
-def remove_duplicates():
-    # Implement logic to remove duplicates
-    return "Duplicates removed successfully"
 
 result = check(remove_duplicates)
