@@ -8,13 +8,13 @@ if (arr.empty()) {
     for (int num : arr) {
         if (num > 0) {
             product *= 1;
+            sum += abs(num);
         } else if (num < 0) {
             product *= -1;
+            sum += abs(num);
         } else {
             product *= 0;
         }
-
-        sum += abs(num);
     }
 
     return product * sum;
