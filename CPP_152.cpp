@@ -3,7 +3,7 @@
 #include <cassert>
 #include <cmath>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool compare(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,6 +16,6 @@ std::vector<int> calculate_difference(const std::vector<int>& game, const std::v
 }
 
 int main() {
-    assert(issame(calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    assert(compare(calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
