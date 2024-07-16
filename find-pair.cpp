@@ -7,28 +7,32 @@ using namespace std;
 
 vector<pair<int, int>> findPairs(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    vector<pair<int, int>> result;
     
     for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.find(complement) != numMap.end()) {
-            bool isPairUnique = true;
-            
+        numMap[nums[i]] = i;
+    }
+    
+    vector<pair<int, int>> result;
+    
+    for (auto it = numMap.begin(); it != numMap.end(); ++it) {
+        int complement = target - it->first;
+        if (numMap.find(complement) != numMap.end() && it->second != numMap[complement]) {
             // Check if the pair is already in the result
+            bool isPairUnique = true;
+
             for (auto& existingPair : result) {
-                if ((existingPair.first == complement && existingPair.second == nums[i]) ||
-                    (existingPair.first == nums[i] && existingPair.second == complement)) {
+                if ((existingPair.first == complement && existingPair.second == it->first) ||
+                    (existingPair.first == it->first && existingPair.second == complement)) {
                     isPairUnique = false;
                     break;
                 }
             }
-            
+
             // If the pair is unique, add it to the result
             if (isPairUnique) {
-                result.push_back({min(complement, nums[i]), max(complement, nums[i])});
+                result.push_back({min(complement, it->first), max(complement, it->first)});
             }
         }
-        numMap[nums[i]] = i;
     }
     
     return result;
