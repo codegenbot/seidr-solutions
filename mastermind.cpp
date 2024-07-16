@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 int main() {
     std::string codeStr, guessStr;
@@ -20,21 +21,16 @@ int main() {
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
             codeCount[c]++;
-        }
-    }
-
-    // Count black pegs
-    for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
-            blackPegs++;
+            if (c == guessStr[0] || c == guessStr[1] || c == guessStr[2] || c == guessStr[3]) {
+                blackPegs++;
+            }
         }
     }
 
     int whitePegs = 0;
-    std::vector<char> codeVector(codeStr.begin(), codeStr.end());
     for (char c : guessStr) {
         bool foundInCode = false;
-        for (char d : codeVector) {
+        for (char d : codeStr) {
             if (d == c) {
                 foundInCode = true;
                 break;
@@ -45,7 +41,7 @@ int main() {
         } else {
             bool foundInCodeAtCorrectPosition = false;
             for (int j = 0; j < 4; j++) {
-                if (codeStr[j] == c && codeVector[j] == c) {
+                if (codeStr[j] == c && codeStr[j] == c) {
                     foundInCodeAtCorrectPosition = true;
                     break;
                 }

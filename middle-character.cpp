@@ -9,4 +9,3 @@ std::string middleCharacter(std::string s) {
         result = s.substr(mid, 1);
     }
     return result;
-}
