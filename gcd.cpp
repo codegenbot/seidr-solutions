@@ -3,10 +3,11 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(const string &text, const string &target) {
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     int m = text.size();
     int n = target.size();
+    
     for (int i = 0; i <= m - n; ++i) {
         int j;
         for (j = 0; j < n; ++j) {
@@ -18,5 +19,6 @@ vector<int> indicesOfSubstring(const string &text, const string &target) {
             indices.push_back(i);
         }
     }
+    
     return indices;
 }
