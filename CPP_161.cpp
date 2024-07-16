@@ -1,17 +1,10 @@
-string solve(string s){
-    int n = s.size();
-    bool hasLetter = false;
-    
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-            hasLetter = true;
+for (char &c : s) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    if(!hasLetter){
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
