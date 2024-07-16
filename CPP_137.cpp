@@ -1,22 +1,22 @@
 #include <iostream>
-#include <any>
+#include <boost/any.hpp>
 #include <algorithm>
 #include <cassert>
 #include <string>
 
-using std::any;
+using boost::any;
 using std::string;
 
 any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
+        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
+        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str_a = std::any_cast<string>(a);
-        string str_b = std::any_cast<string>(b);
+        string str_a = boost::any_cast<string>(a);
+        string str_b = boost::any_cast<string>(b);
 
         if (str_a.find(",") != string::npos) {
             std::replace(str_a.begin(), str_a.end(), ',', '.');
