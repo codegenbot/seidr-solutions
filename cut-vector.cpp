@@ -4,27 +4,38 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
-    int pos = -1;
-    
-    for (int i = 0; i < n; i++) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j <= i; j++) {
-            sum1 += v[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            sum2 += v[j];
-        }
-        
-        int diff = abs(sum1 - sum2);
-        if (diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+    for (int i = 1; i < n; ++i) {
+        if (abs(v[i] - v[0]) <= abs(v[i-1] - v[0])) {
+            res[0] = vector<int>(v.begin(), v.begin() + i);
+            res[1] = vector<int>(v.begin() + i, v.end());
+            break;
         }
     }
-    
-    res[0] = vector<int>(v.begin(), v.begin() + pos);
-    res[1] = vector<int>(v.begin() + pos, v.end());
-    
     return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n+1);
+    for (int i = 0; i <= n; ++i) {
+        cin >> v[i];
+    }
+    vector<vector<int>> result = cutVector(v);
+    cout << "[";
+    for (int i = 0; i < result[0].size(); ++i) {
+        cout << result[0][i];
+        if (i < result[0].size() - 1) {
+            cout << " ";
+        }
+    }
+    cout << "] [";
+    for (int i = 0; i < result[1].size(); ++i) {
+        cout << result[1][i];
+        if (i < result[1].size() - 1) {
+            cout << " ";
+        }
+    }
+    cout << "]" << endl;
+    return 0;
 }
