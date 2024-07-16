@@ -1,27 +1,35 @@
-```cpp
 #include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    bool inFrame = false;
-    int currentRolls = 0;
-    for (char c : s) {
-        if (c == '/') {
-            inFrame = false;
-            currentRolls = 0;
-        } else if (inFrame) {
-            ++currentRolls;
-            score += c - '0';
-        } else if (c >= 'X') {
+    int roll = 0;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'X') {
             score += 10;
-            inFrame = true;
-        } else {
-            int roll = c - '0';
-            score += roll;
-            if (roll == 1 || roll == 2) {
-                inFrame = true;
+            i++;
+            if (i < s.length() && (s[i] == '/' || s[i] >= '0' && s[i] <= '9')) {
+                if (roll > 0) {
+                    score += roll;
+                }
+                roll = 0;
             }
+        } else if (s[i] == '/') {
+            int firstRoll = s[i - 1] - '0';
+            int secondRoll = s[i + 1] - '0';
+            score += max(firstRoll, secondRoll);
+            i++;
+            while (i < s.length() && (s[i] >= '0' && s[i] <= '9')) {
+                roll = roll * 10 + s[i] - '0';
+                i++;
+            }
+        } else {
+            roll = roll * 10 + s[i] - '0';
+            i++;
         }
+    }
+    if (roll > 0) {
+        score += roll;
     }
     return score;
 }
