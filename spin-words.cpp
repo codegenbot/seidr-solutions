@@ -1,18 +1,16 @@
-#include <iostream>
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
-            result += " ";
+            result += str.substr(i);
             i++;
-        } else if (str.length() - i >= 5) {
-            for (int j = 5; j > 0; j--) {
-                result += str[str.length() - j];
+        } else if (strlen(&str.substr(i)) >= 5) {
+            for (int j = strlen(&str.substr(i)); j > 0; j--) {
+                result += str[i + j - 1];
             }
-            i += 5;
+            i += j;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
@@ -22,21 +20,14 @@ string spinWords(string str) {
             }
             if (k > 0) {
                 for (int j = k; j > 0; j--) {
-                    result += str[str.length() - j];
+                    result += str[i - 1];
                 }
                 i--;
             } else {
-                while (i < str.length()) {
-                    result += str[i];
-                    i++;
-                }
+                result += str.substr(i);
+                i++;
             }
         }
     }
     return result;
-}
-
-int main() {
-    cout << spinWords("Hello World") << endl;
-    return 0;
 }
