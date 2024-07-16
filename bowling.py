@@ -13,6 +13,8 @@ def bowling_score(frames):
             frames = frames[frames.index(char):]
         else:
             if frame_num < 10:
+                if frame_num == 9 and int(char) != 10:
+                    return -1  # invalid input
                 score += int(char)
                 frame_num += 1
     return score
