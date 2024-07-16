@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -27,6 +27,5 @@ int main() {
     std::cout << "Enter a string of one or more words (separated by spaces): ";
     std::getline(std::cin, str);
     std::cout << spinWords(str) << std::endl;
-    
     return 0;
 }
