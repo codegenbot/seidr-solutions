@@ -19,7 +19,7 @@ int main() {
 
     cout << fixed;
     cout << setiosflags(ios::fixed) << setprecision(6);
-    cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
+    cout << "Amount of snow on ground after " << std::to_string(hours) << " inches.\n";
 
     return 0;
 }
