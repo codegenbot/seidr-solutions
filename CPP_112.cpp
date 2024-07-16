@@ -1,3 +1,4 @@
+```cpp
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -18,27 +19,13 @@ vector<string> reverse_delete(string s, string c) {
     for (int i = temp.length() - 1; i >= 0; i--) {
         reverseTemp += temp[i];
     }
-    vector<string> v1 = splitString(temp);
-    vector<string> v2 = splitString(reverseTemp);
-    if (issame(v1, v2)) {
-        result.push_back("True");
+    bool issame(vector<string> a, vector<string> b) {
+        return a == b;
+    }
+    if (temp == reverseTemp) {
+        result.push_back(issame({temp}, {reverseTemp}) ? "True" : "False");
     } else {
         result.push_back("False");
     }
     return result;
-}
-
-vector<string> splitString(string s) {
-    vector<string> vec;
-    string temp = "";
-    for (char x : s) {
-        if (x == ' ') {
-            vec.push_back(temp);
-            temp = "";
-        } else {
-            temp += x;
-        }
-    }
-    vec.push_back(temp);
-    return vec;
 }
