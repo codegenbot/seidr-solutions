@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -9,7 +10,7 @@ int main() {
     return 0;
 }
 
-vector<int> leaders(vector<int>& arr) {
+vector<int> leaders(const vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
 
