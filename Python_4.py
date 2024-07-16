@@ -1,2 +1,2 @@
 n = int(input())
-numbers = list(map(int, input().split()))
+numbers = list(map(float, input().split()))
