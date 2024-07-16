@@ -1,11 +1,20 @@
-for (int i = 0; i < s.length(); ++i) {
-    if (isalpha(s[i])) {
-        s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+string solve(string s){
+    string result = "";
+    bool hasLetter = false;
+    for (char c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            if (islower(c)) {
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
+        } else {
+            result += c;
+        }
     }
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
+    }
+    return result;
 }
-
-if (count_if(s.begin(), s.end(), [](char c){ return isalpha(c); }) == 0) {
-    reverse(s.begin(), s.end());
-}
-
-return s;
