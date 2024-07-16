@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -6,35 +7,23 @@ bool solveBoolean(string expression) {
     bool result = true;
     int i = 0;
     while (i < expression.length()) {
-        if (expression[i] == 'f') {
+        if (expression[i] == 'f' || expression[i] == 'F') {
             result = false;
             break;
+        } else if (expression[i] == '|') {
+            bool temp = !result;
+            result = true;
+            i++;
+            while (i < expression.length() && expression[i] != '&') i++;
+            if (i < expression.length()) i++;
+        } else if (expression[i] == '&') {
+            bool temp = result;
+            result = false;
+            i++;
+            while (i < expression.length() && expression[i] != '|') i++;
+            if (i < expression.length()) i++;
+            result = temp;
         }
-        else if (expression[i] == '|') {
-            if (expression[i + 1] != '\0' && expression[i + 2] != '\0') {
-                bool temp = solveBoolean(expression.substr(i + 1));
-                if (!temp) {
-                    result = false;
-                    break;
-                }
-            } else {
-                return false;
-            }
-        }
-        else if (expression[i] == '&') {
-            if (expression[i + 1] != '\0' && expression[i + 2] != '\0') {
-                bool temp = solveBoolean(expression.substr(i + 1));
-                if (temp) {
-                    result = true;
-                    break;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-        i++;
     }
     return result;
 }
