@@ -1,6 +1,21 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
+
+int skjkasdkd(std::vector<int> lst) {
+    int maxPrime = 0;
+    for (int i = 0; i < lst.size(); i++) {
+        if (isPrime(lst[i])) {
+            if (maxPrime < lst[i])
+                maxPrime = lst[i];
+        }
+    }
+    int sumOfDigits = 0;
+    while (maxPrime > 0) {
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
+}
 
 bool isPrime(int n) {
     if (n <= 1)
@@ -10,25 +25,13 @@ bool isPrime(int n) {
             return false;
     }
     return true;
-}
-
-int skjkasdkd(std::vector<int> lst) {
-    int maxPrime = 0;
-    for(int i=0; i<lst.size(); i++){
-        if(isPrime(lst[i])){
-            if(maxPrime < lst[i])
-                maxPrime = lst[i];
-        }
-    }
-    int sumOfDigits = 0;
-    while(maxPrime > 0){
-        sumOfDigits += maxPrime%10;
-        maxPrime /= 10;
-    }
-    return sumOfDigits;
-}
 
 int main() {
-    // Your code here
+    std::vector<int> lst;
+    int num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    std::cout << skjkasdkd(lst) << std::endl;
     return 0;
 }
