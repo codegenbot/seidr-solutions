@@ -1,15 +1,13 @@
 string camelCase(string s) {
     string result = "";
     bool capitalizeNext = true;
-    
+
     for (char c : s) {
         if (c == '-') {
             if(capitalizeNext) {
-                int start = s.find(c);
-                while (s[start] == '-') start++;
-                result += toupper(s.substr(start, 1));
-            }
-            capitalizeNext = true;
+                result += toupper(s.erase(0, s.find(c)+1));
+                capitalizeNext = false;
+            } 
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
@@ -17,6 +15,6 @@ string camelCase(string s) {
             result += tolower(c);
         }
     }
-    
+
     return result;
 }
