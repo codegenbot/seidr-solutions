@@ -5,7 +5,7 @@ def solve_boolean(expression):
     for key, value in boolean_map.items():
         if key in ["T", "F"]:
             expression = expression.replace(key, str(value))
-        else:
-            expression = expression.replace(key, value)
+      
+    expression = expression.replace("|", " or ").replace("&", " and ")
 
     return eval(expression)
