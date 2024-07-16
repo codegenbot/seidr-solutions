@@ -6,39 +6,32 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
-    if (grid.empty() || grid[0].empty()) {
-        return result;
-    }
-    
     int n = grid.size();
+    if (n == 0) return result;
+    
     int m = grid[0].size();
     
-    vector<vector<int>> dp(n, vector<int>(m, k + 1));
+    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
     dp[0][0] = grid[0][0];
     
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            if (i > 0) {
-                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
-            }
-            if (j > 0) {
-                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
-            }
+            if (i > 0) dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
+            if (j > 0) dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
         }
     }
     
-    int i = n - 1, j = m - 1;
-    result.push_back(grid[i][j]);
-    
-    while (i > 0 || j > 0) {
-        if (i > 0 && dp[i][j] == dp[i - 1][j] + grid[i][j]) {
-            result.push_back(grid[i - 1][j]);
-            --i;
+    int x = n - 1, y = m - 1;
+    while (x >= 0 && y >= 0) {
+        result.push_back(grid[x][y]);
+        if (x > 0 && dp[x][y] - grid[x][y] == dp[x - 1][y]) {
+            x--;
         } else {
-            result.push_back(grid[i][j - 1]);
-            --j;
+            y--;
         }
     }
+    
+    reverse(result.begin(), result.end());
     
     return result;
 }
