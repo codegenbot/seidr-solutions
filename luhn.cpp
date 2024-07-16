@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -23,7 +24,8 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8}; 
+    vector<int> digits = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}; 
     int result = luhn(digits);
+    cout << "Luhn's algorithm verification: " << (result == 0 ? "Valid" : "Invalid") << endl;
     return 0;
 }
