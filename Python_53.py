@@ -12,7 +12,11 @@ while True:
                 continue
             result = num1 / num2
         else:
-            num1, num2 = list(map(int, user_input.split()))
+            num_list = user_input.split()
+            if len(num_list) != 2:
+                print("Invalid input. Please enter two numbers.")
+                continue
+            num1, num2 = map(int, num_list)
             if num2 == 0:
                 print("Cannot divide by zero. Please enter a non-zero second number.")
                 continue
@@ -20,12 +24,7 @@ while True:
 
         print(result)
 
-    except ValueError:
-        print("Invalid input. Please enter numeric values only.")
-    except ZeroDivisionError:
-        print("Cannot divide by zero. Please enter a non-zero second number.")
-    except KeyboardInterrupt:
-        print("\nProgram interrupted by user. Exiting...")
-        break
+    except (ValueError, ZeroDivisionError, KeyboardInterrupt):
+        print("Invalid input or division by zero. Please try again.")
     except Exception as e:
         print("An error occurred:", e)
