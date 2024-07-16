@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -19,6 +19,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    cout << basement(nums) << std::endl;
+    cout << basement(nums) << endl;
     return 0;
 }
