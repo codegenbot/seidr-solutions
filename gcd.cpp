@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,11 +15,11 @@ int gcd(int a, int b) {
     return a; 
 }
 
-std::vector<std::string> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<std::string> result; // Initialize the vector
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result; // Initialize the vector
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
-        result.push_back(std::to_string(pos));
+        result.push_back(pos);
         pos += target.size();
     }
     return result;
@@ -30,7 +30,7 @@ int main() {
     while (!(std::cin >> a) || !(std::cin >> b)) {
         std::cout << "Invalid input. Please enter two integers: ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max, '\n');
     }
     int result = gcd(a, b);
     std::cout << "GCD of the numbers is: " << result << std::endl;
@@ -40,7 +40,7 @@ int main() {
         std::cout << "Invalid input. Please enter two strings: ";
     }
     auto indices = indicesOfSubstring(text, target);
-    for (const auto& i : indices) {
+    for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;

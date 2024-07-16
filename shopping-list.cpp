@@ -1,30 +1,27 @@
 ```cpp
 #include <vector>
-#include <iostream>
-
-double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    double total = 0.0;
-    for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] - (prices[i] * (discounts[i] / 100.0));
-    }
-    return total;
-}
+#include <iomanip>
 
 int main() {
-    int n;
-    std::cout << "Enter the number of items: ";
-    std::cin >> n;
+    double total = 0.0;
+    float prices[100]; 
+    float discounts[100];
 
-    std::vector<float> prices(n);
-    std::vector<float> discounts(n);
+    int nPrices, nDiscounts;
+    cin >> nPrices >> nDiscounts;
 
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter price and discount for item " << i + 1 << ": ";
-        std::cin >> prices[i] >> discounts[i];
+    for (int i = 0; i < nPrices; i++) {
+        cin >> prices[i];
     }
 
-    double result = shoppingList(prices, discounts);
-    std::cout << "Total cost after applying the discount: $" << result << std::endl;
+    for (int i = 0; i < nDiscounts; i++) {
+        cin >> discounts[i];
+    }
 
-    return 0;
+    total = 0.0;
+    for (int i = 0; i < nPrices; i++) {
+        total += prices[i] - (prices[i] * (discounts[i] / 100.0));
+    }
+
+    return static_cast<int>(total);
 }

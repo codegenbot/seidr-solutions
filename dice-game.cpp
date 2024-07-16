@@ -1,19 +1,20 @@
+```cpp
 #include <iostream>
+using namespace std;
+
 double probability(int n, int m) {
+    if (n <= m) return 0; 
     double result = 0.0;
-    for (int i = m + 1; i <= n; ++i) { 
-        result += ((m + 1) / (double)n);
+    for (int i = m+1; i <= n; ++i) { 
+        result += ((double)i)/n; 
     }
-    return 1 - result;
+    return result;
 }
 
 int main() {
-    int n, m;
-    std::cout << "Enter the number of sides for Peter's die: ";
-    std::cin >> n;
-    std::cout << "Enter the number of sides for Colin's die: ";
-    std::cin >> m;
+    int n = 6; // number of sides for Peter's die
+    int m = 6; // number of sides for Colin's die
     double result = probability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
+    cout << "Probability: " << to_string(result) << endl;
     return 0;
 }
