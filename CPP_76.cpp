@@ -1,8 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
-
-#define assert(expression) if (!(expression)) std::exit(EXIT_FAILURE);
+#include <cmath>
 
 bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
