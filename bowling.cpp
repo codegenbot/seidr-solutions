@@ -1,38 +1,32 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2;
-
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') { // Strike
-            score += 10 + getBonus(s, i);
-        } else if (s[i] == '/') { // Spare
-            score += 5 + getBonus(s, i);
-        } else { // Normal roll
-            roll1 = s[i] - '0';
-            if (i < 8 && s[i+1] != '/') {
-                roll2 = s[i+1] - '0';
-                score += roll1 + roll2;
+    int frame = 1;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == '/') {
+            if(i+2 <= s.length() && (s[i+1]-'0' + s[i+2]-'0') >= 10) {
+                score += 10 + (frame < 9 ? 10 : 0);
+                frame++;
             } else {
-                score += roll1;
+                int strike = i;
+                while(s[strike] == 'X' || s[strike] == '/') strike++;
+                if(strike - i > 1) {
+                    score += strike - i;
+                }
+                score += (frame < 9 ? 10 : 0);
+                frame++;
             }
+        } else if(s[i] == 'X') {
+            score += 10;
+            frame++;
+        } else {
+            int num = s[i]-'0';
+            if(i+1 <= s.length() && s[i+1]-'0' > 0) {
+                num *= 10 + (s[i+1]-'0');
+                i++;
+            }
+            score += num;
+            frame++;
         }
     }
-
     return score;
-}
-
-int getBonus(string s, int i) {
-    int bonus = 0;
-
-    for (int j = i + 1; j < 11; j++) {
-        if (s[j] == 'X') { // Strike
-            bonus += 10;
-        } else if (s[j] == '/') { // Spare
-            bonus += 5;
-        } else { // Normal roll
-            bonus += s[j] - '0';
-        }
-    }
-
-    return bonus;
 }
