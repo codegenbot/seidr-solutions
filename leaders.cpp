@@ -5,22 +5,9 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
 
-    if(n == 0) return result;
-
-    int max_right = arr[n-1];
-    for(int i=n-2; i>=0; i--) { 
-        if(arr[i] >= max_right) {
-            max_right = arr[i];
-            result.push_back(max_right);
-        }
-    }
-
-    int max_left = arr[0];
-    for(int i=1; i<n; i++) { 
-        if(arr[i] >= max_left) {
-            max_left = arr[i];
-        } else {
-            result.push_back(max_left);
+    for(int i=0; i<n-1; i++) { 
+        if(arr[i] >= arr[i+1]) {
+            result.push_back(arr[i]);
         }
     }
 
