@@ -1,10 +1,13 @@
-```
+import math
+
+
 def calculate_fuel(amount):
-    result = amount // 3
-    return max(0, result - 2)
+    return math.floor((amount + 2) / 3) - 2
+
 
 def fuel_cost(vector):
-    return sum(calculate_fuel(i) for i in vector)
+    return sum(calculate_fuel(int(i)) for i in vector)
 
-vector = list(map(int, input().split(',')))
+
+vector = [int(x) for x in input().replace(" ", ",").split(",")]
 print(fuel_cost(vector))
