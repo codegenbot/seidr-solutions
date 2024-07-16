@@ -19,14 +19,8 @@ int main() {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
-
-    if (min_diff == 0 || idx == vec.size() - 1) {
-        std::cout << vec[idx] << std::endl;
-    } else {
-        for (int i = idx + 1; i < vec.size(); ++i) {
-            std::cout << vec[i] << " ";
-        }
-        std::cout << std::endl;
+    for (int i = idx + 1; i < vec.size(); ++i) {
+        std::cout << vec[i] << " ";
     }
 
     return 0;
