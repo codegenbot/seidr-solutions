@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 using namespace std;
@@ -26,10 +25,10 @@ int bowlingScore(string s) {
     return score;
 }
 
-int getBonus(string s, int pos) {
+int getBonus(string s) {
     int bonus = 0;
 
-    for (int j = pos; j < s.size(); j++) {
+    for (int j = 0; j < s.size(); j++) {
         if (s[j] == 'X') { // Strike
             bonus += 10;
         } else if (s[j] == '/') { // Spare
