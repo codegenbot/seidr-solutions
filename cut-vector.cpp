@@ -1,36 +1,33 @@
 int main() {
-    int n;
-    cin >> n;
+    vector<int> nums;
+    int num;
     
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    while (cin >> num) {
+        nums.push_back(num);
     }
     
-    int diff = INT_MAX;
-    int splitIndex = -1;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; j++) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < n; j++) {
-            rightSum += nums[j];
-        }
-        if (abs(leftSum - rightSum) < diff) {
-            diff = abs(leftSum - rightSum);
-            splitIndex = i;
+    for (int i = 1; i < nums.size(); ++i) {
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    for (int i = 0; i < splitIndex; i++) {
+    for (int i = 0; i < cut_index; ++i) {
         cout << nums[i] << endl;
     }
-    cout << endl;
-    for (int i = splitIndex; i < n; i++) {
+    
+    cout << 0 << endl;
+    
+    for (int i = cut_index; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
+    
+    cout << 0 << endl;
     
     return 0;
 }
