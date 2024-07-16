@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
 bool is_palindrome(const string& text) {
     int left = 0;
     int right = text.size() - 1;
@@ -19,5 +13,6 @@ bool is_palindrome(const string& text) {
 
 int main() {
     assert(is_palindrome("xywzx") == false);
+    // Add more test cases here
     return 0;
 }
