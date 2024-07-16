@@ -1,10 +1,13 @@
-```
+```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <initializer_list>
+#include <memory>
 
 using namespace std;
+
+namespace pmr;
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
@@ -28,7 +31,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool sameVectors(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
