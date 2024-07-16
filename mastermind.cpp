@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <unordered_map>
 
 int main() {
     std::string codeStr, guessStr;
@@ -13,39 +13,39 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0;
-    std::vector<int> codeCount(6, 0);
+    int whitePegs = 0;
+    std::unordered_map<char, int> codeCount;
 
     // Count characters in the code
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[c - '0']++;
-            if (c == guessStr[0] || c == guessStr[1] || c == guessStr[2] || c == guessStr[3]) {
-                blackPegs++;
-            }
+            codeCount[c]++;
         }
     }
 
-    int whitePegs = 0;
-    for (char c : guessStr) {
-        bool foundInCode = false;
-        for (char d : codeStr) {
-            if (d == c) {
-                foundInCode = true;
-                break;
-            }
-        }
-        if (!foundInCode) {
-            whitePegs++;
-        } else {
-            bool foundInCodeAtCorrectPosition = false;
-            for (int j = 0; j < 4; j++) {
-                if (codeStr[j] == c && codeStr[j] == c) {
-                    foundInCodeAtCorrectPosition = true;
-                    break;
+    // Count black and white pegs
+    for (int i = 0; i < 4; ++i) {
+        char guessChar = guessStr[i];
+        if ('0' <= guessChar && guessChar <= '5') {
+            if (guessChar == codeStr[i]) {
+                blackPegs++;
+            } else {
+                bool foundInCode = false;
+                for (char c : codeCount) {
+                    if (c.second > 0) {
+                        foundInCode = true;
+                        break;
+                    }
                 }
-            }
-            if (!foundInCodeAtCorrectPosition) {
-                whitePegs++;
+                if (!foundInCode) {
+                    whitePegs++;
+                } else {
+                    codeCount[guessChar]--;
+                    if (codeStr[i] == guessChar) {
+                        blackPegs++;
+                        whitePegs--;
+                    }
+                }
             }
         }
     }
