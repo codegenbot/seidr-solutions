@@ -5,5 +5,5 @@ while True:
         if num == "":
             break
         numbers.append(int(num))
-    except EOFError:
+    except KeyboardInterrupt:
         break
