@@ -2,13 +2,13 @@ string longest(vector<string> strings) {
     if (strings.empty()) {
         return "None";
     }
-
-    string max_str = strings[0];
-    for (int i = 1; i < strings.size(); ++i) {
-        if (strings[i].length() >= max_str.length()) {
-            max_str = strings[i];
+    
+    string longestStr = strings[0];
+    for (const string& str : strings) {
+        if (str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)) {
+            longestStr = str;
         }
     }
 
-    return max_str;
+    return longestStr;
 }
