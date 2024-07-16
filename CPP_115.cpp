@@ -1,18 +1,16 @@
-int count = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            int curr_capacity = 0;
-            for (int i = 0; i < grid.size(); i++) {
-                if (grid[i][j] == 1) {
-                    curr_capacity++;
-                }
+int total_fill = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            int well_fill = 0;
+            for (int j = 0; j < grid[i].size(); j++) {
+                well_fill += grid[i][j];
             }
-            while (curr_capacity > capacity) {
-                curr_capacity -= capacity;
-                count++;
-            }
-            if (curr_capacity > 0) {
-                count++;
-            }
+            total_fill += well_fill;
         }
-        return count;
-}
+
+        int num_fill_operations = total_fill / capacity;
+        if (total_fill % capacity != 0) {
+            num_fill_operations++;
+        }
+
+        return num_fill_operations;
+    }
