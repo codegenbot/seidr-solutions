@@ -1,13 +1,12 @@
-string encrypt(string s){
-    string encrypted = "";
-    for(char c : s){
-        if(isalpha(c)){
-            char base = islower(c) ? 'a' : 'A';
-            char encrypted_char = base + (c - base + 2 * 2) % 26;
-            encrypted += encrypted_char;
+string result = "";
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            result += 'a' + (c - 'a' + 2 * 2) % 26;
+        } else if (c >= 'A' && c <= 'Z') {
+            result += 'A' + (c - 'A' + 2 * 2) % 26;
         } else {
-            encrypted += c;
+            result += c;
         }
     }
-    return encrypted;
+    return result;
 }
