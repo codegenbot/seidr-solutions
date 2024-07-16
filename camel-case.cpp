@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -25,7 +24,7 @@ int main() {
 
     size_t pos = 0;
     while ((pos = result.find(' ', pos)) != std::string::npos) {
-        pos = result.erase(pos, 1); // or pos = result.erase(pos, std::string::npos)
+        pos = result.erase(pos, 1); 
     }
     
     return 0;
