@@ -1,40 +1,24 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
 
 std::string camelCase(std::string s) {
     std::string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            if (i > 0 && s[i - 1] != ' ') {
-                if (!result.empty()) {
-                    result[0] = toupper(result[0]);
-                }
-                std::string temp = s.substr(i + 1, 1);
-                for (char & c : temp) {
-                    c = std::toupper(c);
-                }
-                result += temp;
-                i++;
-            } else {
-                int j = i;
-                while (j < s.size() && s[j] == '-') {
-                    j++;
-                }
-                if (!result.empty()) {
-                    result[0] = toupper(result[0]);
-                }
-                std::string temp = s.substr(i, j - i);
-                for (char & c : temp) {
-                    c = std::toupper(c);
-                }
-                result += temp;
-                i = j - 1;
-            }
+    bool capitalizeNext = true;
+    for (char &c : s) {
+        if (capitalizeNext && c != '-') {
+            result += std::toupper(c);
+            capitalizeNext = false;
+        } else if (c == '-') {
+            capitalizeNext = true;
         } else {
-            if (!result.empty()) {
-                result[0] = toupper(result[0]);
+            if (!capitalizeNext) {
+                result += std::tolower(c);
+            } else {
+                result += c;
+                capitalizeNext = false;
             }
-            result += s[i];
         }
     }
     return result;
