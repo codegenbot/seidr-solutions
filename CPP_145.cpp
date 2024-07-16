@@ -1,16 +1,17 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-bool order_by_points(const std::vector<int>& a, const std::vector<int>& b) {
-    return issame(a, b);
+std::vector<int> sort_vector(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end());
+    return nums;
 }
 
 int main() {
-    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(sort_vector({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
