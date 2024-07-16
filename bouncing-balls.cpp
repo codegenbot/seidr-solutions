@@ -11,10 +11,11 @@ int main() {
     cin >> startHeight >> firstBounce >> numBounces;  
 
     double bouncinessIndex = (firstBounce / startHeight);
+    startHeight = firstBounce;
 
-    double totalDistance = 0.0;
+    long double totalDistance = 0.0L;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += startHeight * (2 - bouncinessIndex);
+        totalDistance += static_cast<long double>(startHeight);
         startHeight *= bouncinessIndex;
     }
 
