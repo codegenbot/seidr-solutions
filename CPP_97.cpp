@@ -1,3 +1,4 @@
-int multiply(int a, int b){
-    return abs((abs(a) % 10) * (abs(b) % 10));
+int unitDigitA = abs(a % 10);
+    int unitDigitB = abs(b % 10);
+    return unitDigitA * unitDigitB;
 }
