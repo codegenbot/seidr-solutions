@@ -1,6 +1,4 @@
-Here is the modified code without unnecessary backticks (`) at the top and with correct outputs for the given problem: 
-
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
