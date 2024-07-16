@@ -1,13 +1,13 @@
-int count = 0;
-    for (char bracket : brackets) {
-        if (bracket == '<') {
-            count++;
-        } else if (bracket == '>') {
-            count--;
-        }
-        if (count < 0) {
+int openCount = 0;
+for (char bracket : brackets) {
+    if (bracket == '<') {
+        openCount++;
+    } else if (bracket == '>') {
+        if (openCount == 0) {
             return false;
         }
+        openCount--;
     }
-    return count == 0;
+}
+return openCount == 0;
 }
