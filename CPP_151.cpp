@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -17,8 +16,6 @@ int main() {
     assert(double_the_difference({1.0, 2.0, 3.0, 4.0, 5.0}) == 1);
     assert(double_the_difference({-1.0, -2.0, -3.0, -4.0, -5.0}) == 0);
     assert(double_the_difference({1.5, 2.5, 3.5, 4.5, 5.5}) == 0);
-    
-    std::cout << "All tests passed successfully!" << std::endl;
     
     return 0;
 }
