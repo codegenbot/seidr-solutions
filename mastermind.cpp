@@ -1,3 +1,4 @@
+```c++
 #include <tuple>
 #include <vector>
 #include <iostream>
@@ -7,31 +8,18 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
-
     for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
-        } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
-        }
-    }
-
-    int white = 0;
-    for (int i = 0; i < 4; i++) {
-        bool foundInCode = false;
-        for (char c : code) {
-            if (c == guess[i]) {
-                foundInCode = true;
-                break;
+        bool inCode = false;
+        for (int j = 0; j < 4; j++) {
+            if (guess[i] == code[j]) { 
+                inCode = true;
+                if (j == i) { 
+                    black++;
+                    break;
+                } else {
+                    white++;
+                }
             }
-        }
-        if (!foundInCode) {
-            white++;
         }
     }
 
@@ -39,8 +27,8 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "ABDE";
+    std::string code = "RGOR";
+    std::string guess = "BRBB";
     auto [white, black] = mastermind(code, guess);
     std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
     return 0;
