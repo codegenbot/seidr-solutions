@@ -1,4 +1,5 @@
-int count = 0;
+bool is_nested(const std::string& str) {
+    int count = 0;
     for (char c : str) {
         if (c == '[') {
             count++;
