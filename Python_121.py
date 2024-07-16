@@ -1,5 +1,2 @@
-def find_max_min_average(lst):
-    max_val = max(lst)
-    min_val = min(lst)
-    average = sum(lst) / len(lst)
-    return max_val, min_val, average
+def find_max_sum_of_even_elements(lst):
+    return sum([x for x in lst if x % 2 == 0])
