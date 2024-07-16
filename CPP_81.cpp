@@ -11,7 +11,7 @@ int main() {
     // Main function implementation
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
         if (gpa == 4.0) {
