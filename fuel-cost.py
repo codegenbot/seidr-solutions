@@ -1,4 +1,4 @@
-```python
+```
 def calculate_fuel(amount):
     return amount // 3 - 2
 
