@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,17 +8,17 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (capitalize) {
-                result += ' ';
-                capitalize = false;
-            }
-        } else {
-            if (!capitalize) {
-                result += 'A' + (c - 'a');
-                capitalize = true;
-            } else {
+            if(capitalize) {
                 result += toupper(c);
+                capitalize = false; 
+            } else {
+                result += ' ';  // Add a space to separate words
             }
+        } else if (capitalize) {
+            result += toupper(c);  // Capitalize first letter of each word
+            capitalize = false;
+        } else {
+            result += c;
         }
     }
 
