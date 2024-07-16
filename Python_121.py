@@ -1,2 +1,8 @@
-def find_max_sum_of_even_elements(lst):
-    return sum([x for x in lst if x % 2 == 0])
+def solution():
+    s = input("Enter a string: ")
+    vowels = 'aeiouAEIOU'
+    count = 0
+    for char in s:
+        if char in vowels:
+            count += 1
+    return count
