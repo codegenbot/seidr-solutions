@@ -1,5 +1,5 @@
-for (int &num : l) {
-        num++;
+vector<int> result;
+    for (int i = 0; i < l.size(); i++) {
+        result.push_back(l[i] + 1);
     }
-    return l;
-}
+    return result;
