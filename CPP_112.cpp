@@ -5,6 +5,7 @@
 #include <memory>
 #include <memory_resource>
 #include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::string s, c;
+    string s, c;
     cout << "Enter the string: ";
     cin >> s;
     cout << "Enter the character to be deleted: ";
@@ -50,7 +51,7 @@ int main() {
     if (isSame({s}, result)) {
         cout << "The original string is the same as the reversed and deleted string." << endl;
     } else {
-        cout << "The original string is not the same as the reversed and deleted string." << endl;
+        cout << "The original string is not the same as the reversed and deleted string." << std::endl;
     }
     return 0;
 }
