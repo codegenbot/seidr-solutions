@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
@@ -14,3 +13,4 @@ bool is_nested(std::string str) {
         }
     }
     return count == 0;
+}
