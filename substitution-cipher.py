@@ -14,4 +14,4 @@ def decipher():
         else:
             result += char
             
-    print("Deciphered message: " + str(result))
+    print("Deciphered message: " + result)
