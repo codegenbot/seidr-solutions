@@ -9,18 +9,10 @@ vector<int> filter_integers(list<any> values){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    // Function implementation goes here
 }
 
-int main() {
-    // Your main function implementation here
+int main(){
+    // Main function implementation goes here
     return 0;
 }
