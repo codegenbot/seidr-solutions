@@ -1,33 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-vector<float> sort_even(vector<float> l) {
+vector<float> sort_even(vector<float> a) {
     vector<float> even_values;
-    vector<float> result;
-    
-    for (int i = 0; i < l.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (i % 2 == 0) {
-            even_values.push_back(l[i]);
+            even_values.push_back(a[i]);
         }
     }
-    
     sort(even_values.begin(), even_values.end());
-    
-    for (int i = 0, j = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            result.push_back(even_values[j]);
-            j++;
-        } else {
-            result.push_back(l[i]);
-        }
-    }
-    
-    return result;
+    return even_values;
 }
 
-int main() {
-    assert(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
-
-    return 0;
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
