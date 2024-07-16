@@ -5,8 +5,15 @@ int main() {
     int cents;
     cin >> cents;
 
-    int quarters = (cents + 24) / 25;
-    cents %= 25;
+    int totalQuarters = cents / 25;
+    while (totalQuarters > 0) {
+        if (totalQuarters + (cents % 25) >= 25) {
+            break;
+        }
+        totalQuarters--;
+        cents += 25;
+    }
+    quarters = totalQuarters;
 
     int dimes = cents / 10;
     cents %= 10;
