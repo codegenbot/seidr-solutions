@@ -7,7 +7,7 @@ int shoppingList(float* prices, int nPrices, float* discounts) {
     for (int i = 0; i < nPrices; i++) {
         total += prices[i] * (1 - discounts[i]/100.0);
     }
-    return static_cast<int>(std::round(total));
+    return static_cast<int>(total);
 }
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
 
     int result = shoppingList(prices, nPrices, discounts);
 
-    std::cout << "Total price after discount: $" << result << std::endl;
+    std::cout << "Total price after discount: $" << (float)result / 100.0f << std::endl;
 
     return 0;
 }
