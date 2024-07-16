@@ -1,6 +1,12 @@
 numbers = []
-while True:
-    num = input("Enter a number: ").strip()
-    if not num:
-        break
-    numbers.append(int(num))
+try:
+    while True:
+        try:
+            num = input().strip()
+            if not num:
+                break
+            numbers.append(int(num))
+        except EOFError:
+            break
+except EOFError:
+    pass
