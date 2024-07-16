@@ -7,6 +7,6 @@ while True:
         lst = list(map(int, input("Enter numbers separated by space: ").split()))
         break
     except ValueError:
-        print("Invalid input. Please enter valid numbers.")
+        print("Invalid input! Please enter valid numbers separated by spaces.")
 
 print(solution(lst))
