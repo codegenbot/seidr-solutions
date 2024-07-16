@@ -3,16 +3,6 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-vector<string> by_length(vector<int> arr);
-
-int main() {
-    // Function calls and other code
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> by_length(vector<int> arr){
     vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     vector<int> sorted_arr;
