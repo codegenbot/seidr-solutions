@@ -1,24 +1,32 @@
-```c++
 #include <string>
 using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
+    int roll1, roll2;
+
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
             score += 10;
-            if (i < 9)
-                score += getBonus(s.substr(i+1));
+            if (i < 9) {
+                s = s.substr(1);
+            }
         } else if (s[i] == '/') { // Spare
             score += 5;
-            score += getRoll(s.substr(i+1));
+            for (int j = i; j < s.size(); j++) {
+                if (s[j] != '/') {
+                    roll1 = s[j] - '0';
+                    score += roll1;
+                    break;
+                }
+            }
         } else { // Normal roll
-            int roll = s[i] - '0';
+            roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
-                int next = s[i+1] - '0';
-                score += roll + next;
+                roll2 = s[i+1] - '0';
+                score += roll1 + roll2;
             } else {
-                score += roll;
+                score += roll1;
             }
         }
     }
@@ -26,23 +34,17 @@ int bowlingScore(string s) {
     return score;
 }
 
-int getRoll(string s) {
-    int score = 0;
-    bool bonus = false;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') { // Strike
-            score += 10;
-            bonus = true;
-        } else if (s[i] == '/') { // Spare
-            score += 5;
-            break;
+int getBonus(string s) {
+    int bonus = 0;
+
+    for (int j = 0; j < s.size(); j++) {
+        if (s[j] == 'X') { // Strike
+            bonus += 10;
+        } else if (s[j] == '/') { // Spare
+            bonus += 5;
         } else { // Normal roll
-            score += s[i] - '0';
+            bonus += s[j] - '0';
         }
     }
 
-    if (bonus)
-        score += getRoll(s.substr(1));
-
-    return score;
-}
+    return bonus;
