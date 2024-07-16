@@ -34,6 +34,6 @@ int main() {
     pair<string, string> result = reverse_delete("mamma", "mia");
     cout << "First part of the output: " << result.first << endl;
     cout << "Second part of the output: " << result.second << endl;
-    assert(result == make_pair("", "True"));
+    assert(result == make_pair("", "True"));  
     return 0;
 }
