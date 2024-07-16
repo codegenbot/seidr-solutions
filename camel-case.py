@@ -1,5 +1,1 @@
-```
-import re
-
-def camel_case(s):
-    return re.sub(r"-(\w)", lambda x: x.group(1).capitalize(), s).lstrip('-')
+`def camel_case(input_str): return "".join(word.capitalize() for word in input_str.split("-"))`
