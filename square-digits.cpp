@@ -1,5 +1,8 @@
 ```c++
 #include <string>
+#include <iostream>
+#include <sstream>
+
 using namespace std;
 
 std::string squareDigits(std::string n) {
