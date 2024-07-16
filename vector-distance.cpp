@@ -11,21 +11,20 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
 }
 
 int main() {
-    size_t n;
+    int n;
     std::cin >> n;
-    
+
     std::vector<double> vec1(n);
     std::vector<double> vec2(n);
-    
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-    
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
-    
-    std::cout << calculateDistance(vec1, vec2) << std::endl;
-    
+
+    double distance = calculateDistance(vec1, vec2);
+    std::cout << distance << std::endl;
+
     return 0;
 }
