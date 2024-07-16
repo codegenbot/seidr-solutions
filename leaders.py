@@ -1,3 +1,4 @@
+```Python
 def leaders(arr):
     leaders = []
     max_seen = arr[-1]
@@ -6,3 +7,6 @@ def leaders(arr):
             leaders.append(max_seen)
             max_seen = arr[i]
     return leaders
+
+input_array = [16, 17, 4, 3, 5, 2, 7, 1, 6, 8]
+print(leaders(input_array))
