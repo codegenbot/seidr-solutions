@@ -1,39 +1,32 @@
+```cpp
 #include <iostream>
-#include <cstring>
+#include <string>
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
-        if (str[i] == ' ') {
-            result += str.substr(i);
+        int j = 0;
+        // find next space or end of string
+        while (i < str.length() && str[i] != ' ') {
             i++;
-        } else if (strlen(str.substr(i)) >= 5) {
-            int j = strlen(str.substr(i));
-            for (int k = j; k > 0; k--) {
-                result += str.substr(i + j - 1, 1);
+            j++;
+        }
+        // get the word and check if it has more than 4 characters
+        string word = str.substr(i - j, j);
+        if (word.size() > 4) {
+            // reverse the word
+            string reversedWord;
+            for (int k = word.size() - 1; k >= 0; k--) {
+                reversedWord += word[k];
             }
-            i += j;
+            result += reversedWord + " ";
         } else {
-            int k = 0;
-            while (i < str.length() && str[i] != ' ') {
-                result += str[i];
-                i++;
-                k++;
-            }
-            if (k > 0) {
-                for (int j = k; j > 0; j--) {
-                    result += str[i - 1];
-                }
-                i--;
-            } else {
-                result += str.substr(i);
-                i++;
-            }
+            result += word + " ";
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1); 
 }
 
 int main() {
