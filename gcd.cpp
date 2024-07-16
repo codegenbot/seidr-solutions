@@ -43,21 +43,12 @@ int main() {
     std::string text, target;
     if (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
         std::cout << "Invalid input. Please enter two strings: ";
-    }
-    if (target.empty()) {
-        std::cout << "Error: Target string is empty." << std::endl;
     } else {
-        if (!target.empty()) {
-            auto indices = indicesOfSubstring(text, target);
-            for (int i : indices) {
-                std::cout << i << " ";
-            }
-            std::cout << std::endl;
-        } else if (text.empty()) {  
-            // Handle the edge case where both text and target are empty
-        } else {
-            std::cout << "Error: Target string is empty." << std::endl;
+        auto indices = indicesOfSubstring(text, target);
+        for (int i : indices) {
+            std::cout << i << " ";
         }
+        std::cout << std::endl;
     }
 
     return 0;
