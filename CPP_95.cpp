@@ -31,5 +31,8 @@ bool check_map_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
+    
     // your code here
+    
+    return 0;
 }
