@@ -3,7 +3,7 @@
 #include <string>
 
 bool solveBoolean(std::string s) {
-    stack<char> st;
+    std::stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -27,3 +27,4 @@ bool solveBoolean(std::string s) {
         st.pop();
     }
     return !st.empty();
+}
