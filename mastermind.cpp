@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -13,39 +14,26 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0;
-    int whitePegs = 0;
     std::unordered_map<char, int> codeCount;
 
     // Count characters in the code
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
+            codeCount[c] = 0; // Reset count for each unique character
             codeCount[c]++;
         }
     }
 
-    // Count black and white pegs
-    for (int i = 0; i < 4; ++i) {
-        char guessChar = guessStr[i];
-        if ('0' <= guessChar && guessChar <= '5') {
-            if (guessChar == codeStr[i]) {
+    int whitePegs = 0;
+    for (int i = 0; i < 4; i++) {
+        char c = guessStr[i];
+        if ('0' <= c && c <= '5') {
+            bool foundInCode = codeCount[c] > 0;
+            codeCount[c]--;
+            if (foundInCode) {
                 blackPegs++;
             } else {
-                bool foundInCode = false;
-                for (char c : codeCount) {
-                    if (c.second > 0) {
-                        foundInCode = true;
-                        break;
-                    }
-                }
-                if (!foundInCode) {
-                    whitePegs++;
-                } else {
-                    codeCount[guessChar]--;
-                    if (codeStr[i] == guessChar) {
-                        blackPegs++;
-                        whitePegs--;
-                    }
-                }
+                whitePegs++;
             }
         }
     }
