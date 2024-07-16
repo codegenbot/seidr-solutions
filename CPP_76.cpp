@@ -1,6 +1,8 @@
-if (x <= 0 || n <= 0) {
+if (x < 1 || n < 2) {
         return false;
     }
-    double exp = log(x) / log(n);
-    return ceil(exp) == exp;
+    
+    double root = pow(x, 1.0 / n);
+    
+    return (pow(round(root), n) == x);
 }
