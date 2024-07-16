@@ -1,8 +1,7 @@
-#include<iostream>
-#include<vector>
-using namespace std;
+#include <iostream>
+#include <vector>
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i=0; i<lst.size(); i++){
         if(isPrime(lst[i])){
@@ -29,18 +28,18 @@ bool isPrime(int n) {
 }
 
 int main() {
-    vector<int> lst;
-    int size;
-    cout << "Enter the number of elements: ";
-    cin >> size;
-
-    for(int i=0; i<size; i++){
-        int num;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        lst.push_back(num);
+    int n;
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+    
+    std::vector<int> lst(n);
+    for(int i=0; i<n; i++){
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> lst[i];
     }
-
-    cout << "Sum of digits is : " << skjkasdkd(lst) << endl;
+    
+    int result = skjkasdkd(lst);
+    std::cout << "Sum of digits: " << result;
+    
     return 0;
 }
