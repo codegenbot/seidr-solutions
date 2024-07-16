@@ -1,5 +1,3 @@
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     if paren_string.count("(") != paren_string.count(")"):
         return []
@@ -22,6 +20,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = input("Enter string with parentheses: ")
+
+paren_string = input("Enter a string with parentheses: ")
 result = separate_paren_groups(paren_string)
 print(result)
