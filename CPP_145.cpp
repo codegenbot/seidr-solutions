@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
 vector<int> issame(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
