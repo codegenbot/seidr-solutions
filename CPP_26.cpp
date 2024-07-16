@@ -3,22 +3,25 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(int a, int b) {
     return a == b;
+}
+
+vector<int> remove_duplicates(vector<int> numbers);
+
+int main() {
+    vector<int> numbers = {1, 2, 2, 3, 4, 4, 5};
+    vector<int> result = remove_duplicates(numbers);
+    vector<int> expected = {1, 3, 5};
+    assert(result == expected);
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for (int num : numbers) {
-        if (count(numbers.begin(), numbers.end(), num) == 1) {
+        if (count(numbers.begin(), numbers.end(), num, issame) == 1) {
             result.push_back(num);
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
-    
-    return 0;
 }
