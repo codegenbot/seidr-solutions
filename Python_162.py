@@ -1,9 +1,14 @@
-import sys
 import hashlib
 
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest() if text else None
 
-for line in sys.stdin:
-    result = string_to_md5(line.strip())
-    print(result)
+try:
+    while True:
+        input_text = input().strip()
+        if not input_text and input_text != '':
+            break
+        result = string_to_md5(input_text)
+        print(result)
+except EOFError:
+    pass
