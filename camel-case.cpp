@@ -6,19 +6,20 @@ std::string kebabToCamel(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
+    // Capitalize first letter of each word (grouped by spaces)
     for (char c : str) {
         if (c == '-') {
-            if(capitalize) {
-                result += toupper(c);
-                capitalize = false; 
-            } else {
-                result += ' ';  // Add a space to separate words
-            }
+            result += ' ';  // Add a space to separate words
+            capitalize = true;  // Start new word, so capitalize next char
         } else if (capitalize) {
-            result += toupper(c);  // Capitalize first letter of each word
-            capitalize = false;
+            if (c == str[0] || capitalize) {
+                result += toupper(c);  // Capitalize first letter of each word
+                capitalize = false;
+            } else {
+                result += tolower(c);
+            }
         } else {
-            result += c;
+            result += tolower(c);
         }
     }
 
