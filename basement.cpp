@@ -8,5 +8,18 @@ int basementIndex(vector<int> &nums) {
         if (sum < 0)
             return i;
     }
-    return -1; // or throw an exception, depending on your requirements
+    return -1;
+}
+
+int main() {
+    vector<int> nums;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        nums.push_back(num);
+    }
+    cout << basementIndex(nums) << endl;
+    return 0;
 }
