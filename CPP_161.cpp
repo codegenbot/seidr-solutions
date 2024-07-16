@@ -1,12 +1,18 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
+int n = s.size();
+    for(int i=0; i<n; i++) {
+        if(isalpha(s[i])) {
+            if(islower(s[i])) {
+                s[i] = toupper(s[i]);
             } else {
-                c = tolower(c);
+                s[i] = tolower(s[i]);
             }
         }
     }
-    reverse(s.begin(), s.end());
+    int l=0, r=n-1;
+    while(l<r) {
+        swap(s[l], s[r]);
+        l++;
+        r--;
+    }
     return s;
 }
