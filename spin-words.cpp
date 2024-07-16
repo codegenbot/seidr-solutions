@@ -12,7 +12,7 @@ string spinWords(string str) {
                 j++;
                 len++;
             }
-            if (len >= 5) { 
+            if (len >= 5) { // check length
                 for (; len > 0; --len) {
                     result += str[--j];
                 }
