@@ -13,5 +13,6 @@ def rolling_max() -> List[int]:
     return max_numbers
 
 
+# Call the function to get the rolling maximum numbers from user input
 result = rolling_max()
 print(result)
