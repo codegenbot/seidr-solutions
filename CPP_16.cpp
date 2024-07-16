@@ -1,12 +1,9 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> visited(256, false);
-    
-    int count = 0;
-    for(char c : str){
-        if(!visited[c]){
-            visited[c] = true;
-            count++;
+    vector<char> distinct_chars;
+    for (char c : str) {
+        if (find(distinct_chars.begin(), distinct_chars.end(), c) == distinct_chars.end()) {
+            distinct_chars.push_back(c);
         }
     }
-    return count;
+    return distinct_chars.size();
 }
