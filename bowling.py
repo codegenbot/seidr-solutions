@@ -1,12 +1,21 @@
-def bowling_score(bowling):
+```
+def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if bowling[i * 2] == "X":
-            score += 30
-        elif bowling[i * 2 : i * 2 + 2].count("X") >= 1:
-            score += min(int(bowling[i * 2]), 10) * 10 + max(
-                int(bowling[i * 2 : i * 2 + 1]) - int(bowling[i * 2]), 0
-            )
-        else:
-            score += sum(map(int, bowling[i * 2 : i * 2 + 2]))
+    for frame in frames.split('/'):
+        if len(frame) == 1:
+            score += int(frame)
+        elif len(frame) == 2:
+            first_roll = int(frame[0])
+            second_roll = int(frame[1])
+            if first_roll + second_roll < 10:
+                score += first_roll + second_roll
+            else:
+                score += 10
+        elif len(frame) > 2:
+            first_roll = int(frame[:2])
+            score += first_roll
+            if first_roll < 10:
+                score += int(frame[2:])
+            else:
+                score += 10
     return score
