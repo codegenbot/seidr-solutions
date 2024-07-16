@@ -1,10 +1,10 @@
 string make_palindrome(string str){
-    if(str.empty()) return str;
     int n = str.size();
-    int i = n - 1;
-    while(i >= 0 && str[i] == str[n - 1]) i--;
-    string suffix = str.substr(i + 1);
-    string prefix = str.substr(0, i + 1);
-    string reversed_prefix(prefix.rbegin(), prefix.rend());
-    return str + reversed_prefix.substr(suffix.size());
+    if(n==0) return str;
+    int i = n-1;
+    while(i>=0 && str[i]==str[n-1]) i--;
+    string suffix = str.substr(i+1);
+    string prefix(str.begin(),str.begin()+i+1);
+    string rev_prefix(prefix.rbegin(),prefix.rend());
+    return prefix + suffix + rev_prefix;
 }
