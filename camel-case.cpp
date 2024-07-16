@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <cctype>
+#include <iostream>
 
 int main() {
     std::string s;
@@ -11,8 +10,9 @@ int main() {
 
     for (char c : s) {
         if (c == '-') {
+            if(capitalizeNext) result += std::toupper(c);
             capitalizeNext = true;
-            result += c;
+            result.push_back(' ');
         } else if (capitalizeNext) {
             result += std::toupper(c);
             capitalizeNext = false;
@@ -21,13 +21,15 @@ int main() {
         }
     }
 
-    // remove the space at the end
+    for(size_t i=0; i<result.size(); ++i) {
+        if(result[i] == ' ') {
+            result[i] = toupper(result[++i]);
+        }
+    }
     size_t pos = 0;
     while ((pos = result.find(' ', pos)) != std::string::npos) {
-        if (pos > 0)
-            result.erase(pos, 1);
-        else
-            pos++;
+        result.erase(pos, 1);
+        pos++;
     }
-    
     return 0;
+}
