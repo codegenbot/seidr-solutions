@@ -2,6 +2,7 @@
 #include <any>
 #include <string>
 #include <cassert>
+#include <string_view>
 
 std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -16,18 +17,16 @@ std::any compare_one(const std::any& a, const std::any& b) {
         } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
             return b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
-            return a;
-        } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
-            return b;
+    } else if (a.type() == typeid(std::string_view) && b.type() == typeid(std::string_view)) {
+        if (std::any_cast<std::string_view>(a).empty() && std::any_cast<std::string_view>(b).empty()) {
+            return std::string_view();
         }
     }
     return std::any();
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
+    assert(std::any_cast<std::string_view&>(compare_one(std::string_view("1"), std::string_view("1"))).empty()); 
     
     return 0;
 }
