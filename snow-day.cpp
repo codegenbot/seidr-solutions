@@ -21,9 +21,8 @@ int main() {
         snowOnGround += newSnow;
     }
 
-    cout << "Amount of snow on ground after " << std::to_string(hours) << ".";
-    cout << "\nThe amount of snow is " << std::to_string(snowOnGround);
-    cout << " inches.\n";
+    cout << "Amount of snow on ground after " << hours << " hours.\n";
+    cout << "The amount of snow is " << std::fixed << std::setprecision(2) << static_cast<float>(snowOnGround) << " inches.\n";
 
     return 0;
 }
