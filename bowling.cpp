@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 std::string bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
@@ -47,5 +50,6 @@ std::string bowlingScore(const std::string& s) {
             }
         }
     }
-    return "Invalid input";
+
+    return "Invalid input";  // Add this line
 }
