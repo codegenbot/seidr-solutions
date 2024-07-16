@@ -1,3 +1,4 @@
+```
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -10,16 +11,16 @@ int mastermind(std::string code, std::string guess) {
     }
 
     // Count incorrect positions with correct colors (white pegs)
-    int code_counts[code[0]-'A'+1] = {0};
+    int code_counts[7] = {0};
     for (char c : code) {
-        code_counts[c-'A']++;
+        code_counts[c-'A'+1]++;
     }
     for (int i = 0; i < 4; ++i) {
         if (code[i] != guess[i]) {
             bool found = false;
             for (char c = 'A'; c <= 'F'; ++c) {
-                if (guess[i] == c && code_counts[c-'A']) {
-                    code_counts[c-'A']--;
+                if (guess[i] == c && code_counts[c-'A'+1]) {
+                    code_counts[c-'A'+1]--;
                     found = true;
                     break;
                 }
@@ -28,4 +29,5 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black + white;}
+    return black + white;
+}
