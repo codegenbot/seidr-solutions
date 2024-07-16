@@ -1,13 +1,12 @@
-```cpp
 #include <string>
 #include <sstream>
+#include <iostream>
 
 std::string spinWords(std::string str) {
-    std::string temp = str;
-    std::istringstream iss(temp);
+    std::string result;
+    std::stringstream iss(str); 
     std::string word;
 
-    std::string result;
     while (iss >> word) {
         if (word.length() >= 5)
             result += std::string(word.rbegin(), word.rend()) + " ";
@@ -18,8 +17,4 @@ std::string spinWords(std::string str) {
     return result.substr(0, result.size()-1); 
 }
 
-int main() {
-    std::string str = "Hello World this is a test";
-    std::cout << spinWords(str) << std::endl;
-    return 0;
-}
+std::cout << spinWords("Hello World this is a test") << std::endl;
