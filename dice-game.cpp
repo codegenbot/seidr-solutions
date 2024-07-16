@@ -1,7 +1,7 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
+
+#include <iomanip>
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -19,3 +19,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(2) << probability(n, m);
     return 0;
+}
