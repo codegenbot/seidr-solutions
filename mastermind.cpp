@@ -1,9 +1,7 @@
+#include <tuple>
 #include <vector>
 #include <iostream>
 #include <string>
-
-#include <vector>
-#include <algorithm>
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
