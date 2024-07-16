@@ -1,33 +1,36 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
-    std::string output;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '-') {
-            i++; // skip the -
-            while (i < input.size() && input[i] == ' ') {
-                i++; // skip the spaces
-            }
-            output += std::toupper(input[i]);
-        } else if (input[i] == ' ') {
-            continue; // skip the space
-        } else {
-            output += input[i];
-        }
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0, end;
+
+    while ((end = str.find '-') != std::string::npos) {
+        words.push_back(str.substr(start, end - start));
+        start = end + 1;
     }
-    return output;
+    words.push_back(str.substr(start));
+
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (i > 0)
+            words[i][0] = toupper(words[i][0]);
+    }
+
+    std::string result;
+    for (const auto& word : words) {
+        result += word;
+        if (i + 1 < words.size())
+            result += " ";
+        ++i;
+    }
+    return result;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        std::string s;
-        cin >> s;
-        cout << camelCase(s) << endl;
-    }
+    std::cout << camelCase("nospaceordash") << std::endl;
+    std::cout << camelCase("two-words") << std::endl;
+    std::cout << camelCase("two words") << std::endl;
+    std::cout << camelCase("all separate words") << std::endl;
     return 0;
 }
