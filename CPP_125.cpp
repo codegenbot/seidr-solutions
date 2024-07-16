@@ -1,9 +1,9 @@
-vector<string> result;
+vector<string> words;
     string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                result.push_back(word);
+                words.push_back(word);
                 word = "";
             }
         } else {
@@ -11,16 +11,18 @@ vector<string> result;
         }
     }
     if (!word.empty()) {
-        result.push_back(word);
+        words.push_back(word);
     }
-    if (result.empty()) {
-        int count_odd_lower = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count_odd_lower++;
+    
+    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+        int count = 0;
+        for (char c : words[0]) {
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                count++;
             }
         }
-        result.push_back(to_string(count_odd_lower));
+        words[0] = to_string(count);
     }
-    return result;
+    
+    return words;
 }
