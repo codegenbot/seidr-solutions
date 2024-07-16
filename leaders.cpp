@@ -1,5 +1,6 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -13,7 +14,8 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
 
-    return std::vector<int>(leaders.rbegin(), leaders.rend());
+    std::reverse_copy(leaders.begin(), leaders.end(), std::ostream_iterator<int>(std::cout, " "));
+    return leaders;
 }
 
 int main() {
@@ -23,9 +25,7 @@ int main() {
         nums.push_back(num);
     }
     
-    std::vector<int> result = findLeaders(nums);
-    for (int i = 0; i < result.size(); ++i) {
-        std::cout << result[i] << " ";
-    }
+    findLeaders(nums);
+
     return 0;
 }
