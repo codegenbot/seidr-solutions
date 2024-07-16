@@ -1,5 +1,6 @@
 #include <vector>
-#include <cassert>
+
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> derivative(vector<float> xs){
     vector<float> result;
@@ -10,9 +11,18 @@ vector<float> derivative(vector<float> xs){
 }
 
 bool issame(vector<float> a, vector<float> b){
-    // Function body here
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
-    // Rest of the main function here
+    // Your main function logic here
+    return 0;
 }
