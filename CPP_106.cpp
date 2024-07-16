@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-vector<int> f(int n) {
-    vector<int> result;
+std::vector<int> f(int n) {
+    std::vector<int> result;
     int factorial = 1, sum = 0;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
@@ -16,7 +16,7 @@ vector<int> f(int n) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
