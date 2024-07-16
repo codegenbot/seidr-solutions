@@ -1,28 +1,30 @@
-#include <stack>
+```cpp
 #include <string>
+using namespace std;
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-            st.push('|');
-        } else if (s[i] != 'T' && s[i] != 'F') {
-            return false;
-        } else {
-            st.push(s[i]);
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operationStack;
+    stack<bool> valueStack;  
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            bool rightValue = valueStack.top();
+            valueStack.pop();
+            bool leftValue = valueStack.top();
+            valueStack.pop();
+            valueStack.push(leftValue && rightValue);
+        } else if (expression[i] == '|') {
+            bool rightValue = valueStack.top();
+            valueStack.pop();
+            bool leftValue = valueStack.top();
+            valueStack.pop();
+            valueStack.push(leftValue || rightValue);
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            valueStack.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            valueStack.push(false);
         }
     }
-    while (!st.empty() && st.top() == '&') {
-        st.pop();
-    }
-    return !st.empty();
+
+    return valueStack.top();
+}
