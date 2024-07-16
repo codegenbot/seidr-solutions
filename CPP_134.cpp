@@ -11,7 +11,7 @@ int main() {
     std::getline(std::cin, input);
 
     bool result = check_if_last_char_is_a_letter(input);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    std::cout << "Result: " << std::boolalpha << result << std::endl;
 
     return 0;
 }
