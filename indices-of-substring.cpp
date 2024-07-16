@@ -7,7 +7,7 @@ int main() {
     std::cin >> text >> target;
     
     std::vector<int> indices;
-    size_t pos = 0;  // Change initialization to 0
+    size_t pos = -1;  // Change initialization to -1
     while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
