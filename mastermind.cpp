@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -20,13 +19,9 @@ int main() {
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
             codeCount[c]++;
-        }
-    }
-
-    // Count black pegs
-    for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
-            blackPegs++;
+            if (c == guessStr[0] || c == guessStr[1] || c == guessStr[2] || c == guessStr[3]) {
+                blackPegs++;
+            }
         }
     }
 
