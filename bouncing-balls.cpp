@@ -1,5 +1,6 @@
-#include <cmath>
+```cpp
 #include <iostream>
+#include <cmath>
 
 int main() {
     double startHeight, firstBounce, numBounces;
@@ -8,7 +9,7 @@ int main() {
 
     double bouncinessIndex = (startHeight / firstBounce);
 
-    double totalDistance = 1 - std::pow((1 - bouncinessIndex), numBounces);
+    double totalDistance = 1 - pow((1 - bouncinessIndex), numBounces);
     
     std::cout << std::fixed << std::setprecision(10) << totalDistance << std::endl;
 
