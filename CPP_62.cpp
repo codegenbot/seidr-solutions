@@ -1,5 +1,5 @@
-for (int i = 0; i < xs.size(); ++i) {
-    xs[i] *= i;
+for(int i=0; i<xs.size()-1; i++){
+    xs[i] = xs[i+1] * (i+1);
 }
-xs.erase(xs.begin());
+xs.pop_back();
 return xs;
