@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
-#include <string> // Include this line at the top of your file.
-
+#include <string> // added directive
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
