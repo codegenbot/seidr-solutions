@@ -1,5 +1,3 @@
-#include <vector>
-
 vector<int> largest_smallest_integers(vector<int> lst){
     int max_neg = 0;
     int min_pos = 0;
