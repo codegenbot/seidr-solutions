@@ -10,5 +10,5 @@ bool is_nested(const std::string& str) {
             return true;
         }
     }
-    return false;
+    return count == 0;
 }
