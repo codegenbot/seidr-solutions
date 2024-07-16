@@ -1,8 +1,11 @@
-string squareDigits(string num) {
-    string res = "";
-    for (char c : num) {
-        int n = c - '0';
-        res += to_string(n * n);
+#include <string>
+#include <iostream>
+
+std::string squareDigits(std::string n) {
+    std::string res = "";
+    for (char c : n) {
+        int num = c - '0';
+        res += std::to_string(num * num);
     }
     return res;
 }

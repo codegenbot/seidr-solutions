@@ -1,16 +1,17 @@
+#include <iostream>
+#include <string>
+
 std::string kebabToCamel(const std::string& str) {
     std::string result;
-    bool capitalize = true;
+    bool capitalize = false;
 
-    for (char c : str + ' ') { 
+    // Add a space to account for leading space
+    result += ' ';
+    for (char c : str + " ") {  
         if (c == '-') {
-            result += ' ';  
-            capitalize = true;  
+            result += ' ';  // Add a space to separate words
+            capitalize = true;  // Start new word, so capitalize next char
         } else if (capitalize) {
-            if (c == ' ') {
-                capitalize = false;
-                continue;
-            }
             result += toupper(c);  
             capitalize = false;
         } else {
@@ -19,4 +20,12 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
+    return 0;
 }
