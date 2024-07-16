@@ -20,11 +20,8 @@ int main() {
     int idx = 0;
     for (int i = 0; i < n; ++i) {
         currSum += nums[i];
-        if (currSum >= halfSum) {
-            if (currSum - halfSum < halfSum - (currSum - nums[i])) {
-                idx = i;
-            }
-            break;
+        if (abs(currSum - halfSum) < abs(sum - 2 * currSum)) {
+            idx = i;
         }
     }
     
