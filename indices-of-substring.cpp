@@ -12,7 +12,7 @@ int main() {
         pos = text.find(target, pos);
         if (pos != std::string::npos) {
             indices.push_back(pos);
-            pos += target.size();
+            pos += target.size(); // Update the position increment here
         }
     }
     
