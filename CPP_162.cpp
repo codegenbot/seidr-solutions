@@ -20,6 +20,6 @@ std::string string_to_md5(const std::string& text) {
 
 int main() {
     std::string result = string_to_md5("password");
-    std::cout << result << std::endl;
+    std::cout << result << std::endl;  
     return 0;
 }
