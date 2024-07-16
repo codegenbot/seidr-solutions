@@ -13,15 +13,7 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0, whitePegs = 0;
-    int codeCount[6] = {0};
-
-    // Count characters in the code
-    for (char c : codeStr) {
-        if ('0' <= c && c <= '5') {
-            codeCount[c - '0']++;
-        }
-    }
-
+    
     // Count black pegs
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
@@ -29,29 +21,21 @@ int main() {
         }
     }
 
-    // Count white pegs
+    int codeCount[6] = {0};
     for (int i = 0; i < 4; i++) {
-        bool foundInCode = false;
+        bool found = false;
         for (int j = 0; j < 4; j++) {
             if (codeStr[j] == guessStr[i]) {
-                foundInCode = true;
+                codeCount[codeStr[j] - '0']++; // increment the count of the character
+                found = true;
                 break;
             }
         }
-        if (!foundInCode) {
-            whitePegs++;
-        } else {
-            bool foundInCodeAtCorrectPosition = false;
-            for (int j = 0; j < 4; j++) {
-                if (codeStr[j] == guessStr[i]) {
-                    foundInCodeAtCorrectPosition = true;
-                    break;
-                }
-            }
-            if (!foundInCodeAtCorrectPosition) {
-                whitePegs++;
-            }
-        }
+    }
+
+    // Count white pegs
+    for (int i = 0; i < 6; i++) {
+        whitePegs += std::min(codeCount[i], guessStr.count(std::string(1, '0' + i)));
     }
 
     // Print the result
