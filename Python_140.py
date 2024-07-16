@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     if not text:
         return "Please enter a string"
