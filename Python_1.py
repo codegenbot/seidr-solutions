@@ -5,9 +5,9 @@ def separate_paren_groups(paren_string):
 
     for char in paren_string:
         if char == '(':
-            stack.append('(')
-            if len(stack) > 1:
+            if stack:
                 current_group.append(char)
+            stack.append('(')
         elif char == ')':
             stack.pop()
             current_group.append(char)
@@ -16,8 +16,5 @@ def separate_paren_groups(paren_string):
                 current_group = []
         elif stack:
             current_group.append(char)
-
-    if current_group:
-        groups.append(''.join(current_group))
 
     return groups
