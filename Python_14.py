@@ -1,2 +1,1 @@
-import sys
-input_string = sys.stdin.readline().rstrip()
+input_string = input().strip()
