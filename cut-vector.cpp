@@ -28,12 +28,12 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < n - 1; i++) {
         prefixSum += nums[i - 1];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff < minDiff || (diff == minDiff && abs(prefixSum - suffixSum) < minDiff)) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
