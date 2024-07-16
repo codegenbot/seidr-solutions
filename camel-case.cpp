@@ -12,17 +12,17 @@ string camelCase(string str) {
             result += toupper(str[i]);
         } else if (!result.empty()) { 
             if (str[i] >= 'a' && str[i] <= 'z') {
-                result += static_cast<char>(str[i] - 32); 
+                result += static_cast<char>(str[i] - 32); // Convert lowercase to uppercase
             } else {
-                result += str[i]; 
+                result += str[i]; // Add non-alphabetic characters as is
             }
         } else { 
             if (str[i] >= 'A' && str[i] <= 'Z') {
-                result += str[i]; 
+                result += str[i]; // Keep uppercase letters
             } else if (str[i] >= 'a' && str[i] <= 'z') {
-                result += static_cast<char>(str[i] - 32); 
+                result += static_cast<char>(str[i] - 32); // Convert lowercase to uppercase
             } else {
-                result += str[i]; 
+                result += str[i]; // Add non-alphabetic characters as is
             }
         }
     }
