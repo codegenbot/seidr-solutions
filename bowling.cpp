@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -8,9 +9,9 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
-            score += 10 + getBonus(&s[i+1]);
+            score += 10 + getBonus(s, i);
         } else if (s[i] == '/') { // Spare
-            score += 5 + getBonus(s.substr(i+2));
+            score += 5 + getBonus(s.substr(i+1));
         } else { // Normal roll
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
@@ -25,10 +26,10 @@ int bowlingScore(string s) {
     return score;
 }
 
-int getBonus(string s) {
+int getBonus(string s, int pos) {
     int bonus = 0;
 
-    for (int j = 0; j < s.size(); j++) {
+    for (int j = pos; j < s.size(); j++) {
         if (s[j] == 'X') { // Strike
             bonus += 10;
         } else if (s[j] == '/') { // Spare
