@@ -8,12 +8,12 @@ vector<int> result;
         }
     }
     result.push_back(1);
-    vector<int> odd_numbers;
+    vector<int> odd_result;
     for (int num : result) {
         if (num % 2 != 0) {
-            odd_numbers.push_back(num);
+            odd_result.push_back(num);
         }
     }
-    sort(odd_numbers.begin(), odd_numbers.end());
-    return odd_numbers;
+    sort(odd_result.begin(), odd_result.end());
+    return odd_result;
 }
