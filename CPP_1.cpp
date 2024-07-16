@@ -1,41 +1,39 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool is_same(char a, char b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(string paren_string);
+std::vector<std::string> separate_paren_groups(std::string paren_string);
 
 int main() {
-    string input;
-    cin >> input;
-    vector<string> result = separate_paren_groups(input);
-    for (const string& group : result) {
-        cout << group << endl;
-    }
-    return 0;
+    // Main function code here
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string group;
     int open_count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
             if (open_count > 0) {
-                current_group += c;
+                result.push_back(group);
+                group = "";
             }
             open_count++;
         } else if (c == ')') {
             open_count--;
             if (open_count == 0) {
-                result.push_back(current_group);
-                current_group.clear();
+                result.push_back(group + "()");
+                group = "";
             } else {
-                current_group += c;
+                group += ')';
             }
+        } else if (open_count > 0) {
+            group += c;
         }
     }
 
