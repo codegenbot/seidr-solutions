@@ -1,8 +1,14 @@
-```c++
 #include <sstream>
 
+int main() {
+    std::string str = "Hello World!";
+    std::string result = spinWords(str);
+    // print or do something with 'result'
+    return 0;
+}
+
 std::string spinWords(std::string str) {
-    std::stringstream ss(str);
+    std::istringstream ss(str);
     std::string word;
     std::string result;
 
@@ -17,10 +23,4 @@ std::string spinWords(std::string str) {
         result.pop_back();
 
     return result;
-}
-
-int main() {
-    std::string str = "hello world";
-    std::cout << spinWords(str) << std::endl;
-    return 0;
 }
