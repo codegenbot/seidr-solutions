@@ -5,7 +5,7 @@ int main() {
     int cents;
     cin >> cents;
 
-    int pennies = cents % 5; // previous line was incorrect, now fixed
+    int pennies = cents % 5; 
     cents /= 5;
 
     int nickles = cents / 5;
@@ -19,6 +19,7 @@ int main() {
     cout << quarters << endl;
     cout << dimes << endl;
     cout << nickles << endl;
-    cout << pennies + 1 << endl; 
+    cout << pennies + 1 << endl;
+
     return 0;
 }
