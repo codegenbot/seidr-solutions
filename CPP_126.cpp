@@ -1,7 +1,2 @@
-for(int i=0; i<lst.size()-1; i++){
-        if(lst[i] >= lst[i+1] || count(lst.begin(), lst.end(), lst[i]) > 1){
-            return false;
-        }
-    }
-    return true;
+return is_sorted(lst.begin(), lst.end()) && count_if(lst.begin(), lst.end(), [](int x){ return count(lst.begin(), lst.end(), x) <= 1; }) == lst.size();
 }
