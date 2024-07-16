@@ -3,6 +3,18 @@
 
 vector<int> pluck(vector<int> arr);
 
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = -1;
@@ -18,4 +30,14 @@ vector<int> pluck(vector<int> arr){
         result.push_back(smallest_index);
     }
     return result;
+}
+
+int main() {
+    // Test the pluck function
+    vector<int> test_input = {1, 2, 3, 4, 5};
+    vector<int> expected_output = {2, 1};
+    vector<int> result = pluck(test_input);
+    assert(issame(result, expected_output));
+
+    return 0;
 }
