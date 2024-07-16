@@ -1,22 +1,23 @@
+```cpp
 int main() {
     int hours;
     float initialSnow, rateOfSnowfall, proportionOfMeltingPerHour;
 
-    std::cout << "Enter the number of hours: ";
-    std::cin >> hours;
+    cout << "Enter number of hours: ";
+    cin >> hours;
 
-    std::cout << "Enter the initial amount of snow (inches): ";
-    std::cin >> initialSnow;
+    cout << "Enter the initial amount of snow: ";
+    cin >> initialSnow;
 
-    std::cout << "Enter the rate of snow fall per hour (inches): ";
-    std::cin >> rateOfSnowfall;
+    cout << "Enter the rate of snow fall per hour: ";
+    cin >> rateOfSnowfall;
 
-    std::cout << "Enter the proportion of melting per hour: ";
-    std::cin >> proportionOfMeltingPerHour;
+    cout << "Enter the proportion of melting snow per hour: ";
+    cin >> proportionOfMeltingPerHour;
 
     float result = snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour);
 
-    std::cout << "After " << hours << " hours, there will be " << result << " inches of snow." << std::endl;
+    cout << "After " << hours << " hours there will be " << result << " inches of snow." << endl;
 
     return 0;
 }
