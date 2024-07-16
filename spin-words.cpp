@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 
 std::string spinWords(std::string str) {
     std::istringstream iss(str);
@@ -7,9 +8,10 @@ std::string spinWords(std::string str) {
 
     while (iss >> word) {
         if (word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend());
+            result += std::string(word.rbegin(), word.rend()) + " ";
         else
             result += word + " ";
     }
 
-    return result;
+    return result.substr(0, result.size()-1);
+}
