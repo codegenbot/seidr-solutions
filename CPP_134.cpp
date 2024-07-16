@@ -1,7 +1,14 @@
-if(txt.empty()) return false;
-    char last_char = txt.back();
-    if(isalpha(last_char)){
-        if(txt.find_last_of(" ") == txt.length()-1) return true;
+if (txt.empty()) {
+        return false;
     }
+    
+    char lastChar = txt.back();
+    if (isalpha(lastChar)) {
+        size_t lastSpacePos = txt.find_last_of(' ');
+        if (lastSpacePos == string::npos || lastSpacePos < txt.size() - 1) {
+            return true;
+        }
+    }
+    
     return false;
 }
