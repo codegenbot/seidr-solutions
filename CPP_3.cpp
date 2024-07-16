@@ -14,5 +14,6 @@ bool below_zero(const std::vector<int>& operations) {
 
 int main() {
     assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    // Add more test cases if needed
     return 0;
 }
