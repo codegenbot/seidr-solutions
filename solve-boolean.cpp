@@ -3,9 +3,10 @@
 #include <iostream>
 
 bool solveBoolean(const char* s) {
+    if (!s || s[0] == '\0') return false; // handle empty string
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (int i = 0; s[i]; i++) {
+    for (int i = 0; s[i]; ++i) {
         if (s[i] == 'T') {
             result = true;
             operand = 1;
@@ -26,7 +27,8 @@ bool solveBoolean(const char* s) {
 int main() {
     std::cout << "Enter a Boolean expression: ";
     char input[100]; 
-    std::cin.get(input, 100); 
+    std::cin.get(input, 100);
+    input[99] = '\0'; // manually null-terminate the string
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";
