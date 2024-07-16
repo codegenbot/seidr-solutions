@@ -9,4 +9,4 @@ def spin_words(text):
         else:
             result.append(word + ' ')
 
-    return " ".join(result)
+    return "".join(result)
