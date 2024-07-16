@@ -1,4 +1,3 @@
-```
 def middle_character(s):
     s = ''.join(e for e in s if e.isalnum()).strip()
     length = len(s)
