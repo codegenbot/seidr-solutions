@@ -1,11 +1,18 @@
-Here is the modified code:
-```cpp
-#include <vector>
-#include <string>
+```
 #include <iostream>
-#include <algorithm>
+#include <string>
+#include <vector>
 
 using namespace std;
+
+int findGCD(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
 vector<int> findIndices(string text, string target) {
     vector<int> result;
@@ -23,15 +30,6 @@ vector<int> findIndices(string text, string target) {
         }
     }
     return result;
-}
-
-int findGCD(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
 }
 
 int main() {
