@@ -2,31 +2,31 @@ int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
-    // Count correct positions (black pegs)
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
+            code[i] = '\0'; // mark as used
         }
     }
 
-    // Count incorrect positions with correct colors (white pegs)
-    int code_counts[6] = {0};
-    for (char c : code) {
-        code_counts[c - 'A']++;
-    }
     for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
-            bool found = false;
-            for (char c = 'A'; c <= 'F'; ++c) {
-                if (guess[i] == c && code_counts[c - 'A']) {
-                    code_counts[c - 'A']--;
-                    found = true;
-                    break;
-                }
+        bool found = false;
+        for (int j = 0; j < 4; ++j) {
+            if (code[j] == guess[i] && code[j] != '\0') {
+                found = true;
+                code[j] = '\0'; // mark as used
+                break;
             }
-            if (!found) white++;
         }
+        if (!found) white++;
     }
 
     return black + white;
+}
+
+int main() {
+    std::string code = "BOBO"; 
+    std::string guess = "BOBO";
+    int result = mastermind(code, guess);
+    return 0;
 }
