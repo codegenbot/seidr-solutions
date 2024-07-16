@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -24,11 +24,13 @@ int main() {
         cin >> n;
         if(n == 0) break;
         
+        cin.ignore();
         prices.resize(n);
         for (float &price : prices) {
             cin >> price;
         }
         
+        cin.ignore();
         discounts.resize(n);
         for (float &discount : discounts) {
             cin >> discount;
