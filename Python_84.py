@@ -1,3 +1,8 @@
-```
 def solve(N):
-    return "0" if bin(N)[2:].count('0') == len(bin(N)[2:]) else bin(N)[2:]
+    if N < 0:
+        return "-" + solve(-N)
+    elif type(N) != int:
+        return "Error: Input must be an integer."
+    else:
+        s = format(abs(N), 'b').zfill(len(str(bin(abs(N))[2:]))).lstrip("0")
+        return "0" if s == "" else s
