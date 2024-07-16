@@ -25,12 +25,12 @@ int max_prime_sum(std::vector<int> lst){
     return sum;
 }
 
-int solve(std::vector<int> lst){
-    int n = 0;
+int solve(int n, std::vector<int> lst){
+    int total = 0;
     for(int i : lst){
-        n += i;
+        total += i;
     }
-    if(n == 0) return 0;
+    if(total == 0) return 0;
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -48,22 +48,14 @@ int main() {
     std::cout << "Enter the number of elements: ";
     int n;
     std::cin >> n;
+    std::vector<int> lst;
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        // Add the input to the list
-        std::vector<int> lst = {num};
-        if(i > 0) {
-            for(int j = 0; j < i; j++){
-                int temp;
-                std::cout << "Enter element " << j+1 << ": ";
-                std::cin >> temp;
-                lst.push_back(temp);
-            }
-        }
-        int result = solve(lst);
-        std::cout << "The maximum prime number in the list is: " << result << std::endl;
+        lst.push_back(num);
     }
+    int result = solve(n, lst);
+    std::cout << "The maximum prime number in the list is: " << result << std::endl;
     return 0;
 }
