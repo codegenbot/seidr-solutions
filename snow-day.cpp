@@ -4,11 +4,12 @@
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
-    float totalSnow = initialSnow;
+    float totalSnow = 0;
+    float dailySnowfall = rateOfSnowfall * (1 - proportionOfMeltingPerHour);
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowfall - totalSnow * proportionOfMeltingPerHour;
+        totalSnow += dailySnowfall;
     }
-    return totalSnow;
+    return initialSnow + totalSnow;
 }
 
 int main() {
