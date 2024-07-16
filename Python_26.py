@@ -1,8 +1,8 @@
-def remove_duplicates():
-    # Add your code for remove_duplicates function here
-    pass
+def remove_duplicates(input_list):
+    return list(dict.fromkeys(input_list))
 
 def check(func):
     return func()
 
-result = check(remove_duplicates)
+result = check(lambda: remove_duplicates([1, 2, 3, 2, 4, 3, 5]))
+print(result)
