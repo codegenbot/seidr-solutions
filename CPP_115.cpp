@@ -1,10 +1,14 @@
-int total_fill = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            int well_fill = 0;
-            for (int i = 0; i < grid.size(); i++) {
-                well_fill += grid[i][j];
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int count = 0;
+    for (int j = 0; j < grid[0].size(); j++) {
+        for (int i = 0; i < grid.size(); i++) {
+            if (grid[i][j] > 0) {
+                count += grid[i][j] / capacity;
+                if (grid[i][j] % capacity != 0) {
+                    count++;
+                }
             }
-            total_fill += well_fill % capacity + (well_fill / capacity) * capacity;
         }
-        return total_fill;
     }
+    return count;
+}
