@@ -1,5 +1,5 @@
-result = []
-for num in numbers[:-1]:
-    result.extend([num, delimiter])
-result.append(numbers[-1])
-return result
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    result = []
+    for num in numbers:
+        result.extend([num, delimeter])
+    return result[:-1] if result else []
