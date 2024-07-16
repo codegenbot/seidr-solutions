@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate(start=0):
         if start >= len(expression):  
@@ -8,26 +9,18 @@ def solve_boolean(expression):
             i = 1
             while expression[i] != ")":
                 i += 1
-            return "(%s)" % evaluate(i + 1)[1:-1]
+            return evaluate(i + 1)[1:-1]
         operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
-        op_stack = []
-        current_val = None
-        for char in expression:
-            if char == "(":
-                op_stack.append(char)
-            elif char == ")":
-                while op_stack[-1] != "(":
-                    operators[op_stack.pop()](
-                        current_val, evaluate(start + 1)[1:-1])
-                op_stack.pop()
-            elif char in operators:
-                while len(op_stack) > 0 and op_stack[-1] in operators:
-                    current_val = operators[op_stack.pop()](current_val, 
-                                                              expression[start])
-                op_stack.append(char)
-            else:
-                if current_val is None:
-                    current_val = evaluate(start + 1)[1:-1]
-        return current_val
+        op = None
+        if start < len(expression) and expression[start] in operators:
+            op = expression[start]
+            start += 1  
+            left = evaluate(start)
+            right_start = expression.find(")", start)
+            return "(%s) %s (%s)" % (left, op, evaluate(right_start + 1)[1:-1])
+        else:
+            if start < len(expression):
+                return evaluate()
+    return evaluate(0)
 
-    return evaluate()
+print(solve_boolean('t|t&t&t&t&f|t'))
