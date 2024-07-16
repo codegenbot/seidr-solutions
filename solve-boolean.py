@@ -16,4 +16,4 @@ def solve_boolean(expression):
                 return "(" + str(evaluate()) + ")"
             return ("(" + str(left) + ") " + operator + " (" + str(right) + ")")
 
-    return eval("(" + str(evaluate()) + ")")
+    return evaluate()
