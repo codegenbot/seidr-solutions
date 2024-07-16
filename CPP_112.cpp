@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -12,8 +11,8 @@ bool is_palindrome(string s) {
     return (temp == s);
 }
 
-std::pair<std::string, std::string> reverse_delete(std::string s, std::string c) {
-    std::string temp = "";
+std::pair<string, string> reverse_delete(string s, string c) {
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -28,10 +27,10 @@ std::pair<std::string, std::string> reverse_delete(std::string s, std::string c)
     }
     string rev = s;
     reverse(rev.begin(), rev.end());
-    return {temp, is_palindrome(temp) ? "True" : "False"};
+    return make_pair(temp, (is_palindrome(temp)) ? "True" : "False");
 }
 
 int main() {
-    assert (std::make_pair("", reverse_delete("mamma", "mia").second) == std::pair<std::string, std::string>("", "True"));
+    assert(make_pair("", reverse_delete("mamma", "mia").second) == pair<string, string>("", "True"));
     return 0;
 }
