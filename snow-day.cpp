@@ -1,9 +1,10 @@
 ```cpp
+#include <iostream>
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
     float newTotalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        float netChange = rateOfSnowfall - proportionOfMeltingPerHour * newTotalSnow;
-        newTotalSnow += netChange;
+        newTotalSnow = newTotalSnow + rateOfSnowfall - proportionOfMeltingPerHour * newTotalSnow;
     }
     return newTotalSnow;
 }
+int main() { return 0; }
