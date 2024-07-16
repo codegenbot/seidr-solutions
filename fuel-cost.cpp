@@ -12,7 +12,7 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += max(0, num / 3 - 2);
+        sum += std::max(0, num / 3 - 2);
     }
     
     std::cout << sum;
