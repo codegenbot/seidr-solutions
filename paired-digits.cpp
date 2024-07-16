@@ -1,5 +1,5 @@
+```cpp
 #include <cstring>
-#include <iostream>
 
 int pairedDigits(const char* s) {
     int sum = 0;
@@ -12,7 +12,7 @@ int pairedDigits(const char* s) {
 }
 
 int main() {
-    const char* s = "123456";
-    std::cout << pairedDigits(s) << std::endl;
+    const char* s = "123321";
+    printf("Sum of paired digits: %d\n", pairedDigits(s));
     return 0;
 }
