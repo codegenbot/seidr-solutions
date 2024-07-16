@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 #include <cctype>
 
@@ -51,5 +51,4 @@ int bowlingScore(const std::string& s) {
             }
         }
     }
-    return std::to_string(score);
-}
+    return score;
