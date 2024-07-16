@@ -1,9 +1,7 @@
-string remove_vowels(string text){
-    string result = "";
-    string vowels = "aeiouAEIOU";
-    for(int i=0; i<text.length(); i++){
-        if(vowels.find(text[i]) == string::npos){
-            result += text[i];
+string result = "";
+    for(char c : text){
+        if(tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u'){
+            result += c;
         }
     }
     return result;
