@@ -13,7 +13,7 @@ std::string spinWords(std::string str) {
             reversed = true;
         else
             reversed = false;
-        
+
         if (reversed)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
