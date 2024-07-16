@@ -1,25 +1,4 @@
-```cpp
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-
 double probability(int n, int m) {
     double total = (double)n * m;
-    double result = 0;
-
-    for (int i = 1; i <= m; i++) {
-        result += ((n - i) / (double)(n * m));
-    }
-
-    return result;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    double result = probability(n, m);
-    std::ostringstream oss;
-    oss << std::fixed << std::setprecision(6); 
-    std::cout << std::fixed << std::setprecision(6) << oss.str();
-    return 0;
+    return (m - 1.0) / total; 
 }
