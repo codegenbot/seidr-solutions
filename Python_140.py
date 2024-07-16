@@ -1,7 +1,5 @@
-import re
-
 def fix_spaces():
-    text = '\n'.join(map(str, iter(input, None)))
+    text = input().strip()
     text = re.sub(r'\s{2,}', '_', text)
     return "_".join(text.split())
 
