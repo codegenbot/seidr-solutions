@@ -1,6 +1,5 @@
+```cpp
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -13,7 +12,6 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
     }
     int mid = n / 2;
-    sort(v.begin(), v.end());
     res[0] = vector<int>(v.begin(), v.begin() + mid);
     res[1] = vector<int>(v.begin() + mid, v.end());
     return res;
