@@ -1,21 +1,15 @@
-int luhn(vector<int> digits) {
+int luhn(vector<int> cc) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = 0; i < digits.size(); i++) {
-        if (!doubleNext) {
-            sum += digits[i];
-        } else {
-            int doubledDigit = digits[i] * 2;
-            if (doubledDigit > 9) {
-                sum += doubledDigit - 9;
-            } else {
-                sum += doubledDigit;
+    for(int i = cc.size() - 1; i >= 0; i--) {
+        if(i % 2 == 1) {
+            int temp = cc[i] * 2;
+            if(temp > 9) {
+                temp -= 9;
             }
+            sum += temp;
+        } else {
+            sum += cc[i];
         }
-
-        doubleNext = !doubleNext;
     }
-
     return sum;
 }
