@@ -21,7 +21,9 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
         tokens.push_back(str.substr(0, pos));
         str = str.substr(pos + 1);
     }
-    tokens.push_back(str);
+    if (!str.empty()) {
+        tokens.push_back(str);
+    }
     return tokens;
 }
 
@@ -33,22 +35,17 @@ std::string camelCase(const std::string& str) {
     }
 
     std::string result;
-    for (char c : words[0]) {
-        result.push_back(std::tolower(c));
-    }
-    for (int i = 1; i < words.size(); i++) {
+    for (int i = 0; i < words.size(); i++) {
         if (!result.empty()) {
-            result.push_back(std::toupper(words[i][0]));
-            std::string temp = words[i].substr(1);
-            result += temp;
+            result += std::toupper(words[i][0]);
+            result += words[i].substr(1);
         } else {
-            result.push_back(std::tolower(words[i][0]));
-            std::string temp = words[i].substr(1);
-            result += temp;
+            result += std::tolower(words[i][0]);
+            result += words[i].substr(1);
         }
     }
     
-    return result;
+    return (words.empty() ? "" : result);
 }
 
 int main() {
