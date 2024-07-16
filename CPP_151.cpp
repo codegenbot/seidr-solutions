@@ -14,7 +14,7 @@ int main() {
     return 0;
 }
 
-long double double_the_difference(std::vector<float> &lst){
+long double double_the_difference(std::vector<float> &lst) {
     long double sum = 0;
     for (float num : lst) {
         if (num > 0 && num == std::floor(num) && (int)num % 2 != 0) {
