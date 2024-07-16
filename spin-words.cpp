@@ -19,10 +19,6 @@ string spinWords(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    string result = spinWords(str);
-    cout << "Spin words: " << result << endl;
+    cout << spinWords("Hey fellow warriors") << endl;
     return 0;
 }
