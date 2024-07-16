@@ -1,2 +1,1 @@
-n = int(input())
-paren_strings = [input() for _ in range(n)]
+paren_strings = input().strip().split()
