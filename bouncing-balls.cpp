@@ -13,12 +13,11 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    double bounciness_index = first_bounce_height / start_height;
+    double bounciness_index = pow(first_bounce_height / start_height, 0.5);
 
     double total_distance = 0.0;
     for(int i = 1; i <= num_bounces; ++i) {
-        first_bounce_height = first_bounce_height * (1 - bounciness_index); 
-        total_distance += 2 * first_bounce_height; 
+        total_distance += 2.0 * pow(first_bounce_height / start_height, i);
     }
 
     cout << fixed << setprecision(6) << total_distance;
