@@ -1,4 +1,4 @@
-string find_max(vector<string> words){
+string find_max(vector<string> words) {
     string max_word = "";
     int max_unique_chars = 0;
 
