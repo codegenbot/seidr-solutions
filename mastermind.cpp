@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -28,9 +27,10 @@ int main() {
     }
 
     int whitePegs = 0;
+    std::vector<char> codeVector(codeStr.begin(), codeStr.end()); 
     for (char c : guessStr) {
         bool foundInCode = false;
-        for (char d : codeStr) {
+        for (char d : codeVector) {
             if (d == c) {
                 foundInCode = true;
                 break;
@@ -41,7 +41,7 @@ int main() {
         } else {
             bool foundInCodeAtCorrectPosition = false;
             for (int j = 0; j < 4; j++) {
-                if (codeStr[j] == c && codeStr[j] == c) {
+                if (codeStr[j] == c && codeVector[j] == c) {
                     foundInCodeAtCorrectPosition = true;
                     break;
                 }
