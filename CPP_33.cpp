@@ -1,11 +1,11 @@
 for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
+        if ((i + 1) % 3 == 0) {
             vector<int> temp;
-            for (int j = i; j < l.size(); j += 3) {
+            for (int j = i - 2; j <= i; ++j) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
-            for (int j = i, k = 0; j < l.size(); j += 3, ++k) {
+            for (int j = i - 2, k = 0; j <= i; ++j, ++k) {
                 l[j] = temp[k];
             }
         }
