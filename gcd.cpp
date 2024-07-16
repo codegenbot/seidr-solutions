@@ -16,7 +16,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result(size_t, 0); // Initialize the vector
+    std::vector<int> result; // Initialize the vector
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
@@ -38,8 +38,6 @@ int main() {
     std::string text, target;
     while (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
         std::cout << "Invalid input. Please enter two strings: ";
-        std::cin >> text;
-        std::cin >> target;
     }
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
