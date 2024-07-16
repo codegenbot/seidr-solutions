@@ -1,19 +1,29 @@
 def add(a, b):
     return a + b
 
+def divide(a, b):
+    return a / b
+
 while True:
     try:
-        num1, num2 = map(int, input("Enter two integer numbers separated by space: ").split())
+        num1 = int(input("Enter first integer number: "))
+        num2 = int(input("Enter second integer number: "))
         
         if num2 == 0:
             print("Cannot divide by zero. Please enter a non-zero second number.")
             continue
         
-        result = add(num1, num2)
-        print(result)
+        add_result = add(num1, num2)
+        print("Addition result:", add_result)
+        
+        div_result = divide(num1, num2)
+        print("Division result:", div_result)
 
-    except (ValueError, ZeroDivisionError) as e:
-        print("Invalid input or division by zero. Please try again.")
+    except ValueError:
+        print("Please enter valid integers for both numbers.")
+
+    except ZeroDivisionError:
+        print("Cannot divide by zero. Please enter a non-zero second number.")
 
     except KeyboardInterrupt:
         print("\nProgram interrupted by user. Exiting...")
