@@ -1,9 +1,3 @@
-try:
-    n = int(input())
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
-    exit()
-
 def prime_fib(n):
     if n <= 1:
         return "Not Prime"
@@ -15,4 +9,8 @@ def prime_fib(n):
                 return "Not Prime"
         return "Prime"
 
-print(prime_fib(n))
+try:
+    n = int(input())
+    print(prime_fib(n))
+except ValueError:
+    print("Program did not receive expected input")
