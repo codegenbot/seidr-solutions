@@ -17,4 +17,4 @@ def mastermind(code, guess):
             white_pegs += 1
             code_count[g] -= 1
 
-    return str(black_pegs) + "\n" + str(4 - black_pegs)
+    return str(black_pegs) + "\n" + str(4 - black_pegs - white_pegs)
