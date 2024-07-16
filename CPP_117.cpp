@@ -9,23 +9,46 @@ vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            bool has_n_consonants = count(word.begin(), word.end(), [](auto ch) { return !ispunct(ch) && !vowel(ch); }) == n;
-            if (has_n_consonants) {
-                result.push_back(word);
+        if (c == ' ') {
+            if (!word.empty()) {
+                int consonants = 0;
+                for (char ch : word) {
+                    if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'
+                        && ch != 'y') {
+                        consonants++;
+                    }
+                }
+                if (consonants == n) {
+                    result.push_back(word);
+                }
+                word = "";
             }
-            word = "";
+        } else {
+            word += c;
         }
     }
-    bool has_n_consonants = count(word.begin(), word.end(), [](auto ch) { return !ispunct(ch) && !vowel(ch); }) == n;
-    if (has_n_consonants) {
-        result.push_back(word);
+    // Check the last word
+    if (!word.empty()) {
+        int consonants = 0;
+        for (char ch : word) {
+            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'
+                && ch != 'y') {
+                consonants++;
+            }
+        }
+        if (consonants == n) {
+            result.push_back(word);
+        }
     }
     return result;
 }
 
-bool vowel(char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    string s = "Mary had a little lamb";
+    int n = 4;
+    vector<string> result = select_words(s, n);
+    for (string word : result) {
+        cout << word << endl;
+    }
+    return 0;
 }
