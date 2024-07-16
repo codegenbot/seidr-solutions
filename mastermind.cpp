@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <unordered_map>
 
 int main() {
     std::string codeStr, guessStr;
@@ -13,13 +13,13 @@ int main() {
     std::cout << "Enter your guess: ";
     std::cin >> guessStr;
 
-    int blackPegs = 0, whitePegs = 0;
-    int codeCount[6] = {0};
+    int blackPegs = 0;
+    std::unordered_map<char, int> codeCount;
 
     // Count characters in the code
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[c - '0']++;
+            codeCount[c]++;
         }
     }
 
@@ -30,28 +30,35 @@ int main() {
         }
     }
 
-    // Count white pegs
-    int codeCountTemp[6] = {0};
+    int whitePegs = 0;
+    std::vector<char> codeVector(codeStr.begin(), codeStr.end());
     for (char c : guessStr) {
-        if ('0' <= c && c <= '5') {
-            codeCountTemp[c - '0'] += std::count(codeStr.begin(), codeStr.end(), c);
+        bool foundInCode = false;
+        for (char d : codeVector) {
+            if (d == c) {
+                foundInCode = true;
+                break;
+            }
+        }
+        if (!foundInCode) {
+            whitePegs++;
+        } else {
+            bool foundInCodeAtCorrectPosition = false;
+            for (int j = 0; j < 4; j++) {
+                if (codeStr[j] == c && codeVector[j] == c) {
+                    foundInCodeAtCorrectPosition = true;
+                    break;
+                }
+            }
+            if (!foundInCodeAtCorrectPosition) {
+                whitePegs++;
+            }
         }
     }
 
-    whitePegs = 4 - blackPegs;
-    for (int i = 0; i < 6; i++) {
-        whitePegs -= codeCount[i];
-    }
-    whitePegs += std::min(codeCountTemp[0], codeCount[0]);
-    whitePegs += std::min(codeCountTemp[1], codeCount[1]);
-    whitePegs += std::min(codeCountTemp[2], codeCount[2]);
-    whitePegs += std::min(codeCountTemp[3], codeCount[3]);
-    whitePegs += std::min(codeCountTemp[4], codeCount[4]);
-    whitePegs += std::min(codeCountTemp[5], codeCount[5]);
-
     // Print the result
     std::cout << "Black pegs: " << blackPegs << std::endl;
-    std::cout << "White pegs: " << whitePegs << std::endl;
+    std::cout << "White pegs: " << whitePegs - blackPegs << std::endl;
 
     return 0;
 }
