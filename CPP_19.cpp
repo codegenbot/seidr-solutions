@@ -35,7 +35,7 @@ string sort_numbers(string numbers) {
     for (const auto &num : num_vector) {
         sorted_numbers += num + " ";
     }
-    sorted_numbers.pop_back(); 
+    sorted_numbers.pop_back(); // remove the extra space at the end
 
     return sorted_numbers;
 }
