@@ -5,7 +5,9 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -21,11 +23,11 @@ vector<int> unique_digits(vector<int> x) {
         vector<int> digits(10, 0);
         while (temp > 0) {
             int digit = temp % 10;
-            digits[digit]++;
-            if (digits[digit] > 1) {
+            if (digits[digit] == 1) {
                 hasUniqueDigits = false;
                 break;
             }
+            digits[digit] = 1;
             temp /= 10;
         }
         if (hasUniqueDigits) {
