@@ -1,18 +1,22 @@
-vector<int> odd_collatz;
+vector<int> result;
     while (n != 1) {
-        odd_collatz.push_back(n);
+        result.push_back(n);
         if (n % 2 == 0) {
-            n /= 2;
+            n = n / 2;
         } else {
             n = 3 * n + 1;
         }
     }
-    odd_collatz.push_back(1);
-    sort(odd_collatz.begin(), odd_collatz.end());
-    vector<int> result;
-    for (int num : odd_collatz) {
+    result.push_back(1);
+
+    vector<int> odd_numbers;
+    for (int num : result) {
         if (num % 2 != 0) {
-            result.push_back(num);
+            odd_numbers.push_back(num);
         }
     }
-    return result;
+
+    sort(odd_numbers.begin(), odd_numbers.end());
+    
+    return odd_numbers;
+}
