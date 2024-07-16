@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -18,30 +19,4 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    vector<int> input = {123, 456, 789, 246};
-    vector<int> output = unique_digits(input);
-
-    vector<int> check = {123, 789};
-    if (issame(output, check)) {
-        cout << "Output is correct" << endl;
-    } else {
-        cout << "Output is incorrect" << endl;
-    }
-
-    return 0;
 }
