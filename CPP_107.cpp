@@ -20,12 +20,3 @@ vector<int> even_odd_palindrome(int n) {
     }
     return result;
 }
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    // Implementation of the function
-}
-
-int main() {
-    // Main function logic
-    return 0;
-}
