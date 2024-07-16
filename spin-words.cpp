@@ -1,28 +1,31 @@
-```
+```cpp
+#include <iostream>
 #include <string>
-using namespace std;
+#include <algorithm>
 
-string reverse(string s) {
-    string r = "";
-    for (int i = s.length() - 1; i >= 0; i--) {
-        r += s[i];
-    }
-    return r;
-}
-
-string spinWords(string str) {
-    string output = "";
-    int wordStart = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(wordStart, i - wordStart);
-            if (word.length() >= 5) {
-                output += reverse(word) + " ";
-            } else {
-                output += word + " ";
+std::string spinWords(std::string input) {
+    std::string output = "";
+    int start = 0;
+    for (int i = 0; i <= input.size(); i++) {
+        if (i == input.size() || input[i] == ' ') {
+            std::string word = input.substr(start, i - start);
+            if (word.size() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            wordStart = i + 1;
+            output += word + " ";
+            start = i + 1;
         }
     }
     return output;
+}
+
+int main() {
+    std::string input;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, input);
+        if (input == "quit") break;
+        std::cout << spinWords(input) << std::endl;
+    }
+    return 0;
 }
