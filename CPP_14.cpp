@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 
 bool issame(const vector<string>& v1, const vector<string>& v2) {
     if (v1.size() != v2.size()) {
@@ -16,13 +16,14 @@ bool issame(const vector<string>& v1, const vector<string>& v2) {
 vector<string> all_prefixes(string str);
 
 int main() {
-    // Example usage
-    vector<string> prefixes = all_prefixes("hello");
-    vector<string> expected = {"h", "he", "hel", "hell", "hello"};
-    if (issame(prefixes, expected)) {
-        cout << "Prefixes are the same as expected" << endl;
+    string input;
+    cin >> input;
+    vector<string> prefixes = all_prefixes(input);
+    vector<string> prefixes2 = all_prefixes(input);
+    if (issame(prefixes, prefixes2)) {
+        cout << "Prefixes are the same" << endl;
     } else {
-        cout << "Prefixes are different from expected" << endl;
+        cout << "Prefixes are different" << endl;
     }
     return 0;
 }
