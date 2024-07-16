@@ -1,5 +1,2 @@
-std::vector<int> indices;
-
-for (size_t i = 0; (i = text.find(target, i)) != std::string::npos; ++i) {
-    indices.push_back(i);
-}
+int pos = 0; // Declare and initialize 'pos'
+pos = pos + 1; // Update the position increment
