@@ -1,13 +1,6 @@
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (char x : s) {
         bool found = false;
         for (char y : c) {
@@ -21,14 +14,31 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    std::string reverseTemp = "";
+    string reverseTemp = "";
     for (int i = temp.length() - 1; i >= 0; i--) {
         reverseTemp += temp[i];
     }
-    if (temp == reverseTemp) {
+    vector<string> v1 = splitString(temp);
+    vector<string> v2 = splitString(reverseTemp);
+    if (issame(v1, v2)) {
         result.push_back("True");
     } else {
         result.push_back("False");
     }
     return result;
+}
+
+vector<string> splitString(string s) {
+    vector<string> vec;
+    string temp = "";
+    for (char x : s) {
+        if (x == ' ') {
+            vec.push_back(temp);
+            temp = "";
+        } else {
+            temp += x;
+        }
+    }
+    vec.push_back(temp);
+    return vec;
 }
