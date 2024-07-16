@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -24,5 +25,5 @@ int main() {
     }
 
     cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
-
+    cin.ignore();
 }
