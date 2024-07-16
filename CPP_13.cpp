@@ -1,6 +1,4 @@
-if (b == 0) {
+if (b == 0)
         return a;
-    } else {
-        return greatest_common_divisor(b, a % b);
-    }
+    return greatest_common_divisor(b, a % b);
 }
