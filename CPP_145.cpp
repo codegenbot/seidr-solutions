@@ -1,4 +1,8 @@
-vector<int> issame(vector<int> nums){
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int a_temp = abs(a), b_temp = abs(b);
@@ -18,7 +22,5 @@ vector<int> issame(vector<int> nums){
     return nums;
 }
 
-int main() {
-    assert(issame({0,6,6,-76,-21,23,4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
-    return 0;
-}
+// In the main function or somewhere before using them
+assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6});
