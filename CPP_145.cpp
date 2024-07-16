@@ -22,7 +22,6 @@ std::vector<int> order_by_points(const std::vector<int>& nums){
         }
         return sum_a < sum_b;
     });
-
     return sorted_nums;
 }
 
