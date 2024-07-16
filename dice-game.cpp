@@ -6,8 +6,7 @@ double probability(int n, int m) {
     double p = 0.0;
     
     for(int i = 1; i <= m; i++) {
-        if(i == 1) p += ((n - i) + 1) / total; // adjust the condition
-        else p += (n - i) / total;
+        p += ((n - i) / (double)(n * m));
     }
     
     return p;
@@ -16,6 +15,6 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << probability(n, m);
+    cout << setprecision(2) << fixed << probability(n, m);
     return 0;
 }
