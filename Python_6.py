@@ -1,1 +1,1 @@
-paren_strings = input("Enter parentheses strings separated by space (e.g. '(())' '()'): ").split()
+paren_strings = [s.strip() for s in input("Enter parentheses strings (e.g. '(())', '()'): ").split()]
