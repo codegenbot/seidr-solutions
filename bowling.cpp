@@ -9,9 +9,10 @@ int score(string s) {
             frame++;
         } else if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
-        } else if (s[i] >= '0' && s[i] <= '9') {
+        } else {
             total += s[i] - '0';
         }
+        frame++;
         if (frame == 10) break;
     }
     return total;
