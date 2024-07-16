@@ -1,10 +1,25 @@
-int* digits = new int[16]; 
-int length = 16; 
+```c++
+#include <iostream>
+#include <vector>
 
-cin.fill('0'); 
-cin >> setw(16) >> digits; 
+int luhn(const std::vector<int>& digits) {
+    int sum = 0;
+    for (int i = 0; i < digits.size(); i++) {
+        if ((i % 2) == 0) { 
+            sum += digits[i];
+        } else {
+            int doubleValue = digits[i] * 2;
+            if (doubleValue > 9)
+                doubleValue -= 9;
+            sum += doubleValue; 
+        }
+    }
+    return sum;
+}
 
-delete[] digits; 
-cout << luhn(digits, length); 
-
-return 0;
+int main() {
+    std::vector<int> digits = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}; 
+    int result = luhn(digits); 
+    std::cout << "The Luhn checksum is: " << result << std::endl;
+    return 0;
+}
