@@ -7,4 +7,4 @@ def match_parens(lst):
             if not stack or stack.pop() != '(':
                 return 'No'
     
-    return 'No' if stack else 'No'
+    return 'Yes' if not stack else 'No'
