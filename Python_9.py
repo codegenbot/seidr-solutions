@@ -1,9 +1,9 @@
 numbers = []
 try:
     while True:
-        num = int(input().strip())
-        numbers.append(num)
+        num = input().strip()
+        if num == "":
+            break
+        numbers.append(int(num))
 except EOFError:
-    pass
-except KeyboardInterrupt:
     pass
