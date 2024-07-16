@@ -1,3 +1,7 @@
+import sys
+
+paren_string = sys.stdin.readline().strip()
+
 def check_parentheses(paren_string):
     stack = []
     for char in paren_string:
@@ -11,6 +15,5 @@ def check_parentheses(paren_string):
             stack.pop()
     return len(stack) == 0
 
-paren_string = input().strip()
 result = check_parentheses(paren_string)
 print(result)
