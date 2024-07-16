@@ -3,21 +3,29 @@ def solve_boolean(expression):
     operator_stack = []
     for char in expression:
         if char in ["|", "&"]:
-            while len(operator_stack) > 1 and operator_stack[-1] in ["|", "&"]:
+            while operator_stack and (operator_stack[-1] == "(" or operator_stack[-1] != char):
                 b = result
-                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
+                if operator_stack[-1] == "|":
+                    result = or_operator(result, "F")
+                else:
+                    result = and_operator(result, "F")
+                operator_stack.pop()
+            operator_stack.append(char)
         elif char == "(":
             operator_stack.append(char)
         elif char == ")":
-            while len(operator_stack) > 1 and operator_stack[-1] != "(":
+            while operator_stack and operator_stack[-1] != "(":
                 b = result
-                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
-            if operator_stack and operator_stack[-1] == "(":
+                if operator_stack[-1] == "|":
+                    result = or_operator(result, "F")
+                else:
+                    result = and_operator(result, "F")
                 operator_stack.pop()
+            operator_stack.pop()
         else:
-            if char.upper() == 'T':
+            if char == "T":  
                 result = "T"
-            elif char.upper() == 'F':
+            elif char == "F":  
                 result = "F"
 
     return "T" if result == "T" else "F"
