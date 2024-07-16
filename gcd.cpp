@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,21 +25,32 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    int a = 0, b = 0;
-    while (!(std::cin >> a) || !(std::cin >> b)) {
-        std::cout << "Invalid input. Please enter two integers: ";
+    int a, b;
+    std::cout << "Enter first number: ";
+    if (!(std::cin >> a)) {
+        std::cerr << "Invalid input for the first number." << std::endl;
+        return 1;
+    }
+
+    while (!(std::cin >> b)) {
+        std::cout << "Invalid input. Please enter an integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (!(std::cin >> b)) {
+            std::cerr << "Invalid input for the second number." << std::endl;
+            return 1;
+        }
     }
+
     int result = gcd(a, b);
     std::cout << "GCD of the numbers is: " << result << std::endl;
 
     std::string text, target;
-    while (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
-        std::cout << "Invalid input. Please enter two strings: ";
-        text.clear();
-        target.clear();
-    }
+    std::cout << "Enter text: ";
+    std::getline(std::cin, text);
+    std::cout << "Enter target string: ";
+    std::getline(std::cin, target);
+
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         std::cout << i << " ";
