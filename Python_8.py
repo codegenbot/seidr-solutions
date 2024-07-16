@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     sum_result = sum(numbers)
     product_result = 1
@@ -8,17 +7,14 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
-
 results = []
 
 while True:
     try:
         numbers = list(map(int, input().split()))
-        if not numbers:
-            break
         result = sum_product(numbers)
         results.append(result)
-    except EOFError:
+    except ValueError:
         break
 
 for result in results:
