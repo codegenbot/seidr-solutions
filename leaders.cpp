@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <climits>
 #include <algorithm>
@@ -18,16 +19,13 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
     return leaders;
 }
 
-#include <iostream>
-
 int main() {
-    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
-    std::vector<int> leaders = findLeaders(nums);
-
-    for (int leader : leaders) {
+    std::vector<int> numbers = {16, 17, 4, 3, 5, 2};
+    std::vector<int> result = findLeaders(numbers);
+    
+    for (int leader : result) {
         std::cout << leader << " ";
     }
-    std::cout << std::endl;
-
+    
     return 0;
 }
