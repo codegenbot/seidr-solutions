@@ -20,7 +20,7 @@ int main() {
     assert(is_happy("iopaxioi") == false);
     assert(is_happy("abcde") == true);
     assert(is_happy("xyx") == false);
-    assert(is_happy("aabbcc") == false);
+    assert(is_happy("abca") == false);
     
     return 0;
 }
