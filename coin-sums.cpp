@@ -13,13 +13,13 @@ int main() {
     int nickles = 0;
 
     while (cents >= 10) {
-        dimes = cents / 10;
-        cents -= dimes * 10;
+        dimes++;
+        cents -= 10;
     }
 
     while (cents >= 5) {
-        nickles = cents / 5;
-        cents -= nickles * 5;
+        nickles++;
+        cents -= 5;
     }
 
     int pennies = cents;
