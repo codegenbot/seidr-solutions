@@ -17,7 +17,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result; // Initialize the vector
+    std::vector<int> result{}; // Initialize the vector
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
@@ -47,13 +47,11 @@ int main() {
     if (target.empty()) {
         std::cout << "Error: Target string is empty." << std::endl;
     } else {
-        if (!target.empty()) {
-            auto indices = indicesOfSubstring(text, target);
-            for (int i : indices) {
-                std::cout << i << " ";
-            }
-            std::cout << std::endl;
+        auto indices = indicesOfSubstring(text, target);
+        for (int i : indices) {
+            std::cout << i << " ";
         }
+        std::cout << std::endl;
     }
 
     return 0;
