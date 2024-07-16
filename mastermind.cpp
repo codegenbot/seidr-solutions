@@ -1,6 +1,6 @@
-using namespace std;
+#include <string>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -19,5 +19,20 @@ int mastermind(string code, string guess) {
         }
     }
 
-    return black;
+    return black + white;
+
+}
+
+int main() {
+    std::string code;
+    std::cout << "Enter the Mastermind code (XXXX): ";
+    std::cin >> code;
+
+    std::string guess;
+    std::cout << "Enter your guess (XXXX): ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+
+    return 0;
 }
