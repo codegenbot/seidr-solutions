@@ -1,9 +1,9 @@
-int maxFreq = -1;
+int search(vector<int> lst) {
+    int res = -1;
     for (int num : lst) {
-        int freq = count(lst.begin(), lst.end(), num);
-        if (num > freq && freq > maxFreq) {
-            maxFreq = freq;
+        if (num > res && count(lst.begin(), lst.end(), num) >= num) {
+            res = num;
         }
     }
-    return maxFreq > 0 ? maxFreq : -1;
+    return res;
 }
