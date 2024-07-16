@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-strings = input().strip().split()
+strings = input("Enter strings separated by spaces: ").strip().split()
 
 
 def longest(strings: List[str]) -> Optional[str]:
