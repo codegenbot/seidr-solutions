@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
 string match_parens(vector<string> lst){
     int open = 0, close = 0;
     for (string s : lst) {
@@ -13,5 +18,15 @@ string match_parens(vector<string> lst){
             }
         }
     }
-    return (open == 0 && close <= 1) ? "Yes" : "No";
+    return (open == 0 && close == 0) ? "Yes" : "No";
+}
+
+int main() {
+    vector<string> input1 = {"()(", ")"};
+    vector<string> input2 = {")", ")"};
+
+    cout << match_parens(input1) << endl;
+    cout << match_parens(input2) << endl;
+
+    return 0;
 }
