@@ -13,11 +13,6 @@ def bowling_score(frames):
             frames = frames[frames.index(char):]
         else:
             if frame_num < 10:
-                if len(frames) > 1 and frames[0] == '2' and frames[1] in ['/', 'X']:
-                    score += int('20')
-                    frames = frames[2:]
-                    frame_num += 1
-                else:
-                    score += int(char)
-                    frame_num += 1
+                score += int(char)
+                frame_num += 1
     return score
