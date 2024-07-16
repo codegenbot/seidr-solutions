@@ -4,10 +4,10 @@ using namespace std;
 
 int main() {
     string input;
-    cout << "Enter an integer: ";
-    getline(cin, input);
+    cout << "Enter a positive integer: ";
+    cin >> input;
     string result = squareDigits(input);
-    cout << "The squared digits are: " << result << endl;
+    cout << "Squared digits: " << result << endl;
     return 0;
 }
 
