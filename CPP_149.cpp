@@ -1,10 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
@@ -19,7 +20,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(is_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     
     return 0;
 }
