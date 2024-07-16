@@ -4,9 +4,9 @@ def match_parens(lst):
         if s == '(':
             stack.append(s)
         elif s == ')':
-            if not stack or not stack[-1] == '(':
+            if not stack or stack[-1] != '(':
                 return 'No'
             stack.pop()
-    if not stack:
-        return 'Yes'
-    return 'No'
+    if stack:
+        return 'No'
+    return 'Yes'
