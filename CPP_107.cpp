@@ -1,8 +1,9 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a[0] == b[0] && a[1] == b[1];
+    return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -23,6 +24,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    // Main function or any other code can be added here
+    assert(issame(even_odd_palindrome(1), {0, 1}));
     return 0;
 }
