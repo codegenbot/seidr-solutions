@@ -3,24 +3,19 @@
 
 int main() {
     double total = 0.0;
-    int nPrices, nDiscounts;
+    int nPrices;
 
-    std::cin >> nPrices >> nDiscounts;
+    std::cin >> nPrices;
 
-    std::vector<float> prices(nPrices);
-    std::vector<float> discounts(nDiscounts);
+    std::vector<std::pair<float, float>> items(nPrices);
 
     for (int i = 0; i < nPrices; i++) {
-        std::cin >> prices[i];
-    }
-
-    for (int i = 0; i < nDiscounts; i++) {
-        std::cin >> discounts[i];
+        std::cin >> items[i].first >> items[i].second;
     }
 
     total = 0.0;
-    for (int i = 0; i < nPrices; i++) {
-        total += prices[i] - (prices[i] * (discounts[i % nDiscounts] / 100.0));
+    for (const auto& item : items) {
+        total += item.first - (item.first * (item.second / 100.0));
     }
 
     return static_cast<int>(total);
