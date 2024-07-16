@@ -1,3 +1,6 @@
+#include <string>
+#include <sstream>
+
 std::string spinWords(std::string str) {
     std::istringstream iss(str);
     std::string word;
