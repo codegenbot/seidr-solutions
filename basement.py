@@ -5,5 +5,4 @@ def basement(nums):
         total += nums[i]
         if total < 0:
             return i
-    
     return -1
