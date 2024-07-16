@@ -28,3 +28,4 @@ int main() {
     }
     cout << luhnAlgorithm(creditCardNumber) << endl;
     return 0;
+}
