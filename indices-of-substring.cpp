@@ -25,9 +25,7 @@ int main() {
     int n;
     cin >> n;
 
-    string subStr = to_string(n);
-
-    vector<int> indices = indicesOfSubstring(text, subStr);
+    vector<int> indices = indicesOfSubstring(text, to_string(n));
     for (int i : indices) {
         cout << i << " ";
     }
