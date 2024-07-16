@@ -1,9 +1,13 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> visited(26, false);
-    int count = 0;
+    vector<int> freq(26, 0);
     for (char c : str) {
-        if (isalpha(c) && !visited[c - 'a']) {
-            visited[c - 'a'] = true;
+        if (isalpha(c)) {
+            freq[c - 'a']++;
+        }
+    }
+    int count = 0;
+    for (int f : freq) {
+        if (f > 0) {
             count++;
         }
     }
