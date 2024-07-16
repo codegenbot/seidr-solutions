@@ -1,6 +1,6 @@
-#include <vector>
+using namespace std;
 
-long long minSubArraySum(std::vector<long long> nums) {
+long long minSubArraySum(vector<long long> nums) {
     long long min_sum = LLONG_MAX;
     long long current_sum = 0;
 
