@@ -1,12 +1,11 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
+    quarters = cents // 25
+    cents %= 25
+    dimes = cents // 10
+    cents %= 10
+    nickles = cents // 5
+    cents %= 5
+    pennies = cents
 
-    for i in range(len(coins)):
-        count = cents // coins[i]
-        if count > 0:
-            result[i] = count
-            cents %= coins[i]
-
-    return str(result[0]) + "\n" + str(result[1]) + "\n" + str(result[2]) + "\n" + str(cents)
+    return str(quarters) + "\n" + str(dimes) + "\n" + str(nickles) + "\n" + str(pennies)
