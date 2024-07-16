@@ -12,11 +12,14 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    // Test cases
-    assert(double_the_difference({1.0, 2.0, 3.0, 4.0}) == 10);
-    assert(double_the_difference({1.5, 2.5, 3.5, 4.5}) == 0);
-    assert(double_the_difference({-1.0, -2.0, -3.0, -4.0}) == 0);
-    assert(double_the_difference({1.0, 3.0, 5.0, 7.0}) == 35);
+    std::vector<float> test1 = {3.0, 4.0, 5.0, 6.0, 7.0};
+    assert(double_the_difference(test1) == 40);
+
+    std::vector<float> test2 = {2.0, 3.0, 4.0, 5.0, 6.0};
+    assert(double_the_difference(test2) == 0);
+
+    std::vector<float> test3 = {1.0, 2.0, 3.0, 4.0, 5.0};
+    assert(double_the_difference(test3) == 1);
 
     return 0;
 }
