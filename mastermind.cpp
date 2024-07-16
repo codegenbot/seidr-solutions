@@ -1,19 +1,26 @@
-int countWhitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < code.size(); ++i) {
-        if (code[i] != guess[i] && code.find(guess[i]) != std::string::npos) {
-            count++;
-        }
-    }
-    return count;
-}
-
-int countBlackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < code.size(); ++i) {
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    
+    int black = 0, white = 0;
+    int codeFreq[26] = {0};
+    int guessFreq[26] = {0};
+    
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            black++;
+        } else {
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
-    return count;
+    
+    for (int i = 0; i < 26; ++i) {
+        white += min(codeFreq[i], guessFreq[i]);
+    }
+    
+    cout << white << endl;
+    cout << black << endl;
+    
+    return 0;
 }
