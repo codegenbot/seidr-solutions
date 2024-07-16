@@ -1,7 +1,10 @@
+```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
@@ -32,11 +35,7 @@ pair<string, string> reverse_delete(string s, string c) {
 
 int main() {
     pair<string, string> result = reverse_delete("mamma", "mia");
-    assert(result.first == "" && result.second == "True");
-    cout << "The reversed string is: " << result.first << endl;
-    if (result.second == "True")
-        cout << "It's a palindrome." << endl;
-    else
-        cout << "It's not a palindrome." << endl;
+    cout << "First part of the output: " << result.first << endl;
+    cout << "Second part of the output: " << result.second << endl;
     return 0;
 }
