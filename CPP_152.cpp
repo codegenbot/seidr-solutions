@@ -4,7 +4,12 @@
 #include <cassert>
 
 bool compare(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> calculate_difference(const std::vector<int>& game, const std::vector<int>& guess) {
