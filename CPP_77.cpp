@@ -1,3 +1,3 @@
 int b = cbrt(a);
-    return (a == b*b*b);
+    return (b * b * b == a);
 }
