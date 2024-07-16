@@ -1,5 +1,5 @@
 ```
-def find_indices(text, target):
+def indices_of_substring(text, target):
     result = []
     i = 0
     while i < len(text):
@@ -10,3 +10,7 @@ def find_indices(text, target):
         else:
             break 
     return result
+
+text = input()
+target = input()
+print(indices_of_substring(text, target))
