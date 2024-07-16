@@ -1,7 +1,4 @@
 def decode_shift(s: str):
-    if not any(char.isalpha() for char in s):
-        return "Input must contain at least one alphabetic character"
-
     return "".join(
         [
             (
