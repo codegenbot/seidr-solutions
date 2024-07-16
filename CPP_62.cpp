@@ -2,13 +2,7 @@
 
 bool issame(vector<float> a, vector<float> b);
 
-vector<float> derivative(vector<float> xs){
-    vector<float> result;
-    for(int i = 1; i < xs.size(); i++){
-        result.push_back(xs[i] * i);
-    }
-    return result;
-}
+vector<float> derivative(vector<float> xs);
 
 bool issame(vector<float> a, vector<float> b){
     if(a.size() != b.size()){
@@ -22,7 +16,15 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
+vector<float> derivative(vector<float> xs){
+    vector<float> result;
+    for(int i = 1; i < xs.size(); i++){
+        result.push_back(xs[i] * i);
+    }
+    return result;
+}
+
 int main(){
-    // Your main function logic here
+    // Your main function code here
     return 0;
 }
