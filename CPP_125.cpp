@@ -1,7 +1,3 @@
-bool issame(char a, char b) {
-    return a == b;
-}
-
 vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
@@ -18,14 +14,9 @@ vector<string> split_words(string txt) {
     if (!word.empty()) {
         words.push_back(word);
     }
-    if (words.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                count++;
-            }
-        }
-        words.push_back(to_string(count));
-    }
     return words;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
