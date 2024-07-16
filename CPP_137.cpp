@@ -1,7 +1,6 @@
 #include <cassert>
 #include <variant>
 #include <string>
-#include <iostream>
 
 std::variant<int, float, std::string> compare_one(const std::variant<int, float, std::string>& a, const std::variant<int, float, std::string>& b) {
     if (a.index() == 0 && b.index() == 0) {
@@ -17,17 +16,15 @@ std::variant<int, float, std::string> compare_one(const std::variant<int, float,
             return b;
         }
     } else if (a.index() == 2 && b.index() == 2) {
-        if (std::stof(std::get<std::string>(a)) > std::stof(std::get<std::string>(b))) {
-            return a;
-        } else if (std::stof(std::get<std::string>(a)) < std::stof(std::get<std::string>(b))) {
-            return b;
+        if (std::get<std::string>(a).empty() && std::get<std::string>(b).empty()) {
+            return std::string();
         }
     }
     return std::variant<int, float, std::string>();
 }
 
 int main() {
-    assert(std::get<std::string>(compare_one(std::string("1"), std::string("1"))).empty());
-
+    assert(std::get<std::string>(compare_one(1, 2.0f)).empty());
+    
     return 0;
 }
