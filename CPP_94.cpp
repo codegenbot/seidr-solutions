@@ -1,6 +1,6 @@
-```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
 int main() {
     int result = f({127, 97, 8192});
@@ -8,13 +8,13 @@ int main() {
     return 0;
 }
 
-int f(vector<int> v) {
-    int sum = 0;
+std::string f(std::vector<int> v) {
+    std::string s = "";
     for (int i : v) {
         if (i >= 128)
-            sum += 1;
+            s += "1";
         else
-            sum += i;
+            s += (char)(i); 
     }
-    return sum;
+    return s;
 }
