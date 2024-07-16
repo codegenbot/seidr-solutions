@@ -1,9 +1,10 @@
 ```cpp
 #include <vector>
 #include <string>
+
 using namespace std;
 
-vector<int> indicesOfSubstring(std::string text, std::string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int i = 0;
     while (i <= text.length() - target.length()) {
@@ -15,15 +16,7 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
         }
     }
     return result;
-
-vector<int> indicesOfSubstring(std::string text, std::string target) {
-    vector<int> result;
-    for(int i = 0; i <= text.length() - target.length(); ++i){
-        if(text.substr(i, target.length()).compare(target) == 0) {
-            result.push_back(i);
-        }
-    }
-    return result;
+}
 
 int gcd(int a, int b) {
     while (b != 0) {
