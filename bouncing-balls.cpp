@@ -22,4 +22,3 @@ int main() {
     cout << total_distance << endl;
     
     return 0;
-}
