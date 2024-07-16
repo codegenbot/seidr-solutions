@@ -1,7 +1,1 @@
-print("Enter first number:")
-num1 = int(input())
-print("Enter second number:")
-num2 = int(input())
-
-result = add(num1, num2)
-print(result)
+num1, num2 = map(int, input("Enter two numbers separated by space: ").split())
