@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -19,9 +18,4 @@ vector<int> rolling_max(vector<int> numbers) {
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
-}
-
-int main() {
-    // Main function
-    return 0;
 }
