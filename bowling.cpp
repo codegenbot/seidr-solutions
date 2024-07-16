@@ -28,3 +28,4 @@ int bowlingScore(string s) {
         score += max(1, min(10, rolls[9]));
     }
     return score;
+}
