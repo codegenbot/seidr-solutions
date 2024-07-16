@@ -8,5 +8,11 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x).c_str();
+        return std::to_string(x);
+}
+
+int main() {
+    int x = 15; 
+    std::cout << fizzBuzz(x) << std::endl;
+    return 0;
 }
