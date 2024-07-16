@@ -1,4 +1,4 @@
-map<string, int> num_map = {
+map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,10 +11,25 @@ map<string, int> num_map = {
     {"nine", 9}
 };
 
-vector<string> num_strings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
-sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
-    return num_map[a] < num_map[b];
-});
-
-return numbers;
+string sort_numbers(string numbers){
+    map<int, string> reverse_map;
+    string result = "";
+    string curr_num = "";
+    
+    for (char c : numbers) {
+        if (c == ' ') {
+            reverse_map[number_map[curr_num]] = curr_num;
+            curr_num = "";
+        } else {
+            curr_num += c;
+        }
+    }
+    
+    reverse_map[number_map[curr_num]] = curr_num;
+    
+    for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
+        result += it->second + " ";
+    }
+    
+    return result;
+}
