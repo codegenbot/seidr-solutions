@@ -1,21 +1,18 @@
-```
-def bowling_score(games):
+Here is the solution:
+
+def bowling_score(game):
     score = 0
-    game = 0
-    for frame in games:
-        if '/' in frame:
-            first, second = map(int, frame.split('/'))
-            score += first + second
-            game += 1
-        elif 'X' in frame:
-            score += 10
-            game += 1
-        else:
-            rolls = [int(x) for x in frame]
-            if len(rolls) == 3 and sum(rolls) == 10:
-                score += 10
-                game += 1
+    frame = 1
+    for i in range(0, len(game), 2):
+        if game[i].isdigit():
+            if game[i+1].isdigit():
+                score += int(game[i]) + int(game[i+1])
             else:
-                score += sum(rolls)
-                game += 1
+                score += int(game[i]) * 10
+            if frame < 10 and (game[i] == 'X' or game[i+1] == '/'):
+                if i < len(game) - 2 and game[i+2].isdigit():
+                    score += int(game[i+2])
+                elif i < len(game) - 3 and game[i+2].isdigit() and game[i+3].isdigit():
+                    score += int(game[i+2]) + int(game[i+3])
+            frame += (game[i] == 'X') or (game[i+1] == '/')
     return score
