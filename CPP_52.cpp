@@ -1,5 +1,5 @@
-for (int num : l) {
-    if (num >= t) {
+for(auto num : l){
+    if(num >= t){
         return false;
     }
 }
