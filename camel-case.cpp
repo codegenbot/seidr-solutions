@@ -29,14 +29,14 @@ std::string camelCase(const std::string& str) {
     for (const auto& c : split(str, '-')) {
         if (!result.empty()) {
             if (capitalizeNext) {
-                result += toupper(c[0]);
+                result += toupper(c.at(0));
                 capitalizeNext = false;
             } else {
-                result += tolower(c[0]);
+                result += tolower(c.at(0));
             }
             result += c.substr(1);
         } else {
-            result = tolower(c);
+            result += tolower(c.at(0));
             capitalizeNext = true;
         }
     }
