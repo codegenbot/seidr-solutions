@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 int bowlingScore(string s) {
@@ -7,7 +9,7 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
-            score += 10 + getBonus(s, i);
+            score += 10 + getBonus(s.substr(i+1));
         } else if (s[i] == '/') { // Spare
             score += 5 + getBonus(s.substr(i+1));
         } else { // Normal roll
