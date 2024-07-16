@@ -1,31 +1,41 @@
-```cpp
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (char x : s) {
-        bool found = false;
-        for (char y : c) {
-            if (x == y) {
-                found = true;
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != "True") return false;
+    }
+    return true;
+}
+
+std::vector<string> reverse_delete(string s, string c) {
+    vector<char> temp(s.begin(), s.end());
+    for (char& c1 : temp) {
+        for (char c2 : c) {
+            if (c1 == c2) {
+                c1 = '\0';  // delete character
                 break;
             }
         }
-        if (!found) {
-            temp += x;
+    }
+    string result;
+    for (char c1 : temp) {
+        if (c1 != '\0') {
+            result += c1;
         }
     }
-    result.push_back(temp);
-    string reverseTemp = "";
-    for (int i = temp.length() - 1; i >= 0; i--) {
-        reverseTemp += temp[i];
+    bool isPalindrome = true;
+    int left = 0, right = result.length() - 1;
+    while (left < right) {
+        if (result[left] != result[right]) {
+            isPalindrome = false;
+            break;
+        }
+        left++;
+        right--;
     }
-    bool issame(vector<string> a, vector<string> b) {
-        return a == b;
-    }
-    if (temp == reverseTemp) {
-        result.push_back(issame({temp}, {reverseTemp}) ? "True" : "False");
-    } else {
-        result.push_back("False");
-    }
-    return result;
+    vector<string> res(2);
+    res[0] = result;
+    res[1] = (isPalindrome ? "True" : "False");
+    return res;
 }
