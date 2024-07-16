@@ -1,5 +1,3 @@
-import sys
-
 def sum_product(numbers):
     if len(numbers) < 2:
         return None
@@ -7,24 +5,15 @@ def sum_product(numbers):
 
 results = []
 
-def input_data():
+try:
     while True:
-        try:
-            yield sys.stdin.readline().rstrip()
-        except EOFError:
-            break
-
-input_gen = input_data()
-
-while True:
-    try:
-        numbers_input = list(map(int, next(input_gen).strip().split()))
-        if not numbers_input or numbers_input[0] == -1:
+        numbers_input = list(map(int, input().strip().split()))
+        if not numbers_input:
             break
         result = sum_product(numbers_input)
         results.append(result)
-    except ValueError:
-        pass
+except ValueError:
+    pass
 
 for result in results:
     print(result)
