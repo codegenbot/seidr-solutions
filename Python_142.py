@@ -1,4 +1,6 @@
-```
 def sum_squares(lst):
-    total = sum([i**2 for i in lst])
+    total = 0
+    for num in lst:
+        if isinstance(num, int) or isinstance(num, float):
+            total += (num ** 2)
     return total
