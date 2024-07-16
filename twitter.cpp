@@ -1,12 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int main() {
-    std::string tweet;
+    std::string tweet = "";
     std::cout << "Enter your tweet: ";
-    getline(std::cin, tweet); // remove trailing newline
-    tweet.erase(tweet.find_last_not_of("\n") + 1);
+    getline(std::cin, tweet);
 
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
