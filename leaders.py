@@ -1,8 +1,6 @@
 def leaders(input):
-    max_element = input[-1]
-    result = [max_element]
+    result = [input[-1]]
     for i in range(len(input) - 1, -1, -1):
-        if input[i] >= max_element:
-            max_element = input[i]
-            result.insert(0, max_element)
-    return result
+        if input[i] >= min(input[i + 1:]):
+            result.append(input[i])
+    return list(reversed(result))
