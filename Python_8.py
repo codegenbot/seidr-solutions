@@ -1,25 +1,31 @@
+def sum_product(numbers):
+    if len(numbers) < 2:
+        return None
+    return sum(numbers), numbers[0]
+
+
+results = []
+
+
 def input_data():
-    def get_input():
+    try:
         while True:
-            try:
-                yield input()
-            except EOFError:
-                break
-    return get_input()
+            yield input()
+    except EOFError:
+        pass
+
 
 input_gen = input_data()
 
 while True:
     try:
         numbers_input = list(map(int, next(input_gen).strip().split()))
-        if not numbers_input or numbers_input[0] == -1:
+        if not numbers_input:
             break
         result = sum_product(numbers_input)
         results.append(result)
-    except (ValueError, EOFError):
-        break
-    except StopIteration:
-        break
+    except ValueError:
+        pass
 
 for result in results:
     print(result)
