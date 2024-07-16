@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 int fuelCost(std::vector<int> &stations) {
     int sum = 0;
