@@ -1,4 +1,7 @@
-paren_strings = input().strip().split()
+import ast
+
+input_str = input().strip()
+paren_strings = ast.literal_eval(input_str)
 
 def parse_nested_parens(paren_strings):
     stack = []
