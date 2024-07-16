@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -8,7 +9,7 @@ int main() {
     double first_bounce_height;
     int num_bounces;
 
-    cin >> start_height >> num_bounces >> ' ' >> first_bounce_height;
+    cin >> start_height >> first_bounce_height >> num_bounces;
 
     double bounciness_index = first_bounce_height / start_height;
 
