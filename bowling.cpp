@@ -22,12 +22,12 @@ int bowlingScore(string s) {
 int getBonus(string s, int i) {
     int bonus = 0;
 
-    for (int j = i + 1; j < i + 3; j++) { 
-        if (s[j] == 'X') { 
+    for (int j = i + 1; j < i + 3; j++) { // Check for Strike or Spare
+        if (s[j] == 'X') { // Strike
             bonus += 10;
-        } else if (s[j] == '/') { 
+        } else if (s[j] == '/') { // Spare
             bonus += 5;
-        } else { 
+        } else { // Normal roll
             bonus += s[j] - '0';
         }
     }
