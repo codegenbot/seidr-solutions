@@ -31,6 +31,6 @@ std::pair<string, string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == make_pair("", "True"));
+    assert(reverse_delete("mamma", "mia").first == "" && reverse_delete("mamma", "mia").second == "True");
     return 0;
 }
