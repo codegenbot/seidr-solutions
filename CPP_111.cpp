@@ -27,8 +27,3 @@ std::map<char, int> histogram(const std::string& test)
 
     return finalResult;
 }
-
-bool issame(std::map<char, int> a, std::map<char, int> b)
-{
-    return a == b;
-}
