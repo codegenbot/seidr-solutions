@@ -1,8 +1,9 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    coins.sort(reverse=True)
     result = []
+
+    coins.sort(reverse=True)
 
     for coin in coins:
         count = cents // coin
