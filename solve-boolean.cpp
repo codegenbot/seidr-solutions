@@ -1,40 +1,15 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-    string input;
-    cin >> input;
+    std::string input;
+    std::cin >> input;
 
-    bool result = true;
-    char operation = '|'; // default operation
-
-    for (int i = 0; i < input.size(); ++i) {
-        if (input[i] == 'T') {
-            if (operation == '&') {
-                result = result && true;
-            } else { // '|'
-                result = result || true;
-            }
-        } else if (input[i] == 'F') {
-            if (operation == '&') {
-                result = result && false;
-            } else { // '|'
-                result = result || false;
-            }
-        } else if (input[i] == '|') {
-            operation = '|';
-        } else if (input[i] == '&') {
-            operation = '&';
-        }
-    }
-
-    if (result) {
-        cout << "True" << endl;
+    if (input == "T") {
+        std::cout << "True" << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << "False" << std::endl;
     }
-
+    
     return 0;
 }
