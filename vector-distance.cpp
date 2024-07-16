@@ -8,3 +8,7 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
     }
     return std::sqrt(sumSq);
 }
+
+int main() {
+    return 0;
+}
