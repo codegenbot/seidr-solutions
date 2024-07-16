@@ -1,15 +1,13 @@
-```
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
-    float snow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        snow += rateOfSnowfall - proportionMeltingPerHour;
+        initialSnow += rateOfSnowfall - proportionMeltingPerHour;
     }
-    return snow;
+    return initialSnow;
 }
 
 int main() {
