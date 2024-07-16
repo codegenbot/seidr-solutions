@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 
 std::string spinWords(std::string str) {
@@ -5,7 +6,7 @@ std::string spinWords(std::string str) {
     std::string word;
     std::string result;
 
-    while (std::getline(ss, word, ' ')) {
+    while (ss >> word) {
         if(word.size()>4)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
