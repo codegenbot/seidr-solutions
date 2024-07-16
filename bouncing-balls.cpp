@@ -1,8 +1,13 @@
 ```cpp
-int main() {
-    double startHeight, firstBounce, numBounces;
+#include <iostream>
+#include <cmath>
 
-    std::cin >> startHeight >> firstBounce >> std::ws >> numBounces;  
+int main() {
+    double startHeight;
+    double firstBounce;
+    double numBounces;
+
+    std::cin >> startHeight >> firstBounce >> numBounces;  
 
     double bouncinessIndex = (startHeight / firstBounce);
 
