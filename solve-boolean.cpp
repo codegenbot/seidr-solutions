@@ -1,9 +1,11 @@
+```cpp
 #include <string>
 #include <iostream>
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    for (auto c : s) {  
+    char c;
+    while ((c = getchar()) != '\n' && c != EOF) {
         if (c == 'T') {
             result = true;
         } else if (c == 'F') {
@@ -12,7 +14,7 @@ bool solveBoolean(const std::string& s) {
             result = !result;
         } else if (c == '&') {
             bool operand = true;
-            for (; c != '&' && c != '\0'; ++c) {
+            while ((c = getchar()) != '&' && c != '\n' && c != EOF) {
                 if (c == 'F')
                     operand = false;
                 else if (c == 'T')
@@ -25,9 +27,9 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::string input;
     std::cout << "Enter a Boolean expression: ";
-    std::cin >> input;
+    std::string input;
+    while ((input += getchar()) != "\n") {}
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";

@@ -1,18 +1,18 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 int main() {
     std::string codeStr, guessStr;
-    int whitePegs = 0, blackPegs = 0;
 
+    // Read user input
     std::cout << "Enter the Mastermind code: ";
     std::cin >> codeStr;
 
     std::cout << "Enter your guess: ";
     std::cin >> guessStr;
 
+    int whitePegs = 0, blackPegs = 0;
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
@@ -20,15 +20,17 @@ int main() {
     }
 
     for (char c : guessStr) {
-        bool found = false;
-        for (int i = 0; i < 4; i++) {
-            if (codeStr[i] == c && !found) {
+        int count = 0;
+        for (int j = 0; j < 4; j++) {
+            if (c == codeStr[j] && guessStr[j] != codeStr[j]) {
                 whitePegs++;
-                found = true;
+                count++;
             }
         }
+        blackPegs -= count;
     }
 
+    // Print the result
     std::cout << "Black pegs: " << blackPegs << std::endl;
     std::cout << "White pegs: " << whitePegs << std::endl;
 
