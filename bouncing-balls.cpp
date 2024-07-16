@@ -1,3 +1,9 @@
+```cpp
+#include <iostream>
+#include <iomanip>
+#include <cmath> 
+using namespace std;
+
 int main() {
     double start_height;
     double first_bounce_height;
@@ -8,9 +14,9 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    double bounciness_index = first_bounce_height / start_height;
-
     if (num_bounces > 0) {
+        double bounciness_index = first_bounce_height / start_height;
+
         double prev_height = first_bounce_height;
         double total_distance = 0.0;
 
@@ -20,7 +26,8 @@ int main() {
         }
 
         cout << fixed << setprecision(6) << total_distance;
-    }
-    
+    } else
+        cout << "0";
+
     return 0;
 }
