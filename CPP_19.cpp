@@ -11,25 +11,9 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
-    map<int, string> reverse_map;
-    string result;
-    string current_number;
-    
-    for (char& c : numbers) {
-        if (c == ' ') {
-            reverse_map[number_map[current_number]] = current_number;
-            current_number.clear();
-        } else {
-            current_number += c;
-        }
-    }
-    reverse_map[number_map[current_number]] = current_number;
+sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
+    return number_map[a] < number_map[b];
+});
 
-    for (auto& pair : reverse_map) {
-        result += pair.second + " ";
-    }
-
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+return numbers;
 }
