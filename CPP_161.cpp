@@ -3,7 +3,7 @@ for (char &c : s) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+    if (none_of(s.begin(), s.end(), ::isalpha)) {
         reverse(s.begin(), s.end());
     }
     return s;
