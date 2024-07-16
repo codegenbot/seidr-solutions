@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
@@ -22,10 +25,10 @@ int main() {
 
     pennies = cents;
 
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickles << endl;
-    cout << pennies << endl;
+    cout << std::to_string(quarters) << " quarters" << endl;
+    cout << std::to_string(dimes) << " dimes" << endl;
+    cout << std::to_string(nickles) << " nickles" << endl;
+    cout << std::to_string(pennies) << " pennies" << endl;
 
     return 0;
 }
