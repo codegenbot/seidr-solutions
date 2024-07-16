@@ -1,9 +1,8 @@
-n = int(input())
 arr = list(map(int, input().split()))
 diff = float("inf")
 cut_index = 0
 
-for i in range(1, n):
+for i in range(1, len(arr)):
     curr_diff = abs(sum(arr[:i]) - sum(arr[i:]))
     if curr_diff < diff:
         diff = curr_diff
