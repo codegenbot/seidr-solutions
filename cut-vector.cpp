@@ -1,5 +1,6 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -7,18 +8,19 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> result;
     
     for (int i = 1; i <= n; i++) {
-        if (i == n || v[i] - v[0] > v[n-i-1] - v[0]) {
-            result.push_back({v.begin(), v.begin() + i});
+        if (i == n || abs(v[i] - v[0]) > abs(v[n-i-1] - v[0])) {
+            result.push_back(vector<int>(v.begin(), v.begin() + i));
             break;
         }
         else {
-            result.push_back({v.begin(), v.begin() + i});
+            vector<int> temp = vector<int>(v.begin(), v.begin() + i);
+            result.push_back(temp);
             v.erase(v.begin());
         }
     }
     
     if (!v.empty()) {
-        result.push_back({v.begin(), v.end()});
+        result.push_back(vector<int>(v.begin(), v.end()));
     }
     
     return result;
@@ -39,4 +41,3 @@ int main() {
         std::cout << std::endl;
     }
     return 0;
-}
