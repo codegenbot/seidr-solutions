@@ -1,13 +1,17 @@
-int main() {
-    std::vector<int> stations;
-    int n;
-    std::cout << "Enter the number of stations: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int station;
-        std::cout << "Enter fuel cost for station " << i+1 << ": ";
-        std::cin >> station;
-        stations.push_back(station);
+#include <iostream>
+#include <vector>
+
+int fuelCost(std::vector<int> stations) {
+    int sum = 0;
+    for (auto station : stations) {
+        auto fuel = static_cast<int>(station / 3.0);
+        sum += fuel - 2;
     }
+    return sum;
+}
+
+int main() {
+    std::vector<int> stations = { /* your input vector */ };
     std::cout << "Fuel cost: " << fuelCost(stations) << std::endl;
-    return 0;}
+    return 0;
+}
