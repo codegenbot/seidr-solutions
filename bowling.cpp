@@ -1,43 +1,27 @@
-int scoreBowlingRound(string bowls) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    
-    for (int i = 0; i < bowls.size() && frame <= 10; ++i) {
-        if (bowls[i] == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[i+2] == 'X') ? 10 : (bowls[i+2] - '0');
-                score += (bowls[i+4] == 'X') ? 10 : (bowls[i+4] - '0');
-            } else {
-                score += (bowls[i+2] == 'X' || bowls[i+2] == '/') ? 10 : (bowls[i+2] - '0');
-                score += (bowls[i+4] == 'X') ? 10 : (bowls[i+4] - '0');
-            }
-            ball = 0;
-            frame++;
-        } else if (bowls[i] == '/') {
-            score += (10 + ((bowls[i+1] == 'X') ? 10 : (bowls[i+1] - '0'))) - (bowls[i-1] - '0');
-            ball = 0;
-            frame++;
-        } else {
-            score += bowls[i] - '0';
+int score(string s) {
+    int res = 0, frame = 0, ball = 0;
+    vector<int> game(21, 0);
+    for(char c : s) {
+        if(c == 'X') game[ball] = 10;
+        else if(c == '/') game[ball] = 10 - game[ball-1];
+        else if(c == '-') game[ball] = 0;
+        else game[ball] = c - '0';
+        if(frame > 0 && (game[ball] == 10 || ball % 2 == 1)) res += game[ball] + game[ball-1] + game[ball-2];
+        if(frame > 1 && ball % 2 == 1 && game[ball-1] + game[ball-2] == 10) res += game[ball];
+        if(ball < 18) {
             ball++;
-            if (ball == 2) {
-                ball = 0;
-                frame++;
-            }
+            if(ball % 2 == 0) frame++;
+        } else if(ball == 18) {
+            ball++;
+            if(c != 'X') frame++;
         }
     }
-    
-    return score;
+    return res;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-
-    int score = scoreBowlingRound(bowls);
-    cout << score;
-    
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
