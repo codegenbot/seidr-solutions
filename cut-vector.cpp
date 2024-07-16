@@ -9,19 +9,20 @@ int main() {
     int min_diff = INT_MAX / 2;
 
     for (int i = 0; i < vec.size(); ++i) {
-        int diff = abs(std::accumulate(vec.begin(), vec.begin() + i, 0) - std::accumulate(vec.begin() + i, vec.end(), 0));
+        int diff = abs(vec[i] - vec[i + 1]);
         if (diff < min_diff) {
             min_diff = diff;
             idx = i;
-        } 
-        else if (diff == 0) {
-            idx = i;
-            break;
         }
     }
 
     std::vector<int> subvec1(vec.begin(), vec.begin() + idx + 1);
     std::vector<int> subvec2(vec.begin() + idx + 1, vec.end());
+
+    if (subvec1.back() == subvec2.front()) {
+        subvec1.push_back(subvec2.front());
+        subvec2.erase(subvec2.begin());
+    }
 
     for (const auto& num : subvec1) {
         std::cout << num << std::endl;
