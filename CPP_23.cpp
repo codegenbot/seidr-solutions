@@ -1,4 +1,4 @@
-#include <string>
+#include <cstring>
 
 int main() {
     std::string str = "example";
