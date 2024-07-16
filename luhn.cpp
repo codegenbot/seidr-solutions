@@ -15,9 +15,9 @@ int luhn(int digits[16]) {
 
 int main() {
     int digits[16];
-    cout << "Enter your credit card number: ";
-    for (int i = 0; i < 16; i++) {
+    for(int i = 0; i < 16; i++) {
         cin >> digits[i];
     }
     cout << "The Luhn check result is: " << luhn(digits);
+    return 0;
 }
