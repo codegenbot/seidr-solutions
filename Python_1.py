@@ -16,13 +16,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group = ""
             else:
                 current_group += char
+        else:
+            if level > 0:
+                current_group += char
 
     return result
 
 print("Enter a string with parentheses:")
 paren_string = input().strip()
-if all(char in "() " for char in paren_string):
-    output = separate_paren_groups(paren_string)
-    print(output)
-else:
-    print("Input string should contain only parentheses.")
+output = separate_paren_groups(paren_string)
+print(output)
