@@ -5,12 +5,11 @@ def indices_of_substring(text, target):
         pos = text.find(target, i)
         if pos != -1:
             result.append(pos)
-            i = pos + len(target)
+            i = pos + 1  # Start searching from the end of the current match
         else:
-            break
+            break 
     return result
 
-
-text = """{}""".format(input())
-target = """{}""".format(input())
-print(indices_of_substring(text.strip(), target.strip()))
+text = input()
+target = input()
+print(indices_of_substring(text, target))
