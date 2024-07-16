@@ -1,5 +1,4 @@
 #include <string>
-
 vector<string> reverse_delete(string s, string c){
     string result = "";
     for(char ch : s){
