@@ -22,13 +22,15 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
 int main() {
     std::vector<int> nums;
     int num;
+
     while (std::cin >> num) {
         nums.push_back(num);
     }
-    
+
     if (std::cin.eof()) {
         findLeaders(nums);
-        std::cout << std::endl;
+    } else {
+        std::cout << "Error reading input." << std::endl;
     }
 
     return 0;
