@@ -1,9 +1,9 @@
-vector<string> words;
+vector<string> result;
     string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                words.push_back(word);
+                result.push_back(word);
                 word = "";
             }
         } else {
@@ -11,16 +11,18 @@ vector<string> words;
         }
     }
     if (!word.empty()) {
-        words.push_back(word);
+        result.push_back(word);
     }
-    if (words.empty()) {
-        int odd_lower_case_count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                odd_lower_case_count++;
+
+    if (result.size() == 1 && result[0].find_first_of(", ") == string::npos) {
+        int count_odd_lower_case = 0;
+        for (char c : result[0]) {
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                count_odd_lower_case++;
             }
         }
-        words.push_back(to_string(odd_lower_case_count));
+        result[0] = to_string(count_odd_lower_case);
     }
-    return words;
+
+    return result;
 }
