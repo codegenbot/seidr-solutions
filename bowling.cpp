@@ -1,23 +1,26 @@
-int bowlingScore(string s) {
+int bowlingScore(string str) {
     int score = 0;
-    int frame = 0;
-    for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-            frame++;
-        } else if (c == '/') {
-            score += 10 - (stoi(s.substr(frame * 2, 1)) + stoi(s.substr(frame * 2 + 1, 1)));
-            frame++;
-        } else {
-            int pins = stoi(c) + stoi(s.substr(frame * 2 + 1, 1));
-            if (pins == 10) {
-                score += 10;
-                frame++;
-            } else {
-                score += pins;
-                frame++;
+    int roll = 0;
+    string temp;
+
+    for (char c : str) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (stoi(temp) + stoi(roll == 1 ? "00" : "0"));
             }
+            roll = 0;
+            temp.clear();
+        } else {
+            temp += c;
+            roll++;
         }
     }
+
+    if (roll > 1) {
+        score += stoi(temp) * 2;
+    } else if (roll == 1) {
+        score += stoi(temp);
+    }
+
     return score;
 }
