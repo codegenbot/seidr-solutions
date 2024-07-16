@@ -1,12 +1,12 @@
 #include <vector>
-#include <cmath>
-#include <cassert> // Include the necessary header file
+#include <cassert>
+#include <cmath> //Include cmath header for pow function
 
-double double_the_difference(std::vector<float> lst){
+double double_the_difference(std::vector<float> lst) {
     double sum = 0;
     for (float num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += pow(num, 2);
+            sum += std::pow(num, 2); //Use std::pow for pow function
         }
     }
     return sum;
@@ -14,8 +14,8 @@ double double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst = {1.5, 2.0, 3.0, 4.0, 5.5};
-    double odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum); // Compare 'odd_sum' with the function result
+    double odd_sum = 7.0; // Calculate the expected value of odd_sum
+    assert(double_the_difference(lst) == odd_sum); // Compare the function result with odd_sum
 
     return 0;
 }
