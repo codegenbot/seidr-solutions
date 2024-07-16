@@ -1,15 +1,18 @@
-vector<int> even_odd_palindrome(int n){
-        vector<int> result(2, 0);
-        for(int i=1; i<=n; i++){
-            string str = to_string(i);
-            string rev_str = string(str.rbegin(), str.rend());
-            if(str == rev_str){
-                if(i % 2 == 0){
-                    result[0]++;
-                } else {
-                    result[1]++;
-                }
+#include <vector>
+
+void issame(const vector<int>& a, const vector<int>& b) {
+    int even = 0, odd = 0;
+    for (int i = 1; i <= n; ++i) {
+        string s = to_string(i);
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        if (s == rev) {
+            if (i % 2 == 0) {
+                even++;
+            } else {
+                odd++;
             }
         }
-        return result;
     }
+    return {even, odd};
+}
