@@ -1,8 +1,10 @@
-```c
+```
 #include <string>
 
 int main() {
-    // No-op, just to satisfy the linker
+    int x;
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
 
