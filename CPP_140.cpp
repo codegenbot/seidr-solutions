@@ -1,19 +1,24 @@
-string result;
+string result = "";
     int count = 0;
+    bool consecutive = false;
+    
     for (char c : text) {
         if (c == ' ') {
             count++;
             if (count > 2) {
-                result.pop_back();
-                result.pop_back();
-                result.push_back('-');
+                if (!consecutive) {
+                    result += "-";
+                    consecutive = true;
+                }
             } else {
-                result.push_back('_');
+                result += '_';
             }
         } else {
+            result += c;
             count = 0;
-            result.push_back(c);
+            consecutive = false;
         }
     }
+    
     return result;
 }
