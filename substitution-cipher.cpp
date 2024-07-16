@@ -1,6 +1,5 @@
-```c++
+```cpp
 #include <string>
-#include <iostream>
 
 std::string cipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
@@ -23,7 +22,14 @@ std::string cipher(std::string cipher1, std::string cipher2, std::string message
 
 int main() {
     std::string cipher1, cipher2, message;
-    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << "Enter the first string: ";
+    std::cin >> cipher1;
+    std::cout << "Enter the second string: ";
+    std::cin >> cipher2;
+    std::cout << "Enter the message to decipher: ";
+    std::cin >> message;
+
     std::cout << cipher(cipher1, cipher2, message) << std::endl;
+
     return 0;
 }
