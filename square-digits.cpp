@@ -1,18 +1,23 @@
+```c++
 #include <iostream>
+#include <string>
 using namespace std;
+
+// Function to square each digit
+string squareDigits(string input) {
+    string result = "";
+    for (char c : input) {
+        int digit = c - '0';
+        result += to_string(digit * digit);
+    }
+    return result;
+}
 
 int main() {
     string input;
-    cin >> input; 
-
-    int result = 1; 
-    for(int i = 0; i < input.length(); i++) { 
-        char c = input[i]; 
-        int square = (c - '0') * (c - '0'); 
-        result *= 10 + c; 
-    }
-
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    string result = squareDigits(input); 
     cout << "Squared digits: " << result << endl;
-    
     return 0;
 }
