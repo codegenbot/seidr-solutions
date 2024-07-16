@@ -1,5 +1,3 @@
-import sys
-
 paren_string = input().strip()
 
 def check_parentheses(paren_string):
