@@ -4,7 +4,7 @@
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = LLONG_MAX;
+    long long min_sum = INT_MAX;
     long long current_sum = 0;
 
     for (int i = 0; i < nums.size(); i++) {
@@ -22,6 +22,6 @@ long long minSubArraySum(vector<long long> nums) {
 
 int main() {
     vector<long long> nums = {1, -1};
-    cout << minSubArraySum(nums) << endl;
+    cout << minSubArraySum(nums);
     return 0;
 }
