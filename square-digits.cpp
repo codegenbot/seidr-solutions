@@ -1,8 +1,9 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 using namespace std;
 
+// Function to square each digit
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
