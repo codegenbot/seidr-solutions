@@ -7,3 +7,9 @@ for (float num : l) {
     }
 }
 return result;
+
+#include <vector>
+
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
+}
