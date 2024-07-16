@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 string camelCase(string s) {
     string result = "";
     int start = 0;
@@ -18,12 +15,4 @@ string camelCase(string s) {
     }
     
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a kebab-case string: ";
-    cin >> input;
-    cout << "camelCase: " << camelCase(input) << endl;
-    return 0;
 }
