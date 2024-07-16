@@ -4,5 +4,5 @@ if (x <= 0 || n <= 0) {
     
     double result = log(x) / log(n);
     
-    return (result == floor(result));
+    return (result == (int)result);
 }
