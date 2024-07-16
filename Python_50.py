@@ -1,22 +1,6 @@
-def decode_shift(s: str):
-    return "".join(
-        [
-            (
-                ch
-                if not ch.isalpha()
-                else chr(
-                    ((ord(ch) - 3 - ord("a" if ch.islower() else "A")) % 26)
-                    + ord("a" if ch.islower() else "A")
-                )
-            )
-            for ch in s
-        ]
-    )
-
-input_str = input("Enter a string to decode: ").strip()
-
-if any(char.isalpha() for char in input_str):
+try:
+    input_str = input("Enter a string to decode: ").strip()
     result = decode_shift(input_str)
     print(result)
-else:
-    print("Input string should contain at least one alphabet character.")
+except Exception as e:
+    print("Error occurred:", e)
