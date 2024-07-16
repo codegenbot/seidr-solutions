@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> v1, vector<int> v2) {
-    return v1 == v2;
+bool issame(const vector<int>& vec1, const vector<int>& vec2) {
+    return vec1 == vec2;
 }
 
 vector<int> solve(int n) {
