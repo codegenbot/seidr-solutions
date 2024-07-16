@@ -1,5 +1,3 @@
-import sys
-
 def separate_paren_groups(paren_string: str) -> list:
     result = []
     level = 0
@@ -24,9 +22,6 @@ def separate_paren_groups(paren_string: str) -> list:
 
     return result
 
-if len(sys.argv) > 1:
-    paren_string = sys.argv[1]
-    output = separate_paren_groups(paren_string)
-    print(output)
-else:
-    print("Please provide a string with parentheses as a command line argument.")
+paren_string = input("Enter a string with parentheses: ")
+output = separate_paren_groups(paren_string)
+print(output)
