@@ -5,8 +5,8 @@ def encode(message):
             (
                 chr(ord(char) + 1)
                 if char.isalpha() and char.upper() in vowels
-                else char.swapcase() if char.isalpha()
-                else char  # Return all characters unchanged
+                else char.swapcase() if char.isalpha() and not char.isdigit()
+                else char  # Return non-alphabetic characters and digits unchanged
             )
             for char in message
         )
@@ -14,5 +14,5 @@ def encode(message):
         return "Invalid input. Please enter a message containing only alphabets or special characters."
 
 print(
-    encode(input("Enter a message: ").strip())
+    encode(input("Enter a message containing only alphabets or special characters: ").strip())
 )
