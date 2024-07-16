@@ -11,6 +11,6 @@ vector<int> tri(int n) {
 
 int main() {
     vector<int> result = tri(5);
-    assert(issame(result, {0, 3, 1, 2, 4}));
+    assert(result == vector<int>{0, 3, 1, 2, 4});
     return 0;
 }
