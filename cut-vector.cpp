@@ -14,7 +14,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             idx = i;
         }
     }
-    res[0] = vector<int>(v.begin(), v.begin() + idx + 1);
+    res[0] = vector<int>(v.begin(), v.begin() + idx);
     res[1] = vector<int>(v.begin() + idx, v.end());
     return res;
 }
