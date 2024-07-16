@@ -1,5 +1,30 @@
-paren_string = input().strip()
+import sys
+from typing import List
 
-if len(paren_string) % 2 == 0 and set(paren_string) == set("()"):
+def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
+    level = 0
+    current_group = ""
+
+    for char in paren_string:
+        if char == "(":
+            level += 1
+            current_group += char
+        elif char == ")":
+            level -= 1
+            if level == 0:
+                result.append(current_group + char)
+                current_group = ""
+            else:
+                current_group += char
+
+    return result
+
+if len(sys.argv) != 2:
+    print("Usage: python script.py <paren_string>")
+    sys.exit(1)
+
+paren_string = sys.argv[1]
+if set(paren_string) == set("()"):
     output = separate_paren_groups(paren_string)
     print(output)
