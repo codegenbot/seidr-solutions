@@ -2,20 +2,24 @@ n = int(input())
 arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
-left_sum = 0
-min_diff = total_sum
-cut_index = 0
+half_sum = total_sum // 2
 
-for i in range(n):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+prefix_sums = [0]
+for num in arr:
+    prefix_sums.append(prefix_sums[-1] + num)
 
-subvector1 = arr[: cut_index + 1]
-subvector2 = arr[cut_index + 1 :]
+best_diff = float("inf")
+best_index = -1
 
-print(*subvector1)
-print(*subvector2)
+for i in range(1, n):
+    diff = abs(prefix_sums[i] - (total_sum - prefix_sums[i]))
+    if diff < best_diff:
+        best_diff = diff
+        best_index = i
+
+if best_diff == 0:
+    print(*arr[:best_index])
+    print(*arr[best_index:])
+else:
+    print(*arr)
+    print(0)
