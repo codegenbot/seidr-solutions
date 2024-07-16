@@ -1,11 +1,12 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // Return None in Python equivalent
-    vector<int> v = lst;
-    sort(v.begin(), v.end());
-    for(int i=0; i<v.size()-1; i++){
-        if(v[i] != v[i+1]) {
-            return v[i+1];
+int next_smallest(vector<int> lst) {
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = 1; i < sorted.size(); i++) {
+        if (find(lst.begin(), lst.end(), sorted[i]) != lst.end()) {
+            return sorted[i];
         }
     }
-    return -1; // Return None in Python equivalent
+    return -1;
 }
+#include <vector>
+#include <algorithm>
