@@ -9,7 +9,7 @@ def solve_boolean(expression):
             i = 1
             while expression[i] != ")":
                 i += 1
-            return "(%s)" % evaluate(i + 1)[1:-1]
+            return evaluate(i + 1)[1:-1]
         operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
         op = None
         if start < len(expression) and expression[start] in operators:
@@ -23,4 +23,4 @@ def solve_boolean(expression):
                 return evaluate()
     return evaluate(0)
 
-print(solve_boolean('t|t&t&t&t&f|t')) # Should return True
+print(solve_boolean('t|t&t&t&t&f|t'))
