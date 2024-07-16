@@ -2,7 +2,7 @@ Here is the completed code:
 
 Here is the completed code:
 int next_smallest(vector<int> lst){
-    if(lst.empty()) return -1;  // Return None
+    if(lst.empty()) return -1;  
     vector<int> v = lst;
     sort(v.begin(), v.end());
     for(int i=0; i<v.size()-1; i++){
