@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>&b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
@@ -28,4 +29,10 @@ int minPath(const std::vector<std::vector<int>>& grid) {
     }
     
     return dp[rows - 1][cols - 1];
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }
