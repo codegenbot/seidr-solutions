@@ -1,6 +1,6 @@
-```cpp
-#include <boost/any.hpp>
 #include <boost/variant.hpp>
+#include <iostream>
+#include <boost/any.hpp>
 
 boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -39,4 +39,20 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
     else {
         return "None";
     }
+}
+
+int main() {
+    boost::any a = 10;
+    boost::any b = 20.5;
+
+    boost::variant<int, float, std::string> result = compare_one(a, b);
+
+    if (boost::holds_alternative<std::string>(result)) {
+        std::cout << "The result is: " << boost::get<std::string>(result) << std::endl;
+    }
+    else {
+        std::cout << "The result is: " << boost::get<int>(result) << std::endl;
+    }
+
+    return 0;
 }
