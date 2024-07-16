@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -24,3 +25,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
