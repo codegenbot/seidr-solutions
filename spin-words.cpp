@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <cstring>
 
 string spinWords(string str) {
     string result = "";
@@ -9,7 +10,7 @@ string spinWords(string str) {
             result += str.substr(i);
             i++;
         } else if (str.length() - i >= 5) {
-            for (int j = str.substr(i).length(); j > 0; j--) {
+            for (int j = strlen(str.substr(i).c_str()); j > 0; j--) {
                 result += str[i + j - 1];
             }
             i += str.substr(i).length();
