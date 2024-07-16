@@ -18,6 +18,6 @@ bool issame(int a, int b) {
 }
 
 int main() {
-    // Main function implementation
+    // Main function logic here
     return 0;
 }
