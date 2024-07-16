@@ -1,4 +1,6 @@
+#include <vector>
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -6,15 +8,15 @@ int main() {
     cin >> cents;
 
     int quarters = cents / 25;
-    cents %= 25;
+    int remaining = cents % 25;
 
-    int dimes = cents / 10;
-    cents %= 10;
+    int dimes = remaining / 10;
+    remaining %= 10;
 
-    int nickles = cents / 5;
-    cents %= 5;
+    int nickles = remaining / 5;
+    remaining %= 5;
 
-    int pennies = cents;
+    int pennies = remaining;
 
     cout << quarters << endl;
     cout << dimes << endl;
