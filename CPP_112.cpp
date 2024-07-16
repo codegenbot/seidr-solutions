@@ -3,11 +3,10 @@
 #include <vector>
 #include <initializer_list>
 #include <memory>
-#include <memory_resource>
 
 using namespace std;
 
-namespace pmr {
+namespace pmr;
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
