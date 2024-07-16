@@ -1,7 +1,11 @@
-def substitution_cipher(cipher1, cipher2, message):
+def main():
+    cipher1 = input("Enter the first string: ")
+    cipher2 = input("Enter the second string: ")
+    message = input("Enter the message to decipher: ")
+
     mapping = {}
-    for c1, c2 in sorted(zip(cipher1.lower(), cipher2.lower())):
-        if c1.isalpha():
+    for c1, c2 in zip(cipher1, cipher2):
+        if c1.isalpha() and c2.isalpha():
             mapping[c1] = c2
             mapping[c1.upper()] = c2.upper()
     
@@ -13,3 +17,6 @@ def substitution_cipher(cipher1, cipher2, message):
             result += char
     
     return result
+
+if __name__ == "__main__":
+    print(main())
