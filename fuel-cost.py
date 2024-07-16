@@ -1,3 +1,4 @@
+```
 def fuel_cost():
     vector = list(map(int, input("Enter space-separated integers: ").split()))
     if not vector:
