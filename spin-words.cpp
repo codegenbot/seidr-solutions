@@ -1,21 +1,37 @@
-Here is the solution:
-
+#include <vector>
+#include <iostream>
 #include <string>
-#include <sstream>
 
-std::string spinWords(std::string input) {
-    std::stringstream ss(input);
-    std::string word;
-    std::stringstream result;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::string temp = "";
 
-    while (ss >> word) {
-        if (word.length() >= 5)
-            for (int i = word.length() - 1; i >= 0; --i)
-                result << word[i];
-        else
-            result << word;
-        result << " ";
+    for(int i=0; i<sentence.length(); i++) {
+        char c = sentence[i];
+        if(c == ' ') {
+            if(temp.length() >= 5)
+                std::reverse(temp.begin(), temp.end());
+            result += temp + " ";
+            temp = "";
+        } else {
+            temp += c;
+        }
     }
 
-    return result.str();
+    if(temp.length() >= 5)
+        std::reverse(temp.begin(), temp.end());
+
+    result += temp;
+
+    return result;
+}
+
+int main() {
+    // Test cases
+    cout << spinWords("a") << endl; // Output: a
+    cout << spinWords("this is a test") << endl; // Output: this is a test
+    cout << spinWords("this is another test") << endl; // Output: this is rehtona test
+    cout << spinWords("hi") << endl; // Output: hi
+
+    return 0;
 }
