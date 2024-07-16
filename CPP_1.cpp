@@ -2,15 +2,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string);
 
 int main() {
-    // Test the functions here
-    return 0;
+    // Your main function code here
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
