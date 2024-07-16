@@ -9,16 +9,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    int start = 0; // Starting index of the current substring
-
-    while (start < n) {
-        int pos = text.find(target, start);
-        
-        if (pos != -1) {
-            result.push_back(pos); 
-            start = pos + m; // Move the start pointer to the end of the found substring
-        } else {
-            break;
+    for(int i=0; i<=n-m; i++) {
+        int pos = text.find(target, i);
+        while (pos != string::npos) {
+            result.push_back(i); 
+            pos = text.find(target, pos + 1);
         }
     }
 
