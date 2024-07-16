@@ -6,14 +6,8 @@ def main():
     mapping = {}
     for c1, c2 in zip(cipher1, cipher2):
         if c1.isalpha() and c2.isalpha():
-            if c1.islower(): 
-                mapping[c1] = c2.lower()
-            else:
-                mapping[c1] = c2.upper()
-            if c1.isupper(): 
-                mapping[c1.upper()] = c2.upper()
-            else: 
-                mapping[c1.lower()] = c2.lower()
+            mapping[c1] = c2
+            mapping[c1.upper()] = c2.upper()
     
     result = ""
     for char in message:
