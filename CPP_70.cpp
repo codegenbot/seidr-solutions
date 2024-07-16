@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <algorithm>
+using namespace std;
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
