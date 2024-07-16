@@ -1,1 +1,4 @@
-n = int(input().strip())
+try:
+    n = int(input())
+except ValueError:
+    print("Input should be an integer.")
