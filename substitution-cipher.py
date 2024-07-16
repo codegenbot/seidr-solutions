@@ -1,9 +1,8 @@
 def substitution_cipher(cipher_text1, cipher_text2, text):
     deciphered = ""
-    for i in range(len(text)):
-        if text[i] in cipher_text1:
-            index = cipher_text1.index(text[i])
-            deciphered += cipher_text2[index]
+    for char1, char2 in zip(cipher_text1, cipher_text2):
+        if char1 in text:
+            deciphered += char2
         else:
-            deciphered += text[i]
+            deciphered += char1
     return deciphered
