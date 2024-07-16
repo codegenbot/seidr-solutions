@@ -21,6 +21,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text;
     string nStr;
+
     cin >> text >> nStr;
 
     vector<int> indices = indicesOfSubstring(text, nStr);
