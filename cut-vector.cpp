@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -8,7 +7,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int splitIndex = -1;
     
-    for (int i = 0; i <= n/2; i++) {
+    for (int i = 0; i < n; i++) {
         int sumLeft = 0, sumRight = 0;
         
         for (int j = 0; j <= i; j++) {
