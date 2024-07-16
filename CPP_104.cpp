@@ -1,15 +1,16 @@
 vector<int> result;
-    for(int num : x){
-        bool has_even_digit = false;
-        int temp = num;
-        while(temp > 0){
-            if ((temp % 10) % 2 == 0){
-                has_even_digit = true;
+    for (int num : x) {
+        int copy = num;
+        bool hasEvenDigit = false;
+        while (copy > 0) {
+            int digit = copy % 10;
+            if (digit % 2 == 0) {
+                hasEvenDigit = true;
                 break;
             }
-            temp /= 10;
+            copy /= 10;
         }
-        if (!has_even_digit){
+        if (!hasEvenDigit) {
             result.push_back(num);
         }
     }
