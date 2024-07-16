@@ -1,23 +1,10 @@
 string make_palindrome(string str){
+    if(str.empty()) return "";
     int n = str.size();
-    string revStr = string(str.rbegin(), str.rend());
-    string temp = str + "$" + revStr;
-    int lps[temp.size()] = {0};
-    int len = 0, i = 1;
-    while (i < temp.size()) {
-        if (temp[i] == temp[len]) {
-            len++;
-            lps[i] = len;
-            i++;
-        } else {
-            if (len != 0) {
-                len = lps[len - 1];
-            } else {
-                lps[i] = 0;
-                i++;
-            }
+    for(int i=n-1; i>=0; --i){
+        if(is_palindrome(str.substr(i))){
+            return str + string(str.rbegin(), str.rbegin() + n - i);
         }
     }
-    string prefix = str.substr(lps[temp.size() - 1]);
-    return str + string(prefix.rbegin(), prefix.rend());
+    return str + string(str.rbegin() + 1, str.rend());
 }
