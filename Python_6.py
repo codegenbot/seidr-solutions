@@ -9,4 +9,11 @@ def parse_nested_parens() -> List[int]:
         result.append(max_count)
     return result
 
+# Sample input
+3
+((()))
+()()()
+((())
+
 output = parse_nested_parens()
+print(output)
