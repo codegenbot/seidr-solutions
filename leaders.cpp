@@ -1,5 +1,6 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -7,16 +8,12 @@ vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
     
-    for(int i=0; i<n; i++){
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++){
-            if(arr[i] < arr[j]){
-                isLeader = false;
-                break;
-            }
-        }
-        if(isLeader){
+    int maxSoFar = 0; 
+
+    for(int i=n-1; i>=0; i--){
+        if(arr[i] >= maxSoFar){
             res.push_back(arr[i]);
+            maxSoFar = arr[i];
         }
     }
     
@@ -30,4 +27,3 @@ int main() {
         cout << i << " ";
     }
     return 0;
-}
