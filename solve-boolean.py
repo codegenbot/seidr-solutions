@@ -16,13 +16,11 @@ def solve_boolean(expression):
                 operator_stack.pop()
         elif char in ["|", "&"]:
             while len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]:
-                operator_stack.pop()
+                operator = operator_stack.pop()
+                temp_result = "T" if eval(f"{temp} {operator} {'F' if result == 'T' else 'T'}") else "F"
+                result = temp_result
             operator = "T" if char.upper() == 'T' else "F"
             temp = operator
-        elif char not in ["(", ")"] or (char in ["(", ")"] and len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]):
-            while len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]:
-                operator_stack.pop()
-            temp = "F" if char.upper() == 'T' else "T"
         else:
             temp = "F" if char.upper() == 'T' else "T"
 
