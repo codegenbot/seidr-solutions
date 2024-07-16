@@ -14,8 +14,10 @@ std::string spinWords(std::string sentence) {
         }
 
         if (inWord && wordLength >= 5) {
+            std::string temp = "";
             for (int i = wordLength - 1; i >= 0; --i)
-                result += ' ';
+                temp += sentence[sentence.find(c) + i];
+            result += temp;
         } else
             result += c;
 
