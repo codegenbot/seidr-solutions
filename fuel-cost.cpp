@@ -1,4 +1,3 @@
-````
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -7,7 +6,8 @@ int fuelCost(vector<int>& vec) {
     int sum = 0;
     for (int i : vec) {
         double x = (double)i / 3;
-        sum += static_cast<int>(x) - 2;
+        x = floor(x);
+        sum += static_cast<int>(x - 2);
     }
     return sum;
 }
@@ -22,4 +22,3 @@ int main() {
     cout << fuelCost(vec) << endl;
     return 0;
 }
-```
