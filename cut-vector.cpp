@@ -1,59 +1,30 @@
 #include <vector>
-
 using namespace std;
-
-vector<vector<int>> cutVector(vector<int> v);
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    vector<vector<int>> res = cutVector(v);
-    return 0;
-}
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-
-    for(int i = 0; i < n; i++) {
-        if(i == 0 || i == n-1)
-            res[0].push_back(v[i]);
-        else {
-            if(abs(v[0] - v[i]) <= abs(v[n-1] - v[i])) {
-                res[0].clear();
-                for(int j = 0; j < i; j++)
-                    res[0].push_back(v[j]);
-                res[0].push_back(v[i]);
-                break;
-            }
-            else {
-                res[0].clear();
-                for(int j = i; j < n; j++)
-                    res[0].push_back(v[j]);
-                break;
-            }
+    int minDiff = INT_MAX;
+    int pos = -1;
+    
+    for (int i = 0; i < n; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += v[j];
+        }
+        
+        int diff = abs(sum1 - sum2);
+        if (diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-
-    if(res[0].size() != n) {
-        for(int i = 0; i < n; i++) {
-            if(i == 0 || i == n-1)
-                res[1].push_back(v[i]);
-            else {
-                if(abs(v[0] - v[i]) <= abs(v[n-1] - v[i])) {
-                    res[1].clear();
-                    for(int j = i; j < n; j++)
-                        res[1].push_back(v[j]);
-                    break;
-                }
-                else {
-                    res[1].clear();
-                    for(int j = 0; j < i; j++)
-                        res[1].push_back(v[j]);
-                    break;
-                }
-            }
-        }
-    }
-
+    
+    res[0] = vector<int>(v.begin(), v.begin() + pos);
+    res[1] = vector<int>(v.begin() + pos, v.end());
+    
     return res;
 }
