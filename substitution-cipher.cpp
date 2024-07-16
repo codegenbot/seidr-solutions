@@ -2,29 +2,25 @@
 #include <iostream>
 
 std::string cipher(std::string cipher1, std::string cipher2, std::string message) {
-    if (cipher1.length() != cipher2.length()) {
-        throw "";
-    }
-
-    std::string table = "";
-    for (int i = 0; i < cipher1.length(); i++) {
-        table += cipher1[i];
-        table += cipher2[i];
-    }
-
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
         char c = message[i];
         if (c >= 'a' && c <= 'z') {
             int index = c - 'a';
-            result += table[index*2]; 
+            int deciphered_index = cipher1.find(char(c));
+            if(deciphered_index != std::string::npos) {
+                result += cipher2[deciphered_index] ;  // add the corresponding character from cipher2
+            }
         }
         else if (c >= 'A' && c <= 'Z') {
             int index = c - 'A';
-            result += toupper(table[index*2]); 
+            int deciphered_index = cipher1.find(char(toupper(c)));
+            if(deciphered_index != std::string::npos) {
+                result += toupper(cipher2[deciphered_index]);  // add the corresponding character from cipher2
+            }
         }
         else {
-            result += message[i];  
+            result += message[i];  // if the character is not a letter, leave it as it is
         }
     }
     return result;
@@ -33,10 +29,6 @@ std::string cipher(std::string cipher1, std::string cipher2, std::string message
 int main() {
     std::string cipher1, cipher2, message;
     std::cin >> cipher1 >> cipher2 >> message;
-    try {
-        std::cout << cipher(cipher1, cipher2, message) << std::endl;
-    } catch (const char* e) {
-        std::cerr << "Error: " << e << std::endl;
-    }
+    std::cout << cipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }

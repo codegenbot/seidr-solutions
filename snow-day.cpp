@@ -18,7 +18,9 @@ int main() {
 
     float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
-    cout << "Amount of snow on ground after " << hours << " hours: " << std::fixed << std::setprecision(6) << result << " inches.\n";
+    std::cout << std::fixed;
+    std::cout << std::setprecision(6);
+    std::cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
 
     return 0;
 }

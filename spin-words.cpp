@@ -1,6 +1,14 @@
-```cpp
+#include <sstream>
+
+int main() {
+    std::string str = "Hello World!";
+    std::string result = spinWords(str);
+    // print or do something with 'result'
+    return 0;
+}
+
 std::string spinWords(std::string str) {
-    std::stringstream ss(str);
+    std::istringstream ss(str);
     std::string word;
     std::string result;
 
@@ -11,7 +19,6 @@ std::string spinWords(std::string str) {
             result += word + " ";
     }
 
-    // Remove extra space from the end
     if (result.back() == ' ') 
         result.pop_back();
 
