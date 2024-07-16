@@ -1,8 +1,8 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <cmath>
+#include <cassert>
+#include <initializer_list>
 
 int sum_squares(std::initializer_list<float> lst){
     int total = 0;
