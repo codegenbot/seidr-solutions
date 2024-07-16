@@ -4,10 +4,10 @@ from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings, key=lambda x: (len(x), x))
+    return max(strings, key=lambda x: (len(x), x)) 
 
-# Input
-strings = sys.stdin.readline().strip().split()
+# Fix the input reading method to use input() instead of sys.stdin.readline()
+strings = input().strip().split()
 
 # Output
-sys.stdout.write(longest(strings))
+print(longest(strings))
