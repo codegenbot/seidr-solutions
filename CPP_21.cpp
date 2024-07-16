@@ -1,3 +1,3 @@
 bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
