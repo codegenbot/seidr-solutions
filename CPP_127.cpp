@@ -10,17 +10,11 @@ int start1 = interval1[0];
         return "NO";
     }
 
-    int length = intersectionEnd - intersectionStart;
+    int intersectionLength = intersectionEnd - intersectionStart;
 
-    if (length <= 1) {
+    if (isPrime(intersectionLength)) {
+        return "YES";
+    } else {
         return "NO";
     }
-
-    for (int i = 2; i * i <= length; ++i) {
-        if (length % i == 0) {
-            return "NO";
-        }
-    }
-
-    return "YES";
 }
