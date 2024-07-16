@@ -1,4 +1,7 @@
+```
 def calculate_fuel(amount):
+    if amount <= 2:
+        return 0
     return amount // 3 - 2
 
 
