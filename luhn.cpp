@@ -23,3 +23,4 @@ int luhn(vector<int> cardNumber) {
     }
 
     return sum;
+}
