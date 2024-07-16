@@ -5,6 +5,11 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input().strip()
-result = decode_cyclic(input_string)
-print(result)
+try:
+    input_string = input("Enter a string: ").strip()
+    if not input_string:
+        raise ValueError("Input string cannot be empty.")
+    result = decode_cyclic(input_string)
+    print(result)
+except Exception as e:
+    print(f"Error: {e}")
