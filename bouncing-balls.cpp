@@ -7,7 +7,7 @@ int main() {
 
     bounciness_index = first_bounce_height / start_height;
 
-    double total_distance = start_height + first_bounce_height; // Include the initial drop distance
+    double total_distance = 2 * start_height; // Include the initial drop distance
 
     for (int i = 1; i < num_bounces; ++i) {
         first_bounce_height *= bounciness_index; // Update next bounce height
