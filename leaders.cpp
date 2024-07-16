@@ -1,24 +1,22 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& vec) {
-    std::vector<int> result;
-    int maxRight = vec.back();
-    for (int i = vec.size() - 1; i >= 0; --i) {
-        if (vec[i] >= maxRight) {
-            result.push_back(vec[i]);
-            maxRight = vec[i];
+vector<int> leaders(vector<int> arr) {
+    int n = arr.size();
+    vector<int> res;
+    
+    for(int i=n-1; i>=0; i--){
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++){
+            if(arr[j] >= arr[i]){
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader){
+            res.push_back(arr[i]);
         }
     }
-    return result;
-
-}
-
-int main() {
-    std::vector<int> vec = {5, 690, 325, 768, 314};
-    std::vector<int> result = leaders(vec);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+    
+    return res;
 }

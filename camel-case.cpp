@@ -1,11 +1,13 @@
-```cpp
 std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
 
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) result += toupper(s.substr(static_cast<int>(s.find(c))+1, 1)); 
+            if(capitalizeNext) {
+                int start = static_cast<int>(s.find(c));
+                result += toupper(s.substr(start + 1, 1));
+            }
             capitalizeNext = true;
             result.push_back(' ');
         } else if (capitalizeNext) {
@@ -16,5 +18,18 @@ std::string camelCase(std::string s) {
         }
     }
 
-    return result.erase(result.size() - 1); // remove the trailing space
+    int start = s.find_first_of(" ");
+    while (start != std::string::npos) {
+        result += toupper(s.substr(start + 1, 1));
+        for (int i = start + 2; i < s.length(); i++) {
+            if (s[i] == ' ') {
+                start = i;
+                break;
+            }
+            result += tolower(s[i]);
+        }
+        start = s.find_first_of(" ", start + 1);
+    }
+
+    return result;
 }
