@@ -2,7 +2,9 @@
 #include <algorithm>
 #include <string>
 #include <vector>
-#include <initializer_list>
+
+namespace std;
+using namespace pmr; 
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
