@@ -1,4 +1,7 @@
-int digitCount = 0;
+#include <string>
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
     
@@ -21,4 +24,11 @@ int digitCount = 0;
     }
     
     return "Yes";
+}
+
+int main() {
+    string file_name;
+    cin >> file_name;
+    cout << file_name_check(file_name);
+    return 0;
 }
