@@ -4,15 +4,16 @@
 #include <string>
 
 std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
-    std::vector<std::string> tokensCopy = tokens; 
     std::string result;
-    for (const auto& token : tokensCopy) {
-        if (!result.empty()) {
+    bool first = true; // Check if it's the first token
+    for (const auto& token : tokens) {
+        if (!first) {
             result += " ";
         }
         result += token + delimiter;
+        first = false;
     }
-    return result.substr(0, result.length() - 1); 
+    return result.substr(0, result.length() - 1); // Remove extra space
 }
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
