@@ -1,3 +1,5 @@
+Here is the modified code:
+
 def basement(lst):
     for i in range(len(lst)):
         if sum(lst[:i+1]) < 0:
