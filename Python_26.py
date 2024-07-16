@@ -1,4 +1,4 @@
-from collections import Counter
+from helpers import remove_duplicates
 
 def check(numbers):
-    return list(Counter(numbers).keys())
+    return remove_duplicates(numbers)
