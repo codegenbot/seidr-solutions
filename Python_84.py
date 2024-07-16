@@ -1,4 +1,3 @@
-```
 def solve(N):
     if isinstance(N, str):
         return N
