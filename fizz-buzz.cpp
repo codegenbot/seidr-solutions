@@ -3,21 +3,17 @@
 
 std::string fizzBuzz(int x) {
     std::string result = "";
-    result = (x % 3 == 0 && x % 5 == 0) ? "FizzBuzz" : 
-             (x % 3 == 0) ? "Fizz" : 
+    result = (x % 5 == 0 && x % 3 == 0) ? "FizzBuzz" : 
              (x % 5 == 0) ? "Buzz" : 
+             (x % 3 == 0) ? "Fizz" : 
              std::to_string(x);
     return result;
 }
 
 int main() {
-    int x;
-    for (;;) {
-        std::cout << "Enter a number: ";
-        std::cin >> x;
-        std::cout << fizzBuzz(x) << std::endl;
-        if (x == 0)
-            break; 
-    }
+    int input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    std::cout << fizzBuzz(input) << std::endl;
     return 0;
 }

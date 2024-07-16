@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)[::-1]]  
     sum_odd = 0
@@ -12,4 +13,4 @@ def luhn(card_number):
         else:
             sum_odd += digit
 
-    return 10 - (sum_odd + sum_even) % 10
+    return (sum_odd + sum_even) % 10
