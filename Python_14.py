@@ -1,1 +1,1 @@
-input_data = list(map(int, input().split()))
+input_data = list(map(int, input("Please enter your input: ").strip().split()))
