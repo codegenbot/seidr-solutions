@@ -16,7 +16,8 @@ std::string solve(const std::string& s) {
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
-
+    std::string s;
+    std::getline(std::cin, s);
+    std::cout << solve(s) << std::endl;
     return 0;
 }
