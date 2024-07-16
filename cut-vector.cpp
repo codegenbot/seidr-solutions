@@ -15,13 +15,17 @@ int main() {
         }
     }
 
+    // Outputs the left subvector
     for (int i = 0; i <= idx; ++i) {
-        std::cout << vec[i] << std::endl;
+        std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
+
+    // Outputs the right subvector
     for (int i = idx + 1; i < vec.size(); ++i) {
-        std::cout << vec[i] << std::endl;
+        std::cout << vec[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
