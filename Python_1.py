@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -22,6 +23,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = input("Enter a string of parentheses: ")
+paren_string = sys.stdin.readline().strip()
 result = separate_paren_groups(paren_string)
 print(result)
