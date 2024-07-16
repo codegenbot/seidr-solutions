@@ -1,10 +1,7 @@
-```
-while True:
+user_input = None
+while user_input is None:
     try:
         user_input = input("Enter numbers separated by space: ")
-        if not user_input.strip(): 
-            print("Please enter more than one number separated by spaces.")
-            continue
         lst = list(map(int, user_input.split()))
         if len(lst) < 2 or not all(isinstance(num, int) for num in lst):
             raise ValueError
