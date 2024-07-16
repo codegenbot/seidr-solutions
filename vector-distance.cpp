@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -18,11 +19,11 @@ int main() {
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = std::sqrt(sum);
-    std::cout << result << std::endl;
+    double result = std::sqrt(sum); // Square root of sum of squares
+    std::cout << std::fixed << std::setprecision(14) << result << std::endl; // Output result with precision
 
     return 0;
 }
