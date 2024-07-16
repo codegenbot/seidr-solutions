@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <iomanip>
-#include <cmath> 
 using namespace std;
 
 int main() {
@@ -24,5 +24,6 @@ int main() {
     }
 
     cout << fixed << setprecision(6) << total_distance;
+
     return 0;
 }
