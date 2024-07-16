@@ -1,8 +1,16 @@
-```cpp
+```c++
 #include <cctype>
 #include <string>
 
-int bowlingScore(const std::string& s) {
+int main() {
+    std::string s;
+    std::cout << "Enter the bowling score: ";
+    std::getline(std::cin, s);
+    std::cout << "The score is: " << bowlingScore(s) << std::endl;
+    return 0;
+}
+
+std::string bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
@@ -21,7 +29,7 @@ int bowlingScore(const std::string& s) {
             } else {
                 currentRoll *= 10;
                 currentRoll += c - '0';
-            }
+           
             
             if(i < s.length() - 1) {
                 char nextC = s.at(i + 1);
@@ -49,5 +57,5 @@ int bowlingScore(const std::string& s) {
         }
     }
 
-    return score;
+    return std::to_string(score);
 }
