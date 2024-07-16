@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 
@@ -25,4 +26,4 @@ int main() {
     for(int i:leadersVec){
         cout << i << " ";
     }
-    return 0;
+    return 0; }

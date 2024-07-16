@@ -1,6 +1,5 @@
+```cpp
 #include <iostream>
-using namespace std;
-
 int luhn(int digits[16]) {
     int sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -14,10 +13,11 @@ int luhn(int digits[16]) {
 }
 
 int main() {
-    int digits[16];
-    for(int i = 0; i < 16; i++) {
-        cin >> digits[i];
+    int card_number[16];
+    for (int i = 0; i < 16; i++) {
+        std::cout << "Enter the digit: ";
+        std::cin >> card_number[i];
     }
-    cout << "The Luhn check result is: " << luhn(digits);
+    std::cout << "The result is: " << luhn(card_number) << std::endl;
     return 0;
 }
