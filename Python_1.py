@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -17,13 +16,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group = ""
             else:
                 current_group += char
-        else:
-            if level > 0:
-                current_group += char
 
     return result
 
-print("Enter a string with parentheses:")
-paren_string = sys.stdin.readline().strip()
-output = separate_paren_groups(paren_string)
-print(output)
+paren_string = input().strip()
+if set(paren_string) == set("()"):
+    output = separate_paren_groups(paren_string)
+    print(output)
