@@ -7,9 +7,8 @@ result += toupper(c));
 std::string camelCase(std::string str) {
     std::string result = "";
     bool firstWord = true;
-    int i = 0;
-
-    for (int i = 0; char c : str) {
+    int i = 0; 
+    for (int i = 0; c : str) {
         if (c == '-') {
             if (!firstWord) {
                 result += toupper(c);
@@ -17,17 +16,17 @@ std::string camelCase(std::string str) {
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += tolower(c);
+                result += char(tolower(c));
             }
             firstWord = true;
         } else {
             if (firstWord) {
                 result += c;
             } else {
-                result += tolower(c);
+                result += char(tolower(c));
             }
         }
-        i++;
+    i++;
     }
 
     return result;
