@@ -15,13 +15,13 @@ bool is_nested(const std::string& str) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
+    std::cout << "Enter a string containing square brackets []: ";
     std::cin >> input;
 
     if (is_nested(input)) {
-        std::cout << "String is nested properly." << std::endl;
+        std::cout << "The brackets are properly nested." << std::endl;
     } else {
-        std::cout << "String is not nested properly." << std::endl;
+        std::cout << "The brackets are not properly nested." << std::endl;
     }
 
     return 0;
