@@ -1,19 +1,21 @@
 #include <vector>
-#include <cmath>
+#include <cassert>
 
-double double_the_difference(std::vector<float> lst){
-    double sum = 0;
+long long double_the_difference(std::vector<float> lst){
+    long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && std::fmod(num, 1) == 0 && (int)num % 2 != 0) {
-            sum += std::pow(num, 2);
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            sum += (long long)num * num;
         }
     }
-    return sum * 2;
+    return sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.0, 3.0, 4.5};
-    double odd_sum = 25.0; // You need to calculate this value
-    assert(double_the_difference(lst) == odd_sum);
+    // Test cases
+    assert(double_the_difference({3.0, 4.0, 5.0, 6.0}) == 9);
+    assert(double_the_difference({-2.0, 4.0, 5.0, 7.0}) == 0);
+    assert(double_the_difference({1.0, 2.0, 3.0, 4.0}) == 0);
+
     return 0;
 }
