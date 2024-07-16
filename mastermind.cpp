@@ -12,29 +12,37 @@ int main() {
     std::cout << "Enter your guess: ";
     std::cin >> guessStr;
 
-    int whitePegs = 0, blackPegs = 0;
+    int blackPegs = 0, whitePegs = 0;
+    char codeArray[5];
     for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
+        codeArray[i] = codeStr[i];
+        codeArray[4] = '\0';
+    }
+
+    // Count black pegs
+    for (int i = 0; i < 4; i++) {
+        if (codeArray[i] == guessStr[i]) {
             blackPegs++;
-        } else {
-            bool foundInCode = false;
-            for (int j = 0; j < 4; j++) {
-                if (guessStr[i] == codeStr[j]) {
-                    foundInCode = true;
-                    break;
-                }
-            }
-            if (!foundInCode) {
+            codeArray[i] = '\0';  
+        }
+    }
+
+    // Count white pegs
+    for (int i = 0; i < 4; i++) {
+        bool found = false;
+        for (int j = 0; j < 4; j++) {
+            if (codeArray[j] == guessStr[i]) {
+                codeArray[j] = '\0';  
                 whitePegs++;
-            } else {
-                blackPegs--;
+                found = true;
+                break;
             }
         }
     }
 
     // Print the result
     std::cout << "Black pegs: " << blackPegs << std::endl;
-    std::cout << "White pegs: " << whitePegs << std::endl;
+    std::cout << "White pegs: " << whitePegs - blackPegs << std::endl;
 
     return 0;
 }
