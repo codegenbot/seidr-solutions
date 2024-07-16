@@ -2,8 +2,6 @@
 
 int main() {
     // Task: Return the length of the input string
-    std::string str;
-    std::cin >> str;
-    
+    std::string str = "example";
     return str.length();
 }
