@@ -1,17 +1,12 @@
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <string>
-
 std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
     std::string result;
     for (const auto& token : tokens) {
         if (!result.empty()) {
             result += " ";
         }
-        result += token;
+        result += token + delimiter;
     }
-    return result; 
+    return result;
 }
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
@@ -50,3 +45,4 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::cout << camelCase("hello-world-example") << std::endl;
     return 0;
+}
