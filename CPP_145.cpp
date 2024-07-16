@@ -1,4 +1,4 @@
-vector<int> issame(vector<int> a) {
+vector<int> issame(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
         int tempA = abs(a), tempB = abs(b);
@@ -19,7 +19,7 @@ vector<int> issame(vector<int> a) {
 }
 
 int main() {
-    vector<int> result = issame({0, 6, 6, -76, -21, 23, 4});
+    vector<int> result = issame({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 23, 6, 6});
     for (int num : result) {
         cout << num << " ";
     }
