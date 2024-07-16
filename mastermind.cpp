@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -8,14 +5,16 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
+            code[i] = '\0'; // mark as used
         }
     }
 
     for (int i = 0; i < 4; ++i) {
         bool found = false;
         for (int j = 0; j < 4; ++j) {
-            if (code[j] == guess[i] && i != j) {
+            if (code[j] == guess[i] && code[j] != '\0') {
                 found = true;
+                code[j] = '\0'; // mark as used
                 break;
             }
         }
@@ -26,13 +25,8 @@ int mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code, guess;
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> code;
-    std::cout << "Enter a guess: ";
-    std::cin >> guess;
+    std::string code = "BOBO"; 
+    std::string guess = "BOBO";
     int result = mastermind(code, guess);
-    std::cout << "Number of black pegs: " << result / 2 << "\n";
-    std::cout << "Number of white pegs: " << result - (result / 2) * 2 << "\n";
     return 0;
 }
