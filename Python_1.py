@@ -1,1 +1,1 @@
-paren_string = input()
+paren_string = input("Enter a string of parentheses: ")
