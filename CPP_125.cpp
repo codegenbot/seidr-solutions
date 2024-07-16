@@ -1,5 +1,5 @@
-bool issame(int a, int b) {
-    return a == b;
+bool issame(char c1, char c2) {
+    return tolower(c1) == tolower(c2);
 }
 
 vector<string> split_words(string txt) {
