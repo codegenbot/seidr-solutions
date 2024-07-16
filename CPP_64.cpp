@@ -1,11 +1,11 @@
+transform(s.begin(), s.end(), s.begin(), ::tolower);
 int count = 0;
-    for(char c : s){
-        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
-            count++;
-        }
+for(char c : s){
+    if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+        count++;
     }
-    if(s.back() == 'y' || s.back() == 'Y'){
-        count--;
-    }
-    return count;
 }
+if(!s.empty() && (s.back() == 'y' || s.back() == 'Y')){
+    count--;
+}
+return count;
