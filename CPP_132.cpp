@@ -1,10 +1,14 @@
+int n = str.length();
 int cnt = 0;
-    for (char c : str) {
-        if (c == '[') {
-            cnt++;
-        } else if (c == ']' && cnt > 0) {
-            cnt--;
-        }
+for (int i = 0; i < n; i++) {
+    if (str[i] == '[') {
+        cnt++;
+    } else {
+        cnt--;
     }
-    return cnt < 0;
+    if (cnt < 0) {
+        return true;
+    }
+}
+return false;
 }
