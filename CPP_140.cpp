@@ -1,11 +1,18 @@
-for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ') {
-            if (i + 2 < text.size() && text[i + 1] == ' ' && text[i + 2] == ' ') {
-                text.replace(i, text.find_first_not_of(' ', i + 1) - i, "-");
+string result = "";
+    bool consecutive = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (consecutive) {
+                result.pop_back();
+                result += "-";
             } else {
-                text[i] = '_';
+                result += "_";
+                consecutive = true;
             }
+        } else {
+            result += c;
+            consecutive = false;
         }
     }
-    return text;
+    return result;
 }
