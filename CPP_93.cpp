@@ -1,8 +1,8 @@
 for (char &c : message) {
         if (isalpha(c)) {
-            c = isupper(c) ? tolower(c) : toupper(c);
+            c = islower(c) ? toupper(c) : tolower(c);
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c += 2;
+                c = c + 2;
             }
         }
     }
