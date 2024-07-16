@@ -18,9 +18,9 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << std::fixed; 
+    std::cout << std::fixed;
     std::cout << std::setprecision(6);
-    std::cout << result = probability(n, m) << std::endl;
-    std::cout << std::resetiosflags(std::ios_base::floatfield);  // Reset precision after use
+    std::cout << probability(n, m) << std::endl;
+    std::cout << std::ws;
     return 0;
 }
