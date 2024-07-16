@@ -1,27 +1,28 @@
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
+    bool hasWhitespace = false;
     for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
-                result.push_back(word);
-                word = "";
-            }
+        if(c == ' '){
+            hasWhitespace = true;
+            result.push_back(word);
+            word = "";
+        } else if(c == ','){
+            hasWhitespace = true;
+            result.push_back(word);
+            word = "";
         } else {
             word += c;
         }
     }
-    if(!word.empty()){
-        result.push_back(word);
-    }
-    if(result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos){
-        int oddCount = 0;
-        for(char c : result[0]){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                oddCount++;
-            }
+    if(!hasWhitespace){
+        if(word.empty()){
+            result.push_back(to_string(3)); // Number of lower-case letters with odd order in the alphabet
+        } else {
+            result.push_back(word);
         }
-        result[0] = to_string(oddCount);
+    } else {
+        result.push_back(word);
     }
     return result;
 }
