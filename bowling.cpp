@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int score(string s) {
     int total = 0;
