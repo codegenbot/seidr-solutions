@@ -7,5 +7,11 @@ def solve(N):
     elif type(N) != int:
         return 
     else:
-        s = format(abs(N), 'b').zfill(len(str(bin(abs(N))[2:]))).lstrip("0")
-        return s if s == "0" else "1" + s
+        s = bin(abs(N))[2:]
+        if len(s) % 4 != 0:
+            s = '0' * (4 - len(s) % 4) + s
+        result = ''
+        for i in range(0, len(s), 4):
+            d4 = s[i:i+4]
+            result += chr(int(d4, 2))
+        return result
