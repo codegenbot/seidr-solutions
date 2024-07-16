@@ -13,11 +13,15 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0, whitePegs = 0;
-    std::string codeStrCopy = codeStr;
+    char codeArray[5];
+    for (int i = 0; i < 4; i++) {
+        codeArray[i] = codeStr[i];
+    }
+    codeArray[4] = '\0';
 
     // Count black pegs
     for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
+        if (codeArray[i] == guessStr[i]) {
             blackPegs++;
         }
     }
@@ -26,8 +30,8 @@ int main() {
     for (int i = 0; i < 4; i++) {
         bool found = false;
         for (int j = 0; j < 4; j++) {
-            if (codeStrCopy[j] == guessStr[i]) {
-                codeStrCopy[j] = 'x';  
+            if (codeArray[j] == guessStr[i]) {
+                codeArray[j] = '\0';  
                 whitePegs++;
                 found = true;
                 break;
