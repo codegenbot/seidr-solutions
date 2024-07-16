@@ -1,8 +1,11 @@
 def encode(message):
-    if all(char.isalpha() or char.isspace() for char in message):
-        return "".join(char.swapcase() if char.isalpha() else char for char in message)
-    else:
-        return "Invalid input. Please enter a message containing only alphabets, including spaces."
+    encoded_message = ""
+    for char in message:
+        if char.isalpha():
+            encoded_message += chr(ord(char) + 1)
+        else:
+            encoded_message += char
+    return encoded_message
 
-user_input = input("Enter a message: ")
+user_input = input("Enter a message containing only alphabets, including spaces: ")
 print(encode(user_input))
