@@ -13,5 +13,5 @@ int main() {
     cin >> hours;
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
     cin >> initialSnow >> rateOfSnowfall >> proportionMeltingPerHour;
-    cout << fixed << setprecision(2) << snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour) << endl;
-    return 0;
+    cout << fixed << showpoint << setprecision(6) << snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour) << endl;
+    return 0; }
