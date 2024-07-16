@@ -11,5 +11,13 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-n = int(input().strip())
-print(factorize(n))
+while True:
+    try:
+        n = int(input("Enter an integer to factorize: "))
+        if n > 0:
+            print(factorize(n))
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Please enter a valid integer value.")
