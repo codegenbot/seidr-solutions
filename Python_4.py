@@ -1,13 +1,8 @@
 try:
-    numbers = [
-        int(x) for x in input("Enter a list of numbers separated by spaces: ").split()
-    ]
-    if not numbers:
-        raise ValueError("Empty input. Please enter at least one number.")
-    result = sum(numbers)
-    print("Sum of the numbers: ", result)
-except ValueError as e:
+    numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
+    print("Sum of input numbers:", sum(numbers))
+except ValueError:
     print("Invalid input. Please make sure to enter numbers separated by spaces.")
     print("Example input: 1 2 3")
-except Exception as e:
+except Exception:
     print("Error reading input. Please make sure to enter numbers separated by spaces.")
