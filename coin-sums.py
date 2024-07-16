@@ -4,6 +4,7 @@ def coin_sums(cents):
     result = []
 
     coins.sort(reverse=True)
+
     for coin in coins:
         count = cents // coin
         if count > 0:
