@@ -19,6 +19,6 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    // Main function code here
+    // Main function implementation
     return 0;
 }
