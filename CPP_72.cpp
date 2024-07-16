@@ -13,12 +13,14 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> q = {1, 2, 3, 2, 1};
-    int w = 10;
-    if (will_it_fly(q, w)) {
-        std::cout << "It will fly!" << std::endl;
+    std::vector<int> test_case = {1, 2, 3, 2, 1};
+    int weight_limit = 10;
+    
+    if (will_it_fly(test_case, weight_limit)) {
+        std::cout << "The aircraft will fly!";
     } else {
-        std::cout << "It will not fly!" << std::endl;
+        std::cout << "The aircraft is too heavy!";
     }
+
     return 0;
 }
