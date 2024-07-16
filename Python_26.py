@@ -1,14 +1,8 @@
 from typing import List
 
+numbers = list(map(int, input().split()))
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    unique_numbers = set()
-    duplicates = set()
+    return [num for num in numbers if numbers.count(num) == 1]
 
-    for num in numbers:
-        if num in unique_numbers:
-            duplicates.add(num)
-        else:
-            unique_numbers.add(num)
-
-    return [num for num in numbers if num not in duplicates]
+print(remove_duplicates(numbers))
