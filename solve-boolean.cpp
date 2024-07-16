@@ -1,22 +1,22 @@
 bool solveBoolean(const std::string& s) {
     if (s.empty()) return false; 
     bool result = true;
-    for (int i = 0; i < s.length(); ++i) {
-        char c = s[i]; // store current character in 'c'
+    int operand = 1; // initialize to true (1)
+    for (int i = 0; i < s.size(); ++i) { 
+        char c = s[i]; 
         if (c == 'T') {
-            result = true; 
+            result = result && true;
+            operand = 1;
         } else if (c == 'F') {
-            result = false;
-        } else if (c == '|') { 
-            bool temp = result;
-            result = true;
-            for (; i < s.length() && s[i] != '&'; ++i) {}
-            result = result && temp;
-        } else if (c == '&') { 
-            bool temp = result;
-            result = true;
-            for (; i < s.length() && s[i] != '|'; ++i) {}
-            result = result && temp;
+            result = result && false;
+            operand = 0;
+        } else if (c == '|') {
+            result = result || operand; 
+            operand = 1; 
+        } else if (c == '&') {
+            bool tempOperand = operand;
+            operand = 1;
+            result = result && tempOperand;
         }
     }
     return result;
