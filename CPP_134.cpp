@@ -1,5 +1,11 @@
-int n = txt.size();
-    if (n == 0) return false;
+if(txt.empty()) return false;
     char last_char = txt.back();
-    return isalpha(last_char) && txt.find_last_of(" ") == (n-1);
+    if(isalpha(last_char)){
+        if(txt.find_last_of(' ') != string::npos){
+            if(txt.find_last_of(' ') > txt.find_last_of(last_char)) return true;
+            else return false;
+        }
+        return true;
+    }
+    return false;
 }
