@@ -1,12 +1,12 @@
-bool correct_bracketing(const string& brackets) {
+bool correct_bracketing(const std::string& brackets) {
     int count = 0;
-    for(char c : brackets){
-        if(c == '<'){
+    for (char c : brackets) {
+        if (c == '<') {
             count++;
-        } else if(c == '>'){
+        } else if (c == '>') {
             count--;
         }
-        if(count < 0){
+        if (count < 0) {
             return false;
         }
     }
