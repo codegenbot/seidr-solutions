@@ -1,6 +1,7 @@
 #include <vector>
-#include <iostream>
 using namespace std;
+
+#include <iostream>
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
