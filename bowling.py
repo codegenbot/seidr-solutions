@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     roll = 0
@@ -11,14 +12,11 @@ def bowling_score(frames):
             if roll == 1:
                 score += first_roll + second_roll
             else:
-                score += max(first_roll, second_roll) + min(first_roll, second_roll)
+                strike_score = first_roll + second_roll
+                if frame[0] == 'X':
+                    strike_score += (10 - strike_score // 2) * 2
+                score += strike_score
             roll = 0
         elif len(frame) > 2:
-            strike = int(frame[0])
-            next_two_rolls = map(int, frame[1:])
-            if roll == 0:
-                score += 10 + sum(next_two_rolls)
-            else:
-                score += strike + sum(next_two_rolls)
-            roll = 1
+            raise ValueError('Invalid frame')
     return score
