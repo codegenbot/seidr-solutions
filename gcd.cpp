@@ -1,21 +1,14 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int len = target.length();
-    for(int i = 0; ; i++){
-        if(i+len > text.length()) break;
+    for(int i = 0 ; i <= text.length() - len; i++){
         bool found = true;
         for(int j = 0; j < len; j++){
             if(text[i+j] != target[j]){
@@ -26,6 +19,13 @@ vector<int> indicesOfSubstring(string text, string target) {
         if(found) result.push_back(i);
     }
     return result;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
 
 int main() {
