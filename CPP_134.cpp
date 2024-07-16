@@ -1,15 +1,5 @@
-if (txt.empty()) return false;
-    char lastChar = txt.back();
-    if (isalpha(lastChar)) {
-        int pos = txt.find_last_of(" ");
-        if (pos == string::npos) {
-            return true;
-        }
-        for (int i = pos + 1; i < txt.size(); i++) {
-            if (!isalnum(txt[i])) {
-                return true;
-            }
-        }
-    }
-    return false;
+int n = txt.size();
+    if (n == 0) return false;
+    char last_char = txt.back();
+    return isalpha(last_char) && txt.find_last_of(" ") == (n-1);
 }
