@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 int main() {
     std::string codeStr, guessStr;
@@ -13,7 +14,15 @@ int main() {
     std::cin >> guessStr;
 
     int blackPegs = 0, whitePegs = 0;
-    
+    std::unordered_map<char, int> codeCount;
+
+    // Count characters in the code
+    for (char c : codeStr) {
+        if ('0' <= c && c <= '5') {
+            codeCount[c]++;
+        }
+    }
+
     // Count black pegs
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
@@ -21,21 +30,29 @@ int main() {
         }
     }
 
-    int codeCount[6] = {0};
+    // Count white pegs
     for (int i = 0; i < 4; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
-            if (codeStr[j] == guessStr[i]) {
-                codeCount[codeStr[j] - '0']++; // increment the count of the character
-                found = true;
+        bool foundInCode = false;
+        for (char c : codeStr) {
+            if (c == guessStr[i]) {
+                foundInCode = true;
                 break;
             }
         }
-    }
-
-    // Count white pegs
-    for (int i = 0; i < 6; i++) {
-        whitePegs += std::min(codeCount[i], guessStr.count(std::string(1, '0' + i)));
+        if (!foundInCode) {
+            whitePegs++;
+        } else {
+            bool foundInCodeAtCorrectPosition = false;
+            for (int j = 0; j < 4; j++) {
+                if (codeStr[j] == guessStr[i]) {
+                    foundInCodeAtCorrectPosition = true;
+                    break;
+                }
+            }
+            if (!foundInCodeAtCorrectPosition) {
+                whitePegs++;
+            }
+        }
     }
 
     // Print the result
