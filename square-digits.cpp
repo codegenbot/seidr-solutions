@@ -1,4 +1,4 @@
-string squareDigits(string n) {
+string squareDigits(std::string n) {
     string res = "";
     for (char c : n) {
         int num = c - '0';
