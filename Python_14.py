@@ -1,1 +1,1 @@
-input_data = input()
+input_data = input().split()
