@@ -1,22 +1,21 @@
-vector<int> findIndices(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
+#include <vector>
+using namespace std;
 
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
+        if (text.substr(i, targetLen) == target) {
             result.push_back(i);
+            i += targetLen - 1; // skip overlapping indices
         }
     }
-
     return result;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
