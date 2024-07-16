@@ -32,4 +32,3 @@ int main() {
         cout << "output: " << camelCase(str) << endl;
     }
     return 0;
-}
