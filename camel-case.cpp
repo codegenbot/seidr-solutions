@@ -4,14 +4,15 @@
 #include <string>
 
 std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
+    std::vector<std::string> tokensCopy = tokens; 
     std::string result;
-    for (const auto& token : tokens) {
+    for (const auto& token : tokensCopy) {
         if (!result.empty()) {
             result += " ";
         }
         result += token + delimiter;
     }
-    return result.substr(0, result.length() - 1); // Remove extra space
+    return result.substr(0, result.length() - 1); 
 }
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
@@ -39,8 +40,9 @@ std::string camelCase(const std::string& str) {
         if (!result.empty()) {
             result += " ";
         } else {
-            result += (i == 0 ? std::toupper(words[i][0]) : std::tolower(words[i][0])) + words[i].substr(1);
+            result += std::toupper(words[i][0]);
         }
+        result += std::string(words[i]).substr(1);
     }
     
     return result;
