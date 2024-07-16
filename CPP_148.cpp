@@ -1,41 +1,37 @@
 #include <vector>
-#include <algorithm>
 #include <string>
-#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    
+    return true;
 }
 
 vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
-
-    int index1 = -1, index2 = -1;
-    for (int i = 0; i < planets.size(); ++i) {
-        if (planets[i] == planet1) {
-            index1 = i;
+    int start = -1, end = -1;
+    
+    for(int i=0; i<planets.size(); i++){
+        if(planets[i] == planet1) start = i;
+        if(planets[i] == planet2) end = i;
+    }
+    
+    if(start == -1 || end == -1) return result;
+    
+    if(start < end){
+        for(int i=start+1; i<end; i++){
+            result.push_back(planets[i]);
         }
-        if (planets[i] == planet2) {
-            index2 = i;
+    } else {
+        for(int i=start-1; i>end; i--){
+            result.push_back(planets[i]);
         }
     }
-
-    if (index1 == -1 || index2 == -1) {
-        return result;
-    }
-
-    int start = min(index1, index2);
-    int end = max(index1, index2);
-
-    for (int i = start + 1; i < end; ++i) {
-        result.push_back(planets[i]);
-    }
-
+    
     return result;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    return 0;
 }
