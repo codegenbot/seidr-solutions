@@ -1,12 +1,15 @@
-int maxFrequency = -1;
+int search(vector<int> lst) {
+    int result = -1;
     for (int num : lst) {
-        int frequency = count(lst.begin(), lst.end(), num);
-        if (num > frequency && frequency > maxFrequency) {
-            maxFrequency = frequency;
+        int freq = 0;
+        for (int n : lst) {
+            if (n == num) {
+                freq++;
+            }
+        }
+        if (num > 0 && freq >= num && num > result) {
+            result = num;
         }
     }
-    if (maxFrequency == -1) {
-        return -1;
-    }
-    return maxFrequency;
+    return result;
 }
