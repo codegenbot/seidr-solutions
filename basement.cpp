@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    vector<int> nums = {-3,2,-3,4,5,1,-12,6,-1};
+    vector<int> nums = {1,-2,3,10,6,-1};
     int result = basement(nums);
     return 0;
 }
