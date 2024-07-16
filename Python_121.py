@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```Python
 def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 == 0)
 
@@ -10,7 +7,7 @@ while True:
         if not user_input:
             raise ValueError
         lst = list(map(int, filter(str.isdigit, user_input.split())))
-        if not all(isinstance(num, int) for num in lst):
+        if len(lst) == 0 or not all(isinstance(num, int) for num in lst):
             raise ValueError
         break
     except ValueError:
