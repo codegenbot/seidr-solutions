@@ -4,9 +4,9 @@ try:
         num = input("Enter a number or type 'stop' to end: ").strip()
         if num == 'stop':
             break
-        if num.isdigit():
+        try:
             numbers.append(int(num))
-        else:
+        except ValueError:
             print("Invalid input. Please enter a valid number.")
-except EOFError:
+except KeyboardInterrupt:
     pass
