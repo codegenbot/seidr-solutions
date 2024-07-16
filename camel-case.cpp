@@ -16,5 +16,8 @@ std::string camelCase(std::string s) {
         }
     }
 
-    return result.erase(result.size() - 1); // remove the trailing space
+    // Remove trailing space
+    if (!result.empty()) result.pop_back();
+
+    return result;
 }
