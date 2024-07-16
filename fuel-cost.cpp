@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int fuelCost(std::vector<int> &stations) {
     int sum = 0;
@@ -11,7 +12,8 @@ int fuelCost(std::vector<int> &stations) {
 }
 
 int main() {
-    std::vector<int> stations = {1, 5, 7, 10};
-    std::cout << "The total fuel cost is: " << fuelCost(stations) << std::endl;
+    std::vector<int> stations = {12, 15, 18, 20};
+    int result = fuelCost(stations);
+    std::cout << "The total fuel cost is: " << result << std::endl;
     return 0;
 }
