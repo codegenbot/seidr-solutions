@@ -1,18 +1,21 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& str) {
     std::string result;
-    bool capitalize = false;
+    bool capitalize = true;
 
-    result += ' ';  // Add a space to account for leading space
-    for (char c : str + " ") {  
+    for (char c : str) {
         if (c == '-') {
-            result += ' ';  // Add a space to separate words
-            capitalize = true;  // Start new word, so capitalize next char
+            if(capitalize) {
+                result += ' ';  // Add a space to separate words
+                capitalize = true;  // Start new word, so capitalize next char
+            } else {
+                result += ' ';  // Add a space after each word
+            }
         } else if (capitalize) {
-            result += toupper(c);  
+            result += toupper(c);  // Capitalize first letter of each word
             capitalize = false;
         } else {
             result += tolower(c);
