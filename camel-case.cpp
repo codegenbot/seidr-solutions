@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
     string input;
-    getline(std::cin, input);
+    getline(cin, input);
 
     bool capitalize = true;
     for (char &c : input) {
@@ -13,15 +12,15 @@ int main() {
             capitalize = true;
         } else if (c != ' ') {
             if (capitalize) {
-                c = std::toupper(c);
+                c = toupper(c);
                 capitalize = false;
             } else {
-                c = std::tolower(c);
+                c = tolower(c);
             }
         }
     }
 
-    std::cout << input << std::endl;
+    cout << input << endl;
 
     return 0;
 }
