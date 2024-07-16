@@ -1,20 +1,20 @@
 ```cpp
 #include <sstream>
-using namespace std;
+#include <iostream>
 
-bool solveBoolean(const string& s) {
+bool solveBoolean(const std::string& s) {
     bool result = true;
-    stringstream ss(s);
+    std::stringstream ss(s);
 
     for (int i = 0; i < s.size(); ++i) { 
         char c = s[i]; 
         if (c == '|') {
             char ch;
-            ss >> noskipws >> ch;
+            ss >> ch;
             result = result || (ch == 'T');
         } else if (c == '&') {
             char ch;
-            ss >> noskipws >> ch;
+            ss >> ch;
             result = result && (ch == 'T');
         }
     }
@@ -23,14 +23,14 @@ bool solveBoolean(const string& s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    getline(cin, s);
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::getline(std::cin, s);
     bool result = solveBoolean(s);
     if (result) {
-        cout << "The result is true." << endl;
+        std::cout << "The result is true." << std::endl;
     } else {
-        cout << "The result is false." << endl;
+        std::cout << "The result is false." << std::endl;
     }
     return 0;
 }
