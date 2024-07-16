@@ -1,7 +1,7 @@
 double probability(int n, int m) {
-    double total = 0;
-    for (int i = 1; i <= m && i < n; i++) {
-        total += pow(m, i) * pow(1 - 1.0/m, n-i);
+    double total = (m + 1.0) / n;
+    for (int i = m + 2; i <= n; i++) {
+        total += 1.0 / n;
     }
-    return total;
+    return 1 - total;
 }
