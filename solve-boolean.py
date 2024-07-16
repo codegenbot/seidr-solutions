@@ -1,5 +1,8 @@
 def solve_boolean(expression):
-    return eval(expression.replace("T", "True").replace("F", "False").replace("&", "and").replace("|", "or").upper())
+    boolean_map = {'T': True, 'F': False, '|': 'or', '&': 'and'}
+    for key, value in boolean_map.items():
+        expression = expression.replace(key, str(value))
+    return eval(expression)
 
 input_str = input()
 print(solve_boolean(input_str))
