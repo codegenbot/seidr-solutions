@@ -3,15 +3,15 @@
 #include <vector>
 #include <string>
 
-std::string join(const std::vector<std::string>& tokens) {
+std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
     std::string result;
     for (const auto& token : tokens) {
         if (!result.empty()) {
-            result = result + " ";
+            result += " ";
         }
-        result += token;
+        result += token + delimiter;
     }
-    return result;
+    return result.substr(0, result.length() - 1); // Remove extra space
 }
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
@@ -41,7 +41,7 @@ std::string camelCase(const std::string& str) {
         } else {
             result += std::toupper(words[i][0]);
         }
-        result += (i > 0 ? " " : "") + std::string(1, words[i][0]) + words[i].substr(1);
+        result += words[i].substr(1);
     }
     
     return result;
