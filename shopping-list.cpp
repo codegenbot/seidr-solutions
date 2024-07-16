@@ -1,12 +1,13 @@
 ```cpp
 #include <iostream>
+#include <cmath>
 
 int shoppingList(float* prices, int nPrices, float* discounts) {
     float total = 0.0;
     for (int i = 0; i < nPrices; i++) {
         total += prices[i] * (1 - discounts[i]/100.0);
     }
-    return static_cast<int>(total * 100.0f); // Multiply by 100 to convert float to int
+    return static_cast<int>(total);
 }
 
 int main() {
