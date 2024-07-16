@@ -27,23 +27,25 @@ int main() {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 1; i < n-1; i++) {
-        prefixSum += nums[i - 1];
+    for (int i = 0; i < n; i++) {
+        prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
+        int diff = std::abs(prefixSum - suffixSum);
         
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+    for (int i = 0; i <= cutIndex; i++) {
+        std::cout << nums[i] << " ";
     }
-    for (int i = cutIndex; i < n; i++) {
-        std::cout << nums[i] << std::endl;
+    std::cout << std::endl;
+    for (int i = cutIndex + 1; i < n; i++) {
+        std::cout << nums[i] << " ";
     }
+    std::cout << std::endl;
     
     return 0;
 }
