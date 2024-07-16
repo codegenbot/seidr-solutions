@@ -1,14 +1,14 @@
 n = int(input())
-vec = list(map(int, input().split()))
+arr = [int(input()) for _ in range(n)]
 
-min_diff = float("inf")
-cut_index = 0
+diff = float("inf")
+cut_idx = 0
 
 for i in range(1, n):
-    diff = abs(sum(vec[:i]) - sum(vec[i:]))
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+    curr_diff = abs(sum(arr[:i]) - sum(arr[i:]))
+    if curr_diff < diff:
+        diff = curr_diff
+        cut_idx = i
 
-print(*vec[:cut_index])
-print(*vec[cut_index:])
+print(*arr[:cut_idx])
+print(*arr[cut_idx:])
