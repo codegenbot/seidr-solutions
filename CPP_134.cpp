@@ -7,12 +7,13 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::string input_text;
+    std::cout << "Enter a text: ";
+    std::getline(std::cin, input_text);
 
-    bool result = check_if_last_char_is_a_letter(input);
-    std::cout << "Result: " << std::boolalpha << result << std::endl;
+    bool result = check_if_last_char_is_a_letter(input_text);
+
+    assert(result);
 
     return 0;
 }
