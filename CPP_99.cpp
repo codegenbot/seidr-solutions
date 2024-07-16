@@ -1,3 +1,8 @@
 double num = stod(value);
-    return num >= 0 ? floor(num + 0.5) : ceil(num - 0.5);
+    int rounded_num = round(num);
+    if (num - rounded_num == 0.5) {
+        return num > 0 ? ceil(num) : floor(num);
+    } else {
+        return rounded_num;
+    }
 }
