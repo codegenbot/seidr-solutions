@@ -1,17 +1,8 @@
-#include <vector>
+#include <utility>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> eat(int number, int need, int remaining){
-    int totalCarrots = number + need;
-    int eatenCarrots = min(totalCarrots, remaining);
-    int carrotsLeft = max(0, remaining - totalCarrots);
-    return {eatenCarrots, carrotsLeft};
-}
-
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
-    return 0;
+std::pair<int, int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int left = std::max(0, remaining - need);
+    return std::make_pair(total, left);
 }
