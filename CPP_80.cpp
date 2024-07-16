@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-
-bool is_happy(std::string s) {
+bool is_happy(std::string s){
     if(s.length() < 3) return false;
     
     for(int i = 0; i < s.length() - 2; ++i){
@@ -12,11 +8,4 @@ bool is_happy(std::string s) {
     }
     
     return true;
-}
-
-int main() {
-    assert(is_happy("iopaxioi") == false );
-    assert(is_happy("abcde") == true);
-    
-    return 0;
 }
