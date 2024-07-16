@@ -1,11 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cmath>
-
+#include<iostream>
+#include<vector>
+#include<string>
+#include<cmath>
 using namespace std;
 
-int do_algebra(const vector<string>& operato, const vector<int>& operand){
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = operand[0];
     for (int i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
@@ -14,7 +13,7 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand){
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
             result = pow(result, operand[i + 1]);
@@ -23,10 +22,9 @@ int do_algebra(const vector<string>& operato, const vector<int>& operand){
     return result;
 }
 
-using std::pow;
-
 int main() {
-    cout << (do_algebra({"//", "*"}, {7, 3, 4})) << endl;
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    vector<string> operato{"+", "*", "-"};
+    vector<int> operand{2, 3, 4, 5};
+    cout << "Result: " << do_algebra(operato, operand) << endl;
     return 0;
 }
