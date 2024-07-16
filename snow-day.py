@@ -1,5 +1,4 @@
-```
-def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
+'''def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     current_snow = int(initial_snow * 10)
     for _ in range(hours):
         current_snow += int(rate_of_snowfall * 10)
@@ -11,4 +10,4 @@ initial_snow = float(input())
 rate_of_snowfall = float(input())
 melting_rate = float(input())
 
-print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
+print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))'''
