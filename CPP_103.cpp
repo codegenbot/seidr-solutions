@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cassert>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) {
