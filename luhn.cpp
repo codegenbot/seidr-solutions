@@ -7,13 +7,16 @@ int main() {
     }
 
     int sum = 0;
-    for (int i = n - 1; i >= 0; --i) {
-        if ((n - i) % 2 == 0) {
-            int doubled = digits[i] * 2;
-            sum += (doubled > 9) ? (doubled - 9) : doubled;
-        } else {
-            sum += digits[i];
+    for (int i = n - 2; i >= 0; i -= 2) {
+        int temp = digits[i] * 2;
+        if (temp > 9) {
+            temp -= 9;
         }
+        digits[i] = temp;
+    }
+
+    for (int i = 0; i < n; ++i) {
+        sum += digits[i];
     }
 
     cout << sum << endl;
