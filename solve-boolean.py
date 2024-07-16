@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     def evaluate():
         if expression[0] in ["T", "F"]:
@@ -14,7 +13,7 @@ def solve_boolean(expression):
             left = evaluate()
             right = expression[2:] 
             if right[0] == "(":
-                return "(" + str(evaluate()) + ")"
-            return ("(" + str(left) + ") " + operator + " (" + str(right) + ")")
+                return f"({str(evaluate())})"
+            return f"({str(left)}) {operator} ({right})"
 
-    return eval("(" + str(evaluate()) + ")")
+    return eval(f"({str(evaluate())})")
