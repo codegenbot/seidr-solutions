@@ -1,15 +1,11 @@
-int n = str.length();
-    int left = 0, right = 0;
-
-    for(int i = 0; i < n; i++){
-        if(str[i] == '['){
-            left++;
-        } else {
-            if(left > 0){
-                left--;
-                right++;
-            }
+int n = str.size();
+    int open = 0;
+    for (int i = 0; i < n; i++) {
+        if (str[i] == '[') {
+            open++;
+        } else if (str[i] == ']' && open > 0) {
+            open--;
         }
     }
-
-    return right > 0;
+    return n > 1 && open > 0;
+}
