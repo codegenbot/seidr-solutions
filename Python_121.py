@@ -13,5 +13,3 @@ while user_input is None:
 if user_input:
     total_sum = sum(i for i in lst[1::2] if i % 2 == 0)
     print(total_sum)
-else:
-    print("No input provided.")
