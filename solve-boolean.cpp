@@ -1,5 +1,4 @@
-```c++
-#include <string>
+#include <stack>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -27,4 +26,3 @@ bool evaluateBooleanExpression(string expression) {
     }
 
     return valueStack.top();
-}
