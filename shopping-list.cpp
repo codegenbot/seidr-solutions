@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 double totalPriceAfterDiscount(const std::vector<float>& prices, const std::vector<float>& discounts) {
