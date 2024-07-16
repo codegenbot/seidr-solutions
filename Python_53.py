@@ -4,16 +4,17 @@ def add(a, b):
 while True:
     try:
         num1, num2 = map(int, input("Enter two integer numbers separated by space: ").split())
-        
         if num2 == 0:
             print("Cannot divide by zero. Please enter a non-zero second number.")
             continue
-        
         result = add(num1, num2)
         print(result)
 
-    except (ValueError, ZeroDivisionError) as e:
-        print("Invalid input or division by zero. Please try again.")
+    except ValueError:
+        print("Invalid input. Please enter two integers separated by space.")
+
+    except ZeroDivisionError:
+        print("Cannot divide by zero. Please enter a non-zero second number.")
 
     except KeyboardInterrupt:
         print("\nProgram interrupted by user. Exiting...")
