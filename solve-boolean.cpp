@@ -17,23 +17,6 @@ bool solveBoolean(const std::string& s) {
         } else if (c == 'F' || c == 'f') {
             result = result && false;
             operand = 0;
-        } else {
-            if (operand == 1) {
-                if (c == 'T' || c == 't') {
-                    operand = 1;
-                } else {
-                    result = false;
-                    break;
-                }
-            } else {
-                if (c == 'F' || c == 'f') {
-                    operand = 0;
-                } else {
-                    result = true;
-                    break;
-                }
-            }
         }
     }
     return result;
-}
