@@ -1,10 +1,5 @@
-```cpp
 #include <vector>
 #include <iostream>
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wnon-portable-initializer"
-#include <initializer_list>
-#pragma GCC diagnostic pop
 
 bool isPrime(int n) {
     if (n <= 1) return false;
