@@ -1,10 +1,10 @@
 def solve(N):
     if N == 0:
         return "0"
-    elif N < 0:
+    if N < 0:
         return "-" + solve(-N)
     elif type(N) != int:
-        return "Error: Input must be an integer."
+        return 
     else:
-        s = format(abs(N), 'b').zfill(len(str(bin(abs(N))[2:]))).lstrip("0")
-        return "0" if s == "" else s
+        s = bin(abs(N))[2:]
+        return "0" if s == "1" else s
