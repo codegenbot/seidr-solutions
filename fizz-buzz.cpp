@@ -1,3 +1,4 @@
+```c
 #include <string>
 
 std::string fizzBuzz(int x) {
@@ -7,3 +8,11 @@ std::string fizzBuzz(int x) {
              (x % 5 == 0) ? "Buzz" : 
              std::to_string(x);
     return result;
+}
+
+int main() {
+    int x;
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
+    return 0;
+}
