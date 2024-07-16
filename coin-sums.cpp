@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -24,19 +25,14 @@ int main() {
 
     pennies = cents;
 
-    std::string quartersStr = quarters > 1 ? "quarters" : "quarter";
+    std::cout << (quarters > 0 ? std::to_string(quarters) + " quarter" + (quarters > 1 ? "s" : "") : "") << std::endl;
     if (dimes > 0) {
-        std::string dimesStr = dimes > 1 ? "dimes" : "dime";
-        std::cout << dimes << " " << dimesStr << std::endl;
+        std::cout << (dimes > 0 ? std::to_string(dimes) + " dime" + (dimes > 1 ? "s" : "") : "") << std::endl;
     }
     if (nickles > 0) {
-        std::string nicklesStr = nickles > 1 ? "nickels" : "nickel";
-        std::cout << nickles << " " << nicklesStr << std::endl;
+        std::cout << (nickles > 0 ? std::to_string(nickles) + " nickel" + (nickles > 1 ? "s" : "") : "") << std::endl;
     }
-    std::string penniesStr = pennies > 1 ? "pennies" : "penny";
-    std::cout << pennies << " " << penniesStr << std::endl;
-
-    std::cout << quarters << " " << quartersStr << std::endl;
+    std::cout << (pennies > 0 ? std::to_string(pennies) + " penny" + (pennies > 1 ? "s" : "") : "") << std::endl;
 
     return 0;
 }
