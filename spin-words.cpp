@@ -1,14 +1,20 @@
 std::string spinWords(std::string str) {
     std::string result;
-    std::istringstream iss(str);
-    std::string word;
 
-    while (iss >> word) {
-        if (word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
-        else
-            result += word + " ";
+    int start = 0;
+    for (int i = 0; i < str.size(); i++) {
+        if ((i == str.size() - 1) || (str[i] == ' ')) {
+            std::string word = str.substr(start, i - start);
+            if(word.length() >= 5)
+                result += std::string(word.rbegin(), word.rend()) + " ";
+            else
+                result += word + " ";
+            start = i + 1;
+        }
     }
 
-    return result.substr(0, result.size()-1); 
+    if (result.back() == ' ') 
+        result.pop_back();
+
+    return result;
 }
