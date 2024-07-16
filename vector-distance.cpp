@@ -18,18 +18,14 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1, v2;
+    vector<float> v1(n), v2(n);
 
     for(int i=0; i<n; i++) {
-        float val;
-        cin >> val;
-        v1.push_back(val);
+        cin >> v1[i];
     }
 
     for(int i=0; i<n; i++) {
-        float val;
-        cin >> val;
-        v2.push_back(val);
+        cin >> v2[i];
     }
 
     cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
