@@ -1,5 +1,4 @@
 import math
-
 def roll_higher(n, m):
     if n <= m:
         return 0

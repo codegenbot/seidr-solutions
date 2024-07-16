@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -6,7 +7,7 @@ double diceGame(int n, int m) {
     for (int i = 1; i <= n; i++) {
         total += pow(i / (n + 0.0), m);
     }
-    return 1 - total;
+    return total;
 }
 
 int main() {
@@ -14,3 +15,4 @@ int main() {
     std::cin >> n >> m;
     std::cout << diceGame(n, m) << "\n";
     return 0;
+}
