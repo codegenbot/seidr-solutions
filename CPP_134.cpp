@@ -6,12 +6,11 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::string text;
+    std::cout << "Enter a text: ";
+    std::getline(std::cin, text);
 
-    bool result = check_if_last_char_is_a_letter(input);
-    std::cout << "Result: " << (result ? "True" : "False") << std::endl;
+    assert(check_if_last_char_is_a_letter(text));
 
     return 0;
 }
