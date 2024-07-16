@@ -1,21 +1,14 @@
-int count = 0;
-        int total_water = 0;
-
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int count = 0;
+    for (int j = 0; j < grid[0].size(); j++) {
+        int sum = 0;
         for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[0].size(); j++) {
-                total_water += grid[i][j];
-            }
+            sum += grid[i][j];
         }
-
-        while (total_water > 0) {
-            count += total_water / capacity;
-            total_water = total_water % capacity;
-
-            if (total_water > 0) {
-                count++;
-                total_water -= capacity;
-            }
+        while (sum > 0) {
+            sum -= capacity;
+            count++;
         }
-
-        return count;
     }
+    return count;
+}
