@@ -12,3 +12,5 @@ try:
         print(result)
 except (KeyboardInterrupt, EOFError):
     pass
+except EOFError:
+    break
