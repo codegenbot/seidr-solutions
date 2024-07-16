@@ -5,7 +5,7 @@ def get_valid_input():
                 map(int, input("Enter comma-separated numbers: ").strip().split(","))
             )
             return input_numbers
-        except Exception:
+        except ValueError:
             print("Invalid input. Please enter comma-separated numbers.")
 
 
