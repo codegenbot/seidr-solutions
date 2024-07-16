@@ -1,5 +1,5 @@
 def cut_vector(vector):
-    min_diff = float("inf")
+    min_diff = 0
     split_index = -1
 
     for i in range(1, len(vector)):
@@ -16,5 +16,3 @@ def cut_vector(vector):
 
     if split_index != -1:
         return (vector[:split_index], vector[split_index:])
-
-    return ([], [])
