@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 #include <climits>
 #include <iostream>
 using namespace std;
