@@ -1,5 +1,11 @@
-```c++
 #include <string>
+#include <sstream>
+
+std::string intToString(int x) {
+    std::stringstream ss;
+    ss << x;
+    return ss.str();
+}
 
 std::string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
@@ -9,7 +15,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz"; 
     else
-        return std::to_string(x);
+        return intToString(x);
 }
 
 int main() {
