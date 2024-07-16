@@ -1,26 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+Here is the completed code:
 
-using namespace std;
-
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.size());
-    partial_sort(arr.begin(), arr.end() - k, arr.end(),
-                  [&result](int a, int b) { return a > result.back(); });
-    for (int i = 0; i < k; ++i) {
-        result.push_back(arr[arr.size() - i - 1]);
+```cpp
+vector<int> maximum(vector<int> arr,int k){
+    priority_queue<int> pq(arr.begin(),arr.end());
+    vector<int> res;
+    for(int i = 0; i < k; i++){
+        res.push_back(pq.top());
+        pq.pop();
     }
-    return result;
-}
-
-int main() {
-    vector<int> arr = {-3, -4, 5};
-    int k = 3;
-    vector<int> res = maximum(arr, k);
-    for (int num : res) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
+    return res;
 }
