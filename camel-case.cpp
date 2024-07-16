@@ -4,9 +4,8 @@
 #include <string>
 
 std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
-    std::vector<std::string> tokensCopy = tokens; 
     std::string result;
-    for (const auto& token : tokensCopy) {
+    for (const auto& token : tokens) {
         if (!result.empty()) {
             result += " ";
         }
