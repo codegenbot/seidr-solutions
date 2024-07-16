@@ -1,19 +1,28 @@
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
-#include <initializer_list>
 
 using namespace std;
 
-float shoppingList(initializer_list<pair<float, float>> items) {
+float shoppingList(vector<float> prices, vector<float> discounts) {
     float total = 0;
-    for(auto& item : items) {
-        total += item.first * (1 - item.second / 100);
+    for(int i=0; i<prices.size(); i++) {
+        total += prices[i] * (1 - discounts[i] / 100);
     }
     return total;
 }
 
 int main() {
-    vector<pair<float, float>> items = {{1.99f, 5.0f}, {2.99f, 10.0f}, {3.99f, 15.0f}};
-    cout << fixed << setprecision(2) << shoppingList(items) << endl;
+    int n;
+    cin >> n;
+    vector<float> prices(n);
+    vector<float> discounts(n);
+    
+    for(int i=0; i<n; i++) {
+        cin >> prices[i];
+        cin >> discounts[i];
+    }
+
+    cout << fixed << setprecision(2) << std::setiosflags(ios::fixed) << shoppingList(prices, discounts) << endl;
 }
