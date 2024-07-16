@@ -6,3 +6,4 @@ int fuelCost(std::vector<int> &stations) {
         sum += newFuel;
     }
     return sum;
+}
