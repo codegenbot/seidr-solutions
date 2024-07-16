@@ -5,27 +5,22 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
+    int currentRoll = 0;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '/') {
-            if (roll > 9)
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRoll > 9)
                 score += 10;
             else
-                score += roll;
-            roll = 0;
-        } else if (isdigit(s[i])) {
-            roll *= 10;
-            roll += s[i] - '0';
-            s.insert(i, 1, (roll + '0').c_str());
-            i++; 
+                score += currentRoll;
+            currentRoll = 0;
+        } else if (isdigit(c)) {
+            currentRoll = currentRoll * 10 + (c - '0');
         }
     }
 
-    if (roll > 9)
-        score += 10;
-    else
-        score += roll;
+    if (currentRoll > 0)
+        score += currentRoll;
 
     return score;
 }
