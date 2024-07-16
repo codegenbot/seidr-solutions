@@ -25,10 +25,10 @@ int main() {
 
     pennies = cents;
 
-    cout << std::to_string(quarters) + " quarters" << endl;
-    cout << std::to_string(dimes) + " dimes" << endl;
-    cout << std::to_string(nickles) + " nickles" << endl;
-    cout << std::to_string(pennies) + " pennies" << endl;
+    cout << quarters << " quarters" << endl;
+    if (dimes > 0) cout << dimes << " dime" << (dimes>1?"s":"") << endl;
+    if (nickles > 0) cout << nickles << " nickel" << (nickles>1?"s":"") << endl;
+    cout << pennies << " penny" << (pennies>1?"s":"") << endl;
 
     return 0;
 }
