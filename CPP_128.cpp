@@ -3,18 +3,17 @@ if (arr.empty()) {
     }
 
     int product = 1;
-    int sum = 0;
+    int sum_magnitudes = 0;
 
     for (int num : arr) {
         if (num > 0) {
             product *= 1;
+            sum_magnitudes += num;
         } else if (num < 0) {
             product *= -1;
-        } else {
-            product *= 0;
+            sum_magnitudes += abs(num);
         }
-        sum += abs(num);
     }
 
-    return product * sum;
+    return product * sum_magnitudes;
 }
