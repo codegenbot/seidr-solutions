@@ -1,23 +1,14 @@
 def solve_boolean(expression):
-    if not expression:
+    if not expression: 
         return False
-
-    tokens = []
-    for char in expression:
-        if char in ["T", "F"]:
-            tokens.append(char)
-        elif char == "&":
-            while len(tokens) >= 2 and tokens[-1] == "|":
-                tokens.pop()
-                tokens.append(
-                    str(eval("".join(tokens.pop()[:-1]) + " & " + tokens.pop()))
-                )
-            tokens.append("&")
-        elif char == "|":
-            while len(tokens) >= 2 and tokens[-1] in ["&", "|"]:
-                tokens.pop()
-                tokens.append(
-                    str(eval("".join(tokens.pop()[:-1]) + " | " + tokens.pop()))
-                )
-            tokens.append("|")
-    return "T" if tokens[0] == "T" else "F"
+    
+    if expression[0] == 'T':
+        return True
+    elif expression[0] == 'F':
+        return False
+    elif expression[0] == '&':
+        return (expression[1] != '&' and solve_boolean(expression[2:])) and solve_boolean(expression[3:])
+    elif expression[0] == '|':
+        return solve_boolean(expression[1:]) or (expression[1] == '|' or expression[1] == '&')
+    else:
+        return False
