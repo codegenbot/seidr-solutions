@@ -1,8 +1,8 @@
 #include <iostream>
+using namespace std;
+
 #include <cmath>
 #include <iomanip>
-
-using namespace std;
 
 double calculateBouncinessIndex(double startingHeight, double heightAfterFirstBounce) {
     return heightAfterFirstBounce / startingHeight;
@@ -30,4 +30,3 @@ int main() {
     cout << calculateTotalDistance(bouncinessIndex, numBounces) << endl;
 
     return 0;
-}
