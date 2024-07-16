@@ -1,35 +1,32 @@
 int main() {
-    vector<int> nums;
-    int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    vector<int> input;
+    int num;
+    while (cin >> num) {
+        input.push_back(num);
     }
-
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
-    }
-
-    int half = sum / 2;
-    int prefixSum = 0;
-    int idx = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        prefixSum += nums[i];
-        if (prefixSum >= half) {
-            idx = i;
-            break;
+    
+    int n = input.size();
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
+    for (int i = 1; i < n; ++i) {
+        int sum_left = accumulate(input.begin(), input.begin() + i, 0);
+        int sum_right = accumulate(input.begin() + i, input.end(), 0);
+        int diff = abs(sum_left - sum_right);
+        
+        if (diff < min_diff || (diff == min_diff && sum_left == sum_right)) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-
-    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
-
-    for (int num : subvector1) {
-        cout << num << endl;
+    
+    for (int i = 0; i < cut_index; ++i) {
+        cout << input[i] << endl;
     }
-    for (int num : subvector2) {
-        cout << num << endl;
+    cout << endl;
+    for (int i = cut_index; i < n; ++i) {
+        cout << input[i] << endl;
     }
-
+    
     return 0;
 }
