@@ -1,11 +1,11 @@
 #include <sstream>
 
 std::string spinWords(std::string str) {
-    std::istringstream ss(str);
+    std::stringstream ss(str);
     std::string word;
     std::string result;
 
-    while (ss >> word) {
+    while (std::getline(ss, word, ' ')) {
         if(word.size()>4)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
@@ -18,5 +18,9 @@ std::string spinWords(std::string str) {
     return result;
 }
 
-std::string str = "Hello World!";
-std::string result = spinWords(str);
+int main() {
+    std::string str = "Hello World!";
+    std::string result = spinWords(str);
+    // print or do something with 'result'
+    return 0;
+}
