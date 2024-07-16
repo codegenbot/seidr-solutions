@@ -1,16 +1,14 @@
-int rows = grid.size();
-        int cols = grid[0].size();
-        int totalWater = 0;
-        for (int j = 0; j < cols; ++j) {
-            int wellWater = 0;
-            for (int i = 0; i < rows; ++i) {
-                wellWater += grid[i][j];
-            }
-            totalWater += wellWater;
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int total_moves = 0;
+    for (int j = 0; j < grid[0].size(); ++j) {
+        int water_level = 0;
+        for (int i = 0; i < grid.size(); ++i) {
+            water_level += grid[i][j];
         }
-        int times = totalWater / capacity;
-        if (totalWater % capacity != 0) {
-            times++;
+        while (water_level > 0) {
+            water_level -= capacity;
+            total_moves++;
         }
-        return times;
     }
+    return total_moves;
+}
