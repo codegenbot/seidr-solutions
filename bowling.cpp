@@ -1,34 +1,27 @@
-#include <iostream>
-#include <string>
-
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
 
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
-            if (roll > 9 && s[i-1] != '/') {
+            if (roll > 9)
                 score += 10;
-            } else if (roll + s[i+1] - '0' <= 10) {
-                score += roll + s[i+1] - '0';
-                roll = 0;
-            } else {
-                score += 10;
-                roll = 0;
-            }
+            else
+                score += roll;
+            roll = 0;
         } else if (isdigit(s[i])) {
-            roll *= 10;
-            roll += s[i] - '0';
+            int pin = s[i] - '0';
+            if (i < s.size() - 1 && isdigit(s[i + 1]))
+                pin = 10; // strike or spare
+            roll += pin;
+
+            if (roll == 10) // spare
+                score += 10;
         }
     }
 
-    if (roll > 9 && s[s.size()-2] != '/') {
-        score += 10;
-    } else if (roll + s[s.size()-1] - '0' <= 10) {
-        score += roll + s[s.size()-1] - '0';
-    } else {
-        score += 10;
-    }
+    if (roll > 9)
+        score -= 9; // subtract excess pins
 
     return score;
 }
