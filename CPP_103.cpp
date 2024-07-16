@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string> // Add this line for using string class
+#include <string>
 
 std::string rounded_average(int n, int m) {
     if (n > m)
@@ -21,7 +21,7 @@ std::string rounded_average(int n, int m) {
     return binary_avg;
 }
 
-int main() { // Example usage
+int main() {
     assert(rounded_average(5, 5) == "101");
     return 0;
 }
