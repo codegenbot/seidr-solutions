@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -21,8 +20,15 @@ int luhn(int* digits, int n) {
 }
 
 int main() {
-    int digits[] = {4,3,2,1,8,7,6,5,4,3,2,1};
-    int n = sizeof(digits) / sizeof(digits[0]);
-    cout << luhn(digits, n) << endl; // print the result
+    int n; 
+    cin >> n; 
+    int digits[n]; 
+    for (int i=0; i<n; ++i) {
+        cin >> digits[i];
+    }
+
+    int result = luhn(digits, n);
+    cout << "The Luhn checksum is: " << result << endl;
+    
     return 0;
 }
