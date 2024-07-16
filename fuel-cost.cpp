@@ -1,11 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
 int fuelCost(std::vector<int> stations) {
     int sum = 0;
     for (int i : stations) { 
-        int newFuel = std::floor((double)(i/3)) - 2; // Use integer division and rounding
+        int newFuel = (i / 3) - 2;
         if(newFuel >= 0)
             sum += newFuel;
     }
