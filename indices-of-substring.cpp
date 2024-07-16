@@ -7,8 +7,7 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
-    if (text.empty() || target.empty()) {
-        std::cout << "Input strings cannot be empty.";
+    if (target.empty()) {
         return 0;
     }
 
@@ -16,10 +15,7 @@ int main() {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += (target.empty() ? 1 : target.size()); // increment appropriately to handle overlapping targets
-        if (target.empty()) {
-            ++pos; // special case handling for empty target
-        }
+        pos += target.size(); // move to the next index after the current occurrence based on the size of the target string
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
