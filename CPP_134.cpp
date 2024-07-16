@@ -1,9 +1,3 @@
-if(txt.empty()) return false;
-char lastChar = txt.back();
-if(isalpha(lastChar)){
-    if(txt.find_last_of(' ') == txt.length()-1){
-        return true;
-    }
-}
-return false;
+int n = txt.size();
+    return (n > 0) && isalpha(txt[n - 1]) && (n < 2 || txt[n - 2] == ' ');
 }
