@@ -4,6 +4,7 @@
 #include <string>
 
 #include <tuple>
+#include <algorithm>
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
