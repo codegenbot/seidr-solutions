@@ -16,9 +16,9 @@ int main() {
     cout << "Enter proportion of snow melting per hour: ";
     cin >> proportionMeltingPerHour;
 
-    float result = round(snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours);
+    float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
-    cout << "Amount of snow on ground after " << hours << " hours: " << fixed << setprecision(2) << (float)result << " inches.\n";
+    cout << "Amount of snow on ground after " << hours << " hours: " << setprecision(6) << fixed << result << " inches.\n";
 
     return 0;
 }
