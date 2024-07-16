@@ -16,5 +16,11 @@ std::vector<int> even_odd_count(int num) {
 }
 
 bool issame(std::vector<int> v1, std::vector<int> v2) {
-    return v1[0] == v2[0] && v1[1] == v2[1];
+    assert(v1.size() == v2.size());
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
