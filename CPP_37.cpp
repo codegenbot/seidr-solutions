@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 vector<float> sort_even(vector<float> l) {
     vector<float> even_indices;
     vector<float> sorted_even_indices;
