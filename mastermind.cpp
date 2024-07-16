@@ -1,16 +1,16 @@
 ```cpp
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
-    int white = 0; // correct colors (wrong positions)
-    int black = 0; // correct colors and positions
+    int white = 0; 
+    int black = 0;
 
-    for (int i = 0; i < 4; i++) { // iterate through each position
+    for (int i = 0; i < 4; i++) { 
         bool inCode = false;
-        for (int j = 0; j < 4; j++) { // check if character is present in code
+        for (int j = 0; j < 4; j++) { 
             if (guess[i] == code[j]) {
                 inCode = true;
-                if (j == i) { // correct color and position, increment black
+                if (j == i) { 
                     black++;
-                } else { // correct color, wrong position, increment white
+                } else {
                     white++;
                 }
             }
