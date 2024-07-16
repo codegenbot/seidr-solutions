@@ -1,20 +1,25 @@
 #include <vector>
 #include <utility>
-#include <cmath>
-#include <climits>
 #include <numeric>
+#include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
-    int minDiff = INT_MAX;
+    int minDiff = std::numeric_limits<int>::max();
     int cutIndex = -1;
 
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+    int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
+    int leftSum = 0;
+
+    for (int i = 0; i < nums.size(); ++i) {
+        leftSum += nums[i];
+        int rightSum = totalSum - leftSum;
+        int diff = std::abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
 
-    return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
+    return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex + 1), 
+                          std::vector<int>(nums.begin() + cutIndex + 1, nums.end()));
 }
