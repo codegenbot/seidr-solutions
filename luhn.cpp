@@ -11,5 +11,5 @@ int luhnCheck(vector<int>& card) {
             sum += card[i];
         }
     }
-    return sum % 10; // Check for odd sums
+    return sum % 10; 
 }
