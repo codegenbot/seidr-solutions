@@ -4,7 +4,7 @@ string camelCase(string s) {
     
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) result += toupper(s[++s.find(c)]); 
+            if(capitalizeNext) result += toupper(s.find(c)+1); 
             capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
