@@ -1,13 +1,24 @@
-if(file_name.empty()) return "No";
-int dot_pos = file_name.find(".");
-if(dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size()-1) return "No";
-string prefix = file_name.substr(0, dot_pos);
-string suffix = file_name.substr(dot_pos + 1);
-if(prefix.find_first_of("0123456789") != string::npos || prefix.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos || suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
 int digit_count = 0;
-for(char c : file_name){
-    if(isdigit(c)) digit_count++;
-}
-if(digit_count > 3) return "No";
-return "Yes";
+    int dot_count = 0;
+    int dot_pos = -1;
+    
+    for (int i = 0; i < file_name.size(); i++) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
+            digit_count++;
+        } else if (file_name[i] == '.') {
+            dot_count++;
+            dot_pos = i;
+        }
+    }
+    
+    if (digit_count > 3 || dot_count != 1 || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
+    
+    string extension = file_name.substr(dot_pos + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    }
+    
+    return "Yes";
 }
