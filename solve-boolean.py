@@ -1,10 +1,11 @@
 def solveBoolean(expression):
-    while "&" in expression:
+    if expression.strip() == "t":
+        return True
+    elif expression.strip() == "f":
+        return False
+    elif "&" in expression:
         left, right = expression.split("&")
-        expression = str(eval(left)) + "&"
-    while "|" in expression:
+        return solveBoolean(left).and(solveBoolean(right))
+    elif "|" in expression:
         left, right = expression.split("|")
-        if str(eval(left)):
-            return True
-        expression = "f|"
-    return str(eval(expression))
+        return solveBoolean(left) or solveBoolean(right)
