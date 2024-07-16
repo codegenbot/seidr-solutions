@@ -5,7 +5,9 @@
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    
+    std::cin.ignore(); // Ignore the newline character left in the input buffer
+    std::getline(std::cin, target); // Read the target string using std::getline
 
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
