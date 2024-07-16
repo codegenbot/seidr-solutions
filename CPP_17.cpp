@@ -1,18 +1,17 @@
-vector<int> parse_music(string music_string){
+vector<int> parse_music(string music_string){ 
     vector<int> beats;
+    int length = music_string.length();
     int i = 0;
-    while (i < music_string.size()) {
+    while (i < length) {
         if (music_string[i] == 'o') {
-            if (i + 1 < music_string.size() && music_string[i + 1] == '|') {
-                beats.push_back(2);
-                i += 2;
-            } else {
-                beats.push_back(4);
-                i++;
-            }
-        } else if (music_string[i] == '.') {
+            beats.push_back(4);
+            i += 2; // skip the space after 'o'
+        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
-            i += 2;
+            i += 2; // skip the space after '.|'
+        } else if (music_string[i] == 'o' && music_string[i + 1] == '|') {
+            beats.push_back(2);
+            i += 3; // skip the space after 'o|'
         }
     }
     return beats;
