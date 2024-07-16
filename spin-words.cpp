@@ -1,36 +1,34 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+Here is the solution:
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    size_t start = 0;
-    
-    while (start < str.length()) {
-        size_t end = str.find(' ', start);
-        
-        if (end == std::string::npos)
-            end = str.length();
-        
-        std::string word = str.substr(start, end - start);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == ' ') {
+            result += str.substr(i);
+            i++;
+        } else if (strlen(&str[i]) >= 5) {
+            for (int j = strlen(&str[i]); j > 0; j--) {
+                result += str[i + j - 1];
+            }
+            i += j;
+        } else {
+            int k = 0;
+            while (i < str.length() && str[i] != ' ') {
+                result += str[i];
+                i++;
+                k++;
+            }
+            if (k > 0) {
+                for (int j = k; j > 0; j--) {
+                    result += str[i - 1];
+                }
+                i--;
+            } else {
+                result += str.substr(i);
+                i++;
+            }
         }
-        
-        result += word + " ";
-        
-        start = end + 1;
     }
-    
-    return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    std::cout << spinWords("a") << std::endl; 
-    std::cout << spinWords("this is a test") << std::endl; 
-    std::cout << spinWords("this is another test") << std::endl; 
-    std::cout << spinWords("hi") << std::endl; 
-
-    return 0;
+    return result;
 }
