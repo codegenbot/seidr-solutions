@@ -1,4 +1,3 @@
-```
 def leaders(a):
     original = a.copy()
     leaders = [a[-1]]
