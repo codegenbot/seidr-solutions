@@ -1,11 +1,11 @@
 def cut_vector(vector):
     min_diff = 0
     split_index = -1
-
+    
     for i in range(1, len(vector)):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
-
+        
         if left_sum == right_sum:
             return (vector[:i], vector[i:])
 
