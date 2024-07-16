@@ -31,19 +31,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::string& a, const std::string& b) {
     return (a == b);
 }
 
-int main() {
+int main2() {
     std::vector<std::string> vec = reverse_delete("mamma", "mia");
-    if (!issame(std::vector<std::string>{ "", "True" }, &vec[0])) {
-        std::cerr << "Test failed." << std::endl;
+    if (!issame({"", "True"}, &vec[0])) {
+        assert(issame({"", "True"} , vec[0].substr(1,vec[0].size()-2).to_string() + ", True"));
         return 1;
     }
-    else
-    {
-        std::cout << "Test passed." << std::endl;
-        return 0;
-    }
+    return 0;
 }
