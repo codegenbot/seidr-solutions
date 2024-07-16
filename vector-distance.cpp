@@ -3,7 +3,7 @@
 #include <cmath>
 
 int main() {
-    double n;
+    int n;
     std::cin >> n;
 
     std::vector<double> vec1(n);
@@ -21,7 +21,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = sqrt(sum);
+    double result = std::sqrt(sum);
     std::cout << result << std::endl;
 
     return 0;
