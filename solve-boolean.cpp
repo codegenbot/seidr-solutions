@@ -42,7 +42,7 @@ bool solveBoolean(const std::string& s) {
 int main() {
     std::string s;
     std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, s);
+    getline(std::cin, s);
     bool result = solveBoolean(s);
     if (result) {
         std::cout << "The result is true." << std::endl;
