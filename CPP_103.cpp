@@ -1,30 +1,31 @@
-#include <iostream>
 #include <string>
+#include <cmath>
+#include <cassert>
 
-using namespace std;
-
-string rounded_avg(int n, int m) {
+std::string rounded(int n, int m) {
     if (n > m) {
         return "-1";
     }
-
+    
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
     }
     
-    int avg = sum / (m - n + 1);
+    int avg = std::round((double)sum / (m - n + 1));
     
-    string binary = "";
+    std::string binary_avg = "";
     while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
+        binary_avg = std::to_string(avg % 2) + binary_avg;
         avg /= 2;
     }
     
-    return binary;
+    return binary_avg;
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101");
+    assert(rounded(1, 5) == "10");
+    assert(rounded(5, 10) == "11");
+    
     return 0;
 }
