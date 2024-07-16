@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <string> // Added directive
+#include <string> // added directive
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
