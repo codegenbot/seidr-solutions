@@ -22,6 +22,14 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // Test the functions here
+    // Test the total_match function
+    vector<string> test_lst1 = {"abc", "defg", "hi"};
+    vector<string> test_lst2 = {"jklm", "no", "pqrstu"};
+    
+    vector<string> result = total_match(test_lst1, test_lst2);
+    
+    // Test the issame function
+    bool same = issame(test_lst1, test_lst2);
+    
     return 0;
 }
