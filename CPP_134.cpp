@@ -1,9 +1,12 @@
 int n = txt.size();
-if (n == 0) return false;
-char lastChar = txt[n - 1];
-if (isalpha(lastChar)) {
-    if (n > 1 && txt[n - 2] == ' ') return true;
-    if (n == 1) return true;
-}
-return false;
+    if (n == 0) {
+        return false;
+    }
+    char lastChar = txt[n - 1];
+    if (isalpha(lastChar)) {
+        if (n == 1 || txt[n - 2] == ' ') {
+            return true;
+        }
+    }
+    return false;
 }
