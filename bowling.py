@@ -14,4 +14,4 @@ def bowling_score(frames):
             if frame_num < 10:
                 score += int(char)
                 frame_num += 1
-    return score;
+    ;
