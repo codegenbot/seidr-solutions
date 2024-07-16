@@ -2,20 +2,20 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
-    for (int i = 0; i < a.size(); i++) {
+
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
+
     return true;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    // Add test cases here
+    // Code here to use the separate_paren_groups function and issame function
     return 0;
 }
 
