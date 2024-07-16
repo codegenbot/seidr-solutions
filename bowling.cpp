@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 using namespace std;
 
 int bowlingScore(string s) {
@@ -8,7 +11,7 @@ int bowlingScore(string s) {
         if (s[i] == 'X') { 
             score += 10 + getBonus(s.substr(i+1));
         } else if (s[i] == '/') { 
-            score += 5 + getBonus(s.substr(i+1));
+            score += 5 + getBonus(s.substr(i+2));
         } else { 
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
@@ -37,5 +40,3 @@ int getBonus(string s) {
     }
 
     return bonus;
-
-#include <string>
