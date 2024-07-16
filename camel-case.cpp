@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -7,10 +6,12 @@
 std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
     std::string result;
     for (const auto& token : tokens) {
-        if (!result.empty()) {
-            result += " ";
+        if (!token.empty()) {
+            if (!result.empty()) {
+                result += " ";
+            }
+            result += token;
         }
-        result += token;
     }
     return result; 
 }
@@ -19,7 +20,9 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
     size_t pos = 0;
     while ((pos = str.find(delimiter)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
+        if (pos != 0) { 
+            tokens.push_back(str.substr(0, pos));
+        }
         str = str.substr(pos + 1);
     }
     if (!str.empty()) {
@@ -32,23 +35,29 @@ std::string camelCase(const std::string& str) {
     std::vector<std::string> words = split(str, '-');
     
     if (words.empty()) {
-        return str; 
+        return "";
     }
 
     std::string result;
     for (int i = 0; i < words.size(); i++) {
-        if (!result.empty()) {
-            result += " ";
-        } else {
-            result += std::toupper(words[i][0]);
+        if (!words[i].empty()) { 
+            if (i == 0) {
+                result += std::toupper(words[i][0]);
+            } else {
+                if (!result.empty()) {
+                    result += " ";
+                }
+                result += std::toupper(words[i][0]) + std::string(1, words[i][0]).erase(0) + std::string(std::begin(words[i])+1, std::end(words[i])));
+            }
         }
-        result += words[i].substr(1);
     }
     
     return result;
 }
 
 int main() {
-    std::cout << camelCase("hello-world-example") << std::endl;
+    {  
+        std::cout << camelCase("hello-world-example") << std::endl;
+    }
     return 0;
 }

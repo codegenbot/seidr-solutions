@@ -1,22 +1,18 @@
 ```cpp
 #include <iostream>
-#include <iomanip>
+using namespace std;
 
 double probability(int n, int m) {
-    double total = (double)n * m;
-    double result = 0;
-
-    for (int i = 1; i <= m; i++) {
-        result += ((n - i) / (double)(n * m));
-    }
-
-    return result;
+    double total = static_cast<double>(n * m);
+    if(total == 0)
+        throw runtime_error("The number of sides on the dice cannot be zero.");
+    return (n - m + 1.0) / total; 
 }
 
 int main() {
-    int n, m;
-    std::cin >> n >> m;
+    int n = 6; // Number of sides on Peter's die
+    int m = 6; // Number of sides on Colin's die
     double result = probability(n, m);
-    std::cout << std::fixed << std::setprecision(0) << result << "\n";
+    cout << "The probability is: " << result << endl;
     return 0;
 }
