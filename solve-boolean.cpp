@@ -6,16 +6,29 @@ bool solveBoolean(string expression) {
     bool result = true;
     int i = 0;
     while (i < expression.length()) {
-        if (expression[i] == 'f') {
-            result = false;
+        if (expression[i] == 't') {
+            if (expression[i+1] == '|') {
+                if (expression[i+2] == 'f') return false; 
+                else i += 3;
+            }
+            else if (expression[i+1] == '&') {
+                if (expression[i+2] == 'f') return false; 
+                else i += 3;
+            }
+            else result = false;
             break;
-        } else if (expression[i] == '|') {
-            result = !result;
-        } else if (expression[i] == '&') {
-            if (!result) {
+        }
+        else if (expression[i] == 'f') {
+            if (expression[i+1] == '|') {
+                if (expression[i+2] == 't') return true; 
+                else i += 3;
+            }
+            else if (expression[i+1] == '&') {
                 result = false;
                 break;
             }
+            else result = false;
+            break;
         }
         i++;
     }
@@ -33,3 +46,4 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
+}
