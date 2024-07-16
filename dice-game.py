@@ -1,9 +1,6 @@
 n = int(input())
 m = int(input())
-prob = 0.0
-for i in range(1, n + 1):
-    for j in range(1, m):
-        if i > j:
-            prob += 1
-prob /= n * m
-print(prob)
+if n > m:
+    print(0.5)
+else:
+    print((m - 1) / (2 * m))
