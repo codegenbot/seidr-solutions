@@ -1,22 +1,10 @@
-string vowels = "AEIOUaeiou";
-    int last_consonant_index = -1;
-    
-    for (int i = word.size() - 2; i > 0; i--) {
-        if (vowels.find(word[i]) == string::npos) {
-            last_consonant_index = i;
-            break;
-        }
-    }
-    
-    if (last_consonant_index == -1) {
-        return "";
-    }
-    
-    for (int i = last_consonant_index - 1; i > 0; i--) {
-        if (vowels.find(word[i]) != string::npos) {
+string vowels = "aeiouAEIOU";
+    string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+    int n = word.length();
+    for (int i = n - 2; i > 0; --i) {
+        if (vowels.find(word[i]) != string::npos && consonants.find(word[i - 1]) != string::npos && consonants.find(word[i + 1]) != string::npos) {
             return string(1, word[i]);
         }
     }
-    
     return "";
 }
