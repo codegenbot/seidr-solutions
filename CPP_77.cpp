@@ -1,3 +1,2 @@
-int c = round(cbrt(a));
-  return c * c * c == a;
+return cbrt(a) == int(cbrt(a));
 }
