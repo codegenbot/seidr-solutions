@@ -1,7 +1,7 @@
-int shoppingList(float* prices, int nPrices) {
-    float total = 0.0;
+int calculateTotalPrice(float prices[], int nPrices, float discounts[]) {
+    int total = 0;
     for (int i = 0; i < nPrices; i++) {
         total += prices[i] * (1 - discounts[i]/100.0);
     }
-    return static_cast<int>(std::round(total));
+    return total;
 }
