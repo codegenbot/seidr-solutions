@@ -3,8 +3,7 @@
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
-    for (auto it = s.begin(); it != s.end(); ++it) {
-        char c = *it;
+    for (char c : s) {
         if (c == 'X') {
             score += 30;
             currentRoll = 0;
