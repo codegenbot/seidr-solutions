@@ -1,5 +1,3 @@
-```
-def kebab_to_camel(kebab_string):
-    return ' '.join(word.capitalize() for word in kebab_string.split())
-
-print(kebab_to_camel(input()))
+```Python
+def camel_case(s):
+    return "".join(word.capitalize() if i else word for i, word in zip((True,) * (len(s.split("-")) - 1), s.replace("-", " ").split(" ")))
