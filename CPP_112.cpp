@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -32,6 +31,6 @@ std::pair<std::string, std::string> reverse_delete(std::string s, std::string c)
 }
 
 int main() {
-    assert (std::make_pair("", reverse_delete("mamma", "mia").second) == std::pair<std::string, std::string>("", "True"));
+    assert({reverse_delete("mamma", "mia").first, reverse_delete("mamma", "mia").second} == {"", "True"});
     return 0;
 }
