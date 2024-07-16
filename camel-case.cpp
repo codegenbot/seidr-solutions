@@ -1,8 +1,13 @@
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <string>
+
 std::string join(const std::vector<std::string>& tokens) {
     std::string result;
     for (const auto& token : tokens) {
         if (!result.empty()) {
-            result = result + " ";
+            result += " ";
         }
         result += token;
     }
@@ -29,13 +34,13 @@ std::string camelCase(const std::string& str) {
 
     std::string result;
     for (char c : words[0]) {
-        result += std::tolower(c);
+        result += (char)(std::tolower((int)c));
     }
     for (int i = 1; i < words.size(); i++) {
         if (!result.empty()) {
             result += char(std::toupper((int)words[i][0])) + words[i].substr(1);
         } else {
-            result += std::tolower(words[i][0]) + words[i].substr(1);
+            result += (char)(std::tolower((int)words[i][0])) + words[i].substr(1);
         }
     }
     
