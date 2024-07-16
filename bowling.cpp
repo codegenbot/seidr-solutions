@@ -44,10 +44,9 @@ std::string bowlingScore(const std::string& s) {
                     score += currentRoll;
                 } else {
                     score += 10;
-                    score += 10 + (currentRoll - 10);
+                    score += (currentRoll - 10);
                 }
             }
         }
     }
-    return "Invalid input";
-}
+    return s;
