@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -7,7 +6,7 @@
 double probability(int n, int m) {
     double p = 0.0;
     for (int i = m + 1; i <= n; ++i) {
-        p += 1.0 / n * 1.0 / m;
+        p += (n - i + 1.0) / n * (m - (i - m)) / m;
     }
     return p;
 }
@@ -17,4 +16,3 @@ int main() {
     std::cin >> n >> m;
     std::cout << std::fixed << std::setprecision(4) << probability(n, m) << std::endl;
     return 0;
-}
