@@ -1,7 +1,5 @@
-#include <string>
-
-bool issame(string s1, string s2) {
-    return s1 == s2;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -17,4 +15,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
