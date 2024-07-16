@@ -3,8 +3,8 @@
 #include <string>
 #include <cassert>
 
-int main() {
-    int result = f({127, 97, 8192});
+int testFunction(std::vector<int> v) {
+    int result = f(v);
     assert(result == 10);
     return 0;
 }
