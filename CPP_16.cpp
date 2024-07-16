@@ -1,11 +1,12 @@
-vector<char> distinctChars;
-    for (char c : str) {
-        if (isalpha(c)) {
-            char lowerC = tolower(c);
-            if (find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
-                distinctChars.push_back(lowerC);
-            }
+transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<bool> visited(256, false);
+    
+    int count = 0;
+    for(char c : str){
+        if(!visited[c]){
+            visited[c] = true;
+            count++;
         }
     }
-    return distinctChars.size();
+    return count;
 }
