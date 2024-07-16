@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -25,16 +24,13 @@ vector<int> leaders(vector<int> arr) {
 int main() {
     vector<int> inputVector;
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-    cout << "Enter the elements: ";
     for(int i=0; i<n; i++){
-        int x;
-        cin >> x;
-        inputVector.push_back(x);
+        int num;
+        cin >> num;
+        inputVector.push_back(num);
     }
     vector<int> result = leaders(inputVector);
-    // Your code to print the output
     for (int i : result) {
         cout << i << " ";
     }
