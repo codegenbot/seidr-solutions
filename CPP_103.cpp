@@ -7,13 +7,13 @@ if (n > m) {
         sum += i;
     }
     
-    int avg = sum / (m - n + 1);
+    int avg = round((double)sum / (m - n + 1));
     
-    string binary = "";
+    string binary_avg = "";
     while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
+        binary_avg = to_string(avg % 2) + binary_avg;
         avg /= 2;
     }
     
-    return binary;
+    return binary_avg;
 }
