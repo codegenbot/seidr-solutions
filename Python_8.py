@@ -11,11 +11,14 @@ results = []
 
 try:
     while True:
-        numbers = list(map(int, input().split()))
-        result = sum_product(numbers)
-        results.append(result)
-except ValueError:
-    pass
+        try:
+            numbers = list(map(int, input().split()))
+            if not numbers:
+                break
+            result = sum_product(numbers)
+            results.append(result)
+        except ValueError:
+            break
 except EOFError:
     pass
 
