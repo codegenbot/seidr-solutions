@@ -2,7 +2,7 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    level = 1
+    level = 0
     current_group = ""
 
     for char in paren_string:
@@ -12,7 +12,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             level -= 1
             if level == 0:
-                result.append(current_group)
+                result.append(current_group + char)
                 current_group = ""
             else:
                 current_group += char
@@ -20,11 +20,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if level > 0:
                 current_group += char
 
-    if current_group:
-        result.append(current_group)
-
     return result
 
+print("Enter a string with parentheses:")
 paren_string = input().strip()
 output = separate_paren_groups(paren_string)
 print(output)
