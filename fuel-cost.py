@@ -1,11 +1,9 @@
-```
+```python
 def calculate_fuel(amount):
     if amount <= 2:
         return max(0, amount - 2)
     else:
-        return math.floor((amount - 2) / 3)
-
-import math
+        return (amount // 3) - 1
 
 def fuel_cost(vector):
     return sum(calculate_fuel(i) for i in vector)
