@@ -1,8 +1,11 @@
-def paired_digits(s):
+```
+def main():
+    s = input("Enter a string of digits: ")
     total = 0
-    for i in range(len(s) - 1):
+    for i in range(len(s) - 1): 
         if s[i] == s[i+1]:
-            total += int(s[i] * 2)
-    return total
+            total += int(s[i]*2)
+    print(total)
 
-print(paired_digits(input("Enter a string of digits: ")))
+if __name__ == "__main__":
+    main()
