@@ -11,5 +11,5 @@ try:
             continue
         result = string_to_md5(input_text)
         print(result)
-except KeyboardInterrupt:
+except EOFError:
     pass
