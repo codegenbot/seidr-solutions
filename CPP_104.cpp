@@ -1,11 +1,11 @@
 #include <vector>
 
-bool issame(vector<int> arr1, vector<int> arr2) {
-    if (arr1.size() != arr2.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < arr1.size(); ++i) {
-        if (arr1[i] != arr2[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -38,10 +38,10 @@ int main() {
     vector<int> expected = {123, 789};
     
     if (issame(output, expected)) {
-        cout << "Output is correct." << endl;
+        cout << "Test Passed" << endl;
     } else {
-        cout << "Output is incorrect." << endl;
+        cout << "Test Failed" << endl;
     }
-
+    
     return 0;
 }
