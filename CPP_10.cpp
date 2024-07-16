@@ -1,9 +1,11 @@
 string make_palindrome(string str){
-    string rev_str(str.rbegin(), str.rend());
-    for(int i = str.size(); i >= 0; --i){
-        if(is_palindrome(str.substr(i))){
-            return str + rev_str.substr(rev_str.size() - (str.size() - i));
+    int n = str.size();
+    string rev_str = str;
+    reverse(rev_str.begin(), rev_str.end());
+    for(int i=0; i<n; i++){
+        if(str.substr(0, n-i) == rev_str.substr(i)){
+            return str + rev_str.substr(0, i);
         }
     }
-    return "";
+    return str;
 }
