@@ -13,3 +13,7 @@ double vectorDistance() {
     }
     return sqrt(sum);
 }
+
+int main() {
+    return vectorDistance();
+}
