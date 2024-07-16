@@ -16,4 +16,5 @@ def solve_boolean(expression):
             elif solve_boolean(expression[expression.index(char) + 1:]):
                 return True
             else:
-                continue
+                return False
+    return True
