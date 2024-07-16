@@ -22,6 +22,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = input().replace(" ", "")
+paren_string = input("Enter a string with parentheses: ").replace(" ", "")
 result = separate_paren_groups(paren_string)
 print(result)
