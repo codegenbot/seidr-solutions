@@ -1,6 +1,4 @@
 #include <string>
-#include <vector>
-#include <algorithm>
 
 std::string camelCase(const std::string& str) {
     std::vector<std::string> words = split(str, '-');
