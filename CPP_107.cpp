@@ -25,18 +25,14 @@ vector<int> count_palindromes(int n) {
 
 int main() {
     vector<int> even_odd_palindrome(int n);
-
     int n;
     cin >> n;
-
     vector<int> result = count_palindromes(n);
     vector<int> expected = even_odd_palindrome(n);
-
     if (issame(result, expected)) {
-        cout << "Correct" << endl;
+        cout << "Correct";
     } else {
-        cout << "Incorrect" << endl;
+        cout << "Incorrect";
     }
-
     return 0;
 }
