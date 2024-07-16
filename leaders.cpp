@@ -1,8 +1,5 @@
 #include <vector>
-#include <algorithm>
-
 using namespace std;
-
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
     int maxRight = INT_MIN;
