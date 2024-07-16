@@ -28,7 +28,6 @@ string spinWords(string str) {
                 result += ch;
             }
         }
-        std::string tmp = str.substr(i);
     }
     return result;
 }
