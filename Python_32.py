@@ -1,8 +1,6 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    for i in range(n):
-        if xs[i] != 0 and xs[i + 1] != 0:
+    for i in range(len(xs) - 1):
+        if xs[i] != 0:
+            leading_coefficient = xs[i]
             break
-    a, b = xs[i], xs[i + 1]
-    x = -b / a
-    return x
+    return -xs[-1] / leading_coefficient
