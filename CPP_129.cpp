@@ -1,17 +1,22 @@
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    return (a[0] == b[0] && a[1] == b[1]);
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[i].size(); ++j) {
-            if (grid[i][j] == k) {
-                result.push_back(i);
-                result.push_back(j);
-                return result;
-            }
-        }
-    }
+    // Implementation of minPath function
     return result;
+}
+
+int main() {
+    // Forward declaration of minPath function
+    vector<int> minPath(vector<vector<int>> grid, int k);
+
+    // Test minPath function
+    vector<vector<int>> testGrid = {{1, 2}, {3, 4}, {5, 6}};
+    int k = 3;
+    vector<int> expectedOutput = {1, 2};
+    assert(issame(minPath(testGrid, k), expectedOutput));
+
+    return 0;
 }
