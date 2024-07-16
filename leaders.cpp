@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -9,6 +10,6 @@ vector<int> leaders(vector<int>& arr) {
             res.push_back(arr[i]);
         }
     }
-    std::reverse(res.begin(), res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
