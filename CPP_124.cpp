@@ -2,37 +2,30 @@ if (date.empty()) {
         return false;
     }
 
-    if (date.size() != 10) {
+    int month, day, year;
+    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
         return false;
     }
-
-    if (date[2] != '-' || date[5] != '-') {
-        return false;
-    }
-
-    int month = stoi(date.substr(0, 2));
-    int day = stoi(date.substr(3, 2));
-    int year = stoi(date.substr(6, 4));
 
     if (month < 1 || month > 12) {
         return false;
     }
 
-    if (day < 1 || day > 31) {
+    if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && (day < 1 || day > 31)) {
         return false;
     }
 
-    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && (day < 1 || day > 30)) {
         return false;
     }
 
     if (month == 2) {
-        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-            if (day > 29) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            if (day < 1 || day > 29) {
                 return false;
             }
         } else {
-            if (day > 28) {
+            if (day < 1 || day > 28) {
                 return false;
             }
         }
