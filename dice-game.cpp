@@ -1,24 +1,21 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
 double getProbability(int n, int m) {
-    double total = (double)n * m;
-    int greaterRolls = 0;
+    double total = 1.0;
+    double peterWins = 0.0;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < m; j++) {
-            if (i > j) {
-                greaterRolls++;
-            }
-        }
+    // Calculate probability of Peter winning
+    for (int i = m + 1; i <= n; i++) {
+        peterWins += 1.0 / n * 1.0 / m;
     }
 
-    return (double)greaterRolls / total;
+    return peterWins / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << setprecision(6) << getProbability(n, m) << endl;
+    cout << fixed << setprecision(10) << getProbability(n, m);
     return 0;
 }
