@@ -1,6 +1,4 @@
-Here is the completed Python code:
-
-def check_tweet(tweet):
+def validate_tweet(tweet):
     if len(tweet) == 0:
         return "You didn't type anything"
     elif len(tweet) > 140:
