@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -19,7 +20,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black;
+    return mastermind(code, guess);
 }
 
 int main() {
