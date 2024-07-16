@@ -6,5 +6,6 @@ int add(int x, int y) {
 }
 
 int main() {
-    // main function code here
+    // Main function logic here
+    return 0;
 }
