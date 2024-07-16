@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -18,9 +17,6 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     double result = probability(n, m);
-    std::ostringstream oss;
-    oss << std::fixed << std::setprecision(6); 
-    oss << result << "\n";
-    std::cout << oss.str();
+    std::cout << std::fixed << std::setprecision(6) << result << "\n";
     return 0;
 }
