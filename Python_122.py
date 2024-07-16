@@ -1,5 +1,5 @@
 def add_elements(arr, k):
     if k == 0:
         return 0
-    filtered_nums = [num for num in arr if 10 <= num <= 100]
+    filtered_nums = [num for num in arr if 10 <= num <= 100]  # Update the condition to also include equal to 100
     return sum(sorted(filtered_nums, reverse=True)[:k])
