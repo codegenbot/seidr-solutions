@@ -6,18 +6,11 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr);
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
-}
-
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_str = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
@@ -31,11 +24,17 @@ vector<string> by_length(vector<int> arr) {
         }
     }
     
-    sort(sorted_arr.begin(), sorted_arr.end(), greater<int>());
+    sort(sorted_arr.begin(), sorted_arr.end());
+    reverse(sorted_arr.begin(), sorted_arr.end());
     
     for (int num : sorted_arr) {
         result.push_back(num_to_str[num]);
     }
     
     return result;
+}
+
+int main(){
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
