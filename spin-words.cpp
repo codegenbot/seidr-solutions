@@ -9,7 +9,7 @@ std::string spinWords(std::string sentence) {
     for (char c : sentence) {
         if (c == ' ') {
             if (temp.length() >= 5)
-                result += std::string(temp).substr(0, temp.length()) + " ";
+                result += std::string(temp).rbegin()->substr(0, temp.length()) + " ";
             else
                 result += temp + " ";
             temp = "";
