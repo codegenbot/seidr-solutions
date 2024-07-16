@@ -5,11 +5,10 @@ def solution(lst):
 while True:
     try:
         user_input = input("Enter numbers separated by space: ")
-        lst = list(map(int, user_input.split()))
+        lst = list(map(int, filter(str.isdigit, user_input.split())))
         if not all(isinstance(num, int) for num in lst):
             raise ValueError
         break
     except ValueError:
         print("Invalid input. Please enter numbers separated by spaces.")
-
 print(solution(lst))
