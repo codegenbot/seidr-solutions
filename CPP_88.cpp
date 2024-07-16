@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> issame(vector<int> array) {
+vector<int> sort_array(vector<int> array){
     if(array.empty()) return array;
     vector<int> sorted_array = array;
     if((array.front() + array.back()) % 2 == 0){
