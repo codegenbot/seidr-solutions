@@ -1,7 +1,5 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <cmath>
+#include <iostream>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -31,8 +29,9 @@ int sumOfDigits(int num){
     return sum;
 }
 
-int main(){
+int main() {
     std::vector<int> lst = {1,2,3,4,5};
-    std::cout << skjkasdkd(lst) << std::endl;
+    int result = skjkasdkd(lst);
+    std::cout << "The output is: " << result << std::endl;
     return 0;
 }
