@@ -1,7 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include <initializer_list>
 
 double probability(int n, int m) {
     double p = 0.0;
