@@ -44,14 +44,14 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
 }
 
 int main() {
-    boost::any a = 5;
-    boost::any b = "10.0";
+    boost::any a = 10;
+    boost::any b = "20.5";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
-    if (boost::holds_alternative<int>(result)) {
+    if (result.which() == 0) {
         std::cout << "The result is: " << boost::get<int>(result) << std::endl;
     }
-    else if (boost::holds_alternative<float>(result)) {
+    else if (result.which() == 1) {
         std::cout << "The result is: " << boost::get<float>(result) << std::endl;
     }
     else {
