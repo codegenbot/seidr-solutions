@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
+#include <cmath> 
 using namespace std;
 
 int main() {
@@ -13,7 +14,7 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    double bounciness_index = first_bounce_height / start_height;
+    double bounciness_index = fmin(first_bounce_height / start_height, 0.999);
 
     double prev_height = first_bounce_height;
     double total_distance = 0.0;
