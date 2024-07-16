@@ -9,7 +9,7 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            result.push_back(nums[i]); // Corrected line
+            result.push_back(nums[i]); // Change made here
             result.push_back(complement);
             break;
         }
