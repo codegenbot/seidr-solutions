@@ -1,34 +1,9 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool is_multiply_prime(int a){
-    if (a < 6) {
-        return false;
-    }
-    vector<int> primes;
-    for (int i = 2; i < 100; ++i) {
-        if (is_prime(i)) {
-            primes.push_back(i);
-        }
-    }
-    for (int i = 0; i < primes.size(); ++i) {
-        for (int j = i; j < primes.size(); ++j) {
-            for (int k = j; k < primes.size(); ++k) {
-                if (primes[i] * primes[j] * primes[k] == a) {
+bool is_multiply_prime(int a) {
+    if(a < 30) return false;
+    for(int i = 2; i < a; i++){
+        if(a % i == 0){
+            for(int j = i + 1; j < a; j++){
+                if(a % j == 0 && a % (a / j) == 0){
                     return true;
                 }
             }
@@ -37,9 +12,9 @@ bool is_multiply_prime(int a){
     return false;
 }
 
+bool is_multiply_prime(int a);
+
 int main() {
-    int num;
-    cin >> num;
-    cout << (is_multiply_prime(num) ? "true" : "false") << endl;
+    assert(is_multiply_prime(11 * 13 * 7) == true);
     return 0;
 }
