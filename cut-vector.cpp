@@ -27,18 +27,18 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(nums);
     cout << "[";
     for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
+        std::cout << result.first[i];
         if (i < result.first.size() - 1) {
-            cout << ", ";
+            std::cout << ", ";
         }
     }
-    cout << "]\n[";
+    std::cout << "]\n[";
     for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
+        std::cout << result.second[i];
         if (i < result.second.size() - 1) {
-            cout << ", ";
+            std::cout << ", ";
         }
     }
-    cout << "]\n0\n";
+    std::cout << "]\n0\n";
     return 0;
 }
