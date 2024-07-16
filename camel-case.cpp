@@ -1,8 +1,8 @@
 int main() {
-    string str;
-    getline(cin, str);
+    string input;
+    getline(cin, input);
     bool capitalize = true;
-    for (char &c : str) {
+    for (char &c : input) {
         if (c == '-') {
             capitalize = true;
         } else if (c != ' ') {
