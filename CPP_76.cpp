@@ -1,7 +1,8 @@
-if (x < 1 || n < 2) {
+if (x <= 0 || n <= 0) {
         return false;
     }
     
     double result = log(x) / log(n);
-    return (result == (int)result);
+    
+    return (result == int(result));
 }
