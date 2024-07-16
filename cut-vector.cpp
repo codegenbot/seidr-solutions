@@ -8,7 +8,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     for (int i = 1; i < nums.size(); i++) {
-        int diff = std::abs(nums[i] - nums[i-1]);
+        int diff = abs(nums[i] - nums[i-1]);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -27,18 +27,18 @@ int main() {
     pair<vector<int>, vector<int>> result = cutVector(nums);
     cout << "[";
     for (int i = 0; i < result.first.size(); i++) {
-        std::cout << result.first[i];
+        cout << result.first[i];
         if (i < result.first.size() - 1) {
-            std::cout << ", ";
+            cout << ", ";
         }
     }
-    std::cout << "]\n[";
+    cout << "]\n[";
     for (int i = 0; i < result.second.size(); i++) {
-        std::cout << result.second[i];
+        cout << result.second[i];
         if (i < result.second.size() - 1) {
-            std::cout << ", ";
+            cout << ", ";
         }
     }
-    std::cout << "]\n0\n";
+    cout << "]\n0\n";
     return 0;
 }
