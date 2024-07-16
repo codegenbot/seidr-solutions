@@ -1,4 +1,3 @@
-```
 #include <string>
 using namespace std;
 
@@ -23,9 +22,9 @@ string spinWords(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    string input;
+    cout << "Enter a string of one or more words (separated by spaces): ";
+    getline(cin, input);
+    cout << "Spun output: " << spinWords(input) << endl;
     return 0;
 }
