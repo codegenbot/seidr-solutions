@@ -8,6 +8,8 @@ def separate_paren_groups(paren_string: str) -> list:
             level += 1
             current_group += char
         elif char == ")":
+            if level == 0:
+                return "Invalid input: Unmatched parentheses"
             level -= 1
             if level == 0:
                 result.append(current_group + char)
@@ -19,6 +21,9 @@ def separate_paren_groups(paren_string: str) -> list:
                 result.append(char)
             else:
                 current_group += char
+
+    if level != 0:
+        return "Invalid input: Unmatched parentheses"
 
     return result
 
