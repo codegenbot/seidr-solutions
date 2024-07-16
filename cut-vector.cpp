@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 using namespace std;
@@ -18,28 +19,5 @@ vector<vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v;
-    int num;
-    
-    cout << "Enter the number of elements in the vector: ";
-    cin >> num;
-    
-    cout << "Enter the elements of the vector (space-separated): ";
-    for(int i=0; i<num; i++) {
-        cin >> v.push_back(i);
-    }
-    
-    vector<vector<int>> result = cutVector(v);
-    
-    cout << "Left subvector: ";
-    for(auto x : result[0]) 
-        cout << x << " ";
-    cout << endl;
-    
-    cout << "Right subvector: ";
-    for(auto x : result[1])
-        cout << x << " ";
-    cout << endl;
-    
     return 0;
 }
