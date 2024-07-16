@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -14,3 +15,5 @@ public:
             return to_string(x);
     }
 };
+
+int main() { return 0; }
