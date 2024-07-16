@@ -1,5 +1,4 @@
-vector<int> factorize(int n){
-    vector<int> factors;
+vector<int> factors;
     for (int i = 2; i <= n; ++i) {
         while (n % i == 0) {
             factors.push_back(i);
@@ -7,4 +6,3 @@ vector<int> factorize(int n){
         }
     }
     return factors;
-}
