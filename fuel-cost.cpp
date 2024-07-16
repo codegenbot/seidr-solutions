@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -15,10 +16,10 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += ((num / 3) - 2) * count(nums.begin(), nums.end(), num);
     }
 
-    cout << sum * 3 << endl;
+    cout << sum << endl;
 
     return 0;
 }
