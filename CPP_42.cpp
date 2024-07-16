@@ -1,4 +1,4 @@
-vector<int> incr_list(const vector<int>& l) {
+vector<int> incr_list(const vector<int>& l){
     vector<int> result = l;
     for(int i = 0; i < result.size(); i++){
         result[i]++;
@@ -6,7 +6,7 @@ vector<int> incr_list(const vector<int>& l) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -18,11 +18,16 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-int main() {
-    vector<int> l = {1, 2, 3, 4, 5};
-    vector<int> incremented = incr_list(l);
-    vector<int> check = {2, 3, 4, 5, 6};
-    bool result = issame(incremented, check);
-    
+int main(){
+    vector<int> input = {1, 2, 3, 4};
+    vector<int> incremented = incr_list(input);
+    vector<int> expected = {2, 3, 4, 5};
+
+    if(issame(incremented, expected)){
+        cout << "Vectors are the same" << endl;
+    } else {
+        cout << "Vectors are different" << endl;
+    }
+
     return 0;
 }
