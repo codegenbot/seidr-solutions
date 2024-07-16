@@ -1,7 +1,8 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    assert all(isinstance(num, int) for num in numbers), "Input must be a list of integers"
+    if not all(isinstance(num, int) for num in numbers):
+        return 0, 0
     total_sum = sum(numbers) if numbers else 0
     total_product = 1
     for num in numbers:
