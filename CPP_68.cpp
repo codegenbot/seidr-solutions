@@ -1,9 +1,9 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int minEven = INT_MAX;
     int minEvenIndex = -1;
     
