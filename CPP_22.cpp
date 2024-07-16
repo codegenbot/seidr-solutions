@@ -1,16 +1,20 @@
-bool issame(vector<int> a, vector<int> b){
-    vector<int> filter_integers(list<any> values){
-        vector<int> result;
-        for(auto& val : values){
-            if(typeid(int) == val.type()){
-                result.push_back(any_cast<int>(val));
-            }
+#include <vector>
+#include <list>
+#include <boost/any.hpp>
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> filter_integers(list_any values){
+    vector<int> result;
+    for(auto& val : values){
+        if(typeid(int) == val.type()){
+            result.push_back(boost::any_cast<int>(val));
         }
-        return result;
     }
+    return result;
 }
 
 int main() {
-    // Main function code here
+    // Your main function code here
     return 0;
 }
