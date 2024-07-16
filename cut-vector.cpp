@@ -21,7 +21,9 @@ int main() {
     for (int i = 0; i < n; ++i) {
         currSum += nums[i];
         if (currSum >= halfSum) {
-            idx = i;
+            if (currSum - halfSum < halfSum - (currSum - nums[i])) {
+                idx = i;
+            }
             break;
         }
     }
