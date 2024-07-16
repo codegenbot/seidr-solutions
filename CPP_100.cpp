@@ -15,14 +15,14 @@ vector<int> make_a_pile(int n) {
             n++;
             stones = n;
         } else {
-            n++;
+            n--;
             stones = n;
         }
     }
     return pile;
 }
 
-int main() {
+int test_make_a_pile() {
     assert(vectorEqual(make_a_pile(8), vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) == true);
     return 0;
 }
