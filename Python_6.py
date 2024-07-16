@@ -11,4 +11,16 @@ def parse_nested_parens(paren_strings: List[str]) -> List[int]:
         for paren_string in paren_strings
     ]
 
-parse_nested_parens(["((())())", "()()()", "((()"])
+# Read input from user
+try:
+    n = int(input())
+    paren_strings = [input() for _ in range(n)]
+    
+    # Call the function with the input
+    result = parse_nested_parens(paren_strings)
+    print(result)
+    
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+except EOFError:
+    print("No input received. Please provide valid input.")
