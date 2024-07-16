@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <climits>
 #include <algorithm>
@@ -13,7 +14,7 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
     
-    std::reverse_copy(leaders.begin(), leaders.end(), leaders.begin());
+    std::reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
