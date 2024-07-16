@@ -1,19 +1,13 @@
-string result = "";
-    int consecutive_spaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
-            } else {
-                result += '_';
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            int j = i + 1;
+            while (j < text.size() && text[j] == ' ') {
+                text[j] = '-';
+                ++j;
             }
-        } else {
-            consecutive_spaces = 0;
-            result += c;
+            i = j - 1;
         }
     }
-    return result;
+    return text;
 }
