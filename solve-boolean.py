@@ -1,4 +1,3 @@
-```
 def solveBoolean(expression):
     if expression == "T":
         return True
@@ -11,7 +10,8 @@ def solveBoolean(expression):
         left, right = expression.split("|")
         return solveBoolean(left) or solveBoolean(right)
     else:
-        for char in expression:
-            if char != 'F':
-                return True
-        return False
+        if all(c == 'F' for c in expression):
+            return False
+        if all(c == 'T' for c in expression):
+            return True
+        return None
