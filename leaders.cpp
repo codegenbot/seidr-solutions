@@ -1,23 +1,30 @@
 #include <vector>
+#include <stack>
 #include <iostream>
 
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
+    std::stack<int> s;
 
-    if(n == 0) return result;
-
-    int max_right = arr[n-1];
-    result.push_back(max_right);
-
-    for(int i=n-2; i>=0; i--) { 
-        if(arr[i] >= max_right) {
-            result.push_front(arr[i]);
-            max_right = arr[i];
+    for(int i=n-1; i>=0; i--) { 
+        while(!s.empty() && s.top() <= arr[i]) {
+            s.pop();
         }
+        if(s.empty()) {
+            result.push_back(arr[i]);
+        } else {
+            result.push_back(s.top());
+        }
+        s.push(arr[i]);
     }
 
-    return result;
+    std::vector<int> finalResult;
+    while(!s.empty()) {
+        finalResult.push_back(s.top());
+        s.pop();
+    }
+    return finalResult;
 }
 
 int main() {
