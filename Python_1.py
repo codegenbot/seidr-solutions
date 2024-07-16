@@ -1,1 +1,1 @@
-paren_string = input().strip()
+paren_string = input("Enter a string: ").strip()
