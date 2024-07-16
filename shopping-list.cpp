@@ -1,4 +1,4 @@
-```c++
+```
 #include <cstdio>
 
 float shoppingList(float prices[], int nPrices, float discounts[]) {
@@ -14,6 +14,6 @@ int main() {
     int nPrices = sizeof(prices) / sizeof(prices[0]);
     float discounts[] = {0.05f, 0.1f, 0.08f};
     float totalPrice = shoppingList(prices, nPrices, discounts);
-    std::printf("Total price: %f\n", totalPrice); 
+    printf("Total price: %f\n", totalPrice); 
     return 0;
 }
