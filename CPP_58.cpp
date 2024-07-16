@@ -10,10 +10,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    if (issame(common({4, 3, 2, 8}, {}))) {
-        cout << "The sets have common elements." << endl;
-    } else {
-        cout << "The sets do not have common elements." << endl;
-    }
-    return 0;
+    // Example function call
+    issame(common({4, 3, 2, 8}, {}));
 }
