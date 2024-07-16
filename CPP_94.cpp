@@ -12,7 +12,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int skjasdkd(vector<int> lst){
+int findMaxPrimeSum(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -26,6 +26,6 @@ int skjasdkd(vector<int> lst){
     return sum;
 }
 
-int main() {
-    assert(skjasdkd({127, 97, 8192}) == 19);
+int runTests() {
+    assert(findMaxPrimeSum({127, 97, 8192}) == 10);
 }
