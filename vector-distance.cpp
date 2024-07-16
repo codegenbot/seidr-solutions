@@ -2,17 +2,20 @@
 #include <vector>
 #include <cmath>
 
+using namespace std;
+
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<double> vec1(n);
+    cin >> n;
+    
+    vector<double> vec1(n), vec2(n);
+    
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+        cin >> vec1[i];
     }
-
-    std::vector<double> vec2(n);
+    
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        cin >> vec2[i];
     }
 
     double sum = 0.0;
@@ -20,8 +23,7 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    double result = sqrt(sum);
-    std::cout << result << std::endl;
+    cout << sqrt(sum) << endl;
 
     return 0;
 }
