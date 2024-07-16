@@ -1,39 +1,49 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-int calculateBowlingScore(const string& bowls) {
+int calculateBowlingScore(string s) {
     int score = 0;
     int frame = 1;
     int ball = 0;
-    for (char c : bowls) {
+    int rolls[21] = {0};
+    
+    for (char c : s) {
         if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[ball + 1] == 'X') ? 10 : (isdigit(bowls[ball + 1]) ? bowls[ball + 1] - '0' : 10);
-                score += (bowls[ball + 2] == 'X') ? 10 : (isdigit(bowls[ball + 2]) ? bowls[ball + 2] - '0' : 10);
-            }
-            ball++;
-            frame++;
+            rolls[ball++] = 10;
+            if (frame < 10) frame++;
         } else if (c == '/') {
-            score += 10 - (isdigit(bowls[ball - 1]) ? bowls[ball - 1] - '0' : 0);
-            score += (bowls[ball + 1] == 'X') ? 10 : (isdigit(bowls[ball + 1]) ? bowls[ball + 1] - '0' : 10);
-            ball += 2;
-            frame++;
-        } else if (isdigit(c)) {
-            score += c - '0';
-            if (isdigit(bowls[ball + 1])) {
-                score += bowls[ball + 1] - '0';
+            rolls[ball++] = 10 - rolls[ball-1];
+            if (frame < 10) frame++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
+        } else {
+            rolls[ball++] = c - '0';
+            if (ball % 2 == 0) {
+                if (frame < 10) frame++;
             }
-            ball++;
-            frame++;
         }
     }
+    
+    for (int i = 0; i < 9; i++) {
+        if (rolls[i*2] == 10) {
+            score += 10 + rolls[i*2+2] + rolls[i*2+3];
+            if (rolls[i*2+2] == 10) {
+                score += rolls[i*2+4];
+            }
+        } else if (rolls[i*2] + rolls[i*2+1] == 10) {
+            score += 10 + rolls[i*2+2];
+        } else {
+            score += rolls[i*2] + rolls[i*2+1];
+        }
+    }
+    
     return score;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateBowlingScore(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << calculateBowlingScore(s) << endl;
     return 0;
 }
