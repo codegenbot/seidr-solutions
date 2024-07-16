@@ -1,15 +1,12 @@
-def find_pair(n, arr):
-    seen = set()
-    for num in arr:
-        target = n - num
-        if target in seen:
-            return str(num) + "\n" + str(target)
-        seen.add(num)
+def find_pair():
+    n = int(input())
+    numbers = list(map(int, input().split()))
+    target = int(input())
+
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[i] + numbers[j] == target:
+                return str(numbers[i]) + "\n" + str(numbers[j])
 
 
-# Read input
-num_cases = int(input())
-for _ in range(num_cases):
-    num_pairs = int(input())
-    pair_nums = list(map(int, input().split()))
-    print(find_pair(num_pairs, pair_nums))
+print(find_pair())
