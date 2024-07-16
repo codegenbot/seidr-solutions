@@ -14,10 +14,6 @@ bool issame(const vector<int>& vec1, const vector<int>& vec2){
 
 vector<int> intersperse(vector<int> numbers, int delimeter);
 
-int main() {
-    // Main function code here
-}
-
 vector<int> intersperse(vector<int> numbers, int delimeter){ 
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
