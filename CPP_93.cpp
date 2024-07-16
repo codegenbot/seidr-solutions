@@ -1,15 +1,14 @@
-string encode(string message) {
-    transform(message.begin(), message.end(), message.begin(), [](char c) {
+for (char& c : message) {
         if (isalpha(c)) {
-            c = isupper(c) ? tolower(c) : toupper(c);
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 c = c + 2;
-                if (c > 'z') {
-                    c -= 26;
-                }
             }
         }
-        return c;
-    });
+    }
     return message;
 }
