@@ -15,4 +15,4 @@ def solve_boolean(expression):
             elif char == '|':
                 result |= bool(and_value or any(char == c for c in 'TF'))
                 and_value = None
-        return result & and_value if and_value is not None else result.
+        return result & and_value if and_value is not None else result
