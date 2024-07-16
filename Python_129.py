@@ -29,6 +29,6 @@ def minPath(grid, k):
 
     for i in range(N):
         for j in range(N):
-            path = dfs(i, j, set(), [grid[i][j]], 0)
+            path = dfs(i, j, set(), [grid[i][j]], grid[i][j])
             if path:
                 return path
