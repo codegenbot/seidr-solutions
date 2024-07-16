@@ -1,10 +1,10 @@
 from typing import List
 
 def separate_paren_groups() -> List[str]:
-    paren_string = input("Enter a string with parentheses (e.g. '(abc)(def)(ghi)'): ").strip()
+    paren_string = input("Enter a string with parentheses: ")
 
-    if paren_string[0] != "(" or paren_string[-1] != ")":
-        return ["Input string must start and end with parentheses."]
+    if paren_string.count("(") != paren_string.count(")"):
+        return []
 
     result = []
     current_group = ""
@@ -18,7 +18,7 @@ def separate_paren_groups() -> List[str]:
 
         current_group += char
 
-        if open_brackets_count == 0 and current_group:
+        if open_brackets_count == 0:
             result.append(current_group)
             current_group = ""
 
