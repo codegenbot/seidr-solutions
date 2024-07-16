@@ -1,5 +1,3 @@
-Here is the completed code:
-
 def intersperse(numbers: List[int], delimeter: int) -> List[int]:
     if len(numbers) == 0:
         return []
