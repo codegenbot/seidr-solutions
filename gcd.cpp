@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,6 +8,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     for (int i = 0; i <= text.size() - target.size(); i++) {
         bool found = true;
         for (int j = 0; j < target.size(); j++) {
+            if (i + j >= text.size()) {
+                found = false;
+                break;
+            }
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -36,9 +41,9 @@ int main() {
 
     std::string text, target;
     std::cout << "Enter the text: ";
-    getline(cin, text);
+    getline(std::cin, text);
     std::cout << "Enter the target string: ";
-    getline(cin, target);
+    getline(std::cin, target);
     std::vector<int> indices = indicesOfSubstring(text, target);
     if (indices.empty()) {
         std::cout << "Target not found in the text." << std::endl;
