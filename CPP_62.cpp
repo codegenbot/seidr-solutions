@@ -23,14 +23,6 @@ bool issame(vector<float> a, vector<float> b){
 }
 
 int main(){
-    vector<float> v1 = {1.1, 2.2, 3.3};
-    vector<float> v2 = {1.1, 2.2, 3.3};
-    
-    if(issame(v1, v2)){
-        cout << "Vectors are same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
-    }
-    
+    // Your main function logic here
     return 0;
 }
