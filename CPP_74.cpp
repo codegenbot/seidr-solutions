@@ -6,7 +6,7 @@ int totalChars(const vector<string>& lst) {
     return total;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string> a, const vector<string> b) {
     return a == b;
 }
 
