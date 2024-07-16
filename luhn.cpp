@@ -3,8 +3,13 @@
 using namespace std;
 
 int luhnCheck(vector<int>& card) {
-    int sum = 0;
+    int originalSum = 0;
     for (int i = 0; i < card.size(); i++) {
+        originalSum += card[i];
+    }
+
+    int sum = originalSum;
+    for (int i = 1; i < card.size(); i++) {
         if (i % 2 == 1) {
             int temp = card[i] * 2;
             if (temp > 9) {
