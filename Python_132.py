@@ -1,8 +1,10 @@
 def is_nested(string):
-    stack = []
+    open_count = 0
     for char in string:
         if char == '[':
-            stack.append(char)
-        elif char == ']' and stack:
-            stack.pop()
-    return len(stack) < 2
+            open_count += 1
+        elif char == ']':
+            if open_count == 0:
+                return False
+            open_count -= 1
+    return open_count == 0
