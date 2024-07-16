@@ -1,6 +1,5 @@
-```python
+```
 import math
-
 def bouncing_balls():
     h0 = float(input())
     hf = float(input())
@@ -10,5 +9,6 @@ def bouncing_balls():
 
     total_distance = 2 * (1 - math.pow(bi, 2)) ** bounces
     print(total_distance)
+
 
 bouncing_balls()
