@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 std::vector<int> factorize(int n) {
