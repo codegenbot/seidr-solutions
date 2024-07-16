@@ -18,9 +18,10 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-    if (std::cin.fail() && !std::cin.eof()) {
-        std::cin.clear();
-        std::cin.ignore();
+
+    if (std::cin.fail() && nums.empty()) {
+        std::cerr << "No valid input provided." << std::endl;
+        return 1;
     }
 
     int result = basement(nums);
