@@ -1,30 +1,22 @@
-```cpp
 #include <vector>
-#include <float>
+#include <iostream>
 
-int main() {
+double totalShoppingTripCost(const std::vector<float>& prices, const std::vector<float>& discounts) {
     double total = 0.0;
-    vector<float> prices; 
-    vector<float> discounts;
 
-    int nPrices, nDiscounts;
-    cin >> nPrices >> nDiscounts;
+    int n;
+    std::cin >> n; 
 
-    prices.resize(nPrices);
-    discounts.resize(nDiscounts);
+    std::vector<float> prices(n);
+    std::vector<float> discounts(n);
 
-    for (int i = 0; i < nPrices; i++) {
-        cin >> prices[i];
+    for (int i = 0; i < n; i++) {
+        std::cin >> prices[i] >> discounts[i]; 
     }
 
-    for (int i = 0; i < nDiscounts; i++) {
-        cin >> discounts[i];
-    }
-
-    total = 0.0;
-    for (int i = 0; i < nPrices; i++) {
+    for (int i = 0; i < n; i++) {
         total += prices[i] - (prices[i] * (discounts[i] / 100.0));
     }
 
-    return static_cast<int>(total);
+    return total;
 }
