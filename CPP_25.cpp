@@ -1,5 +1,7 @@
 #include <vector>
-bool issame(std::vector<int> a, std::vector<int> b) {
+#include <cassert>
+
+vector<int> issame(vector<int> a, vector<int> b) {
     vector<int> factors;
     for (int i = 2; i * i <= n; i++) {
         while (n % i == 0) {
@@ -11,4 +13,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         factors.push_back(n);
     }
     return factors;
+}
+
+int main() {
+    vector<int> a = {2, 2, 3, 5};
+    vector<int> b = issame(a);
+    assert(a == b);
+    return 0;
 }
