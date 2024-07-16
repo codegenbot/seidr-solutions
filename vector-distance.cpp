@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
 
 double calculateDistance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
     double sum = 0.0;
@@ -13,24 +13,18 @@ double calculateDistance(const std::vector<float>& vec1, const std::vector<float
 
 int main() {
     int n;
-    std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
-    
-    std::vector<float> vec1(n);
-    std::vector<float> vec2(n);
 
-    std::cout << "Enter the elements of vector 1: ";
+    std::vector<float> vec1(n), vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
-    std::cout << "Enter the elements of vector 2: ";
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
     double distance = calculateDistance(vec1, vec2);
-    std::cout << "Euclidean distance between the two vectors: " << distance << std::endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
