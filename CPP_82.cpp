@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<string>
+#include <stdio.h>
+#include <string>
 using namespace std;
 
 bool is_prime(int n) {
@@ -14,6 +14,6 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(string str){
+bool prime_length(string str) {
     return is_prime(str.length());
 }
