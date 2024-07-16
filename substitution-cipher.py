@@ -4,17 +4,13 @@ def main():
     message = input("Enter the message to decipher: ")
 
     mapping = {}
-    for c1, c2 in zip(cipher1, cipher2):
-        if c1.isalpha() and c2.isalpha():
+    for c1, c2 in zip(cipher1.lower(), cipher2):
+        if c1.isalpha():
             if c1.islower(): 
-                mapping[c1] = c2.lower()
+                mapping[c1] = c2
             else:
                 mapping[c1] = c2.upper()
-            if c1.isupper(): 
-                mapping[c1.upper()] = c2.upper()
-            else: 
-                mapping[c1.lower()] = c2.lower()
-    
+
     result = ""
     for char in message:
         if char.isalpha():
