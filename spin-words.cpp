@@ -8,10 +8,10 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += " ";
             i++;
-        } else if ((int)(str.substr(i).c_str()[str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size() - 1]) <= 96) {
-            int len = str.substr(i, str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size());
+        } else if ((int)(str.substr(i).c_str()[str.substr(i).size() - 1]) >= 122 || (int)(str.substr(i).c_str()[str.substr(i).size() - 1]) <= 96) {
+            int len = str.substr(i).find(' ') != string::npos ? str.substr(i).find(' ') : str.substr(i).size();
             for (int j = len; j > 0; j--) {
-                result += str.substr(i, len)[len - j];
+                result += str.substr(i, len)[j - 1];
             }
             i += len;
         } else {
@@ -23,9 +23,8 @@ string spinWords(string str) {
             }
             if (k > 0) {
                 for (int j = k; j > 0; j--) {
-                    result += str[i - 1];
+                    result += str.substr(--i, 1);
                 }
-                i--;
             } else {
                 result += str.substr(i);
                 i++;
