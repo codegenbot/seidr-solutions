@@ -24,25 +24,28 @@ int main() {
         char guessChar = guessStr[i];
         if ('0' <= guessChar && guessChar <= '5') {
             if (--codeCount[static_cast<int>(guessChar)] > 0) {
-                blackPegs++;
-            } else {
                 whitePegs++;
+            } else {
+                blackPegs++;
             }
         }
     }
 
-    int correctPosition = 0;
-    for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
-            correctPosition++;
+    // Counting black pegs
+    for (char c : codeStr) {
+        if ('0' <= c && c <= '5') {
+            int index = guessStr.find(c);
+            while(index != std::string::npos) {
+                blackPegs++;
+                guessStr.erase(index, 1);
+                index = guessStr.find(c);
+            }
         }
     }
 
-    whitePegs += 4 - correctPosition;
-
     // Print the result
-    std::cout << "Black pegs: " << correctPosition << std::endl;
-    std::cout << "White pegs: " << whitePegs - correctPosition << std::endl;
+    std::cout << "Black pegs: " << blackPegs << std::endl;
+    std::cout << "White pegs: " << whitePegs - blackPegs << std::endl;
 
     return 0;
 }
