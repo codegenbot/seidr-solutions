@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int luhnCheck(vector<int>& card) {
     int sum = 0;
     for (int i = 0; i < card.size(); i++) {
@@ -11,5 +15,16 @@ int luhnCheck(vector<int>& card) {
             sum += card[i];
         }
     }
-    return sum % 10; // Check for odd sums
+    return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> card(n);
+    for (int i = 0; i < n; i++) {
+        cin >> card[i];
+    }
+    cout << luhnCheck(card) << endl;
+    return 0;
 }
