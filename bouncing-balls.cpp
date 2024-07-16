@@ -14,7 +14,7 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    double bounciness_index = fmin(first_bounce_height / start_height, 0.999);
+    double bounciness_index = fmin(first_bounce_height / start_height, 0.999); // ensure bounciness_index < 1
 
     double prev_height = first_bounce_height;
     double total_distance = 0.0;
