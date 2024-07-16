@@ -1,12 +1,10 @@
-#include <cmath>
 #include <vector>
+#include <cmath>
 
-double calculateEuclideanDistance(int n) {
+double calculateEuclideanDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0;
-    for (int i = 0; i < n; i++) {
-        double v1Val, v2Val;
-        std::cin >> v1Val >> v2Val;
-        sum += std::pow(v2Val - v1Val, 2);
+    for (int i = 0; i < v1.size(); i++) {
+        sum += std::pow(v2[i] - v1[i], 2);
     }
     return std::sqrt(sum);
 }
