@@ -2,10 +2,10 @@
 #include <string>
 #include <iostream>
 
-bool solveBoolean(const std::string& s) {
+bool solveBoolean(const char* s) {
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; s[i]; ++i) {
         if (s[i] == 'T') {
             result = true;
             operand = 1;
@@ -25,8 +25,8 @@ bool solveBoolean(const std::string& s) {
 
 int main() {
     std::cout << "Enter a Boolean expression: ";
-    std::string input;
-    getline(std::cin, input);  // Use std::getline from namespace std.
+    char input[100]; 
+    std::cin.get(input, 100); 
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";
