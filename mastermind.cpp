@@ -1,29 +1,30 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-
-using namespace std;
 
 int main() {
-    string code, guess;
+    std::string code, guess;
     int whitePegs = 0, blackPegs = 0;
 
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
 
-    cout << "Enter your guess: ";
-    cin >> guess;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else if (count(code.begin(), code.end(), guess[i]) > 0) {
+        } else if (code.find(guess[i]) != std::string::npos) {
             whitePegs++;
         }
     }
 
-    cout << "Black pegs: " << blackPegs << endl;
-    cout << "White pegs: " << whitePegs << endl;
+    if (code.length() != 4 || guess.length() != 4) {
+        std::cout << "Error: Code and guess must be 4 characters long." << std::endl;
+    } else {
+        std::cout << "Black pegs: " << blackPegs << std::endl;
+        std::cout << "White pegs: " << whitePegs << std::endl;
+    }
 
     return 0;
 }
