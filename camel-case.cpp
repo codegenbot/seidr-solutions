@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::string camelCase(std::string s) {
     std::string result;
     for (int i = 0; i <= s.size(); i++) {
