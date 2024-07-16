@@ -1,3 +1,5 @@
 def sort_third(l: list):
-    sorted_triplets = [l[i : i + 3] for i in range(0, len(l) - 2, 3) if sorted(l[i : i + 3])[2] % 2 == 1]
-    return sorted_triplets
+    triplets = [
+        l[i : i + 3] for i in range(0, len(l) - 2, 3) if sum(l[i : i + 3]) % 2 == 1
+    ]
+    return sorted(triplets)
