@@ -5,12 +5,12 @@ using namespace std;
 
 int main() {
     vector<int> arr = {1, 3, 4, 2, 3}; 
-    vector<int> leaders = leaders(arr);
-    for (int i=0; i<leaders.size(); i++) cout << leaders[i] << " "; 
+    vector<int> result = leaders(arr);
+    for (int i=0; i<result.size(); i++) cout << result[i] << " "; 
     return 0;
 }
 
-vector<int> leaders(const vector<int>& arr) {
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
 
