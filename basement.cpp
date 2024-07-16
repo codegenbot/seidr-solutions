@@ -1,14 +1,11 @@
-#include <initializer_list>
 #include <vector>
+using namespace std;
 
-int basement(std::vector<int> v) {
-    int sum = 0; 
-    int i = 0;
-    for (auto num : v) {
-        sum += num;
+int basement(vector<int>& nums) {
+    int sum = 0;
+    for (int i = 0; ; i++) {
+        sum += nums[i];
         if (sum < 0)
-            return i + 1;
-        i++;
+            return i;
     }
-    return -1;
 }
