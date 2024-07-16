@@ -1,4 +1,5 @@
-```cpp
+#include <vector>
+
 std::vector<int> findPair(std::vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
     for (int i = 0; i < nums.size() - 1; i++) {
