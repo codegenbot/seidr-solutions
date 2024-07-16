@@ -11,7 +11,6 @@ int main() {
     for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
         if (text.compare(i, target.size(), target) == 0) {
             indices.push_back(i);
-            ++i; // Move to the next character to handle overlapping occurrences
         }
     }
 
