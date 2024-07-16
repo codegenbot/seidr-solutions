@@ -6,7 +6,6 @@ def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
         current_snow -= min(current_snow, int(current_snow * melting_rate * 10))
     return round(current_snow / 10, 2)
 
-
 hours = int(input())
 initial_snow = float(input())
 rate_of_snowfall = float(input())
