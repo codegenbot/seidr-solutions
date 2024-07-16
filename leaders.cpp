@@ -15,19 +15,19 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
 
-    std::reverse_copy(leaders.begin(), leaders.end(), std::ostream_iterator<int>(std::cout, " "));
     return leaders;
 }
 
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (std::cin >> num && num != -1) {
         nums.push_back(num);
     }
     
-    if (std::cin.eof()) {
-        findLeaders(nums);
+    std::vector<int> result = findLeaders(nums);
+    for (int leader : result) {
+        std::cout << leader << " ";
     }
 
     return 0;
