@@ -1,11 +1,9 @@
-vector<int> tmp = lst;
-    sort(tmp.begin(), tmp.end());
+if(lst.size() <= 1) return true;
     
-    for (int i = 0; i < tmp.size(); i++) {
-        if (i > 0 && tmp[i] == tmp[i - 1]) {
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] >= lst[i+1] || count(lst.begin(), lst.end(), lst[i]) > 1)
             return false;
-        }
     }
     
-    return tmp == lst;
+    return true;
 }
