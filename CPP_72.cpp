@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool will_it_fly(std::vector<int> q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
@@ -13,13 +13,14 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> q = {1, 2, 3, 2, 1};
-    int w = 9;
-    if (will_it_fly(q, w)) {
-        std::cout << "It will fly!" << std::endl;
-    } else {
-        std::cout << "It won't fly." << std::endl;
-    }
+    std::vector<int> test_case = {1, 2, 3, 2, 1};
+    int weight_limit = 10;
     
+    if (will_it_fly(test_case, weight_limit)) {
+        std::cout << "The aircraft will fly!";
+    } else {
+        std::cout << "The aircraft is too heavy!";
+    }
+
     return 0;
 }
