@@ -1,17 +1,22 @@
 ```c++
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
+std::string spinWords(std::string str) {
+    std::string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-            result += str.substr(i);
+            std::string word = str.substr(i);
+            if (word.length() >= 5) {
+                for (int k = word.length() - 1; k >= 0; --k)
+                    result += word[k];
+            } else
+                result += word;
             break;
         }
         int j = str.find(" ", i);
-        string word = str.substr(i, j - i);
+        std::string word = str.substr(i, j - i);
         if (word.length() >= 5) {
             for (int k = word.length() - 1; k >= 0; --k)
                 result += word[k];
@@ -23,9 +28,6 @@ string spinWords(string str) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << spinWords(input) << endl;
+    std::cout << spinWords("This is a test");
     return 0;
 }
