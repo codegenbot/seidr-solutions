@@ -5,4 +5,3 @@ for (int num : numbers) {
     product *= num;
 }
 return {sum, product};
-}
