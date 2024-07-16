@@ -1,4 +1,4 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
@@ -16,7 +16,15 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    vector<int> input = {3, -2, 5, -7, 8};
+    vector<int> input = {3, -2, 5, -8, 10};
     vector<int> result = largest_smallest_integers(input);
+    vector<int> expected = {-2, 3};
+    
+    if(issame(result, expected)){
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
+    }
+
     return 0;
 }
