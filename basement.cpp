@@ -6,7 +6,7 @@ int basement(std::vector<int> nums) {
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum <= 0) {
-            return i + 1;
+            return i;  // return i instead of i + 1
         }
     }
     return 0;
@@ -24,7 +24,7 @@ int main() {
     }
 
     int result = basement(nums);
-    std::cout << "The first index where the sum is negative: " << result <<std::endl;
+    std::cout << "The first index where the sum is negative: " << result << std::endl;
 
     return 0;
 }
