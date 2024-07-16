@@ -1,20 +1,27 @@
 #include <string>
 
 bool solveBoolean(std::string s) {
-    bool val = false;
+    stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
-            while (!val && i + 1 < s.size() && s[i+1] == '&') {
-                i++;
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            val = true;
+            if (st.empty()) return false;
+            st.push('&');
         } else if (s[i] == '|') {
-            while (!val && i + 1 < s.size() && s[i+1] == '|') {
-                i++;
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            val = false;
+            if (st.empty()) return true;
+            st.push('|');
+        } else if (s[i] != 'T' && s[i] != 'F') {
+            return false;
         } else {
-            val = (s[i] == 'T');
+            st.push(s[i]);
         }
     }
-    return val;
+    while (!st.empty() && st.top() == '&') {
+        st.pop();
+    }
+    return !st.empty();
