@@ -16,7 +16,15 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main(){
-    vector<int> input = {3, -5, 2, -8, 6, 0};
+    vector<int> input = {3, -5, 2, -8, 7, 10};
     vector<int> result = largest_smallest_integers(input);
+    vector<int> expected = {-5, 2};
+    
+    if(issame(result, expected)){
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+    
     return 0;
 }
