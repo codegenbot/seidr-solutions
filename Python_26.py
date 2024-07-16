@@ -1,2 +1,5 @@
+def remove_duplicates(numbers):
+    return list(set(numbers))
+
 def check(numbers):
-    return find_unique(numbers)
+    return remove_duplicates(numbers)
