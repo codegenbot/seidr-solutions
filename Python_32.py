@@ -1,6 +1,3 @@
-xs = []
-try:
-    while True:
-        xs.extend(map(int, input().split()))
-except EOFError:
-    print(xs)
+
+xs = [int(input()) for _ in range(int(input("Enter the number of integers: ")))]
+print(xs)
