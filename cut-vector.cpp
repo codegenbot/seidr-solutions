@@ -4,7 +4,6 @@
 #include <cmath>
 #include <sstream>
 #include <numeric>
-#include <algorithm>
 
 int main() {
     std::vector<int> nums;
@@ -24,7 +23,7 @@ int main() {
     int n = nums.size();
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
     
-    int prefixSum = 0;
+    int prefixSum = nums[0];
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
@@ -42,12 +41,8 @@ int main() {
     for (int i = 0; i < cutIndex; i++) {
         std::cout << nums[i] << std::endl;
     }
-    for (int i = cutIndex; i < n - 1; i++) {
+    for (int i = cutIndex; i < n; i++) {
         std::cout << nums[i] << std::endl;
-    }
-    
-    if (minDiff == INT_MAX) {
-        std::cout << "No valid cut found." << std::endl;
     }
     
     return 0;
