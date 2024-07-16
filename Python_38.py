@@ -1,5 +1,3 @@
-import sys
-
 def decode_cyclic(s: str):
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
     groups = [
@@ -7,12 +5,9 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-if len(sys.argv) != 2:
-    print("Usage: python script.py <input_string>")
-    sys.exit(1)
 
-input_string = sys.argv[1]
-if not input_string:
-    raise ValueError("Input string cannot be empty.")
+input_string = input("Enter a string: ").strip()
+while not input_string:
+    input_string = input("Enter a non-empty string: ").strip()
 result = decode_cyclic(input_string)
 print(result)
