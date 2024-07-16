@@ -4,7 +4,8 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         while cents >= coins[i]:
-            cents -= coins[i]
-            coin_counts[i] += 1
+            count = int(cents / coins[i])
+            coin_counts[i] += count
+            cents %= coins[i]
 
-    return coin_counts[3], coin_counts[1], coin_counts[2], coin_counts[0]
+    return coin_counts[3], coin_counts[2], coin_counts[1], coin_counts[0]
