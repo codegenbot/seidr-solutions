@@ -3,10 +3,6 @@
 
 vector<float> derivative(vector<float> xs);
 
-bool issame(vector<float> a, vector<float> b){
-    // Function implementation
-}
-
 vector<float> derivative(vector<float> xs){
     vector<float> result;
     for (int i = 1; i < xs.size(); i++){
@@ -15,7 +11,6 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-int main() {
-    // Main function implementation
-    return 0;
+bool issame(vector<float> a, vector<float> b){
+    // Function implementation
 }
