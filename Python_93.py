@@ -4,5 +4,4 @@ def encode(message):
     else:
         return "Invalid input. Please enter a message containing only alphabets, including spaces."
 
-user_input = input()
-print(encode(user_input))
+print(encode(input("Enter a message: ")))
