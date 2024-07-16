@@ -1,7 +1,5 @@
-#include <iostream>
 #include <string>
 #include <sstream>
-#include <cctype>
 
 std::string camelCase(const std::string& str) {
     std::string result;
@@ -25,12 +23,20 @@ int main() {
     std::string str;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, str);
-    size_t pos = 0;
-    while ((pos = str.find('-')) != std::string::npos) {
-        str.replace(pos, 1, std::toupper(str[pos]));
-        str.erase(pos, 1);
+
+    std::stringstream ss(str);
+    std::string word;
+
+    while (std::getline(ss, word, '-')) {
+        if (!word.empty()) {
+            if (result.empty())
+                result = camelCase(word);
+            else
+                result += camelCase(word).substr(0,1).toupper() + camelCase(word).substr(1);
+        }
     }
-    std::cout << "camelCase: " << camelCase(str) << std::endl;
+
+    std::cout << "camelCase: " << result << std::endl;
 
     return 0;
 }
