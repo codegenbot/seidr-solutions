@@ -3,3 +3,6 @@ def solve_boolean(expression):
     for key, value in boolean_map.items():
         expression = expression.replace(key, value)
     return eval(expression)
+
+input_expression = input("Enter a Boolean expression: ")
+print(solve_boolean(input_expression))
