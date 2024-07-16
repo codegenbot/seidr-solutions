@@ -1,15 +1,14 @@
-int count = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
-            if (c == '(') {
-                count++;
-            } else {
-                if (count == 0) {
-                    return "No";
-                }
-                count--;
+int balance = 0;
+for (const string& str : lst) {
+    for (char c : str) {
+        if (c == '(') {
+            balance++;
+        } else {
+            if (balance <= 0) {
+                return "No";
             }
+            balance--;
         }
     }
-    return count == 0 ? "Yes" : "No";
 }
+return (balance == 0) ? "Yes" : "No";
