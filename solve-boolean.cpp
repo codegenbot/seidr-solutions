@@ -1,4 +1,3 @@
-```cpp
 bool solveBoolean(const std::string& s) {
     bool result = true;
     for (char c : s) {  
@@ -9,8 +8,10 @@ bool solveBoolean(const std::string& s) {
         } else if (c == '|') {
             result = !result;
         } else if (c == '&') {
-            if (!result) return false;
+            while (c == '&') {
+                if (!result) return false;
+                c = s[s.find(c) + 1];
+            }
         }
     }
     return result;
-}
