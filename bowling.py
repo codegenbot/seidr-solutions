@@ -1,24 +1,27 @@
-```
 def bowling_score(frames):
     score = 0
     i = 0
     while i < len(frames):
+        frame_score = 0
         if frames[i] == "X":
-            score += 10 + int(frames[i+1].replace('/', '')) + int(frames[i+2].replace('/', ''))
+            frame_score = 10
+            if i + 1 < len(frames) and frames[i+1].isdigit():
+                frame_score += int(frames[i+1])
+            if i + 2 < len(frames):
+                frame_score += int(frames[i+2])
             i += 3
         elif frames[i] == "/":
-            score += 10 + int(frames[i+1].replace('/', ''))
+            frame_score = 10
+            if i + 1 < len(frames) and frames[i+1].isdigit():
+                frame_score += int(frames[i+1])
             i += 2
         else:
-            frame_score = 0
             for j in range(int(frames[i])):
                 if i < len(frames) - 1 and frames[i+1].isdigit():
-                    frame_score += 10 - int(frames[i])
+                    frame_score += int(frames[i+1])
                     break
                 else:
                     frame_score += 10 - int(frames[i])
-            score += frame_score
             i += 2
+        score += frame_score
     return score
-
-print(bowling_score("X5/X/8-7/4/6/9/3/7/2/X"))
