@@ -10,16 +10,12 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     vector<int> codeCount(6, 0);
     vector<int> guessCount(6, 0);
 
-    codeCount[guess[0] - 'A']++;
-    codeCount[guess[1] - 'A']++;
-    codeCount[guess[2] - 'A']++;
-    codeCount[guess[3] - 'A']++;
+    codeCount[guess[i] - 'A']++;
+    guessCount[guess[i] - 'A']++;
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
         } else {
             codeCount[code[i] - 'A']++;
             guessCount[guess[i] - 'A']++;
