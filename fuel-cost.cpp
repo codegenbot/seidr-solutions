@@ -1,3 +1,4 @@
+#include <cmath>
 #include <vector>
 
 int fuelCost(std::vector<int> &stations) {
