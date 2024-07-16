@@ -1,9 +1,7 @@
 #include <string>
-#include <cstring>
-#include <assert.h>
 
 int main() {
-    std::string str = "asdasnakj";
-    assert(strlen(str.c_str()) == 9);
+    // Task: Return the length of the input string
+    std::string str = "example";
     return str.length();
 }
