@@ -2,11 +2,10 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
-    std::string strongest_extension = "";
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
     int max_strength = INT_MIN;
     
     for (const auto& ext : extensions) {
