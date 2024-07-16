@@ -1,36 +1,40 @@
-```cpp
-#include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
-#include <initializer_list>
 
-using namespace std;
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    bool capitalizeNext = true;
 
-string camelCase(string s) {
-    string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] == '-') i++;
-            if (i < s.length()) {
-                result += toupper(s[i]);
-                i++;
-            }
-        } else if (s[i] != ' ') {
-            if (!result.empty()) result[0] = tolower(result[0]);
-            result += s[i];
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
         }
     }
+
+    std::string temp = "";
+    temp += toupper(str[0]); // capitalize the first character of each word
+    result += temp;
+    temp.clear();
+    for (int i = 1; i < str.length(); ++i) {
+        if (str[i] == '-') {
+            continue;
+        }
+        temp += tolower(str[i]);
+    }
+    result += temp;
+
     return result;
 }
 
 int main() {
-    string str;
-    while (true) {
-        cout << "input: ";
-        cin >> str;
-        cout << "output: " << camelCase(str) << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
     return 0;
 }
