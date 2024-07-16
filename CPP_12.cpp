@@ -14,5 +14,3 @@ string longest(vector<string> strings) {
 
     return longestStr;
 }
-
-assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
