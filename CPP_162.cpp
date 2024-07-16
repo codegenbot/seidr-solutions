@@ -10,5 +10,4 @@ for(int i = 0; i < 16; i++) {
     sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
 }
 
-return string(mdString);
-}
+return mdString;
