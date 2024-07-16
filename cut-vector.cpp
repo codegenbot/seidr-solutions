@@ -31,8 +31,8 @@ int main() {
     }
     cout << endl;
     cout << res[1].size() << endl;
-    for(auto x : vector<int>(res[1].begin(), res[1].end())) {
-        cout << x << " ";
+    for(auto x : std::vector<int>(res[1]).begin(), e = std::vector<int>(res[1]).end(); auto i = x; i != e; ++i) {
+        cout << *i << " ";
     }
     cout << endl;
     
