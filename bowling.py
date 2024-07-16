@@ -3,7 +3,7 @@ def bowling(score_string):
     frame = 1
     prev_score = 0
 
-    for char in score_string + '/':
+    for char in score_string + '/': 
         if char == "X":
             score += 10
             frame += 1
