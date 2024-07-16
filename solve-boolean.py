@@ -1,22 +1,17 @@
 def solve_boolean(expression):
     stack = []
-    result = True if expression[0] == 'T' else False
-    
     for char in expression:
-        if char == '(':
+        if char in {'&', '|'}:
+            while len(stack) > 1 and stack[-1] in {'&', '|'}:
+                op = stack.pop()
+                result = eval(f"{stack[-2]} {op} {char}")
+                stack.append(str(result))
+        elif char == '(':
             stack.append(char)
         elif char == ')':
             while stack and stack[-1] != '(':
-                result = result ^ (stack.pop() == 'F')
-            stack.pop()
-        elif char in ['|', '&']:
-            while stack and stack[-1] in ['|', '&']:
-                if stack[-1] == '&':
-                    result = result & (char == 'T')
-                else:
-                    result = result | (char == 'T')
                 stack.pop()
+            stack.pop()  # Discard the '('
+        else:  
             stack.append(char)
-        elif char != 'T' and char != 'F':
-            stack.append(char)
-    return result
+    return eval(' '.join(stack))
