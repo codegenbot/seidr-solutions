@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -12,34 +13,28 @@ int main() {
     std::cin >> guessStr;
 
     int whitePegs = 0, blackPegs = 0;
-    char codeArray[5];
     for (int i = 0; i < 4; i++) {
-        codeArray[i] = codeStr[i];
-    }
-    codeArray[4] = '\0';
-
-    for (int i = 0; i < 4; i++) {
-        if (codeArray[i] == guessStr[i]) {
+        if (codeStr[i] == guessStr[i]) {
             blackPegs++;
-        }
-    }
-
-    int count = 0;
-    for (int i = 0; i < 6; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
-            if (guessStr[i] == codeArray[j]) {
+        } else {
+            bool foundInCode = false;
+            for (int j = 0; j < 4; j++) {
+                if (guessStr[i] == codeStr[j]) {
+                    foundInCode = true;
+                    break;
+                }
+            }
+            if (!foundInCode) {
                 whitePegs++;
-                found = true;
-                break;
+            } else {
+                blackPegs--;
             }
         }
-        if (!found) blackPegs--;
     }
 
     // Print the result
     std::cout << "Black pegs: " << blackPegs << std::endl;
-    std::cout << "White pegs: " << whitePegs - blackPegs << std::endl;
+    std::cout << "White pegs: " << whitePegs << std::endl;
 
     return 0;
 }
