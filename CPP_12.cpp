@@ -1,5 +1,7 @@
 #include <string>
 
+string longest(vector<string> strings);
+
 string longest(vector<string> strings){
     if(strings.empty()){
         return "None";
