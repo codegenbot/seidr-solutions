@@ -5,18 +5,18 @@ def minPath(grid, k):
     visited = set()
     path = []
 
-    def dfs(x, y, length):
+    def dfs(x, y, length, curr_path):
         if length == k:
-            path.append(grid[x][y])
+            curr_path.append(grid[x][y])
             return True
         visited.add((x, y))
         for i in range(4):
             nx, ny = x + dx[i], y + dy[i]
             if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in visited:
-                if dfs(nx, ny, length + 1):
+                if dfs(nx, ny, length + 1, curr_path):
                     return True
         visited.remove((x, y))
         return False
 
-    dfs(*start, 1)
+    dfs(*start, 1, path)
     return path
