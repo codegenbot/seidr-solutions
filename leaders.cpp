@@ -1,13 +1,17 @@
 #include <iostream>
-#include <vector>
+#include <deque>
 
-std::vector<int> leaders(const std::vector<int>& arr) {
+std::deque<int> leaders(const std::deque<int>& arr) {
     int n = arr.size();
-    std::vector<int> result;
+    std::deque<int> result;
 
-    for(int i=0; i<n; i++) { 
-        if(result.empty() || arr[i] >= arr[result.size()-1]) {
-            result.push_back(arr[i]);
+    int max_right = arr.back();  
+    result.push_back(arr.back());  
+
+    for(int i=n-2; i>=0; i--) { 
+        if(arr[i] >= max_right) {
+            max_right = arr[i];
+            result.push_front(arr[i]);
         }
     }
 
@@ -16,7 +20,7 @@ std::vector<int> leaders(const std::vector<int>& arr) {
 
 int main() {
     int n;
-    std::vector<int> arr;
+    std::deque<int> arr;
 
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -28,7 +32,7 @@ int main() {
         arr.push_back(x);
     }
 
-    std::vector<int> result = leaders(arr);
+    std::deque<int> result = leaders(arr);
 
     std::cout << "Leaders: ";
     for(int i=0; i<result.size(); i++) {
