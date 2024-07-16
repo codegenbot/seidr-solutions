@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <initializer_list> 
+#include <initializer_list>
 #include <tuple>
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
