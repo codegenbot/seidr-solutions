@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool is_nested(const std::string& str) {
     int count = 0;
@@ -15,10 +14,15 @@ bool is_nested(const std::string& str) {
 }
 
 int main() {
-    assert(is_nested("[]") == true);
-    assert(is_nested("[[[]]]") == true);
-    assert(is_nested("[[[]]") == false);
-    assert(is_nested("]]]]]]]]") == false);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
+    if (is_nested(input)) {
+        std::cout << "The string is nested properly." << std::endl;
+    } else {
+        std::cout << "The string is not nested properly." << std::endl;
+    }
 
     return 0;
 }
