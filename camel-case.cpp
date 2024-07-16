@@ -17,14 +17,13 @@ std::string camelCase(std::string str) {
             i++;
         } else {
             if (!result.size()) {
-                result = tolower(std::string(1, str[i]), std::locale());
+                result = std::tolower(str[i], std::locale());
             } else {
                 result += std::tolower(str[i], std::locale());
             }
             i++;
         }
-    }
-    
+    }    
     return result;
 }
 
