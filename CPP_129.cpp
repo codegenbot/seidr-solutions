@@ -3,8 +3,10 @@
 
 std::vector<int> minPath(std::vector<std::vector<int>> paths, int steps) {
     std::vector<int> result;
+    int path_rows = paths.size();
+    int path_cols = paths[0].size();
     for (int i = 0; i < steps; ++i) {
-        result.push_back(paths[i % paths.size()][i % paths[0].size()]);
+        result.push_back(paths[i % path_rows][i % path_cols]);
     }
     return result;
 }
