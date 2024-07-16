@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -24,8 +23,8 @@ std::string kebabToCamel(const std::string& str) {
 
 int main() {
     std::string input;
+    std::cin >> input;  // Input to a string variable
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;  // Corrected the input statement
-    std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
+    std::cout << kebabToCamel(input) << std::endl;
     return 0;
 }
