@@ -19,4 +19,5 @@ int main() {
         cin >> n;
         cout << fizzBuzz(n) << endl;
     }
+    return 0;
 }
