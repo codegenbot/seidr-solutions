@@ -1,3 +1,4 @@
+```
 def mastermind():
     code = input("Enter the Mastermind code (4 characters): ")
     guess = input("Enter your guess (4 characters): ")
