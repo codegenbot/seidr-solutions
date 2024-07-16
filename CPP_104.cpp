@@ -21,11 +21,11 @@ vector<int> unique_digits(vector<int> x) {
         vector<int> digits(10, 0);
         while (temp > 0) {
             int digit = temp % 10;
-            if (digits[digit] == 1) {
+            digits[digit]++;
+            if (digits[digit] > 1) {
                 hasUniqueDigits = false;
                 break;
             }
-            digits[digit] = 1;
             temp /= 10;
         }
         if (hasUniqueDigits) {
