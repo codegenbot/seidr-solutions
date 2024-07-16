@@ -1,11 +1,17 @@
+paren_strings = input("Enter a list of parenthesized strings separated by spaces: ").split()
+
 def parse_nested_parens(paren_strings):
-    result = []
+    stack = []
     for string in paren_strings:
-        count = 0
         for char in string:
             if char == '(':
-                count += 1
+                stack.append(char)
             elif char == ')':
-                count -= 1
-        result.append(count)
-    return result
+                if not stack or stack[-1] != '(':
+                    return False
+                stack.pop()
+        if stack:
+            return False
+    return True
+
+print(parse_nested_parens(paren_strings))
