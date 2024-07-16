@@ -1,24 +1,8 @@
-```cpp
-#include <iostream>
-#include <cmath>
-
-double sum_of_squares(double arr[], int n){
-    double total = 0;
-    for(int i=0; i<n; i++){
-        total += std::pow(arr[i],2);
+int sum_squares(vector<float> lst){
+    int total = 0;
+    for(float x : lst){
+        int ceil_x = ceil(x);
+        total += pow(ceil_x,2);
     }
     return total;
-}
-
-int main() {
-    double* testArray = new double[] {1.0, 2.0, 3.0};
-    int n = sizeof(testArray)/sizeof(testArray[0]);
-    double result = sum_of_squares(testArray, n);
-    std::cout << "Sum of squares: " << result << std::endl;
-    
-    delete [] testArray; 
-
-    assert (sum_of_squares({-1,1,0})==2);
-
-    return 0;
 }
