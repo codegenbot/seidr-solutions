@@ -1,23 +1,29 @@
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool capitalizeNext = true;
-    int lastSpaceIndex = 0;
+```cpp
+#include <iostream>
+#include <string>
+
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = str.empty(); // Initial state
 
     for (char c : str) {
         if (c == '-') {
-            // Add space to previous group and reset capitalizeNext flag
-            if (lastSpaceIndex != -1) {
-                result += ' ';
-                capitalizeNext = true;
-            }
-            lastSpaceIndex = str.find(c);
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+            capitalizeNext = true;
         } else {
-            result += tolower(c);
+            result += capitalizeNext ? topper(c) : tolower(c);
+            capitalizeNext = false;
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
+
+    return 0;
 }
