@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,6 +8,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     for (int i = 0; i <= text.size() - target.size(); i++) {
         bool found = true;
         for (int j = 0; j < target.size(); j++) {
+            if (i + j >= text.size()) {
+                found = false;
+                break;
+            }
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -33,12 +37,6 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
-
-    if (num1 == 0 || num2 == 0) {
-        std::cout << "Please enter non-zero numbers." << std::endl;
-        return 1; 
-    }
-
     std::cout << "GCD of " << num1 << " and " << num2 << ": " << gcd(num1, num2) << std::endl;
 
     std::string text, target;
