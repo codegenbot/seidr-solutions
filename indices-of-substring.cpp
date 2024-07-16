@@ -1,6 +1,4 @@
-#include <vector>
-using namespace std;
-
+```cpp
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int n = text.length();
