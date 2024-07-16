@@ -1,3 +1,6 @@
-double root = pow(x, 1.0 / n);
-    return (root == round(root));
+if (x <= 0 || n <= 0) {
+        return false;
+    }
+    double result = log(x) / log(n);
+    return result == int(result);
 }
