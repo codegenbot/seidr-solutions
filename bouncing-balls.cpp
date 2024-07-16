@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,10 +12,10 @@ int main() {
 
     double total_distance = 0.0;
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += (1 + bounciness_index) * (pow(2.0, i));
+        total_distance += (1 + bounciness_index) * pow(2, i);
     }
 
-    cout.precision(6);
+    cout.precision(6); // set the precision to 6 decimal places
     cout << fixed << total_distance;
 
     return 0;
