@@ -13,10 +13,9 @@ vector<int> sort_third(const vector<int>& l) {
         return l[a] < l[b];
     });
 
-    vector<int> sorted_values;
     for (int i = 0; i < sorted_indices.size(); ++i) {
-        sorted_values.push_back(l[sorted_indices[i]]);
+        l[sorted_indices[i]] = l[i];
     }
 
-    return sorted_values;
+    return l;
 }
