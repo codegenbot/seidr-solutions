@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
@@ -8,11 +6,7 @@ string spinWords(string str) {
     int i = 0;
     while (i < str.length()) {
         if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-            if (str.substr(i).length() >= 5)
-                for (int k = str.substr(i).length() - 1; k >= 0; --k)
-                    result += str.substr(i)[k];
-            else
-                result += str.substr(i);
+            result += str.substr(i);
             break;
         }
         int j = str.find(" ", i);
@@ -28,5 +22,8 @@ string spinWords(string str) {
 }
 
 int main() {
-    cout << spinWords("This is a test"); 
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << "Spun sentence: " << spinWords(input) << endl;
 }
