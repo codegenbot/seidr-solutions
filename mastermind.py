@@ -1,5 +1,4 @@
 def mastermind(code, guess):
-    blacks = sum([a == b for a,b in zip(guess, code)])
-    total_common = sum([1 for a,b in zip(guess, code) if a!=b and a in code])
-    whites = total_common - blacks
-    return str(blacks), str(whites)
+    black_count = sum([c1 == c2 and p1 == 0 for c1, c2, p1 in zip(code, guess, [x.count(c) for x in (code, guess)] if c1 == c2 else 0])
+    whites = len([i for i, (c, g) in enumerate(zip(code, guess)) if c != g and c in guess]) - black_count
+    return str(black_count), str(whites)
