@@ -10,7 +10,10 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
     return max_numbers
 
-input_numbers = input().strip()
-numbers = [int(num) for num in input_numbers.split()]
-result = rolling_max(numbers)
-print(result)
+# Input processing
+input_numbers = input().strip().split()
+numbers = [int(num) for num in input_numbers]
+
+# Function call
+output = rolling_max(numbers)
+print(output)
