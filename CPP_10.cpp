@@ -1,10 +1,9 @@
 string make_palindrome(string str){
-    string palin = str;
-    for(int i = str.size()-1; i >= 0; --i){
-        if(is_palindrome(str.substr(i))){
-            palin += str.substr(0, i);
-            break;
+    string rev_str = string(str.rbegin(), str.rend());
+    for (int i = 0; i < str.size(); i++) {
+        if (str.substr(0, str.size() - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
         }
     }
-    return palin;
+    return str; 
 }
