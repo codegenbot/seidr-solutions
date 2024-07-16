@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) { 
+bool vectorEqual(vector<int> a,vector<int>b){
     return a == b;
 }
 
@@ -24,6 +23,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(vectorEqual(make_a_pile(8), vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) == true);
     return 0;
 }
