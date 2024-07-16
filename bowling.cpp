@@ -1,28 +1,32 @@
 ```c++
-#include <string>
-#include <iostream>
-
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
+    int currentFrame = 1;
 
-    for (auto it = s.begin(); it != s.end(); ++it) {
-        char c = *it;
+    for (int i = 0; i < s.size(); ++i) {
+        char c = s[i];
         
         if (c == 'X') {
-            score += 10 + 30; // strike, add the bonus
-            currentRoll = 0;
+            score += 10; // strike, add the bonus
+            if (currentFrame < 10) {
+                currentFrame++;
+            }
         } else if (c == '/') {
             score += currentRoll + 10; // add the roll and the bonus
+            if (s.find('/', i+1) < s.size()-1) { // check for next frame
+                currentFrame = 2;
+            } else {
+                currentFrame++;
+            }
             currentRoll = 0;
         } else {
             if (currentRoll > 9) { 
                 int firstRoll = c - '0';
                 score += firstRoll + 10; 
-                if (s.find('/', it-s.begin()) < s.size()-1) {
-                    currentRoll = 10 - c;
-                } else {
-                    currentRoll = 20 - c;
+                currentRoll = 0;
+                if (currentFrame < 10) {
+                    currentFrame++;
                 }
             } else {
                 currentRoll *= 10;
@@ -32,11 +36,4 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
-}
-
-int main() {
-    std::string input = "XXXX/--;";
-    int score = bowlingScore(input);
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
 }
