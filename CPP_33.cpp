@@ -1,5 +1,8 @@
 vector<int> result = l;
-        for (int i = 0; i < l.size(); i += 3) {
-            sort(result.begin() + i, result.begin() + i + 3);
+    for (int i = 0; i < l.size(); i++) {
+        if ((i + 1) % 3 == 0) {
+            sort(result.begin() + i - 2, result.begin() + i + 1);
         }
-        return result;
+    }
+    return result;
+}
