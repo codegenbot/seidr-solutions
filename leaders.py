@@ -1,3 +1,9 @@
 def leaders(a):
-    leaders = [a[i] for i in range(len(a) - 1, -1, -1) if a[i] >= max(a[i+1:])]
-    return leaders
+    leaders = []
+    max_right = a[-1]
+    for i in range(len(a) - 1, -1, -1):
+        if a[i] <= max_right:
+            leaders.append(max_right)
+        else:
+            max_right = a[i]
+    return leaders[::-1]
