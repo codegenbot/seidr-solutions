@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +14,7 @@ public:
 int main() {
     Solution solution;
     for (int i = 1; i <= 15; ++i) {
-        cout << solution.fizzBuzz(i) << endl;
+        std::cout << solution.fizzBuzz(i) << std::endl;
     }
     return 0;
 }
