@@ -12,10 +12,9 @@ def add(a, b):
 
 while True:
     try:
-        user_input = input("Enter two numbers separated by space or '/' for division: ")
-
-        if not user_input:
-            raise ValueError("No input provided. Please enter two numbers.")
+        user_input = input(
+            "Enter two numbers separated by space or '/' for division: "
+        )
 
         if user_input.startswith("/"):
             raise ValueError("Division operator should be in-between two numbers.")
