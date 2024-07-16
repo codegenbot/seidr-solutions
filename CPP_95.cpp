@@ -1,6 +1,7 @@
+```cpp
 #include <map>
+#include <string>
 #include <cctype>
-#include <algorithm>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -16,4 +17,9 @@ bool check_dict_case(map<string, string> dict) {
         allUpper &= isupper(pair.first[0]);
     }
     return allLower || allUpper;
+}
+
+int main() {
+    // Use the function here
+    return 0;
 }
