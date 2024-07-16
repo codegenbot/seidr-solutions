@@ -5,3 +5,5 @@ try:
     print(sum(numbers))
 except ValueError:
     print("Invalid input. Please enter numbers separated by space.")
+except:
+    print("Program did not receive expected input")
