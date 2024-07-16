@@ -5,7 +5,7 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         while cents >= coins[i]:
-            quotient = cents // coins[i]
+            quotient = int(cents / coins[i])
             cents -= quotient * coins[i]
             result[i] += quotient
 
