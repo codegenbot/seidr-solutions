@@ -1,20 +1,13 @@
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> maxHeap;
-    
-    for (int i : arr) {
-        maxHeap.push(i);
-        
-        if (maxHeap.size() > k)
-            maxHeap.pop();
-    }
-    
     vector<int> result;
-    while (!maxHeap.empty()) {
-        result.push_back(maxHeap.top());
-        maxHeap.pop();
+    for (int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
-    
-    reverse(result.begin(), result.end());
-    
     return result;
 }
