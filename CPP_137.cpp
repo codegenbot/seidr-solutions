@@ -24,7 +24,7 @@ std::variant<int, float, std::string> compare_one(const std::variant<int, float,
 }
 
 int main() {
-    assert(std::get<std::string>(compare_one(std::string("1"), std::string("1"))).empty());
+    assert(std::get<std::string>(compare_one(std::string("1"), std::string("2.0f"))).empty());
     
     return 0;
 }
