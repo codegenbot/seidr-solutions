@@ -25,7 +25,7 @@ bool is_prime(int n) {
     if (n <= 1) {
         return false;
     }
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i*i <= n; i++) {
         if (n % i == 0) {
             return false;
         }
@@ -34,8 +34,9 @@ bool is_prime(int n) {
 }
 
 int main() {
-    string sentence;
-    getline(cin, sentence);
-    cout << words_in_sentence(sentence) << endl;
+    string input_sentence;
+    getline(cin, input_sentence);
+    string output = words_in_sentence(input_sentence);
+    cout << output << endl;
     return 0;
 }
