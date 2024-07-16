@@ -1,7 +1,8 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
-std::pair<int, int> mastermind(const string& code, const string& guess) {
+pair<int, int> mastermind(const string& code, const string& guess) {
     string all_chars = "RGYBO"; // assuming the 6 possible characters are R, G, Y, B, and O
 
     int white = 0;
@@ -15,5 +16,5 @@ std::pair<int, int> mastermind(const string& code, const string& guess) {
         }
     }
 
-    return pair<int, int>(white, black);
+    return {white, black};
 }
