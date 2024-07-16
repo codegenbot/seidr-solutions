@@ -1,3 +1,12 @@
+```c++
+#include <stdio.h>
+
+int main() {
+    double result = probability(4, 6);
+    printf("Probability: %f\n", result);
+    return 0;
+}
+
 double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
