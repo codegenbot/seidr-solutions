@@ -6,8 +6,14 @@ def coin_sums(cents):
             list(
                 map(
                     sum,
-                    [(coin // c, (coin % c) // d, (coin % c) % d) if c != 1 else [(coin % c) // d, (coin % c) % d] 
-                    for i, c in enumerate(coins)]
+                    [
+                        (
+                            [coin // c, (coin % c) // d, (coin % c) % d]
+                            if c != 1
+                            else [(coin % c) // d, (coin % c) % d]
+                        )
+                        for i, c in enumerate(coins)
+                    ]
                 )
             )
             for coin in [cents] + [x for x in range(cents - 24, -1, -1) if any(x // c for c in coins)]
