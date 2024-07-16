@@ -1,5 +1,5 @@
-n = int(input())
 arr = list(map(int, input().split()))
+n = len(arr)
 diff = float("inf")
 cut_index = 0
 
