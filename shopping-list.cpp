@@ -1,5 +1,4 @@
-```
-#include <vector>
+```#include <vector>
 
 double totalPriceAfterDiscount(const std::vector<float>& prices, const std::vector<float>& discounts) {
     double totalPrice = 0;
@@ -9,4 +8,4 @@ double totalPriceAfterDiscount(const std::vector<float>& prices, const std::vect
         totalPrice += price - discount;
     }
     return totalPrice;
-}
+}```
