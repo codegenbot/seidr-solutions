@@ -1,14 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::vector<int> sorted_nums = nums;
-    sort(sorted_nums.begin(), sorted_nums.end(), [](int a, int b) {
+vector<int> issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end(), [](int a, int b) {
         int sumA = 0, sumB = 0;
         int tempA = abs(a), tempB = abs(b);
         while (tempA > 0) {
@@ -24,10 +15,13 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         }
         return sumA < sumB;
     });
-    return sorted_nums;
+    return a;
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    vector<int> result = issame({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 23, 6, 6});
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
