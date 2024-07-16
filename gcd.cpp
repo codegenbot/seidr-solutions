@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,7 +15,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result; // Default initialization
+    std::vector<int> result; // Initialize the vector
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
@@ -33,11 +32,16 @@ int main() {
         return 1;
     }
 
-    std::cout << "Enter second number: ";
-    if (!(std::cin >> b)) {
-        std::cerr << "Invalid input for the second number." << std::endl;
-        return 1;
+    while (!(std::cin >> b)) {
+        std::cout << "Invalid input. Please enter an integer: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (!(std::cin >> b)) {
+            std::cerr << "Invalid input for the second number." << std::endl;
+            return 1;
+        }
     }
+
     int result = gcd(a, b);
     std::cout << "GCD of the numbers is: " << result << std::endl;
 
