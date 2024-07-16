@@ -1,10 +1,12 @@
-for (int i = 0; i < message.length(); i++) {
-        if (isalpha(message[i])) {
-            if (tolower(message[i]) == 'a' || tolower(message[i]) == 'e' || tolower(message[i]) == 'i' || tolower(message[i]) == 'o' || tolower(message[i]) == 'u') {
-                message[i] = (char)(((tolower(message[i]) - 'a' + 2) % 26) + 'a');
+string encode(string message){
+    string encodedMessage = message;
+    for(char &c : encodedMessage) {
+        if(isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                c = c + 2;
             }
-            message[i] = islower(message[i]) ? toupper(message[i]) : tolower(message[i]);
         }
     }
-    return message;
+    return encodedMessage;
 }
