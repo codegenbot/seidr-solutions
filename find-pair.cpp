@@ -6,16 +6,16 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
-    map<int, int> mp;
+    
+    map<int, int> numIndex;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
+        if (numIndex.find(target - nums[i]) != numIndex.end()) {
+            cout << nums[numIndex[target - nums[i]]] << endl;
             cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numIndex[nums[i]] = i;
     }
-
+    
     return 0;
 }
