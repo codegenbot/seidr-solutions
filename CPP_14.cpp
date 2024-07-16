@@ -1,8 +1,8 @@
 #include <string>
 #include <vector>
 
-bool issame(const std::string& str1, const std::string& str2) {
-    return str1 == str2;
+bool issame(const std::string& s1, const std::string& s2) {
+    return s1 == s2;
 }
 
 std::vector<std::string> all_prefixes(std::string str);
