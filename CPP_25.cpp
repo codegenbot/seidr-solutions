@@ -30,6 +30,6 @@ vector<int> factorize(int n){
 }
 
 int main() {
-    // Main function logic here
+    // Main function code here
     return 0;
 }
