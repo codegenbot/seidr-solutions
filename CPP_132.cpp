@@ -5,8 +5,6 @@ bool is_nested(const std::string& str) {
             count++;
         } else if (c == ']' && count > 0) {
             count--;
-        } else if (c == ']' && count <= 0) {
-            return false;
         }
     }
     return count == 0;
