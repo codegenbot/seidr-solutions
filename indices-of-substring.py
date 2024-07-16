@@ -4,4 +4,8 @@ def indices_of_substring(text, target):
         pos = text.find(target, i)
         if pos != -1:
             result.append(i + pos)
-    return [i for n, i in enumerate(result) if i not in result[:n]]
+    return list(set(result))
+
+text = input()
+target = input()
+print(indices_of_substring(text, target))
