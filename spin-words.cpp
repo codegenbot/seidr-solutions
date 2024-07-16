@@ -1,49 +1,34 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::string word;
-    
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            result += word + " ";
-            word.clear();
-        } else {
-            word += sentence[i];
-        }
-    }
-    
-    result += word;
-    
-    std::string newSentence = "";
-    int len;
-    
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ') {
-            len = i;
-        } else if (i > len && result[i - 1] != ' ') {
-            len = i;
-        }
-        
-        if (len >= 5) {
-            for (int j = len; j >= 0; j--) {
-                newSentence += result[j];
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == ' ') {
+            result += str.substr(i);
+            i++;
+        } else if (strlen(&str[i]) >= 5) {
+            for (int j = strlen(&str[i]); j > 0; j--) {
+                result += str[i + j - 1];
             }
-            newSentence += " ";
-            len++;
+            i += j;
         } else {
-            newSentence += result.substr(0, len + 1);
+            int k = 0;
+            while (i < str.length() && str[i] != ' ') {
+                result += str[i];
+                i++;
+                k++;
+            }
+            if (k > 0) {
+                for (int j = k; j > 0; j--) {
+                    result += str[i - 1];
+                }
+                i--;
+            } else {
+                result += str.substr(i);
+                i++;
+            }
         }
     }
-    
-    return newSentence;
-}
-
-int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    return 0;
+    return result;
 }
