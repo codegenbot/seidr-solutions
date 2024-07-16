@@ -5,6 +5,6 @@ def camel_case(input_str):
             output_str += word.replace("-", "").capitalize()
         else:
             output_str += word.capitalize()
-        if output_str != "" and not (word == " " or "-" in word):
+        if not word.startswith(input_str.split()[0]):
             output_str += " "
     return output_str.strip().replace(" ", "")
