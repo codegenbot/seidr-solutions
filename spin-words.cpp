@@ -26,7 +26,6 @@ int main() {
         }
         return result;
     }
-    
     std::cout << spinWords("This is a test");
     return 0;
 }
