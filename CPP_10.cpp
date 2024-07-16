@@ -1,11 +1,13 @@
 string make_palindrome(string str){
+    if(str.empty()) return str;
     int n = str.length();
-    string rev = str;
-    reverse(rev.begin(), rev.end());
-    for (int i = 0; i < n; i++) {
-        if (str.substr(0, n - i) == rev.substr(i)) {
-            return str + rev.substr(0, i);
+    int i = 0;
+    for(i=n-1; i>=0; i--){
+        if(is_palindrome(str.substr(i))){
+            break;
         }
     }
-    return "";
+    string prefix = str.substr(0, i);
+    string palindrome_suffix(str.rbegin(), str.rbegin() + n - i);
+    return str + palindrome_suffix;
 }
