@@ -9,7 +9,7 @@ std::string spinWords(std::string sentence) {
         if (c == ' ') {
             if (wordLength >= 5)
                 for (int i = wordLength - 1; i >= 0; --i)
-                    result += sentence[wordLength - i - 1];
+                    result += sentence[sentence.find(c) - i - 1];
             else
                 result += c;
             result += " ";
@@ -22,7 +22,7 @@ std::string spinWords(std::string sentence) {
 
     if (wordLength >= 5)
         for (int i = wordLength - 1; i >= 0; --i)
-            result += sentence[wordLength - i - 1];
+            result += sentence[sentence.find(result.back()) - i - 1];
     return result.substr(1);
 }
 
@@ -30,7 +30,7 @@ int main() {
     std::string input;
     while (true) {
         std::cout << "Enter a string of one or more words, or 'q' to quit: ";
-        std::cin >> input;
+        std::getline(std::cin, input);
         if (input == "q")
             break;
         std::cout << spinWords(input) << std::endl;
