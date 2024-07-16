@@ -14,7 +14,7 @@ std::string camelCase(std::string s) {
             result += std::toupper(c);
             capitalizeNext = false;
         } else {
-            result += tolower(c);
+            result += c;
         }
     }
 
