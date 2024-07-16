@@ -1,8 +1,8 @@
 def solve_boolean(expression):
-    result = True if expression[0] == 'T' else False
-    for char in expression[1:]:
+    stack = []
+    for char in expression:
         if char == '&':
-            result &= (result)
+            stack.append('(')
         elif char == '|':
-            result |= (result != result)
-    return result
+            stack.pop()
+    return expression[0] == 'T'
