@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -18,23 +19,25 @@ int main() {
     int n = 0;
     vector<float> prices;
     vector<float> discounts;
-
+    
     while(true) {
         cin >> n;
         if(n == 0) break;
-
+        
+        cin.ignore();
         prices.resize(n);
         for (float &price : prices) {
             cin >> price;
         }
-
+        
+        cin.ignore();
         discounts.resize(n);
         for (float &discount : discounts) {
             cin >> discount;
         }
-
+        
         cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     }
-
+    
     return 0;
 }

@@ -1,28 +1,21 @@
 def solve_boolean(expression):
     def evaluate():
         if expression[0] in ["T", "F"]:
-            return {"T": True, "F": False}[expression[0]]
+            return expression[0] == "T"
         elif expression[0] == "(":
             i = 1
             temp = evaluate()
             while i < len(expression) and expression[i] != ")":
                 i += 1
             return temp
-        operator = expression[0]
-        i = 1
-        if operator in ["|", "&"]:
+        operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
+        if expression[0] in ["|", "&"]:
+            op = expression[0]
             left = evaluate()
-            right = expression[i:]
+            right = expression[2:] 
             if right[0] == "(":
-                right = evaluate() + right[1:-1]
+                return "(" + str(evaluate()) + ")" + " " + op + " (" + str(right) + ")"
             else:
-                while right[0] in ["T", "F", "|", "&"] or (right[0] == "(" and right.count("(") > 1):
-                    right = right[1:]
-            if operator == "|":
-                return left or right
-            elif operator == "&":
-                return left and right
+                return "(" + str(left) + ")" + " " + op + " " + str(right)
         else:
-            raise Exception("Invalid input")
-
-    return evaluate()
+            return evaluate()
