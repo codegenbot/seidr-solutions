@@ -1,26 +1,12 @@
-```c++
+```c
 #include <iostream>
-#include <vector>
+#include <cstdlib>
 #include <string>
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.size(); j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-
 int gcd(int a, int b) {
+    if (a > b) {
+        std::swap(a, b);
+    }
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -30,32 +16,12 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int num1, num2;
-    std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-
-    if (num1 == 0 || num2 == 0) {
-        std::cout << "Please enter non-zero numbers." << std::endl;
-        return 1; 
-    }
-
-    std::cout << "GCD of " << num1 << " and " << num2 << ": " << gcd(num1, num2) << std::endl;
-
-    std::string text, target;
-    std::cout << "Enter the text: ";
-    getline(std::cin, text);
-    std::cout << "Enter the target string: ";
-    getline(std::cin, target);
-    std::vector<int> indices = indicesOfSubstring(text, target);
-    if (indices.empty()) {
-        std::cout << "Target not found in the text." << std::endl;
-    } else {
-        std::cout << "Indices of substring: ";
-        for (int i : indices) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    }
-
+    int a, b;
+    std::cout << "Enter first number: ";
+    std::cin >> a;
+    std::cout << "Enter second number: ";
+    std::cin >> b;
+    int result = gcd(a, b);
+    std::cout << "GCD of the numbers is: " << result << std::endl;
     return 0;
 }

@@ -10,18 +10,12 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
-    double bouncinessIndex = (firstBounce / startHeight);
+    double bouncinessIndex = firstBounce / startHeight;
 
-    double totalDistance = 0.0;
-    double maxHeight = firstBounce; // Initialize max height
-    for (int i = 0; i < numBounces; ++i) {
-        startHeight *= bouncinessIndex;
-        totalDistance += maxHeight * pow(2, i + 1);
-        maxHeight = startHeight > maxHeight ? startHeight : maxHeight; // Update max height for next bounce
-    }
-
+    double totalDistance = 1 - pow(1 - bouncinessIndex, numBounces);
+    
     cout << fixed << std::setprecision(10);
-    cout << static_cast<int>(totalDistance + 0.00001) << endl;
+    cout << totalDistance + 0.00001 << endl;
 
     return 0;
 }
