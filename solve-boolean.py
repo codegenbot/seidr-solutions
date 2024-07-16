@@ -18,4 +18,4 @@ def solve_boolean(expression):
                 return True
             else:
                 return False
-    return True
+    return 'T' == expression
