@@ -1,8 +1,3 @@
-#include <vector>
-#include <string>
-
-using namespace std;
-
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     for (int i = 0; i <= text.size() - target.size(); i++) {
@@ -13,4 +8,4 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (j == target.size()) result.push_back(i);
     }
-};
+}
