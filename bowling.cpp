@@ -1,7 +1,6 @@
-```c++
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int frame = 1;
     for(int i=0; i<s.length(); i++) {
