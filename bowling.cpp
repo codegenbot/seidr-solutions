@@ -2,7 +2,7 @@ int bowlingScore(const std::string& input) {
     int score = 0;
     int currentRoll = 0;
 
-    for (int i = 0; i < input.size(); ++i) {
+    for (int i = 0; i < input.length(); ++i) {
         char c = input[i];
 
         if (!((c >= '0' && c <= '9') || c == 'X' || c == '/')) {
@@ -22,7 +22,7 @@ int bowlingScore(const std::string& input) {
                 currentRoll *= 10;
                 currentRoll += c - '0';
 
-                if(i < input.size() - 1) {
+                if(i < input.length() - 1) {
                     char nextC = input[i + 1];
                     if(nextC >= '0' && nextC <= '9') {
                         int secondRoll = nextC - '0';
@@ -47,7 +47,7 @@ int bowlingScore(const std::string& input) {
                 }
             }
 
-            if(i == input.size() - 1 || ((c >= '0' && c <= '9'))) {
+            if(i == input.length() - 1 || ((c >= '0' && c <= '9'))) {
                 if(currentRoll < 10) {
                     score += currentRoll;
                 } else {
@@ -59,3 +59,4 @@ int bowlingScore(const std::string& input) {
     }
 
     return score;
+}
