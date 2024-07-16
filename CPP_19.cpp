@@ -1,6 +1,8 @@
+#include <iostream>
 #include <map>
-#include <algorithm>
-#include <string>
+#include <algorithm> 
+
+using namespace std;
 
 string sort_numbers(string numbers) {
     map<string, int> num_map = {
@@ -16,22 +18,30 @@ string sort_numbers(string numbers) {
         {"nine", 9}
     };
 
-    vector<string> num_vec;
-    stringstream ss(numbers);
-    string token;
-
-    while (getline(ss, token, ' ')) {
-        num_vec.push_back(token);
+    vector<string> num_vector;
+    size_t pos = 0;
+    while ((pos = numbers.find(' ')) != string::npos) {
+        string token = numbers.substr(0, pos);
+        num_vector.push_back(token);
+        numbers.erase(0, pos + 1);
     }
+    num_vector.push_back(numbers);
 
-    sort(num_vec.begin(), num_vec.end(), [&](const string &a, const string &b) {
+    sort(num_vector.begin(), num_vector.end(), [&](const string &a, const string &b) {
         return num_map[a] < num_map[b];
     });
 
-    string result;
-    for (const string& num : num_vec) {
-        result += num + " ";
+    string sorted_numbers;
+    for (const auto &num : num_vector) {
+        sorted_numbers += num + " ";
     }
+    sorted_numbers.pop_back(); // remove the extra space at the end
 
-    return result;
+    return sorted_numbers;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+
+    return 0;
 }
