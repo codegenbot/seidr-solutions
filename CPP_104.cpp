@@ -2,7 +2,15 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> unique_digits(vector<int> x) {
@@ -26,12 +34,9 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 246};
-    vector<int> expected = {123, 789};
-
-    vector<int> output = unique_digits(input);
-
-    assert(issame(output, expected));
-
+    vector<int> test = {123, 456, 789, 2468, 1357};
+    vector<int> expected = {123, 789, 1357};
+    vector<int> result = unique_digits(test);
+    assert(issame(result, expected));
     return 0;
 }
