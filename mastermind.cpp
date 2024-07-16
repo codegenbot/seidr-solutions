@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 int main() {
     std::string codeStr, guessStr;
@@ -12,19 +14,38 @@ int main() {
 
     int blackPegs = 0;
     int whitePegs = 0;
-    int codeCount[6] = {0};
+    std::unordered_map<char, int> codeCount;
 
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[c - '0']++;
+            codeCount[c]++;
         }
     }
 
     for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
-            blackPegs++;
-        } else if ('0' <= guessStr[i] && guessStr[i] <= '5') {
-            whitePegs += codeCount[guessStr[i] - '0']--;
+        char codeChar = codeStr[i];
+        char guessChar = guessStr[i];
+
+        if (codeChar == guessChar) {
+            blackPegs++; 
+        } else if ('0' <= guessChar && guessChar <= '5') {
+            whitePegs++; 
+        }
+    }
+
+    for (auto& pair : codeCount) {
+        while(pair.second > 0) {
+            for(int i = 0; i < 4; i++) {
+                if(guessStr[i] == pair.first) {
+                    blackPegs++;
+                    pair.second--;
+                    break;
+                }
+            }
+            if(pair.second > 0) {
+                whitePegs += pair.second; 
+                pair.second = 0; 
+            }
         }
     }
 
