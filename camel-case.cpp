@@ -1,3 +1,6 @@
+Here is your completed code:
+
+```c++
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,3 +30,4 @@ int main() {
         cout << "output: " << camelCase(str) << endl;
     }
     return 0;
+}
