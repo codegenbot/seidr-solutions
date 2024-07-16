@@ -16,10 +16,16 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group = ""
             else:
                 current_group += char
+        else:
+            if level > 0:
+                current_group += char
+
+    if level != 0:
+        return ["Unbalanced parentheses in the input string"]
 
     return result
 
+print("Enter a string with parentheses:")
 paren_string = input().strip()
-if set(paren_string) == set("()"):
-    output = separate_paren_groups(paren_string)
-    print(output)
+output = separate_paren_groups(paren_string)
+print(output)
