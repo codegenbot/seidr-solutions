@@ -2,34 +2,29 @@
 #include <string>
 
 std::string camelCase(std::string str) {
-    std::vector<std::string> words;
-    size_t pos = 0;
-    while ((pos = str.find(' ')) != std::string::npos) {
-        words.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    if (!str.empty()) {
-        words.push_back(str);
-    }
-
-    std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (i > 0)
-            result += std::toupper(words[i][0]);
-        else
-            result += words[i];
-        for (size_t j = 1; j < words[i].size(); ++j) {
-            result += std::tolower(words[i][j]);
+    std::string result = "";
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == '-') {
+            ++i;
+            while (i < str.size() && str[i] == ' ') {
+                ++i;
+            }
+            result += std::toupper(str[i]);
+        } else if (str[i] != ' ') {
+            if (!result.empty()) {
+                result += std::tolower(str[i]);
+            } else {
+                result += std::toupper(str[i]);
+            }
         }
     }
-
     return result;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while(t--) {
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
         string str;
         cin >> str;
         cout << camelCase(str) << endl;
