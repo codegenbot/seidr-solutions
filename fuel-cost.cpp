@@ -1,19 +1,21 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 int fuelCost(std::vector<int> stations) {
     int sum = 0;
-    for (int i : stations) { 
-        int newFuel = std::floor((double)(i/3)) - 2; // Use integer division and rounding
-        if(newFuel >= 0)
-            sum += newFuel;
+    for (auto station : stations) {
+        int remainder = station % 3;
+        auto fuel = std::floor((station - 2) / 3.0);
+        if (remainder > 0) {
+            fuel += 1;
+        }
+        sum += fuel;
     }
     return sum;
 }
 
 int main() {
-    std::vector<int> stations = {692, 5576, 3919, 8505, 2925, 774, 7963, 8485, 3520, 5136, 4558, 6926, 3601, 1299, 8310, 5339};
+    std::vector<int> stations = {12, 24, 36};
     std::cout << "Fuel cost: " << fuelCost(stations) << std::endl;
     return 0;
 }

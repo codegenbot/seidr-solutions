@@ -1,30 +1,28 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <algorithm>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
+    std::istringstream iss(str);
     std::string word;
-    
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i + 1] == ' ') {
-            word = str.substr(i);
-            
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            
-            result += word + " ";
-        }
+    std::string result;
+
+    while (iss >> word) {
+        if (word.length() >= 5)
+            result += (word.length() >= 5) ? std::string(word.rbegin(), word.rend()) + " ": word;
+        else
+            result += word;
     }
-    
-    return result;
+
+    return result; 
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << spinWords(str) << std::endl;
+    std::string output = spinWords(str);
+    std::cout << output.substr(0, output.find_last_of(' ') + 1) << std::endl;
     return 0;
 }

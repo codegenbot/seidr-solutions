@@ -1,34 +1,36 @@
+```cpp
+#include <iostream>
 #include <string>
+#include <algorithm>
 
-int mastermind(std::string code, std::string guess) {
-    int black = 0;
-    int white = 0;
+int main() {
+    std::string codeStr, guessStr;
+    int whitePegs = 0, blackPegs = 0;
 
-    // Count correct positions (black pegs)
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> codeStr;
+
+    std::cout << "Enter your guess: ";
+    std::cin >> guessStr;
+
+    for (int i = 0; i < 4; i++) {
+        if (codeStr[i] == guessStr[i]) {
+            blackPegs++;
         }
     }
 
-    // Count incorrect positions with correct colors (white pegs)
-    int code_counts[6] = {0};
-    for (char c : code) {
-        code_counts[c-'A'+1]++;
-    }
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
-            bool found = false;
-            for (char c = 'A'; c <= 'F'; ++c) {
-                if (guess[i] == c && code_counts[c-'A'+1]) {
-                    code_counts[c-'A'+1]--;
-                    found = true;
-                    break;
-                }
+    for (char c : guessStr) {
+        bool found = false;
+        for (int i = 0; i < 4; i++) {
+            if (codeStr[i] == c && !found) {
+                whitePegs++;
+                found = true;
             }
-            if (!found) white++;
         }
     }
 
-    return black + white;
+    std::cout << "Black pegs: " << blackPegs << std::endl;
+    std::cout << "White pegs: " << whitePegs << std::endl;
+
+    return 0;
 }

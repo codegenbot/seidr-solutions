@@ -1,19 +1,13 @@
-def mastermind():
-    code = input("Enter the Mastermind code (4 characters): ")
-    guess = input("Enter your guess (4 characters): ")
-
-    blacks = sum(1 for c, g in zip(code, guess) if c == g)
-    white_counts = [0] * 6
-    code_counts = {}
-    for c in code:
-        code_counts[c] = code_counts.get(c, 0) + 1
-
-    for c in code:
-        if c in guess:
-            if c == guess[guess.index(c)]:
-                black_count = blacks
-            else:
-                black_count = white_counts[ord(c) - ord("A")] += 1
-
-    whites = sum(1 for c in range(6) if code_counts.get(chr(c + ord("A")), 0) > 0 and white_counts[c] == 0)
-    return str(whites), str(blacks)
+def mastermind(code, guess):
+    black_count = sum([c == g for c, g in zip(code, guess)])
+    
+    white_count = 0
+    for c in set(guess):
+        code_c = code.count(c)
+        guess_c = guess.count(c)
+        
+        if code_c > 0 and code_c != guess_c:
+            black_count += min(code_c, 4) * (code_c == guess_c)
+            white_count += max(0, code_c - 1)
+            
+    return str(black_count), str(white_count)
