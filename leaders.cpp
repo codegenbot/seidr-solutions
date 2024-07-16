@@ -1,29 +1,13 @@
-#include <vector>
-#include <stack>
-#include <algorithm> // for reverse
-#include <iostream>
-
-using namespace std;
-
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    stack<int> potentialLeaders;
+    int maxRight = nums.back();
     
-    int maxRight = INT_MIN;
-    
-    for (int num : nums) {
-        while (!potentialLeaders.empty() && potentialLeaders.top() < num) {
-            potentialLeaders.pop();
+    for (int i = nums.size() - 1; i >= 0; i--) {
+        if (nums[i] >= maxRight) {
+            leaders.push_back(nums[i]);
+            maxRight = nums[i];
         }
-        potentialLeaders.push(num);
     }
-
-    while (!potentialLeaders.empty()) {
-        leaders.push_back(potentialLeaders.top());
-        potentialLeaders.pop();
-    }
-    
-    reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
