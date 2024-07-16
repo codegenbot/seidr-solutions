@@ -35,7 +35,7 @@ int main() {
     int a = 48;
     int b = 18;
     cout << "GCD of " << a << " and " << b << " is " << findGCD(a, b) << endl;
-
+    
     string text = "banana";
     string target = "ana";
     vector<int> indices = findIndices(text, target);
