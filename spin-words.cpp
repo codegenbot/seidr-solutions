@@ -1,8 +1,5 @@
-```cpp
-#include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
@@ -33,5 +30,6 @@ int main() {
     std::cout << spinWords("this is a test") << std::endl; 
     std::cout << spinWords("this is another test") << std::endl; 
     std::cout << spinWords("hi") << std::endl; 
+
     return 0;
 }
