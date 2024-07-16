@@ -1,12 +1,14 @@
 #include <vector>
-#include <limits> 
-#include <algorithm> 
+#include <limits> // for INT_MIN
+#include <algorithm> // for reverse
+#include <climits> // for INT_MIN
+#include <iostream>
 
 using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
-    int maxRight = numeric_limits<int>::min();
+    int maxRight = INT_MIN;
     
     for (int i = nums.size() - 1; i >= 0; i--) {
         if (nums[i] >= maxRight) {
@@ -18,4 +20,15 @@ vector<int> findLeaders(const vector<int>& nums) {
     reverse(leaders.begin(), leaders.end());
     
     return leaders;
+}
+
+int main() {
+    vector<int> nums = {16, 17, 4, 3, 5, 2};
+    vector<int> result = findLeaders(nums);
+
+    for (int num : result) {
+        cout << num << " ";
+    }
+
+    return 0;
 }
