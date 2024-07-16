@@ -1,10 +1,13 @@
 ```cpp
+#include <cctype>
+#include <string>
+
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
-    for (int i = 0; i < s.size(); ++i) {
-        char c = s[i];
+    for (int i = 0; i < s.length(); ++i) {
+        char c = s.at(i);
         
         if (c == 'X') {
             score += 10;
@@ -20,8 +23,8 @@ int bowlingScore(const std::string& s) {
                 currentRoll += c - '0';
             }
             
-            if(i < s.size() - 1) {
-                char nextC = s[i + 1];
+            if(i < s.length() - 1) {
+                char nextC = s.at(i + 1);
                 if(std::isdigit(nextC)) {
                     int secondRoll = nextC - '0';
                     if(currentRoll + secondRoll == 10) {
