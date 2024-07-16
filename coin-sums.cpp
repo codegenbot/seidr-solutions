@@ -1,6 +1,6 @@
-#include <iostream>
-#include <string>
+Here is the modified code:
 
+```cpp
 int main() {
     int cents;
     std::cin >> cents;
@@ -24,14 +24,16 @@ int main() {
 
     pennies = cents;
 
-    std::cout << (quarters > 0 ? std::to_string(quarters) + " quarter" + (quarters > 1 ? "s" : "") : "") << std::endl;
+    std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
     if (dimes > 0) {
-        std::cout << (dimes > 0 ? std::to_string(dimes) + " dime" + (dimes > 1 ? "s" : "") : "") << std::endl;
+        std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
     }
     if (nickles > 0) {
-        std::cout << (nickles > 0 ? std::to_string(nickles) + " nickel" + (nickles > 1 ? "s" : "") : "") << std::endl;
+        std::cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << std::endl;
     }
-    std::cout << (pennies > 0 ? std::to_string(pennies) + " penny" + (pennies > 1 ? "s" : "") : "") << std::endl;
+    if (pennies > 0) {
+        std::cout << pennies << " penny" << (pennies > 1 ? "s" : "") << std::endl;
+    }
 
     return 0;
 }
