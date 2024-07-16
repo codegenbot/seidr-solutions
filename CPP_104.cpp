@@ -1,15 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x){
@@ -33,15 +25,12 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    vector<int> input = {123, 456, 789};
-    vector<int> output = unique_digits(input);
-    vector<int> expected = {123, 789};
-    
-    if (issame(output, expected)) {
-        cout << "Test Passed" << endl;
+    vector<int> a = {123, 456, 789};
+    vector<int> b = unique_digits(a);
+    if (issame(a, b)) {
+        cout << "Same" << endl;
     } else {
-        cout << "Test Failed" << endl;
+        cout << "Different" << endl;
     }
-    
     return 0;
 }
