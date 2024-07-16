@@ -18,13 +18,14 @@ int main() {
     cin >> n;
 
     vector<float> v1;
+    vector<float> v2;
+
     for(int i=0; i<n; i++) {
         float val;
         cin >> val;
         v1.push_back(val);
     }
 
-    vector<float> v2;
     for(int i=0; i<n; i++) {
         float val;
         cin >> val;
