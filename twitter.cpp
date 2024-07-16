@@ -2,10 +2,10 @@
 #include <string>
 
 int main() {
-    std::string tweet = "";
+    std::string tweet;
     std::cout << "Enter your tweet: ";
-    getline(std::cin, tweet);
-
+    getline(std::cin, tweet).ignore();
+    
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
     } else if (tweet.length() > 140) {
