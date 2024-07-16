@@ -1,32 +1,31 @@
-#include <vector>
+```cpp
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int luhn(vector<int>& cc) {
+int luhnCheck(vector<int>& card) {
     int sum = 0;
-    for(int i = 0; i < cc.size(); i++) {
-        if(i % 2 == 1) {
-            int temp = cc[i] * 2;
-            if(temp > 9) {
+    for (int i = card.size() - 1; i >= 0; i--) {
+        if ((card.size() - i - 1) % 2 == 0) {
+            int temp = card[i] * 2;
+            if (temp > 9) {
                 temp -= 9;
             }
             sum += temp;
         } else {
-            sum += cc[i];
+            sum += card[i];
         }
     }
     return sum;
 }
 
 int main() {
-    vector<int> cc;
     int n;
     cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        cc.push_back(x);
+    vector<int> card(n);
+    for (int i = 0; i < n; i++) {
+        cin >> card[i];
     }
-    cout << luhn(cc) << endl;
+    cout << luhnCheck(card) << endl;
     return 0;
 }
