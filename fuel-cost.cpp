@@ -1,9 +1,6 @@
-#include <vector>
-#include <iostream>
-
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wundef"
-
+#include <vector>
 using namespace std;
 
 int fuelCost(vector<int> nums) {
