@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -10,11 +9,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    int pos = 0;
-
-    while (pos < n && (pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos); 
-        pos += m; // increment pos by the length of target
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m).compare(target) == 0)
+            result.push_back(i); 
     }
 
     return result;
