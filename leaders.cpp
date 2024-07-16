@@ -9,15 +9,9 @@ vector<int> leaders(vector<int>& arr) {
         return leaders;
         
     leaders.push_back(arr[n-1]);
+    
     for(int i=n-2; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
-        }
-        if(isLeader)
+        if(arr[i] >= arr[leaders.back()]) 
             leaders.push_back(arr[i]);
     }
     
