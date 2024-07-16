@@ -29,7 +29,7 @@ int main() {
 
     float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
 
-    std::cout << "Amount of snow on ground after " << std::to_string(hours) << " hours: " << result << " inches.\n";
+    std::cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
 
     return 0;
 }
