@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-
 using namespace std;
 
 int bowlingScore(string s) {
@@ -8,9 +8,9 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
-            score += 10 + getBonus(s, i);
+            score += 10 + getBonus(s.substr(i+1));
         } else if (s[i] == '/') { // Spare
-            score += 5 + getBonus(s.substr(i+1));
+            score += 5 + getBonus(s.substr(i+2));
         } else { // Normal roll
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
@@ -25,10 +25,10 @@ int bowlingScore(string s) {
     return score;
 }
 
-int getBonus(string s, int index) {
+int getBonus(string s) {
     int bonus = 0;
 
-    for (int j = index; j < s.size(); j++) {
+    for (int j = 0; j < s.size(); j++) {
         if (s[j] == 'X') { // Strike
             bonus += 10;
         } else if (s[j] == '/') { // Spare
