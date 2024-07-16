@@ -11,7 +11,13 @@ vector<int> make_a_pile(int n) {
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
-        stones += 2;
+        if (n % 2 == 1) {
+            n++;
+            stones = n;
+        } else {
+            n--;
+            stones = n;
+        }
     }
     return pile;
 }
