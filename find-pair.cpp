@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <map>
-using namespace std;
-
 int main() {
     int n, target;
     cin >> n;
@@ -11,16 +6,17 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
-    map<int, int> mp;
+    
+    map<int, int> numToIndex;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << target - nums[i] << endl;
+        int complement = target - nums[i];
+        if (numToIndex.find(complement) != numToIndex.end()) {
+            cout << nums[numToIndex[complement]] << endl;
             cout << nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numToIndex[nums[i]] = i;
     }
-
+    
     return 0;
 }
