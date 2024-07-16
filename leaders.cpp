@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 
 std::vector<int> leaders(const std::vector<int>& arr) {
@@ -13,4 +14,14 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> input = {1, 3, 4, 3, 2, 3, 10, 12};
+    std::cout << "Leaders: ";
+    for (int leader : leaders(input)) {
+        std::cout << leader << " ";
+    }
+    std::cout << "\n";
+    return 0;
 }
