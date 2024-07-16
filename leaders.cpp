@@ -3,13 +3,11 @@
 
 std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
-    int maxSoFar = arr.back(); // Initialize with rightmost element
     std::vector<int> result;
 
-    for(int i=n-2; i>=0; i--) { 
-        if(arr[i] >= maxSoFar) {
-            maxSoFar = arr[i];
-            result.push_back(maxSoFar);
+    for(int i=0; i<=n-1; i++) { 
+        if(result.empty() || arr[i] >= arr[i+1]) {
+            result.push_back(arr[i]);
         }
     }
 
