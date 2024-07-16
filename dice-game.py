@@ -1,4 +1,4 @@
 def dice_game(n, m):
-    peter_win_count = sum(1 for _ in range(m) if max(_ for _ in range(1, n+1)) > i)
-    total_outcomes = (n * m)
+    total_outcomes = n * m
+    peter_win_count = sum(min(i, j) < i - j for i in range(1, n+1) for j in range(1, m+1))
     return peter_win_count / float(total_outcomes)
