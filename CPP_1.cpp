@@ -1,20 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
+vector<string> separate_paren_groups(string paren_string);
 
-int main() {
-    // Your main function code here
-}
-
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int open_count = 0;
 
     for (char c : paren_string) {
