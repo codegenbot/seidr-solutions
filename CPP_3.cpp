@@ -1,7 +1,7 @@
-int sum = 0;
-for(int i = 0; i < operations.size(); i++){
-    sum += operations[i];
-    if(sum < 0){
+int balance = 0;
+for (int op : operations) {
+    balance += op;
+    if (balance < 0) {
         return true;
     }
 }
