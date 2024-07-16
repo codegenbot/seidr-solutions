@@ -1,16 +1,16 @@
+```cpp
 #include <vector>
 #include <string>
 
-int luhn(std::vector<std::string> digits) {
+int luhn(std::string digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
+        int temp = std::stoi(digits.substr(i, 1));
         if ((i % 2) == 1) { 
-            int temp = std::stoi(digits[i]) * 2; 
+            temp *= 2;
             if (temp > 9)
                 temp -= 9;
-            sum += temp;
-        } else
-            sum += std::stoi(digits[i]);
+        }
+        sum += temp;
     }
     return sum;
-}
