@@ -8,15 +8,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
     
-    for (int i = 1; i < v.size(); i++) {
-        if (v[i] == v[0]) { 
-            return {{v.begin(), v.end()}};
+    for (int i = 1; i <= v.size() / 2; i++) {
+        if (v[i] - v[0] < minDiff) {
+            minDiff = v[i] - v[0];
+            splitIndex = i;
         }
         
-        int diff = abs(v[i] - v[0]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+        if (v[v.size() - i - 1] - v[0] < minDiff) {
+            minDiff = v[v.size() - i - 1] - v[0];
+            splitIndex = v.size() - i;
         }
     }
     
