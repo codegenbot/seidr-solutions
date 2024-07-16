@@ -1,7 +1,11 @@
+```c++
 #include <tuple>
 #include <vector>
 #include <iostream>
 #include <string>
+#include <utility>
+
+using namespace std;
 
 std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -26,9 +30,9 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "RGOR";
-    std::string guess = "BRBB";
-    std::tie(white, black) = mastermind(code, guess);
-    std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
+    string code = "RGOR";
+    string guess = "BRBB";
+    tie<int, int>(int white, int black) = mastermind(code, guess);
+    cout << "White pegs: " << white << ", Black pegs: " << black << endl;
     return 0;
 }
