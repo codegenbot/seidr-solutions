@@ -1,6 +1,4 @@
-```c++
 #include <string>
-#include <iostream>
 
 int bowlingScore(const std::string& s) {
     int score = 0;
@@ -35,8 +33,5 @@ int bowlingScore(const std::string& s) {
 }
 
 int main() {
-    std::string input = "XXXX/--;";
-    int score = bowlingScore(input);
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
+    return bowlingScore("XXX/"); // replace with your input string
 }
