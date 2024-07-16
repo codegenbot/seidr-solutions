@@ -1,4 +1,19 @@
-if (txt.empty()) return false;
-    char last_char = txt.back();
-    return isalpha(last_char) && txt.find_last_of(" ") == txt.size() - 1;
+if (txt.empty()) {
+        return false;
+    }
+    
+    char lastChar = txt.back();
+    
+    if (isalpha(lastChar)) {
+        int i = txt.size() - 2;
+        while (i >= 0 && txt[i] != ' ') {
+            i--;
+        }
+        
+        if (i == -1) {
+            return true;
+        }
+    }
+    
+    return false;
 }

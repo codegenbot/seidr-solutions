@@ -1,18 +1,20 @@
-vector<int> result;
-    if (n >= 0) {
-        result.push_back(3);
-        int a = 0, b = 0, c = 3;
-        for (int i = 1; i <= n; ++i) {
-            result.push_back(c);
-            if (i % 2 == 0) {
-                c = 1 + i / 2;
-            } else {
-                int temp = c;
-                c = a + b + c;
-                a = b;
-                b = temp;
-            }
+vector<int> res;
+    res.push_back(3);
+    if (n == 0) {
+        return res;
+    }
+    if (n >= 1) {
+        res.push_back(1);
+    }
+    if (n >= 2) {
+        res.push_back(3);
+    }
+    for (int i = 3; i <= n; ++i) {
+        if (i % 2 == 0) {
+            res.push_back(1 + i / 2);
+        } else {
+            res.push_back(res[i - 1] + res[i - 2] + res[i - 3]);
         }
     }
-    return result;
+    return res;
 }
