@@ -1,3 +1,4 @@
+#include <string>
 #include <cctype>
 #include <iostream>
 
@@ -23,13 +24,8 @@ int main() {
 
     for(size_t i=0; i<result.size(); ++i) {
         if(result[i] == ' ') {
-            result[i] = toupper(result[++i]);
+            result[i+1] = toupper(result[i+1]);
         }
-    }
-    size_t pos = 0;
-    while ((pos = result.find(' ', pos)) != std::string::npos) {
-        result.erase(pos, 1);
-        pos++;
     }
     return 0;
 }
