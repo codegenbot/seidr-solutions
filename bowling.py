@@ -1,26 +1,36 @@
-def bowling(s):
-    frames = [int(x) for x in re.findall(r"\d", s)]
-    score = 0
-    roll = 0
-    for i, f in enumerate(frames):
-        if i % 2 == 0:
-            if f == 10:
-                score += 10 + (frames[i + 1] if i < len(frames) - 1 else 0)
-                roll += 1
-            elif f != 0:
-                score += f
-                roll += 1
-                if i < len(frames) - 1 and frames[i + 1] != 0:
-                    score += frames[i + 1]
-                    roll += 1
+def bowling_game(score):
+    score = score.replace('/', '')
+    total_score = 0
+    frame = 1
+    while len(score) > 0:
+        if score[0].isdigit():
+            first_roll = int(score[0])
+            score = score[1:]
+            if len(score) > 0 and score[0].isdigit():
+                second_roll = int(score[0])
+                score = score[1:]
+                total_score += first_roll + second_roll
+                frame += 1
+            else:
+                total_score += first_roll + (10 - int(score[0]))
+                score = score[1:]
+                frame += 1
+        elif score[0] == 'X':
+            total_score += 30
+            frame += 1
+            score = score[1:]
         else:
-            if f == 10:
-                score += 10
-                roll += 1
-                if i < len(frames) - 2 and frames[i + 1] + frames[i + 2] <= 10:
-                    score += frames[i + 1] + frames[i + 2]
-                    roll += 2
-            elif f != 0:
-                score += f
-                roll += 1
-    return score if roll == 10 else 0
+            if len(score) > 0 and score[0].isdigit():
+                first_roll = int(score[0])
+                score = score[1:]
+                if len(score) > 0 and score[0] == 'X':
+                    total_score += 10 + 10
+                    frame += 2
+                    score = score[1:]
+                else:
+                    total_score += 10 + first_roll
+                    frame += 2
+            else:
+                total_score += 10
+                frame += 1
+    return total_score
