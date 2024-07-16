@@ -11,7 +11,7 @@ vector<int> parse_music(string music_string){
                 beats.push_back(1);
             }
         } else {
-            // Handle other characters if needed
+            beats.push_back(0);
         }
     }
     return beats;
