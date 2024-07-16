@@ -1,4 +1,3 @@
-```cpp
 bool solveBoolean(std::string s) {
     std::stack<char> st;
     for (int i = 0; i < s.size(); i++) {
