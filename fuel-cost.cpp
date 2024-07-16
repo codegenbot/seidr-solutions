@@ -8,6 +8,5 @@ int main() {
             temp = 0;
         }
         sum += temp;
-    } 
-    int final_sum = static_cast<int>(sum); 
-    return final_sum;
+    }
+    return sum;
