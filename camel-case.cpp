@@ -36,3 +36,4 @@ int main() {
         cout << camelCase(str) << endl;
     }
     return 0;
+}
