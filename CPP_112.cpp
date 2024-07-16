@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 pair<string, string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
