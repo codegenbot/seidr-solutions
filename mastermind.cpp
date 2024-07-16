@@ -1,4 +1,3 @@
-```cpp
 int main() {
     std::string code = "ABCD";
     std::string guess = "EFGH";
