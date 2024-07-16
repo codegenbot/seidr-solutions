@@ -11,7 +11,7 @@ int main() {
     while (i <= text.size() - target.size() + 1) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
-            i += target.size(); // Update index increment to handle overlapping occurrences
+            i += 1; // Update index increment to handle overlapping occurrences
         } else {
             i += 1;
         }
