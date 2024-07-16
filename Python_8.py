@@ -1,10 +1,8 @@
 from typing import List, Tuple
-
+from functools import reduce
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    return (sum(numbers), 1 if numbers else 0)
-
-
-numbers = list(map(int, input().split()))
-result = sum_product(numbers)
-print(result)
+    if not numbers:
+        return 0, 1
+    else:
+        return sum(numbers), reduce(lambda x, y: x * y, numbers)
