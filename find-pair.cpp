@@ -5,12 +5,14 @@
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
     
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
+    for (int num : nums) {
+        int complement = target - num;
         if (numMap.find(complement) != numMap.end()) {
-            return {{complement, nums[i]}};
+            for (const auto& pair : {std::make_pair(num, complement), std::make_pair(complement, num)}) {
+                yield(pair);
+            }
         }
-        numMap[nums[i]] = i;
+        numMap[num] = num;
     }
     
     return {};
