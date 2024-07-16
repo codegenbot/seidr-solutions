@@ -1,10 +1,22 @@
-for (char &c : s) {
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+
+std::string solve(const std::string& s) {
+    std::string result = s;
+    for (char &c : result) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if (std::count_if(result.begin(), result.end(), isalpha) == 0) {
+        std::reverse(result.begin(), result.end());
     }
-    return s;
+    return result;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+
+    return 0;
 }
