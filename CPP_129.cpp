@@ -1,3 +1,7 @@
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     int m = grid[0].size();
@@ -17,17 +21,17 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
     
     vector<int> result;
-    int i = n - 1, j = m - 1;
-    while (i >= 0 && j >= 0) {
-        result.push_back(grid[i][j]);
-        if (i > 0 && dp[i][j] - grid[i][j] == dp[i - 1][j]) {
-            --i;
+    int x = n - 1, y = m - 1;
+    
+    while (x >= 0 && y >= 0) {
+        result.push_back(grid[x][y]);
+        if (x > 0 && dp[x][y] - grid[x][y] == dp[x - 1][y]) {
+            x--;
         } else {
-            --j;
+            y--;
         }
     }
     
     reverse(result.begin(), result.end());
-    
     return result;
 }
