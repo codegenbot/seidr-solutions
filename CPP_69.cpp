@@ -1,14 +1,9 @@
-int res = -1;
-    for (int i = 1; i <= lst.size(); ++i) {
-        int count = 0;
-        for (int j = 0; j < lst.size(); ++j) {
-            if (lst[j] == i) {
-                count++;
-            }
-        }
-        if (count >= i && i > res) {
-            res = i;
+int maxFreq = -1;
+    for (int num : lst) {
+        int freq = count(lst.begin(), lst.end(), num);
+        if (num > maxFreq && freq >= num) {
+            maxFreq = num;
         }
     }
-    return res;
+    return maxFreq;
 }
