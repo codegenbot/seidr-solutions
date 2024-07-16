@@ -1,11 +1,13 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<int> count(26);
-    int distinct_count = 0;
+    vector<bool> seen(26);
+    int count = 0;
+    
     for (char c : str) {
-        if (isalpha(c) && count[c - 'a'] == 0) {
-            count[c - 'a'] = 1;
-            distinct_count++;
+        if (isalpha(c) && !seen[tolower(c) - 'a']) {
+            seen[tolower(c) - 'a'] = true;
+            count++;
         }
     }
-    return distinct_count;
+    
+    return count;
 }
