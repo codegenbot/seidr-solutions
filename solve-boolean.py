@@ -1,40 +1,30 @@
+```
 def solve_boolean(expression):
-    stack = []
-    result = ""
+    result = "T"
+    temp = "T"
+    operator_stack = []
+
     for char in expression:
         if char == "(":
-            stack.append(char)
+            operator_stack.append(char)
         elif char == ")":
-            while len(stack) > 0 and stack[-1] != "(":
-                operator = stack.pop()
+            while len(operator_stack) > 1 and operator_stack[-1] != "(":
+                operator = operator_stack.pop()
                 if operator in ["|", "&"]:
-                    result = str(evaluate_expression(result + operator))
-            if stack and stack[-1] == "(":
-                stack.pop()
+                    temp_result = "T" if eval(f"({temp} {operator} {'F' if temp == 'T' else 'T'})") else "F"
+                    result = temp_result
+            if operator_stack and operator_stack[-1] == "(":
+                operator_stack.pop()
         elif char in ["|", "&"]:
-            while len(stack) > 0 and stack[-1] in ["|", "&"]:
-                stack.pop()
-            stack.append(char)
+            while len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]:
+                operator_stack.pop()
+            operator = "T" if char.upper() == 'T' else "F"
+            temp = operator
+        elif char not in ["(", ")"] or (char in ["(", ")"] and len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]):
+            while len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]:
+                operator_stack.pop()
+            temp = "F" if char.upper() == 'T' else "T"
         else:
-            result += str(char)
+            temp = "F" if char.upper() == 'T' else "T"
 
-    return "True" if evaluate_expression(result) == "True" else "False"
-
-
-def evaluate_expression(expression):
-    if not expression or expression[0] in ["(", "|", "&"]:
-        return expression
-
-    i = 0
-    while i < len(expression) and expression[i].isdigit():
-        i += 1
-
-    if expression[i].upper() == "T":
-        result = "True"
-    else:
-        result = "False"
-
-    j = i + 1
-    while j < len(expression) and expression[j] in ["|", "&"]:
-        j += 1
-    return eval(f"{result} {expression[i]} {''.join(expression[i+1:j])}")
+    return "True" if result == "T" else "False"
