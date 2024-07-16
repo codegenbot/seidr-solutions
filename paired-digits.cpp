@@ -1,18 +1,22 @@
 ```c++
 #include <iostream>
+#include <string>
 
-int main() {
-    char c;
+int pairedDigits(const std::string& s) {
     int sum = 0;
-    std::cout << "Enter a string of digits: ";
-    
-    while((c = getchar()) != '\n') {
-        if (c >= '0' && c <= '9') {
-            if (c == getchar()) { 
-                sum += c - '0'; 
-            }
+    for (int i = 0; i < s.length() - 1; i++) {
+        if (s[i] == s[i+1]) {
+            sum += s[i] - '0';
         }
     }
-    std::cout << "Sum of paired digits is: " << sum << std::endl;
+    return sum;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> input;  
+    int output = pairedDigits(input);
+    std::cout << "Sum of paired digits is: " << output << std::endl;
     std::cout << "Program has finished." << std::endl;
 }
