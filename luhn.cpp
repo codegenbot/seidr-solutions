@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 using namespace std;
 
 int luhn(vector<int> digits) {
@@ -19,7 +19,8 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> cardNumber = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 3, 1, 6, 4, 3, 5};
-    int result = luhn(cardNumber);
+    int cardNumber[] = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 3, 1, 6, 4, 3, 5};
+    std::vector<int> digits(cardNumber, cardNumber + sizeof(cardNumber) / sizeof(cardNumber[0]));
+    int result = luhn(digits);
     return 0;
 }
