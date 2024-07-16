@@ -1,6 +1,6 @@
 numbers = []
 while True:
-    num = input("Enter a number or type 'stop' to end: ").strip()
+    num = input().strip()
     if num == 'stop':
         break
     numbers.append(int(num))
