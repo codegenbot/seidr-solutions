@@ -4,7 +4,6 @@
 int main() {
     std::string tweet;
     std::cout << "Enter your tweet: ";
-    std::cin.ignore(); // Consume newline character
     std::getline(std::cin, tweet);
 
     if (tweet.empty()) {
@@ -14,4 +13,5 @@ int main() {
     } else {
         std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
     }
+    std::cin.ignore();
 }
