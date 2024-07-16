@@ -1,5 +1,6 @@
-for (int i = 0; i < xs.size(); ++i) {
-    xs[i] *= i;
+vector<float> result;
+	for (int i = 1; i < xs.size(); ++i) {
+		result.push_back(xs[i] * i);
+	}
+	return result;
 }
-xs.erase(xs.begin());
-return xs;
