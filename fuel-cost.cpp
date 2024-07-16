@@ -1,23 +1,21 @@
-```c++
 #include <iostream>
 #include <vector>
 
 int fuelCost(std::vector<int> stations) {
-    int totalFuel = 0;
-    for (int station : stations) {
-        int cost = (station / 3);
-        if (cost < 1) {
-            cost = 0;
-        } else {
-            cost -= 2;
+    int sum = 0;
+    for (auto station : stations) {
+        int remainder = station % 3;
+        auto fuel = std::floor((station - 2) / 3.0);
+        if (remainder > 0) {
+            fuel += 1;
         }
-        totalFuel += cost;
+        sum += fuel;
     }
-    return totalFuel;
+    return sum;
 }
 
 int main() {
-    std::vector<int> stations = {4, 7, 10};
+    std::vector<int> stations = {12, 24, 36};
     std::cout << "Fuel cost: " << fuelCost(stations) << std::endl;
     return 0;
 }
