@@ -30,7 +30,7 @@ int main() {
 
     double totalPrice = totalPriceAfterDiscount(prices, discounts);
 
-    cout << setprecision(1) << fixed << totalprice << endl;
+    cout << fixed << setprecision(1) << totalPrice << endl;
 
     return 0;
 }
