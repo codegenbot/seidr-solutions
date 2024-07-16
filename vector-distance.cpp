@@ -1,27 +1,20 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 
 int main() {
     int n;
     std::cin >> n;
-    std::vector<float> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+    double a[n], b[n];
+    for (int i = 0; i < n; i++) {
+        std::cin >> a[i];
     }
-
-    std::vector<float> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+    for (int i = 0; i < n; i++) {
+        std::cin >> b[i];
     }
-
-    float sum = 0.0f;
-    for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += pow(a[i] - b[i], 2);
     }
-
-    float result = sqrt(sum);
-    std::cout << result << std::endl;
-
+    std::cout << sqrt(sum) << std::endl;
     return 0;
 }
