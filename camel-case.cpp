@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -23,14 +24,8 @@ std::string kebabToCamel(const std::string& str) {
 
 int main() {
     std::string input;
-    try {
-        std::cout << "Enter a string in kebab-case: ";
-        std::getline(std::cin, input);
-        if (input.empty()) {
-            throw std::runtime_error("Input cannot be empty!");
-        }
-        std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
-    } catch (std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> input;  // Fix this line, it should use cin not cout
+    std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
+}
