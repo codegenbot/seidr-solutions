@@ -1,5 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
@@ -11,4 +15,9 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
         return a.length() < b.length();
     });
     return lst;
+}
+
+int main() {
+    // Main function code here
+    return 0;
 }
