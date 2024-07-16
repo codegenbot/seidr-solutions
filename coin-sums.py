@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     results = [0, 0, 0, 0]
@@ -8,6 +9,6 @@ def coin_sums(cents):
             results[i] = count
             cents %= coins[i]
 
-    return "{} quarters\n{} dimes\n{} nickels\n{} pennies".format(
-        results[0], int(cents / 10), int((cents % 100) / 5), (cents % 100) % 5
+    return "{} quarters\n{} nickels\n{} dimes\n{} pennies".format(
+        results[0], results[1], results[2]//10 + results[1], results[3] + (results[2]%10) * 10
     )
