@@ -8,7 +8,16 @@ bool is_same(vector<string> a, vector<string> b) {
         return false;
     }
     
-    return std::equal(a.begin(), a.end(), b.begin());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> select_words(string s, int n){
@@ -40,8 +49,8 @@ vector<string> select_words(string s, int n){
 
 int main() {
     // Sample usage of is_same function
-    vector<string> vec1 = {"apple", "banana", "cherry"};
-    vector<string> vec2 = {"apple", "banana", "cherry"};
+    vector<string> vec1 = {"apple", "banana", "orange"};
+    vector<string> vec2 = {"banana", "orange", "apple"};
     
     if (is_same(vec1, vec2)) {
         cout << "Vectors are the same" << endl;
