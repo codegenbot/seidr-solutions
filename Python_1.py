@@ -10,7 +10,7 @@ def separate_paren_groups(paren_string):
                 current_group.append(char)
         elif char == ')':
             stack.pop()
-            if not stack and current_group:
+            if len(stack) == 0:
                 groups.append(''.join(current_group) + char)
                 current_group = []
         elif stack:
