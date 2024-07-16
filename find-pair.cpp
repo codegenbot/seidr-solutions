@@ -1,12 +1,26 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 std::vector<int> findPair(std::vector<int>& nums, int target) {
-    std::unordered_map<int, int> numMap;
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.count(complement)) {
-            return {complement, nums[i]};
+    std::sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (nums[i] + nums[i+1] == target) {
+            return {nums[i], nums[i+1]};
         }
-        numMap[nums[i]] = i;
     }
     return {};
+}
+
+int main() {
+    std::vector<int> nums = {1,7,11,2,15};
+    int target = 9;
+    auto pair = findPair(nums, target);
+    
+    if (!pair.empty()) {
+        std::cout << "Pair found: " << pair[0] << ", " << pair[1] << std::endl;
+    } else {
+        std::cout << "No pair found." << std::endl;
+    }
 }
