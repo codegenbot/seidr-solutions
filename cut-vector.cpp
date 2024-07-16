@@ -19,20 +19,23 @@ vector<vector<int>> cutVector(vector<int> v) {
 
 int main() {
     vector<int> v;
-    cout << "Enter the numbers in the vector (space separated): ";
-    int x;
-    while (cin >> x) {
-        v.push_back(x);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    v.resize(n);
+    cout << "Enter " << n << " integers:\n";
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
     vector<vector<int>> result = cutVector(v);
-    cout << "First part: ";
-    for (int i : result[0]) {
-        cout << i << " ";
-    }
-    cout << endl;
-    cout << "Second part: ";
-    for (int i : result[1]) {
-        cout << i << " ";
+    // Do something with the result
+    cout << "Result: \n";
+    for (int i = 0; i < 2; ++i) {
+        cout << "[ ";
+        for (int j = 0; j < result[i].size(); ++j) {
+            cout << result[i][j] << " ";
+        }
+        cout << "]" << endl;
     }
     return 0;
 }
