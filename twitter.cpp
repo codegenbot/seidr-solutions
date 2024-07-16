@@ -1,22 +1,15 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    else if (std::cout.fill('\0').write(&tweet[0], 1, tweet.length()).failg()) {
-        int byteCount = std::cout.tellp();
-        if (byteCount > 140) {
-            return "Too many characters";
-        }
-        else {
-            return "Your tweet has " + std::to_string(tweet.length()) + " characters";
-        }
+    else if (std::wcstombs(nullptr, &tweet[0], 1) > 140) {
+        return "Too many characters";
     }
     else {
-        return "Too many characters";
+        return "Your tweet has " + std::to_string(tweet.length()) + " characters";
     }
 }
 
