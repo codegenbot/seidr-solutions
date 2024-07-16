@@ -2,9 +2,19 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-vector<string> select_words(const string& s, int n) {
+vector<string> select_words(string s, int n) {
     vector<string> words;
     string word = "";
     int consonant_count = 0;
@@ -37,19 +47,7 @@ vector<string> select_words(const string& s, int n) {
     return words;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    // Main function logic
+    // Test your code here
     return 0;
 }
