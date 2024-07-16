@@ -1,12 +1,12 @@
-string s = to_string(x);
-    int n = s.size();
+string numStr = to_string(x);
+    int n = numStr.size();
     shift %= n;
     if (shift == 0) {
-        return s;
+        return numStr;
     }
     if (shift > n) {
-        reverse(s.begin(), s.end());
-        return s;
+        reverse(numStr.begin(), numStr.end());
+        return numStr;
     }
-    return s.substr(n - shift) + s.substr(0, n - shift);
+    return numStr.substr(n - shift) + numStr.substr(0, n - shift);
 }
