@@ -8,28 +8,23 @@ vector<int> leaders(vector<int>& arr) {
     if(n == 0)
         return leaders;
         
-    for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
-        }
-        if(isLeader)
+    leaders.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= arr[i+1]) {
             leaders.push_back(arr[i]);
+        }
     }
     
+    reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
 int main() {
-    vector<int> input = {16, 17, 4, 3, 5, 2};
-    vector<int> leadersVec = leaders(input);
-    cout << "Leaders: ";
-    for (int leader : leadersVec) {
-        cout << leader << " ";
+    vector<int> input = {1, 2, 8, 5};
+    vector<int> result = leaders(input);
+    for(int i: result) {
+        cout << i << " ";
     }
-    cout << endl;
     return 0;
 }
