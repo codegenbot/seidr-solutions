@@ -14,9 +14,16 @@ int main() {
 
     std::vector<size_t> indices;
     size_t pos = 0;
+    size_t targetLength = target.length();
+
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += target.length(); // Move to the next position allowing overlaps
+
+        if (targetLength == 0) {
+            pos += 1; // Case for empty target
+        } else {
+            pos += (pos == text.find(target, pos) ? 1 : targetLength); // Move to the next position allowing overlaps
+        }
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
