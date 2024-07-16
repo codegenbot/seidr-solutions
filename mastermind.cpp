@@ -1,7 +1,3 @@
-```c++
-#include <iostream>
-#include <string>
-
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -11,29 +7,16 @@ int mastermind(std::string code, std::string guess) {
             black++;
         } else {
             bool found = false;
-            for (int j = 0; j < 4; ++j) {
+            for (int j = 0; j < 4; ++j++) {
                 if (guess[j] == code[i] && j != i) {
                     found = true;
                     break;
                 }
             }
-            if (!found) white++;
+            if (!found)
+                white++;
         }
     }
 
     return black + white;
-}
-
-int main() {
-    std::string code, guess;
-
-    // Prompt the user for a code and a guess
-    // For simplicity, assume that the input is valid
-
-    int result = mastermind(code, guess);
-
-    // Print the result
-    std::cout << "Black pegs: " << black << ", White pegs: " << white << std::endl;
-
-    return 0;
 }
