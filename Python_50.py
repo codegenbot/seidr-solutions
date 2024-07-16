@@ -7,6 +7,6 @@ def decode_shift(input_str):
             decoded_result += char
     return decoded_result
 
-input_str = input().strip()
+input_str = input("Enter the string to decode: ").strip()
 result = decode_shift(input_str)
 print(result)
