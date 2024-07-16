@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -8,16 +9,13 @@ int main() {
     remainingCents %= 10;
     int nickles = remainingCents / 5;
     remainingCents %= 5;
-    int pennies = remainingCents;
+    int pennies = remainingCents; 
+    remainingCents = 0; 
 
     cout << quarters << endl;
     cout << dimes << endl;
     cout << nickles << endl;
-    if (pennies > 0) {
-        cout << pennies << endl;
-    } else {
-        cout << 0 << endl;
-    }
+    cout << pennies << endl;
 
     return 0;
 }
