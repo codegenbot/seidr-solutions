@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -23,8 +22,8 @@ std::string spinWords(std::string sentence) {
 
     if (temp.length() >= 5)
         {std::string tempRev = temp;
-        std::reverse(tempRe.begin(), tempRe.end());
-        result += tempRe; }
+        std::reverse(tempRev.begin(), tempRev.end());
+        result += tempRev; }
     else
         result += temp;
 
@@ -41,4 +40,3 @@ int main() {
         std::cout << spinWords(input) << std::endl;
     }
     return 0;
-}
