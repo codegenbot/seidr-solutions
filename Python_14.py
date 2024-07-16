@@ -1,1 +1,1 @@
-input_data = input().strip()
+input_data = input("Please enter your input: ").split()
