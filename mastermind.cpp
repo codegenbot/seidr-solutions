@@ -23,3 +23,10 @@ int mastermind(std::string code, std::string guess) {
 
     return black + white;
 }
+
+int main() {
+    std::string code = "XXXX"; 
+    std::string guess = "XXXX"; 
+    int result = mastermind(code, guess);
+    return 0;
+}
