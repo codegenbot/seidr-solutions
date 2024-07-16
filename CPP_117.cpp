@@ -1,4 +1,18 @@
-bool issame(vector<string> a, vector<string> b);
+#include <vector>
+#include <string>
+#include <cassert>
+#include <algorithm>
+
+bool is_same(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+
+    return a == b;
+}
 
 vector<string> select_words(string s, int n){
     vector<string> result;
@@ -25,4 +39,9 @@ vector<string> select_words(string s, int n){
     }
     
     return result;
+}
+
+int main() {
+    // Main function implementation using is_same instead of issame
+    return 0;
 }
