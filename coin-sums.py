@@ -8,4 +8,4 @@ def coin_sums(cents):
             result[i] = count
             cents %= coins[i]
     
-    return "\n".join(map(str, result))
+    return " ".join(map(str, result))
