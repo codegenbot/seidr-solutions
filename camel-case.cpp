@@ -2,32 +2,29 @@
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words = {""};
-    for (char c : str + " ") {
-        if (c == '-') {
-            words.back() += toupper(c + 1);
-        } else if (c == ' ') {
-            words.push_back("");
-        } else {
-            words.back() += tolower(c);
-        }
-    }
+    if (str.empty()) return str;
+
     std::string result;
-    for (const auto& word : words) {
-        if (!word.empty()) {
-            result += word[0];
-            for (int i = 1; i < word.size(); ++i) {
-                result += toupper(word[i]);
-            }
+    bool capitalize = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
+
     return result;
 }
 
 int main() {
     std::string str;
     while (std::cin >> str) {
-        std::cout << kebabToCamel(str) << std::endl;
+        std::cout << kebabToCamel(str) << '\n';
     }
     return 0;
 }
