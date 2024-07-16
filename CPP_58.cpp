@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
+    // Implement your comparison logic here
     return a == b;
 }
 
@@ -14,6 +16,7 @@ int main() {
 
     result.erase(std::unique(result.begin(), result.end()), result.end());
 
+    // Make sure to adjust this call according to your function logic
     assert(issame(std::vector<int>{4, 3, 2, 8}, std::vector<int>{}));
 
     return 0;
