@@ -2,17 +2,22 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    // Implementation of the issame function
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Implement your comparison logic here
+    return a == b;
 }
 
 int main() {
-    sort(l1.begin(), l1.end());
-    sort(l2.begin(), l2.end());
+    std::vector<int> l1 = {4, 3, 2, 8};
+    std::vector<int> l2 = {};
 
-    vector<int> result;
-    set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
+    std::vector<int> result;
+    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
 
-    result.erase(unique(result.begin(), result.end()), result.end());
-    return result;
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+
+    // Make sure to adjust this call according to your function logic
+    assert(issame(std::vector<int>{4, 3, 2, 8}, std::vector<int>{}));
+
+    return 0;
 }
