@@ -4,5 +4,5 @@ if (x <= 0 || n <= 0) {
     
     double power = log(x) / log(n);
     
-    return (power - (int)power == 0);
+    return (power == floor(power));
 }
