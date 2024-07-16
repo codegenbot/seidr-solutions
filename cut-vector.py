@@ -1,21 +1,19 @@
-n = int(input())
-vec = [int(input()) for _ in range(n)]
-total_sum = sum(vec)
-left_sum = 0
-right_sum = total_sum
-min_diff = float("inf")
-cut_idx = 0
+# Read input
+input_list = []
+for _ in range(2):
+    input_list.append(int(input()))
 
-for i in range(n):
-    left_sum += vec[i]
-    right_sum -= vec[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_idx = i
+# Find the spot to cut the vector
+total_sum = sum(input_list)
+half_sum = total_sum // 2
+subvector1_sum = 0
+index = 0
+for i, num in enumerate(input_list):
+    subvector1_sum += num
+    if subvector1_sum >= half_sum:
+        index = i
+        break
 
-subvector1 = vec[: cut_idx + 1]
-subvector2 = vec[cut_idx + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+# Print output
+print(*input_list[: index + 1])
+print(*input_list[index + 1 :])
