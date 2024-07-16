@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -23,8 +24,7 @@ int main() {
     // Count characters in the code
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[static_cast<int>(c)] = 0; 
-            codeCount[static_cast<int>(c)]++;
+            codeCount[static_cast<int>(c)]++; 
         }
     }
 
@@ -32,17 +32,11 @@ int main() {
     for (int i = 0; i < 4; i++) {
         char c = guessStr[i];
         if ('0' <= c && c <= '5') {
-            if (codeCount.find(c - '0') != codeCount.end()) {
-                auto& count = codeCount[c - '0'];
-                if (count > 1) {
-                    codeCount[c - '0']--;
-                    blackPegs++;
-                } else {
-                    whitePegs++;
-                    codeCount[c - '0']--;
-                }
+            bool foundInCode = codeCount[c - '0'] > 0;
+            codeCount[c - '0']--;
+            if (foundInCode) {
+                blackPegs++;
             } else {
-                // The character is not in the code
                 whitePegs++;
             }
         }
