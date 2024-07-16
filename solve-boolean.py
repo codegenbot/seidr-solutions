@@ -9,7 +9,7 @@ def solve_boolean(expression):
         result = True
         parts = expression.split("&")
         for part in parts:
-            if part != 'T':
+            if part != "T":
                 result = False
                 break
         return result
