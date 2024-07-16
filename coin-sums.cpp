@@ -1,15 +1,25 @@
-int pennies = cents;
-int quarters = pennies / 25;
-pennies %= 25;
+#include <iostream>
+using namespace std;
 
-int remainingPennies = pennies;
-int dimes = remainingPennies / 10;
-remainingPennies %= 10;
+int main() {
+    int cents;
+    cin >> cents;
 
-int nickles = remainingPennies / 5;
-remainingPennies %= 5;
+    int quarters = cents / 25;
+    cents %= 25;
 
-cout << quarters << endl;
-cout << dimes << endl;
-cout << nickles << endl;
-cout << remainingPennies << endl;
+    int dimes = cents / 10;
+    cents %= 10;
+
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
+
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
+
+    return 0;
+}
