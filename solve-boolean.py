@@ -1,21 +1,22 @@
 def solve_boolean(expression):
-    def evaluate():
-        if expression[0] in ["T", "F"]:
-            return expression[0] == "T"
-        elif expression[0] == "(":
-            i = 1
-            temp = evaluate()
-            while i < len(expression) and expression[i] != ")":
+    def evaluate(i=0):
+        if i == len(expression):
+            return None
+        if expression[i] in ["T", "F"]:
+            return expression[i] == "T"
+        elif expression[i] == "(":
+            i += 1
+            while expression[i] != ")":
                 i += 1
-            return temp
+            return evaluate(i)
         operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
-        if expression[0] in ["|", "&"]:
-            op = expression[0]
-            left = evaluate()
-            right = expression[2:] 
-            if right[0] == "(":
-                return "(" + str(evaluate()) + ")" + " " + op + " (" + str(right) + ")"
-            else:
-                return "(" + str(left) + ")" + " " + op + " " + str(right)
-        else:
-            return evaluate()
+        if expression[i] in ["|", "&"]:
+            op = expression[i]
+            j = i + 1
+            while expression[j] in [" ", ")"]:
+                j += 1
+            left = evaluate(j)
+            right = expression[expression.index(")") + 1:]
+            return eval(f"({left}) {op} ({str(evaluate(0))[1:-1]})")
+
+    return str(evaluate())
