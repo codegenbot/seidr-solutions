@@ -1,4 +1,12 @@
+```cpp
 #include <sstream>
+
+int main() {
+    std::string str = "Hello World!";
+    std::string result = spinWords(str);
+    // print or do something with 'result'
+    return 0;
+}
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
