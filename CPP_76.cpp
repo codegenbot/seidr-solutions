@@ -1,8 +1,10 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (x == 1) return true;
+    for (int i = 2; i <= sqrt(x); i++) {
+        int p = i;
+        while (p <= x) {
+            if (p == x) return true;
+            p *= i;
+        }
     }
-    
-    double power = log(x) / log(n);
-    
-    return (power == floor(power));
+    return false;
 }
