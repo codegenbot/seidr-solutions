@@ -7,22 +7,21 @@ int bowlingScore(string s) {
         if (s[i] == 'X') {
             score += 10;
             i++;
-            if (i < s.length() && (s[i] == '/' || s[i] >= 'X')) {
-                continue;
-            }
-            if (i < s.length()) {
-                score += s[i] - '0' + s[i+1] - '0';
-                i+=2;
+            if (i < s.length() && (s[i] == '/' || s[i] == 'X')) {
+                i++;
             }
         } else if (s[i] == '/') {
             int firstRoll = s[i-1] - '0';
             int secondRoll = s[i+1] - '0';
             score += max(firstRoll, secondRoll);
-            i++;
+            i += 2;
         } else {
             int roll = s[i] - '0';
+            if (i + 1 < s.length() && s[i+1] >= '0' && s[i+1] <= '9') {
+                roll += s[i+1] - '0';
+                i++;
+            }
             score += roll;
-            i++;
         }
     }
     return score;
