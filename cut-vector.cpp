@@ -3,6 +3,7 @@
 #include <climits>
 #include <cmath>
 #include <sstream>
+#include <numeric>
 
 int main() {
     std::vector<int> nums;
@@ -20,10 +21,7 @@ int main() {
     }
     
     int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
     
     int prefixSum = 0;
     int minDiff = INT_MAX;
@@ -44,7 +42,7 @@ int main() {
         std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex; i < nums.size(); i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
