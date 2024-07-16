@@ -1,6 +1,5 @@
-string result;
-    int count = 0;
-    
+int count = 0;
+    string result = "";
     for (char c : text) {
         if (c == ' ') {
             count++;
@@ -8,14 +7,14 @@ string result;
                 result.pop_back();
                 result.pop_back();
                 result.push_back('-');
+                count = 1;
             } else {
                 result.push_back('_');
             }
         } else {
-            count = 0;
             result.push_back(c);
+            count = 0;
         }
     }
-    
     return result;
 }
