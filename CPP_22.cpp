@@ -1,9 +1,11 @@
 #include <vector>
 #include <boost/any.hpp>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-std::vector<int> filter_integers(std::list<boost::any> values){
+std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
@@ -13,11 +15,7 @@ std::vector<int> filter_integers(std::list<boost::any> values){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 int main() {
-    // Main function implementation
+    // Main function code goes here
     return 0;
 }
