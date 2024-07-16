@@ -1,2 +1,3 @@
-xs = [int(input()) for _ in range(int(input("Enter the number of integers: ")))]
+n = int(input("Enter the number of integers: "))
+xs = [int(input()) for _ in range(n)]
 print(xs)
