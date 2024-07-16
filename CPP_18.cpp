@@ -14,8 +14,8 @@ int how_many_times(std::string str, std::string substring){
 }
 
 int main() {
-    std::string str = "ababababab";
-    std::string substring = "ab";
+    std::string str = "hellohellohello";
+    std::string substring = "hello";
     int result = how_many_times(str, substring);
     
     return 0;
