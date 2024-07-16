@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-#include <cmath>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
     long long sum = 0;
 
     for (int num : nums) {
-        sum += static_cast<int>(std::floor(num / 3.0)) - 2;
+        sum += (num / 3) - 2;
     }
 
     cout << sum << endl;
