@@ -1,2 +1,2 @@
-xs = list(map(int, input().strip().split()))
+xs = list(map(int, input().split()))
 print(xs)
