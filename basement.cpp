@@ -1,3 +1,4 @@
+```cpp
 int basement(vector<int> &nums) {
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
