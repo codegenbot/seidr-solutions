@@ -8,6 +8,5 @@ def coin_sums(cents):
             counts.append(count)
             cents %= coin
     return counts
-
 cents = int(input())
 print(*coin_sums(cents))
