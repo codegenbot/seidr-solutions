@@ -1,12 +1,16 @@
-def divide(num1, num2):
-    return num1 / num2
+def add(a, b):
+    return a + b
 
-def add(num1, num2):
-    return num1 + num2
+
+def divide(a, b):
+    return a / b
+
 
 while True:
     try:
-        user_input = input("Enter two numbers separated by space or '/' for division: ").strip()
+        user_input = input(
+            "Enter two numbers separated by space or '/' for division: "
+        ).strip()
 
         if "/" in user_input:
             num1, num2 = map(int, user_input.split("/"))
@@ -20,7 +24,8 @@ while True:
 
         print(result)
 
-    except (ValueError, ZeroDivisionError, KeyboardInterrupt):
+    except (ValueError, ZeroDivisionError):
         print("Invalid input or division by zero. Please try again.")
     except EOFError:
         print("End of input reached. Exiting program.")
+        break
