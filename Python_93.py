@@ -5,7 +5,7 @@ def encode(message):
             if char.islower():
                 encoded_message += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
             else:
-                encoded_message += chr((ord(char) - ord('A') + 2) % 26 + ord('A') if ord(char) >= ord('A') and ord(char) <= ord('Z') else ord(char))
+                encoded_message += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
         elif char.isspace():
             encoded_message += " "
         else:
