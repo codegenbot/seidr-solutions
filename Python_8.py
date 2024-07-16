@@ -5,15 +5,18 @@ def sum_product(numbers):
 
 results = []
 
-try:
-    while True:
-        numbers_input = list(map(int, input().strip().split()))
+while True:
+    try:
+        try:
+            numbers_input = list(map(int, input().strip().split()))
+        except EOFError:
+            break
         if not numbers_input:
             break
         result = sum_product(numbers_input)
         results.append(result)
-except EOFError:
-    pass
+    except ValueError:
+        pass
 
 for result in results:
     print(result)
