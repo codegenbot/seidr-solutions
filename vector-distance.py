@@ -1,7 +1,9 @@
 n = int(input())
-vector1 = list(map(float, input().split()))
-m = int(input())
-vector2 = list(map(float, input().split()))
+v1 = [float(i) for i in input().split()]
+n = int(input())
+v2 = [float(i) for i in input().split()]
 
-distance = sum((a - b) ** 2 for a, b in zip(vector1, vector2)) ** 0.5
-print("%.6f" % distance)
+import math
+
+distance = math.sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
+print(distance)
