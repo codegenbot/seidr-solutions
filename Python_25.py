@@ -12,4 +12,4 @@ try:
     else:
         print("Please enter a positive integer.")
 except ValueError:
-    print("Please enter a valid integer value.")
+    print("Please enter an integer value.")
