@@ -3,14 +3,16 @@
 
 int luhn(int digits[16]) {
     int sum = 0;
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 16; ++i) {
         if ((i % 2) == 1) {
-            int doubleValue = digits[i] * 2;
-            if (doubleValue > 9)
-                doubleValue -= 9;
-            sum += doubleValue;
-        } else
+            int doubledDigit = digits[i] * 2;
+            if (doubledDigit > 9) {
+                doubledDigit -= 9;
+            }
+            sum += doubledDigit;
+        } else {
             sum += digits[i];
+        }
     }
     return sum;
 }
