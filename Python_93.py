@@ -7,6 +7,6 @@ def encode(message):
             for char in message
         )
     except Exception as e:
-        return "Invalid input. Please enter a valid message."
+        return "Invalid input. Please enter a message containing only alphabets or special characters."
 
-print(encode(input("Enter a message: ")))
+print(encode(input("Enter a message (alphabets or special characters only): ")))
