@@ -1,12 +1,17 @@
 #include <vector>
+#include <iostream>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wundef"
+
 using namespace std;
 
-int fuelCost(vector<int>& vec) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int i : vec) {
-        int x = i / 3;
-        x = floor(x);
-        sum += x - 2;
+    for (int num : nums) {
+        int newNum = (num / 3);
+        newNum = (newNum > 0) ? newNum - 2 : 0;
+        sum += newNum;
     }
     return sum;
 }
@@ -14,10 +19,10 @@ int fuelCost(vector<int>& vec) {
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> nums[i];
     }
-    cout << fuelCost(vec) << endl;
+    cout << fuelCost(nums) << endl;
     return 0;
 }
