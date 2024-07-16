@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfFall, float meltPerHour) {

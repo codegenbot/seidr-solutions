@@ -1,7 +1,7 @@
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -19,8 +19,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    return 0;
 }
