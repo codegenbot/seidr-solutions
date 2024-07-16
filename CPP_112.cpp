@@ -1,9 +1,10 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <cassert>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(pair<string, string> a, pair<string, string> b) {
     return a == b;
 }
 
