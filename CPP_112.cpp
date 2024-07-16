@@ -5,7 +5,7 @@
 
 using namespace std;
 
-pair<string, string> reverse_delete(string s, string c) {
+vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
         if (c.find(ch) == string::npos) {
@@ -16,10 +16,10 @@ pair<string, string> reverse_delete(string s, string c) {
     string result_reverse = result;
     reverse(result_reverse.begin(), result_reverse.end());
 
-    return make_pair(result, result == result_reverse ? "True" : "False");
+    return {result, result == result_reverse ? "True" : "False"};
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == make_pair("", "True"));
+    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
     return 0;
 }
