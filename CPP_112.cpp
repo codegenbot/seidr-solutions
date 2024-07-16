@@ -1,11 +1,16 @@
 vector<string> reverse_delete(string s, string c) {
     vector<char> temp(s.begin(), s.end());
     for (char& c1 : temp) {
+        bool found = false;
         for (char c2 : c) {
             if (c1 == c2) {
                 c1 = '\0';  // delete character
+                found = true;
                 break;
             }
+        }
+        if (!found) {
+            result += c1;
         }
     }
     string result;
@@ -26,6 +31,6 @@ vector<string> reverse_delete(string s, string c) {
     }
     vector<string> res(2);
     res[0] = result;
-    res.push_back((isPalindrome ? "True" : "False"));
+    res[1] = (isPalindrome ? "True" : "False");
     return res;
 }
