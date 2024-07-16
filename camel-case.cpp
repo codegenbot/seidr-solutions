@@ -1,37 +1,32 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
-using namespace std;
 
-string kebabToCamel(string str) {
-    string result = "";
-    string temp = "";
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool first = true;
 
-    for (char c : str) {
+    for (char c : input) {
         if (c == '-') {
-            result += char(toupper(temp[0]));
-            temp = "";
-        } else if (c == ' ') {
-            if (!temp.empty()) {
-                result += char(toupper(temp[0]));
-                temp = "";
-            }
-        } else {
-            temp += c;
+            // If we just encountered a dash, skip it and capitalize the next letter
+            ++c;
+            continue;
         }
+        if (!first)
+            output += std::toupper(c);
+        else
+            output += c;
+        first = false;
     }
 
-    if (!temp.empty()) {
-        result += char(toupper(temp[0]));
-    }
-    result += temp;
-
-    return result;
+    return output;
 }
 
 int main() {
-    string str;
-    cout << "Enter a string in kebab-case: ";
-    cin >> str;
-    cout << "CamelCase representation: " << kebabToCamel(str) << endl;
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> input;
+    std::cout << "CamelCase: " << camelCase(input) << std::endl;
     return 0;
 }
