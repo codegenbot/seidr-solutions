@@ -7,7 +7,7 @@ std::string camelCase(std::string s) {
 
     for (char c : s) {
         if (c == '-') {
-            if(capitalizeNext) result += toupper(s.find(c)+1, 1); 
+            if(capitalizeNext) result += toupper(s.substr(static_cast<int>(s.find(c))+1, 1)); 
             capitalizeNext = true;
             result.push_back(' ');
         } else if (capitalizeNext) {
@@ -18,5 +18,5 @@ std::string camelCase(std::string s) {
         }
     }
 
-    return result;
+    return result.erase(result.find_last_not_of(" ")+1);  // remove trailing space
 }
