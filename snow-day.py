@@ -1,4 +1,4 @@
-"""
+```
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
     current_snow = round(initial_snow, 2)
     for _ in range(hours):
