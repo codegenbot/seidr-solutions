@@ -5,6 +5,9 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input().strip()
-result = decode_cyclic(input_string)
-print(result)
+input_string = input("Enter the input string: ").strip()
+if input_string.isalpha() and input_string.isupper():
+    result = decode_cyclic(input_string)
+    print(result)
+else:
+    print("Input string is not in correct format.")
