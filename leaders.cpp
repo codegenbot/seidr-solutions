@@ -16,7 +16,6 @@ vector<int> leaders(vector<int>& arr) {
         if(leader) res.push_back(arr[i]);
     }
     return res;
-}
 
 int main() {
     vector<int> arr = {1, 2, 3, 4, 5};
