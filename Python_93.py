@@ -7,8 +7,8 @@ def encode(message):
             encoded_message += char
     return encoded_message
 
-user_input = input("Enter a message: ")
-if all(char.isalpha() or char.isspace() or char.isdigit() for char in user_input):
+user_input = input("Enter a message: ").strip()
+if all(char.isalpha() or char.isspace() for char in user_input):
     print(encode(user_input))
 else:
-    print("Input should contain only alphabets, digits, and spaces.")
+    print("Input should contain only alphabets and spaces.")
