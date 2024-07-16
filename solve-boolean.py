@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate(start=0):
         if start >= len(expression):  
@@ -19,5 +20,7 @@ def solve_boolean(expression):
             return "(%s) %s (%s)" % (left, op, evaluate(right_start + 1)[1:-1])
         else:
             if start < len(expression):
-                return expression[start]
-    return evaluate()
+                return evaluate()
+    return evaluate(0)
+
+print(solve_boolean('t|t&t&t&t&f|t')) # Should return True
