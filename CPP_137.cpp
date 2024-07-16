@@ -1,6 +1,6 @@
 #include <string>
 #include <cassert>
-#include <boost/any.hpp> // Include boost/any.hpp
+#include <boost/any.hpp>
 
 std::string compare_one(const std::string& a, const std::string& b) {
     if (a == b) {
@@ -17,8 +17,7 @@ int main() {
     std::string result = compare_one(std::to_string(1), std::to_string(1));
     assert(result == "Equal");
 
-    // Change the second argument to std::string
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert (boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
 
     return 0;
 }
