@@ -1,3 +1,6 @@
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wundef"
+
 #include <vector>
 using namespace std;
 
