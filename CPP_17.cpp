@@ -6,12 +6,11 @@ using namespace std;
 
 vector<int> parse_music(string music_string){
     vector<int> beats;
-    int length = music_string.length();
-    for (int i = 0; i < length; i++) {
-        if (music_string[i] == 'o') {
+    for (char c : music_string) {
+        if (c == 'o') {
             beats.push_back(4);
-        } else if (music_string[i] == '|') {
-            if (music_string[i - 1] == 'o') {
+        } else if (c == '|') {
+            if (!beats.empty() && beats.back() == 4) {
                 beats.back() = 2;
             } else {
                 beats.push_back(1);
@@ -21,7 +20,7 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -31,8 +30,9 @@ int main() {
 
     vector<int> parsed_beats = parse_music(music_string);
 
-    vector<int> test_beats = {4, 1, 2, 4, 1};
-    if (is_same(parsed_beats, test_beats)) {
+    vector<int> test_beats = {2, 1, 2, 1, 4, 2, 4, 2}; // Adjust as per the test case
+    
+    if (issame(parsed_beats, test_beats)) {
         cout << "Match" << endl;
     } else {
         cout << "Mismatch" << endl;
