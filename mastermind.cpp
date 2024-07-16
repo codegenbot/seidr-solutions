@@ -1,4 +1,6 @@
-int mastermind(std::string code, std::string guess) {
+using namespace std;
+
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
