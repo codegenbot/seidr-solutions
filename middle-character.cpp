@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 std::string middleCharacter(std::string s) {
     int len = s.length();
     int mid = len / 2;
@@ -9,4 +10,3 @@ std::string middleCharacter(std::string s) {
         result = s.substr(mid, 1);
     }
     return result;
-}
