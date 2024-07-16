@@ -1,7 +1,5 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.size());
-    copy_if(arr.begin(), arr.end(), result.begin(),
-             [k](int i) { return --k > 0; });
+    vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
-    return vector<int>(result.begin(), result.begin() + min(k, (int)size()));
+    return result;
 }
