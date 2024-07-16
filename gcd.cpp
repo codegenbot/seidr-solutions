@@ -16,7 +16,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result = std::vector<int>(); // Explicitly construct an empty vector
+    std::vector<int> result(0); // Initialize the vector with capacity 0
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
