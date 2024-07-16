@@ -6,9 +6,8 @@ def encode(message):
                 encoded_message += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
             else:
                 encoded_message += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
+        elif char.isspace():
+            encoded_message += " "
         else:
-            if char.isspace():
-                encoded_message += " "
-            else:
-                encoded_message += char
+            encoded_message += char
     return encoded_message
