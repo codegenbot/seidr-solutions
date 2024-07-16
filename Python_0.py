@@ -1,12 +1,10 @@
-def check_numbers(numbers, threshold):
-    numbers.sort()
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i + 1]) < threshold:
+def check_numbers(nums, k):
+    seen = set()
+    for num in nums:
+        if k - num in seen:
             return True
+        seen.add(num)
     return False
 
-# Example usage
-numbers = [3, 6, 9, 12, 15]
-threshold = 2
-result = check_numbers(numbers, threshold)
+result = check_numbers([5, 8, 3, 12, 7], 2)
 print(result)
