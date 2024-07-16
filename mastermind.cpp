@@ -21,11 +21,11 @@ int main() {
             }
         }
 
-        return black;
+        return black + white;
     }
 
-    int main_result = mastermind("abcD", "abca");
-    std::cout << "Black pegs: " << main_result << ", White pegs: " << (4 - main_result) << std::endl;
+    int mastermind_result = mastermind("abcD", "abca");
+    std::cout << "Black pegs: " << mastermind_result << ", White pegs: " << (4 - mastermind_result) << std::endl;
 
     return 0;
 }
