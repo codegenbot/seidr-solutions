@@ -37,5 +37,6 @@ int main() {
             break;
         std::cout << spinWords(input) << std::endl;
     }
-    return 0;
 }
+
+return 0;
