@@ -1,2 +1,4 @@
+print("Enter the total number of elements:")
 n = int(input())
-numbers = list(map(float, input().strip().split()))
+print("Enter the space-separated numbers:")
+numbers = list(map(float, input().split()))

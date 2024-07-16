@@ -1,9 +1,7 @@
 from typing import List
 
-def separate_paren_groups() -> List[str]:
-    paren_string = input("Enter a string with parentheses: ")
-
-    if paren_string[0] != "(" or paren_string[-1] != ")":
+def separate_paren_groups(paren_string: str) -> List[str]:
+    if not (paren_string.startswith("(") and paren_string.endswith(")")):
         return ["Input string must start and end with parentheses."]
 
     result = []
@@ -21,5 +19,8 @@ def separate_paren_groups() -> List[str]:
         if open_brackets_count == 0 and current_group:
             result.append(current_group)
             current_group = ""
+
+    if not result:
+        return ["No valid parentheses group found in input string."]
 
     return result
