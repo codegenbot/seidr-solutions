@@ -28,8 +28,3 @@ bool check_map_case(map<string, string> dict) {
 
     return all_lower || all_upper;
 }
-
-int main() {
-    map<string, string> dict;
-    // your code here
-}
