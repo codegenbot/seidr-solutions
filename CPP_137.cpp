@@ -36,7 +36,7 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int i1 = boost::get<int>(a.convert_to<boost::any>());
         int i2 = boost::get<int>(b.convert_to<boost::any>());
-        return i2 > i1 ? boost::variant<int, float, std::string>(i2) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i1);
+        return i1 > i2 ? boost::variant<int, float, std::string>(i1) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i2);
     }
     else {
         return boost::variant<int, float, std::string>();
