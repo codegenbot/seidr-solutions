@@ -1,5 +1,3 @@
-# Get input from user
-input_list = list(map(int, input().split()))
-
-# Sort the list and print it
-print(*sorted(input_list))
+def sort_integers(input_list):
+    input_list.sort(key=lambda x: x != 0)
+    return input_list
