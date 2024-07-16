@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,7 +6,7 @@ int luhn(int* digits, int length) {
     for (int i = 0; i < length; i++) {
         if ((i % 2) == 1) {
             int doubleValue = (digits[i] * 2) % 10 == 0 ? (digits[i] * 2) / 10 : digits[i] * 2;
-            sum += doubleValue;
+            sum += doubleValue > 9 ? doubleValue - 9 : doubleValue;
         } else
             sum += digits[i];
     }
