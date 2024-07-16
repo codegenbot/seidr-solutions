@@ -3,40 +3,37 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i + 1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int index = 0;
+    for (int i = 1; i <= v.size(); i++) {
+        if (i == v.size() || v[i-1] != v[i]) {
+            int diff = abs((v[0] + v[v.size()-1] - 2 * v[i-1]) / 2 - v[i]);
+            if (diff < minDiff) {
+                minDiff = diff;
+                index = i;
+            }
         }
     }
-    
-    vector<int> left, right;
-    for (int i = 0; i < cutIndex; i++) {
-        left.push_back(v[i]);
-    }
-    for (int i = cutIndex + 1; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-    
+    vector<int> left(v.begin(), v.begin() + index);
+    vector<int> right(v.begin() + index, v.end());
     return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
-    
+    vector<int> v(n+1);
+    for (int i = 0; i <= n; i++) {
+        cin >> v[i];
+    }
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[";
-    for (const auto &x : result.first) cout << x << " ";
-    cout << "]" << endl;
-    cout << "[";
-    for (const auto &x : result.second) cout << x << " ";
-    cout << "]0" << endl;
-    
+    cout << "Left: ";
+    for (int i : result.first) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "Right: ";
+    for (int i : result.second) {
+        cout << i << " ";
+    }
     return 0;
 }
