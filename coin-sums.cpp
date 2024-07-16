@@ -1,5 +1,6 @@
-```cpp
 #include <iostream>
+#include <string>
+#include <sstream>
 
 int main() {
     int cents;
@@ -9,14 +10,16 @@ int main() {
     int remaining = cents % 25;
 
     int dimes = remaining / 10;
-    int nickles = remaining % 10;
+    int pennies = remaining % 10;
 
-    int pennies = nickles * 5 + remaining % 5;
+    int nickles = (dimes + pennies) / 5;
 
-    std::cout << "Quarters: " << quarters << "\n";
-    std::cout << "Dimes: " << dimes << "\n";
-    std::cout << "Nickels: " << nickles << "\n";
-    std::cout << "Pennies: " << pennies << "\n";
+    pennies = (dimes + pennies) % 5;
+
+    std::cout << "Quarters: " << std::to_string(quarters) << "\n";
+    std::cout << "Dimes: " << std::to_string(dimes) << "\n";
+    std::cout << "Nickels: " << std::to_string(nickles) << "\n";
+    std::cout << "Pennies: " << std::to_string(pennies) << "\n";
 
     return 0;
 }
