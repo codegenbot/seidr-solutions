@@ -12,7 +12,7 @@ def add(a, b):
 
 while True:
     try:
-        user_input = raw_input(
+        user_input = input(
             "Enter two numbers separated by space or '/' for division: "
         )
 
