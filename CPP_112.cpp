@@ -1,31 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
-    vector<char> temp(s.begin(), s.end());
-    for (char& c1 : temp) {
-        for (char c2 : c) {
-            if (c1 == c2) {
-                c1 = '\0';  // delete character
+    vector<string> result;
+    
+    // Delete all characters in s that are equal to any character in c
+    string newS = "";
+    for (char ch : s) {
+        bool found = false;
+        for (char cc : c) {
+            if (ch == cc) {
+                found = true;
                 break;
             }
         }
-    }
-    string result;
-    for (char c1 : temp) {
-        if (c1 != '\0') {
-            result += c1;
+        if (!found) {
+            newS += ch;
         }
     }
-    bool isPalindrome = true;
-    int left = 0, right = result.length() - 1;
-    while (left < right) {
-        if (result[left] != result[right]) {
-            isPalindrome = false;
-            break;
-        }
-        left++;
-        right--;
+    
+    // Check if the result string is palindrome
+    string palin = newS;
+    reverse_copy(newS.begin(), newS.end(), back_inserter(palin));
+    bool isPalindrome = (newS == palin);
+    
+    // Store the result in a vector
+    result.push_back(newS);
+    result.push_back(isPalindrome ? "True" : "False");
+    
+    return result;
+}
+
+int main() {
+    string s, c;
+    cout << "Enter string s: ";
+    cin >> s;
+    cout << "Enter string c: ";
+    cin >> c;
+    vector<string> res = reverse_delete(s, c);
+    for (string str : res) {
+        cout << str << endl;
     }
-    vector<string> res(2);
-    res[0] = result;
-    res[1] = (isPalindrome ? "True" : "False");
-    return res;
+    return 0;
 }
