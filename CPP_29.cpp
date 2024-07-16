@@ -1,12 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -16,6 +13,10 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
