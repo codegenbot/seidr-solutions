@@ -1,15 +1,11 @@
+```
 n = int(input())
-prices = list(map(float, input().split()))
-discounts = []
+prices = list(map(float, input().strip().split()))
+discounts = [list(map(float, input().strip().split())) for _ in range(n)]
 
-for _ in range(n):
-    line = list(map(float, input().split()))
-    discounts.append(line[1:])  # append all elements except the first one
 
 def calculate_total_price():
-    total_price = sum(
-        (price * (100 - d) / 100) for price, *d in zip(prices, *discounts)
-    )
+    total_price = sum((price * (100 - d) / 100) for price, *d in zip(prices, *discounts))
     print(format(total_price, ".1f"))
 
 
