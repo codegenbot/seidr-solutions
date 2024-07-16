@@ -1,16 +1,9 @@
-#include <iostream>
-#include <climits>
-#include <vector>
-
-std::vector<int> nums = {1, 2, 3, 4, 5}; // Example vector
-int cutIndex = 2; // Example cutIndex
-int minDiff = INT_MAX;
-
+int i;
 for (int i = 0; i < cutIndex; i++) {
     std::cout << nums[i] << std::endl;
 }
 
-for (int i = cutIndex; i < nums.size(); i++) {
+for (int i = cutIndex; i < n; i++) {
     std::cout << nums[i] << std::endl;
 }
 
