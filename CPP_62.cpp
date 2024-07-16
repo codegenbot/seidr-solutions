@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<float> calculate_values(const vector<float>& xs) {
+vector<float> calculateResult(const vector<float>& xs) {
     vector<float> result;
     for (int i = 1; i < xs.size(); ++i) {
         result.push_back(xs[i] * i);
