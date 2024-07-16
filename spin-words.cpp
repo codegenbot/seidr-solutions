@@ -1,40 +1,19 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    int wordLength;
-    bool inWord = false;
-
-    for (char c : sentence) {
-        if (c == ' ') {
-            inWord = false;
-        } else if (!inWord) {
-            inWord = true;
-            wordLength = 0;
-        } else {
-            wordLength++;
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += string(word.rbegin(), word.rend()) + " ";
+            } else {
+                result += word + " ";
+            }
+            start = i + 1;
         }
-
-        if (inWord && wordLength >= 5) {
-            for (int i = wordLength - 1; i >= 0; --i)
-                result += sentence[sentence.find(c) + i];
-        } else
-            result += c;
-
     }
-
-    return result;
-}
-
-int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string of one or more words, or 'q' to quit: ";
-        std::cin >> input;
-        if (input == "q")
-            break;
-        std::cout << spinWords(input) << std::endl;
-    }
-    return 0;
+    return result.substr(0, result.length() - 1);
 }
