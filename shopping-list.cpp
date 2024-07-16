@@ -1,10 +1,12 @@
 int main() {
     int n;
     cin >> n;
+
     vector<float> prices(n);
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
+
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
@@ -16,6 +18,6 @@ int main() {
     }
 
     cout << total << endl;
-
+    
     return 0;
 }
