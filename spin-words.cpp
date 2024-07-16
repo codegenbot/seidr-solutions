@@ -2,11 +2,11 @@
 #include <string>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
+    string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
-            std::string word = str.substr(i);
+            string word = str.substr(i);
             if (word.length() >= 5)
                 for (int k = word.length() - 1; k >= 0; --k)
                     result += word[k];
@@ -15,7 +15,7 @@ std::string spinWords(std::string str) {
             break;
         }
         int j = str.find(" ", i);
-        std::string word = str.substr(i, j - i);
+        string word = str.substr(i, j - i);
         if (word.length() >= 5) {
             for (int k = word.length() - 1; k >= 0; --k)
                 result += word[k];
