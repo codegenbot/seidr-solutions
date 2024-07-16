@@ -1,8 +1,9 @@
 ```c++
-#include <vector>
-int luhn(std::vector<int> digits) {
+int digits[16] = {4,3,2,1,8,7,9,1,6,5,4,3,2,8,7,9};
+
+int luhn(int digits[16]) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
+    for (int i = 0; i < 16; i++) {
         int temp = (i % 2 == 0) ? digits[i] : digits[i] * 2;
         if (temp > 9)
             sum += temp - 9;
@@ -13,9 +14,6 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits = {1, 2, 3, 4}; 
-    int result = luhn(digits);
-    std::cout << "Result: " << result << std::endl; 
-
+    std::cout << luhn(digits) << std::endl;
     return 0;
 }
