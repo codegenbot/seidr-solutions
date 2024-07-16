@@ -1,5 +1,4 @@
-n = int(input())
-paren_strings = [input().strip() for _ in range(n)]
+paren_strings = input("Enter comma-separated parentheses strings: ").strip().split(',')
 
 def parse_nested_parens(paren_strings):
     stack = []
