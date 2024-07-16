@@ -1,22 +1,22 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = abs(v[1] - v[0]);
-    int splitIndex = 1;
+    int splitIndex = 0;
     
-    for (int i = 2; i < v.size(); i++) {
+    for (int i = 1; i < v.size(); i++) {
         if (v[i] == v[0]) {
             splitIndex = i;
             break;
-        } else {
-            int diff = abs(v[i] - v[0]);
-            if (diff < minDiff) {
-                minDiff = diff;
-                splitIndex = i;
-            }
+        }
+        int diff = abs(v[i] - v[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
