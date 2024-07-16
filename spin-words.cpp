@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -34,7 +35,7 @@ int main() {
     std::string input;
     while (true) {
         std::cout << "Enter a string of one or more words, or 'q' to quit: ";
-        getline(std::cin, input);
+        std::getline(std::cin, input);
         if (input == "q")
             break;
         std::cout << spinWords(input) << std::endl;
