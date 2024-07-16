@@ -1,8 +1,4 @@
-def solution():
-    s = input("Enter a string: ")
-    vowels = 'aeiouAEIOU'
-    count = 0
-    for char in s:
-        if char in vowels:
-            count += 1
-    return count
+def solution(lst):
+    odd_sum = sum(i for i in lst[1::2] if i % 2 != 0)
+    even_sum = sum(i for i in lst[::2] if i % 2 == 0)
+    return f"The sum of the odd numbers is {odd_sum} and the sum of the even numbers is {even_sum}"
