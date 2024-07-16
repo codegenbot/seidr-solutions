@@ -1,6 +1,5 @@
 from base64 import b64encode
 
-
 def solve():
     while True:
         try:
@@ -9,14 +8,6 @@ def solve():
                 return s.upper()
             num = int(s)
             if num < 0:
-                return (
-                    "-" + b64encode(str(abs(num)).encode("utf-8")).decode("utf-8")
-                ).upper()
+                return ('-' + b64encode(str(abs(num)).encode('utf-8')).decode('utf-8')).upper()
             else:
-                return (
-                    (b64encode(str(num).encode("utf-8")).decode("utf-8"))
-                    .upper()
-                    .replace("+", "-")
-                )
-        except ValueError:
-            print("Invalid input. Please enter an integer or string.")
+                return (b64encode(str(num).encode('utf-8')).decode('utf-8')).upper().replace('+', '-')
