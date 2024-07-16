@@ -1,23 +1,12 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int basementIndex(std::vector<int> v) {
+int basementIndex(vector<int> &nums) {
     int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
         if (sum < 0)
             return i;
     }
-    return -1; // Return -1 if no such index is found
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> vec[i];
-    }
-    std::cout << basementIndex(vec) << std::endl;
-    return 0;
+    return -1; // or throw an exception, depending on your requirements
 }
