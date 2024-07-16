@@ -9,20 +9,20 @@ int main() {
 
     for (int i = 0; i < vec.size() - 1; ++i) {
         int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
             idx = i;
         }
     }
 
     // Outputs the left subvector
-    for (int i = 0; i < idx; ++i) {
+    for (int i = 0; i <= idx; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
 
     // Outputs the right subvector
-    for (int i = idx; i < vec.size(); ++i) {
+    for (int i = idx + 1; i < vec.size(); ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
