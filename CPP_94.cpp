@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -12,7 +12,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int findMaxPrimeSum(vector<int> lst){
+int skjkasdkd(const vector<int>& lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -26,6 +26,6 @@ int findMaxPrimeSum(vector<int> lst){
     return sum;
 }
 
-int runTests() {
-    assert(findMaxPrimeSum({127, 97, 8192}) == 10);
+int main() {
+    assert(sjkasdkd({127, 97, 8192}) == 10);
 }
