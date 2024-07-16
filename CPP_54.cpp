@@ -13,6 +13,8 @@ int main() {
     assert(same_chars("aabb", "aaccc") == false);
     assert(same_chars("hello", "ohell") == true);
     assert(same_chars("1234", "4321") == true);
-    assert(same_chars("abc", "def") == false);
+    assert(same_chars("", "") == true);
+    assert(same_chars("abc", "abcd") == false);
+
     return 0;
 }
