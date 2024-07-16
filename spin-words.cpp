@@ -1,3 +1,5 @@
+#include <sstream>
+
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
     std::string word;
@@ -5,7 +7,8 @@ std::string spinWords(std::string str) {
 
     while (std::getline(ss, word, ' ')) {
         if(word.size()>4)
-            result += std::string(word.rbegin(), word.rend()) + " ";
+            for(int i = word.size() - 1; i >= 0; --i)
+                result += word[i];
         else
             result += word + " ";
     }
@@ -14,4 +17,11 @@ std::string spinWords(std::string str) {
         result.pop_back();
 
     return result;
+}
+
+int main() {
+    std::string str = "rxbdfjbu khcjnx";
+    std::string result = spinWords(str);
+    // print or do something with 'result'
+    return 0;
 }
