@@ -5,16 +5,16 @@ using namespace std;
 
 int main() {
     double startHeight;
-    double firstBounce;
     int numBounces;
 
-    cin >> startHeight >> firstBounce >> numBounces;  
-
-    double bouncinessIndex = (firstBounce - startHeight) / startHeight;
+    cin >> startHeight >> numBounces;  
 
     double totalDistance = 0.0;
+    double height = startHeight;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += startHeight * (2^(i + 1) - 1);
+        double bouncinessIndex = (height - startHeight) / startHeight;
+        height *= (bouncinessIndex + 1);
+        totalDistance += (height - startHeight);
     }
 
     cout << fixed << setprecision(10);
