@@ -1,1 +1,1 @@
-print("Invalid input")
+input_str = input("Enter a string consisting of lowercase alphabets only: ")
