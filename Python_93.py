@@ -9,6 +9,11 @@ def encode(message):
                     result += chr(((ord(char) - 65 + 3) % 26) + 65)
                 else:
                     result += chr(((ord(char.lower()) - 97 + 3) % 26) + 97)
-            else: 
-                result += char
+            else:
+                if char.isdigit(): 
+                    result += str(int(char) + 3)
+                elif char in "!@#$%^&*():_-,+~`=¬'[]{}`|\\<>?":
+                    result += char
+                else:
+                    result += char
     return result
