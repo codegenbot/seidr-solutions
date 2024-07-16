@@ -1,22 +1,36 @@
-```
-def bowling_score(game):
-    score = 0
-    roll = 0
-    for frame in range(10):
-        if game[roll] == 'X':
-            score += 10 + (10 - int(game[roll-1:])) * 2
-            roll += 3
-        elif '/' in game[roll:roll+2]:
-            strike, spare = map(int, game[roll:roll+2].split('/'))
-            if frame < 9:
-                score += strike + spare + (10 - int(game[roll+1])) * 2
+def bowling_game(score):
+    score = score.replace('/', '')
+    total_score = 0
+    frame = 1
+    while len(score) > 0:
+        if score[0].isdigit():
+            first_roll = int(score[0])
+            score = score[1:]
+            if len(score) > 0 and score[0].isdigit():
+                second_roll = int(score[0])
+                score = score[1:]
+                total_score += first_roll + second_roll
+                frame += 1
             else:
-                score += strike + spare + int(game[roll+1])
-            roll += 3
-        elif game[roll] == 'X' and game[roll+1] != 'X':
-            score += 10 + int(game[roll+1]) + (10 - int(game[roll-1:])) * 2
-            roll += 4
+                total_score += first_roll + (10 - int(score[0]))
+                score = score[1:]
+                frame += 1
+        elif score[0] == 'X':
+            total_score += 30
+            frame += 1
+            score = score[1:]
         else:
-            score += 2 * int(game[roll])
-            roll += 3
-    return score
+            if len(score) > 0 and score[0].isdigit():
+                first_roll = int(score[0])
+                score = score[1:]
+                if len(score) > 0 and score[0] == 'X':
+                    total_score += 10 + 10
+                    frame += 2
+                    score = score[1:]
+                else:
+                    total_score += 10 + first_roll
+                    frame += 2
+            else:
+                total_score += 10
+                frame += 1
+    return total_score
