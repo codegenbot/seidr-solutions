@@ -1,8 +1,9 @@
-````
 def camel_case(input_string):
-    words = input_string.split('-')
-    output_string = words[0].lower()
+    words = input_string.split("-")
+    result = words[0].lower()
     for i, word in enumerate(words[1:]):
-        output_string += word.capitalize()
-    return output_string
-```
+        if i == 0:
+            result += word.title()
+        else:
+            result += word.capitalize()
+    return result
