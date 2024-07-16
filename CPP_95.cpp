@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 
@@ -30,5 +29,5 @@ bool check_map_case(map<string, string> dict) {
 
 int main() {
     assert(check_map_case({}) == false);
-    //...
+    return 0;
 }
