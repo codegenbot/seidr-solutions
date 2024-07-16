@@ -1,3 +1,6 @@
-string combinedStr = a + a;
-    return combinedStr.find(b) != string::npos;
+if (a.size() != b.size()) {
+        return false;
+    }
+    string temp = a + a;
+    return temp.find(b) != string::npos;
 }
