@@ -5,8 +5,9 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
+
 try:
-    input_string = input("Enter a string: ").strip()
+    input_string = input()
     if not input_string:
         raise ValueError("Input string cannot be empty.")
     result = decode_cyclic(input_string)
