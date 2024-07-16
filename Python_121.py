@@ -9,4 +9,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter numbers separated by spaces.")
 
-print(sum(i for i in lst[1::2] if i % 2 == 0))
+print(sum(i for i in lst[1::2] if i % 2 == 1))
