@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b){
-
+    return a == b;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -14,4 +14,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-assert(issame(common({4, 3, 2, 8}, {}), {}));
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    return 0;
+}
