@@ -11,5 +11,16 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(rightmost);
         }
     }
-    result.push_back(arr.back());
+    for(int i = 0; i < result.size(); i++) {
+        rightmost = result[i];
+        bool is_leader = true;
+        for(int j = i + 1; j < result.size(); j++) {
+            if(result[j] >= rightmost) {
+                is_leader = false;
+                break;
+            }
+        }
+        if(is_leader) result.push_back(rightmost);
+    }
     return result;
+}
