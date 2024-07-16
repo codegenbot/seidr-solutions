@@ -28,7 +28,7 @@ int main() {
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    if (!result.first) {
+    if (!result.first) { 
         cout << result.first << '\n' << result.second << '\n';
     } else {
         cout << "No solution exists" << '\n';
