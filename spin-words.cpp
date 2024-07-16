@@ -1,23 +1,18 @@
-```cpp
+```c++
 #include <iostream>
-#include <vector>
+#include <string>
 #include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::vector<char> result;
-    
+    std::string result = "";
+    std::string temp = "";
+
     for (char c : sentence) {
         if (c == ' ') {
-            if (temp.length() >= 5) {
-                std::string tempRev = temp;
-                std::reverse(tempRev.begin(), tempRev.end());
-                for (char c : tempRev) {
-                    result.push_back(c);
-                }
-            } else
-                for (char c : temp)
-                    result.push_back(c);
-
+            if (temp.length() >= 5)
+                result += std::string(temp).substr(0, temp.length()) + " ";
+            else
+                result += temp + " ";
             temp = "";
         } else {
             temp += c;
@@ -27,14 +22,11 @@ std::string spinWords(std::string sentence) {
     if (temp.length() >= 5) {
         std::string tempRev = temp;
         std::reverse(tempRev.begin(), tempRev.end());
-        for (char c : tempRev) {
-            result.push_back(c);
-        }
+        result += tempRev + " ";
     } else
-        for (char c : temp)
-            result.push_back(c);
+        result += temp;
 
-    return std::string(result.begin(), result.end());
+    return result;
 }
 
 int main() {
