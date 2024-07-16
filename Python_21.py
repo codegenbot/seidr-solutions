@@ -1,3 +1,4 @@
-min_number = min(numbers)
-max_number = max(numbers)
-return [(x - min_number) / (max_number - min_number) for x in numbers]
+numbers_min = min(numbers)
+numbers_max = max(numbers)
+rescaled_numbers = [(x - numbers_min) / (numbers_max - numbers_min) for x in numbers]
+return rescaled_numbers
