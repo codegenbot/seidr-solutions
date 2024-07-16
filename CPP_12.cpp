@@ -1,6 +1,6 @@
 #include <string>
 
-std::string findLongestString(const std::vector<std::string>& strings) {
+std::string longestString(const std::vector<std::string>& strings) {
     if (strings.empty()) {
         return "None";
     }
