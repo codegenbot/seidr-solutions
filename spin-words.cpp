@@ -10,8 +10,8 @@ int main() {
                 if (str.substr(i).length() >= 5) {
                     for (int k = str.substr(i).length() - 1; k >= 0; --k)
                         result += str.substr(i)[k];
-                    } else
-                        result += str.substr(i);
+                } else
+                    result += str.substr(i);
                 break;
             }
             int j = str.find(" ", i);
