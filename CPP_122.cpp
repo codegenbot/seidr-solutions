@@ -12,6 +12,7 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(add_elements({1}, 1) == 0);
+    assert(add_elements({1}, 1) == 0); // Example test case
+    // Add more test cases as needed
     return 0;
 }
