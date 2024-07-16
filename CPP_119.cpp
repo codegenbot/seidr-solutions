@@ -1,14 +1,17 @@
-int balance = 0;
-for (const string& str : lst) {
-    for (char c : str) {
-        if (c == '(') {
-            balance++;
-        } else {
-            if (balance <= 0) {
-                return "No";
+int open = 0;
+    int close = 0;
+    for (string s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                open++;
+            } else {
+                if (open > 0) {
+                    open--;
+                } else {
+                    close++;
+                }
             }
-            balance--;
         }
     }
+    return (open == 0 && close == 0) ? "Yes" : "No";
 }
-return (balance == 0) ? "Yes" : "No";
