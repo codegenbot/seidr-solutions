@@ -1,6 +1,8 @@
-```cpp
-int bowlingScore(const std::string& input) {
-    int score = 0;
+```c++
+#include <string>
+
+long long bowlingScore(const std::string& input) {
+    long long score = 0;
     int currentRoll = 0;
 
     for (int i = 0; i < input.length(); ++i) {
@@ -30,6 +32,7 @@ int bowlingScore(const std::string& input) {
                         if(currentRoll + secondRoll == 10) {
                             score += 10;
                             currentRoll = 0;
+                            i++;
                         } else {
                             score += secondRoll;
                             currentRoll = 10 - currentRoll - secondRoll;
@@ -37,7 +40,7 @@ int bowlingScore(const std::string& input) {
                     } else {
                         currentRoll = 10 - currentRoll;
                     }
-                } else { 
+                } else {
                     if(currentRoll < 10) {
                         score += currentRoll;
                     } else {
@@ -59,4 +62,9 @@ int bowlingScore(const std::string& input) {
     }
 
     return score;
+}
+
+int main() {
+    long long score = bowlingScore("X/X/8-5/7-3/6-2/4-1/X"); // replace "input" with your input string
+    return 0;
 }
