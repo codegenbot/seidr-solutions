@@ -2,7 +2,8 @@ if (x <= 0 || n <= 0) {
         return false;
     }
     
-    double result = log(x) / log(n);
+    double root = pow(x, 1.0 / n);
+    int root_int = (int)root;
     
-    return (result == (int)result);
+    return (pow(root_int, n) == x);
 }
