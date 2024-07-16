@@ -14,7 +14,9 @@ def minPath(grid, k):
         if len(visited) == 0:
             visited = {(i, j) for i in range(n) for j in range(n)}
     
-    if len(path) == 1:
+    if len(path) < 2:
         return path * k
     else:
-        return path * (k // len(path)) + path[:k % len(path)]
+        repeat_count = k // len(path)
+        remaining_count = k % len(path)
+        return path * repeat_count + path[:remaining_count]
