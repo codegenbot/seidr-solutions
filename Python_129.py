@@ -11,7 +11,6 @@ def minPath(grid, k):
         i, j = next_cell
         visited.discard((i, j))
         path.append(grid[i][j])
-        if len(visited) == 0:
-            visited = {(i, j) for i in range(n) for j in range(n)}
 
-    return path
+    remaining_steps = k - len(path)
+    return path + path[-remaining_steps:]
