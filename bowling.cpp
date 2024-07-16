@@ -8,9 +8,9 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
-            score += 10 + getBonus(s.substr(i+1));
+            score += 10 + getBonus(&s[i+1]);
         } else if (s[i] == '/') { // Spare
-            score += 5 + getBonus(s.substr(i+1));
+            score += 5 + getBonus(s.substr(i+2));
         } else { // Normal roll
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
