@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -33,22 +34,17 @@ std::string camelCase(const std::string& str) {
     }
 
     std::string result;
-    for (char c : words[0]) {
-        result.push_back(std::tolower(c));
-    }
-    for (int i = 1; i < words.size(); i++) {
+    for (int i = 0; i < words.size(); i++) {
         if (!result.empty()) {
-            result.push_back(std::toupper(words[i][0]));
-            std::string temp = words[i].substr(1);
-            result += temp;
+            result += std::toupper(words[i][0]);
+            result += words[i].substr(1);
         } else {
-            result.push_back(std::tolower(words[i][0]));
-            std::string temp = words[i].substr(1);
-            result += temp;
+            result += std::tolower(words[i][0]);
+            result += words[i].substr(1);
         }
     }
     
-    return result;
+    return (words.empty() ? "" : result);
 }
 
 int main() {
