@@ -34,3 +34,4 @@ int main() {
         cout << "No solution exists" << '\n';
     }
     return 0;
+}
