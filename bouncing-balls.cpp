@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -20,7 +19,8 @@ int main() {
         maxHeight = startHeight > maxHeight ? startHeight : maxHeight; // Update max height for next bounce
     }
 
-    cout << fixed << std::setprecision(10);
+    std::fixed;
+    std::streamsize prec = std::cout.precision(10);
     cout << static_cast<int>(totalDistance + 0.00001) << endl;
 
     return 0;
