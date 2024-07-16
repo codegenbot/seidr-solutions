@@ -9,6 +9,10 @@ double poly(const std::vector<double>& coeffs, double x) {
     return result;
 }
 
+double abs(double x) {
+    return x >= 0 ? x : -x;
+}
+
 double find_zero(const std::vector<double>& xs) {
     double a = xs[0];
     double b = xs[1];
@@ -18,7 +22,7 @@ double find_zero(const std::vector<double>& xs) {
 int main() {
     std::vector<double> coeffs = {1.0, -5.0, 6.0}; // Example coefficients
     double solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
 }
