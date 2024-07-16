@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <vector>
+#include <utility>  // for pair
 
 using namespace std;
 
