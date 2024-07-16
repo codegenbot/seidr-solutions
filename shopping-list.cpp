@@ -13,16 +13,14 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    vector<float> prices(3); // initialize a vector with size 3
-    prices[0] = 10.99;
-    prices[1] = 7.99;
+    vector<float> prices(3); 
+    prices[0] = 10.99; 
+    prices[1] = 7.99; 
     prices[2] = 3.99;
-    
     vector<float> discounts(3);
     discounts[0] = 5;
     discounts[1] = 10;
     discounts[2] = 20;
-    
-    cout << shoppingList(prices, discounts) << endl;
+    shoppingList(prices, discounts);
     return 0;
 }
