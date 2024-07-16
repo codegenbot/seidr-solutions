@@ -1,4 +1,3 @@
-```Python
 import math
 
 def fuel_cost(lst):
