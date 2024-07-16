@@ -1,8 +1,9 @@
+```
 import math
 
 
 def calculate_fuel(amount):
-    return math.floor((amount + 2) / 3) - 2
+    return (amount // 3) - 2
 
 
 def fuel_cost(vector):
