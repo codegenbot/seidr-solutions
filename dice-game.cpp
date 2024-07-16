@@ -4,7 +4,7 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    double p = ((double)(n-m-1) * m) / total;
+    double p = ((n-m-1)*(m-1)) / total;
     return p;
 }
 
