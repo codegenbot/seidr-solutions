@@ -1,9 +1,10 @@
 import re
 
-def fix_spaces():
-    text = raw_input().strip()
+def process_text():
+    text = input().strip()
     text = re.sub(r'\s{2,}', '_', text)
-    return "_".join(text.split())
+    text = "_".join(text.split())
+    return text
 
-result = fix_spaces()
+result = process_text()
 print(result)
