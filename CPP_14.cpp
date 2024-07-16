@@ -1,6 +1,9 @@
 #include <vector>
 #include <string>
 
+vector<string> all_prefixes(string str);
+bool issame(const vector<string>& a, const vector<string>& b);
+
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
     string prefix = "";
@@ -11,6 +14,6 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
