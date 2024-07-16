@@ -6,4 +6,4 @@ def encode(message):
         for char in message
     ).lower()
 
-print(encode(input("Enter a message: ")))
+print(encode(input().strip()))
