@@ -1,14 +1,14 @@
-#include <vector>
-using namespace std;
+int findFirstNegativeIndex(const vector<int>& nums) {
+    int sum = 0;
+    int index = -1;
 
-int basement(vector<int> &nums) {
-    for(int i = 0; i < nums.size(); ++i) {
-        int sum = 0;
-        for(int j = 0; j <= i; ++j) {
-            sum += nums[j];
-            if(sum < 0)
-                return j;
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) {
+            index = i;
+            break;
         }
     }
-    return -1;
+
+    return index;
 }
