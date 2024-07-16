@@ -1,20 +1,20 @@
-```c
 #include <iostream>
 #include <string>
+#include <locale>
 
 using namespace std;
 
 int main() {
-    string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
+    cout.imbue(locale());
+    wstring tweet;
+    wcout << L"Enter a tweet: ";
+    getline(wcin, tweet);
     
-    size_t len = tweet.length();
-    if(len > 140) {
-        cout << "Too many characters" << endl;
-    } else if(len == 0) {
-        cout << "You didn't type anything" << endl;
+    if(tweet.length() > 140) {
+        wcout << L"Too many characters" << endl;
+    } else if(tweet.empty()) {
+        wcout << L"You didn't type anything" << endl;
     } else {
-        cout << "Your tweet has " << len << " characters" << endl;
+        wcout << L"Your tweet has " << tweet.length() << L" characters" << endl;
     }
 }
