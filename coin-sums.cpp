@@ -19,7 +19,11 @@ int main() {
     cout << quarters << endl;
     cout << dimes << endl;
     cout << nickles << endl;
-    cout << pennies << endl;
+    if(pennies > 0) {
+        cout << pennies << endl; 
+    } else {
+        pennies = 0; 
+    }
 
     return 0;
 }
