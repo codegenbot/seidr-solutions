@@ -1,24 +1,26 @@
-#include <string>
-#include <unordered_map>
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-int blackPegs(std::string code, std::string guess) {
-    int blackCount = 0;
-    int whiteCount = 0;
-    
-    std::unordered_map<char,int> codeMap;
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            blackCount++;
-        } else {
-            if(codeMap.find(guess[i]) != codeMap.end()) {
-                codeMap[guess[i]]++;
+    // Count correct colors in wrong places (white pegs)
+    map<char, int> code_count;
+    for (char c : code) {
+        code_count[c]++;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i]) {
+            if (--code_count[guess[i]] >= 0) {
+                white++;
             }
         }
     }
-    
-    for(auto it = codeMap.begin(); it != codeMap.end(); it++) {
-        whiteCount += std::min(it->second, 1);
+
+    // Count correct colors in correct places (black pegs)
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+        }
     }
-    
-    return blackCount + whiteCount;
+
+    return make_pair(white, black).second;
 }
