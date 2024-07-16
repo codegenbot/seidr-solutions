@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 int main() {
     std::string s;
@@ -22,14 +23,5 @@ int main() {
         }
     }
 
-    size_t pos = 0;
-    while ((pos = result.find(' ', pos)) != std::string::npos) {
-        if (pos > 0)
-            result.erase(pos, 1);
-        else
-            pos++;
-    }
-    
-    std::ios_base::sync_with_stdio(false); 
     return 0;
 }
