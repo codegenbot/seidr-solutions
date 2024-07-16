@@ -1,16 +1,14 @@
 ```cpp
-#include <string>
-
-bool solveBoolean(std::string s) {
+bool solveBoolean(const std::string& s) {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T') {
+    for (char c : s) {  
+        if (c == 'T') {
             result = true;
-        } else if (s[i] == 'F') {
+        } else if (c == 'F') {
             result = false;
-        } else if (s[i] == '|') {
+        } else if (c == '|') {
             result = !result;
-        } else if (s[i] == '&') {
+        } else if (c == '&') {
             if (!result) return false;
         }
     }

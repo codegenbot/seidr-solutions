@@ -13,9 +13,9 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
         int sum = nums[i] + nums[j];
         
         if (sum == target) {
+            while (i + 1 < j && nums[i] == nums[i + 1]) { i++; }
+            while (j - 1 > i && nums[j] == nums[j - 1]) { j--; }
             result.push_back({nums[i], nums[j]});
-            i++;
-            j--;
         } else if (sum < target) {
             i++;
         } else {
@@ -27,9 +27,8 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
+    std::vector<int> nums = {8, -7846, 5139, 6300, 281, -842, -9075, -7785, 6034, 5420};
+    int target = 6300;
     std::vector<std::pair<int, int>> result = findPairs(nums, target);
-    // print or use result as needed
     return 0;
 }
