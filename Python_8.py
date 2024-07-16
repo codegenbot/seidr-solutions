@@ -1,19 +1,11 @@
-def sum_product(numbers):
-    if len(numbers) < 2:
-        return None
-    return sum(numbers), numbers[0]
-
-
-results = []
-
-
 def input_data():
-    while True:
-        try:
-            yield input()
-        except EOFError:
-            break
-
+    def get_input():
+        while True:
+            try:
+                yield input()
+            except EOFError:
+                break
+    return get_input()
 
 input_gen = input_data()
 
@@ -24,8 +16,10 @@ while True:
             break
         result = sum_product(numbers_input)
         results.append(result)
-    except ValueError:
-        pass
+    except (ValueError, EOFError):
+        break
+    except StopIteration:
+        break
 
 for result in results:
     print(result)
