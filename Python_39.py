@@ -17,7 +17,7 @@ def prime_fib(n: int):
     num = 1
     while count < n:
         num += 1
-        if is_prime(num):
-            if fibonacci(num) == num:
-                count += 1
-    return num
+        fib_num = fibonacci(num)
+        if is_prime(fib_num):
+            count += 1
+    return fib_num
