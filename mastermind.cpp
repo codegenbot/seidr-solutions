@@ -1,14 +1,9 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <string>
-
-int mastermind(std::string code, std::string guess) {
+std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
@@ -21,10 +16,9 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    white = 0;
     for (int i = 0; i < 6; i++) {
         white += std::min(codeCount[i], guessCount[i]) - black;
     }
 
-    return white;
+    return std::make_tuple(white, black);
 }
