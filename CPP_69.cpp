@@ -1,12 +1,18 @@
-int maxFrequency = -1;
+#include <unordered_map>
+#include <algorithm>
+
+int search(vector<int> lst){
+    unordered_map<int, int> freq;
     for (int num : lst) {
-        int frequency = count(lst.begin(), lst.end(), num);
-        if (num > frequency && frequency > maxFrequency) {
-            maxFrequency = frequency;
+        freq[num]++;
+    }
+    
+    int result = -1;
+    for (auto& pair : freq) {
+        if (pair.second >= pair.first && pair.second > result) {
+            result = pair.second;
         }
     }
-    if (maxFrequency == -1) {
-        return -1;
-    }
-    return maxFrequency;
+    
+    return result;
 }
