@@ -2,12 +2,12 @@
 #include <iostream>
 #include <assert.h>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int smallestEven = INT_MAX;
     int smallestEvenIndex = -1;
     
@@ -27,6 +27,6 @@ std::vector<int> pluck(std::vector<int> arr){
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert (issame(pluck({7, 9, 7, 1}) , {}));
     return 0;
 }
