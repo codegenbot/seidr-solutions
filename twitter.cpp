@@ -8,11 +8,13 @@ int main() {
     cout << "Enter a tweet: ";
     getline(cin, tweet);
     
-    if (tweet.find('\n') != string::npos) {
-        cout << "You didn't type anything" << endl;
-    } else if (tweet.length() > 140) {
+    if(tweet.length() > 140) {
         cout << "Too many characters" << endl;
-    } else {
+    } else if(tweet.empty()) {
+        cout << "You didn't type anything" << endl;
+    } else if(!tweet.empty() && !tweet.find(' ')) {
         cout << "Your tweet has " << tweet.length() << " characters" << endl;
+    } else {
+        cout << "You didn't type anything" << endl;
     }
 }
