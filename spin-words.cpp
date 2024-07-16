@@ -19,9 +19,9 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        result += std::string(temp).reverse().append(" "); 
+        result += std::string(temp).reverse().append(" ");
     } else {
-        result += temp;
+        result += temp + " ";
     }
 
     return result;
