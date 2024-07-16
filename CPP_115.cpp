@@ -1,10 +1,18 @@
 int rows = grid.size();
         int cols = grid[0].size();
         int total_water = 0;
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
+        int num_operations = 0;
+        
+        for (int j = 0; j < cols; j++) {
+            for (int i = 0; i < rows; i++) {
                 total_water += grid[i][j];
             }
+            
+            while (total_water > 0) {
+                total_water -= min(total_water, capacity);
+                num_operations++;
+            }
         }
-        return (total_water + capacity - 1) / capacity;
+        
+        return num_operations;
     }
