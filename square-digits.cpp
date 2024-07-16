@@ -19,4 +19,3 @@ string squareDigits(string input) {
         result += to_string(digit * digit);
     }
     return result;
-}
