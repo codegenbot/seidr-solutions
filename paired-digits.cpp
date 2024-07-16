@@ -2,10 +2,18 @@ int pairedDigits(std::string s) {
     int sum = 0;
     int i = 0; 
     for (; i < s.length(); i++) {
-        if ((s[i] - '0') == (i+1 < s.length() ? (s[i+1] - '0') : -1)) {
+        if ((s[i] - '0') == (s[i+1] - '0')) {
             sum += (s[i] - '0');
         }
-        if(i+1<s.length()) i++;
     }
     return sum;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string of digits: ";
+    std::getline(std::cin, input);
+    int result = pairedDigits(input);
+    std::cout << "Sum of the digits whose following digit is the same is: " << result << std::endl;
+    return 0;
 }
