@@ -15,16 +15,15 @@ int main() {
     cents %= 5;
 
     int pennies = cents;
-    if(pennies > 0) {
-        cout << pennies << endl; // print pennies only if it's greater than 0
-    } else {
-        pennies = 0; // set pennies to 0 if not needed, adjust quarter or dime count instead
-    }
 
     cout << quarters << endl;
     cout << dimes << endl;
     cout << nickles << endl;
-    cout << pennies << endl;
+    if(pennies > 0) {
+        cout << pennies << endl; 
+    } else {
+        pennies = 0; 
+    }
 
     return 0;
 }
