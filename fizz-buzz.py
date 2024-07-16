@@ -1,4 +1,10 @@
 def fizz_buzz(x):
-    return "FizzBuzz" if x % 15 == 0 else \
-           "Fizz" if x % 3 == 0 and not x % 5 == 0 else \
-           "Buzz" if x % 5 == 0 and not x % 3 == 0 else str(x) \
+    if x % 3 == 0:
+        if x % 5 == 0:
+            return "FizzBuzz"
+        else:
+            return "Fizz"
+    elif x % 5 == 0:
+        return "Buzz"
+    else:
+        return str(x)
