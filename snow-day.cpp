@@ -17,6 +17,8 @@ int main() {
 
     float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
+    cout << fixed;
+    cout << setiosflags(ios::fixed) << setprecision(6);
     cout << "Amount of snow on ground after " << hours << " inches.\n";
 
     return 0;
