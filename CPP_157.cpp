@@ -1,5 +1,6 @@
-if (pow(a, 2) + pow(b, 2) == pow(c, 2) || pow(a, 2) + pow(c, 2) == pow(b, 2) || pow(b, 2) + pow(c, 2) == pow(a, 2)){
-    return true;
-}
-return false;
+if (a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a) {
+        return true;
+    } else {
+        return false;
+    }
 }
