@@ -20,7 +20,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = sys.stdin.readline().strip()
+if len(sys.argv) != 2:
+    print("Usage: python script.py <paren_string>")
+    sys.exit(1)
+
+paren_string = sys.argv[1]
 if set(paren_string) == set("()"):
     output = separate_paren_groups(paren_string)
     print(output)
