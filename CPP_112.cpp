@@ -1,10 +1,8 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
