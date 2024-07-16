@@ -15,6 +15,6 @@ std::string* fizzBuzz(int x) {
 int main() {
     int x = 15; 
     std::cout << (*fizzBuzz(x)) << std::endl;
-    delete fizzBuzz(x);
+    delete fizzBuzz(x); // don't forget to delete the memory!
     return 0;
 }
