@@ -18,7 +18,7 @@ int main() {
     string input;
     cout << "Enter a tweet: ";
     getline(cin, input);
-    string result = validateTweet(input.substr(0, input.find('\n')));
+    string result = validateTweet(input);
     cout << result << endl;
     return 0;
 }
