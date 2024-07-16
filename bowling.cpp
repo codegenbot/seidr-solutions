@@ -1,23 +1,26 @@
 #include <string>
 
-int bowling(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    int current_frame = 0;
-    vector<int> frames;
-
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (current_frame < 9 ? 10 : 0);
-            current_frame++;
-        } else if (c == '/') {
-            score += 10 - frames.back();
-            current_frame++;
-            frames.pop_back();
+    int frame = 1;
+    for (int i = 0; i <= s.size() - 1; ++i) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (i < s.size() - 1 && (s[i+1] == 'X' || s[i+1] == '/')) {
+                frame = 2;
+            }
+        } else if (s[i] == '/') {
+            int firstRoll = s[i-1] - '0';
+            int secondRoll = s[i+1] - '0';
+            score += max(firstRoll, secondRoll);
+            ++frame;
         } else {
-            int pins = c - '0';
-            score += pins;
-            frames.push_back(pins);
+            int roll = s[i] - '0';
+            score += roll;
+            if (i < s.size() - 2 && s[i+1] == 'X' && s[i+2] == 'X') {
+                frame = 3;
+            }
         }
     }
-
     return score;
+}
