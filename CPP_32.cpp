@@ -16,7 +16,7 @@ double find_zero(const std::vector<double>& xs){
 }
 
 int main() {
-    std::vector<double> coeffs = {2.0, -1.0, 1.0}; 
+    std::vector<double> coeffs = {2.0, -1.0, 1.0}; // Example coefficients for x^2 - x + 1
     double solution = 0.0;
 
     solution = find_zero(coeffs);
