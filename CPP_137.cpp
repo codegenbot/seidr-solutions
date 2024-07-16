@@ -1,6 +1,4 @@
-#include <boost/multi_index_container.hpp>
-#include <string>
-#include <algorithm>
+#include <boost/variant.hpp>
 
 using namespace std;
 
