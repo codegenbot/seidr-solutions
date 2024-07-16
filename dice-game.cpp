@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -5,11 +6,12 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
-    
-    for(int i = 1; i < m; i++) {
-        p += ((double)(n-i)/(n*m));
+
+    for(int i = 1; i <= min(m,n); i++) {
+        if(i < m) p += ((double)(n-i)/(n*m));
     }
-    return p;
+    
+    return 1 - p;
 }
 
 int main() {
