@@ -1,28 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <map>
-
-using namespace std;
 
 int main() {
     int n, target;
-    vector<int> nums;
-    cin >> n;
-    nums.resize(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    cin >> target;
-
-    map<int, int> mp;
+    std::cin >> target;
+    
+    std::map<int, int> numIndex;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
+        if (numIndex.find(target - nums[i]) != numIndex.end()) {
+            std::cout << nums[numIndex[target - nums[i]]] << std::endl;
+            std::cout << nums[i] << std::endl;
             break;
         }
-        mp[nums[i]] = i;
+        numIndex[nums[i]] = i;
     }
-
+    
     return 0;
 }
