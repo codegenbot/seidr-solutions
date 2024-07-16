@@ -1,30 +1,21 @@
-#include <iostream>
 #include <string>
+#include <sstream>
+#include <cctype>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
-    char* token = strtok(const_cast<char*>(str.c_str()), " ");
+    std::stringstream ss;
     
-    while(token != NULL) {
-        int wordLength = strlen(token);
+    for (std::string token : boost::split(token, str, [](char c){return c == ' ';})) {
+        int wordLength = token.length();
         
         if(wordLength >= 5) {
             for(int i = wordLength - 1; i >= 0; --i)
-                result += token[i];
+                ss << token[i];
         } else
-            result += token;
+            ss << token;
         
-        result += " ";
-        token = strtok(NULL, " ");
+        ss << " ";
     }
     
-    return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Spin words: " << spinWords(str) << std::endl;
-    return 0;
+    return ss.str().substr(0, ss.str().length() - 1);
 }
