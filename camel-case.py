@@ -1,10 +1,5 @@
-def camel_case(input_str):
-    return (
-        "".join(word.capitalize() for word in input_str.split())
-        if " " in input_str
-        else input_str.title()
-    )
+```
+import re
 
-
-input_str = input()
-print(camel_case(input_str))
+def camel_case(s):
+    return re.sub(r"-(\w)", lambda x: x.group(1).capitalize(), s).lstrip('-')
