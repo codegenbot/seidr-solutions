@@ -3,9 +3,16 @@ def add(a, b):
 
 while True:
     try:
-        num1 = int(input("Enter first integer number: "))
-        num2 = int(input("Enter second integer number: "))
-        
+        num1 = input("Enter first integer number: ")
+        if not num1.isnumeric():
+            raise ValueError
+        num1 = int(num1)
+
+        num2 = input("Enter second integer number: ")
+        if not num2.isnumeric():
+            raise ValueError
+        num2 = int(num2)
+
         result = add(num1, num2)
         print(result)
         break
