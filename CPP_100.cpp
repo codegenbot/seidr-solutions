@@ -2,29 +2,42 @@
 #include <initializer_list>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    int stones = n;
+    while (stones > 0) {
+        pile.push_back(stones);
+        if (n % 2 == 1) {
+            n++;
+            stones = n;
+        } else {
+            n += 3;
+            stones = n;
+        }
+    }
+    return pile;
 }
 
 int main() {
-    int n1, n2;
-    std::cout << "Enter the value of n1: ";
-    std::cin >> n1;
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
 
-    auto pile1 = make_a_pile(n1);
+    auto pile = make_a_pile(n);
 
-    std::cout << "Enter the value of n2: ";
-    std::cin >> n2;
-
-    auto pile2 = make_a_pile(n2);
-
-    assert(issame(pile1, pile2));
-
-    for (int stone : pile1) {
-        std::cout << stone << " ";
-    }
-    std::cout << std::endl;
-    for (int stone : pile2) {
+    for (int stone : pile) {
         std::cout << stone << " ";
     }
     std::cout << std::endl;
