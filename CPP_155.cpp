@@ -1,11 +1,12 @@
-int even_count = 0, odd_count = 0;
-    while (num != 0) {
-        if ((num % 10) % 2 == 0) {
-            even_count++;
+vector<int> even_odd_count(int num){
+    vector<int> result(2, 0);
+    string num_str = to_string(abs(num));
+    for (char c : num_str) {
+        if (c % 2 == 0) {
+            result[0]++;
         } else {
-            odd_count++;
+            result[1]++;
         }
-        num /= 10;
     }
-    return {even_count, odd_count};
+    return result;
 }
