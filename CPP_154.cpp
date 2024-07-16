@@ -1,6 +1,3 @@
-string s = a + a;
-    if (s.find(b) != string::npos) {
-        return true;
-    }
-    return false;
+string concat = a + a;
+    return concat.find(b) != string::npos;
 }
