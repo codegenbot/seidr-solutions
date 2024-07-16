@@ -1,5 +1,4 @@
 ```
-'' 
 def solve_boolean(expression):
     result = "T"
     temp = "T"
