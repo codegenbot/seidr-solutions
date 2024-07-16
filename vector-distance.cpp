@@ -22,8 +22,8 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = std::sqrt(sum); // Square root of sum of squares
-    std::cout << std::fixed << std::setprecision(14) << result << std::endl; // Output result with precision
+    double result = std::sqrt(sum);
+    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
 
     return 0;
 }
