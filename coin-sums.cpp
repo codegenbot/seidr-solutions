@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -8,30 +9,14 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int dimes = 0;
-    int nickles = 0;
-    int pennies = 0;
+    int nickles = cents / 5;
+    cents %= 5;
 
-    while (cents >= 10) {
-        dimes = cents / 10;
-        cents -= dimes * 10;
-    }
+    int pennies = cents;
 
-    while (cents >= 5) {
-        nickles = cents / 5;
-        cents -= nickles * 5;
-    }
-
-    pennies = cents;
-
-    std::cout << (quarters > 0 ? std::to_string(quarters) + " quarter" + (quarters > 1 ? "s" : "") : "") << std::endl;
-    if (dimes > 0) {
-        std::cout << (dimes > 0 ? std::to_string(dimes) + " dime" + (dimes > 1 ? "s" : "") : "") << std::endl;
-    }
-    if (nickles > 0) {
-        std::cout << (nickles > 0 ? std::to_string(nickles) + " nickel" + (nickles > 1 ? "s" : "") : "") << std::endl;
-    }
-    std::cout << (pennies > 0 ? std::to_string(pennies) + " penny" + (pennies > 1 ? "s" : "") : "") << std::endl;
+    std::cout << "Quarters: " << std::to_string(quarters) << "\n";
+    std::cout << "Nickels: " << std::to_string(nickles) << "\n";
+    std::cout << "Pennies: " << std::to_string(pennies) << "\n";
 
     return 0;
 }

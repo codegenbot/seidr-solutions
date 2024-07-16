@@ -1,28 +1,24 @@
 #include <vector>
-#include <initializer_list>
-using namespace std;
 
-int main() {
-    vector<int> arr = {1, 3, 4, 2, 3}; 
-    vector<int> leaders = leaders(arr);
-    for (int i=0; i<leaders.size(); i++) cout << leaders[i] << " "; 
-    return 0;
-}
-
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
+    std::vector<int> result;
+    int maxRight = arr[n-1]; // Initialize the maximum right element as the last element of the array
 
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    for(int i=n-2; i>=0; i--) { 
+        if(arr[i] >= maxRight) {
+            result.push_back(arr[i]);
+            maxRight = arr[i];
         }
-        if(leader) res.push_back(arr[i]);
     }
 
-    return res;
+    return result;
+}
+
+int main() {
+    std::vector<int> testArray = {16, 17, 4, 3, 5, 2, 3, 7, 1, 6};
+    for (int leader : leaders(testArray)) {
+        std::cout << leader << " ";
+    }
+    return 0;
 }

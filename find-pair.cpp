@@ -1,58 +1,35 @@
-#include <vector>
-#include <unordered_map>
-#include <iostream>
 #include <algorithm>
 
-using namespace std;
-
-vector<pair<int, int>> findPairs(vector<int>& nums, int target) {
-    unordered_map<int, int> numMap;
+std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
+    std::sort(nums.begin(), nums.end());
+    
+    std::vector<std::pair<int, int>> result;
     
     for (int i = 0; i < nums.size(); i++) {
-        numMap[nums[i]] = i;
-    }
-    
-    vector<pair<int, int>> result;
-    
-    for (auto it = numMap.begin(); it != numMap.end(); ++it) {
-        int complement = target - it->first;
-        if (numMap.find(complement) != numMap.end() && it->second != numMap[complement]) {
-            // Check if the pair is already in the result
-            bool isPairUnique = true;
+        int j = i + 1;
+        
+        while (j < nums.size()) {
+            if (nums[i] + nums[j] == target) {
+                bool isPairUnique = true;
 
-            for (auto& existingPair : result) {
-                if ((existingPair.first == complement && existingPair.second == it->first) ||
-                    (existingPair.first == it->first && existingPair.second == complement)) {
-                    isPairUnique = false;
-                    break;
+                for (auto& existingPair : result) {
+                    if ((existingPair.first == nums[i] && existingPair.second == nums[j]) ||
+                        (existingPair.first == nums[j] && existingPair.second == nums[i])) {
+                        isPairUnique = false;
+                        break;
+                    }
                 }
-            }
 
-            // If the pair is unique, add it to the result
-            if (isPairUnique) {
-                result.push_back({min(complement, it->first), max(complement, it->first)});
+                if (isPairUnique) {
+                    result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
+                }
+            } else if (nums[i] + nums[j] > target) {
+                j = i; 
+            } else {
+                j++;
             }
         }
     }
     
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    int target;
-    cin >> target;
-    vector<pair<int, int>> result = findPairs(nums, target);
-    
-    // Print the results
-    for (auto& pair : result) {
-        cout << pair.first << " " << pair.second << endl;
-    }
-
-    return 0;
 }
