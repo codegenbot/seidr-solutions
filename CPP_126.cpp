@@ -1,7 +1,8 @@
-for(int i = 0; i < lst.size() - 1; i++) {
-        if(lst[i] >= lst[i + 1] || count(lst.begin(), lst.end(), lst[i]) > 1) {
+vector<int> temp = lst;
+    sort(temp.begin(), temp.end());
+    for (int i = 0; i < temp.size(); i++) {
+        if (temp[i] != lst[i] || (i + 1 < temp.size() && temp[i] == temp[i + 1]))
             return false;
-        }
     }
     return true;
 }
