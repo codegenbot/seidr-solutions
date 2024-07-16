@@ -1,5 +1,9 @@
+```cpp
+#include <stack>
+#include <string>
+
 bool solveBoolean(std::string s) {
-    std::stack<char> st;
+    stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -22,4 +26,12 @@ bool solveBoolean(std::string s) {
     while (!st.empty() && st.top() == '&') {
         st.pop();
     }
-    return !st.empty();
+    bool result = !st.empty();
+    if (st.size() > 1) {
+        return false;
+    }
+    if (st.size() == 0) {
+        return true;
+    }
+    return st.top() == 'T';
+}
