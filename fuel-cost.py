@@ -1,5 +1,9 @@
-```
-import math
-
 def fuel_cost(vector):
-    return sum(math.floor(i / 3) - 2 for i in vector)
+    def calculate_fuel(amount):
+        total = 0
+        while amount > 2:
+            amount //= 3
+            total += amount - 2
+        return total
+
+    return sum(calculate_fuel(i) for i in vector)
