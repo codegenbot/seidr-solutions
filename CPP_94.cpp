@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool isPrime(int n) {
@@ -8,7 +9,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int skjkasdkd(vector<int> lst){
+int max_prime_sum(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -23,6 +24,7 @@ int skjkasdkd(vector<int> lst){
 }
 
 int main() {
-    int result = skjkasdkd({127, 97, 8192});
+    std::vector<int> lst = {127, 97, 8192};
+    int result = max_prime_sum(lst);
     return 0;
 }
