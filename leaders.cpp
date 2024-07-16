@@ -1,17 +1,22 @@
 #include <vector>
 
-std::vector<int> calculateLeaders(std::vector<int> arr) {
+std::vector<int> calculateLeaders(const std::vector<int>& arr) {
     int n = arr.size();
-    std::vector<int> res;
-    
-    int maxSoFar = 0; 
+    std::vector<int> leaders;
 
-    for(int i=n-1; i>=0; i--){
-        if(arr[i] >= maxSoFar){
-            res.push_back(arr[i]);
+    if (n == 0)
+        return leaders;
+
+    int maxSoFar = arr.back();
+
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= maxSoFar) {
+            leaders.push_back(arr[i]);
             maxSoFar = arr[i];
         }
     }
-    
-    return res;
+
+    leaders.push_back(arr.back());
+
+    return leaders;
 }
