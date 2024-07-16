@@ -1,13 +1,9 @@
-```cpp
 #include <vector>
 #include <cassert>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool vectorEqual(vector<int> a,vector<int>b){
+    return a == b;
 }
 
 vector<int> make_a_pile(int n) {
@@ -15,11 +11,11 @@ vector<int> make_a_pile(int n) {
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
-        if(n % 2 == 1) {
+        if (n % 2 == 1) {
             n++;
             stones = n;
         } else {
-            n += 2;
+            n++;
             stones = n;
         }
     }
@@ -27,5 +23,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(std::equal(make_a_pile(8).begin(), make_a_pile(8).end(), {8, 10, 12, 14, 16, 18, 20, 22}.begin()));
+    assert(vectorEqual(make_a_pile(8), vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) == true);
+    return 0;
 }
