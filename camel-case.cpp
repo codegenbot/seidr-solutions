@@ -18,12 +18,8 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
     size_t pos = 0;
     while ((pos = str.find(delimiter)) != std::string::npos) {
-        if (pos > 0) {
-            tokens.push_back(str.substr(0, pos));
-            str = str.substr(pos + 1);
-        } else {
-            break;
-        }
+        tokens.push_back(str.substr(0, pos));
+        str = str.substr(pos + 1);
     }
     if (!str.empty()) {
         tokens.push_back(str);
@@ -41,11 +37,9 @@ std::string camelCase(const std::string& str) {
     std::string result;
     for (int i = 0; i < words.size(); i++) {
         if (!result.empty()) {
-            result += std::toupper(words[i][0]);
-            result += words[i].substr(1);
+            result += (i != 0 ? "" : std::string(1, std::tolower(words[i][0]))) + words[i].substr(1);
         } else {
-            result += std::tolower(words[i][0]);
-            result += words[i].substr(1);
+            result += std::string(1, std::tolower(words[i][0])) + words[i].substr(1);
         }
     }
     
