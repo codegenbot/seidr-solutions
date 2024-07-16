@@ -25,6 +25,6 @@ int main() {
     for (auto i = n - 1; i >= 0; --i) {
         cout << std::to_string(digits[i]) << " ";
     }
-    cout << luhn((int*)digits, n) << endl;
+    cout << luhn(digits, n) << endl;
     return 0;
 }
