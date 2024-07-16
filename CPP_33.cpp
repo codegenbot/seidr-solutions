@@ -29,10 +29,10 @@ bool sort_third(const vector<int>& l) {
         l[sorted_indices[i]] = l[i];
     }
 
-    return true;
+    return l;
 }
 
 int main() {
-    // Your main function code here
+    // Main function implementation
     return 0;
 }
