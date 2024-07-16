@@ -1,3 +1,4 @@
+```c++
 #include <stack>
 using namespace std;
 
@@ -12,12 +13,14 @@ bool evaluateBooleanExpression(string expression) {
             bool leftValue = valueStack.top();
             valueStack.pop();
             valueStack.push(leftValue && rightValue);
+            operationStack.push('&');
         } else if (expression[i] == '|') {
             bool rightValue = valueStack.top();
             valueStack.pop();
             bool leftValue = valueStack.top();
             valueStack.pop();
             valueStack.push(leftValue || rightValue);
+            operationStack.push('|');
         } else if (expression[i] == 'T' || expression[i] == 't') {
             valueStack.push(true);
         } else if (expression[i] == 'F' || expression[i] == 'f') {
@@ -26,3 +29,4 @@ bool evaluateBooleanExpression(string expression) {
     }
 
     return valueStack.top();
+}
