@@ -1,7 +1,7 @@
 #include <stack>
 #include <string>
 
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
