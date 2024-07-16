@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,7 +15,11 @@ int bowlingScore(string s) {
                 score += roll;
             roll = 0;
         } else if (isdigit(s[i])) {
-            roll = roll * 10 + (s[i] - '0');
+            roll *= 10;
+            roll += s[i] - '0';
+            string str = to_string(roll) + "0";
+            s.insert(i, 0, str);
+            i += str.length();
         }
     }
 
