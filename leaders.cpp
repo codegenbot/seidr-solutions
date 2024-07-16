@@ -4,8 +4,6 @@
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
-    if (nums.empty()) return leaders;
-    
     int n = nums.size();
     int maxLeader = nums[n - 1];
     leaders.push_back(maxLeader);
@@ -22,15 +20,10 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-    
+    std::vector<int> nums = {20, 2, 991, 806};
     std::vector<int> result = findLeaders(nums);
-    for (int i = 0; i < result.size(); ++i) {
-        std::cout << result[i] << " ";
+    for (int leader : result) {
+        std::cout << leader << " ";
     }
     return 0;
 }
