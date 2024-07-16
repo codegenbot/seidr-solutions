@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <limits>
 
 int gcd(int a, int b) {
     a = abs(a);
@@ -29,7 +31,7 @@ int main() {
     while (!(std::cin >> a) || !(std::cin >> b)) {
         std::cout << "Invalid input. Please enter two integers: ";
         std::cin.clear();
-        std::cin.ignore(std::max(std::streamsize), '\n');
+        std::cin.ignore(1000000, '\n');
     }
     int result = gcd(a, b);
     std::cout << "GCD of the numbers is: " << result << std::endl;
