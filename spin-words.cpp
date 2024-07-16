@@ -24,7 +24,7 @@ std::string spinWords(std::string str) {
 
 int main() {
     std::string str;
-    std::cout << "Enter a string of one or more words (separated by spaces): ";
+    std::cout << "Enter a string: ";
     std::getline(std::cin, str);
     std::cout << spinWords(str) << std::endl;
     return 0;
