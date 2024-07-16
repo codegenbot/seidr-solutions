@@ -6,19 +6,18 @@ bool solveBoolean(const std::string& s) {
     bool result = true;
     std::stringstream ss(s);
 
-    for (int i = 0; i < s.size(); ++i) { 
-        char c = s[i]; 
+    for (char c; ss >> c;) { 
         if (c == '|') {
-            char ch;
-            ss >> noskipws >> ch;
-            result = result || (ch == 'T');
+            char nextChar;
+            ss >> nosboolalpha >> nextChar >> boolalpha;
+            result = result || (nextChar == 'T');
         } else if (c == '&') {
-            char ch;
-            ss >> noskipws >> ch;
-            result = result && (ch == 'T');
+            char nextChar;
+            ss >> nosboolalpha >> nextChar >> boolalpha;
+            result = result && (nextChar == 'T');
         }
     }
-    
+
     return result;
 }
 
