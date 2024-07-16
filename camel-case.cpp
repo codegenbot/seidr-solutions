@@ -1,5 +1,21 @@
+#include <iostream>
+#include <string>
+
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> result;
+    size_t pos = 0;
+    while ((pos = s.find(c)) != std::string::npos) {
+        result.push_back(s.substr(0, pos));
+        s.erase(0, pos + 1);
+    }
+    if (s.length() > 0)
+        result.push_back(s);
+
+    return result;
+}
+
 std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> parts = split(s, "-");
+    std::vector<std::string> parts = split(s, '-');
     std::string result;
     for (int i = 0; i < parts.size(); i++) {
         if (!i) {
@@ -12,4 +28,14 @@ std::string kebabToCamel(const std::string& s) {
             result += " ";
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "Result: " << kebabToCamel(input) << std::endl;
+
+    return 0;
 }
