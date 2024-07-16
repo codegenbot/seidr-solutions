@@ -1,3 +1,5 @@
+#include <cstddef>
+
 long long bowlingScore(const std::string& input) {
     long long score = 0;
     int currentRoll = 0;

@@ -1,7 +1,10 @@
-```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
-    int result = pairedDigits(std::string("123321")); 
-    std::cout << "Sum of paired digits: " << result << std::endl;
+    int result = pairedDigits(std::string("123321"));
+    cout << "Sum of paired digits: " << result << endl;
     return 0;
 }
 
