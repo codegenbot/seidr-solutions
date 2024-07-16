@@ -1,20 +1,5 @@
-#include <vector>
-#include <iostream>
-#include <limits.h>
-#include <cassert>
-
-using namespace std;
-
-bool is_same(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> rolling_max(vector<int> numbers){
@@ -27,7 +12,7 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
-int main(){
-    assert(is_same(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+int main() {
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
