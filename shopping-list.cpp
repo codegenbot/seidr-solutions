@@ -1,10 +1,13 @@
 ```cpp
-int shoppingList(float* prices, int nPrices, float* discounts) {
-    float total = 0.0;
+#include <iostream>
+using namespace std;
+
+float shoppingList(float prices[], int nPrices, float discounts[]) {
+    float total = 0;
     for (int i = 0; i < nPrices; i++) {
-        total += prices[i] * (1 - discounts[i]/100.0);
+        total += prices[i] * (1 - discounts[i] / 100.0f);
     }
-    return static_cast<int>(total * 100.0f); 
+    return total;
 }
 
 int main() {
@@ -12,9 +15,9 @@ int main() {
     int nPrices = sizeof(prices) / sizeof(prices[0]);
     float discounts[] = {20.0f, 15.0f, 30.0f};
 
-    int result = shoppingList(prices, nPrices, discounts);
+    float result = shoppingList(prices, nPrices, discounts);
 
-    std::cout << "Total price after discount: $" << result / 100.0f << std::endl;
+    cout << "Total price after discount: $" << result << endl;
 
     return 0;
 }
