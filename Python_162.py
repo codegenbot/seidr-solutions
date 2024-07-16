@@ -3,13 +3,13 @@ import hashlib
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest() if text else None
 
-while True:
-    try:
+try:
+    while True:
         input_text = input("Enter a string: ").strip()
-        if input_text:
-            result = string_to_md5(input_text)
-            print(result)
-        else:
+        if not input_text:
             print("Invalid input")
-    except (EOFError, KeyboardInterrupt):  # Handle Ctrl+D and Ctrl+C gracefully
-        break
+            continue
+        result = string_to_md5(input_text)
+        print(result)
+except KeyboardInterrupt:
+    pass
