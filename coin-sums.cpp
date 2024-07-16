@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -11,18 +8,19 @@ int main() {
 
     int dimes = 0;
     int nickles = 0;
+    int pennies = 0;
 
     while (cents >= 10) {
-        dimes++;
-        cents -= 10;
+        dimes = cents / 10;
+        cents -= dimes * 10;
     }
 
     while (cents >= 5) {
-        nickles++;
-        cents -= 5;
+        nickles = cents / 5;
+        cents -= nickles * 5;
     }
 
-    int pennies = cents;
+    pennies = cents;
 
     cout << quarters << endl;
     cout << dimes << endl;
