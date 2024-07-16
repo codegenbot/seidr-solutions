@@ -13,13 +13,9 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
 }
 
 int main() {
-    int hours, temp;
+    int hours;
+    cin >> hours;
     float initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour;
-
-    cin >> hours >> temp;
-    initialSnow = static_cast<float>(temp) / 100.0f;
-    rateOfSnowfall = (static_cast<float>(cin.peek()) + 48.0) / 48.0 * 1.0f;
-    proportionOfSnowMeltingPerHour = (static_cast<float>(cin.peek()) + 48.0) / 48.0;
-
+    cin >> initialSnow >> rateOfSnowfall >> proportionOfSnowMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
