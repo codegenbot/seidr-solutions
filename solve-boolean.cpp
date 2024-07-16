@@ -1,4 +1,3 @@
-```c++
 bool evaluateBooleanExpression(string expression) {
     bool result = true;
     bool andFlag = true;
