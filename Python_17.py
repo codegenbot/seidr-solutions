@@ -1,1 +1,1 @@
-inputs = [int(input(f"Enter number {i + 1}: ")) for i in range(3)]
+inputs = [int(input("Enter number 1:")), int(input("Enter number 2:")), int(input("Enter number 3:"))]
