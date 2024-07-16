@@ -7,22 +7,23 @@ bool solveBoolean(string expression) {
     bool result = true;
     int i = 0;
     while (i < expression.length()) {
-        if (expression[i] == 'f' || expression[i] == 'F') {
-            result = false;
-            break;
+        if (expression[i] == 'T') {
+            i++;
+        } else if (expression[i] == 'F') {
+            return false;
         } else if (expression[i] == '|') {
-            bool temp = !result;
             result = true;
             i++;
-            while (i < expression.length() && expression[i] != '&') i++;
-            if (i < expression.length()) i++;
+            while (i < expression.length() && expression[i] != '&') {
+                i++;
+            }
         } else if (expression[i] == '&') {
             bool temp = result;
-            result = false;
             i++;
-            while (i < expression.length() && expression[i] != '|') i++;
-            if (i < expression.length()) i++;
-            result = temp;
+            while (i < expression.length() && expression[i] != '|') {
+                i++;
+            }
+            result = temp && !bool(expression.substr(i));
         }
     }
     return result;
