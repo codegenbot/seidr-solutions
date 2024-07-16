@@ -5,7 +5,7 @@ def double_the_difference(input_list):
 # Define the input list
 input_list = [1, 2, 3, 4, 5]
 
-# Call the function with the correct input list variable
+# Call the function with the input list
 result = double_the_difference(input_list)
 
 # Output the result
