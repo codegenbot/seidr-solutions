@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
@@ -24,10 +25,10 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    if(prices.size() != discounts.size()) {
-        cout << "Error: The number of items in the shopping list does not match the number of discounts." << endl;
-        return 1;
+    if (n == 0) {
+        cout << "Error: No items to calculate total price." << endl;
+    } else {
+        cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     }
-    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     return 0;
 }

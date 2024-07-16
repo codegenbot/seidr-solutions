@@ -1,57 +1,33 @@
+Here is the modified code with the main function:
+
+```cpp
 #include <vector>
-#include <iostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            left_sum += v[j];
-        }
-        
-        for (int j = i; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 0; i < n - 1; ++i) {
+        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
+            res[0].insert(res[0].end(), v.begin(), v.end());
+            return {{}, res[0]};
         }
     }
-    
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
+    int mid = n / 2;
+    res[0] = vector<int>(v.begin(), v.begin() + mid);
+    res[1] = vector<int>(v.begin() + mid, v.end());
+    return res;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    vector<int> v = {5, 7, 3, 9, 6};
+    vector<vector<int>> res = cutVector(v);
+    for(int i=0; i<2; i++) {
+        cout << "Subvector " << i+1 << ": ";
+        for(auto x : res[i]) {
+            cout << x << " ";
+        }
+        cout << endl;
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "Left: ";
-    for (int x : result.first) {
-        cout << x << " ";
-    }
-    cout << endl;
-    
-    cout << "Right: ";
-    for (int x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
-    
     return 0;
+}
