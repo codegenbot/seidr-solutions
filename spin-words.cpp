@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -32,12 +32,12 @@ std::string spinWords(std::string sentence) {
 }
 
 int main() {
+    std::string input;
     while (true) {
         std::cout << "Enter a string of one or more words, or 'q' to quit: ";
-        std::string input;
-        std::cin >> input;
-        if (input == "q")
+        if (std::cin >> input && input != "q")
+            std::cout << spinWords(input) << std::endl;
+        else
             break;
-        std::cout << spinWords(input) << std::endl;
     }
     return 0;
