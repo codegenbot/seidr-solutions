@@ -29,7 +29,7 @@ string camelCase(string str) {
 int main() {
     string str;
     #ifdef __GXX_EXPERIMENTAL_CXX0X__
-#include <initializer_list>
+    #include <initializer_list>
 #endif
     while (cin >> str) {
         cout << camelCase(str) << endl;
