@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     std::string strongest_extension = "";
     int max_strength = INT_MIN;
