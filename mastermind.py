@@ -1,4 +1,4 @@
-```Python
+```
 def mastermind(code, guess):
     black_count = sum([c == g for c, g in zip(code, guess)])
     
