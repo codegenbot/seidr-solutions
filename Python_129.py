@@ -7,7 +7,7 @@ def minPath(grid, k):
     while len(path) < k:
         i, j = min(visited, key=lambda cell: grid[cell[0]][cell[1]])
         path.append(grid[i][j])
-        visited.remove((i, j))  # Move this line inside the while loop
+        visited.remove((i, j))  # Move this line inside the while loop just before the if statement
         for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] not in path:
