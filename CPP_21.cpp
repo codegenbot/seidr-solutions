@@ -1,32 +1,8 @@
-float find_min(vector<float> numbers) {
-    float min_num = numbers[0];
-    for (float num : numbers) {
-        if (num < min_num) {
-            min_num = num;
-        }
-    }
-    return min_num;
+float min_num = *min_element(numbers.begin(), numbers.end());
+float max_num = *max_element(numbers.begin(), numbers.end());
+vector<float> result;
+for (float num : numbers) {
+    result.push_back((num - min_num) / (max_num - min_num));
 }
-
-float find_max(vector<float> numbers) {
-    float max_num = numbers[0];
-    for (float num : numbers) {
-        if (num > max_num) {
-            max_num = num;
-        }
-    }
-    return max_num;
-}
-
-vector<float> rescale_to_unit(vector<float> numbers) {
-    float min_num = find_min(numbers);
-    float max_num = find_max(numbers);
-    vector<float> rescaled_numbers;
-    
-    for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        rescaled_numbers.push_back(rescaled_num);
-    }
-    
-    return rescaled_numbers;
+return result;
 }
