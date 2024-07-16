@@ -26,4 +26,3 @@ std::string solveBoolean(std::string booleanExp) {
     }
     
     return result;
-}
