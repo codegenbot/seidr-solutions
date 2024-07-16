@@ -1,3 +1,6 @@
+#include <vector>
+#include <cmath>
+
 int main() {
     int sum = 0;
     std::vector<int> v = {12, 5, 7, 3};
@@ -8,5 +11,6 @@ int main() {
             temp = 0;
         }
         sum += temp;
-    }
-    return sum;
+    } 
+    int final_sum = static_cast<int>(sum); 
+    return final_sum;
