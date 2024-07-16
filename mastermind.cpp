@@ -1,9 +1,13 @@
 #include <string>
-#include <set>
+#include <algorithm>
 
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
+
+    // Sort both strings to compare correctly
+    std::sort(code.begin(), code.end());
+    std::sort(guess.begin(), guess.end());
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -11,18 +15,18 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    std::set<char> code_chars(code.begin(), code.end());
-
-    int count = 0;
     for (char c : guess) {
-        if (code_chars.count(c)) {
-            count++;
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
+            }
         }
-    }
-    if (count > 4) {
-        white = 4;
-    } else {
-        white = count - black;
+        if (count > 1) {
+            white += count - 1;
+        } else if (count == 1) {
+            black--;
+        }
     }
 
     return black + white;
