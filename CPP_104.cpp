@@ -23,7 +23,8 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> input = {123, 456, 789};
-    vector<int> output = unique_digits(input);
-    assert(output == vector<int>{123, 789});
+    vector<int> testInput = {123, 456, 789};
+    vector<int> expectedOutput = {123, 789};
+    assert(unique_digits(testInput) == expectedOutput);
+    return 0;
 }
