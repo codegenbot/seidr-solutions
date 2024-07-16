@@ -1,7 +1,11 @@
 def longest(strings):
     return max(strings, key=len)
 
-n = int(input())
-strings = [input().strip() for _ in range(n)]
-for s in strings:
-    print(longest(s.split()))
+while True:
+    try:
+        line = input()
+        if not line:
+            break
+        print(longest(line.split()))
+    except EOFError:
+        break
