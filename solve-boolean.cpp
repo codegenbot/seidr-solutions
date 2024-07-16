@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+
 bool solveBoolean(const std::string& s) {
     bool result = true;
     for (auto c : s) {  
@@ -14,4 +16,16 @@ bool solveBoolean(const std::string& s) {
         }
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> input;
+    bool output = solveBoolean(input);
+    if (output)
+        std::cout << "True";
+    else
+        std::cout << "False";
+    return 0;
 }
