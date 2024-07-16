@@ -1,7 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -17,20 +18,20 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 
 int main() {
     int n = 0;
-    vector<float> prices;
-    vector<float> discounts;
+    string str;
     
     while(true) {
-        cin >> n;
+        cin >> ws; getline(cin, str); n = stoi(str);
         if(n == 0) break;
         
-        cin.ignore(); 
+        vector<float> prices;
+        vector<float> discounts;
+        
         prices.resize(n);
         for (float &price : prices) {
             cin >> price;
         }
         
-        cin.ignore(); 
         discounts.resize(n);
         for (float &discount : discounts) {
             cin >> discount;
