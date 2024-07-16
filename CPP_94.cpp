@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <cmath>
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(i > 1 && isPrime(i)){
@@ -29,8 +31,8 @@ int sumOfDigits(int num){
     return sum;
 }
 
-int main() {
-    vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst) << endl;
+int main(){
+    std::vector<int> lst = {1,2,3,4,5};
+    std::cout << skjkasdkd(lst) << std::endl;
     return 0;
 }
