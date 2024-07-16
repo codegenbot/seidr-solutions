@@ -8,11 +8,11 @@ int main() {
     
     std::vector<int> indices;
     size_t pos = 0;
-    while (pos <= text.length() - target.length()) {
+    while (pos != std::string::npos) {
         pos = text.find(target, pos);
         if (pos != std::string::npos) {
             indices.push_back(pos);
-            pos += 1;
+            pos += target.length();
         }
     }
     
