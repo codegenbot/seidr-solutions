@@ -1,6 +1,6 @@
-string concat = a + a;
-    if (concat.find(b) != string::npos) {
-        return true;
+if (a.length() != b.length()) {
+        return false;
     }
-    return false;
+    string temp = a + a;
+    return temp.find(b) != string::npos;
 }
