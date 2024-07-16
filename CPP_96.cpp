@@ -2,19 +2,23 @@ vector<int> result;
     if (n < 2) {
         return result;
     }
-    vector<bool> is_prime(n, true);
-    is_prime[0] = is_prime[1] = false;
-    for (int i = 2; i * i < n; i++) {
-        if (is_prime[i]) {
+    
+    vector<bool> primes(n, true);
+    primes[0] = primes[1] = false;
+    
+    for (int i = 2; i * i < n; ++i) {
+        if (primes[i]) {
             for (int j = i * i; j < n; j += i) {
-                is_prime[j] = false;
+                primes[j] = false;
             }
         }
     }
-    for (int i = 2; i < n; i++) {
-        if (is_prime[i]) {
+    
+    for (int i = 2; i < n; ++i) {
+        if (primes[i]) {
             result.push_back(i);
         }
     }
+    
     return result;
 }
