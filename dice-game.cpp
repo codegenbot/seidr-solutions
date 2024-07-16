@@ -1,10 +1,15 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 double probability(int n, int m) {
     double p = 0.0;
-    for (int i = m + 1; i <= n; ++i) {
-        p += 1.0 / n * 1.0 / m;
+    for (int i = 1; i <= m; ++i) {
+        // Calculate the number of ways Peter can roll a value greater than Colin
+        int count = n - i;
+        if (count > 0) {
+            p += static_cast<double>(count) / (n * m);
+        }
     }
     return p;
 }
