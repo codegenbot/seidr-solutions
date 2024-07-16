@@ -1,13 +1,17 @@
 int main() {
-    int n, target;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    int n, a, b, target;
+    cin >> n >> a >> b >> target;
+    
+    vector<int> nums = {a, b};
+    
+    for (int i = 2; i < n; ++i) {
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
-    cin >> target;
-
+    
     map<int, int> mp;
+    
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
             cout << nums[i] << endl;
@@ -16,6 +20,6 @@ int main() {
         }
         mp[nums[i]] = i;
     }
-
+    
     return 0;
 }
