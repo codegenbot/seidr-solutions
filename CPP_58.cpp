@@ -2,6 +2,7 @@
 #include <vector>
 #include <iterator>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -20,6 +21,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({1, 2, 3, 4}, {3, 4, 5, 6}), {3, 4}));
+    assert(issame(common({5, 2, 7, 1}, {3, 6, 9, 2}), {2}));
     // Add more test cases here
     return 0;
 }
