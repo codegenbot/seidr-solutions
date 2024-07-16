@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
