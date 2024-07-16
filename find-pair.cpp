@@ -5,7 +5,7 @@
 
 using namespace std;
 
-std::vector<int> findPair(std::vector<int>& nums, int target) {
+vector<int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
