@@ -1,2 +1,5 @@
-def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+def find_max_min_average(lst):
+    max_val = max(lst)
+    min_val = min(lst)
+    average = sum(lst) / len(lst)
+    return max_val, min_val, average
