@@ -10,7 +10,7 @@ int main() {
     size_t i = 0;
     while (i < text.size()) {
         if (text.substr(i, target.size()) == target) {
-            indices.push_back(i);
+            indices.push_back(i); // Modified line
             i += target.size(); // Update index increment to handle overlapping occurrences
         } else {
             i += 1;
