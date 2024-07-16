@@ -1,24 +1,33 @@
-map<char, int> histogram(string test) {
-    map<char, int> hist;
-    istringstream iss(test);
-    string word;
-    while (iss >> word) {
-        for (char c : word) {
-            hist[c]++;
+#include <iostream>
+#include <map>
+#include <cassert>
+
+std::map<char, int> histogram(const std::string& test) {
+    std::map<char, int> result;
+    std::map<char, int> counts;
+    for (char c : test) {
+        if (c != ' ') {
+            counts[c]++;
         }
     }
-
     int maxCount = 0;
-    for (const auto& entry : hist) {
-        maxCount = max(maxCount, entry.second);
+    for (const auto& pair : counts) {
+        maxCount = std::max(maxCount, pair.second);
     }
-
-    map<char, int> result;
-    for (const auto& entry : hist) {
-        if (entry.second == maxCount) {
-            result[entry.first] = entry.second;
+    for (const auto& pair : counts) {
+        if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
         }
     }
-
     return result;
+}
+
+bool issame(std::map<char, int> a, std::map<char, int> b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+
+    return 0;
 }
