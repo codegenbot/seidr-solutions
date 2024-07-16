@@ -7,6 +7,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return numbers;
 }
 
-bool issame(std::vector<int> vec1, std::vector<int> vec2) {
+bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
     return vec1 == vec2;
 }
