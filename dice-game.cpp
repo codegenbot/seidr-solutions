@@ -1,20 +1,19 @@
+```cpp
+#include <vector>
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 double probability(int n, int m) {
-    double total = (double)n * m;
     double p = 0.0;
-    
-    for(int i = 1; i <= m; i++) {
-        p += ((n - i) / (double)(n * m));
+    for (int i = m + 1; i <= n; ++i) {
+        p += 1.0 / n * 1.0 / m;
     }
-    
     return p;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << setprecision(2) << fixed << probability(n, m);
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(4) << probability(n, m) << std::endl;
     return 0;
 }

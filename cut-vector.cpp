@@ -16,3 +16,19 @@ vector<vector<int>> cutVector(vector<int> v) {
     res[1] = vector<int>(v.begin() + mid, v.end());
     return res;
 }
+
+int main() {
+    vector<int> v = {1, 2, 3, 4};
+    vector<vector<int>> res = cutVector(v);
+    cout << "Left subvector: ";
+    for (int num : res[0]) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : res[1]) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
