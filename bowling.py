@@ -1,12 +1,20 @@
-def bowling_score(bowling):
+def bowling_game(s):
     score = 0
-    for i in range(10):
-        if bowling[i * 2] == "X":
-            score += 30
-        elif bowling[i * 2 : i * 2 + 2].count("X") >= 1:
-            score += min(int(bowling[i * 2]), 10) * 10 + max(
-                int(bowling[i * 2 : i * 2 + 1]) - int(bowling[i * 2]), 0
-            )
+    i = 0
+    while i < len(s) - 1:
+        if s[i] != "/":
+            count = 0
+            for j in range(i + 1, len(s)):
+                if s[j].isdigit():
+                    count += 1
+                else:
+                    break
+            score += int(count) * 10
+            i = j
         else:
-            score += sum(map(int, bowling[i * 2 : i * 2 + 2]))
+            a, b = map(int, s[i - 1 : i + 1].split("/"))
+            score += a + b
+            i += 2
+    if i < len(s):
+        score += int(s[-1])
     return score
