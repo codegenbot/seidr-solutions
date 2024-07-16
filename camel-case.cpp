@@ -6,13 +6,10 @@ std::string kebabToCamel(const std::string& str) {
     std::string result;
     bool capitalize = true;
 
+    // Capitalize first letter of each word (grouped by spaces)
     for (char c : str) {
         if (c == '-') {
-            if (capitalize)
-                result += ' ';  // Add a space to separate words
-            else
-                result.push_back(c);  // Copy the hyphen as is
-
+            result += ' ';  // Add a space to separate words
             capitalize = true;  // Start new word, so capitalize next char
         } else if (capitalize) {
             result += toupper(c);  // Capitalize first letter of each word
@@ -20,6 +17,19 @@ std::string kebabToCamel(const std::string& str) {
         } else {
             result += tolower(c);
         }
+    }
+
+    // Remove the first space if it exists and convert the first character to uppercase
+    if (!result.empty() && result[0] == ' ') {
+        result.erase(0, 1);
+        capitalize = true;
+    }
+
+    if (capitalize) {
+        result += toupper(result[0]);
+        capitalize = false;
+    } else {
+        result[0] = tolower(result[0]);
     }
 
     return result;
