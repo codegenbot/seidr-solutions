@@ -1,48 +1,38 @@
+Here is the completed code:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::vector<std::string> words = split(input, " ");
-    std::string result;
-    
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += char(std::toupper(word[0]));
-        } else {
-            result += word;
-        }
-        
-        for (int i = 1; i < word.size(); ++i) {
-            result += std::tolower(word[i]);
-        }
-    }
-    
-    return result;
-}
+using namespace std;
 
-std::vector<std::string> split(const std::string& input, const std::string& delimiter) {
-    std::vector<std::string> words;
-    size_t pos = 0;
+string camelCase(string str) {
+    string result = "";
+    int i = 0;
     
-    while ((pos = input.find(delimiter)) != std::string::npos) {
-        words.push_back(input.substr(0, pos));
-        input.erase(0, pos + delimiter.size());
+    while (i < str.length()) {
+        if (str[i] == '-') {
+            i++;
+            while (i < str.length() && str[i] != ' ') {
+                result += toupper(str[i]);
+                i++;
+            }
+        } else if (str[i] == ' ') {
+            i++;
+            continue;
+        } else {
+            result += tolower(str[i]);
+            i++;
+        }
     }
     
-    if (!input.empty()) {
-        words.push_back(input);
-    }
-    
-    return words;
+    return result + (result.length() > 0 ? "" : "");
 }
 
 int main() {
-    // Test cases
-    std::cout << camelCase("nospaceordash") << std::endl;  // nospaceordash
-    std::cout << camelCase("two-words") << std::endl;      // twoWords
-    std::cout << camelCase("two words") << std::endl;       // two words
-    std::cout << camelCase("all separate words") << std::endl;  // all separate words
-    
+    string str;
+    while (cin >> str) {
+        cout << camelCase(str) << endl;
+    }
     return 0;
 }
