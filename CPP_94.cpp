@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <assert.h>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -8,7 +10,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int max_prime_sum(std::vector<int> lst){
+int findMaxPrimeSum(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -23,6 +25,7 @@ int max_prime_sum(std::vector<int> lst){
 }
 
 int main() {
-    int result = max_prime_sum({127, 97, 8192});
+    int result = findMaxPrimeSum({127, 97, 8192});
+    assert(result == 10);
     return 0;
 }
