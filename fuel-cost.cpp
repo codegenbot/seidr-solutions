@@ -1,9 +1,21 @@
-```#include <vector>
+#include <vector>
+#include <iostream>
+using namespace std;
 
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int> prices) {
     int sum = 0;
-    for (int i : v) {
-        sum += (i / 3 - 2);
+    for (int price : prices) {
+        int newPrice = (price / 3);
+        newPrice = min(newPrice, 0); 
+        newPrice -= 2; 
+        sum += newPrice;
     }
     return sum;
-}``
+}
+
+int main() {
+    vector<int> prices = {12,25,15,30};
+    int result = fuelCost(prices);
+    cout << "Fuel cost: " << result << endl;
+    return 0;
+}
