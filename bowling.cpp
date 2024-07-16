@@ -6,7 +6,7 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
-            score += 10 + getBonus(s.substr(i+1));
+            score += 10 + getBonus(s, i);
         } else if (s[i] == '/') { // Spare
             score += 5 + getBonus(s.substr(i+1));
         } else { // Normal roll
