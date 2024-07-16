@@ -11,9 +11,13 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int input;
-    std::cout << "Enter a number: ";
-    std::cin >> input;
-    std::cout << fizzBuzz(input) << std::endl;
+    int x;
+    for (;;) {
+        std::cout << "Enter a number: ";
+        std::cin >> x;
+        std::cout << fizzBuzz(x) << std::endl;
+        if (x == 0)
+            break; 
+    }
     return 0;
 }
