@@ -1,12 +1,17 @@
 for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            if (isupper(s[i])) {
+                s[i] = tolower(s[i]);
+            } else {
+                s[i] = toupper(s[i]);
+            }
         }
     }
-    
-    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
     }
-    
     return s;
 }
