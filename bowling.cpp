@@ -7,19 +7,9 @@ int bowlingScore(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { // Strike
-            score += 10;
-            if (i < 9) {
-                s = s.substr(1);
-            }
+            score += 10 + getBonus(s, i);
         } else if (s[i] == '/') { // Spare
-            score += 5;
-            for (int j = i; j < s.size(); j++) {
-                if (s[j] != '/') {
-                    roll1 = s[j] - '0';
-                    score += roll1;
-                    break;
-                }
-            }
+            score += 5 + getBonus(s.substr(i+1));
         } else { // Normal roll
             roll1 = s[i] - '0';
             if (i < 8 && s[i+1] != '/') {
