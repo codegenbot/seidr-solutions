@@ -1,10 +1,12 @@
+```
 from typing import List, Tuple
 
 
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not numbers:
-        return 0, 1
+def sum_product(numbers: List[str]) -> Tuple[int, int]:
     try:
+        if not numbers:
+            return 0, 1
+        numbers = [int(num) for num in numbers]
         return sum(numbers), eval("*".join(map(str, numbers)))
-    except (TypeError, ValueError):
-        return "Invalid input. Please provide a list of integers."
+    except ValueError:
+        return 0, 1
