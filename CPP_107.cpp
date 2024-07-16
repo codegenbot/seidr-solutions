@@ -2,12 +2,12 @@
 #include <string>
 #include <algorithm>
 
-vector<int> even_odd_palindrome(int n){
-    vector<int> result(2, 0);
+std::vector<int> even_odd_palindrome(int n){
+    std::vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev_num = num;
-        reverse(rev_num.begin(), rev_num.end());
+        std::string num = std::to_string(i);
+        std::string rev_num = num;
+        std::reverse(rev_num.begin(), rev_num.end());
         if (num == rev_num) {
             if (i % 2 == 0) {
                 result[0]++;
