@@ -1,16 +1,20 @@
 vector<int> result;
-    if (n >= 0) {
-        result.push_back(3); // tri(1) = 3
-        if (n > 0) {
-            result.push_back(1 + n / 2); // tri(2) = 1 + (2 / 2)
-            for (int i = 2; i <= n; ++i) {
-                if (i % 2 == 0) {
-                    result.push_back(1 + i / 2); // tri(n) = 1 + n / 2, if n is even
-                } else {
-                    result.push_back(result[i - 1] + result[i - 2] + result[i - 3]); // tri(n) = tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd
-                }
-            }
+    if (n == 0) return result;
+    
+    result.push_back(3);
+    if (n == 1) return result;
+    
+    int a = 1, b = 1, c = 3;
+    for (int i = 2; i <= n; ++i) {
+        if (i % 2 == 0) {
+            c = 1 + i / 2;
+        } else {
+            c = a + b + c;
         }
+        result.push_back(c);
+        a = b;
+        b = c;
     }
+    
     return result;
 }
