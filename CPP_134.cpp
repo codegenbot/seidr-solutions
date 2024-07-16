@@ -3,12 +3,10 @@ if (txt.empty()) {
     }
     
     char lastChar = txt.back();
+    
     if (isalpha(lastChar)) {
-        size_t lastSpacePos = txt.find_last_of(' ');
-        if (lastSpacePos == string::npos) {
+        if (txt.find_last_of(" ") == txt.size() - 1) {
             return true;
-        } else {
-            return lastSpacePos == txt.size() - 1;
         }
     }
     
