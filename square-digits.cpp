@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 string squareDigits(string input) {
     string output = "";
@@ -9,3 +10,4 @@ string squareDigits(string input) {
         output += c;
     }
     return output;
+}
