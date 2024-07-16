@@ -1,16 +1,18 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> leaders(std::vector<int>& arr) {
+std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
 
     for(int i=n-1; i>=0; i--) { 
-        while(i < n-1 && arr[i] <= arr.back()) {
-            arr.pop_back();
+        std::vector<int> temp = arr;
+        while(i < n-1 && temp[temp.size()-1-i] >= arr.back()) {
+            temp.pop_back();
         }
-        if(result.empty() || arr[i] >= result.back()) {
-            result.push_back(arr[i]);
+        temp.pop_back(); // Make a copy and modify it
+        if(result.empty() || temp[0] >= result.back()) {
+            result.push_back(temp[0]);
         }
     }
 
