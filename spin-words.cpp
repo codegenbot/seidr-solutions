@@ -1,4 +1,3 @@
-```cpp
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -6,11 +5,11 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str.substr(i);
             i++;
-        } else if (strlen(&str.substr(i)) >= 5) {
-            for (int j = strlen(&str.substr(i)); j > 0; j--) {
-                result += str[i + j - 1];
+        } else if (str.length() - i >= 5) {
+            for (int j = 0; j < strlen(&str.substr(i)); j++) {
+                result += str[i + j];
             }
-            i += j;
+            i += strlen(&str.substr(i)) + 1;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
