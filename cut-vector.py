@@ -1,14 +1,21 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-diff = float("inf")
+vec = [int(input()) for _ in range(n)]
+total_sum = sum(vec)
+left_sum = 0
+right_sum = total_sum
+min_diff = float("inf")
 cut_idx = 0
 
-for i in range(1, n):
-    curr_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
+for i in range(n):
+    left_sum += vec[i]
+    right_sum -= vec[i]
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
         cut_idx = i
 
-print(*arr[:cut_idx])
-print(*arr[cut_idx:])
+subvector1 = vec[: cut_idx + 1]
+subvector2 = vec[cut_idx + 1 :]
+
+print(*subvector1)
+print(*subvector2)
