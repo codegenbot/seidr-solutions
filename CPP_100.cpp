@@ -23,6 +23,8 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(vectorEqual(make_a_pile(8), vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) == true);
+    vector<int> expected = {8, 10, 12, 14, 16, 18, 20, 22};
+    vector<int> actual = make_a_pile(8);
+    assert(vectorEqual(actual, expected) == true);
     return 0;
 }
