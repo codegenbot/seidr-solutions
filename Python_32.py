@@ -1,4 +1,3 @@
-from sys import stdin
-
-xs = list(map(int, stdin.readline().strip().split()))
+print("Enter a list of integers separated by space:")
+xs = list(map(int, input().split()))
 print(xs)
