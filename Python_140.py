@@ -6,7 +6,7 @@ def process_text(text):
     return text
 
 try:
-    input_text = input().strip()
+    input_text = input("Enter text: ")
     result = process_text(input_text)
     print(result)
 except EOFError:
