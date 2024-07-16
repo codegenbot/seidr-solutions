@@ -1,6 +1,3 @@
-def find_max_value(lst):
-    max_val = float('-inf')
-    for num in lst:
-        if abs(num) > max_val:
-            max_val = abs(num)
-    return max_val
+def find_max_min(lst):
+    lst.sort()
+    return (lst[0], lst[-1])
