@@ -27,7 +27,7 @@ int main() {
 
     cout << quarters << " quarters" << endl;
     cout << dimes << " dimes" << endl;
-    cout << nickles << " nickles" << endl;
+    cout << nickles << " nickels" << endl;
     cout << pennies << " pennies" << endl;
 
     return 0;
