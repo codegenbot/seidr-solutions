@@ -40,22 +40,21 @@ int main() {
         std::cout << "GCD of the numbers is: " << result << std::endl;
     }
 
-    std::string s; 
-    while (!(std::getline(std::cin, s))) {
+    std::string text, target;
+    if (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
         std::cout << "Invalid input. Please enter two strings: ";
     }
-    std::string text = s;
-    s.clear();
-    while (!(std::getline(std::cin, s))) {
-        std::cout << "Invalid input. Please enter two strings: ";
+    if (target.empty()) {
+        std::cout << "Error: Target string is empty." << std::endl;
+    } else {
+        if (!target.empty()) {
+            auto indices = indicesOfSubstring(text, target);
+            for (int i : indices) {
+                std::cout << i << " ";
+            }
+            std::cout << std::endl;
+        }
     }
-    std::string target = s;
-
-    auto indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
 
     return 0;
 }
