@@ -7,12 +7,12 @@ vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
     
-    int rightMax = arr.back(); // Initialize with the rightmost element
-    
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= rightMax){
+    int maxSoFar = 0; 
+
+    for(int i=n-1; i>=0; i--){
+        if(i==n-1 || arr[i] >= maxSoFar){
             res.push_back(arr[i]);
-            rightMax = arr[i];
+            maxSoFar = arr[i];
         }
     }
     
