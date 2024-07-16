@@ -1,30 +1,9 @@
-string solve(string s){
-    int n = s.size();
-    int i = 0, j = n - 1;
-    while (i < j) {
-        if (isalpha(s[i]) && isalpha(s[j])) {
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
-            if (islower(s[j])) {
-                s[j] = toupper(s[j]);
-            } else {
-                s[j] = tolower(s[j]);
-            }
-        }
-        i++;
-        j--;
-    }
-    if (i == j && isalpha(s[i])) {
-        if (islower(s[i])) {
-            s[i] = toupper(s[i]);
-        } else {
-            s[i] = tolower(s[i]);
+for(auto &c : s) {
+        if(isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (i >= j) {
+    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })) {
         reverse(s.begin(), s.end());
     }
     return s;
