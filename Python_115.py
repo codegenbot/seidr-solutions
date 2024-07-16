@@ -1,7 +1,7 @@
 import math
 
 def calculate_water(grid, total_water):
-    input_max_fill = math.ceil(total_water / (len(grid) * len(grid[0])))
+    input_max_fill = math.ceil(total_water / (len(grid) * len(grid[0]))
     return input_max_fill
 
 def check(input_max_fill):
