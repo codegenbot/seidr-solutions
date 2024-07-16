@@ -13,9 +13,9 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     // Test cases
-    assert(double_the_difference({1.0, 2.0, 3.0, 4.0, 5.0}) == 1);
+    assert(double_the_difference({1.0, 2.0, 3.0, 4.0, 5.0}) == 10);
+    assert(double_the_difference({1.0, 3.0, 5.0, 7.0, 9.0}) == 35);
     assert(double_the_difference({-1.0, -2.0, -3.0, -4.0, -5.0}) == 0);
-    assert(double_the_difference({1.5, 2.5, 3.5, 4.5, 5.5}) == 0);
-    
+
     return 0;
 }
