@@ -5,12 +5,9 @@ int main() {
         nums.push_back(num);
     }
     
-    if (std::cin.eof()) { // Check for EOF after reading each number
-        std::vector<int> result = findLeaders(nums);
-        for (int i = 0; i < result.size(); ++i) {
-            std::cout << result[i] << " ";
-        }
+    std::vector<int> result = findLeaders(nums);
+    for (int i = 0; i < result.size(); ++i) {
+        std::cout << result[i] << " ";
     }
-    
     return 0;
 }
