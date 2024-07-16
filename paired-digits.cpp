@@ -17,5 +17,6 @@ int main() {
     std::getline(std::cin, input);
     int output = pairedDigits(input);
     std::cout << "Sum of paired digits is: " << output << std::endl;
-    std::cout << "Program has finished." << std::endl;
+    std::cout << "Result: " << output << std::endl;
+    return 0;
 }
