@@ -1,42 +1,35 @@
 int main() {
     vector<int> nums;
-    int num;
-    
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += nums[i];
-    }
-    
+
+    int sum = accumulate(nums.begin(), nums.end(), 0);
     int target = sum / 2;
+
     int prefixSum = 0;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < n; ++i) {
+    int closest = INT_MAX;
+    int idx = -1;
+
+    for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
-        if (prefixSum >= target) {
-            cutIndex = i;
-            break;
+        int diff = abs(target - prefixSum);
+        if (diff < closest) {
+            closest = diff;
+            idx = i;
         }
     }
-    
-    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[cutIndex]))) {
-        ++cutIndex;
-    }
-    
-    for (int i = 0; i < cutIndex; ++i) {
+
+    for (int i = 0; i <= idx; ++i) {
         cout << nums[i] << endl;
     }
-    
-    cout << 0 << endl;
-    
-    for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+
+    if (prefixSum - closest != 0) {
+        cout << target - (prefixSum - closest) << endl;
+    } else {
+        cout << 0 << endl;
     }
-    
+
     return 0;
 }
