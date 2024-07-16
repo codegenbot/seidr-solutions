@@ -22,7 +22,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    std::cout.precision(17);
+    std::cout.precision(17); // Set precision to avoid floating point errors
     std::cout << result << std::endl;
 
     return 0;
