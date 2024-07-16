@@ -7,5 +7,8 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 input_str = input("Enter a string of lowercase English alphabets (a-z): ").strip()
-result = decode_cyclic(input_str)
-print(result)
+if not input_str.isalpha() or not input_str.islower():
+    print("Input string should contain only lowercase English alphabets.")
+else:
+    result = decode_cyclic(input_str)
+    print(result)
