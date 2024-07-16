@@ -6,6 +6,8 @@ def string_to_md5(text):
 try:
     while True:
         input_text = input().strip()
+        if not input_text or input_text == '':
+            break
         result = string_to_md5(input_text)
         print(result)
 except EOFError:
