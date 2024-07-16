@@ -1,4 +1,3 @@
-```
 from base64 import b64encode
 
 
@@ -21,4 +20,7 @@ def solve():
                 )
         except ValueError:
             print("Invalid input. Please enter an integer or string.")
-            return
+    return None
+
+
+solve()
