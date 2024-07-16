@@ -1,8 +1,6 @@
-#include <string>
-#include <cstddef> 
 #include <cctype>
 
-std::string camelCase(std::string s) {
+std::string camelCase(const std::string& s) {
     std::string result = "";
     bool capitalizeNext = true;
 
@@ -24,6 +22,6 @@ std::string camelCase(std::string s) {
         result.erase(pos, 1);
         pos = result.find(' ');
     }
-    
+
     return result;
 }
