@@ -1,6 +1,8 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
-#include <algorithm>
+#include <cmath>
+
 using namespace std;
 
 vector<int> compare(const vector<int>& a, const vector<int>& b) {
@@ -16,6 +18,5 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    assert(compare({1,2,3,5},{-1,2,3,4}) == vector<int>{2,0,0,1});
-    return 0;
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
 }
