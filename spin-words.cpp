@@ -1,34 +1,26 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while (i < str.length()) {
-        if (str[i] == ' ') {
-            result += str.substr(i);
-            i++;
-        } else if (strlen(&str[i]) >= 5) {
-            for (int j = strlen(&str[i]); j > 0; j--) {
-                result += str[i + j - 1];
+std::string spinWords(const std::string& input) {
+    std::string output = "";
+    size_t start = 0;
+    for (size_t end = 0; end <= input.size(); ++end) {
+        if (end == input.size() || input[end] == ' ') {
+            std::string word = input.substr(start, end - start);
+            if (word.size() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            i += j;
-        } else {
-            int k = 0;
-            while (i < str.length() && str[i] != ' ') {
-                result += str[i];
-                i++;
-                k++;
-            }
-            if (k > 0) {
-                for (int j = k; j > 0; j--) {
-                    result += str[i - 1];
-                }
-                i--;
-            } else {
-                result += str.substr(i);
-                i++;
-            }
+            output += word + " ";
+            start = end + 1;
         }
     }
-    return result;
+    return output;
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    return 0;
 }
