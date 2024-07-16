@@ -5,18 +5,29 @@ string spinWords(string str) {
     string result = "";
     int i = 0;
     while (i < str.length()) {
-        int j = 0;
-        while (i < str.length() && str[i] != ' ') {
-            j++;
+        if (str[i] == ' ') {
+            result += " ";
             i++;
-        }
-        if (j >= 5) {
-            for (int k = j; k > 0; k--) {
-                result += str[str.length() - k];
+        } else if ((str[i + str.substr(i).size() - 1] >= 'a' || str[i + str.substr(i).size() - 1] <= 'z')) {
+            int len = str.substr(i).size();
+            for (int j = len; j > 0; j--) {
+                result += str[i + j - 1];
             }
+            i += str.substr(i).size();
         } else {
-            while (i < str.length()) {
+            int k = 0;
+            while (i < str.length() && str[i] != ' ') {
                 result += str[i];
+                i++;
+                k++;
+            }
+            if (k > 0) {
+                for (int j = k; j > 0; j--) {
+                    result += str[i - 1];
+                }
+                i--;
+            } else {
+                result += str.substr(i);
                 i++;
             }
         }
@@ -25,6 +36,6 @@ string spinWords(string str) {
 }
 
 int main() {
-    cout << spinWords("guuvb cfuwhbb") << endl; 
+    cout << spinWords("Hello World") << endl;
     return 0;
 }
