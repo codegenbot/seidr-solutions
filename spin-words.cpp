@@ -1,10 +1,9 @@
 ```
 #include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
+std::string spinWords(std::string str) {
+    std::string result = "";
     char* token = strtok(const_cast<char*>(str.c_str()), " ");
     
     while(token != NULL) {
@@ -24,9 +23,9 @@ string spinWords(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    std::string str;
+    std::cout << "Enter a string of one or more words (separated by spaces): ";
+    std::getline(std::cin, str);
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
