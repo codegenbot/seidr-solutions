@@ -20,4 +20,4 @@ int main() {
     std::cout << "First index where sum is negative: " << result << std::endl;
 
     return 0;
-}  
+} 
