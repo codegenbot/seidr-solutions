@@ -1,5 +1,5 @@
 bool issame(const vector<string>& a, const vector<string>& b) {
-    sorted_list_sum({ "aaaa", "bbbb", "dd", "cc" });
+    sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
@@ -9,3 +9,5 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     });
     return lst;
 }
+
+assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
