@@ -1,19 +1,19 @@
 #include <vector>
 
-bool issame(const vector<int>& v1, const vector<int>& v2){
-    if(v1.size() != v2.size()){
+bool issame(std::vector<int> vec1, std::vector<int> vec2) {
+    if(vec1.size() != vec2.size()) {
         return false;
     }
-    for(int i=0; i<v1.size(); i++){
-        if(v1[i] != v2[i]){
+    for(int i=0; i<vec1.size(); i++) {
+        if(vec1[i] != vec2[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<int> intersperse(vector<int> numbers, int delimeter){ 
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
+    std::vector<int> result;
     for(int i=0; i<numbers.size(); i++){
         result.push_back(numbers[i]);
         if(i < numbers.size()-1){
@@ -21,4 +21,9 @@ vector<int> intersperse(vector<int> numbers, int delimeter){
         }
     }
     return result;
+}
+
+int main() {
+    // Main function implementation
+    return 0;
 }
