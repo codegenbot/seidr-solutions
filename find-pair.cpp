@@ -1,37 +1,25 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
-#include <algorithm>
-
-std::vector<int> findPair(const std::vector<int>& nums, int target) {
-    std::vector<int> sortedNums = nums;
-    std::sort(sortedNums.begin(), sortedNums.end());
-    
-    std::unordered_set<int> seen;
-    for (int num : sortedNums) {
-        int complement = target - num;
-        if (seen.count(complement)) {
-            return {complement, num};
-        }
-        seen.insert(num);
-    }
-    return {};
-}
+#include <map>
 
 int main() {
-    int n;
+    int n, target;
     std::cin >> n;
     std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
-    
-    int target;
     std::cin >> target;
     
-    std::vector<int> result = findPair(nums, target);
-    for (int num : result) {
-        std::cout << num << std::endl;
+    std::map<int, int> numToIndex;
+    for (int i = 0; i < n; ++i) {
+        int complement = target - nums[i];
+        if (numToIndex.find(complement) != numToIndex.end()) {
+            std::cout << nums[numToIndex[complement]] << std::endl;
+            std::cout << nums[i] << std::endl;
+            break;
+        }
+        numToIndex[nums[i]] = i;
     }
     
     return 0;
