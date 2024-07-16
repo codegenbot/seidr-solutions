@@ -1,4 +1,3 @@
-```c++
 #include <tuple>
 #include <vector>
 #include <iostream>
