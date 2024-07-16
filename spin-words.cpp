@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -7,9 +6,9 @@ string spinWords(string str) {
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
-            result += " ";
+            result += str.substr(i);
             i++;
-        } else if ((int)str[i + strlen(&str.substr(i)) - 1] >= 122 || (int)str[i + strlen(&str.substr(i)) - 1] <= 96) {
+        } else if (str.length() - i >= 5) {
             for (int j = strlen(&str.substr(i)); j > 0; j--) {
                 result += str[i + j - 1];
             }
