@@ -12,4 +12,4 @@ def coin_sums(cents):
     return result
 
 
-print('\n'.join(map(str, coin_sums(int(input())))))
+print(*coin_sums(int(input())), sep='\n')
