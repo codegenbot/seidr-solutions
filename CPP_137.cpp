@@ -48,14 +48,14 @@ int main() {
     boost::any b = "10.0";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
-    if (std::holds_alternative<int>(result)) {
-        std::cout << "The result is: " << std::get<int>(result) << std::endl;
+    if (boost::holds_alternative<int>(result)) {
+        std::cout << "The result is: " << boost::get<int>(result) << std::endl;
     }
-    else if (std::holds_alternative<float>(result)) {
-        std::cout << "The result is: " << std::get<float>(result) << std::endl;
+    else if (boost::holds_alternative<float>(result)) {
+        std::cout << "The result is: " << boost::get<float>(result) << std::endl;
     }
     else {
-        std::cout << "The result is: " << std::get<std::string>(result) << std::endl;
+        std::cout << "The result is: " << boost::get<std::string>(result) << std::endl;
     }
 
     return 0;
