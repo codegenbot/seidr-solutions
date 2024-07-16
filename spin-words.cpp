@@ -10,7 +10,7 @@ std::string spinWords(std::string sentence) {
     for (char c : sentence) {
         if (c == ' ') {
             if (temp.length() >= 5)
-                result += std::string(temp).reverse(); // reverse the word
+                result += std::string(temp).reverse(); 
             else
                 result += temp + " ";
             temp = "";
@@ -20,7 +20,7 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        result += std::string(temp).reverse(); // reverse the last word
+        result += std::string(temp).reverse(); 
     } else
         result += temp;
 
