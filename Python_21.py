@@ -1,4 +1,3 @@
-numbers_min = min(numbers)
-numbers_max = max(numbers)
-rescaled_numbers = [(x - numbers_min) / (numbers_max - numbers_min) for x in numbers]
-return rescaled_numbers
+def rescale_to_unit(numbers: List[float]) -> List[float]:
+    min_num, max_num = min(numbers), max(numbers)
+    return [(num - min_num) / (max_num - min_num) for num in numbers]
