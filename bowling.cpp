@@ -1,5 +1,5 @@
-#include <string>
-int bowlingScore(const std::string s) {
+```
+int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
