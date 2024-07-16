@@ -1,49 +1,67 @@
-int bowlingScore(const string& frames) {
+int scoreOfBowlingRound(const string& bowls) {
     int score = 0;
-    int frame = 0;
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') {
+    int frame = 1;
+    int ball = 0;
+    vector<int> frameScores;
+
+    for (char bowl : bowls) {
+        if (bowl == 'X') {
             score += 10;
-            if (frames[i + 2] == '/')
-                score += 10;
-            else {
-                if (frames[i + 1] == 'X')
-                    score += 10;
-                else
-                    score += frames[i + 1] - '0';
-                if (frames[i + 2] == 'X')
-                    score += 10;
-                else
-                    score += frames[i + 2] - '0';
+            if (frame < 10) {
+                frameScores.push_back(10);
             }
-            frame++;
-        } else if (frames[i] == '/') {
-            score += 10 - (frames[i - 1] - '0');
-            if (frames[i + 1] == 'X')
-                score += 10;
-            else
-                score += frames[i + 1] - '0';
-            frame++;
-        } else {
-            score += frames[i] - '0';
-            if (frames[i] == '-')
-                score = score;
-            else if (frames[i] == '7' && frames[i + 1] == 'X')
-                score += 10;
-            else if (frames[i] == '7' && frames[i + 1] == '-')
-                score = score;
-            else if (frames[i] == 'X')
+            if (frame < 10) {
                 frame++;
+            }
+            ball = 0;
+        } else if (bowl == '/') {
+            score += 10 - frameScores.back();
+            frameScores.pop_back();
+            frameScores.push_back(10);
+            ball = 0;
+            if (frame < 10) {
+                frame++;
+            }
+        } else if (bowl == '-') {
+            ball++;
+            if (ball == 2) {
+                if (frame < 10) {
+                    frame++;
+                }
+                ball = 0;
+            }
+        } else {
+            score += bowl - '0';
+            if (frame < 10) {
+                if (ball == 0) {
+                    frameScores.push_back(bowl - '0');
+                    ball++;
+                } else {
+                    int prevScore = frameScores.back();
+                    frameScores.pop_back();
+                    int frameScore = prevScore + (bowl - '0');
+                    score += frameScore;
+                    frameScores.push_back(frameScore);
+                    if (frame < 10) {
+                        frame++;
+                    }
+                    ball = 0;
+                }
+            } else {
+                ball++;
+                if (ball == 2) {
+                    break;
+                }
+            }
         }
-        if (frame == 10)
-            break;
     }
+
     return score;
 }
 
 int main() {
-    string frames;
-    cin >> frames;
-    cout << bowlingScore(frames) << endl;
+    string bowls;
+    cin >> bowls;
+    cout << scoreOfBowlingRound(bowls) << endl;
     return 0;
 }
