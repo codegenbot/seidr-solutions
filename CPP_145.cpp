@@ -12,14 +12,14 @@ bool issame(int a, int b) {
     return sum_a == sum_b;
 }
 
-bool order_by_points(int a, int b, vector<int>& nums) {
+bool order_by_points(int a, int b, const vector<int>& nums) {
     if (issame(a, b)) {
         return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
     }
     return a < b;
 }
 
-sort(nums.begin(), nums.end(), [](int a, int b) {
+sort(nums.begin(), nums.end(), [&](int a, int b) {
     return order_by_points(a, b, nums);
 });
 return nums;
