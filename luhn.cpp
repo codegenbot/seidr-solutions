@@ -1,7 +1,8 @@
 #include <vector>
-using namespace std;
+#include <iostream>
+#include <initializer_list>
 
-int luhn(vector<int> digits) {
+int luhn(std::vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
         if ((i % 2 == 1)) { 
@@ -16,7 +17,7 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> testVector = {4,7,8,3,1,6,8,0,5};
-    cout << luhn(testVector) << endl;
+    std::vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    int result = luhn(digits);
+    std::cout << "The Luhn check digit is: " << result << std::endl;
     return 0;
-}
