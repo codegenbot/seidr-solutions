@@ -9,7 +9,7 @@ int main() {
     int num_bounces;
 
     cin >> start_height >> num_bounces;
-    cin.ignore();
+    cin.ignore(); 
     cin >> first_bounce_height;
 
     double bounciness_index = first_bounce_height / start_height;
