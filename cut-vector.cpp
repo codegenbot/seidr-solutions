@@ -1,40 +1,34 @@
+```c++
 #include <vector>
-#include <iostream>
+#include <climits>
+#include <cmath>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+using namespace std;
+
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
     int minDiff = INT_MAX;
-    int index = 0;
-
-    for (int i = 1; i < vec.size(); ++i) {
-        if (vec[i] - vec[0] <= minDiff) {
-            minDiff = vec[i] - vec[0];
-            index = i;
+    int pos = -1;
+    
+    for (int i = 0; i < n; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += v[j];
+        }
+        
+        int diff = abs(sum1 - sum2);
+        if (diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-
-    return {{vec[0]}, {vec.begin() + index}};
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (auto& x : vec) {
-        std::cin >> x;
-    }
-
-    auto res = cutVector(vec);
-
-    for (const auto& x : res.first) {
-        std::cout << x << " ";
-    }
-    std::cout << "\n";
-
-    for (const auto& x : res.second) {
-        std::cout << x << " ";
-    }
-    std::cout << "\n";
-
-    return 0;
+    
+    res[0] = vector<int>(v.begin(), v.begin() + pos);
+    res[1] = vector<int>(v.begin() + pos, v.end());
+    
+    return res;
 }
