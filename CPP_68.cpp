@@ -1,14 +1,14 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> pluck(vector<int> arr);
 
 int main() {
-    // Code for testing the pluck function
+    // Main function implementation
     return 0;
 }
 
