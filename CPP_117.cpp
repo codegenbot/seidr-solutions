@@ -7,10 +7,10 @@ bool is_same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
+    
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-
+    
     return a == b;
 }
 
@@ -42,6 +42,6 @@ vector<string> select_words(string s, int n){
 }
 
 int main() {
-    // Main function implementation using is_same instead of issame
+    // Code that uses is_same function
     return 0;
 }
