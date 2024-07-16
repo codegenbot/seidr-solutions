@@ -1,6 +1,6 @@
-#include <string> // Add this line to include the string header
+#include <string>
 
-std::string flip_case(std::string str){ // Update function name from 'string' to 'std::string'
+string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         if(islower(str[i])){
             str[i] = toupper(str[i]);
