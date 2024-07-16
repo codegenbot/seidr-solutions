@@ -1,4 +1,3 @@
+```
 def dice_game(n, m):
-    total_outcomes = n * m
-    colin_wins = sum(min(i, j) for i in range(1, n+1) for j in range(1, m+1))
-    return (colin_wins / total_outcomes)
+    return (1 / m) * sum(1/i for i in range(2, n+1)) / (n + m - 1)
