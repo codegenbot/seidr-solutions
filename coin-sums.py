@@ -5,12 +5,12 @@ def coin_sums(cents):
 
     for coin in coins:
         count = cents // coin
-        counts = [count] * (coin // coin)
-        cents %= coin
-        results.append(counts)
+        if count > 0:
+            counts = [count] * (coin // coin)
+            cents %= coin
+            results.append(counts)
 
     return len(results), *([item for sublist in results for item in sublist])
-
 cents = int(input())
 num_coins, *counts = coin_sums(cents)
 print(num_coins)
