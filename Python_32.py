@@ -1,2 +1,6 @@
-xs = list(map(int, input("Enter space-separated integers: ").split()))
-print(xs)
+xs = []
+try:
+    while True:
+        xs.extend(map(int, input().split()))
+except EOFError:
+    print(xs)
