@@ -1,3 +1,3 @@
-int root = cbrt(abs(a));
-    return a == 0 || a == pow(root, 3);
+int b = cbrt(a);
+    return a == b * b * b;
 }
