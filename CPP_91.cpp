@@ -1,12 +1,14 @@
-int is_bored(string S){
-    int count = 0;
-    string delimiter = ".?!";
-    size_t pos = 0;
-    while ((pos = S.find_first_of(delimiter, pos)) != string::npos) {
-        if (S[pos - 1] == ' ' && S[pos + 1] == 'I') {
-            count++;
+int boredoms = 0;
+    bool is_i = false;
+
+    for (int i = 0; i < S.length(); ++i) {
+        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
+            is_i = true;
+        } else if (is_i && (S[i] == '.' || S[i] == '?' || S[i] == '!')) {
+            boredoms++;
+            is_i = false;
         }
-        pos++;
     }
-    return count;
+
+    return boredoms;
 }
