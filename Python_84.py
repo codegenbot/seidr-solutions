@@ -10,7 +10,7 @@ def solve(N):
         s = base64.b64encode(str(N).encode()).decode().upper()
         result = s.replace("=", "")
 
-    print(result)
+    return result
 
 num = int(input("Enter a number: "))
-solve(num)
+print(solve(num))
