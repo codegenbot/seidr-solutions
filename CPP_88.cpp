@@ -1,4 +1,5 @@
-#include <vector> 
+#include <vector> // Include necessary header file
+
 vector<int> sort_array(vector<int> array) {
     if(array.empty()) return array;
     
@@ -11,7 +12,7 @@ vector<int> sort_array(vector<int> array) {
     return array;
 }
 
-bool issame(vector<int> a, vector<int> b) { 
+bool issame(vector<int> a, vector<int> b) { // Add missing return type 'bool'
     if(a.size() != b.size()) return false;
     
     for(int i = 0; i < a.size(); ++i){
