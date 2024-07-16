@@ -4,17 +4,18 @@
 int mastermind(std::string code, std::string guess) {
     int white = 0, black = 0;
     for (int i = 0; i < 4; ++i) {
-        if (guess[i] == code[i]) {
+        if (code[i] == guess[i]) {
             black++;
+        } else {
+            for (int j = 0; j < 4; ++j) {
+                if (guess[j] == code[i] && i != j) {
+                    white++;
+                    break;
+                }
+            }
         }
     }
-    for (char c : guess) {
-        if (code.find(c) != std::string::npos) {
-            white++;
-            code.erase(code.find(c), 1);
-        }
-    }
-    return white - black;
+    return white + black;
 }
 
 int main() {
