@@ -5,9 +5,6 @@ while True:
     try:
         num1 = int(input("Enter first number: ").strip())
         num2 = int(input("Enter second number: ").strip())
-        
-        if not isinstance(num1, int) or not isinstance(num2, int):
-            raise ValueError
 
         result = add(num1, num2)
         print(result)
