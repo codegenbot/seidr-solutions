@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
-#include <string> 
+#include <string>
+
 using namespace std;
 
-vector<int> indices(string text, string target) {
+vector<int> findIndices(string text, string target) {
     vector<int> result;
     int targetLength = target.length();
     for (int i = 0; i <= text.length() - targetLength; i++) {
@@ -20,7 +22,7 @@ vector<int> indices(string text, string target) {
     return result;
 }
 
-int gcd(int a, int b) {
+int findGCD(int a, int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
