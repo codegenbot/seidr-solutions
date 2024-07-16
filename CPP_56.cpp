@@ -10,4 +10,3 @@ for (char bracket : brackets) {
     }
 }
 return count == 0;
-}
