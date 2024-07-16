@@ -8,10 +8,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> order_by_points(const std::vector<int>& vec) {
     std::vector<int> sortedVec = vec;
-    std::sort(sortedVec.begin(), sortedVec.end());
+    std::sort(sortedVec.begin(), sortedVec.end(), std::greater<int>());
     return sortedVec;
 }
 
-assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{23, 6, 6, 4, 0, -21, -76}));
 
-return 0;
+    return 0;
+}
