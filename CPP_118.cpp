@@ -1,4 +1,4 @@
-string vowels = "AEIOUaeiou";
+string vowels = "aeiouAEIOU";
     int n = word.length();
     for (int i = n - 2; i > 0; --i) {
         if (vowels.find(word[i]) != string::npos && !isalpha(word[i - 1]) && !isalpha(word[i + 1])) {
