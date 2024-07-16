@@ -1,5 +1,4 @@
 from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     group = ""
@@ -10,4 +9,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             group += char
             result.append(group)
             group = ""
-    return result
+    return result     
