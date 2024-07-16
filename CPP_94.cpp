@@ -1,6 +1,8 @@
 #include <initializer_list>
 
-using namespace std;
+#include <vector>
+#include <iostream>
+#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -9,6 +11,8 @@ bool isPrime(int n) {
     }
     return true;
 }
+
+using namespace std;
 
 size_t max_prime_sum(vector<int> lst){
     size_t maxPrime = 0;
