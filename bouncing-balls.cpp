@@ -1,7 +1,9 @@
+```
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
-using namespace std;
+
+std::using namespace std;
 
 int main() {
     double start_height;
@@ -16,14 +18,16 @@ int main() {
     double bounciness_index = first_bounce_height / start_height;
 
     double total_distance = 0.0; 
-    double prev_distance = bounciness_index;   
+    double prev_distance = 1.0;   
 
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += prev_distance * (start_height + (first_bounce_height - start_height) / (2.0 ^ i));
+        total_distance += prev_distance;
         prev_distance *= 2.0; 
+        if(i < num_bounces)
+            prev_distance += 1.0; 
     }
 
-    cout << fixed << setprecision(6) << total_distance;
+    cout << std::fixed << std::setprecision(10) << total_distance;
 
     return 0;
 }
