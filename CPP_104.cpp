@@ -1,11 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {}
-
-vector<int> unique_digits(vector<int> x) {
+vector<int> unique_digits(vector<int> a) {
     vector<int> result;
-    for (int num : x) {
+    for (int num : a) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
@@ -23,7 +21,4 @@ vector<int> unique_digits(vector<int> x) {
     return result;
 }
 
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
-    return 0;
-}
+unique_digits({135, 103, 31});
