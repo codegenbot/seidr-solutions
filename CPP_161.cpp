@@ -1,10 +1,16 @@
-for(char &c : s) {
-        if(isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+for (char &c : s) {
+        if (isalpha(c)) {
+            if (isupper(c)) {
+                c = tolower(c);
+            } else {
+                c = toupper(c);
+            }
         }
     }
-    if(count_if(s.begin(), s.end(), ::isalpha) == 0) {
+    
+    if (s.find_first_not_of("0123456789") == string::npos) {
         reverse(s.begin(), s.end());
     }
+    
     return s;
 }
