@@ -4,7 +4,7 @@
 
 bool issame(const vector<string>& a, const vector<string>& b);
 
-vector<string> select_words(string s, int n) {
+vector<string> select_words(const string& s, int n) {
     vector<string> words;
     string word = "";
     int consonant_count = 0;
@@ -50,6 +50,18 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    // Your main function logic here
+    // Test the select_words function
+    string input = "Hello World";
+    int n = 3;
+    vector<string> result = select_words(input, n);
+
+    // Test the issame function
+    vector<string> expected = {"Hello", "World"};
+    if (issame(result, expected)) {
+        std::cout << "Test Passed" << std::endl;
+    } else {
+        std::cout << "Test Failed" << std::endl;
+    }
+
     return 0;
 }
