@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,17 +8,17 @@ std::string camelCase(const std::string& str) {
     bool wordStarted = false;
 
     for (char c : str) {
-        if (c == '-') {
+        if (c == '-' || c == ' ') { 
             capitalize = true;
-        } else if (!wordStarted || c == ' ') { 
-            if (capitalize) {
+            wordStarted = false;
+        } else if (!wordStarted) {
+            if (capitalize && islower(c)) { 
                 result += toupper(c);
                 capitalize = false;
-                wordStarted = true; 
             } else {
-                result += tolower(c);
-                wordStarted = true; 
+                result += c;
             }
+            wordStarted = true;
         } else {
             if (capitalize) {
                 result += toupper(c);
@@ -36,7 +37,6 @@ int main() {
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
 
-    std::cout << "camelCase: " << camelCase(input) << std::endl;
-
+    std::cout << "camelCase: " << camelCase(input) << "\n";
     return 0;
 }
