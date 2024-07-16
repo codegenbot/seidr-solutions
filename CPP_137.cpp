@@ -33,8 +33,8 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(std::any_cast<float>(compare_one(1, 1.0f)) == 1.0f);
-    assert(std::any_cast<float>(compare_one(1.5f, 2.5f)) == 2.5f);
+    assert(std::any_cast<string>(compare_one(string("1.2"), string("3.4"))) == "1.2");
+    assert(std::any_cast<float>(compare_one(1, 3.4f)) == 3.4f);
 
     std::cout << "All test cases passed!" << std::endl;
 
