@@ -11,8 +11,4 @@ vector<int> tri(int n) {
     return result;
 }
 
-int main() {
-    vector<int> result = tri(5);
-    assert(std::equal(result.begin(), result.end(), std::vector<int>{0, 3, 1, 2, 4}.begin()));
-    return 0;
-}
+assert(std::equal(result.begin(), result.end(), std::begin({0, 3, 1, 2, 4})));
