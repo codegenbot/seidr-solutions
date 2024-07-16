@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -14,6 +13,15 @@ int fuelCost(std::vector<int> stations) {
 }
 
 int main() {
-    std::cout << "Fuel cost: " << fuelCost({692, 5576, 3919, 8505, 2925, 774, 7963, 8485, 3520, 5136, 4558, 6926, 3601, 1299, 8310, 5339}) << std::endl;
+    std::vector<int> stations;
+    int n;
+    std::cout << "Enter the number of stations: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int station;
+        std::cout << "Enter fuel cost for station " << i+1 << ": ";
+        std::cin >> station;
+        stations.push_back(station);
+    }
+    std::cout << "Fuel cost: " << fuelCost(stations) << std::endl;
     return 0;
-}
