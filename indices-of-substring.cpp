@@ -4,18 +4,22 @@
 
 int main() {
     std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
-
-    std::vector<std::size_t> indices;
-    std::size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos++;
+    std::cin >> text >> target;
+    
+    std::vector<int> indices;
+    size_t i = 0;
+    while (i < text.size()) {
+        size_t found = text.find(target, i);
+        if (found != std::string::npos) {
+            indices.push_back(found);
+            i = found + 1;
+        } else {
+            break;
+        }
     }
     
-    for (std::size_t i = 0; i < indices.size(); ++i) {
-        std::cout << std::dec << indices[i] << " ";
+    for (int i = 0; i < indices.size(); ++i) {
+        std::cout << indices[i] << " ";
     }
     
     return 0;
