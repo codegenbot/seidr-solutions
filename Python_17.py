@@ -1,6 +1,6 @@
-I've removed the extra backticks from the original code as requested. Here is the modified code:
+Here is the modified code:
 
-```
+```python
 from typing import List
 
 
