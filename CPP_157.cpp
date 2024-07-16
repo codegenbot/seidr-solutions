@@ -1,5 +1,10 @@
-if(a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a){
-        return true;
+// Sort the sides of the triangle in ascending order
+    if (c > a && c > b) {
+        swap(c, a);
+        swap(c, b);
+    } else if (b > a) {
+        swap(b, a);
     }
-    return false;
+    
+    return a * a + b * b == c * c;
 }
