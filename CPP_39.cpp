@@ -1,41 +1,23 @@
-#include <iostream>
-
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; ++i) {
-        if (num % i == 0) {
-            return false;
+int prime_fib(int n){
+    if(n == 1) return 2;
+    if(n == 2) return 3;
+    int count = 2;
+    int current = 3;
+    int prev = 2;
+    while(count < n){
+        int temp = current;
+        current = current + prev;
+        prev = temp;
+        bool isPrime = true;
+        for(int i = 2; i*i <= current; i++){
+            if(current % i == 0){
+                isPrime = false;
+                break;
+            }
+        }
+        if(isPrime){
+            count++;
         }
     }
-    return true;
-}
-
-int prime_fib(int n) {
-    if (n <= 0) {
-        return -1;
-    }
-    
-    int a = 1, b = 1, c;
-    for (int i = 3; i <= n; ++i) {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-    
-    while (!isPrime(b)) {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-    
-    return b;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::cout << prime_fib(n) << std::endl;
-    return 0;
+    return current;
 }
