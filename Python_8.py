@@ -1,10 +1,5 @@
 from typing import List, Tuple
+from functools import reduce
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not all(isinstance(num, int) for num in numbers):
-        raise ValueError("Input must be a list of integers")
-    total_sum = sum(numbers) if numbers else 0
-    total_product = 1
-    for num in numbers:
-        total_product *= num
-    return total_sum, total_product
+    return (sum(numbers), 1 if not numbers else reduce(lambda x, y: x * y, numbers))
