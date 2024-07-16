@@ -1,7 +1,6 @@
-def is_pythagorean_triple(a, b, c):
-    sorted_numbers = sorted([a, b, c])
-    return sorted_numbers[0] ** 2 + sorted_numbers[1] ** 2 == sorted_numbers[2] ** 2
+a, b, c = map(int, input("Enter three numbers separated by space: ").strip().split())
 
-a, b, c = map(int, input().split())
+def is_pythagorean_triple(a, b, c):
+    return sorted([a, b, c])[0] ** 2 + sorted([a, b, c])[1] ** 2 == sorted([a, b, c])[2] ** 2
 
 print(is_pythagorean_triple(a, b, c))
