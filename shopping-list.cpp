@@ -14,6 +14,6 @@ int main() {
     int nPrices = sizeof(prices) / sizeof(prices[0]);
     float discounts[] = {0.05f, 0.1f, 0.08f};
     float totalPrice = shoppingList(prices, nPrices, discounts);
-    printf("Total price: %f\n", totalPrice); 
+    std::printf("Total price: %f\n", totalPrice); 
     return 0;
 }
