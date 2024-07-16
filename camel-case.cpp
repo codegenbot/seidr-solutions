@@ -1,24 +1,20 @@
 int main() {
     string input;
     getline(cin, input);
-    
-    bool capitalize = false;
-    
+
+    bool capitalize = true;
     for (char &c : input) {
-        if (c == ' ') {
+        if (c == '-') {
             capitalize = true;
-        } else if (c == '-') {
-            capitalize = true;
-            c = ' ';
-        } else {
+        } else if (c != ' ') {
             if (capitalize) {
-                c = toupper(c);
+                cout << (char)toupper(c);
                 capitalize = false;
+            } else {
+                cout << c;
             }
         }
     }
-    
-    cout << input << endl;
-    
+
     return 0;
 }
