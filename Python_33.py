@@ -1,2 +1,6 @@
 def sort_third(l: list):
-    return [elem for sublist in [sorted(l[i:i+3]) if i % 3 == 0 else [l[i]] for i in range(len(l))] for elem in sublist]
+    while len(l) % 3 != 0:
+        l.append(None)
+    return [sorted(l[i : i + 3]) for i in range(0, len(l), 3)]
+
+print(sort_third([5, 6, 3, 4, 8, 9, 2, 1]))
