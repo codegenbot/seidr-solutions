@@ -25,9 +25,12 @@ void order_by_points(std::vector<int>& nums){
 
 int main() {
     std::vector<int> input = {0, 6, 6, -76, -21, 23, 4};
-    std::vector<int> sorted_input = input;
-    order_by_points(sorted_input);
-    assert(issame(sorted_input, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+    order_by_points(input);
+    assert(issame(input, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+
+    std::vector<int> test_input = {0, 6, 6, -76, -21, 23, 4};
+    order_by_points(test_input);
+    assert(issame(test_input, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
