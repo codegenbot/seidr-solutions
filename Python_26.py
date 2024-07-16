@@ -1,8 +1,4 @@
-def remove_duplicates(numbers):
-    return list(set(numbers))
+from collections import Counter
 
 def check(numbers):
-    return remove_duplicates(numbers)
-
-result = check([1, 2, 3, 2, 4, 3, 5])
-print(result)
+    return list(Counter(numbers).keys())
