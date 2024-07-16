@@ -1,10 +1,10 @@
-```cpp
+```c++
 #include <string>
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     stack<char> operationStack;
-    stack<bool> valueStack; 
+    stack<bool> valueStack;
 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
