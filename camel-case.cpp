@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -8,10 +9,12 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';  // Add a space to separate words
-            capitalize = true;  // Start new word, so capitalize next char
+            if (capitalize) {
+                result += ' ';
+                capitalize = false;
+            }
         } else if (capitalize) {
-            result += toupper(c);  // Capitalize first letter of each word
+            result += toupper(c);
             capitalize = false;
         } else {
             result += tolower(c);
