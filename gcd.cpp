@@ -1,8 +1,9 @@
-long long gcd(long long a, long long b) {
+```cpp
+int gcd(int a, int b) {
     while (b != 0) {
-        long long temp = b;
+        int temp = b;
         b = a % b;
         a = temp;
     }
-    return abs(a);
+    return a;
 }
