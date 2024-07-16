@@ -1,5 +1,6 @@
 ```cpp
 #include <string>
+#include <iostream>
 
 int pairedDigits(std::string s) {
     int sum = 0;
@@ -13,8 +14,13 @@ int pairedDigits(std::string s) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    char c;
+    input.clear();
+    while ((c = getchar()) != '\n' && !input.empty()) {
+        input.push_back(c);
+    }
     
     int result = pairedDigits(input);
+    std::cout << result << std::endl;
     return 0;
 }
