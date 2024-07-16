@@ -7,5 +7,5 @@ def encode(message):
             else:
                 result += chr((ord(char) - 97 + 3) % 26 + 97)
         else:
-            result += char
+            result += chr(ord(char))
     return result
