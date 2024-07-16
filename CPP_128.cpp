@@ -1,13 +1,18 @@
-int result = 1;
-    int sum = 0;
+int result = 0;
+    int signProduct = 1;
+    
     if (arr.empty()) {
         return -32768;
     }
-
+    
     for (int num : arr) {
-        result *= num < 0 ? -1 : (num == 0 ? 0 : 1);
-        sum += abs(num);
+        if (num > 0) {
+            signProduct *= 1;
+        } else if (num < 0) {
+            signProduct *= -1;
+        }
+        result += abs(num);
     }
-
-    return result * sum;
+    
+    return result * signProduct;
 }
