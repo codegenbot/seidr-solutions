@@ -13,13 +13,6 @@ std::string squareDigits(std::string input) {
 int main() {
     std::string input;
     std::cout << "Enter a positive integer: ";
-    std::cin >> input; 
-
-    if (input.length() > 0) {
-        std::cout << squareDigits(input) << "\n";
-    } else {
-        std::cout << "Invalid input.\n";
-    }
-    
-    return 0;
+    std::cin >> input;
+    std::cout << squareDigits(input) << "\n";
 }
