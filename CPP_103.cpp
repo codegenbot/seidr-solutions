@@ -1,8 +1,7 @@
 #include <string>
-#include <iostream>
 #include <cmath>
 
-string calculate_binary_avg(int n, int m) {
+string rounded_average(int n, int m) {
     if (n > m) {
         return "-1";
     }
