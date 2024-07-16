@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 string squareDigits(string input) {
