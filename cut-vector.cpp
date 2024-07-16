@@ -18,32 +18,15 @@ vector<vector<int>> cutVector(vector<int> v) {
     return res;
 }
 
-vector<vector<int>> cut(vector<int> v) {
-    using namespace std;
-
-    int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 0; i < n - 1; ++i) {
-        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
-            res[0].insert(res[0].end(), v.begin(), v.end());
-            return {{}, res[0]};
-        }
-    }
-    int mid = n / 2;
-    res[0] = vector<int>(v.begin(), v.begin() + mid);
-    res[1] = vector<int>(v.begin() + mid, v.end());
-    return res;
-}
-
 int main() {
     vector<int> v = {2, 1, 3};
-    auto res = cut(v);
+    auto res = cutVector(v);
     for (const auto& sub : res) {
         cout << "[";
         for (const auto& num : sub) {
-            std::cout << num << " ";
+            cout << num << " ";
         }
-        std::cout << "]\n";
+        cout << "]\n";
     }
     return 0;
 }
