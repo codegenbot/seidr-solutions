@@ -1,12 +1,14 @@
-def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
-    result.append(
-        max([paren_string.count("(" * i) for i in range(1, len(paren_string) // 2 + 1)])
-        // 2
-    )
-    return result
+def parse_nested_parens(input_str):
+    stack = []
+    for char in input_str:
+        if char == '(':
+            stack.append(char)
+        elif char == ')' and stack:
+            stack.pop()
+        else:
+            return False
+    return len(stack) == 0
 
-
-input_str = input().strip()
+input_str = "((())) (()(()))"
 output = parse_nested_parens(input_str)
 print(output)
