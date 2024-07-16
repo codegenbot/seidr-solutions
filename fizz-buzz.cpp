@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     if (x % 15 == 0)
@@ -9,7 +9,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x);
+        return (int)(x < INT_MAX && std::to_string(x)) || "Overflow";
 }
 
 int main() {
@@ -18,3 +18,4 @@ int main() {
     std::cin >> num;
     std::cout << fizzBuzz(num) << std::endl;
     return 0;
+}
