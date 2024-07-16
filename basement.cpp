@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int basement(std::vector<int>& v) {
