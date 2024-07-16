@@ -1,14 +1,20 @@
-Here is the solution:
-
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq;
+    priority_queue<int> maxHeap;
+    
     for (int i : arr) {
-        pq.push(i);
+        maxHeap.push(i);
+        
+        if (maxHeap.size() > k)
+            maxHeap.pop();
     }
-    vector<int> res(k);
-    for (int i = 0; i < k; i++) {
-        res[i] = pq.top();
-        pq.pop();
+    
+    vector<int> result;
+    while (!maxHeap.empty()) {
+        result.push_back(maxHeap.top());
+        maxHeap.pop();
     }
-    return res;
+    
+    reverse(result.begin(), result.end());
+    
+    return result;
 }
