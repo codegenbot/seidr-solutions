@@ -8,19 +8,15 @@ int main() {
 }
 
 std::string spinWords(std::string str) {
-    std::istringstream ss(str);
+    std::stringstream ss;
     std::string word;
-    std::string result;
 
-    while (ss >> word) {
-        if(word.size()>4)
-            result += std::string(word.rbegin(), word.rend()) + " ";
+    for (const auto& w : str.split(" ")) {  
+        if(w.size()>4)
+            ss << std::string(w.rbegin(), w.rend()) + " ";
         else
-            result += word + " ";
+            ss << w << " ";
     }
 
-    if (result.back() == ' ') 
-        result.pop_back();
-
-    return result;
+    return ss.str();
 }
