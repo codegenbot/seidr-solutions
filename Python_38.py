@@ -5,9 +5,8 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-
 input_string = input("Enter a string: ").strip()
-while not input_string:
-    input_string = input("Enter a non-empty string: ").strip()
+while len(input_string) % 3 != 0:
+    input_string = input("Enter a string with length divisible by 3: ").strip()
 result = decode_cyclic(input_string)
 print(result)
