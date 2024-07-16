@@ -30,14 +30,12 @@ int main() {
     auto result = findCutSpot(nums);
 
     for (int num : result.first) {
-        std::cout << num << " ";
+        std::cout << num << std::endl;
     }
-    std::cout << std::endl;
 
     for (int num : result.second) {
-        std::cout << num << " ";
+        std::cout << num << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
