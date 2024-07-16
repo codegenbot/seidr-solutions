@@ -6,30 +6,24 @@ int main() {
         cin >> nums[i];
     }
     
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = -1;
-    
-    for (int i = 0; i < n; ++i) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
+    int min_diff = INT_MAX;
+    int cut_idx = -1;
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
     
-    if (abs(2 * prefixSum - sum) < abs(2 * (prefixSum - nums[idx]) - sum)) {
-        ++idx;
-    }
-    
-    for (int i = 0; i < idx; ++i) {
+    for (int i = 0; i < cut_idx; ++i) {
         cout << nums[i] << endl;
     }
-    cout << endl;
-    for (int i = idx; i < n; ++i) {
+    cout << 0 << endl;
+    for (int i = cut_idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
+    cout << 0 << endl;
     
     return 0;
 }
