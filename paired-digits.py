@@ -7,6 +7,7 @@ def paired_digits(s):
         else:
             total += int(s[i-1]) * count
             count = 1
+    total += int(s[-1]) * count
     return total
 
 s = input("Enter a string of digits: ")
