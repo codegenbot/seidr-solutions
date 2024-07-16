@@ -1,1 +1,1 @@
-paren_strings = input("Enter space-separated parentheses strings: ").strip().split()
+paren_strings = input("Enter space-separated strings: ").strip().split()
