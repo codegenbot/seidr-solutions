@@ -1,37 +1,30 @@
-```
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    std::string temp = "";
-
-    for(int i=0; i<sentence.length(); i++) {
-        char c = sentence[i];
-        if(c == ' ') {
-            if(temp.length() >= 5)
-                std::reverse(temp.begin(), temp.end());
-            result += temp + " ";
-            temp = "";
-        } else {
-            temp += c;
-        }
+    char* token = strtok(const_cast<char*>(str.c_str()), " ");
+    
+    while(token != NULL) {
+        int wordLength = strlen(token);
+        
+        if(wordLength >= 5) {
+            for(int i = wordLength - 1; i >= 0; --i)
+                result += token[i];
+        } else
+            result += token;
+        
+        result += " ";
+        token = strtok(NULL, " ");
     }
-
-    if(temp.length() >= 5)
-        std::reverse(temp.begin(), temp.end());
-
-    result += temp;
-
-    return result;
+    
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; 
-    std::cout << spinWords("this is a test") << std::endl; 
-    std::cout << spinWords("this is another test") << std::endl; 
-    std::cout << spinWords("hi") << std::endl; 
-
+    std::string str;
+    std::cout << "Enter a string of one or more words (separated by spaces): ";
+    std::getline(std::cin, str);
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
