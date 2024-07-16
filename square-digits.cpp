@@ -1,4 +1,3 @@
-```c++
 using namespace std;
 
 string squareDigits(string inputStr) {
