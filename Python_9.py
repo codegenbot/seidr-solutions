@@ -1,10 +1,15 @@
 def get_valid_input():
     while True:
         try:
-            input_numbers = list(map(int, input("Enter comma-separated numbers: ").strip().split(",")))
-            return input_numbers
-        except (ValueError, EOFError):
+            user_input = input("Enter comma-separated numbers: ").strip()
+            if user_input:
+                input_numbers = list(map(int, user_input.split(",")))
+                return input_numbers
+            else:
+                print("Invalid input. Please enter comma-separated numbers.\n")
+        except ValueError:
             print("Invalid input. Please enter comma-separated numbers.\n")
+
 
 input_numbers = get_valid_input()
 print(f"Input numbers: {input_numbers}")
