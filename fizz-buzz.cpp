@@ -1,6 +1,7 @@
-#include <climits>
+```c++
 #include <string>
 #include <iostream>
+#include <climits>
 
 std::string fizzBuzz(int x) {
     if (x % 15 == 0)
@@ -10,7 +11,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return (x <= INT_MAX && std::to_string(x)) || "Overflow";
+        return std::to_string(x);
 }
 
 int main() {
