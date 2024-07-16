@@ -1,25 +1,14 @@
-def bowling_score(score):
+def bowling_game(score):
     score = score.replace("/", "")
-    frames = [int(x) for x in re.split("(\d+)", score)]
-    total = 0
-    roll = 0
-    for i in range(10):
-        if len(frames) > i:
-            if frames[i] == 10:
-                total += 10 + bowling_score(frames[i + 1 : i + 11])
-                roll += 2
-                if len(frames) <= i + 1:
-                    break
-            elif sum(frames[i : i + 2]) >= 10:
-                total += 10
-                roll += 2
-                frames = frames[i + 2 :]
-            else:
-                total += sum(frames[i : i + 2])
-                roll += 2
-                if len(frames) <= i + 1:
-                    break
-    return total
+    return sum(map(int, [min(10, int(i)) if i.isdigit() else 10 for i in score]))
 
 
-print(bowling_score(input()))
+if __name__ == "__main__":
+    while True:
+        try:
+            user_input = input("Enter the bowling score (or 'q' to quit): ")
+            if user_input.lower() == "q":
+                break
+            print(bowling_game(user_input))
+        except ValueError:
+            print("Invalid input. Please enter a string of numbers and X's.")
