@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -15,8 +15,8 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return true;
 }
 
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
     for (int num : x) {
         int temp = num;
         bool hasEvenDigit = false;
@@ -31,6 +31,6 @@ vector<int> unique_digits(vector<int> x){
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
