@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,11 +12,7 @@ int bowlingScore(string s) {
             int roll1 = s[i] - '0';
             string temp = s.substr(i+1, 1);
             int roll2 = temp == "/" ? 0 : (temp[0] - '0');
-            if (i < 8 && s[i+1] != '/') {
-                score += roll1 + roll2;
-            } else {
-                score += roll1;
-            }
+            score += roll1 + roll2;
         }
     }
 
