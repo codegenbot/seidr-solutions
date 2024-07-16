@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
 #include <algorithm>
+#include <unordered_set>
 
 std::vector<int> findPair(const std::vector<int>& nums, int target) {
     std::vector<int> sortedNums = nums;
