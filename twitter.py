@@ -1,6 +1,5 @@
-```
 def validate_tweet(tweet):
-    tweet = ''.join(format(ord(x), '#04x') for x in tweet)
+    tweet = tweet.replace(' ', '')
     if len(tweet) > 140:
         return "Too many characters"
     elif not tweet:
