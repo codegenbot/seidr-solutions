@@ -1,4 +1,8 @@
 #include <vector>
+#include <string>
+#include <algorithm>
+
+bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2, 0);
