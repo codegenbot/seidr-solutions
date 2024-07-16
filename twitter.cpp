@@ -11,8 +11,7 @@ string validateTweet(string tweet) {
     if (tweet.size() > 140) {
         return "Too many characters";
     }
-    string result = "Your tweet has " + to_string(tweet.size()) + " characters";
-    return result;
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
 
 int main() {
