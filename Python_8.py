@@ -19,9 +19,7 @@ try:
             results.append(result)
         except ValueError:
             break
-        except EOFError:
-            break
-except EOFError:
+except (EOFError, KeyboardInterrupt):
     pass
 
 for result in results:
