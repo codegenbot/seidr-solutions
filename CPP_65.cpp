@@ -1,5 +1,11 @@
-#include <string>
 #include <algorithm>
+#include <string>
+
+std::string circular_shift(int x, int shift);
+
+int main() {
+    // Your main function code here
+}
 
 std::string circular_shift(int x, int shift) {
     std::string str = std::to_string(x);
