@@ -1,5 +1,5 @@
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a[0] == b[0] && a[1] == b[1];
+bool is_same(const vector<float>& a, const vector<float>& b) {
+    return a == b;
 }
 
 pair<float, float> find_closest_elements(const vector<float>& numbers) {
