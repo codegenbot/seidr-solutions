@@ -10,10 +10,10 @@ int main() {
     
     if (tweet.empty()) {
         cout << "You didn't type anything" << endl;
-    } else if ((int)tweet.size() > 140) {
+    } else if ((size_t)tweet.length() > 140) {
         cout << "Too many characters" << endl;
     } else {
-        cout << "Your tweet has " << tweet.size() << " characters" << endl;
+        cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
     
     return 0;
