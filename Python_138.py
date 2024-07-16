@@ -1,4 +1,3 @@
-```Python
 def is_equal_to_sum_even(n):
     for i in range(2, n + 1):
         sum_even = 0
