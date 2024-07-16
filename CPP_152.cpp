@@ -13,8 +13,6 @@ vector<int> compare(const vector<int>& a, const vector<int>& b) {
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool areEqual(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
-
-assert(issame(compare({1,2,3,5},{-1,2,3,4}), {2,0,0,1}));
