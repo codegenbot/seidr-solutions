@@ -1,4 +1,6 @@
 ```
+from base64 import b64encode
+
 def solve():
     while True:
         try:
