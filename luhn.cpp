@@ -1,5 +1,5 @@
-```c++
 #include <vector>
+
 int luhn(std::vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
@@ -10,12 +10,13 @@ int luhn(std::vector<int> digits) {
             sum += temp;
     }
     return sum;
+
 }
 
 int main() {
-    std::vector<int> digits = {1, 2, 3, 4}; 
+    std::vector<int> digits = {1, 2, 3, 4}; // replace with your input
     int result = luhn(digits);
-    std::cout << "Result: " << result << std::endl; 
+    std::cout << "Result: " << result << std::endl; // print the result
 
     return 0;
 }
