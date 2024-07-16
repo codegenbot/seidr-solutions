@@ -1,7 +1,5 @@
 ```c++
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
@@ -18,6 +16,6 @@ int main() {
     cin >> hours;
     float initialSnow, rateOfSnowfall, proportionOfMeltingPerHour;
     cin >> initialSnow >> rateOfSnowfall >> proportionOfMeltingPerHour;
-    cout << std::fixed << std::setprecision(6) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour) << endl;
+    cout << fixed << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour) << endl;
     return 0
 }
