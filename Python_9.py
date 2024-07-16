@@ -1,7 +1,7 @@
 numbers = []
 try:
     while True:
-        num = input()
+        num = input().strip()
         if not num:
             break
         numbers.append(int(num))
