@@ -1,10 +1,6 @@
-```
 #include <vector>
+#include <initializer_list>
 using namespace std;
-
-int main() {
-    return basement(vector<int>{});
-}
 
 int basement(vector<int>& nums) {
     int sum = 0;
@@ -14,4 +10,14 @@ int basement(vector<int>& nums) {
             return i + 1;
     }
     return -1;
-};
+}
+
+int main() {
+    vector<int> nums = {1, -3, 2, 5, -4};
+    int result = basement(nums);
+    if (result == -1)
+        cout << "No such index exists." << endl;
+    else
+        cout << "The basement index is: " << result << endl;
+    return 0;
+}
