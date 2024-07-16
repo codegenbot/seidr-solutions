@@ -1,5 +1,3 @@
-vector<int> l_copy = l;
-for(int i = 0; i < l.size(); i += 3){
-    sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
-return l_copy;
