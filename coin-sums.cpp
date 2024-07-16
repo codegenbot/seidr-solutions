@@ -4,7 +4,7 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    int quarters = cents / 25;
+    int quarters = std::min(cents / 25, int(1));
     cents %= 25;
 
     int dimes = cents / 10;
