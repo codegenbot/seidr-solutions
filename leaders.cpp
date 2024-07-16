@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <algorithm>
+#include <algorithm> // Include this header for using std::reverse
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -14,7 +14,7 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
 
-    std::reverse_copy(leaders.begin(), leaders.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
@@ -25,7 +25,9 @@ int main() {
         nums.push_back(num);
     }
     
-    findLeaders(nums);
-
+    std::vector<int> result = findLeaders(nums);
+    for (int i = 0; i < result.size(); ++i) {
+        std::cout << result[i] << " ";
+    }
     return 0;
 }
