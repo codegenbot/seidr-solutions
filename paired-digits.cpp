@@ -13,7 +13,7 @@ int pairedDigits(std::string s) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    std::getline(cin, input);
     
     int result = pairedDigits(input);
     return 0;
