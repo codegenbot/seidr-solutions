@@ -9,5 +9,5 @@ int next_smallest(vector<int> lst) {
             return sorted[i];
         }
     }
-    return -1; 
+    return -1; // or None as per the problem description
 }
