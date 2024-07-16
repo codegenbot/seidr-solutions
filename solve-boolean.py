@@ -1,25 +1,21 @@
-```
+```python
 def solve_boolean(expression):
-    stack = []
-    i = 0
+    if not expression: 
+        return False
     
-    while i < len(expression):
-        if expression[i] == 'T':
-            stack.append(True)
-        elif expression[i] == 'F':
-            stack.append(False)
-        elif expression[i] == '&':
-            if len(stack) >= 2:
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(a and b)
-            i += 1
-        elif expression[i] == '|':
-            if len(stack) >= 2:
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(a or b)
-            i += 1
-        i += 1
-    
-    return stack[0]
+    for char in expression:
+        if char == 'T':
+            continue
+        elif char == "&":
+            if solve_boolean(expression[:expression.index(char)]) and solve_boolean(expression[expression.index(char) + 1:]):
+                return True
+            else:
+                return False
+        elif char == "|":
+            if solve_boolean(expression[:expression.index(char)]):
+                return True
+            elif solve_boolean(expression[expression.index(char) + 1:]):
+                return True
+            else:
+                return False
+    return True
