@@ -12,7 +12,9 @@ vector<int> leaders(vector<int> arr) {
     res.push_back(arr[n-1]);
     
     for(int i=n-2; i>=0; i--){
-        if(res.back() < arr[i])
+        while(res.back() < arr[i] && !res.empty())
+            res.pop_back();
+        if(!res.empty())
             res.push_back(arr[i]);
     }
     
