@@ -1,3 +1,2 @@
-print("Enter a list of integers separated by space:")
-xs = list(map(int, input().split()))
+xs = list(map(int, input().strip().split()))
 print(xs)
