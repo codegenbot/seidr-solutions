@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 std::string camelCase(std::string s) {
     std::string result = "";
@@ -31,7 +32,7 @@ std::string camelCase(std::string s) {
                 i = j - 1;
             }
         } else {
-            if (!result.empty()) {
+            if (!result.empty() && s[i] != ' ') {
                 result[0] = std::toupper(result[0]);
             }
             result += s[i];
