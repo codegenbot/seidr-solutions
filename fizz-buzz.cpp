@@ -1,6 +1,5 @@
 ```cpp
 #include <string>
-#include <iostream>
 
 std::string fizzBuzz(int x) {
     if (x % 15 == 0)
@@ -14,9 +13,8 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << fizzBuzz(num) << std::endl;
+    int x;
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
