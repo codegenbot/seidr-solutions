@@ -1,17 +1,17 @@
 #include <vector>
 using namespace std;
 
-int luhnCheck(vector<int>& card) {
+int luhnAlgorithm(const vector<int>& creditCardNumber) {
     int sum = 0;
-    for (int i = 0; i < card.size(); i++) {
-        if (i % 2 == 1) {
-            int temp = card[i] * 2;
-            if (temp > 9) {
-                temp -= 9;
+    for (int i = 0; i < creditCardNumber.size(); i++) {
+        if ((i % 2 == 1)) {
+            int digit = creditCardNumber[i] * 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += temp;
+            sum += digit;
         } else {
-            sum += card[i];
+            sum += creditCardNumber[i];
         }
     }
     return sum;
@@ -20,10 +20,10 @@ int luhnCheck(vector<int>& card) {
 int main() {
     int n;
     cin >> n;
-    vector<int> card(n);
+    vector<int> creditCardNumber(n);
     for (int i = 0; i < n; i++) {
-        cin >> card[i];
+        cin >> creditCardNumber[i];
     }
-    cout << luhnCheck(card) << endl;
+    cout << luhnAlgorithm(creditCardNumber) << endl;
     return 0;
 }
