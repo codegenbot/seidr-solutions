@@ -1,17 +1,16 @@
-```c++
 #include <iostream>
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
-    int total_quarters = min(cents/25, (cents/(total_quarters+total_dimes))/4);
-    cents %= 25;
+    int total_quarters = min(cents/25, (cents/(25+10))/4);
+    cents %= 25*total_quarters;
 
-    int total_dimes = min(cents/10, (cents%25)/10);
-    cents %= 10;
+    int total_dimes = min(cents/10, (cents%25*4+cents)/10);
+    cents %= 10*total_dimes;
 
-    int nickles_and_pennies = min(cents/5, ((cents%10)+total_quarters*2+total_dimes*2))/5;
+    int nickles_and_pennies = cents / 5;
     cents %= 5;
 
     int pennies = cents;
