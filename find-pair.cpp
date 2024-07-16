@@ -1,4 +1,4 @@
-```c++
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -36,8 +36,10 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
 
 int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
-    auto result = findPairs(nums, target);
-    // do something with the result...
+    int target = 7; 
+    std::vector<std::pair<int, int>> result = findPairs(nums, target);
+    for (const auto& pair : result) {
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+    }
     return 0;
 }
