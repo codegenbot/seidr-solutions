@@ -1,4 +1,3 @@
-if(a.size() != b.size()) return false;
-    string temp = a + a;
-    return temp.find(b) != string::npos;
+string double_a = a + a;
+    return double_a.find(b) != string::npos;
 }
