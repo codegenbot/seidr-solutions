@@ -13,7 +13,7 @@ std::string camelCase(std::string s) {
             while (j <= s.size() && s[j] != '-') {
                 result += tolower(s[j++]);
             }
-            if (!s.substr(j).empty()) {
+            if (!s[j:].empty()) {
                 result += " ";
             }
         }
