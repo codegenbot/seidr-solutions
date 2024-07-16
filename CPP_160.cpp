@@ -19,3 +19,8 @@ int do_algebra(vector<string> operators, vector<int> operand){
     }
     return result;
 }
+
+int main() {
+    int result = do_algebra({"//", "*"}, {7, 3, 4});
+    return 0;
+}
