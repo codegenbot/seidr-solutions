@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -11,6 +12,7 @@ int main() {
     } else if (tweet.length() > 140) {
         std::cout << "Too many characters" << std::endl;
     } else {
-        std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
+        std::cout << "Your tweet has " << tweet.length() << " characters." << std::endl;
     }
+    return 0;
 }
