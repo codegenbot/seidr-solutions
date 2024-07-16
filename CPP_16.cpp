@@ -1,10 +1,10 @@
 transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> seen(26);
+    vector<bool> seen(256, false);
     int count = 0;
     
     for (char c : str) {
-        if (isalpha(c) && !seen[tolower(c) - 'a']) {
-            seen[tolower(c) - 'a'] = true;
+        if (!seen[c]) {
+            seen[c] = true;
             count++;
         }
     }
