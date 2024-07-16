@@ -7,16 +7,16 @@ int main() {
     double startHeight;
     double firstBounce;
     int numBounces;
-    double bouncinessIndex; // Declare here
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
+    double bouncinessIndex;
     bouncinessIndex = firstBounce / startHeight;
     startHeight = firstBounce;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += (1 - 0.5 * (i % 2)) * 2 * startHeight;
+        totalDistance += 2 * startHeight;
         startHeight *= bouncinessIndex;
     }
 
