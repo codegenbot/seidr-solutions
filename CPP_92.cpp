@@ -1,5 +1,3 @@
-bool checkIfTriangle(int a, int b, int c) {
-    if((a < b + c) && (b < a + c) && (c < a + b))
-        return true;
-    return false;
+bool checkTriangleSides(int a, int b, int c) {
+    return (a < b + c) && (b < a + c) && (c < a + b);
 }
