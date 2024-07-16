@@ -1,4 +1,4 @@
-bool assert_same(vector<string> a, vector<string> b){
+bool assert_same(vector<string> a, vector<string> b){ // Fix function name and add space between parameters
     if(a.size() != b.size()){
         return false;
     }
