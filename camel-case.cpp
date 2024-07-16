@@ -33,13 +33,18 @@ std::string camelCase(const std::string& str) {
     }
 
     std::string result;
-    for (int i = 0; i < words.size(); i++) {
+    for (char c : words[0]) {
+        result.push_back(std::tolower(c));
+    }
+    for (int i = 1; i < words.size(); i++) {
         if (!result.empty()) {
-            result += std::toupper(words[i][0]);
-            result += words[i].substr(1);
+            result.push_back(std::toupper(words[i][0]));
+            std::string temp = words[i].substr(1);
+            result += temp;
         } else {
-            result += std::tolower(words[i][0]);
-            result += words[i].substr(1);
+            result.push_back(std::tolower(words[i][0]));
+            std::string temp = words[i].substr(1);
+            result += temp;
         }
     }
     
