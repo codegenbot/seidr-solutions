@@ -1,3 +1,4 @@
+```
 def basement(lst):
     for i in range(len(lst)):
         sum_total = sum(lst[:i+1])
