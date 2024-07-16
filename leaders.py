@@ -1,8 +1,8 @@
 def leaders(arr):
     last_leader = arr[-1]
-    result = [last_leader]
+    leaders = [last_leader]
     for i in range(len(arr) - 2, -1, -1):
         if arr[i] >= last_leader:
             last_leader = arr[i]
-            result.append(last_leader)
-    return result
+            leaders.insert(0, last_leader)
+    return leaders
