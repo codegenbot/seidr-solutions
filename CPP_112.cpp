@@ -9,7 +9,7 @@ std::string reverse_delete(std::string s, std::string c){
             result += ch;
         }
     }
-    bool issame(const std::string &a, const std::string &b) {
+    bool issame(const std::string& a, const std::string& b) {
         return a == b;
     }
     std::string palindrome_check = (issame(result, std::string(result.rbegin(), result.rend()))) ? "True" : "False";
