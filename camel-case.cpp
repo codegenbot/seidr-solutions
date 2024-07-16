@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -5,15 +6,19 @@
 
 std::string camelCase(std::string s) {
     std::string result = "";
-    bool capitalizeNext = true;
+    bool nextWord = true;
     for (char c : s) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += std::toupper(c);
-            capitalizeNext = false;
+            nextWord = true;
+        } else if (nextWord) {
+            if (result.empty()) {
+                result += std::toupper(c);
+            } else {
+                result += std::tolower(c);
+            }
+            nextWord = false;
         } else {
-            result += std::tolower(c);
+            result += c;
         }
     }
     return result;
