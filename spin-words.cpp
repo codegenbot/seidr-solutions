@@ -8,8 +8,10 @@ std::string spinWords(std::string str) {
     for (int i = 0; i <= str.size(); i++) {
         if ((i == str.size()) || (str[i] == ' ')) {
             std::string word = str.substr(start, i - start);
-            std::string reversed = std::string(word.rbegin(), word.rend());
-            result += (reversed.length() >= 5 ? reversed : word) + " ";
+            if(word.size() < 5)
+                result += word + " ";
+            else
+                result += std::string(word.rbegin(), word.rend()) + " ";
             start = i + 1;
         }
     }
