@@ -12,7 +12,7 @@ std::string rounded(int n, int m) {
         sum += i;
     }
     
-    int avg = std::round((double)sum / (m - n + 1));
+    int avg = round((double)sum / (m - n + 1));
     
     std::string binary_avg = "";
     while (avg > 0) {
@@ -24,9 +24,9 @@ std::string rounded(int n, int m) {
 }
 
 int main() {
-    // Test cases
     assert(rounded(1, 5) == "110");
-    assert(rounded(5, 10) == "101");
+    assert(rounded(2, 8) == "1011");
+    assert(rounded(5, 3) == "-1");
     
     return 0;
 }
