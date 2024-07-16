@@ -7,7 +7,7 @@ def solve_boolean(expression):
         if char == 'T':
             continue
         elif char == "&":
-            if solve_boolean(expression[:expression.index(char)]) and solveBoolean(expression[expression.index(char) + 1:]):
+            if solve_boolean(expression[:expression.index(char)]) and solve_boolean(expression[expression.index(char) + 1:]):
                 return True
             else:
                 return False
