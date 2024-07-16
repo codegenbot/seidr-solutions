@@ -1,13 +1,10 @@
-def mastermind():
-    code = [c.upper() for c in input("Enter the Mastermind code (4 characters): ")]
-    guess = [c.upper() for c in input("Enter your guess (4 characters): ")]
+```
+whites = 0
+blacks = 0
+for c1, c2 in zip(code, guess):
+    if c1 == c2:
+        blacks += (c1 not in code[:guess.index(c2)].rpartition(c1)[0])
+    else:
+        whites += 1
 
-    black_count = 0
-    white_counts = [0] * 6
-    for c, g in zip(code, guess):
-        if c == g:
-            black_count += 1
-        elif g in code:
-            white_counts[ord(g) - ord("A")] += 1
-
-    return str(sum(1 for x in white_counts if x > 0)), str(black_count)
+return str(whites), str(blacks)
