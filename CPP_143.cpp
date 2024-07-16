@@ -1,14 +1,21 @@
-#include <iostream>
 #include <string>
-#include <cassert>
+#include <cmath>
 
 bool is_prime(int n) {
-    // Implement your logic to check if n is prime
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::string words_in_sentence(const std::string& sentence) {
-    std::string result = "";
-    std::string word = "";
+string words_in_sentence(const string& sentence) {
+    string result = "";
+    string word = "";
     for (char c : sentence) {
         if (c == ' ') {
             if (is_prime(word.length())) {
@@ -23,10 +30,4 @@ std::string words_in_sentence(const std::string& sentence) {
         result += word;
     }
     return result;
-}
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    // Add more test cases if needed
-    return 0;
 }
