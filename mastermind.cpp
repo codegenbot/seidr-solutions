@@ -1,4 +1,3 @@
-```cpp
 int countBlackPegs(string code, string guess) {
     int blackPegs = 0;
     for (int i = 0; i < 4; ++i) {
@@ -30,9 +29,8 @@ int countWhitePegs(string code, string guess) {
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << countWhitePegs(code, guess) << endl;
-    cout << countBlackPegs(code, guess) << endl;
+    int whitePegs = countWhitePegs(cin >> string(code), cin >> string(guess));
+    int blackPegs = countBlackPegs(code, guess);
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
     return 0;
-}
