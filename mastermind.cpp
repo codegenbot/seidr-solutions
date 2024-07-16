@@ -1,44 +1,33 @@
-```cpp
-#include <iostream>
-#include <string>
+```c++
+int code_counts[6] = {0};
 
-int mastermind(std::string code, std::string guess) {
-    int black = 0;
-    int white = 0;
+int mastermind(int code[], int guess[]) {
+    int whitePegs = 0;
+    int blackPegs = 0;
 
-    // Count correct positions (black pegs)
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
-        }
-    }
-
-    // Count incorrect positions with correct colors (white pegs)
-    std::vector<int> code_counts(6, 0);
-    for (char c : code) {
-        code_counts[c-'A'+1]++;
-    }
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i]) {
-            bool found = false;
-            for (char c = 'A'; c <= 'F'; ++c) {
-                if (guess[i] == c && code_counts[c-'A'+1]) {
-                    code_counts[c-'A'+1]--;
-                    found = true;
+            blackPegs++;
+        } else {
+            for (int j = 0; j < 4; j++) {
+                if (code[j] == guess[i] && i != j) {
+                    whitePegs++;
                     break;
                 }
             }
-            if (!found) white++;
         }
     }
 
-    return black + white;
+    return {blackPegs, whitePegs};
 }
 
 int main() {
-    std::string code = "ABCDEF"; 
-    std::string guess = "ABDEE";
-    int result = mastermind(code, guess);
-    std::cout << "Black pegs: " << (result & 1) << ", White pegs: " << (result >> 1) << std::endl;
+    int code[] = {'R', 'G', 'B', 'Y'};
+    int guess[] = {'R', 'B', 'G', 'Y'};
+
+    int result[] = mastermind(code, guess);
+
+    std::cout << "Black pegs: " << result[0] << ", White pegs: " << result[1] << std::endl;
+
     return 0;
 }
