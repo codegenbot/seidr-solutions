@@ -15,4 +15,5 @@ int main() {
     } else {
         std::cout << "You didn't type anything" << std::endl;
     }
-}
+
+    return 0;
