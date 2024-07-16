@@ -1,16 +1,9 @@
-int n = txt.length();
-if (n == 0) return false;
-char lastChar = txt[n - 1];
-if (isalpha(lastChar)) {
-    for (int i = n - 2; i >= 0; i--) {
-        if (txt[i] == ' ') {
-            return true;
-        } else if (isalpha(txt[i])) {
-            return false;
-        }
-    }
-    return true;
-} else {
+if(txt.empty())
+        return false;
+    
+    char lastChar = txt.back();
+    if(isalpha(lastChar) && (txt.find_last_of(' ') == txt.size() - 1))
+        return true;
+    
     return false;
-}
 }
