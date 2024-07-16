@@ -2,8 +2,8 @@ vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
     for(char c : txt){
-        if (c == ' ' || c == ','){
-            if (word != ""){
+        if(c == ' ' || c == ','){
+            if(word != ""){
                 result.push_back(word);
                 word = "";
             }
@@ -11,17 +11,17 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    if (word != ""){
+    if(word != ""){
         result.push_back(word);
     }
-    if (result.size() == 0){
-        int oddCount = 0;
+    if(result.empty()){
+        int count = 0;
         for(char c : txt){
-            if (islower(c) && ((c - 'a') % 2 == 1)){
-                oddCount++;
+            if(islower(c) && (c - 'a') % 2 == 1){
+                count++;
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(to_string(count));
     }
     return result;
 }
