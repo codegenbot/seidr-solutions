@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,6 +6,7 @@ using namespace std;
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
+    cin.ignore();
     getline(cin, tweet);
     
     if(tweet.length() > 140) {
