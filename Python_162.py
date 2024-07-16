@@ -11,5 +11,5 @@ while True:
             print(result)
         else:
             print("Invalid input")
-    except KeyboardInterrupt:
+    except (EOFError, KeyboardInterrupt):  # Handle Ctrl+D and Ctrl+C gracefully
         break
