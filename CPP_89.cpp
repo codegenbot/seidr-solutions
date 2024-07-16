@@ -1,20 +1,12 @@
-#include <string>
-#include <cassert>
-
-std::string encrypt(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char encrypted = 'a' + (c - 'a' + 2 * 2) % 26;
-            result += encrypted;
-        } else {
-            result += c;
+std::string encrypt(std::string s){
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            if(islower(s[i])){
+                s[i] = 'a' + (s[i]-'a' + 2 * 2) % 26;
+            } else {
+                s[i] = 'A' + (s[i]-'A' + 2 * 2) % 26;
+            }
         }
     }
-    return result;
-}
-
-int main() {
-    assert (encrypt("a")=="e");
-    return 0;
+    return s;
 }
