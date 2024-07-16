@@ -16,18 +16,20 @@ int main() {
     for (int i = 0; i < 4; i++) {
         if (codeStr[i] == guessStr[i]) {
             blackPegs++;
-        }
-    }
-
-    for (char c : guessStr) {
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (c == codeStr[j] && guessStr[j] != codeStr[j]) {
+        } else {
+            bool foundInCode = false;
+            for (int j = 0; j < 4; j++) {
+                if (guessStr[i] == codeStr[j]) {
+                    foundInCode = true;
+                    break;
+                }
+            }
+            if (!foundInCode) {
                 whitePegs++;
-                count++;
+            } else {
+                blackPegs--;
             }
         }
-        blackPegs -= count;
     }
 
     // Print the result
