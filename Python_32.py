@@ -1,5 +1,3 @@
-def sort_integers(input_list):
-    return sorted(input_list)
-
-def find_zero(input_list):
-    return [num for num in input_list if num == 0]
+def sort_zeros_first(input_list):
+    input_list.sort(key=lambda x: x != 0)
+    return input_list
