@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -16,7 +17,7 @@ int main() {
         total_distance += (1 + bounciness_index) * pow(2.0, i);
     }
 
-    cout << fixed << setprecision(6) << total_distance;
+    std::cout << std::fixed << std::setprecision(6) << total_distance;
 
     return 0;
 }
