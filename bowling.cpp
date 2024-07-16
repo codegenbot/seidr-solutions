@@ -1,6 +1,3 @@
-```cpp
-#include <string>
-
 using namespace std;
 
 int bowlingScore(string s) {
@@ -40,3 +37,5 @@ int getBonus(string s) {
     }
 
     return bonus;
+
+#include <string>
