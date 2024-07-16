@@ -5,7 +5,7 @@ def sum_product(numbers):
 
 
 results = []
-numbers_input = None
+numbers_input = None  # Define numbers_input before using it
 
 while True:
     try:
