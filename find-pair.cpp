@@ -17,13 +17,18 @@ vector<int> findPair(vector<int>& nums, int target) {
 
 int main() {
     vector<int> nums;
-    cout << "Enter the numbers separated by spaces: ";
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    nums.resize(n);
+    
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> nums[i];
     }
-    cout << "Enter the target sum: ";
+    
     int target;
+    cout << "Enter the target sum: ";
     cin >> target;
     
     vector<int> result = findPair(nums, target);
