@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -32,3 +32,4 @@ int main(){
         maxPrime /= 10;
     }
     return sum;
+}
