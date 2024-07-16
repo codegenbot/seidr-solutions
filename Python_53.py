@@ -1,21 +1,28 @@
 def add(a, b):
     return a + b
 
+
 while True:
     try:
         user_input = input("Enter two numbers separated by space or '/' for division: ")
 
         if "/" in user_input:
-            num1, num2 = list(map(int, user_input.split("/")))
+            num1, num2 = map(int, user_input.split("/"))
             if num2 == 0:
                 print("Cannot divide by zero. Please enter a non-zero second number.")
                 continue
             result = num1 / num2
         else:
-            num1, num2 = list(map(int, user_input.split()))
+            input_values = user_input.split()
+            if len(input_values) != 2:
+                print("Invalid input. Please enter two numbers.")
+                continue
+
+            num1, num2 = map(int, input_values)
             if num2 == 0:
                 print("Cannot divide by zero. Please enter a non-zero second number.")
                 continue
+
             result = add(num1, num2)
 
         print(result)
