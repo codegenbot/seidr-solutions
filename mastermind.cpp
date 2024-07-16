@@ -27,27 +27,23 @@ int main() {
     }
 
     int whitePegs = 0;
-    std::vector<char> codeVector(codeStr.begin(), codeStr.end()); 
     for (char c : guessStr) {
-        bool foundInCode = false;
-        for (char d : codeVector) {
-            if (d == c) {
-                foundInCode = true;
-                break;
-            }
-        }
-        if (!foundInCode) {
-            whitePegs++;
-        } else {
-            bool foundInCodeAtCorrectPosition = false;
-            for (int j = 0; j < 4; j++) {
-                if (codeStr[j] == c && codeVector[j] == c) {
-                    foundInCodeAtCorrectPosition = true;
-                    break;
-                }
-            }
-            if (!foundInCodeAtCorrectPosition) {
+        if ('0' <= c && c <= '5') {
+            bool foundInCode = codeCount[c] > 0;
+            codeCount[c]--;
+            if (!foundInCode) {
                 whitePegs++;
+            } else {
+                bool foundInCodeAtCorrectPosition = false;
+                for (int j = 0; j < 4; j++) {
+                    if (codeStr[j] == c) {
+                        foundInCodeAtCorrectPosition = true;
+                        break;
+                    }
+                }
+                if (!foundInCodeAtCorrectPosition) {
+                    whitePegs++;
+                }
             }
         }
     }
