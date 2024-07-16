@@ -1,12 +1,11 @@
-```
-def find_pair():
-    n = int(input())
-    numbers = [int(x) for x in input().split()]
-    target = int(input())
-    
-    for i in range(n-1):
-        for j in range(i+1, n):
-            if numbers[i] + numbers[j] == target:
-                return '{}\n{}'.format(numbers[i], numbers[j])
+def find_pair(n, numbers):
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[i] + numbers[j] == n:
+                return str(numbers[i]) + "\n" + str(numbers[j])
+    return "No pair found"
 
-print(find_pair())
+
+n = int(input())
+numbers = list(map(int, input().split()))
+print(find_pair(n, numbers))
