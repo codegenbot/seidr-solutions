@@ -40,6 +40,8 @@ int main() {
     std::vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
     std::vector<std::pair<int, int>> result = findPairs(nums, target);
-    // print or use result as needed
+    for (auto& pair : result) {
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+    }
     return 0;
 }
