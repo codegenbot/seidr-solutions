@@ -9,7 +9,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int textLength = text.length();
     int targetLength = target.length();
 
-    for (int i = 0; i <= textLength - targetLength - 1; i++) {
+    for (int i = 0; i <= textLength - targetLength; i++) {
         if (text.substr(i, targetLength) == target) {
             result.push_back(i);
         }
