@@ -1,13 +1,11 @@
-vector<int> res;
-    if (n >= 0) {
-        res.push_back(3);
-        for (int i = 1; i <= n; ++i) {
-            if (i % 2 == 0) {
-                res.push_back(1 + i / 2);
-            } else {
-                res.push_back(res[i - 1] + res[i - 2] + res[i + 1]);
-            }
+vector<int> result(n + 1);
+    result[1] = 3;
+    for (int i = 2; i <= n; ++i) {
+        if (i % 2 == 0) {
+            result[i] = 1 + i / 2;
+        } else {
+            result[i] = result[i - 1] + result[i - 2] + result[i + 1];
         }
     }
-    return res;
+    return result;
 }
