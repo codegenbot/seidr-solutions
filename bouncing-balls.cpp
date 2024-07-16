@@ -10,7 +10,8 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
-    double bouncinessIndex = (firstBounce / startHeight);
+    double bouncinessIndex;
+    bouncinessIndex = firstBounce / startHeight;
     startHeight = firstBounce;
 
     double totalDistance = 0.0;
