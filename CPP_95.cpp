@@ -1,5 +1,7 @@
-#include <map>
+#include <iostream>
 #include <string>
+#include <map>
+#include <cctype>
 
 bool check_map_case(map<string, string> dict) {
     if (dict.empty())
@@ -25,10 +27,4 @@ bool check_map_case(map<string, string> dict) {
     }
 
     return all_lower || all_upper;
-}
-
-int main() {
-    assert(check_map_case({}) == false);
-    // Add more test cases here
-    return 0;
 }
