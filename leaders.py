@@ -1,8 +1,9 @@
-def leaders(input_vector):
-    leaders = []
-    max_right = input_vector[-1]
-    for i in range(len(input_vector) - 1, -1, -1):
-        if input_vector[i] >= max_right:
-            leaders.append(input_vector[i])
-            max_right = input_vector[i]
-    return reversed(leaders)
+def leaders(arr):
+    n = len(arr)
+    leaders_list = [arr[n - 1]]
+
+    for i in range(n-1, -1, -1):
+        if arr[i] >= max(arr[i+1:]):
+            leaders_list.insert(0, arr[i])
+
+    return leaders_list
