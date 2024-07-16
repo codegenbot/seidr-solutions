@@ -1,11 +1,11 @@
 ```cpp
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> leaders(const vector<int>& arr) {
+std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
-    
+    std::vector<int> res;
+
     for(int i=n-1; i>=0; i--) {
         bool leader = true;
         for(int j=i+1; j<n; j++) {
@@ -21,8 +21,8 @@ vector<int> leaders(const vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2, 3}; 
-    vector<int> leaders = leaders(arr);
+    std::vector<int> arr = {1, 3, 4, 2, 3}; 
+    std::vector<int> leaders = leaders(arr);
     for (int i=0; i<leaders.size(); i++) cout << leaders[i] << " "; 
     return 0;
 }
