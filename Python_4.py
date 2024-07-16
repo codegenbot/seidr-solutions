@@ -1,7 +1,10 @@
-try:
+def calculate_sum():
     n = int(input())
     numbers = list(map(int, input().split()))
     result = sum(numbers)
-    print(result)
-except ValueError:
+    return result
+
+try:
+    print(calculate_sum())
+except:
     print("Invalid input. Please provide valid input.")
