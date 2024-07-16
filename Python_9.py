@@ -10,7 +10,7 @@ def get_valid_input():
                     print("Invalid input. Please enter comma-separated numbers.\n")
             else:
                 print("Invalid input. Please enter comma-separated numbers.\n")
-        except (ValueError, EOFError):
+        except ValueError:
             print("Invalid input. Please enter comma-separated numbers.\n")
 
 
