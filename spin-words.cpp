@@ -6,9 +6,9 @@
 
 using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::string temp = "";
+string spinWords(string sentence) {
+    string result = "";
+    string temp = "";
 
     for(int i=0; i<sentence.length(); i++) {
         char c = sentence[i];
@@ -35,6 +35,5 @@ int main() {
     std::cout << spinWords("this is a test") << std::endl; 
     std::cout << spinWords("this is another test") << std::endl; 
     std::cout << spinWords("hi") << std::endl; 
-
     return 0;
 }
