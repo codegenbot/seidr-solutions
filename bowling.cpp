@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 std::string bowlingScore(const std::string& s) {
@@ -50,6 +49,5 @@ std::string bowlingScore(const std::string& s) {
             }
         }
     }
-
-    return "Invalid input";  // Add this line
+    return "Invalid input";
 }
