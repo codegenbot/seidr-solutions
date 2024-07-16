@@ -4,6 +4,7 @@ using namespace std;
 
 vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
+    vector<int> leaders;
     vector<int> res;
     
     if(n == 0)
@@ -14,11 +15,11 @@ vector<int> calculateLeaders(vector<int> arr) {
     int maxSoFar = arr.back();
     for(int i=n-2; i>=0; i--){
         if(arr[i] >= maxSoFar){
-            res.push_back(maxSoFar);
+            leaders.push_back(maxSoFar);
             maxSoFar = arr[i];
         }
     }
-    res = vector<int>(res.rbegin(), res.rend());
+    res = vector<int>(leaders.rbegin(), leaders.rend());
     
     return res;
 }
