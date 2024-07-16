@@ -1,28 +1,24 @@
 def solve_boolean(expression):
-    def or_operator(a, b):
-        return "T" if a == "T" else b
-
-    def and_operator(a, b):
-        return "F" if a == "F" else b
-
     result = "T"
     operator_stack = []
     for char in expression:
         if char in ["|", "&"]:
-            b = result
-            result = char
+            while operator_stack and operator_stack[-1] != "(":
+                b = result
+                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
+            operator_stack.append(char)
         elif char == "(":
             operator_stack.append(char)
         elif char == ")":
             while operator_stack[-1] != "(":
                 b = result
-                result = or_operator(result, operator_stack.pop())
+                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
             operator_stack.pop()
         else:
-            if result == "&" and char == "T":
-                result = and_operator(result, "F")
-            elif result == "|" and char == "T":
-                result = or_operator(result, "F")
+            if result == "F":  
+                result = "F"
+            elif result == "T":  
+                result = "T"
 
     return "T" if result == "T" else "F"
 
