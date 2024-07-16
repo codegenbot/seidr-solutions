@@ -14,7 +14,7 @@ int luhn(int* digits, int length) {
 }
 
 int main() {
-    int digits[16] = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 1, 7, 9, 3, 4};
+    int digits[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
     int result = luhn(digits, sizeof(digits) / sizeof(digits[0]));
     std::cout << "Luhn's algorithm result: " << result << std::endl;
     return 0;
