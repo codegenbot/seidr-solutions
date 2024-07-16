@@ -1,16 +1,18 @@
-int score(string s) {
-    int frame = 1, total = 0, i = 0;
+int score(string input) {
+    int total = 0;
+    int frame = 1;
+    int i = 0;
     while (frame <= 10) {
-        if (s[i] == 'X') {
+        if (input[i] == 'X') {
             total += 10;
-            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - s[i + 1] + 10 : s[i + 1] + s[i + 2] - 2 * '0';
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10;
-            total += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
+            total += (input[i + 2] == 'X') ? 10 : (input[i + 2] == '/' ? 10 - (input[i + 1] - '0') : input[i + 1] - '0' + input[i + 2] - '0');
             i += 2;
+        } else if (input[i + 1] == '/') {
+            total += 10;
+            total += (input[i + 2] == 'X') ? 10 : input[i + 2] - '0';
+            i += 3;
         } else {
-            total += s[i] - '0' + s[i + 1] - '0';
+            total += (input[i] == '-' ? 0 : input[i] - '0') + (input[i + 1] == '-' ? 0 : input[i + 1] - '0');
             i += 2;
         }
         frame++;
@@ -19,8 +21,8 @@ int score(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+    cout << score(input) << endl;
     return 0;
 }
