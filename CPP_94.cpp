@@ -29,18 +29,17 @@ bool isPrime(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of elements in the array: ";
     std::cin >> n;
-
+    
     std::vector<int> lst(n);
     for(int i=0; i<n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> lst[i];
     }
-
+    
     int result = skjkasdkd(lst);
-
-    std::cout << "Sum of digits is: " << result << std::endl;
-
+    std::cout << "Sum of digits: " << result;
+    
     return 0;
 }
