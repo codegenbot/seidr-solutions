@@ -2,16 +2,16 @@
 #include <string>
 #include <cstddef>
 
+int main() {
+    return pairedDigits("0123");
+}
+
 int pairedDigits(const std::string& str) {
     int sum = 0;
-    for (int i = 0; i < str.length() - 1; ++i) {
+    for (size_t i = 0; i < str.length() - 1; ++i) {
         if ((str[i] - '0') == (str[i + 1] - '0')) {
             sum += (str[i] - '0') + (str[i + 1] - '0');
         }
     }
     return sum;
-}
-
-int main() {
-    return 0;
 }
