@@ -1,31 +1,22 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
+std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool capitalizeNext = true;
-
     for (char c : s) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+            result += c + (result.empty() ? "" : " ");
         } else {
-            result += tolower(c);
+            result += toupper(c);
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
+    std::cout << kebabToCamel("nospaceordash") << std::endl;
+    std::cout << kebabToCamel("two-words") << std::endl;
+    std::cout << kebabToCamel("two words") << std::endl;
+    std::cout << kebabToCamel("all separate words") << std::endl;
     return 0;
 }
