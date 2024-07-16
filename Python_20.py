@@ -1,4 +1,8 @@
-input_numbers = list(map(float, input().split()))
+try:
+    input_numbers = list(map(float, input().split()))
+except ValueError:
+    print("Please provide valid input in a single line separated by spaces.")
+    exit()
 
 def find_closest_elements(numbers):
     numbers.sort()
