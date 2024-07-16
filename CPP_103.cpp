@@ -3,20 +3,11 @@ if (n > m) {
     }
     
     int sum = 0;
-    int count = 0;
     for (int i = n; i <= m; ++i) {
         sum += i;
-        count++;
     }
     
-    int avg = round((double)sum / count);
+    int avg = round((double)sum / (m - n + 1));
     
-    string binaryAvg = bitset<64>(avg).to_string();
-    
-    size_t found = binaryAvg.find('1');
-    if (found != string::npos) {
-        return binaryAvg.substr(found);
-    }
-    
-    return "0";
+    return bitset<32>(avg).to_string().substr(0, log2(avg) + 1);
 }
