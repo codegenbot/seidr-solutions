@@ -1,5 +1,3 @@
-I removed the extra backticks and left only the original code:
-
 ```python
 from typing import List
 
