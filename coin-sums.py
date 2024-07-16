@@ -6,13 +6,13 @@ def coin_sums(cents):
     for coin in coins:
         count = cents // coin
         if count > 0:
-            result.append((coin, count))
+            result.append(count)
             cents %= coin
-    
-    return len(result), (*[x for _, x in result],)
+
+    return result
 
 cents = int(input())
-num_coins, *counts = coin_sums(cents)
-print(num_coins)
+counts = coin_sums(cents)
+print(len(counts))
 for count in counts:
     print(count)
