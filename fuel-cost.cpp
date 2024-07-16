@@ -1,7 +1,7 @@
-int fuelCost(std::vector<int> vec) {
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int i : vec) {
-        int result = std::floor((double)i / 3.0) - 2; 
-        sum += result;
+    for (int i : v) {
+        sum += (i / 3 - 2);
     }
     return sum;
+}
