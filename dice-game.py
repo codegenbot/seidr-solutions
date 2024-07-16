@@ -1,3 +1,4 @@
+```
 def dice_game(n, m):
     """
     The probability that Peter rolls strictly higher than Colin.
