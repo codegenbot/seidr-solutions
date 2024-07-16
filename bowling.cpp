@@ -1,5 +1,6 @@
-```c++
+```cpp
 #include <string>
+#include <iostream>
 
 long long bowlingScore(const std::string& input) {
     long long score = 0;
@@ -65,6 +66,8 @@ long long bowlingScore(const std::string& input) {
 }
 
 int main() {
-    long long score = bowlingScore("X/X/8-5/7-3/6-2/4-1/X"); // replace "input" with your input string
+    std::string input = "12345"; 
+    long long score = bowlingScore(input);
+    std::cout << "The score is: " << score << std::endl;
     return 0;
 }
