@@ -4,11 +4,10 @@ using namespace std;
 
 int main() {
     string input;
-    cin >> input; // read user input
+    cin >> input; 
     string output = squareDigits(input);
-    cout << output << endl; // print the result
+    cout << output << endl;  
     return 0;
-
 }
 
 string squareDigits(string input) {
