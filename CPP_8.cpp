@@ -13,6 +13,6 @@ vector<int> sum_product(vector<int> numbers) {
 }
 
 int main() {
-    auto result = sum_product({10});
+    vector<int> result = sum_product({10});
     assert((result[0] == 10) && (result[1] == 10));
 }
