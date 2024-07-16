@@ -2,6 +2,7 @@
 def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 == 1)
 
-user_input = input("Enter numbers separated by space: ")
-lst = list(map(int, user_input.split()))
+numbers = input("Enter 'Enter' and then numbers separated by space: ").split()
+lst = [int(x) for x in numbers[1:]]
+
 print(solution(lst))
