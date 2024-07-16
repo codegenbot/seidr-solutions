@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int fuelCost(vector<int> prices) {
@@ -12,11 +10,12 @@ int fuelCost(vector<int> prices) {
         sum += newPrice;
     }
     return sum;
+
 }
 
 int main() {
-    vector<int> prices = {12, 10, 6};
+    vector<int> prices = {1, 2, 3}; 
     int result = fuelCost(prices);
-    cout << "Fuel cost: " << result << endl;
+    cout << "Fuel cost: " << result << endl;  
     return 0;
 }
