@@ -1,7 +1,5 @@
-def rolling_max(numbers):
-    return [max(numbers[i:i+3]) for i in range(len(numbers)-2)]
-
 if __name__ == "__main__":
-    numbers = list(map(int, input().split()))
+    n = int(input())  # Input the number of elements
+    numbers = list(map(int, input().split()))  # Input the list of numbers
     result = rolling_max(numbers)
     print(*result)
