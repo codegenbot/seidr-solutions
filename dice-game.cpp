@@ -1,16 +1,6 @@
 #include <iostream>
 #include <iomanip>
 
-double probability(int n, int m);
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    double result = probability(n, m);
-    std::cout << std::fixed << std::setprecision(6) << result << std::endl;
-    return 0;
-}
-
 double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
@@ -22,4 +12,11 @@ double probability(int n, int m) {
     }
 
     return p;
+}
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(6) << probability(n, m) << std::endl;
+    return 0;
 }

@@ -1,14 +1,14 @@
-```cpp
-#include <cctype>
-#include <string>
-
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
-    for (int i = 0; i < s.length(); ++i) {
+    for (int i = 0; i < s.size(); ++i) {
         char c = s.at(i);
-        
+
+        if (!std::isdigit(c) && c != 'X' && c != '/') {
+            return -1;
+        }
+
         if (c == 'X') {
             score += 10;
             currentRoll = 0;
@@ -21,29 +21,38 @@ int bowlingScore(const std::string& s) {
             } else {
                 currentRoll *= 10;
                 currentRoll += c - '0';
-            }
-            
-            if(i < s.length() - 1) {
-                char nextC = s.at(i + 1);
-                if(std::isdigit(nextC)) {
-                    int secondRoll = nextC - '0';
-                    if(currentRoll + secondRoll == 10) {
-                        score += 10;
-                        currentRoll = 0;
-                        i++;
+
+                if(i < s.size() - 1) {
+                    char nextC = s.at(i + 1);
+                    if((int)nextC >= '0' && (int)nextC <= '9') {
+                        int secondRoll = nextC - '0';
+                        if(currentRoll + secondRoll == 10) {
+                            score += 10;
+                            currentRoll = 0;
+                            i++;
+                        } else {
+                            score += secondRoll;
+                            currentRoll = 10 - currentRoll - secondRoll;
+                        }
                     } else {
-                        score += secondRoll;
-                        currentRoll = 10 - currentRoll - secondRoll;
+                        currentRoll = 10 - currentRoll;
                     }
                 } else {
-                    currentRoll = 10 - currentRoll;
+                    if(currentRoll < 10) {
+                        score += currentRoll;
+                    } else {
+                        score += 10;
+                        score += (currentRoll - 10);
+                    }
                 }
-            } else {
+            }
+
+            if(i == s.size() - 1 || ((int)c >= '0' && (int)c <= '9')) {
                 if(currentRoll < 10) {
                     score += currentRoll;
                 } else {
                     score += 10;
-                    score += 10 + (currentRoll - 10);
+                    score += (currentRoll - 10);
                 }
             }
         }
