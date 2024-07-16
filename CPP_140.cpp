@@ -1,18 +1,18 @@
-int consecutiveSpaces = 0;
-    string result = "";
+string result = "";
+    int count = 0;
     
     for (char c : text) {
         if (c == ' ') {
-            consecutiveSpaces++;
-            if (consecutiveSpaces > 2) {
+            count++;
+            if (count > 2) {
                 result += "-";
-                consecutiveSpaces = 1;
+                count = 0;
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += c;
-            consecutiveSpaces = 0;
+            count = 0;
         }
     }
     
