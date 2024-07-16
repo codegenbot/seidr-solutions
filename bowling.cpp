@@ -1,22 +1,19 @@
-int bowlingScore(string s) {
-    int score = 0;
-    int roll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            if (roll < 2) {
-                score += min(10, roll);
-            } else {
-                score += max(roll - 1, 0) + max(10 - roll, 0);
-            }
-            roll = 0;
+int scoreOfBowlingGame(string s) {
+    int total = 0;
+    for (int i = 0; i < 10; ++i) {
+        if (s[i] == '/') {
+            total += 10;
         } else {
-            roll++;
+            int thisRoll = 0;
+            for (int j = i; j < i + 2 && j < s.size(); ++j) {
+                thisRoll *= 10;
+                thisRoll += s[j] - '0';
+            }
+            total += thisRoll;
+            if (thisRoll == 10) {
+                i++;
+            }
         }
     }
-    if (roll < 2) {
-        score += min(10, roll);
-    } else {
-        score += max(roll - 1, 0) + max(10 - roll, 0);
-    }
-    return score;
+    return total;
 }
