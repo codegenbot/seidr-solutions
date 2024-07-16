@@ -1,4 +1,8 @@
-std::string encrypt(std::string s){
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string encrypt(std::string s) {
     for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
             if(islower(s[i])){
@@ -9,4 +13,9 @@ std::string encrypt(std::string s){
         }
     }
     return s;
+}
+
+int main() {
+    assert (encrypt("a")=="e");
+    return 0;
 }
