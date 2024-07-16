@@ -1,3 +1,9 @@
-def leaders(a):
-    leaders = [a[i] for i in range(len(a) - 1, -1, -1) if a[i] >= min(a[i + 1 :])]
-    return leaders
+```
+def leaders(nums):
+    leaders = []
+    max_right = nums[-1]
+    for i in range(len(nums) - 1, -1, -1):
+        if nums[i] >= max_right:
+            leaders.append(nums[i])
+            max_right = nums[i]
+    return list(reversed(leaders))
