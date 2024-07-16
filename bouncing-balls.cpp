@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
@@ -24,6 +23,6 @@ int main() {
         prev_height /= 2.0; 
     }
 
-    cout << fixed << setprecision(6) << total_distance << endl;
+    cout << fixed << setprecision(6) << total_distance;
     return 0;
 }
