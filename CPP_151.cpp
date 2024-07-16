@@ -1,9 +1,31 @@
-long long double_the_difference(vector<float> lst){
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)pow(num, 2);
+#ifndef MYMAIN
+#define MYMAIN
+
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+long double double_the_difference(const std::vector<float> &lst);
+
+std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
+long double odd_sum = double_the_difference(lst);
+
+long double double_the_difference(const std::vector<float> &lst) {
+    long double sum = 0.0;
+    for (size_t i = 0; i < lst.size(); i += 2) {
+        if (i + 1 < lst.size()) {
+            sum += 2 * (lst[i + 1] - lst[i]);
         }
     }
-    return sum * 2;
+    return sum;
 }
+
+#ifndef MYMAIN
+#define MYMAIN
+int main() {
+    assert(double_the_difference(lst) == odd_sum);
+    
+    return 0;
+}
+#endif
+#endif
