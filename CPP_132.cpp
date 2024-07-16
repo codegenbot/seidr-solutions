@@ -17,7 +17,7 @@ bool is_nested(std::string str) {
     return count == 0;
 }
 
-int main_test() {
+int main() {
     assert(is_nested("]]]]]]]]") == false);
     return 0;
 }
