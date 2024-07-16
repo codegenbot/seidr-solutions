@@ -9,19 +9,19 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {{complement, nums[i]}};
+            return {std::pair<int,int>(complement, nums[i])};
         }
         numMap[nums[i]] = i;
     }
     
     std::vector<std::pair<int, int>> result;
-    for (std::unordered_map<int, int>::iterator it = numMap.begin(); it != numMap.end(); ++it) {
-        if (numMap.find(target - it->first) != numMap.end()) {
-            result.push_back(std::make_pair(target - it->first, it->first));
+    for (const auto& pair : numMap) {
+        if (numMap.find(target - pair.first) != numMap.end()) {
+            result.push_back({std::make_pair(target - pair.first, pair.first)});
         }
     }
     
-    return result;
+    return std::vector<std::pair<int,int>>({{0, 0}});
 }
 
 int main() {
