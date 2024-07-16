@@ -1,5 +1,7 @@
-```c++
-int basement(std::vector<int>& nums) {
+#include <vector>
+using namespace std;
+
+int basement(vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -7,4 +9,4 @@ int basement(std::vector<int>& nums) {
             return i + 1;
     }
     return -1;
-}
+};
