@@ -4,9 +4,18 @@ def parse_nested_parens(paren_strings: List[str]) -> List[int]:
     return [
         max(
             [
-                paren_string.count("(" * i) // 2
+                paren_string.count('(' * i)
                 for i in range(1, len(paren_string) // 2 + 1)
             ]
         )
         for paren_string in paren_strings
-   ]
+    ]
+
+# Read input from the user
+input_list = input().split()
+
+# Call the function with the user input
+result = parse_nested_parens(input_list)
+
+# Print the result
+print(result)
