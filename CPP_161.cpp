@@ -1,5 +1,4 @@
-string solve(string s){
-    for(char &c : s){
+for(char &c : s){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
@@ -8,9 +7,6 @@ string solve(string s){
             }
         }
     }
-    int n = s.size();
-    for(int i = 0; i < n / 2; ++i){
-        swap(s[i], s[n - i - 1]);
-    }
+    reverse(s.begin(), s.end());
     return s;
 }
