@@ -26,6 +26,6 @@ vector<string> reverse_delete(string s, string c) {
     }
     vector<string> res(2);
     res[0] = result;
-    res[1] = to_string(isPalindrome);
+    res.push_back((isPalindrome ? "True" : "False"));
     return res;
 }
