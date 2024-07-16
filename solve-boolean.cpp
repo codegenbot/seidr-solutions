@@ -1,8 +1,8 @@
-#include <string>
+using namespace std;
 
-bool evaluateBooleanExpression(std::string expression) {
+bool evaluateBooleanExpression(string expression) {
     stack<char> operation;
-    std::string temp = "";
+    string temp = "";
     
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -15,7 +15,7 @@ bool evaluateBooleanExpression(std::string expression) {
                 operation.push(temp);
                 temp = "";
             } else if (!operation.empty()) {
-                temp = std::to_string(operation.top());
+                temp = to_string(operation.top());
                 operation.pop();
             }
         } else if (expression[i] == '|') {
@@ -28,7 +28,7 @@ bool evaluateBooleanExpression(std::string expression) {
                 operation.push(temp);
                 temp = "";
             } else if (!operation.empty()) {
-                temp = std::to_string(operation.top());
+                temp = to_string(operation.top());
                 operation.pop();
             }
         } else if (expression[i] != 'T' && expression[i] != 'F') {
@@ -38,12 +38,12 @@ bool evaluateBooleanExpression(std::string expression) {
     
     while (!operation.empty()) {
         if (temp.empty()) {
-            temp = std::to_string(operation.top());
+            temp = to_string(operation.top());
             operation.pop();
         } else {
             if (temp == "T") temp = "True";
             else if (temp == "F") temp = "False";
-            std::string op = std::to_string(operation.top());
+            string op = to_string(operation.top());
             operation.pop();
             if (op == "T" && temp == "True") temp = "True";
             else if (op == "F" && temp == "True") temp = "False";
