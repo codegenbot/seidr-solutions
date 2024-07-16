@@ -19,4 +19,3 @@ int main() {
         cout << std::to_string(i) << endl;
     }
     return 0;
-}
