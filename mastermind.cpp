@@ -1,4 +1,7 @@
 #include <iostream>
+#include <map>
+#include <string>
+
 using namespace std;
 
 int whitePegs(string code, string guess) {
@@ -36,3 +39,4 @@ int main() {
     int white = 4 - black;
     cout << white << endl << black << endl;
     return 0;
+}
