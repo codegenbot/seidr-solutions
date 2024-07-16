@@ -16,7 +16,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = (string)a.convertible_to<string>();
         string str2 = (string)b.convertible_to<string>();
-        return (stof(str2) > stof(str1)) ? boost::any(str2) : (stof(str1) == stof(str2)) ? boost::any("None") : boost::any(str1);
+        return (stof(str2) > stof(str1)) ? boost::any(str2) : (stof(str1) == stof(str1)) ? boost::any("None") : boost::any(str1);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         int i = (int)a.convertible_to<int>();
