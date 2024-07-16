@@ -16,9 +16,6 @@ int main() {
     }
     quarters = totalQuarters;
 
-    int quarters = totalQuarters;
-    cents %= 25;
-
     int dimes = cents / 10;
     cents %= 10;
 
