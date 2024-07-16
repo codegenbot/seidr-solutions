@@ -1,14 +1,14 @@
-int result = -1;
+int res = -1;
     for (int num : lst) {
         int freq = 0;
-        for (int val : lst) {
-            if (val == num) {
+        for (int n : lst) {
+            if (n == num) {
                 freq++;
             }
         }
-        if (num > 0 && freq >= num && num > result) {
-            result = num;
+        if (freq >= num && num > res) {
+            res = num;
         }
     }
-    return result;
+    return res;
 }
