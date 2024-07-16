@@ -1,6 +1,6 @@
 #include <iostream>
-#include <map>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -29,7 +29,7 @@ int blackPegs(string code, string guess) {
         }
     }
 
-    return count;
+    return 4 - count;
 }
 
 int main() {
