@@ -14,7 +14,7 @@ std::string f(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v; // Initialize the vector with size 0.
+    std::vector<int> v; 
     v.push_back(127);
     v.push_back(97);
     v.push_back(8192);
