@@ -10,7 +10,7 @@ def prime_fib(n):
         return "Prime"
 
 try:
-    n = int(input("Enter a number: "))
+    n = int(input())
     print(prime_fib(n))
 except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+    print("Please enter a valid integer.")
