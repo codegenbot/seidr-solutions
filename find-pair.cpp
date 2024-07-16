@@ -31,4 +31,3 @@ int main() {
         cout << result.first << "\n" << result.second << endl;
     }
     return 0;
-}
