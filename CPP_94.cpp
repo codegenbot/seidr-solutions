@@ -1,6 +1,5 @@
-```
 #include <vector>
-#include <initializer_list>
+#include <array>
 #include <iostream>
 
 bool isPrime(int n) {
