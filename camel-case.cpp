@@ -23,7 +23,8 @@ std::string camelCase(std::string str) {
             }
             i++;
         }
-    }    
+    }
+    
     return result;
 }
 
