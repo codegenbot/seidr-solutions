@@ -1,28 +1,18 @@
 def solve_boolean(expression):
-    def evaluate():
-        if expression[0] in ["T", "F"]:
-            return {"T": True, "F": False}[expression[0]]
-        elif expression[0] == "(":
-            i = 1
-            temp = evaluate()
-            while i < len(expression) and expression[i] != ")":
-                i += 1
-            return temp
-        operator = expression[0]
-        i = 1
-        if operator in ["|", "&"]:
-            left = evaluate()
-            right = expression[i:]
-            if right[0] == "(":
-                right = evaluate() + right[1:-1]
-            else:
-                while right[0] in ["T", "F", "|", "&"] or (right[0] == "(" and right.count("(") > 1):
-                    right = right[1:]
-            if operator == "|":
-                return left or right
-            elif operator == "&":
-                return left and right
-        else:
-            raise Exception("Invalid input")
+    if expression[0] == '(':
+        return evaluate(expression[1:-1])
+    elif expression in ['T', 'F']:
+        return expression == 'T'
+    elif len(expression) > 2 and (expression[:2] == '| ' or expression[:2] == '& '):
+        return solve_boolean(expression[:2]) or solve_boolean(expression[3:])
+    else:
+        if expression[1] == '|':
+            return solve_boolean(expression[:2]) or solve_boolean(expression[3:])
+        elif expression[1] == '&':
+            return solve_boolean(expression[:2]) and solve_boolean(expression[3:])
 
-    return evaluate()
+def evaluate(expression):
+    if ' |' in expression:
+        return solve_boolean(expression.replace(' |', '|')) or solve_boolean(expression.replace('&', '&').replace(' |', '|'))
+    else:
+        return solve_boolean(expression)
