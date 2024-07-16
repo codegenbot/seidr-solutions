@@ -1,7 +1,9 @@
-int bowlingScore(std::string s) {
+#include <string>
+
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    std::vector<int> rolls(10);
+    vector<int> rolls(10);
     for (char c : s) {
         if (c == '/') {
             if (roll < 2) {
@@ -26,4 +28,3 @@ int bowlingScore(std::string s) {
         score += max(1, min(10, rolls[9]));
     }
     return score;
-}
