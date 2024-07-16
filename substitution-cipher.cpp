@@ -1,4 +1,7 @@
+```c
 #include <string>
+
+std::string cipher(std::string cipher1, std::string cipher2, std::string message); 
 
 std::string cipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
@@ -16,4 +19,5 @@ std::string cipher(std::string cipher1, std::string cipher2, std::string message
             result += message[i];
         }
     }
+    return result;
 }
