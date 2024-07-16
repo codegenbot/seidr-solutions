@@ -1,3 +1,5 @@
+import sys
+
 def separate_paren_groups(paren_string: str) -> list:
     result = []
     level = 0
@@ -22,6 +24,6 @@ def separate_paren_groups(paren_string: str) -> list:
 
     return result
 
-paren_string = input("Enter a string with parentheses: ")
+paren_string = input()
 output = separate_paren_groups(paren_string)
 print(output)
