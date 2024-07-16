@@ -1,6 +1,12 @@
-if (x <= 0 || n <= 0) {
+if (n == 1 && x == 1) {
+        return true;
+    }
+    
+    if (n == 1 || x == 1) {
         return false;
     }
-    double result = pow(x, 1.0 / n);
-    return (result == (int)result);
+    
+    double result = log(x) / log(n);
+    
+    return (result - (int)result) == 0;
 }
