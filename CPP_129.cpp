@@ -8,9 +8,9 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> result;
     for(int i = 0; i < k; ++i){
-        for(int j = 0; j < grid.size(); ++j){
-            for(int l = 0; l < grid[j].size(); ++l){
-                result.push_back(grid[j][l]);
+        for(const auto& row : grid){
+            for(int num : row){
+                result.push_back(num);
             }
         }
     }
