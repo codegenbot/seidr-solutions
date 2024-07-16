@@ -1,10 +1,10 @@
-double num = stod(value);
-    int floor_num = floor(num);
-    int ceil_num = ceil(num);
-    
-    if (num - floor_num < ceil_num - num) {
-        return floor_num;
+int closest_integer(string value){
+    double num = stod(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    if (num - lower < upper - num) {
+        return lower;
     } else {
-        return ceil_num;
+        return upper;
     }
 }
