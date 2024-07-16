@@ -1,10 +1,8 @@
-vector<int> uniqueNumbers;
-    vector<int> counts(100001, 0);
-    for (int num : numbers) {
-        if (counts[num] == 0) {
-            uniqueNumbers.push_back(num);
+vector<int> result;
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (count(numbers.begin(), numbers.end(), numbers[i]) == 1) {
+            result.push_back(numbers[i]);
         }
-        counts[num]++;
     }
-    return uniqueNumbers;
+    return result;
 }
