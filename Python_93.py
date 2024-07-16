@@ -5,12 +5,10 @@ def encode(message):
             result += char
         elif char.isalpha():
             ascii_offset = 65 if char.isupper() else 97
-            if (ord(char) - ascii_offset + 3) % 26 >= 26: 
-                if char.isupper():
-                    result += chr((ord(char) - ascii_offset - 25) % 26 + 65)
-                else:
-                    result += chr((ord(char) - ascii_offset - 25) % 26 + 97)
-            else: 
-                result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
+            shifted_char_code = (ord(char) - ascii_offset + 3) % 26 + ascii_offset
+            if char.islower():
+                result += chr(shifted_char_code).lower()
+            elif char.isupper():
+                result += chr(shifted_char_code)
         else: 
             result += char
