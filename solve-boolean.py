@@ -1,24 +1,27 @@
 def solve_boolean(expression):
-    result = "T"
+    stack = []
     temp = "T"
-    operator_stack = []
-    
+    result = "T"
+
     for char in expression:
         if char == "(":
-            operator_stack.append(char)
+            stack.append(char)
         elif char == ")":
-            while len(operator_stack) > 1 and operator_stack[-1] != "(":
-                operator = operator_stack.pop()
-                if operator in ["|", "&"]:
-                    temp_result = "T" if eval(f"({temp} {operator} {'F' if temp == 'T' else 'T'})") else "F"
-                    result = temp_result
-            if operator_stack and operator_stack[-1] == "(":
-                operator_stack.pop()
+            while len(stack) > 1 and stack[-1] != "(":
+                op = stack.pop()
+                if op == "|":
+                    result = "T" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "F"
+                elif op == "&":
+                    result = "F" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "T"
+            stack.pop()
         elif char in ["|", "&"]:
-            while len(operator_stack) > 0 and operator_stack[-1] in ["|", "&"]:
-                operator_stack.pop()
-            operator = "T" if char.upper() == 'T' else "F"
-            temp = operator
+            while len(stack) > 1 and stack[-1] in ["|", "&"]:
+                op = stack.pop()
+                if op == "|":
+                    result = "T" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "F"
+                elif op == "&":
+                    result = "F" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "T"
+            stack.append(char)
         else:
             temp = "F" if char.upper() == 'T' else "T"
 
