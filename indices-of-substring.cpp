@@ -9,11 +9,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    int pos = 0;
-
-    while (pos < n && (pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos); 
-        pos += m; // increment pos by the length of target
+    int i = 0;
+    while(i <= n - m){
+        if(text.substr(i, m).compare(target) == 0)
+            result.push_back(i); 
+        i++;
     }
 
     return result;
@@ -21,14 +21,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text, target;
-    vector<int> results;
-
     cout << "Enter the text: ";
     getline(cin, text);
     cout << "Enter the target: ";
     getline(cin, target);
 
-    results = indicesOfSubstring(text, target);
+    vector<int> results = indicesOfSubstring(text, target);
     for (int i : results) {
         cout << i << " ";
     }
