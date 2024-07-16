@@ -2,13 +2,18 @@ int main() {
     string input;
     getline(cin, input);
     
-    bool firstWord = true;
-    for (char &c : input) {
+    bool capitalize = true;
+    for (char& c : input) {
         if (c == '-') {
-            firstWord = true;
-        } else if (firstWord) {
-            c = toupper(c);
-            firstWord = false;
+            capitalize = true;
+        } else if (c != ' ') {
+            if (capitalize && c >= 'a' && c <= 'z') {
+                c = c - 'a' + 'A';
+                capitalize = false;
+            }
+            else if (!capitalize && c >= 'A' && c <= 'Z') {
+                c = c - 'A' + 'a';
+            }
         }
     }
     
