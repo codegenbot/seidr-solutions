@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <unordered_map>
 #include <iostream>
@@ -17,10 +18,7 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    vector<int> nums;
-    for (int i : {1, 7, 11, 2, 15}) {
-        nums.push_back(i);
-    }
+    vector<int> nums = {1, 7, 11, 2, 15};
     int target = 9;
     vector<int> result = findPair(nums, target);
     if (!result.empty()) {
