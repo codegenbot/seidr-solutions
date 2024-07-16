@@ -25,10 +25,10 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    if (n == 0) {
-        cout << "Error: No items to calculate total price." << endl;
-    } else {
+    try {
         cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
+    } catch (...) {
+        cout << "Error: Input data is invalid. Please check the input." << endl;
     }
     return 0;
 }
