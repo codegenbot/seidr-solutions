@@ -3,8 +3,8 @@ using namespace std;
 
 double probability(int n, int m) {
     double result = 0.0;
-    for(int i = 1; i <= min(m-1, n); ++i) { 
-        result -= (double)i / (n * m);
+    for(int i = 1; i < m; ++i) {
+        result += (n - i) / (double)(n * m);
     }
     return result;
 }
