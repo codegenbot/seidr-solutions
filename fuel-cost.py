@@ -8,5 +8,4 @@ def calculate_fuel(amount):
 def fuel_cost(vector):
     return sum(calculate_fuel(i) for i in vector)
 
-vector = [int(x) for x in input().split()]
-print(fuel_cost(vector))
+print(sum(fuel_cost([int(x) for x in input().split()])))
