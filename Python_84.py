@@ -1,35 +1,13 @@
 ```
-import base64
-import sys
-
-def solve(N):
-    if isinstance(N, str):
-        return N
-    elif N < 0:
-        result = "-" + solve(-N)
-    else:
-        s = str(N).encode().decode().upper()
-        while len(s) % 4 != 0:
-            s = "0" + s
-
+def solve():
+    while True:
         try:
-            encoded_s = base64.b64encode(s.encode()).decode().upper()
-            if sys.platform == "win32":
-                encoded_s = encoded_s.replace("+", "-")
-            result = encoded_s
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return None
+            s = input("Enter an integer or string: ")
+            num = int(s)
+            if num < 0:
+                return ('-' + base64.b64encode(str(abs(num)).encode('utf-8')).decode('utf-8')).upper()
+            else:
+                return (base64.b64encode(str(num).encode('utf-8')).decode('utf-8')).upper().replace('+', '-')
 
-    return result
-
-while True:
-    try:
-        num = input("Enter a number (or a string to solve it): ")
-        if num.isdigit():
-            print(solve(int(num)))
-        else:
-            print(solve(num))
-        break
-    except ValueError:
-        print("Invalid input. Please enter an integer or a string.")
+        except ValueError:
+            return s.upper()
