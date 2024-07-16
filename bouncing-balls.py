@@ -1,5 +1,5 @@
 ```
-if __name__ == "__main__":
+def bouncing_balls():
     start_height = float(input())
     first_bounce_height = float(input())
     bounciness_index = round(first_bounce_height / start_height, 5)
@@ -12,4 +12,6 @@ if __name__ == "__main__":
         total_distance += distance
         height *= bounciness_index
 
-    print(round(total_distance, 5))
+    return round(total_distance, 5)
+
+print(bouncing_balls())
