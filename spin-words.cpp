@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
@@ -10,21 +9,20 @@ std::string spinWords(std::string sentence) {
     for (char c : sentence) {
         if (c == ' ') {
             if (temp.length() >= 5)
-                result += temp + " ";
+                result += std::string(temp).substr(0, temp.length()) + " ";
             else
                 result += temp + " ";
             temp = "";
-        } 
-        else {
+        } else {
             temp += c;
         }
     }
 
     if (temp.length() >= 5) {
-        std::reverse(temp.begin(), temp.end());
-        result += temp;
-    } 
-    else 
+        for (auto i = temp.rbegin(); i != temp.rend(); ++i) {
+            result += *i;
+        }
+    } else
         result += temp;
 
     return result;
