@@ -1,3 +1,3 @@
 n = int(input())
 m = int(input())
-print(round(sum(1 / (n * m) for i in range(n) for j in range(m) if i > j), 2))
+print(round(sum([(n - i) / n * (m - i) / m for i in range(1, n + 1)]), 2))
