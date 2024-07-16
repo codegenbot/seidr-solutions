@@ -4,7 +4,9 @@ def encode(message):
         if char.isspace():
             result += char  
         elif char.isalnum():  
-            ascii_offset = 65 if not char.islower() else 97
-            shifted_char_code = (ord(char) - ascii_offset + 3) % 26 + ascii_offset
+            offset = ord('a') if char.islower() else ord('A')
+            shifted_char_code = (ord(char) - offset + 3) % 26 + offset
             result += chr(shifted_char_code)
+        else:
+            result += char  
     return result
