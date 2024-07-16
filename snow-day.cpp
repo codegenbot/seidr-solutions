@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float meltingRate) {
     float currentSnow = initialSnow;
@@ -18,8 +19,7 @@ int main() {
     float initialSnow, rateOfSnowFall, meltingRate;
 
     std::cout << "Enter number of hours: ";
-    std::string hoursStr; std::cin >> hoursStr;
-    hours = stoi(hoursStr);
+    std::cin >> hours;
     std::cout << "Enter initial snow (inches): ";
     std::cin >> initialSnow;
     std::cout << "Enter rate of snow fall per hour (inches): ";
@@ -29,7 +29,7 @@ int main() {
 
     float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
 
-    std::cout << "Amount of snow on ground after " << hours << " hours: " << result << " inches.\n";
+    std::cout << "Amount of snow on ground after " << std::to_string(hours) << " hours: " << result << " inches.\n";
 
     return 0;
 }
