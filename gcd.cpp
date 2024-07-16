@@ -5,9 +5,11 @@
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
+    size_t targetSize = target.size();
+
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos);
+        pos = text.find(target, pos + targetSize);
     }
     return indices;
 }
