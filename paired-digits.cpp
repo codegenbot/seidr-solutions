@@ -13,7 +13,12 @@ int pairedDigits(std::string s) {
 
 int main() {
     std::string input;
-    std::getline(cin, input);
+    std::getline(std::cin, input);
+    
+    if(input.empty()) {
+        std::cerr << "Error: Input string is empty." << std::endl;
+        return 1;
+    }
     
     int result = pairedDigits(input);
     return 0;
