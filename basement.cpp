@@ -15,8 +15,13 @@ int basement(std::vector<int> nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    while(std::cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
+    }
+
+    if (std::cin.fail() && nums.empty()) {
+        std::cerr << "No valid input provided." << std::endl;
+        return 1;
     }
 
     int result = basement(nums);
