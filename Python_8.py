@@ -1,5 +1,11 @@
+Here is the completed code:
+
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if len(numbers) == 0:
-        return 0, 1
-    else:
-        return sum(numbers), functools.reduce(lambda x, y: x * y, numbers)
+    total_sum = 0
+    product = 1
+    
+    for number in numbers:
+        total_sum += number
+        product *= number
+    
+    return (total_sum, product) if numbers else ({0, 1})
