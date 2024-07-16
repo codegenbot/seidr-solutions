@@ -14,6 +14,5 @@ bool is_prime(long long n) {
 
 int main() {
     assert(is_prime(13441 * 19) == false);
-    // Add more test cases here if needed
     return 0;
 }
