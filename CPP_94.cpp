@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -30,9 +29,17 @@ int sumOfDigits(int num){
     return sum;
 }
 
-int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
-    int result = skjkasdkd(lst);
-    std::cout << "Result: " << result << std::endl;
+int main(){
+    std::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << (i+1) << ": ";
+        int x;
+        std::cin >> x;
+        lst.push_back(x);
+    }
+    std::cout << "The sum of digits in the largest prime number is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
