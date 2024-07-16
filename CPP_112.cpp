@@ -1,8 +1,8 @@
+```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
-#include <utility>
 
 using namespace std;
 
@@ -35,6 +35,6 @@ int main() {
     pair<string, string> result = reverse_delete("mamma", "mia");
     cout << "First part of the output: " << result.first << endl;
     cout << "Second part of the output: " << result.second << endl;
-    assert(make_pair("", "True") == result);
+    assert(std::tie(result.first, result.second) == std::make_tuple("", "True"));
     return 0;
 }
