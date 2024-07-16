@@ -1,2 +1,3 @@
-int cube_root = round(pow(a, 1.0/3));
-    return (cube_root * cube_root * cube_root == a);
+int check = round(cbrt(a));
+    return check*check*check == a;
+}
