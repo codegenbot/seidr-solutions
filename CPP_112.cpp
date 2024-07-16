@@ -32,7 +32,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return (a == b);
 }
 
 int main() {
