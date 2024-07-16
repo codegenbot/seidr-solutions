@@ -24,10 +24,22 @@ int main() {
 
     pennies = cents;
 
-    std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
-    if (dimes > 0) std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
-    if (nickles > 0) std::cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << std::endl;
-    std::cout << pennies << " penny" << (pennies > 1 ? "s" : "") << std::endl;
+    std::cout << quarters << " " << (quarters > 1 ? "quarters" : "quarter") << std::endl;
+    if (dimes > 0) {
+        std::cout << dimes << " " << (dimes > 1 ? "dimes" : "dime");
+        if (dimes > 1) {
+            std::cout << "s";
+        }
+        std::cout << std::endl;
+    }
+    if (nickles > 0) {
+        std::cout << nickles << " " << (nickles > 1 ? "nickels" : "nickel");
+        if (nickles > 1) {
+            std::cout << "s";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << pennies << " " << (pennies > 1 ? "pennies" : "penny") << std::endl;
 
     return 0;
 }
