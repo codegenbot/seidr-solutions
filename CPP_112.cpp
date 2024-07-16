@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -30,4 +29,9 @@ std::pair<std::string, std::string> reverse_delete(std::string s, std::string c)
     string rev = s;
     reverse(rev.begin(), rev.end());
     return {temp, is_palindrome(temp) ? "True" : "False"};
+}
+
+int main() {
+    assert (std::make_pair("", reverse_delete("mamma", "mia").second) == std::pair<std::string, std::string>("", "True"));
+    return 0;
 }
