@@ -1,25 +1,23 @@
+```
+import re
+
 def bowling_score(frames):
     score = 0
-    frames = [int(x) if x.isdigit() else 'x' if x == 'X' else -1 for x in frames.replace('/', '')]
+    frames = frames.split("/")
     i = 0
-    while i < len(frames):
-        if frames[i] == 'x':
-            if i + 2 < len(frames):
-                score += 10 + frames[i+1] * 2
-                i += 3
+    for frame in frames:
+        if "X" in frame:
+            if len(frames) > i+1 and "X" in frames[i+1]:
+                score += 10 + int(frames[i+2].lstrip("0")) * 2
             else:
                 score += 10
-                i += 1
-        elif frames[i] == -1:
-            first_roll = frames[i + 1]
-            if i + 3 < len(frames) and frames[i+2] == 'x':
-                second_roll = 10
-                i += 4
+        elif "-" in frame:
+            first_roll, second_roll = map(int, re.sub("[^0-9]", "", frame).split("-"))
+            if i < 8 and "X" in frames[i+1]:
+                score += 10 + second_roll
             else:
-                second_roll = frames[i+2]
-                i += 3
-            score += first_roll + second_roll
+                score += first_roll + second_roll
         else:
-            score += sum(frames[i:i+3])
-            i += 3
+            score += sum(map(int, frame))
+        i+=1
     return score
