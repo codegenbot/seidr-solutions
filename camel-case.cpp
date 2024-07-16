@@ -1,8 +1,3 @@
-```cpp
-#include <string>
-#include <cstddef> 
-#include <cctype>
-
 int main() {
     std::string s;
     std::cin >> s;
@@ -24,9 +19,8 @@ int main() {
     }
 
     size_t pos = 0;
-    while ((pos = result.find(' ', pos)) != std::string::npos) {
+    while ((pos = result.find(' ')) != std::string::npos) {
         result.erase(pos, 1);
-        pos++;
     }
     return 0;
 }
