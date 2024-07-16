@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-vector<int> intersect_sorted_vectors(vector<int>& l1, vector<int>& l2) {
+vector<int> find_common_elements(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     vector<int> result;
