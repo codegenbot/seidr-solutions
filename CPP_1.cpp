@@ -15,7 +15,8 @@ int main() {
 
     vector<string> groups = separate_paren_groups(input);
 
-    for (const auto& group : groups) {
+    cout << "Groups separated by parentheses:" << endl;
+    for (const string& group : groups) {
         cout << group << endl;
     }
 
