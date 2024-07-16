@@ -1,9 +1,8 @@
-bool correct_bracketing(string brackets){
-    int count = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '<'){
+int count = 0;
+    for(auto bracket : brackets){
+        if(bracket == '<'){
             count++;
-        } else if(brackets[i] == '>'){
+        } else if(bracket == '>'){
             count--;
         }
         if(count < 0){
