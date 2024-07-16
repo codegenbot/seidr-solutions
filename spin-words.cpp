@@ -33,4 +33,8 @@ string spinWords(string sentence) {
 int main() {
     std::cout << spinWords("a") << std::endl; // Output: a
     std::cout << spinWords("this is a test") << std::endl; // Output: this is a tset
+    std::cout << spinWords("this is another test") << std::endl; // Output: this is rehtona test
     std::cout << spinWords("hi") << std::endl; // Output: hi
+
+    return 0;
+}
