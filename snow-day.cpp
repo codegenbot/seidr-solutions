@@ -1,35 +1,22 @@
-```cpp
 #include <iostream>
-#include <iomanip>
-
-float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float meltingRate) {
-    float currentSnow = initialSnow;
-    for (int i = 0; i < hours; i++) {
-        currentSnow += rateOfSnowFall;
-        if (currentSnow > 0)
-            currentSnow -= meltingRate;
-        else
-            currentSnow = 0;
-    }
-    return currentSnow;
-}
+using namespace std;
 
 int main() {
     int hours;
-    float initialSnow, rateOfSnowFall, meltingRate;
+    float snowOnGround, rateOfSnowFall, proportionMeltingPerHour;
 
-    std::cout << "Enter number of hours: ";
-    std::cin >> hours;
-    std::cout << "Enter initial snow (inches): ";
-    std::cin >> initialSnow;
-    std::cout << "Enter rate of snow fall per hour (inches): ";
-    std::cin >> rateOfSnowFall;
-    std::cout << "Enter melting rate per hour (proportion): ";
-    std::cin >> meltingRate;
+    cout << "Enter number of hours: ";
+    cin >> hours;
+    cout << "Enter initial amount of snow on ground (inches): ";
+    cin >> snowOnGround;
+    cout << "Enter rate of snow fall per hour (inches): ";
+    cin >> rateOfSnowFall;
+    cout << "Enter proportion of snow melting per hour: ";
+    cin >> proportionMeltingPerHour;
 
-    float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
+    float result = snowOnGround + rateOfSnowFall * hours - proportionMeltingPerHour * hours;
 
-    std::cout << "Amount of snow on ground after " << hours << " hours: " << std::fixed << std::setprecision(2) << result << " inches." << std::endl;
+    cout << "Amount of snow on ground after " << hours << " hours: " << fixed << setprecision(2) << result << " inches.\n";
 
     return 0;
 }
