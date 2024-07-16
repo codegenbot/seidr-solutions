@@ -6,4 +6,5 @@ def is_equal_to_sum_even(n):
             if even_sum == n:
                 return True
             elif even_sum > n:
-                return False
+                break
+    return False
