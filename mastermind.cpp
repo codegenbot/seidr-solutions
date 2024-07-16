@@ -29,4 +29,3 @@ int main() {
     cin >> code >> guess;
     std::cout << std::mastermind(code, guess) << std::endl;
     return 0;
-}
