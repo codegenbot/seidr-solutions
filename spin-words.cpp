@@ -1,22 +1,27 @@
+```
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    int start = 0;
+    int wordLength = 0;
 
-    for (int end = 0; end <= sentence.size(); ++end) {
-        if (end == sentence.size() || sentence[end] == ' ') {
-            std::string word = sentence.substr(start, end - start);
-            if (word.size() >= 5)
-                result += std::string(word.rbegin(), word.rend()) + " ";
+    for (char c : sentence + " ") {
+        if (c == ' ') {
+            if (wordLength >= 5)
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += sentence[wordLength - i - 1];
             else
-                result += word + " ";
-            start = end + 1;
+                result += c;
+            result += " ";
+            wordLength = 0;
+        } else {
+            wordLength++;
+            result += c;
         }
     }
 
-    return result.substr(0, result.size() - 1);
+    return result;
 }
 
 int main() {
