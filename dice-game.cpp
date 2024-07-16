@@ -2,9 +2,12 @@
 using namespace std;
 
 double probability(int n, int m) {
-    double result = (n - m + 1.0) / (double)m; 
-    for(int i = 2; i < m; ++i) {
-        result += (n - i) / (double)(m);
+    double result = 0.0;
+    for(int i = 1; i < n && i <= m; ++i) { 
+        if (n > m)
+            result += (n - i) / (double)(m);
+        else
+            result += 1.0 / (double)n; 
     }
     return result;
 }
