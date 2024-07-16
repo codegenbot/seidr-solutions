@@ -2,22 +2,22 @@
 #include <string>
 #include <iostream>
 
-bool solveBoolean(const char* s) {
+bool solveBoolean(const std::string& s) {
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (char c : std::string(s)) {
-        if (c == 'T') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T') {
             result = true;
             operand = 1;
-        } else if (c == 'F') {
+        } else if (s[i] == 'F') {
             result = false;
             operand = 0;
-        } else if (c == '|') {
+        } else if (s[i] == '|') {
             result ^= operand; // perform bitwise OR
             operand = 1; // reset operand to true
-        } else if (c == '&') {
+        } else if (s[i] == '&') {
             result &= operand; // perform bitwise AND
-            operand *= c == 'F'; // update operand based on current character
+            operand *= s[i] == 'F'; // update operand based on current character
         }
     }
     return result;
@@ -25,8 +25,8 @@ bool solveBoolean(const char* s) {
 
 int main() {
     std::cout << "Enter a Boolean expression: ";
-    char input[100]; 
-    std::cin.get(input, 100); 
+    std::string input;
+    getline(std::cin, input);  // Use std::getline from namespace std.
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";
