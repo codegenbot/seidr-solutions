@@ -1,33 +1,41 @@
-int bowling(string s) {
+int bowlingScore(string frames) {
     int score = 0;
-    int currentFrameScore = 0;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            currentFrameScore += 10 + (i >= 2 ? 10 : 20);
-        } else if (s[i] == '/') {
-            int nextIndex = i + 1;
-            while (nextIndex < s.size() && !isdigit(s[nextIndex])) {
-                ++nextIndex;
-            }
-            int strikeCount = 0;
-            while (i <= nextIndex && s.substr(i, 2) == "X ") {
-                score += 10;
-                currentFrameScore = 10;
-                i = nextIndex;
-                strikeCount++;
-            }
-            if (strikeCount > 1) {
-                continue;
-            }
-            int strikeBonus = strikeCount * 10;
-            if (i < s.size()) {
-                currentFrameScore += (s[i] - '0') + strikeBonus;
-            }
+    for (int i = 0; i < frames.size(); i++) {
+        if (frames[i] == 'X') { // strike
+            score += 10 + scoreOfNextTwo(frames, i + 1);
+        } else if (frames[i] == '/') { // spare
+            int j = i + 1;
+            while (j < frames.size() && frames[j] != ' ') j++;
+            score += 10 - (frames[i - 1] - '0') + (frames[j] - '0');
         } else {
-            int strikeBonus = currentFrameScore >= 10 ? currentFrameScore : 0;
-            score += currentFrameScore + strikeBonus;
-            currentFrameScore = 0;
+            int strikeOrSpare = 0;
+            if (i < frames.size() - 1) {
+                if (frames[i + 1] == '/') strikeOrSpare = 1;
+                if (frames[i + 2] == 'X') strikeOrSpare = 2;
+            }
+            score += (frames[i] - '0') * (strikeOrSpare ? 2 : 1);
         }
     }
     return score;
+}
+
+int scoreOfNextTwo(string frames, int i) {
+    int nextOne = 0, nextTwo = 0;
+    for (int j = i; j < frames.size() && j < i + 3; j++) {
+        if (frames[j] == 'X') {
+            nextOne = 10;
+            nextTwo = 0;
+            break;
+        } else if (frames[j] == '/') {
+            int k = j + 1;
+            while (k < frames.size() && frames[k] != ' ') k++;
+            nextOne = 10 - (frames[j - 1] - '0') + (frames[k] - '0');
+            break;
+        } else {
+            nextOne += frames[j] - '0';
+            if (j == i + 1) continue;
+            nextTwo = frames[j] - '0';
+        }
+    }
+    return nextOne + nextTwo;
 }
