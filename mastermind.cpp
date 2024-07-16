@@ -3,34 +3,31 @@
 #include <unordered_map>
 
 int main() {
-    std::string codeStr, guessStr;
-    
-    // Read user input...
-    std::cout << "Enter the Mastermind code: ";
-    std::cin >> codeStr;
-    std::cout << "Enter the guess: ";
-    std::cin >> guessStr;
+    std::string codeStr;
+    std::cin >> codeStr; // Read 4-character string
+    std::string guessStr;
+    std::cin >> guessStr; // Read another 4-character string
 
     int blackPegs = 0, whitePegs = 0;
-    std::unordered_map<int, int> codeCount;
+    std::unordered_map<char, int> codeCount;
 
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[static_cast<int>(c)] = 0; 
-            codeCount[static_cast<int>(c)]++;
+            codeCount[c]++;
         }
     }
 
     for (int i = 0; i < 4; i++) {
         char c = guessStr[i];
         if ('0' <= c && c <= '5') {
-            if (codeCount.find(c - '0') != codeCount.end()) {
-                auto& count = codeCount[c - '0'];
+            if (codeCount.find(c) != codeCount.end()) {
+                auto& count = codeCount[c];
                 if (count > 1) {
                     blackPegs++;
-                    codeCount[c - '0']--;
+                    codeCount[c]--;
                 } else {
                     whitePegs++;
+                    codeCount.erase(c);
                 }
             } else {
                 whitePegs++;
