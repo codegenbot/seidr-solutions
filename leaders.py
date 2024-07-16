@@ -1,3 +1,4 @@
+```Python
 def leaders(arr):
     max_right = arr[-1]
     leaders = [max_right]
@@ -8,5 +9,3 @@ def leaders(arr):
             max_right = arr[i]
 
     return leaders
-
-print(leaders([17, 28, 4]))
