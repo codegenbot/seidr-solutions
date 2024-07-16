@@ -1,17 +1,18 @@
-#include <iostream>
-#include <cmath>
-
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
-int main() {
-    int a, b;
-    std::cout << "Enter two numbers: ";
-    std::cin >> a >> b;
-    std::cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << "." << std::endl;
-    return 0;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> indices;
+    int pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos += target.length();
+    }
+    return indices;
 }
