@@ -1,16 +1,23 @@
-sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sumA = 0, sumB = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
-        while (a > 0) {
-            sumA += a % 10;
-            a /= 10;
-        }
-        while (b > 0) {
-            sumB += b % 10;
-            b /= 10;
-        }
-        if (sumA == sumB) return &a - &b;
-        return sumA < sumB;
-    });
+#include <stdio.h>
+#include <math.h>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <string>
+using namespace std;
+
+bool compare(int a, int b) {
+    int sum_a = accumulate(to_string(abs(a)).begin(), to_string(abs(a)).end(), 0,
+                           [](int acc, char c) { return acc + (c - '0'); });
+    int sum_b = accumulate(to_string(abs(b)).begin(), to_string(abs(b)).end(), 0,
+                           [](int acc, char c) { return acc + (c - '0'); });
+    if (sum_a == sum_b) {
+        return a < b;
+    }
+    return sum_a < sum_b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
     return nums;
+}
