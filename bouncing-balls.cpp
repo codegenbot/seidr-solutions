@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -13,7 +12,7 @@ int main() {
 
     double bouncinessIndex = (firstBounce / startHeight);
 
-    totalDistance = 0.0;
+    double totalDistance = 0.0;
     double maxHeight = firstBounce; // Initialize max height
     for (int i = 0; i < numBounces; ++i) {
         startHeight *= bouncinessIndex;
@@ -21,7 +20,7 @@ int main() {
         maxHeight = startHeight > maxHeight ? startHeight : maxHeight; // Update max height for next bounce
     }
 
-    cout << fixed << setprecision(10);
+    cout << fixed << std::setprecision(10);
     cout << static_cast<int>(totalDistance + 0.00001) << endl;
 
     return 0;
