@@ -1,14 +1,14 @@
-int cnt = 0;
-for (const string& s : lst) {
-    for (char c : s) {
+int balance = 0;
+for (const string& str : lst) {
+    for (char c : str) {
         if (c == '(') {
-            cnt++;
+            balance++;
         } else {
-            if (cnt == 0) {
+            if (balance <= 0) {
                 return "No";
             }
-            cnt--;
+            balance--;
         }
     }
 }
-return cnt == 0 ? "Yes" : "No";
+return (balance == 0) ? "Yes" : "No";
