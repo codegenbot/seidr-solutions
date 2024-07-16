@@ -13,3 +13,7 @@ def tri(n):
         a, b, c = b, c, next_num
 
     return tribonacci
+
+
+# test case
+assert tri(1) == [0, 0, 3]
