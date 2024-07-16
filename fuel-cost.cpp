@@ -1,4 +1,3 @@
-```cpp
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
@@ -6,4 +5,3 @@ int fuelCost(std::vector<int> v) {
         sum += val;
     }
     return sum;
-}
