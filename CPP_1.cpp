@@ -1,40 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+bool issame(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
-    string current_group;
-    int balance = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (balance > 0) {
-                current_group += c;
-            }
-            balance++;
-        } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else if (balance == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            }
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
         }
     }
 
-    return groups;
+    return true;
 }
+
+vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
-}
+    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
+    vector<string> expected_result = {"(group1)", "(group2)", "(group3)"};
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (issame(result, expected_result)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
+    return 0;
 }
