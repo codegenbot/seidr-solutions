@@ -2,6 +2,7 @@
 #include <vector>
 #include <climits>
 #include <iostream>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -50,19 +51,23 @@ int main() {
     }
     pair<vector<int>, vector<int>> res = cutVector(v);
     std::cout << "[";
+
     for (int i = 0; i < res.first.size(); ++i) {
         std::cout << res.first[i];
         if (i < res.first.size() - 1) {
             std::cout << " ";
         }
     }
+
     std::cout << "] [";
+
     for (int i = 0; i < res.second.size(); ++i) {
         std::cout << res.second[i];
         if (i < res.second.size() - 1) {
             std::cout << " ";
         }
     }
+
     std::cout << "]\n";
     return 0;
 }

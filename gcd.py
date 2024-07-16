@@ -1,8 +1,18 @@
-Here is the Python code for the problem:
+Here is the completed code:
 
-def gcd(m, n):
-    while n != 0:
-        m, n = n, m % n
-    return abs(m)
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return abs(a)
 
-print(gcd(int(input()), int(input())))
+def indices_of_substring(text, target):
+    indices = []
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos != -1:
+            indices.append(pos)
+            start = pos + 1
+        else:
+            break
+    return indices
