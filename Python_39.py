@@ -1,1 +1,2 @@
-n = int(input())
+n = int(input().strip())
+print(n * 2)
