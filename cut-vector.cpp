@@ -7,8 +7,12 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    while (!std::cin.eof() && std::cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
+    }
+
+    if (nums.empty()) {
+        return 1; // No input provided
     }
     
     int n = nums.size();
@@ -33,10 +37,13 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
-    
-    std::cout << 0 << std::endl;
+    std::cout << std::endl;
+    for (int i = cutIndex + 1; i < n; i++) {
+        std::cout << nums[i] << " ";
+    }
+    std::cout << std::endl;
     
     return 0;
 }
