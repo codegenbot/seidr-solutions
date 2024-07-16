@@ -1,18 +1,14 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& v) {
-    int n = v.size();
+vector<int> leaders(vector<int>& arr) {
     vector<int> res;
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(v[j] >= v[i]) {
-                leader = false;
-                break;
-            }
+    int n = arr.size();
+    for (int i = n - 1; i >= 0; --i) {
+        if (i == n - 1 || arr[i] >= arr[i + 1]) {
+            res.push_back(arr[i]);
         }
-        if(leader) res.push_back(v[i]);
     }
+    reverse(res.begin(), res.end());
     return res;
 }
