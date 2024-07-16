@@ -1,25 +1,22 @@
 ```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
-    current_group = ''
+    group = ''
     
-    for paren in paren_string:
-        if paren == ' ':
+    for char in paren_string:
+        if char == ' ':
             continue
-        
-        if paren in '({':
-            stack.append(paren)
-            current_group += paren
-        elif paren in ')}':
-            if stack and stack[-1] + paren in '())':
-                stack.pop()
-                current_group += paren
-            else:
-                groups.append(current_group)
-                current_group = ''
-    
-    if stack or current_group:
-        raise ValueError("Invalid parentheses")
-    
-    return [group.strip() for group in current_group.split('(')]
+        if char == '(':
+            stack.append(char)
+            group += char
+        elif char == ')':
+            stack.pop()
+            group += char
+            if not stack:
+                groups.append(group)
+                group = ''
+
+    return groups

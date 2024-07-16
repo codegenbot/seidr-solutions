@@ -1,11 +1,12 @@
-Here is the solution:
+Here is the completed code:
 
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string.ispalindrome():
-        return string + string[::-1]
+    if string == string[::-1]:
+        return string + string
     for i in range(len(string)):
-        if string[:i].isreversed() and string[i:].ispalindrome():
-            return string[:i] + string[i:][::-1]
+        if string[i:] == string[i:] + ''.join(reversed(string[:i])):
+            return string[:i] + string[i:] + ''.join(reversed(string[:i]))
+    return string + ''.join(reversed(string))
