@@ -1,10 +1,5 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list> 
-
 using namespace std;
 
 vector<int> calculateLeaders(vector<int> arr) {
