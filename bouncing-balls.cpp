@@ -1,9 +1,7 @@
-```
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
-
-std::using namespace std;
+using namespace std;
 
 int main() {
     double start_height;
