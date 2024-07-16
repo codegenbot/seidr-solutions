@@ -1,17 +1,17 @@
-bool prev_space = false;
-    string result = "";
+string result;
+    bool prevSpace = false;
     for (char c : text) {
         if (c == ' ') {
-            if (prev_space) {
+            if (prevSpace) {
                 result.pop_back();
-                result += "-";
+                result.push_back('-');
             } else {
-                result += "_";
+                result.push_back('_');
             }
-            prev_space = true;
+            prevSpace = true;
         } else {
-            result += c;
-            prev_space = false;
+            result.push_back(c);
+            prevSpace = false;
         }
     }
     return result;
