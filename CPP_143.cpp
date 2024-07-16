@@ -1,17 +1,30 @@
-string result = "";
+string words_in_sentence(string sentence){
+    string result = "";
     string word = "";
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (is_prime(word.length())) {
-                result += word + " ";
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] == ' ' || i == sentence.length()-1){
+            if(i == sentence.length()-1){
+                word += sentence[i];
+            }
+            if(word.length() > 1){
+                bool is_prime = true;
+                for(int j=2; j*j <= word.length(); j++){
+                    if(word.length() % j == 0){
+                        is_prime = false;
+                        break;
+                    }
+                }
+                if(is_prime){
+                    result += word + " ";
+                }
             }
             word = "";
         } else {
-            word += c;
+            word += sentence[i];
         }
     }
-    if (is_prime(word.length())) {
-        result += word;
+    if(result.length() > 0){
+        result.pop_back();
     }
     return result;
 }
