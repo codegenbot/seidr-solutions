@@ -10,6 +10,3 @@ try:
 
 except ValueError:
     print("Please enter valid integers for both numbers.")
-
-except NameError:
-    print("Error while reading input.")
