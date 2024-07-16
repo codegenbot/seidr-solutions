@@ -25,17 +25,19 @@ std::string split(const std::string& str, char delimiter) {
 
 std::string camelCase(const std::string& str) {
     std::string result;
-    size_t pos = 0;
-    bool capitalizeNext = (str[0] >= 'a' && str[0] <= 'z');
+    bool capitalizeNext = true;
     for (const auto& c : split(str, '-')) {
         if (!result.empty()) {
             if (capitalizeNext) {
-                if (!capitalizeNext) { result += c; } else { result += std::string(1, toupper(c[0])); result += c.substr(1); capitalizeNext = false; }
+                result += toupper(c.at(0));
+                capitalizeNext = false;
             } else {
-                else { result += std::string(1, tolower(c[0])); result += c.substr(1); }
+                result += tolower(c.at(0));
             }
+            result += c.substr(1);
         } else {
-            if (!capitalizeNext) { result += c; } else { result += std::string(1, toupper(c[0])); result += c.substr(1); capitalizeNext = false; }
+            result += tolower(c.at(0));
+            capitalizeNext = true;
         }
     }
     return result;
