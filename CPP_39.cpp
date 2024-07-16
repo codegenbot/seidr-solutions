@@ -15,30 +15,29 @@ bool isPrime(int num) {
 
 int prime_fib(int n) {
     if (n <= 0) {
-        return -1;
+        return 0;
     }
-    
     if (n == 1) {
         return 2;
     }
-    
-    int prev = 1;
-    int curr = 1;
+    if (n == 2) {
+        return 3;
+    }
+
+    int prev = 2;
+    int curr = 3;
     int count = 2;
-    int result = 0;
-    
+
     while (count < n) {
-        int temp = curr;
-        curr = prev + curr;
-        prev = temp;
-        
-        if (isPrime(curr)) {
-            result = curr;
+        int next = prev + curr;
+        if (isPrime(next)) {
             count++;
         }
+        prev = curr;
+        curr = next;
     }
-    
-    return result;
+
+    return curr;
 }
 
 int main() {
