@@ -1,15 +1,13 @@
 string encode(string message) {
-    transform(message.begin(), message.end(), message.begin(), [](char c) {
+    for (char &c : message) {
         if (isalpha(c)) {
-            c = isupper(c) ? tolower(c) : toupper(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
-                if (c > 'z') {
-                    c -= 26;
-                }
-            }
+            c = (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            if (c == 'A' || c == 'a') c = 'C';
+            else if (c == 'E' || c == 'e') c = 'G';
+            else if (c == 'I' || c == 'i') c = 'K';
+            else if (c == 'O' || c == 'o') c = 'Q';
+            else if (c == 'U' || c == 'u') c = 'W';
         }
-        return c;
-    });
+    }
     return message;
 }
