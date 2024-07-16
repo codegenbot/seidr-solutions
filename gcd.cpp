@@ -1,31 +1,30 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
+std::vector<int> findIndices(const std::vector<int>& numbers, int a, int b) {
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (numbers[i] % a == 0 && numbers[i] % b == 0) {
+            indices.push_back(i);
+        }
     }
     return indices;
 }
 
 int main() {
-    int num1, num2;
-    std::cin >> num1 >> num2;
-
-    std::string text = std::to_string(num1) + std::to_string(num2);
-
-    std::string target;
-    std::cin >> target;
-
-    std::vector<int> result = findIndices(text, target);
-
+    int n, a, b;
+    std::cin >> n >> a >> b;
+    
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> numbers[i];
+    }
+    
+    std::vector<int> result = findIndices(numbers, a, b);
+    
     for (int idx : result) {
         std::cout << idx << " ";
     }
-
+    
     return 0;
 }
