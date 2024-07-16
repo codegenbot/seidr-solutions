@@ -1,3 +1,6 @@
+#include <vector>
+#include <iostream>
+#include <string>
 #include <algorithm>
 
 using namespace std;
@@ -28,3 +31,4 @@ int main() {
     cout << spinWords("this is another test") << endl; 
     cout << spinWords("hi") << endl; 
     return 0;
+}
