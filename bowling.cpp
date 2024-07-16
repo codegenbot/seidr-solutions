@@ -10,7 +10,7 @@ int main() {
     return 0;
 }
 
-std::string bowlingScore(const std::string& s) {
+int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
@@ -29,7 +29,6 @@ std::string bowlingScore(const std::string& s) {
             } else {
                 currentRoll *= 10;
                 currentRoll += c - '0';
-           
             
             if(i < s.length() - 1) {
                 char nextC = s.at(i + 1);
@@ -57,5 +56,5 @@ std::string bowlingScore(const std::string& s) {
         }
     }
 
-    return std::to_string(score);
+    return score;
 }
