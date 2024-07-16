@@ -1,21 +1,16 @@
 int gcd(int a, int b) {
-    if (b == 0) return a;
+    if (b == 0)
+        return a;
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indices_of_substring(const string& text, const string& target) {
     vector<int> indices;
-    int m = text.length();
-    int n = target.length();
-    for (int i = 0; i <= m - n; ++i) {
-        int j;
-        for (j = 0; j < n; ++j) {
-            if (text[i + j] != target[j]) {
-                break;
+    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            for (size_t j = i; j < i + target.size(); ++j) {
+                indices.push_back(j);
             }
-        }
-        if (j == n) {
-            indices.push_back(i);
         }
     }
     return indices;
