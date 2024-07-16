@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string spinWords(const std::string& input) {
     std::string output = "";
