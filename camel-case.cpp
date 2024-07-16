@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 int main() {
     std::string s;
@@ -13,7 +14,7 @@ int main() {
         if (c == '-') {
             if(capitalizeNext) result += std::toupper(c);
             capitalizeNext = true;
-            result.push_back(' ');
+            result += " ";
         } else if (capitalizeNext) {
             result += std::toupper(c);
             capitalizeNext = false;
@@ -30,6 +31,5 @@ int main() {
             pos++;
     }
     
-    std::ios_base::sync_with_stdio(false); 
     return 0;
 }
