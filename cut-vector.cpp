@@ -11,6 +11,10 @@ int main() {
         nums.push_back(num);
     }
 
+    if (nums.empty()) {
+        return 1; // No input provided
+    }
+    
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -33,10 +37,13 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
-    
-    std::cout << 0 << std::endl;
+    std::cout << std::endl;
+    for (int i = cutIndex + 1; i < n; i++) {
+        std::cout << nums[i] << " ";
+    }
+    std::cout << std::endl;
     
     return 0;
 }
