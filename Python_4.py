@@ -1,2 +1,7 @@
-numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").strip().split()))
-print("Sum of input numbers:", sum(numbers))
+try:
+    numbers = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
+    print("Sum of input numbers:", sum(numbers))
+except ValueError:
+    print("Invalid input. Please make sure to enter numbers separated by spaces.")
+except Exception:
+    print("Error reading input. Please make sure to enter numbers separated by spaces.")
