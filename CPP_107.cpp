@@ -26,6 +26,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    // Main function implementation
+    // Main function logic
     return 0;
 }
