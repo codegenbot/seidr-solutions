@@ -17,12 +17,13 @@ std::string join(const std::vector<std::string>& tokens) {
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str = str.substr(pos + 1);
+    std::string tempStr = str; // Create a copy of the original string
+    while ((pos = tempStr.find(delimiter)) != std::string::npos) {
+        tokens.push_back(tempStr.substr(0, pos));
+        tempStr = tempStr.substr(pos + 1);
     }
-    if (!str.empty()) {
-        tokens.push_back(str);
+    if (!tempStr.empty()) {
+        tokens.push_back(tempStr);
     }
     return tokens;
 }
