@@ -6,10 +6,6 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-input_str = input("Enter a string of lowercase English alphabets (a-z): ").strip()
-while not input_str.islower() or not input_str.isalpha():
-    print("Invalid input. Please enter a valid string of lowercase English alphabets (a-z).")
-    input_str = input("Enter a string of lowercase English alphabets (a-z): ").strip()
-
+input_str = input().lower().strip()
 result = decode_cyclic(input_str)
 print(result)
