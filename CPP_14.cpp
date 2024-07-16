@@ -8,6 +8,7 @@ std::vector<std::string> all_prefixes(std::string str);
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    // Compare vectors a and b element-wise
     return a == b;
 }
 
