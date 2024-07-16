@@ -14,7 +14,7 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b) {
 }
 
 std::vector<int> even_odd_count(int n) {
-    return {n % 2 == 0, n % 2 != 0};
+    return {static_cast<int>(n % 2 == 0), static_cast<int>(n % 2 != 0)};
 }
 
 int main() {
