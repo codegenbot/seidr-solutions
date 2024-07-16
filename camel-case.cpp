@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <cctype>
+#include <iostream>
 
 int main() {
     std::string s;
@@ -13,7 +12,7 @@ int main() {
         if (c == '-') {
             if(capitalizeNext) result += std::toupper(c);
             capitalizeNext = true;
-            if(result.back() != ' ') result.push_back(' ');
+            result.push_back(' ');
         } else if (capitalizeNext) {
             result += std::toupper(c);
             capitalizeNext = false;
@@ -21,6 +20,16 @@ int main() {
             result += tolower(c);
         }
     }
-    
+
+    for(size_t i=0; i<result.size(); ++i) {
+        if(result[i] == ' ') {
+            result[i] = toupper(result[++i]);
+        }
+    }
+    size_t pos = 0;
+    while ((pos = result.find(' ', pos)) != std::string::npos) {
+        result.erase(pos, 1);
+        pos++;
+    }
     return 0;
 }
