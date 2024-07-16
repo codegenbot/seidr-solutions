@@ -1,24 +1,19 @@
+```cpp
 std::string camelCase(const std::string& str) {
     std::string result;
-    bool capitalize = true;
-
-    for (char c : str) {
-        if (!isalnum(c)) {  
-            if (c == '-') {
-                continue; // Skip '-'
-            }
-            if (c == ' ') {
-                capitalize = true;  // Reset capitalization for next word
-                continue;
-            } 
-            if (capitalize) {
+    bool capitalizeNext = true;
+    for (const auto& c : split(str, '-')) {
+        if (!result.empty()) {
+            if (capitalizeNext) {
                 result += toupper(c);
-                capitalize = false;
+                capitalizeNext = false;
             } else {
                 result += tolower(c);
             }
+        } else {
+            result = tolower(c);
+            capitalizeNext = true;
         }
     }
-
     return result;
 }
