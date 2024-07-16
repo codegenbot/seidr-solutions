@@ -18,8 +18,9 @@ bool is_happy(const std::string& s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
-    assert(is_happy("abcde") == true);
-    assert(is_happy("abacadae") == false);
+    assert(is_happy("abc") == true);
+    assert(is_happy("xyz") == true);
+    assert(is_happy("abab") == false);
     
     return 0;
 }
