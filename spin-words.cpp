@@ -1,6 +1,6 @@
 ```
+#include <iostream>
 #include <string>
-#include <cstring>
 
 std::string spinWords(std::string str) {
     std::string result = "";
