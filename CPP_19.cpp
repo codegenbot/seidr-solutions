@@ -22,9 +22,10 @@ map<string, int> num_map = {
 string sort_numbers(string numbers);
 
 int main() {
-    string input;
-    getline(cin, input);
-    cout << sort_numbers(input) << endl;
+    string numbers = "three one four seven two";
+    string sorted_result = sort_numbers(numbers);
+    cout << sorted_result << endl;
+    return 0;
 }
 
 string sort_numbers(string numbers) {
