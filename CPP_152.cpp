@@ -16,8 +16,13 @@ std::vector<int> calculate_difference(const std::vector<int>& game, const std::v
 
 int main() {
     std::vector<int> result = calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4});
-    for (int num : result) {
-        std::cout << num << " ";
+    std::vector<int> expected = {2, 0, 0, 1};
+
+    if (result == expected) {
+        std::cout << "Test Passed!" << std::endl;
+    } else {
+        std::cout << "Test Failed!" << std::endl;
     }
+
     return 0;
 }
