@@ -1,12 +1,11 @@
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
     if(total == 0)
-        throw runtime_error("Error: The number of sides on the dice cannot be zero.");
+        throw runtime_error("The number of sides on the dice cannot be zero.");
     return (n - m + 1.0) / total; 
 }
 
