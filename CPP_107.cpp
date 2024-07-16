@@ -24,11 +24,19 @@ vector<int> count_palindromes(int n) {
 }
 
 int main() {
-    vector<int> counts = count_palindromes(100);
-    vector<int> expected = {9, 10};
-    if (issame(counts, expected)) {
-        return 0;
+    vector<int> even_odd_palindrome(int n);
+
+    int n;
+    cin >> n;
+
+    vector<int> result = count_palindromes(n);
+    vector<int> expected = even_odd_palindrome(n);
+
+    if (issame(result, expected)) {
+        cout << "Correct" << endl;
     } else {
-        return 1;
+        cout << "Incorrect" << endl;
     }
+
+    return 0;
 }
