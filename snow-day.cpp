@@ -2,15 +2,15 @@
 
 int main() {
     int hours;
-    float snow_on_ground, snow_fall_rate, snow_melt_rate;
-    std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
-
+    float snow, rate, melt;
+    std::cin >> hours >> snow >> rate >> melt;
+    
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground += snow_fall_rate;
-        snow_on_ground *= (1 - snow_melt_rate);
+        snow += rate;
+        snow -= melt * snow;
     }
-
-    std::cout << snow_on_ground << std::endl;
-
+    
+    std::cout << snow << std::endl;
+    
     return 0;
 }
