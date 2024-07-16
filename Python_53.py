@@ -1,19 +1,9 @@
-def divide(a, b):
-    if b == 0:
-        raise ZeroDivisionError(
-            "Cannot divide by zero. Please enter a non-zero second number."
-        )
-    return a / b
-
-
-def add(a, b):
-    return a + b
-
-
 while True:
     try:
-        user_input = input(
-            "Enter two numbers separated by space or '/' for division: ").strip()
+        user_input = input("Enter two numbers separated by space or '/' for division: ")
+
+        if not user_input:  # Check for empty input
+            raise EOFError
 
         if user_input.startswith("/"):
             raise ValueError("Division operator should be in-between two numbers.")
@@ -30,7 +20,8 @@ while True:
 
         print(result)
 
-    except (ValueError, ZeroDivisionError, KeyboardInterrupt):
-        print("Invalid input or division by zero. Please try again.")
-    except EOFError:
-        print("End of input reached. Exiting program.")
+    except (ValueError, ZeroDivisionError, EOFError):
+        if isinstance(e, EOFError):
+            print("End of input reached. Exiting program.")
+        else:
+            print("Invalid input or division by zero. Please try again.")
