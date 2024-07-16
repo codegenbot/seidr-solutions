@@ -1,3 +1,2 @@
-
-xs = [int(input()) for _ in range(int(input("Enter the number of integers: ")))]
+xs = list(map(int, input("Enter space-separated integers: ").strip().split()))
 print(xs)
