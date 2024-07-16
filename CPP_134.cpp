@@ -1,1 +1,1 @@
-return (!txt.empty() && isalpha(txt.back()) && txt.find_last_of(" ") == txt.size() - 1);
+return !isalpha(txt.empty() ? ' ' : txt.back()) && txt.size() > 1 && !isalpha(txt[txt.size() - 2]);
