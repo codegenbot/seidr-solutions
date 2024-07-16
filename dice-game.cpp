@@ -1,12 +1,10 @@
 #include <iostream>
 double probability(int n, int m) {
     double result = 0.0;
-    if (n <= m) return 1; 
-
-    for (int i = 1; i < m; ++i) { 
-        result += ((double)i+1)/n;
+    for (int i = m + 1; i <= n; ++i) { 
+        result += ((m + 1) / (double)n);
     }
-    return result;
+    return 1 - result;
 }
 
 int main() {
