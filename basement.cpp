@@ -15,6 +15,6 @@ int basement(std::vector<int> nums) {
 int main() {
     std::vector<int> numbers = {1, -3, 5, -2, 1};
     std::cout << basement(numbers) << std::endl;
-    
+
     return 0;
 }
