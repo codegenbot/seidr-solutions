@@ -1,4 +1,4 @@
-Here is the corrected version:
+Here is the corrected code:
 
 ```Python
 def sum_squares(lst):
