@@ -1,5 +1,4 @@
-```cpp
-#include <boost/any.hpp>
+```
 #include <boost/variant.hpp>
 #include <string>
 
