@@ -1,53 +1,43 @@
 #include <iostream>
-#include <vector>
 #include <climits>
-#include <cmath>
-#include <sstream>
+#include <vector>
+#include <numeric>
 
-int main() {
-    std::vector<int> nums;
-    std::string input;
-    std::getline(std::cin, input);
-    std::stringstream ss(input);
-    int num;
-    
-    while (ss >> num) {
-        nums.push_back(num);
-    }
-
-    if (nums.empty()) {
-        return 1;
-    }
-    
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
-    
-    int prefixSum = 0;
+std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
+    int cutIndex = 0;
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = std::abs(prefixSum - suffixSum);
-        
-        if (diff <= minDiff) {
-            minDiff = diff;
+
+    for (int i = 1; i < nums.size(); i++) {
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < minDiff) {
             cutIndex = i;
+            minDiff = diff;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << " ";
+
+    std::vector<int> subvector1(nums.begin(), nums.begin() + cutIndex);
+    std::vector<int> subvector2(nums.begin() + cutIndex, nums.end());
+
+    if (minDiff == INT_MAX) {
+        return std::make_pair(std::vector<int>(), std::vector<int>());
+    }
+
+    return std::make_pair(subvector1, subvector2);
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5};
+    auto result = findCutSpot(nums);
+
+    for (int num : result.first) {
+        std::cout << num << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex + 1; i < n; i++) {
-        std::cout << nums[i] << " ";
+
+    for (int num : result.second) {
+        std::cout << num << " ";
     }
     std::cout << std::endl;
-    
+
     return 0;
 }
