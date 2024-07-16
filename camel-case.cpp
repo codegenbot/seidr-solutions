@@ -1,4 +1,6 @@
-```cpp
+#include <string>
+#include <cctype>
+
 std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
@@ -16,5 +18,5 @@ std::string camelCase(std::string s) {
         }
     }
 
-    return result;
+    return result.substr(1);
 }
