@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <tuple>
 
 std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
@@ -26,5 +27,4 @@ int main() {
     std::string guess = "BRBB";
     std::tie(white, black) = mastermind(code, guess);
     std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
-    return 0; 
-}
+    return 0;

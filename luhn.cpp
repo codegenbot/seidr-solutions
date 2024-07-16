@@ -4,7 +4,7 @@
 int luhn(int* digits, int length) {
     int sum = 0;
     for (int i = 0; i < length; i++) {
-        if ((i % 2) == 1) {
+        if ((length - i) % 2 != 0) { 
             int doubleValue = digits[i] * 2;
             if (doubleValue > 9)
                 doubleValue -= 9;

@@ -1,11 +1,9 @@
-```
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
-    float totalSnow = 0;
     for (int i = 0; i < hours; i++) {
         initialSnow += rateOfSnowfall;
         initialSnow *= (1 - proportionOfMeltingPerHour);
@@ -21,3 +19,4 @@ int main() {
     cout << fixed << setprecision(6);
     cout << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour) << endl;
     return 0;
+}

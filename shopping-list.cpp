@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -7,8 +8,7 @@ using namespace std;
 float shoppingList(vector<float> prices, vector<float> discounts) {
     float total = 0;
     for(int i=0; i<prices.size(); i++) {
-        float itemPrice = prices[i] * (1 - discounts[i] / 100.0f);
-        total += round(itemPrice * 100.0f) / 100.0f;
+        total += prices[i] * (1 - discounts[i]/100);
     }
     return total;
 }
@@ -25,4 +25,4 @@ int main() {
     }
 
     cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
-}
+    cin.ignore();
