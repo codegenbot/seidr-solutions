@@ -4,11 +4,9 @@ float sum = 0;
     }
     float mean = sum / numbers.size();
 
-    float mad_sum = 0;
+    float mad = 0;
     for (float num : numbers) {
-        mad_sum += abs(num - mean);
+        mad += abs(num - mean);
     }
-    float mad = mad_sum / numbers.size();
-
-    return mad;
+    return mad / numbers.size();
 }
