@@ -42,6 +42,11 @@ vector<string> select_words(string s, int n){
 }
 
 int main() {
-    // Code that uses is_same function
+    // Test is_same function
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b = {"banana", "cherry", "apple"};
+    
+    assert(is_same(a, b) == true);
+    
     return 0;
 }
