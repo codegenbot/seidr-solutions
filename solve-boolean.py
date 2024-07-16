@@ -4,8 +4,8 @@ def solveBoolean(expression):
     elif expression.strip() == "f":
         return False
     elif "&" in expression:
-        left, right = expression.split("&", 1)
+        left, right = expression.split("&",1)
         return solveBoolean(left) and solveBoolean(right)
     elif "|" in expression:
-        left, right = expression.split("|", 1)
+        left, right = expression.split("|",1)
         return solveBoolean(left) or solveBoolean(right)
