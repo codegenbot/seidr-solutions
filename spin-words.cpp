@@ -6,13 +6,13 @@ string spinWords(string str) {
     int i = 0;
     while (i < str.length()) {
         if (str[i] == ' ') {
-            result += str.substr(i);
+            result += " ";
             i++;
-        } else if (strlen(&str.substr(i)) >= 5) {
-            for (int j = strlen(&str.substr(i)); j > 0; j--) {
-                result += str.substr(i + j - 1, 1);
+        } else if (str.length() - i >= 5) {
+            for (int j = 5; j > 0; j--) {
+                result += str[str.length() - j];
             }
-            i += j;
+            i += 5;
         } else {
             int k = 0;
             while (i < str.length() && str[i] != ' ') {
@@ -22,12 +22,14 @@ string spinWords(string str) {
             }
             if (k > 0) {
                 for (int j = k; j > 0; j--) {
-                    result += str[i - 1];
+                    result += str[str.length() - j];
                 }
                 i--;
             } else {
-                result += str.substr(i);
-                i++;
+                while (i < str.length()) {
+                    result += str[i];
+                    i++;
+                }
             }
         }
     }
