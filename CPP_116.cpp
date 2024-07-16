@@ -6,6 +6,5 @@ sort(arr.begin(), arr.end(), [](int a, int b) {
     }
     return count_a < count_b;
 });
-
 return arr;
 }
