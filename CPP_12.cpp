@@ -14,3 +14,8 @@ string longest(vector<string> strings){
     
     return longestStr;
 }
+
+int main() {
+    // Main function code if needed
+    return 0;
+}
