@@ -1,11 +1,11 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
     int totalCost = 0;
     for (int num : numbers) {
-        int cost = static_cast<int>(floor((double)num / 3));
+        int cost = static_cast<int>(floor(double(num) / 3));
         if (cost < 1) {
             cost = 0;
         } else {
