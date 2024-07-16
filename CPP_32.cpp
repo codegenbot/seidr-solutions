@@ -1,15 +1,13 @@
 double find_zero(vector<double> xs){
-    if (xs.size() % 2 != 0) {
-        return -1; // Invalid input
+    double a = xs[0];
+    double b = xs[1];
+    double discriminant = b * b - 4 * a;
+    double x1 = (-b + sqrt(discriminant)) / (2 * a);
+    double x2 = (-b - sqrt(discriminant)) / (2 * a);
+    
+    if (abs(x1) < abs(x2)) {
+        return x1;
+    } else {
+        return x2;
     }
-
-    double zero_point = -1;
-    for (double x = -1000; x <= 1000; x += 0.001) {
-        if (poly(xs, x) == 0) {
-            zero_point = x;
-            break;
-        }
-    }
-
-    return zero_point;
 }
