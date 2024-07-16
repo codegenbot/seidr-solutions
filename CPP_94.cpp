@@ -28,11 +28,19 @@ bool isPrime(int n) {
 }
 
 int main() {
-    std::vector<int> lst;
-    int num;
-    while(std::cin >> num) {
-        lst.push_back(num);
+    int n;
+    std::cout << "Enter the size of the array: ";
+    std::cin >> n;
+
+    std::vector<int> lst(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
     }
-    std::cout << skjkasdkd(lst) << std::endl;
+
+    int result = skjkasdkd(lst);
+
+    std::cout << "Sum of digits of the maximum prime number is: " << result << std::endl;
+
     return 0;
 }
