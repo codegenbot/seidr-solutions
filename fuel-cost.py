@@ -1,6 +1,6 @@
 ```
 def calculate_fuel(amount):
-    return amount // 3 - 2
+    return (amount // 3) - 2
 
 
 def fuel_cost(vector):
