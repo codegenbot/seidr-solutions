@@ -3,15 +3,12 @@ def sum_product(numbers):
 
 results = []
 
-try:
-    while True:
-        numbers_input = list(map(int, input().strip().split()))
-        if len(numbers_input) < 2:
-            break
-        result = sum_product(numbers_input)
-        results.append(result)
-except EOFError:
-    pass
+while True:
+    numbers_input = list(map(int, input().strip().split()))
+    if len(numbers_input) < 2:
+        break
+    result = sum_product(numbers_input)
+    results.append(result)
 
 for result in results:
     print(result)
