@@ -1,6 +1,6 @@
 ```cpp
-#include <iostream>
 #include <vector>
+using namespace std;
 
 int main() {
     int result = f({127, 97, 8192});
@@ -8,7 +8,7 @@ int main() {
     return 0;
 }
 
-int f(std::vector<int> v) {
+int f(vector<int> v) {
     int sum = 0;
     for (int i : v) {
         if (i >= 128)
