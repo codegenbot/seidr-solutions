@@ -5,7 +5,7 @@ if (txt.empty()) {
     char lastChar = txt.back();
     
     if (isalpha(lastChar)) {
-        if (txt.find_last_of(" ") == txt.length() - 1) {
+        if (txt.find_last_of(' ') == txt.size() - 1) {
             return true;
         }
     }
