@@ -8,7 +8,5 @@ while True:
     if input_text:
         result = string_to_md5(input_text)
         print(result)
-        if result:
-            break
     else:
         print("Invalid input")
