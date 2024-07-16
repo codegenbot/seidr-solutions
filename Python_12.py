@@ -1,4 +1,6 @@
-strings = input().split()
+n = int(input())
 def longest(strings):
     return max(strings, key=len)
-print(longest(strings))
+for _ in range(n):
+    strings = input().split()
+    print(longest(strings))
