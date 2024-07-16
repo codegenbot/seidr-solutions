@@ -1,6 +1,7 @@
-```cpp
 #include <cctype>
-int bowlingScore(const std::string s) {
+#include <string>
+
+int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
@@ -40,4 +41,3 @@ int bowlingScore(const std::string s) {
     }
 
     return score;
-}
