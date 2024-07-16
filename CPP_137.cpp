@@ -39,14 +39,13 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         return i > f ? boost::variant<int, float, std::string>(i) : (f == i) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(f);
     }
     else {
-        return a.type() == typeid(int) && b.type() == typeid(float) ? boost::variant<int, float, std::string>(boost::get<int>(a.convert_to<boost::any>())) : boost::variant<int, float, std::string>(boost::get<float>(b.convert_to<boost::any>()));
+        return a;
     }
 }
 
 int main() {
     boost::any a = 10;
-    boost::any b = 5.5;
-
+    boost::any b = "20.5";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
     if (boost::holds_alternative<int>(result)) {
