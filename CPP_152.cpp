@@ -15,7 +15,5 @@ std::vector<int> calculate_difference(const std::vector<int>& game, const std::v
     return result;
 }
 
-int main() {
-    assert(compare(calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1});
-    return 0;
-}
+std::vector<int> expected = {2, 0, 0, 1};
+assert(compare(calculate_difference({1, 2, 3, 5}, {-1, 2, 3, 4}), expected);

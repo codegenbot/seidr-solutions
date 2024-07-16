@@ -17,4 +17,7 @@ bool order_by_points(const std::vector<int>& vec, const std::vector<int>& order)
     return issame(sort_vector(vec), order);
 }
 
-assert(order_by_points({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 6, 6, 23}));
+int main() {
+    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}, {-76, -21, 0, 4, 6, 6, 23}));
+    return 0;
+}
