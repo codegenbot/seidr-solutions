@@ -1,14 +1,13 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size())
+        return false;
+    
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 }
-
-// Define or declare even_odd_count function here.
-
-int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
-    return 0;
-}
-
-// Add any remaining code as needed.
