@@ -3,17 +3,13 @@
 
 string solveBoolean(string s) {
     stack<char> st;
-    bool temp = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) return "False";
-            else {
-                temp &= (st.top() == 'T');
-                st.pop();
-            }
+            if (st.empty()) return "F";
+            else st.pop();
         } 
         else if (s[i] == '|') {
             while (!st.empty()) st.pop();
@@ -21,6 +17,5 @@ string solveBoolean(string s) {
         } 
         else if (s[i] != '&') st.push(s[i] == 'T' ? 'T' : 'F');
     }
-    if (temp) return "True";
+    if (st.top() == 'T') return "True";
     else return "False";
-}
