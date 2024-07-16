@@ -3,6 +3,7 @@ def paired_digits(s):
     for i in range(len(s)-1):
         if s[i] == s[i+1]:
             total += int(s[i])
-    if s[0] == s[-1]:  
-        total += int(s[0])
     return total
+
+s = input("Enter a string of digits: ")
+print(paired_digits(s))
