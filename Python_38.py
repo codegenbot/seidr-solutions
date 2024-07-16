@@ -1,5 +1,5 @@
 def decode_cyclic(s: str):
-    if not s.isalpha() or not s.islower():
+    if not s.islower():
         return "Input string should contain only lowercase English alphabets."
 
     groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
@@ -7,7 +7,7 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 input_str = input("Enter a string of lowercase English alphabets (a-z): ").strip()
-while not input_str.islower() or not input_str.isalpha():
+while not input_str.islower():
     print("Invalid input. Please enter a valid string of lowercase English alphabets (a-z).")
     input_str = input("Enter a string of lowercase English alphabets (a-z): ").strip()
 
