@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 #include <climits>
 #include <iostream>
 using namespace std;
@@ -7,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    int minDiff = numeric_limits<int>::max();
+    int minDiff = std::numeric_limits<int>::max();
     int splitIndex = -1;
     
     for (int i = 0; i < n - 1; ++i) {
