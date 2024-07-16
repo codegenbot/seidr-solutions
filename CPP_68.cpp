@@ -8,7 +8,12 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> pluck(vector<int> arr);
 
 int main() {
-    // Add main function code here if needed
+    // Test the pluck function
+    vector<int> testArr = {1, 2, 3, 4, 5};
+    vector<int> result = pluck(testArr);
+    
+    assert(issame(result, {2, 1}));
+    
     return 0;
 }
 
