@@ -2,14 +2,14 @@
 #include <iomanip>
 
 int main() {
-    long long n, m;
+    int n, m;
     std::cin >> n >> m;
     
-    long double probability = 0.0;
-    for (long long i = 1; i <= n; ++i) {
-        for (long long j = 1; j <= m; ++j) {
+    long double probability = 0.0L;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                probability += 1.0 / (long double)(n * m);
+                probability += 1.0L / static_cast<long double>(n) / static_cast<long double>(m);
             }
         }
     }
