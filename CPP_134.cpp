@@ -1,12 +1,13 @@
-if(txt.empty()) return false;
+if (txt.empty()) {
+        return false;
+    }
+    
     char lastChar = txt.back();
-    if(isalpha(lastChar)){
-        if(txt.find_last_of(" ") != string::npos){
-            if(txt.find_last_of(" ") == txt.size() - 2)
-                return true;
-        } else {
+    if (isalpha(lastChar)) {
+        if (txt.size() == 1 || txt[txt.size() - 2] == ' ') {
             return true;
         }
     }
+    
     return false;
 }
