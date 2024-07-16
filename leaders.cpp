@@ -5,11 +5,14 @@ std::deque<int> leaders(const std::deque<int>& arr) {
     int n = arr.size();
     std::deque<int> result;
 
-    for(int i=n-1; i>=0; i--) { 
-        if(i==n-1 || arr[i] >= arr[i+1]) {
-            result.push_front(arr[i]);
+    for(int i=0; i<n-1; i++) { 
+        if(result.empty() || arr[i] >= result.back()) {
+            result.push_back(arr[i]);
         }
     }
+
+    // Add the last element as a leader
+    result.push_back(arr.back());
 
     return result;
 }
