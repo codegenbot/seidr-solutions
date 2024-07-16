@@ -6,4 +6,5 @@ for (int num : numbers) {
     product *= num;
 }
 
-return {sum, numbers.empty() ? 1 : product};
+return {sum, product};
+}
