@@ -8,7 +8,7 @@ int main() {
 
     for (size_t i = 0; i < text.size() - target.size() + 1; ++i) {
         if (memcmp(text.c_str() + i, target.c_str(), target.size()) == 0) {
-            std::cout << i << " ";
+            std::cout << i + 1 << " ";
         }
     }
 
