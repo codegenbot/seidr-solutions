@@ -1,7 +1,5 @@
 def add_elements(arr, k):
-    valid_nums = [num for num in arr if 10 <= num <= 100]
-    
-    if not valid_nums:
+    if k == 0:
         return 0
-    
-    return sum(sorted(valid_nums)[:k])
+    filtered_nums = [num for num in arr if 10 <= num <= 100]
+    return sum(sorted(filtered_nums)[:k]) if len(filtered_nums) >= k else 0
