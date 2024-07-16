@@ -1,14 +1,5 @@
-```c++
 #include <cctype>
 #include <string>
-
-int main() {
-    std::string s;
-    std::cout << "Enter the bowling score: ";
-    std::getline(std::cin, s);
-    std::cout << "The score is: " << bowlingScore(s) << std::endl;
-    return 0;
-}
 
 std::string bowlingScore(const std::string& s) {
     int score = 0;
@@ -58,4 +49,8 @@ std::string bowlingScore(const std::string& s) {
     }
 
     return std::to_string(score);
+}
+
+int main() {
+    std::cout << bowlingScore("X/ X /X") << std::endl;
 }
