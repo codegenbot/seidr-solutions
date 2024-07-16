@@ -1,17 +1,11 @@
-int rows = grid.size();
-        int cols = grid[0].size();
-        int total_fill = 0;
-        
-        for(int j = 0; j < cols; j++) {
-            int curr_fill = 0;
-            for(int i = 0; i < rows; i++) {
-                curr_fill += grid[i][j];
-            }
-            while(curr_fill > 0) {
-                curr_fill -= capacity;
-                total_fill++;
-            }
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int count = 0;
+    for (int j = 0; j < grid[0].size(); j++) {
+        int sum = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            sum += grid[i][j];
         }
-        
-        return total_fill;
+        count += (sum / capacity) + (sum % capacity != 0);
     }
+    return count;
+}
