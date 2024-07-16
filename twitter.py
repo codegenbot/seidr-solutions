@@ -1,7 +1,7 @@
-import re
+import unicodedata
+
 def validate_tweet(tweet):
-    tweet = re.sub(r'[^a-zA-Z0-9\s]', '', tweet)
-    if len(tweet) > 140:
+    if len(unicodedata.normalize('NFD', tweet).encode('ascii', 'ignore').decode()) > 140:
         return "Too many characters"
     elif tweet == "":
         return "You didn't type anything"
