@@ -1,14 +1,14 @@
-vector<pair<int, string>> romans = {
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
-    };
+string int_to_mini_romank(int number){
+    vector<string> roman_map = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
+    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    
     string result = "";
-    for (const auto& p : romans) {
-        while (number >= p.first) {
-            result += p.second;
-            number -= p.first;
+    for (int i = 0; i < 13; i++) {
+        while (number >= values[i]) {
+            result += roman_map[i];
+            number -= values[i];
         }
     }
+    
     return result;
 }
