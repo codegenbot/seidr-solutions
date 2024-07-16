@@ -1,20 +1,13 @@
 def solve_boolean(expression):
-    if not expression: 
+    if expression == "T":
+        return True
+    elif expression == "F":
         return False
-    
-    for char in expression:
-        if char == 'T':
-            continue
-        elif char == "&":
-            if solve_boolean(expression[:expression.index(char)]) and solve_boolean(expression[expression.index(char) + 1:]):
-                return True
-            else:
-                return False
-        elif char == "|":
-            if solve_boolean(expression[:expression.index(char)]):
-                return True
-            elif solve_boolean(expression[expression.index(char) + 1:]):
-                return True
-            else:
-                return False
+
+    for i in range(len(expression)):
+        if expression[i] == "&":
+            return expression[:i].strip() == "T" and solve_boolean(expression[i + 1:])
+        elif expression[i] == "|":
+            return expression[:i].strip() != "F" or solve_boolean(expression[i + 1:])
+
     return True
