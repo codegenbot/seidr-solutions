@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -20,18 +21,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    int n;
-    cin >> text >> n;
+    string nStr;
+    cin >> text >> " " >> nStr;
 
-    if(n != 0) {
-        vector<int> indices = indicesOfSubstring(text, to_string(n));
-        for (int i : indices) {
-            cout << i << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "Error: Target string cannot be empty." << endl;
+    vector<int> indices = indicesOfSubstring(text, nStr);
+    for (int i : indices) {
+        cout << i << " ";
     }
+    cout << endl;
 
     return 0;
 }
