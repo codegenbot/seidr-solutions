@@ -1,3 +1,5 @@
+#include <string>
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -8,17 +10,19 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
+    for (int i = 0; i < 4; i++) {
         int count = 0;
-        for (char d : guess) {
-            if (c == d) {
+        for (int j = 0; j < 4; j++) {
+            if (guess[j] == code[i]) {
                 count++;
             }
         }
-        if (count > 1 && code.find(d) != string::npos) {
+        if (count > 1) {
             white += count - 1;
+        } else if (count == 1) {
+            black--;
         }
     }
 
-    return black + white;
+    return black;
 }
