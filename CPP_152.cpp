@@ -14,3 +14,5 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
     }
     return result;
 }
+
+assert(issame(compare(std::vector<int>{1, 2, 3, 5}, std::vector<int>{-1, 2, 3, 4}), std::vector<int>{2, 0, 0, 1}));
