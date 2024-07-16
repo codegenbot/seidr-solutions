@@ -11,7 +11,7 @@ def prime_fib(n: int):
         if n <= 1:
             return n
         else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
+            return fibonacci(n-1) + fibonacci(n-2)
 
     count = 0
     num = 1
