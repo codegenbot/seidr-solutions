@@ -11,7 +11,7 @@ int main() {
 
     for (int i = 2; i <= num_bounces; ++i) {
         first_bounce_height *= bounciness_index; // Update next bounce height
-        total_distance += 2 * first_bounce_height; // Update distance calculation inside the loop
+        total_distance += 2 * first_bounce_height; // Add distance up and down for each bounce
     }
 
     std::cout << total_distance << std::endl;
