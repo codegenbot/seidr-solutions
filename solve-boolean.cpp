@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stack>
 using namespace std;
 
@@ -25,4 +26,17 @@ bool evaluateBooleanExpression(string expression) {
         }
     }
     return s.top();
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
