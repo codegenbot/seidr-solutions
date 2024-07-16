@@ -5,7 +5,7 @@ int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
 
-    for (std::string::size_type i = 0; i < s.size(); ++i) {
+    for (int i = 0; i < s.size(); ++i) {
         char c = s[i];
         
         if (c == 'X') {
@@ -41,4 +41,3 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
-}
