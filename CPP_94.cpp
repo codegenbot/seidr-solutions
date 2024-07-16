@@ -1,28 +1,5 @@
-#include <initializer_list>
-#include <vector>
-#include <cassert>
-#include <iostream>
-
-using namespace std;
-
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-int main() {
+int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
-    vector<int> lst;
-    int num;
-    while(true){
-        cout << "Enter a number (-1 to finish): ";
-        cin >> num;
-        if(num == -1) break;
-        lst.push_back(num);
-    }
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
             maxPrime = i;
@@ -33,3 +10,12 @@ int main() {
         maxPrime /= 10;
     }
     return sum;
+}
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
