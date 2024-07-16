@@ -1,6 +1,5 @@
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool compare(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
