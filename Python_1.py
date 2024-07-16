@@ -11,6 +11,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 start = stack.pop()
                 result.append(paren_string[start:i+1])
-            elif not stack:
-                result.append(paren_string[start:i+1])
+    if start < len(paren_string):
+        result.append(paren_string[start:])
     return result
+
+# Test the function with the correct input
+print(separate_paren_groups("((a)(b)c)(d)"))
