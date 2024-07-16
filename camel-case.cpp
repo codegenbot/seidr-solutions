@@ -32,7 +32,7 @@ std::string camelCase(const std::string& str) {
     std::vector<std::string> words = split(str, '-');
     
     if (words.empty()) {
-        return "";
+        return str; 
     }
 
     std::string result;
@@ -45,11 +45,10 @@ std::string camelCase(const std::string& str) {
         result += words[i].substr(1);
     }
     
-    return result.back() == ' '? result.substr(0, result.size()-1) : result;
+    return result;
 }
 
 int main() {
-    {  
-        std::cout << camelCase("hello-world-example") << std::endl;
-    }
+    std::cout << camelCase("hello-world-example") << std::endl;
     return 0;
+}
