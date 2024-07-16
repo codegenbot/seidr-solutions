@@ -1,3 +1,7 @@
 double num = stod(value);
-int result = static_cast<int>(round(num));
-return (num - result) > 0 ? ceil(num) : floor(num);
+    if (num >= 0) {
+        return static_cast<int>(num + 0.5);
+    } else {
+        return static_cast<int>(num - 0.5);
+    }
+}
