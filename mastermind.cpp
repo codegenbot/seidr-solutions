@@ -4,12 +4,7 @@
 
 using namespace std;
 
-struct resultPair {
-    int white;
-    int black;
-};
-
-resultPair mastermind(string code, string guess) {
+pair<int, int> mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -29,7 +24,7 @@ resultPair mastermind(string code, string guess) {
         white += min(codeCount[i], guessCount[i]);
     }
 
-    return {white, black};
+    return make_pair(white, black);
 }
 
 int main() {
@@ -38,10 +33,10 @@ int main() {
     string guess;
     cin >> guess;
 
-    resultPair result = mastermind(code, guess);
+    pair<int, int> result = mastermind(code, guess);
 
-    cout << result.white << endl;
-    cout << result.black << endl;
+    cout << result.first << endl;
+    cout << result.second << endl;
 
     return 0;
 }
