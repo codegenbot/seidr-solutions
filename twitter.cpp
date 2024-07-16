@@ -5,7 +5,7 @@ std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    else if (tweet.length() * 4 > std::wcstombs(nullptr, &tweet[0], 0)) {
+    else if (std::wcstombs(nullptr, &tweet[0], 1) > 140) {
         return "Too many characters";
     }
     else {
