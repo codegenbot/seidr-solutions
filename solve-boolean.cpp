@@ -12,7 +12,10 @@ bool solveBoolean(string expression) {
         } else if (expression[i] == '|') {
             result = !result;
         } else if (expression[i] == '&') {
-            return result;
+            if (!result) {
+                result = false;
+                break;
+            }
         }
         i++;
     }
@@ -30,4 +33,3 @@ int main() {
         cout << "False" << endl;
     }
     return 0;
-}
