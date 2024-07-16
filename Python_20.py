@@ -11,5 +11,9 @@ def find_closest_elements(numbers):
 
 
 numbers = list(map(float, input("Enter space-separated numbers: ").split()))
-output = find_closest_elements(numbers)
-print("{:.2f} {:.2f}".format(output[0], output[1]))
+
+if len(numbers) < 2:
+    print("Please enter at least 2 numbers.")
+else:
+    output = find_closest_elements(numbers)
+    print("{:.2f} {:.2f}".format(output[0], output[1])
