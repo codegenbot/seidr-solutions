@@ -7,6 +7,10 @@ bool is_same(char a, char b) {
 
 vector<string> separate_paren_groups(string paren_string);
 
+int main() {
+    // Main function code
+}
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
