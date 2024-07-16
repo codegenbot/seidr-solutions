@@ -17,3 +17,4 @@ std::string decipher(std::string cipher1, std::string cipher2, std::string messa
         }
     }
     return result;
+}
