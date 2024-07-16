@@ -8,15 +8,13 @@ int main() {
             capitalize = true;
         } else if (c != ' ') {
             if (capitalize) {
-                c = toupper(c);
+                cout << (char)toupper(c);
                 capitalize = false;
             } else {
-                c = tolower(c);
+                cout << c;
             }
         }
     }
-    
-    cout << input << endl;
     
     return 0;
 }
