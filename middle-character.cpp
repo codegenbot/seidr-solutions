@@ -4,8 +4,9 @@ std::string middleCharacter(std::string s) {
     int mid = len / 2;
     std::string result;
     if (len % 2 == 0) {
-        result = s.substr(mid - 1, 2);
+        result = s.substr(mid - 1, 1) + s.substr(mid, 1);
     } else {
         result = s.substr(mid, 1);
     }
-    return result; }
+    return result;
+}
