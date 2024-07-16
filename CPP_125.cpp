@@ -1,3 +1,7 @@
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
@@ -15,8 +19,4 @@ vector<string> split_words(string txt) {
         words.push_back(word);
     }
     return words;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
 }
