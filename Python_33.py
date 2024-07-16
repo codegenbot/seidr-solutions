@@ -1,2 +1,12 @@
-def sort_third(l: list):
-    return [x if i % 3 != 0 else sorted([y for y in l[:i] + l[i+1:] if y % 3 == 0])[-1] for i, x in enumerate(l)]
+```
+def sort_third(l):
+    result = []
+    i = 0
+    while i < len(l):
+        if i % 3 == 0:
+            temp = [x for j in range(i + 1) if (j % 3) != 0]
+            result.append(sorted(temp)[0])
+        else:
+            result.append(l[i])
+        i += 1
+    return result
