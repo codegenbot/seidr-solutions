@@ -25,14 +25,18 @@ int main() {
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, str);
 
-    size_t pos = 0;
-    while ((pos = str.find('-')) != std::string::npos) {
-        str.replace(pos, 1, "");
-        if (pos > 0)
-            str[0] = toupper(str[0]);
+    std::stringstream ss(str);
+    std::string word;
+
+    while (std::getline(ss, word, '-')) {
+        if (!result.empty()) {
+            result += camelCase(word);
+        } else {
+            result = camelCase(word);
+        }
     }
 
-    std::cout << "camelCase: " << camelCase(str) << std::endl;
+    std::cout << "camelCase: " << result << std::endl;
 
     return 0;
 }
