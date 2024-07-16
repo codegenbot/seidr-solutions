@@ -1,27 +1,23 @@
+```cpp
 #include <string>
 #include <iostream>
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
+    int operand = 1; // initialize to true (1)
     for (char c : s) {
         if (c == 'T') {
             result = true;
+            operand = 1;
         } else if (c == 'F') {
             result = false;
+            operand = 0;
         } else if (c == '|') {
-            result = !result;
+            result ^= operand; // perform bitwise OR
+            operand = 1; // reset operand to true
         } else if (c == '&') {
-            bool operand = true;
-            while (true) {
-                c = getchar();
-                if (c == '&')
-                    break;
-                if (c == 'F')
-                    operand = false;
-                else if (c == 'T')
-                    operand = true;
-            }
-            result &= operand;
+            result &= operand; // perform bitwise AND
+            operand *= c == 'F'; // update operand based on current character
         }
     }
     return result;
@@ -30,7 +26,7 @@ bool solveBoolean(const std::string& s) {
 int main() {
     std::cout << "Enter a Boolean expression: ";
     std::string input;
-    getline(std::cin, input); 
+    std::getline(std::cin, input);
     bool output = solveBoolean(input);
     if (output)
         std::cout << "True";
