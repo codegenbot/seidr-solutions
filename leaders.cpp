@@ -6,13 +6,15 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     std::vector<int> result;
 
     for(int i=n-1; i>=0; i--) { 
-        std::vector<int> temp = arr;
-        while(i < n-1 && temp[temp.size()-1-i] >= arr.back()) {
-            temp.pop_back();
+        bool leader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                leader = false;
+                break;
+            }
         }
-        temp.pop_back(); // Make a copy and modify it
-        if(result.empty() || temp[0] >= result.back()) {
-            result.push_back(temp[0]);
+        if(leader) {
+            result.push_back(arr[i]);
         }
     }
 
