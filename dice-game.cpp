@@ -1,18 +1,5 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double probability(int n, int m) {
-    if(n < 1 || m < 1) return -1;
-    
-    double total = (double)n + (double)m - 1;
-    double peterWin = (double)(n-m+1)/(total);
-    
-    return peterWin;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << probability(n, m) << endl;
-    return 0;
+double gameProbability(int n, int m) {
+    return (n - 1.0) / (n * m);
 }
