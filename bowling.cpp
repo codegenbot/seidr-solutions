@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 std::string bowlingScore(const std::string& s) {
     int score = 0;
     int currentRoll = 0;
@@ -7,7 +8,7 @@ std::string bowlingScore(const std::string& s) {
         char c = s.at(i);
 
         if (!std::isdigit(c) && c != 'X' && c != '/') {
-            return "";
+            return "Invalid input";
         }
 
         if (c == 'X') {
