@@ -15,7 +15,7 @@ double find_zero(vector<double> coeffs){
     double b = coeffs[1];
     double x = 0.0;
     while(abs(poly(coeffs, x)) > 1e-9){
-        x -= poly(coeffs, x) / poly({coeffs[1], coeffs[0]}, x);
+        x -= poly(coeffs, x) / poly({a, b}, x);
     }
     return x;
 }
