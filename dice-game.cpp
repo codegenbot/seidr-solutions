@@ -1,3 +1,4 @@
+```c
 double diceGame(int n, int m) {
     double p = 0.0;
     
