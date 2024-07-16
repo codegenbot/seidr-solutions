@@ -1,4 +1,7 @@
-int mastermind(string code, string guess) {
+#include <iostream>
+#include <string>
+
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
@@ -29,3 +32,4 @@ int mastermind(string code, string guess) {
     }
 
     return black + white;
+}
