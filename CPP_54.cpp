@@ -14,6 +14,8 @@ int main() {
     assert(same_chars("hello", "ohell") == true);
     assert(same_chars("123", "321") == true);
     assert(same_chars("", "") == true);
+    assert(same_chars("xyz", "xy") == false);
+    assert(same_chars("abc", "abcd") == false);
     
     return 0;
 }
