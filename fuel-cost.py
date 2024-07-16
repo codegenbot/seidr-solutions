@@ -6,11 +6,9 @@ def fuel_cost(vector):
 
 def calculate_fuel(amount):
     total = 0
-    while True:
-        amount_divided = math.floor(amount / 3)
-        if amount_divided <= 2:
-            total += amount_divided - 2
-            break
-        total += amount_divided - 2
-        amount = amount_divided
+    while amount > 2:
+        amount = math.floor(amount / 3)
+        if amount >= 1:
+            total += amount
+        amount -= 2
     return total
