@@ -1,12 +1,13 @@
-#include <iostream>
 #include <cassert>
-#include <boost/any.hpp>
+#include <any>
+#include <string>
 
-using namespace std;
-using boost::any_cast;
+std::any compare_one(const std::string &a, const std::string &b) {
+    return b;
+}
 
 int main() {
-    assert(any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
 
     return 0;
 }
