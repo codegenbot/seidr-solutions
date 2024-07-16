@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
@@ -24,19 +24,17 @@ int main() {
 
     pennies = cents;
 
-    std::string quartersStr = quarters > 1 ? "quarters" : "quarter";
+    const std::string coin_names[] = {"penny", "nickel", "dime", "quarter"};
+    std::cout << quarters << " " << (quarters > 1 ? coin_names[3] + (quarters > 1 ? "s" : "") : coin_names[3]) << std::endl;
     if (dimes > 0) {
-        std::string dimesStr = dimes > 1 ? "dimes" : "dime";
-        std::cout << dimes << " " << dimesStr << std::endl;
+        std::cout << dimes << " " << (dimes > 1 ? coin_names[2] + (dimes > 1 ? "s" : "") : coin_names[2]);
+        std::cout << std::endl;
     }
     if (nickles > 0) {
-        std::string nicklesStr = nickles > 1 ? "nickels" : "nickel";
-        std::cout << nickles << " " << nicklesStr << std::endl;
+        std::cout << nickles << " " << (nickles > 1 ? coin_names[1] + (nickles > 1 ? "s" : "") : coin_names[1]);
+        std::cout << std::endl;
     }
-    std::string penniesStr = pennies > 1 ? "pennies" : "penny";
-    std::cout << pennies << " " << penniesStr << std::endl;
-
-    std::cout << quarters << " " << quartersStr << std::endl;
+    std::cout << pennies << " " << (pennies > 1 ? coin_names[0] + (pennies > 1 ? "s" : "") : coin_names[0]) << std::endl;
 
     return 0;
 }
