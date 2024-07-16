@@ -1,17 +1,15 @@
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int> vec) {
-    int n = vec.size();
-    std::vector<int> leaders;
-    for (int i = 0; i < n; i++) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (vec[j] >= vec[i]) {
-                leader = false;
-                break;
-            }
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int rightmost = arr.back();
+    for (int i = arr.size() - 2; i >= 0; --i) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
-        if (leader) leaders.push_back(vec[i]);
     }
-    return leaders;
-}
+    result.push_back(arr.back());
+    return result;
