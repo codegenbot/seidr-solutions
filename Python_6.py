@@ -1,2 +1,1 @@
-import sys
-paren_strings = input().strip().split()
+paren_strings = input().split()
