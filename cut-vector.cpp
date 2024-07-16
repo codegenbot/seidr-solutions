@@ -1,70 +1,50 @@
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
+vector<int> cutVector(vector<int>& v) {
+    int n = v.size();
+    if (n == 1) return {v};
+
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
     
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || i == n - 1) {
-            res[0].push_back(nums[i]);
-            res[1].push_back(nums[i]);
-        } else {
-            int leftSum = 0, rightSum = 0;
-            for (int j = 0; j < i; ++j) {
-                leftSum += nums[j];
-            }
-            for (int j = i; j < n; ++j) {
-                rightSum += nums[j];
-            }
-            
-            if (leftSum == rightSum) {
-                res[0].push_back(nums[i]);
-                res[1].push_back(nums[i]);
-            } else {
-                int diff = abs(leftSum - rightSum);
-                for (int j = i; j < n; ++j) {
-                    if (abs(leftSum + nums[j] - rightSum) <= diff) {
-                        res[0].push_back(nums[i]);
-                        res[1].push_back(nums[j]);
-                        return res;
-                    }
-                }
-            }
+    for(int i = 0; i < n-1; i++) {
+        long long sum1 = 0, sum2 = 0;
+        
+        for(int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        
+        for(int j = i+1; j < n; j++) {
+            sum2 += v[j];
+        }
+        
+        long long diff = abs((long long)sum1 - sum2);
+        
+        if(diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    return res;
+    return {vector<int>(v.begin(), v.begin() + cutIndex), vector<int>(v.begin() + cutIndex, v.end())};
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    // Your test code here
+    int n; cin >> n;
+    vector<int> v(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
     }
     
-    vector<vector<int>> res = cutVector(nums);
-    
-    cout << "[";
-    for (int i = 0; i < res[0].size(); ++i) {
-        cout << res[0][i];
-        if (i != res[0].size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "], [";
-    
-    for (int i = 0; i < res[1].size(); ++i) {
-        cout << res[1][i];
-        if (i != res[1].size() - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
-    
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << res.first.size() << endl;
+    for(int x : res.first) cout << x << " ";
+    cout << endl;
+    cout << res.second.size() << endl;
+    for(int y : res.second) cout << y << " ";
+    cout << endl;
+
     return 0;
 }
