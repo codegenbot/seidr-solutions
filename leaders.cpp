@@ -11,6 +11,5 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(rightmost);
         }
     }
-    for(int i=0;i<result.size();i++)result[i]=rightmost;
+    result.push_back(arr.back());
     return result;
-}
