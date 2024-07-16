@@ -1,18 +1,34 @@
+```c++
 #include <vector>
+#include <climits>
+#include <cmath>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int min_diff = INT_MAX;
-    int idx = -1;
-    for (int i = 0; i < nums.size() - 1; i++) {
-        int diff = abs(nums[i] - nums[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            idx = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    int minDiff = INT_MAX;
+    int pos = -1;
+    
+    for (int i = 0; i < n; i++) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j <= i; j++) {
+            sum1 += v[j];
+        }
+        for (int j = i + 1; j < n; j++) {
+            sum2 += v[j];
+        }
+        
+        int diff = abs(sum1 - sum2);
+        if (diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-    vector<vector<int>> result(2);
-    result[0].insert(result[0].end(), nums.begin(), nums.begin() + idx + 1);
-    result[1].insert(result[1].begin(), nums.begin() + idx + 1, nums.end());
-    return result;
+    
+    res[0] = vector<int>(v.begin(), v.begin() + pos);
+    res[1] = vector<int>(v.begin() + pos, v.end());
+    
+    return res;
 }
