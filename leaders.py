@@ -8,8 +8,4 @@ def leaders(arr):
             leaders.insert(0, arr[i])
             max_right = arr[i]
 
-    for i in range(1, n):
-        if arr[i] >= leaders[0]:
-            leaders.append(arr[i])
-
     return leaders
