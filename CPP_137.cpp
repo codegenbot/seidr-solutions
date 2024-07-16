@@ -2,7 +2,7 @@
 #include <cassert>
 #include <boost/any.hpp>
 
-std::string compare_one(const std::string& a, const std::string& b) {
+std::string compare(const std::string& a, const std::string& b) {
     if (a == b) {
         return "Equal";
     } else {
@@ -11,6 +11,6 @@ std::string compare_one(const std::string& a, const std::string& b) {
 }
 
 int main() {
-    assert (boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "Equal");
+    assert(boost::any_cast<std::string>(compare(std::string("1"), std::string("1")) == "Equal");
     return 0;
 }
