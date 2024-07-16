@@ -1,5 +1,5 @@
 #include <boost/any.hpp>
-#include <string>
+#include <boost/assert.hpp>
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
