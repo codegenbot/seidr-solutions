@@ -3,15 +3,16 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    size_t i = 0;
     bool firstWord = true;
+    size_t i = 0;
 
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += char(toupper(str[++i]));
+                result += toupper(str[i + 1]);
             }
             firstWord = false;
+            i++;
         } else if (c == ' ') {
             if (!firstWord) {
                 result += char(toupper(c));
