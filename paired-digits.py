@@ -5,5 +5,4 @@ def paired_digits(s):
             total += int(s[i])
     return total
 
-s = input("Enter a string of digits: ")
-print(paired_digits(s))
+print(paired_digits(input("Enter a string of digits: ")))
