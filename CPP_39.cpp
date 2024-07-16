@@ -22,21 +22,23 @@ int prime_fib(int n) {
         return 2;
     }
     
-    int prev = 1, curr = 1, next;
-    for (int i = 3; i <= n; i++) {
-        next = prev + curr;
-        prev = curr;
-        curr = next;
+    int prev = 1;
+    int curr = 1;
+    int count = 2;
+    int result = 0;
+    
+    while (count < n) {
+        int temp = curr;
+        curr = prev + curr;
+        prev = temp;
+        
+        if (isPrime(curr)) {
+            result = curr;
+            count++;
+        }
     }
     
-    while (true) {
-        if (isPrime(curr)) {
-            return curr;
-        }
-        next = prev + curr;
-        prev = curr;
-        curr = next;
-    }
+    return result;
 }
 
 int main() {
