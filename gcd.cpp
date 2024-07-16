@@ -1,3 +1,6 @@
+```cpp
+#include <iostream>
+
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -8,7 +11,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    std::cout << "GCD of 12 and 15: " << gcd(12, 15) << std::endl;
-    std::cout << "GCD of 24 and 30: " << gcd(24, 30) << std::endl;
+    int num1, num2;
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
+    std::cout << "GCD of " << num1 << " and " << num2 << ": " << gcd(num1, num2) << std::endl;
     return 0;
 }
