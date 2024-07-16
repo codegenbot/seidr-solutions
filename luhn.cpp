@@ -4,12 +4,17 @@ using namespace std;
 
 int luhnCheck(vector<int> cardNum) {
     int sum = 0;
+    bool isSecond = false;
     for (int i = cardNum.size() - 1; i >= 0; i--) {
-        if ((i % 2 == 0 && cardNum[i] * 2 > 9) || (i % 2 != 0)) {
-            sum += ((i % 2 == 0) ? cardNum[i] * 2 - 9 : cardNum[i]);
-        } else {
-            sum += cardNum[i];
+        int digit = cardNum[i];
+        if (isSecond) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
+        sum += digit;
+        isSecond = !isSecond;
     }
     return sum;
 }
