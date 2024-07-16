@@ -19,12 +19,6 @@ int main() {
         nums.push_back(num);
     }
 
-    // Check for end of file
-    if (!std::cin.eof()) {
-        std::cerr << "Error reading input." << std::endl;
-        return 1;
-    }
-
     int result = basement(nums);
     std::cout << result << std::endl;
 
