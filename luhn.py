@@ -9,4 +9,4 @@ def luhn(card_number):
             sum += doubled
         else:
             sum += digit
-    return sum
+    return 10 - sum % 10
