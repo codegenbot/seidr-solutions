@@ -1,36 +1,42 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
-}
-
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeCount, guessCount;
-
-    for (int i = 0; i < 4; i++) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-
-    for (auto it = codeCount.begin(); it != codeCount.end(); it++) {
-        if (it->second > 0 && guessCount[it->first] > 0) {
-            count += min(it->second, guessCount[it->first]);
+            black++;
         }
     }
 
-    return 4 - count;
+    for (char c : guess) {
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
+            }
+        }
+        if (count > 1 && code.find(c) != string::npos) {
+            white += count - 1;
+        } else if (count == 1) {
+            white++;
+        }
+    }
+
+    return black + white;
 }
 
 int main() {
     string code, guess;
-    cin >> code >> guess;
-    int black = blackPegs(code, guess);
-    int white = 4 - black;
-    cout << white << endl << black << endl;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter a guess: ";
+    cin >> guess;
+    int result = mastermind(code, guess);
+    cout << "White pegs: " << (result - 4) << endl;
+    cout << "Black pegs: " << min(4, result) << endl;
     return 0;
 }
