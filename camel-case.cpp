@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 #include <initializer_list>
 
 using namespace std;
