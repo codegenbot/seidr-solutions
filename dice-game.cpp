@@ -1,9 +1,9 @@
 ```c++
+#include <stdio.h>
+
 int main() {
-    int n, m;
-    std::cin >> n >> m;
-    double result = probability(n, m);
-    std::cout << result << std::endl;
+    double result = probability(4, 6);
+    printf("Probability: %f\n", result);
     return 0;
 }
 
