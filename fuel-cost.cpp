@@ -16,7 +16,7 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += (num + 2) / 3 - 2; // Adjust for correct rounding down and subtracting 2
+        sum += (num / 3) * 3 - 2;
     }
 
     cout << sum << endl;
