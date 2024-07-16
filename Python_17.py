@@ -1,4 +1,4 @@
-Here is the modified code:
+I've removed the extra backticks from the original code as requested:
 
 ```python
 from typing import List
