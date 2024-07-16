@@ -1,7 +1,6 @@
-#include <string>
-#include <cstddef> 
-#include <cctype>
+```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     std::string s;
@@ -23,15 +22,14 @@ int main() {
         }
     }
 
-    for(size_t i=0; i<result.size(); ++i) {
-        if(result[i] == ' ') {
-            result[i+1] = toupper(result[i+1]);
-        }
-    }
     size_t pos = 0;
     while ((pos = result.find(' ', pos)) != std::string::npos) {
-        result.erase(pos, 1);
-        pos++;
+        if (pos > 0)
+            result.erase(pos, 1);
+        else
+            pos++;
     }
+    
+    std::ios_base::sync_with_stdio(false); 
     return 0;
 }

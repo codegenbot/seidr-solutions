@@ -3,7 +3,7 @@
 #include <string>
 #include <tuple>
 
-std::tuple<int, int> mastermind(std::string code, std::string guess) {
+std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -25,5 +25,5 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
         white += std::min(codeCount[i], guessCount[i]) - black;
     }
 
-    return std::make_tuple(white, black);
+    return std::make_pair(white, black);
 }
