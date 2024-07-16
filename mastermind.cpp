@@ -2,25 +2,23 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int black = 0, white = 0;
+    int white = 0, black = 0;
     vector<int> freq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            ++black;
         } else {
-            freq[code[i] - 'A']++;
-            freq[guess[i] - 'A']--;
+            ++freq[code[i] - 'A'];
         }
     }
     
-    for (int i = 0; i < 6; ++i) {
-        if (freq[i] > 0) {
-            white += freq[i];
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && freq[guess[i] - 'A'] > 0) {
+            ++white;
+            --freq[guess[i] - 'A'];
         }
     }
-    
-    white = max(white, 0);
     
     cout << white << endl << black << endl;
     
