@@ -1,4 +1,4 @@
-#include <boost/variant.hpp>
+#include <boost/multi_index_container.hpp>
 #include <string>
 #include <algorithm>
 
