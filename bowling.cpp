@@ -1,4 +1,4 @@
-#include <cctype>
+#include <algorithm>
 #include <string>
 
 int bowlingScore(const std::string& s) {
@@ -15,27 +15,17 @@ int bowlingScore(const std::string& s) {
             score += currentRoll + 5;
             currentRoll = 0;
         } else {
-            if (currentRoll > 9) { 
-                if (std::isdigit(c)) {
-                    int firstRoll = c - '0';
-                    score += firstRoll;
-                    if (s.find('/', i) < s.size()-1) {
-                        currentRoll = 10 - c;
-                    } else {
-                        currentRoll = 20 - c;
-                    }
+            if (std::isdigit(c)) {
+                int firstRoll = c - '0';
+                score += firstRoll;
+                if (s.find('/') != s.npos && i < s.size()-1) {
+                    currentRoll = 10 - firstRoll;
                 } else {
-                    currentRoll *= 10;
-                    currentRoll += c - '0';
+                    currentRoll = 20 - firstRoll;
                 }
             } else {
-                if (std::isdigit(c)) {
-                    currentRoll *= 10;
-                    currentRoll += c - '0';
-                } else {
-                    currentRoll *= 10;
-                    currentRoll += c - '0';
-                }
+                currentRoll *= 10;
+                currentRoll += c - '0';
             }
         }
     }
