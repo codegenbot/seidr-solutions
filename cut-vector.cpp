@@ -1,3 +1,6 @@
+Here is the modified code without unnecessary backticks (`) at the top and with correct outputs for the given problem: 
+
+```c++
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -40,3 +43,4 @@ int main() {
     }
     cout << "]" << endl;
     return 0;
+}
