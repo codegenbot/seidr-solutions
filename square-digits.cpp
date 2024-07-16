@@ -1,15 +1,9 @@
-#include <string>
-using namespace std;
-
 int main() {
-    string n;
-    cout << "Enter a number: ";
-    cin >> n;
-    string res = "";
-    for (char c : n) {
+    std::string res = "";
+    for (char c : inputString) { 
         int num = c - '0';
         res += to_string(num * num);
     }
-    cout << "Squared digits of " << n << ": " << res << endl;
+    cout << res << endl; // print the result
     return 0;
 }
