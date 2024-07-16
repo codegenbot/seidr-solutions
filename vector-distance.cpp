@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <sstream>
+#include <limits>
 
 double calculateDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sumSq = 0.0;
@@ -12,18 +13,18 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
 }
 
 int main() {
-    int n;
+    size_t n;
     std::cout << "Enter the dimension of the vectors: ";
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::vector<double> vec1(n);
     std::vector<double> vec2(n);
 
     std::string input;
-    std::cin.ignore();
-    
     std::cout << "Enter the elements of the first vector: ";
     std::getline(std::cin, input);
+
     std::istringstream iss(input);
     for (size_t i = 0; i < n; ++i) {
         iss >> vec1[i];
@@ -31,8 +32,8 @@ int main() {
 
     std::cout << "Enter the elements of the second vector: ";
     std::getline(std::cin, input);
+
     iss.str(input);
-    iss.clear();
     for (size_t i = 0; i < n; ++i) {
         iss >> vec2[i];
     }
