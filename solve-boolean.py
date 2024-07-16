@@ -1,5 +1,6 @@
+```
 def solve_boolean(expression):
-    if not expression: 
+    if not expression:
         return False
     
     if expression[0] == 'T':
