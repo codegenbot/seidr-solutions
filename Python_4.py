@@ -1,10 +1,7 @@
-while True:
-    try:
-        user_input = input("Enter a list of numbers separated by spaces: ")
-        if user_input:
-            numbers = [float(x) for x in user_input.split()]
-            break
-        else:
-            print("Empty input. Please enter at least one number.")
-    except ValueError:
-        print("Invalid input. Please enter numbers separated by spaces.")
+numbers = []
+try:
+    numbers = [float(x) for x in input("Enter a list of numbers separated by spaces: ").split()]
+    if not numbers:
+        raise ValueError("Empty input. Please enter at least one number.")
+except ValueError as e:
+    print(f"Error: {e}")
