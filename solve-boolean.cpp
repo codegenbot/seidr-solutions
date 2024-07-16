@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
@@ -62,4 +61,3 @@ bool evaluateBooleanExpression(string expression) {
     }
     
     return temp == "True";
-}
