@@ -1,5 +1,5 @@
-#include <cctype>
 #include <cstddef>
+#include <iostream>
 #include <string>
 
 int main() {
@@ -24,14 +24,7 @@ int main() {
 
     size_t pos = 0;
     while ((pos = result.find(' ')) != std::string::npos) {
-        if(capitalizeNext) result[0] = std::toupper(result[0]);
-        capitalizeNext = false;
         result.erase(pos, 1);
     }
-    
-    if (capitalizeNext) {
-        result[0] = std::toupper(result[0]);
-    }
-
     return 0;
 }
