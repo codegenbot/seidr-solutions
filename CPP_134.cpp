@@ -1,13 +1,17 @@
-int i = txt.size() - 1;
-while (i >= 0) {
-    if (isalpha(txt[i])) {
-        if (i == txt.size() - 1 || txt[i + 1] == ' ') {
-            return true;
-        } else {
-            return false;
-        }
+if(txt.empty()){
+        return false;
     }
-    i--;
-}
-return false;
+    char lastChar = txt.back();
+    if(isalpha(lastChar)){
+        for(int i=txt.size()-2; i>=0; i--){
+            if(txt[i] == ' '){
+                return true;
+            }
+            if(isalpha(txt[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
 }
