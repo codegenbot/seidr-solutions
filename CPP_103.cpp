@@ -14,7 +14,7 @@ std::string rounded_avg(int n, int m) {
         count++;
     }
     
-    int avg = round((double)sum / count);
+    int avg = std::round((double)sum / count);
     
     std::string binary_avg = "";
     while (avg > 0) {
