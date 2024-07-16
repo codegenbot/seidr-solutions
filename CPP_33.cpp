@@ -1,38 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-bool sort_third(const vector<int>& l) {
-    vector<int> sorted_indices;
-    for (int i = 0; i < l.size(); ++i) {
+vector<int> sort_third(vector<int> l) {
+    vector<int> result = l;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            sorted_indices.push_back(i);
+            sort(result.begin() + i, result.begin() + i + 3);
         }
     }
-    sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b) {
-        return l[a] < l[b];
-    });
-
-    for (int i = 0; i < sorted_indices.size(); ++i) {
-        l[sorted_indices[i]] = l[i];
-    }
-
-    return true;
-}
-
-int main() {
-    // Main function code here
-    return 0;
+    return result;
 }
