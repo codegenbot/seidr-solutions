@@ -8,7 +8,7 @@
 std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
     int totalSum = std::accumulate(nums.begin(), nums.end(), 0);
     int leftSum = 0;
-    int minDiff = INT_MAX;
+    int minDiff = totalSum; // Initialize minDiff to totalSum instead of INT_MAX
     int cutIndex = -1;
 
     for (size_t i = 0; i < nums.size(); ++i) {
@@ -16,7 +16,7 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff) {
+        if (diff < minDiff) { // Update condition to strictly smaller than
             minDiff = diff;
             cutIndex = i;
         }
