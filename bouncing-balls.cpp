@@ -9,8 +9,7 @@ int main() {
     double first_bounce_height;
     int num_bounces;
 
-    char c;
-    cin >> start_height >> num_bounces >> c;
+    cin >> start_height >> num_bounces >> ' ' >> c;
     string str;
     str += c;
     getline(cin, str);
