@@ -18,10 +18,8 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << std::fixed; 
-    std::cout << std::setprecision(6);
-    double result = probability(n, m);
-    std::cout << result << std::endl;
-    std::cout << std::defaultfloat;  // Reset precision after use
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << probability(n, m) << std::endl;
+    std::cout << std::ws;
     return 0;
 }
