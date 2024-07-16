@@ -20,11 +20,7 @@ string camelCase(string str) {
             i++;
             continue;
         } else {
-            if (!result.empty()) {
-                result += tolower(str[i]);
-            } else {
-                result += toupper(str[i]);
-            }
+            result += tolower(str[i]);
             i++;
         }
     }
@@ -38,3 +34,4 @@ int main() {
         cout << camelCase(str) << endl;
     }
     return 0;
+}
