@@ -1,12 +1,10 @@
-if (txt.empty()) return false;
-    
-    char lastChar = txt.back();
-    if (!isalpha(lastChar)) return false;
-    
-    for (int i = txt.size() - 2; i >= 0; i--) {
-        if (txt[i] == ' ') return true;
-        if (isalpha(txt[i])) return false;
+int n = txt.length();
+if (n == 0) return false;
+char lastChar = txt[n - 1];
+if (isalpha(lastChar)) {
+    if (n == 1 || txt[n - 2] == ' ') {
+        return true;
     }
-    
-    return true;
+}
+return false;
 }
