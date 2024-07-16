@@ -1,7 +1,7 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -16,7 +16,7 @@ pair<string, string> reverse_delete(string s, string c) {
     string result_reverse = result;
     reverse(result_reverse.begin(), result_reverse.end());
 
-    return {result, result == result_reverse ? "True" : "False"};
+    return make_pair(result, result == result_reverse ? "True" : "False");
 }
 
 int main() {
