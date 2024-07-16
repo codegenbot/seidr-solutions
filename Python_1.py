@@ -17,11 +17,15 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group = ""
             else:
                 current_group += char
+        else:
+            if level == 0:
+                result.append(char)
+            else:
+                current_group += char
 
     return result
 
-paren_string = input().strip()
+paren_string = input("Enter a string with parentheses: ").strip()
 
-if all(c in "()" for c in paren_string):
-    output = separate_paren_groups(paren_string)
-    print(output)
+output = separate_paren_groups(paren_string)
+print(output)
