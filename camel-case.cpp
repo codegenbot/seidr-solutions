@@ -1,23 +1,19 @@
-```cpp
-std::string camelCase(std::string input) {
-    std::string output;
-    size_t start = 0;
+Here is the solution:
 
-    for (size_t i = 0; i <= input.size(); ++i) {
-        if (i == input.size() || input[i] == '-') {
-            if (start < i) {
-                output += std::string(1, input[start]).toupper();
-                start = i + 1;
-            }
-            if (i < input.size()) {
-                if (input[i + 1] == '-') continue;
-                output.push_back(std::tolower(input[i]));
-                start = i + 1;
-            } else {
-                return output;
-            }
+string camelCase(string s) {
+    string result = "";
+    bool capitalizeNext = true;
+    
+    for (char c : s) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
         }
     }
-
-    return output;
+    
+    return result;
 }
