@@ -1,10 +1,12 @@
-```cpp
 #include <iostream>
 #include <cmath>
+#include <ios>
 using namespace std;
 
 int main() {
-    double startHeight, firstBounce, numBounces;
+    double startHeight;
+    double firstBounce;
+    int numBounces;
 
     cin >> startHeight >> firstBounce >> numBounces;  
 
