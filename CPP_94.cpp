@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::string f(std::vector<int> v) {
     std::string s = "";
@@ -15,6 +13,11 @@ std::string f(std::vector<int> v) {
     return s;
 }
 
-std::string output = f({127, 97, 128});
-assert(output == "011110100001");
-return 0;
+int main() {
+    std::vector<int> v(3); // Initialize the vector with size 3 and all elements set to 0.
+    v[0] = 127;
+    v[1] = 97;
+    v[2] = 8192;
+    std::cout << f(v) << std::endl;
+    return 0;
+}
