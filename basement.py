@@ -1,5 +1,6 @@
-def basement(vector):
-    for i in range(len(vector)):
-        total = sum(vector[:i+1])
-        if total < 0:
+def basement(lst):
+    for i in range(len(lst)):
+        sum_total = sum(lst[:i+1])
+        if sum_total < 0:
             return i
+    return -1
