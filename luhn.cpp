@@ -1,7 +1,21 @@
+int luhn(int* digits, int length) {
+    int sum = 0;
+    for (int i = 0; i < length; i++) {
+        if ((i % 2) == 0) {
+            sum += digits[i];
+        } else {
+            int doubleValue = digits[i] * 2;
+            if (doubleValue > 9)
+                doubleValue -= 9;
+            sum += doubleValue;
+        }
+    }
+    return sum;
+}
+
 int main() {
-    int digits[] = {4,3,2,8,6,5,9,1,7,3,2,8,4};
-    int length = sizeof(digits) / sizeof(*digits);
-    int result = luhn(digits, length);
-    std::cout << "Luhn sum: " << result << std::endl;
+    int* digits = new int[16]; 
+    int length = sizeof(digits) / sizeof(digits[0]); 
+    cout << luhn(digits, length);
     return 0;
 }
