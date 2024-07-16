@@ -12,7 +12,7 @@ def solve_boolean(expression):
         elif char == ")":
             while operator_stack[-1] != "(":
                 b = result
-                result = (operator_stack.pop() == "|" and or_operator) or (operator_stack.pop() == "&" and and_operator)(result, "F")
+                result = (operator_stack.pop() == "|" and or_boolean) or (operator_stack.pop() == "&" and and_operator)(result, "F")
             operator_stack.pop()
         else:
             if result == "F":  
@@ -21,5 +21,9 @@ def solve_boolean(expression):
                 result = "T"
 
     return "T" if result == "T" else "F"
+
+or_operator = lambda a, b: "T" if a == "T" or b == "T" else "F"
+
+and_operator = lambda a, b: "T" if a == "T" and b == "T" else "F"
 
 print(solve_boolean('t|t&t&t&t&f|t'))
