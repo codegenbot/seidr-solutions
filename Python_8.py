@@ -8,16 +8,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 results = []
-
-while True:
-    try:
+try:
+    while True:
         numbers = list(map(int, input().split()))
-        if not numbers:
-            break
         result = sum_product(numbers)
         results.append(result)
-    except EOFError:
-        break
+except EOFError:
+    pass
 
 for result in results:
     print(result)
