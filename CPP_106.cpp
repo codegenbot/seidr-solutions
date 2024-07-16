@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 std::vector<int> f(int n) {
     std::vector<int> result;
@@ -16,6 +15,8 @@ std::vector<int> f(int n) {
     }
     return result;
 }
+
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
