@@ -1,43 +1,20 @@
 #include <iostream>
-#include <cmath>
+#include <climits>
+#include <vector>
 
-using namespace std;
+std::vector<int> nums = {1, 2, 3, 4, 5}; // Example vector
+int cutIndex = 2; // Example cutIndex
+int minDiff = INT_MAX;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-
-    int prefixSum = 0;
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    int i;
-
-    for (i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
-
-        if (diff < minDiff || (diff == minDiff && abs(prefixSum - suffixSum) < minDiff)) {
-            minDiff = diff;
-            cutIndex = i + 1;
-        }
-    }
-
-    for (i = 0; i < cutIndex; i++) {
-        cout << nums[i] << endl;
-    }
-    for (i = cutIndex; i < n; i++) {
-        cout << nums[i] << endl;
-    }
-
-    if (minDiff == INT_MAX) {
-        cout << "No valid cut found." << endl;
-    }
-
-    return 0;
+for (int i = 0; i < cutIndex; i++) {
+    std::cout << nums[i] << std::endl;
 }
+
+for (int i = cutIndex; i < nums.size(); i++) {
+    std::cout << nums[i] << std::endl;
+}
+
+if (minDiff == INT_MAX) {
+    std::cout << "No valid cut found." << std::endl;
+}
+return 0;
