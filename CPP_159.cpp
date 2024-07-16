@@ -1,4 +1,4 @@
-#include <vector>
+#include <utility>
 #include <algorithm>
 
 std::pair<int, int> eat(int number, int need, int remaining) {
