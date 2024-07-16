@@ -1,17 +1,17 @@
 sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    int tmp_a = abs(a), tmp_b = abs(b);
-    while (tmp_a > 0) {
-        sum_a += tmp_a % 10;
-        tmp_a /= 10;
+    int sumA = 0, sumB = 0;
+    int tempA = abs(a), tempB = abs(b);
+    while (tempA > 0) {
+        sumA += tempA % 10;
+        tempA /= 10;
     }
-    while (tmp_b > 0) {
-        sum_b += tmp_b % 10;
-        tmp_b /= 10;
+    while (tempB > 0) {
+        sumB += tempB % 10;
+        tempB /= 10;
     }
-    if (sum_a == sum_b) {
+    if (sumA == sumB) {
         return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
     }
-    return sum_a < sum_b;
+    return sumA < sumB;
 });
 return nums;
