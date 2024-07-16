@@ -3,10 +3,8 @@
 #include <cassert>
 #include <cmath>
 
-namespace std {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
