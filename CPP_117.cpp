@@ -3,45 +3,42 @@
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
-vector<string> select_words(string s, int n){
-    vector<string> words;
-    string word = "";
-    int consonant_count = 0;
-    
-    for(int i = 0; i <= s.size(); i++){
-        if(i == s.size() || s[i] == ' '){
-            if(consonant_count == n){
-                words.push_back(word);
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word;
+    int countConsonants = 0;
+
+    for (char c : s) {
+        if (c == ' ') {
+            if (countConsonants == n) {
+                result.push_back(word);
             }
             word = "";
-            consonant_count = 0;
-        } else if(isalpha(s[i]) && strchr("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ", s[i])){
-            consonant_count++;
-        }
-        if(isalpha(s[i])){
-            word += s[i];
+            countConsonants = 0;
+        } else if (isalpha(c)) {
+            char lc = tolower(c);
+            if (lc != 'a' && lc != 'e' && lc != 'i' && lc != 'o' && lc != 'u') {
+                countConsonants++;
+            }
+            word += c;
         }
     }
-    
-    return words;
+
+    if (countConsonants == n) {
+        result.push_back(word);
+    }
+
+    return result;
 }
 
-int main(){
-    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     
     return 0;
 }
