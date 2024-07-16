@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <cstdlib>
+#include <vector>
 #include <string>
 
 int gcd(int a, int b) {
@@ -12,6 +12,16 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a; 
+}
+
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result{}; // Initialize the vector
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += target.size();
+    }
+    return result;
 }
 
 int main() {
@@ -29,33 +39,18 @@ int main() {
     }
     int result = gcd(a, b);
     std::cout << "GCD of the numbers is: " << result << std::endl;
-    return 0;
-}
 
-#include <algorithm>
-#include <vector>
-
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        size_t pos = text.find(target, i);
-        while (pos != std::string::npos) {
-            result.push_back(i);
-            pos = text.find(target, pos + target.size());
-        }
-    }
-    return result;
-}
-
-int main() {
     std::string text, target;
-    std::cout << "Enter the text: ";
+    std::cout << "Enter text: ";
     std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
+    std::cout << "Enter target string: ";
     std::getline(std::cin, target);
+
     auto indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         std::cout << i << " ";
     }
+    std::cout << std::endl;
+
     return 0;
 }
