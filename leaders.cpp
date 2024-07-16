@@ -1,22 +1,28 @@
+```cpp
 #include <vector>
-#include <algorithm>
 using namespace std;
+
+int main() {
+    vector<int> arr = {16,17,4,3,5,2}; 
+    vector<int> leadersResult = leaders(arr);
+    cout << "Leaders: ";
+    for (int leader : leadersResult) {
+        cout << leader << " ";
+    }
+    cout << endl;
+    return 0;
+}
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    
-    if (n == 0)
-        return result;
-    
-    result.push_back(arr[n-1]);
-    
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= arr[i+1])
-            result.push_back(arr[i]);
+    vector<int> leaders;
+    int current_max = arr[n-1];
+    leaders.push_back(current_max);
+    for(int i=n-2; i>=0; i--){
+        if(arr[i] >= current_max){
+            current_max = arr[i];
+            leaders.push_back(current_max);
+        }
     }
-    
-    std::reverse(result.begin(), result.end());
-    
-    return result;
+    return leaders;
 }
