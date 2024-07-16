@@ -3,12 +3,6 @@
 #include <string>
 #include <cassert>
 
-int testFunction(std::vector<int> v) {
-    int result = f(v);
-    assert(result == 10);
-    return 0;
-}
-
 std::string f(std::vector<int> v) {
     std::string s = "";
     for (int i : v) {
@@ -18,4 +12,10 @@ std::string f(std::vector<int> v) {
             s += (char)(i); 
     }
     return s;
+}
+
+int main() {
+    int output = f({127, 97, 8192});
+    assert(output == 10);
+    return 0;
 }
