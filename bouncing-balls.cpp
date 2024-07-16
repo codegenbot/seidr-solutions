@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
@@ -14,12 +13,17 @@ int main() {
     cin >> temp;
     cin >> first_bounce_height; 
 
-    double bounciness_index = fmin(first_bounce_height / start_height, 0.999); // ensure bounciness_index < 1
+    if(first_bounce_height > start_height || first_bounce_height < 0) {
+        cout << "Invalid height" << endl;
+        return 1;
+    }
+
+    double bounciness_index = first_bounce_height / start_height;
 
     double prev_height = first_bounce_height;
     double total_distance = 0.0;
 
-    for(int i = 1; i <= num_bounces; ++i) {
+    for(int i = 1; i <= num_bounces && bounciness_index > 0.5; ++i) {
         total_distance += pow(bounciness_index, i) / (i+1);
         prev_height /= 2.0; 
     }
