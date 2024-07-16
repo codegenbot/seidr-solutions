@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -22,10 +21,3 @@ int max_prime_sum(std::vector<int> lst){
         maxPrime /= 10;
     }
     return sum;
-}
-
-int main() {
-    int result = max_prime_sum({127, 97, 8192});
-    std::cout << "The maximum prime number in the list is: " << result << std::endl;
-    return 0;
-}
