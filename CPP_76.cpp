@@ -1,8 +1,9 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (n == 1) {
+        return x == 1;
     }
-    
-    double result = log(x) / log(n);
-    
-    return result == (int)result;
+    int power = 1;
+    while (power < x) {
+        power *= n;
+    }
+    return power == x;
 }
