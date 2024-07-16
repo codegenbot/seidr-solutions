@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
@@ -31,5 +30,5 @@ int main() {
     guess = "ABDE";
 
     int result = mastermind(code, guess);
-    return mastermind(code, guess);
+    return result;
 }
