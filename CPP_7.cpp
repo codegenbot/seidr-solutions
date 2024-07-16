@@ -16,16 +16,17 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-int main() {
-    // Sample test case
-    vector<string> strings = {"apple", "banana", "orange", "grape"};
-    string substring = "an";
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-
-    for(const string& str : filtered_strings){
-        std::cout << str << " ";
+int main(){
+    // Test the filter_by_substring function
+    vector<string> test_strings = {"apple", "banana", "orange", "grape", "pear"};
+    string test_substring = "an";
+    vector<string> filtered = filter_by_substring(test_strings, test_substring);
+    
+    for(const string& str : filtered){
+        cout << str << " ";
     }
-
+    cout << endl;
+    
     return 0;
 }
 
