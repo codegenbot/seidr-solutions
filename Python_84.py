@@ -1,5 +1,4 @@
-import base64
-
+```Python
 def solve(N):
     if isinstance(N, str):
         return N
