@@ -23,14 +23,15 @@ int main() {
     int n = nums.size();
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
     
-    int prefixSum = 0;
+    int leftSum = 0;
+    int rightSum = sum;
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
-    for (int i = 1; i < n; i++) {
-        prefixSum += nums[i - 1];
-        int suffixSum = sum - prefixSum;
-        int diff = std::abs(prefixSum - suffixSum);
+    for (int i = 0; i < n; i++) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int diff = std::abs(leftSum - rightSum);
         
         if (diff < minDiff) {
             minDiff = diff;
@@ -38,11 +39,11 @@ int main() {
         }
     }
     
-    for (int i = 0; i < cutIndex; i++) {
+    for (int i = 0; i <= cutIndex; i++) {
         std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex; i < n; i++) {
+    for (int i = cutIndex + 1; i < n; i++) {
         std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
