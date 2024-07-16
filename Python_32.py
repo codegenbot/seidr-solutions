@@ -1,2 +1,4 @@
-xs = list(map(int, input().split()))
+from sys import stdin
+
+xs = list(map(int, stdin.readline().strip().split()))
 print(xs)
