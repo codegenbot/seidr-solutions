@@ -1,3 +1,5 @@
+#include <string>
+
 int main() {
     int mastermind(std::string code, std::string guess) {
         int white = 0;
@@ -22,6 +24,5 @@ int main() {
     }
 
     mastermind("XXXX", "XXXX");
-    
     return 0;
 }
