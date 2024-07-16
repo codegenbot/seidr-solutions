@@ -1,9 +1,3 @@
-float num = stof(value);
-    int lower = floor(num);
-    int higher = ceil(num);
-    if (abs(num - lower) < abs(num - higher)) {
-        return lower;
-    } else {
-        return higher;
-    }
-}
+double num = stod(value);
+int result = static_cast<int>(round(num));
+return (num - result) > 0 ? ceil(num) : floor(num);
