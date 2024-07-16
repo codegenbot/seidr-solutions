@@ -1,8 +1,8 @@
-vector<int> uniqueNumbers;
+vector<int> result;
     for (int num : numbers) {
         if (count(numbers.begin(), numbers.end(), num) == 1) {
-            uniqueNumbers.push_back(num);
+            result.push_back(num);
         }
     }
-    return uniqueNumbers;
+    return result;
 }
