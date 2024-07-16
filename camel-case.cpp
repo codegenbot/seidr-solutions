@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cctype>
-
 std::string join(const std::vector<std::string>& tokens) {
     std::string result;
     for (const auto& token : tokens) {
@@ -19,7 +14,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     size_t pos = 0;
     while ((pos = str.find(delimiter)) != std::string::npos) {
         tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+        str = str.substr(pos + 1);
     }
     tokens.push_back(str);
     return tokens;
@@ -37,7 +32,11 @@ std::string camelCase(const std::string& str) {
         result += std::tolower(c);
     }
     for (int i = 1; i < words.size(); i++) {
-        result += char(std::toupper(int(words[i][0]))) + words[i].substr(1);
+        if (!result.empty()) {
+            result += char(std::toupper((int)words[i][0])) + words[i].substr(1);
+        } else {
+            result += std::tolower(words[i][0]) + words[i].substr(1);
+        }
     }
     
     return result;
