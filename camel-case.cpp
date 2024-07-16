@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+#include <cctype>
+
 std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
@@ -5,13 +9,10 @@ std::string camelCase(std::string s) {
     for (char c : s) {
         if (c == '-') {
             if(capitalizeNext) {
-                int start = s.find(c);
-                result += toupper(s.substr(start+1, 0));
-                capitalizeNext = true;
-            } else {
-                result += ' ';
-                capitalizeNext = true;
+                char nextChar = s[++s.find(c)];
+                result += toupper(nextChar);
             }
+            capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
