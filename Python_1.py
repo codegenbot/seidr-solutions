@@ -1,9 +1,7 @@
 from typing import List
 
-def separate_paren_groups() -> List[str]:
-    paren_string = input()
-
-    if paren_string[0] != "(" or paren_string[-1] != ")":
+def separate_paren_groups(paren_string: str) -> List[str]:
+    if paren_string.count("(") != paren_string.count(")"):
         return []
 
     result = []
@@ -18,7 +16,7 @@ def separate_paren_groups() -> List[str]:
 
         current_group += char
 
-        if open_brackets_count == 0 and current_group:
+        if open_brackets_count == 0:
             result.append(current_group)
             current_group = ""
 
