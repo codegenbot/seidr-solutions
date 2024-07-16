@@ -40,4 +40,5 @@ int main() {
     } else {
         cout << "The original string is the same as the reversed and deleted string." << endl;
     }
+    return 0;
 }
