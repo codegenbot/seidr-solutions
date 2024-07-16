@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
