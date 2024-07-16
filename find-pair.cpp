@@ -6,27 +6,17 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     
     std::vector<std::pair<int, int>> result;
     
-    int i = 0, j = nums.size() - 1;
-    
-    while (i < j) {
-        if (nums[i] + nums[j] == target) {
-            bool isPairUnique = true;
-
-            for (auto& existingPair : result) {
-                if ((existingPair.first == nums[i] && existingPair.second == nums[j]) ||
-                    (existingPair.first == nums[j] && existingPair.second == nums[i])) {
-                    isPairUnique = false;
-                    break;
-                }
+    for (int i = 0; i < nums.size(); i++) {
+        auto it = nums.begin() + i;
+        while (it != nums.end()) {
+            if (*it + *(it - 1) == target) {
+                result.push_back({std::min(*it, *(it - 1)), std::max(*it, *(it - 1))});
+                it++;
+            } else if ((it + 1) != nums.end() && *it + *(it + 1) > target) {
+                it = nums.begin() + i; 
+            } else {
+                it++;
             }
-
-            if (isPairUnique) {
-                result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
-            }
-        } else if (nums[i] + nums[j] < target) {
-            i++;
-        } else {
-            j--;
         }
     }
     
