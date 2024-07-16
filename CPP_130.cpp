@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric> // Add this line
+#include <numeric>
+#include <cassert>
 
 using namespace std;
 
@@ -12,6 +13,6 @@ vector<int> tri(int n) {
 
 int main() {
     vector<int> result = tri(5);
-    assert(std::equal(result.begin(), result.end(), {0, 3, 1, 2, 4}.begin())); // Modify this line
+    assert(std::equal(result.begin(), result.end(), std::vector<int>{0, 3, 1, 2, 4}.begin()));
     return 0;
 }

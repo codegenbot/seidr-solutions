@@ -20,7 +20,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = input().strip()
-if all(c in "()" for c in paren_string):
+paren_string = input("Enter a string with parentheses: ").strip()
+
+if paren_string and all(c in "()" for c in paren_string):
     output = separate_paren_groups(paren_string)
     print(output)
