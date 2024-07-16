@@ -1,5 +1,4 @@
-```python
-def spin_words(sentence):
+"""def spin_words(sentence):
     words = sentence.split()
     result = []
     for word in words:
@@ -7,4 +6,4 @@ def spin_words(sentence):
             result.append(word[::-1])
         else:
             result.append(word)
-    return "".join(result).strip()
+    return "".join(result).strip()""
