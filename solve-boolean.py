@@ -1,28 +1,28 @@
 def solve_boolean(expression):
-    result = "T"
-    operator_stack = []
+    stack = []
     temp = "T"
+    result = "T"
 
     for char in expression:
-        if char in ["|", "&"]:
-            while len(operator_stack) > 0 and (operator_stack[-1] == "|" or operator_stack[-1] == "&"):
-                if operator_stack.pop() == "|":
-                    result = "T" if eval(f"({temp}) | {'F' if temp == 'T' else 'T'}") else "F"
-                else:
-                    result = "T" if eval(f"({temp}) & {'F' if temp == 'T' else 'T'}") else "F"
-            temp = "T"
-        elif char == "(":
-            operator_stack.append(char)
+        if char == "(":
+            stack.append(char)
         elif char == ")":
-            while len(operator_stack) > 0 and operator_stack[-1] != "(":
-                if operator_stack.pop() in ["|", "&"]:
-                    if operator_stack[-1] == "|":
-                        result = "T" if eval(f"({temp}) | {'F' if temp == 'T' else 'T'}") else "F"
-                    else:
-                        result = "T" if eval(f"({temp}) & {'F' if temp == 'T' else 'T'}") else "F"
-            if len(operator_stack) > 0 and operator_stack[-1] == "(":
-                operator_stack.pop()
+            while len(stack) > 1 and stack[-1] != "(":
+                op = stack.pop()
+                if op == "|":
+                    result = "T" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "F"
+                elif op == "&":
+                    result = "F" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "T"
+            stack.pop()
+        elif char in ["|", "&"]:
+            while len(stack) > 1 and stack[-1] in ["|", "&"]:
+                op = stack.pop()
+                if op == "|":
+                    result = "T" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "F"
+                elif op == "&":
+                    result = "F" if eval(f"({temp} {op} {'F' if temp == 'T' else 'T'})") else "T"
+            stack.append(char)
         else:
             temp = "F" if char.upper() == 'T' else "T"
 
-    return result
+    return "True" if result == "T" else "False"
