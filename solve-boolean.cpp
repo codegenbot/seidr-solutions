@@ -2,7 +2,7 @@ bool solveBoolean(const std::string& s) {
     if (s.empty()) return false; 
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (int i = 0; i < s.length(); ++i) {
+    for (int i = 0; i < s.size(); ++i) {
         if (s.at(i) == 'T') {
             result = result && true;
             operand = 1;
