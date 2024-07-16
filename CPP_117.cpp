@@ -1,30 +1,20 @@
-vector<string> words;
+vector<string> result;
     string word = "";
-    int consonant_count = 0;
+    int consonants = 0;
     for (char c : s) {
-        if (c != ' ') {
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                if (!word.empty()) {
-                    if (consonant_count == n) {
-                        words.push_back(word);
-                    }
-                    word = "";
-                    consonant_count = 0;
-                }
-            } else {
-                word += c;
-                consonant_count++;
-            }
-        } else {
-            if (!word.empty() && consonant_count == n) {
-                words.push_back(word);
+        if (c == ' ') {
+            if (consonants == n) {
+                result.push_back(word);
             }
             word = "";
-            consonant_count = 0;
+            consonants = 0;
+        } else if (isalpha(c) && strchr("aeiouAEIOU", c) == NULL) {
+            consonants++;
         }
+        word += c;
     }
-    if (!word.empty() && consonant_count == n) {
-        words.push_back(word);
+    if (consonants == n) {
+        result.push_back(word);
     }
-    return words;
+    return result;
+}
