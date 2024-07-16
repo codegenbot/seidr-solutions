@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
+
+typedef vector<int>::size_type size_type;
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
