@@ -8,4 +8,6 @@ def coin_sums(cents):
             result[i] = count
             cents %= coins[i]
     
-    return str(result)
+    result[3] = cents
+    
+    return str(result[0]) + "\n" + str(result[1]) + "\n" + str(result[2]) + "\n" + str(result[3])
