@@ -5,4 +5,4 @@ def leaders(a):
         if a[i] >= max_right:
             leaders.append(a[i])
             max_right = a[i]
-    return leaders
+    return leaders[::-1]
