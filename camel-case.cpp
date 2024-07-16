@@ -1,38 +1,29 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-string camelCase(string str) {
+string camelCase(string s) {
     string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            while (i < str.length() && str[i] == ' ') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == '-') i++;
+            if (i < s.length()) {
+                result += toupper(s[i]);
                 i++;
             }
-            result += toupper(str[i]);
-        } else if (!result.empty()) { 
-            if (str[i] >= 'a' && str[i] <= 'z') {
-                result += static_cast<char>(str[i] - 32); // Convert lowercase to uppercase
-            } else {
-                result += str[i]; // Add non-alphabetic characters as is
-            }
-        } else { 
-            if (str[i] >= 'A' && str[i] <= 'Z') {
-                result += str[i]; // Keep uppercase letters
-            } else if (str[i] >= 'a' && str[i] <= 'z') {
-                result += static_cast<char>(str[i] - 32); // Convert lowercase to uppercase
-            } else {
-                result += str[i]; // Add non-alphabetic characters as is
-            }
+        } else if (s[i] != ' ') {
+            if (!result.empty()) result[0] = tolower(result[0]);
+            result += s[i];
         }
     }
     return result;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    getline(cin, input);
-    cout << "camelCase: " << camelCase(input) << endl;
+    string str;
+    while (true) {
+        cout << "input: ";
+        cin >> str;
+        cout << "output: " << camelCase(str) << endl;
+    }
     return 0;
-}
