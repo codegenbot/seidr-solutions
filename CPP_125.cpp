@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& txt) {
+bool issame(vector<string> txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
@@ -27,20 +27,4 @@ bool issame(const vector<string>& txt) {
         result[0] = to_string(oddCount);
     }
     return result;
-}
-
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
 }
