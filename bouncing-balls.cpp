@@ -1,6 +1,5 @@
-#include <iostream>
-#include <cmath>
-
+#include<iostream>
+#include<cmath>
 int main() {
     double start_height, first_bounce_height, bounciness_index;
     int num_bounces;
