@@ -1,14 +1,23 @@
 def divide(a, b):
     if b == 0:
-        raise ZeroDivisionError("Cannot divide by zero. Please enter a non-zero second number.")
+        raise ZeroDivisionError(
+            "Cannot divide by zero. Please enter a non-zero second number."
+        )
     return a / b
+
 
 def add(a, b):
     return a + b
 
+
 while True:
     try:
-        user_input = input().strip()
+        user_input = raw_input(
+            "Enter two numbers separated by space or '/' for division: "
+        )
+
+        if user_input.startswith("/"):
+            raise ValueError("Division operator should be in-between two numbers.")
 
         if "/" in user_input:
             num1, num2 = map(int, user_input.split("/"))
