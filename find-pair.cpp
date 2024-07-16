@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
