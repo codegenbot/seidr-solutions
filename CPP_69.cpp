@@ -1,8 +1,8 @@
-int res = -1;
+int result = -1;
     for (int num : lst) {
         if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            res = max(res, num);
+            result = max(result, num);
         }
     }
-    return res;
+    return result;
 }
