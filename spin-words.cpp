@@ -1,6 +1,6 @@
-```c++
 #include <string>
 #include <sstream>
+#include <iostream>
 
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
@@ -20,8 +20,4 @@ std::string spinWords(std::string str) {
     return result;
 }
 
-int main() {
-    std::string str = "hello world"; // your input string
-    std::cout << spinWords(str) << std::endl;
-    return 0;
-}
+std::cout << spinWords("Hello World");
