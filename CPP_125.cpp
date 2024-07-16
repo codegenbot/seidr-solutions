@@ -2,9 +2,8 @@
 #include <string>
 #include <cassert>
 #include <cctype>
-#include <algorithm>
 
-bool issame(const string &a, const string &b);
+bool issame(const string& s1, const string& s2);
 
 vector<string> split_words(string txt){
     vector<string> result;
