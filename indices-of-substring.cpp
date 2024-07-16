@@ -1,7 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
-#include <iostream>
 
 using namespace std;
 
@@ -12,7 +10,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     int pos = 0;
 
-    while ((pos = text.find(target, pos)) != string::npos) {
+    while (pos < n && (pos = text.find(target, pos)) != string::npos) {
         result.push_back(pos); 
         pos += m; // increment pos by the length of target
     }
