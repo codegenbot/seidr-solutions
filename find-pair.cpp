@@ -16,7 +16,7 @@ int main() {
     map<int, int> numIndex;
     for (int i = 0; i < n; ++i) {
         if (numIndex.find(target - nums[i]) != numIndex.end()) {
-            cout << nums[numIndex[target - nums[i]] << endl;
+            cout << nums[numIndex[target - nums[i]]] << endl;
             cout << nums[i] << endl;
             break;
         }
