@@ -1,1 +1,1 @@
-n = int(*map(int, input().split()))
+n = int(input().strip())
