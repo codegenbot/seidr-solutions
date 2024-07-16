@@ -1,4 +1,6 @@
 def sum_product(numbers):
+    if len(numbers) < 2:
+        return None
     return sum(numbers) * numbers[0]
 
 results = []
@@ -6,7 +8,7 @@ results = []
 try:
     while True:
         numbers_input = list(map(int, input().strip().split()))
-        if not numbers_input or any(num < 0 for num in numbers_input):
+        if not numbers_input or numbers_input[0] == -1:
             break
         result = sum_product(numbers_input)
         results.append(result)
