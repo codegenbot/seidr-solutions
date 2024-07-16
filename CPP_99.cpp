@@ -1,9 +1,10 @@
 double num = stod(value);
-    int lower = floor(num);
-    int upper = ceil(num);
-    if (num - lower < upper - num) {
-        return lower;
-    } else {
-        return upper;
-    }
+int rounded_num = round(num);
+int floor_num = floor(num);
+int ceil_num = ceil(num);
+
+if (abs(num - floor_num) < abs(num - ceil_num)) {
+    return floor_num;
+} else {
+    return ceil_num;
 }
