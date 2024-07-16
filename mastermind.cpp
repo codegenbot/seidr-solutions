@@ -1,45 +1,28 @@
+#include <vector>
 #include <iostream>
 #include <string>
-#include <unordered_map>
 
-int whitePegs(std::string code, std::string guess) {
-    int count = 0;
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            count++;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
+
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
+        } else {
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
-    return count;
-}
 
-int blackPegs(std::string code, std::string guess) {
-    int blackCount = 0;
-    std::unordered_map<char,int> codeMap;
-    for(int i=0; i<4; i++) {
-        codeMap[code[i]]++;
+    for (int i = 0; i < 6; i++) {
+        white += min(codeCount[i], guessCount[i]) - black;
     }
-    
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            blackCount++;
-        } else if(codeMap.find(guess[i]) != codeMap.end()) {
-            codeMap[guess[i]]--;
-        }
-    }
-    
-    for(auto it : codeMap) {
-        if(it.second > 0) {
-            return blackCount;
-        }
-    }
-    
-    return blackCount;
-}
 
-int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    std::cout << whitePegs(code, guess) << std::endl;
-    std::cout << blackPegs(code, guess) << std::endl;
-    return 0;
+    return make_tuple(white, black);
 }
