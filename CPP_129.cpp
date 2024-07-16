@@ -5,24 +5,23 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     
     for (int i = 0; i < k; ++i) {
         path.push_back(grid[row][col]);
-        
         if ((row + col) % 2 == 0) {
             if (col == n - 1) {
-                ++row;
+                row++;
             } else if (row == 0) {
-                ++col;
+                col++;
             } else {
-                --row;
-                ++col;
+                row--;
+                col++;
             }
         } else {
             if (row == n - 1) {
-                ++col;
+                col++;
             } else if (col == 0) {
-                ++row;
+                row++;
             } else {
-                ++row;
-                --col;
+                row++;
+                col--;
             }
         }
     }
