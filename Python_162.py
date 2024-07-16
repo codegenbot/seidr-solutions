@@ -12,4 +12,5 @@ while True:
         else:
             print("Invalid input")
     except KeyboardInterrupt:
+        print("\nProgram stopped by user")
         break
