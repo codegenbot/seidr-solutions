@@ -1,2 +1,4 @@
-numbers = list(map(int, input().split()))
+import sys
+
+numbers = list(map(int, sys.stdin.readline().rstrip().split()))
 print(sum(numbers))
