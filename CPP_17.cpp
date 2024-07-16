@@ -1,32 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-using namespace std;
+vector<int> parse_music(string music_string);
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> parse_music(string music_string) {
-    vector<int> beats;
-    size_t pos = 0;
-    while ((pos = music_string.find("o", pos)) != string::npos) {
-        if (music_string[pos + 1] == '|') {
-            beats.push_back(2);
-            pos += 2;
-        } else {
-            beats.push_back(4);
-            pos++;
-        }
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
-    pos = 0;
-    while ((pos = music_string.find(".", pos)) != string::npos) {
-        beats.push_back(1);
-        pos += 2;
-    }
-    return beats;
+    return true;
 }
 
 int main() {
