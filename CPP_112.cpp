@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -28,10 +27,10 @@ std::pair<string, string> reverse_delete(string s, string c) {
     }
     string rev = s;
     reverse(rev.begin(), rev.end());
-    return make_pair(temp, (is_palindrome(temp)) ? "True" : "False");
+    return {temp, (is_palindrome(temp)) ? "True" : "False"};
 }
 
 int main() {
-    assert(make_pair("", reverse_delete("mamma", "mia").second) == make_pair("", "True"));
+    assert({reverse_delete("mamma", "mia").first, reverse_delete("mamma", "mia").second} == pair<string, string>("", "True"));
     return 0;
 }
