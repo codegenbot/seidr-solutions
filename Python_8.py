@@ -7,8 +7,8 @@ results = []
 
 while True:
     try:
-        numbers_input = list(map(int, input().strip().split())) if numbers_input else [-1]
-        if not numbers_input or numbers_input[0] == -1:
+        numbers_input = list(map(int, input().strip().split()))
+        if not numbers_input or numbers_input[-1] == -1:
             break
         result = sum_product(numbers_input)
         results.append(result)
