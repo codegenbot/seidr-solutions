@@ -1,10 +1,14 @@
-unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((unsigned char*)text.c_str(), text.length(), result);
+if (text.empty()) {
+    return "None";
+}
 
-    char buffer[MD5_DIGEST_LENGTH * 2];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(buffer + i * 2, "%02x", result[i]);
-    }
+unsigned char digest[MD5_DIGEST_LENGTH];
+MD5((unsigned char*)text.c_str(), text.length(), digest);
 
-    return string(buffer);
+char md5Hash[2 * MD5_DIGEST_LENGTH + 1];
+for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    sprintf(&md5Hash[i*2], "%02x", (unsigned int)digest[i]);
+}
+
+return string(md5Hash);
 }
