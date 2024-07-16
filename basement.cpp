@@ -18,11 +18,13 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-    
-    if (std::cin.eof()) {
-        int result = basement(nums);
-        std::cout << result << std::endl;
-    }
 
-    return 0;
+    int result = basement(nums);
+    std::cout << result << std::endl;
+
+    if (std::cin.eof()) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
