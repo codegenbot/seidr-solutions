@@ -1,3 +1,4 @@
+```python
 def paired_digits(s):
     total = 0
     last_digit = s[0]
