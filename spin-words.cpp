@@ -31,3 +31,8 @@ string spinWords(string str) {
     }
     return result;
 }
+
+int main() {
+    cout << spinWords("Hello World") << endl;
+    return 0;
+}
