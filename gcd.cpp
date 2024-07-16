@@ -17,7 +17,7 @@ int gcd(int a, int b) {
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result(1); // Specify initial size (1) and capacity
+    std::vector<int> result; // Initialize the vector
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
@@ -33,18 +33,26 @@ int main() {
         std::cin.clear();
         std::cin.ignore(1000000, '\n');
     }
-    int result = gcd(a, b);
-    std::cout << "GCD of the numbers is: " << result << std::endl;
+    if (b == 0) {
+        std::cout << "GCD of the numbers is: " << a << std::endl;
+    } else {
+        int result = gcd(a, b);
+        std::cout << "GCD of the numbers is: " << result << std::endl;
+    }
 
     std::string text, target;
-    while (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
+    if (!(std::getline(std::cin, text)) || !(std::getline(std::cin, target))) {
         std::cout << "Invalid input. Please enter two strings: ";
     }
-    auto indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        std::cout << i << " ";
+    if (target.empty()) {
+        std::cout << "Error: Target string is empty." << std::endl;
+    } else {
+        auto indices = indicesOfSubstring(text, target);
+        for (int i : indices) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
