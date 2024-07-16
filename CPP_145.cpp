@@ -1,11 +1,11 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,7 +13,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-sort(nums.begin(), nums.end(), [](int a, int b) {
+std::sort(nums.begin(), nums.end(), [](int a, int b) {
     int sum_a = 0, sum_b = 0;
     if (a < 0) a = -a;
     if (b < 0) b = -b;
