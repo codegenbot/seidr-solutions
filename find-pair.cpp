@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
 #include <unordered_map>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
