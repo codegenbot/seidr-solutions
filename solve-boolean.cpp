@@ -23,4 +23,3 @@ bool solveBoolean(std::string s) {
         st.pop();
     }
     return !st.empty();
-}
