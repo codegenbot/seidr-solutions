@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = abs(v[1] - v[0]);
     int splitIndex = 1;
     
-    for (int i = 2; i < v.size(); i++) {
+    for (int i = 1; i < v.size(); i++) {
         if (v[i] == v[0]) {
             splitIndex = i;
             break;
@@ -42,6 +43,6 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << "]" << endl;
+    cout << "0" << endl;
     return 0;
 }
