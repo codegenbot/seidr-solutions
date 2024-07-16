@@ -1,2 +1,2 @@
-print("Enter space-separated list of floating-point numbers:")
+print("Enter the floating-point numbers separated by spaces:")
 xs = list(map(float, input().split()))
