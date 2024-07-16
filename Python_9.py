@@ -1,1 +1,1 @@
-input_numbers = list(map(int, input().strip().split()))
+input_numbers = list(map(int, input().split()))
