@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
