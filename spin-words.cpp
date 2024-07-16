@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::istringstream iss(str);
@@ -10,9 +9,9 @@ std::string spinWords(std::string str) {
 
     while (iss >> word) {
         if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
-        if (!result.empty()) result += ' ';
-        result += word;
+            result += (word.rbegin(), word.rend());
+        else
+            result += word + " ";
     }
 
     return result; 
