@@ -1,3 +1,5 @@
+from builtins import input
+
 def paired_digits(s):
     total = 0
     prev_digit = s[0]
