@@ -1,6 +1,10 @@
+```cpp
+#ifndef __cpp_initializer_lists 201304
+#error This program requires C++11 support to use initializer_list.
+#endif
+
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -27,3 +31,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
