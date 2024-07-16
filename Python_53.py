@@ -1,29 +1,27 @@
 def add(a, b):
     return a + b
 
-def divide(a, b):
-    return a / b
-
 while True:
     try:
-        num1 = int(input("Enter first integer number: "))
-        num2 = int(input("Enter second integer number: "))
+        user_input = input("Enter two numbers separated by space or '/' for division: ")
         
-        if num2 == 0:
-            print("Cannot divide by zero. Please enter a non-zero second number.")
-            continue
+        if '/' in user_input:
+            num1, num2 = map(int, user_input.split('/'))
+            if num2 == 0:
+                print("Cannot divide by zero. Please enter a non-zero second number.")
+                continue
+            result = num1 / num2
+        else:
+            num1, num2 = map(int, user_input.split())
+            if num2 == 0:
+                print("Cannot divide by zero. Please enter a non-zero second number.")
+                continue
+            result = add(num1, num2)
         
-        add_result = add(num1, num2)
-        print("Addition result:", add_result)
-        
-        div_result = divide(num1, num2)
-        print("Division result:", div_result)
+        print(result)
 
-    except ValueError:
-        print("Please enter valid integers for both numbers.")
-
-    except ZeroDivisionError:
-        print("Cannot divide by zero. Please enter a non-zero second number.")
+    except (ValueError, ZeroDivisionError) as e:
+        print("Invalid input or division by zero. Please try again.")
 
     except KeyboardInterrupt:
         print("\nProgram interrupted by user. Exiting...")
