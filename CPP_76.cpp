@@ -1,4 +1,7 @@
-if (x <= 0 || n <= 0) {
+#include <cmath>
+
+bool is_simple_power(int x, int n) {
+    if (x <= 0 || n <= 0) {
         return false;
     }
     
