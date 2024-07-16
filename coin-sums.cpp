@@ -1,26 +1,40 @@
+#include <vector>
 #include <iostream>
+
 using namespace std;
+
+vector<int> coinSums(int cents) {
+    vector<int> result(4, 0); // Initialize with zero coins of each type
+
+    while (cents > 0) {
+        if (cents >= 25) { // Use quarters first
+            cents -= 25;
+            result[0]++;
+        } else if (cents >= 10) { // Then use dimes
+            cents -= 10;
+            result[1]++;
+        } else if (cents >= 5) { // Next, use nickels
+            cents -= 5;
+            result[2]++;
+        } else { // Finally, use pennies
+            cents -= 1;
+            result[3]++;
+        }
+    }
+
+    return result;
+}
 
 int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25;
-    cents %= 25;
+    vector<int> result = coinSums(cents);
 
-    cout << (quarters > 0 ? quarters + " quarters" : "") << endl;
-
-    int dimes = cents / 10;
-    cents %= 10;
-
-    cout << (dimes > 0 ? dimes + " dimes" : "") << endl;
-
-    int nickles = cents / 5;
-    cents %= 5;
-
-    cout << (nickles > 0 ? nickles + " nickels" : "") << endl;
-
-    cout << (cents > 0 ? cents + " pennies" : " no pennies needed") << endl;
+    cout << result[0] << endl;
+    cout << result[1] << endl;
+    cout << result[2] << endl;
+    cout << result[3] << endl;
 
     return 0;
 }
