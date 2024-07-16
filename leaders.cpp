@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -10,17 +11,19 @@ int main() {
     }
     cout << endl;
     return 0;
-
 }
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
-    leaders.push_back(arr[n-1]); // rightmost element is always a leader
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= arr[i+1]) 
+    int maxRightSoFar = arr.back();
+    leaders.push_back(maxRightSoFar);
+    for (int i = n - 2; i >= 0; --i) {
+        if (arr[i] >= maxRightSoFar) {
             leaders.push_back(arr[i]);
+            maxRightSoFar = arr[i];
+        }
     }
-    reverse(leaders.begin(), leaders.end()); // reverse the vector to maintain the original order of elements
+    reverse(leaders.begin(), leaders.end());
     return leaders;
 }
