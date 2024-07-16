@@ -1,7 +1,5 @@
-#include <vector>
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double totalPriceAfterDiscount(const vector<float>& prices, const vector<float>& discounts) {
@@ -25,10 +23,6 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    try {
-        cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
-    } catch (...) {
-        cout << "Error: Input data is invalid. Please check the input." << endl;
-    }
+    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
     return 0;
 }
