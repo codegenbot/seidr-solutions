@@ -46,11 +46,11 @@ int main() {
     cin >> s;
     cout << "Enter the character to be deleted: ";
     cin >> c;
-    std::vector<std::string> result = reverse_delete(s, c);
+    vector<string> result = reverse_delete(s, c);
     if (isSame({s}, result)) {
         cout << "The original string is the same as the reversed and deleted string." << endl;
     } else {
-        cout << "The original string is not the same as the reversed and deleted string." << std::endl;
+        cout << "The original string is not the same as the reversed and deleted string." << endl;
     }
     return 0;
 }
