@@ -10,10 +10,6 @@ bool operator==(const std::vector<std::string>& a, const std::vector<std::string
     return true;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
@@ -36,8 +32,12 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
+bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
 int main() {
-    if (!assert(issame({reverse_delete("mamma", "mia")}, std::vector<std::string>{{"","True"}}))) {
+    if (!areEqual({reverse_delete("mamma", "mia")}, {"", "True"})) {
         return 1;
     }
     return 0;
