@@ -1,10 +1,9 @@
-```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
 
 std::string spinWords(std::string sentence) {
-    std::string result = "";
+    std::string result = std::string();
     std::string temp = "";
 
     for (char c : sentence) {
@@ -20,12 +19,10 @@ std::string spinWords(std::string sentence) {
     }
 
     if (temp.length() >= 5) {
-        std::string reversedTemp = temp;
-        std::reverse(reversedTemp.begin(), reversedTemp.end());
-        result += reversedTemp + " ";
-    } else {
+        std::reverse(temp.begin(), temp.end());
         result += temp;
-    }
+    } else
+        result += temp;
 
     return result;
 }
@@ -40,4 +37,3 @@ int main() {
         std::cout << spinWords(input) << std::endl;
     }
     return 0;
-}
