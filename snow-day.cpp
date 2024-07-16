@@ -1,12 +1,13 @@
 ```c++
 #include <iostream>
+#include <iomanip>
 
-float snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float meltingRate) {
+int snowAfterHours(int hours, float initialSnow, float rateOfSnowFall, float meltingRate) {
     float currentSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
         currentSnow += rateOfSnowFall - meltingRate;
     }
-    return currentSnow;
+    return static_cast<int>(currentSnow);
 }
 
 int main() {
@@ -22,8 +23,8 @@ int main() {
     std::cout << "Enter the melting rate per hour: ";
     std::cin >> meltingRate;
 
-    float result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
-    std::cout << "Snow after " << hours << " hours: " << result << std::endl;
+    int result = snowAfterHours(hours, initialSnow, rateOfSnowFall, meltingRate);
+    std::cout << "Snow after " << hours << " hours: " << std::fixed << std::setprecision(6) << (double)result << std::endl;
 
     return 0;
 }
