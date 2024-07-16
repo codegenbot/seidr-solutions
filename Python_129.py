@@ -13,6 +13,7 @@ def minPath(grid, k):
             if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] not in path:
                 visited.add((ni, nj))
         if len(path) >= k and grid[i][j] == start:
+            visited.remove((i, j))  # Move this line inside the while loop just before the if statement
             break
 
     return path[:k]
