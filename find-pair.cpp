@@ -1,18 +1,15 @@
-```c++
 #include <vector>
 #include <unordered_map>
-#include <algorithm>
 #include <iostream>
 
 using namespace std;
 
 std::vector<int> findPair(std::vector<int>& nums, int target) {
-    sort(nums.begin(), nums.end());
     unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+            return {i, numMap[complement]};
         }
         numMap[nums[i]] = i;
     }
