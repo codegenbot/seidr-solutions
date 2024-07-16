@@ -3,7 +3,6 @@
 #include <climits>
 #include <cmath>
 #include <sstream>
-#include <numeric>
 
 int main() {
     std::vector<int> nums;
@@ -21,7 +20,10 @@ int main() {
     }
     
     int n = nums.size();
-    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
     
     int prefixSum = 0;
     int minDiff = INT_MAX;
@@ -32,7 +34,7 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = std::abs(prefixSum - suffixSum);
         
-        if (diff < minDiff) {
+        if (diff <= minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
