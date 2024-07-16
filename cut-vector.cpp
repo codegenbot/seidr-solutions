@@ -31,11 +31,11 @@ int main() {
         }
     }
     
-    for (int i = 0; i <= idx; ++i) {
+    for (int i = 0; i < idx + 1; ++i) {
         cout << vec[i] << endl;
     }
-    cout << " ";
-    for (int i = idx+1; i < n; ++i) {
+    cout << endl;
+    for (int i = idx + 1; i < n; ++i) {
         cout << vec[i] << endl;
     }
     
