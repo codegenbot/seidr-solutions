@@ -19,7 +19,7 @@ int getBonus(std::string s, int i) {
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int roll1, roll2; // declare here
+    int roll1, roll2; 
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') { 
