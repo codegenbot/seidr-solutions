@@ -1,16 +1,16 @@
-bool assert_same(vector<string> a, vector<string> b){ // Fix function name and add space between parameters
-    if(a.size() != b.size()){
+bool assert_same(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
     vector<string> filtered_strings;
     for (const string& str : strings) {
         if (str.find(prefix) == 0) {
@@ -20,8 +20,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return filtered_strings;
 }
 
-int main(){
+int main() {
     assert_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"});
-    
+
     return 0;
 }
