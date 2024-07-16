@@ -1,10 +1,8 @@
-vector<int> result(2, 0);
-    string numStr = to_string(abs(num));
-    for (char c : numStr) {
-        if ((c - '0') % 2 == 0)
-            result[0]++;
-        else
-            result[1]++;
+vector<int> count = {0, 0};
+    while (num != 0) {
+        int digit = abs(num) % 10;
+        count[digit % 2]++;
+        num /= 10;
     }
-    return result;
+    return count;
 }
