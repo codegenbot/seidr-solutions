@@ -1,19 +1,34 @@
 def minPath(grid, k):
     N = len(grid)
-    start = min((grid[i][j], i, j) for i in range(N) for j in range(N))[1:]
-    dx, dy = [0, 0, 1, -1], [1, -1, 0, 0]
-    res = [grid[start[0]][start[1]]]
-    visited = {start}
 
-    while len(res) < k:
-        candidates = []
-        for x, y in visited:
-            for i in range(4):
-                nx, ny = x + dx[i], y + dy[i]
-                if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in visited:
-                    candidates.append((grid[nx][ny], nx, ny))
-        next_cell = min(candidates)
-        res.append(next_cell[0])
-        visited.add((next_cell[1], next_cell[2]))
+    def get_neighbors(i, j):
+        neighbors = []
+        if i > 0:
+            neighbors.append((i - 1, j))
+        if i < N - 1:
+            neighbors.append((i + 1, j))
+        if j > 0:
+            neighbors.append((i, j - 1))
+        if j < N - 1:
+            neighbors.append((i, j + 1))
+        return neighbors
 
-    return res
+    def dfs(i, j, visited, path, current_sum):
+        current_sum += grid[i][j]
+        if current_sum > k:
+            return None
+        if len(path) == k:
+            return path
+        visited.add((i, j))
+        for ni, nj in get_neighbors(i, j):
+            if (ni, nj) not in visited:
+                new_path = dfs(ni, nj, visited.copy(), path + [grid[ni][nj]], current_sum)
+                if new_path:
+                    return new_path
+        return None
+
+    for i in range(N):
+        for j in range(N):
+            path = dfs(i, j, set(), [grid[i][j]], 0)
+            if path:
+                return path
