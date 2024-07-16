@@ -14,4 +14,4 @@ int main() {
 
     float snowResult = snowDay(hours, initialSnow, (int)(rateOfSnowfall * 100), proportionMeltingPerHour/100.0);
     cout << std::fixed << std::setprecision(2) << snowResult << endl;
-    return 0;
+    return 0; }
