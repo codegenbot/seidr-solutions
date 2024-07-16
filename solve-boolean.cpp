@@ -11,8 +11,14 @@ bool solveBoolean(const std::string& s) {
         } else if (c == '|') {
             result = !result;
         } else if (c == '&') {
-            auto temp = s.find(c);
-            if (temp != std::string::npos) c = s[temp + 1];
+            bool operand = true;
+            for (; c != '&' && c != '\0'; ++c) {
+                if (*c == 'F')
+                    operand = false;
+                else if (*c == 'T')
+                    operand = true;
+            }
+            result &= operand;
         }
     }
     return result;
