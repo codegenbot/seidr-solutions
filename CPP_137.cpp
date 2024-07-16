@@ -34,6 +34,6 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
 }
 
 int main() {
-    // Main function body (if needed)
+    // Main function logic here
     return 0;
 }
