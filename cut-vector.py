@@ -1,13 +1,20 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-diff = float("inf")
-cut_index = 0
+vec = [int(input()) for _ in range(n)]
 
-for i in range(1, n):
-    curr_diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if curr_diff < diff:
-        diff = curr_diff
-        cut_index = i
+total_sum = sum(vec)
+half_sum = total_sum // 2
+curr_sum = 0
+idx = 0
 
-print(*arr[:cut_index])
-print(*arr[cut_index:])
+for i, num in enumerate(vec):
+    curr_sum += num
+    if curr_sum >= half_sum:
+        idx = i
+        break
+
+if curr_sum - half_sum < half_sum - (curr_sum - num):
+    print(vec[: idx + 1])
+    print(vec[idx + 1 :])
+else:
+    print(vec[:idx])
+    print(vec[idx:])
