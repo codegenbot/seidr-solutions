@@ -1,8 +1,6 @@
-if (x % 2 != 0) {
-        x++;
+for (int i = y; i >= x; i--) {
+    if (i % 2 == 0) {
+        return i;
     }
-    if (x > y) {
-        return -1;
-    }
-    return y % 2 == 0 ? y : y - 1;
 }
+return -1;
