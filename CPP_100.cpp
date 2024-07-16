@@ -1,11 +1,7 @@
-vector<int> stones;
-    stones.push_back(n);
-    for (int i = 1; i < n; ++i) {
-        if (n % 2 == 0) {
-            stones.push_back(n + 2 * i);
-        } else {
-            stones.push_back(n + 2 * i + 1);
-        }
+vector<int> make_a_pile(int n){
+    vector<int> result;
+    for(int i = 0; i < n; ++i){
+        result.push_back(n + 2 * i);
     }
-    return stones;
+    return result;
 }
