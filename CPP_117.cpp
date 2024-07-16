@@ -3,20 +3,13 @@
 #include <cassert>
 #include <algorithm>
 
-bool is_same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> select_words(string s, int n){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n){
+    std::vector<std::string> result;
+    std::string word = "";
     int consonantCount = 0;
     
     for (char c : s) {
