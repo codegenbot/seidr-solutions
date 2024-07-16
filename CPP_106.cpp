@@ -1,18 +1,14 @@
-vector<int> result(n);
-    for (int i = 0; i < n; ++i) {
-        if ((i + 1) % 2 == 0) {
-            int fact = 1;
-            for (int j = 1; j <= i + 1; ++j) {
-                fact *= j;
+vector<int> result;
+        int sum = 0;
+        int factorial = 1;
+        for (int i = 1; i <= n; ++i) {
+            if (i % 2 == 0) {
+                factorial *= i;
+                result.push_back(factorial);
+            } else {
+                sum += i;
+                result.push_back(sum);
             }
-            result[i] = fact;
-        } else {
-            int sum = 0;
-            for (int j = 1; j <= i + 1; ++j) {
-                sum += j;
-            }
-            result[i] = sum;
         }
+        return result;
     }
-    return result;
-}
