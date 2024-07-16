@@ -1,23 +1,54 @@
 ```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
-    int nextRoll = 0;
-
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '/') {
-            if (nextRoll > 9)
+    string frame = "";
+    for (char c : s) {
+        if (c == ' ') {
+            if (frame[0] == 'X' || frame.length() == 2 && frame[1] == '/') {
                 score += 10;
-            else
-                score += nextRoll;
-            nextRoll = 0;
-        } else if (isdigit(s[i])) {
-            nextRoll *= 10;
-            nextRoll += s[i] - '0';
+            } else {
+                int roll = 0;
+                for (char d : frame) {
+                    if (isdigit(d)) {
+                        roll = roll * 10 + (d - '0');
+                    }
+                }
+                if (roll > 9)
+                    score += 10;
+                else
+                    score += roll;
+            }
+            frame = "";
+        } else {
+            frame += c;
         }
     }
 
-    if (nextRoll > 0)
-        score += nextRoll;
+    if (frame[0] == 'X' || frame.length() == 2 && frame[1] == '/') {
+        score += 10;
+    } else {
+        int roll = 0;
+        for (char d : frame) {
+            if (isdigit(d)) {
+                roll = roll * 10 + (d - '0');
+            }
+        }
+        if (roll > 9)
+            score += 10;
+        else
+            score += roll;
+    }
 
     return score;
+}
+
+int main() {
+    string s = "1-2/3 4-5/6-7-8/9";
+    int score = bowlingScore(s);
+    cout << "The score is: " << score << endl;
+    return 0;
 }
