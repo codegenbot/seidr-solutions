@@ -15,7 +15,6 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
 
-    std::reverse_copy(leaders.begin(), leaders.end(), std::ostream_iterator<int>(std::cout, " "));
     return leaders;
 }
 
@@ -28,7 +27,10 @@ int main() {
     }
 
     if (std::cin.eof()) {
-        findLeaders(nums);
+        auto result = findLeaders(nums);
+        for (const auto& leader : result) {
+            std::cout << leader << std::endl;
+        }
     } else {
         std::cout << "Error reading input." << std::endl;
     }
