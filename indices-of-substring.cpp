@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -22,10 +22,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    string target;
-    cin >> text >> target;
+    string nStr;
+    cin >> text >> nStr;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    vector<int> indices = indicesOfSubstring(text, nStr);
     for (int i : indices) {
         cout << i << " ";
     }
