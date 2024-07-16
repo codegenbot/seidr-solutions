@@ -7,4 +7,3 @@ string fizzBuzz(int x) {
         return "Buzz";
     else
         return to_string(x);
-}
