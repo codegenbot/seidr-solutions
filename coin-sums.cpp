@@ -4,25 +4,20 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    int quarters = 0;
-    while (cents >= 25) {
-        ++quarters;
-        cents -= 25;
-    }
+    int quarters = cents / 25;
+    cents %= 25;
+
+    int dimes = cents / 10;
+    cents %= 10;
+
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
+
     std::cout << "Quarters: " << quarters << "\n";
-
-    int nickles = 0;
-    while (cents >= 5) {
-        ++nickles;
-        cents -= 5;
-    }
-    std::cout << "Nickels: " << nickles << "\n";
-
-    int pennies = 0;
-    while (cents > 0) {
-        ++pennies;
-        --cents;
-    }
+    std::cout << "Dimes: " << dimes << "\n";
+    std::cout << "Nickles: " << nickles << "\n";
     std::cout << "Pennies: " << pennies << "\n";
 
     return 0;
