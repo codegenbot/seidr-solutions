@@ -1,16 +1,9 @@
-Here is the Python code for the problem:
+Here's the solution:
 
-def kebab_to_camel(input_string):
-    words = input_string.split()
-    camel_string = ''
-    prev_word = None
-    
-    for word in words:
-        if prev_word and prev_word.endswith('-'):
-            camel_string += word[1:].capitalize() + ' '
-        else:
-            camel_string += word.capitalize() + ' '
-    
-    return camel_string.strip()
+def camel_case(input_str):
+    return ' '.join(word.capitalize() if i > 0 else word for i, word in enumerate(input_str.replace('-', ' ').split()))
 
-print(kebab_to_camel("camel-case example-test-string"))
+print(camel_case('nospaceordash'))
+print(camel_case('two-words'))
+print(camel_case('two words'))
+print(camel_case('all separate words'))
