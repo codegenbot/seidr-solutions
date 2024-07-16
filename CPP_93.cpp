@@ -1,13 +1,10 @@
-string encode(string message) {
-    for (char &c : message) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-            if (c == 'A' || c == 'a') c = 'C';
-            else if (c == 'E' || c == 'e') c = 'G';
-            else if (c == 'I' || c == 'i') c = 'K';
-            else if (c == 'O' || c == 'o') c = 'Q';
-            else if (c == 'U' || c == 'u') c = 'W';
+for(char& c : message) {
+    if(isalpha(c)) {
+        c = islower(c) ? toupper(c) : tolower(c);
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            c = 'A' + (c - 'A' + 2) % 26;
         }
     }
-    return message;
+}
+return message;
 }
