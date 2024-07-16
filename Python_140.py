@@ -1,3 +1,4 @@
+import sys
 import re
 
 def process_text(text):
@@ -5,9 +6,11 @@ def process_text(text):
     text = "_".join(text.split())
     return text
 
-try:
-    input_text = input("Enter text: ").strip()
-    result = process_text(input_text)
-    print(result)
-except KeyboardInterrupt:
-    print("Error reading input. Please provide valid input.")
+while True:
+    try:
+        input_text = sys.stdin.readline().rstrip()
+        result = process_text(input_text)
+        print(result)
+        break
+    except KeyboardInterrupt:
+        print("Error reading input. Please provide valid input.")
