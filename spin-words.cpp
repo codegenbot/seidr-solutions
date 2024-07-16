@@ -20,4 +20,7 @@ std::string spinWords(std::string str) {
     return result;
 }
 
-std::cout << spinWords("Hello World");
+int main() {
+    std::cout << spinWords("Hello World");
+    return 0;
+}
