@@ -1,5 +1,6 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     level = 1
@@ -8,14 +9,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == "(":
             level += 1
-            if level > 1:
-                current_group += char
+            current_group += char
         elif char == ")":
             level -= 1
             if level == 0:
                 result.append(current_group)
                 current_group = ""
-            elif level > 0:
+            else:
                 current_group += char
         else:
             if level > 0:
@@ -26,5 +26,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = input("Enter the string with parenthesis: ")
-print(separate_paren_groups(paren_string))
+
+paren_string = input("Enter parent string: ")
+output = separate_paren_groups(paren_string)
+print(output)
