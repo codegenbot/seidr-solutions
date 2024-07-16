@@ -1,29 +1,32 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
-std::string spinWords(std::string input) {
-    std::string output = "";
-    int start = 0;
-    for (int i = 0; i <= input.size(); i++) {
-        if (i == input.size() || input[i] == ' ') {
-            std::string word = input.substr(start, i - start);
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            output += word + " ";
-            start = i + 1;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || i + 1 >= str.length()) {
+            if(str.substr(i).length() >= 5)
+                for(int j=str.substr(i).length()-1; j>=0; --j)
+                    result += str.substr(i)[j];
+            else
+                result += str.substr(i);
+            break;
         }
+        int j = str.find(" ", i);
+        string word = str.substr(i, j-i);
+        if(word.length() >= 5) {
+            for(int k=word.length()-1; k>=0; --k)
+                result += word[k];
+        } else
+            result += word;
+        i = j + 1;
     }
-    return output;
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string: ";
-        std::getline(std::cin, input);
-        if (input == "quit") break;
-        std::cout << spinWords(input) << std::endl;
-    }
-    return 0;
+    return spinWords("This is a test string");
 }
