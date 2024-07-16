@@ -1,5 +1,5 @@
 ```cpp
-#include <vector>
+#include <assert.h>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -23,8 +23,7 @@ int max_prime_sum(std::vector<int> lst){
     return sum;
 }
 
-int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    int result = max_prime_sum(lst);
-    return 0;
+void calculateResult() {
+    int result = max_prime_sum({127, 97, 8192});
+    assert(result == 10);
 }
