@@ -1,4 +1,3 @@
-```cpp
 int fuelCost(std::vector<int> &stations) {
     int sum = 0;
     for (auto i : stations) { 
@@ -7,4 +6,3 @@ int fuelCost(std::vector<int> &stations) {
         sum += newFuel;
     }
     return sum;
-}
