@@ -1,26 +1,21 @@
-#include <string>
-using namespace std;
-
 bool solveBoolean(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == 'f') {
-            result = false;
-            break;
+    stack<char> s;
+    for (char c : expression) {
+        if (c == '|') {
+            bool left = s.top() == 'T';
+            s.pop();
+            bool right = s.top() == 'T';
+            s.pop();
+            s.push(left || right ? 'T' : 'F');
+        } else if (c == '&') {
+            bool left = s.top() == 'T';
+            s.pop();
+            bool right = s.top() == 'T';
+            s.pop();
+            s.push(left && right ? 'T' : 'F');
+        } else {
+            s.push(c == 't' || c == 'T' ? 'T' : 'F');
         }
     }
-    return result;
-}
-
-int main() {
-    string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression;
-    bool result = solveBoolean(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-    return 0;
+    return s.top() == 'T';
 }
