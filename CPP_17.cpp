@@ -1,5 +1,4 @@
-vector<int> parse_music(string music_string){
-    vector<int> beats;
+vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
         if (music_string[i] == 'o') {
@@ -14,4 +13,3 @@ vector<int> parse_music(string music_string){
         }
     }
     return beats;
-}
