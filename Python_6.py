@@ -1,17 +1,19 @@
-paren_strings = input("Enter a list of parenthesized strings separated by spaces: ").split()
+paren_strings = input("Enter a list of parenthesized strings separated by spaces: ").strip().split()
 
 def parse_nested_parens(paren_strings):
-    def is_balanced(paren_str):
-        stack = []
-        for char in paren_str:
+    stack = []
+    for string in paren_strings:
+        for char in string:
+            if char not in ['(', ')']:
+                return False
             if char == '(':
                 stack.append(char)
             elif char == ')':
-                if not stack:
+                if not stack or stack[-1] != '(':
                     return False
                 stack.pop()
-        return len(stack) == 0
-
-    return [is_balanced(paren_str) for paren_str in paren_strings]
+        if stack:
+            return False
+    return True
 
 print(parse_nested_parens(paren_strings))
