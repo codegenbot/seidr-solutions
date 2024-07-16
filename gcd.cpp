@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cstdlib>
 
 int gcd(int a, int b) {
     a = abs(a);
