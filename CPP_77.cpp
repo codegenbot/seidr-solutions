@@ -1,2 +1,3 @@
-int x = round(cbrt(a));
-return x*x*x == a;
+long double cubeRoot = cbrt(a);
+    return (cubeRoot == (int)cubeRoot);
+}
