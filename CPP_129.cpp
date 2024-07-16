@@ -1,36 +1,37 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<int> path;
+int N = grid.size();
+    vector<int> result;
+
+    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     
-    int row = 0, col = 0;
-    for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        if ((row + col) % 2 == 0) {
-            if (col == n - 1) {
-                row++;
-            } else if (row == 0) {
-                col++;
-            } else {
-                if (grid[row - 1][col] > grid[row][col + 1]) {
-                    col++;
-                } else {
-                    row--;
-                }
+    auto isValid = [&](int x, int y) {
+        return x >= 0 && x < N && y >= 0 && y < N;
+    };
+
+    auto dfs = [&](int x, int y, int steps, vector<int>& path) {
+        if (steps == k) {
+            if (result.empty() || path < result) {
+                result = path;
             }
-        } else {
-            if (row == n - 1) {
-                col++;
-            } else if (col == 0) {
-                row++;
-            } else {
-                if (grid[row][col - 1] > grid[row + 1][col]) {
-                    row++;
-                } else {
-                    col--;
-                }
+            return;
+        }
+
+        for (auto& dir : dirs) {
+            int nx = x + dir[0];
+            int ny = y + dir[1];
+            if (isValid(nx, ny)) {
+                path.push_back(grid[nx][ny]);
+                dfs(nx, ny, steps + 1, path);
+                path.pop_back();
             }
         }
+    };
+
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            vector<int> path = {grid[i][j]};
+            dfs(i, j, 1, path);
+        }
     }
-    
-    return path;
+
+    return result;
 }
