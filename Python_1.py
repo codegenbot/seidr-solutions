@@ -1,1 +1,6 @@
-paren_string = input("Enter a string of parentheses: ").strip()
+import sys
+
+try:
+    paren_string = sys.stdin.readline().rstrip()
+except EOFError:
+    paren_string = ""
