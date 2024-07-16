@@ -19,8 +19,8 @@ int main() {
     double total_distance = 0.0;
 
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += prev_height * start_height * (2.0 - pow(2.0, bounciness_index)) / (pow(2.0, i+1) - 1.0);
-        prev_height /= 2.0;
+        total_distance += prev_height;
+        prev_height /= 2.0; 
     }
 
     cout << fixed << setprecision(6) << total_distance;
