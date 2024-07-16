@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-string file_name_check(string file_name) {
+std::string file_name_check(const std::string &file_name) {
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
@@ -18,7 +20,7 @@ string file_name_check(string file_name) {
         return "No";
     }
     
-    string extension = file_name.substr(dotIndex + 1);
+    std::string extension = file_name.substr(dotIndex + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
@@ -27,8 +29,13 @@ string file_name_check(string file_name) {
 }
 
 int main() {
-    string file_name;
-    cin >> file_name;
-    cout << file_name_check(file_name);
+    assert(file_name_check("test.txt") == "Yes");
+    assert(file_name_check("file.exe") == "Yes");
+    assert(file_name_check("wrong.dll") == "Yes");
+    assert(file_name_check("invalid") == "No");
+    assert(file_name_check("file..txt") == "No");
+    assert(file_name_check("1234.doc") == "No");
+    assert(file_name_check("s.") == "No");
+
     return 0;
 }
