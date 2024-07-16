@@ -1,6 +1,6 @@
 #include <vector>
 #include <climits>
-#include <algorithm>
+#include <algorithm> // Add this header for std::reverse
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -13,7 +13,7 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         }
     }
     
-    std::reverse(std::begin(leaders), std::end(leaders));
+    std::reverse(std::begin(leaders), std::end(leaders)); // Fixed std::reverse
 
     return leaders;
 }
