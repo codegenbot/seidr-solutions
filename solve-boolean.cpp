@@ -5,7 +5,7 @@
 bool solveBoolean(const char* s) {
     bool result = true;
     int operand = 1; // initialize to true (1)
-    for (int i = 0; s[i]; ++i) {
+    for (int i = 0; s[i]; i++) {
         if (s[i] == 'T') {
             result = true;
             operand = 1;
