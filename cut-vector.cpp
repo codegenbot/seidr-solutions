@@ -1,6 +1,7 @@
 #include <vector>
 #include <climits>
 #include <iostream>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
