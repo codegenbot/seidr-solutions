@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <locale>
@@ -6,16 +5,15 @@
 using namespace std;
 
 int main() {
-    std::cout.imbue(locale(""));
-    wstring tweet;
-    cout << L"Enter a tweet: ";
-    wgetline(wistringstream(), tweet);
-
-    if(tweet.length() > 140) {
+    wstringstream tweet;
+    cout.imbue(locale(""));
+    getline(wcin, tweet);
+    
+    if(tweet.str().length() > 140) {
         cout << "Too many characters" << endl;
-    } else if(tweet.empty()) {
+    } else if(tweet.str().empty()) {
         cout << "You didn't type anything" << endl;
     } else {
-        cout << "Your tweet has " << tweet.length() << " characters" << endl;
+        cout << "Your tweet has " << tweet.str().length() << " characters" << endl;
     }
 }
