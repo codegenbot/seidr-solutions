@@ -10,7 +10,7 @@ int count_distinct_characters(std::string str) {
 }
 
 int main() {
-    std::string input_str = "Mississippi";
+    std::string input_str = "Hello World";
     int result = count_distinct_characters(input_str);
-    return 0;
+    return result;
 }
