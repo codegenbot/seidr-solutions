@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -20,6 +21,7 @@ int luhnCheck(vector<int>& card) {
 }
 
 int main() {
+    using namespace std;
     int n;
     cin >> n;
     vector<int> card(n);
