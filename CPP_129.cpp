@@ -1,9 +1,9 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> minPath(std::vector<std::vector<int>> paths, int n){
+std::vector<int> minPath(std::vector<std::vector<int>> paths, int steps){
     std::vector<int> result;
-    // Logic to compute minPath
+    // Logic to generate min path
     return result;
 }
 
