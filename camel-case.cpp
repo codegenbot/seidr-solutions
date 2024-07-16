@@ -1,21 +1,13 @@
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool capitalizeNext = true;
-    int lastSpaceIndex = 0;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = str.empty();
 
     for (char c : str) {
         if (c == '-') {
-            // Add space to previous group and reset capitalizeNext flag
-            if (lastSpaceIndex != -1) {
-                result += ' ';
-                capitalizeNext = true;
-            }
-            lastSpaceIndex = str.find(c);
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+            capitalizeNext = true;
         } else {
-            result += tolower(c);
+            result += capitalizeNext ? topper(c) : tolower(c);
+            capitalizeNext = false;
         }
     }
 
