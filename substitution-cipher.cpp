@@ -1,4 +1,5 @@
-std::string cipher(std::string cipher1, std::string cipher2, std::string message) {
+```cpp
+std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
         int index = -1;
@@ -15,3 +16,4 @@ std::string cipher(std::string cipher1, std::string cipher2, std::string message
         }
     }
     return result;
+}
