@@ -1,4 +1,4 @@
-```
+"""
 def indices_of_substring(text, target):
     result = []
     pos = 0
@@ -8,3 +8,4 @@ def indices_of_substring(text, target):
         result.append(found_pos)
         pos = found_pos + 1
     return result
+"""
