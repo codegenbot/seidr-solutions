@@ -1,39 +1,30 @@
 vector<string> split_words(string txt){
-    if(txt.find(' ') != string::npos){
-        replace(txt.begin(), txt.end(), ',', ' ');
-        vector<string> words;
-        string word;
+        vector<string> result;
+        string temp = "";
+        bool hasWhitespace = false;
         for(char c : txt){
             if(c == ' '){
-                words.push_back(word);
-                word = "";
+                result.push_back(temp);
+                temp = "";
+                hasWhitespace = true;
+            } else if(c == ','){
+                result.push_back(temp);
+                temp = "";
             } else {
-                word += c;
+                temp += c;
             }
         }
-        words.push_back(word);
-        return words;
-    } else if(txt.find(',') != string::npos){
-        replace(txt.begin(), txt.end(), ' ', ',');
-        vector<string> words;
-        string word;
-        for(char c : txt){
-            if(c == ','){
-                words.push_back(word);
-                word = "";
-            } else {
-                word += c;
-            }
+        if(temp != ""){
+            result.push_back(temp);
         }
-        words.push_back(word);
-        return words;
-    } else {
-        int oddLowerCaseCount = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                oddLowerCaseCount++;
+        if(result.empty() && !hasWhitespace){
+            int count = 0;
+            for(char c : txt){
+                if(islower(c) && (c - 'a') % 2 == 1){
+                    count++;
+                }
             }
+            result.push_back(to_string(count));
         }
-        return {to_string(oddLowerCaseCount)};
+        return result;
     }
-}
