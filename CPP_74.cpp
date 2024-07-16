@@ -22,11 +22,16 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // Test cases
-    vector<string> test1 = {"apple", "banana", "orange"};
-    vector<string> test2 = {"kiwi", "grape", "pear"};
+    vector<string> test1 = {"apple", "banana", "cherry"};
+    vector<string> test2 = {"orange", "pear"};
 
     vector<string> result = total_match(test1, test2);
+
+    if (issame(result, test1)) {
+        // Output message if result is same as test1
+    } else if (issame(result, test2)) {
+        // Output message if result is same as test2
+    }
 
     return 0;
 }
