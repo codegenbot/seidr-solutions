@@ -28,6 +28,5 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    cout << endl;
+
     return 0;
-}
