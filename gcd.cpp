@@ -17,9 +17,8 @@ int main() {
     int n, a, b;
     std::vector<int> numbers;
     
-    // Input format: n a b, followed by n integers
     std::cin >> n >> a >> b;
-
+    
     numbers.resize(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> numbers[i];
