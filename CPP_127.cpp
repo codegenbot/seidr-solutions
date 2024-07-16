@@ -7,19 +7,16 @@ int isPrime(int n) {
 }
 
 string intersection(vector<int> interval1, vector<int> interval2) {
-    int start1 = interval1[0], end1 = interval1[1];
-    int start2 = interval2[0], end2 = interval2[1];
+    int start = max(interval1[0], interval2[0]);
+    int end = min(interval1[1], interval2[1]);
     
-    int intersectionStart = max(start1, start2);
-    int intersectionEnd = min(end1, end2);
-    
-    if (intersectionStart > intersectionEnd) {
+    if (start > end) {
         return "NO";
     }
     
-    int intersectionLength = intersectionEnd - intersectionStart + 1;
+    int length = end - start;
     
-    if (isPrime(intersectionLength)) {
+    if (isPrime(length)) {
         return "YES";
     } else {
         return "NO";
