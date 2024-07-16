@@ -1,16 +1,17 @@
-string result = text;
-    char prev = ' ';
+string result = "";
     int count = 0;
-    for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ') {
+    for (char c : text) {
+        if (c == ' ') {
             count++;
             if (count > 2) {
-                result[i] = '-';
+                result.pop_back();
+                result.pop_back();
+                result += "-";
             } else {
-                result[i] = '_';
+                result += "_";
             }
         } else {
-            result[i] = text[i];
+            result += c;
             count = 0;
         }
     }
