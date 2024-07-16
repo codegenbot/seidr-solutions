@@ -53,6 +53,10 @@ int main() {
                 std::cout << i << " ";
             }
             std::cout << std::endl;
+        } else if (text.empty()) {  
+            // Handle the edge case where both text and target are empty
+        } else {
+            std::cout << "Error: Target string is empty." << std::endl;
         }
     }
 

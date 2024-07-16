@@ -3,13 +3,14 @@
 bool solveBoolean(const std::string& s) {
     bool result = true;
     std::stringstream ss;
-    ss = s; ss >> boolalpha;
+    ss.str(s); // Initialize the stringstream with the input string
+    ss >> boolalpha;
     for (int i = 0; i < s.size(); ++i) { 
         char c = s[i]; 
         if (c == '|') {
-            result = result || (ss >> boolalpha).good();
+            result = result || (ss >> nosboolalpha).good();
         } else if (c == '&') {
-            result = result && (ss >> boolalpha).good();
+            result = result && (ss >> nosboolalpha).good();
         }
     }
     return result;
