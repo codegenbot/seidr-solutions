@@ -1,3 +1,6 @@
+#include <vector>
+#include <unordered_map>
+
 std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
     
@@ -19,4 +22,9 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     }
     
     return result;
+}
+
+int main() {
+    findPairs({1, 2, 3, 4, 5}, 7);
+    return 0;
 }
