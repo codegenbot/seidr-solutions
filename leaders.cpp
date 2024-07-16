@@ -10,8 +10,11 @@ std::deque<int> leaders(const std::deque<int>& arr) {
 
     for(int i=n-2; i>=0; i--) { 
         if(arr[i] >= max_right) {
-            max_right = arr[i];
-            result.push_front(arr[i]);
+            while(i < n-1 && arr[i+1] <= arr[i]) {
+                max_right = arr[i];
+                i--;
+            }
+            result.push_front(max_right);
         }
     }
 
