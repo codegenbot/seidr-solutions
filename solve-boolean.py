@@ -9,4 +9,7 @@ def solve_boolean(expression):
     elif expression[0] == '|':
         return solve_boolean(expression[1:]) or (expression[1] == '|' or expression[1] == '&')
     else:
-        return expression[0].lower() == 't'
+        if expression[0].lower() == 't':
+            return True
+        elif expression[0].lower() == 'f':
+            return False
