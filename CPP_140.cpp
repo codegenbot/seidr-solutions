@@ -1,10 +1,19 @@
-for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ' && (i == 0 || text[i - 1] != ' ')) {
-            text[i] = '_';
-        } else if (text[i] == ' ' && text[i - 1] == ' ') {
-            text.replace(i - 1, 2, "-");
-            i -= 2;
+string result;
+    bool consecutive = false;
+    
+    for(char c : text){
+        if(c == ' '){
+            if(consecutive){
+                result += '-';
+            } else {
+                result += '_';
+            }
+            consecutive = true;
+        } else {
+            result += c;
+            consecutive = false;
         }
     }
-    return text;
+    
+    return result;
 }
