@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -25,7 +24,7 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     if (capitalize) {
-        result += std::toupper(c);  // Capitalize first character
+        result += std::toupper(str[0]);
     }
 
     return result;
