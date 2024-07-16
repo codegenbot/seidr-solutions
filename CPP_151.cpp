@@ -1,5 +1,6 @@
 #include <vector>
-#include <cassert> // Include the necessary header file
+#include <cassert>
+#include <cmath>
 
 double double_the_difference(std::vector<float> lst){
     double sum = 0;
@@ -14,7 +15,7 @@ double double_the_difference(std::vector<float> lst){
 int main() {
     std::vector<float> lst = {1.5, 2.0, 3.0, 4.0, 5.5};
     double odd_sum = double_the_difference(lst);
-    assert(odd_sum == double_the_difference(lst)); // Compare 'odd_sum' with the function result
+    assert(odd_sum == double_the_difference(lst));
     
     return 0;
 }
