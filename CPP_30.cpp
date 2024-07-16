@@ -4,7 +4,7 @@ bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -23,6 +23,6 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    // Main function implementation
+    // Your main function code here
     return 0;
 }
