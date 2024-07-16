@@ -1,13 +1,24 @@
-```
 def solve_boolean(expression):
-    if not expression:
-        return False
-    
-    if expression[0] == 'T':
-        return True
-    elif expression[0] == '&':
-        return (expression[1] != '&' and solve_boolean(expression[2:])) and solve_boolean(expression[3:])
-    elif expression[0] == '|':
-        return solve_boolean(expression[1:]) or (expression[1] == '|' or expression[1] == '&')
-    else:
-        return False
+    stack = []
+    i = 0
+
+    while i < len(expression):
+        if expression[i] == "T":
+            stack.append(True)
+        elif expression[i] == "F":
+            stack.append(False)
+        elif expression[i] == "&":
+            if len(stack) >= 2:
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a and b)
+            i += 1
+        elif expression[i] == "|":
+            if len(stack) >= 2:
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(a or b)
+            i += 1
+        i += 1
+
+    return stack[0]
