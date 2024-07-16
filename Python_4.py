@@ -1,4 +1,2 @@
-numbers = []
-for _ in range(int(input())):
-    numbers.extend(map(int, input().split()))
+numbers = [int(input("Enter a number: ")) for _ in range(5)]
 print(sum(numbers))

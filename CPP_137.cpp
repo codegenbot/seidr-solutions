@@ -1,22 +1,21 @@
 #include <iostream>
-#include <boost/any.hpp>
+#include <any>
 #include <algorithm>
 #include <cassert>
 #include <string>
 
-using boost::any;
 using std::string;
 
-any compare_one(any a, any b) {
+std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
+        string str_a = std::any_cast<string>(a);
+        string str_b = std::any_cast<string>(b);
 
         if (str_a.find(",") != string::npos) {
             std::replace(str_a.begin(), str_a.end(), ',', '.');
@@ -28,9 +27,9 @@ any compare_one(any a, any b) {
         float num1 = std::stof(str_a);
         float num2 = std::stof(str_b);
 
-        return num1 > num2 ? a : (num1 < num2 ? b : any());
+        return num1 > num2 ? a : (num1 < num2 ? b : std::any());
     }
-    return any();
+    return std::any();
 }
 
 int main() {
