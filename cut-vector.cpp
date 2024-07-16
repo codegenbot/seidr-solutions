@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -39,5 +40,6 @@ int main() {
         cout << num << " ";
     }
     cout << "0" << endl;
+    
     return 0;
 }
