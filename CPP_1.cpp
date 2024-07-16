@@ -2,19 +2,29 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> separate_paren_groups(string paren_string);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
-
-int main() {
-    // Main function code here
-}
-
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -38,4 +48,9 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    // Test the functions here
+    return 0;
 }
