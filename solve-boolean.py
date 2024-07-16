@@ -8,12 +8,10 @@ def solve_boolean(expression):
             while i < len(expression) and expression[i] != ")":
                 i += 1
             return temp
-        operator = expression[0]
-        if operator in ["|", "&"]:
-            left = evaluate()
-            right = expression[2:] 
-            if right[0] == "(":
-                return "(" + str(evaluate()) + ")"
-            return ("(" + str(left) + ") " + operator + " (" + str(right) + ")")
-
-    return evaluate()
+        operators = {"&": lambda x, y: x and y, "|": lambda x, y: x or y}
+        op = next((op for op in ["|", "&"] if expression[0] == op), None)
+        left = evaluate()
+        right = expression[2:] 
+        if right[0] == "(":
+            return "(" + str(evaluate()) + ")"
+        return "(" + str(left) + ")" + " " + op + " (" + str(right) + ")"
