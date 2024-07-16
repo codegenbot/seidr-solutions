@@ -1,1 +1,4 @@
-return !txt.empty() && isalpha(txt.back()) && txt.find_last_of(" ") == txt.size()-1;
+if (txt.empty()) return false;
+    char lastChar = txt.back();
+    return isalpha(lastChar) && !isalnum(*(txt.end() - 2));
+}
