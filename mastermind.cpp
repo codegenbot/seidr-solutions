@@ -25,17 +25,13 @@ int mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code;
-    std::cout << "Enter the Mastermind code (4 characters): ";
+    std::cout << "Enter the Mastermind code (XXXX): ";
     std::cin >> code;
-
     std::string guess;
-    std::cout << "Enter your guess (4 characters): ";
+    std::cout << "Enter your guess (XXXX): ";
     std::cin >> guess;
 
     int result = mastermind(code, guess);
-
-    std::cout << "Number of white pegs: " << result - black << "\n";
-    std::cout << "Number of black pegs: " << result << "\n";
 
     return 0;
 }
