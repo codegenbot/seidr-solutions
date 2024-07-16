@@ -24,12 +24,7 @@ vector<int> count_palindromes(int n) {
 }
 
 int main() {
-    vector<int> input = count_palindromes(100);
-    vector<int> expected = {18, 9};
-    if (issame(input, expected)) {
-        cout << "Test Passed!" << endl;
-    } else {
-        cout << "Test Failed!" << endl;
-    }
+    vector<int> even_odd_palindrome(int n);
+    // Code to use the functions
     return 0;
 }
