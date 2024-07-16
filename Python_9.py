@@ -1,13 +1,9 @@
-def get_valid_input():
-    while True:
-        try:
-            input_numbers = list(
-                map(int, input("Enter comma-separated numbers: ").split(","))
-            )
-            return input_numbers
-        except ValueError:
-            print("Invalid input. Please enter comma-separated numbers.")
-
-
-input_numbers = get_valid_input()
-print(f"Input numbers: {input_numbers}")
+while True:
+    try:
+        input_numbers = list(map(int, input("Enter comma-separated numbers: ").split(',')))
+        if all(isinstance(num, int) for num in input_numbers):
+            break
+        else:
+            raise ValueError
+    except ValueError:
+        print("Invalid input. Please enter comma-separated numbers with only integers.")
