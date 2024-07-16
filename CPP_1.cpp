@@ -36,10 +36,12 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    vector<string> input = {"(a)(b)", "(c)(d)(e)"};
-    vector<string> expected = {"(a)", "(b)", "(c)", "(d)", "(e)"};
-    vector<string> result = separate_paren_groups(input[0]);
-    assert(issame(result, expected));
-
+    vector<string> input = {"(abc)", "((def))", "((ghi(jkl))mno)"};
+    vector<string> expected_output = {"abc", "def", "ghi(jkl)"};
+    
+    vector<string> actual_output = separate_paren_groups(input);
+    
+    assert(issame(actual_output, expected_output));
+    
     return 0;
 }
