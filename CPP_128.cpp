@@ -1,17 +1,18 @@
-if (arr.empty()) {
+int sum = 0;
+    int product = 1;
+
+    if (arr.empty()) {
         return -32768;
     }
 
-    int product = 1;
-    int sum_magnitudes = 0;
     for (int num : arr) {
-        if (num == 0) {
-            product = 0;
-        } else {
-            sum_magnitudes += abs(num);
-            product *= (num > 0) ? 1 : -1;
+        sum += abs(num);
+        if (num > 0) {
+            product *= 1;
+        } else if (num < 0) {
+            product *= -1;
         }
     }
 
-    return sum_magnitudes * product;
+    return sum * product;
 }
