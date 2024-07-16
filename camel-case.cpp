@@ -7,10 +7,12 @@
 std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
     std::string result;
     for (const auto& token : tokens) {
-        if (!result.empty()) {
-            result += " ";
+        if (!token.empty()) {
+            if (!result.empty()) {
+                result += " ";
+            }
+            result += token;
         }
-        result += token;
     }
     return result; 
 }
@@ -32,7 +34,7 @@ std::string camelCase(const std::string& str) {
     std::vector<std::string> words = split(str, '-');
     
     if (words.empty()) {
-        return str; 
+        return "";
     }
 
     std::string result;
@@ -45,10 +47,12 @@ std::string camelCase(const std::string& str) {
         result += words[i].substr(1);
     }
     
-    return result;
+    return result.back() == ' '? result.substr(0, result.size()-1) : result;
 }
 
 int main() {
-    std::cout << camelCase("hello-world-example") << std::endl;
+    {  
+        std::cout << camelCase("hello-world-example") << std::endl;
+    }
     return 0;
 }
