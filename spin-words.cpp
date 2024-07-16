@@ -1,4 +1,4 @@
-```
+```cpp
 #include <sstream>
 
 std::string spinWords(std::string str) {
