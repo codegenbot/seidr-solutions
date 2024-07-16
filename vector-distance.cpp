@@ -1,6 +1,5 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 double vectorDistance(int n) {
@@ -16,6 +15,7 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << vectorDistance(n) << endl;
+    double result = vectorDistance(n);
+    cout << result << endl;
     return 0;
 }
