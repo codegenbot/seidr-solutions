@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <iomanip>
-#include <initializer_list>
 
 double probability(int n, int m) {
     double p = 0.0;
@@ -16,3 +16,4 @@ int main() {
     std::cin >> n >> m;
     std::cout << std::fixed << std::setprecision(4) << probability(n, m) << std::endl;
     return 0;
+}
