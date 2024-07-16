@@ -1,6 +1,26 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::vector<int> findIndices(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos++;
+    }
+    return indices;
+}
+
 int main() {
-    // Add code to read input
-    // Call gcd() and indicesOfSubstring() functions with appropriate input
-    // Print the output
+    std::string text = "247650299098";
+    std::string target = "299098";
+    
+    std::vector<int> result = findIndices(text, target);
+    
+    for (int idx : result) {
+        std::cout << idx << " ";
+    }
+    
     return 0;
 }
