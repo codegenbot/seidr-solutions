@@ -1,15 +1,21 @@
 vector<int> result;
-    result.push_back(3);
-    if (n == 0) {
-        return result;
-    }
-    result.push_back(1);
-    int x = 1, y = 3, z = 2;
-    for (int i = 2; i <= n; ++i) {
-        z = i % 2 == 0 ? 1 + i / 2 : x + y + z;
-        result.push_back(z);
-        x = y;
-        y = z;
+    if (n >= 0) {
+        result.push_back(3);
+        if (n > 0) {
+            result.push_back(1);
+            int a = 1, b = 3, c = 2;
+            for (int i = 3; i <= n; ++i) {
+                int next;
+                if (i % 2 == 0) {
+                    next = 1 + i / 2;
+                } else {
+                    next = a + b + c;
+                    a = b;
+                    b = c;
+                    c = next;
+                }
+                result.push_back(next);
+            }
+        }
     }
     return result;
-}
