@@ -1,21 +1,19 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-std::vector<int> minPath(const std::vector<std::pair<int, int>>& pairs, int num) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> minPath(const std::vector<std::vector<int>>& path, int n) {
     std::vector<int> result;
-    for (const auto& p : pairs) {
-        result.push_back(p.first + p.second + num);
+    for (int i = 0; i < n; ++i) {
+        result.push_back(path[i % path.size()][i / path.size()]);
     }
     return result;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
-}
-
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 3), std::vector<int>{7, 10}));
-    
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     return 0;
 }
