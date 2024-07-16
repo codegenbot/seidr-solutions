@@ -1,8 +1,8 @@
 #include <string>
 
-std::string solveBoolean(std::string booleanExp) {
-    std::stack<char> operatorStack;
-    std::string result = "T";
+string solveBoolean(string booleanExp) {
+    stack<char> operatorStack;
+    string result = "T";
     
     for (char c : booleanExp) {
         if (c == 'T' || c == 'F') {
