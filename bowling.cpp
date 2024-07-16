@@ -1,8 +1,5 @@
 ```cpp
-#include <iostream>
-#include <string>
-
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int roll1, roll2;
 
@@ -25,7 +22,7 @@ int bowlingScore(std::string s) {
     return score;
 }
 
-int getBonus(std::string s, int i) {
+int getBonus(string s, int i) {
     int bonus = 0;
 
     for (int j = i + 1; j < 11; j++) {
