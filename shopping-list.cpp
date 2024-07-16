@@ -23,5 +23,4 @@ int main() {
         cin >> discounts[i];
     }
 
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
-}
+    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;}
