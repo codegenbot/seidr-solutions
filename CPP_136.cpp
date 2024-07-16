@@ -1,8 +1,7 @@
-vector<int> largest_smallest_integers(vector<int> lst);
+#include <iostream>
+#include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0;
