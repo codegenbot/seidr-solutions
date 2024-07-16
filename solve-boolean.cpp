@@ -1,48 +1,36 @@
-#include <iostream>
-using namespace std;
-
-bool evaluateBooleanExpression(string expression) {
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            int firstBracketIndex = expression.find('&', 0);
-            int secondBracketIndex = expression.find('&', firstBracketIndex + 1);
-
-            string firstPart = expression.substr(0, firstBracketIndex);
-            string secondPart = expression.substr(firstBracketIndex + 1, secondBracketIndex - firstBracketIndex - 1);
-            string thirdPart = expression.substr(secondBracketIndex + 1);
-
-            if ((firstPart == "T" && (secondPart == "T" || secondPart == "F")) ||
-                (firstPart == "F" && (secondPart == "T" || secondPart == "F"))) {
-                return true;
-            } else {
-                return false;
+string solveBoolean(string s) {
+    bool res = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 't') res = true;
+        else if (s[i] == 'f') return "False";
+        else if (i+1 < s.length() && s[i] == '&') {
+            bool a = false, b = false;
+            for (int j = i-1; j >= 0; j--) {
+                if (s[j] == 't') a = true;
+                else if (s[j] == 'f') a = false;
+                if (!a) break;
             }
-        }
+            for (int j = i+2; j < s.length(); j++) {
+                if (s[j] == 't') b = true;
+                else if (s[j] == 'f') b = false;
+                if (!b) break;
+            }
+            res = a && b;
+        } 
+        else if (i+1 < s.length() && s[i] == '|') {
+            bool a = false, b = false;
+            for (int j = i-1; j >= 0; j--) {
+                if (s[j] == 't') a = true;
+                else if (s[j] == 'f') a = false;
+                if (!a) break;
+            }
+            for (int j = i+2; j < s.length(); j++) {
+                if (s[j] == 't') b = true;
+                else if (s[j] == 'f') b = false;
+                if (!b) break;
+            }
+            res = a || b;
+        } 
     }
-    if (expression == "T") {
-        return true;
-    } else if (expression == "F") {
-        return false;
-    }
-
-    int firstBracketIndex = expression.find('&');
-    int secondBracketIndex = expression.find('&', firstBracketIndex + 1);
-
-    string firstPart = expression.substr(0, firstBracketIndex);
-    string secondPart = expression.substr(firstBracketIndex + 1, secondBracketIndex - firstBracketIndex - 1);
-    string thirdPart = expression.substr(secondBracketIndex + 1);
-
-    if ((firstPart == "T" && (secondPart == "T" || secondPart == "F")) ||
-        (firstPart == "F" && (secondPart == "T" || secondPart == "F"))) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-int main() {
-    string expression;
-    cin >> expression;
-    cout << evaluateBooleanExpression(expression);
-    return 0;
+    return res ? "True" : "False";
 }
