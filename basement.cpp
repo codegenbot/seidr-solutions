@@ -1,19 +1,10 @@
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-
+int basement(vector<int> vec) {
     int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += nums[i];
+    for (int i = 0; i < vec.size(); i++) {
+        sum += vec[i];
         if (sum < 0) {
-            cout << i << endl;
-            return 0;
+            return i;
         }
     }
-
-    return 0;
+    return -1;
 }
