@@ -17,10 +17,10 @@ int main() {
     for (int i = 0; i < numBounces; ++i) {
         startHeight *= bouncinessIndex;
         totalDistance += maxHeight * pow(2, i + 1);
-        maxHeight *= bouncinessIndex; // Update max height for next bounce
+        maxHeight = startHeight > maxHeight ? startHeight : maxHeight; // Update max height for next bounce
     }
 
-    cout << fixed << setprecision(10);
+    cout << fixed << std::setprecision(10);
     cout << static_cast<int>(totalDistance + 0.00001) << endl;
 
     return 0;
