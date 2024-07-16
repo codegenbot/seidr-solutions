@@ -1,4 +1,7 @@
 ```cpp
+#include <string>
+using namespace std;
+
 class Solution {
 public:
     string fizzBuzz(int x) {
