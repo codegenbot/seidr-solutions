@@ -13,8 +13,7 @@ def add(a, b):
 while True:
     try:
         user_input = input(
-            "Enter two numbers separated by space or '/' for division: "
-        )
+            "Enter two numbers separated by space or '/' for division: ").strip()
 
         if user_input.startswith("/"):
             raise ValueError("Division operator should be in-between two numbers.")
