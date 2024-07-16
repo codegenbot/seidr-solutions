@@ -11,9 +11,8 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    if (issame(common({4, 3, 2, 8}, {}))) {
-        // Handle the case where the two vectors have common elements
-    } else {
-        // Handle the case where the two vectors have no common elements
+    if(issame(common({4, 3, 2, 8}, {}))) {
+        // Your code logic here
     }
+    return 0;
 }
