@@ -10,7 +10,7 @@ def bowling(score_string):
         elif char.isdigit():
             score += int(char)
             if frame < 10:
-                prev_score = int(char) 
+                prev_score = int(char) # save previous non-zero score
         elif char == "/":
             score += 10 - prev_score
             frame += 1
