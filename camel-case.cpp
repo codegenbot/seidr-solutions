@@ -28,3 +28,7 @@ int main() {
         }
         input += c;
     }
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
+
+    return 0;
+}
