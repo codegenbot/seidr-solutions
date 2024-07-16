@@ -8,8 +8,8 @@ int main() {
     std::getline(std::cin, target);
 
     std::vector<std::size_t> indices;
-    for (std::size_t i = 0; i <= text.size() - target.size(); ++i) {
-        if (text.substr(i, target.size()) == target)
+    for (std::size_t i = 0; i < text.size() - target.size() + 1; ++i) {
+        if (text.compare(i, target.size(), target) == 0)
             indices.push_back(i);
     }
 
