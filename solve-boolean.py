@@ -2,7 +2,6 @@ def solve_boolean(expression):
     boolean_map = {"T": True, "F": False, "|": "or", "&": "and"}
     expression = expression.upper()
     for key, value in boolean_map.items():
-        if value is True or value is False:
-            expression = expression.replace(key, str(value))
-    
+        expression = expression.replace(key, str(value) if value in [True, False] else value)
+        
     return eval(expression)
