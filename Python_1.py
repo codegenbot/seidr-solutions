@@ -1,6 +1,6 @@
 import sys
 
-paren_string = sys.stdin.readline().strip()
+paren_string = sys.stdin.readline().rstrip()
 
 def check_parentheses(paren_string):
     stack = []
