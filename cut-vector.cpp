@@ -1,50 +1,31 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& v) {
-    int n = v.size();
-    if (n == 1) return {v};
-
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
+vector<vector<int>> cutVector(vector<int> arr) {
+    int n = arr.size();
+    vector<vector<int>> res(2);
     
-    for(int i = 0; i < n-1; i++) {
-        long long sum1 = 0, sum2 = 0;
+    if (n == 0) return res;
+    if (n == 1) {
+        res[0] = arr;
+        res[1] = {};
+        return res;
+    }
+    
+    for (int i = 0; i < n; ++i) {
+        vector<int> left(arr.begin(), arr.begin() + i);
+        vector<int> right(arr.begin() + i, arr.end());
         
-        for(int j = 0; j <= i; j++) {
-            sum1 += v[j];
-        }
-        
-        for(int j = i+1; j < n; j++) {
-            sum2 += v[j];
-        }
-        
-        long long diff = abs((long long)sum1 - sum2);
-        
-        if(diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        if ((left.size() == 1 && right.size() == 1) || 
+            (left.size() > 0 && right.size() > 0 && abs(left.back() - right.front()) <= 1)) {
+            res[0] = left;
+            res[1].clear();
+            res[1].insert(res[1].end(), right.begin(), right.end());
+            return res;
         }
     }
     
-    return {vector<int>(v.begin(), v.begin() + cutIndex), vector<int>(v.begin() + cutIndex, v.end())};
-}
-
-int main() {
-    // Your test code here
-    int n; cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << res.first.size() << endl;
-    for(int x : res.first) cout << x << " ";
-    cout << endl;
-    cout << res.second.size() << endl;
-    for(int y : res.second) cout << y << " ";
-    cout << endl;
-
-    return 0;
+    res[0] = arr;
+    res[1] = {};
+    return res;
 }
