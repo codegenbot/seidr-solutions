@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -11,11 +12,11 @@ vector<int> calculateLeaders(vector<int> arr) {
     
     res.push_back(arr[n-1]);
     
-    int maxSoFar = arr.back();
+    int rightMax = arr.back();
     for(int i=n-2; i>=0; i--){
-        if(arr[i] >= maxSoFar){
-            res.push_back(maxSoFar);
-            maxSoFar = arr[i];
+        if(arr[i] >= rightMax){
+            res.push_back(arr[i]);
+            rightMax = arr[i];
         }
     }
     res = vector<int>(res.rbegin(), res.rend());
