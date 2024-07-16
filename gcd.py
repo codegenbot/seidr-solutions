@@ -1,10 +1,8 @@
-Here is the updated code:
-
-```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return abs(a)
+
 
 print(gcd(1, 1))
 print(gcd(4, 400000))
