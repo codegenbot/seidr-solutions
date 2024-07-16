@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -10,9 +9,12 @@ vector<int> indicesOfSubstring(string text, string target) {
     int textLength = text.length();
     int targetLength = target.length();
 
-    for (int i = 0; i <= textLength - targetLength; i++) {
+    for (int i = 0; i <= textLength - targetLength; ) {
         if (text.substr(i, targetLength) == target) {
             result.push_back(i);
+            i += targetLength; // incrementally update i for overlap checking
+        } else {
+            i++;
         }
     }
 
@@ -22,7 +24,6 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text;
     string nStr;
-
     cin >> text >> nStr;
 
     vector<int> indices = indicesOfSubstring(text, nStr);
