@@ -4,6 +4,8 @@ def is_pythagorean_triple(a, b, c):
         == sorted([a, b, c])[2] ** 2
     )
 
-a, b, c = map(int, input().split())
+a = int(input())
+b = int(input())
+c = int(input())
 
 print(is_pythagorean_triple(a, b, c))
