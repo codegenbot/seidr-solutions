@@ -1,21 +1,21 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <cwchar>
 
 using namespace std;
 
 int main() {
     wstring tweet;
-    cout << "Enter a tweet: ";
+    cout << L"Enter a tweet: ";
     getline(wcin, tweet);
     
     if(tweet.empty()) {
-        cout << L"You didn't type anything" << endl;
+        wcout << L"You didn't type anything" << endl;
     }
     else if(tweet.length() > 140) {
-        cout << L"Too many characters" << endl;
+        wcout << L"Too many characters" << endl;
     } 
     else {
-        cout << L"Your tweet has " << tweet.length() << L" characters" << endl;
+        wcout << L"Your tweet has " << tweet.length() << L" characters" << endl;
     }
 }
