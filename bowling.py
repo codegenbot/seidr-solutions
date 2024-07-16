@@ -1,4 +1,3 @@
-```
 frames = input()
 score = 0
 i = 0
@@ -8,12 +7,9 @@ while i < len(frames):
         frame_score = 10
         if i + 1 < len(frames) and frames[i + 1].isdigit():
             frame_score += int(frames[i + 1])
-        elif i + 1 < len(frames) and frames[i + 1] == "/":
-            frame_score += 10 - int(frames[i+2])
         i += 2
     elif frames[i] == "/":
-        if i > 0:
-            frame_score = 10 - int(frames[i-1])
+        frame_score = 10 - int(frames[i - 1])
         i += 1
     else:
         if frames[i].isdigit() and i + 1 < len(frames) and frames[i + 1] == "/":
