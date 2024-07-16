@@ -1,5 +1,6 @@
 #include <vector>
 #include <initializer_list>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -29,3 +30,4 @@ vector<int> leadersResult = leaders(arr);
 for (int leader : leadersResult) {
     cout << leader << " ";
 }
+return 0;
