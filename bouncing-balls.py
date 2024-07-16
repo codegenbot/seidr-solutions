@@ -1,3 +1,4 @@
+```
 if __name__ == "__main__":
     start_height = float(input())
     first_bounce_height = float(input())
