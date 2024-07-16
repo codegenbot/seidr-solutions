@@ -7,7 +7,7 @@ int luhn(int cardNumber) {
             sum += temp - 9;
         else
             sum += temp;
-        cardNumber /= 100; 
+        cardNumber /= 100; // move to the next digit
     }
     return sum;
 }
