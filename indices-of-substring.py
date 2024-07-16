@@ -1,5 +1,10 @@
-import re
-
-
 def indices_of_substring(text, target):
-    return [m.start() for m in re.finditer(target, text)]
+    result = []
+    pos = 0
+    while True:
+        found_pos = text.find(target, pos)
+        if found_pos == -1:
+            break
+        result.append(found_pos)
+        pos = found_pos + 1  
+    return result
