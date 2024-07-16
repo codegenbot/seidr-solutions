@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b); 
+bool issame(vector<string> a, vector<string> b); // Function declaration
 
 vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -35,7 +35,7 @@ vector<string> bf(string planet1, string planet2){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){ 
+bool issame(vector<string> a, vector<string> b){ // Function definition
     return a == b;
 }
 
