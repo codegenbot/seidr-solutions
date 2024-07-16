@@ -4,51 +4,41 @@
 
 int main() {
     std::string codeStr, guessStr;
-
-    // Read user input
+    
+    // Read user input...
     std::cout << "Enter the Mastermind code: ";
     std::cin >> codeStr;
-
-    std::cout << "Enter your guess: ";
+    std::cout << "Enter the guess: ";
     std::cin >> guessStr;
 
-    if (codeStr.length() != 4 || guessStr.length() != 4) {
-        std::cout << "Error: Code and guess must be 4 characters long." << std::endl;
-        return 1;
-    }
+    int blackPegs = 0, whitePegs = 0;
+    std::unordered_map<int, int> codeCount;
 
-    int blackPegs = 0;
-    int whitePegs = 0;
-
-    // Count correct characters at correct positions as black pegs
-    for (int i = 0; i < 4; i++) {
-        if (codeStr[i] == guessStr[i]) {
-            blackPegs++;
-        }
-    }
-
-    // Count remaining correct characters as white pegs
-    for (char c : guessStr) {
-        if ('0' <= c && c <= '5') {
-            codeCount[c - '0'] = 0;
-        }
-    }
-
-    int codeCount[6] = {0};
-
-    // Count characters in the code
     for (char c : codeStr) {
         if ('0' <= c && c <= '5') {
-            codeCount[c - '0']++;
+            codeCount[static_cast<int>(c)]++;
         }
     }
 
     for (int i = 0; i < 4; i++) {
-        char c = guessStr[i];
-        if ('0' <= c && c <= '5') {
-            if (codeCount[c - '0'] > 0) {
-                codeCount[c - '0']--;
+        char guessChar = guessStr[i];
+        if ('0' <= guessChar && guessChar <= '5') {
+            if (--codeCount[static_cast<int>(guessChar)] > 0) {
                 whitePegs++;
+            } else {
+                blackPegs++;
+            }
+        }
+    }
+
+    // Counting black pegs
+    for (char c : codeStr) {
+        if ('0' <= c && c <= '5') {
+            int index = guessStr.find(c);
+            while(index != std::string::npos) {
+                blackPegs++;
+                guessStr.erase(index, 1);
+                index = guessStr.find(c);
             }
         }
     }
