@@ -1,38 +1,30 @@
-string solveBoolean(string s) {
-    bool result = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 't') {
-            result = true;
-            i += 1;
-            break;
-        } else if (s[i] == 'f') {
-            result = false;
-            i += 1;
-            break;
-        } else if (s[i] == '|') {
-            i += 1;
-        } else if (s[i] == '&') {
-            i += 1;
+bool solveBoolean(string expression) {
+    if (expression.size() == 0) return false;
+    for (int i = 0; i < expression.size(); ++i) {
+        if (expression[i] == '|') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            if ((left == "t" && right == "t") || 
+                (left == "f" && right == "t") || 
+                (left == "t" && right == "f") || 
+                (left == "f" && right == "f"))
+                return true;
+            else
+                return false;
+        }
+        else if (expression[i] == '&') {
+            string left = expression.substr(0, i);
+            string right = expression.substr(i + 1);
+            if ((left == "t" && right == "t") || 
+                (left == "f" && right == "f"))
+                return true;
+            else
+                return false;
         }
     }
-    for (; i < s.length(); i++) {
-        if (s[i] == 't')
-            result = true;
-        else if (s[i] == 'f')
-            result = false;
-        else if (s[i] == '|') {
-            if (!result)
-                result = true;
-            else
-                result = false;
-        } else if (s[i] == '&') {
-            if (result)
-                result &= (s[i + 1] != 'f');
-            else
-                result = false;
-            i++;
-        }
+    if (expression.size() > 0) {
+        if (expression[0] == 't') return true;
+        else return false;
     }
-    return (result ? "True" : "False");
+    return false;
 }
