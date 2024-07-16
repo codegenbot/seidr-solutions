@@ -1,9 +1,2 @@
-try:
-    numbers = list(map(int, input().split()))
-    print("Sum of input numbers:", sum(numbers))
-except ValueError:
-    print("Invalid input. Please make sure to enter numbers separated by spaces.")
-except EOFError:
-    print("No input provided. Please enter a list of numbers separated by spaces.")
-except Exception:
-    print("Error reading input. Please make sure to enter numbers separated by spaces.")
+numbers = list(map(int, input().strip().split()))
+print(sum(numbers))
