@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> collatzSequence(int n){
+vector<int> solve(int n){
     vector<int> result;
     while(n != 1){
         if(n % 2 == 1)
