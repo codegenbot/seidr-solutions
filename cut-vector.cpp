@@ -1,54 +1,57 @@
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
-vector<int> cutVector(vector<int>& v) {
-    int minDiff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 0; i < v.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; j++) leftSum += v[j];
-        for (int j = i + 1; j < v.size(); j++) rightSum += v[j];
-
-        if (leftSum == rightSum) {
-            return {vector<int>(v.begin(), v.begin() + i + 1), vector<int>(v.begin() + i + 1, v.end())};
+vector<vector<int>> cutVector(vector<int> &nums) {
+    int n = nums.size();
+    vector<vector<int>> result;
+    
+    for (int i = 0; i < n; i++) {
+        vector<int> left, right;
+        for (int j = 0; j <= i; j++) {
+            left.push_back(nums[j]);
         }
-
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+        for (int k = i + 1; k < n; k++) {
+            right.push_back(nums[k]);
+        }
+        int left_sum = 0, right_sum = 0;
+        for (int x : left) {
+            left_sum += x;
+        }
+        for (int y : right) {
+            right_sum += y;
+        }
+        
+        if (left_sum == right_sum || abs(left_sum - right_sum) < abs(left_sum - left_sum)) {
+            result.push_back(left);
+            result.push_back(right);
+            return result;
         }
     }
-
-    // If no equal sum or minimum difference found
-    return {vector<int>(v.begin(), v.begin()), vector<int>(v.begin(), v.end())};
+    
+    return {{}, {}};
 }
 
 int main() {
-    int n;
-    cin >> n;
-
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    int num_cases;
+    cin >> num_cases;
+    
+    for (int i = 0; i < num_cases; i++) {
+        int n;
+        cin >> n;
+        
+        vector<int> nums(n);
+        for (int j = 0; j < n; j++) {
+            cin >> nums[j];
+        }
+        
+        vector<vector<int>> result = cutVector(nums);
+        for (auto &v : result) {
+            for (int x : v) {
+                cout << x << " ";
+            }
+            cout << endl;
+        }
     }
-
-    auto result = cutVector(v);
-
-    cout << "First Subvector: ";
-    for (int num : result[0]) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    cout << "Second Subvector: ";
-    for (int num : result[1]) {
-        cout << num << " ";
-    }
-    cout << endl;
-
+    
     return 0;
 }
