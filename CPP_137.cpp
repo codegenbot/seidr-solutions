@@ -1,8 +1,9 @@
+Here is the modified code:
+
 ```cpp
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
-#include <boost/variant.hpp>
+#include <boost/variant2/variant.hpp>
 
 boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -39,25 +40,24 @@ boost::variant<int, float, std::string> compare_one(boost::any a, boost::any b) 
         return i2 > i1 ? boost::variant<int, float, std::string>(i2) : (i1 == i2) ? boost::variant<int, float, std::string>("None") : boost::variant<int, float, std::string>(i1);
     }
     else {
-        return boost::variant<int, float, std::string>();
+        return a.type() == typeid(int) ? boost::variant<int, float, std::string>(boost::get<int>(a)) : (a.type() == typeid(float) ? boost::variant<int, float, std::string>(boost::get<float>(a)) : boost::variant<int, float, std::string>(boost::get<std::string>(a)));
     }
 }
 
 int main() {
     boost::any a = 10;
     boost::any b = "20.5";
-    
     boost::variant<int, float, std::string> result = compare_one(a, b);
-    
-    if (boost::holds_alternative<int>(result)) {
-        std::cout << "The result is: " << boost::get<int>(result) << std::endl;
+
+    if (std::holds_alternative<int>(result)) {
+        std::cout << "The result is: " << std::get<int>(result) << std::endl;
     }
-    else if (boost::holds_alternative<float>(result)) {
-        std::cout << "The result is: " << boost::get<float>(result) << std::endl;
+    else if (std::holds_alternative<float>(result)) {
+        std::cout << "The result is: " << std::get<float>(result) << std::endl;
     }
     else {
-        std::cout << "The result is: " << boost::get<std::string>(result) << std::endl;
+        std::cout << "The result is: " << std::get<std::string>(result) << std::endl;
     }
-    
+
     return 0;
 }
