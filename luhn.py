@@ -1,8 +1,8 @@
-```
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)[::-1]]
     sum_total = 0
     is_second = True
+
+    card_number = [int(x) for x in str(card_number)[::-1]]
 
     for i, digit in enumerate(card_number):
         if is_second:
