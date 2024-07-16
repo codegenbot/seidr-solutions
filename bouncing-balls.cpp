@@ -30,3 +30,4 @@ int main() {
     cout << calculateTotalDistance(bouncinessIndex, numBounces) << endl;
 
     return 0;
+}
