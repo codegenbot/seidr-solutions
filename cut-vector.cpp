@@ -1,6 +1,5 @@
-```c++
+```c
 #include <vector>
-#include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -19,14 +18,17 @@ vector<vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {5, 6, 4, 7};
+    vector<int> v = {3, 6, 10, 9};
     vector<vector<int>> res = cutVector(v);
-    for (int i = 0; i < res.size(); i++) {
-        cout << "Subvector " << i + 1 << ": ";
-        for (int j = 0; j < res[i].size(); j++) {
-            cout << res[i][j] << " ";
-        }
-        cout << endl;
+    cout << "First half: ";
+    for (int i : res[0]) {
+        cout << i << " ";
     }
+    cout << endl;
+    cout << "Second half: ";
+    for (int i : res[1]) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
