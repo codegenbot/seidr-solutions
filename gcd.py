@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -15,7 +14,7 @@ def find_indices(text, target):
         start = pos + 1
     return indices
 
-print(gcd(839365, 521634))
+print(gcd(839365, 521634)) 
 print(find_indices("banana", "ana"))
 print(gcd(4, 400000))
 print(find_indices("hello world hello", "hello"))
