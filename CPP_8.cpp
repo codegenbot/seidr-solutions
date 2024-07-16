@@ -1,6 +1,7 @@
 #include <vector>
+#include <cassert>
 
-vector<int> sum_product(vector<int> numbers) {
+std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     
@@ -12,8 +13,10 @@ vector<int> sum_product(vector<int> numbers) {
     return {sum, product};
 }
 
+bool issame(std::pair<int, int> a, std::pair<int, int> b);
+
 int main() {
-    auto result = sum_product({10});
-    assert(result[0] == 10 && result[1] == 10);
+    assert(issame(sum_product({10}), {10, 10}));
+    
     return 0;
 }
