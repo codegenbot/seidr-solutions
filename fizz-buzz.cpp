@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
     if (x % 15 == 0)
@@ -9,4 +11,12 @@ std::string fizzBuzz(int x) {
         return "Buzz";
     else
         return std::to_string(x);
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << fizzBuzz(num) << std::endl;
+    return 0;
 }
