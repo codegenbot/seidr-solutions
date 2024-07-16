@@ -5,23 +5,20 @@
 int main() {
     int n;
     std::cin >> n;
-    
-    float diff, sum = 0.0f;
+
     std::vector<float> vec1(n), vec2(n);
-    
+    float sum = 0.0f;
+
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-    
+
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        diff = vec1[i] - vec2[i];
-        sum += diff * diff;
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
-    
-    float distance = std::sqrt(sum);
-    
-    std::cout << distance << std::endl;
-    
+
+    std::cout << std::sqrt(sum) << std::endl;
+
     return 0;
 }
