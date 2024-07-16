@@ -11,11 +11,11 @@ def coin_sums(cents):
                             if c != 1
                             else [(coin % c) // d, (coin % c) % d]
                         )
-                        for d in coins[coins.index(c):]
+                        for i, c in enumerate(coins)
                     ]
                 )
             )
-            for i, coin in enumerate([cents] + [x for x in range(cents - 24, -1, -1) if any(x // c for c in coins)])
+            for coin in [cents] + [x for x in range(cents - 24, -1, -1) if any(x // c for c in coins)]
         ],
         key=sum,
     )
