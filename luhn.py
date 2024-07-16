@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)[::-1]]  
     sum_total = 0
@@ -10,4 +11,6 @@ def luhn(card_number):
                 digit *= 2
         sum_total += digit
 
-    return str(sum_total % 10) if sum_total % 10 != 0 else '0'
+    if sum_total % 10 != 0:
+        return '1'
+    return str(sum_total % 10)
