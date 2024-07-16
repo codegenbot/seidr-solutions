@@ -1,4 +1,4 @@
-```
+```c
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowfall;
+        totalSnow += rateOfSnowfall / 60.0; // convert rate of snow fall from inches per hour to feet
         totalSnow *= (1 - proportionOfSnowMeltingPerHour);
     }
     return totalSnow;
