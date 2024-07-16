@@ -3,10 +3,8 @@ using namespace std;
 
 double probability(int n, int m) {
     double result = 0.0;
-    for(int i = 1; i < m; ++i) {
-        if(i < n) {
-            result += (n - i + 1.0) / (double)m; 
-        }
+    for (int i = 1; i <= (m - 1); ++i) { 
+        result += (n - m + 1) / (double)n; 
     }
     return result;
 }
@@ -18,6 +16,6 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m; 
     double result = probability(n, m); 
-    cout << "The probability is: " << result << endl;
+    cout << "The probability is: " << fixed << setprecision(6) << result << endl;
     return 0;
 }
