@@ -14,7 +14,7 @@ std::string kebabToCamel(const std::string& str) {
             result += std::toupper(c);  // Capitalize first letter of each word
             capitalize = false;
         } else {
-            result += std::tolower(c);
+            result += c;
         }
     }
 
@@ -22,6 +22,7 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
-    std::string input(std::cin.rdbuf()->sgetn(&input, 1024));
+    std::string input(std::cin.nextLine());
     std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
+}
