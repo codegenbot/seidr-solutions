@@ -1,5 +1,5 @@
-```
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -11,4 +11,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
+}
+
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    for (int i = 1; i <= n; i++) {
+        pile.push_back(i);
+    }
+    return pile;
 }
