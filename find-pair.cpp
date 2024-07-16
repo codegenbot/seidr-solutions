@@ -7,32 +7,42 @@ using namespace std;
 
 vector<pair<int, int>> findPairs(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    
-    for (int i = 0; i < nums.size(); i++) {
-        numMap[nums[i]] = i;
-    }
-    
     vector<pair<int, int>> result;
     
-    for (auto it = numMap.begin(); it != numMap.end(); ++it) {
-        int complement = target - it->first;
-        if (numMap.find(complement) != numMap.end() && it->second != numMap[complement]) {
-            // Check if the pair is already in the result
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        if (numMap.find(complement) != numMap.end()) {
             bool isPairUnique = true;
-
+            
+            // Check if the pair is already in the result
             for (auto& existingPair : result) {
-                if ((existingPair.first == complement && existingPair.second == it->first) ||
-                    (existingPair.first == it->first && existingPair.second == complement)) {
+                if ((existingPair.first == min(complement, nums[i]) && 
+                     existingPair.second == max(complement, nums[i])) ||
+                    (existingPair.first == max(complement, nums[i]) && 
+                     existingPair.second == min(complement, nums[i]))) {
                     isPairUnique = false;
                     break;
                 }
             }
-
+            
             // If the pair is unique, add it to the result
             if (isPairUnique) {
-                result.push_back({min(complement, it->first), max(complement, it->first)});
+                bool alreadyInResult = false;
+                for (auto& existingPair : result) {
+                    if ((existingPair.first == min(complement, nums[i]) && 
+                         existingPair.second == max(complement, nums[i])) ||
+                        (existingPair.first == max(complement, nums[i]) && 
+                         existingPair.second == min(complement, nums[i]))) {
+                        alreadyInResult = true;
+                        break;
+                    }
+                }
+                if (!alreadyInResult) {
+                    result.push_back({min(complement, nums[i]), max(complement, nums[i])});
+                }
             }
         }
+        numMap[nums[i]] = i;
     }
     
     return result;
