@@ -1,4 +1,3 @@
-```python
 def convert_to_camel_case(input_string):
     result = ""
     for word in input_string.split():
