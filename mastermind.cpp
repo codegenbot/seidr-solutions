@@ -1,4 +1,9 @@
-std::pair<int, int> mastermind(std::string code, std::string guess) {
+#include <tuple>
+#include <vector>
+#include <iostream>
+#include <string>
+
+std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -20,5 +25,13 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         white += std::min(codeCount[i], guessCount[i]) - black;
     }
 
-    return std::make_pair(white, black);
+    return std::make_tuple(white, black);
+}
+
+int main() {
+    std::string code = "ABCD"; // Your code here
+    std::string guess = "ABDE"; // Your guess here
+    auto [white, black] = mastermind(code, guess);
+    std::cout << "White pegs: " << white << ", Black pegs: " << black << std::endl;
+    return 0;
 }
