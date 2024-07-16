@@ -19,7 +19,7 @@ int main() {
     double total_distance = 0.0;
 
     for(int i = 1; i <= num_bounces; ++i) {
-        total_distance += prev_height;
+        total_distance += prev_height * 2;
         prev_height /= 2.0; 
     }
 
