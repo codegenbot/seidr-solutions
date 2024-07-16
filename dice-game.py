@@ -1,3 +1,10 @@
 n = int(input())
 m = int(input())
-print('{:.2f}'.format(sum([(n-i)/n * i/m for i in range(1, n)]) if n < m else 0.5)
+total_outcomes = n * m
+successful_outcomes = 0
+for i in range(1, n + 1):
+    for j in range(1, m):
+        if i > j:
+            successful_outcomes += 1
+probability = successful_outcomes / total_outcomes
+print("{:.2f}".format(probability))
