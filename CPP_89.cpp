@@ -5,12 +5,12 @@
 std::string encrypt(std::string s){
     std::string result = "";
     for(char c : s){
-        if(std::isalpha(c)){
-            char encrypted = c + 4;
-            if(std::islower(c) && encrypted > 'z'){
+        if(isalpha(c)){
+            char encrypted = c + 2 * 2;
+            if(islower(c) && encrypted > 'z'){
                 encrypted = 'a' + (encrypted - 'z' - 1);
             }
-            else if(std::isupper(c) && encrypted > 'Z'){
+            else if(isupper(c) && encrypted > 'Z'){
                 encrypted = 'A' + (encrypted - 'Z' - 1);
             }
             result += encrypted;
@@ -22,7 +22,7 @@ std::string encrypt(std::string s){
     return result;
 }
 
-int main(){
+int main() {
     assert (encrypt("a")=="e");
     return 0;
 }
