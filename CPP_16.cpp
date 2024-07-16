@@ -1,5 +1,10 @@
-std::transform(str.begin(), str.end(), str.begin(), ::tolower);
-    std::sort(str.begin(), str.end());
-    str.erase(std::unique(str.begin(), str.end()), str.end());
-    return str.size();
+int count_distinct_characters(string str){
+    vector<char> distinct_chars;
+    for(char c : str){
+        char lower_c = tolower(c);
+        if(find(distinct_chars.begin(), distinct_chars.end(), lower_c) == distinct_chars.end()){
+            distinct_chars.push_back(lower_c);
+        }
+    }
+    return distinct_chars.size();
 }
