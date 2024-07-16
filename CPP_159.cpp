@@ -1,17 +1,9 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b){
+    int total = a[0] + a[1];
+    int eaten = total <= b[1] ? total : b[1];
+    int left = b[1] - eaten;
 
-vector<int> eat(int number, int need, int remaining){
-    int totalCarrots = number + need;
-    int eatenCarrots = min(totalCarrots, remaining);
-    int carrotsLeft = max(0, remaining - totalCarrots);
-    return {eatenCarrots, carrotsLeft};
-}
-
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
-    return 0;
+    return eaten == b[0] && left == b[1];
 }
