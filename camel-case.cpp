@@ -19,16 +19,12 @@ std::string join(const std::vector<std::string>& tokens, char delimiter = ' ') {
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
-        if (pos > 0 || !str.empty()) { 
-            tokens.push_back(str.substr(0, pos));
-        }
-        str = str.substr(pos + 1);
+    size_t prev_pos = 0;
+    while ((size_t pos = str.find(delimiter)) != std::string::npos) {
+        tokens.push_back(str.substr(prev_pos, pos - prev_pos));
+        prev_pos = pos + 1;
     }
-    if (!str.empty()) {
-        tokens.push_back(str);
-    }
+    tokens.push_back(str.substr(prev_pos)); // push back the remaining string
     return tokens;
 }
 
@@ -41,15 +37,17 @@ std::string camelCase(const std::string& str) {
 
     std::string result;
     for (int i = 0; i < words.size(); i++) {
-        if (!result.empty()) {
-            result += " ";
-        } else {
-            result += std::toupper(words[i][0]);
+        if (!words[i].empty()) { // Check if the word is not empty
+            if (!result.empty()) {
+                result += " ";
+            } else {
+                result += std::toupper(words[i][0]);
+            }
+            result += words[i].substr(1);
         }
-        result += words[i].substr(1);
     }
     
-    return result.back() == ' '? result.substr(0, result.size()-1) : result;
+    return result;
 }
 
 int main() {
