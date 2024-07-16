@@ -12,10 +12,10 @@ int main() {
 
     double bouncinessIndex = (firstBounce / startHeight);
 
-    double totalDistance = firstBounce * bouncinessIndex;
-
+    double totalDistance = startHeight * pow(1 - 0.5, numBounces);
+    
     cout << fixed << std::setprecision(10);
-    cout << static_cast<int>(totalDistance + 0.00001) << endl;
+    cout << totalDistance + 0.00001 << endl;
 
     return 0;
 }
