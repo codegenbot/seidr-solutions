@@ -1,9 +1,12 @@
-```cpp
+```c
 #include <iostream>
+#include <cstdlib>
+#include <string>
 
 int gcd(int a, int b) {
-    a = abs(a);
-    b = abs(b);
+    if (a > b) {
+        std::swap(a, b);
+    }
     while (b != 0) {
         int temp = b;
         b = a % b;

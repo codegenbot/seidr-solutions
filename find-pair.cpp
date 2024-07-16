@@ -6,11 +6,20 @@ std::vector<std::pair<int, int>> findPairs(std::vector<int>& nums, int target) {
     
     std::vector<std::pair<int, int>> result;
     
-    for (int i = 0; i < nums.size(); i++) {
-        int j = std::lower_bound(nums.begin() + i, nums.end(), target - nums[i]) - nums.begin();
+    int i = 0;
+    int j = nums.size() - 1;
+    
+    while (i < j) {
+        int sum = nums[i] + nums[j];
         
-        if (j != nums.size() && nums[i] + nums[j] == target) {
-            result.push_back({std::min(nums[i], nums[j]), std::max(nums[i], nums[j])});
+        if (sum == target) {
+            result.push_back({nums[i], nums[j]});
+            i++;
+            j--;
+        } else if (sum < target) {
+            i++;
+        } else {
+            j--;
         }
     }
     
