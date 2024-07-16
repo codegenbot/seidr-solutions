@@ -6,15 +6,8 @@ def cut_vector(vector):
         left_sum = sum(vector[:i+1])
         right_sum = sum(vector[i:])
 
-        diff = abs(left_sum - right_sum)
-
-        if diff == 0:
-            return vector[:i+1], vector[i:]
-        elif diff < min_diff:
-            min_diff = diff
+        if abs(left_sum - right_sum) < min_diff:
+            min_diff = abs(left_sum - right_sum)
             split_index = i
-
-    left_sum = sum(vector[:split_index+1])
-    right_sum = sum(vector[split_index:])
 
     return vector[:split_index+1], vector[split_index:]
