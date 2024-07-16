@@ -2,19 +2,19 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
-    group = ''
+    temp_group = ''
     
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            group += char
+            temp_group += char
         elif char == ')':
-            if stack and stack[-1] == '(':
-                stack.pop()
-                group += char
-                groups.append(group)
-                group = ''
+            stack.pop()
+            temp_group += char
+            if not stack:
+                groups.append(temp_group)
+                temp_group = ''
     
     return groups
