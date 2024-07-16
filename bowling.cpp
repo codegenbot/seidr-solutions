@@ -1,11 +1,10 @@
 #include <string>
-#include <iostream>
 
-int bowlingScore(std::string s) {
+int main() {
     int score = 0;
     int roll = 0;
 
-    for (char c : s) {
+    for (char c : "1-4/2-3/3-5/10-") { 
         if (c == '/') {
             if (roll > 9)
                 score += 10;
@@ -23,12 +22,5 @@ int bowlingScore(std::string s) {
     else
         score += roll;
 
-    return score;
-}
-
-int main() {
-    std::string s = "1/81/2/34//5+64/7-3+/--8-9";
-    int score = bowlingScore(s);
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
+    return score; 
 }
