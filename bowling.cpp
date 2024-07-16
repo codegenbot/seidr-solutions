@@ -49,9 +49,8 @@ int bowlingScore(const std::string& s) {
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    int result = bowlingScore(s);
+    std::string input = "X/5X8-7/4X";
+    int result = bowlingScore(input);
     std::cout << "The score is: " << result << std::endl;
     return 0;
 }
