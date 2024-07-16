@@ -6,4 +6,4 @@ def coin_sums(cents):
         cents %= coin
         if count > 0:
             counts.append(count)
-    return counts + [0] * (4 - len(counts))
+    return counts
