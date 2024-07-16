@@ -1,1 +1,1 @@
-inputs = [int(input(f"Enter number {i + 1}:\n")) for i in range(3)]
+inputs = [int(input(f"Enter number {i}:")) for i in range(1, 4)]
