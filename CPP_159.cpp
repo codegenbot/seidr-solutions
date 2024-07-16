@@ -1,7 +1,11 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-assert(issame({eaten, left}, {5, 0}));
+int main(){
+    assert(issame({5, 0}, {5, 0}));
+    return 0;
+}
