@@ -1,6 +1,8 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
-#include <algorithm>
+#include <cmath>
+
 using namespace std;
 
 vector<int> compare(const vector<int>& a, const vector<int>& b) {
