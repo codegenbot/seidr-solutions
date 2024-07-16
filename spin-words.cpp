@@ -1,10 +1,9 @@
-```c++
 #include <string>
 #include <sstream>
 
 std::string spinWords(std::string str) {
     std::string result;
-    std::istringstream iss(str);
+    std::stringstream iss(str); 
     std::string word;
 
     while (iss >> word) {
@@ -18,7 +17,7 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::string str = "Hello World";
+    std::string str = "Hello World this is a test";
     std::cout << spinWords(str) << std::endl;
     return 0;
 }
