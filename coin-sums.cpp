@@ -1,20 +1,27 @@
-int main() {
-    int cents;
-    cin >> cents;
+#include <iostream>
+using namespace std;
 
-    int total_quarters = cents / 25;
+void coinSums(int cents) {
+    int quarters = cents / 25;
     cents %= 25;
 
-    int total_dimes = cents / 10;
+    int dimes = cents / 10;
     cents %= 10;
 
-    int total_nickles = cents / 5;
+    int nickles = cents / 5;
     cents %= 5;
 
     int pennies = cents;
 
-    cout << total_quarters << endl; 
-    cout << total_dimes << endl;
-    cout << total_nickles << endl;
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
     cout << pennies << endl;
+}
+
+int main() {
+    int cents;
+    cin >> cents;
+    coinSums(cents);
+    return 0;
 }
