@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -10,7 +9,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return (x < INT_MAX && std::to_string(x)) || "Overflow";
+        return std::to_string(x);
 }
 
 int main() {
