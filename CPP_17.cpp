@@ -35,6 +35,9 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
-vector<int> expected = {4, 2, 1, 2, 1, 4, 4, 2};
-vector<int> beats = parse_music("o|o||oo");
-assert(areEqual(beats, expected));
+int main() {
+    vector<int> expected = {4, 2, 1, 2, 1, 4, 4, 2};
+    vector<int> beats = parse_music("o|o||oo");
+    assert(areEqual(beats, expected));
+    return 0;
+}
