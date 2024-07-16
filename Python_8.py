@@ -1,9 +1,8 @@
 while True:
     try:
         input_numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-        if all(isinstance(num, int) for num in input_numbers):
-            break
-        else:
-            print("Invalid input. Please enter space-separated numbers only.")
-    except ValueError:
-        print("Invalid input. Please enter space-separated numbers only.")
+        if not input_numbers:
+            raise ValueError("Empty input. Please enter at least one number.")
+        break
+    except ValueError as e:
+        print(e)
