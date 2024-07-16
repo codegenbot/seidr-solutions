@@ -1,5 +1,4 @@
-def find_max_min_average(lst):
-    max_val = max(lst)
-    min_val = min(lst)
-    average = sum(lst) / len(lst)
-    return max_val, min_val, average
+def solution(lst):
+    odd_sum = sum(i for i in lst[1::2] if i % 2 != 0)
+    even_sum = sum(i for i in lst[::2] if i % 2 == 0)
+    return f"The sum of the odd numbers is {odd_sum} and the sum of the even numbers is {even_sum}"
