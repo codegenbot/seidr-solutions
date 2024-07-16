@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool will_it_fly(vector<int> q, int w) {
+bool will_it_fly(std::vector<int> q, int w) {
     int sum = 0;
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
@@ -14,7 +14,7 @@ bool will_it_fly(vector<int> q, int w) {
 
 int main() {
     std::vector<int> q = {1, 2, 3, 2, 1};
-    int w = 9;
+    int w = 10;
     bool result = will_it_fly(q, w);
     return 0;
 }
