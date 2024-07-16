@@ -1,4 +1,5 @@
 #include <utility>
+
 std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>& nums) {
     int cutIndex = 0;
     int minDiff = INT_MAX;
