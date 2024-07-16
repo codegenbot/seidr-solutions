@@ -5,7 +5,7 @@ bool issame(vector<string>& a, vector<string>& b);
 vector<string> select_words(string s, int n);
 
 bool issame(vector<string>& a, vector<string>& b){
-    if(a.size() != b.size()){
+    if(a.size() != b.size()) {
         return false;
     }
     
