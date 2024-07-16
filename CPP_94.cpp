@@ -25,8 +25,7 @@ int max_prime_sum(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    int result = max_prime_sum(lst);
+    int result = max_prime_sum({127, 97, 8192});
     std::cout << "The maximum prime number in the list is: " << result << std::endl;
     return 0;
 }
