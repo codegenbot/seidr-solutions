@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    string n = "12"; 
+    string n = "12"; // test input
     cout << squareDigits(n) << endl;
     return 0; 
 }
