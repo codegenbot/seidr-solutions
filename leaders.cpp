@@ -18,8 +18,6 @@ vector<int> calculateLeaders(vector<int> arr) {
             maxSoFar = arr[i];
         }
     }
-    res = vector<int>(res.rbegin(), res.rend());
-    
     return res;
 }
 
