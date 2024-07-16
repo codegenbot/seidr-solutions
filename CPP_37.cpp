@@ -1,20 +1,22 @@
-vector<float> even_indices;
+vector<float> even_elems;
+    vector<float> sorted_even_elems;
+
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_indices.push_back(l[i]);
+            even_elems.push_back(l[i]);
         }
     }
 
-    sort(even_indices.begin(), even_indices.end());
+    sort(even_elems.begin(), even_elems.end());
 
-    vector<float> l_prime = l;
-    int idx = 0;
+    int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l_prime[i] = even_indices[idx];
-            idx++;
+            sorted_even_elems.push_back(even_elems[even_index++]);
+        } else {
+            sorted_even_elems.push_back(l[i]);
         }
     }
 
-    return l_prime;
+    return sorted_even_elems;
 }
