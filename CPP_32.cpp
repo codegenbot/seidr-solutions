@@ -1,11 +1,10 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 double poly(const vector<double>& xs, double val){
     double result = 0.0;
-    for (int i = 0; i < xs.size(); ++i) {
-        result += xs[i] * pow(val, xs.size() - 1 - i);
+    for(int i = 0; i < xs.size(); ++i){
+        result += xs[i] * pow(val, i);
     }
     return result;
 }
