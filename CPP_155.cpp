@@ -2,9 +2,9 @@
 #include <string>
 #include <cassert>
 
-vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    string numStr = to_string(abs(num));
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result(2, 0);
+    std::string numStr = std::to_string(std::abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             result[0]++;
@@ -15,12 +15,10 @@ vector<int> even_odd_count(int num) {
     return result;
 }
 
-bool issame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+bool issame(std::vector<int> vec1, std::vector<int> vec2) {
+    assert(vec1.size() == vec2.size());
+    for (size_t i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) {
             return false;
         }
     }
