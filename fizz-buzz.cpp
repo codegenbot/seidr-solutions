@@ -14,5 +14,7 @@ std::string fizzBuzz(int x) {
 int main() {
     int x;
     std::cin >> x;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << fizzBuzz(x) << std::endl;
+    return 0;
 }
