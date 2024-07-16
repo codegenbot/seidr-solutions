@@ -3,12 +3,10 @@
 #include <algorithm>
 #include <cassert>
 #include <string>
-#include <boost/any.hpp>
 
-using std::any;
 using std::string;
 
-any compare_one(any a, any b) {
+std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
     }
@@ -29,14 +27,14 @@ any compare_one(any a, any b) {
         float num1 = std::stof(str_a);
         float num2 = std::stof(str_b);
 
-        return num1 > num2 ? a : (num1 < num2 ? b : any());
+        return num1 > num2 ? a : (num1 < num2 ? b : std::any());
     }
-    return any();
+    return std::any();
 }
 
 int main() {
     assert(std::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(boost::any_cast<float>(compare_one(string("1"), 3.4f)) == 3.4f);
+    assert(std::any_cast<float>(compare_one(1, 3.4f)) == 3.4f);
 
     std::cout << "All test cases passed!" << std::endl;
 
