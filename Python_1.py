@@ -11,10 +11,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             level -= 1
             if level < 0:
                 level = 0
-
-        if level == 1:
+        
+        if level == 0 and not result or level > 0:
             result.append("")
-            if result:
-                result[-1] += char
+        if result:
+            result[-1] += char
 
     return result
