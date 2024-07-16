@@ -6,7 +6,7 @@
 int main() {
     std::vector<int> vec = {1, 2, 3, 4, 5, 6};
     int idx = 0;
-    int min_diff = INT_MAX;
+    int min_diff = abs(vec[idx] - vec[idx + 1]);
 
     for (int i = 0; i < vec.size() - 1; ++i) {
         int diff = abs(vec[i] - vec[i + 1]);
