@@ -1,1 +1,1 @@
-input_str = input("Enter a string consisting of lowercase alphabets only: ").lower()
+input_str = input("Enter a string consisting of lowercase alphabets only: ").strip().lower()
