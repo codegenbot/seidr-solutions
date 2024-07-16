@@ -7,11 +7,9 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    for (auto& row : result) {
-        if (row.size() > 1) {
-            sort(row.begin(), row.end(), greater<int>());
-        }
-    }
     sort(result.begin(), result.end());
+    for (auto &coord : result) {
+        sort(coord.begin(), coord.end(), greater<int>());
+    }
     return result;
 }
