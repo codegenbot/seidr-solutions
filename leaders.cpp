@@ -5,13 +5,9 @@ std::vector<int> leaders(const std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
 
-    int max_right = arr.back();  // Initialize with the last element
-    result.push_back(arr.back());  // The rightmost element is always a leader
-
-    for(int i=n-2; i>=0; i--) { 
-        if(arr[i] >= max_right) {
-            max_right = arr[i];
-            result.push_front(arr[i]);
+    for(int i=0; i<n; i++) { 
+        if(result.empty() || arr[i] >= arr[result.size()-1]) {
+            result.push_back(arr[i]);
         }
     }
 
