@@ -10,11 +10,7 @@ std::vector<int> leaders(const std::vector<int>& arr) {
             result.push_back(arr[i]);
             maxRight = arr[i];
         }
-        else
-            maxRight = arr[i];
     }
 
     return result;
 }
-
-int main() { return 0; }
