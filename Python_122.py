@@ -6,6 +6,6 @@ def add_elements(arr, k=0):
         return 0
     
     if k == 0:
-        return sorted_filtered_nums[k-1]
+        return sorted_filtered_nums[0]
     
-    return sum(sorted_filtered_nums[:k]) if len(sorted_filtered_nums) >= k else 0
+    return sum(sorted_filtered_nums[:k]) if k <= len(sorted_filtered_nums) else sum(sorted_filtered_nums)
