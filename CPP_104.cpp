@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-vector<int> unique_digits(const vector<int>& a, const vector<int>& b){
+vector<int> unique_digits(const vector<int>& a, const vector<int>& b) {
     vector<int> result;
     for (int num : a) {
         bool hasEvenDigit = false;
