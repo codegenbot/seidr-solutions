@@ -1,11 +1,12 @@
 #include <cstdlib>
 #include <cassert>
 
-int add(int x, int y) {
-    return x + y;
-}
+int add(int x, int y);
 
 int main() {
-    // Your main function code here
-    return 0;
+    return add(x, y);
+}
+
+int add(int x, int y) {
+    return x + y;
 }
