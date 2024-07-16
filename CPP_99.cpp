@@ -1,4 +1,2 @@
 double num = stod(value);
-    int res = round(num);
-    return res;
-}
+return num > 0 ? floor(num + 0.5) : ceil(num - 0.5);
