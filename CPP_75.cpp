@@ -1,21 +1,16 @@
 if (a < 30) return false;
-    for (int i = 2; i <= a / 2; ++i) {
-        if (a % i == 0 && is_prime(i)) {
+    for (int i = 2; i <= a / 3; i++) {
+        if (a % i == 0) {
             int b = a / i;
-            for (int j = i + 1; j <= b / 2; ++j) {
-                if (b % j == 0 && is_prime(j) && is_prime(b / j)) {
-                    return true;
+            for (int j = 2; j <= b / 2; j++) {
+                if (b % j == 0) {
+                    int c = b / j;
+                    if (c != 1 && c != i && c != j) {
+                        return true;
+                    }
                 }
             }
         }
     }
     return false;
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
 }
