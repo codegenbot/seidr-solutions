@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <initializer_list>
 using namespace std;
 
 int basement(vector<int>& nums) {
@@ -21,3 +19,4 @@ int main() {
     else
         cout << "The basement index is: " << result << endl;
     return 0;
+}
