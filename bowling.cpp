@@ -1,11 +1,12 @@
+```c++
 #include <string>
 
 long long bowlingScore(const std::string& input) {
     long long score = 0;
     int currentRoll = 0;
 
-    for (size_t i = 0; i < input.size(); ++i) { 
-        char c = input[i];
+    auto chars = input;
+    for (char c : chars) { 
         if (!((c >= '0' && c <= '9') || c == 'X' || c == '/')) {
             return -1;
         }
@@ -23,8 +24,8 @@ long long bowlingScore(const std::string& input) {
                 currentRoll *= 10;
                 currentRoll += c - '0';
 
-                if(input.size() - i > 1) {
-                    char nextC = input[i+1];
+                if(chars.length() - chars.find(c) > 1) {
+                    char nextC = chars[chars.find(c) + 1];
                     if(nextC >= '0' && nextC <= '9') {
                         int secondRoll = nextC - '0';
                         if(currentRoll + secondRoll == 10) {
@@ -47,7 +48,7 @@ long long bowlingScore(const std::string& input) {
                 }
             }
 
-            if(i == input.size() - 1 || ((c >= '0' && c <= '9'))) {
+            if(chars.find(c) == chars.length() - 1 || ((c >= '0' && c <= '9'))) {
                 if(currentRoll < 10) {
                     score += currentRoll;
                 } else {
