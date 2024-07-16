@@ -4,16 +4,11 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    int quarters = std::min(cents / 25, (int)std::ceil((double)cents / 25));
-    cents %= 25;
+    int nickles = cents / 5;
+    int pennies = cents % 5;
 
-    int dimes = std::min(cents / 10, int(1));
-    cents %= 10;
-
-    int nickles = std::min(cents / 5, int(1));
-    cents %= 5;
-
-    int pennies = cents;
+    int quarters = cents / 25;
+    int dimes = (cents % 25) / 10;
 
     std::cout << "Quarters: " << quarters << "\n";
     std::cout << "Dimes: " << dimes << "\n";
