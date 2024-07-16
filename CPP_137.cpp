@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 #include <boost/variant.hpp>
 
 using namespace std;
