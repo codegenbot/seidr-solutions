@@ -1,30 +1,19 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool firstWord = true;
+string camelCase(string s) {
+    string result = "";
+    int start = 0;
     
-    for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
+    for (int i = 0; i <= s.size(); i++) {
+        if (i == s.size() || s[i] == ' ') {
+            string word = s.substr(start, i - start);
+            if (!result.empty()) {
+                result += toupper(word[0]);
             } else {
-                firstWord = false;
+                result += word;
             }
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            } else {
-                firstWord = false;
-            }
-        } else {
-            if (!firstWord) {
-                result += c;
-            } else {
-                result += tolower(c);
-                firstWord = false;
-            }
+            start = i + 1;
         }
     }
     
@@ -32,9 +21,9 @@ std::string camelCase(std::string str) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> str;
-    std::cout << "CamelCase: " << camelCase(str) << std::endl;
+    string input;
+    cout << "Enter a kebab-case string: ";
+    cin >> input;
+    cout << "camelCase: " << camelCase(input) << endl;
     return 0;
 }
