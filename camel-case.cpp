@@ -42,14 +42,12 @@ std::string camelCase(const std::string& str) {
     std::string result;
     for (int i = 0; i < words.size(); i++) {
         if (!words[i].empty()) { 
-            if (i == 0) {
-                result += std::toupper(words[i][0]);
+            if (!result.empty()) {
+                result += " ";
             } else {
-                if (!result.empty()) {
-                    result += " ";
-                }
-                result += std::tolower(words[i][0]) + words[i].substr(1);
+                result += std::toupper(words[i][0]);
             }
+            result += words[i].substr(1);
         }
     }
     
@@ -57,8 +55,6 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    {  
-        std::cout << camelCase("hello-world-example") << std::endl;
-    }
+    std::cout << join(std::vector<std::string>(split("hello-world-example", '-')), '') << std::endl;
     return 0;
 }
