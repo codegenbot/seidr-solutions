@@ -1,14 +1,14 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string str;
-    cin >> str;
-    
-    int len = str.length();
-    
-    if (len % 2 == 0) {
-        cout << str.substr(len/2 - 1, 2);
+    std::string s;
+    std::cin >> s;
+    int n = s.size();
+    if (n % 2 == 0) {
+        std::cout << s.substr(n / 2 - 1, 2);
     } else {
-        cout << str.substr(len/2, 1);
+        std::cout << s[n / 2];
     }
-    
     return 0;
 }
