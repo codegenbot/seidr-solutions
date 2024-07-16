@@ -2,7 +2,12 @@
 #include <cassert>
 
 bool isEqual(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> factors(int n) {
