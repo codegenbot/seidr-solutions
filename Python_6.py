@@ -1,1 +1,1 @@
-paren_strings = input().split()
+paren_strings = input().strip().split()
