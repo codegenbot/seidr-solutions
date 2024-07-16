@@ -8,15 +8,14 @@ int main() {
     std::getline(std::cin, target);
 
     std::vector<std::size_t> indices;
-    std::size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += target.length();
+    for (std::size_t i = 0; i <= text.size() - target.size(); ++i) {
+        if (text.substr(i, target.size()) == target)
+            indices.push_back(i);
     }
-    
+
     for (std::size_t i = 0; i < indices.size(); ++i) {
         std::cout << std::dec << indices[i] << " ";
     }
-    
+
     return 0;
 }
