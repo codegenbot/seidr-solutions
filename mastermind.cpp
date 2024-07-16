@@ -9,15 +9,14 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int black = 0;
 
     for (int i = 0; i < 4; i++) {
-        bool inCode = false;
-        for (int j = 0; j < 4; j++) {
-            if (guess[i] == code[j]) { 
-                inCode = true;
-                if (j == i) { 
-                    black++;
-                    break;
-                } else {
+        if (code[i] == guess[i]) {
+            black++;
+        } else {
+            bool foundInCode = false;
+            for (int j = 0; j < 4; j++) {
+                if (guess[i] == code[j] && !foundInCode) {
                     white++;
+                    foundInCode = true;
                 }
             }
         }
