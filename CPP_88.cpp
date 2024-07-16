@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool sort_array(std::vector<int> array){
+std::vector<int> sort_array(std::vector<int> array){
     if(array.size() == 0) return array;
     std::vector<int> sorted_array = array;
     if((array.front() + array.back()) % 2 == 0){
