@@ -1,26 +1,32 @@
-int main() {
-    std::string s;
-    std::cin >> s;
+```cpp
+#include <string>
+#include <cstddef> 
+#include <cctype>
 
-    std::string result = "";
-    bool capitalizeNext = true;
+using namespace std;
 
-    for (char c : s) {
-        if (c == '-') {
-            if(capitalizeNext) result += std::toupper(c);
-            capitalizeNext = true;
-            result.push_back(' ');
-        } else if (capitalizeNext) {
-            result += std::toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
-        }
+string result = "";
+bool capitalizeNext = true;
+string s; 
+
+getline(cin, s); 
+
+for (char c : s) {
+    if (c == '-') {
+        if(capitalizeNext) result += std::toupper(c);
+        capitalizeNext = true;
+        result.push_back(' ');
+    } else if (capitalizeNext) {
+        result += std::toupper(c);
+        capitalizeNext = false;
+    } else {
+        result += tolower(c);
     }
-
-    size_t pos = 0;
-    while ((pos = result.find(' ')) != std::string::npos) {
-        result.erase(pos, 1);
-    }
-    return 0;
 }
+
+size_t pos = result.find(' ');
+while (pos != string::npos) {
+    result.erase(pos, 1);
+    pos = result.find(' ');
+}
+return result;
