@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -15,7 +16,7 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += (num / 3) - 2; // Adjust for rounding down and subtracting 2
     }
 
     cout << sum << endl;
