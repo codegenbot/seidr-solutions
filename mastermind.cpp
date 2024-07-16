@@ -13,8 +13,7 @@ int mastermind(std::string code, std::string guess) {
                     break;
                 }
             }
-            if (!found)
-                white++;
+            if (!found) white++;
         }
     }
 
