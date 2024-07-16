@@ -1,7 +1,6 @@
 n = int(input())
-v1 = list(map(float, input().split()))
-v2 = list(map(float, input().split()))
+vec1 = [float(x) for x in input().split()]
+vec2 = [float(x) for x in input().split()]
 
-distance = sum((a - b) ** 2 for a, b in zip(v1, v2)) ** 0.5
-
-print(format(distance, ".10f"))
+distance = sum((a - b) ** 2 for a, b in zip(vec1, vec2)) ** 0.5
+print("{:.9f}".format(distance))
