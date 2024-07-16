@@ -6,8 +6,8 @@ def process_text(text):
     return text
 
 try:
-    input_text = raw_input("Enter text: ").strip()
+    input_text = input("Enter text: ").strip()
     result = process_text(input_text)
     print(result)
-except (KeyboardInterrupt, EOFError):
-    print("Error reading input.")
+except (EOFError, KeyboardInterrupt):
+    print("Error reading input. Please provide valid input.")
