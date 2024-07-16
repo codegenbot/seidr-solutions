@@ -1,19 +1,15 @@
-```cpp
-#include <iostream>
-using namespace std;
-
-int luhn(int* digits, int n) {
+int luhn(const int& num[], int n) {
     int sum = 0;
     bool isSecond = false; 
     for (auto i = n - 1; i >= 0; --i) {
         if (isSecond) { 
-            int temp = digits[i] * 2;
+            int temp = num[i] * 2;
             if (temp > 9) {
                 temp -= 9;
             }
             sum += temp;
         } else { 
-            sum += digits[i];
+            sum += num[i];
         }
         isSecond = !isSecond; 
     }
@@ -22,7 +18,6 @@ int luhn(int* digits, int n) {
 
 int main() {
     int digits[] = {4,3,2,1,8,7,6,5,4,3,2,1};
-    int n = sizeof(digits) / sizeof(digits[0]);
-    cout << std::to_string(luhn((int*)digits, n)) << endl; // print the result
+    cout << luhn(digits, sizeof(digits) / sizeof(digits[0])) << endl; 
     return 0;
 }
