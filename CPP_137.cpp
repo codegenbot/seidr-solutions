@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -47,16 +48,16 @@ int main() {
     boost::any b = "10.0";
     boost::variant<int, float, std::string> result = compare_one(a, b);
 
-    if (boost::holds_alternative<int>(result)) {
-        int i = boost::get<int>(result);
+    if (std::holds_alternative<int>(result)) {
+        int i = std::get<int>(result);
         std::cout << "The result is: " << i << std::endl;
     }
-    else if (boost::holds_alternative<float>(result)) {
-        float f = boost::get<float>(result);
+    else if (std::holds_alternative<float>(result)) {
+        float f = std::get<float>(result);
         std::cout << "The result is: " << f << std::endl;
     }
     else {
-        std::string str = boost::get<std::string>(result);
+        std::string str = std::get<std::string>(result);
         std::cout << "The result is: " << str << std::endl;
     }
 
