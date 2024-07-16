@@ -1,12 +1,13 @@
+#include <iostream>
 #include <string>
-#include <cwchar>
+#include <cctype>
 
 using namespace std;
 
 int main() {
     wstring tweet;
     cout << "Enter a tweet: ";
-    wgetline(wcin, tweet);
+    getline(wcin, tweet);
     
     if(tweet.empty()) {
         cout << L"You didn't type anything" << endl;
