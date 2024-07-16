@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -31,26 +31,19 @@ int findGCD(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
-    cout << "GCD of " << a << " and " << b << ": " << findGCD(a, b) << endl;
-    
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    cout << "GCD of " << num1 << " and " << num2 << " is " << findGCD(num1, num2) << endl;
+
     string text, target;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    cout << "Enter the target string: ";
-    getline(cin, target);
+    cout << "Enter a text and target string: ";
+    cin >> text >> target;
     vector<int> indices = findIndices(text, target);
-    if (indices.empty()) {
-        cout << "Target not found in the text." << endl;
-    } else {
-        cout << "Target found at indices: ";
-        for (int index : indices) {
-            cout << index << " ";
-        }
-        cout << endl;
-    }
-    
+    cout << "Target found at indices: ";
+    for (int i : indices)
+        cout << i << " ";
+    cout << endl;
+
     return 0;
 }
