@@ -1,22 +1,28 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <vector>
 
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> parts;
-    size_t pos = 0;
-    while ((pos = s.find(c)) != std::string::npos) {
-        parts.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
+    std::string part;
+
+    for (char ci : s) {
+        if (ci == c) {
+            parts.push_back(part);
+            part.clear();
+        } else {
+            part += ci;
+        }
     }
-    parts.push_back(s);
+    parts.push_back(part);
+
     return parts;
 }
 
 std::string kebabToCamel(const std::string& s) {
     std::vector<std::string> parts = split(s, '-');
     std::string result;
+
     for (int i = 0; i < parts.size(); i++) {
         if (!i) {
             result += tolower(parts[i]);
@@ -27,6 +33,7 @@ std::string kebabToCamel(const std::string& s) {
         if (i != parts.size() - 1)
             result += " ";
     }
+
     return result;
 }
 
