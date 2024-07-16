@@ -5,4 +5,4 @@ def digits(n):
         if int(digit) % 2 != 0:
             product *= int(digit)
             has_odd_digit = True
-    return product if has_odd_digit else 1
+    return product if has_odd_digit else 0
