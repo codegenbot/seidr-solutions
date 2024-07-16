@@ -1,4 +1,4 @@
-for(auto num : l){
+for(int num : l){
     if(num >= t){
         return false;
     }
