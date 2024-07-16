@@ -1,10 +1,13 @@
-int num_buckets = 0;
-        for (const auto &row : grid) {
-            int well_total = 0;
-            for (int well : row) {
-                well_total += well;
-            }
-            num_buckets += (well_total + capacity - 1) / capacity;
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int times = 0;
+    for (int j = 0; j < grid[0].size(); j++) {
+        int water = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            water += grid[i][j];
         }
-        return num_buckets;
+        if (water > capacity) {
+            times += (water / capacity) + 1;
+        }
     }
+    return times;
+}
