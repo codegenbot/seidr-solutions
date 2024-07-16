@@ -3,7 +3,7 @@
 #include <string>
 
 std::string camelCase(std::string s) {
-    std::string result;
+    std::string result = "";
     for (int i = 0; i <= s.size(); i++) {
         if (i == s.size() || (s[i] == '-' && i > 0)) {
             if (!result.empty()) {
@@ -13,8 +13,9 @@ std::string camelCase(std::string s) {
             while (j <= s.size() && s[j] != '-') {
                 result += tolower(s[j++]);
             }
-        } else {
-            result += s[i];
+            if (!s.substr(j).empty()) {
+                result += " ";
+            }
         }
     }
     return result;
