@@ -1,4 +1,6 @@
-n = int(input("Enter the number of elements: "))
-xs = [int(input()) for _ in range(n)]
+n = int(input())
+xs = []
+for _ in range(n):
+    xs.append(int(input()))
 xs.sort()
 print(*xs)
