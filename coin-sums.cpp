@@ -1,19 +1,18 @@
+int coins[] = {25, 10, 5, 1};
+int count[4] = {0};
+
 int main() {
-    int n;
-    cin >> n;
+    int cents;
+    cin >> cents;
     
-    int quarters = n / 25;
-    n %= 25;
-    int dimes = n / 10;
-    n %= 10;
-    int nickels = n / 5;
-    n %= 5;
-    int pennies = n;
-
-    cout << pennies << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
-    cout << quarters << endl;
-
+    for (int i = 0; i < 4; ++i) {
+        count[i] = cents / coins[i];
+        cents %= coins[i];
+    }
+    
+    for (int i = 0; i < 4; ++i) {
+        cout << count[i] << endl;
+    }
+    
     return 0;
 }
