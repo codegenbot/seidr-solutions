@@ -23,6 +23,6 @@ int main() {
     std::vector<double> coeffs = {1.0, -5.0, 6.0}; // Example coefficients
     double solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
-    
+
     return 0;
 }
