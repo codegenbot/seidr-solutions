@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,8 +16,8 @@ string squareDigits(string input) {
 int main() {
     string input;
     cout << "Enter a positive integer: ";
-    cin.ignore();  // ignore any remaining newline character
-    getline(cin, input); 
+    cin.ignore();
+    getline(cin, input);
     string result = squareDigits(input); 
     cout << "Squared digits: " << result << endl;
     return 0;
