@@ -4,6 +4,12 @@ string s = to_string(x);
     if (shift == 0) {
         return s;
     }
-    string result = s.substr(n - shift) + s.substr(0, n - shift);
-    return result;
+    if (shift > n) {
+        reverse(s.begin(), s.end());
+        return s;
+    }
+    reverse(s.begin(), s.end());
+    reverse(s.begin(), s.begin() + shift);
+    reverse(s.begin() + shift, s.end());
+    return s;
 }
