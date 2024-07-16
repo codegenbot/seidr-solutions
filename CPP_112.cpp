@@ -3,10 +3,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
-namespace pmr;
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
