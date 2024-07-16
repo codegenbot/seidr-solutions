@@ -4,12 +4,12 @@
 
 using namespace std;
 
-struct MastermindResult {
+struct resultPair {
     int white;
     int black;
 };
 
-MastermindResult mastermind(string code, string guess) {
+resultPair mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -38,7 +38,7 @@ int main() {
     string guess;
     cin >> guess;
 
-    MastermindResult result = mastermind(code, guess);
+    resultPair result = mastermind(code, guess);
 
     cout << result.white << endl;
     cout << result.black << endl;
