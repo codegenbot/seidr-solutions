@@ -1,15 +1,15 @@
-```cpp
+```c++
 #include <iostream>
 
-int luhn(int digits[16]) {
+int luhn(int* digits) {
     int sum = 0;
-    for (int i = 0; i < 16; ++i) {
-        if ((i % 2) == 1) {
-            int doubledDigit = digits[i] * 2;
-            if (doubledDigit > 9) {
-                doubledDigit -= 9;
+    for (int i = 0; i < 16; i++) {
+        if ((i % 2 == 1)) {
+            int digit = digits[i] * 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += doubledDigit;
+            sum += digit;
         } else {
             sum += digits[i];
         }
