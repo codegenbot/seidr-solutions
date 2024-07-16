@@ -1,7 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <iostream>
-#include <iomanip>
 
 double calculateDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sum = 0.0;
@@ -9,27 +7,4 @@ double calculateDistance(const std::vector<double>& vec1, const std::vector<doub
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
     return std::sqrt(sum);
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<double> vec1(n);
-    std::vector<double> vec2(n);
-
-    // Input vec1
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
-    }
-
-    // Input vec2
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
-    }
-
-    double distance = calculateDistance(vec1, vec2);
-    std::cout << std::fixed << std::setprecision(15) << "Euclidean distance: " << distance << std::endl;
-
-    return 0;
 }
