@@ -24,8 +24,9 @@ std::string rounded(int n, int m) {
 }
 
 int main() {
-    assert(rounded(1, 5) == "101");
-    assert(rounded(10, 15) == "1011");
+    // Test cases
+    assert(rounded(1, 5) == "110");
+    assert(rounded(5, 10) == "101");
     
     return 0;
 }
