@@ -13,8 +13,8 @@ long long double_the_difference(std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5}; // Add your list of numbers
-    long long odd_sum = 25; // Define the expected sum for the given list
+    std::vector<int> lst = {1, 2, 3, 4, 5}; 
+    long long odd_sum = 25; 
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
