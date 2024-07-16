@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-
-vector<int> result;
+vector<int> solve(int n){
+    vector<int> result;
     while(n != 1){
         if(n % 2 != 0){
             result.push_back(n);
@@ -11,3 +11,4 @@ vector<int> result;
     result.push_back(1);
     sort(result.begin(), result.end());
     return result;
+}
