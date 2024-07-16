@@ -9,11 +9,15 @@ def separate_paren_groups(paren_string):
             if len(stack) > 1:
                 current_group.append(char)
         elif char == ')':
-            stack.pop()
-            if len(stack) == 0 and current_group:
-                groups.append(''.join(current_group) + char)
-                current_group = []
-        elif len(stack) > 0:
-            current_group.append(char)
+            if len(stack) > 0:
+                stack.pop()
+                if len(stack) == 0 and current_group:
+                    groups.append(''.join(current_group))
+                    current_group = []
+            else:
+                current_group.append(char)
+        else:
+            if len(stack) > 0:
+                current_group.append(char)
 
     return groups
