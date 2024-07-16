@@ -1,14 +1,15 @@
-```cpp
-#include <vector>
-
-int luhn(std::vector<int> numbers) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); ++i) {
-        int digit = numbers[i] * ((numbers.size() - i) % 2 == 1 ? 2 : 1);
-        if (digit > 9) {
-            digit -= 9;
+    for (int i = 0; i < digits.size(); i++) {
+        if ((i % 2 == 1)) {
+            int temp = digits[i] * 2;
+            if (temp > 9)
+                sum += temp - 9;
+            else
+                sum += temp;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
     }
-    return sum % 10;
+    return sum;
 }
