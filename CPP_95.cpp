@@ -4,8 +4,8 @@ bool check_dict_case(map<string,string> dict){
     bool all_lower = true;
     bool all_upper = true;
     
-    for(auto const& pair : dict){
-        for(char c : pair.first){
+    for(auto const& entry : dict){
+        for(char c : entry.first){
             if(islower(c)){
                 all_upper = false;
             } else if(isupper(c)){
