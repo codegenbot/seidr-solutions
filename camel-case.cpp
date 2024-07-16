@@ -1,28 +1,26 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
-    std::string result;
-    for (const auto& word : s.split(" ")) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
-        }
-        for (char c : word) {
-            if (c == '-') {
-                continue;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    int start = 0;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            if (start < i) {
+                result += toupper(str.substr(start, i - start));
             }
-            result += tolower(c);
+            start = i + 1;
         }
     }
+    
     return result;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
     std::cout << camelCase(input) << std::endl;
     return 0;
 }
