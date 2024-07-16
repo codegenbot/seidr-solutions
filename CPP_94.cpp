@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <array>
 #include <iostream>
 
 bool isPrime(int n) {
