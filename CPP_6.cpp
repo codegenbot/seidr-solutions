@@ -1,15 +1,18 @@
-#include <vector>
-
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
+vector<int> depths;
+    int max_depth = 0;
+    int depth = 0;
+    for (char c : paren_string) {
+        if (c == '(') {
+            depth++;
+            max_depth = max(max_depth, depth);
+        } else if (c == ')') {
+            depth--;
+        } else if (c == ' ') {
+            depths.push_back(max_depth);
+            max_depth = 0;
+            depth = 0;
         }
     }
-
-    return true;
+    depths.push_back(max_depth);
+    return depths;
 }
