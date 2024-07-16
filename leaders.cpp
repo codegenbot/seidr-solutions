@@ -16,4 +16,3 @@ vector<int> leaders(vector<int>& arr) {
         if (leader) res.push_back(arr[i]);
     }
     return res;
-}
