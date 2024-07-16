@@ -4,13 +4,16 @@ using namespace std;
 
 string camelCase(string str) {
     string result = "";
+    bool firstLetter = true;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
             while (i < str.length() && str[i] == ' ') {
                 i++;
             }
+            i++; // Skip the dash
             result += toupper(str[i]);
-        } else if (!result.empty()) { 
+            firstLetter = false;
+        } else if (!firstLetter) { 
             if (str[i] >= 'a' && str[i] <= 'z') {
                 result += static_cast<char>(str[i] - 32); // Convert lowercase to uppercase
             } else {
