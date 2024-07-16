@@ -7,7 +7,7 @@ std::string join(const std::vector<std::string>& tokens) {
     std::string result;
     for (const auto& token : tokens) {
         if (!result.empty()) {
-            result = result + " ";
+            result += " ";
         }
         result += token;
     }
@@ -48,7 +48,6 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string input = "hello-world-example";
-    std::cout << camelCase(input) << std::endl;
+    std::cout << camelCase("hello-world-example") << std::endl;
     return 0;
 }
