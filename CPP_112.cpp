@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
@@ -34,6 +36,8 @@ int main() {
     pair<string, string> result = reverse_delete("mamma", "mia");
     cout << "First part of the output: " << result.first << endl;
     cout << "Second part of the output: " << result.second << endl;
-    assert((result.first == "" && result.second == "True"));
+    pair<string, string> expected = {"", "True"};
+    pair<string, string> actual = reverse_delete("mamma", "mia");
+    assert(actual.first == expected.first && actual.second == expected.second);
     return 0;
 }
