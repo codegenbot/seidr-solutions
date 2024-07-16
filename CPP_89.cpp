@@ -1,21 +1,10 @@
-string encrypt(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char encrypted = s[i] + 2 * 2;
-            if(islower(s[i])){
-                if(encrypted > 'z'){
-                    encrypted = 'a' + (encrypted - 'z' - 1);
-                }
-            } else {
-                if(encrypted > 'Z'){
-                    encrypted = 'A' + (encrypted - 'Z' - 1);
-                }
-            }
-            result += encrypted;
-        } else {
-            result += s[i];
+string encrypted = "";
+    for (char c : s) {
+        char newChar = c + 2 * 2;
+        if (newChar > 'z') {
+            newChar = 'a' + (newChar - 'z') - 1;
         }
+        encrypted += newChar;
     }
-    return result;
+    return encrypted;
 }
