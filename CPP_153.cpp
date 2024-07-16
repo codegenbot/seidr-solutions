@@ -4,8 +4,8 @@
 #include <cassert>
 using namespace std;
 
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    std::string strongest_extension = "";
     int max_strength = INT_MIN;
     
     for (const auto& ext : extensions) {
