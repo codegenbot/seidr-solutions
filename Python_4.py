@@ -1,11 +1,2 @@
-numbers = []
-for _ in range(5):
-    while True:
-        try:
-            num = int(input())
-            numbers.append(num)
-            break
-        except ValueError:
-            print("Please enter a valid integer.")
-
+numbers = [int(input()) for _ in range(5)]
 print(sum(numbers))
