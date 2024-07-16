@@ -8,10 +8,15 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';  // Add a space to separate words
-            capitalize = true;  // Start new word, so capitalize next char
+            if (capitalize) {
+                result += ' ';  // Add a space to separate words
+                capitalize = true;  // Start new word, so capitalize next char
+            } else {
+                result += std::toupper(c);  // Capitalize first letter of each word
+                capitalize = false;
+            }
         } else if (capitalize) {
-            result += std::toupper(c);  // Capitalize first letter of each word
+            result += c;  // Do not capitalize the first character of each word when reading from user input directly
             capitalize = false;
         } else {
             result += std::tolower(c);
@@ -27,3 +32,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "CamelCase output: " << kebabToCamel(input) << std::endl;
     return 0;
+}
