@@ -1,1 +1,1 @@
-input_string = input("Please input a string consisting of only uppercase alphabets: ").strip().upper()
+input_string = input("Enter a string in upper case alphabets: ").strip().upper()
