@@ -10,10 +10,7 @@ int main() {
     cents %= 5;
     int pennies = cents;
     
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickels << endl;
-    cout << pennies << endl;
-    
+    cout << pennies << endl << nickels << endl << dimes << endl << quarters << endl;
+
     return 0;
 }
