@@ -3,9 +3,9 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            count = min(cents // coins[i], len(result) - 1)
-            result[:count+1] = [coins[i]] * count
+        count = cents // coins[i]
+        if count > 0:
+            result[i] = count
             cents %= coins[i]
     
-    return " ".join(map(str, result))
+    return "\n".join(map(str, result))
