@@ -1,22 +1,14 @@
-#include <iostream>
-#include <cmath>
-
+```c++
 double vectorDistance() {
     int n;
     std::cin >> n;
 
-    double x_sum = 0, y_sum = 0;
+    double sumX = 0, sumY = 0;
     for (int i = 0; i < n; i++) {
-        double x1, y1;
-        std::cin >> x1 >> y1;
-        x_sum += pow(x1, 2);
-        y_sum += pow(y1, 2);
+        double x1, y1, x2, y2;
+        std::cin >> x1 >> y1 >> x2 >> y2;
+        sumX += pow(x2 - x1, 2);
+        sumY += pow(y2 - y1, 2);
     }
-    return sqrt(fabs(x_sum - y_sum));
-}
-
-int main() {
-    double result = vectorDistance();
-    std::cout << "Vector distance: " << result << std::endl;
-    return 0;
+    return sqrt(sumX + sumY);
 }
