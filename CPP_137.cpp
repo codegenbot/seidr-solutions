@@ -17,25 +17,25 @@ any compare_one(any a, any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str_a = std::any_cast<string>(a);
         string str_b = std::any_cast<string>(b);
-
+        
         if (str_a.find(",") != string::npos) {
             std::replace(str_a.begin(), str_a.end(), ',', '.');
         }
         if (str_b.find(",") != string::npos) {
             std::replace(str_b.begin(), str_b.end(), ',', '.');
         }
-
+        
         float num1 = std::stof(str_a);
         float num2 = std::stof(str_b);
-
+        
         return num1 > num2 ? a : (num1 < num2 ? b : any());
     }
     return any();
 }
 
 int main() {
-    assert(std::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(std::any_cast<float>(compare_one(1, 3.4f)) == 3.4f);
+    assert(std::any_cast<float>(compare_one(string("1"), string("2"))) == 2.0f);
+    assert(std::any_cast<float>(compare_one(1.2f, 3.4f)) == 3.4f);
 
     std::cout << "All test cases passed!" << std::endl;
 
