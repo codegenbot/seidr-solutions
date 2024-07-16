@@ -2,7 +2,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -19,26 +18,23 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 int main() {
     int n = 0;
     
-    string temp;
-    cin >> temp;
-    n = stoi(temp);
-    
-    if(n == 0) return 0;
+    while(true) {
+        cin >> ws; 
+        cin >> n;
+        if(n > 0) break;
         
-    vector<float> prices;
-    vector<float> discounts;
+        vector<float> prices;
+        vector<float> discounts;
         
-    prices.resize(n);
-    for (float &price : prices) {
-        cin >> price;
+        for (int i = 0; i < n; i++) {
+            float price, discount;
+            cin >> price >> discount;
+            prices.push_back(price);
+            discounts.push_back(discount);
+        }
+        
+        cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     }
-        
-    discounts.resize(n);
-    for (float &discount : discounts) {
-        cin >> discount;
-    }
-        
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     
     return 0;
 }
