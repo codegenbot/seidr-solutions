@@ -1,29 +1,28 @@
 #include <iostream>
 #include <string>
 
-int bowlingScore(std::string s) {
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
 
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
-            if (roll > 10) {
+            if (roll > 9)
                 score += 10;
-            } else {
+            else
                 score += roll;
-            }
             roll = 0;
         } else if (isdigit(s[i])) {
-            if (roll == 0 || s[i] - '0' > 1) {
-                roll *= 10;
-                roll += s[i] - '0';
-            } else {
-                roll = roll * 10 + s[i] - '0';
-            }
+            roll *= 10;
+            roll += s[i] - '0';
+            s.insert(i, 1, (roll + '0').c_str());
+            i++; 
         }
     }
 
-    if (roll > 10)
+    if (roll > 9)
         score += 10;
     else
         score += roll;
@@ -32,8 +31,8 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string s = "1-2/3 4-5/6-7-8/9";
+    string s = "1-2/3 4-5/6-7-8/9";
     int score = bowlingScore(s);
-    std::cout << "The score is: " << score << std::endl;
+    cout << "The score is: " << score << endl;
     return 0;
 }
