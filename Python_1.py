@@ -1,1 +1,4 @@
-paren_string = input().rstrip()
+try:
+    paren_string = input().rstrip()
+except EOFError:
+    paren_string = ""
