@@ -4,20 +4,24 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+int main() {
+    // Test cases
+    vector<string> test_input = {"(abc)(def)", "(ab)(cd)", "((a)(b)(c))"};
+    for (string input : test_input) {
+        vector<string> result = separate_paren_groups(input);
+        for (string group : result) {
+            cout << group << " ";
         }
+        cout << endl;
     }
-    return true;
+
+    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -46,9 +50,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    // Your main function code here
-    return 0;
 }
