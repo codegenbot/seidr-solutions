@@ -3,9 +3,10 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    if is_palindrome(string):
-        return string + string
-    for i in range(len(string)):
-        if is_palindrome(string[i:]):
-            return string[:i] + string[i:][::-1]
-    return string + string[::-1]
+    if string.islower():
+        s = string
+    else:
+        s = "".join(e for e in string if e.isalnum()).lower()
+    while not is_palindrome(s):
+        s += "a" + s[::-1]
+    return s
