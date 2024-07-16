@@ -1,14 +1,16 @@
 string make_palindrome(string str){
-    if(str.empty()) return str;
-    
-    int n = str.size();
-    int i = n - 1;
-    while(i >= 0){
-        if(is_palindrome(str.substr(i))){
-            break;
-        }
-        i--;
+    if (str.empty()) {
+        return "";
     }
     
-    return str + string(str.begin(), str.begin() + i);
+    int n = str.length();
+    string rev_str(str.rbegin(), str.rend());
+    
+    for (int i = 0; i < n; ++i) {
+        if (str.substr(0, n - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
+        }
+    }
+    
+    return "";
 }
