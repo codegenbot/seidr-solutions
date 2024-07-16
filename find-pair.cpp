@@ -1,21 +1,20 @@
 int main() {
-    int n;
+    int n, target;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    int target;
     cin >> target;
-    
-    map<int, int> mp;
-    for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << nums[i] << endl << target - nums[i];
+
+    map<int, int> numIdx;
+    for (int i = 0; i < n; i++) {
+        if (numIdx.find(target - nums[i]) != numIdx.end()) {
+            cout << target - nums[i] << endl << nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        numIdx[nums[i]] = i;
     }
-    
+
     return 0;
 }
