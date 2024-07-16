@@ -1,3 +1,6 @@
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 string middleCharacter(string s) {
