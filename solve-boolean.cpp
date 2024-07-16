@@ -1,22 +1,19 @@
-#include <string>
 #include <stack>
-#include <algorithm>
+#include <string>
 
 string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return "False";
+        if (s[i] == '|') {
+            while (!st.empty() && st.top() != '&') st.pop();
+            if (st.empty()) return "True";
             else st.pop();
         } 
-        else if (s[i] == '|') {
-            while (!st.empty()) st.pop();
+        else if (s[i] == '&') st.push(s[i]);
+        else if (s[i] == 'T' || s[i] == 'F') {
+            while (!st.empty() && st.top() != '&') st.pop();
             st.push(s[i]);
-        } 
-        else if (s[i] != '&') st.push(s[i]);
+        }
     }
     if (st.top() == 'T') return "True";
     else return "False";
