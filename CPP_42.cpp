@@ -11,9 +11,15 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    vector<int> l = {1, 2, 3, 4};
-    vector<int> incremented = incr_list(l);
-    vector<int> l2 = {2, 3, 4, 5};
-    cout << issame(incremented, l2) << endl;
+    vector<int> input = {1, 2, 3};
+    vector<int> incremented = incr_list(input);
+    vector<int> same = {2, 3, 4};
+    
+    if (issame(incremented, same)) {
+        cout << "Vectors are the same\n";
+    } else {
+        cout << "Vectors are different\n";
+    }
+    
     return 0;
 }
