@@ -3,26 +3,24 @@
 #include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
-}
-
-vector<int> strange_sort_list(vector<int> lst){
-    vector<int> result;
-    sort(lst.begin(), lst.end());
-    int n = lst.size();
-    int left = 0, right = n - 1;
-    while (left <= right) {
-        result.push_back(lst[left]);
-        if (left != right) {
-            result.push_back(lst[right]);
+    vector<int> strange_sort_list(vector<int> lst){
+        vector<int> result;
+        sort(lst.begin(), lst.end());
+        int n = lst.size();
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            result.push_back(lst[left]);
+            if (left != right) {
+                result.push_back(lst[right]);
+            }
+            left++;
+            right--;
         }
-        left++;
-        right--;
+        return result;
     }
-    return result;
 }
 
 int main() {
-    // Main function logic here
+    // Your main function implementation here
     return 0;
 }
