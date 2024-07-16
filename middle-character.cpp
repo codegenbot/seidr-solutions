@@ -11,5 +11,5 @@ int main() {
     std::string s;
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
-    std::cout << middleCharacter(s) << std::endl;
+    std::cout << middleCharacter(s) << std::endl; 
 }
