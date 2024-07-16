@@ -1,8 +1,8 @@
-def add(a, b):
-    return a + b
+def divide(num1, num2):
+    return num1 / num2
 
-def divide(a, b):
-    return a / b
+def add(num1, num2):
+    return num1 + num2
 
 while True:
     try:
@@ -20,8 +20,7 @@ while True:
 
         print(result)
 
-    except (ValueError, ZeroDivisionError):
+    except (ValueError, ZeroDivisionError, KeyboardInterrupt):
         print("Invalid input or division by zero. Please try again.")
     except EOFError:
         print("End of input reached. Exiting program.")
-        break
