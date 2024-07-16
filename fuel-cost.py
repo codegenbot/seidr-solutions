@@ -1,8 +1,4 @@
-Here is the completed Python code:
+Here is the completed code:
 
-def fuel_cost(v):
-    return sum((i // 3) - 2 for i in v if i > 0)
-
-# Example usage
-input_vector = [1, 6]
-print(fuel_cost(input_vector))
+def fuel_cost(input_vector):
+    return sum((i // 3) - 2 for i in input_vector)
