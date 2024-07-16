@@ -1,21 +1,10 @@
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double p = 0.0;
-    
-    for(int i = n; i <= m; i++) {
-        p += ((double)i / n) * ((n - i) / (m - 1));
+```cpp
+double probability(int n, int m) {
+    if (n <= m) return 0.0;
+    double total = static_cast<double>(n * m);
+    double count = 0.0;
+    for (int i = m + 1; i < n; ++i) {
+        count += static_cast<double>(m);
     }
-    
-    return p;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << showpoint << diceGame(n, m) << endl;
-    return 0;
+    return count / total;
 }
