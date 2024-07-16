@@ -17,10 +17,10 @@ int main() {
     long long sum = 0;
 
     for (int num : nums) {
-        sum += ((num / 3) - 2) * 3;
+        sum += (num / 3) - 2;
     }
 
-    cout << sum << endl;
+    cout << sum * 3 << endl;
 
     return 0;
 }
