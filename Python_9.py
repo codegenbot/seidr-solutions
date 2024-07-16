@@ -1,6 +1,9 @@
-try:
-    numbers = [int(input().strip()) for _ in iter(input, '')]
-except StopIteration:
-    pass
-except:
-    pass
+numbers = []
+while True:
+    try:
+        num = input().strip()
+        if num == "":
+            break
+        numbers.append(int(num))
+    except EOFError:
+        break
