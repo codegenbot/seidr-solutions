@@ -1,6 +1,9 @@
 numbers = []
 while True:
-    num = input()
-    if not num:
+    try:
+        num = int(input().strip())
+        numbers.append(num)
+    except EOFError:
         break
-    numbers.append(int(num))
+    except:
+        break
