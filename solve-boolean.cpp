@@ -1,29 +1,48 @@
-```cpp
-#include <sstream>
+#include <string>
 bool solveBoolean(const std::string& s) {
+    if (s.empty()) return false;
     bool result = true;
-    std::stringstream ss;
-    ss << boolalpha;
+    int operand = 1; 
     for (int i = 0; i < s.size(); ++i) { 
         char c = s[i]; 
         if (c == '|') {
-            result = result || true;
+            result = result || (operand == 1);
+            operand = 0;
         } else if (c == '&') {
-            result = result && true;
+            result = result && (operand == 1);
+            operand = 0;
         } else if (c == 'T' || c == 't') {
-            ss << "true";
+            result = result && true;
+            operand = 1;
         } else if (c == 'F' || c == 'f') {
-            ss << "false";
+            result = result && false;
+            operand = 0;
+        } else {
+            if (operand == 1) {
+                if (c == 'T' || c == 't') {
+                    operand = 1;
+                } else {
+                    result = false;
+                    break;
+                }
+            } else {
+                if (c == 'F' || c == 'f') {
+                    operand = 0;
+                } else {
+                    result = true;
+                    break;
+                }
+            }
         }
     }
-    bool finalResult = (ss >> boolalpha).good();
-    return result && finalResult;
+    return result;
 }
 
 int main() {
     std::string s;
     std::cout << "Enter a Boolean expression: ";
     std::getline(std::cin, s);
+    s.erase(0); 
     bool result = solveBoolean(s);
     if (result) {
         std::cout << "The result is true." << std::endl;
