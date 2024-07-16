@@ -1,31 +1,55 @@
-int score(const string& bowls) {
-    int totalScore = 0;
-    int frame = 1;
-    int bowlIndex = 0;
-
-    while (frame <= 10) {
-        if (bowls[bowlIndex] == 'X') {
-            totalScore += 10;
-            totalScore += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/') ? 10 - (bowls[bowlIndex + 1] - '0') : bowls[bowlIndex + 1] - '0' + bowls[bowlIndex + 2] - '0';
-            bowlIndex++;
-        } else if (bowls[bowlIndex + 1] == '/') {
-            totalScore += 10;
-            totalScore += (bowls[bowlIndex + 2] == 'X') ? 10 : bowls[bowlIndex + 2] - '0';
-            bowlIndex += 2;
+int score(string s) {
+    int total = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (s[i + 1] == 'X') {
+                total += 10;
+                if (s[i + 2] == 'X') {
+                    total += 10;
+                } else if (s[i + 2] == '-') {
+                    total += 0;
+                } else {
+                    total += s[i + 2] - '0';
+                }
+            } else if (s[i + 2] == '/') {
+                total += 10;
+            } else if (s[i + 2] == '-') {
+                total += 0;
+            } else {
+                total += s[i + 1] - '0' + s[i + 2] - '0';
+            }
+            frame++;
+        } else if (s[i] == '/') {
+            total += 10 - (s[i - 1] - '0');
+            if (s[i + 1] == 'X') {
+                total += 10;
+            } else if (s[i + 1] == '-') {
+                total += 0;
+            } else {
+                total += s[i + 1] - '0';
+            }
+            frame++;
+        } else if (s[i] == '-') {
+            total += 0;
         } else {
-            totalScore += (bowls[bowlIndex] == '-') ? 0 : bowls[bowlIndex] - '0';
-            totalScore += (bowls[bowlIndex + 1] == '-') ? 0 : bowls[bowlIndex + 1] - '0';
-            bowlIndex += 2;
+            total += s[i] - '0';
+            if (s[i + 1] == '/') {
+                total += 10 - (s[i] - '0');
+            }
+            frame++;
         }
-        frame++;
+        if (frame == 10) {
+            break;
+        }
     }
-
-    return totalScore;
+    return total;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << score(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
