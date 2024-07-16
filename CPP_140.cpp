@@ -1,20 +1,18 @@
 string result;
-    bool consecutive = false;
-    
-    for(char c : text){
-        if(c == ' '){
-            if(consecutive){
-                result.pop_back();
-                result.push_back('-');
+    bool prev_space = false;
+    for (char c : text) {
+        if (c == ' ') {
+            if (!prev_space) {
+                result += '_';
             } else {
-                result.push_back('_');
-                consecutive = true;
+                result.pop_back();
+                result += '-';
             }
+            prev_space = true;
         } else {
-            result.push_back(c);
-            consecutive = false;
+            result += c;
+            prev_space = false;
         }
     }
-    
     return result;
 }
