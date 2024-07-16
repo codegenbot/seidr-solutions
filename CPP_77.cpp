@@ -1,4 +1,2 @@
-if(a == 0) return true;
-int cube_root = round(cbrt(abs(a)));
-return cube_root * cube_root * cube_root == abs(a);
-}
+int cube_root = round(pow(a, 1.0/3));
+    return (cube_root * cube_root * cube_root == a);
