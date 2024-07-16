@@ -1,7 +1,7 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_denom = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_denom = stoi(n.substr(n.find('/') + 1));
+int num_x = stoi(x.substr(0, x.find('/')));
+    int den_x = stoi(x.substr(x.find('/') + 1));
+    int num_n = stoi(n.substr(0, n.find('/')));
+    int den_n = stoi(n.substr(n.find('/') + 1));
 
-    return (x_num * n_num) % (x_denom * n_denom) == 0;
+    return (num_x * num_n) % (den_x * den_n) == 0;
 }
