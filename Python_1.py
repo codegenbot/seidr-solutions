@@ -1,2 +1,4 @@
-paren_string = input("Enter a string with parentheses: ").strip()
-print(paren_string)
+try:
+    paren_string = input().strip()
+except EOFError:
+    pass
