@@ -1,7 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
-
 using namespace std;
 
 vector<int> calculateLeaders(vector<int> arr) {
@@ -27,3 +25,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
