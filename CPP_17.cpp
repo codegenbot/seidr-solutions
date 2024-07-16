@@ -24,6 +24,6 @@ vector<int> parse_music(string music_string){
 }
 
 int main() {
-    // Your main function code here
+    // Main function implementation
     return 0;
 }
