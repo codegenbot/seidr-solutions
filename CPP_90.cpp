@@ -1,11 +1,11 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // or None as per problem description
-    
-    vector<int>::iterator it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-
-    if(lst.size() < 2) return -1; // or None as per problem description
-    sort(lst.begin(), lst.end());
-    
-    return *(next(lst.begin(), 1));
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // Return None
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = 0; i < sorted.size() - 1; ++i) {
+        if (sorted[i] != sorted[i+1]) {
+            return sorted[i+1];
+        }
+    }
+    return -1; // Return None
 }
