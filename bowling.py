@@ -1,4 +1,3 @@
-```
 def bowling_score(bowling):
     score = 0
     frame = 1
