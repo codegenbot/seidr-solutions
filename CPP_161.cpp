@@ -1,4 +1,5 @@
 string solve(string s) {
+
     for (char &c : s) {
         if (isalpha(c)) {
             if (islower(c)) {
@@ -8,6 +9,7 @@ string solve(string s) {
             }
         }
     }
+
     reverse(s.begin(), s.end());
     return s;
 }
