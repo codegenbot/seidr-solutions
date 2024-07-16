@@ -1,33 +1,30 @@
-vector<string> result;
+vector<string> words;
     string word = "";
-    bool comma_exists = false;
-    
-    for(char c : txt){
-        if(c == ' ' && !comma_exists){
-            if(word != "")
-                result.push_back(word);
-            word = "";
-        } else if(c == ','){
-            comma_exists = true;
-            if(word != "")
-                result.push_back(word);
-            word = "";
+
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    
-    if(word != "")
-        result.push_back(word);
-    
-    if(result.size() == 1 && !comma_exists){
-        int odd_lower_case_letters = 0;
-        for(char c : txt){
-            if(islower(c) && (c-'a') % 2 == 1)
-                odd_lower_case_letters++;
-        }
-        result[0] = to_string(odd_lower_case_letters);
+
+    if (!word.empty()) {
+        words.push_back(word);
     }
-    
-    return result;
+
+    if (words.empty()) {
+        int oddLettersCount = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddLettersCount++;
+            }
+        }
+        words.push_back(to_string(oddLettersCount));
+    }
+
+    return words;
 }
