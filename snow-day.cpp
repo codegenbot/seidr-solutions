@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -6,7 +5,7 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowfall / 60.0; // convert rate of snow fall from inches per hour to feet
+        totalSnow += rateOfSnowfall;
         totalSnow *= (1 - proportionOfSnowMeltingPerHour);
     }
     return totalSnow;
@@ -19,4 +18,3 @@ int main() {
     cin >> initialSnow >> rateOfSnowfall >> proportionOfSnowMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
-}
