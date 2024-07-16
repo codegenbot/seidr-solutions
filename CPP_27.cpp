@@ -12,8 +12,6 @@ string flip_case(string str){
 }
 
 int main() {
-    // Test the flip_case function
     assert(flip_case("Hello, World!") == "hELLO, wORLD!");
-    
     return 0;
 }
