@@ -6,6 +6,4 @@ def solve_boolean(expression):
         if key in ["T", "F"]:
             expression = expression.replace(key, str(value))
       
-    expression = expression.replace("|", " or ").replace("&", " and ")
-
     return eval(expression)
