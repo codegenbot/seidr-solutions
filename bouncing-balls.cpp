@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath> 
@@ -16,7 +17,7 @@ int main() {
     double bounciness_index = first_bounce_height / start_height;
 
     double total_distance = 0.0; 
-    double prev_distance = start_height;   
+    double prev_distance = 1.0;   
 
     for(int i = 1; i <= num_bounces; ++i) {
         total_distance += prev_distance;
