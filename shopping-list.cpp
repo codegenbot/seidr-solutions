@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -16,6 +17,6 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
 int main() {
     vector<float> prices = {1.99f, 2.99f, 3.99f};
     vector<float> discounts = {5, 10, 15};
-    cout << fixed << setprecision(numeric_limits<float>::digits10 + 1) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(std::numeric_limits<float>::digits10 + 1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
