@@ -1,15 +1,15 @@
-vector<int> tri(int n){
-    vector<int> tribonacci(n + 1);
-    tribonacci[0] = 3;
-    if(n >= 1)
-        tribonacci[1] = 1;
-    if(n >= 2)
-        tribonacci[2] = 3;
-    for(int i = 3; i <= n; ++i){
-        if(i % 2 == 0)
-            tribonacci[i] = 1 + i / 2;
-        else
-            tribonacci[i] = tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3];
+vector<int> result;
+    result.push_back(3);
+    if (n == 0) {
+        return result;
     }
-    return tribonacci;
+    result.push_back(1);
+    int x = 1, y = 3, z = 2;
+    for (int i = 2; i <= n; ++i) {
+        z = i % 2 == 0 ? 1 + i / 2 : x + y + z;
+        result.push_back(z);
+        x = y;
+        y = z;
+    }
+    return result;
 }
