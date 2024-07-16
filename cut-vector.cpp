@@ -8,7 +8,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int minDiff = INT_MAX;
     pair<vector<int>, vector<int>> result;
     
-    for (int i = 1; i <= vec.size(); i++) {
+    for (int i = 1; i < vec.size(); i++) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; j++) {
             leftSum += vec[j];
