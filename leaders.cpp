@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -5,21 +6,15 @@ using namespace std;
 vector<int> calculateLeaders(vector<int> arr) {
     int n = arr.size();
     vector<int> res;
-    vector<int> leaders;
     
-    if(n == 0)
-        return res;
-    
-    res.push_back(arr[n-1]);
-    
-    int maxSoFar = arr.back();
-    for(int i=n-2; i>=0; i--){
+    int maxSoFar = 0; 
+
+    for(int i=n-1; i>=0; i--){
         if(arr[i] >= maxSoFar){
-            leaders.push_back(maxSoFar);
+            res.push_back(arr[i]);
             maxSoFar = arr[i];
         }
     }
-    res = leaders;
     
     return res;
 }
