@@ -1,6 +1,7 @@
 def sum_product(numbers):
-    return sum(numbers), numbers[0] * numbers[1]
-
+    total_sum = sum(numbers)
+    product = numbers[0] * numbers[1]
+    return total_sum, product
 
 input_numbers = list(map(int, input().split()))
 result = sum_product(input_numbers)
