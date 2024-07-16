@@ -1,6 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
+#include <boost/config.hpp>
 
 using namespace std;
 
