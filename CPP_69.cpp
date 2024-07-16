@@ -1,16 +1,8 @@
-int search(vector<int> lst) {
-    int result = -1;
-    unordered_map<int, int> freqMap;
-    
+int res = -1;
     for (int num : lst) {
-        freqMap[num]++;
-    }
-    
-    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > result) {
-            result = it->first;
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+            res = max(res, num);
         }
     }
-    
-    return result;
+    return res;
 }
