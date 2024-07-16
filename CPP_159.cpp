@@ -6,7 +6,7 @@ std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
-    return {eaten, left};
+    return std::vector<int>{eaten, left};
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
