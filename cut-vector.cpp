@@ -22,11 +22,7 @@ std::pair<std::vector<int>, std::vector<int>> findCutSpot(const std::vector<int>
         }
     }
 
-    if (cutIndex == nums.size()) {
-        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>());
-    } else {
-        return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
-    }
+    return std::make_pair(std::vector<int>(nums.begin(), nums.begin() + cutIndex), std::vector<int>(nums.begin() + cutIndex, nums.end()));
 }
 
 int main() {
