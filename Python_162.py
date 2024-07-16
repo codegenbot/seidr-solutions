@@ -7,9 +7,8 @@ try:
     while True:
         input_text = input("Enter a string: ").strip()
         if not input_text:
-            print("Invalid input")
-            continue
+            break
         result = string_to_md5(input_text)
         print(result)
-except KeyboardInterrupt:
+except (KeyboardInterrupt, EOFError):
     pass
