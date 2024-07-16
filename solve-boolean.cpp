@@ -1,8 +1,8 @@
 int main() {
-    string expr;
-    cin >> expr;
+    string input;
+    cin >> input;
 
-    if (expr == "t") {
+    if (input == "t") {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
