@@ -1,6 +1,9 @@
+```python
 def convert_to_camel_case(input_string):
-    words = input_string.split("-")
-    result = words[0].capitalize()
-    for word in words[1:]:
-        result += word.capitalize()
+    result = ""
+    for word in input_string.split():
+        if not result or not result[0].islower():
+            result += word.capitalize()
+        else:
+            result += word[1:].capitalize().replace("-", "")
     return result
