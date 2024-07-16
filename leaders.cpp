@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -17,7 +16,6 @@ vector<int> leaders(vector<int>& arr) {
     reverse(result.begin(), result.end());
     
     return result;
-
 }
 
 int main() {
