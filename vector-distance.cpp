@@ -1,16 +1,13 @@
-```#include <iostream>
+#include <vector>
+#include <iostream>
 using namespace std;
 
 double vectorDistance(int n) {
-    double x1, y1;
-    for (int i = 0; i < n; ++i) {
-        cin >> x1 >> y1;
-    }
-    double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        double diff = (x1 - y1);
-        sum += diff * diff;
-        cin >> x1 >> y1;
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        double a, b;
+        cin >> a >> b;
+        sum += pow(b - a, 2);
     }
     return sqrt(sum);
 }
@@ -18,6 +15,6 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    std::cout << std::fixed << std::setprecision(10) << vectorDistance(n) << std::endl;
+    cout << vectorDistance(n) << endl;
     return 0;
 }
