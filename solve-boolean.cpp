@@ -26,3 +26,4 @@ string solveBoolean(string booleanExp) {
     }
     
     return result;
+}
