@@ -2,7 +2,7 @@
 #include <iomanip>
 
 int main() {
-    long long n, m;
+    int n, m;
     std::cin >> n >> m;
     
     long double probability = 0.0;
