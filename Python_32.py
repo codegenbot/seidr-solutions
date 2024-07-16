@@ -1,5 +1,5 @@
-# Get input from user
-input_list = list(map(int, input().split()))
+def sort_integers(input_list):
+    return sorted(input_list)
 
-# Sort the list and print it
-print(*sorted(input_list))
+def find_zero(input_list):
+    return [num for num in input_list if num == 0]
