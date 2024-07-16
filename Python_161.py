@@ -1,11 +1,4 @@
 def solve(s):
-    result = []
-    for c in s:
-        if c.isalpha():
-            if c.islower():
-                result.append(c.upper())
-            else:
-                result.append(c.lower())
-        else:
-            result.append(c)
-    return ''.join(result[::-1])
+    return "".join(
+        [c.upper() if c.islower() else c.lower() if c.isupper() else c for c in s[::-1]]
+    )
