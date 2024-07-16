@@ -3,10 +3,19 @@ using namespace std;
 
 int main() {
     double start_height;
-    double first_bounce_height;
-    int num_bounces;
+    string str_start_height;
+    getline(cin, str_start_height);
+    start_height = stod(str_start_height);
 
-    cin >> start_height >> first_bounce_height >> num_bounces;
+    double first_bounce_height;
+    string str_first_bounce_height;
+    getline(cin, str_first_bounce_height);
+    first_bounce_height = stod(str_first_bounce_height);
+
+    int num_bounces;
+    string str_num_bounces;
+    getline(cin, str_num_bounces);
+    num_bounces = stoi(str_num_bounces);
 
     double bounciness_index = first_bounce_height / start_height;
 
