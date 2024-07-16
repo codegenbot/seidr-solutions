@@ -8,7 +8,7 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> pluck(vector<int> arr);
 
 int main() {
-    // main function implementation
+    // Your main function code here
     return 0;
 }
 
