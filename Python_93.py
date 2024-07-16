@@ -1,7 +1,14 @@
 def encode(message):
-    if all(char.isalpha() or char.isspace() for char in message):
-        return "".join(char.swapcase() if char.isalpha() else char for char in message)
-    else:
-        return "Invalid input. Please enter a message containing only alphabets, including spaces."
+    try:
+        if message.isalnum():
+            return "".join(
+                char.swapcase() if char.isalpha() else char  # Swapcase for alphabets
+                for char in message
+            )
+        else:
+            return "Invalid input. Please enter a message containing only alphabets or special characters."
+    except:
+        return "Invalid input. Please enter a message containing only alphabets or special characters."
 
-print(encode(input()))
+
+print(encode(input("Enter a message: ")))
