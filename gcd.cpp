@@ -38,7 +38,6 @@ int main() {
 
     for (int i : indices)
         cout << i << " ";
-    cout << endl;
-    
+
     return 0;
 }
